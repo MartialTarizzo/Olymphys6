@@ -1,0 +1,173 @@
+{% extends "base1.html.twig" %}
+
+
+{% block title %}
+
+    {{ edition.edition }}   Les photos des Olympiades de Physique {% endblock %}
+
+
+
+{% block titre3 %}
+    <div class="text-center"> Les photos de la {{ edition.edition }}<sup>e</sup> édition</div></br>
+
+
+{% endblock %}
+
+
+{% block body %}
+
+    <a class="btn-primary" href="javascript:history.back()">Retour</a>
+    <!--Carousel Wrapper-->
+    <div class="col-lg-10 text-center" style="margin: auto">
+        <div class="row mx-auto my-auto">
+
+            <div id="carousel" class="carousel slide w-100" data-ride="carousel">
+                <ol class="carousel-indicators">
+                    {% set i = 0 %}
+                    {% for photo in photos %}
+                        {% if i==0 %}
+                            <li data-target="#carousel" data-slide-to="{{ i }}" class="active">
+                            </li>
+                        {% endif %}
+                        {% if i>0 %}
+                            <li data-target="#carousel" data-slide-to="{{ i }}">
+                            </li>
+                        {% endif %}
+                        {% set i =i+ 1 %}
+                    {% endfor %}
+                </ol>
+                <!--Slides-->
+                <div class="black">
+                    <div class="carousel-inner w-100 black" role="listbox">
+
+                        {% set i = 1 %}
+                        {% for photo in photos %}
+                            {% if i==1 %}
+                                <div class="carousel-item col-lg-4 col-md-6 active">
+                                    <div class="container-fluid">
+
+
+                                        <div class="containercarousel" onclick="modalShow({{ i }})">
+                                            <div class="d-flex h-100 align-items-center justify-content-center">
+                                                <div class="p-2">
+                                                    <a href="{{ path('photos_voir_galerie',{infos:'equipe-'~photo.equipepassee.id})}}">
+                                                        <img src="{{ asset('odpf/odpf-archives/'~edition.edition~'/photoseq/thumbs/'~photo.photo) }}"
+                                                             class="img-fluid" id="photo{{ i }}">
+                                                    </a>
+                                                </div>
+
+                                                <div class="p-2 caption-container">
+                                                    {% if photo.coment !='' %}
+                                                        <div class="text" id="caption{{ i }}">
+                                                            <font size="-2">{{ photo.coment }}</font>
+                                                        </div>
+                                                    {% else %}
+                                                        <div class="text" id="caption{{ i }}">
+                                                            <font size="-2">{{ photo.equipepassee.titreProjet }}</font>
+                                                        </div>
+                                                    {% endif %}
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                </div>
+                            {% endif %}
+                            {% if i>1 %}
+                                <div class="carousel-item col-lg-4 col-md-6">
+                                    <div class="container-fluid">
+
+
+                                        <div class="containercarousel" onclick="modalShow({{ i }})">
+                                            <div class="d-flex h-100 align-items-center justify-content-center">
+                                                <div class="p-2">
+                                                    <a href="{{ path('photos_voir_galerie',{infos:'equipe-'~photo.equipepassee.id})}}">
+                                                        <img src="{{ asset('odpf/odpf-archives/'~edition.edition~'/photoseq/thumbs/'~photo.photo) }}"
+                                                             class="img-fluid" id="photo{{ i }}">
+                                                    </a>
+                                                </div>
+
+                                                <div class="p-2 caption-container">
+                                                    {% if photo.coment !='' %}
+                                                        <div class="text" id="caption{{ i }}">
+                                                            <font size="-2">{{ photo.coment }}</font>
+                                                        </div>
+                                                    {% else %}
+                                                        <div class="text" id="caption{{ i }}">
+                                                            <font size="-2">{{ photo.equipepassee.titreProjet }}</font>
+                                                        </div>
+                                                    {% endif %}
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                </div>
+                            {% endif %}
+                            {% set i = i+1 %}
+                        {% endfor %}
+
+                    </div>
+                </div>
+
+                <div style="background:black;">
+                    <a class="carousel-control-prev" href="#carousel" role="button" data-slide="prev">
+                        <img src="{{ asset('odpf/odpf-images/diapo-arwl-37x37.png') }}" style="align-self: flex-end; "
+                             alt=""/>
+                        <span class="sr-only">Previous</span>
+                    </a>
+                    <a class="carousel-control-next" href="#carousel" role="button" data-slide="next">
+                        <img src="{{ asset('odpf/odpf-images/diapo-arwr-37x37.png') }}" style="align-self: flex-end;"
+                             alt=""/>
+                        <span class="sr-only">Next</span>
+                    </a>
+
+                </div>
+            </div>
+
+        </div>
+
+
+        <div class="smallsize">{{ i-1 }} photos(une par équipe) <br>
+            Cliquer sur le n°(lettre)  ou la photo de l'équipe pour voir ses photos</div>
+        <br>
+    </div>
+    {% set i=1 %}
+    <div class="text-center col-lg-8 col-md-6" style="margin:auto">
+
+
+
+        {% for photo in photos %}
+
+            <a href="{{ path('photos_voir_galerie',{infos:'equipe-'~photo.equipepassee.id}) }}"
+               title="{{ photo.equipepassee.titreProjet }}" type="button" class="btn btn-warning" style="width: 80px;">
+
+                {% if  photo.equipepassee.numero != null %}
+                    {{ photo.equipepassee.numero }}
+                {% endif %}
+                {% if  photo.equipepassee.lettre != null %}
+                    ({{ photo.equipepassee.lettre }})
+                {% endif %}
+            </a>
+
+            {% set i= i+1 %}
+        {% endfor %}
+
+    </div>
+    <!-- The Modals -->
+
+    <div class="modal-gal">
+        <span class="close">&times;</span>
+        <img class="modal-content-gal">
+        <div class="modal-caption-gal"></div>
+        <a href="" class="btn-primary" id="enregistrer-image" target="_self" download="">Enregistrer l'image</a>
+    </div>
+
+
+
+
+
+
+
+
+{% endblock %}

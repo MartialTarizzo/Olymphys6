@@ -1,0 +1,235 @@
+{% extends "base1.html.twig" %}
+{% block stylesheets %}
+    {{ parent() }}
+{% endblock %}
+{% block title %}
+    {% if concours =='interacadémique' %}
+        Equipe {{ equipe.infoequipe }}
+    {% else %}
+        Equipe {{ equipe.infoequipenat }}
+    {% endif %}
+{% endblock %}
+
+{% block titre3 %}
+
+    <div class="text-center">
+        {% if date()<app.session.get('edition').dateouverturesite and date()>app.session.get('editionN1').concourscn %}
+            <div style="color :grey ">Equipe de la précédente {{ app.session.get('editionN1').ed }}<sup>e</sup> édition
+                :
+            </div>
+        {% else %}
+            {{ app.session.get('edition').ed }}<sup>e</sup> édition :
+        {% endif %}
+        {% if concours =='interacadémique' %}
+            Concours interacadémique <br>
+            {% if centre != null %}
+                Centre de {{ centre.centre }}<br>
+            {% endif %}
+        {% endif %}
+        {% if concours =='national' %}
+            Concours national<br>
+        {% endif %}
+        {% if date()<app.session.get('edition').dateouverturesite and date()>app.session.get('editionN1').concourscn %}
+            <h4>
+                <div style="color:#7c7c7c"> Equipe "{{ equipe.titreProjet }}" du lycée {{ equipe.uaiId.nom }}
+                    de {{ equipe.uaiId.commune }}</div>
+            </h4>
+        {% else %}
+            <h4> Equipe "{{ equipe.titreProjet }}" du lycée {{ equipe.uaiId.nom }} de {{ equipe.uaiId.commune }}</h4>
+        {% endif %}
+        <br>
+    </div>
+{% endblock %}
+{% block navigation %}
+    {% if app.user.roles|filter(v => v =='ROLE_ORGACIA')!=[] %}
+        {{ include ("cyberjuryCia/navigation.html.twig") }}
+    {% elseif app.user.roles|filter(v => v =='ROLE_JURYCIA')!=[] %}
+        {{ include ("cyberjuryCia/navigationJury.html.twig") }}
+        {#  {% elseif app.user.roles|filter(v => v =='ROLE_PROF')!=[] %}
+        {{ include ("core/odpf-menu-haut.html.twig") }} #}
+
+    {% endif %}
+{% endblock %}
+{% block body %}
+    {% for message in app.session.flashbag.get('info') %}
+        <div class="alert alert-info"> {{ message }}</div>
+    {% endfor %}
+    {% for message in app.session.flashbag.get('alert') %}
+        <div class="alert alert-danger"> {{ message }}</div>
+    {% endfor %}
+    {% for message in app.session.flashbag.get('success') %}
+        <div class="alert alert-info"> {{ message }}</div>
+    {% endfor %}
+
+
+    <blockquote class="blockquote text-center">
+        <p class="mb-0">
+
+            L'équipe {% if equipe.lettre == null %}{{ equipe.numero }}{% elseif equipe.lettre != null %}{{ equipe.lettre }}{% endif %}  {{ equipe.titreprojet }}
+        </p>
+    </blockquote>
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col">
+
+                <b>Titre du projet :</b> {{ equipe.titreprojet }} {% if equipe.inscrite==false %}
+                    <div class="fichiernondepose">(non inscrite)</div>{% endif %}
+
+            </div>
+        </div>
+        <div class="row">
+            <div class="col">
+                <b> Les élèves : </b>
+                {% for eleve in listeEleves %}
+                    {{ eleve.prenom }} {{ eleve.nom }},
+                {% endfor %}
+            </div>
+        </div>
+        <div class="row">
+            <div class="col">
+
+                <b>Les professeurs : </b>
+                {% for prof in liste_prof %}
+                    {{ prof.prenom }} {{ prof.nom }},
+                {% endfor %}
+            </div>
+        </div>
+        <div class="row">
+            <div class="col">
+
+                <b>Lycée : </b>{{ equipe.uaiId.nom }} de {{ equipe.uaiId.commune }} ({{ equipe.uaiid.codePostal }})
+
+
+            </div>
+        </div>
+        {% if app.user.roles|filter(v => v =='ROLE_PROF') %}
+            <div class="row">
+                <div class="col">
+                    {% if date()<app.session.get('edition').dateouverturesite and date()>app.session.get('editionN1').concourscn %}
+
+                    {% else %}
+                        <a href="{{ path('inscrire_equipe', {'idequipe': equipe.id} ) }}" type="button"
+                           class="btn btn-primary">Modifier </a>
+                    {% endif %}
+                </div>
+                <div class="col">
+                    {% if is_granted('ROLE_PROF') %}
+
+                        <div class="text-center"><a href="{{ path('fichiers_choix_equipe',{choix:'liste_prof'}) }}">Retour
+                                à la liste des équipes</a></div>
+
+                    {% endif %}
+                </div>
+            </div>
+        {% endif %}
+    </div>
+
+
+
+    <hr>
+
+
+    {# ############################# LISTE DES FICHIERS ################################################################ #}
+
+    {% include 'adminfichiers/listefichiers.html.twig' %}
+
+    {# ############################# LISTE DES VIDEOS ################################################################## #}
+
+    {% include 'adminfichiers/listevideos.html.twig' %}
+
+    {# ############################# LISTE DES AUTORISATIONS PHOTOS ##################################################### #}
+
+    {% include 'adminfichiers/listeautorisations.html.twig' %}
+
+    {# ############################# FIN DE LA PAGE ESPACE PROFESSEUR ################################################### #}
+    <div class="well">
+    {% if is_granted('ROLE_COMITE') or is_granted('ROLE_JURYCIA') or is_granted('ROLE_JURY') or is_granted('ROLE_ORGACIA') %}
+
+    {% if concours=='interacadémique' %}
+    <div class="text-center"><a href="{{ path('fichiers_choix_equipe',{choix: centre.centre}) }}">Retour à
+            la liste des équipes</a>
+        {% if app.user.roles|filter(v => v =='ROLE_JURYCIA')!=[] and "now"|date("m/d/Y") == app.session.get('edition').concourscia|date("m/d/Y") %}
+        <div class="text-center"><a href="{{ path('cyberjuryCia_evaluer_une_equipe',{id: equipe.id}) }}">Retour vers
+                l'évaluation
+                de
+                l'équipe</a>
+
+            {% endif %}</div>
+        {% endif %}
+        {% if concours=='national' %}
+            <div class="text-center"><a href="{{ path('fichiers_choix_equipe',{choix:'liste_cn_comite'}) }}">Retour
+                    à la liste des équipes</a></div>
+        {% endif %}
+        {% endif %}
+        {% if app.user.roles|filter(v => v =='ROLE_PROF') %}
+
+            <div class="text-center"><a href="{{ path('fichiers_choix_equipe',{choix:'liste_prof'}) }}">Retour à la
+                    liste des équipes</a></div>
+
+        {% endif %}
+    </div>
+    {# #############################MODAL######################################MODAL#########################MODAL#########################MODAL#########################MODAL#########################MODAL#########################MODAL#########################MODAL#########################MODAL#########################MODAL######################### #}
+
+    <div class="modal fade" id="modalconfirm" tabindex="-1" role="dialog">{# pour les vidéos #}
+        <div class="modal-dialog" role="document">
+
+            <!-- Modal content-->
+            <div class="modal-content">
+
+                <div class="modal-header">
+                    <h4 class="modal-title" id="ModalconfirmLabel">Confirmation de la suppression de la vidéo </h4>
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                </div>
+                <div class="modal-body">
+
+                    <div class="alert hidden" role="alert" id="modalAlert"></div>
+                    <form name="confirm_form" id="confirm_form"
+                          action="{{ path('videos_liens_videos',{infos: equipe.id~'-'~concours~'-'~'supprimer'} ) }}">
+                        <input type="hidden" id="myModalID" name="myModalID" value="recipient-name"/>
+                        <button type="submit" id="submit_form" class="btn btn-primary">Effacer</button>
+                        <p>Voulez-vous effacer cette video ?.<h6 id="modal_body"></h6> </p>
+                    </form>
+                </div>
+
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Non</button>
+                </div>
+
+            </div>
+        </div>
+    </div>
+    {% if app.session.get('info')!='' %}
+        {{ include('modales/modale_info.html.twig') }}
+    {% endif %}
+    <div class="modal fade" id="modalfichier" tabindex="-1" role="dialog">{#  pour les fichiers  #}
+        <div class="modal-dialog" role="document">
+
+            <!-- Modal content-->
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h4 class="modal-title" id="ModalfichierLabel">Le précédent fichier sera écrasé </h4>
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                </div>
+                <div class="modal-body">
+
+                    <div class="alert hidden" role="alert" id="modalAlert"></div>
+                    <form name="confirm_fichier" id="confirm_fichier"
+                          action="{{ path('fichiers_charge_fichiers',{infos:equipe.id~'-'~concours~'- -1'}) }}">
+                        <input type="hidden" id="FichierID" name="FichierID" value="recipient-name"/>
+
+                        <p><h6 id="modal_body">Attention ! <br>Le précédent fichier sera écrasé. Il n'y a pas de
+                            possibilité de récupération. Voulez-vous poursuivre ?</h6> </p>
+                        <button type="submit" id="submit_form" class="btn btn-danger">OUI</button>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Non</button>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    {# ##################################################################################javascript################################################################################## #}
+
+{% endblock %}

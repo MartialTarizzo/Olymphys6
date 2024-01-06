@@ -1,0 +1,54 @@
+{% extends "base1.html.twig" %}
+{% block title %} Attribution des prix {% endblock %}
+
+{% block titre3 %} Attribution des {{ NbrePrix }} {{ niveau }} prix {% endblock %}
+
+{% block navigation %}
+    {{ include ("secretariatjury/navigation.html.twig") }}
+{% endblock %}
+
+{% block body %}
+
+<div class="well">
+            {% for equipe in ListEquipes %}
+                {% if equipe.classement =='3ème' %}
+                    {% set class = 'btn btn-primary' %}
+                {% elseif  equipe.classement =='2ème' %}
+                    {% set class='btn btn-warning' %}
+                {% elseif  equipe.classement =='1er' %}
+                    {% set class='btn btn-danger' %}
+                {% endif %}
+                <div style="font-weight : normal; font-size: large; color: royalblue"><button  class="{{ class }}">{{equipe.equipeinter.lettre  }}</button> {{ equipe.equipeinter.titreProjet }}</div>
+                <form name="form{{ equipe.id }}" id="form{{ equipe.id }}"  >
+                    <input type="hidden" name="equipe" id="equipe" value="{{ equipe.id }}" >
+                    <div class="row">
+
+                        {% if equipe.prix==null %}
+                            <div class="col-6">
+                                <label for="{{'prix'}}">Choisir le prix :  </label><select id="{{'prix'}}" name="{{'prix'}}">
+                                            {% for prix in prixNonAttrib %}
+                                                <option value="{{ prix.id }}">{{ prix.prix }}</option>
+                                            {% endfor %}
+                                        </select>
+                                    </div>
+                                    <div class="col-6">
+                                        <input type="submit" value="Enregistrer" id ="save-{{ equipe.id }}">
+                                    </div>
+                        {% endif %}
+                        {% if equipe.prix!=null %}
+                                <div class="col-6">
+                                    <div style="font-weight: normal; font-size: large;" class="rougeodpf">{{ equipe.prix.prix }}</div>
+                                </div>
+                                <div class="col-6">
+                                    <input type="submit" value="Effacer" id ="effa-{{ equipe.prix.id }}">
+                                </div>
+                        {% endif %}
+
+
+                </div>
+                </form>
+            <hr>
+            {% endfor %}
+</div>
+
+{% endblock %}

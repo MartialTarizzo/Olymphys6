@@ -1,0 +1,77 @@
+{% extends "base1.html.twig" %}
+{% block stylesheets %}
+    {{ parent() }}
+{% endblock %}
+{% block title %} Conseils aux équipes {% endblock %}
+
+{% block titre3 %} Conseils destinés aux équipes de {{ centre.centre }}
+    <div class="smallsize"></div> {% endblock %}
+
+{% block navigation %}
+    {% if is_granted('ROLE_ORGACIA') %}
+        {{ include ("cyberjuryCia/navigation.html.twig") }}
+    {% elseif app.user.roles|filter(v => v =='ROLE_JURYCIA')!=[] %}
+        {{ include ("cyberjuryCia/navigationJury.html.twig") }}
+
+    {% endif %}
+
+
+{% endblock %}
+
+{% block body %}
+    <div class="table-responsive">
+        <table class="table table-striped">
+            {% for equipe in equipes %}
+                <tr>
+                    <th>
+                        <button type="button" class="btn btn-primary btn-lg">{{ equipe.numero }}</button>
+                    </th>
+                    <th>
+                        {{ equipe.titreProjet }}
+                        {% set conseilEquipe=null %}
+                    </th>
+                    <td>
+                    </td>
+                    <td>
+                    </td>
+                    <td>
+                        {% for conseil in conseils %}
+
+                            {% if conseil.equipe == equipe %}
+
+                                {{ conseil.texte|raw }}
+                                {% set conseilEquipe=conseil %}
+
+                            {% endif %}
+                        {% endfor %}
+                    </td>
+                    <td>
+
+                        <a href="{{ path('cyberjuryCia_rediger_conseils_equipe',{'idEquipe':equipe.id,'page':'gestionconseils'} ) }}"
+                           class="fas fa-pencil-alt" title="modifier"> </a>
+                    </td>
+                    <td>
+                        {% if conseilEquipe!= null %}
+                            {% if conseilEquipe.envoye!=true %}
+                                <button class="fas fa-envelope"
+                                        href="#"
+                                        title="Envoyer à l'équipe" type="button" data-toggle="modal"
+                                        data-target="#modalenvoiconseils"
+                                        data-idequipe="{{ conseilEquipe.equipe.id }}"
+                                        style="color: green"></button>
+                            {% else %}
+                                <button class="fas fa-check"
+                                        href="#"
+                                        title="Les conseils ont été envoyé" type="button" data-toggle="modal"
+                                        style="color: red"></button>
+                            {% endif %}
+                        {% endif %}
+                    </td>
+
+
+                </tr>
+            {% endfor %}
+        </table>
+    </div>
+    {{ include('modales/modale_envoi_conseils_jurycia.html.twig') }}
+{% endblock %}

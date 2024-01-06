@@ -1,0 +1,7 @@
+{# templates/liste_docequipes.html.twig #}
+{% for message in app.session.flashbag.get('info') %}
+    <div class="alert alert-info"> {{ message }}</div>
+{% endfor %}
+
+<a href="{{ asset('docequipes/'~field.value) }}" target="_blank">
+   {{ field.value }}</a>

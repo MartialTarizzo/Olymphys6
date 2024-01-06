@@ -1,0 +1,100 @@
+{# images/confirm_fichier.html.twig #}
+{% apply inline_css %}
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            background-color: #f3f3f3;
+            font-family: Helvetica, Arial, sans-serif;
+        }
+
+        h1 {
+            background-color: #264459;
+            color: #ffffff;
+            padding: 30px 0 50px 0;
+            font-weight: normal;
+        }
+
+        hr {
+            border: none;
+            border-top: 3px solid #264459;
+            margin: 20px;
+        }
+
+        .container {
+            background-color: #fefefe;
+            width: 580px;
+            margin: 0 auto;
+        }
+
+        .bottom {
+            background-color: #efefee;
+        }
+
+        .block {
+            margin: 0;
+            padding: 10px 20px 20px 20px;
+        }
+
+        {#  .logo {
+             width: 100%;
+        }#}
+        .text-center {
+            text-align: center;
+        }
+
+        .text-left {
+            text-align: left;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 10px 20px;
+            background-color: #264459;
+            color: #fefefe;
+            border: 1px solid #fff;
+            border-radius: 3px;
+            font-size: 20px;
+            font-weight: bold;
+            text-decoration: none;
+        }
+    </style>
+    <div class="body">
+        <div class="container">
+            <div class="header text-left">
+                <a href="{{ url('core_home') }}">
+                    <img src="{{ email.image('@images/email/logo-phy.png') }}" class="logo" width="50"
+                         alt="Logo Odpf">
+                </a>
+            </div>
+            <div class="content">
+                <p class="block"> Bonjour Webmestre, <br>
+                    <br>
+                    <br>
+                </p>
+                <p class="block">
+                    {{ userNom }} de l'équipe {{ equipe.numero }}({{ equipe.titreProjet }}) a déposé
+                    {% if typeFichier=='mémoire' %} le mémoire {% endif %}
+                    {% if typeFichier=='annexe' %} l'annexe {% endif %}
+                    {% if  typeFichier=='résume' %} le résumé {% endif %}
+                    {% if  typeFichier=='fiche securité(présentation)' %} la fiche sécurité de l'exposé {% endif %}
+                    {% if  typeFichier=='autorisation' %} une autorisation photo {% endif %}
+                    {% if typeFichier=='diaporama(cn)' %} la présentation {% endif %}
+                    {% if typeFichier=='diaporama(cia)' %} le diaporama des cia {% endif %}
+                    {% if typeFichier=='questionnaire' %} le questionnaire des cia {% endif %}
+                    {% if typeFichier=='fiche securité(exposition)' %} la fiche sécurité de l'exposition publique {% endif %}
+                    .
+                </p>
+                <br>
+                <br>
+                <div class="footer">
+                    <p class="block">
+                        À bientôt,<br><br>
+                        L'équipe d'<em>Olymphys</em>
+                    </p>
+
+                </div>
+            </div>
+        </div>
+    </div>
+{% endapply %}

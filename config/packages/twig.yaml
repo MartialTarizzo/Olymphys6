@@ -1,0 +1,16 @@
+twig:
+  default_path: '%kernel.project_dir%/templates'
+  paths:
+    'assets/images': images
+    '%kernel.project_dir%/public/build/images/email/': images
+  debug: '%kernel.debug%'
+  strict_variables: '%kernel.debug%'
+  form_themes:
+    - 'bootstrap_4_layout.html.twig'
+    - 'bootstrap_4_horizontal_layout.html.twig'
+    - 'form/custom_types.html.twig'
+
+  globals:
+    type_fichier: [ 'memoires','annexes','resumes','presentation','fichessecur_e','diaporamas','autorisations','questionnaires','fichesecur_p' ]
+    type_fichier_lit: [ 'mémoire','annexe','résume','diaporama(cn)','fiche securité','diaporama(cia)', 'autorisations','questionnaire','fiche sécurité(exposition)' ]
+  exception_controller: null

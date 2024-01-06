@@ -1,0 +1,68 @@
+{% extends "base1.html.twig" %}
+{% block title %} Accueil Jury {% endblock %}
+
+
+
+{% block navigation %}
+
+    {{ include ('cyberjuryCia/navigationJury.html.twig') }}
+
+{% endblock %}
+{% block titre3 %} Mes équipes <br>
+    <div class="smallsize"> Liste des équipes que je dois examiner<br> Cliquer sur le numero d'une équipe pour obtenir
+        le formulaire d'évaluation
+    </div>
+{% endblock %}
+
+{% block body %}
+
+    {% for equipes in listeEquipes %}
+        {% if equipes.numero in progression|keys %}
+
+            {% set numero = equipes.numero %}
+            <p>
+                <a
+                        {% if (progression[numero]) %}  class="btn btn-outline-primary btn-lg"
+                        {% else %}class ="btn btn-primary btn-lg"
+                        {% endif %}
+                        href="{{ path('cyberjuryCia_evaluer_une_equipe', {'id': equipes.id} ) }}">{{ equipes.numero }}</a>
+                {{ equipes.titreProjet }}
+
+                {% for key,mem in memoires %}
+                    {% if key == numero %}
+                        {% if mem!=null %}
+                            {% if mem.publie==false %}
+                                <a href="{{ asset('odpf/odpf-archives/'~equipes.edition.ed~'/fichiers/memoires/prive/'~ mem.fichier) }}"
+                                   class="fas fa-book-reader"
+                                   title="Accéder au mémoire de l'équipe" target="_blank"> </a>
+                            {% endif %}
+                            {% if mem.publie==true %}
+                                <a href="{{ asset('odpf/odpf-archives/'~equipes.edition.ed~'/fichiers/memoires/public/'~ mem.fichier) }}"
+                                   class="fas fa-book-reader"
+                                   title="Accéder au mémoire de l'équipe" target="_blank"> </a>
+                            {% endif %}
+                        {% endif %}
+                    {% endif %}
+                {% endfor %}
+                <a href="{{ path('fichiers_afficher_liste_fichiers_prof', {'infos': equipes.id~'-interacadémique-'~app.user.centrecia} ) }}"
+                   class="fas fa-info-circle"
+                   title="En savoir plus sur cette équipe"> </a>
+
+                {% if horaires!=null %}
+                    {% for horaire in horaires %}
+                        {% if horaire.equipe==equipes %}
+                            {% if horaire.horaire!= null %}
+                                 Heure de passage : {{ horaire.horaire|date('H:i') }},
+                            {% endif %}
+
+                            salle :{{ horaire.salle }}
+                        {% endif %}
+
+
+                    {% endfor %}
+                {% endif %}
+            </p>
+        {% endif %}
+    {% endfor %}
+
+{% endblock %}

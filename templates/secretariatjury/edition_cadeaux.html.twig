@@ -1,0 +1,51 @@
+{% extends "base1.html.twig" %}
+{% block title %} Attribution des cadeaux {% endblock %}
+
+{% block navigation %}
+    {{ include ("secretariatjury/navigation.html.twig") }}
+{% endblock %}
+
+{% block titre3 %} Attribution des cadeaux {% endblock %}
+
+{% if equipe.classement =='3ème' %}
+    {% set class = 'btn btn-primary' %}
+{% elseif  equipe.classement =='2ème' %}
+    {% set class='btn btn-warning' %}
+{% elseif  equipe.classement =='1er' %}
+    {% set class='btn btn-danger' %}
+{% elseif equipe.classement ==0%}
+    {% set class='btn btn-link' %}
+{% endif %}
+
+{% block body %}
+    <div class="container">
+        <table class="table table-responsive">
+            <thead>
+                <tr>
+                    <th>Lettre</th>
+                    <th>Prix</th>
+                    <th style="width: 400px">Titre projet</th>
+                    <th>{{ include ("secretariatjury/nav_equipe.html.twig") }}</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><span  class="{{ class }}">{{ equipe.equipeinter.lettre }} </span></td>
+                    <td>{{ equipe.classement }}</td>
+                    <td>{{ equipe.equipeinter.titreProjet }}</td>
+                </tr>
+            </tbody>
+        </table>
+
+
+        {% if equipe. cadeau ==null %}
+            {{ include ("secretariatjury/form-cadeaux.html.twig") }}
+        {% else %}
+            {{ include ("secretariatjury/form-cadeaux2.html.twig") }}
+        {% endif %}
+
+    </div>
+
+
+
+{% endblock %}

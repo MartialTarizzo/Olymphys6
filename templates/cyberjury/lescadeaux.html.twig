@@ -1,0 +1,38 @@
+{% extends "base1.html.twig" %}
+{% block title %} Les cadeaux {% endblock %}
+
+{% block titre3 %} Les Cadeaux {% endblock %}
+
+{% block navigation %}
+    {{ include ('cyberjury/navigation.html.twig') }}
+{% endblock %}
+
+{% block body %}
+
+
+        <table class="table table-striped">
+            <thead>
+            <tr>
+                <th>Cadeau</th>
+                <th>Offert par</th>
+
+            </tr>
+            </thead>
+            <tbody>
+            {% for cadeaux in ListCadeaux %}
+                <tr>
+                    <td> {{ cadeaux.contenu }} </td>
+                    <td> {{ cadeaux.fournisseur }} </td>
+
+                </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+
+
+
+
+{% endblock %}
+
+ 
+

@@ -1,0 +1,39 @@
+<li class="nav-item dropdown menu_haut">
+    <a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown" role="button"
+       aria-haspopup="true" aria-expanded="false">Administration du jury de {{ centre }}</a>
+    <div class="dropdown-menu">
+
+        {% if app.user.roles|filter(v => v =='ROLE_ORGACIA')!=[] %}
+            <a class="dropdown-item login py-0"
+               href="{{ path('secretariatjuryCia_accueil',{'centre':app.user.centrecia.centre}) }}">Accueil</a>
+        {% elseif is_granted('ROLE_COMITE') %}
+            <a class="dropdown-item login py-0"
+               href="{{ path('secretariatjuryCia_accueil_comite') }}">Accueil</a>
+        {% endif %}
+        {% if is_granted('ROLE_ORGACIA') %}
+            <a class="dropdown-item login py-0" href="{{ path('secretariatjuryCia_vueglobale',{'centre' : centre}) }}">Vue
+                Globale</a>
+      
+            <a class="dropdown-item login py-0"
+               href="{{ path('secretariatjuryCia_gestionjures',{'centre':centre}) }}"
+               role="button" aria-pressed="true" id="gestionjures">Gestion des jurés</a>
+        {% endif %}
+        <a class="dropdown-item login py-0" href="{{ path('cyberjuryCia_gerer_conseils_equipe',{'centre' : centre}) }}">Voir
+            les conseils du jury</a>
+    </div>
+</li>
+
+{% if  is_granted('ROLE_COMITE') %}
+    <li class="nav-item dropdown menu_haut">
+        <a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown" role="button"
+           aria-haspopup="true" aria-expanded="false">Délibération du jury de {{ centre }}</a>
+        <div class="dropdown-menu">
+
+            <a class="dropdown-item login py-0"
+               href="{{ path('secretariatjuryCia_classement',{'centre': centre}) }}"> Elaboration du classement
+                définitif
+            </a>
+
+        </div>
+    </li>
+{% endif %}
