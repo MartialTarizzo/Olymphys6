@@ -3,21 +3,24 @@
 namespace App\Form\Filter;
 
 use Doctrine\ORM\QueryBuilder;
-use EasyCorp\Bundle\EasyAdminBundle\Form\Filter\Type\FilterType;
-use EasyCorp\Bundle\EasyAdminBundle\Form\Filter\Type\FilterTypeTrait;
 use Symfony\Bridge\Doctrine\Form\Type\EntityType;
+use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormInterface;
+use Symfony\Component\HttpFoundation\RequestStack;
 use Symfony\Component\HttpFoundation\Session\SessionInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 
 //use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
 
 
-class PhotosequipesinterFilterType extends FilterType
+class PhotosequipesinterFilterType extends AbstractType
 {
-    public function __construct(SessionInterface $session)
+
+    private RequestStack $requestStack;
+
+    public function __construct(RequestStack $requestStack)
     {
-        $this->session = $session;
+        $this->requestStack = $requestStack;
 
     }
 
@@ -33,7 +36,7 @@ class PhotosequipesinterFilterType extends FilterType
                 ->andWhere('entity.national =:national')
                 ->setParameter('national', 'FALSE')
                 ->setParameter('edition', $datas['edition']);
-            $this->session->set('edition_titre', $datas['edition']->getEd());
+            $this->requestStack->getSession()->set('edition_titre', $datas['edition']->getEd());
         }
         if (null !== $datas['centre']) {
 
@@ -50,7 +53,7 @@ class PhotosequipesinterFilterType extends FilterType
             $queryBuilder->andWhere('entity.equipe =:equipe')
                 ->setParameter('edition', $datas['equipe']->getEdition())
                 ->setParameter('equipe', $datas['equipe']);
-            $this->session->set('edition_titre', $datas['equipe']->getEdition()->getEd());
+            $this->requestStack->getSession()->set('edition_titre', $datas['equipe']->getEdition()->getEd());
 
         }
 
@@ -59,7 +62,7 @@ class PhotosequipesinterFilterType extends FilterType
 
     }
 
-    public function configureOptions(OptionsResolver $resolver)
+    public function configureOptions(OptionsResolver $resolver): void
     {
         $resolver->setDefaults([
             'choice_label' => [

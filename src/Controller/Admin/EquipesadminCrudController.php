@@ -12,8 +12,6 @@ use App\Entity\Fichiersequipes;
 use App\Entity\Odpf\OdpfEditionsPassees;
 use App\Entity\Professeurs;
 use App\Entity\User;
-use App\Form\Type\Admin\CustomCentreFilterType;
-use App\Form\Type\CentreType;
 use App\Service\Maj_profsequipes;
 use App\Service\OdpfRempliEquipesPassees;
 use DateTime;
@@ -522,9 +520,8 @@ class EquipesadminCrudController extends AbstractCrudController
 
     }
 
-    /**
-     * @Route("/Admin/EquipesadminCrud/etablissements_tableau_excel,{ideditioncentre}", name="etablissements_tableau_excel")
-     */
+
+    #[Route("/Admin/EquipesadminCrud/etablissements_tableau_excel,{ideditioncentre}", name: "etablissements_tableau_excel")]
     public function etablissementstableauexcel($ideditioncentre)
     {
         $idedition = explode('-', $ideditioncentre)[0];

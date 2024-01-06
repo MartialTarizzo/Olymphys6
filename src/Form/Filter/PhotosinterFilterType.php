@@ -3,16 +3,15 @@
 namespace App\Form\Filter;
 
 use Doctrine\ORM\QueryBuilder;
-use EasyCorp\Bundle\EasyAdminBundle\Form\Filter\Type\FilterType;
-use EasyCorp\Bundle\EasyAdminBundle\Form\Filter\Type\FilterTypeTrait;
 use Symfony\Bridge\Doctrine\Form\Type\EntityType;
+use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 
 //use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
 
 
-class PhotosinterFilterType extends FilterType
+class PhotosinterFilterType extends AbstractType
 {
 
     public function filter(QueryBuilder $queryBuilder, FormInterface $form, array $metadata): QueryBuilder

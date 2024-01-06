@@ -3,19 +3,24 @@
 namespace App\Form\Filter;
 
 use Doctrine\ORM\QueryBuilder;
-use EasyCorp\Bundle\EasyAdminBundle\Form\Filter\Type\FilterType;
-use EasyCorp\Bundle\EasyAdminBundle\Form\Filter\Type\FilterTypeTrait;
+use EasyCorp\Bundle\EasyAdminBundle\Filter\FilterTrait;
 use Symfony\Bridge\Doctrine\Form\Type\EntityType;
+use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormInterface;
+use Symfony\Component\HttpFoundation\RequestStack;
 use Symfony\Component\HttpFoundation\Session\SessionInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 
 
-class PhotosequipescnFilterType extends FilterType
+class PhotosequipescnFilterType extends AbstractType
 {
-    public function __construct(SessionInterface $session)
+
+
+    private RequestStack $requestStack;
+
+    public function __construct(RequestStack $requestStack)
     {
-        $this->session = $session;
+        $this->requestStack = $requestStack;
 
     }
 
@@ -29,7 +34,7 @@ class PhotosequipescnFilterType extends FilterType
 
             $queryBuilder->andWhere('entity.edition =:edition')
                 ->setParameter('edition', $datas['edition']);
-            $this->session->set('edition_titre', $datas['edition']->getEd());
+            $this->requestStack->getSession()->set('edition_titre', $datas['edition']->getEd());
         }
 
 
@@ -40,7 +45,7 @@ class PhotosequipescnFilterType extends FilterType
                 ->andWhere('entity.equipe =:equipe')
                 ->setParameter('equipe', $datas['equipe'])
                 ->addOrderBy('eq.lettre', 'ASC');
-            $this->session->set('edition_titre', $datas['equipe']->getEdition()->getEd());
+            $this->requestStack->getSession()->set('edition_titre', $datas['equipe']->getEdition()->getEd());
         }
 
 

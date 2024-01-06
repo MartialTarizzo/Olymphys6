@@ -128,9 +128,8 @@ class PhotosCrudController extends AbstractCrudController
 
     }
 
-    /**
-     * @Route("/Admin/PhotosCrud/attribEditionsPassees",name="attribEditionsPassees")
-     */
+
+    #[Route("/Admin/PhotosCrud/attribEditionsPassees", name: "attribEditionsPassees")]
     public function attribEditionsPassees()
     {//fonction outil appelée à disparaître après la mise au point du site odpf
 
