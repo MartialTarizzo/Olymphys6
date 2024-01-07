@@ -185,7 +185,7 @@ class OdpfEditionspasseesController extends AbstractController
 
         $videos = $this->em->getRepository(OdpfVideosequipes::class)->findBy(['equipe' => $equipe]);
 
-        if ($videos != null) {
+        if ($videos != null and $equipe->getAutorisationsPhotos() == true) {
             $textevideo = '<div class="table">';
             $i = 1;
             foreach ($videos as $video) {

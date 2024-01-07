@@ -485,7 +485,7 @@ class PhotosController extends AbstractController
         if (explode('-', $infos)[0] == 'equipe') {
             $idEquipe = explode('-', $infos)[1];
 
-            $equipe = $this->doctrine->getRepository(OdpfEquipesPassees::class)->findOneBy(['id' => $idEquipe]);
+            $equipe = $this->doctrine->getRepository(OdpfEquipesPassees::class)->findOneBy(['id' => $idEquipe, 'autorisationsPhotos' => true]);
             $edition = $equipe->getEditionspassees();
             $photosequipes = $this->getPhotosEquipes($edition);
             $photos = $repositoryPhotos->findBy(['equipepassee' => $equipe]);
@@ -513,6 +513,7 @@ class PhotosController extends AbstractController
             $listeEquipes = $this->doctrine->getRepository(OdpfEquipesPassees::class)
                 ->createQueryBuilder('e')
                 ->andWhere('e.editionspassees =:edition')
+                ->andWhere('e.autorisationsPhotos = TRUE')
                 ->setParameter('edition', $edition)
                 ->addOrderBy('e.numero', 'ASC')
                 ->getQuery()->getResult();

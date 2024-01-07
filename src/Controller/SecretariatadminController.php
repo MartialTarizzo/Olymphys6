@@ -13,9 +13,12 @@ use DateTime;
 use Doctrine\ORM\EntityManagerInterface;
 use Doctrine\Persistence\ManagerRegistry;
 use DoctrineExtensions\Query\Mysql\Time;
+use Dompdf\Exception;
+use phpDocumentor\Reflection\Types\ClassString;
 use PhpOffice\PhpSpreadsheet\IOFactory;
-use Sensio\Bundle\FrameworkExtraBundle\Configuration\IsGranted;
+
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
 use Symfony\Component\Form\Extension\Core\Type\EmailType;
 use Symfony\Component\Form\Extension\Core\Type\FileType;
 use Symfony\Component\Form\Extension\Core\Type\HiddenType;
@@ -28,6 +31,7 @@ use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\PasswordHasher\Hasher\UserPasswordHasherInterface;
 use Symfony\Component\Routing\Annotation\Route;
 
+use Symfony\Component\Security\Http\Attribute\IsGranted;
 use Symfony\Component\Validator\Validator\ValidatorInterface;
 
 
@@ -467,6 +471,66 @@ class SecretariatadminController extends AbstractController
 
         }
         return $this->render('core/lien_video.html.twig', array('form' => $Form->createView()));
+
+    }
+
+
+    #[IsGranted('ROLE_SUPER_ADMIN')]
+    #[Route("/secretariatadmin/verifierTable", name: "secretariatadmin_verifier_table")]
+    public function verifierTable(Request $request): Response
+    {
+
+        $listeTables = $this->doctrine->getManager()->getMetadataFactory()->getAllMetadata();//permet d'obtenir la liste des tables de la bdd
+        $listeTablesName = null;
+
+        foreach ($listeTables as $table) {
+            $listeTablesName[$table->getName()] = $table->getName();//Pour la liste des choix
+
+        }
+        //dd($listeTablesName);
+        $form = $this->createFormBuilder()
+            ->add('table', ChoiceType::class,
+                ['choices' => $listeTablesName,
+
+                ])
+            ->add('valider', SubmitType::class)
+            ->getForm();
+        $form->handleRequest($request);
+        if ($form->isSubmitted() and $form->isValid()) {
+
+            $entityrepo = $this->doctrine->getRepository($form->get('table')->getData());//Nom de l'entity
+            $listeEntity = $entityrepo->findAll();
+            $entity = $this->doctrine->getManager()->getMetadataFactory()->getMetadataFor($form->get('table')->getData());
+            $associations = $entity->getAssociationNames();//Liste des noms des entités des clefs étrangères
+
+            $message = ''; //Message qui sera affiché en cas d'erreur'
+            foreach ($associations as $association) {
+                $classAsso = $entity->getAssociationTargetClass($association);
+                $qb = $entityrepo->createQueryBuilder('e');
+                $listeAsso = $this->doctrine->getRepository($classAsso)->findAll();
+                $result = null;
+                try {
+                    foreach ($listeAsso as $asso) {
+                        $result = $qb
+                            ->andWhere('e.' . $association . ' =:asso')
+                            ->setParameter('asso', $asso)
+                            ->getQuery()->getResult();
+                    }
+
+
+                    $message = $message . ' - ' . $association;
+                } catch (\Exception $e) {
+                    dd($e);
+                }
+
+            }
+            $this->requestStack->getSession()->set('info', $message);
+            return $this->redirectToRoute('core_home');
+
+
+        }
+        return $this->render('secretariatadmin/depannage_table.html.twig', ['form' => $form->createView()]);
+
 
     }
 }
