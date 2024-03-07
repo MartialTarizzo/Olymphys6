@@ -14,16 +14,13 @@ class Visites
     #[ORM\Column]
     private ?int $id = null;
 
-    #[ORM\Column(length: 255, nullable: true)]
+   #[ORM\Column(length: 255, nullable: true)]
     private ?string $intitule = null;
 
-    #[ORM\OneToOne(mappedBy: 'visite', cascade: ['persist', 'remove'])]
+    #[ORM\OneToOne( mappedBy: 'visite', cascade: ['persist', 'remove'])]
     private ?Equipes $equipe = null;
 
-    #[ORM\Column(nullable: true)]
-    private ?bool $attribue = null;
-
-    public function __toString(): string
+    public function __toString() : string
     {
         return $this->intitule;
     }
@@ -71,7 +68,7 @@ class Visites
     {
         if ($equipe === null && $this->equipe !== null) {
             $this->equipe->setVisite(null);
-            $this->attribue = false;
+
         }
 
         // set the owning side of the relation if necessary
@@ -79,22 +76,7 @@ class Visites
             $equipe->setVisite($this);
 
         }
-        if ($equipe !== null) {
-            $this->attribue = true;
-        }
         $this->equipe = $equipe;
-
-        return $this;
-    }
-
-    public function isAttribue(): ?bool
-    {
-        return $this->attribue;
-    }
-
-    public function setAttribue(?bool $attribue): static
-    {
-        $this->attribue = $attribue;
 
         return $this;
     }

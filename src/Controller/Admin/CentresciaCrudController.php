@@ -35,16 +35,15 @@ class CentresciaCrudController extends AbstractCrudController
         $orga2 = AssociationField::new('orga2');
         $jurycia = AssociationField::new('jurycia');
         $actif = BooleanField::new('actif', 'Actif');
-        $lieu = TextField::new('lieu');
         $verouClassement = BooleanField::new('verouClassement', 'verouClassement');
         if (Crud::PAGE_INDEX === $pageName) {
-            return [$centre, $lieu, $actif, $nbselectionnees, $verouClassement];
+            return [$centre, $actif, $nbselectionnees, $verouClassement];
         } elseif (Crud::PAGE_DETAIL === $pageName) {
-            return [$id, $actif, $centre, $lieu, $nbselectionnees, $verouClassement];
+            return [$id, $actif, $centre, $nbselectionnees, $verouClassement];
         } elseif (Crud::PAGE_NEW === $pageName) {
-            return [$centre, $lieu, $actif, $nbselectionnees, $verouClassement];
+            return [$centre, $actif, $nbselectionnees, $verouClassement];
         } elseif (Crud::PAGE_EDIT === $pageName) {
-            return [$centre, $lieu, $actif, $nbselectionnees, $verouClassement];
+            return [$centre, $actif, $nbselectionnees, $verouClassement];
         }
     }
 

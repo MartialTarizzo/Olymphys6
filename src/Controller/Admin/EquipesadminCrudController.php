@@ -12,6 +12,8 @@ use App\Entity\Fichiersequipes;
 use App\Entity\Odpf\OdpfEditionsPassees;
 use App\Entity\Professeurs;
 use App\Entity\User;
+use App\Form\Type\Admin\CustomCentreFilterType;
+use App\Form\Type\CentreType;
 use App\Service\Maj_profsequipes;
 use App\Service\OdpfRempliEquipesPassees;
 use DateTime;
@@ -237,7 +239,7 @@ class EquipesadminCrudController extends AbstractCrudController
 
                 return [$lyceePays, $lyceeAcademie, $nomLycee, $lyceeAdresse, $lyceeCP, $lyceeLocalite, $uai];
             } else {
-                return [$numero, $lettre, $centreCentre, $titreProjet, $prof1, $prof2, $nomLycee, $lyceeLocalite, $lyceeAcademie, $selectionnee, $contribfinance, $nbeleves, $inscrite, $origineprojet, $createdAt];
+                return [$numero, $lettre, $centreCentre, $titreProjet, $prof1, $prof2, $nomLycee, $lyceeLocalite, $selectionnee, $contribfinance, $nbeleves, $inscrite, $origineprojet, $createdAt];
             }
         } elseif (Crud::PAGE_DETAIL === $pageName) {
 
@@ -286,9 +288,9 @@ class EquipesadminCrudController extends AbstractCrudController
                     ->setParameter('centre', $centre);
             }
             if (isset($_REQUEST['filters']['selectionnee'])) {
-                $selectionnee = $_REQUEST['filters']['selectionnee'];
+
                 $qb->andWhere('e.selectionnee =:selectionnee')
-                    ->setParameter('selectionnee', $selectionnee);
+                    ->setParameter('selectionnee', TRUE);
             }
 
         }
@@ -318,10 +320,6 @@ class EquipesadminCrudController extends AbstractCrudController
             if (key($sort) == 'selectionnee') {
                 $qb->addOrderBy('e.selectionnee', $sort['selectionnee'])
                     ->addOrderBy('e.lettre', 'ASC');
-            }
-            if (key($sort) == 'lyceeAcademie') {
-                $qb->addOrderBy('e.lyceeAcademie', $sort['lyceeAcademie'])
-                    ->addOrderBy('e.nomLycee', 'ASC');
             }
             if (key($sort) == 'createdAt') {
                 $qb->addOrderBy('e.createdAt', $sort['createdAt']);
@@ -520,8 +518,9 @@ class EquipesadminCrudController extends AbstractCrudController
 
     }
 
-
-    #[Route("/Admin/EquipesadminCrud/etablissements_tableau_excel,{ideditioncentre}", name: "etablissements_tableau_excel")]
+    /**
+     * @Route("/Admin/EquipesadminCrud/etablissements_tableau_excel,{ideditioncentre}", name="etablissements_tableau_excel")
+     */
     public function etablissementstableauexcel($ideditioncentre)
     {
         $idedition = explode('-', $ideditioncentre)[0];

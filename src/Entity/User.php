@@ -96,7 +96,7 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     private ?string $email = null;
 
     #[ORM\ManyToOne]
-    private ?Centrescia $centrecia;
+    private ?Centrescia $centrecia = null;
 
 
     #[Pure] public function __construct()
@@ -461,12 +461,12 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
 
     }
 
-    public function getCentrecia(): ?Centrescia
+    public function getCentrecia(): ?centrescia
     {
         return $this->centrecia;
     }
 
-    public function setCentrecia(?Centrescia $centrecia): self
+    public function setCentrecia(?centrescia $centrecia): self
     {
         $this->centrecia = $centrecia;
 

@@ -6,6 +6,7 @@ use App\Repository\Odpf\OdpfEquipesPasseesRepository;
 use Doctrine\ORM\Mapping as ORM;
 
 #[ORM\Entity(repositoryClass: OdpfEquipesPasseesRepository::class)]
+
 class OdpfEquipesPassees
 {
     #[ORM\Id]
@@ -13,38 +14,35 @@ class OdpfEquipesPassees
     #[ORM\Column]
     private ?int $id = 0;
 
-    #[ORM\Column(length: 255, nullable: true)]
+    #[ORM\Column( length:255, nullable:true)]
     private ?int $numero = null;
 
-    #[ORM\Column(length: 255, nullable: true)]
+    #[ORM\Column( length:255, nullable:true)]
     private ?string $lettre = null;
 
-    #[ORM\Column(length: 255, nullable: true)]
+    #[ORM\Column( length:255, nullable:true)]
     private ?string $lycee = null;
 
-    #[ORM\Column(length: 255, nullable: true)]
+    #[ORM\Column( length:255, nullable:true)]
     private ?string $ville = null;
 
-    #[ORM\Column(length: 255, nullable: true)]
+    #[ORM\Column( length:255, nullable:true)]
     private ?string $academie = null;
 
-    #[ORM\Column(length: 255, nullable: true)]
+    #[ORM\Column( length:255, nullable:true)]
     private ?string $titreProjet = null;
 
-    #[ORM\Column(length: 255, nullable: true)]
+    #[ORM\Column( length:255, nullable:true)]
     private ?string $profs = null;
 
-    #[ORM\Column(length: 255, nullable: true)]
+    #[ORM\Column( length:255, nullable:true)]
     private ?string $eleves = null;
 
-    #[ORM\Column(length: 255, nullable: true)]
+    #[ORM\Column( length:255, nullable:true)]
     private ?bool $selectionnee = null;
 
-    #[ORM\ManyToOne(targetEntity: OdpfEditionsPassees::class, inversedBy: "odpfEquipesPassees")]
+    #[ORM\ManyToOne(targetEntity:OdpfEditionsPassees::class, inversedBy:"odpfEquipesPassees")]
     private ?OdpfEditionsPassees $editionspassees = null;
-
-    #[ORM\Column(nullable: true)]
-    private ?bool $autorisationsPhotos = true;//Par défaut on suppose que l'équipe a donné toutes ses autorisations photos élèves
 
     public function __toString()
     {
@@ -182,18 +180,4 @@ class OdpfEquipesPassees
 
         return $this;
     }
-
-    public function isAutorisationsPhotos(): ?bool
-    {
-        return $this->autorisationsPhotos;
-    }
-
-    public function setAutorisationsPhotos(?bool $autorisationsPhotos): static
-    {
-        $this->autorisationsPhotos = $autorisationsPhotos;
-
-        return $this;
-    }
-
-
 }

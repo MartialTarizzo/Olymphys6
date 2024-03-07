@@ -3,8 +3,6 @@ parameters:
   env(HTTP_METHOD_OVERRIDE): 'true'
 framework:
   http_method_override: '%env(bool:HTTP_METHOD_OVERRIDE)%'
-  annotations: false
-  handle_all_throwables: true
   secret: '%env(APP_SECRET)%'
   #csrf_protection: ~
   #http_method_override: true

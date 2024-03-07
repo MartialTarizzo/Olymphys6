@@ -40,34 +40,28 @@ class EquipesType extends AbstractType
     private $Attrib_Couleur;
     private EntityManagerInterface $doctrine;
 
-    public function __construct(EntityManagerInterface $doctrine)
-    {
-        $this->doctrine = $doctrine;
+    public function __construct(EntityManagerInterface $doctrine){
+        $this->doctrine=$doctrine;
 
 
     }
-
     /**
      * {@inheritdoc}
      */
-    public function buildForm(FormBuilderInterface $builder, array $options): void
+    public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $this->Modifier_Rang = $options['Modifier_Rang'];
         $this->Attrib_Phrases = $options['Attrib_Phrases'];
         $this->Attrib_Cadeaux = $options['Attrib_Cadeaux'];
         $this->Deja_Attrib = $options['Deja_Attrib'];
         $this->Attrib_Couleur = $options['Attrib_Couleur'];
-        $liste = $this->doctrine->getRepository(Cadeaux::class)->createQueryBuilder('c')
-            ->orderBy('c.montant', 'DESC')
-            ->getQuery()->getResult();
-
-        $listeCadeaux = [];
-        $i = 0;
-        foreach ($liste as $cadeau) {
-            if ($cadeau->getEquipe() === null) {
-                $listeCadeaux[$i] = $cadeau;
+        $liste = $this->doctrine->getRepository(Cadeaux::class)->findAll();
+        $listeCadeaux= [];
+        $i=0;
+        foreach($liste as $cadeau ){
+            if ($cadeau->getEquipe()===null){
+                $listeCadeaux[$i]=$cadeau;
             };
-            $i++;
         }
         if ($options['Modifier_Rang']) {
             $builder
@@ -115,7 +109,7 @@ class EquipesType extends AbstractType
     /**
      * {@inheritdoc}
      */
-    public function configureOptions(OptionsResolver $resolver): void
+    public function configureOptions(OptionsResolver $resolver)
     {
         $resolver->setDefaults(array(
             'data_class' => 'App\Entity\Equipes',

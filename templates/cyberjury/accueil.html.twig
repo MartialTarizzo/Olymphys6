@@ -36,13 +36,13 @@
                 <a href="#" class="fas fa-clock" title="{{ heure }} {{ salle }}"> </a>
                 {% for key,mem in memoires %}
                     {% if key == lettre %}
-                        {% if mem.publie==false %}
-                            <a href="{{ asset('odpf/odpf-archives/'~equipes.equipeinter.edition.ed~'/fichiers/memoires/prive/'~ mem.fichier) }}"
+                        {% if memoire.publie==false %}
+                            <a href="{{ asset('odpf/odpf-archives/'~equipe.edition.ed~'/fichiers/memoires/prive/'~ memoire.fichier) }}"
                                class="fas fa-book-reader"
                                title="Accéder au mémoire de l'équipe" target="_blank"> </a>
                         {% endif %}
-                        {% if mem.publie==true %}
-                            <a href="{{ asset('odpf/odpf-archives/'~equipes.equipeinter.edition.ed~'/fichiers/memoires/public/'~ mem.fichier) }}"
+                        {% if memoire.publie==true %}
+                            <a href="{{ asset('odpf/odpf-archives/'~equipe.edition.ed~'/fichiers/memoires/public/'~ memoire.fichier) }}"
                                class="fas fa-book-reader"
                                title="Accéder au mémoire de l'équipe" target="_blank"> </a>
                         {% endif %}

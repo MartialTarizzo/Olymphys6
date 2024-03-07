@@ -44,9 +44,6 @@ class JuresRepository extends ServiceEntityRepository
                 if ($attributionJure->GetEstLecteur() == 0) {
                     $valeur = 0;
                 }
-                if ($attributionJure->GetEstLecteur() == 2) {
-                    $valeur = 2;
-                }
                 if ($attributionJure->GetEstLecteur() === null) {
                     $valeur = '_';
                 }

@@ -121,15 +121,12 @@ class OdpfEditionspasseesController extends AbstractController
         } else {
             $academie = ', académie de ' . $equipe->getAcademie() . '.';
         }
-        $texte = '';
-        if ($equipe->getEditionspassees()->getEdition() < $this->requestStack->getSession()->get('edition')->getEd()) {//Pour quelors de l'édtion en cours, on ne puisse pas accèder au texete de l'édition passée lui correspondant car pas achevée
-            if (explode(':', $_SERVER['SERVER_NAME'])[0] == 'localhost') {//test du répertoire de travail
+        //test du répertoire de travail
 
-                $texte = '<a href="/odpf/editionspassees/editions?sel=' . $equipe->getEditionspassees()->getId() . '">Retour</a>';
-
-            } else {
-                $texte = '<a href="/../public/index.php/odpf/editionspassees/editions?sel=' . $equipe->getEditionspassees()->getId() . '">Retour</a>';
-            }
+        if (explode(':', $_SERVER['SERVER_NAME'])[0] == 'localhost') {
+            $texte = '<a href="/odpf/editionspassees/editions?sel=' . $equipe->getEditionspassees()->getId() . '">Retour</a>';
+        } else {
+            $texte = '<a href="/../public/index.php/odpf/editionspassees/editions?sel=' . $equipe->getEditionspassees()->getId() . '">Retour</a>';
         }
         //sur le site : <a href="/../public/index.php/odpf/editionspassees/editions?sel='.$equipe->getEditionspassees()->getId().'">Retour</a>
 
@@ -185,7 +182,7 @@ class OdpfEditionspasseesController extends AbstractController
 
         $videos = $this->em->getRepository(OdpfVideosequipes::class)->findBy(['equipe' => $equipe]);
 
-        if ($videos != null and $equipe->getAutorisationsPhotos() == true) {
+        if ($videos != null) {
             $textevideo = '<div class="table">';
             $i = 1;
             foreach ($videos as $video) {

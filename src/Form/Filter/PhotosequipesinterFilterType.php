@@ -3,28 +3,25 @@
 namespace App\Form\Filter;
 
 use Doctrine\ORM\QueryBuilder;
+use EasyCorp\Bundle\EasyAdminBundle\Form\Filter\Type\FilterType;
+use EasyCorp\Bundle\EasyAdminBundle\Form\Filter\Type\FilterTypeTrait;
 use Symfony\Bridge\Doctrine\Form\Type\EntityType;
-use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormInterface;
-use Symfony\Component\HttpFoundation\RequestStack;
 use Symfony\Component\HttpFoundation\Session\SessionInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 
 //use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
 
 
-class PhotosequipesinterFilterType extends AbstractType
+class PhotosequipesinterFilterType extends FilterType
 {
-
-    private RequestStack $requestStack;
-
-    public function __construct(RequestStack $requestStack)
+    public function __construct(SessionInterface $session)
     {
-        $this->requestStack = $requestStack;
+        $this->session = $session;
 
     }
 
-    public function filter(QueryBuilder $queryBuilder, FormInterface $form, array $metadata): QueryBuilder
+    public function filter(QueryBuilder $queryBuilder, FormInterface $form, array $metadata)
     {
 
 
@@ -36,7 +33,7 @@ class PhotosequipesinterFilterType extends AbstractType
                 ->andWhere('entity.national =:national')
                 ->setParameter('national', 'FALSE')
                 ->setParameter('edition', $datas['edition']);
-            $this->requestStack->getSession()->set('edition_titre', $datas['edition']->getEd());
+            $this->session->set('edition_titre', $datas['edition']->getEd());
         }
         if (null !== $datas['centre']) {
 
@@ -53,7 +50,7 @@ class PhotosequipesinterFilterType extends AbstractType
             $queryBuilder->andWhere('entity.equipe =:equipe')
                 ->setParameter('edition', $datas['equipe']->getEdition())
                 ->setParameter('equipe', $datas['equipe']);
-            $this->requestStack->getSession()->set('edition_titre', $datas['equipe']->getEdition()->getEd());
+            $this->session->set('edition_titre', $datas['equipe']->getEdition()->getEd());
 
         }
 
@@ -62,7 +59,7 @@ class PhotosequipesinterFilterType extends AbstractType
 
     }
 
-    public function configureOptions(OptionsResolver $resolver): void
+    public function configureOptions(OptionsResolver $resolver)
     {
         $resolver->setDefaults([
             'choice_label' => [

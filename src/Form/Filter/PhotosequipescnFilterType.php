@@ -3,24 +3,19 @@
 namespace App\Form\Filter;
 
 use Doctrine\ORM\QueryBuilder;
-use EasyCorp\Bundle\EasyAdminBundle\Filter\FilterTrait;
+use EasyCorp\Bundle\EasyAdminBundle\Form\Filter\Type\FilterType;
+use EasyCorp\Bundle\EasyAdminBundle\Form\Filter\Type\FilterTypeTrait;
 use Symfony\Bridge\Doctrine\Form\Type\EntityType;
-use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormInterface;
-use Symfony\Component\HttpFoundation\RequestStack;
 use Symfony\Component\HttpFoundation\Session\SessionInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 
 
-class PhotosequipescnFilterType extends AbstractType
+class PhotosequipescnFilterType extends FilterType
 {
-
-
-    private RequestStack $requestStack;
-
-    public function __construct(RequestStack $requestStack)
+    public function __construct(SessionInterface $session)
     {
-        $this->requestStack = $requestStack;
+        $this->session = $session;
 
     }
 
@@ -34,7 +29,7 @@ class PhotosequipescnFilterType extends AbstractType
 
             $queryBuilder->andWhere('entity.edition =:edition')
                 ->setParameter('edition', $datas['edition']);
-            $this->requestStack->getSession()->set('edition_titre', $datas['edition']->getEd());
+            $this->session->set('edition_titre', $datas['edition']->getEd());
         }
 
 
@@ -45,7 +40,7 @@ class PhotosequipescnFilterType extends AbstractType
                 ->andWhere('entity.equipe =:equipe')
                 ->setParameter('equipe', $datas['equipe'])
                 ->addOrderBy('eq.lettre', 'ASC');
-            $this->requestStack->getSession()->set('edition_titre', $datas['equipe']->getEdition()->getEd());
+            $this->session->set('edition_titre', $datas['equipe']->getEdition()->getEd());
         }
 
 
@@ -53,7 +48,7 @@ class PhotosequipescnFilterType extends AbstractType
 
     }
 
-    public function configureOptions(OptionsResolver $resolver): void
+    public function configureOptions(OptionsResolver $resolver)
     {
         $resolver->setDefaults([
             'choice_label' => [

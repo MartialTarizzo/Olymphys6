@@ -613,7 +613,7 @@ class FichiersequipesCrudController extends AbstractCrudController
         })->setFormTypeOptions(['placeholder' => 'Non',
             'required' => false,
             'mapped' => true,]);
-        $editionEd = TextareaField::new('edition', 'Edition');
+        $editionEd = TextareaField::new('edition.ed', 'Edition');
         $equipelibel = AssociationField::new('equipe', 'Equipe')->setSortable(true);
         if ($numtypefichier != 6) {
             $equipeNumero = IntegerField::new('equipe.numero', 'numero')->setSortable(true);
@@ -631,11 +631,7 @@ class FichiersequipesCrudController extends AbstractCrudController
             }
         }
         if (Crud::PAGE_DETAIL === $pageName) {
-            if ($numtypefichier == 6) {
-                return [$fichier, $nomautorisation, $typefichier, $updatedAt, $nomautorisation, $eleve, $prof];
-            } else {
-                return [$fichier, $typefichier, $national, $publie, $updatedAt, $edition, $equipe];
-            }
+            return [$id, $fichier, $typefichier, $national, $publie, $updatedAt, $nomautorisation, $edition, $equipe, $eleve, $prof];
         }
         if (Crud::PAGE_NEW === $pageName) {
 
@@ -843,11 +839,10 @@ class FichiersequipesCrudController extends AbstractCrudController
         $concours == '0' ? $concours = 0 : $concours = 1;
         $session = $this->requestStack->getSession();
         $repositoryEdition = $this->doctrine->getRepository(Edition::class);
-        $editionId = $session->get('edition')->getId();
+        $editionId = $session->get('edition');
 
         //$edition = $this->doctrine->getRepository(Edition::class)->findOneBy(['id' => $editionId]);
         $edition = $entityInstance->getEquipe()->getEdition();
-        $entityInstance->setEdition($edition);
         $validator = new valid_fichiers($this->validator, $this->parameterBag, $this->requestStack);
         $dateconect = new DateTime('now');
         $equipe = $entityInstance->getEquipe();
@@ -905,7 +900,6 @@ class FichiersequipesCrudController extends AbstractCrudController
             }
             if ($typefichier == 6) {
 
-                $entityInstance->setEdition($edition);
                 $entityInstance->setNational(0);
                 $citoyen = $entityInstance->getProf();
                 $quidam = 'Prof';

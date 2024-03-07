@@ -21,7 +21,7 @@ class ToutfichiersType extends AbstractType
         $this->requestStack = $requestStack;
     }
 
-    public function buildForm(FormBuilderInterface $builder, array $options): void
+    public function buildForm(FormBuilderInterface $builder, array $options)
     {
 
 
@@ -97,7 +97,7 @@ class ToutfichiersType extends AbstractType
     /**
      * {@inheritdoc}
      */
-    public function configureOptions(OptionsResolver $resolver): void
+    public function configureOptions(OptionsResolver $resolver)
     {
         $resolver->setDefaults(['data_class' => null, 'choix' => null]);
     }

@@ -45,11 +45,12 @@ class Notes
     private ?int $total = 0;
 
     #[ORM\ManyToOne(targetEntity: Coefficients::class)]
+    #[ORM\JoinColumn(name: "coefficients_id", referencedColumnName: "id", onDelete: "CASCADE")]
     private ?Coefficients $coefficients;
 
 
     const NE_PAS_NOTER = 0; // pour les écrits....
-    const INSUFFISANT = 1;//Constantes utilisées dans le form NotesType
+    const INSUFFISANT = 1;
     const MOYEN = 2;
     const BIEN = 3;
     const EXCELLENT = 4;
@@ -193,12 +194,12 @@ class Notes
         return $this;
     }
 
-    public function getCoefficients(): ?Coefficients
+    public function getCoefficients(): ?coefficients
     {
         return $this->coefficients;
     }
 
-    public function setCoefficients(?Coefficients $coefficients): self
+    public function setCoefficients(?coefficients $coefficients): self
     {
         $this->coefficients = $coefficients;
 

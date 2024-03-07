@@ -23,7 +23,6 @@ use datetime;
 use Doctrine\ORM\NonUniqueResultException;
 use Doctrine\Persistence\ManagerRegistry;
 use Exception;
-use Sensio\Bundle\FrameworkExtraBundle\Configuration\IsGranted;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\DependencyInjection\ParameterBag\ParameterBagInterface;
 use Symfony\Component\HttpFoundation\BinaryFileResponse;
@@ -39,6 +38,7 @@ use Symfony\Component\Mailer\MailerInterface;
 use Symfony\Component\Mime\Email;
 use Symfony\Component\Mime\FileinfoMimeTypeGuesser;
 use Symfony\Component\Routing\Annotation\Route;
+use Symfony\Component\Security\Http\Attribute\IsGranted;
 use Symfony\Component\String\Slugger\AsciiSlugger;
 use Symfony\Component\Validator\Validator\ValidatorInterface;
 use Twig\Environment;
@@ -119,11 +119,8 @@ class FichiersController extends AbstractController
 
         $dateconnect = new \Datetime('now');
         $dateciaN1 = $editionN1->getConcourscia();
-        $datecia = $editionN->getConcourscia();
         $dateOuvertureSite = $editionN->getDateouverturesite();
         $dateconnect > $dateciaN1 and $dateconnect < $dateOuvertureSite ? $phase = 'national' : $phase = 'interacadémique';
-        $dateconnect > $datecia and $dateconnect > $dateOuvertureSite ? $phase = 'national' : $phase = 'interacadémique';
-
         $user = $this->getUser();
         $roles = $user->getRoles();
         $jure = null;
@@ -399,7 +396,7 @@ class FichiersController extends AbstractController
                                 $nouveau = true;
                             }
                             if (!isset($nouveau)) {
-                                $message = '';
+                                $message = 'Pour éviter les confusions, le fichier interacadémique n\'est plus accessible. ';
                             }
                         }
                         if ($num_type_fichier > 6) {

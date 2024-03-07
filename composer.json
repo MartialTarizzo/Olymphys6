@@ -16,7 +16,7 @@
     "doctrine/doctrine-migrations-bundle": "^3.1",
     "doctrine/orm": "^2.9",
     "dompdf/dompdf": "^2.0",
-    "easycorp/easyadmin-bundle": "^4.7",
+    "easycorp/easyadmin-bundle": "^4.8",
     "egulias/email-validator": "^3.1",
     "fpdf/fpdf": "^1.86",
     "friendsofsymfony/ckeditor-bundle": "^2.4",
@@ -109,10 +109,9 @@
     "auto-scripts": {
       "cache:clear": "symfony-cmd",
       "assets:install %PUBLIC_DIR%": "symfony-cmd",
-      "ckeditor:install --clear=drop": "symfony-cmd",
+      "ckeditor:install  --tag=4.22.1": "symfony-cmd",
       "elfinder:install": "symfony-cmd",
-      "requirements-checker": "script",
-      "ckeditor:install": "symfony-cmd"
+      "requirements-checker": "script"
     },
     "post-install-cmd": [
       "@auto-scripts"

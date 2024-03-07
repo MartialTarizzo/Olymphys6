@@ -23,7 +23,7 @@ class VideosequipesFilterType extends FilterType
 
     }
 
-    public function filter(QueryBuilder $queryBuilder, FormInterface $form, array $metadata): QueryBuilder
+    public function filter(QueryBuilder $queryBuilder, FormInterface $form, array $metadata)
     {
 
         $datas = $form->getParent()->getData();
@@ -57,7 +57,7 @@ class VideosequipesFilterType extends FilterType
 
     }
 
-    public function configureOptions(OptionsResolver $resolver): void
+    public function configureOptions(OptionsResolver $resolver)
     {
         $resolver->setDefaults([
             'choice_label' => [
