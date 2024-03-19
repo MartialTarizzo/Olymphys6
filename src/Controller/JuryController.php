@@ -15,22 +15,23 @@ use App\Entity\Liaison;
 use App\Entity\Notes;
 use App\Entity\Phrases;
 use App\Entity\Prix;
+use App\Entity\RecommandationsJuryCn;
 use App\Entity\Repartprix;
 use App\Entity\User;
 use App\Form\NotesType;
 use App\Form\PhrasesType;
+use App\Form\RecommandationsCnType;
 use Doctrine\ORM\EntityManagerInterface;
 use Doctrine\ORM\QueryBuilder;
 use Doctrine\Persistence\ManagerRegistry;
 use Exception;
-use Sensio\Bundle\FrameworkExtraBundle\Configuration\IsGranted;
+use PhpOffice\PhpSpreadsheet\Style\NumberFormat\Wizard\DateTime;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\RedirectResponse;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\RequestStack;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
-
 
 class JuryController extends AbstractController
 {
@@ -52,8 +53,13 @@ class JuryController extends AbstractController
 
     {
         $session = $this->requestStack->getSession();
-        $edition = $session->get('edition');
 
+        $edition = $session->get('edition');
+        $editionN1 = $session->get('editionN1');
+        $date = new \DateTime('now');
+        if ($date < $edition->getDateOuvertureSite() and $date > $editionN1->getConcoursCn()) {//Dans le cas où l'édition N+1 a été créée il que les jurés puisse accéder aux équipes de l'édition N
+            $edition = $editionN1;
+        }
 
         $repositoryJures = $this->doctrine
             ->getManager()
@@ -112,7 +118,7 @@ class JuryController extends AbstractController
         }
 
         $content = $this->renderView('cyberjury/accueil.html.twig',
-            array('listeEquipes' => $listeEquipes, 'progression' => $progression, 'jure' => $jure, 'memoires' => $memoires)
+            array('listeEquipes' => $listeEquipes, 'progression' => $progression, 'jure' => $jure, 'memoires' => $memoires, 'attributions' => $attrib)
         );
 
 
@@ -130,7 +136,7 @@ class JuryController extends AbstractController
             ->getRepository(Jures::class);
         $user = $this->getUser();
         $jure = $repositoryJures->findOneBy(['iduser' => $user]);
-        $equipe = $this->doctrine->getRepository(Equipesadmin::class)->find($id);
+        $equipe = $this->doctrine->getRepository(Equipes::class)->find($id);
         if ($jure === null) {
             $request->getSession()
                 ->getFlashBag()->add('alert', 'Vous avez été déconnecté');
@@ -426,6 +432,7 @@ class JuryController extends AbstractController
     {
         $user = $this->getUser();
         $jure = $this->doctrine->getRepository(Jures::class)->findOneBy(['iduser' => $user]);
+        $attributions = $this->doctrine->getRepository(Jures::class)->getAttribution($jure);
         $id_jure = $jure->getId();
         $ordre = array(//Par défaut les critères ont classés par ordre décroissant, l'équipe la mieux notée est en haut
             'EXP' => 'DESC',
@@ -457,7 +464,7 @@ class JuryController extends AbstractController
         $memoires = array();
         $listEquipes = array();
         $j = 1;
-        foreach ($MonClassement as $notes) {// création du tazbleau des notes des équipes du juré
+        foreach ($MonClassement as $notes) {// création du tableau des notes des équipes du juré
             $equipe = $notes->getEquipe();
 
             $listEquipes[$j]['id'] = $equipe->getId();
@@ -487,7 +494,13 @@ class JuryController extends AbstractController
         }
 
         $content = $this->renderView('cyberjury/tableau.html.twig',
-            array('listEquipes' => $listEquipes, 'jure' => $jure, 'memoires' => $memoires, 'ordre' => $ordre, 'critere' => $critere, 'rangs' => $rangs)
+            array('listEquipes' => $listEquipes,
+                'jure' => $jure,
+                'memoires' => $memoires,
+                'ordre' => $ordre,
+                'critere' => $critere,
+                'rangs' => $rangs,
+                'attributions' => $attributions)
         );
         return new Response($content);
     }
@@ -582,8 +595,8 @@ class JuryController extends AbstractController
     }
 
     #[IsGranted('ROLE_JURY')]
-    #[Route("/edit_phrases/{id}", name: "cyberjury_edit_phrases_amusantes", requirements: ["id_equipe" => "\d{1}|\d{2}"])]
-    public function edit_phrases(Request $request, Equipes $equipe, $id): RedirectResponse|Response
+    #[Route("/edit_phrases/{id}", name: "cyberjury_edit_phrases_amusantes")]
+    public function edit_phrases(Request $request, $id): RedirectResponse|Response
     {
 
         $user = $this->getUser();
@@ -606,6 +619,7 @@ class JuryController extends AbstractController
         $repositoryEquipes = $this->doctrine
             ->getManager()
             ->getRepository(Equipes::class);
+        $equipe = $repositoryEquipes->find($id);
         $repositoryMemoires = $this->doctrine
             ->getManager()
             ->getRepository(Fichiersequipes::class);
@@ -786,6 +800,83 @@ class JuryController extends AbstractController
         }
 
 
+
     }
 
+    #[IsGranted('ROLE_JURY')]
+    #[Route("recommandations,{id},{origin}", name: "cyberjury_recommandations")]
+    public function recommandations(Request $request, $id, $origin)
+    {
+
+        $jure = $this->doctrine->getRepository(Jures::class)->findOneBy(['iduser' => $this->getUser()]);
+        $equipe = $this->doctrine->getRepository(Equipes::class)->find($id);
+        $memoire = $this->doctrine->getRepository(Fichiersequipes::class)->findOneBy(['equipe' => $equipe->getEquipeinter(), 'typefichier' => 0]);
+        $attributions = null;
+        $attributions = $this->doctrine->getRepository(Jures::class)->getAttribution($jure);
+
+        $recommandation = $this->doctrine->getRepository(RecommandationsJuryCN::class)->findOneBy(['equipe' => $equipe]);
+        if ($recommandation === null) {
+            $recommandation = new RecommandationsJuryCN();
+            $recommandation->setEquipe($equipe);
+        }
+        $form = $this->createForm(RecommandationsCnType::class, $recommandation);
+        $form->handleRequest($request);
+        if ($form->isSubmitted() and $form->isValid()) {
+            $this->doctrine->getManager()->persist($recommandation);
+            $this->doctrine->getManager()->flush();
+            if ($origin == 'evaluer') return $this->redirectToRoute('cyberjury_evaluer_une_equipe', ['id' => $equipe->getId()]);
+            if ($origin == 'liste') return $this->redirectToRoute('cyberjury_liste_recommandations');
+
+        }
+        return $this->render('cyberjury/recommandations.html.twig', ['form' => $form->createView(), 'equipe' => $equipe, 'jure' => $jure, 'memoire' => $memoire, 'attributions' => $attributions]);
+    }
+
+    #[IsGranted('ROLE_JURY')]
+    #[Route("liste_recommandations", name: "cyberjury_liste_recommandations")]
+    public function liste_recommandations(Request $request): Response
+    {
+        $jure = $this->doctrine->getRepository(Jures::class)->findOneBy(['iduser' => $this->getUser()]);
+        $attributions = $this->doctrine->getRepository(Jures::class)->getAttribution($jure);
+        $equipes = $this->doctrine->getRepository(Equipes::class)->findAll();
+        $recommandations = null;
+
+        for ($i = 0; $i < count($attributions); $i++) {
+
+            foreach ($equipes as $equipe) {
+
+                if ($equipe->getEquipeinter()->getLettre() == key($attributions)) {
+
+                    if ($attributions[$equipe->getEquipeinter()->getLettre()] > 0) {
+                        $recommandations[$equipe->getId()] = $this->doctrine->getRepository(RecommandationsJuryCn::class)->findOneBy(['equipe' => $equipe]);
+                        if ($recommandations[$equipe->getId()] === null) {
+                            $recommandations[$equipe->getId()] = new RecommandationsJuryCn();
+                            $recommandations[$equipe->getId()]->setEquipe($equipe);
+                            $this->doctrine->getManager()->persist($recommandations[$equipe->getId()]);
+                            $this->doctrine->getManager()->flush();
+                        }
+                    }
+                }
+            }
+            next($attributions);
+
+        }
+
+        return $this->render('cyberjury/liste_recommandations.html.twig', ['recommandations' => $recommandations, 'jure' => $jure]);
+
+
+    }
+    #[IsGranted('ROLE_COMITE')]
+    #[Route("/createFileAdvice", name: "cyberjury_create_file_advice")]
+    public function createFileAdvice(Request $request, Equipes $equipe, $id): RedirectResponse|Response
+    {
+
+        $conseils=$this->doctrine->getRepository(RecommandationsJuryCn::class)->findAll();
+        $phpWord = new  PhpWord();
+        $section = $phpWord->addSection();
+
+
+
+
+
+    }
 }

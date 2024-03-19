@@ -30,6 +30,11 @@ use EasyCorp\Bundle\EasyAdminBundle\Field\FormField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\IntegerField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\TextField;
 use EasyCorp\Bundle\EasyAdminBundle\Provider\AdminContextProvider;
+use EasyCorp\Bundle\EasyAdminBundle\Router\AdminUrlGenerator;
+use http\Client\Request;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\IsGranted;
+use Symfony\Bridge\Doctrine\Form\Type\EntityType;
+use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 use Symfony\Component\HttpFoundation\BinaryFileResponse;
 use Symfony\Component\HttpFoundation\RedirectResponse;
 use Symfony\Component\HttpFoundation\RequestStack;
@@ -42,12 +47,14 @@ class OdpfFichiersPassesCrudController extends AbstractCrudController
     private AdminContextProvider $adminContextProvider;
     private ManagerRegistry $doctrine;
     private RequestStack $requestStack;
+    private AdminUrlGenerator $adminUrlGenerator;
 
-    public function __construct(AdminContextProvider $adminContextProvider, ManagerRegistry $doctrine, RequestStack $requestack)
+    public function __construct(AdminContextProvider $adminContextProvider, ManagerRegistry $doctrine, RequestStack $requestack, AdminUrlGenerator $adminUrlGenerator)
     {
         $this->adminContextProvider = $adminContextProvider;
         $this->doctrine = $doctrine;
         $this->requestStack = $requestack;
+        $this->adminUrlGenerator = $adminUrlGenerator;
     }
 
     public static function getEntityFqcn(): string
@@ -63,8 +70,9 @@ class OdpfFichiersPassesCrudController extends AbstractCrudController
 
     public function configureActions(Actions $actions): Actions
     {
-        $setPublie = Action::new('setPublie', 'Publier les fichiers')
-            ->linkToRoute('setPublie')
+        $typefichier = $this->requestStack->getCurrentRequest()->query->get('typefichier');
+        $setPublie = Action::new('setPublies', 'Publier les fichiers')
+            ->linkToRoute('setPublies', ['typefichier' => $typefichier])
             ->createAsGlobalAction();
 
         $telechargerUnFichierOdpf = Action::new('telechargerunfichierOdpf', 'Télécharger', 'fa fa-file-download')
@@ -129,12 +137,16 @@ class OdpfFichiersPassesCrudController extends AbstractCrudController
     {
 
         $repositoryEdition = $this->doctrine->getRepository(OdpfEquipesPassees::class);
+        $numtypefichier = 0;//par défaut mémoire
         if ($_REQUEST['crudAction'] == 'edit') {
+
             $fichier = $this->doctrine->getRepository(OdpfFichierspasses::class)->find(['id' => $_REQUEST['entityId']]);
             $numtypefichier = $fichier->getTypefichier();
 
         } else {
-            $numtypefichier = $_REQUEST['typefichier'];
+            if (isset($_REQUEST['typefichier']))
+                $numtypefichier = $_REQUEST['typefichier'];
+
         }
         if ($numtypefichier == 1) {
             $numtypefichier = 0;
@@ -310,34 +322,34 @@ class OdpfFichiersPassesCrudController extends AbstractCrudController
         $fichier = $this->doctrine->getRepository(OdpfFichierspasses::class)->findOneBy(['id' => $idFichier]);
         $edition = $fichier->getEditionspassees();
         $typefichier = $fichier->getTypefichier();
-        $chemintypefichier = $this->getParameter('type_fichier')[$typefichier].'/';
+        $chemintypefichier = $this->getParameter('type_fichier')[$typefichier] . '/';
         if ($typefichier == 1) {
-            $chemintypefichier = $this->getParameter('type_fichier')[0].'/';
+            $chemintypefichier = $this->getParameter('type_fichier')[0] . '/';
         }
         if ($typefichier < 4) {
             $fichier->getPublie() == true ? $acces = $this->getParameter('fichier_acces')[1] : $acces = $this->getParameter('fichier_acces')[0];
             $chemintypefichier = $chemintypefichier . '/' . $acces . '/';
         }
         $file = $this->getParameter('app.path.odpf_archives') . '/' . $edition->getEdition() . '/fichiers/' . $chemintypefichier . $fichier->getNomfichier();
-       /* header('Content-Description: File Transfer');
-        header('Content-Disposition: attachment; filename=' . $fichier->getNomfichier());
-        header('Content-Transfer-Encoding: binary');
-        header('Expires: 0');
-        header("Cache-Control: no-store, no-cache, must-revalidate, post-check=0, pre-check=0");
-        header('Cache-Control: private', false);
-        header('Pragma: no-cache');
-        header('Content-Length: ' . filesize($file));
-        readfile($file);*/
+        /* header('Content-Description: File Transfer');
+         header('Content-Disposition: attachment; filename=' . $fichier->getNomfichier());
+         header('Content-Transfer-Encoding: binary');
+         header('Expires: 0');
+         header("Cache-Control: no-store, no-cache, must-revalidate, post-check=0, pre-check=0");
+         header('Cache-Control: private', false);
+         header('Pragma: no-cache');
+         header('Content-Length: ' . filesize($file));
+         readfile($file);*/
         $response = new Response(file_get_contents($file));
 
-        $type=mime_content_type($file);
+        $type = mime_content_type($file);
         if (str_contains($_SERVER['HTTP_USER_AGENT'], 'iPad') or str_contains($_SERVER['HTTP_USER_AGENT'], 'Mac OS X')) {
             $response = new BinaryFileResponse($file);
 
         }
-        $response->headers->set('Content-Disposition: attachment','attachment; filename="'. $fichier->getNomFichier().'"' );
+        $response->headers->set('Content-Disposition: attachment', 'attachment; filename="' . $fichier->getNomFichier() . '"');
         $response->headers->set('Content-Description', 'File Transfer');
-        $response->headers->set('Content-type',$type);
+        $response->headers->set('Content-type', $type);
         $response->headers->set('Content-Length', filesize($file));
 
         return $response;
@@ -372,6 +384,50 @@ class OdpfFichiersPassesCrudController extends AbstractCrudController
 
         }
 
+    }
+
+    #[IsGranted('ROLE_SUPER_ADMIN')]
+    #[Route("setPublies,{typefichier}", name: "setPublies")]
+    public function setPublies(\Symfony\Component\HttpFoundation\Request $request, $typefichier): Response
+    {
+        $form = $this->createFormBuilder()
+            ->add('edition', EntityType::class,
+                [
+                    'class' => OdpfEditionsPassees::class,
+
+
+                ])
+            ->add('Valider', SubmitType::class)
+            ->getForm();
+        $form->handleRequest($request);
+        if ($form->isSubmitted() and $form->isValid()) {
+            $edition = $form->get('edition')->getData();
+            $fichiersRepo = $this->doctrine->getRepository(OdpfFichierspasses::class);//Mémoires, annexes, résumes, diaporama national
+
+            if ($typefichier == 0) $fichiers = $fichiersRepo->createQueryBuilder('f')
+                ->where('f.typefichier <:type')
+                ->andWhere('f.editionspassees =:edition')
+                ->andWhere('f.national =:value')
+                ->setParameters(['edition' => $edition, 'type' => 2, 'value' => 1])
+                ->getQuery()->getResult();
+            if ($typefichier != 0) $fichiers = $fichiersRepo->findBy(
+                ['editionspassees' => $edition, 'typefichier' => $typefichier, 'national' => true]);//Mémoires, annexes, résumes, diaporama national
+
+            foreach ($fichiers as $fichier) {
+                $fichier->setPublie(true);
+                $this->doctrine->getManager()->persist($fichier);
+                $this->doctrine->getManager()->flush();
+                $this->fichierspublies($fichier);
+            }
+            $route = $this->adminUrlGenerator
+                ->setController(OdpfFichiersPassesCrudController::class)
+                ->setAction('index')->set('typefichier', $typefichier)
+                ->generateUrl();
+            return $this->redirect($route);
+
+        }
+
+        return $this->render('OdpfAdmin/setFichiersPublies.html.twig', ['form' => $form->createView(), 'Nomtypefichier' => $this->getParameter('type_fichier_lit')[$typefichier]]);
     }
 
 }

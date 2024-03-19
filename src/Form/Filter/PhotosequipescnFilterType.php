@@ -48,7 +48,7 @@ class PhotosequipescnFilterType extends FilterType
 
     }
 
-    public function configureOptions(OptionsResolver $resolver): void
+    public function configureOptions(OptionsResolver $resolver)
     {
         $resolver->setDefaults([
             'choice_label' => [

@@ -30,7 +30,7 @@ class ModifEquipeType extends AbstractType
 
     }
 
-    public function buildForm(FormBuilderInterface $builder, array $options): void
+    public function buildForm(FormBuilderInterface $builder, array $options)
     {
 
         $uai = $options['uai'];
@@ -208,7 +208,7 @@ class ModifEquipeType extends AbstractType
     /**
      * {@inheritdoc}
      */
-    public function configureOptions(OptionsResolver $resolver): void
+    public function configureOptions(OptionsResolver $resolver)
     {
         $resolver->setDefaults(['data_class' => Equipesadmin::class, 'uai' => null, 'eleves' => null]);
 

@@ -17,7 +17,7 @@ use Symfony\Component\OptionsResolver\OptionsResolver;
 class InscrireEquipeType extends AbstractType
 {
 
-    public function buildForm(FormBuilderInterface $builder, array $options): void
+    public function buildForm(FormBuilderInterface $builder, array $options)
     {
 
         $rne = $options['rne'];
@@ -130,7 +130,7 @@ class InscrireEquipeType extends AbstractType
     /**
      * {@inheritdoc}
      */
-    public function configureOptions(OptionsResolver $resolver): void
+    public function configureOptions(OptionsResolver $resolver)
     {
         $resolver->setDefaults(['data_class' => Equipesadmin::class, 'rne' => null]);
 

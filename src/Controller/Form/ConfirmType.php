@@ -12,7 +12,7 @@ class ConfirmType extends AbstractType
     /**
      * {@inheritdoc}
      */
-    public function buildForm(FormBuilderInterface $builder, array $options): void
+    public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
             ->add('OUI', SubmitType::class, ['label' => 'OUI'])

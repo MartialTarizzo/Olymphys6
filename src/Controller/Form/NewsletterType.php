@@ -18,7 +18,7 @@ class NewsletterType extends AbstractType
     /**
      * {@inheritdoc}
      */
-    public function buildForm(FormBuilderInterface $builder, array $options): void
+    public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $texteini = $options['textini'];
         $builder->add('name', TextType::class)
@@ -39,7 +39,7 @@ class NewsletterType extends AbstractType
     /**
      * {@inheritdoc}
      */
-    public function configureOptions(OptionsResolver $resolver): void
+    public function configureOptions(OptionsResolver $resolver)
     {
         $resolver->setDefaults(array(
             'data_class' => Newsletter::class,

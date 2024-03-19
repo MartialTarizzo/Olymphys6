@@ -15,7 +15,7 @@ class NotesType extends AbstractType
     /**
      * {@inheritdoc}
      */
-    public function buildForm(FormBuilderInterface $builder, array $options): void
+    public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $this->EST_PasEncoreNotee = $options['EST_PasEncoreNotee'];
         $this->EST_Lecteur = $options['EST_Lecteur'];
@@ -81,7 +81,7 @@ class NotesType extends AbstractType
     /**
      * {@inheritdoc}
      */
-    public function configureOptions(OptionsResolver $resolver): void
+    public function configureOptions(OptionsResolver $resolver)
     {
         $resolver->setDefaults(array(
             'data_class' => 'App\Entity\Notes',

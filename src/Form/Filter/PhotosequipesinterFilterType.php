@@ -21,7 +21,7 @@ class PhotosequipesinterFilterType extends FilterType
 
     }
 
-    public function filter(QueryBuilder $queryBuilder, FormInterface $form, array $metadata): QueryBuilder
+    public function filter(QueryBuilder $queryBuilder, FormInterface $form, array $metadata)
     {
 
 
