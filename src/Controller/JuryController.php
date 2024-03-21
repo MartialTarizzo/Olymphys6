@@ -900,7 +900,7 @@ class JuryController extends AbstractController
         foreach ($conseils as $conseil) {
             $equipe=$conseil->getEquipe();
 
-            $textlines = explode("\r\n", $conseil->getTexte());
+            $textlines = explode("</p>", $conseil->getTexte());
 
             $section->addTitle($equipe->getEquipeinter()->getLettre().' : '.$equipe->getEquipeinter()->getTitreProjet(),1);
             $section->addTextBreak();
@@ -915,10 +915,11 @@ class JuryController extends AbstractController
 
                //$line=preg_replace('/<\/p>/', '',$line);
                 //dump($line);
+                $line=$line.'</p>';
                 $line=preg_replace('/&lt;&lt;/', '"',$line);//caractères << ou >>  génèrent une erreur de codage et le fichier word ne s'ouvre pas convenablement
                 $line=preg_replace('/&gt;&gt;/', '"',$line);//
 
-               if(str_contains('style="font-size:11pt">style="font-family:"Calibri",sans-serif">',$line)){
+             /*  if(str_contains('style="font-size:11pt">style="font-family:"Calibri",sans-serif">',$line)){
                    $line=str_replace('style="font-size:11pt">style="font-family:"Calibri",sans-serif">','',$line);
 
                }
@@ -930,7 +931,7 @@ class JuryController extends AbstractController
                 $line=preg_replace('/<\/span>/', '',$line);
                 if(str_contains($line, '<p ')){
                     $line=$line.'</p>';
-                }
+                }*/
                 $error=false;
                 try {
                     Html::addHtml($section, $line);//très sensible aux tags ouverts et fermés : erreur sinon
