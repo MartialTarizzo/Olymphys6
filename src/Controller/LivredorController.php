@@ -512,7 +512,7 @@ class LivredorController extends AbstractController
         );
         $response->headers->set('Content-Type', 'application/msword');
         $response->headers->set('Content-Disposition', $disposition);
-        $filesystem->remove($this->getParameter('app.path.tempdirectory') . '/' . $fileName);
+        //$filesystem->remove($this->getParameter('app.path.tempdirectory') . '/' . $fileName);
         return $response;
 
 

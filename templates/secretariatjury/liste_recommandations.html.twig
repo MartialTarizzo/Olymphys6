@@ -13,6 +13,8 @@
 {% block titre3 %} Recommandations du jury{% endblock %}
 
 {% block body %}
+    <div class="row"><a href="{{ path('cyberjury_create_file_advice') }}"><button class="btn btn-primary">Obtenir le fichier word</button></a></div>
+
     {% if recommandations!=null %}
         <div class="container-fluid">
             <div class="row" style="text-align: center;font-size: larger;font-weight: bold">

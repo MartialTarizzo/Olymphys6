@@ -2053,7 +2053,7 @@ class SecretariatjuryController extends AbstractController
         return new Response($content);
     }
 
-    #[IsGranted('ROLE_SUPER_ADMIN')]
+    #[IsGranted('ROLE_COMITE')]
     #[Route("secretariatjury/liste_recommandations", name: "secretariatjury_liste_recommandations")]
     public function liste_recommandations(Request $request): Response
     {

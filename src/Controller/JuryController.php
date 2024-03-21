@@ -32,6 +32,14 @@ use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\RequestStack;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
+use PhpOffice\PhpWord\IOFactory;
+use PhpOffice\PhpWord\PhpWord;
+use PhpOffice\PhpWord\Shared\Html;
+use PhpOffice\PhpWord\Style\Cell;
+use Symfony\Component\HttpFoundation\HeaderUtils;
+use Symfony\Component\Filesystem\Filesystem;
+use Symfony\Component\String\UnicodeString;
+use function symfony\component\string\u;
 
 class JuryController extends AbstractController
 {
@@ -867,16 +875,111 @@ class JuryController extends AbstractController
     }
     #[IsGranted('ROLE_COMITE')]
     #[Route("/createFileAdvice", name: "cyberjury_create_file_advice")]
-    public function createFileAdvice(Request $request, Equipes $equipe, $id): RedirectResponse|Response
+    public function createFileAdvice(Request $request): RedirectResponse|Response
     {
 
-        $conseils=$this->doctrine->getRepository(RecommandationsJuryCn::class)->findAll();
-        $phpWord = new  PhpWord();
-        $section = $phpWord->addSection();
+        $conseils=$this->doctrine->getRepository(RecommandationsJuryCn::class)->createQueryBuilder('c')
+        ->leftJoin('c.equipe','eq')
+        ->leftJoin('eq.equipeinter','equi')
+        ->orderBy('equi.lettre','ASC')
+        ->getQuery()->getResult();
+        $phpWord = new \PhpOffice\PhpWord\PhpWord();
+        $phpWord->setDefaultFontName('Verdana');
+        $fontStyleName = 'rStyle';
+        $phpWord->addFontStyle($fontStyleName, ['bold' => true, 'italic' => true, 'size' => 16, 'allCaps' => true, 'doubleStrikethrough' => true]);
+        $texteStyle='styletexte';
+        $phpWord->addFontStyle($texteStyle, ['size' => 12, 'alignment' => \PhpOffice\PhpWord\SimpleType\Jc::LEFT]);
 
+        $paragraphStyleName = 'pStyle';
+        $phpWord->addParagraphStyle($paragraphStyleName, ['alignment' => \PhpOffice\PhpWord\SimpleType\Jc::CENTER, 'spaceAfter' => 100]);
+
+        $phpWord->addTitleStyle(1, ['bold' => true], ['spaceAfter' => 240]);
+        $section = $phpWord->addSection();
+        $i=0;
+        $textrun=[];
+        foreach ($conseils as $conseil) {
+            $equipe=$conseil->getEquipe();
+
+            $textlines = explode("\r\n", $conseil->getTexte());
+
+            $section->addTitle($equipe->getEquipeinter()->getLettre().' : '.$equipe->getEquipeinter()->getTitreProjet(),1);
+            $section->addTextBreak();
+
+            foreach ($textlines as $line) {
+                //str_replace('<br>', '<br />', $line);
+               //$line=htmlspecialchars_decode($line);
+                //$line=rtrim($line);
+
+                //$line=preg_replace('/<body>/', '',$line);
+               //$line=preg_replace('/<p>/', '',$line);
+
+               //$line=preg_replace('/<\/p>/', '',$line);
+                //dump($line);
+                $line=preg_replace('/&lt;&lt;/', '"',$line);//caractères << ou >>  génèrent une erreur de codage et le fichier word ne s'ouvre pas convenablement
+                $line=preg_replace('/&gt;&gt;/', '"',$line);//
+
+               if(str_contains('style="font-size:11pt">style="font-family:"Calibri",sans-serif">',$line)){
+                   $line=str_replace('style="font-size:11pt">style="font-family:"Calibri",sans-serif">','',$line);
+
+               }
+
+                $line=preg_replace('/<p>/', '',$line);
+                $line=preg_replace('/<\/p>/', '',$line);
+                $line=preg_replace('/<br \/>/', '',$line);
+                $line=preg_replace('/<span /', '',$line);
+                $line=preg_replace('/<\/span>/', '',$line);
+                if(str_contains($line, '<p ')){
+                    $line=$line.'</p>';
+                }
+                $error=false;
+                try {
+                    Html::addHtml($section, $line);//très sensible aux tags ouverts et fermés : erreur sinon
+                }
+                catch(Exception $e){ //saute les erreurs dues aux tags non fermés ou l'inverse
+
+                   $error=true;
+                }
+
+
+
+
+                // $textrun[$i] = $section->addTextRun(['align' => 'left']);
+                // maybe twice if you want to seperate the text
+                // $textrun->addTextBreak(2);
+                //$textrun[$i]->addText($line);
+
+                $section->addTextBreak();
+                $i=$i+1;
+            }
+
+            $section->addTextBreak(3);
+            //$section->addLine($lineStyle);
+            $section->addText('------');
+        }
+       ;
+        try {
+            $objWriter = IOFactory::createWriter($phpWord,  'Word2007');
+        } catch (\PhpOffice\PhpWord\Exception\Exception $e) {
+
+        }
+        $fileName = 'recommandations_jury_cn_'.$this->requestStack->getSession()->get('editionN1')->getConcoursCn()->format('Y').'.doc';
+        $objWriter->save('../public/temp/'. $fileName, 'Word2007');
+
+        $response = new Response(file_get_contents($this->getParameter('app.path.tempdirectory') . '/' . $fileName));//voir https://stackoverflow.com/questions/20268025/symfony2-create-and-download-zip-file
+        $disposition = HeaderUtils::makeDisposition(
+            HeaderUtils::DISPOSITION_ATTACHMENT,
+            $fileName
+        );
+
+        $filesystem = new Filesystem();
+        $response->headers->set('Content-Type', 'application/msword');
+        $response->headers->set('Content-Disposition', $disposition);
+        //$filesystem->remove($this->getParameter('app.path.tempdirectory') . '/' . $fileName);
+        return $response;
 
 
 
 
     }
+
 }
