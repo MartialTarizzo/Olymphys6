@@ -906,32 +906,12 @@ class JuryController extends AbstractController
             $section->addTextBreak();
 
             foreach ($textlines as $line) {
-                //str_replace('<br>', '<br />', $line);
-               //$line=htmlspecialchars_decode($line);
-                //$line=rtrim($line);
 
-                //$line=preg_replace('/<body>/', '',$line);
-               //$line=preg_replace('/<p>/', '',$line);
-
-               //$line=preg_replace('/<\/p>/', '',$line);
-                //dump($line);
                 $line=$line.'</p>';
                 $line=preg_replace('/&lt;&lt;/', '"',$line);//caractères << ou >>  génèrent une erreur de codage et le fichier word ne s'ouvre pas convenablement
                 $line=preg_replace('/&gt;&gt;/', '"',$line);//
 
-             /*  if(str_contains('style="font-size:11pt">style="font-family:"Calibri",sans-serif">',$line)){
-                   $line=str_replace('style="font-size:11pt">style="font-family:"Calibri",sans-serif">','',$line);
 
-               }
-
-                $line=preg_replace('/<p>/', '',$line);
-                $line=preg_replace('/<\/p>/', '',$line);
-                $line=preg_replace('/<br \/>/', '',$line);
-                $line=preg_replace('/<span /', '',$line);
-                $line=preg_replace('/<\/span>/', '',$line);
-                if(str_contains($line, '<p ')){
-                    $line=$line.'</p>';
-                }*/
                 $error=false;
                 try {
                     Html::addHtml($section, $line);//très sensible aux tags ouverts et fermés : erreur sinon
@@ -940,14 +920,6 @@ class JuryController extends AbstractController
 
                    $error=true;
                 }
-
-
-
-
-                // $textrun[$i] = $section->addTextRun(['align' => 'left']);
-                // maybe twice if you want to seperate the text
-                // $textrun->addTextBreak(2);
-                //$textrun[$i]->addText($line);
 
                 $section->addTextBreak();
                 $i=$i+1;
