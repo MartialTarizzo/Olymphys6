@@ -74,14 +74,16 @@ class Mailer
     /**
      * @throws TransportExceptionInterface
      */
-    public function sendConfirmFile(Equipesadmin $equipe, $type_fichier, $user): Email
-    {
+    public function sendConfirmFile(Equipesadmin $equipe, $type_fichier, $user,$fichier): Email
+    {    //dd($fichier);
         $email = (new TemplatedEmail())
             ->from('info@olymphys.fr')
             ->to('webmestre2@olymphys.fr')
             ->addCc('webmestre3@olymphys.fr');//'webmestre2@olymphys.fr', 'Denis'
         if ($type_fichier == 'fiche securité(présentation)' or $type_fichier == 'fiche securité(exposition)') {
-            $email->addCc('lahmidani.fouad@free.fr', 'pascale.rv@gmail.com', 'claire.chalnot@gmail.com');
+
+            $email->addCc('lahmidani.fouad@free.fr', 'pascale.rv@gmail.com', 'claire.chalnot@gmail.com')
+            ->attachFromPath('odpf/odpf-archives/'.$this->requestStack->getSession()->get('edition')->getEd().'/fichiers/fichessecur/'.$fichier->getFileName());
         }
         $equipe->getSelectionnee() == true ? $infoequipe = $equipe->getInfoequipe() : $infoequipe = $equipe->getInfoequipenat();
         $email->htmlTemplate('email/confirm_fichier.html.twig')

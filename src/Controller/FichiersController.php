@@ -312,7 +312,7 @@ class FichiersController extends AbstractController
                     }
                 }
             }
-            /** @var UploadedFile $file */
+
             $file = $form1->get('fichier')->getData();
 
             $num_type_fichier = $form1->get('choice')->getData();
@@ -427,6 +427,7 @@ class FichiersController extends AbstractController
                     $em->persist($fichier);
                     $em->flush();
                     $nom_fichier = $fichier->getFichier();
+
                 } catch (FileException $e) {
                     $message = 'Une erreur est survenue, le fichier n\'a pas été déposé, veuillez prévenir l\'administrateur du site';
                     $request->getSession()
@@ -467,14 +468,14 @@ class FichiersController extends AbstractController
                 if ($equipe->getRetiree() != true) {
 
                     //$this->MailConfirmation($mailer, $type_fichier, $info_equipe);
-                    $service_mailer_->sendConfirmFile($equipe, $type_fichier, $this->getUser());
+                    $service_mailer_->sendConfirmFile($equipe, $type_fichier, $this->getUser(),$file);
                 } else {
                     if (($type_fichier == 'mémoire') or ($type_fichier == 'annexe')) {
 
                         $this->MailAvertissement($mailer, $type_fichier, $equipe);
                     } else {
                         //$this->MailConfirmation($mailer, $type_fichier, $info_equipe);
-                        $service_mailer_->sendConfirmFile($equipe, $type_fichier, $this->getUser());
+                        $service_mailer_->sendConfirmFile($equipe, $type_fichier, $this->getUser(),$fichier);
 
                     }
 

@@ -318,8 +318,8 @@ class UtilisateurController extends AbstractController
     }
 
     #[IsGranted('ROLE_PROF')]
-    public function verific_nb_equipes($user): Boolean
-    {
+    public function verific_nb_equipes($user): bool
+    {   $test=false;
         $repo = $this->doctrine->getManager()->getRepository(Equipesadmin::class);
         $equipes = $repo->createQueryBuilder('e')
             ->where('e.edition =:edition')

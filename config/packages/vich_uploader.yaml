@@ -1,7 +1,13 @@
 vich_uploader:
+  twig: true            # set to false to disable twig integration
+  form: true            # set to false to disable form integration
+  storage: file_system  # or gaufrette or flysystem
+
   db_driver: orm
 
   metadata:
+    auto_detection: true
+    cache: file
     type: attribute
   mappings:
 
@@ -15,8 +21,9 @@ vich_uploader:
         service: vich_uploader.namer_directory_property
         options: { property: 'directoryName' }
       namer:
-        service: vich_uploader.namer_property
-        options: { property: 'personalNamer' }
+        service : Vich\UploaderBundle\Naming\PropertyNamer
+        options : {property : 'personalNamer'}
+
     odpfFichierspasses:
       uri_prefix: '%app.path.odpf_archives%'
       upload_destination: '%app.path.odpf_archives%'
