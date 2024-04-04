@@ -1,0 +1,63 @@
+{% extends "base1.html.twig" %}
+{% block title %} Recommandations {% endblock %}
+
+
+
+{% block navigation %}
+    {% if is_granted('ROLE_SUPER_ADMIN') %}
+        {{ include ('secretariatjury/navigation.html.twig') }}
+
+    {% endif %}
+
+{% endblock %}
+{% block titre3 %} Recommandations du jury{% endblock %}
+
+{% block body %}
+    <div class="row"><a href="{{ path('cyberjury_create_file_advice') }}"><button class="btn btn-primary">Obtenir le fichier word</button></a></div>
+
+    {% if recommandations!=null %}
+        <div class="container-fluid">
+            <div class="row" style="text-align: center;font-size: larger;font-weight: bold">
+                <div class="col-1">
+                    Lettre
+                </div>
+                <div class="col-4">
+                    Nom équipe
+                </div>
+                <div class="col-4">
+                    Recommandation
+                </div>
+                <div class="col-3">
+                </div>
+            </div>
+            <div>
+                <hr>
+            </div>
+            {% for recommandation in recommandations %}
+
+                <div class="row">
+                    <div class="col-1">
+                        <a
+                                class="btn btn-primary btn-lg"
+                                href="#">{{ recommandation.equipe.equipeinter.lettre }}</a>
+                    </div>
+                    <div class="col-4">
+                        {{ recommandation.equipe.equipeinter.titreProjet }}
+                    </div>
+                    <div class="col-4">{{ recommandation.texte|raw }}
+                    </div>
+                    <div class="col-3">
+                        <a href="{{ path('secretariatjury_modif_recommandations',{'id':recommandation.id}) }}"
+                           type="button" class="fas fa-pencil-alt" title="Modifier"></a>
+                        <a href="#" data-toggle="modal" data-target="#modalenvoiconseilscn"
+                           data-id="{{ recommandation.id }}"
+                           type="button" class="fas fa-envelope" title="Envoyer"></a>
+                    </div>
+
+                </div>
+                <hr>
+            {% endfor %}
+        </div>
+    {% endif %}
+    {{ include('modales/modale_envoi_conseils_jurycn.html.twig') }}
+{% endblock %}
