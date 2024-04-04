@@ -50,8 +50,10 @@ use EasyCorp\Bundle\EasyAdminBundle\Provider\AdminContextProvider;
 use EasyCorp\Bundle\EasyAdminBundle\Router\AdminUrlGenerator;
 use Exception;
 
+use setasign\Fpdi\PdfParser\CrossReference\AbstractReader;
 use Symfony\Component\DependencyInjection\ParameterBag\ParameterBagInterface;
 use Symfony\Component\HttpFoundation\BinaryFileResponse;
+use Symfony\Component\HttpFoundation\File\UploadedFile;
 use Symfony\Component\HttpFoundation\HeaderUtils;
 use Symfony\Component\HttpFoundation\RequestStack;
 use Symfony\Component\HttpFoundation\Response;
@@ -72,6 +74,7 @@ class FichiersequipesCrudController extends AbstractCrudController
     private ParameterBagInterface $parameterBag;
     private EntityManagerInterface $em;
     private ManagerRegistry $doctrine;
+    private AdminUrlGenerator $adminUrlGenerator;
 
 
     public function __construct(RequestStack $requestStack, AdminContextProvider $adminContextProvider, ValidatorInterface $validator, EntityManagerInterface $entitymanager, ParameterBagInterface $parameterBag, ManagerRegistry $doctrine, AdminUrlGenerator $adminUrlGenerator)
@@ -79,7 +82,7 @@ class FichiersequipesCrudController extends AbstractCrudController
         $this->requestStack = $requestStack;
         $this->adminContextProvider = $adminContextProvider;
         $this->validator = $validator;
-
+        $this->adminUrlGenerator = $adminUrlGenerator;
         $this->parameterBag = $parameterBag;
         $this->em = $entitymanager;
         $this->doctrine = $doctrine;
@@ -312,7 +315,7 @@ class FichiersequipesCrudController extends AbstractCrudController
     }
 
 
-    #[Route("/Admin/FichiersequipesCrud/telechargerFichierss,{ideditionequipe}", name: "telechargerFichiers")]
+    #[Route("/Admin/FichiersequipesCrud/telechargerFichiers,{ideditionequipe}", name: "telechargerFichiers")]
     public function telechargerFichiers(AdminContext $context, $ideditionequipe)
     {
         $session = $this->requestStack->getSession();
@@ -328,26 +331,65 @@ class FichiersequipesCrudController extends AbstractCrudController
         $idEquipe = explode('-', $ideditionequipe)[1];
         $concours = explode('-', $ideditionequipe)[2];
 
+        $concours == '0' ? $national = false : $national = true;
+        $concours == '0' ? $selectionnee = false : $selectionnee = true;
+        $qb = $this->doctrine->getManager()->getRepository(Fichiersequipes::class)->CreateQueryBuilder('f');
+        $qb->leftJoin('f.equipe', 'eq');
 
-        $qb = $this->doctrine->getManager()->getRepository(Fichiersequipes::class)->CreateQueryBuilder('f')
-            ->andWhere('f.national =:concours')
-            ->setParameter('concours', $concours);
+        if ($concours == 1 and $typefichier != 6) {
+            $qb->andWhere('eq.selectionnee =:selectionnee')
+                ->setParameter('selectionnee', $selectionnee);
+
+        }
 
         if ($typefichierfiltre == 'na') {
             if ($typefichier == 0) {
-                $qb->andWhere('f.typefichier <= 1');
-            } else {
+                $qb->andWhere('f.typefichier <= 1')
+                    ->andWhere('f.national =:national')
+                    ->setParameter('national', $national);
 
-                $qb->andWhere('f.typefichier =:typefichier')
-                    ->setParameter('typefichier', $typefichier);
+            }
+            if ($typefichier > 1) {
+                if ($typefichier != 4) {
+                    $qb->andWhere('f.typefichier =:typefichier')
+                        ->andWhere('f.national =:national')
+                        ->setParameter('typefichier', $typefichier)
+                        ->setParameter('national', $national);
+                }
+                if ($typefichier == 4) {
+                    $qb->andWhere('f.typefichier=:typefichier OR f.typefichier =:valeur')
+                        ->setParameter('valeur', 8)
+                        ->setParameter('typefichier', $typefichier);
+
+                }
+                if ($typefichier != 6 and $typefichier != 4) {
+                    $qb->andWhere('f.national =:concours')
+                        ->setParameter('concours', $concours);
+                }
+
             }
         }
         if ($typefichierfiltre != 'na') {
-            $qb->andWhere('f.typefichier =:typefichier')
-                ->setParameter('typefichier', $typefichier);
+            if ($typefichier == 0) {
+                $qb->andWhere('f.typefichier <= 1')
+                    ->setParameter('typefichier', $typefichier);;
+            }
+            if ($typefichier > 1) {
+
+                $qb->andWhere('f.typefichier =:typefichier')
+                    ->setParameter('typefichier', $typefichier);
+
+                if ($typefichier == 4) {
+                    $qb->andWhere('f.typefichier =:typefichier OR f.typefichier =:valeur')
+                        ->setParameter('valeur', 8)
+                        ->setParameter('typefichier', $typefichier);
+
+                }
+            }
         }
         if ($idEdition == 'na') {
-            $edition = $session->get('edition');
+            $editionId = $session->get('edition')->getId();
+            $edition = $repositoryEdition->find($editionId);
             if (new DateTime('now') < $session->get('edition')->getDateouverturesite()) {
                 $edition = $repositoryEdition->findOneBy(['ed' => $edition->getEd() - 1]);
             }
@@ -356,9 +398,8 @@ class FichiersequipesCrudController extends AbstractCrudController
 
         }
         if ($this->requestStack->getSession()->get('concours') == 1) {
-            $qb->leftJoin('f.equipe', 'eq')
-                ->andWhere('eq.selectionnee = TRUE')
-                ->addOrderBy('eq.lettre', 'ASC');
+
+            $qb->addOrderBy('eq.lettre', 'ASC');
 
         }
         if ($idEquipe != 'na') {
@@ -370,6 +411,7 @@ class FichiersequipesCrudController extends AbstractCrudController
         }
         $qb->andWhere('f.edition =:edition')
             ->setParameter('edition', $edition);
+
         $fichiers = $qb->getQuery()->getResult();
 
         if ($fichiers != []) {
@@ -613,7 +655,7 @@ class FichiersequipesCrudController extends AbstractCrudController
         })->setFormTypeOptions(['placeholder' => 'Non',
             'required' => false,
             'mapped' => true,]);
-        $editionEd = TextareaField::new('edition.ed', 'Edition');
+        $editionEd = TextareaField::new('edition', 'Edition');
         $equipelibel = AssociationField::new('equipe', 'Equipe')->setSortable(true);
         if ($numtypefichier != 6) {
             $equipeNumero = IntegerField::new('equipe.numero', 'numero')->setSortable(true);
@@ -631,7 +673,11 @@ class FichiersequipesCrudController extends AbstractCrudController
             }
         }
         if (Crud::PAGE_DETAIL === $pageName) {
-            return [$id, $fichier, $typefichier, $national, $publie, $updatedAt, $nomautorisation, $edition, $equipe, $eleve, $prof];
+            if ($numtypefichier == 6) {
+                return [$fichier, $nomautorisation, $typefichier, $updatedAt, $nomautorisation, $eleve, $prof];
+            } else {
+                return [$fichier, $typefichier, $national, $publie, $updatedAt, $edition, $equipe];
+            }
         }
         if (Crud::PAGE_NEW === $pageName) {
 
@@ -665,111 +711,160 @@ class FichiersequipesCrudController extends AbstractCrudController
 
     public function createIndexQueryBuilder(SearchDto $searchDto, EntityDto $entityDto, FieldCollection $fields, FilterCollection $filters): QueryBuilder
     {
-        $qb = $this->container->get(EntityRepository::class)->createQueryBuilder($searchDto, $entityDto, $fields, $filters);
+        $repositoryEquipe = $this->doctrine->getRepository(Equipesadmin::class);
+        $repositoryEdition = $this->doctrine->getRepository(Edition::class);
+        $repositoryFichiers = $this->doctrine->getRepository(Fichiersequipes::class);
+        $qb = $repositoryFichiers->createQueryBuilder('entity');
+        $qb->leftJoin('entity.equipe', 'eq');
         $session = $this->requestStack->getSession();
         $context = $this->adminContextProvider->getContext();
         $typefichier = $context->getRequest()->query->get('typefichier');
-        if (!isset($_REQUEST['filters']['equipe'])) {
 
-            $repositoryEdition = $this->doctrine->getRepository(Edition::class);
-            $edition = $this->requestStack->getSession()->get('edition');
-            if (new DateTime('now') < $this->requestStack->getSession()->get('edition')->getDateouverturesite()) {
-                $edition = $repositoryEdition->findOneBy(['ed' => $edition->getEd() - 1]);
-            }
-            $repositoryEquipe = $this->doctrine->getRepository(Equipesadmin::class);
+        $concours = $context->getRequest()->query->get('concours');
 
-
+        $concours == '0' ? $national = 0 : $national = 1;
+        $concours == '0' ? $selectionnee = false : $selectionnee = true;
+        $edition = $repositoryEdition->find($this->requestStack->getSession()->get('edition')->getId());
+        $qb->andWhere('entity.edition =:edition');
+        if (new DateTime('now') < $this->requestStack->getSession()->get('edition')->getDateouverturesite()) {
+            $edition = $repositoryEdition->findOneBy(['ed' => $edition->getEd() - 1]);
+        }
+        if (!isset($_REQUEST['filters'])) {
+            //$qb->andWhere('entity.typefichier =:typefichier');
+            $qb->setParameter('edition', $edition);
             if ($typefichier == null) {
                 $typefichier = $this->requestStack->getSession()->get('typefichier');
             }
+            if ($typefichier == 0) {
+                $qb->andWhere('entity.typefichier <=:typefichier');
+                $typefichier = $typefichier + 1;
+            }
+            if ($typefichier > 1) {
+                if ($typefichier != 4) {
+                    $qb->andWhere('entity.typefichier=:typefichier');
+                }
 
-            $concours = $context->getRequest()->query->get('concours');
+                if ($typefichier == 4) {
+                    $qb->andWhere('entity.typefichier=:typefichier OR entity.typefichier=:valeur')
+                        ->setParameter('valeur', 8);
+                }
+            }
+            $qb->setParameter('typefichier', $typefichier);
 
-            $concours == '0' ? $national = false : $national = true;
+            if ($concours == 1 and $typefichier != 6) {
+                $qb->andWhere('eq.selectionnee =:selectionnee')
+                    ->setParameter('selectionnee', $selectionnee);
+            }
+            if ($typefichier != 6) {
+                if ($typefichier != 4) {
+                    if ($typefichier != 8) {
+                        $qb->andWhere('entity.national =:concours')
+                            ->setParameter('concours', $concours);
+
+                    }
+                }
+            }
 
 
-            $qb->andWhere('entity.national =:national')
-                ->setParameter('national', $national);
-            $qb->andWhere('entity.edition =:edition');
-
-
-            if (!isset($_REQUEST['filters'])) {
+        }
+        if (isset($_REQUEST['filters'])) {
+            if (isset($_REQUEST['filters']['equipe'])) {
+                $idEquipe = $_REQUEST['filters']['equipe'];
+                $equipe = $repositoryEquipe->find($idEquipe);
                 if ($typefichier == 0) {
                     $qb->andWhere('entity.typefichier <=:typefichier');
                     $typefichier = $typefichier + 1;
                 }
                 if ($typefichier > 1) {
-                    $qb->andWhere('entity.typefichier=:typefichier');
-                }
-                $qb->setParameter('edition', $edition);
-                $qb->setParameter('typefichier', $typefichier);
+                    if ($typefichier != 4) {
+                        $qb->andWhere('entity.typefichier=:typefichier');
+                    }
 
+                    if ($typefichier == 4) {
+                        $qb->andWhere('entity.typefichier=:typefichier OR entity.typefichier=:valeur')
+                            ->setParameter('valeur', 8);
+                    }
+                }
+                $qb->andWhere('entity.equipe =:equipe')
+                    ->setParameter('equipe', $equipe)
+                    ->setParameter('edition', $equipe->getEdition())
+                    ->setParameter('typefichier', $typefichier);
             } else {
                 if (!isset($_REQUEST['filters']['edition'])) {
                     $qb->setParameter('edition', $edition);
+
                 } else {
                     $idEdition = $_REQUEST['filters']['edition'];
                     $edition = $repositoryEdition->findOneBy(['id' => $idEdition]);
                     $session->set('titreedition', $edition);
-                    if (!isset($_REQUEST['filters']['typefichier'])) {
-                        if ($typefichier == 0) {
-                            $qb->andWhere('entity.typefichier <=:typefichier');
-                            $typefichier = $typefichier + 1;
-                        }
-                        if ($typefichier > 1) {
-                            $qb->andWhere('entity.typefichier=:typefichier');
-                        }
-                        $qb->setParameter('typefichier', $typefichier);
+                    $qb->setParameter('edition', $edition);
+                }
+                if (isset($_REQUEST['filters']['typefichier'])) {
+                    $typefichier = $_REQUEST['filters']['typefichier'];
+                }
+
+                if ($typefichier == 0) {
+                    $qb->andWhere('entity.typefichier <=:typefichier');
+                    $typefichier = $typefichier + 1;
+                }
+                if ($typefichier > 1) {
+                    if ($typefichier != 4) {
+                        $qb->andWhere('entity.typefichier=:typefichier');
+                    }
+
+                    if ($typefichier == 4) {
+                        $qb->andWhere('entity.typefichier=:typefichier OR entity.typefichier=:valeur')
+                            ->setParameter('valeur', 8);
                     }
                 }
-                $qb->setParameter('edition', $edition);
+
+                $qb->setParameter('typefichier', $typefichier);
+
+                if ($concours == 1 and $typefichier != 6) {
+                    $qb->andWhere('eq.selectionnee =:selectionnee')
+                        ->setParameter('selectionnee', $selectionnee);
+                }
+                if ($typefichier != 6) {
+                    if ($typefichier != 4) {
+                        if ($typefichier != 8) {
+                            $qb->andWhere('entity.national =:concours')
+                                ->setParameter('concours', $concours);
+
+                        }
+                    }
+                }
             }
-            $qb->leftJoin('entity.equipe', 'eq');
-            if ((($typefichier == 4) or ($typefichier == 8)) and ($concours == 1)) {//affiche uniquement les fiches sécurité expo et oral des équipes sélectionnées pour le choix du concours national
+        }
 
-                $qb->andWhere('eq.selectionnee = TRUE')
-                    ->orWhere('entity.typefichier =:type')//condition ou pour les fiches secur expo du national
-                    ->setParameter('type', 8);;
-            } elseif ($typefichier != 6) {//Les autorisations photos ne tiennent pas compte du caractère national du concours cette condition n'a pas être testée pour elles
 
-                $qb->andWhere('entity.national =:concours')
-                    ->setParameter('concours', $concours);
+        if (isset($_REQUEST['sort'])) {
+            $qb->resetDQLPart('orderBy');;
+            $sort = $_REQUEST['sort'];
+            if (key($sort) == 'equipe.lettre') {
+                $qb->addOrderBy('eq.lettre', $sort['equipe.lettre']);
+            }
+            if (key($sort) == 'equipe.numero') {
+                $qb->addOrderBy('eq.numero', $sort['equipe.numero']);
+            }
+            if (key($sort) == 'fichier') {
+                $qb->addOrderBy('entity.fichier', $sort['fichier']);
             }
 
-
-            if (isset($_REQUEST['sort'])) {
-                $qb->resetDQLPart('orderBy');
-                $sort = $_REQUEST['sort'];
-                if (key($sort) == 'equipe.lettre') {
-                    $qb->addOrderBy('eq.lettre', $sort['equipe.lettre']);
-                }
-                if (key($sort) == 'equipe.numero') {
-                    $qb->addOrderBy('eq.numero', $sort['equipe.numero']);
-                }
-                if (key($sort) == 'fichier') {
-                    $qb->addOrderBy('entity.fichier', $sort['fichier']);
-                }
-
-                if (key($sort) == 'equipe.titreProjet') {
-                    $qb->addOrderBy('eq.titreProjet', $sort['equipe.titreProjet']);
-                }
-                if (key($sort) == 'updatedat') {
-                    $qb->addOrderBy('entity.updatedAt', $sort['updatedat']);
-                }
-            } else {
-                if ($concours == 0) {
-                    $qb->addOrderBy('eq.numero', 'ASC');
-                }
-                if ($concours == 1) {
-                    $qb->addOrderBy('eq.lettre', 'ASC');
-                }
-
-
+            if (key($sort) == 'equipe.titreProjet') {
+                $qb->addOrderBy('eq.titreProjet', $sort['equipe.titreProjet']);
             }
         } else {
-
-            $session->set('titreedition', $this->getParameter('type_fichier_lit')[$typefichier]);
+            if ($concours == 0) {
+                $qb->addOrderBy('eq.numero', 'ASC');
+            }
+            if ($concours == 1) {
+                $qb->addOrderBy('eq.lettre', 'ASC');
+            }
         }
+
+        $session->set('titreedition', $this->getParameter('type_fichier_lit')[$typefichier]);
+
+
         return $qb;
     }
 
@@ -839,10 +934,11 @@ class FichiersequipesCrudController extends AbstractCrudController
         $concours == '0' ? $concours = 0 : $concours = 1;
         $session = $this->requestStack->getSession();
         $repositoryEdition = $this->doctrine->getRepository(Edition::class);
-        $editionId = $session->get('edition');
+        $editionId = $session->get('edition')->getId();
 
         //$edition = $this->doctrine->getRepository(Edition::class)->findOneBy(['id' => $editionId]);
         $edition = $entityInstance->getEquipe()->getEdition();
+        $entityInstance->setEdition($edition);
         $validator = new valid_fichiers($this->validator, $this->parameterBag, $this->requestStack);
         $dateconect = new DateTime('now');
         $equipe = $entityInstance->getEquipe();
@@ -864,18 +960,18 @@ class FichiersequipesCrudController extends AbstractCrudController
         } else {
             if ($typefichier != 6) {
                 $entityInstance->setNational($concours);
-                $oldfichier = $repositoryFichiers->createQueryBuilder('f')
-                    ->where('f.equipe =:equipe')
+                $oldfichier = $repositoryFichiers->createQueryBuilder('f')//Pour vérifier si l'équipe choisie n'a pas déposé ce fichier, le choix des équipes ne filtrant pas ces dernières
+                ->where('f.equipe =:equipe')
                     ->setParameter('equipe', $equipe)
                     ->andWhere('f.typefichier =:typefichier')
                     ->setParameter('typefichier', $entityInstance->getTypefichier())->getQuery()->getOneOrNUllResult();
 
-                if (null !== $oldfichier) {
-                    $oldfichier->setFichierFile($entityInstance->getFichierFile());
+                if (null !== $oldfichier) {//Ce fichier existe déjà
+                    $oldfichier->setFichierFile($entityInstance->getFichierFile());//On remplace le fichier par le nouveau
                     $oldfichier->setNational($concours);
                     $this->em->persist($oldfichier);
                     $this->em->flush();
-
+                    //la création du fichier passé n'est pas à effectuer puisqu'il doit déjà exister, lié au fichier du même nom
                 } else {
 
                     if ($_REQUEST['concours'] == 0) {
@@ -889,17 +985,19 @@ class FichiersequipesCrudController extends AbstractCrudController
                     $this->em->flush();
                     $rempliEquipePassee = new OdpfRempliEquipesPassees($this->doctrine);
                     $rempliEquipePassee->RempliOdpfFichiersPasses($entityInstance);
-                    // parent::persistEntity($entityManager, $entityInstance);
+                    if (($entityInstance->getTypefichier() < 4) and ($entityInstance->getNational() == true)) {
+                        $this->fichierspublies($entityInstance);
+                    }
+                    //parent::persistEntity($entityManager, $entityInstance);
 
 
                 }
-                if (($entityInstance->getTypefichier() < 4) and ($entityInstance->getNational() == true)) {
-                    $this->fichierspublies($entityInstance);
-                }
+
 
             }
             if ($typefichier == 6) {
 
+                $entityInstance->setEdition($edition);
                 $entityInstance->setNational(0);
                 $citoyen = $entityInstance->getProf();
                 $quidam = 'Prof';
@@ -942,7 +1040,7 @@ class FichiersequipesCrudController extends AbstractCrudController
             }
 
         }
-        parent::persistEntity($entityManager, $entityInstance);
+
     }
 
     public function deleteEntity(EntityManagerInterface $entityManager, $entityInstance): void

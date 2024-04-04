@@ -121,12 +121,15 @@ class OdpfEditionspasseesController extends AbstractController
         } else {
             $academie = ', académie de ' . $equipe->getAcademie() . '.';
         }
-        //test du répertoire de travail
+        $texte = '';
+        if ($equipe->getEditionspassees()->getEdition() < $this->requestStack->getSession()->get('edition')->getEd()) {//Pour quelors de l'édtion en cours, on ne puisse pas accèder au texete de l'édition passée lui correspondant car pas achevée
+            if (explode(':', $_SERVER['SERVER_NAME'])[0] == 'localhost') {//test du répertoire de travail
 
-        if (explode(':', $_SERVER['SERVER_NAME'])[0] == 'localhost') {
-            $texte = '<a href="/odpf/editionspassees/editions?sel=' . $equipe->getEditionspassees()->getId() . '">Retour</a>';
-        } else {
-            $texte = '<a href="/../public/index.php/odpf/editionspassees/editions?sel=' . $equipe->getEditionspassees()->getId() . '">Retour</a>';
+                $texte = '<a href="/odpf/editionspassees/editions?sel=' . $equipe->getEditionspassees()->getId() . '">Retour</a>';
+
+            } else {
+                $texte = '<a href="/../public/index.php/odpf/editionspassees/editions?sel=' . $equipe->getEditionspassees()->getId() . '">Retour</a>';
+            }
         }
         //sur le site : <a href="/../public/index.php/odpf/editionspassees/editions?sel='.$equipe->getEditionspassees()->getId().'">Retour</a>
 
@@ -157,7 +160,7 @@ class OdpfEditionspasseesController extends AbstractController
     
                </table>';
         if ($equipe->getSelectionnee() == true) {
-            $texte = $texte . '<b>Sélectionnée pour le concours national</b><br>';
+            $texte = $texte . '<b>Sélectionnée pour le concours national, ' . $equipe->getPalmares() . ' prix, ' . $equipe->getPrix() . '</b><br>';
         }
         //$memoires=$this->em->getRepository(OdpfFichierspasses::class)->findBy(['equipepassee'=>$equipe]);
         $i = 0;

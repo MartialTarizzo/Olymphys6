@@ -9,6 +9,7 @@ use App\Entity\Edition;
 use App\Entity\Equipesadmin;
 use App\Entity\Orgacia;
 use App\Entity\User;
+use DateInterval;
 use DateTime;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
 use Doctrine\ORM\QueryBuilder;
@@ -135,38 +136,65 @@ class EquipesadminRepository extends ServiceEntityRepository
         $em = $this->getEntityManager();
         $editionN = $this->requestStack->getSession()->get('edition');
         $editionN1 = $this->doctrine->getRepository(Edition::class)->findOneBy(['ed' => $editionN->getEd() - 1]);
-        $concours == 'interacadémique' ? $selectionnee = false : $selectionnee = true;
+        $listeEquipes=null;
+
         if (new DateTime('now') > $editionN->getDateOuvertureSite()) {
             $edition = $editionN;
         } else {
             $edition = $editionN1;
 
         }
+        $concours == 'interacadémique' ? $selectionnee = false : $selectionnee = true;
         $qb = $em->getRepository(Equipesadmin::class)->createQueryBuilder('e')
-            ->andWhere('e.edition =:edition');
+            ->andWhere('e.edition =:edition')
+            ->setParameter('edition',$edition);
+        $date = new DateTime('now');
+        $dateouvertureSite = $this->requestStack->getSession()->get('edition')->getDateOuvertureSite();
+        //Cration d'un nouvel objet datelim, l'ajout simple de 20 jours avec la fonction add modifie l'objet $dateconcourscia sans créer un nouvel objet
+        $d = $this->requestStack->getSession()->get('edition')->getConcourscia()->format('d');
+        $m = $this->requestStack->getSession()->get('edition')->getConcourscia()->format('m');
+        $Y = $this->requestStack->getSession()->get('edition')->getConcourscia()->format('Y');
+        $datelim = new DateTime($d + 20 . '-' . $m . '-' . $Y);
+
+        if ($date > $dateouvertureSite and $date <= $datelim) {
+            //$datelim pour permettre au prof  de déposer les autorisations après les CIA pour les équipes non sélectionné.
+
+            if (in_array('ROLE_PROF', $user->getRoles()) and (!in_array('ROLE_JURY', $user->getRoles()))) {// à cause du juré qui est prof et juré selon les années
+                $qb->andWhere('e.idProf1 =:prof or e.idProf2 =:prof')
+                    ->setParameters(['edition' => $edition, 'prof' => $user]);
+
+            }
+        }
+        if ($date > $datelim) {
+
+            if (in_array('ROLE_PROF', $user->getRoles()) and (!in_array('ROLE_JURY', $user->getRoles()))) {// à cause du juré qui est prof et juré selon les années
+                $qb->andWhere('e.idProf1 =:prof or e.idProf2 =:prof')
+                    ->andWhere('e.selectionnee =:selectionnee')
+                    ->setParameters(['edition' => $edition, 'prof' => $user, 'selectionnee' => $selectionnee]);
+
+            }
+        }
 
 
         $concours == 'interacadémique' ? $qb->orderBy('e.numero', 'ASC') : $qb->orderBy('e.lettre', 'ASC');
 
-        if (in_array('ROLE_PROF', $user->getRoles()) and (!in_array('ROLE_JURY', $user->getRoles()))) {// à cause du juré qui est prof et juré selon les années
-            $qb->andWhere('e.idProf1 =:prof or e.idProf2 =:prof')
-                ->andWhere('e.selectionnee = :selectionnee')
-                ->setParameters(['edition' => $edition, 'prof' => $user, 'selectionnee' => $selectionnee]);
-            $listeEquipes = $qb->getQuery()->getResult();
-        }
+
         if ((in_array('ROLE_JURY', $user->getRoles())) or (in_array('ROLE_JURYCIA', $user->getRoles())) or (in_array('ROLE_COMITE', $user->getRoles())) or (in_array('ROLE_ORGACIA', $user->getRoles())) or (in_array('ROLE_SUPER_ADMIN', $user->getRoles()))) {
-            
+
             if ($centre != null) {
                 $listeEquipes = $this->getEquipeInter($centre);
+                return $listeEquipes;
             }
             if ($choix == 'liste_cn_comite') {
                 $qb->andWhere('e.numero <:valeur')
                     ->andWhere('e.selectionnee = 1')
                     ->setParameters(['edition' => $edition, 'valeur' => 100]);
-                $listeEquipes = $qb->getQuery()->getResult();
+
             }
 
         }
+
+        $listeEquipes = $qb->getQuery()->getResult();
         return $listeEquipes;
     }
 }

@@ -20,7 +20,8 @@ class Centrescia
 
     #[ORM\Column(length: 255, nullable: true)]
     private ?string $centre = null;
-
+    #[ORM\Column(length: 255, nullable: true)]
+    private ?string $lieu = null;
     #[ORM\Column(nullable: true)]
     private ?bool $actif = false;
 
@@ -32,8 +33,6 @@ class Centrescia
 
     #[ORM\Column(nullable: true)]
     private ?bool $verouClassement = null;
-
-
 
 
     public function __toString()
@@ -56,6 +55,16 @@ class Centrescia
     public function setCentre($centre)
     {
         $this->centre = $centre;
+    }
+
+    public function getLieu(): ?string
+    {
+        return $this->lieu;
+    }
+
+    public function setLieu($lieu)
+    {
+        $this->lieu = $lieu;
     }
 
     public function getEdition(): ?int
@@ -106,8 +115,6 @@ class Centrescia
 
         return $this;
     }
-
-
 
 
 }

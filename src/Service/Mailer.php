@@ -84,7 +84,7 @@ class Mailer
         if ($type_fichier == 'fiche securité(présentation)' or $type_fichier == 'fiche securité(exposition)') {
 
             $email->addCc('lahmidani.fouad@free.fr', 'pascale.rv@gmail.com', 'claire.chalnot@gmail.com')
-                ->attachFromPath('odpf/odpf-archives/'.$this->requestStack->getSession()->get('edition')->getEd().'/fichiers/fichessecur/'.$fichier->getFichier());
+            ->attachFromPath('odpf/odpf-archives/'.$this->requestStack->getSession()->get('edition')->getEd().'/fichiers/fichessecur/'.$fichier->getFichier());
         }
         $equipe->getSelectionnee() == true ? $infoequipe = $equipe->getInfoequipe() : $infoequipe = $equipe->getInfoequipenat();
         $email->htmlTemplate('email/confirm_fichier.html.twig')
@@ -96,6 +96,7 @@ class Mailer
         return $email;
 
     }
+
 
     /**
      * @throws TransportExceptionInterface
@@ -220,6 +221,21 @@ class Mailer
 
     }
 
+    public function sendInscriptionJure($jure, $pwd, $centre): TemplatedEmail
+    {
+        $email = (new TemplatedEmail())
+            ->from('info@olymphys.fr')
+            ->to($jure->getEmail())//Pour prévenir le juré de son inscription en tant que juré du centrecia,
+            ->addCc('info@olymphys.fr')//prévient olymphys
+            ->htmlTemplate('email/confirme_jure_cia.html.twig')
+            ->subject('OdPF-Votre compte juré du concours national ')
+            ->context(['jureNom' => $jure->getPrenomJure() . ' ' . $jure->getNomJure()]);
+
+        $this->mailer->send($email);
+        return $email;
+
+    }
+
     /**
      * @throws TransportExceptionInterface
      */
@@ -236,6 +252,25 @@ class Mailer
             ->context([
                 'conseil' => $conseil->getTexte(),
                 'equipe' => $conseil->getEquipe()
+
+            ]);
+        $this->mailer->send($email);
+        return $email;
+    }
+
+    public function sendConseilCn($conseil, $prof1, User $prof2 = null): TemplatedEmail
+    {
+        $email = (new TemplatedEmail())
+            ->from(new Address('info@olymphys.fr'))
+            ->to($prof1->getEmail());
+        if ($prof2 !== null) {
+            $email->cc($prof2->getEmail());
+        }
+        $email->subject('31e-OdPF-Conseils du jury du concours national  à votre équipe')
+            ->htmlTemplate('email/conseilCn.html.twig')
+            ->context([
+                'conseil' => $conseil->getTexte(),
+                'equipe' => $conseil->getEquipe()->getEquipeinter()
 
             ]);
         $this->mailer->send($email);

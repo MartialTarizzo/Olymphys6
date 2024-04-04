@@ -239,7 +239,7 @@ class EquipesadminCrudController extends AbstractCrudController
 
                 return [$lyceePays, $lyceeAcademie, $nomLycee, $lyceeAdresse, $lyceeCP, $lyceeLocalite, $uai];
             } else {
-                return [$numero, $lettre, $centreCentre, $titreProjet, $prof1, $prof2, $nomLycee, $lyceeLocalite, $selectionnee, $contribfinance, $nbeleves, $inscrite, $origineprojet, $createdAt];
+                return [$numero, $lettre, $centreCentre, $titreProjet, $prof1, $prof2, $nomLycee, $lyceeLocalite, $lyceeAcademie, $selectionnee, $contribfinance, $nbeleves, $inscrite, $origineprojet, $createdAt];
             }
         } elseif (Crud::PAGE_DETAIL === $pageName) {
 
@@ -270,7 +270,9 @@ class EquipesadminCrudController extends AbstractCrudController
         $repositoryCentrescia = $this->doctrine->getManager()->getRepository(Centrescia::class);
         $qb = $this->doctrine->getRepository(Equipesadmin::class)->createQueryBuilder('e')
             ->andWhere('e.edition =:edition')
-            ->setParameter('edition', $edition);
+            ->andWhere('e.numero <:value')
+            ->setParameter('edition', $edition)
+            ->setParameter('value', 100);;
         if (isset($_REQUEST['filters'])) {
             if (isset($_REQUEST['filters']['edition'])) {
                 $editionId = $_REQUEST['filters']['edition'];
@@ -288,9 +290,9 @@ class EquipesadminCrudController extends AbstractCrudController
                     ->setParameter('centre', $centre);
             }
             if (isset($_REQUEST['filters']['selectionnee'])) {
-
+                $selectionnee = $_REQUEST['filters']['selectionnee'];
                 $qb->andWhere('e.selectionnee =:selectionnee')
-                    ->setParameter('selectionnee', TRUE);
+                    ->setParameter('selectionnee', $selectionnee);
             }
 
         }
@@ -320,6 +322,10 @@ class EquipesadminCrudController extends AbstractCrudController
             if (key($sort) == 'selectionnee') {
                 $qb->addOrderBy('e.selectionnee', $sort['selectionnee'])
                     ->addOrderBy('e.lettre', 'ASC');
+            }
+            if (key($sort) == 'lyceeAcademie') {
+                $qb->addOrderBy('e.lyceeAcademie', $sort['lyceeAcademie'])
+                    ->addOrderBy('e.nomLycee', 'ASC');
             }
             if (key($sort) == 'createdAt') {
                 $qb->addOrderBy('e.createdAt', $sort['createdAt']);

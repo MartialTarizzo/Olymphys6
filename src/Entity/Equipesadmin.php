@@ -110,6 +110,7 @@ class Equipesadmin
     #[ORM\Column(type: Types::TEXT, nullable: true)]
     private ?string $description = null;
 
+
     public function __construct()
     {
         $this->equipesstring = new ArrayCollection();
@@ -213,7 +214,7 @@ class Equipesadmin
             return $infoequipe;
 
         }
-        return $this->$edition->getEd() . '-' . $this->titreProjet;
+        return $this->edition->getEd() . '-' . $this->titreProjet;
     }
 
 
@@ -372,12 +373,12 @@ class Equipesadmin
         return $this->getPrenomProf2() . ' ' . $this->getNomProf2();
     }
 
-    public function getCentre(): ?centrescia
+    public function getCentre(): ?Centrescia
     {
         return $this->centre;
     }
 
-    public function setCentre(?centrescia $centre): self
+    public function setCentre(?Centrescia $centre): self
     {
         $this->centre = $centre;
 
@@ -554,5 +555,6 @@ class Equipesadmin
 
         return $this;
     }
+
 
 }
