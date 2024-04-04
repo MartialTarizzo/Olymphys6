@@ -464,14 +464,14 @@ class FichiersController extends AbstractController
                 if ($equipe->getRetiree() != true) {
 
                     //$this->MailConfirmation($mailer, $type_fichier, $info_equipe);
-                    $service_mailer_->sendConfirmFile($equipe, $type_fichier, $this->getUser());
+                    $service_mailer_->sendConfirmFile($equipe, $type_fichier, $this->getUser(),$fichier);
                 } else {
                     if (($type_fichier == 'mémoire') or ($type_fichier == 'annexe')) {
 
                         $this->MailAvertissement($mailer, $type_fichier, $equipe);
                     } else {
                         //$this->MailConfirmation($mailer, $type_fichier, $info_equipe);
-                        $service_mailer_->sendConfirmFile($equipe, $type_fichier, $this->getUser());
+                        $service_mailer_->sendConfirmFile($equipe, $type_fichier, $this->getUser(),$fichier);
 
                     }
 

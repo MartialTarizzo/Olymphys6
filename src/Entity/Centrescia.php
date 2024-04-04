@@ -34,6 +34,8 @@ class Centrescia
     private ?bool $verouClassement = null;
 
 
+
+
     public function __toString()
     {
         return $this->centre;
@@ -104,6 +106,8 @@ class Centrescia
 
         return $this;
     }
+
+
 
 
 }

@@ -68,12 +68,12 @@
                 </a>
             </div>
             <div class="content">
-                <p class="block"> Bonjour Webmestre, <br>
+                <p class="block"> Bonjour, <br>
                     <br>
                     <br>
                 </p>
                 <p class="block">
-                    {{ userNom }} de l'équipe {{ equipe.numero }}({{ equipe.titreProjet }}) a déposé
+                    {{ userNom }} de l'équipe {{ equipe.lettre }}-{{ equipe.numero }}({{ equipe.titreProjet }}) a déposé
                     {% if typeFichier=='mémoire' %} le mémoire {% endif %}
                     {% if typeFichier=='annexe' %} l'annexe {% endif %}
                     {% if  typeFichier=='résume' %} le résumé {% endif %}
