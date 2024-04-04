@@ -28,7 +28,7 @@ use PhpOffice\PhpSpreadsheet\Calculation\Logical\Boolean;
 use PhpOffice\PhpSpreadsheet\Spreadsheet;
 use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\HttpFoundation\RequestStack;
-use Symfony\Component\Routing\Annotation\Route;
+use Symfony\Component\Routing\Attribute\Route;
 
 class CadeauxCrudController extends AbstractCrudController
 {

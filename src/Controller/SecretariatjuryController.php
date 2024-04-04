@@ -53,7 +53,7 @@ use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\RequestStack;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\PasswordHasher\Hasher\UserPasswordHasherInterface;
-use Symfony\Component\Routing\Annotation\Route;
+use Symfony\Component\Routing\Attribute\Route;
 use Symfony\Component\Security\Http\Attribute\IsGranted;
 use Symfony\Component\String\Slugger\AsciiSlugger;
 
@@ -144,7 +144,7 @@ class SecretariatjuryController extends AbstractController
     }
 
     #[IsGranted('ROLE_SUPER_ADMIN')]
-    #[Route("/secretariatjury/vueglobale", name: "secretariatjury_vueglobale")]
+    #[Route('/secretariatjury/vueglobale', name: "secretariatjury_vueglobale")]
     public function vueglobale(): Response
     {
         $em = $this->doctrine->getManager();
