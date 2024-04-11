@@ -32,7 +32,7 @@ class PhotosType extends AbstractType
         $this->doctrine = $doctrine;
     }
 
-    public function buildForm(FormBuilderInterface $builder, array $options)
+    public function buildForm(FormBuilderInterface $builder, array $options) : void
     {
         $session = $this->requestStack->getSession();
 
@@ -116,7 +116,7 @@ class PhotosType extends AbstractType
     /**
      * {@inheritdoc}
      */
-    public function configureOptions(OptionsResolver $resolver)
+    public function configureOptions(OptionsResolver $resolver) : void
     {
         $resolver->setDefaults(['data_class' => null, 'concours' => '',
             'role' => '', 'prof' => null]);

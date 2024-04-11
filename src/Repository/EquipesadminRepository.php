@@ -144,16 +144,18 @@ class EquipesadminRepository extends ServiceEntityRepository
             $edition = $editionN1;
 
         }
+
         $concours == 'interacadémique' ? $selectionnee = false : $selectionnee = true;
+
         $qb = $em->getRepository(Equipesadmin::class)->createQueryBuilder('e')
             ->andWhere('e.edition =:edition')
             ->setParameter('edition',$edition);
         $date = new DateTime('now');
         $dateouvertureSite = $this->requestStack->getSession()->get('edition')->getDateOuvertureSite();
         //Cration d'un nouvel objet datelim, l'ajout simple de 20 jours avec la fonction add modifie l'objet $dateconcourscia sans créer un nouvel objet
-        $d = $this->requestStack->getSession()->get('edition')->getConcourscia()->format('d');
-        $m = $this->requestStack->getSession()->get('edition')->getConcourscia()->format('m');
-        $Y = $this->requestStack->getSession()->get('edition')->getConcourscia()->format('Y');
+        $d = $edition->getConcourscia()->format('d');
+        $m = $edition->getConcourscia()->format('m');
+        $Y = $edition->getConcourscia()->format('Y');
         $datelim = new DateTime($d + 20 . '-' . $m . '-' . $Y);
 
         if ($date > $dateouvertureSite and $date <= $datelim) {
@@ -195,6 +197,7 @@ class EquipesadminRepository extends ServiceEntityRepository
         }
 
         $listeEquipes = $qb->getQuery()->getResult();
+
         return $listeEquipes;
     }
 }

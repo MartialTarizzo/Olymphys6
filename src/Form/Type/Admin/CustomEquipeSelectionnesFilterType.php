@@ -27,7 +27,7 @@ class CustomEquipeSelectionnesFilterType extends AbstractType
         $this->doctrine = $doctrine;
     }
 
-    public function configureOptions(OptionsResolver $resolver)
+    public function configureOptions(OptionsResolver $resolver) : void
 
     {
 

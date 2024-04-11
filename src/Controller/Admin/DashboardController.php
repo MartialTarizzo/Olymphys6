@@ -41,6 +41,7 @@ class DashboardController extends AbstractDashboardController
 
         $this->adminUrlGenerator = $adminUrlGenerator;
         $this->adminContextProvider = $adminContextProvider;
+
     }
 
     public function configureDashboard(): Dashboard

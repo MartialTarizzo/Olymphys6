@@ -52,7 +52,7 @@ class EquipesFilterType extends FilterType
 
     }
 
-    public function configureOptions(OptionsResolver $resolver)
+    public function configureOptions(OptionsResolver $resolver) : void
     {
         $resolver->setDefaults([
             'choice_label' => [

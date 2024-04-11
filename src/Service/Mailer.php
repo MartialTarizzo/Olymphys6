@@ -127,9 +127,9 @@ class Mailer
         if (!$modif) {
             $email = (new TemplatedEmail())
                 ->from('info@olymphys.fr')
-                ->to('webmestre2@olymphys.fr') //'webmestre2@olymphys.fr', 'Denis'
-                ->cc($user->getEmail())
-                ->addCc('webmestre3@olymphys.fr')
+                ->addBCc('webmestre2@olymphys.fr') //'webmestre2@olymphys.fr', 'Denis'
+                ->addTo($user->getEmail())
+                ->addBCc('webmestre3@olymphys.fr')
                 ->addCc('emma.gosse@orange.fr')
                 ->htmlTemplate('email/confirme_inscription.html.twig')
                 ->subject('Inscription de l\'équipe  ' . $equipe->getNumero() . ' par ' . $user->getPrenomNom())

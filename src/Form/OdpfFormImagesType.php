@@ -26,7 +26,7 @@ class OdpfFormImagesType extends AbstractType
         //->add('coment', TextType::class,);
     }
 
-    public function configureOptions(OptionsResolver $resolver): void
+    public function configureOptions(OptionsResolver $resolver) : void
     {
         $resolver->setDefaults([
             'data_class' => null,

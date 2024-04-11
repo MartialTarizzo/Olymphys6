@@ -26,7 +26,7 @@ class SetRoleUserCommand extends Command
         parent::__construct();
     }
 
-    protected function configure()
+    protected function configure():void
     {
         $this
             ->setName('set-role-user')
@@ -66,7 +66,7 @@ class SetRoleUserCommand extends Command
     /**
      * {@inheritdoc}
      */
-    protected function interact(InputInterface $input, OutputInterface $output)
+    protected function interact(InputInterface $input, OutputInterface $output):void
     {
         $questions = array();
 

@@ -27,7 +27,7 @@ class ProfileType extends AbstractType
             ->add('Modification', SubmitType::class, ['label' => 'Valider ces modifications']);;
     }
 
-    public function configureOptions(OptionsResolver $resolver)
+    public function configureOptions(OptionsResolver $resolver) : void
     {
         $resolver->setDefaults([
             'data_class' => User::class,

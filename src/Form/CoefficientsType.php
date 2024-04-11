@@ -20,7 +20,7 @@ class CoefficientsType extends AbstractType
             ->add('memoire');
     }
 
-    public function configureOptions(OptionsResolver $resolver): void
+    public function configureOptions(OptionsResolver $resolver) : void
     {
         $resolver->setDefaults([
             'data_class' => Coefficients::class,

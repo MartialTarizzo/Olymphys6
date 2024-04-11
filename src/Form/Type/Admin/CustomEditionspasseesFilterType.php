@@ -26,7 +26,7 @@ class CustomEditionspasseesFilterType extends AbstractType
     }
 
 
-    public function configureOptions(OptionsResolver $resolver)
+    public function configureOptions(OptionsResolver $resolver) : void
 
     {
         $listeEditPass = $this->doctrine->getRepository(OdpfEditionsPassees::class)->createQueryBuilder('e')

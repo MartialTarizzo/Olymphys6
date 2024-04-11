@@ -23,7 +23,7 @@ class ResettingType extends AbstractType
             ));
     }
 
-    public function configureOptions(OptionsResolver $resolver)
+    public function configureOptions(OptionsResolver $resolver) : void
     {
         $resolver->setDefaults([
             // uncomment if you want to bind to a class

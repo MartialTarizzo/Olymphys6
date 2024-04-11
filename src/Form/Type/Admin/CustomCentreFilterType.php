@@ -24,7 +24,7 @@ class CustomCentreFilterType extends AbstractType
     }
 
 
-    public function configureOptions(OptionsResolver $resolver)
+    public function configureOptions(OptionsResolver $resolver) : void
 
     {
         $listeCentres=$this->doctrine->getRepository(Centrescia::class)->findAll();
