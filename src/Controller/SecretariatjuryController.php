@@ -2092,13 +2092,20 @@ class SecretariatjuryController extends AbstractController
     public function envoi_recommandations(Request $request, Mailer $mailer): Response
     {
         $id = $request->query->get('idequipe');
-        $recommandations = $this->doctrine->getRepository(RecommandationsJuryCn::class)->findAll();
+        $recommandations = $this->doctrine->getRepository(RecommandationsJuryCn::class)->createQueryBuilder('r')
+            ->leftJoin('r.equipe', 'eq')
+            ->leftJoin('eq.equipeinter', 'equi')
+            ->orderBy('equi.lettre','ASC')
+            ->getQuery()->getResult();
+
         $recommandation = $this->doctrine->getRepository(RecommandationsJuryCn::class)->find($id);
         $equipeinter = $recommandation->getEquipe()->getEquipeinter();
         $prof1 = $equipeinter->getIdProf1();
         $prof2 = $equipeinter->getIdProf2();
         $mailer->sendConseilCn($recommandation, $prof1, $prof2);
-
+        $recommandation->setEnvoyee(true);
+        $this->doctrine->getManager()->persist($recommandation);
+        $this->doctrine->getManager()->flush();
         return $this->render('secretariatjury/liste_recommandations.html.twig', ['recommandations' => $recommandations]);
 
 

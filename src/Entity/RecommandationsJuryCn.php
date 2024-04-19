@@ -20,6 +20,9 @@ class RecommandationsJuryCn
     #[ORM\Column(type: Types::TEXT, nullable: true)]
     private ?string $texte = null;
 
+    #[ORM\Column(nullable: true)]
+    private ?bool $envoyee = null;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -45,6 +48,18 @@ class RecommandationsJuryCn
     public function setTexte(?string $texte): static
     {
         $this->texte = $texte;
+
+        return $this;
+    }
+
+    public function isEnvoyee(): ?bool
+    {
+        return $this->envoyee;
+    }
+
+    public function setEnvoyee(?bool $envoyee): static
+    {
+        $this->envoyee = $envoyee;
 
         return $this;
     }
