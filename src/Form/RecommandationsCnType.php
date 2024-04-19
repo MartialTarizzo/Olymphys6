@@ -16,7 +16,12 @@ class RecommandationsCnType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options): void
     {
         $builder
-            ->add('texte', CKEditorType::class)
+            ->add('texte', CKEditorType::class,[
+
+                'label'=>'maximum 250 mots'
+
+
+            ])
             ->add('valider', SubmitType::class);
     }
 

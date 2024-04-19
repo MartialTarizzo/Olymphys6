@@ -24,4 +24,10 @@
 {% endblock %}
 {% block body %}
     {{ form(form) }}
+
+    {%  if app.session.get('info')!=null %}
+        {{ include('modales/modale_info.html.twig') }}
+    {% endif %}
+
+    {{ app.session.set('info',null) }}
 {% endblock %}

@@ -15,6 +15,14 @@
     {{ include ('secretariatjury/navigation.html.twig') }}
 {% endblock %}
 {% block body %}
-
+    <a href="{{ path('secretariatjury_liste_recommandations',{'id':recommandation.id}) }}" type="button" class="btn btn-primary"> Annuler</a>
     {{ form(form) }}
+    <div>
+
+    {%  if app.session.get('info')!=null %}
+        {{ include('modales/modale_info.html.twig') }}
+    {% endif %}
+   </div>
+    {{ app.session.set('info',null) }}
+
 {% endblock %}

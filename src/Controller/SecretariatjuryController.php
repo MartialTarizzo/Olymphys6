@@ -2078,6 +2078,13 @@ class SecretariatjuryController extends AbstractController
         $form = $this->createForm(RecommandationsCnType::class, $recommandation);
         $form->handleRequest($request);
         if ($form->isSubmitted() and $form->isValid()) {
+            $repoRecommandations = $this->doctrine->getRepository(RecommandationsJuryCN::class);
+            $valid = $repoRecommandations->valid_nomber_word($recommandation->getTexte());
+            if ($valid == false) {
+                $this->requestStack->getSession()->set('info', 'Le nombre de mots dépasse 250, veuillez simplifier s\'il vous plaît');
+                return $this->render('secretariatjury/modif_recommandation.html.twig', ['form' => $form->createView(), 'recommandation' => $recommandation]);
+
+            }
             $this->doctrine->getManager()->persist($recommandation);
             $this->doctrine->getManager()->flush();
             return $this->redirectToRoute('secretariatjury_liste_recommandations');

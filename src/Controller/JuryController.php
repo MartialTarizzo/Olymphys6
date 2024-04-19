@@ -38,6 +38,7 @@ use PhpOffice\PhpWord\Shared\Html;
 use PhpOffice\PhpWord\Style\Cell;
 use Symfony\Component\HttpFoundation\HeaderUtils;
 use Symfony\Component\Filesystem\Filesystem;
+use Symfony\Component\Security\Http\Attribute\IsGranted;
 use Symfony\Component\String\UnicodeString;
 use function symfony\component\string\u;
 
@@ -830,12 +831,19 @@ class JuryController extends AbstractController
         $form = $this->createForm(RecommandationsCnType::class, $recommandation);
         $form->handleRequest($request);
         if ($form->isSubmitted() and $form->isValid()) {
+            $repoRecommandations = $this->doctrine->getRepository(RecommandationsJuryCN::class);
+            $valid = $repoRecommandations->valid_nomber_word($recommandation->getTexte());
+            if ($valid == false) {
+                $this->requestStack->getSession()->set('info', 'Le nombre de mots dépasse 250, veuillez simplifier s\'il vous plaît');
+                return $this->render('cyberjury/recommandations.html.twig', ['form' => $form->createView(), 'equipe' => $equipe, 'jure' => $jure, 'memoire' => $memoire, 'attributions' => $attributions]);
+
+            }
             $this->doctrine->getManager()->persist($recommandation);
             $this->doctrine->getManager()->flush();
             if ($origin == 'evaluer') return $this->redirectToRoute('cyberjury_evaluer_une_equipe', ['id' => $equipe->getId()]);
             if ($origin == 'liste') return $this->redirectToRoute('cyberjury_liste_recommandations');
-
         }
+
         return $this->render('cyberjury/recommandations.html.twig', ['form' => $form->createView(), 'equipe' => $equipe, 'jure' => $jure, 'memoire' => $memoire, 'attributions' => $attributions]);
     }
 

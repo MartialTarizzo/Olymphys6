@@ -21,6 +21,14 @@ class RecommandationsJuryCnRepository extends ServiceEntityRepository
         parent::__construct($registry, RecommandationsJuryCN::class);
     }
 
+
+    public function valid_nomber_word($texteHtml) : bool
+    {   $valid=false;
+        $texte=explode(' ', $texteHtml);
+        $number=count($texte);
+        if($number<250) $valid=true;
+        return $valid;
+    }
 //    /**
 //     * @return RecommandationsJuryCN[] Returns an array of RecommandationsJuryCN objects
 //     */
