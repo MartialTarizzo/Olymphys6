@@ -270,12 +270,13 @@ class UtilisateurController extends AbstractController
                     $equipe->setNbEleves($nbeleves);
                     $this->doctrine->getManager()->persist($equipe);
                     $this->doctrine->getManager()->flush();
+                    $maj_profsequipes = new Maj_profsequipes($doctrine);
+                    $maj_profsequipes->maj_profsequipes($equipe);
                     $checkChange = '';
                     if ($modif == true) {
 
                         $checkChange = $this->compare($equipe, $oldEquipe, $oldListeEleves);
-                        $maj_profsequipes = new Maj_profsequipes($doctrine);
-                        $maj_profsequipes->maj_profsequipes($equipe);
+
                     }
                     $em->flush();
                     $rempliOdpfEquipesPassees = new OdpfRempliEquipesPassees($doctrine);
