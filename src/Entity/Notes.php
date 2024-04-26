@@ -44,7 +44,8 @@ class Notes
     #[ORM\Column(type: Types::INTEGER)]
     private ?int $total = 0;
 
-    #[ORM\ManyToOne(targetEntity: Coefficients::class)]
+    #[ORM\ManyToOne]
+    #[ORM\Column(name:'coefficients_id', nullable: true)]
     private ?Coefficients $coefficients;
 
 

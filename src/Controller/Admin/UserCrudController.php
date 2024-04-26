@@ -83,34 +83,7 @@ class UserCrudController extends AbstractCrudController
             $password->setFormTypeOptions(['required' => false, 'mapped' => true, 'empty_data' => $user->getPassword()]);
         }
 
-        $nom = TextField::new('nom');
-        $prenom = TextField::new('prenom');
-        $uai = TextField::new('uai');
-        $uaiId = AssociationField::new('uaiId', 'UAI')->setFormTypeOptions(['required' => false]);
-        $centreCia = AssociationField::new('centrecia');
-        $isActive = Field::new('isActive');
-        $adresse = TextField::new('adresse');
-        $ville = TextField::new('ville');
-        $code = TextField::new('code');
-        $phone = TextField::new('phone');
-        $createdAt = DateTimeField::new('createdAt');
-        $updatedAt = DateTimeField::new('updatedAt');
-        $lastVisit = DateTimeField::new('lastVisit');
-        //$civilite = TextField::new('civilite');
-        $autorisationphotos = AssociationField::new('autorisationphotos');
-        $token = TextField::new('token');
-        $passwordRequestedAt = DateTimeField::new('passwordRequestedAt');
-        //$centreciaCentre = TextField::new('centrecia.centre', 'Centre CIA');
-        /*
-        if (Crud::PAGE_INDEX === $pageName) {
-            return [$id, $email, $username, $nomPrenom, $roles, $isActive,];
-        } elseif (Crud::PAGE_DETAIL === $pageName) {
-            return [$id, $username, $roles, $password, $email, $isActive, $token, $passwordRequestedAt, $uaiId, $nom, $prenom, $adresse, $centreCia, $ville, $code, $phone, $createdAt, $updatedAt, $lastVisit, $civilite, $autorisationphotos];
-        } elseif (Crud::PAGE_NEW === $pageName) {
-            return [$username, $email, $rolesedit, $password, $isActive, $nom, $prenom, $uaiId, $centreCia, $adresse, $ville, $code, $phone];
-        } elseif (Crud::PAGE_EDIT === $pageName) {
-            return [$username, $email, $password, $rolesedit, $isActive, $nom, $prenom, $uaiId, $centreCia, $adresse, $ville, $code, $phone];
-        }*/
+
         return [
             IntegerField::new('id')->setFormTypeOption('disabled', true),
             TextField::new('prenom'),
@@ -130,7 +103,8 @@ class UserCrudController extends AbstractCrudController
             TextField::new('uai')->onlyOnIndex(),
             TextField::new('plainPassword', 'Mot de passe')->onlyOnForms(),
             AssociationField::new('uaiId', 'UAI')->setFormTypeOptions(['required' => false])->onlyOnForms(),
-            AssociationField::new('centrecia'),
+            //AssociationField::new('centrecia')->setFormTypeOptions(['required' => false])->onlyOnForms(),
+
             $isActive = Field::new('isActive'),
             $adresse = TextField::new('adresse'),
             $ville = TextField::new('ville'),

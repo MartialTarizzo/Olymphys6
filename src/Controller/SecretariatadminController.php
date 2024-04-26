@@ -14,7 +14,6 @@ use Doctrine\ORM\EntityManagerInterface;
 use Doctrine\Persistence\ManagerRegistry;
 use DoctrineExtensions\Query\Mysql\Time;
 use PhpOffice\PhpSpreadsheet\IOFactory;
-use Sensio\Bundle\FrameworkExtraBundle\Configuration\IsGranted;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\Form\Extension\Core\Type\EmailType;
 use Symfony\Component\Form\Extension\Core\Type\FileType;
@@ -28,6 +27,7 @@ use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\PasswordHasher\Hasher\UserPasswordHasherInterface;
 use Symfony\Component\Routing\Attribute\Route;
 
+use Symfony\Component\Security\Http\Attribute\IsGranted;
 use Symfony\Component\Validator\Validator\ValidatorInterface;
 
 
@@ -80,48 +80,60 @@ class SecretariatadminController extends AbstractController
 
             $em = $this->doctrine->getManager();
 
-            for ($row = 3; $row <= $highestRow; ++$row) {
+            for ($row = 2; $row <= $highestRow; ++$row) {
 
                 $value = $worksheet->getCell('A' . $row)->getValue();//On lit le uai
                 $uai = $repositoryUai->findOneByUai($value);//On vérifie si  cet uai est déjà dans la base
                 if (!$uai) { // si le uai n'existe pas, on le crée
                     $uai = new Uai();
-                    //sinon on garde les précédentes données
+
+                    //sinon on garde les précédentes données tout en les mettant à jour
                     //dd($value);
                     $uai->setUai($value);
-                    $value = $worksheet->getCell('T' . $row)->getValue();
+                }
+                    $value = $worksheet->getCell('Q' . $row)->getValue();
                     $uai->setNature($value);
+                    // $value = $worksheet->getCell('J' . $row)->getValue();
+                    // $uai->setAcheminement($value);
                     //$value = $worksheet->getCellByColumnAndRow(4, $row)->getValue();
                     //$uai->setSigle($value);
-                    $value = $worksheet->getCell('K' . $row)->getValue();
+                    $value = $worksheet->getCell('F' . $row)->getValue();
                     $uai->setCommune($value);
-                    $value = $worksheet->getCell('AC' . $row)->getValue();
-                    $uai->setAcademie($value);
-                    //$value = $worksheet->getCellByColumnAndRow(7, $row)->getValue();
-                    $uai->setPays('France');
-                    $value = $worksheet->getCell('W' . $row)->getValue();
+                    $value = $worksheet->getCell('J' . $row)->getValue();
+                    if($value==null) {
+                       $uai->setAcademie('Etranger');
+                    }
+                    else{
+                        $uai->setAcademie($value);
+                    }
+                    $value = $worksheet->getCell('R'. $row)->getValue();
+                    if($value==null)$value='France';
+                    $uai->setPays($value);
+                    $value = $worksheet->getCell('I' . $row)->getValue();
+
                     $uai->setDepartement($value);
-                    $value = $worksheet->getCell('C' . $row)->getValue();
+                   /* $value = $worksheet->getCell('C' . $row)->getValue()  //Données qui n'ont plus court en 2024
                     $uai->setDenominationPrincipale($value);
                     $value = $worksheet->getCell('B' . $row)->getValue();
                     $uai->setAppellationOfficielle($value);
-                    $value = $worksheet->getCell('D' . $row)->getValue();
+
+                   */
+                    $value = $worksheet->getCell('B' . $row)->getValue();
                     $uai->setNom(ucwords(strtolower($value)));
-                    $value = $worksheet->getCell('F' . $row)->getValue();
+                    $value = $worksheet->getCell('C' . $row)->getValue();
                     $uai->setAdresse($value);
-                    $value = $worksheet->getCell('H' . $row)->getValue();
+                    $value = $worksheet->getCell('D' . $row)->getValue();
                     $uai->setBoitePostale($value);
-                    $value = $worksheet->getCell('Z' . $row)->getValue();
+                    $value = $worksheet->getCell('E' . $row)->getValue();
                     $uai->setCodePostal($value);
-                    $value = $worksheet->getCell('J' . $row)->getValue();
-                    $uai->setAcheminement($value);
+
                     $value = $worksheet->getCell('L' . $row)->getValue();
                     $uai->setCoordonneeX($value);
                     $value = $worksheet->getCell('M' . $row)->getValue();
                     $uai->setCoordonneeY($value);
                     $this->em->persist($uai);
                     $this->em->flush();
-                }
+
             }
             return $this->redirectToRoute('core_home');
         }

@@ -291,7 +291,9 @@ class UtilisateurController extends AbstractController
                     }
                     if ($modif == false) {
                         $mailer->sendConfirmeInscriptionEquipe($equipe, $user, $modif, $checkChange);
-                        return $this->redirectToRoute('fichiers_afficher_liste_fichiers_prof', array('infos' => $equipe->getId() . '-' . $session->get('concours') . '-liste_equipe'));
+                        $this->requestStack->getSession()->set('info','Votre équipe a bien été enregistrée, un mail de confirmation vous a été envoyé');
+
+                        return $this->redirectToRoute('fichiers_afficher_liste_fichiers_prof', array('infos' => $equipe->getId() . '-' . $session->get('concours') . '-liste_equipe'));//redirection vers la page de l'équipe qui vient d'être inscrite
                     }
                     if (($modif == true) and ($checkChange != [])) {
                         try {

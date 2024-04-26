@@ -32,10 +32,10 @@ class Centrescia
     private ?int $nbselectionnees = null;
 
     #[ORM\Column(nullable: true)]
-    private ?bool $verouClassement = null;
+    private ?bool $verouClassement = null;//sert au blocage de la procédure de modification de classement après la délibération
 
 
-    public function __toString()
+    public function __toString():string
     {
         return $this->centre;
 
@@ -52,7 +52,7 @@ class Centrescia
         return $this->centre;
     }
 
-    public function setCentre($centre)
+    public function setCentre(?string $centre)
     {
         $this->centre = $centre;
     }
@@ -62,7 +62,7 @@ class Centrescia
         return $this->lieu;
     }
 
-    public function setLieu($lieu)
+    public function setLieu(?string $lieu)
     {
         $this->lieu = $lieu;
     }

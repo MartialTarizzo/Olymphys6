@@ -30,7 +30,7 @@ class Elevesinter
     #[ORM\Column(length: 255, nullable: true)]
     private ?string $classe = null;
 
-    #[ORM\ManyToOne(targetEntity: Equipesadmin::class)]
+    #[ORM\ManyToOne]
     private ?Equipesadmin $equipe;
 
     #[ORM\Column(length: 255, nullable: true)]

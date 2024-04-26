@@ -297,7 +297,7 @@ class EquipesadminCrudController extends AbstractCrudController
 
         }
         if ($this->adminContextProvider->getContext()->getRequest()->query->get('lycees')) {
-            $qb->groupBy('e.nomLycee');
+            $qb->groupBy('e.uai');
         } else {
             $date = new \datetime('now');
             if ($date > $session->get('edition')->getDateclotureinscription()) {

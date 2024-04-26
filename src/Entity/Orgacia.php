@@ -19,6 +19,7 @@ class Orgacia
 
 
     #[ORM\ManyToOne(targetEntity: Centrescia::class)]
+    #[ORM\Column(name:'centre_id', nullable: true)]
     private ?Centrescia $centre=null;
 
     #[ORM\ManyToOne(targetEntity: User::class)]
