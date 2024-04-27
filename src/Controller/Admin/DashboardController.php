@@ -65,92 +65,89 @@ class DashboardController extends AbstractDashboardController
 
     public function configureMenuItems(): iterable
     {
-
-        $submenu1 = [
-            MenuItem::linkToCrud('Centres interacadémiques', 'fas fa-city', Centrescia::class),
-
-            MenuItem::linkToCrud('Les mémoires', 'fas fa-book', Fichiersequipes::class)
-                ->setController(FichiersequipesCrudController::class)
-                ->setQueryParameter('typefichier', 0)
-                ->setQueryParameter('concours', 0),
-
-            MenuItem::linkToCrud('Les résumés', 'fas fa-book', Fichiersequipes::class)
-                ->setController(FichiersequipesCrudController::class)
-                ->setQueryParameter('typefichier', 2)
-                ->setQueryParameter('concours', 0),
-            MenuItem::linkToCrud('Les fiches sécurités', 'fas fa-book', Fichiersequipes::class)
-                ->setController(FichiersequipesCrudController::class)
-                ->setQueryParameter('typefichier', 4)
-                ->setQueryParameter('concours', 0),
-            MenuItem::linkToCrud('Les diaporamas', 'fas fa-book', Fichiersequipes::class)
-                ->setController(FichiersequipesCrudController::class)
-                ->setQueryParameter('typefichier', 5)
-                ->setQueryParameter('concours', 0),
-            MenuItem::linkToCrud('Les vidéos des équipes', 'fas fa-film', Videosequipes::class),
-
-            MenuItem::linkToCrud(' Les autorisations photos', 'fas fa-balance-scale', Fichiersequipes::class)
-                ->setController(FichiersequipesCrudController::class)
-                ->setQueryParameter('typefichier', 6)
-                ->setQueryParameter('concours', 0),
-            MenuItem::linkToCrud(' Les photos', 'fas fa-images', Photos::class)
-                ->setController(PhotosCrudController::class)
-                ->setQueryParameter('concours', 'interacademique'),
-            MenuItem::linkToCrud(' Les questionnaires ', 'fas fa-images', Fichiersequipes::class)
-                ->setController(FichiersequipesCrudController::class)
-                ->setQueryParameter('typefichier', 7)
-                ->setQueryParameter('concours', 0),
-        ];
-
-        $submenu2 = [
-            MenuItem::section('Equipes'),
-            MenuItem::linkToCrud('Palmares des équipes', 'fas fa-asterisk', Equipes::class)->setQueryParameter('palmares', true),
-            MenuItem::linkToCrud('Administration des équipes', 'fas fa-user-friends', Equipes::class)->setQueryParameter('palmares', false),
-            MenuItem::linkToCrud('Les mémoires', 'fas fa-book', Fichiersequipes::class)
-                ->setController(FichiersequipesCrudController::class)
-                ->setQueryParameter('typefichier', 0)
-                ->setQueryParameter('concours', 1),
-            MenuItem::linkToCrud('Les résumés', 'fas fa-book', Fichiersequipes::class)
-                ->setController(FichiersequipesCrudController::class)
-                ->setQueryParameter('typefichier', 2)
-                ->setQueryParameter('concours', 1),
-            MenuItem::linkToCrud('Les présentations', 'fas fa-book', Fichiersequipes::class)
-                ->setController(FichiersequipesCrudController::class)
-                ->setQueryParameter('typefichier', 3)
-                ->setQueryParameter('concours', 1),
-
-            MenuItem::linkToCrud('Les vidéos des équipes', 'fas fa-film', Videosequipes::class),
-            MenuItem::linkToCrud('Les photos', 'fas fa-images', Photos::class)
-                ->setController(PhotosCrudController::class)
-                ->setQueryParameter('concours', 'national'),
-            MenuItem::linkToCrud('Les fiches sécurité', 'fas fa-book', Fichiersequipes::class)
-                ->setController(FichiersequipesCrudController::class)
-                ->setQueryParameter('typefichier', 4)
-                ->setQueryParameter('concours', 1),
-            MenuItem::section('Les recompenses')->setPermission('ROLE_SUPER_ADMIN'),
-            MenuItem::linkToCrud('Répartition des prix', 'fas fa-asterisk', Repartprix::class)->setPermission('ROLE_SUPER_ADMIN'),
-            MenuItem::linkToCrud('Les Prix', 'fas fa-asterisk', Prix::class)->setPermission('ROLE_SUPER_ADMIN'),
-            MenuItem::linkToCrud('Les Visites', 'fas fa-asterisk', Visites::class)->setPermission('ROLE_SUPER_ADMIN'),
-            MenuItem::linkToCrud('Cadeaux', 'fas fa-asterisk', Cadeaux::class)->setPermission('ROLE_SUPER_ADMIN'),
-        ];
-
-        yield MenuItem::linkToCrud('Gestion des éditions', 'fas fa-cogs', Edition::class)->setPermission('ROLE_SUPER_ADMIN');
-        yield MenuItem::linkToCrud('Utilisateurs', 'fas fa-user', User::class)->setPermission('ROLE_SUPER_ADMIN');
-        yield MenuItem::linkToCrud('Affectation des jurés', 'fas fa-graduation-cap', Jures::class)->setPermission('ROLE_SUPER_ADMIN')->setDefaultSort(['nomJure' => 'ASC']);
-        yield MenuItem::linkToCrud('Coefficients', 'fas fa-graduation-cap', Coefficients::class)->setPermission('ROLE_SUPER_ADMIN');
-        yield MenuItem::linkToCrud('Documents à télécharger', 'fas fa-book', Docequipes::class);
-        yield MenuItem::linkToCrud('Equipes inscrites', 'fas fa-user-friends', Equipesadmin::class);
-        yield MenuItem::linkToCrud('Elèves inscrits', 'fas fa-child', Elevesinter::class);
-        yield MenuItem::linkToCrud('Professeurs', 'fas fa-chalkboard-teacher', Professeurs::class);
-        yield MenuItem::linkToCrud('Etablissements', 'fas fa-school', Equipesadmin::class)
+        return [
+            MenuItem::linkToCrud('Gestion des éditions', 'fas fa-cogs', Edition::class)->setPermission('ROLE_SUPER_ADMIN'),
+            MenuItem::linkToCrud('Utilisateurs', 'fas fa-user', User::class)->setPermission('ROLE_SUPER_ADMIN'),
+            MenuItem::linkToCrud('Affectation des jurés', 'fas fa-graduation-cap', Jures::class)->setPermission('ROLE_SUPER_ADMIN')->setDefaultSort(['nomJure' => 'ASC']),
+            MenuItem::linkToCrud('Coefficients', 'fas fa-graduation-cap', Coefficients::class)->setPermission('ROLE_SUPER_ADMIN'),
+            MenuItem::linkToCrud('Documents à télécharger', 'fas fa-book', Docequipes::class),
+            MenuItem::linkToCrud('Equipes inscrites', 'fas fa-user-friends', Equipesadmin::class),
+            MenuItem::linkToCrud('Elèves inscrits', 'fas fa-child', Elevesinter::class),
+            MenuItem::linkToCrud('Professeurs', 'fas fa-chalkboard-teacher', Professeurs::class),
+            MenuItem::linkToCrud('Etablissements', 'fas fa-school', Equipesadmin::class)
             ->setController(EquipesadminCrudController::class)
-            ->setQueryParameter('lycees', 1);
-        yield MenuItem::subMenu('Concours interacadémique')->setSubItems($submenu1)->setCssClass('text-bold');
-        yield MenuItem::subMenu('Concours national')->setSubItems($submenu2);
-        yield MenuItem::linktoRoute('Administration du site', 'fa-solid fa-pager', 'odpfadmin');
+            ->setQueryParameter('lycees', 1),
+            MenuItem::subMenu('Concours interacadémiques', 'fa fa-article')->setSubItems([
+                MenuItem::linkToCrud('Centres interacadémiques', 'fas fa-city', Centrescia::class),
 
-        yield MenuItem::linktoRoute('Retour à la page d\'accueil', 'fas fa-home', 'core_home');
-        yield MenuItem::linktoRoute('Secrétariat du jury', 'fas fa-pencil-alt', 'secretariatjury_accueil')->setPermission('ROLE_SUPER_ADMIN');
-        yield MenuItem::linkToLogout('Deconnexion', 'fas fa-door-open');
+                MenuItem::linkToCrud('Les mémoires', 'fas fa-book', Fichiersequipes::class)
+                    ->setController(FichiersequipesCrudController::class)
+                    ->setQueryParameter('typefichier', 0)
+                    ->setQueryParameter('concours', 0),
+
+                MenuItem::linkToCrud('Les résumés', 'fas fa-book', Fichiersequipes::class)
+                    ->setController(FichiersequipesCrudController::class)
+                    ->setQueryParameter('typefichier', 2)
+                    ->setQueryParameter('concours', 0),
+                MenuItem::linkToCrud('Les fiches sécurités', 'fas fa-book', Fichiersequipes::class)
+                    ->setController(FichiersequipesCrudController::class)
+                    ->setQueryParameter('typefichier', 4)
+                    ->setQueryParameter('concours', 0),
+                MenuItem::linkToCrud('Les diaporamas', 'fas fa-book', Fichiersequipes::class)
+                    ->setController(FichiersequipesCrudController::class)
+                    ->setQueryParameter('typefichier', 5)
+                    ->setQueryParameter('concours', 0),
+                MenuItem::linkToCrud('Les vidéos des équipes', 'fas fa-film', Videosequipes::class),
+
+                MenuItem::linkToCrud(' Les autorisations photos', 'fas fa-balance-scale', Fichiersequipes::class)
+                    ->setController(FichiersequipesCrudController::class)
+                    ->setQueryParameter('typefichier', 6)
+                    ->setQueryParameter('concours', 0),
+                MenuItem::linkToCrud(' Les photos', 'fas fa-images', Photos::class)
+                    ->setController(PhotosCrudController::class)
+                    ->setQueryParameter('concours', 'interacademique'),
+                MenuItem::linkToCrud(' Les questionnaires ', 'fas fa-images', Fichiersequipes::class)
+                    ->setController(FichiersequipesCrudController::class)
+                    ->setQueryParameter('typefichier', 7)
+                    ->setQueryParameter('concours', 0),
+        ]),
+
+            MenuItem::subMenu('Concours national', 'fa fa-article')->setSubItems([
+                MenuItem::section('Equipes'),
+                MenuItem::linkToCrud('Palmares des équipes', 'fas fa-asterisk', Equipes::class)->setQueryParameter('palmares', true),
+                MenuItem::linkToCrud('Administration des équipes', 'fas fa-user-friends', Equipes::class)->setQueryParameter('palmares', false),
+                MenuItem::linkToCrud('Les mémoires', 'fas fa-book', Fichiersequipes::class)
+                    ->setController(FichiersequipesCrudController::class)
+                    ->setQueryParameter('typefichier', 0)
+                    ->setQueryParameter('concours', 1),
+                MenuItem::linkToCrud('Les résumés', 'fas fa-book', Fichiersequipes::class)
+                    ->setController(FichiersequipesCrudController::class)
+                    ->setQueryParameter('typefichier', 2)
+                    ->setQueryParameter('concours', 1),
+                MenuItem::linkToCrud('Les présentations', 'fas fa-book', Fichiersequipes::class)
+                    ->setController(FichiersequipesCrudController::class)
+                    ->setQueryParameter('typefichier', 3)
+                    ->setQueryParameter('concours', 1),
+
+                MenuItem::linkToCrud('Les vidéos des équipes', 'fas fa-film', Videosequipes::class),
+                MenuItem::linkToCrud('Les photos', 'fas fa-images', Photos::class)
+                    ->setController(PhotosCrudController::class)
+                    ->setQueryParameter('concours', 'national'),
+                MenuItem::linkToCrud('Les fiches sécurité', 'fas fa-book', Fichiersequipes::class)
+                    ->setController(FichiersequipesCrudController::class)
+                    ->setQueryParameter('typefichier', 4)
+                    ->setQueryParameter('concours', 1),
+                MenuItem::section('Les recompenses')->setPermission('ROLE_SUPER_ADMIN'),
+                MenuItem::linkToCrud('Répartition des prix', 'fas fa-asterisk', Repartprix::class)->setPermission('ROLE_SUPER_ADMIN'),
+                MenuItem::linkToCrud('Les Prix', 'fas fa-asterisk', Prix::class)->setPermission('ROLE_SUPER_ADMIN'),
+                MenuItem::linkToCrud('Les Visites', 'fas fa-asterisk', Visites::class)->setPermission('ROLE_SUPER_ADMIN'),
+                MenuItem::linkToCrud('Cadeaux', 'fas fa-asterisk', Cadeaux::class)->setPermission('ROLE_SUPER_ADMIN'),
+        ]),
+       MenuItem::linktoRoute('Administration du site', 'fa-solid fa-pager', 'odpfadmin'),
+       MenuItem::linktoRoute('Retour à la page d\'accueil', 'fas fa-home', 'core_home'),
+       MenuItem::linktoRoute('Secrétariat du jury', 'fas fa-pencil-alt', 'secretariatjury_accueil')->setPermission('ROLE_SUPER_ADMIN'),
+       MenuItem::linkToLogout('Deconnexion', 'fas fa-door-open'),
+       ];
     }
 
     #[Route("/admin", name: "admin")]
