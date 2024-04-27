@@ -7,6 +7,7 @@ use DateTime;
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\HttpFoundation\File\File;
 use Symfony\Component\HttpFoundation\File\UploadedFile;
+use Symfony\Component\String\Slugger\AsciiSlugger;
 use Vich\UploaderBundle\Mapping\Annotation as Vich;
 
 #[Vich\Uploadable]
@@ -118,5 +119,11 @@ class Docequipes
         }
         $this->fichierFile = $fichierFile;
 
+    }
+    public function slug() : string
+    {
+        $name=explode('.',$this->fichierFile->getClientOriginalName())[count(explode('.',$this->fichierFile->getClientOriginalName())) - 2];
+        $slugger = new AsciiSlugger();
+        return $slugger->slug($name).$this->fichierFile->getExtension();
     }
 }

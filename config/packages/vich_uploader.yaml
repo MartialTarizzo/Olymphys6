@@ -54,9 +54,12 @@ vich_uploader:
     docequipes:
       uri_prefix: '%app.path.docequipes%'
       upload_destination: '%app.path.docequipes%'
-      inject_on_load: true
+      inject_on_load: false
       delete_on_update: true
       delete_on_remove: true
+      namer:
+        service: Vich\UploaderBundle\Naming\PropertyNamer
+        options: { property: 'slug' }
 
     odpfImagescarousels:
       uri_prefix: 'odpf/odpf-images/imagescarousels'
@@ -84,6 +87,7 @@ vich_uploader:
       namer:
         service: vich_uploader.namer_property
         options: { property: 'personalNamer' }
+
 
 
   #mappings:
