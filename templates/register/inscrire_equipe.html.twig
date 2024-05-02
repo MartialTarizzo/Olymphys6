@@ -40,10 +40,13 @@
             </div>
             <div class="row">
                 <div class="col px-md-4">
+                    <br>
                     Le professeur encadrant :
                     {{ form_widget(form.idProf1,{'label':'*'} ) }}
                 </div>
-                <div class="col px-md-4">Le second professeur encadrant :
+                <div class="col px-md-4">Le second professeur encadrant(éventuellement) <button  data-toggle="modal"
+                                                                                 data-target="#modalinfoprof2"  title="Comment incrire un prof2"><i
+                                class="fa fa fa-exclamation-circle fa-2x" aria-hidden="true"></i></button>:
                     {{ form_widget(form.idProf2,{'label':' '}) }}
                 </div>
             </div>
@@ -430,7 +433,7 @@
             {{ form_end(form) }}
         </div>
     </div>
-
+    {{ include('modales/modale_infoprof2.html.twig') }}
     {# #############################MODAL###################################### #}
     <div class="modal fade" id="modalconfirm" tabindex="-1" role="dialog">//Confirmation suppression d'un élève
         <div class="modal-dialog" role="document">
