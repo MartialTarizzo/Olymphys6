@@ -69,7 +69,7 @@ class OdpfCarouselsCrudController extends AbstractCrudController
 
         }
         $crud = Crud::new()->setFormThemes(['bundles/EasyAdminBundle/odpf/odpf_form_images_carousels.html.twig', '@EasyAdmin/crud/form_theme.html.twig'])
-            ->overrideTemplate('crud/edit', 'bundles/EasyAdminBundle/crud/edit.html.twig')
+            ->overrideTemplate('crud/edit', 'bundles/EasyAdminBundle/crud/edit_carousels.html.twig')
             ->setPageTitle('edit', $title1)
             ->setPageTitle('new', $title2)
             ->setHelp('new', ' Veuillez saisir le nom et puis cliquer sur créer et  continuer pour ajouter des diapositives');
@@ -87,7 +87,6 @@ class OdpfCarouselsCrudController extends AbstractCrudController
             ->addJsFile(Asset::new('build/admin/showmodal.js')->defer());
 
     }
-
     /**
      * @param Actions $actions
      * @return Actions

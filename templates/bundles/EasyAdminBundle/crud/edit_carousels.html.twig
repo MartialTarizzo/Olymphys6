@@ -1,0 +1,22 @@
+{# @var ea \EasyCorp\Bundle\EasyAdminBundle\Context\AdminContext #}
+{# @var entity \EasyCorp\Bundle\EasyAdminBundle\Dto\EntityDto #}
+
+{% extends '@!EasyAdmin/crud/edit.html.twig' %}
+
+{% block main %}
+    {# <a href="#"  data-bs-toggle="modal"
+                     data-bs-target="#modalinfoimagecarousel"  title="infos"><i
+            class="fa fa fa-exclamation-circle fa-2x" aria-hidden="true"></i></a>#}
+    Les diapositives sont automatiquement recadrées au format 230/200 à partir de l'image soumise.<br>
+    Pour le carousel accueil, pour éviter un recadrage, soumettre une image de rapport L/H = 1,15.
+    {% block edit_form %}
+
+        {{ form(edit_form) }}
+        {{ include('modales/modale_info_carousel.html.twig') }}
+
+    {% endblock edit_form %}
+
+    {% block delete_form %}
+        {{ include('@EasyAdmin/crud/includes/_delete_form.html.twig', { entity_id: entity.primaryKeyValue }, with_context = false) }}
+    {% endblock delete_form %}
+{% endblock %}
