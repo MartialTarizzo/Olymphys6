@@ -1,0 +1,52 @@
+<div id="accordion">
+    {% for categorie in categories %}
+        {%  if is_granted(categorie.permission) %}
+            <div class="card">
+                <div class="card-header" id="heading{{ categorie.id }}">
+                    <h5 class="mb-0">
+                        <button class="btn btn-link" data-toggle="collapse" data-target="#collapse{{ categorie.id }}" aria-expanded="true" aria-controls="collapse{{ categorie.id }}">
+                            {{ categorie.intitule }}
+                        </button>
+                    </h5>
+                </div>
+                <div id="collapse{{ categorie.id }}" class="collapse" aria-labelledby="headingOne" data-parent="#accordion">
+                    <div class="card-body">
+
+                        {% for souscategorie in souscategories %}
+                            {%  set nbarticles=0 %}
+                            {%  if aides!=null  %}
+                                {% for aide in aides %}
+                                    {% if aide.categorie==categorie and aide.sousCategorie==souscategorie and is_granted(aide.permission)%}
+                                        {% set nbarticles=nbarticles+1 %}
+                                    {% endif %}
+                                {% endfor %}
+                            {% endif %}
+                            {% if nbarticles!=0%}
+                                <div id="accordion2">
+                                    <div class="card">
+                                        <div class="card-header" id="heading2{{ souscategorie.id }}">
+                                            <h5 class="mb-0">
+                                                <button class="btn btn-link" data-toggle="collapse" data-target="#collapse2-{{ souscategorie.id }}" aria-expanded="true" aria-controls="collapse2-{{ souscategorie.id }}">
+                                                    {{ souscategorie.intitule }}
+                                                </button>
+                                            </h5>
+                                        </div>
+                                        <div id="collapse2-{{ souscategorie.id }}" class="collapse" aria-labelledby="headingOne" data-parent="#accordion2">
+                                            <div class="card-body" style="text-align: center">
+                                                {% for aide in aides %}
+                                                    {% if aide.categorie==categorie and aide.sousCategorie==souscategorie%}
+                                                        <a href="{{ path('article_aide',{'idArticle':aide.id}) }}" class="btn-show">{{ aide.titre }}</a>
+                                                    {% endif %}
+                                                {% endfor %}
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            {% endif %}
+                        {% endfor %}
+                    </div>
+                </div>
+            </div>
+        {% endif %}
+    {% endfor %}
+</div>

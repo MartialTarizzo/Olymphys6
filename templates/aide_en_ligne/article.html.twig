@@ -1,0 +1,20 @@
+{% extends 'base1.html.twig' %}
+
+{% block title %} Aide en ligne Olymphys{% endblock %}
+{% block titre3 %}
+    <h2 style="text-align: center">Aide en ligne du site Olymphys<br>
+    {{ article.titre }}</h2>
+{% endblock %}
+{% block body %}
+    <div class="container">
+        <div class="row">
+            <div class="col-md-3 col-sm-12">
+                {{ include('aide_en_ligne/liste_aide.html.twig') }}
+            </div>
+            <div class="col-md-9 col-sm-12">
+                {{ article.texte|raw }}
+            </div>
+
+    </div>
+    </div>
+{% endblock %}

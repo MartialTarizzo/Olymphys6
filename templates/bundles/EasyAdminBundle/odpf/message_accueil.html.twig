@@ -8,5 +8,10 @@
     <hr>
 
     <a href="{{ path('elfinder') }}" type="button" class="btn btn-primary" target="_blank">Gérer les médias</a>
-
+<hr>
+    {% set urlphotos = ea_url()
+        .setDashboard('App\\Controller\\OdpfAdmin\\OdpfDashboardController')
+        .setController('App\\Controller\\OdpfAdmin\\OdpfPhotosCrudController')
+        .setAction('index') %}
+    <a href="{{ urlphotos }}" type="button" class="btn btn-primary">Aller vers les photos</a>
 {% endblock %}

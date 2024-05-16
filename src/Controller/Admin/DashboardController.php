@@ -2,6 +2,7 @@
 
 namespace App\Controller\Admin;
 
+use App\Entity\AideEnLigne;
 use App\Entity\Cadeaux;
 use App\Entity\Centrescia;
 use App\Entity\Orgacia;

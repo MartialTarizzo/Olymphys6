@@ -103,6 +103,7 @@ class AdminsiteCrudController extends AbstractCrudController
 
     public function getRedirectResponseAfterSave(AdminContext $context, string $action): RedirectResponse
     {
+
         if ($context->getRequest()->query->get('crudAction') == 'new') {
             $this->creer_edition_passee($context);
         }
@@ -117,6 +118,7 @@ class AdminsiteCrudController extends AbstractCrudController
 
         $filesystem = new Filesystem();
         $idEdition = $context->getRequest()->query->get('entityId');
+
         $edition = $this->doctrine->getRepository(Edition::class)->findOneBy(['id' => $idEdition]);
         $repositoryEquipes = $this->doctrine->getRepository(Equipesadmin::class);
         $repositoryFichiersequipes = $this->doctrine->getRepository(Fichiersequipes::class);
