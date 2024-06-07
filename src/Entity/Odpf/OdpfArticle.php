@@ -57,12 +57,18 @@ class OdpfArticle
     #[ORM\Column(nullable: true)]
     private bool $publie;
 
+    #[ORM\OneToOne(mappedBy: 'article', cascade: ['persist', 'remove'])]
+    private ?OdpfEditionsPassees $odpfEditionsPassees = null;
+
     public function __construct()
     {
         $this->createdAt = new DateTime('now');
         $this->publie = false;
     }
-
+    public function __toString() : string
+        {
+            return $this->titre;
+        }
     public function getId(): ?int
     {
         return $this->id;
@@ -248,5 +254,27 @@ class OdpfArticle
     public function getPublie(): bool
     {
         return $this->publie;
+    }
+
+    public function getOdpfEditionsPassees(): ?OdpfEditionsPassees
+    {
+        return $this->odpfEditionsPassees;
+    }
+
+    public function setOdpfEditionsPassees(?OdpfEditionsPassees $odpfEditionsPassees): static
+    {
+        // unset the owning side of the relation if necessary
+        if ($odpfEditionsPassees === null && $this->odpfEditionsPassees !== null) {
+            $this->odpfEditionsPassees->setArticle(null);
+        }
+
+        // set the owning side of the relation if necessary
+        if ($odpfEditionsPassees !== null && $odpfEditionsPassees->getArticle() !== $this) {
+            $odpfEditionsPassees->setArticle($this);
+        }
+
+        $this->odpfEditionsPassees = $odpfEditionsPassees;
+
+        return $this;
     }
 }

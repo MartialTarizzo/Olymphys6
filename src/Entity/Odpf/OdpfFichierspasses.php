@@ -45,7 +45,7 @@ class OdpfFichierspasses
     {
 
         $this->updatedAt = new \datetime('now');
-
+        $this->publie=false;
     }
 
     #[ORM\Column(length: 255, nullable: true)]

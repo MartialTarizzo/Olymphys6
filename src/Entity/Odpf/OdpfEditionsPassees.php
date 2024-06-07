@@ -66,6 +66,9 @@ class OdpfEditionsPassees
     #[ORM\Column( length:255, nullable:true)]
     private $affiche;
 
+    #[ORM\OneToOne(inversedBy: 'odpfEditionsPassees', cascade: ['persist', 'remove'])]
+    private ?OdpfArticle $article = null;
+
 
     public function __construct()
     {
@@ -271,6 +274,18 @@ class OdpfEditionsPassees
     public function setAffiche(?string $affiche): self
     {
         $this->affiche = $affiche;
+
+        return $this;
+    }
+
+    public function getArticle(): ?OdpfArticle
+    {
+        return $this->article;
+    }
+
+    public function setArticle(?OdpfArticle $article): static
+    {
+        $this->article = $article;
 
         return $this;
     }

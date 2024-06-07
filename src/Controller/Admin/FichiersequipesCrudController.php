@@ -600,7 +600,7 @@ class FichiersequipesCrudController extends AbstractCrudController
         $panel2 = FormField::addPanel('<p style="color:red" > Modifier ' . $article . ' ' . $this->getParameter('type_fichier_lit')[$_REQUEST['typefichier']] . '</p> ');
         $id = IntegerField::new('id', 'ID');
         $fichier = TextField::new('fichier')->setTemplatePath('bundles\\EasyAdminBundle\\liste_fichiers.html.twig');
-        $publie = BooleanField::new('publie')->renderAsSwitch(false);//le basculement du bouton ne permet pas le transfert des fichiers du dossier prive vars le dossier publie et inversement, l'update complet est nécessaire
+        $publie = BooleanField::new('publie')->renderAsSwitch(false);//le basculement du bouton ne permet pas le transfert des fichiers du dossier prive vers le dossier publie et inversement, l'update complet est nécessaire
         $typefichier = IntegerField::new('typefichier');
         if ($pageName == Crud::PAGE_INDEX) {
             $context = $this->adminContextProvider->getContext();
@@ -695,10 +695,10 @@ class FichiersequipesCrudController extends AbstractCrudController
         }
         if (Crud::PAGE_EDIT === $pageName) {
             if ($numtypefichier == 0) {
-                return [$panel1, $equipe, $fichier, $fichierFile, $annexe, $publie];
+                return [$panel1, $equipe, $fichier, $fichierFile, $annexe, $national, $publie];
             }
             if (($numtypefichier == 2) or ($numtypefichier == 3) or ($numtypefichier == 4) or ($numtypefichier == 5)) {
-                return [$panel1, $equipe, $publie, $fichierFile];
+                return [$panel1, $equipe, $publie, $fichierFile,$national];
             }
             if ($numtypefichier == 6) {
 

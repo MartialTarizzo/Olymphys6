@@ -44,6 +44,11 @@ class OdpfCreateArray
 
 
         $article = $repo->findOneBy(['choix' => $choix]);
+        if ($choix=='edition'){
+            $article=$this->doctrine->getRepository(OdpfEditionsPassees::class)->findOneBy(['edition' =>$this->requestStack->getSession()->get('edition')->getEd()-1])->getArticle();
+
+
+        }
         $categorie = $article->getCategorie();
         $texte = $article->getTexte();
         if ($choix == 'inscriptions') {

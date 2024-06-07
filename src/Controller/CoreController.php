@@ -122,8 +122,7 @@ class CoreController extends AbstractController
                 ->getQuery()->getResult();
             $editionaffichee = $doctrine->getRepository(OdpfEditionsPassees::class)->findOneBy(['edition' => $this->requestStack->getSession()->get('edition')->getEd() - 1]);//C'est l'édition précédente qui est affichée
             $choice = 'editions';
-            $choix = 'edition' . $doctrine->getRepository(OdpfEditionsPassees::class)
-                    ->findOneBy(['edition' => $editionaffichee->getEdition()])->getEdition();
+            $choix = 'edition';//. $doctrine->getRepository(OdpfEditionsPassees::class)->findOneBy(['edition' => $editionaffichee->getEdition()])->getEdition();
             $photosed = $this->doctrine->getRepository(photos::class)->findBy(['editionspassees' => $editionaffichee]);
             count($photosed) != 0 ? $photostest = true : $photostest = false;
             $tab = $OdpfCreateArray->getArray($choix);// construit le tableau de résultat à afficher par le template

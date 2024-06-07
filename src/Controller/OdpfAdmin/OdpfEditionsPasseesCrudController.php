@@ -2,6 +2,7 @@
 
 namespace App\Controller\OdpfAdmin;
 
+use App\Entity\Odpf\OdpfArticle;
 use App\Entity\Odpf\OdpfEditionsPassees;
 use App\Service\FileUploader;
 use Doctrine\ORM\EntityManagerInterface;
@@ -11,6 +12,8 @@ use EasyCorp\Bundle\EasyAdminBundle\Config\Actions;
 use EasyCorp\Bundle\EasyAdminBundle\Config\Assets;
 use EasyCorp\Bundle\EasyAdminBundle\Config\Crud;
 use EasyCorp\Bundle\EasyAdminBundle\Controller\AbstractCrudController;
+use EasyCorp\Bundle\EasyAdminBundle\Field\AssociationField;
+use EasyCorp\Bundle\EasyAdminBundle\Field\ChoiceField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\Field;
 use EasyCorp\Bundle\EasyAdminBundle\Field\ImageField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\IntegerField;
@@ -18,6 +21,7 @@ use EasyCorp\Bundle\EasyAdminBundle\Field\TextField;
 use EasyCorp\Bundle\EasyAdminBundle\Form\Type\FileUploadType;
 use EasyCorp\Bundle\EasyAdminBundle\Provider\AdminContextProvider;
 use Imagick;
+use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\Form\Extension\Core\Type\FileType;
 use Symfony\Component\Form\Extension\Core\Type\HiddenType;
 use Symfony\Component\HttpFoundation\File\Exception\FileException;
@@ -65,7 +69,7 @@ class OdpfEditionsPasseesCrudController extends AbstractCrudController
     }
     public function configureFields(string $pageName): iterable
     {
-
+        $articles=$this->doctrine->getRepository(OdpfArticle::class)->findBy(['choix'=>'edition31']);
         $photoParrain = Field::new('photoParrain');
         $affiche = Field::new('affiche');//->setTemplatePath( 'bundles/EasyAdminBundle/odpf/odpf-affiche.html.twig');;
 
@@ -102,6 +106,8 @@ class OdpfEditionsPasseesCrudController extends AbstractCrudController
         $datecia = TextField::new('dateCia');
         $datecn = TextField::new('dateCn');
         $dateinscription = TextField::new('dateinscription');
+        $articleOlymphys=AssociationField::new('article');//ChoiceField::new('article')->setFormType(EntityType::class)
+
         $nomParrain = TextField::new('nomParrain');
         $titreParrain = TextField::new('titreParrain');
         $lienParrain = TextField::new('lienparrain');
@@ -118,7 +124,7 @@ class OdpfEditionsPasseesCrudController extends AbstractCrudController
         }*/
         if (Crud::PAGE_EDIT === $pageName) {
 
-            return [$edition, $pseudo, $annee, $lieu, $ville, $datecia, $datecn, $dateinscription, $nomParrain, $photoParrain,$affiche, $titreParrain, $lienParrain, $photoFile, $afficheFile];
+            return [$edition, $pseudo, $annee, $lieu, $ville, $datecia, $datecn, $dateinscription, $articleOlymphys, $nomParrain, $photoParrain,$affiche, $titreParrain, $lienParrain, $photoFile, $afficheFile];
 
         }
 

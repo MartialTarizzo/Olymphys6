@@ -220,12 +220,14 @@ class AdminsiteCrudController extends AbstractCrudController
                 $this->em->persist($OdpfEquipepassee);
                 $this->em->flush();
             }
-            /* transfert des memoires, resumés et presentations du répertoire prive vers le répertoire publie*/
+            /* transfert des memoires, resumés et presentations du CN du répertoire prive vers le répertoire publie*/
             $listeFichiers = $repositoryFichiersequipes->createQueryBuilder('f')
                 ->where('f.equipe =:equipe')
                 ->andWhere('f.typefichier <:value')
+                ->andWhere('f.national =:national')
                 ->setParameter('equipe', $equipe)
                 ->setParameter('value', 4)
+                ->setParameter('national', true)
                 ->getQuery()->getResult();
 
 
@@ -251,18 +253,20 @@ class AdminsiteCrudController extends AbstractCrudController
                             }
                         }
                     }
-                    $odpfFichier = $repositoryOdpfFichierspasses->findOneBy(['equipepassee' => $OdpfEquipepassee, 'typefichier' => $fichier->getTypefichier(), 'national' => $fichier->getNational()]);
+                    $odpfFichier = $repositoryOdpfFichierspasses->findOneBy(['equipepassee' => $OdpfEquipepassee, 'typefichier' => $fichier->getTypefichier()]);
 
                     if ($odpfFichier === null) {
                         $odpfFichier = new OdpfFichierspasses();
-                    }
-                    $odpfFichier->setEquipePassee($OdpfEquipepassee);
-                    $odpfFichier->setTypefichier($fichier->getTypefichier());
-                    $odpfFichier->setNational($fichier->getNational());
-                    $odpfFichier->setEditionspassees($editionPassee);
-                    //dd($this->getParameter('app.path.fichiers') . '/' . $this->getParameter('type_fichier')[$fichier->getTypefichier() == 1 ? 0 : $fichier->getTypefichier()] . '/' . $fichier->getFichier());
 
-                    $odpfFichier->setNomFichier($fichier->getFichier());
+                        $odpfFichier->setEquipePassee($OdpfEquipepassee);
+                        $odpfFichier->setTypefichier($fichier->getTypefichier());
+                        $odpfFichier->setNational($fichier->getNational());
+                        $odpfFichier->setEditionspassees($editionPassee);
+                        //dd($this->getParameter('app.path.fichiers') . '/' . $this->getParameter('type_fichier')[$fichier->getTypefichier() == 1 ? 0 : $fichier->getTypefichier()] . '/' . $fichier->getFichier());
+
+                        $odpfFichier->setNomFichier($fichier->getFichier());
+                    }
+
                     $odpfFichier->setUpdatedAt(new DateTime('now'));
 
 
