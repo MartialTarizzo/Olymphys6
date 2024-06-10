@@ -122,7 +122,7 @@ class Equipesadmin
 
     public function __toString(): string
     {
-        $ed = $this->getEdition()->getEd();
+        $ed = $this->edition->getEd();
 
         if ($this->getLettre() != null) {
             return $ed . '-' . $this->numero . '-' . $this->lettre . '-' . $this->titreProjet;

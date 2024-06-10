@@ -14,6 +14,8 @@ use App\Entity\Edition;
 use App\Entity\Elevesinter;
 use App\Entity\Equipesadmin;
 use App\Entity\Fichiersequipes;
+use App\Entity\Odpf\OdpfEditionsPassees;
+use App\Entity\Odpf\OdpfEquipesPassees;
 use App\Entity\Odpf\OdpfFichierspasses;
 use App\Entity\User;
 use App\Service\OdpfRempliEquipesPassees;
@@ -55,6 +57,7 @@ use Symfony\Component\DependencyInjection\ParameterBag\ParameterBagInterface;
 use Symfony\Component\HttpFoundation\BinaryFileResponse;
 use Symfony\Component\HttpFoundation\File\UploadedFile;
 use Symfony\Component\HttpFoundation\HeaderUtils;
+use Symfony\Component\HttpFoundation\RedirectResponse;
 use Symfony\Component\HttpFoundation\RequestStack;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Mime\FileinfoMimeTypeGuesser;
@@ -509,6 +512,7 @@ class FichiersequipesCrudController extends AbstractCrudController
     {
 
         $repositoryEdition = $this->doctrine->getRepository(Edition::class);
+
         $idEdition = $this->requestStack->getSession()->get('edition')->getId();
 
         $edition = $repositoryEdition->findOneBy(['id' => $idEdition]);
@@ -622,13 +626,25 @@ class FichiersequipesCrudController extends AbstractCrudController
             ->addOrderBy('eq.numero', 'ASC')
             ->getQuery()->getResult();
         $qb = $this->doctrine->getRepository(User::class)->createQueryBuilder('u');
-        $listeProfs = $this->doctrine->getRepository(User::class)->createQueryBuilder('u')
-            ->andWhere($qb->expr()->like('u.roles', ':roles'))
-            ->setParameter('roles', 'a:2:{i:0;s:9:"ROLE_PROF";i:1;s:9:"ROLE_USER";}')
+        $listeEquipes=$this->doctrine->getRepository(Equipesadmin::class)->findBy(['edition'=>$this->requestStack->getSession()->get('edition')]);
+        $listeProfs=[];
+        $i=0;
+            foreach($listeEquipes as $equipe){
+                $listeProfs[$i]=$equipe->getIdProf1();
+                if($equipe->getIdProf2()!=null){
+                    $i++;
+                    $listeProfs[$i]=$equipe->getIdProf2();
+                }
+            }
+        /*$listeProfs = $this->doctrine->getRepository(User::class)->createQueryBuilder('u')
+            ->andWhere('u.roles =:roles')
+            ->setParameter('roles', 'a:2:{i:0;s:9:"ROLE_PROF";i:2;s:9:"ROLE_USER";}')
+
             // ->orWhere($qb->expr()->like('entity.roles',':roles'))
             // ->setParameter('roles','%i:0;s:9:"ROLE_PROF";i:2;s:9:"ROLE_USER";%')
             ->addOrderBy('u.nom', 'ASC')
-            ->getQuery()->getResult();
+            ->getQuery()->getResult();*/
+
         $eleve = AssociationField::new('eleve')
             ->setFormTypeOptions(['class' => Elevesinter::class,
                 'choices' => $listeEleves,
@@ -642,19 +658,7 @@ class FichiersequipesCrudController extends AbstractCrudController
                 'mapped' => true,
                 'required' => false]);
 
-        $profnew = AssociationField::new('prof')->setQueryBuilder(function ($queryBuilder) {
-            $qb = $queryBuilder;
 
-            return $queryBuilder->select()
-                ->leftJoin('entity.autorisationphotos', 'aut')
-                ->andWhere($qb->expr()->like('entity.roles', ':roles'))
-                ->setParameter('roles', 'a:2:{i:0;s:9:"ROLE_PROF";i:1;s:9:"ROLE_USER";}')
-                // ->orWhere($qb->expr()->like('entity.roles',':roles'))
-                // ->setParameter('roles','%i:0;s:9:"ROLE_PROF";i:2;s:9:"ROLE_USER";%')
-                ->addOrderBy('entity.nom', 'ASC');//    ->addOrderBy('entity.numero','ASC'))
-        })->setFormTypeOptions(['placeholder' => 'Non',
-            'required' => false,
-            'mapped' => true,]);
         $editionEd = TextareaField::new('edition', 'Edition');
         $equipelibel = AssociationField::new('equipe', 'Equipe')->setSortable(true);
         if ($numtypefichier != 6) {
@@ -686,11 +690,14 @@ class FichiersequipesCrudController extends AbstractCrudController
                 return [$panel1, $equipe, $fichierFile, $publie, $annexe];
             }
             if (($numtypefichier == 2) or ($numtypefichier == 3) or ($numtypefichier == 4) or ($numtypefichier == 5)) {
-                return [$panel1, $equipelibel, $fichierFile, $publie];
+
+
+               return [$panel1, $equipe, $fichierFile, $publie];
+
             }
             if ($numtypefichier == 6) {
 
-                return [$panel1, $eleve, $profnew, $fichierFile];
+                return [$panel1, $eleve, $prof, $fichierFile];
             }
         }
         if (Crud::PAGE_EDIT === $pageName) {
@@ -874,6 +881,7 @@ class FichiersequipesCrudController extends AbstractCrudController
         //$validator = new valid_fichiers($this->validator, );
 
 
+
         $session = $this->requestStack->getSession();
         $dateconect = new DateTime('now');
         $equipe = $entityInstance->getEquipe();
@@ -937,28 +945,33 @@ class FichiersequipesCrudController extends AbstractCrudController
         $editionId = $session->get('edition')->getId();
 
         //$edition = $this->doctrine->getRepository(Edition::class)->findOneBy(['id' => $editionId]);
-        $edition = $entityInstance->getEquipe()->getEdition();
-        $entityInstance->setEdition($edition);
+       // $edition = $entityInstance->getEquipe()->getEdition();
+      //  $entityInstance->setEdition($edition);
         $validator = new valid_fichiers($this->validator, $this->parameterBag, $this->requestStack);
         $dateconect = new DateTime('now');
         $equipe = $entityInstance->getEquipe();
         $repositoryFichiers = $this->doctrine->getRepository(Fichiersequipes::class);
 
+        /*
         $pos = strpos($_REQUEST['referrer'], 'typefichier');
-        $typefichier = substr($_REQUEST['referrer'], $pos + 12, 5);
+        $typefichier = substr($_REQUEST['referrer'], $pos + 12, 5);*/
+
+        $typefichier=$_REQUEST['typefichier'];
         if ($typefichier == 0) {//contrairement aux autres fichiers, le formulaire comporte un champ de choix memoire ou annexe
             $typefichier = $entityInstance->getTypefichier();
         }
         $entityInstance->setTypefichier($typefichier);
 
 
-        $entityInstance->setEdition($edition);
+        //$entityInstance->setEdition($edition);
         $ErrorMessage = $session->get('easymessage');
         if ($ErrorMessage != null) {
             $this->addFlash('alert', $ErrorMessage);
             $this->redirectToRoute('admin', $_REQUEST);
         } else {
             if ($typefichier != 6) {
+                $edition = $entityInstance->getEquipe()->getEdition();
+                $entityInstance->setEdition($edition);
                 $entityInstance->setNational($concours);
                 $oldfichier = $repositoryFichiers->createQueryBuilder('f')//Pour vérifier si l'équipe choisie n'a pas déposé ce fichier, le choix des équipes ne filtrant pas ces dernières
                 ->where('f.equipe =:equipe')
@@ -988,7 +1001,7 @@ class FichiersequipesCrudController extends AbstractCrudController
                     if (($entityInstance->getTypefichier() < 4) and ($entityInstance->getNational() == true)) {
                         $this->fichierspublies($entityInstance);
                     }
-                    //parent::persistEntity($entityManager, $entityInstance);
+                    parent::persistEntity($entityManager, $entityInstance);
 
 
                 }
@@ -996,15 +1009,22 @@ class FichiersequipesCrudController extends AbstractCrudController
 
             }
             if ($typefichier == 6) {
+                //if ($entityInstance->getUser()==null) $edition = $entityInstance->getEleve()->getEquipe()->getEdition();
 
-                $entityInstance->setEdition($edition);
                 $entityInstance->setNational(0);
                 $citoyen = $entityInstance->getProf();
                 $quidam = 'Prof';
                 if ($citoyen == null) {
                     $citoyen = $entityInstance->getEleve();
+                    $edition = $entityInstance->getEleve()->getEquipe()->getEdition();
+                    $entityInstance->setEdition($edition);
                     $entityInstance->setEquipe($citoyen->getEquipe());
                     $quidam = 'Eleve';
+                }
+                else{
+                    $idEdition=$this->requestStack->getSession()->get('edition')->getId();
+                    $edition=$this->doctrine->getRepository(Edition::class)->find($idEdition);
+                    $entityInstance->setEdition($edition);
                 }
                 $citoyen = $this->em->merge($citoyen);
                 $oldfichier = $repositoryFichiers->createQueryBuilder('f')
@@ -1033,15 +1053,25 @@ class FichiersequipesCrudController extends AbstractCrudController
                     $citoyen->setAutorisationphotos($entityInstance);
                     $this->em->persist($citoyen);
                     $this->em->flush();
-                    //parent::persistEntity($entityManager, $entityInstance);
+                    parent::persistEntity($entityManager, $entityInstance);
                 }
-
+                parent::persistEntity($entityManager, $entityInstance);
 
             }
 
         }
 
     }
+    protected function getRedirectResponseAfterSave(AdminContext $context, string $action): RedirectResponse
+    {
+            $url = $this->container->get(AdminUrlGenerator::class)
+                ->setAction(Action::INDEX)
+                ->generateUrl();
+
+            return $this->redirect($url);
+
+    }
+
 
     public function deleteEntity(EntityManagerInterface $entityManager, $entityInstance): void
     {
@@ -1069,6 +1099,18 @@ class FichiersequipesCrudController extends AbstractCrudController
             }
             $this->doctrine->getManager()->remove($entityInstance);
         }
+        //Il faut aussi effacer le fichiers des éditions passées
+        $editionpassee=$this->doctrine->getRepository(OdpfEditionsPassees::class)
+            ->findOneBy(['edition'=>$entityInstance->getEdition()->getEd()]);
+        $equipepassee=$this->doctrine->getRepository(OdpfEquipesPassees::class)
+            ->findOneBy(['editionspassees'=>$editionpassee,'numero'=>$entityInstance->getEquipe()->getNumero()]);
+        $fichierspasses=$this->doctrine->getRepository(OdpfFichierspasses::class)
+            ->findOneBy(['equipepassee'=>$equipepassee,'typefichier'=>$entityInstance->getTypefichier()]);
+        if($fichierspasses!=null) {
+            $this->doctrine->getManager()->remove($fichierspasses);
+            $this->doctrine->getManager()->flush();
+        }
+
         parent::deleteEntity($entityManager, $entityInstance); // TODO: Change the autogenerated stub
     }
 

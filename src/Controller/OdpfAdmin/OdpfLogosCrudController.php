@@ -38,8 +38,9 @@ class OdpfLogosCrudController extends AbstractCrudController
             ->setEntityLabelInSingular('OdpfLogos')
             ->setEntityLabelInPlural('OdpfLogos')
             ->setPageTitle(Crud::PAGE_INDEX, '<h2>Les logos pour le site</h2>')
-            ->setPageTitle(Crud::PAGE_EDIT, 'Edite le logo')
+            ->setPageTitle(Crud::PAGE_EDIT, 'Editer le logo')
             ->setPageTitle(Crud::PAGE_NEW, 'Nouveau logo')
+            ->overrideTemplate('crud/edit','bundles/EasyAdminBundle/odpf/edit_logo.html.twig')
             ->setSearchFields(['id', 'type',  'lien', 'alt', 'nom', 'en_service'])
             ->setPaginatorPageSize(10);
     }
@@ -82,7 +83,7 @@ class OdpfLogosCrudController extends AbstractCrudController
         } elseif (Crud::PAGE_NEW === $pageName) {
             return [$type, $nom, $lien, $choix, $part, $alt, $imageFile, $en_service];
         } elseif (Crud::PAGE_EDIT === $pageName) {
-            return [$type, $nom, $lien, $imageFile, $alt, $choix, $part, $en_service];
+            return [$type, $nom, $lien, $image,$imageFile, $alt, $choix, $part, $en_service];
         }
 
 

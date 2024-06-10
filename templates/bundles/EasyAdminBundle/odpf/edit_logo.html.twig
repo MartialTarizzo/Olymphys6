@@ -64,35 +64,23 @@
         <div class="row">
             <div class="col-md-6 col-sm-12">
 
-                {{ form_row(edit_form.edition) }}
-                {{ form_row(edit_form.article) }}
-                {{ form_row(edit_form.annee) }}
-                {{ form_row(edit_form.pseudo) }}
-                {{ form_row(edit_form.lieu) }}
-                {{ form_row(edit_form.ville) }}
-                {{ form_row(edit_form.dateCia) }}
-                {{ form_row(edit_form.dateCn) }}
-                {{ form_row(edit_form.dateinscription) }}
+                {{ form_row(edit_form.type) }}
+                {{ form_row(edit_form.nom) }}
+                {{ form_row(edit_form.choix) }}
+                {{ form_row(edit_form.part) }}
+                {{ form_row(edit_form.alt) }}
+                {{ form_row(edit_form.lien) }}
+                {{ form_row(edit_form.en_service) }}
+
             </div>
             <div class="col-md-6 col-sm-12 " >
-                {{ form_row(edit_form.nomParrain) }}
-                {{ form_row(edit_form.titreParrain) }}
-                {{ form_row(edit_form.lienparrain) }}
-                <span style="font-weight: bold">{{ form_label(edit_form.affiche,'Photo du parrain') }}</span><br>
-                {% if edit_form.photoParrain.vars['data'] !=null %}
-                    {% set path= 'odpf/odpf-archives/'~edit_form.photoParrain.vars['data']|split('parrain')[1]|slice(0,2)~'/parrain/' %}
-                    <img src="{{ asset(path~edit_form.photoParrain.vars['data']) }}" style="margin: auto">
-                {% endif %}
-                <a href="#"  data-bs-toggle="modal"
-                   data-bs-target="#modalinfoparrain"  title="infos"><i
-                            class="fa fa fa-exclamation-circle " aria-hidden="true"></i></a>{{ form_widget(edit_form.photoParrainFile) }}
-                <span style="font-weight: bold">{{ form_label(edit_form.affiche,'Affiche') }}</span><br>
-                {% if edit_form.affiche.vars['data'] !=null %}
-                    {% set path= 'odpf/odpf-archives/'~edit_form.affiche.vars['data']|split('affiche')[1]|slice(0,2)~'/affiche/' %}
-                    <img src="{{ asset(path~edit_form.affiche.vars['data']) }}" style="margin: auto">
+                {{ form_row(edit_form.image) }}
+                {% if edit_form.image.vars['value'] !=null %}
+                    {% set path= 'odpf/odpf-logos/' %}
+                    <img src="{{ asset(path~edit_form.image.vars['value']) }}" style="margin: auto;width: 200px">
                 {% endif %}
 
-                {{ form_widget(edit_form.afficheFile) }}
+                {{ form_widget(edit_form.imageFile) }}
 
             </div>
 

@@ -390,10 +390,13 @@ class OdpfFichiersPassesCrudController extends AbstractCrudController
     #[Route("setPublies,{typefichier}", name: "setPublies")]
     public function setPublies(\Symfony\Component\HttpFoundation\Request $request, $typefichier): Response
     {
+        $qb = $this->doctrine->getRepository(OdpfEditionsPassees::class)->createQueryBuilder('f')
+            ->orderBy('f.edition','DESC');
         $form = $this->createFormBuilder()
             ->add('edition', EntityType::class,
                 [
                     'class' => OdpfEditionsPassees::class,
+                    'query_builder'=>$qb,
 
 
                 ])
@@ -402,7 +405,7 @@ class OdpfFichiersPassesCrudController extends AbstractCrudController
         $form->handleRequest($request);
         if ($form->isSubmitted() and $form->isValid()) {
             $edition = $form->get('edition')->getData();
-            $fichiersRepo = $this->doctrine->getRepository(OdpfFichierspasses::class);//Mémoires, annexes, résumes, diaporama national
+            $fichiersRepo = $this->doctrine->getRepository(OdpfFichierspasses::class);//Mémoires, annexes,
 
             if ($typefichier == 0) $fichiers = $fichiersRepo->createQueryBuilder('f')
                 ->where('f.typefichier <:type')
@@ -411,7 +414,7 @@ class OdpfFichiersPassesCrudController extends AbstractCrudController
                 ->setParameters(['edition' => $edition, 'type' => 2, 'value' => 1])
                 ->getQuery()->getResult();
             if ($typefichier != 0) $fichiers = $fichiersRepo->findBy(
-                ['editionspassees' => $edition, 'typefichier' => $typefichier, 'national' => true]);//Mémoires, annexes, résumes, diaporama national
+                ['editionspassees' => $edition, 'typefichier' => $typefichier, 'national' => true]);// résumes, diaporama national
 
             foreach ($fichiers as $fichier) {
                 $fichier->setPublie(true);
