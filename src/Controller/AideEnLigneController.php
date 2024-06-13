@@ -8,6 +8,7 @@ use App\Entity\CategorieAide;
 use App\Entity\SousCategorieAide;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Attribute\Route;
 use Symfony\Component\Security\Http\Attribute\IsGranted;
@@ -21,7 +22,7 @@ use Symfony\Component\Validator\Constraints\Iban;
 
     }
     #[Route('/aide_en_ligne', name: 'app_aide_en_ligne')]
-    #[IsGranted("ROLE_COMITE")]
+    #[IsGranted("ROLE_USER")]
     public function index(): Response
     {
         $categoriesAide=$this->em->getRepository(CategorieAide::class)->findAll();
@@ -36,7 +37,7 @@ use Symfony\Component\Validator\Constraints\Iban;
         return $this->render('aide_en_ligne/index.html.twig', ['categories'=>$categoriesAide,'souscategories'=>$sousCategoriesAide,'aides'=>$aides]);
     }
     #[Route('/aide_en_ligne/article,{idArticle}', name: 'article_aide')]
-    #[IsGranted("ROLE_COMITE")]
+    #[IsGranted("ROLE_USER")]
     public function articleAide($idArticle): Response
     {
         $article=$this->em->getRepository(AideEnLigne::class)->find($idArticle);
@@ -45,8 +46,5 @@ use Symfony\Component\Validator\Constraints\Iban;
         $aides=$this->em->getRepository(AideEnLigne::class)->findAll();
         return $this->render('aide_en_ligne/article.html.twig', ['article'=>$article , 'categories'=>$categoriesAide,'souscategories'=>$sousCategoriesAide,'aides'=>$aides]);
     }
-
-
-
 
 }

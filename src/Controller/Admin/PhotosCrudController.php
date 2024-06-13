@@ -23,6 +23,7 @@ use EasyCorp\Bundle\EasyAdminBundle\Controller\AbstractCrudController;
 use EasyCorp\Bundle\EasyAdminBundle\Dto\EntityDto;
 use EasyCorp\Bundle\EasyAdminBundle\Dto\SearchDto;
 use EasyCorp\Bundle\EasyAdminBundle\Field\AssociationField;
+use EasyCorp\Bundle\EasyAdminBundle\Field\BooleanField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\DateTimeField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\Field;
 use EasyCorp\Bundle\EasyAdminBundle\Field\FormField;
@@ -229,7 +230,7 @@ class PhotosCrudController extends AbstractCrudController
 
         $coment = TextField::new('coment', 'Commentaire');
         $concours == 'national' ? $valnat = true : $valnat = false;
-        $national = Field::new('national')->setFormTypeOption('data', $valnat);
+        $national = BooleanField::new('national')->setFormTypeOption('data', $valnat);
 
         $updatedAt = DateTimeField::new('updatedAt', 'Déposé le ')->setSortable(true);
 
@@ -267,11 +268,11 @@ class PhotosCrudController extends AbstractCrudController
             return [$id, $photo, $coment, $national, $updatedAt, $equipe, $edition];
         } elseif (Crud::PAGE_NEW === $pageName) {
             //$this->requestStack->getSession()->set('concours', $concours);
-            return [$panel1, $equipe, $imageFile, $coment, $national, $coment, $edition];
+            return [$panel1, $equipe, $imageFile, $coment, $national];
 
         } elseif (Crud::PAGE_EDIT === $pageName) {
             //$this->requestStack->getSession()->set('concours', $concours);
-            return [$photo, $imageFile, $equipe, $national, $coment];
+            return [$photo, $imageFile, $equipe, $coment, $national];
         }
     }
 
@@ -392,7 +393,7 @@ class PhotosCrudController extends AbstractCrudController
             }
         }
         if (!isset($_REQUEST['erreur'])) {
-
+            $this->requestStack->getSession()->set('national', $entityInstance->getNational());
             $entityManager->persist($entityInstance);
             $entityManager->flush();
         }
@@ -577,11 +578,12 @@ class PhotosCrudController extends AbstractCrudController
 
     public function getRedirectResponseAfterSave(AdminContext $context, string $action): RedirectResponse
     {
+        $national=false;
+        if (isset($_REQUEST['Photos']['national'])) $national=true;
 
-        $national = $context->getRequest()->request->all('Photos')['national'];
-        $national == false ? $concours = 'interacadémique' : $concours = 'national';
-        $url = $this->adminUrlGenerator->setController(PhotosCrudController::class)
-            ->setAction('index')
+        $national == false ? $concours = 'interacademique' : $concours = 'national';
+        $url = $this->container->get(AdminUrlGenerator::class)
+            ->setAction(Action::INDEX)
             ->set('concours', $concours)
             ->generateUrl();
         return $this->redirect($url);
