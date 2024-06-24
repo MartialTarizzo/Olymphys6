@@ -75,6 +75,7 @@ class AideEnLigneCrudController extends AbstractCrudController
                 'ROLE_PROF' => 'ROLE_PROF',
                 'ROLE_JURY' => 'ROLE_JURY',
                 'ROLE_JURYCIA' => 'ROLE_JURYCIA',
+                'ROLE_ORGACIA' => 'ROLE_ORGACIA',
             ])
 
 

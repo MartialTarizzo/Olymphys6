@@ -44,6 +44,7 @@ class OdpfArticleCrudController extends AbstractCrudController
         $this->adminContextProvider = $adminContextProvider;
     }
 
+
     public static function getEntityFqcn(): string
     {
         return OdpfArticle::class;
