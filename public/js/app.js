@@ -51,15 +51,14 @@ function changeequipe(e, i, j) {
     var data_value = e.value;
     var id_equipe = i;
     var id_jure = j;
-    console.log(data_value);
-    var formURL = document.getElementsByName('forme'.concat(id_equipe))[0].action;
-    console.log(formURL);
+    var formURL = document.getElementById('form-'.concat(id_jure)).action;
+  
     $.ajax({
         url: formURL,
         type: "GET",
         data: {type: type, value: data_value, idequipe: id_equipe, idjure: id_jure},
 
-        success: function () {
+    success: function () {
             document.querySelector('#gestionjures').click()
 
         },

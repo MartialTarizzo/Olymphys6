@@ -35,8 +35,7 @@ class JuresCia
     #[ORM\OneToMany(mappedBy: "jure", targetEntity: NotesCia::class)]
     private ?Collection $notesj;
 
-    #[ORM\ManyToMany(targetEntity: equipesadmin::class, inversedBy: 'juresCia')]
-    private Collection $equipes;
+
 
     #[ORM\ManyToOne]
     private ?Centrescia $centrecia = null;
@@ -52,6 +51,12 @@ class JuresCia
 
     #[ORM\Column(type: Types::JSON, nullable: true)]
     private ?array $lecteur = [];
+
+    /**
+     * @var Collection<int, Equipesadmin>
+     */
+    #[ORM\ManyToMany(targetEntity: Equipesadmin::class)]
+    private Collection $equipes;
 
     /**
      * Constructor
@@ -186,9 +191,9 @@ class JuresCia
     }
 
     /**
-     * @return Collection<int, equipesadmin>
+     * @return ArrayCollection|Collection|null
      */
-    public function getEquipes(): Collection
+    public function getEquipes(): ArrayCollection|Collection|null
     {
         return $this->equipes;
     }
@@ -196,7 +201,10 @@ class JuresCia
     public function addEquipe(equipesadmin $equipe): self
     {
         if (!$this->equipes->contains($equipe)) {
-            $this->equipes->add($equipe);
+            $this->equipes[] = $equipe;
+
+            //On relie l'équipe à "une ligne note"
+
         }
 
         return $this;

@@ -44,10 +44,11 @@ use Symfony\Component\Mailer\MailerInterface;
 use Symfony\Component\PasswordHasher\Hasher\UserPasswordHasher;
 use Symfony\Component\PasswordHasher\Hasher\UserPasswordHasherInterface;
 use Symfony\Component\Routing\Attribute\Route;
-use Sensio\Bundle\FrameworkExtraBundle\Configuration\IsGranted;
+
 
 ;
 
+use Symfony\Component\Security\Http\Attribute\IsGranted;
 use Symfony\Component\String\Slugger\AsciiSlugger;
 use function Symfony\Component\String\u;
 
@@ -425,7 +426,7 @@ class SecretariatjuryCiaController extends AbstractController
             //$this->redirectToRoute('secretariatjuryCia_gestionjures');
         }
 
-        if ($request->get('idequipe') !== null) {//pour la modification des attribtions des équipes
+        if ($request->query->get('idequipe') !== null) {//pour la modification des attribtions des équipes
             $idJure = $request->get('idjure');
             $attrib = $request->get('value');
             $idequipe = $request->get('idequipe');
@@ -494,6 +495,7 @@ class SecretariatjuryCiaController extends AbstractController
                 ->orderBy('j.numJury', 'ASC')
                 ->addOrderBy('j.nomJure', 'ASC')
                 ->getQuery()->getResult();
+
             return $this->render('cyberjuryCia/gestionjures.html.twig', array('listejures' => $listejures, 'listeEquipes' => $listeEquipes, 'centre' => $centrecia->getCentre(), 'horaires' => $horaires));
 
 
