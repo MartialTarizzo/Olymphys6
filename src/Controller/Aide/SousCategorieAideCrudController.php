@@ -2,10 +2,18 @@
 
 namespace App\Controller\Aide;
 
+use App\Controller\OdpfAdmin\AdminCKEditorField;
 use App\Entity\AideEnLigne;
+use App\Entity\CategorieAide;
 use App\Entity\SousCategorieAide;
+use EasyCorp\Bundle\EasyAdminBundle\Config\Actions;
 use EasyCorp\Bundle\EasyAdminBundle\Config\Crud;
 use EasyCorp\Bundle\EasyAdminBundle\Controller\AbstractCrudController;
+use EasyCorp\Bundle\EasyAdminBundle\Field\AssociationField;
+use EasyCorp\Bundle\EasyAdminBundle\Field\ChoiceField;
+use EasyCorp\Bundle\EasyAdminBundle\Field\CollectionField;
+use EasyCorp\Bundle\EasyAdminBundle\Field\TextField;
+use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 
 
 class SousCategorieAideCrudController extends AbstractCrudController
@@ -18,4 +26,26 @@ class SousCategorieAideCrudController extends AbstractCrudController
         return $crud->setPageTitle('index','Sous-catégories de l\'aide');
 
     }
+   public function configureFields(string $pageName): iterable
+   {
+       return [
+           yield TextField::new('intitule', 'Intitule'),
+           //ield AssociationField::new('categorie','Catégorie'),
+           //yield AssociationField::new('sousCategorie','Sous-catégorie'),
+           yield CollectionField::new('categorieAide','Catégories')->onlyOnIndex(),
+           yield CollectionField::new('categorieAide')
+               ->setEntryType(EntityType::class)
+               ->setFormTypeOptions([
+                   'entry_options' => [
+                       'class'=>CategorieAide::class,
+                       'choice_label'=>'intitule'],
+                   'required' => false,
+               ])
+               ->renderExpanded()
+               ->onlyOnForms(),
+
+
+
+       ];
+   }
 }

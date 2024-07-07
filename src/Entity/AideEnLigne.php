@@ -3,6 +3,8 @@
 namespace App\Entity;
 
 use App\Repository\AideEnLigneRepository;
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 use Doctrine\DBAL\Types\Types;
 use Doctrine\ORM\Mapping as ORM;
 
@@ -24,14 +26,24 @@ class AideEnLigne
     #[ORM\Column(length: 255, nullable: true)]
     private ?string $permission = null;
 
-    #[ORM\ManyToOne]
-    private ?CategorieAide $categorie = null;
-
-    #[ORM\ManyToOne]
-    private ?SousCategorieAide $sousCategorie = null;
+    /**
+     * @var Collection<int, SousCategorieAide>
+     */
+    #[ORM\ManyToMany(targetEntity: SousCategorieAide::class, inversedBy: 'aideEnLignes')]
+    private Collection $sousCategorie;
 
     #[ORM\Column(length: 255, nullable: true)]
     private ?string $titre = null;
+
+    public function __construct()
+    {
+        $this->sousCategorie = new ArrayCollection();
+    }
+
+
+
+
+
 
     public function getId(): ?int
     {
@@ -66,26 +78,29 @@ class AideEnLigne
         return $this;
     }
 
-    public function getCategorie(): ?CategorieAide
-    {
-        return $this->categorie;
-    }
 
-    public function setCategorie(?CategorieAide $categorie): static
-    {
-        $this->categorie = $categorie;
 
-        return $this;
-    }
 
-    public function getSousCategorie(): ?SousCategorieAide
+    /**
+     * @return Collection<int, SousCategorieAide>
+     */
+    public function getSousCategorie(): Collection
     {
         return $this->sousCategorie;
     }
 
-    public function setSousCategorie(?SousCategorieAide $SousCategorie): static
+    public function addSousCategorie(SousCategorieAide $sousCategorie): static
     {
-        $this->sousCategorie = $SousCategorie;
+        if (!$this->sousCategorie->contains($sousCategorie)) {
+            $this->sousCategorie->add($sousCategorie);
+        }
+
+        return $this;
+    }
+
+    public function removeSousCategorie(SousCategorieAide $sousCategorie): static
+    {
+        $this->sousCategorie->removeElement($sousCategorie);
 
         return $this;
     }
@@ -101,4 +116,8 @@ class AideEnLigne
 
         return $this;
     }
+
+
+
+
 }

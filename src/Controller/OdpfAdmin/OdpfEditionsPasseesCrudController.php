@@ -106,14 +106,19 @@ class OdpfEditionsPasseesCrudController extends AbstractCrudController
         $datecia = TextField::new('dateCia');
         $datecn = TextField::new('dateCn');
         $dateinscription = TextField::new('dateinscription');
-        $articleOlymphys=AssociationField::new('article');//ChoiceField::new('article')->setFormType(EntityType::class)
+        $articleOlymphys= AssociationField::new('article');
+        $articleOlymphysEdit=ChoiceField::new('article')->setFormTypeOptions([
+
+            'choices'=>$this->doctrine->getRepository(OdpfArticle::class)->findAll(),
+            'choice_label'=>'getTitre'
+        ]);
 
         $nomParrain = TextField::new('nomParrain');
         $titreParrain = TextField::new('titreParrain');
         $lienParrain = TextField::new('lienparrain');
 
         if (Crud::PAGE_INDEX === $pageName) {
-            return [$edition, $pseudo, $annee, $lieu, $ville, $datecia, $datecn];
+            return [$edition, $pseudo, $annee, $lieu, $ville, $articleOlymphys, $datecn];
         }
         if (Crud::PAGE_DETAIL === $pageName) {
             return [$id, $edition, $pseudo, $annee, $lieu, $ville, $datecia, $datecn, $dateinscription, $nomParrain, $titreParrain, $photoParrain, $lienParrain, $affiche];
@@ -124,7 +129,7 @@ class OdpfEditionsPasseesCrudController extends AbstractCrudController
         }*/
         if (Crud::PAGE_EDIT === $pageName) {
 
-            return [$edition, $pseudo, $annee, $lieu, $ville, $datecia, $datecn, $dateinscription, $articleOlymphys, $nomParrain, $photoParrain,$affiche, $titreParrain, $lienParrain, $photoFile, $afficheFile];
+            return [$edition, $pseudo, $annee, $lieu, $ville, $datecia, $datecn, $dateinscription, $articleOlymphysEdit, $nomParrain, $photoParrain,$affiche, $titreParrain, $lienParrain, $photoFile, $afficheFile];
 
         }
 
