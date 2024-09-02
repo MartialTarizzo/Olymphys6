@@ -33,44 +33,32 @@
             <th>
 
             </th>
-            {% for i in 0..listeEquipes|length %}
-                <th>
 
-                    {% if loop.index == (listeEquipes|length+5) //2 %}
-                        <span type="text-align: center"> Numéros des équipes<br>
-                        <span type="font-size : 8px">Passer la souris sur le n° pour voir le titre du projet</span></span>
-                    {% endif %}
-                </th>
-            {% endfor %}
             <th></th>
             <th></th>
         </tr>
         </thead>
     </table>
 
-
-    <table class="table">
+<div class="table-responsive">
+    <table class="table table-bordered">
         <thead>
         <tr>
             <th scope="col"></th>
-            <th scope="col"></th>
-            <th scope="col"></th>
-            <th></th>
-            <th></th>
+            <td></td>
+            <td><span style="text-align: center" title="Passer la souris sur le n° pour voir le titre du projet"> N<sup>o</sup> équipes</span></td>
             {% for equipe in listeEquipes %}
-                <th scope="col" title="{{ equipe.titreProjet }}">{{ equipe.numero }}</th>
+                <td scope="col" title="{{ equipe.titreProjet }}">{{ equipe.numero }}</td>
             {% endfor %}
 
-            <th scope="col">
+            <td scope="col">
 
-            </th>
+            </td>
         </tr>
         <tr>
             <th></th>
-            <th></th>
-            <th></th>
-            <th></th>
-            <th>Horaires</th>
+            <td></td>
+            <td>Horaires</td>
 
             <form id="formhoraires" method="post" action="{{ path('attrib_horaires_salles_cia',{'centre':centre }) }}"
                   name="formhoraires">
@@ -85,7 +73,7 @@
                             {% endif %}
                         {% endfor %}
                     {% endif %}
-                    <th>
+                    <td>
                         <label for="{{ 'heure'~equipe.id }}"></label>
                         <input type="time" value="{{ heure }}" id="{{ 'heure'~equipe.id }}"
                                name="heure"
@@ -93,17 +81,16 @@
                                onfocusout="modifheure({{ 'heure'~equipe.id }})">
                         <a href="{{ path('effacer_heure_cia',{'idequipe':equipe.id}) }}" type="button"
                            class="fa fa-trash"></a>
-                    </th>
+                    </td>
                 {% endfor %}
 
             </form>
         </tr>
         <tr>
+
             <th></th>
-            <th></th>
-            <th></th>
-            <th></th>
-            <th>Salles</th>
+            <td></td>
+            <td>Salles</td>
             <form id="formsalles" method="post" action="{{ path('attrib_horaires_salles_cia',{'centre':centre}) }}"
                   name="formsalles">
                 {% for equipe in listeEquipes %}
@@ -127,18 +114,16 @@
             </form>
         </tr>
         <tr>
-            <th scope="col">Prenom</th>
-            <th scope="col">Nom</th>
-            <th scope="col">Initiales</th>
-            <th></th>
-            <th scope="col" title="N° du sous-jury(Par défaut 1)">N° Jury</th>
+            <th scope="col">Prenom  Nom  Initiales</th>
+            <td></td>
+            <td scope="col" title="N° du sous-jury(Par défaut 1)">N° Jury</td>
             {% for equipe in listeEquipes %}
-                <th scope="col"></th>
+                <td></td>
             {% endfor %}
 
-            <th scope="col">
+            <td>
                 <div style="text-align: center">Supprimer</div>
-            </th>
+            </td>
         </tr>
         </thead>
         <tbody>
@@ -164,26 +149,24 @@
 
 
                 <input type="hidden" name="idjure" id="{{ jure.id }}" value="{{ jure.id }}">
-                <td>
+                <th>
                     <label for="prenom{{ jure.id }}"></label><input type="text" value="{{ jure.prenomJure }}"
                                                                     id="prenom{{ jure.id }}"
                                                                     name="prenom" style="width: 80px"
                                                                     onchange="changejure({{ 'prenom'~jure.id }})">
 
-                </td>
-                <td>
+
                     <label for="{{ 'nom'~jure.id }}"></label><input type="text" value="{{ jure.nomJure }}"
                                                                     id="{{ 'nom'~jure.id }}" name="nom"
                                                                     style="width:100px"
                                                                     onchange="changejure({{ 'nom'~jure.id }})">
-                </td>
-                <td>
+
 
                     <label for="{{ 'initiales'~jure.id }}"></label><input type="text" value="{{ jure.initialesJure }}"
                                                                           id="{{ 'initiales'~jure.id }}"
                                                                           name="initiales" style="width: 50px"
                                                                           onchange="changejure({{ 'initiales'~jure.id }})">
-                </td>
+                </th>
                 <td>
                     <a href="{{ path('modifcoordonneesjures',{'idjure':jure.id,'centre': centre }) }}"
                        title="Modifier les données du jure ">
@@ -260,6 +243,7 @@
 
         </tbody>
     </table>
+</div>
     <!--<div class="text-center">
         <button class="btn btn-primary" value="confirmer" name="confirmer" onclick="confirmer()">Confirmer</button>
     </div> -->

@@ -195,7 +195,7 @@ class Mailer
             ->addCc($orgacia->getEmail())// prévient l'oganisateur cia
             ->htmlTemplate('email/confirme_user_jure.html.twig')
             ->subject('Votre compte Olymphys a été créé')
-            ->context(['centrecia' => $centre, 'jureNom' => $jure->getprenomNom(), 'jureLogin' => $jure->getUsername(), 'pwd' => $pwd, 'courriel' => $jure->getEmail()]);
+            ->context(['centrecia' => $centre, 'jureNom' => $jure->getprenomNom(), 'jureLogin' => $jure->getEmail(), 'pwd' => $pwd, 'courriel' => $jure->getEmail()]);
 
         $this->mailer->send($email);
         return $email;
