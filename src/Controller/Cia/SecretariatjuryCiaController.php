@@ -497,8 +497,6 @@ class SecretariatjuryCiaController extends AbstractController
                 ->getQuery()->getResult();
 
             return $this->render('cyberjuryCia/gestionjures.html.twig', array('listejures' => $listejures, 'listeEquipes' => $listeEquipes, 'centre' => $centrecia->getCentre(), 'horaires' => $horaires));
-
-
         }
 
         if ($request->query->get('jureID') !== null) {//la fenêtre modale de confirmation de suppresion du juré a été validée, elle renvoie l'id du juré

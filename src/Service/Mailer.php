@@ -199,7 +199,6 @@ class Mailer
 
         $this->mailer->send($email);
         return $email;
-
     }
 
     /**
