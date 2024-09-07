@@ -89,7 +89,17 @@ th, th:first-child{
     left:0px;
 
 }
+.tableFixHead          { overflow: auto; height:600px; border-collapse: collapse;  }
+.tableFixHead thead th {
+    position: sticky;
+    top: 0;
+    z-index: 1;
+    background-color : #dbfdff;
+    left:0px;}
 
+/* Just common table stuff. Really. */
+table  { border-collapse: collapse; width: 100%; }
+th, td { padding: 8px 16px}
 /*
 .table-striped thead,
 .table-striped tbody,
