@@ -100,7 +100,12 @@ class ProfesseursCrudController extends AbstractCrudController
         $tableauexcelsel = Action::new('profs_tableau_excel_sel', 'Créer un tableau excel des professeurs sélectionnés', 'fas fa-columns')
             // if the route needs parameters, you can define them:
             // 1) using an array
-            ->linkToRoute('profs_tableau_excel_sel', ['idEdition' => $editionId])
+            ->linkToRoute('profs_tableau_excel_sel', ['idEdition' => $editionId,'sel'=>true])
+            ->createAsGlobalAction();
+        $tableauexcelnonsel = Action::new('profs_tableau_excel_non-sel', 'Créer un tableau excel des professeurs non sélectionnés', 'fas fa-columns')
+            // if the route needs parameters, you can define them:
+            // 1) using an array
+            ->linkToRoute('profs_tableau_excel_sel', ['idEdition' => $editionId,'sel'=>false])
             ->createAsGlobalAction();
         $tableauexcelmailing = Action::new('profs_tableau_excel_mailing', 'Créer un tableau excel des professeurs pour mailings', 'fas fa-columns')
             // if the route needs parameters, you can define them:
@@ -111,6 +116,7 @@ class ProfesseursCrudController extends AbstractCrudController
             ->add(Crud::PAGE_INDEX, Action::DETAIL)
             ->add(Crud::PAGE_INDEX, $tableauexcel)
             ->add(Crud::PAGE_INDEX, $tableauexcelsel)
+            ->add(Crud::PAGE_INDEX, $tableauexcelnonsel)
             ->add(Crud::PAGE_INDEX, $tableauexcelmailing)
             ->remove(Crud::PAGE_INDEX, Action::NEW)
             ->remove(Crud::PAGE_INDEX, Action::EDIT)
@@ -364,11 +370,9 @@ class ProfesseursCrudController extends AbstractCrudController
 
     }
 
-    #[Route("/Professeurs/editer_tableau_excel_sel,{idEdition}", name: "profs_tableau_excel_sel")]
-    public function editer_tableau_excel_sel($idEdition)
+    #[Route("/Professeurs/editer_tableau_excel_sel,{idEdition,sel}", name: "profs_tableau_excel_sel")]
+    public function editer_tableau_excel_sel($idEdition,$sel)
     {
-
-
         $em = $this->doctrine->getManager();
         $repositoryEdition = $this->doctrine->getRepository(Edition::class);
         $repositoryEquipes = $this->doctrine->getRepository(Equipesadmin::class);
@@ -378,13 +382,14 @@ class ProfesseursCrudController extends AbstractCrudController
         $queryBuilder = $repositoryProfs->createQueryBuilder('p')
             ->leftJoin('p.equipes', 'eqs')
             ->andWhere('eqs.edition =:edition')
-            ->andWhere('eqs.selectionnee = TRUE')
-            ->setParameter('edition', $edition)
+            ->andWhere('eqs.selectionnee =:sel')
+            ->setParameters(['edition'=>$edition,'sel'=>$sel])
             ->leftJoin('p.user', 'u')
             ->orderBY('u.nom', 'ASC');
         $listProfs = $queryBuilder->getQuery()->getResult();
         $lettres = [];
-        if ($listProfs != null) {
+        if ($listProfs != null) {//Pour regrouper les équipes sur un même professeur dans le formaz A/B/C
+            $i=0;
             foreach ($listProfs as $prof) {
                 $equipestring = '';
                 $equipesLettres = '';
@@ -397,17 +402,23 @@ class ProfesseursCrudController extends AbstractCrudController
 
                 if ($equipes != null) {
                     foreach ($equipes as $equipe) {
-                        if ($equipe->getIdProf1() == $prof->getUser()) {
-                            $encad = '(prof1)';
-                        }
-                        if ($equipe->getIdProf2() == $prof->getUser()) {
-                            $encad = '(prof2)';
-                        }
-                        $equipestring = $equipestring . $equipe->getTitreProjet() . $encad;
-                        $equipesLettres == '' ? $equipesLettres = $equipe->getLettre() : $equipesLettres = $equipesLettres . '/' . $equipe->getLettre();
-                        if (next($equipes) != null) {
-                            $equipestring = $equipestring . "\n";
+                        if($equipe->getSelectionnee() == true and $sel==false ){//Le professeur a une équipe sélectionnée, il ne doit pas figurer dans la liste
+                            array_splice($listProfs, $i, 1);
 
+                        }
+                        else {
+                            if ($equipe->getIdProf1() == $prof->getUser()) {
+                                $encad = '(prof1)';
+                            }
+                            if ($equipe->getIdProf2() == $prof->getUser()) {
+                                $encad = '(prof2)';
+                            }
+                            $equipestring = $equipestring . substr($equipe->getTitreProjet(), 0, 50) . $encad;//substr pour éviter une erreur de string supérieure à 255 dans la base
+                            $equipesLettres == '' ? $equipesLettres = $equipe->getLettre() : $equipesLettres = $equipesLettres . '/' . $equipe->getLettre();
+                            if (next($equipes) != null) {
+                                $equipestring = $equipestring . "\n";
+
+                            }
                         }
                     }
                     $equipestring = count($equipes) . '-' . $equipestring;
@@ -415,6 +426,7 @@ class ProfesseursCrudController extends AbstractCrudController
                     $lettres[$prof->getId()] = $equipesLettres;
                     $em->persist($prof);
                     $em->flush();
+                    $i++;
                 }
             }
         }
