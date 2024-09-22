@@ -402,11 +402,9 @@ class ProfesseursCrudController extends AbstractCrudController
 
                 if ($equipes != null) {
                     foreach ($equipes as $equipe) {
-                        if($equipe->getSelectionnee() == true and $sel==false ){//Le professeur a une équipe sélectionnée, il ne doit pas figurer dans la liste
-                            array_splice($listProfs, $i, 1);
-
-                        }
-                        else {
+                        if ($equipe->getSelectionnee() == true and $sel == false) {//Le professeur a une équipe sélectionnée, il ne doit pas figurer dans la liste des profs non sélectionnés
+                            array_splice($listProfs, $i, 1);//suppression de ce prof de la liste
+                        } else {
                             if ($equipe->getIdProf1() == $prof->getUser()) {
                                 $encad = '(prof1)';
                             }
@@ -419,13 +417,14 @@ class ProfesseursCrudController extends AbstractCrudController
                                 $equipestring = $equipestring . "\n";
 
                             }
+
                         }
+                        $equipestring = count($equipes) . '-' . $equipestring;
+                        $prof->setEquipesstring($equipestring);
+                        $lettres[$prof->getId()] = $equipesLettres;
+                        $em->persist($prof);
+                        $em->flush();
                     }
-                    $equipestring = count($equipes) . '-' . $equipestring;
-                    $prof->setEquipesstring($equipestring);
-                    $lettres[$prof->getId()] = $equipesLettres;
-                    $em->persist($prof);
-                    $em->flush();
                     $i++;
                 }
             }
