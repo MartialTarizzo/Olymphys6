@@ -262,6 +262,7 @@ class PhotosController extends AbstractController
 
         $concourseditioncentre = explode('-', $infos);
         $concours = $concourseditioncentre[0];
+
         $editionN = $repositoryEdition->find(['id' => $concourseditioncentre[1]]);
         $editionN1 = $repositoryEdition->findOneBy(['ed' => $editionN->getEd() - 1]);
         new DateTime('now') >= $this->requestStack->getSession()->get('ouverturesite') ? $edition = $editionN : $edition = $editionN1;
@@ -341,9 +342,8 @@ class PhotosController extends AbstractController
         $liste_photos = $qb2->getQuery()->getResult();
         if (!$liste_photos) {
             $request->getSession()
-                ->getFlashBag()
-                ->add('info', 'Pas de photo pour le concours ' . $concours . ' de l\'édition ' . $edition->getEd() . ' à ce jour');
-            return $this->redirectToRoute('core_home');
+                ->set('info', 'Pas de photo pour le concours ' . $concours . ' de l\'édition ' . $edition->getEd() . ' à ce jour');
+            return $this->redirectToRoute('fichiers_choix_equipe', array('choix' => 'liste_prof'));
         }
 
         $i = 0;
@@ -355,7 +355,7 @@ class PhotosController extends AbstractController
 
             $form[$i]->add('equipe', EntityType::class, [
                 'class' => Equipesadmin::class,
-                'choices' => $equipes,
+                'choices' => $liste_equipes,
             ])
                 ->add('id', HiddenType::class, ['disabled' => true, 'data' => $id, 'label' => false])
                 ->add('coment', TextType::class, [

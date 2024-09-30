@@ -14,6 +14,7 @@ use EasyCorp\Bundle\EasyAdminBundle\Config\Crud;
 use EasyCorp\Bundle\EasyAdminBundle\Controller\AbstractCrudController;
 use EasyCorp\Bundle\EasyAdminBundle\Field\AssociationField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\ChoiceField;
+use EasyCorp\Bundle\EasyAdminBundle\Field\CollectionField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\Field;
 use EasyCorp\Bundle\EasyAdminBundle\Field\ImageField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\IntegerField;
@@ -107,11 +108,9 @@ class OdpfEditionsPasseesCrudController extends AbstractCrudController
         $datecn = TextField::new('dateCn');
         $dateinscription = TextField::new('dateinscription');
         $articleOlymphys= AssociationField::new('article');
-        $articleOlymphysEdit=ChoiceField::new('article')->setFormTypeOptions([
+       // $articleOlymphysEdit=CollectionField::new('article')
+           ;
 
-            'choices'=>$this->doctrine->getRepository(OdpfArticle::class)->findAll(),
-            'choice_label'=>'getTitre'
-        ]);
 
         $nomParrain = TextField::new('nomParrain');
         $titreParrain = TextField::new('titreParrain');
@@ -129,7 +128,7 @@ class OdpfEditionsPasseesCrudController extends AbstractCrudController
         }*/
         if (Crud::PAGE_EDIT === $pageName) {
 
-            return [$edition, $pseudo, $annee, $lieu, $ville, $datecia, $datecn, $dateinscription, $articleOlymphysEdit, $nomParrain, $photoParrain,$affiche, $titreParrain, $lienParrain, $photoFile, $afficheFile];
+            return [$edition, $pseudo, $annee, $lieu, $ville, $datecia, $datecn, $dateinscription, $articleOlymphys, $nomParrain, $photoParrain,$affiche, $titreParrain, $lienParrain, $photoFile, $afficheFile];
 
         }
 

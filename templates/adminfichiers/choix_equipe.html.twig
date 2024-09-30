@@ -132,6 +132,7 @@
     </div>
     {% if app.user.roles|filter(v => v =='ROLE_PROF')!=[] %}
         <div class="table">
+            <table>
             <tr>
                 <td> {% if date()< app.session.get('edition').dateclotureinscription and date()>=app.session.get('edition').dateouverturesite %}
                         <a type="button" class="btn btn-primary" href="{{ path('inscrire_equipe',{idequipe : 'x'}) }}"
@@ -146,11 +147,12 @@
                         {% if  'now'|date('Y-m-d')<= app.session.get('edition').concourscn|date('Y-m-d') and 'now'|date('Y-m-d')>app.session.get('edition').dateouverturesite|date('Y-m-d') %}
                             <a type="button" class="btn btn-warning"
                                href="{{ path('photos_deposephotos', {concours:'inter'}) }}" role="button"
-                               aria-pressed="true" title="Déposer des photos du concours interacadémique">Déposer des
-                                photos des équipes du concours interacadémique</a>
+                               aria-pressed="true" title="Déposer des photos du concours interacadémique" ><i class="fa fa-camera" aria-hidden="true"></i>
+                            </a>
                             <a type="button" class="btn btn-info"
                                href="{{ path('photos_gestion_photos',{infos:concours~'-'~app.session.get('edition').id~'-prof-1'}) }}"
-                               title="Modifier ou supprimer certaines photos">Gerer les photos</a>
+                               title="Modifier ou supprimer certaines photos"><i class="fa fa-bars" aria-hidden="true"></i>
+                            </a>
 
                         {% endif %}
                         {#  {% if (('now'|date('Y-m-d')> app.session.get('edition').concourscia|date('Y-m-d')) and ('now'|date('Y-m-d')< app.session.get('edition').concourscn|date('Y-m-d'))) %}
@@ -185,6 +187,7 @@
                     {% endif %}
                 </td>
             </tr>
+            </table>
         </div>
         {% if doc_equipes!=null %}
             <div class="container-fluid">
@@ -209,6 +212,8 @@
                                                                       width="50px" alt="zip">
                                 {% elseif fichier.type=='doc' %} <img src="{{ asset('images/Doc-icon.svg') }}"
                                                                       width="50px" alt="doc">
+                                {% elseif fichier.type=='excel' %} <img src="{{ asset('images/excel_icon.png') }}"
+                                                                      width="50px" alt="excel">
 
                                 {% endif %}
 
