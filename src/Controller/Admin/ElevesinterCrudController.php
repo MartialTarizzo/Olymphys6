@@ -900,7 +900,7 @@ class ElevesinterCrudController extends AbstractCrudController
 
                     $filesystem = new Filesystem();
                     $section->addTextBreak(1, ['bold' => true, 'size' => 14]);
-                    $section->addText('a participé le 6 décembre 2023 au concours interacadémique de ' . $centre . ' ' . $lieu, ['size' => 14,]);
+                    $section->addText('a participé le'.$this->date_in_french($this->requestStack->getSession()->get('edition')->getConcoursCia()->format('Y-m-d')) .' au concours interacadémique de ' . $centre . ' ' . $lieu, ['size' => 14,]);
                     $section->addTextBreak(2, ['bold' => true, 'size' => 14]);
                     $section->addText('                     pour le Comité national des Olympiades de Physique France', ['size' => 12]);
                     $src2 = 'odpf/odpf-images/signature_gd_format.png';
