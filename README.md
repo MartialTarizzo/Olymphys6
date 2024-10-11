@@ -36,4 +36,5 @@ Copier dans le répertoire public :
 - docequipes
 
 ## Vérification du fonctionnement
-Le lancement de "symfony server start -d" dans le répertoire permet de vérifier le fonctionnement en local du site d'olymphys
+Le lancement de "symfony server:start -d" dans la console permet de vérifier le fonctionnement en local du site d'olymphys
+Pour arrêter le serveur : "symfony server:stop"
