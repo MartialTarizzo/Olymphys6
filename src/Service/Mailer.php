@@ -79,7 +79,7 @@ class Mailer
         $email = (new TemplatedEmail())
             ->from('info@olymphys.fr')
             ->to('webmestre2@olymphys.fr')
-            ->addCc('webmestre3@olymphys.fr,'.$user->getEmail());//'webmestre2@olymphys.fr', 'Denis'
+            ->addCc('webmestre3@olymphys.fr, webmestre4@olymphys.fr,'.$user->getEmail());//'webmestre2@olymphys.fr', 'Denis'
 
         if ($type_fichier == 'fiche securité(présentation)' or $type_fichier == 'fiche securité(exposition)') {
 
@@ -130,6 +130,7 @@ class Mailer
                 ->addBCc('webmestre2@olymphys.fr') //'webmestre2@olymphys.fr', 'Denis'
                 ->addTo($user->getEmail())
                 ->addBCc('webmestre3@olymphys.fr')
+                ->addBCc('webmestre4@olymphys.fr')
                 ->addCc('emma.gosse@orange.fr')
                 ->htmlTemplate('email/confirme_inscription.html.twig')
                 ->subject('Inscription de l\'équipe  ' . $equipe->getNumero() . ' par ' . $user->getPrenomNom())

@@ -84,8 +84,8 @@
                                                 <li class="nav-item {% if choix == 'inscriptions' %} active {% endif %}">
                                                     <a href="{{ path('core_pages', {choix:'inscriptions'}) }}"
                                                        class="nav-link">Inscriptions avant
-                                                        le {{ date(app.session.get('edition').dateclotureinscription)|date('j') }}
-                                                        octobre</a></li>
+                                                        le {{ date(app.session.get('edition').dateclotureinscription)|date('j')}}
+                                                        octobre {{ date(app.session.get('edition').dateclotureinscription)|date('H:i') }}</a></li>
                                                 <li class="nav-item {% if choix == 'les_equipes' %} active {% endif %}">
                                                     <a href="{{ path('core_pages', {choix:'les_equipes'}) }}"
                                                        class="nav-link">Les equipes</a></li>
