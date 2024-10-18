@@ -2,193 +2,224 @@
 {% extends "base.html.twig" %}
 
 {% block title %}
-    {{ titre }} - {{ parent() }}
+	{{ titre }}
+	-
+	{{ parent() }}
 {% endblock %}
 
 {% block stylesheets %}
-    {{ parent() }}
-    {# La série de if permet de choisir la page de fond, différente selon la page affichée #}
-    {% if categorie.categorie == 'Les Olympiades' or categorie.categorie == 'mentions' %}
-        <link rel="stylesheet" href="{{ asset('css/odpf-olympiades.css') }}">
-    {% elseif categorie.categorie == 'Le Concours' %}
-        <link rel="stylesheet" href="{{ asset('css/odpf-concours.css') }}">
-    {% elseif categorie.categorie == 'editions' %}
-        <link rel="stylesheet" href="{{ asset('css/odpf-concours.css') }}">
-    {% elseif categorie.categorie == 'Les actus' or categorie.categorie == 'faq' %}
-        <link rel="stylesheet" href="{{ asset('css/odpf-actus.css') }}">
-    {% elseif categorie.categorie == 'Partenaires' %}
-        <link rel="stylesheet" href="{{ asset('css/odpf-partenaires.css') }}">
-    {% endif %}
+	{{ parent() }}
+	{# La série de if permet de choisir la page de fond, différente selon la page affichée #}
+	{% if categorie.categorie == 'Les Olympiades' or categorie.categorie == 'mentions' %}
+		<link rel="stylesheet" href="{{ asset('css/odpf-olympiades.css') }}">
+	{% elseif categorie.categorie == 'Le Concours' %}
+		<link rel="stylesheet" href="{{ asset('css/odpf-concours.css') }}">
+	{% elseif categorie.categorie == 'editions' %}
+		<link rel="stylesheet" href="{{ asset('css/odpf-concours.css') }}">
+	{% elseif categorie.categorie == 'Les actus' or categorie.categorie == 'faq' %}
+		<link rel="stylesheet" href="{{ asset('css/odpf-actus.css') }}">
+	{% elseif categorie.categorie == 'Partenaires' %}
+		<link rel="stylesheet" href="{{ asset('css/odpf-partenaires.css') }}">
+	{% endif %}
 {% endblock %}
 
 {% block contenu %}
-    <div id="wrapper">
-    <div class="container bg-white">{# cree un container, en fonction du media : odpf.css l. 56 à 78 #}
-        {% include 'core/odpf-menu-haut.html.twig' %}
-        {% include 'core/odpf-en-tete-ppal.html.twig' %}
+	<div id="wrapper">
+		<div
+			class="container bg-white">
+			{# cree un container, en fonction du media : odpf.css l. 56 à 78 #}
+			{% include 'core/odpf-menu-haut.html.twig' %}
+			{% include 'core/odpf-en-tete-ppal.html.twig' %}
 
-        {# série de pages plus simples #}
-        {% if choix == 'actus' %}
-            {% include 'core/odpf-actus.html.twig' %}
-        {% elseif categorie.categorie == 'faq' %}
-            {% include 'core/odpf-faq.html.twig' %}
-        {% elseif choix == 'mentions' %}
-            {% include 'core/odpf-mentions-pied.html.twig' %}
-        {% elseif choix == 'mecenes' %}
-            {% include 'core/odpf-mecenes.html.twig' %}
-        {% elseif choix ==  'donateurs' %}
-            {% include 'core/odpf-donateurs.html.twig' %}
-        {% else %}{# la page type #}
-            <div class="row ">{# tout est dans la même ligne #}
-                <div class="col-md-12 col-lg-9">{# divisée en deux colonnes #}
-                    <h1 class="titre-ppal">
-                        {{ categorie }}
-                        {% if categorie.categorie == 'Les Olympiades' %}
-                            <br/>de Physique France
-                        {% elseif categorie.categorie == 'Le Concours' %}
-                            <br/><strong>{{ edition.annee }}</strong>
-                        {% endif %}
-                    </h1>
-                    {% if choix != 'philippe-lancel' and choix != 'academie' %}{# pages ordinaires #}
-                        <div class="row">{# la lcolonne représente une ligne #}
-                            <div class="col-md-3 col-lg-3">{# divisée en deux colonnes #}
-                                <div class="menugche"> {# affiche le menu, selon la page #}
-                                    <nav>
-                                        <ul class="nav flex-column">{# menu nav de Bootstrap #}
-                                            {% if categorie.categorie == 'Les Olympiades' %}
-                                                <li class="nav-item {% if choix == 'c_est_quoi' %} active {% endif %}">
-                                                    <a href="{{ path('core_pages', {choix:'c_est_quoi'}) }}"
-                                                       class="nav-link">C'est quoi ?</a></li>
-                                                <li class="nav-item {% if choix == 'comment_ca_se_passe' %} active {% endif %}">
-                                                    <a href="{{ path('core_pages' ,{choix:'comment_ca_se_passe'}) }}"
-                                                       class="nav-link">Comment ça se passe ?</a></li>
-                                                <li class="nav-item {% if choix == 'pourquoi_participer' %} active {% endif %}">
-                                                    <a href="{{ path('core_pages' ,{choix:'pourquoi_participer'}) }}"
-                                                       class="nav-link">Pourquoi participer ?</a></li>
-                                                <li class="nav-item {% if choix == 'les_aides' %} active {% endif %}">
-                                                    <a href="{{ path('core_pages' ,{choix:'les_aides'}) }}"
-                                                       class="nav-link">Les aides</a></li>
-                                                <li class="nav-item {% if choix == 'les_recompenses' %} active {% endif %}">
-                                                    <a href="{{ path('core_pages' ,{choix:'les_recompenses'}) }}"
-                                                       class="nav-link">Les récompenses</a></li>
-                                                <li class="nav-item {% if choix == 'qui_organise' %} active {% endif %}">
-                                                    <a href="{{ path('core_pages' ,{choix:'qui_organise'}) }}"
-                                                       class="nav-link">Qui organise ?</a></li>
-                                                <li class="nav-item {% if choix == 'la_presse_en_parle' %} active {% endif %}">
-                                                    <a href="{{ path('core_pages' ,{choix:'la_presse_en_parle'}) }}"
-                                                       class="nav-link">La presse en parle</a></li>
-                                            {% elseif categorie.categorie == 'Le Concours' %}
-                                                <li class="nav-item {% if choix == 'le_calendrier' %} active {% endif %}">
-                                                    <a href="{{ path('core_pages', {choix:'le_calendrier'}) }}"
-                                                       class="nav-link">Le Calendrier</a></li>
-                                                <li class="nav-item {% if choix == 'inscriptions' %} active {% endif %}">
-                                                    <a href="{{ path('core_pages', {choix:'inscriptions'}) }}"
-                                                       class="nav-link">Inscriptions avant
-                                                        le {{ date(app.session.get('edition').dateclotureinscription)|date('j') }}
-                                                        octobre</a></li>
-                                                <li class="nav-item {% if choix == 'les_equipes' %} active {% endif %}">
-                                                    <a href="{{ path('core_pages', {choix:'les_equipes'}) }}"
-                                                       class="nav-link">Les equipes</a></li>
-                                                <li class="nav-item {% if choix == 'la_carte_des_equipes' %} active {% endif %}">
-                                                    <a href="{{ path('core_pages', {choix:'la_carte_des_equipes'}) }}"
-                                                       class="nav-link">La carte des equipes</a></li>
-                                                <li class="nav-item {% if choix == 'les_concours_interacademiques' %} active {% endif %}">
-                                                    <a href="{{ path('core_pages' ,{choix:'les_concours_interacademiques'}) }}"
-                                                       class="nav-link">Les Concours interacademiques</a></li>
-                                                <li class="nav-item {% if choix == 'le_concours_national' %} active {% endif %}">
-                                                    <a href="{{ path('core_pages' ,{choix:'le_concours_national'}) }}"
-                                                       class="nav-link">Le Concours National</a></li>
-                                            {% endif %}
-                                        </ul>
-                                    </nav>
+			{# série de pages plus simples #}
+			{% if choix == 'actus' %}
+				{% include 'core/odpf-actus.html.twig' %}
+			{% elseif categorie.categorie == 'faq' %}
+				{% include 'core/odpf-faq.html.twig' %}
+			{% elseif choix == 'mentions' %}
+				{% include 'core/odpf-mentions-pied.html.twig' %}
+			{% elseif choix == 'mecenes' %}
+				{% include 'core/odpf-mecenes.html.twig' %}
+			{% elseif choix ==  'donateurs' %}
+				{% include 'core/odpf-donateurs.html.twig' %}
+			{% else %}
+				{# la page type #}
+				<div
+					class="row ">
+					{# tout est dans la même ligne #}
+					<div
+						class="col-md-12 col-lg-9">
+						{# divisée en deux colonnes #}
+						<h1 class="titre-ppal">
+							{{ categorie }}
+							{% if categorie.categorie == 'Les Olympiades' %}
+								<br/>de Physique France
+							{% elseif categorie.categorie == 'Le Concours' %}
+								<br/><strong>{{ edition.annee }}</strong>
+							{% endif %}
+						</h1>
+						{% if choix != 'philippe-lancel' and choix != 'academie' %}
+							{# pages ordinaires #}
+							<div
+								class="row">
+								{# la lcolonne représente une ligne #}
+								<div
+									class="col-md-3 col-lg-3">
+									{# divisée en deux colonnes #}
+									<div
+										class="menugche">
+										{# affiche le menu, selon la page #}
+										<nav>
+											<ul
+												class="nav flex-column">
+												{# menu nav de Bootstrap #}
+												{% if categorie.categorie == 'Les Olympiades' %}
+													<li class="nav-item {% if choix == 'c_est_quoi' %} active {% endif %}">
+														<a href="{{ path('core_pages', {choix:'c_est_quoi'}) }}" class="nav-link">C'est quoi ?</a>
+													</li>
+													<li class="nav-item {% if choix == 'comment_ca_se_passe' %} active {% endif %}">
+														<a href="{{ path('core_pages' ,{choix:'comment_ca_se_passe'}) }}" class="nav-link">Comment ça se passe ?</a>
+													</li>
+													<li class="nav-item {% if choix == 'pourquoi_participer' %} active {% endif %}">
+														<a href="{{ path('core_pages' ,{choix:'pourquoi_participer'}) }}" class="nav-link">Pourquoi participer ?</a>
+													</li>
+													<li class="nav-item {% if choix == 'les_aides' %} active {% endif %}">
+														<a href="{{ path('core_pages' ,{choix:'les_aides'}) }}" class="nav-link">Les aides</a>
+													</li>
+													<li class="nav-item {% if choix == 'les_recompenses' %} active {% endif %}">
+														<a href="{{ path('core_pages' ,{choix:'les_recompenses'}) }}" class="nav-link">Les récompenses</a>
+													</li>
+													<li class="nav-item {% if choix == 'qui_organise' %} active {% endif %}">
+														<a href="{{ path('core_pages' ,{choix:'qui_organise'}) }}" class="nav-link">Qui organise ?</a>
+													</li>
+													<li class="nav-item {% if choix == 'la_presse_en_parle' %} active {% endif %}">
+														<a href="{{ path('core_pages' ,{choix:'la_presse_en_parle'}) }}" class="nav-link">La presse en parle</a>
+													</li>
+												{% elseif categorie.categorie == 'Le Concours' %}
+													<li class="nav-item {% if choix == 'le_calendrier' %} active {% endif %}">
+														<a href="{{ path('core_pages', {choix:'le_calendrier'}) }}" class="nav-link">Le Calendrier</a>
+													</li>
+													<li class="nav-item {% if choix == 'inscriptions' %} active {% endif %}">
+														<a href="{{ path('core_pages', {choix:'inscriptions'}) }}" class="nav-link">Inscriptions avant
+															                                                        le
+															{{ date(app.session.get('edition').dateclotureinscription)|date('j') }}
+															octobre</a>
+													</li>
+													<li class="nav-item {% if choix == 'les_equipes' %} active {% endif %}">
+														<a href="{{ path('core_pages', {choix:'les_equipes'}) }}" class="nav-link">Les equipes</a>
+													</li>
+													<li class="nav-item {% if choix == 'la_carte_des_equipes' %} active {% endif %}">
+														<a href="{{ path('core_pages', {choix:'la_carte_des_equipes'}) }}" class="nav-link">La carte des equipes</a>
+													</li>
+													<li class="nav-item {% if choix == 'les_concours_interacademiques' %} active {% endif %}">
+														<a href="{{ path('core_pages' ,{choix:'les_concours_interacademiques'}) }}" class="nav-link">Les Concours interacademiques</a>
+													</li>
+													<li class="nav-item {% if choix == 'le_concours_national' %} active {% endif %}">
+														<a href="{{ path('core_pages' ,{choix:'le_concours_national'}) }}" class="nav-link">Le Concours National</a>
+													</li>
+												{% endif %}
+											</ul>
+										</nav>
 
-                                </div>
-                                {% if categorie.categorie == 'Le Concours' %}
-                                    {% include 'core/odpf-bloc-archives-photos.html.twig' %}
-                                {% endif %}
-                            </div>
+									</div>
+									{% if categorie.categorie == 'Le Concours' %}
+										{% include 'core/odpf-bloc-archives-photos.html.twig' %}
+									{% endif %}
+								</div>
 
-                            <div class="col-md-9 col-lg-9">{# deuxième colonne dans la colonne de gauche #}
-                                <div class="col-centre">
-                                    <h2 class="sous-titre">{{ titre|raw }}</h2>
-                                    <div class="contenu">
-                                        {% if choix == 'le_calendrier' %}
-                                        {% include 'core/odpf-le-calendrier.html.twig' %}{# page spéciale, construite en template #}
-                                    {% elseif choix == 'les_equipes' %}
-                                    {% include 'core/odpf-les-equipes.html.twig' %}{# page spéciale, table #}
-                                    {% elseif choix == 'la_carte_des_equipes' %}
-                                        {{ texte|raw }}{# texte vient de l'OdpfArticle, raw est un filtre twig pour affixher le texte formatté #}
-                                            <p><img src="{{ asset('odpf/odpf-images/Carte_France.png') }}" alt="Carte"
-                                                    width="588" height="562"></p>
-                                        <br/>
-                                            <p><img src="{{ asset('odpf/odpf-images/Carte_monde.png') }}" alt="World Map"
-                                                    width="500" height="300">
-                                    {% else %}
-                                                {{ texte|raw }}
+								<div
+									class="col-md-9 col-lg-9">
+									{# deuxième colonne dans la colonne de gauche #}
+									<div class="col-centre">
+										<h2 class="sous-titre">{{ titre|raw }}</h2>
+										<div class="contenu">
+											{% if choix == 'le_calendrier' %}
+												{% include 'core/odpf-le-calendrier.html.twig' %}
+												{# page spéciale, construite en template #}
+											{% elseif choix == 'les_equipes' %}
+												{% include 'core/odpf-les-equipes.html.twig' %}
+												{# page spéciale, table #}
+											{% elseif choix == 'la_carte_des_equipes' %}
+												{{ texte|raw }}
+												{# texte vient de l'OdpfArticle, raw est un filtre twig pour affixher le texte formatté #}
+												<p><img src="{{ asset('odpf/odpf-images/Carte_France.png') }}" alt="Carte" width="588" height="562"></p>
+												<br/>
+												<p><img src="{{ asset('odpf/odpf-images/Carte_monde.png') }}" alt="World Map" width="500" height="300">
+												{% else %}
+													{{ texte|raw }}
 
-                                            {% endif %}
-                                    {% if choix == 'inscriptions' %}
-                                        <ul>
-                                            <li>Les
-                                                <a href="{{ path('core_pages' ,{choix:'les_concours_interacademiques'}) }}">Concours
-                                                    Interacadémiques</a></li>
-                                            <li>Le <a href="{{ path('core_pages' ,{choix:'le_concours_national'}) }}">Concours
-                                                    National</a></li>
-                                        </ul>
-                                        {% endif %}
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    {% else %}<!--Lancel/Académie pages spéciales, hors menu-->
-                        <div class="col-centre">
-                            <h2 class="sous-titre">{{ titre|raw }}</h2>{# titre et texte viennent de l'OdpfAticle #}
-                            <div class="contenu">
+												{% endif %}
+												{% if choix == 'inscriptions' %}
+													<ul>
+														<li>Les
+															<a href="{{ path('core_pages' ,{choix:'les_concours_interacademiques'}) }}">Concours
+																                                                    Interacadémiques</a>
+														</li>
+														<li>Le
+															<a href="{{ path('core_pages' ,{choix:'le_concours_national'}) }}">Concours
+																                                                    National</a>
+														</li>
+													</ul>
+												{% endif %}
+											</div>
+										</div>
+									</div>
+								</div>
+							{% else %}
+								<!--Lancel/Académie pages spéciales, hors menu-->
+								<div class="col-centre">
+									<h2 class="sous-titre">{{ titre|raw }}</h2>
+									{# titre et texte viennent de l'OdpfAticle #}
+									<div class="contenu">
 
-                                {{ texte|raw }}
-                            </div>
-                        </div>
-                    {% endif %}
-                </div>
-                <div class="col-md-8 col-lg-3 pr-0"><!--col dte deuxième colonne de la ligne principale-->
-                    {% if  categorie.categorie == 'Les Olympiades' %}
-                        <img src="{{ asset('odpf/odpf-images/colright-illustration-01.png') }}" alt="image_en_tete"
-                             style="width:100%; height:auto;">
-                    {% elseif categorie.categorie == 'Le Concours' %}
-                        <img src="{{ asset('odpf/odpf-images/colright-illustration-02.png') }}" alt="image_en_tete"
-                             style="width:100%; height:auto;">
-                    {% endif %}
-                    {% if  categorie.categorie == 'Les Olympiades' or choix =='inscriptions' %}
-                        <div class="bloc-objectifs">
-                            <div class="titre">
-                                <p>{{ titre_objectifs|raw }}</p>{# titre_objectifs et texte vienet de l'Odpfarticle #}
-                            </div>
-                            <div class="contenu">
-                                {{ texte_objectifs|raw }}
-                            </div>
-                        </div>
-                    {% endif %}
+										{{ texte|raw }}
+									</div>
+								</div>
+							{% endif %}
+						</div>
+						<div
+							class="col-md-8 col-lg-3 pr-0">
+							<!--col dte deuxième colonne de la ligne principale-->
+							{% if  categorie.categorie == 'Les Olympiades' %}
+								<img src="{{ asset('odpf/odpf-images/colright-illustration-01.png') }}" alt="image_en_tete" style="width:100%; height:auto;">
+							{% elseif categorie.categorie == 'Le Concours' %}
+								<img src="{{ asset('odpf/odpf-images/colright-illustration-02.png') }}" alt="image_en_tete" style="width:100%; height:auto;">
+							{% endif %}
+							{% if  categorie.categorie == 'Les Olympiades' or choix =='inscriptions' %}
+								<div class="bloc-objectifs">
+									<div class="titre">
+										<p>{{ titre_objectifs|raw }}</p>
+										{# titre_objectifs et texte vienet de l'Odpfarticle #}
+									</div>
+									<div class="contenu">
+										{{ texte_objectifs|raw }}
+									</div>
+								</div>
+							{% endif %}
 
-                    {% if categorie.categorie == 'Le Concours' %}
-                        {% if article is defined %}
-                            {% if article.carousel != null %}
-                                {{ include('OdpfAdmin/carousel.html.twig') }}
-                            {% endif %}
-                            {% if titre =='Les Concours Interacadémiques' %}
-                                {% if app.session.get('edition').concoursCia<date() %}
-                                    <a href="{{ path('photos_voir_galerie',{'infos':'editionEnCours-'~app.session.get('edition').id}) }}">Voir
-                                        la galerie des concours interacadémiques</a>
-                                {% endif %}
-                            {% endif %}
-                        {% endif %}
-                    {% endif %}
-                </div><!--col dte-->
+							{% if categorie.categorie == 'Le Concours' %}
+								{% if article is defined %}
+									{% if article.carousel != null %}
+										{{ include('OdpfAdmin/carousel.html.twig') }}
+									{% endif %}
+									{% if titre =='Les Concours Interacadémiques' %}
+										{% if app.session.get('edition').concoursCia<date() %}
+											<a href="{{ path('photos_voir_galerie',{'infos':'editionEnCours-'~app.session.get('edition').id}) }}">Voir
+												                                        la galerie des concours interacadémiques</a>
+										{% endif %}
+									{% endif %}
+								{% endif %}
+							{% endif %}
+						</div>
+						<!--col dte-->
 
 
-            </div><!--row-->
-        {% endif %}
-        {{ include('core/odpf-menu-complet.html.twig') }}
-        {{ include('core/odpf-pied.html.twig') }}
+					</div>
+					<!--row-->
+				{% endif %}
+				{{ include('core/odpf-menu-complet.html.twig') }}
+				{{ include('core/odpf-pied.html.twig') }}
 
-    </div><!--wrapper-->
-{% endblock %}
+			</div>
+			<!--wrapper-->
+		{% endblock %}

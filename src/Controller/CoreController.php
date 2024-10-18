@@ -132,8 +132,45 @@ class CoreController extends AbstractController
             $tab['listfaq'] = $listfaq;
             $tab['photostest'] = $photostest;
             return $this->render('core/odpf-pages-editions.html.twig', $tab);
+        } elseif ($choix == 'la_carte_des_equipes') {
+            // calcul des différents nombres d'équipes pour modifier le message avant les cartes
+            $tabEq = $OdpfListeEquipes->getArray('les_equipes');//Le service construit la liste
+            $nbFrance = 0; // nombre d'équipes france métropolitaine
+            $nbDOM = 0; // pour les DOM
+            $nbEtranger = 0; // pour l'étranger
+            // le tableau des académies DOM
+            $tabAcaDOM = array('Guadeloupe', 'Martinique', 'Guyane', 'La Réunion', 
+                'Saint Pierre et Miquelon', 'Mayotte','Nouvelle Calédonie', 
+                'Polynésie Française', 'Wallis et Futuna');
+            // on balaye tous les lycées des équipes
+            foreach ($tabEq['lycee'] as $lycee) {
+                if ($lycee[0]->getPays() == 'France') {
+                    // lycée français : on regarde si il est dans un DOM
+                    $acad = $lycee[0]->getAcademie();
+                    if (in_array($acad, $tabAcaDOM)) {
+                        // C'est un lycée dans les DOM
+                        $nbDOM += 1;
+                    } else {
+                        // France métropolitaine
+                        $nbFrance += 1;
+                    }
+                } else {
+                    // pas Français -> étranger !
+                    $nbEtranger += 1;
+                }
+            }
 
-        } else {
+            $tab = $OdpfCreateArray->getArray($choix);
+            $tab['listfaq'] = $listfaq;
+
+            // remplacement des marqueurs par le nombre des équipes
+            $tab['texte'] = str_replace('#nbTotal', $nbFrance + $nbDOM + $nbEtranger, $tab['texte']);
+            $tab['texte'] = str_replace('#nbFrance', $nbFrance, $tab['texte']);
+            $tab['texte'] = str_replace('#nbDOM', $nbDOM, $tab['texte']);
+            $tab['texte'] = str_replace('#nbEtranger', $nbEtranger, $tab['texte']);
+            
+        }
+         else {
             $tab = $OdpfCreateArray->getArray($choix);
             $tab['listfaq'] = $listfaq;
         }
