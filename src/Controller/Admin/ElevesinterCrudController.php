@@ -241,6 +241,7 @@ class ElevesinterCrudController extends AbstractCrudController
             yield TextField::new('equipe.edition', 'Edition'),
             yield TextField::new('nom')->setSortable(true),
             yield TextField::new('prenom')->setSortable(true),
+            yield TextField::new('courriel')->setSortable(true),
             yield TextField::new('genre'),
             yield TextField::new('classe')->hideOnIndex()->hideOnForm(),
             yield AssociationField::new('equipe')->setFormTypeOptions(['choices' => $listEquipes])->setSortable(true)->hideOnIndex(),
@@ -412,9 +413,18 @@ class ElevesinterCrudController extends AbstractCrudController
                 ->andWhere('eq.inscrite = TRUE')
                 ->setParameter('edition', $edition)
                 ->orderBy('eq.numero', 'ASC');
+            $selectionnes='';
             if (isset(explode('-', $ideditionequipe)[2])) {
-                explode('-', $ideditionequipe)[2] == 'ns' ? $queryBuilder->andWhere('eq.selectionnee = 0') : $queryBuilder->andWhere('eq.selectionnee = 1');
+                $sel=explode('-', $ideditionequipe)[2];
+                if( $sel== 'ns') {
 
+                    $queryBuilder->andWhere('eq.selectionnee = 0');
+                    $selectionnes='non_selectionnés';
+                    }
+                if($sel == 'sel') {
+                    $queryBuilder->andWhere('eq.selectionnee = 1');;
+                    $selectionnes = 'selectionnés';
+                }
             }
 
         }
@@ -486,14 +496,16 @@ class ElevesinterCrudController extends AbstractCrudController
                 ->setCellValue('H' . $ligne, $eleve->getEquipe())
                 ->setCellValue('I' . $ligne, $uai->getNom())
                 ->setCellValue('J' . $ligne, $uai->getCommune())
-                ->setCellValue('K' . $ligne, $uai->getAcademie())
-                ->setCellValue('L' . $ligne, $eleve->getEquipe()->getCentre()->getCentre());
-
+                ->setCellValue('K' . $ligne, $uai->getAcademie());
+            if($eleve->getEquipe()->getCentre()!=null) {
+                $sheet->setCellValue('L' . $ligne, $eleve->getEquipe()->getCentre()->getCentre());
+            }
+            $date=new \DateTime('now');
             $ligne += 1;
         }
-
+        $filename='Liste_des_éleves_'.$selectionnes.'_du_'.$date->format('d-m-Y_H-i-s').'.xls';
         header('Content-Type: application/vnd.ms-excel');
-        header('Content-Disposition: attachment;filename="eleves.xls"');
+        header('Content-Disposition: attachment;filename="'.$filename.'"');
         header('Cache-Control: max-age=0');
 
         $writer = new Xls($spreadsheet);
@@ -583,7 +595,14 @@ class ElevesinterCrudController extends AbstractCrudController
 
                 $filesystem = new Filesystem();
                 $section->addTextBreak(1, ['bold' => true, 'size' => 14]);
-                $section->addText('a participé le 6 décembre 2023 au concours interacadémique de ' . $eleve->getEquipe()->getCentre() . ' ' . $eleve->getEquipe()->getCentre()->getLieu(), ['size' => 14,]);
+                $centre='';
+                $lieu='';
+                if ($eleve->getEquipe()->getCentre()!=null) {
+                    $centre = $eleve->getEquipe()->getCentre();
+                    $lieu =$eleve->getEquipe()->getCentre()->getLieu();
+                }
+               $section->addText('a participé le 6 décembre 2023 au concours interacadémique de ' . $centre . ' ' . $lieu, ['size' => 14,]);
+
                 $section->addTextBreak(2, ['bold' => true, 'size' => 14]);
                 $section->addText('                     pour le Comité national des Olympiades de Physique France', ['size' => 12]);
                 $src2 = 'odpf/odpf-images/signature_gd_format.png';
@@ -697,10 +716,17 @@ class ElevesinterCrudController extends AbstractCrudController
         if ($zipFile->open($fileNameZip, ZipArchive::CREATE) === TRUE) {
             if ($liste_eleves != null) {
                 foreach ($liste_eleves as $eleve) {
+                    $centre='';
+                    $lieu=''
+                    ;
+                    if ($eleve->getEquipe()->getCentre()!=null){
 
-                    $filename = $this->getParameter('app.path.tempdirectory') . '/' . $eleve->getEquipe()->getEdition()->getEd() . '_' . $slugger->slug($eleve->getEquipe()->getCentre()->getCentre() . '_attestation_equipe_' . $eleve->getEquipe()->getNumero() . '_' . $eleve->getPrenom() . '_' . $eleve->getNom()) . '.doc';
-                    $fileNamepdf = $this->getParameter('app.path.tempdirectory') . '/' . $eleve->getEquipe()->getEdition()->getEd() . '_' . $slugger->slug($eleve->getEquipe()->getCentre()->getCentre() . '_attestation_equipe_' . $eleve->getEquipe()->getNumero() . '_' . $eleve->getPrenom() . '_' . $eleve->getNom()) . '.pdf';
-                    $filenameTemplate = '/templates/attestations/' . $eleve->getEquipe()->getEdition()->getEd() . '_' . $slugger->slug($eleve->getEquipe()->getCentre()->getCentre() . '_attestation_equipe_' . $eleve->getEquipe()->getNumero() . '_' . $eleve->getPrenom() . '_' . $eleve->getNom()) . '.html.twig';
+                        $centre=$eleve->getEquipe()->getCentre();
+                        $lieu=$eleve->getEquipe()->getCentre()->getLieu();
+                    }
+                    $filenameword = $this->getParameter('app.path.tempdirectory') . '/' . $eleve->getEquipe()->getEdition()->getEd() . '_' . $slugger->slug($centre . '_attestation_equipe_' . $eleve->getEquipe()->getNumero() . '_' . $eleve->getPrenom() . '_' . $eleve->getNom()) . '.doc';
+                    $fileNamepdf = $this->getParameter('app.path.tempdirectory') . '/' . $eleve->getEquipe()->getEdition()->getEd() . '_' . $slugger->slug($centre. '_attestation_equipe_' . $eleve->getEquipe()->getNumero() . '_' . $eleve->getPrenom() . '_' . $eleve->getNom()) . '.pdf';
+                    $filenameTemplate = '/templates/attestations/' . $eleve->getEquipe()->getEdition()->getEd() . '_' . $slugger->slug($centre . '_attestation_equipe_' . $eleve->getEquipe()->getNumero() . '_' . $eleve->getPrenom() . '_' . $eleve->getNom()) . '.html.twig';
                     //$filesystem = new Filesystem();
                     //$filesystem->copy($filename, $filenameTemplate);
                     //$twig = fopen($filename, 'w+');
@@ -807,10 +833,17 @@ class ElevesinterCrudController extends AbstractCrudController
                     $pdf->Cell(0, 10, iconv('UTF-8', 'windows-1252', $eleve->getEquipe()->getLyceeAcademie()), '', 'L');
                     $y = $pdf->getY();
                     $pdf->setXY(20, $y + 8);
+                    $centre='';
+                    $lieu='';
+                    if( $eleve->getEquipe()->getCentre()!=null){
+
+                        $centre=$eleve->getEquipe()->getCentre();
+                        $lieu=$eleve->getEquipe()->getCentre()->getLieu();
+                    }
                     $pdf->Write(8, iconv('UTF-8', 'windows-1252',
                         'a participé le ' .
-                        $this->date_in_french($this->requestStack->getSession()->get('edition')->getConcoursCia()->format('Y-m-d')) . ' au concours interacadémique de ' . $eleve->getEquipe()->getCentre() . ' ' .
-                        $eleve->getEquipe()->getCentre()->getLieu() . '.'
+                        $this->date_in_french($this->requestStack->getSession()->get('edition')->getConcoursCia()->format('Y-m-d')) . ' au concours interacadémique de ' . $centre . ' ' .
+                        $lieu . '.'
                     ));
 
                     $w13 = $pdf->getStringWidth(iconv('UTF-8', 'windows-1252', 'pour le comité national des Olympiades de Physique France'));
@@ -867,7 +900,7 @@ class ElevesinterCrudController extends AbstractCrudController
 
                     $filesystem = new Filesystem();
                     $section->addTextBreak(1, ['bold' => true, 'size' => 14]);
-                    $section->addText('a participé le 6 décembre 2023 au concours interacadémique de ' . $eleve->getEquipe()->getCentre() . ' ' . $eleve->getEquipe()->getCentre()->getLieu(), ['size' => 14,]);
+                    $section->addText('a participé le'.$this->date_in_french($this->requestStack->getSession()->get('edition')->getConcoursCia()->format('Y-m-d')) .' au concours interacadémique de ' . $centre . ' ' . $lieu, ['size' => 14,]);
                     $section->addTextBreak(2, ['bold' => true, 'size' => 14]);
                     $section->addText('                     pour le Comité national des Olympiades de Physique France', ['size' => 12]);
                     $src2 = 'odpf/odpf-images/signature_gd_format.png';
@@ -883,19 +916,21 @@ class ElevesinterCrudController extends AbstractCrudController
                     $section->addTextBreak(2, ['bold' => true, 'size' => 14]);
                     $section->addText('Pascale Hervé      ', ['size' => 12], ['align' => 'right', '']);
 
-                    $fileName = $this->getParameter('app.path.tempdirectory') . '/' . $eleve->getEquipe()->getEdition()->getEd() . '_' . $slugger->slug($eleve->getEquipe()->getCentre()->getCentre() . '_attestation_equipe_' . $eleve->getEquipe()->getNumero() . '_' . $eleve->getPrenom() . '_' . $eleve->getNom()) . '.doc';
-                    //$fileNamepdf = $this->getParameter('app.path.tempdirectory') . '/' . $eleve->getEquipe()->getEdition()->getEd() . '_' . $slugger->slug($eleve->getEquipe()->getCentre()->getCentre() . '_attestation_equipe_' . $eleve->getEquipe()->getNumero() . '_' . $eleve->getPrenom() . '_' . $eleve->getNom()) . '.pdf';
+                    $fileName = $this->getParameter('app.path.tempdirectory') . '/' . $eleve->getEquipe()->getEdition()->getEd() . '_' . $slugger->slug($centre.'_attestation_equipe_' . $eleve->getEquipe()->getNumero() . '_' . $eleve->getPrenom() . '_' . $eleve->getNom()) . '.pdf';
+                    $fileName_= $eleve->getEquipe()->getEdition()->getEd() . '_' . $slugger->slug($centre.'_attestation_equipe_' . $eleve->getEquipe()->getNumero() . '_' . $eleve->getPrenom() . '_' . $eleve->getNom()) . '.pdf';
 
+                    //
 
                     try {
+
                         $objWriter = IOFactory::createWriter($phpWord, 'Word2007');
                         //$pdfWriter = \PhpOffice\PhpWord\IOFactory::createWriter($phpPdf, 'PDF');
 
                     } catch (\PhpOffice\PhpWord\Exception\Exception $e) {
                         dd($e);
                     }
-                    $objWriter->save($fileName);
-                    $zipFile->addFromString(basename($fileName), file_get_contents($fileName));
+                    $objWriter->save($filenameword);
+                    $zipFile->addFromString(basename($filenameword), file_get_contents($filenameword));
 
                 }
 
