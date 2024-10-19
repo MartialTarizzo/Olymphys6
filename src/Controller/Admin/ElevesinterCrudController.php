@@ -875,7 +875,7 @@ class ElevesinterCrudController extends AbstractCrudController
                     $section->addTextBreak(4, ['size' => 14]);
                     $section->addText('Attestation de participation aux', ['size' => 18, 'bold' => true,], ['align' => 'center']);
                     $textrun = $section->addTextRun(['align' => 'center']);
-                    $textrun->addText('31', ['size' => 18, 'bold' => true,]);
+                    $textrun->addText($this->requestStack->getSession()->get('edition')->getEd(), ['size' => 18, 'bold' => true,]);
                     $textrun->addText('e', ['size' => 18, 'bold' => true, 'superScript' => true]);
                     $textrun->addText(' Olympiades de Physique France', ['size' => 18, 'bold' => true,], ['align' => 'center']);
                     $section->addTextBreak(3, ['bold' => true, 'size' => 18]);
