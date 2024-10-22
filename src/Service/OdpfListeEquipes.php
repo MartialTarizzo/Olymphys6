@@ -48,12 +48,15 @@ class OdpfListeEquipes
 
         $repositoryUser = $this->em->getRepository(User::class);
         $repositoryUai = $this->em->getRepository(Uai::class);
-        $listEquipes = $repositoryEquipesadmin->createQueryBuilder('e')
+        $qb = $repositoryEquipesadmin->createQueryBuilder('e')
             ->select('e')
             ->andWhere('e.edition =:edition')
             ->setParameter('edition', $edition)
-            ->andWhere('e.inscrite !=0')
-            ->orderBy('e.numero', 'ASC')
+            ->orderBy('e.numero', 'ASC');
+        if ($choix!='la_carte_des_equipes') {//Toutes les équipes comptent pour la page de la carte même celles qui se sont désistées
+            $qb->andWhere('e.inscrite !=0');
+        }
+        $listEquipes=$qb
             ->getQuery()
             ->getResult();
         foreach ($listEquipes as $equipe) {
