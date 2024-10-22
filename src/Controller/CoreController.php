@@ -134,7 +134,7 @@ class CoreController extends AbstractController
             return $this->render('core/odpf-pages-editions.html.twig', $tab);
         } elseif ($choix == 'la_carte_des_equipes') {
             // calcul des différents nombres d'équipes pour modifier le message avant les cartes
-            $tabEq = $OdpfListeEquipes->getArray('les_equipes');//Le service construit la liste
+            $tabEq = $OdpfListeEquipes->getArray($choix);//Le service construit la liste
             $nbFrance = 0; // nombre d'équipes france métropolitaine
             $nbDOM = 0; // pour les DOM
             $nbEtranger = 0; // pour l'étranger
