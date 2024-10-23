@@ -47,8 +47,7 @@ class NotesCia
     #[ORM\Column(type: Types::INTEGER)]
     private ?int $total = 0;
 
-    #[ORM\ManyToOne]
-    #[ORM\Column(name:'coefficients_id', nullable: true)]
+    #[ORM\ManyToOne(targetEntity: Coefficients::class, )]
     private ?Coefficients $coefficients;
 
     const NE_PAS_NOTER = 0; // pour les écrits....
