@@ -100,6 +100,7 @@ class SecretariatjuryCiaController extends AbstractController
             ->andWhere('e.edition =:edition')
             ->andWhere('e.numero <:numero')
             ->andWhere('e.centre =:centre')
+            ->andWhere('e.inscrite !=0')
             ->setParameters(['edition' => $edition, 'numero' => 100, 'centre' => $centre])//les numéros supérieurs à 100 sont réservés aux "équipes" kurynational, ambiance du concours, remise des prix pour les photos
             ->orderBy('e.numero', 'ASC')
             ->getQuery()

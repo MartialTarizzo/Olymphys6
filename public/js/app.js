@@ -4,7 +4,6 @@ function changejure(j) {//j est l'objet input qui a lancé la fonction, pour le 
     var data_type = j.name;
     var id_jure = j.id.split(data_type)[1];
     var formURL = document.getElementsByTagName('form')[2].action;
-
     $.ajax({
         url: formURL,
         type: "POST",
@@ -53,6 +52,31 @@ function changeequipe(e, i, j) {
     var id_jure = j;
     console.log(data_value);
     var formURL = document.getElementsByName('forme'.concat(id_equipe))[0].action;
+    console.log(formURL);
+    $.ajax({
+        url: formURL,
+        type: "GET",
+        data: {type: type, value: data_value, idequipe: id_equipe, idjure: id_jure},
+
+        success: function () {
+            document.querySelector('#gestionjures').click()
+
+        },
+
+        error: function (data) {
+            alert("Error while submitting Data");
+        },
+    });
+
+
+}
+function changeequipecia(e, i, j) {
+    var type = 'equipe';
+    var data_value = e.value;
+    var id_equipe = i;
+    var id_jure = j;
+    console.log(data_value);
+    var formURL = document.getElementById('form-'.concat(id_jure))[0].action;
     console.log(formURL);
     $.ajax({
         url: formURL,

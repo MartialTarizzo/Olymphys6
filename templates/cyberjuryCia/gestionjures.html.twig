@@ -46,20 +46,17 @@
                 <div class="tableFixHead">
                     <table class="table table-bordered">
                         <thead>
+                            <tr>
+                                <th scope="col" style="z-index: 3"></th>
+                                <th></th>
+                                <th><span style="text-align: center" title="Passer la souris sur le n° pour voir le titre du projet"> N<sup>o</sup> équipes</span></th>
+                                {% for equipe in listeEquipes %}
+                                    <th style="text-align: center" title="{{ equipe.titreProjet }}">{{ equipe.numero }}</th>
+                                {% endfor %}
 
-                        <tr>
-                            <th scope="col" style="z-index: 3"></th>
-                            <th></th>
-                            <th><span style="text-align: center" title="Passer la souris sur le n° pour voir le titre du projet"> N<sup>o</sup> équipes</span></th>
-                            {% for equipe in listeEquipes %}
-                                <th style="text-align: center" title="{{ equipe.titreProjet }}">{{ equipe.numero }}</th>
-                            {% endfor %}
-
-                            <th>
-
-                            </th>
-                        </tr>
-                        </thead>>
+                                <th></th>
+                            </tr>
+                        </thead>
                         <tbody>
                         <tr>
                             <th style="z-index: 3"></th>
@@ -230,7 +227,7 @@
                                         <label for="{{ 'equipe'~equipe.id }}"></label>
                                         <select id="{{ 'equipe'~equipe.id }}" name="changeequipe{{ equipe.id~'-'~jure.id }}"
                                                 style="width: 50px"
-                                                onchange="changeequipe({{ 'equipe'~equipe.id }},{{ equipe.id }},{{ jure.id }} )">
+                                                onchange="changeequipecia({{ 'equipe'~equipe.id }},{{ equipe.id }},{{ jure.id }} )">
                                             <option {{ selected[0] }}></option>
                                             <option {{ selected[1] }}>E</option>
                                             <option {{ selected[2] }}>R</option>
