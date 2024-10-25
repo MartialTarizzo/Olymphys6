@@ -61,7 +61,8 @@ class AdminsiteCrudController extends AbstractCrudController
         return $crud
             ->setPageTitle(Crud::PAGE_INDEX, 'Réglage des éditions')
             ->setSearchFields(['id', 'ed', 'ville', 'lieu'])
-            ->setPaginatorPageSize(30);
+            ->setPaginatorPageSize(30)
+            ->setDefaultSort(['ed' => 'DESC']);
     }
 
     public function configureFields(string $pageName): iterable

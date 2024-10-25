@@ -84,16 +84,16 @@
     overflow-x: scroll;
 }
 th, th:first-child{
-    position:sticky;
+    position:sticky !important;
     background-color: white;
     left:0px;
 
 }
-.tableFixHead          { overflow: auto; height:600px; border-collapse: collapse;  }
+.tableFixHead          { overflow: auto; height:800px; border-collapse: collapse;  }
 .tableFixHead thead th {
-    position: sticky;
+    position: sticky !important;
     top: 0;
-    z-index: 1;
+    //z-index: 1;
     background-color : #dbfdff;
     left:0px;}
 
@@ -101,9 +101,9 @@ th, th:first-child{
 table  { border-collapse: collapse; width: 100%; }
 th, td { padding: 8px 16px}
 
-@media screen and (min-width: 450px ) and (orientation: landscape ) {
+@media only screen and (max-width: 950px ) and (orientation: landscape ) {
 
-    .tableFixHead  { overflow: auto; height:350px; border-collapse: collapse;  }
+    .tableFixHead  { overflow: auto; height:250px; border-collapse: collapse;  }
 
 
 }

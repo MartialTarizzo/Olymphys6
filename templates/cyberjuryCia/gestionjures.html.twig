@@ -47,8 +47,10 @@
                     <table class="table table-bordered">
                         <thead>
                             <tr>
-                                <th scope="col" style="z-index: 3"></th>
-                                <th></th>
+                                <th style="z-index: 6"></th>
+                                <th style="z-index: 6; position:sticky !important" ></th>
+                                <th  style="z-index: 4"></th>
+                                <th  style="z-index: 4"></th>
                                 <th><span style="text-align: center" title="Passer la souris sur le n° pour voir le titre du projet"> N<sup>o</sup> équipes</span></th>
                                 {% for equipe in listeEquipes %}
                                     <th style="text-align: center" title="{{ equipe.titreProjet }}">{{ equipe.numero }}</th>
@@ -60,7 +62,10 @@
                         <tbody>
                         <tr>
                             <th style="z-index: 3"></th>
-                            <td></td>
+                            <th style="z-index: 3; position:sticky  !important"></th>
+                            <th  style="z-index: 3"></th>
+                            <th  style="z-index: 3"></th>
+
                             <td>Horaires</td>
 
                             <form id="formhoraires" method="post" action="{{ path('attrib_horaires_salles_cia',{'centre':centre }) }}"
@@ -91,8 +96,10 @@
                         </tr>
                         <tr>
 
-                            <th style="z-index: 4"></th>
-                            <td></td>
+                            <th style="z-index: 3"></th>
+                            <th style="z-index: 3; position:sticky !important"></th>
+                            <th  style="z-index: 3"></th>
+                            <th  style="z-index: 3"></th>
                             <td>Salles</td>
                             <form id="formsalles" method="post" action="{{ path('attrib_horaires_salles_cia',{'centre':centre}) }}"
                                   name="formsalles">
@@ -118,7 +125,7 @@
                         </tr>
 
                         <tr>
-                            <th scope="col">Prenom  Nom  Initiales</th>
+                            <th style="z-index: 5">Prenom</th>  <th style="z-index: 5;position:sticky !important">Nom</th>   <th>Initiales</th>
                             <td></td>
                             <td  title="N° du sous-jury(Par défaut 1)">N° Jury</td>
                             {% for equipe in listeEquipes %}
@@ -133,7 +140,7 @@
 
                         {% for jure in listejures %}
                             {% if jure.numJury == 1 %}
-                                <tr style="background-color : #dbfdff ">
+                                <tr style="background-color : #FFFFFF ">
 
                             {% elseif jure.numJury == 2 %}
                                 <tr style="background-color : #ffffe0 ">
@@ -153,19 +160,20 @@
 
 
                                 <input type="hidden" name="idjure" id="{{ jure.id }}" value="{{ jure.id }}">
-                                <th  style="text-align:center; z-index: 3">
+                                <th  style="text-align:center; z-index: 3;">
                                     <label for="prenom{{ jure.id }}"></label><input type="text" value="{{ jure.prenomJure }}"
                                                                                     id="prenom{{ jure.id }}"
                                                                                     name="prenom" style="width: 80px"
                                                                                     onchange="changejure({{ 'prenom'~jure.id }})">
 
-
+                                </th>
+                                <th style="z-index: 5;position: sticky !important">
                                     <label for="{{ 'nom'~jure.id }}"></label><input type="text" value="{{ jure.nomJure }}"
                                                                                     id="{{ 'nom'~jure.id }}" name="nom"
                                                                                     style="width:100px"
                                                                                     onchange="changejure({{ 'nom'~jure.id }})">
-
-
+                                </th>
+                                <th>
                                     <label for="{{ 'initiales'~jure.id }}"></label><input type="text" value="{{ jure.initialesJure }}"
                                                                                           id="{{ 'initiales'~jure.id }}"
                                                                                           name="initiales" style="width: 50px"
