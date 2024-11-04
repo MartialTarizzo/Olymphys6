@@ -14,6 +14,7 @@ use App\Entity\Equipesadmin;
 use App\Entity\Cia\JuresCia;
 use App\Entity\Cia\NotesCia;
 use App\Entity\Fichiersequipes;
+use App\Entity\Notes;
 use App\Entity\Uai;
 use App\Form\JuresCiaType;
 use App\Form\NotesCiaType;
@@ -50,6 +51,7 @@ use Symfony\Component\Routing\Attribute\Route;
 
 use Symfony\Component\Security\Http\Attribute\IsGranted;
 use Symfony\Component\String\Slugger\AsciiSlugger;
+use function mysql_xdevapi\getSession;
 use function Symfony\Component\String\u;
 
 
@@ -1086,6 +1088,89 @@ class SecretariatjuryCiaController extends AbstractController
 
 
     }
+
+    #[IsGranted('ROLE_COMITE')]
+    #[Route("/tableau_recap_tout_centre", name: "tableau_recap_tout_centre")]
+    public function tableaurecap():Response//Permet l'affichage d'un tableau des points de toutes les équipes classées par centre
+    {
+        $nbMaxEquipes=0;
+        $repositoryEquipes=$this->doctrine->getRepository(Equipesadmin::class);
+        $centrescia = $this->doctrine->getRepository(Centrescia::class)->findBy(['actif' => true]);
+        $equipes=$repositoryEquipes->findBy(['edition' => $this->requestStack->getSession()->get('edition'),'inscrite'=>true]);
+        $repositoryRangs=$this->doctrine->getRepository(RangsCia::class);
+        $rangscia = $repositoryRangs->findBy([],['rang'=>'ASC']);//les rangs des équipes pour chaque centre
+        $satistiques=[];
+        $nbJures=null;
+        $nbJureNotes=null;
+        foreach($centrescia as $centre) {
+            $equipeslocales = $repositoryEquipes->findBy(['centre' => $centre, 'inscrite' => true, 'edition' => $this->requestStack->getSession()->get('edition')]);
+            if (count($equipeslocales) > $nbMaxEquipes) $nbMaxEquipes = count($equipeslocales);//pour connaître le nombe maximum de ligne dans le tableau affiché
+            $satistiques[$centre->getId()]=$this->statistiques($centre);
+            foreach($equipeslocales as $equipe){
+                $jures[$equipe->getId()]=$repositoryEquipes->getJuresCia($equipe);
+                if($jures[$equipe->getId()]!=null) {
+                    $nbJures[$equipe->getId()] = count($jures[$equipe->getId()]);
+                    if ($jures[$equipe->getId()] != null) {
+                        $nbJureNotes[$equipe->getId()] = 0;
+                        foreach ($jures[$equipe->getId()] as $jure) {
+                            $notes = $jure->getNotesj();
+
+                            foreach ($notes as $note) {
+                                if ($note->getEquipe() == $equipe) {
+                                    $nbJureNotes[$equipe->getId()] = $nbJureNotes[$equipe->getId()]+ 1;
+
+
+                                }
+                            }
+
+
+                        }
+                    }
+                }
+            }
+        }
+
+        return $this->render('cyberjuryCia/tableau_recap.html.twig', ['centrescia'=>$centrescia,'rangscia'=>$rangscia,'equipes'=>$equipes,'nbMaxEquipes'=>$nbMaxEquipes,'satistiques'=>$satistiques,'nbJures'=>$nbJures,'nbJuresNotes'=>$nbJureNotes]);
+
+
+    }
+
+    #[IsGranted('ROLE_COMITE')]
+    #[Route("/statistiques,{centre}", name: "statistique_centre")]
+    public function statistiques($centre): array
+    {
+        $rangscia = $this->doctrine->getRepository(RangsCia::class)->findAll();
+        $somme = 0;
+        $n = 0;
+        $moyenne=0;
+        $sigma=0;
+        foreach ($rangscia as $rangcia) {
+            if ($centre == $rangcia->getEquipe()->getCentre()) {
+                $somme = $somme + $rangcia->getPoints();
+                $n += 1;
+            }
+        }
+        if ($n!=0) {
+            $moyenne = intval($somme / $n);
+            $variancecarree=0;
+            foreach($rangscia as $rangcia){
+                if ($centre == $rangcia->getEquipe()->getCentre()) {
+                    $variancecarree = $variancecarree+ ($moyenne-$rangcia->getPoints())*($moyenne-$rangcia->getPoints());
+                }
+            }
+            $sigmacarre=$variancecarree/($n);
+            $sigma= intval(sqrt($sigmacarre));
+        }
+
+
+
+        return [$moyenne,$sigma];
+
+
+    }
+
+
+
 
     #[IsGranted('ROLE_SUPERADMIN')]
     #[Route("/remplir_des_equipes_fictives_essais", name: "remplir_des_equipes_fictives_essais")]

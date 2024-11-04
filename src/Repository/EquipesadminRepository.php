@@ -4,6 +4,7 @@ namespace App\Repository;
 
 
 use App\Entity\Centrescia;
+use App\Entity\Cia\JuresCia;
 use App\Entity\Docequipes;
 use App\Entity\Edition;
 use App\Entity\Equipesadmin;
@@ -131,6 +132,9 @@ class EquipesadminRepository extends ServiceEntityRepository
         return $numeros;
     }
 
+    /**
+     * @throws \DateMalformedStringException
+     */
     public function getListeEquipe($user, $concours, $choix, $centre)
     {
         $em = $this->getEntityManager();
@@ -152,11 +156,12 @@ class EquipesadminRepository extends ServiceEntityRepository
             ->setParameter('edition',$edition);
         $date = new DateTime('now');
         $dateouvertureSite = $this->requestStack->getSession()->get('edition')->getDateOuvertureSite();
-        //Cration d'un nouvel objet datelim, l'ajout simple de 20 jours avec la fonction add modifie l'objet $dateconcourscia sans créer un nouvel objet
-        $d = $edition->getConcourscia()->format('d');
+        //Cration d'un nouvel objet datelim, l'ajout simple de 30 jours avec la fonction add modifie l'objet $dateconcourscia sans créer un nouvel objet
+       /* $d = $edition->getConcourscia()->format('d');
         $m = $edition->getConcourscia()->format('m');
-        $Y = $edition->getConcourscia()->format('Y');
-        $datelim = new DateTime($d + 20 . '-' . $m . '-' . $Y);
+        $Y = $edition->getConcourscia()->format('Y');*/
+        $d=30;
+        $datelim=$edition->getConcourscia()->add(new DateInterval('P' . $d . 'D'));//Les organisateurs et profs  peuvent déposer les fichiers 20 jours après la date du concours CIA pour compléter leur dossier
 
         if ($date > $dateouvertureSite and $date <= $datelim) {
             //$datelim pour permettre au prof  de déposer les autorisations après les CIA pour les équipes non sélectionné.
@@ -200,4 +205,30 @@ class EquipesadminRepository extends ServiceEntityRepository
 
         return $listeEquipes;
     }
+
+    public function getJuresCia($equipe)
+    {
+
+        $juresCia= $this->doctrine->getRepository(JuresCia::class)->findAll();
+        $jures=null;
+        $i=0;
+        foreach ($juresCia as $jure){
+            $equipes=$jure->getEquipes();
+            foreach($equipes as $equipejure){
+                if($equipejure==$equipe) {
+                    $jures[$i] = $jure;
+                    $i = $i + 1;
+                }
+            }
+
+
+        }
+
+        return $jures;
+
+
+    }
+
+
+
 }

@@ -1,0 +1,91 @@
+{% extends 'base1.html.twig' %}
+{% block navigation %}
+
+    {{ include ('cyberjuryCia/navigation_comite.html.twig') }}
+
+{% endblock %}
+
+{% block body %}
+
+    <div class="container-fluid">
+
+
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>
+                        Centres<br>
+                        Moyenne <br>
+                        Ecart-type
+                    </th>
+
+                {%  for centrecia in centrescia %}
+                    <th scope="col" style="text-align: center">
+                        {{ centrecia.centre }}
+                        {% if centrecia.verouClassement==true %}
+                            <i style="color: blue"  class="fa fa-lock fa-xs"></i>
+                        {% else %}
+                            <i style="color: blue" class="fa fa-lock-open fa-xs"></i>
+                        {% endif %}<br>
+                       {{ satistiques[centrecia.id][0] }}<br>
+                        {{ satistiques[centrecia.id][1] }}
+                    </th>
+                {% endfor %}
+                </tr>
+            </thead>
+
+            <tbody>
+        {% for i in 1..nbMaxEquipes %}
+
+            <tr>
+                <td>
+                    {{ i }}
+                </td>
+                {%  for centrecia in centrescia %}
+                    <td style="text-align: center">
+                        {% for equipe in equipes %}
+                            {% for rang in rangscia %}
+                                {% if equipe.centre==centrecia and rang.equipe == equipe  and rang.rang == i%}
+                                {% if centrecia.nbselectionnees>=i %}
+                                    <div class="btn btn-success" title="EQ n° {{ equipe.numero }}">
+                                    {{ rang.points }}
+                                    </div>
+                                    {% for key, value in nbJuresNotes %}
+                                        {% if key == equipe.id %}
+                                            <span style="font-size: smaller">({{ nbJuresNotes[equipe.id] }}/{{ nbJures[equipe.id] }})</span>
+                                        {% endif %}
+                                    {% endfor %}
+                                {% else %}
+                                    <span title="EQ n° {{ equipe.numero }}" title="EQ n° {{ equipe.numero }}"> {{ rang.points }}</span>
+                                    {% for key, value in nbJuresNotes %}
+                                            {% if key == equipe.id %}
+                                                <span style="font-size: smaller">({{ nbJuresNotes[equipe.id] }}/{{ nbJures[equipe.id] }})</span>
+                                            {% endif %}
+                                    {% endfor %}
+                                 {% endif%}
+                                {% endif %}
+                           {% endfor %}
+                        {% endfor%}
+                    </td>
+                {% endfor %}
+            </tr>
+        {% endfor%}
+    </tbody>
+        </table>
+
+
+
+
+
+
+
+
+
+
+{% endblock %}
+
+{% block titre3 %}
+    Cyberjury des CIA<br>
+Tableau récapitulatif de tous les centres
+{% endblock %}
+
