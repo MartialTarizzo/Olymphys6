@@ -21,7 +21,18 @@ class ConseilJuryCiaType extends AbstractType
         $builder
             ->add('texte', CKEditorType::class, [
                 'required' => false,
-            ])
+                'config' => array(
+                    'extraPlugins' => 'wordcount',),
+                'plugins' => array(
+                    'wordcount' => array(
+                        'path'     => '/bundles/fosckeditor/plugins/wordcount/', // with trailing slash
+                        'filename' => 'plugin.js',
+                    ))
+            ],
+
+
+
+            )
             ->add('Enregistrer', SubmitType::class);
 
     }

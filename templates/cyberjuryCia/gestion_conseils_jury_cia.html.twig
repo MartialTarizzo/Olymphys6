@@ -19,31 +19,29 @@
 {% endblock %}
 
 {% block body %}
-    <div class="table-responsive">
+    <div class="table-responsive" >
         <table class="table table-striped">
             {% for equipe in equipes %}
                 <tr>
-                    <th>
+                    <td>
                         <button type="button" class="btn btn-primary btn-lg">{{ equipe.numero }}</button>
-                    </th>
-                    <th>
+                    </td>
+                    <td>
                         {{ equipe.titreProjet }}
                         {% set conseilEquipe=null %}
-                    </th>
-                    <td>
                     </td>
-                    <td>
-                    </td>
-                    <td>
+                    <td style="width: 300px">
                         {% for conseil in conseils %}
 
                             {% if conseil.equipe == equipe %}
-
-                                {{ conseil.texte|raw }}
+                                {% autoescape 'html' %}
+                                     {{ conseil.texte|raw }}
+                                {% endautoescape %}
                                 {% set conseilEquipe=conseil %}
 
                             {% endif %}
                         {% endfor %}
+
                     </td>
                     <td>
 
@@ -51,6 +49,7 @@
                            class="fas fa-pencil-alt" title="modifier"> </a>
                     </td>
                     <td>
+                        {% if is_granted('ROLE_COMITE') %}
                         {% if conseilEquipe!= null %}
                             {% if conseilEquipe.envoye!=true %}
                                 <button class="fas fa-envelope"
@@ -65,6 +64,7 @@
                                         title="Les conseils ont été envoyé" type="button" data-toggle="modal"
                                         style="color: red"></button>
                             {% endif %}
+                        {% endif %}
                         {% endif %}
                     </td>
 
