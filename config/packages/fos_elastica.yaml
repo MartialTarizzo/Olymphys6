@@ -1,0 +1,16 @@
+# Read the documentation: https://github.com/FriendsOfSymfony/FOSElasticaBundle/blob/master/doc/setup.md
+fos_elastica:
+    clients:
+        default: { url: '%env(ELASTICSEARCH_URL)%' }
+    indexes:
+          memoiresearch :
+               persistence:
+                   # the driver can be orm, mongodb or phpcr
+                   driver: orm
+                   model: App\Entity\Odpf\OdpfFichierspasses
+                   elastica_to_model_transformer:
+                     query_builder_method: createSearchQueryBuilder
+               properties :
+                    nomfichier : ~
+
+                

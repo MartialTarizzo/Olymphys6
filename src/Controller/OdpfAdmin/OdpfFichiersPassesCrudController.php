@@ -31,8 +31,6 @@ use EasyCorp\Bundle\EasyAdminBundle\Field\IntegerField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\TextField;
 use EasyCorp\Bundle\EasyAdminBundle\Provider\AdminContextProvider;
 use EasyCorp\Bundle\EasyAdminBundle\Router\AdminUrlGenerator;
-use http\Client\Request;
-use Sensio\Bundle\FrameworkExtraBundle\Configuration\IsGranted;
 use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 use Symfony\Component\HttpFoundation\BinaryFileResponse;
@@ -40,7 +38,9 @@ use Symfony\Component\HttpFoundation\RedirectResponse;
 use Symfony\Component\HttpFoundation\RequestStack;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Attribute\Route;
+use Symfony\Component\Security\Http\Attribute\IsGranted;
 use Vich\UploaderBundle\Form\Type\VichFileType;
+
 
 class OdpfFichiersPassesCrudController extends AbstractCrudController
 {
@@ -55,6 +55,7 @@ class OdpfFichiersPassesCrudController extends AbstractCrudController
         $this->doctrine = $doctrine;
         $this->requestStack = $requestack;
         $this->adminUrlGenerator = $adminUrlGenerator;
+
     }
 
     public static function getEntityFqcn(): string
@@ -432,5 +433,6 @@ class OdpfFichiersPassesCrudController extends AbstractCrudController
 
         return $this->render('OdpfAdmin/setFichiersPublies.html.twig', ['form' => $form->createView(), 'Nomtypefichier' => $this->getParameter('type_fichier_lit')[$typefichier]]);
     }
+
 
 }

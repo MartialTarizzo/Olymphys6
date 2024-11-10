@@ -107,6 +107,11 @@ services:
         # you can also restrict listeners to a specific Doctrine connection
         connection: 'default'
 
+  App\Controller\SearchController:
+    tags: ['controller.service_arguments']
 
+    public: true
+    arguments:
+      - '@fos_elastica.finder.memoiresearch'
 
 

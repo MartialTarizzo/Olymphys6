@@ -15,7 +15,9 @@
 {% endblock %}
 
 {% block body %}
-
+    <hr>
+    <a href="{{ asset('odpf/odpf-documents/CyberjuryCia_jure.pdf') }}" type="button" class="btn btn-warning" target="_blank">Aide du cyberjury</a>
+    <hr>
     {% for equipes in listeEquipes %}
         {% if equipes.numero in progression|keys %}
 
