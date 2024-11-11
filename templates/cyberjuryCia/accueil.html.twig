@@ -14,7 +14,10 @@
 {% endblock %}
 
 {% block body %}
+    <hr>
+    <a href="{{ asset('odpf/odpf-documents/CyberjuryCia-Orga.pdf') }}" type="button" class="btn btn-warning" target="_blank">Aide du cyberjury</a>
 
+    <hr>
     {% for equipe in equipes %}
         {% set infos =  equipe.id ~ '-'~'interacadémique'~'-'~'' %}
         <p>

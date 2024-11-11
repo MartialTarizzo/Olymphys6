@@ -45,33 +45,19 @@ class OdpfFichierspassesRepository extends ServiceEntityRepository
             $this->_em->flush();
         }
     }
-
-    // /**
-    //  * @return OdpfFichierspasses[] Returns an array of OdpfFichierspasses objects
-    //  */
-    /*
-    public function findByExampleField($value)
+    /**
+     * Used by Elastica to transform results to model
+     *
+     *
+     */
+    public function createSearchQueryBuilder($entityAlias)
     {
-        return $this->createQueryBuilder('o')
-            ->andWhere('o.exampleField = :val')
-            ->setParameter('val', $value)
-            ->orderBy('o.id', 'ASC')
-            ->setMaxResults(10)
-            ->getQuery()
-            ->getResult()
-        ;
-    }
-    */
+        $qb = $this->createQueryBuilder($entityAlias);
 
-    /*
-    public function findOneBySomeField($value): ?OdpfFichierspasses
-    {
-        return $this->createQueryBuilder('o')
-            ->andWhere('o.exampleField = :val')
-            ->setParameter('val', $value)
-            ->getQuery()
-            ->getOneOrNullResult()
-        ;
+        $qb->select($entityAlias, 'g')
+            ->innerJoin($entityAlias.'.groups', 'g');
+            dd($qb);
+
+        return $qb;
     }
-    */
 }
