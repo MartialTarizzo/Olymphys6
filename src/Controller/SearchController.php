@@ -10,6 +10,7 @@ use FOS\ElasticaBundle\Manager\RepositoryManagerInterface;
 use Mpdf\Tag\Article;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
+use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Attribute\Route;
 use Elastica\Util;
 class SearchController extends AbstractController
@@ -23,7 +24,7 @@ class SearchController extends AbstractController
         $this->manager = $manager;
     }
     #[Route("search", name: "search")]
-    public function searchAction(Request $request)
+    public function searchAction(Request $request) : Response
     {
 
 
