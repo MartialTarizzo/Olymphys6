@@ -274,7 +274,6 @@ class Fichiersequipes //extends BaseMedia
 
         return $this;
     }
-
     public function directoryName(): string
     {
         $path = $this->edition->getEd() . '/fichiers';

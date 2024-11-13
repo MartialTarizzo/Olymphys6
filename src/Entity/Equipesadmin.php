@@ -179,8 +179,10 @@ class Equipesadmin
     public function getInfoequipe(): ?string
     {
         $nomcentre = '';
-
-        $this->getLettre() === null ? $Numero = $this->getNumero() : $Numero = $this->numero . '-' . $this->getLettre();
+        $Numero = $this->numero;
+        if ($this->getLettre() != null) {
+            $Numero = $this->numero . '-' . $this->getLettre();
+        }
         $edition = $this->getEdition();
         if ($centre = $this->getCentre()) {
             $nomcentre = $this->getCentre()->getCentre() . '-';
@@ -190,7 +192,7 @@ class Equipesadmin
         $nom_equipe = $this->getTitreProjet();
         $ville = $this->getLyceeLocalite();
 
-        $infoequipe = $edition->getEd() . '-' . 'Eq ' . $Numero . ' - ' . $nom_equipe . '-' . $ville;
+        $infoequipe = $edition->getEd() . '-' . 'Eq ' . $Numero . ' - ' . $nom_equipe . ' - ' . $ville;
         return $infoequipe;
     }
 
