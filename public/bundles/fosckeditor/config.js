@@ -3,6 +3,9 @@
  * For licensing, see https://ckeditor.com/legal/ckeditor-oss-license
  */
 
+
+
+
 CKEDITOR.editorConfig = function( config ) {
     config.extraPlugins = 'wordcount,notification';
     // Define changes to default configuration here. For example:
@@ -45,7 +48,7 @@ CKEDITOR.editorConfig = function( config ) {
         maxWordCount: -1,
 
         // Maximum allowed Char Count, -1 is default for unlimited
-        maxCharCount: 1000,
+        maxCharCount: 1500,
 
         // Maximum allowed Paragraphs Count, -1 is default for unlimited
         maxParagraphs: -1,
