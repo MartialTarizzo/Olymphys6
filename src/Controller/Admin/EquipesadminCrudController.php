@@ -239,7 +239,7 @@ class EquipesadminCrudController extends AbstractCrudController
 
                 return [$lyceePays, $lyceeAcademie, $nomLycee, $lyceeAdresse, $lyceeCP, $lyceeLocalite, $uai];
             } else {
-                return [$numero, $lettre, $centreCentre, $titreProjet, $prof1, $prof2, $nomLycee, $lyceeLocalite, $lyceeAcademie, $selectionnee, $contribfinance, $nbeleves, $inscrite, $origineprojet, $createdAt];
+                return [$numero, $lettre, $centreCentre, $titreProjet, $IdProf1, $IdProf2, $nomLycee, $lyceeLocalite, $lyceeAcademie, $selectionnee, $contribfinance, $nbeleves, $inscrite, $origineprojet, $createdAt];
             }
         } elseif (Crud::PAGE_DETAIL === $pageName) {
 
