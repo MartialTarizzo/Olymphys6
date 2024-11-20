@@ -1,7 +1,7 @@
 # Read the documentation: https://github.com/FriendsOfSymfony/FOSElasticaBundle/blob/master/doc/setup.md
 fos_elastica:
     clients:
-      default: { host: localhost, port: 8000 }
+      default: { host: localhost, port: 8000}
     indexes:
 
           memoiresearch :
@@ -9,9 +9,12 @@ fos_elastica:
                    # the driver can be orm, mongodb or phpcr
                    driver: orm
                    model: App\Entity\Odpf\OdpfFichierspasses
-                   elastica_to_model_transformer:
-                     query_builder_method: createSearchQueryBuilder
+                   provider: ~
+                   finder: ~
+
                properties :
                     nomfichier : ~
+                    publie : [value: true]
+
 
                 
