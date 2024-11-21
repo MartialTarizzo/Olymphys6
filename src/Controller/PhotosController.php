@@ -271,13 +271,13 @@ class PhotosController extends AbstractController
                 ->andWhere('e.edition =:edition')
                 ->setParameter('edition', $edition)
                 ->addOrderBy('e.numero', 'ASC');
-
-            $centre = $repositoryCentrescia->find(['id' => $concourseditioncentre[2]]);
-            if ($centre == null) {
-                $request->getSession()
-                    ->getFlashBag()
-                    ->add('info', 'Les centres interacadémiques ne sont pas encore attribués pour la ' . $edition->getEd() . 'e édition');
-                $this->redirectToRoute('core_home');
+            if (in_array('ROLE_COMITE', $user->getRoles())) {
+                $centre = $repositoryCentrescia->find(['id' => $concourseditioncentre[2]]);//pour les membres du comité
+                if ($centre == null) {
+                    $request->getSession()
+                        ->set('info', 'Les centres interacadémiques ne sont pas encore attribués pour la ' . $edition->getEd() . 'e édition');
+                    $this->redirectToRoute('core_home');
+                }
             }
             if ((in_array('ROLE_ORGACIA', $roles)) or (in_array('ROLE_SUPER_ADMIN', $roles)) or (in_array('ROLE_COMITE', $roles))) {
                 $ville = $centre->getCentre();

@@ -131,10 +131,10 @@ class Mailer
         if (!$modif) {
             $email = (new TemplatedEmail())
                 ->from('info@olymphys.fr')
-                ->addBCc('webmestre2@olymphys.fr') //'webmestre2@olymphys.fr', 'Denis'
+                ->addCc('webmestre2@olymphys.fr') //'webmestre2@olymphys.fr', 'Denis'
                 ->addTo($user->getEmail())
-                ->addBCc('webmestre3@olymphys.fr')
-                ->addBCc('webmestre4@olymphys.fr')
+                ->addCc('webmestre3@olymphys.fr')
+                ->addCc('webmestre4@olymphys.fr')
                 ->addCc('emma.gosse@orange.fr')
                 ->htmlTemplate('email/confirme_inscription.html.twig')
                 ->subject('Inscription de l\'équipe  ' . $equipe->getNumero() . ' par ' . $user->getPrenomNom())
@@ -154,12 +154,12 @@ class Mailer
                     if ($checkChange['inscrite'] == 'NON') {
                         $changetext = '<h1>Désinscription de l\'équipe !</h1><br>';
                         $checkChange['inscrite'] = $equipe->getIdProf1()->getPrenomNom() . '(<a href="' . $user->getEmail() . '">' . $user->getEmail() .
-                            '</a>) du lycée ' . $equipe->getNomLycee() . ' de ' . $equipe->getLyceeLocalite() . ' a désinscrit l\'équipe denommée : ' . $equipe->getTitreProjet();
+                            '</a>) du lycée ' . $equipe->getNomLycee() . ' de ' . $equipe->getLyceeLocalite() . ' a désinscrit l\'équipe '.$equipe->getNumero().' denommée : ' . $equipe->getTitreProjet();
                     }
                     if ($checkChange['inscrite'] == 'OUI') {
                         $changetext = '<h1>Réinscription de l\'équipe !</h1><br>';
                         $checkChange['inscrite'] = $equipe->getIdProf1()->getPrenomNom() . '(<a href="' . $user->getEmail() . '">' . $user->getEmail() .
-                            '</a>) du lycée ' . $equipe->getNomLycee() . ' de ' . $equipe->getLyceeLocalite() . ' a réinscrit l\'équipe denommée : ' . $equipe->getTitreProjet();
+                            '</a>) du lycée ' . $equipe->getNomLycee() . ' de ' . $equipe->getLyceeLocalite() . ' a réinscrit l\'équipe '.$equipe->getNumero().' denommée : ' . $equipe->getTitreProjet();
 
                     }
 
