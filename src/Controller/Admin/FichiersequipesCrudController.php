@@ -47,12 +47,14 @@ use EasyCorp\Bundle\EasyAdminBundle\Field\FormField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\IntegerField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\TextareaField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\TextField;
+use EasyCorp\Bundle\EasyAdminBundle\Filter\EntityFilter;
 use EasyCorp\Bundle\EasyAdminBundle\Orm\EntityRepository;
 use EasyCorp\Bundle\EasyAdminBundle\Provider\AdminContextProvider;
 use EasyCorp\Bundle\EasyAdminBundle\Router\AdminUrlGenerator;
 use Exception;
 
 use setasign\Fpdi\PdfParser\CrossReference\AbstractReader;
+use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\DependencyInjection\ParameterBag\ParameterBagInterface;
 use Symfony\Component\HttpFoundation\BinaryFileResponse;
 use Symfony\Component\HttpFoundation\File\UploadedFile;
@@ -102,7 +104,9 @@ class FichiersequipesCrudController extends AbstractCrudController
     {
 
         $filters
-            ->add(CustomEquipeFichierFilter::new('equipe', 'equipe'))
+            ->add(CustomEquipeFichierFilter::new('equipe', 'equipe'))//génère une erreur
+            //->add(EntityFilter::new('equipe', 'Equipe')
+
             ->add(CustomEditionFilter::new('edition', 'edition'));
         if ($this->requestStack->getCurrentRequest()->query->get('typefichier') <= 1) {
             $filters->
@@ -306,6 +310,8 @@ class FichiersequipesCrudController extends AbstractCrudController
                 return $action->setLabel('Retour à la liste')->setHtmlAttributes(['typefichier' => $this->requestStack->getCurrentRequest()->getSession()->get('typefichier')]);
             })
             ->setPermission(Action::DELETE, 'ROLE_SUPER_ADMIN')
+            ->setPermission(Action::EDIT, 'ROLE_SUPER_ADMIN')
+            ->setPermission(Action::NEW, 'ROLE_SUPER_ADMIN')
             ->add(Crud::PAGE_INDEX, $telechargerFichiers)
             ->update(Crud::PAGE_INDEX, Action::NEW, function (Action $action) {
 
@@ -560,11 +566,12 @@ class FichiersequipesCrudController extends AbstractCrudController
             ->setParameter('selectionnee', $this->requestStack->getSession()->get('concours'))
             ->addOrderBy('eq.edition', 'DESC')
             ->addOrderBy('eq.lettre', 'ASC')
-            ->addOrderBy('eq.numero', 'ASC')
-            ->getQuery()->getResult();
-        $equipe = AssociationField::new('equipe')
-            ->setFormTypeOptions([
-                'choices' => $listeEquipes]);
+            ->addOrderBy('eq.numero', 'ASC');
+       /* $equipe = ChoiceField::new('equipe')
+            ->setFormType(EntityType::class)
+            ->setFormTypeOptions(['class'=>Equipesadmin::class,
+
+                ]);*/
         $fichierFile = Field::new('fichierFile', 'fichier')//Le champ de chargement du fichier
         ->setFormType(VichFileType::class)
             ->setLabel('Fichier')

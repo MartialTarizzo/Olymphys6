@@ -79,7 +79,7 @@ class SecretariatjuryController extends AbstractController
 
         if (new \DateTime('now') < $this->requestStack->getSession()->get('edition')->getDateouverturesite()) {
             
-            $edition = $this->doctrine->getRepository(Edition::class)->findOneBy(['ed' => $edition->getEd() - 1]);
+            $edition = $this->doctrine->getRepository(Edition::class)->findOneBy(['ed' => $edition->getEd() - 1]);//pour la durée qui suit le cn
         }
         $repositoryEquipesadmin = $this->doctrine->getRepository(Equipesadmin::class);
         $repositoryEleves = $this->doctrine->getRepository(Elevesinter::class);
@@ -93,16 +93,22 @@ class SecretariatjuryController extends AbstractController
             ->orderBy('e.lettre', 'ASC')
             ->getQuery()
             ->getResult();
+
+        if($listEquipes == []){//Pour travailler sur les données de l'édition précédente avant le concours, les équipes ne sont pas connues alors
+
+            $listEquipes=$this->doctrine->getRepository(Equipes::class)->findAll();
+
+        }
         $lesEleves = [];
         $lycee = [];
 
         foreach ($listEquipes as $equipe) {
-            $lettre = $equipe->getLettre();
-            $lesEleves[$lettre] = $repositoryEleves->findBy(['equipe' => $equipe]);
-            $uai = $equipe->getUai();
+            $lettre = $equipe->getEquipeinter()->getLettre();
+            $lesEleves[$lettre] = $repositoryEleves->findBy(['equipe' => $equipe->getEquipeinter()]);
+            $uai = $equipe->getEquipeinter()->getUai();
             $lycee[$lettre] = $repositoryUai->findBy(['uai' => $uai]);
-        }
 
+        }
         $tableau = [$listEquipes, $lesEleves, $lycee];
         $session = $this->requestStack->getSession();
         $session->set('tableau', $tableau);
@@ -907,14 +913,14 @@ class SecretariatjuryController extends AbstractController
             $listPhrases = $phraseAGarder->getEquipe()->getPhrases();
             foreach ($listPhrases as $phrase) {
                 if ($phrase != $phraseAGarder) {
-                    $phraseAGarder->getEquipe()->removePhrases($phrase);
+                    $phraseAGarder->getEquipe()->removePhrase($phrase);
                     $em->persist($phraseAGarder->getEquipe());
 
                     $phrase->setJure(null);
                     $phrase->setEquipe(null);
                     $em->remove($phrase);
                     $em->flush();
-                    $em->flush();
+
                 }
 
             }
@@ -930,33 +936,44 @@ class SecretariatjuryController extends AbstractController
     public function tableau_palmares_complet(): Response
     {
         $tableau = $this->requestStack->getSession()->get('tableau');
-
-        $equipes = $tableau[0];
-        $lesEleves = $tableau[1];
-        $lycee = $tableau[2];
-
-        $em = $this->doctrine->getManager();
-
-        $repositoryUser = $em->getRepository(User::class);
-
-        $prof1 = [];
-        $prof2 = [];
-        foreach ($equipes as $equipe) {
-            $lettre = $equipe->getLettre();
-            $idprof1 = $equipe->getIdProf1();
-            $prof1[$lettre] = $repositoryUser->findBy(['id' => $idprof1]);
-            $idprof2 = $equipe->getIdProf2();
-            $prof2[$lettre] = $repositoryUser->findBy(['id' => $idprof2]);
+        $listEquipes = $this->doctrine->getRepository(Equipes::class)
+            ->getEquipesPalmaresJury();
+       if($tableau[0]==null){
+           $this->requestStack->getSession()->set('info', 'Pas d\'équipe sélectionnée pour l\'édition en cours');
+           $content = $this->renderView('secretariatjury/accueil.html.twig');
+           return new Response($content);
         }
+        //$listEquipes=$tableau[0];
+       $prof1=[];
+       $prof2=[];
+       $phrases=[];
 
-        $listEquipes = $em->getRepository(Equipes::class)
-            ->getEquipesPalmares();
+
+       foreach($listEquipes as $equipe) {
+
+
+           $prof=$this->doctrine->getRepository(User::class)->find($equipe->getEquipeinter()->getIdProf1()->getId());
+           $prof1[$equipe->getEquipeinter()->getLettre()] = $prof->getPrenomNom();
+           $prof2[$equipe->getEquipeinter()->getLettre()]='';
+           if ($equipe->getEquipeinter()->getIdProf2()) {
+               $prof = $this->doctrine->getRepository(User::class)->find($equipe->getEquipeinter()->getIdProf2()->getId());
+               $prof2[$equipe->getEquipeinter()->getLettre()] = $prof->getPrenomNom();
+           }
+           $phraseseq=$equipe->getPhrases();
+           $phrases[$equipe->getEquipeinter()->getLettre()]='';
+           if(count($phraseseq)!=0) {
+               $phrases[$equipe->getEquipeinter()->getLettre()] = $phraseseq[0]->getPhrase() . ' ' . $phraseseq[0]->getLiaison()->getLiaison() . ' ' . $phraseseq[0]->getPrix();
+
+           }
+       }
+
         $content = $this->renderView('secretariatjury/edition_palmares_complet.html.twig',
             array('listEquipes' => $listEquipes,
-                'lesEleves' => $lesEleves,
-                'lycee' => $lycee,
+                'lesEleves' =>$tableau[1],
+                'lycee' => $tableau[2],
                 'prof1' => $prof1,
-                'prof2' => $prof2));
+                'prof2' => $prof2,
+                'phrases'=>$phrases));
         return new Response($content);
     }
 
@@ -966,6 +983,12 @@ class SecretariatjuryController extends AbstractController
     {
         $em = $this->doctrine->getManager();
         $tableau = $this->requestStack->getSession()->get('tableau');
+
+        if($tableau[0]==null){
+            $this->requestStack->getSession()->set('info', 'Pas d\'équipe sélectionnée pour l\'édition en cours');
+            $content = $this->renderView('secretariatjury/accueil.html.twig');
+            return new Response($content);
+        }
         $equipes = $tableau[0];
         $lesEleves = $tableau[1];
         $lycee = $tableau[2];
@@ -977,10 +1000,10 @@ class SecretariatjuryController extends AbstractController
         $repositoryUser = $em->getRepository(User::class);
 
         foreach ($equipes as $equipe) {
-            $lettre = $equipe->getLettre();
-            $idprof1 = $equipe->getIdProf1();
+            $lettre = $equipe->getEquipeInter()->getLettre();
+            $idprof1 = $equipe->getEquipeinter()->getIdProf1();
             $prof1[$lettre] = $repositoryUser->findBy(['id' => $idprof1]);
-            $idprof2 = $equipe->getIdProf2();
+            $idprof2 = $equipe->getEquipeinter()->getIdProf2();
             $prof2[$lettre] = $repositoryUser->findBy(['id' => $idprof2]);
 
         }
@@ -1187,7 +1210,11 @@ class SecretariatjuryController extends AbstractController
         $nbreEquipes = 0;
 
         $tableau = $this->requestStack->getSession()->get('tableau');
-
+        if ($tableau[0] == null) {
+            $this->requestStack->getSession()->set('info', 'Pas d\'équipe sélectionnée pour l\'édition en cours');
+            $content = $this->renderView('secretariatjury/accueil.html.twig');
+            return new Response($content);
+        }
         $lycee = $tableau[2];
 
         $repositoryEquipes = $em->getRepository(Equipes::class);
@@ -1236,6 +1263,7 @@ class SecretariatjuryController extends AbstractController
             'name' => 'Calibri',
         ),);
         $ligne = 1;
+        $avertissementPhrase = '';
         foreach ($listEquipes as $equipe) {
             $sheet->getRowDimension($ligne)->setRowHeight(30);
             $lettre = $equipe->getEquipeinter()->getLettre();
@@ -1281,6 +1309,9 @@ class SecretariatjuryController extends AbstractController
             if ($equipe->getPhrases()[0] != null) {
                 $sheet->setCellValue('A' . $ligne, $remispar);
                 $sheet->setCellValue('B' . $ligne, $equipe->getPhrases()[0]->getPhrase() . ' ' . $equipe->getPhrases()[0]->getLiaison()->getLiaison() . ' ' . $equipe->getPhrases()[0]->getPrix());
+            } else {
+                $avertissementPhrase = $avertissementPhrase . 'L\'équipe ' . $equipe->getEquipeinter()->getLettre() . ' n\'a pas de phrase amusante <br>';
+
             }
             $sheet->getStyle('B' . $ligne)->getAlignment()->applyFromArray($vcenterArray);
             $sheet->getStyle('A' . $ligne . ':D' . $ligne)
@@ -1340,6 +1371,13 @@ class SecretariatjuryController extends AbstractController
 
             $ligne = $ligne + 1;
         }
+        if ($avertissementPhrase != '') {
+            $avertissementPhrase=$avertissementPhrase.'Tableau excel non créé, compléter les phrases amusantes manquantes';
+            $this->requestStack->getSession()->set('info', $avertissementPhrase);
+            return $this->redirectToRoute('secretariatjury_accueil');
+
+        }
+
         $nblignes = 5 * $nbreEquipes + 2;
         $sheet->getColumnDimension('A')->setWidth(32);
         $sheet->getColumnDimension('B')->setWidth(32);
@@ -1359,6 +1397,7 @@ class SecretariatjuryController extends AbstractController
         header('Cache-Control: max-age=0');
         $writer = new Xls($spreadsheet);
         $writer->save('php://output');
+
     }
 
     public function getLigne(Worksheet $sheet, $ligne, array $styleText, array $borderArray): int
