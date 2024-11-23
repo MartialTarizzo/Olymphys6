@@ -112,7 +112,7 @@ class Fichiersequipes //extends BaseMedia
           return $this;*/
     }
 
-    public function getId(): int
+    public function getId(): ?int
     {
         return $this->id;
     }

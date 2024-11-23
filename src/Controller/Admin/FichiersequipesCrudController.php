@@ -18,6 +18,7 @@ use App\Entity\Odpf\OdpfEditionsPassees;
 use App\Entity\Odpf\OdpfEquipesPassees;
 use App\Entity\Odpf\OdpfFichierspasses;
 use App\Entity\User;
+use App\Form\VichFilesField;
 use App\Service\OdpfRempliEquipesPassees;
 use App\Service\valid_fichiers;
 use DateTime;
@@ -38,6 +39,7 @@ use EasyCorp\Bundle\EasyAdminBundle\Dto\EntityDto;
 use EasyCorp\Bundle\EasyAdminBundle\Dto\FieldDto;
 use EasyCorp\Bundle\EasyAdminBundle\Dto\FilterDataDto;
 use EasyCorp\Bundle\EasyAdminBundle\Dto\SearchDto;
+use EasyCorp\Bundle\EasyAdminBundle\Field\ArrayField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\AssociationField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\BooleanField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\ChoiceField;
@@ -557,7 +559,7 @@ class FichiersequipesCrudController extends AbstractCrudController
             $numtypefichier = $this->requestStack->getSession()->get('typefichier');
 
         }
-        $listeEquipes = $this->doctrine->getRepository(Equipesadmin::class)->createQueryBuilder('eq')
+        $qbEquipes = $this->doctrine->getRepository(Equipesadmin::class)->createQueryBuilder('eq')
             ->select()->andWhere('eq.edition =:edition')
             ->andWhere('eq.selectionnee =:selectionnee ')
             ->andWhere('eq.numero <:value')
@@ -567,11 +569,13 @@ class FichiersequipesCrudController extends AbstractCrudController
             ->addOrderBy('eq.edition', 'DESC')
             ->addOrderBy('eq.lettre', 'ASC')
             ->addOrderBy('eq.numero', 'ASC');
-       /* $equipe = ChoiceField::new('equipe')
-            ->setFormType(EntityType::class)
-            ->setFormTypeOptions(['class'=>Equipesadmin::class,
-
-                ]);*/
+        $listeEquipes=$qbEquipes->getQuery()->getResult(); ;
+        $equipe =AssociationField::new('equipe')
+            //->setFormType(EntityType::class)
+            ->setFormTypeOptions([
+                'class'=>Equipesadmin::class,
+                'choices' => $listeEquipes,
+                ]);
         $fichierFile = Field::new('fichierFile', 'fichier')//Le champ de chargement du fichier
         ->setFormType(VichFileType::class)
             ->setLabel('Fichier')
@@ -579,53 +583,25 @@ class FichiersequipesCrudController extends AbstractCrudController
             ->setFormTypeOption('allow_delete', false);//sinon la case à cocher delete s'affiche
         //$numtypefichier=$this->set_type_fichier($_REQUEST['menuIndex'],$_REQUEST['submenuIndex']);
         switch ($numtypefichier) {
+            case 2:
+            case 3:
+            case 5:
+            case 7:
             case 0 :
                 $article = 'le';
                 break;
+            case 6:
             case 1 :
                 $article = 'l\'';
                 break;
-            case 2 :
-                $article = 'le';
-                break;
-            case 3 :
-                $article = 'le';
-                break;
+            case 8:
             case 4 :
-                $article = 'la';
-                break;
-            case 5 :
-                $article = 'le';
-                break;
-            case 6 :
-                $article = 'l\'';
-                break;
-            case 7 :
-                $article = 'le';
-                break;
-            case 8 :
                 $article = 'la';
                 break;
         }
 
         $panel2 = FormField::addPanel('<p style="color:red" > Modifier ' . $article . ' ' . $this->getParameter('type_fichier_lit')[$_REQUEST['typefichier']] . '</p> ');
-        $id = IntegerField::new('id', 'ID');
-        $fichier = TextField::new('fichier')->setTemplatePath('bundles\\EasyAdminBundle\\liste_fichiers.html.twig');
-        $publie = BooleanField::new('publie')->renderAsSwitch(false);//le basculement du bouton ne permet pas le transfert des fichiers du dossier prive vers le dossier publie et inversement, l'update complet est nécessaire
-        $typefichier = IntegerField::new('typefichier');
-        if ($pageName == Crud::PAGE_INDEX) {
-            $context = $this->adminContextProvider->getContext();
-            $context->getRequest()->query->set('concours', $_REQUEST['concours']);
-            $context->getRequest()->query->set('typefichier', $_REQUEST['typefichier']);
-        }
-        $annexe = ChoiceField::new('typefichier', 'Mémoire ou annexe')
-            ->setChoices(['Memoire' => 0, 'Annexe' => 1])
-            ->setFormTypeOptions(['required' => true])
-            ->setColumns('col-sm-4 col-lg-3 col-xxl-2');
-        $national = BooleanField::new('national');
-        $updatedAt = DateTimeField::new('updatedAt')->setSortable(true);
-        $nomautorisation = TextField::new('nomautorisation', 'NOM')->setSortable(true);
-        $editionField = AssociationField::new('edition', 'Edition');
+
         $listeEleves = $this->doctrine->getRepository(Elevesinter::class)->createQueryBuilder('el')
             ->leftJoin('el.equipe', 'eq')
             ->where('eq.edition =:edition')
@@ -633,7 +609,7 @@ class FichiersequipesCrudController extends AbstractCrudController
             ->addOrderBy('eq.numero', 'ASC')
             ->getQuery()->getResult();
         $qb = $this->doctrine->getRepository(User::class)->createQueryBuilder('u');
-        $listeEquipes=$this->doctrine->getRepository(Equipesadmin::class)->findBy(['edition'=>$this->requestStack->getSession()->get('edition')]);
+        //$listeEquipes=$this->doctrine->getRepository(Equipesadmin::class)->findBy(['edition'=>$this->requestStack->getSession()->get('edition')]);
         $listeProfs=[];
         $i=0;
             foreach($listeEquipes as $equipe){
@@ -643,44 +619,82 @@ class FichiersequipesCrudController extends AbstractCrudController
                     $listeProfs[$i]=$equipe->getIdProf2();
                 }
             }
-        /*$listeProfs = $this->doctrine->getRepository(User::class)->createQueryBuilder('u')
-            ->andWhere('u.roles =:roles')
-            ->setParameter('roles', 'a:2:{i:0;s:9:"ROLE_PROF";i:2;s:9:"ROLE_USER";}')
+        $fields=[];
+            if ($numtypefichier != 6 and $numtypefichier <=1) //mémoires et annexes
+            {
 
-            // ->orWhere($qb->expr()->like('entity.roles',':roles'))
-            // ->setParameter('roles','%i:0;s:9:"ROLE_PROF";i:2;s:9:"ROLE_USER";%')
-            ->addOrderBy('u.nom', 'ASC')
-            ->getQuery()->getResult();*/
+            $fields=  [  yield TextField::new('edition.ed', 'ed')->onlyOnIndex(),
+            yield AssociationField::new('edition', 'Edition')->onlyOnForms(),
+            yield IntegerField::new('equipe.numero', 'No eq')->onlyOnIndex(),
+            yield TextField::new('equipe.lettre', 'Lettre')->onlyOnIndex(),
+            yield TextField::new('equipe.titreProjet', 'Nom équipe')->onlyOnIndex(),
+            yield AssociationField::new('equipe')->setFormTypeOptions(['choices' => $listeEquipes])->onlyOnForms(),
 
-        $eleve = AssociationField::new('eleve')
-            ->setFormTypeOptions(['class' => Elevesinter::class,
-                'choices' => $listeEleves,
-                'choice_label' => 'getNomPrenom',
-                'mapped' => true,
-                'required' => false]);
-        $prof = AssociationField::new('prof')
-            ->setFormTypeOptions(['class' => User::class,
-                'choices' => $listeProfs,
-                'choice_label' => 'getNomPrenom',
-                'mapped' => true,
-                'required' => false]);
+            yield TextField::new('fichier', 'Nom du fichier')->hideWhenCreating(),
+            yield Field::new('fichierFile', 'Fichier')->setFormType(VichFileType::class)
+                ->onlyOnForms()
+                ->setFormTypeOptions(['allow_delete'=> false,'required' => false]),
+            yield ChoiceField::new('typefichier', 'Mémoire ou annexe')
+                ->setChoices(['Memoire' => 0, 'Annexe' => 1])
+                ->setFormTypeOptions(['required' => true])
+                ->setColumns('col-sm-4 col-lg-3 col-xxl-2'),
+            yield BooleanField::new('publie')->renderAsSwitch(true),//Le basculement du bouton publie ne tranfert pas le fichier, il faut appeler update
+            yield DateTimeField::new('updatedAt')->onlyOnIndex(),];
+
+            }
+        if ($numtypefichier != 6 and $numtypefichier >1) //mémoires et annexes
+        {
+            $fields=  [  yield TextField::new('edition.ed', 'ed')->onlyOnIndex(),
+                yield AssociationField::new('edition', 'Edition')->onlyOnForms(),
+                yield AssociationField::new('equipe')->setFormTypeOptions(['choices' => $listeEquipes])->setSortable(true),
+                yield TextField::new('fichier', 'Nom du fichier')->hideWhenCreating(),
+                yield Field::new('fichierFile', 'Fichier')->setFormType(VichFileType::class)
+                    ->onlyOnForms()
+                    ->setFormTypeOptions(['allow_delete'=> false,'required' => false]),
+                yield BooleanField::new('publie')->renderAsSwitch(true),//Le basculement du bouton publie ne tranfert pas le fichier, il faut appeler update
+                yield DateTimeField::new('updatedAt')->onlyOnIndex()];
+
+        }
+
+        if ($numtypefichier == 6 ){
+
+            $fields=  [  yield TextField::new('edition.ed', 'ed')->onlyOnIndex(),
+                yield AssociationField::new('edition', 'Edition')->onlyOnForms(),
+                yield IntegerField::new('equipe.numero','No eq')->onlyOnIndex(),
+                //yield AssociationField::new('equipe')->setFormTypeOptions(['choices' => $listeEquipes])->setSortable(true),
+                yield  AssociationField::new('eleve')
+                    ->setFormTypeOptions(['class' => Elevesinter::class,
+                        'choices' => $listeEleves,
+                        'choice_label' => 'getEquipeNomPrenom',
+                        'mapped' => true,
+                        'required' => false])->onlyOnForms(),
+                yield AssociationField::new('prof')
+                ->setFormTypeOptions(['class' => User::class,
+                    'choices' => $listeProfs,
+                    'choice_label' => 'getNomPrenom',
+                    'mapped' => true,
+                    'required' => false])->onlyOnForms(),
+                yield TextField::new('fichier', 'Nom du fichier')->hideWhenCreating(),
+                yield Field::new('fichierFile', 'Fichier')->setFormType(VichFileType::class)
+                    ->onlyOnForms()
+                    ->setFormTypeOptions(['allow_delete'=> false,'required' => false]),
+                //yield BooleanField::new('publie')->renderAsSwitch(true)->onlyOnIndex(),//les autorisations photos ne sont pas publiées
+                yield DateTimeField::new('updatedAt')->onlyOnIndex(),];
 
 
-        $editionEd = TextareaField::new('edition', 'Edition');
-        $equipelibel = AssociationField::new('equipe', 'Equipe')->setSortable(true);
-        if ($numtypefichier != 6) {
-            $equipeNumero = IntegerField::new('equipe.numero', 'numero')->setSortable(true);
-            $equipeLettre = TextField::new('equipe.lettre', 'Lettre equipe')->setSortable(true);
-            $equipeTitreProjet = TextField::new('equipe.titreProjet', 'Projet')->setSortable(true);
-        };
-        $updatedat = DateTimeField::new('updatedat', 'Déposé le ')->setSortable(true);
 
-        if (Crud::PAGE_INDEX === $pageName) {
-            $_REQUEST['typefichier'] = $numtypefichier;
+
+
+        }
+        $_REQUEST['typefichier'] = $numtypefichier;
+        return $fields;
+
+   /*     if (Crud::PAGE_INDEX === $pageName) {
+
             if ($numtypefichier == 6) {
                 return [$editionEd, $equipelibel, $fichier, $updatedat];
             } else {
-                return [$editionEd, $equipeNumero, $equipeLettre, $equipeTitreProjet, $publie, $fichier, $updatedat]; //Le basculement du bouton publie ne tranfert pas le fichier, il faut appeler update
+                return [$editionEd, $equipeNumero, $equipeLettre, $equipeTitreProjet, $publie, $fichier, $updatedat];
             }
         }
         if (Crud::PAGE_DETAIL === $pageName) {
@@ -718,12 +732,12 @@ class FichiersequipesCrudController extends AbstractCrudController
 
                 return [$panel1, $equipe, $eleve, $prof, $fichierFile];
             }
-        }
+        }*/
 
     }
 
 
-    public function createIndexQueryBuilder(SearchDto $searchDto, EntityDto $entityDto, FieldCollection $fields, FilterCollection $filters): QueryBuilder
+  public function createIndexQueryBuilder(SearchDto $searchDto, EntityDto $entityDto, FieldCollection $fields, FilterCollection $filters): QueryBuilder
     {
         $repositoryEquipe = $this->doctrine->getRepository(Equipesadmin::class);
         $repositoryEdition = $this->doctrine->getRepository(Edition::class);
