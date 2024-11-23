@@ -178,10 +178,10 @@ class ElevesinterCrudController extends AbstractCrudController
                 ->linkToRoute('eleves_tableau_excel', ['ideditionequipe' => $editionId . '-' . $equipeId . '-ns'])
                 ->createAsGlobalAction();
             $tableauexceleleves = Action::new('eleves_tableau_excel_tous', 'Créer un tableau excel des tous les élèves', 'fas fa_array',)
-                ->linkToRoute('eleves_tableau_excel', ['ideditionequipe' => $editionId . '-' . $equipeId])
+                ->linkToRoute('eleves_tableau_excel', ['ideditionequipe' => $editionId . '-' . $equipeId.'-na'])
                 ->createAsGlobalAction();
             $elevessel = Action::new('eleves_tableau_excel_sel', 'Créer un tableau excel des élèves sélectionnés', 'fas fa_array',)
-                ->linkToRoute('eleves_tableau_excel', ['ideditionequipe' => $editionId . '-' . $equipeId . '-s'])
+                ->linkToRoute('eleves_tableau_excel', ['ideditionequipe' => $editionId . '-' . $equipeId . '-sel'])
                 ->createAsGlobalAction();
             $actions->add(Crud::PAGE_INDEX, $tableauexcelnonsel)
                 ->add(Crud::PAGE_INDEX, $attestationsEleves)
@@ -418,11 +418,13 @@ class ElevesinterCrudController extends AbstractCrudController
                 $sel=explode('-', $ideditionequipe)[2];
                 if( $sel== 'ns') {
 
-                    $queryBuilder->andWhere('eq.selectionnee = 0');
+                    $queryBuilder->andWhere('eq.selectionnee =:valeur')
+                            ->setParameter('valeur', false);
                     $selectionnes='non_selectionnés';
                     }
                 if($sel == 'sel') {
-                    $queryBuilder->andWhere('eq.selectionnee = 1');;
+                    $queryBuilder->andWhere('eq.selectionnee =:valeur')
+                        ->setParameter('valeur',true);;
                     $selectionnes = 'selectionnés';
                 }
             }
@@ -480,7 +482,7 @@ class ElevesinterCrudController extends AbstractCrudController
             ->setCellValue('L' . $ligne, 'Centre');
 
         $ligne += 1;
-
+        $date=new \DateTime('now');
         foreach ($liste_eleves as $eleve) {
             $uai = $eleve->getEquipe()->getUaiId();
 
@@ -500,7 +502,7 @@ class ElevesinterCrudController extends AbstractCrudController
             if($eleve->getEquipe()->getCentre()!=null) {
                 $sheet->setCellValue('L' . $ligne, $eleve->getEquipe()->getCentre()->getCentre());
             }
-            $date=new \DateTime('now');
+
             $ligne += 1;
         }
         $filename='Liste_des_éleves_'.$selectionnes.'_du_'.$date->format('d-m-Y_H-i-s').'.xls';

@@ -629,7 +629,6 @@ class FichiersequipesCrudController extends AbstractCrudController
             yield TextField::new('equipe.lettre', 'Lettre')->onlyOnIndex(),
             yield TextField::new('equipe.titreProjet', 'Nom équipe')->onlyOnIndex(),
             yield AssociationField::new('equipe')->setFormTypeOptions(['choices' => $listeEquipes])->onlyOnForms(),
-
             yield TextField::new('fichier', 'Nom du fichier')->hideWhenCreating(),
             yield Field::new('fichierFile', 'Fichier')->setFormType(VichFileType::class)
                 ->onlyOnForms()
@@ -642,21 +641,24 @@ class FichiersequipesCrudController extends AbstractCrudController
             yield DateTimeField::new('updatedAt')->onlyOnIndex(),];
 
             }
-        if ($numtypefichier != 6 and $numtypefichier >1) //mémoires et annexes
+        if ($numtypefichier != 6 and $numtypefichier >1) //autres fichiers hors autorisations photos
         {
             $fields=  [  yield TextField::new('edition.ed', 'ed')->onlyOnIndex(),
-                yield AssociationField::new('edition', 'Edition')->onlyOnForms(),
+                yield AssociationField::new('edition', 'Edition')->onlyOnForms()->setSortable(true),
+                yield IntegerField::new('equipe.numero', 'No eq')->onlyOnIndex()->setSortable(true),
+                yield TextField::new('equipe.lettre', 'Lettre')->onlyOnIndex(),
                 yield AssociationField::new('equipe')->setFormTypeOptions(['choices' => $listeEquipes])->setSortable(true),
                 yield TextField::new('fichier', 'Nom du fichier')->hideWhenCreating(),
                 yield Field::new('fichierFile', 'Fichier')->setFormType(VichFileType::class)
                     ->onlyOnForms()
                     ->setFormTypeOptions(['allow_delete'=> false,'required' => false]),
                 yield BooleanField::new('publie')->renderAsSwitch(true),//Le basculement du bouton publie ne tranfert pas le fichier, il faut appeler update
-                yield DateTimeField::new('updatedAt')->onlyOnIndex()];
+                yield DateTimeField::new('updatedAt')->onlyOnIndex()->setSortable(true)
+            ];
 
         }
 
-        if ($numtypefichier == 6 ){
+        if ($numtypefichier == 6 ){//pour les autorisations photos
 
             $fields=  [  yield TextField::new('edition.ed', 'ed')->onlyOnIndex(),
                 yield AssociationField::new('edition', 'Edition')->onlyOnForms(),
