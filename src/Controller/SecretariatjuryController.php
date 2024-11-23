@@ -133,9 +133,9 @@ class SecretariatjuryController extends AbstractController
         $prof2 = [];
         foreach ($listEquipes as $equipe) {
             $lettre = $equipe->getLettre();
-            $idprof1 = $equipe->getIdProf1();
+            $idprof1 = $equipe->getEquipeinter()->getIdProf1();
             $prof1[$lettre] = $repositoryUser->findBy(['id' => $idprof1]);
-            $idprof2 = $equipe->getIdProf2();
+            $idprof2 = $equipe->getEquipeinter()->getIdProf2();
             $prof2[$lettre] = $repositoryUser->findBy(['id' => $idprof2]);
         }
 
