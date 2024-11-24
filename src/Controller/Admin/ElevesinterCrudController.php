@@ -183,11 +183,15 @@ class ElevesinterCrudController extends AbstractCrudController
             $elevessel = Action::new('eleves_tableau_excel_sel', 'Créer un tableau excel des élèves sélectionnés', 'fas fa_array',)
                 ->linkToRoute('eleves_tableau_excel', ['ideditionequipe' => $editionId . '-' . $equipeId . '-sel'])
                 ->createAsGlobalAction();
+            $invitationsMarseille = Action::new('invitationsMarqeille','Créer les invitations de Marseille')->linkToRoute('invitations')
+                ->createAsGlobalAction();
             $actions->add(Crud::PAGE_INDEX, $tableauexcelnonsel)
                 ->add(Crud::PAGE_INDEX, $attestationsEleves)
                 ->add(Crud::PAGE_INDEX, $attestationsElevesNat)
                 ->add(Crud::PAGE_INDEX, $tableauexceleleves)
-                ->add(Crud::PAGE_INDEX, $elevessel);
+                ->add(Crud::PAGE_INDEX, $elevessel)
+                ->add(Crud::PAGE_INDEX, $invitationsMarseille)
+                ->setPermission($invitationsMarseille,'ROLE_SUPER_ADMIN');
 
 
         }
@@ -1429,6 +1433,11 @@ class ElevesinterCrudController extends AbstractCrudController
         }
         return $palmaresLit;
     }
+    #[Route("/Admin/ElevesinteradminCrud/invitations", name: "invitations")]
+    public function attestionsMarseille()
+    {
 
+
+    }
 
 }
