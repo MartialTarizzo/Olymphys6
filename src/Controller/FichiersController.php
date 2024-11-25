@@ -121,8 +121,8 @@ class FichiersController extends AbstractController
         $dateciaN1 = $editionN1->getConcourscia();
         $datecia = $editionN->getConcourscia();
         $dateOuvertureSite = $editionN->getDateouverturesite();
-        $dateconnect > $dateciaN1 and $dateconnect < $dateOuvertureSite ? $phase = 'national' : $phase = 'interacadémique';
-        $dateconnect > $datecia and $dateconnect > $dateOuvertureSite ? $phase = 'national' : $phase = 'interacadémique';
+        $dateconnect > $dateciaN1 and $dateconnect < $dateOuvertureSite ? $phase = 'national' : $phase = 'interacadémique';//Dans le cas da période de l'après concours CN
+        $dateconnect > $datecia and $dateconnect > $dateOuvertureSite ? $phase = 'national' : $phase = 'interacadémique';//Dans le cas de la période antérieure au concours cn
 
         $user = $this->getUser();
         $roles = $user->getRoles();

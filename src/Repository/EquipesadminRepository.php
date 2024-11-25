@@ -161,8 +161,9 @@ class EquipesadminRepository extends ServiceEntityRepository
         $m = $edition->getConcourscia()->format('m');
         $Y = $edition->getConcourscia()->format('Y');*/
         $d=30;
-        $datelim=$edition->getConcourscia()->add(new DateInterval('P' . $d . 'D'));//Les organisateurs et profs  peuvent déposer les fichiers 20 jours après la date du concours CIA pour compléter leur dossier
-
+        $dateciastr=$edition->getConcourscia()->format('Y-m-d');//Les organisateurs et profs  peuvent déposer les fichiers 20 jours après la date du concours CIA pour compléter leur dossier
+        $datelim = new DateTime($dateciastr);//il faut créer une nouvelle date à partir de la date ia chaîne de caractère et ensuite ajoputer les 30 jours
+        $datelim=$datelim->modify('+'.$d.' day');//L'ajout direct des 30 jours à la date concourscia modifie la date concourscia dans la variable session !
         if ($date > $dateouvertureSite and $date <= $datelim) {
             //$datelim pour permettre au prof  de déposer les autorisations après les CIA pour les équipes non sélectionné.
 

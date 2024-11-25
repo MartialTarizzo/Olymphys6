@@ -112,6 +112,11 @@
                            class="btn btn-primary">Modifier </a>
                     {% endif %}
                 </div>
+                {% if equipe.selectionnee==true %}
+
+                    <a href="{{ path('invitations', {'editionIdequipeId' : equipe.edition.id~'-'~equipe.id } ) }}" type="button"
+                       class="btn btn-primary">Invitations Marseille</a>
+                {% endif %}
                 <div class="col">
                     {% if is_granted('ROLE_PROF') %}
 
