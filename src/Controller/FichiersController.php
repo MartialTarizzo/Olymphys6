@@ -876,13 +876,13 @@ class FichiersController extends AbstractController
 
     #[IsGranted("ROLE_COMITE")]
     #[Route("/fichiers/charge_autorisations", name: "fichiers_charge_autorisations")]
-    public function charge_autorisation(Request $request)
+    public function charge_autorisation(Request $request)//Charge les autorisations
     {
         $repositoryFichiersequipes = $this->doctrine
             ->getRepository(Fichiersequipes::class);
         $query = $request->query;
 
-        for ($i = 0; $i < 8; $i++) {
+        for ($i = 0; $i < 8; $i++) {//liste des 8 autorisations(maxi) d'une équipe
 
             try {
                 if ($query->get('check-eleve-' . $i) == "on") {
@@ -904,14 +904,14 @@ class FichiersController extends AbstractController
             if (isset($autorisationprofsid)) {
                 foreach ($autorisationprofsid as $id) {
                     $fichierprof = $repositoryFichiersequipes->find($id);
-                    $fichierName = $this->getParameter('app.path.fichiers') . '/autorisations/' . $fichierprof->getFichier();
+                    $fichierName = $this->getParameter('app.path.odpf_archives') . '/32/fichiers/autorisations/' . $fichierprof->getFichier();
                     $zipFile->addFromString(basename($fichierName), file_get_contents($fichierName));
                 }
             }
             if (isset($autorisationelevesid)) {
                 foreach ($autorisationelevesid as $id) {
                     $fichiereleve = $repositoryFichiersequipes->find($id);
-                    $fichierName = $this->getParameter('app.path.fichiers') . '/autorisations/' . $fichiereleve->getFichier();
+                    $fichierName = $this->getParameter('app.path.odpf_archives') . '/32/fichiers/autorisations/' . $fichiereleve->getFichier();
                     $zipFile->addFromString(basename($fichierName), file_get_contents($fichierName));
                 }
             }
@@ -963,7 +963,7 @@ class FichiersController extends AbstractController
 
     #[IsGranted("ROLE_PROF")]
     #[Route("/fichiers/telechargerZip,{equipeId},{concours}", name: "telecharger_un_fichier_zip")]
-    public function telechargerZip($equipeId, $concours)
+    public function telechargerZip($equipeId, $concours)//Pour les fichiers autres qu'autorisations
     {
         $equipe_choisie = $this->doctrine->getRepository(Equipesadmin::class)->findOneBy(['id' => $equipeId]);
         $repositoryFichiersequipes = $this->doctrine->getRepository(Fichiersequipes::class);
@@ -995,8 +995,10 @@ class FichiersController extends AbstractController
                     if ($typefichier < 4) {
 
                         $fichierName = $this->getParameter('app.path.odpf_archives') . '/' . $equipe_choisie->getEdition()->getEd() . '/fichiers/' . $this->getParameter('type_fichier')[$typefichier == 1 ? 0 : $typefichier] . '/' . $this->getParameter('fichier_acces')[$fichier->getPublie()] . '/' . $fichier->getFichier();
+
                     } else {
                         $fichierName = $this->getParameter('app.path.odpf_archives') . '/' . $equipe_choisie->getEdition()->getEd() . '/fichiers/' . $this->getParameter('type_fichier')[$fichier->getTypefichier()] . '/' . $fichier->getFichier();
+
                     }
 
                     $zipFile->addFromString(basename($fichierName), file_get_contents($fichierName));//voir https://stackoverflow.com/questions/20268025/symfony2-create-and-download-zip-file

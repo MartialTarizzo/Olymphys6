@@ -24,6 +24,7 @@ use EasyCorp\Bundle\EasyAdminBundle\Controller\AbstractCrudController;
 use EasyCorp\Bundle\EasyAdminBundle\Dto\EntityDto;
 use EasyCorp\Bundle\EasyAdminBundle\Dto\SearchDto;
 use EasyCorp\Bundle\EasyAdminBundle\Field\AssociationField;
+use EasyCorp\Bundle\EasyAdminBundle\Field\ChoiceField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\IntegerField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\TextareaField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\TextField;
@@ -41,6 +42,7 @@ use PhpOffice\PhpSpreadsheet\Writer\Xls;
 use PhpOffice\PhpWord\IOFactory;
 use PhpOffice\PhpWord\PhpWord;
 use PhpOffice\PhpWord\Settings;
+use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\Filesystem\Filesystem;
 use Symfony\Component\HttpFoundation\HeaderUtils;
 use Symfony\Component\HttpFoundation\RequestStack;
@@ -217,43 +219,14 @@ class ElevesinterCrudController extends AbstractCrudController
             ->setParameter('edition', $edition)
             ->addOrderBy('e.numero', 'ASC')
             ->getQuery()->getResult();
-        /* $nom = TextField::new('nom')->setSortable(true);
-         $prenom = TextField::new('prenom')->setSortable(true);
-         $genre = TextField::new('genre');
-         $courriel = TextField::new('courriel');
-         $equipe = AssociationField::new('equipe')->setFormTypeOptions(['choices' => $listEquipes])->setSortable(true);;
-         $id = IntegerField::new('id', 'ID');
-         $numsite = IntegerField::new('numsite');
-         $classe = TextField::new('classe');
-         $autorisationphotos = AssociationField::new('autorisationphotos');
-
-         $equipeNumero = IntegerField::new('equipe.numero', ' Numéro équipe')->setSortable(true);
-         $equipeTitreProjet = TextareaField::new('equipe.titreProjet', 'Projet')->setSortable(true);
-         $equipeLyceeLocalite = TextareaField::new('equipe.lyceeLocalite', 'ville')->setSortable(true);
-         $equipeEdition = TextareaField::new('equipe.edition', 'Edition');
-         $autorisationphotosFichier = AssociationField::new('autorisationphotos', 'Autorisation photos');
-
-         if (Crud::PAGE_INDEX === $pageName) {
-             return [$equipeEdition, $nom, $prenom, $genre, $courriel, $equipeNumero, $equipeTitreProjet, $equipeLyceeLocalite, $autorisationphotosFichier];
-         } elseif (Crud::PAGE_DETAIL === $pageName) {
-             return [$equipeEdition, $nom, $prenom, $genre, $classe, $courriel, $equipe, $autorisationphotos];
-         } elseif (Crud::PAGE_NEW === $pageName) {
-             return [$nom, $prenom, $genre, $courriel, $equipe];
-         } elseif (Crud::PAGE_EDIT === $pageName) {
-             return [$nom, $prenom, $genre, $classe, $courriel, $equipe];
-         }*/
-        //return [$equipeEdition, $nom, $prenom, $genre, $courriel, $equipeNumero, $equipeTitreProjet, $equipeLyceeLocalite, $autorisationphotosFichier];
         return [
-            yield TextField::new('equipe.edition', 'Edition'),
+            yield TextField::new('equipe.edition', 'Edition')->onlyOnIndex(),
             yield TextField::new('nom')->setSortable(true),
             yield TextField::new('prenom')->setSortable(true),
             yield TextField::new('courriel')->setSortable(true),
             yield TextField::new('genre'),
             yield TextField::new('classe')->hideOnIndex()->hideOnForm(),
             yield AssociationField::new('equipe')->setFormTypeOptions(['choices' => $listEquipes])->setSortable(true)->hideOnIndex(),
-            yield IntegerField::new('equipe.numero', ' Numéro équipe')->setSortable(true),
-            yield TextareaField::new('equipe.titreProjet', 'Projet')->setSortable(true),
-            yield TextareaField::new('equipe.lyceeLocalite', 'ville')->setSortable(true),
             yield AssociationField::new('autorisationphotos')->onlyOnDetail(),
             yield AssociationField::new('autorisationphotos', 'Autorisation photos')->onlyOnIndex()
         ];

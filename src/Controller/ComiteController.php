@@ -86,8 +86,10 @@ class ComiteController extends AbstractController
             ->getManager()
             ->getRepository(Edition::class);
 
-        $edition = $repositoryEdition->findOneBy([], ['id' => 'desc']);
-        if (date('now')<$edition->getDateouverturesite()){
+        $edition = $repositoryEdition->findOneBy([], ['ed' => 'desc']);
+        $editionN1=$repositoryEdition->findOneBy(['ed'=>$edition->getEd()-1]);
+
+        if (new \Datetime('now')<$editionN1->getDateouverturesite() ){
             $edition = $repositoryEdition->findOneBy(['ed'=>$edition->getEd()-1]);
         }
 
