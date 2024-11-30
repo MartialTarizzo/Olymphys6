@@ -22,13 +22,13 @@ use Doctrine\ORM\EntityManagerInterface;
 use Doctrine\ORM\QueryBuilder;
 use Doctrine\Persistence\ManagerRegistry;
 use Exception;
-use Sensio\Bundle\FrameworkExtraBundle\Configuration\IsGranted;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\RedirectResponse;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\RequestStack;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Attribute\Route;
+use Symfony\Component\Security\Http\Attribute\IsGranted;
 
 
 class JuryCiaController extends AbstractController
@@ -223,8 +223,10 @@ class JuryCiaController extends AbstractController
     #[Route("/evaluer_une_equipe_cia/{id}", name: "cyberjuryCia_evaluer_une_equipe", requirements: ["id_equipe" => "\d{1}|\d{2}"])]
     public function evaluer_une_equipe_cia(Request $request, $id): RedirectResponse|Response
     {
-
-        if (new DateTime('now') >= $this->requestStack->getSession()->get('edition')->getConcourscia()) {
+        $dateconcourscia=$this->requestStack->getSession()->get('edition')->getConcourscia()->format('Y-m-d');
+        $datelim=new \DateTime($dateconcourscia);
+        $datelim=$datelim->modify('-1 day');
+        if (new DateTime('now') >= $datelim) {
             $user = $this->getUser();
             $jure = $this->doctrine->getRepository(JuresCia::class)->findOneBy(['iduser' => $user]);
             if ($jure->getCentrecia()->getVerouClassement() != true) {
@@ -353,7 +355,7 @@ class JuryCiaController extends AbstractController
             }
         } else {
             $this->requestStack->getSession()->set('info', 'L\'évaluation des équipes n\'est pas encore ouverte');
-            return $this->redirectToRoute('core_home');
+            return $this->redirectToRoute('cyberjuryCia_accueil');
         }
     }
 
