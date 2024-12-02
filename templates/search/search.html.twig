@@ -1,0 +1,82 @@
+{% extends('base1.html.twig') %}
+{% block titre3 %}
+    <h1 style="text-align: center;">Archives des Olympiades de Physique</h1>
+{% endblock %}
+
+{% block body %}
+    <div class="container">
+        <div class="accordion" id="accordionExample">
+            <div class="card">
+                <div class="card-header" id="headingOne">
+                    <h2 class="mb-0">
+                        <button class="btn btn-link btn-block text-left" type="button" data-toggle="collapse" data-target="#collapseOne" aria-expanded="false" aria-controls="collapseOne">
+                            Aide pour la recherche des mémoires
+                        </button>
+                    </h2>
+                </div>
+            </div>
+            <div id="collapseOne" class="collapse" aria-labelledby="headingOne" data-parent="#accordionExample">
+                <div class="card-body">
+                    <div class="aide" id="divAide">
+                        <h4>Recherche standard</h4>
+                        <p>Pour rechercher un rapport publié par les Olympiades De la Physique France,
+                            Vous pouvez taper dans la zone de texte un ou plusieurs mots-clés séparés par des espaces.<br>
+                            Les documents proposés peuvent contenir un ou plusieurs mots demandés qui seront ordonnés :
+                        <ul>
+                            <li>par nombre de mots-clés trouvés décroissant</li>
+                            <li>puis par nombre d'occurences de ces mots-clés dans les documents</li>
+                        </ul>
+                        </p>
+                        <p>
+                            Le nombre maximal de résultats peut être fixé à 25, 50 ou 100 dans une liste déroulante.
+                        </p>
+                        <p>
+                            La case à cocher "Mots Entiers" permet de définir le mode de recherche souhaité :
+                        <ul>
+                            <li>cochée : seuls les mots-clés entiers sont détectés</li>
+                            <li>non cochée : le mot-clé peut alors être une partie d'un mot plus long</li>
+                        </ul>
+                        <h4>Recherche avancée</h4>
+                        <p>Chaque mot-clé peut être une <em>expression régulière</em> conforme au standard Perl.<br>
+                            On pourra consulter par exemple la page
+                            <a href="https://fr.wikipedia.org/wiki/Expression_r%C3%A9guli%C3%A8re" target="_blank">Expressions régulières</a>
+                            sur Wikipédia pour plus d'informations. </p>
+                        <p>Exemples simples :</p>
+                        <ul>
+                            <li><code>"réseau?"</code> va trouver <code>"reseau"</code> ou <code>"réseaux"</code></li>
+                            <li><code>"mot(eur|if?)"</code> va trouver <code>"moteur"</code>, <code>"motif"</code> ou <code>"motifs"</code></li>
+                            <li><code>"longueur\sd'onde"</code> va trouver <code>"longueur d'onde"</code></li>
+                        </ul>
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    <div >
+        <p>
+            <b>Mot(s) à rechercher dans les mémoires : </b>
+        </p>
+        {# <form>
+            <input type="text" class="motsCles" id="keyword" onkeydown="if (event.key === 'Enter'){lanceRecherche()}">
+            &nbsp;
+            <button onclick="lanceRecherche()">Chercher</button>
+            <br>
+            <span>Nombre maximal de rapports : </span>
+            <select id="nb-result">
+                <option value="25">25</option>
+                <option value="50">50</option>
+                <option value="100">100</option>
+            </select>
+             <span>
+                        &nbsp;Mots entiers
+                        <input type="checkbox" id="fullword" name="fullword" checked />
+             </span>
+
+        </form> #}
+        {{ form(form) }}
+    </div>
+    <div id="result">aucune recherche effectuée...</div>
+    </div>
+
+{% endblock %}
