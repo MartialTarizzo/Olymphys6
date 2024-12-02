@@ -90,11 +90,26 @@
     {% set has_search = ea.crud.isSearchEnabled %}
     {% set has_filters = filters|length > 0 %}
     {% set num_results = entities|length %}
-    {# {%  set genre='' %}
-    {% if  app.session.get('bilan_depots')[0]=='fiche securité(présentation)'  or app.session.get('bilan_depots')[0]=='autorisations' or app.session.get('bilan_depots')[0]=='présentation(diaporama du concours national)' or  app.session.get('bilan_depots')[0]=='fiche securité(exposition)' %}
+    {%  set genre='' %}
+    {% if  app.session.get('bilan_depots')[0]=='fiche securité(présentation)'  or app.session.get('bilan_depots')[0]=='autorisation' or app.session.get('bilan_depots')[0]=='présentation(diaporama du concours national)' or  app.session.get('bilan_depots')[0]=='fiche securité(exposition)' %}
             {%  set genre='e' %}
-    {% endif %}#}
-    <span style="font-weight: bold ">{{ app.session.get('bilan_depots')[1] }}  fichiers déposés sur {{ app.session.get('bilan_depots')[2] }}</span>
+    {% endif %}
+    {% set typefichier=app.session.get('bilan_depots')[0] %}
+    {% if  app.session.get('bilan_depots')[0]=='fiche securité(présentation)' %}
+        {% set typefichier= 'fiche securités(présentation)'%}
+    {% endif %}
+    {% if  app.session.get('bilan_depots')[0]=='autorisation' %}
+        {%  set typefichier = 'autorisations'%}
+    {% endif %}
+    {% if  app.session.get('bilan_depots')[0]=='présentation(diaporama du concours national)' %}
+        {% set typefichier='présentations(diaporama du concours national)'%}
+    {% endif %}
+    {% if  app.session.get('bilan_depots')[0]=='fiche securité(exposition)' %}
+        {% set typefichier='fiches securité(exposition)'%}
+    {% endif %}
+
+
+    <span style="font-weight: bold ">{{ app.session.get('bilan_depots')[1] }}  {{ typefichier }} déposé{{ genre }}s sur {{ app.session.get('bilan_depots')[2] }}</span>
     <table class="table datagrid {{ entities is empty ? 'datagrid-empty' }}">
         {% if num_results > 0 %}e
             <thead>
