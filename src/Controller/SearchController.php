@@ -175,7 +175,7 @@ class SearchController extends AbstractController
 
                    //echo "Édition n°$edition - ";
                    $numEd=$edition;
-                   $edition ="Édition n°$edition - ";
+                   //$edition ="Édition n°$edition - ";
                    //  fabrication de l'url du fichier pdf archivé
                    // encodage du nom du fichier comme portion d'url valable
                    $urlTitre = rawurlencode($fichier);
@@ -192,7 +192,7 @@ class SearchController extends AbstractController
                   $occurence[$i]= $kwCount["nb match"] . " occurences : ";
                    foreach ($kwCount as $kw => $count) {
                        if ($kw == "nb match") continue;
-                       $occurence[$i]= $edition.$occurence[$i]. "$kw ($count)";
+                       $occurence[$i]= $occurence[$i]. "$kw ($count)";
                    }
                    //echo "</span><br>";
                    $i++;

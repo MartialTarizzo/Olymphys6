@@ -74,7 +74,15 @@
              </span>
 
         </form> #}
-        {{ form(form) }}
+        {{ form_start(form) }}
+        {{ form_widget(form.text) }}
+        {{ form_label(form.fullword,'Rechercher sur le mot entier')}}
+        {{ form_widget(form.fullword) }}
+        {{ form_label(form.nbres,'Nombre maximal de résultats') }}
+        {{ form_widget(form.nbres) }}
+        {{ form_widget(form.submit) }}
+
+        {{ form_end(form) }}
     </div>
     <div id="result">
             {% if occurence ==null%}
