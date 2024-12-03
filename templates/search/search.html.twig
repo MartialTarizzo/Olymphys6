@@ -53,37 +53,35 @@
             </div>
 
         </div>
-    <div >
-        <p>
+        <div class="row">
+            <div class="col">
+
             <b>Mot(s) à rechercher dans les mémoires : </b>
-        </p>
-        {# <form>
-            <input type="text" class="motsCles" id="keyword" onkeydown="if (event.key === 'Enter'){lanceRecherche()}">
-            &nbsp;
-            <button onclick="lanceRecherche()">Chercher</button>
-            <br>
-            <span>Nombre maximal de rapports : </span>
-            <select id="nb-result">
-                <option value="25">25</option>
-                <option value="50">50</option>
-                <option value="100">100</option>
-            </select>
-             <span>
-                        &nbsp;Mots entiers
-                        <input type="checkbox" id="fullword" name="fullword" checked />
-             </span>
-
-        </form> #}
+            </div>
+        </div>
         {{ form_start(form) }}
-        {{ form_widget(form.text) }}
-        {{ form_label(form.fullword,'Rechercher sur le mot entier')}}
-        {{ form_widget(form.fullword) }}
-        {{ form_label(form.nbres,'Nombre maximal de résultats') }}
-        {{ form_widget(form.nbres) }}
-        {{ form_widget(form.submit) }}
-
-        {{ form_end(form) }}
-    </div>
+        <div class="row">
+            <div class="col">
+                {{ form_row(form.text) }}
+            </div>
+            <div class="col">
+                {{ form_row(form.fullword) }}
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-6" style="text-align: right">
+            Nombre maxi de résultats :
+            </div>
+             <div  class="col-6"  style="text-align: left">
+                 {{ form_row(form.nbres) }}
+            </div>
+        </div>
+        <div class="row">
+            <div class="col" style="text-align: center">
+            {{ form_row(form.submit) }}
+            </div>
+        </div>
+    {{ form_end(form) }}
     <div id="result">
             {% if occurence ==null%}
                              aucune recherche effectuée...
@@ -92,7 +90,7 @@
 
 
                 {% for i in 0..min(titre|length-1, nsecmax-1) %}
-                    <h5>{{ titre[i] }}</h5>
+                    <h4>{{ titre[i] }}</h4>
                  &nbsp;    &nbsp;    &nbsp;    &nbsp;<a href="{{pdfUrl[i] }}" target='_blank'>Afficher le mémoire</a> - <a href="{{path('odpf_editionspassees_equipe',{'id': equipes[i].id})}}" target='_blank'>Voir la page de l'équipe</a> <br>
                     <span style='font-style:italic;'> <b>mots-clés trouvés : <span style='background-color:yellow;'>{{ occurence[i] }}</span></b></span>
                     <br>

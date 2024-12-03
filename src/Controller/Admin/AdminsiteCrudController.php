@@ -13,6 +13,8 @@ use App\Entity\Odpf\OdpfFichierspasses;
 use App\Entity\Photos;
 use App\Entity\Videosequipes;
 use Doctrine\ORM\NonUniqueResultException;
+use Exception;
+use setasign\Fpdi\PdfParser\PdfParser;
 use Symfony\Component\Filesystem\Exception\IOExceptionInterface;
 use Symfony\Component\Filesystem\Filesystem;
 use Symfony\Component\Filesystem\Path;
@@ -35,6 +37,7 @@ use EasyCorp\Bundle\EasyAdminBundle\Field\TextField;
 use Symfony\Component\DependencyInjection\ParameterBag\ParameterBagInterface;
 use Symfony\Component\HttpFoundation\RedirectResponse;
 use Symfony\Component\HttpFoundation\RequestStack;
+use function PHPUnit\Framework\directoryExists;
 
 class AdminsiteCrudController extends AbstractCrudController
 {
@@ -269,11 +272,11 @@ class AdminsiteCrudController extends AbstractCrudController
                     }
 
                     $odpfFichier->setUpdatedAt(new DateTime('now'));
-
-
                     $this->em->persist($odpfFichier);
                     $this->em->flush();
-
+                    if ($odpfFichier->getTypefichier() ==0 ) {
+                        $this->indexation($odpfFichier);
+                    }
                 }
 
             }
@@ -313,7 +316,7 @@ class AdminsiteCrudController extends AbstractCrudController
                 try {
                     $filesystem->copy($this->getParameter('app.path.photos') . '/thumbs/' . $photo->getPhoto(),
                         $this->getParameter('app.path.odpf_archives') . '/' . $editionPassee->getEdition() . '/photoseq/thumbs/' . $photo->getPhoto());
-                } catch (\Exception $e) {
+                } catch (Exception $e) {
 
 
                 }
@@ -333,7 +336,26 @@ class AdminsiteCrudController extends AbstractCrudController
 
 
         return $this->redirectToRoute('odpfadmin');
+    }
 
+    /**
+     * @throws Exception
+     */
+    public function indexation($fichier): void
+    {
+
+        $repertoire='search/textes/';
+        $pathFichier='odpf/odpf-archives/'.$fichier->getEditionspassees()->getEdition().'/fichiers/memoires/publie/'.$fichier->getNomfichier();
+        $nomFichier=explode('.pdf', $fichier->getNomfichier())[0];
+        $parser = new \Smalot\PdfParser\Parser();
+        $pdf=$parser->parseFile($pathFichier);
+
+        $metaData = $pdf->getDetails();
+        $texte=$pdf->getText();
+        $cleanedText = mb_convert_encoding($texte,'ISO-8859-1', 'UTF-8');
+        $fichiertexte=fopen($repertoire.$nomFichier.'.txt', 'w');
+        fwrite($fichiertexte, $cleanedText);
+        fclose($fichiertexte);
 
     }
 

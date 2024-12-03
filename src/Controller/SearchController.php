@@ -33,25 +33,25 @@ class SearchController extends AbstractController
             $repertoire='search/textes';
             $form=$this->createFormBuilder()
                 ->add('text',TextType::class,[
-
+                    'label'=>false,
                     'required'=>true,
 
                 ])
                 ->add('fullword',CheckboxType::class,[
-                    'label'=>'',
+                    'label'=> 'recherche sur le mot complet',
                     'required'=>false,
                     'data'=>true,
 
                 ])
                 ->add('nbres',ChoiceType::class,[
-                    'label'=>'Nombre',
+                    'label'=>false,
                     'data'=> '25',
                     'choices'=>['25'=>25,'50'=>'50','100'=>'100'],
                     'attr'=>['style'=>'width: 100px']
                 ])
                 ->add('submit', SubmitType::class,
                 [
-                    'label' => 'Lance recherche ...',
+                    'label' => 'Lancer recherche ...',
                 ])
                 ->getForm();
             $titre=null;
@@ -169,7 +169,7 @@ class SearchController extends AbstractController
                    /*$titre[$i] = explode('-', $fichier, $limit = 5); // nom rapport = dernier élément
                    $titre[$i] = substr(end($titre[$i]), 0, -4);    // retrait de ".txt"
                    $titre[$i] = str_replace('-', ' ', $titre[$i]);  // élimination des "-"*/
-                   $titre[$i]=$idxDoc.'-'.'Ed'.$edition->getEdition().'- Eq '.$numEq.' - '. $equipes[$i]->getTitreProjet();
+                   $titre[$i]=$idxDoc.'-'.'Ed '.$edition->getEdition().'- Eq '.$numEq.' - '. $equipes[$i]->getTitreProjet();
                    //echo "<h3>$idxDoc -  $titre</h3><br>"; // le nom du fichier
                    // Affichage de l'édition
 
