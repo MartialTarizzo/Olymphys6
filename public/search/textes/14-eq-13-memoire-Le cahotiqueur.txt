@@ -1,0 +1,673 @@
+BERRY Yann
+GOUTAY Corentin
+MICHON Bruno
+
+LE CHAOTIQUEUR
+Olympiades de la physique
+
+Professeur coordonnateur :
+Philippe Jeanjacquot
+
+Année 2006
+
+SOMMAIRE
+ PREFACE DU PROFESSEUR COORDONATEUR
+ INTRODUCTION
+ PRESENTATION DU CHAOS
+I. Historique
+II. Définition du chaos et ses différents aspects
+a. La dépendance aux conditions initiales
+b. La non périodicité d’un mouvement chaotique
+ UN SYSTEME CHAOTIQUE : LE DOUBLE PENDULE
+I. Système choisi
+a. Choix du système
+b. Analyse fonctionnelle
+II. Analyse des mouvements du système, acquisition vidéo.
+a. Récolte
+b. Interprétations
+c. Conclusions
+d. Problèmes d’incertitudes
+III. Acquisitions avec une photodiode
+a. La photodiode
+b. Protocole d’expérimentation
+c. Les mesures
+d. Modification du montage
+e. La calibration et les mesures associées
+ CONCLUSION
+ GLOSSAIRE
+ SOURCES
+
+Le Chaotiqueur
+
+2 / 23
+
+PREFACE PAR LE PROFESSEUR COORDONNATEUR.
+
+Voici quelques précisions avant la lecture du dossier sur le Chaotiqueur.
+Depuis 10 ans j’encadre différents groupes qui préparent et présentent des projets
+expérimentaux. Nous avons abordé de nombreux domaines : aurores polaires, maison autonome,
+expansion de l’univers, rayons cosmiques, épuration de l’eau, microscope à force atomique, les
+gyroscopes. Au total il y a eu 22 groupes. Actuellement, deux groupes travaillent sur des thèmes
+complètement différents le BH2 et le Chaotiqueur.
+Le but de ce projet est de réaliser une expérience simple et exploitable en lycée. Le chaos
+est présent dans beaucoup de phénomènes dans des domaines qui vont de l’économie à la
+météorologie en passant par la biologie et la physique.
+L’expérience que nous avons choisie est un pendule double. Lorsque celui-ci oscille avec une
+grande amplitude ces mouvements sont complètements chaotiques. Pourtant, c’est un montage très
+simple, son comportement suit les lois de la physique, il a un comportement déterministe. Mais un
+écart, non mesurable, des conditions initiales modifie complètement ce comportement, il est
+imprévisible.
+Pour suivre de façon simple ce comportement, nous avons monté deux pendules doubles en
+parallèle. Nous avons aussi testé différents systèmes de mesure. Le but étant d’être le moins
+cher et le plus reproductible possible.
+Nous remercions Monsieur MIZONY, directeur de l’IREM de Lyon pour sa disponibilité et
+son aide précieuse sur les mathématiques du chaos. Nous remercions également Monsieur
+Bergmann, inspecteur général groupe STI, pour ses nombreux éclairages sur la définition du
+chaos.
+Bonne lecture.
+
+Le Chaotiqueur
+
+3 / 23
+
+INTRODUCTION
+La physique moderne s’essouffle : elle rencontre dans ses recherches de plus en plus de
+problèmes, qui sont à chaque fois plus complexes.
+Une explication à ce problème porte le nom de « théorie du chaos ». Nous allons donc tenter de
+voir en quoi cette vaste et nouvelle théorie consiste.
+Nous avons mis au point une expérience permettant d’étudier les mouvements chaotiques et de
+répondre à la problématique suivante : S’initier à la théorie du chaos à l’aide d’un système simple
+accessible pour des élèves de lycée.
+Il est impératif de retenir les deux aspects suivants :
+− Déterministes, car ils obéissent aux lois de la physique (ici les lois de Newton).
+− Imprévisibles, car une variation infime et incontrôlable des conditions initiales modifient
+complètement leur comportement.
+Les phénomènes chaotiques sont omniprésents dans la vie courante et dans beaucoup de
+domaines : physique, mathématiques, hydrodynamique, économie, démographie, météorologie …
+Cependant l’idée globale est que l’on appréhende désormais les systèmes dans leur globalité et non
+dans leurs éléments constitutifs : on parlera alors de science holistique au lieu du réductionnisme.
+
+Le Chaotiqueur
+
+4 / 23
+
+PRESENTATION
+Newton, grâce à ses équations, disait qu’il était possible de connaître le passé, le présent et le
+futur. Ce qui n’est malheureusement pas vrai pour les systèmes très petits : c’est la mécanique
+quantique ; et pour les systèmes complexes : c’est la théorie du chaos.
+On attribue la première étude du chaos au météorologue Edward Lorenz (1960-1970). En fait
+c’est le mathématicien français Henri Poincaré qui, il y a un siècle, a lancé la notion de chaos.
+
+I. Historique
+Isaac Newton (1642 - 1727) a établi, entre autre, les trois lois de Newton (principe d’inertie,
+variation du vecteur vitesse du centre d’inertie, principe d’interaction), la loi de la gravitation
+universelle et la physique déterministe classique. Les équations de ce dernier devaient permettre
+de connaître l’état d’un système dans un temps passé, présent ou futur.
+Par ailleurs, on sait, grâce à la physique quantique qu'il est impossible de connaître précisément à
+la fois la position et la vitesse d'une particule à un moment donné (Werner Heisenberg (1901 1976)). Cette incertitude remet alors en question la conception déterministe.
+Ces nouvelles données nous conduisent ainsi à une approche plus statistique du monde.
+Henri Poincaré (1854 - 1912), un des plus grand mathématicien de son temps, fut aussi l’un des
+pionniers de la théorie du chaos. C’est en étudiant le système des trois corps (système où l’on
+prend en considération trois corps {Terre, Soleil, Lune} au lieu de deux comme nous le faisons au
+lycée et où la lois d’attraction gravitationnelle existe) qu’il comprit le premier que l’évolution de
+certains systèmes dynamiques dépend de manière tellement sensible aux conditions initiales qu’il
+devient parfois (à partir de trois corps) impossible de prédire l’état d’un système en un temps
+donné. Il sentit donc que le chaos résidait dans le cœur même des équations pourtant
+déterministes de Newton.
+Enfin en 1970 le phénomène commence véritablement son « entrée sur scène ».
+
+Le Chaotiqueur
+
+5 / 23
+
+II. Définition du chaos et ses différents aspects
+Poincaré avait déjà prédit le côté imprévisible de certains systèmes : « Une cause très petite, qui
+nous échappe, détermine un effet considérable que nous ne pouvons pas ne pas voir, et alors nous
+disons que cet effet est dû au hasard. ».
+Il y a deux façons d’identifier un comportement chaotique.
+a) La dépendance aux conditions initiales
+- Un système chaotique est caractérisé par sa dépendance aux conditions initiales.
+Edward Lorenz a prouvé qu’une infime variation ou imprécision dans les conditions
+initiales menait à des prévisions météorologiques complètement opposées au bout d’un
+certain temps (de nos jours on arrive à faire des prévision sur 8 jours mais au-delà
+de ce délai nous sommes incapable de certifier nos résultats).
+
+-
+
+La divergence des deux courbes calculées par Lorenz (présentées ci-dessus) est due
+à une différence sur la 4ème décimale des conditions initiales.
+Cette dernière variation est plus connue sous le nom commun d’effet papillon : un
+battement d’aile de papillon peut provoquer quelques milliers de kilomètres plus loin
+un ouragan. A savoir que les divergences s’accentuent exponentiellement au court du
+temps (ce qui sera à vérifier à l’aide de notre expérience).
+
+Le Chaotiqueur
+
+6 / 23
+
+Pour un système quelconque il n’y a qu’une solution. Mais si on a des données initiales
+approximatives on obtiendra des solutions multiples (voir le schéma ci-dessous).
+
+SOLUTION UNIQUE
+
+ETAT INITIAL
+DONNEES APPROXIMATIVES
+
+SOLUTION y
+
+SOLUTION …
+
+SOLUTION x
+
+Il suffit souvent que l’écart soit de la taille d’un atome entre deux positions initiales pour que les
+mouvements soient au bout d’un certain temps complètement différents.
+Dans un système chaotique, on définit un temps caractéristique T au bout duquel le système voit
+son écart initial multiplié par 10.
+b. La non périodicité d’un mouvement chaotique
+Supposons que les conditions initiales soient strictement identiques. Ce qui n’est pas réalisable
+pour un système réel mais qui est possible pour une simulation. Les trajectoires de deux pendules
+seront alors parfaitement superposées.
+Le chaos intervient alors dans la non périodicité du mouvement.
+La figure ci dessous représente la trajectoire de l’extrémité de notre système chaotique. Si l’on
+coupe cette trajectoire suivant un plan (dit « plan de Poincaré », voir en rouge sur le dessin), les
+points d’intersection entre la trajectoire et ce plan ne représentent aucune figure périodique ou
+statistique.
+
+Le comportement du système semble erratique : il ne se répète jamais (voir la définition
+d’attracteur étrange).
+Le Chaotiqueur
+
+7 / 23
+
+Cependant il n’en est pas moins ordonné. Bien qu’un système soit déterministe il n’en est pas pour
+autant prévisible : on parle de déterminisme imprévisible. Les résultats d’une prédiction d’un
+processus non-linéaire seront donc erronés mais néanmoins explicables après que l’évènement se
+soit produit (« expliquer n’est pas prédire »)
+
+Il est important de préciser qu’il n’est pas question de supprimer le déterminisme de la nature
+(on parle même de chaos déterministe), la théorie du chaos ne cherche en aucun cas à renier la
+science et son efficacité mais en revanche elle désire montrer ses limites.
+
+Le Chaotiqueur
+
+8 / 23
+
+Un système chaotique : Le double pendule
+I. Système choisi
+a. Choix du système
+Nous avons découvert notre système grâce à notre professeur d'Olympiades (M.
+Jeanjacquot) qui avait filmé des expériences scientifiques lors d'une visite de l’EPFL.
+Nous avons été fasciné par les mouvements (apparemment) complètements aléatoires
+d'un système appelé double pendule. Désirant comprendre les causes de ce phénomène
+nous avons décidé de réaliser l'expérience. Nous voulions ainsi vérifier son
+comportement par nous même et analyser les mouvements.
+Le système est donc composé de deux pendules fixés sur un même axe. Chaque
+pendule est décomposé en deux barres liées par une liaison pivot. Le fait de disposer
+de deux couples de barres permet de comparer leur mouvement au cours du temps
+lorsqu’elles sont lancées avec les mêmes conditions initiales.
+Cette expérience est assez simple et permet de montrer tous les comportements
+d’un système dynamique décris dans l’exposé.
+
+Nous
+avons
+utilisé
+des
+roulements
+à
+billes
+pour
+minimiser les frottements.
+Ils sont placés à l’intérieur des
+deux principales barres mobiles.
+Pour éviter une éventuelle perte
+du maintien des barres nous
+avons placé à chaque extrémité
+de vis des écrous indéserrables.
+
+Le Chaotiqueur
+
+9 / 23
+
+b. Analyse fonctionnelle
+
+
+Recherche des fonctions de service : diagramme des interacteurs.
+
+Résistance,
+stabilité
+FC3
+Utilisateur
+
+FC4
+
+PC
+(programme)
+
+FC1
+
+CHAOTIQUEUR
+FC2
+FP1
+Mouvement
+chaotique
+
+Capteur
+FC5
+Financement
+
+FP1 : obtenir un mouvement chaotique.
+FC1 : relier les capteurs à une unité de traitement (= ordinateur). Ou traiter les données
+envoyées par les capteurs.
+Justification : pouvoir exploiter les résultats envoyés par les capteurs grâce à un
+programme.
+FC2 : récolter, mesurer les données à traiter.
+Justification : données nécessaire à l’élaboration d’un attracteur étrange.
+FC3 : résister aux efforts exercés par les barres mobiles.
+Justification : les moindres vibrations destabilisent l’expérience en la stoppant
+prématurément.
+FC4 : être réglable par l’utilisateur ( au niveau des barres mobiles).
+Justification : on doit pouvoir faire l’expérience avec différents paramètres dont la
+longueur des deuxièmes barres mobiles ainsi que le poids
+FC5 : être le moins cher possible afin de pouvoir être accessible à tous.
+
+Le Chaotiqueur
+
+10 / 23
+
+•
+
+Recherche de solutions techniques.
+
+Solutions techniques retenues :
+FC1 : Capteurs
+Pour capter les données de notre expérience, nous avons réfléchis à différents types de capteurs
+(visuel, magnétique, mécanique et photoélectrique) qui comportent tous des avantages et des
+défauts. Nous essayerons donc de tous les tester afin de voir lequel correspondra le mieux à
+notre besoin.
+- Utiliser une caméra que l’on compilerait avec un programme qui passerait automatiquement
+de la vidéo à un graphique. Mais faute de temps et de connaissance en programmation nous nous
+contenterons d’un logiciel déjà existant du Lycée.
+Avantage : simplicité du système
+Inconvénients :
+- l’étude serait trop laborieuse si l’on utilisait le logiciel Synchronie car avec ce
+dernier nous devrions pointer manuellement 25 images par seconde sur plusieurs
+minutes
+- la caméra ne prend peut être pas assez d’images à la seconde (car on ne sait pas à
+quelle échelle intervient le chaos : il serait en effet difficile d’observer le chaos avec
+une caméra qui prendrait 25 images par seconde alors que la chaos interviendrait sur
+quelques millisecondes !)
+- Utiliser directement une webcam avec laquelle l’ordinateur analyserait automatiquement
+image par image la vidéo. Pour ce faire nous avons mis des points de couleurs aux extrémités des
+barres pour que le logiciel (cinéris) puisse reconnaître les points à étudier.
+Avantages :
+- On peut régler le temps d’obturation de sorte que lorsque l’on décompose la vidéo
+image par image de sorte que celles-ci soient nettes.
+- Installation simple
+Inconvénients :
+- la vidéo obtenue est en MPEG alors que cinéris ne lit que les formats AVI. Ainsi il
+nous faut convertir les vidéos.
+- coût élevé (webcam + logiciels)
+- Nous avons ensuite pensé à un capteur photoélectrique. La photodiode (récepteur) éclairé
+par un laser (émetteur) captera une intensité lumineuse proportionnelle au dégradé de couleur du
+disque qui sera analysé par le PC. Ensuite ce dernier transformera la tension obtenue en degrés
+afin d’obtenir des graphiques compréhensibles.
+Avantage :
+- vitesse de capture importante (beaucoup de données par secondes donc plus de
+précision dans les graphiques obtenues)
+
+Le Chaotiqueur
+
+11 / 23
+
+- travail de traitement des données recueillies facile et rapide
+Inconvénients :
+- quand la barre mobile passera devant la photodiode, la lumière ne passera plus et
+nous aurons donc une zone de vide dans le graphique.
+- il faut déterminer par une calibration la relation entre l’angle du pendule et la
+tension issue du capteur. La calibration est très sensible aux vibrations et aux
+imperfections de l’impression.
+- Nous avons imaginé un capteur magnétique qui serait composé d’un aimant et d’une bobine.
+L’aimant est fixé sur l’axe (la vis) assurant la liaison pivot c'est-à-dire sur la partie mobile.
+Lorsque l’aimant tourne il apparaît une force électromotrice induite aux bornes de la bobine. Elle
+serait alors mesurée à l’aide d’un voltmètre (ou d’un système d’acquisition). Cette tension
+dépendrait de la vitesse et du sens de rotation.
+Avantage :
+-vitesse de capture très importante
+-travail de traitement des données non laborieux
+Inconvénients :
+-force magnétique appelée frein de Foucauld qui risquerait de ralentir le système.
+
+II. Analyse des mouvements du système, acquisition vidéo
+a. Récoltes
+Les données récupérées grâce à la caméra nous ont permis d’obtenir ce graphique :
+
+pendule double
+0,25
+0,2
+0,1
+0,05
+8,96
+
+8,32
+
+7,68
+
+7,04
+
+6,4
+
+5,76
+
+5,12
+
+4,48
+
+3,84
+
+3,2
+
+2,56
+
+1,92
+
+1,28
+
+-0,05
+
+0,64
+
+0
+0
+
+position (m)
+
+0,15
+
+X1
+X2
+
+-0,1
+-0,15
+-0,2
+-0,25
+temps (s)
+
+X2
+
+Positions de la liaison entre les deux barres mobiles au cours du
+temps.
+
+Le Chaotiqueur
+
+X1
+
+Configuration de la
+mesure
+
+12 / 23
+
+b. Interprétations
+Si le système était linéaire, les deux barres devraient décrire le même mouvement.
+Mais si les mouvements diffèrent au bout d’un certain temps alors ceci indiquerait que
+le système est non-linéaire.
+Or c’est ce que nous pouvons observer : ce graphique illustre donc la dépendance aux
+conditions initiales.
+c. Conclusion
+Nous avons obtenu une preuve que le système est très sensible aux conditions initiales.
+Plus tard dans l'année, nous pourrons établir un attracteur étrange et nous étudierons
+le chaos dans le système afin de définir taux de désordre, le temps caractéristique du
+système.
+d. Problèmes d’incertitudes et de difficultés d’exploitation des mesures
+
+abscisse de la position de l'extrémité des deux
+barres en fonction du temps
+0,3
+
+0,1
+X1
+X2
+
+0
+
+Configuration de la
+mesure
+
+0
+0,
+08
+0,
+16
+0,
+24
+0,
+32
+0,
+4
+0,
+48
+0,
+56
+0,
+64
+0,
+72
+0,
+8
+0,
+88
+0,
+96
+1,
+04
+1,
+12
+1,
+2
+
+abscisses (m)
+
+0,2
+
+-0,1
+-0,2
+-0,3
+
+X1
+Temps (s)
+
+X2
+
+Dans ce cas de figure, on constate que la mesure de la position X2 de la deuxième
+branche du pendule est très incertaine. La mesure est toujours réalisée grâce à la
+caméra. La fréquence de l’acquisition est trop faible par rapport à celle de rotation du
+deuxième pendule.
+De plus, L’acquisition est longue car il faut pointer la position sur chacune des images
+Il faut donc trouver un moyen d’enregistrer de manière plus précise et plus rapide la
+position des pendules.
+
+Le Chaotiqueur
+
+13 / 23
+
+III. Acquisitions avec une photodiode
+Grâce au capteur avec la photodiode que nous venons de finir nous espérons avoir de meilleurs
+résultats qu’avec la caméra (le prototype nous a posé beaucoup de problèmes techniques lors de sa
+réalisation). Mais pour cela, il faut d’abord parfaitement savoir comment il fonctionne.
+a. La photodiode
+
+Comme vu ci-dessus, notre capteur est composé d’un laser qui éclaire une photodiode à travers
+un disque de plastique dégradé. Lorsque le disque tourne, la tension aux bornes de photodiode
+varie (voir schéma électrique).
+
+Le Chaotiqueur
+
+14 / 23
+
+Modèles de disques dégradés transparents en vert (couleur complémentaire de celle émise par le
+laser) et en gris
+
+PC
+
+Schéma électrique su système d’acquisition.
+Cette tension est ensuite convertie en angle grâce à une courbe obtenue en mesurant à plusieurs
+endroits la tension en fonction de l’angle. Puis on obtient la vitesse angulaire en faisant la dérivée
+de l’angle.
+On peut alors commencer à interpréter les différents résultats.
+Le montage pose quelques problèmes matériels liés à la fixation du laser.
+
+Le Chaotiqueur
+
+15 / 23
+
+b. Protocole d’expérimentation
+Pour utiliser notre expérience, nous procédons en trois étapes :
+-
+
+il faut d’abord préparer le système c’est à dire faire en sorte que les deux barres
+soient lancées au même moment et le plus proche possible à moins de vouloir créer
+exprès un écart et de voir quand celui-ci aura été multiplié par 10 ( temps
+caractéristique ). Pour cela, nous avons utilisé des électroaimants (voir cidessous).
+
+-
+
+Puis nous lançons les barres qui ont au début un mouvement quasiment identique
+mais qui diffère au bout de quelques secondes.
+Pendant ce temps, l’acquisition se fait automatiquement sur l’ordinateur grâce au
+logiciel synchronie.
+
+-
+
+L’acquisition sous synchronie.
+
+Le Chaotiqueur
+
+16 / 23
+
+c. Les mesures
+
+Cette série de courbes représente 6 mesures successives (tension) avec les mêmes conditions
+initiales expérimentales ; on remarque qu’au bout de 3 périodes les mesures se dissocient. Le
+comportement du pendule n’est plus prévisible.
+
+Cette deuxième courbe montre l’écart de tension entre la première acquisition et les 5 autres.
+On remarque également un bruit important du aux vibrations du laser.
+Le Chaotiqueur
+
+17 / 23
+
+d. Modification du montage
+Pour avoir moins de bruit dans les mesures nous avons remplacé le laser par un système optique
+plus stable. Le montage a été photographié ci-dessous.
+
+e. La calibration et les mesures associées
+Les mesures nous ont alors permis de calibrer correctement l’angle d’inclinaison du premier
+pendule en fonction de la tension mesurée par le système d’acquisition. Nous avons alors modélisé
+et choisi la fonction la plus simple représentative de notre courbe de calibration.
+
+Angle=-69.34*X+286
+
+Le Chaotiqueur
+
+18 / 23
+
+Nous avons pu alors réaliser des mesures et les convertir en angle. On se rend compte dans ce cas
+que l’oscillation du pendule n’est pas périodique. Cependant, la courbe ressemble a une sinusoïde,
+mais la période n’est pas constante, elle varie chaotiquement entre deux extrema.
+
+Angle en fonction du temps
+
+Plan des phases : vitesse angulaire en fonction de l’angle. Ne pas prendre en compte le point situé
+au centre du diagramme qui correspond au pendule au repos avant le mouvement. La coupe de
+cet espace par une section de Poincaré permet de constater la nature chaotique du mouvement
+Le Chaotiqueur
+
+19 / 23
+
+CONCLUSION
+Finalement, la théorie du chaos comporte deux aspects qui sont la dépendance aux conditions
+initiales et le déterminisme imprévisible
+L’expérience peut être réalisée à un coût très faible en lycée (30 Euros).
+Les difficultés ont été de comprendre, de définir clairement et simplement le chaos, de trouver
+des outils adéquats pour l’étudier.
+Le système d’acquisition a été très long à mettre correctement au point, il a fallu trouver un
+système fiable, qui permet de faire beaucoup de mesures et qui ne génère pas de frottement. Le
+système ne fonctionne correctement que depuis le début du mois de novembre 2006. Cependant
+quelques points sont à revoir. Nous cherchons toujours d’autres solutions : webcam.
+Il reste à faire d’autres séries de mesures, par exemple réaliser des acquisitions en changeant la
+taille des barres pour voir leurs influences sur le système. On pourrait aussi essayer d’entretenir
+le mouvement pour faire un attracteur étrange.
+Nous envisageons de faire également une simulation pour montrer l’influence des paramètres
+initiaux (celle ci est longue et en cours de réalisation)
+
+Nous terminons notre compte rendu par un lien historique :
+Le problème des trois corps imaginé par Poincaré dit qu’il est impossible de prévoir avec
+exactitude les mouvements de trois corps ou plus par exemple les planètes du système solaire ou
+même le double pendule.
+En effet notre système est composé de trois corps : la Terre avec la gravitation, la première
+barre et la deuxième barre. La Terre influe sur les deux barres une à une et celles-ci s’influencent
+mutuellement dans un cercle sans fin.
+
+Le Chaotiqueur
+
+20 / 23
+
+GLOSSAIRE
+
+Espace des phases : C’est un espace abstrait permettant de disposer sur un repère autant de
+paramètres (ou dimensions) nécessaires pour caractériser l’état d’un système. On représente et
+caractérise ainsi en un point l’état du système à un instant donné. A mesure que le système évolue,
+le point va décrire une courbe dans l’espace des phases.
+Le plan de Poincaré : Le mathématicien imagina de couper les courbes de l’espace des phases
+avec un plan vertical. Les points d’intersection de la trajectoire avec le plan tracent alors des
+dessins permettant de discerner les différents comportements du système (il permet par
+exemple de compter le nombre de courbes, de voir leur agencement, leurs relations …) et de
+montrer si le système est chaotique ou non (si le dessin obtenu n’est pas régulier)).
+Attracteur étrange : C’est le nom donné au dessin obtenue avec le plan de Poincaré. Edward
+Lorenz, météorologue du MIT en étudiant les mouvements de convection d'air chaud et froid dans
+les couches de l'atmosphère et établissant un attracteur étrange à partir de ce phénomène,
+montra que le point représentant le système ne répétait jamais son mouvement. En fait ces
+attracteurs sont des fractales car si l’on zoome indéfiniment sur une courbe du dessin du plan on
+retrouvera toujours le même dessin (par exemple si l’on zoome sur une courbe on verra qu’elle est
+en fait composée de plusieurs courbes et en zoomant encore plus on retrouvera les mêmes
+composante de la courbes).
+Le point représentant l’état du système est attiré vers une courbe limite, près de laquelle il
+repasse régulièrement. Les mathématiciens appellent ces courbes des « attracteurs étranges ».
+
+Le Chaotiqueur
+
+21 / 23
+
+SOURCES
+
+Livres :
+- La théorie du chaos de James Gleick
+- Le chaos et l’Harmonie de Trinh Xuan Thuan (lu que partiellement)
+- Le CHAOS d’Ivar Ekeland
+
+Collaboration :
+Monsieur Mizony (directeur de l’IREM de Lyon). Il vient régulièrement nous aider.
+
+Revue scientifique :
+Le chaos : dossier de Pour la science.
+Sites Internet :
+- http://fr.wikipedia.org/
+- http://www.edelo.net/chaos/sommaire.htm ce site est en fait une fiche de lecture très
+complète du livre de James Gleick.
+- http://villemin.gerard.free.fr/Scienmod/NotChaos.htm
+
+Le Chaotiqueur
+
+22 / 23
+
+Remerciements :
+
+RANCHET
+enseignement
+Merci à : - M. MIZONI, directeur de l’IREM de Lyon.
+- M.JEANJACQUOT, qui nous a encadré pendant notre projet
+
+Le Chaotiqueur
+
+23 / 23
+
+

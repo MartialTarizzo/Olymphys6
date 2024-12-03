@@ -1,0 +1,793 @@
+Don’t touch it !
+The Doppler music
+
+Par les élèves de l'atelier physique du lycée Palissy
+
+Avec LACLAVERIE Jean-Michel
+Professeur encadrant
+Lycée Bernard Palissy- AGEN
+Académie de Bordeaux
+
+Table des matières
+Problématique:
+Introduction:
+1- Produire du son avec des ultrasons
+1.1 Réglage de l’intensité d’un signal ultrasonore à la main, sans contact.
+1.2 Multiplication de signaux ultrasonores
+1.2.1 Présentation du montage
+1.2.2 Atténuation du signal
+1.2.3 Variation de fréquence par effet Doppler
+2- Réalisation d’un oscillateur RLC
+2.1 Fréquence d’un oscillateur RLC et condensateur variable.
+2.2 Test d’un montage oscillant
+2.3 Variation de la fréquence d’oscillation avec la main
+3- Piloter l’émission des ultrasons grâce à notre oscillateur
+4- Améliorations du montage
+4.1 Avec un suiveur
+4.2 Avec un montage amplificateur
+4.3 Avec un filtre passe bas passif
+5. Version Arduino
+5.1 Tests Arduino
+5.2 Intégration d’un arduino dans notre prototype
+Conclusion:
+Sources documentaires:
+
+1
+1
+2
+3
+5
+5
+7
+8
+10
+10
+10
+12
+12
+13
+13
+15
+17
+18
+18
+18
+19
+19
+
+Problématique:
+Comment produire un son musical avec un instrument de musique que l’on ne touche pas?
+
+Introduction:
+Selon Wikipedia, “le thérémine est un des plus anciens instruments de
+musique électronique, inventé en 1920 par le Russe Lev Sergueïevitch
+Termen. Composé d’un boîtier électronique équipé de deux antennes,
+l'instrument a la particularité de produire de la musique sans être touché
+par l’instrumentiste. Dans sa version la plus répandue, la main droite
+commande la hauteur de la note, en faisant varier sa distance à
+l’antenne verticale. L’antenne horizontale, en forme de boucle, est
+utilisée pour faire varier le volume selon sa distance à la main gauche.”
+
+1/20
+
+Source: https://upload.wikimedia.org/wikipedia/commons/7/74/Lev_Termen_playing_-_cropped.jpg
+
+Un thérémine est donc un instrument de musique qui génère une fréquence audible
+modifiable par la position de la main. Son principe consiste en deux oscillateurs de
+fréquences proches de 150 kHz. Un oscillateur est à fréquence fixe et l'autre aura une
+fréquence variable. Les 2 signaux sont mélangés pour obtenir une fréquence égale à la
+différence des fréquences des deux oscillateurs. Ce signal est alors audible et réglable en
+fréquence et en volume.
+En cherchant un sujet pour les Olympiades de physique à la fin de notre année de
+seconde, nous avons découvert cet instrument et décidé de comprendre comment il est
+possible de produire un son musical sans toucher l’instrument de musique.
+Notre objectif est donc de produire un son musical et une mélodie avec un
+instrument de musique que l’on ne touche pas. Nous nous sommes inspirés du thérémine,
+mais pas seulement. Nous avons lu le mémoire Un son venu d'ailleurs primé lors de la XVIIIe
+ÉDITION des Olympiades et essayé de trouver un moyen différent de produire un son avec
+les mains et sans contact. Nous ne reproduisons pas un projet déjà fait !
+Notre professeur nous a proposé de nous associer à des élèves de Terminale pour
+mener à bien ce projet. En effet, notre idée est d’utiliser des ultrasons pour produire du son
+et de fabriquer un oscillateur RLC pour alimenter les transducteurs piézoélectriques. En
+spécialité de Terminale ce sont des termes abordés. Nous sommes donc maintenant 14
+élèves pour construire ce projet, 6 de Première NSI et huit de Terminale spé physique.
+Notre travail se sépare en trois parties. Tout d’abord nous avons utilisé deux
+oscillateurs ultrasonores dont nous avons mélangé les signaux pour produire notre musique.
+Et cette émission est pilotée par une main, utilisée comme réflecteur. Vous allez découvrir
+que nous avons même obtenu plus d’effets que ce que nous avions initialement prévu !
+Notre objectif suivant a été de fabriquer un oscillateur autour d’un amplificateur
+opérationnel pour alimenter un transducteur ultrasonore. Nous voulons un oscillateur
+réglable sans contact, en intégrant un condensateur dont le musicien est une des armatures.
+Nous avons ensuite assemblé notre oscillateur RLC avec un émetteur
+piézoélectrique, le multiplieur pour obtenir une musique pilotable par la main. Vous allez voir
+que notre solution est différente de celles déjà existantes, mais présente un intérêt unique!
+Notre montage complet utilise de nombreux fils et composants. Nous nous sommes
+interrogés sur la possibilité de le simplifier. Pour cela nous avons expérimenté avec un
+arduino pour piloter le signal d’un buzzer avec une photorésistance.
+Nous avions aussi initialement pensé utiliser un programme python et une webcam
+pour produire un son en bougeant une main devant l’objectif de la caméra. Nous avons
+réalisé un programme avec la bibliothèque cv2, mais nous ne l’avons pas intégré à ce
+mémoire, car ce n’était que de la programmation python et pas de la physique
+expérimentale.
+Même si six d’entre nous sont encore en première, nous voulons expérimenter
+“niveau Terminale”, en utilisant le cours de spécialité de Terminale pour réaliser nos
+montages.
+
+1- Produire du son avec des ultrasons
+
+2/20
+
+Nous voulons créer un montage qui pourra produire un sonde
+fréquence
+et
+d’amplitude réglable. Ces réglages doivent se faire sans contact de la main de
+l’expérimentateur avec le montage. Un main servira au volume et l’autre au réglage de
+fréquence.
+Nous avons vu en classe l’utilisation des émetteurs et récepteurs d’ultrasons pour
+illustrer l’effet Doppler, mais aussi le sonar ou l’échographie. Nous avons tout d’abord
+décidé de reproduire le modèle du sonar pour piloter avec la main l’intensité du signal reçu
+par le récepteur. Nous choisissons une fréquence de travail proche de 40 kHz (et pas 150
+kHz comme sur un vrai Thérémine) car c’est celle des oscillateurs ultrasonores du lycée.
+
+1.1 Réglage de l’intensité d’un signal ultrasonore à la
+main, sans contact.
+Nous reprenons le montage du sonar vu en cours avec l’écran réflecteur puis en le
+remplaçant par la main.
+
+Schéma du sonar emetteur recepteur US + réflecteur étudié et alimenté avec
+Latispro+sysamSP5
+
+Nous obtenons un signal dont l’amplitude dépend de la distance entre l’émetteur et l’écran
+réflecteur ou la main. Voici les mesures de la tension maximale en fonction de la distance
+avec la brique de bois (fait en TP de spécialité) comme écran réflecteur, puis avec la main.
+Nous ne reproduisons ici qu’un tableau de mesure car les résultats sont très proches. C’est
+la tension maximale indiquée par l’outil mesure automatique de Latispro que nous avons
+utilisée.
+Distance d (cm)
+
+Tension maximale ( V)
+
+7
+
+0,209
+
+8
+
+0,179
+
+15
+
+0,109
+
+19
+
+0,089
+
+25
+
+0,065
+
+3/20
+
+30
+
+0,06
+
+35
+
+0,05
+
+40
+
+0,044
+
+45
+
+0,04
+
+55
+
+0,029
+
+Tableaux de mesure atténuation du signal et courbes
+Sur Eduscol (https://eduscol.education.fr/2561/banques-des-ece) nous trouvons un sujet sur
+l’atténuation des ondes. Il indique que la pression acoustique décrit la variation de la
+pression en présence d’une onde acoustique. Son amplitude p en un point M du milieu de
+propagation est liée à l’intensité sonore I en ce point par la relation : p = k1∙ 𝐼
+avec k1 une constante liée au milieu de propagation. Les récepteurs d’ondes ultrasonores à
+capteur piézoélectrique délivrent une tension d’amplitude U proportionnelle à la pression
+acoustique p en un point M du milieu de propagation : U = k2∙p avec k2 une constante liée
+au capteur.
+La tension que nous mesurons est donc proportionnelle à la racine carrée de l’intensité
+sonore. L’amplitude U de la tension délivrée par le récepteur d’ultrasons au carré est donc
+𝑃
+
+proportionnelle à l’intensité sonore. Nous avons I = 𝑆 avec S = 4ΠR² et P la puissance de
+la source en Watt et donc I est proportionnelle à l’inverse du carré de la distance. Nous
+calculons donc le carré de la tension mesurée puis l’inverse de la distance au carré. Nous
+obtenons la courbe suivante
+
+4/20
+
+Donc pour notre montage l’intensité sonore est proportionnelle à l’inverse du carré de la
+distance sur des distances comprises entre 0 et 60 cm.
+Conclusion : Nous avons réussi à piloter l’intensité d’un signal ultrasonore à la main,
+sans contact. Cette intensité est prévisible grâce au modèle ci-dessus.
+Après avoir atteint ce premier objectif, nous voulons produire un son audible d’intensité
+pilotable à la main. Notre professeur nous parle du multiplieur.
+
+1.2 Multiplication de signaux ultrasonores
+1.2.1 Présentation du montage
+Le montage précédent a été amélioré pour produire un son. Pour cela nous utilisons deux
+émetteurs ultrasonores, deux récepteurs ultrasonores et un multiplieur. Le signal de sortie
+de l’ensemble est envoyé vers un amplificateur et un haut-parleur.
+
+5/20
+
+Le multiplieur nous donne un signal dont la fréquence est égale à la différence des
+fréquences des deux émetteurs d’ultrasons. Chaque émetteur peut être réglé entre 38 kHz
+et 41.5 kHz. Nous pouvons donc produire des sons entre 20 Hz et 3500 Hz.
+Un couple émetteur-récepteur est placé côte à côte face à un écran. En bougeant l'écran
+nous découvrons que nous pouvons moduler l’amplitude du signal sonore, mais aussi sa
+fréquence. C’est l’effet Doppler. La dynamique de la main joue un rôle dans notre montage,
+pas simplement sa position
+Conclusion: - Un mouvement lent de la main modifie l’amplitude du son
+- Un mouvement rapide de la main modifie l’amplitude et la fréquence de
+manière perceptible.
+Le signal produit par le multiplieur a la forme suivante:
+
+https://vod.canal-u.tv/vod/media/canalu/documents/tele2sciences/battements.acoustiques.su
+perposition.de.phenom.nes.ondulatoires_36239/accessibilite_physique_animee.battements.
+pdf
+Il y a donc une composante du signal dépendant de la moyenne des fréquences et
+l’autre de la différence. La moyenne est proche de 40 kHz et est donc inaudible. Ce sont les
+battements de fréquence |𝑓2 − 𝑓1| (voir schéma précédent de notre montage) que nous
+percevons.
+Nous étudions tout d’abord l’atténuation du signal avec la distance, puis la variation
+de fréquence maximale que nous pouvons obtenir en bougeant la main.
+
+6/20
+
+1.2.2 Atténuation du signal
+Voici les résultats obtenus en éloignant la main du couple émetteur récepteur. La distance d
+est la distance parcourue par l’onde, donc le double de la distance main émetteur-récepteur.
+Nous percevons un signal, jusqu’à une distance parcourue par l’onde de 90 x 2 = 180 cm.
+Le signal est détecté sur latispro, mais aussi à l’oreille grâce à l’amplificateur et au haut
+parleur, branchés en sortie du multiplieur.
+
+d (cm)
+
+(1/d)² (cm-²)
+
+1/d (cm-1)
+10
+
+U² (V²)
+
+0,04
+
+209
+
+43681
+
+15 0,06666666667 0,01777777778
+
+199
+
+39601
+
+20
+
+0,05
+
+0,01
+
+179
+
+32041
+
+25
+
+0,04
+
+0,0064
+
+89
+
+7921
+
+30 0,03333333333
+
+0,00444444444
+4
+
+159
+
+25281
+
+35 0,02857142857
+
+0,00326530612
+2
+
+99
+
+9801
+
+0,025
+
+0,0025
+
+79
+
+6241
+
+45 0,02222222222
+
+0,00197530864
+2
+
+84
+
+7056
+
+0,0016
+
+74
+
+5476
+
+55 0,01818181818 0,00132231405
+
+89
+
+7921
+
+60 0,01666666667 0,001111111111
+
+44
+
+1936
+
+0,00094674556
+65 0,01538461538
+21
+
+24
+
+576
+
+0,00081632653
+70 0,01428571429
+06
+
+89
+
+7921
+
+0,000711111111
+75 0,01333333333
+1
+
+79
+
+6241
+
+40
+
+50
+
+0,1
+
+U(mV)
+
+0,02
+
+7/20
+
+80
+
+0,000625
+
+64
+
+4096
+
+0,00055363321
+85 0,01176470588
+8
+
+29
+
+841
+
+0,00049382716
+05
+
+14
+
+196
+
+90
+
+0,0125
+
+0,01111111111
+
+La décroissance de la tension U en fonction de d (cm) est irrégulière. Nous pensons que
+cela est dû aux nombreuses réflexions parasites sur les autres objets du montage ou sur
+l’expérimentateur. En traçant U² en fonction de (1/d²), nous espérions une relation linéaire,
+ce qui n’est pas vraiment vérifié ici.
+
+Conclusion: Nous obtenons un résultat proche de celui de l’expérience du sonar.
+L’intensité sonore augmente avec 1/d². Le fait de ne pas obtenir une simple relation de
+proportionnalité n’est pas un problème pour nous, car l’intensité sonore sera réglée à
+l’oreille et pas par calcul.
+
+1.2.3 Variation de fréquence par effet Doppler
+Nous avons enregistré avec nos téléphones le son de notre montage en bougeant la main
+sur le trajet des ondes ultrasonores. Le fichier a ensuite été ouvert sur Audacity pour étudier
+les variations de fréquence. La fréquence change à chaque instant car la main oscille et
+donc change de vitesse. Nous ne pouvons pas utiliser l’outil de sélection d’Audacity puis
+l’analyse et le tracé de spectre, car cela fonctionne lorsque la fréquence est constante. Nous
+choisissons de représenter l’évolution des fréquences en fonction du temps..
+
+8/20
+
+En choisissant la représentation sous forme de spectrogramme dans Audacity nous voyons
+les fréquences varier entre 50 Hz et 1000 Hz quand nous bougeons la main devant le
+système récepteur émetteur. Lorsque la main est immobile la fréquence est de 490 Hz (outil
+analyse, tracer le spectre).
+Dans la situation présentée ici, l'expression du décalage en fréquence Δf dû à l'effet Doppler
+est donnée par :
+2𝑣
+
+∣Δf∣=​ 𝑉𝑠𝑜𝑛 ​⋅fem​
+Δf : décalage en fréquence (Hz)
+v : vitesse de la source (m·s-1)
+vson​= 340 m/s vitesse du son (m·s-1)
+fem= 40 kHz fréquence émise (car même si nous étudions un fichier son, l’effet doppler a lieu
+sur la partie du montage utilisant des ultrasons)
+Nous obtenons des variations de fréquence de l’ordre de 450 Hz, ce qui correspond à une
+vitesse maximale de la main de 1,9 m/s.
+
+9/20
+
+Nous pouvons donc faire varier la fréquence du signal par effet doppler, mais cela ne
+permettra que de rajouter des effets au son musical. On ne peut pas en effet, par cette
+méthode, faire durer une note, car celle-ci dépend de la vitesse d’éloignement ou de
+rapprochement de la main, qui varie chaque instant.
+
+2- Réalisation d’un oscillateur RLC
+2.1 Fréquence d’un oscillateur RLC et condensateur variable.
+Avec un oscillateur RLC on peut créer une tension sinusoïdale de période T= 2Π 𝐿𝐶. Nous
+voulons une fréquence proche de 40 000 Hz. Le lycée dispose de bobine de 1 mH et de
+nombreux condensateurs. Si nous utilisons cette bobine de 1mH, nous pouvons choisir un
+condensateur de:
+2
+
+𝑐 =𝑇
+
+1
+4Π²𝐿
+
+soit 0.6 mF.
+
+Nous voulons créer un condensateur, comme dans le Thérémine qui sera variable avec la
+position de la main. (source: https://etheremin.com/informations/fonctionnement/ ). Il faudra
+connecter une antenne au condensateur. On aura alors deux condensateurs dont les
+capacités s’ajoutent puisqu’ils sont placés en parallèle. la capacité équivalente sera
+C=C1+C2
+
+source: https://etheremin.com/wp-content/uploads/2017/04/Fonctionnement_01.jpg
+
+2.2 Test d’un montage oscillant
+Les oscillateurs électriques ne sont pas au programme de Première ou de Terminale
+spécialité. Nous allons donc tout d’abord tester un montage trouvé dans un mémoire des
+Olympiades
+et
+sur
+le
+site
+https://www.physagreg.fr/CoursTS/Physique/Cours/Physique-C-chap8-complement_resistan
+
+10/20
+
+ce_negative.pdf . Il utilise une résistance négative obtenue grâce à un amplificateur opératio
+
+source:
+https://www.olymphys.fr/public/odpf/odpf-archives/18/fichiers/memoires/publie/18-eq-19-me
+moire-Un-son-venu-d-ailleurs.pdf
+R = 2200 Ω
+L = 1mH
+C= 2 nF
+On mesure sur Latispro
+
+Le montage fonctionne et oscille à une fréquence de 45.616 kHz. Voici le résultat de nos
+mesures pour différentes valeurs de c et de r:
+r en Ohm
+
+c en nF
+
+f en kHz
+
+2200
+
+2,5
+
+40,144 signal rectangulaire
+
+2200
+
+2,4
+
+41,54 signal rectangulaire
+
+11/20
+
+2200
+
+2,3
+
+42,901 signal rectangulaire
+
+2200
+
+8,3
+
+14,576 signal rectangulaire
+
+2200
+
+1,3
+
+66,768 signal rectangulaire
+
+3200
+
+2,5
+
+32,074 signal rectangulaire
+
+1200
+
+2,5
+
+55,018 signal rectangulaire
+
+1500
+
+2,5
+
+49,62 signal rectangulaire
+
+10000
+
+2,5
+
+16,026 signal rectangulaire
+
+100000
+
+2,5
+
+6,02047 signal rectangulaire
+
+100
+
+2,5 pas d'oscillation signal rectangulaire
+
+169
+
+2,5
+
+84,126 sinusoïdal
+
+170
+
+2,5
+
+83,881 signal rectangulaire
+
+2.3 Variation de la fréquence d’oscillation avec la main
+Nous rajoutons une antenne sur le condensateur. Nos premiers résultats:
+r en Ohm
+
+c en nF
+
+f en kHz
+
+2200
+
+2,5
+
+40,021 avec antenne
+
+2200
+
+2,5
+
+38,994 avec antenne tenue dans la main
+
+2200
+
+2,5
+
+avec antenne tenue dans les
+38,994 mains
+
+2200
+
+2,5
+
+39,054 un doigt
+
+2200
+
+2,5
+
+40.00 un doigt proche
+
+Nous constatons une baisse de fréquence de 120 Hz dû à la présence de l’antenne. Si
+l’antenne est tenue dans la main, la fréquence baisse de 1150 Hz. Lorsqu'un doigt est
+proche la fréquence baisse de 144 Hz.
+Notre dispositif n’est pas encore comparable à celui qui pilote un thérémine car rien ne se
+passe si la main est à plus de quelques millimètres de l’antenne.
+
+3- Piloter l’émission des ultrasons grâce à notre
+oscillateur
+Nous voulons ce mercredi 4 octobre 2023 alimenter l’émetteur d’ultrasons avec l’oscillateur
+que nous avons fabriqué et essayer de faire varier sa fréquence avec l’antenne. Nous
+associons donc l’oscillateur précédent avec un transducteur piézoélectrique ultrasonore.
+
+12/20
+
+Nous avons refait le montage avec les 2 émetteurs et récepteurs ultrasonores puis nous
+avons également réalisé l’oscillateur. Nous connectons à la sortie de l’oscillateur un
+transducteur piézoélectrique. Avec un récepteur à ultrasons nous observons son signal. Le
+signal est très faible. La tension maximale ne dépasse pas 100mV. C’est insuffisant pour
+réaliser notre instrument de musique. Il faut donc rajouter un système électronique qui
+donnera une tension plus forte pour alimenter le transducteur piézoélectrique.
+
+4- Améliorations du montage
+4.1 Avec un suiveur
+
+http://www.elektronique.fr/cours/AOP/aop-amplificateur-suiveur.php
+ou amplificateur de tension non inverseur
+
+13/20
+
+Ce mercredi 11/10 nous testons le montage suiveur en sortie de notre oscillateur pour
+essayer d’obtenir un signal plus puissant. En effet, lorsque le transducteur est branché sur
+l'oscillateur, le signal qu’il émet n’est pas assez puissant. Un récepteur placé à proximité
+donne une tension maximale ne dépassant pas 150 mV. Avec le suiveur on obtient 200 mV.
+Mais c’est insuffisant. Lorsque les ultrasons sont émis par l’oscillateur Jeulin le récepteur
+atteint une tension maximale 1.5V.
+
+14/20
+
+L'émetteur utilisé n’est pas assez puissant. C’est un vieil émetteur du lycée qui pouvait être
+dissocié de son alimentation. Nous allons donc essayer la semaine prochaine de faire
+l’expérience avec un transducteur dissocié du dispositif de Jeulin.
+
+4.2 Avec un montage amplificateur
+
+15/20
+
+Formule
+Vs = Ve * (1 + R2/R1)
+Nous testons maintenant un montage amplificateur pour essayer d’émettre un signal
+ultrasonore plus puissant. C’est l’échec!!!!!! Le signal reçu par le récepteur atteint au
+maximum une tension de 200 mV alors qu’il nous faudrait 1.5 V.
+
+16/20
+
+Nous remplaçons le vieil émetteur du lycée par un récepteur Jeulin qui sera utilisé comme
+émetteur c’est une réussite, on obtient une tension de 6.5V. C’est largement suffisant pour
+pouvoir alimenter le multiplieur et fournir un signal exploitable.
+
+Nous ajoutons une plaque métallique servant de condensateur dans notre oscillateur. Nous
+observons des variations de fréquence d’une centaine de Hz. Mercredi prochain nous
+testerons de nouveaux condensateur pour notre oscillateur avec de plus grandes plaques
+métalliques.
+Le mercredi 18 octobre, nous avons testé le montage global avec notre oscillateur
+alimentant l’émetteur ultrasonore. Cela fonctionne !!!!!!!!!!!!
+Pour modifier la fréquence du montage nous testons plusieurs condensateurs. Nous
+ajoutons sur la plaque de cuivre une feuille d’aluminium puis un toit de ruche. Nous
+constatons qu’avec le toit de ruche, il est plus facile de faire varier la fréquence du son. Le
+condensateur constitué de la main de l’utilisateur et du toit de ruche fait mieux varier la
+fréquence du son que les autres configurations essayées. La main droite de l’utilisateur
+modifie quant à elle à la fois la fréquence du son par effet doppler et l’amplitude. Cette
+modification de fréquence est liée à la vitesse de la main et n’est que transitoire.
+
+4.3 Avec un filtre passe bas passif
+La qualité du son de notre montage doit pouvoir être améliorée en éliminant les
+fréquences parasites élevées. Nous avons trouvé l’explication du fonctionnement d’un filtre
+RC
+sur
+un
+sujet
+d’ECE
+du
+bac
+2022
+(https://ecebac.fr/sujets/2022/PC/06b/ECE_22_PC_6_B.pdf)
+La manière la plus simple de réaliser physiquement un filtre est d'utiliser un circuit RC.
+Comme son nom l'indique, ce circuit est constitué d'un condensateur de capacité C et d'un
+conducteur ohmique de résistance R branchés en série avec le générateur de tension qui
+correspond à la source du signal à transmettre. Le principe d’un filtre passe-bas est
+d'atténuer l’amplitude des signaux de fréquences supérieures à la fréquence de coupure fc
+du filtre et ce, dans le but de conserver uniquement les signaux de basses fréquences.
+La fréquence de coupure du filtre est la fréquence séparant les deux modes de
+fonctionnement idéaux du filtre :bloquant ou passant.
+1
+
+Dans le cas d’un filtre RC, la fréquence de coupure fC a pour expression : fc= 2π 𝑅.𝐶
+
+17/20
+
+Nous choisissons après plusieurs essais R = 100 Ω et une valeur de capacité C = 1,0 μF
+pour une fréquence de coupure fc proche de 1.6 kHz
+Nous constatons un son de meilleure qualité,comme nous le montre l’enregistrement sur
+Latispro ainsi que notre perception auditive.
+
+5. Version Arduino
+5.1 Tests Arduino
+Pour découvrir l’Arduino, nous avons testé un montage avec un petit haut-parleur sur le pin
+8 pour émettre une mélodie (exemple Arduino). Nous y avons trouvé une fonction pour
+émettre des sons:
+tone(8, melody[thisNote], noteDuration);
+puis pour faire une pause delay(pauseBetweenNotes);
+et arrêter l'émission.: noTone(8);
+Arduino propose aussi dans ses exemples (StarterKit_BasicKit), le code light
+thérémine que nous nous proposons de tester pour nous familiariser avec cet outil. Pour
+cela nous avons connecté une résistance de 10k𝝮 avec une photorésistance. L’ensemble
+est alimenté par le 5V de l’Arduino. Nous mesurons la tension de la photorésistance sur le
+pin A0 (sensorValue = analogRead(A0);) et un signal est envoyé sur le pin 8 pour produire
+un son grâce à la méthode map pour calculer la fréquence pitch
+int pitch = map(sensorValue, sensorLow, sensorHigh, 50, 4000);
+tone(8, pitch, 800);
+Nous avons un peu modifié l’exemple d’Arduino pour envoyer les valeurs de la fréquence
+sur le moniteur série ( Serial.begin(9600); et Serial.println(pitch);), faire durer les sons 800
+ms et attendre 1s entre chaque son (delay(1000);). (Voir code en Annexe)
+
+5.2 Intégration d’un arduino dans notre prototype
+
+18/20
+
+Nous avons cherché une voie pour intégrer l’arduino dans notre prototype et ainsi
+simplifier le montage, mais nous n’avons encore rien obtenu de satisfaisant. Le montage
+électrique fonctionne pour l’instant sans arduino et le montage arduino fonctionne sans nos
+oscillateurs électriques.
+
+Conclusion:
+Nous avons réussi en travaillant le mercredi après midi à bâtir un projet musical s’appuyant
+sur les compétences et la motivation d’élèves de Première et de Terminale. Nous ne
+sommes que 6 à pouvoir le présenter devant vous, mais 14 élèves y ont contribué depuis le
+début de l’année scolaire. Certains y ont aussi travaillé en juin.
+Nous avons voulu, avec notre professeur, faire des montages qui nous permettent
+d’améliorer notre niveau en physique et de mieux préparer notre passage dans
+l'enseignement
+supérieur. C’était un plaisir de travailler ensemble, de réaliser des
+expériences et d’entendre des sons pilotés par notre main.
+Nous avons donc réussi à construire un oscillateur réglable sans contact, qui alimente un
+émetteur piezoélectrique. Les ultrasons émis sont captés par deux récepteurs et envoyés
+vers un multiplieur. L’Arduino est une autre voie pour modéliser un Thérémine, mais dans ce
+cas les montages électriques sont remplacés par de la programmation, ce qui s’éloigne des
+exigences des olympiades de la physique.
+
+Sources documentaires:
+Arduino
+https://www.astuces-pratiques.fr/electronique/theremine-schema-simple-et-fabrication
+Mediapipe programmation python
+https://tp-isen.u2042.com/2.html
+Thérémine:
+https://www.olymphys.fr/public/odpf/odpf-archives/18/fichiers/memoires/publie/18-eq-19-me
+moire-Un-son-venu-d-ailleurs.pdf
+Oscillateur RLC:
+https://www.physagreg.fr/CoursTS/Physique/Cours/Physique-C-chap8-oscillations_electriqu
+es.pdf
+
+19/20
+
+

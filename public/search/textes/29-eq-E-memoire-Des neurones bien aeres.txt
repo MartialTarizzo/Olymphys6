@@ -1,0 +1,1253 @@
+Des neurones bien aérés
+Mémoire
+Martin Bonora, Sarah Couëlle, Louise Dompnier
+avec l’aide de Sabrina Dimoufa, Ben Evans, Martin Kirilov, Quentin Prost-Tournier
+& les CM1-CM2 de l’école Cachin de Fontaine
+
+RÉSUMÉ
+La concentration en aérosols porteurs du SARS-COV-2 est corrélée à la concentration en CO2 (dioxyde de
+carbone). Contrôler cette dernière en temps réel est simple et permet à la fois de diminuer le risque de transmission
+aéroportée du virus et d’éviter les effets néfastes avérés pour la santé liés à l’excès de CO2 dans l’air (maux de tête ou
+dégradation des compétences cognitives de haut niveau qui sont nécessaires aux apprentissages scolaires). Avec
+différents capteurs, nous avons conduit une campagne de mesure de la concentration en CO2 , 𝑐𝐶𝑂 , pour plus d’une
+2
+
+dizaine de classes du lycée et sur plusieurs séances de cours consécutives (Figure 2). Deux paramètres descriptifs
+clés ont été extraits de nos mesures : la constante d’évolution 𝑟 de la concentration et le niveau maximal de
+concentration produit à l’état stationnaire, 𝑐∞.
+Les mesures sont comparées aux prédictions d’un modèle d’évolution associé à un bilan de matière du
+volume de CO2. D’après ce modèle, les différentes grandeurs physiques qui gouvernent ces deux paramètres clés sont :
+le nombre 𝑁 d’élèves, le débit volumique ou flux 𝐹 de CO2 produit par chaque élève, le volume 𝑉 de la classe et le taux
+de renouvellement de l’air 𝑟 lié au débit d’extraction de l’air 𝑄 = 𝑟𝑉 hors de la salle de classe (par la ventilation
+mécanique contrôlée (VMC) ou par renouvellement naturel par les portes ou fenêtres). Des grandeurs physiques clés
+ont été validées par des mesures directes : i) La variabilité du flux 𝐹 de CO2 produit par différents élèves a été évaluée
+par spirométrie et par une mesure directe du taux d’air expiré après “dilution gazeuse”. Une mesure indirecte de 𝐹 via
+la perte de masse corporelle par respiration pendant la nuit a été également évaluée, grâce à un modèle de
+métabolisme de base. ii) Le débit d’extraction de l’air 𝑄 a été mesuré à l’aide d’un dispositif anémométrique “fait
+maison”.
+L’évaluation de différentes salles de classe montre que deux régimes limites peuvent être observés pour une
+durée de cours : i) “atmosphère confinée” où le taux de CO2 croît linéairement en fonction du temps, si les portes et les
+fenêtres sont fermées, et/ou la VMC de la salle est défectueuse; ii) un “maximum stationnaire” 𝑐∞ est observé,
+proportionnel au nombre d’élèves 𝑁, pour des taux d’extraction d’air élevés.
+Ces deux régimes ainsi que l’évaluation de la propagation du CO2 dans l’espace nous ont permis de tirer des
+conclusions quant-à l’aération des salles de classe : elle est en pratique grandement insuffisante dans notre
+établissement, et il est indispensable qu’elle soit améliorée par l’entretien des VMC et une aération plus fréquente. Il
+est également important de mettre en place un protocole facile à appliquer pour maintenir 𝑐𝐶𝑂2 < 800 ppm
+recommandé en temps de COVID (ou 1200 ppm pour une activité cognitive non dégradée hors COVID).
+Mots-clés : CO2, capteurs NDIR, qualité de l’air intérieur, atmosphère homogène, métabolisme, mécanique des fluides,
+loi d’échelle, aérosols, COVID-19, propagation aéroportée,, masques de protection, ventilation atténuation des risques.
+
+1
+
+SOMMAIRE
+INTRODUCTION
+
+3
+
+CO2 et aérosols : physique de la transmission aéroportée du COVID-19
+
+4
+
+Gouttelettes ou aérosols ?
+
+4
+
+Chute d’une goutte d’eau : vitesse limite & lois d’échelles
+
+4
+
+Projection de gouttelettes & distanciation sociale
+
+6
+
+Des aérosols en suspension
+
+6
+
+Le CO2 : un traceur pour estimer les risques COVID
+
+6
+
+Bilan de matière et hypothèse d’atmosphère homogène
+
+6
+
+Modélisation théorique
+
+6
+
+Bilan de matière
+
+6
+
+Equation différentielle et solution
+
+7
+
+Paramètres physique et évolution théorique CO2 (t)
+
+8
+
+Régime transitoire et régime stationnaire
+
+8
+
+Influence des termes source
+
+8
+
+Influence des termes d’extraction
+
+8
+
+Matériel & méthodes
+
+9
+
+Utiliser des capteurs non dispersifs à infrarouge (NDIR)
+
+9
+
+Évaluer la qualité d’aération des salles
+
+10
+
+Ajuster un paramètre physique du modèle aux données
+
+10
+
+Résultats et discussion
+
+10
+
+Suivi temporel et validation du modèle
+
+10
+
+Analyse de l’effet des termes source : jauge d’occupants
+
+12
+
+Analyse de l’effet de l’aération des salles
+
+12
+
+Aération des salles de classe
+
+13
+
+Limites
+
+15
+
+Limites de validité du modèle en atmosphère homogène
+
+15
+
+Mesurer directement le débit d’extraction des VMC (Q)
+
+15
+
+Métabolisme et variabilité du débit volumique de CO2 expiré
+
+16
+
+Mesure de la fraction molaire de CO2 dans l’air expiré par dilution gazeuse
+
+16
+
+Mesure de F par spirométrie
+
+16
+
+Mesure de F à l’aide de la variation massique
+
+17
+
+Ecart à l’hypothèse d’homogénéité
+CONCLUSION
+
+18
+18
+
+Exposition au CO2 ou aux aérosols : la physique des masques
+
+18
+
+Un nouveau protocole sanitaire au lycée Europole ?
+
+19
+
+Capteurs de CO2 et capteurs Adeunis
+
+19
+
+Aérer pour mieux respirer : les VMC
+
+19
+
+Jauges maximales de personnes
+
+19
+
+Démarche citoyenne : partager la science
+
+19
+
+REMERCIEMENTS
+
+20
+
+RÉFÉRENCES
+
+20
+
+2
+
+INTRODUCTION
+Propagation du Covid-19
+Depuis l’apparition du virus du SARS-CoV-2 il y a deux ans, il a été prouvé qu’il se transmettait
+essentiellement dans l’air, plus que par le contact (National Center for Immunization and Respiratory
+Diseases (NCIRD), Division of Viral Diseases, 2021). En effet, le virus se transmet d’un individu à un autre à
+travers les aérosols dilués dans l’air, des micro-gouttelettes d’eau invisibles à l'œil nu (Figure 3). Il y a très
+peu de contaminations de Covid-19 à l’extérieur car les aérosols y sont très dilués. La solution la plus
+efficace pour empêcher la transmission du virus serait donc de ventiler et d’aérer, pour renouveler l’air
+intérieur et diluer les aérosols. D’où notre problématique :
+
+L’aération prévue par le protocole sanitaire en usage dans notre lycée est-elle efficace ?
+Pour répondre à cette question, il faudrait mesurer le taux de SARS-CoV-2 dans l’air au lycée, pour
+pouvoir évaluer la qualité de la ventilation des salles de classe : recueillir les aérosols, puis faire un test
+PCR afin de déterminer la concentration en virus : ce qui est compliqué, dangereux et impossible à réaliser
+en temps réel. On peut cependant assez facilement mesurer un taux de CO2, et il se trouve que d’après
+plusieurs sources citées par les auteurs du Projet CO2 (Courty et al., 2021), le taux de CO2 et la quantité de
+particules fines dans l’air sont fortement corrélées.
+Les aérosols (0,1 micromètre de diamètre) partagent le même “destin” que le CO2 pourtant
+beaucoup plus petit (0,2 nanomètre de diamètre). Ces deux particules vont avoir les mêmes déplacements,
+car elles sont transportées essentiellement passivement dans l’air par convection (voir la suite partie 1).
+De même, il y a une relation directe entre le taux de CO2 mesuré dans l’air et le taux de
+recirculation, c'est-à-dire la fraction d’air inspiré déjà passée à l’intérieur des poumons des élèves présents
+dans la salle. Le CO2 représente 4% de l’air expiré, soit 40 000 ppm par définition (Ligue Pulmonaire Suisse,
+n.d. ; Air Infiltration and Ventilation Centre (de Gids & Wouters, 2010)). Le taux de CO2 mesuré dans une
+pièce correspond au taux de base (400 ppm de référence en extérieur, 420-450 ppm pour une ville polluée)
+auquel s’ajoute une fraction du CO2 expiré par les occupants de la salle. Par simple calcul de dilution, si on
+considère un taux de 1200 ppm CO2 mesuré (une valeur typique dans notre établissement), 800 ppm sont
+produits par les occupants de la pièce, soit 2% (800/40 000) d’air directement expiré après dilution dans la
+pièce. Ce n’est pas très rassurant car cela signifie que 2% des aérosols qui sortent des poumons de nos
+voisins entrent donc dans les nôtres ! On peut résumer cet effet dans le tableau suivant :
+Taux de CO2 mesuré
+
+Pourcentage d’air “recyclé”
+
+Maximum recommandé COVID
+
+800 ppm
+
+1%
+
+Compétences cognitives dégradées
+
+1600 ppm
+
+3%
+
+air expiré
+
+40’000 ppm (= 4%)
+
+100%
+
+Les neurones en danger
+La Covid-19 n’est pas notre seule préoccupation. En effet, nous nous sommes aussi rendu compte
+que d’importants taux de CO2 pouvaient avoir un impact négatif sur notre santé (Satish et al., 2012). Ceci
+3
+
+est inquiétant car, comme nous le verrons plus tard, le taux de CO2 dans les salles de classe dépasse très
+rapidement les 1200 ppm (seuil recommandé pour une activité cognitive non dégradée). Cette observation
+est notamment confirmée par une étude menée au Royaume-Uni (Bakó-Biró et al., 2012) qui constate que
+l’amélioration de la ventilation de l’établissement étudié participe à l’amélioration des résultats des élèves.
+Par ailleurs, les conditions épidémiques sont également indirectement responsables de conditions
+d'apprentissages dégradées, si on cumule les périodes d’absences due aux confinements successifs..
+Selon le travail de Tom Scott (Scott & Baute, 2019), lorsque la concentration en CO2 atteint 2000
+ppm, d’autres effets secondaires peuvent apparaître : nausées, étourdissements, maux de tête, fatigue, …
+C’est pourquoi nous avons décidé d’élargir notre problématique :
+Comment évaluer l’aération des salles de classe grâce aux mesures de CO2
+afin d’assurer de bonnes conditions sanitaires et d’apprentissage ?
+
+1. CO2 et aérosols : physique de la transmission aéroportée
+du COVID-19
+Les modes de transmission possibles pour le virus du COVID-19 sont la transmission par contact
+(1), par gouttelettes (2) ou par aérosols (3) . Les actions à prendre pour limiter les risques sont différentes
+selon notre connaissance du mode de transmission principal. En France et dans nos lycées, les masques
+étaient considérés comme “inutiles” au début de la première épidémie (2020). De retour au lycée vinrent les
+masques (“fait maison”, puis le plus souvent chirurgicaux), la désinfection des tables et poignées de portes
+et autre gel hydroalcoolique, l’aération (2e et 3e vague épidémique), et enfin l'intérêt des capteurs de CO2 et
+des filtres à la rentrée 2021. Aujourd’hui, la communauté scientifique admet que la transmission par les
+aérosols (3) est prédominante, pour peu que nous portions des masques (2).
+
+1.1.
+
+Gouttelettes ou aérosols ?
+1.1.1.
+
+Chute d’une goutte d’eau : vitesse limite & lois d’échelles
+
+Nous nous sommes d’abord intéressés par la physique des gouttes d’eau contenant
+potentiellement le virus du COVID et le pourquoi de la séparation entre “gouttelettes” et “aérosols” (ou
+micro-gouttelettes). Nous avons voulu ensuite comprendre pourquoi les aérosols ont le même destin que le
+CO2, malgré la grande différence de diamètre. Après expiration, les molécules de CO2 comme les aérosols ne
+chutent pas et restent en suspension dans l’air. Un bilan des forces nous a permis de montrer que les
+aérosols restent en suspension dans l’air alors que les gouttelettes les plus grosses tombent sur le sol
+rapidement. Les gouttes d’eau, quelle que soit leur taille sont soumises à trois forces :
+→
+
+4
+
+3
+
+→
+
+i.
+
+leur poids : 𝑃 = 3 π𝑟 ρ𝑒𝑎𝑢𝑔 où ρ est la masse volumique de l’eau, et 𝑟 le rayon de la goutte
+
+ii.
+
+les frottements dans l’air immobile, pour une sphère à faible vitesse (régime “rampant” à faible
+→
+
+→
+
+nombre de Reynolds, 𝑅𝑒 < 10) : 𝑓 =− 6πμ𝑟𝑣 (loi de Stokes, Gibbs, 2021), avec µ la viscosité
+dynamique de l’air ( μ = 1,85.10-5 kg.m-1.s-1)
+iii.
+
+→
+
+La poussée d’Archimède : 𝑃𝐴 =
+
+→
+
+𝑃𝐴
+
+que l’on peut négliger car 𝑃 =
+
+4
+
+4
+
+3→
+
+− ρ𝑎𝑖𝑟𝑉𝑔 =− ρ𝑎𝑖𝑟 3 π𝑟 𝑔
+ρ𝑎𝑖𝑟
+ρ𝑒𝑎𝑢
+
+−3
+
+≃ 10
+
+et
+
+𝑃𝐴
+𝑓
+
+2
+
+=
+
+2ρ𝑎𝑖𝑟𝑟 𝑔
+9μ𝑣
+
+−8
+
+=
+
+3×10
+𝑣
+
+Fig. 4 : Bilan des forces
+
+Fig. 5 : Trajectoire calculée des gouttelettes
+→
+
+→
+
+3 →
+
+4
+
+Selon la seconde loi de Newton : ∑ 𝐹 = 𝑚𝑎 = 3 π𝑟 ρ𝑎
+𝑑 →
+
+soit
+
+→
+3 →
+3 →
+4
+4
+π𝑟
+ρ𝑔
+−
+6πμ𝑟𝑣
+=
+π𝑟
+ρ𝑎
+3
+3
+
+→
+
+𝑑 →
+
+Or, 𝑑𝑡 𝑣 = 𝑎 . On en déduit donc l’équation différentielle linéaire du 1e ordre : 𝑑𝑡 𝑣 =−
+→
+
+→
+
+−9μ
+
+2 𝑡
+
+La solution de cette équation est : 𝑣(𝑡) = 𝑣0𝑒 2𝑟 ρ +
+
+→ 2
+
+−4,5μ
+
+2
+2 𝑔𝑟 ρ
+(1 − 𝑒 𝑟 ρ
+9μ
+
+9μ →
+2
+
+2𝑟 ρ
+
+→
+
+𝑣+𝑔
+
+𝑡
+
+)
+
+On s’intéresse au temps qu’il faudrait pour qu’une gouttelette sans vitesse initiale à hauteur
+→
+
+→
+
+d’Homme (𝐻 = 1,7 m) tombe jusqu’au sol. Nous avons évalué l’intégrale 𝑂𝑀(𝑡) = ∫ 𝑣(𝑡) 𝑑𝑡 et résolu
+l’équation correspondant à une vitesse initiale horizontale ou nulle, avec ou sans poussée d’Archimède
+(Figure 4 et Simulation Desmos #1 ). Pour des gouttelettes de diamètre 1 𝜇m, avec 𝑔 = 9. 81 N.kg-1,
+−6
+
+−6
+
+4
+
+ρ = 1000 kg.m-3, µ = 18. 5 ×10 kg.m-1.s-1 et 𝑟 = 0. 50×10 m, on trouve 𝑡 ≃5, 8×10 𝑠 ≃16 ℎ ,
+soit un temps de chute tellement long que sur un cours de 1 à 2 h, on peut considérer que les gouttelettes
+sont immobiles. On trouve que la vitesse limite est atteinte très rapidement (Figure 6). On suppose donc
+que l’intégralité de la chute se fait à la vitesse limite 𝑣𝑠 , quand la force de frottements de Stokes est égale
+au poids. Avec la condition d’équilibre, 𝑃 = 𝑓(𝑣𝑠), on trouve 𝑣𝑠 =
+
+2
+
+2ρ𝑔𝑎
+9µ
+
+, où 𝑎 est le rayon de la goutte. La
+
+durée de chute est estimée à 𝑡𝑠 = 𝐻/𝑣𝑠 . Elle est donc proportionnelle au carré du diamètre de la goutte :
+diamètre
+
+1,0 𝜇m
+
+100 𝜇m
+
+vitesse limite 𝑣𝑠
+
+29 𝜇m.s-1
+
+0,29 m.s-1
+
+durée de sédimentation 𝑡𝑠
+
+17 h
+
+6s
+
+aérosol
+
+gouttelette
+
+On remarque bien dans ces résultats que lorsque la taille est divisée par 100, alors la durée est
+4
+
+augmentée d’un facteur 10 (1002).
+
+5
+
+On définit ainsi deux types de comportements mécaniques. A l’échelle d’une heure de cours, les particules
+les plus petites (diamètre de 0,1 à 10 𝜇m) restent en suspension homogène dans l’air : on les appelle les
+aérosols. (ou “solutions solides dans l’air). Les plus grosses (diamètre de 10 𝜇m à 1 mm) ont un
+comportement balistique et sont déposées au sol : les gouttelettes.
+
+1.1.2.
+
+Projection de gouttelettes & distanciation sociale
+
+Nous nous sommes posés ensuite la question de la justification physique des règles de
+“distanciation sociale”. La modélisation réalisée (Simulation Desmos #1/2, Figure 4) montre que pour la
+projection horizontale d’un “postillon” de vitesse 3,0 m/s à une hauteur de 1,70 m, la portée balistique sans
+frottement en chute libre est de 3 m indépendamment de sa masse (et donc de sa taille). Elle est réduite à
+moins de 2 m pour toutes les particules de diamètre inférieur à 400 𝜇m.
+
+1.1.3.
+
+Des aérosols en suspension
+
+En réalité les aérosols ne “chutent” pas, ils chutent tellement lentement que les turbulences
+autres mouvements d’air convectifs les entraînent vers le haut et partout dans la pièce. Une étude
+bibliographique (OpenCourseWare, 2021a, 2021b) nous a montré que d’une part la vitesse moyenne de l’air
+due à l’extraction devient prépondérante par rapport à la vitesse de sédimentation, et que le mouvement de
+l’air dans une salle de classe est naturellement turbulent (nombre de Reynolds, 𝑅𝑒> 103). Ceci permet de
+modéliser les aérosols quasiment exactement de la même manière qu’un gaz : en supposant la
+concentration en aérosols rapidement homogénéisée, le CO2 devient un très bon traceur de la situation.
+Même si le modèle de l’atmosphère homogène n’est qu’approximatif et que l’homogénéisation des
+molécules de CO2 ou des aérosols ont des processus différents, des études en milieu scolaire (150 classes
+d’écoles primaire suisses) montrent que dans les salles de classe mal ventilées, le nombre de personnes
+infectées par le SARS-CoV-2 est significativement plus élevé ! (Graubünden, 2021; voir Figure 7)
+
+1.2.
+
+Le CO2 : un traceur pour estimer les risques COVID
+
+Il est maintenant établi que la mesure de CO2 sert à évaluer la qualité d’aération des bâtiments
+publics. Une étude récente ((Bazant, 2021), (Bazant & Bush, 2021)) consacrée aux principes physiques de
+la transmission du COVID montre que c’est le produit de la jauge d’occupation par temps d’exposition (
+𝑁 × ∆𝑡) qu’il convient de minimiser. Une analyse simplifiée détaillée en français sépare clairement les
+paramètres physiques liés à l’aération, aux masques et les effets biologiques spécifiques au virus du COVID.
+Le terme liée à à la physique de l’aération est le même pour les virus aéroportés et pour le CO2. (Figure 8).
+
+2. Bilan de matière et hypothèse d’atmosphère homogène
+2.1.
+2.1.1.
+
+Modélisation théorique
+Bilan de matière
+
+Pour modéliser les croissances et décroissances du taux de CO2, nous avons décidé de choisir le
+cas d’une pièce aérée, avec une source de CO2 dans la pièce. On modélise l’évolution de cette quantité de
+CO2, qu’on va d’abord exprimer sous la forme d’un volume (Courty et al., 2021)
+
+6
+
+Tout d’abord, il faut admettre que la variation du volume de CO2 dans la pièce sur un temps 𝑡 est
+égal à la somme du volume de CO2 produit par la source, et du volume de CO2 échangé avec l’extérieur
+(volume positif s’il entre plus de CO2 qu’il n’en sort, et négatif si c’est l’inverse). On peut réécrire cette
+égalité sous la forme : ∆𝑉 = 𝑉𝑝 + 𝑉𝑒, avec ∆𝑉 la variation du volume de CO2 dans le temps, 𝑉𝑝 le volume
+de CO2 produit et 𝑉𝑒 le volume de CO2 échangé avec l'extérieur. Ce bilan de matière est la base de la
+modélisation ; il suffit de la réécrire de manière plus correcte d’un point de vue mathématique. Les
+grandeurs physiques à prendre en compte sont les suivantes :
+Les volumes et concentrations : 𝑉𝐶𝑂 (𝑡) est la fonction qui donne le volume de CO2 dans la pièce en
+2
+
+fonction du temps . 𝑉 est le volume de la salle en litre.
+La concentration 𝐶𝐶𝑂 (𝑡) est la fonction qui donne la concentration volumique de CO2 dans la pièce en
+2
+
+fonction du temps (au sens strict 𝐶𝐶𝑂 est une fraction molaire). On a donc la relation : 𝑉𝐶𝑂 = 𝑉×𝐶𝐶𝑂
+2
+
+2
+
+2
+
+On suppose que le volume de CO2 produit est constant dans le temps, ce qui est le cas de la respiration
+humaine, à l’échelle de plusieurs respirations.
+Les termes sources de CO2 : On note 𝑁 le nombre de personnes dans la salle et 𝐹 la production moyenne de
+CO2 par personne par unité de temps (estimé à 18 L.h-1 par l’ENS (Courty et al., 2021), l’article “Quelles sont
+les raisons de contrôler et réduire le CO2 de votre espace intérieur ?” ​(Isofilter, 2021) et l’article “Bien
+ventiler pour bien respirer” (Courty et al., 2020)). Le volume de CO2 produit en une unité de temps (après
+conversion d’unité) est donc simplement 𝑁𝐹.
+Le bilan : Le volume de CO2 échangé avec l’extérieur à un temps t (𝑉𝑒) est la différence entre le volume qui
+est entré à un temps t (𝑉𝑒𝑛) et celui qui est sorti à un temps t(𝑉𝑠) :
+
+𝑉𝑒 = 𝑉𝑒𝑛 − 𝑉𝑠
+
+Les termes d’extraction d’air : On note 𝑄 l’aération de la salle, soit le volume d’air échangé entre l’intérieur
+et l’extérieur de la salle par unité de temps.
+𝑟 est la fraction du volume de la salle renouvelé/échangé avec l’extérieur en 1 unité de temps, tel
+que 𝑄 = 𝑟𝑉. Il est intéressant d’exprimer l’aération de la sorte car 𝑄 dépend du volume de la salle et de la
+qualité de l’aération mais 𝑟 dépend seulement de la qualité de l’aération, ce qui nous permettra de mesurer
+cette grandeur un peu abstraite. Il est homogène à l’inverse d’un temps caractéristique du problème
+τ = 1/𝑟. 𝑟 est strictement positif : il n’est jamais nul car il y a toujours des “fuites” résiduelles.
+𝐶𝑒𝑥𝑡est la concentration en CO2 extérieure, supposée constante et égale à la concentration
+atmosphérique. (soit 𝐶𝑒𝑥𝑡 = 400 ppm). On peut donc écrire 𝑉𝑒𝑛 = 𝑄× 𝐶𝑒𝑥𝑡 et 𝑉𝑠 = 𝑄× 𝐶𝐶𝑂
+
+2
+
+2.1.2.
+
+Equation différentielle et solution
+𝑑𝑉 𝐶𝑂 (𝑡)
+
+Le bilan de matière s’écrit :
+La solution est :
+
+2
+
+𝑑𝑡
+
+= 𝑁𝐹 + 𝑉𝑒
+
+𝐶𝐶𝑂 (𝑡) = (𝐶0 − (𝐶𝑒𝑥𝑡 +
+2
+
+soit
+
+𝑑𝐶 𝐶𝑂 (𝑡)
+2
+
+𝑑𝑡
+
+=
+
+𝑁𝐹
+𝑉
+
++ 𝑟𝐶𝑒𝑥𝑡 − 𝑟𝐶𝐶𝑂 (𝑡)
+2
+
+−𝑟𝑡
+𝑁𝐹
+𝑁𝐹
+))𝑒 + 𝐶𝑒𝑥𝑡 + 𝑟𝑉
+𝑟𝑉
+
+Le premier terme est transitoire. Le complément correspond au régime établi (état stationnaire). On peut
+donner du sens physique à cette équation : après une certain temps assez grand (devant un temps
+7
+
+caractéristique du problème τ = 1/𝑟 ), la concentration de CO2 va se stabiliser autour de cette valeur et
+ne plus bouger tant qu’une modification n’est pas apportée au système : 𝐶∞ = 𝐶𝑒𝑥𝑡 +
+
+2.2.
+
+𝑁𝐹
+𝑟𝑉
+
+Paramètres physique et évolution théorique CO2 (t)
+2.2.1.
+
+Régime transitoire et régime stationnaire
+
+Pour tenter de donner une intuition physique du problème, on distingue deux régimes lors de
+l’évolution du CO2 : un régime dit transitoire (quand la concentration varie rapidement dans le temps), et un
+régime dit stationnaire (en réalité une exponentielle n’est jamais plate, mais en dessous d’une certaine
+pente, cela est négligeable car elle converge).
+1
+
+La limite entre ces deux régimes est souvent placée après une un temps de 𝑡 = τ = 𝑟 . Cela
+correspond à l'abscisse à laquelle la tangente à l’origine de la courbe croise l’asymptote en + ∞.
+On peut représenter cela graphiquement :
+
+Figure 9 : Evolution du taux de CO2 en fonction du temps
+𝑑
+
+Enfin, on peut évaluer le coefficient directeur de la tangente en 0 : 𝑑𝑡 𝐶𝐶𝑂 (0) = 𝑟(𝐶𝑒𝑥𝑡 − 𝐶0) +
+2
+
+𝑁𝐹
+.
+𝑉
+
+On peut maintenant comprendre l’influence des différents paramètres physiques :
+
+2.2.2.
+
+Influence des termes source
+
+La concentration en CO2 ajoutée à la concentration ambiante 𝐶0 est quelle que soit la concentration initiale
+𝐶𝑒𝑥𝑡 proportionnelle au nombre d’occupants de la salle N et au débit de CO2 expiré par personne, 𝐹=18 L.h-1
+selon la littérature.
+
+2.2.3.
+
+Influence des termes d’extraction
+
+Les termes d’extraction peuvent être exprimés en terme de taux d’extraction horaire, 𝑟 (h-1), ou de débit
+d’extraction 𝑄 = 𝑟𝑉, (m3.h-1) plus directement mesurable. Le taux de renouvellement 𝑟 peut à la fois être
+−𝑟𝑡
+
+lu dans le régime transitoire gouverné par le terme 𝑒
+
+8
+
+et à travers son influence sur le terme stationnaire
+
+𝑁𝐹
+. Plus l’aération des salles est bonne (𝑟 > 5 h-1), plus la concentration établie à l’état stationnaire 𝐶∞
+𝑟𝑉
+
+est faible est plus l’état stationnaire est est atteint rapidement (Figure 9). Pour des salles mal aérées (𝑟
+< 1 h-1), la valeur de 𝐶∞ pourra être très élevée et ne pas être atteinte, même après une heure de cours.
+D’après le RSDT de l’Isère (France Air & RSDT, 2017), la ventilation des salles doit permettre
+d’apporter 18 m³/heure/personne d’air neuf en “occupation normale” dans le secondaire. Pour une classe
+typique de 32 élèves et de volume 160 m3 la ventilation doit donc être conséquente et un volume typique V
+le taux d’extraction horaire doit être au minimum 𝑟 > 𝑁𝐹/𝑉=3,6 h-1 pour être aux normes.
+
+3. Matériel & méthodes
+La problématique étant “Comment évaluer l’aération des salles de classe grâce aux mesures de
+CO2“, nous allons d’abord préciser le fonctionnement des capteurs non dispersifs à infrarouge utilisés dans
+nos appareils de mesure (3.1). Après avoir décrit le plan d’expériences nous permettant d’explorer la variété
+des comportement d’évolution de CCO2(t) pour les différentes salles du lycée (3.2) , nous présenterons la
+méthode utilisée pour ajuster un seul paramètre physique (3.3), et ainsi accéder au seul paramètre a priori
+inaccessible directement par une mesure physique en situation de ventilation naturelle : le taux de
+renouvellement horaire, 𝑟.
+
+3.1.
+
+Utiliser des capteurs non dispersifs à infrarouge (NDIR)
+
+Pour mesurer le taux de CO2 dans l’air, on utilise des capteurs de type NDIR (Non-Dispersive
+InfraRed) (Petra 2021 : Dey, 2021). Dans ce type de capteurs, le taux de CO2 est estimé en fonction de la
+lumière infrarouge absorbée par le gaz mesurée par spectroscopie infrarouge (Shallcross et al., 2021) : un
+cylindre opaque dans le capteur sert de cellule d’absorption, où l’air passe naturellement (voir ci-dessous).
+
+Figure 10 : Cellule d’absorption d’un capteur NDIR (Image courtesy of Bristol ChemLabS)
+Au bout de cette cellule d’absorption se trouve une source d’infrarouges couplée à un filtre qui
+permet de produire une bande étroite de lumière d’une longueur d’onde d’environ 2350 cm-1, correspondant à
+la vibration d’élongation asymétrique de la molécule de CO2. De l’autre côté du cylindre se trouve un
+récepteur à infrarouge qui mesure l’intensité de la lumière infrarouge initialement produite par la source.
+Plus il y a de molécules de CO2 dans l’échantillon d’air, plus les radiations infrarouges sont absorbées dans
+le cylindre et moins l’intensité de la lumière mesurée par le récepteur est importante. Un filtre du capteur de
+CO2 placé sélectionne la longueur d’onde λ = 4, 26 𝝁m (2350 cm-1) (Figure 11) où seul le CO2 de l’air a une
+absorption significative (𝐼), et est comparé à l'absorption à une longueur d’onde où le CO2 n’absorbe pas (𝐼0
+, analogue du “blanc” spectrophotométrie chimique). Pour avoir plus de détails sur les deux capteurs
+utilisés (Arduino (Figure 12) et Air CO2ntrol 5000 (Figure 13)), voir la Fiche matériel et sécurité.
+
+9
+
+3.2.
+
+Évaluer la qualité d’aération des salles
+
+Le nombre de capteurs disponibles dans le lycée étant très limité (une seul capteur avec enregistrement
+des données) il n’est pas possible que chaque salle soit équipée par un capteur pour que le professeur
+puisse ajuster les conditions d’aération en fonction de la lecture en temps réel et le choix d’une limite à
+priori de concentration. Nous avons cherché à comprendre les salles que nous même occupions le plus
+souvent et pour lesquelles les conditions d’aération à demeure ou dans l’usage (par l’ouverture ou non des
+portes ou fenêtres par nos enseignants) étaient suffisamment différentes. Après avoir exploré le
+comportement de nombreuses salles (plus de 9 salles et 35 relevés d’une durée comprise entre une heure
+et ½ journées ont été collectées) nous avons fixé notre attention sur deux salles : une petite salle de
+mathématiques et une salle de devoirs. On mesure le volume V de la pièce et le nombre d’occupants, les
+conditions d’aération ont été documentées : présence d’une VMC, ouverture ou non des portes et/ou
+fenêtres en continu et/ou brèves périodes à la fin du cours. Les débits de production de CO2 ( F) sont
+supposés connus. Le paramètre 𝑟 étant a priori indépendant du taux d’occupation de la salle, nous pourrons
+proposer des consignes de jauge N, pour une durée d’occupation et une concentration en CO2 données.
+
+3.3.
+
+Ajuster un paramètre physique du modèle aux données
+
+Nous avons utilisé le simulateur Desmos (voir https://www.desmos.com - Figure 15) ou un
+programme Python pour valider notre modèle en essayant d’ajuster les paramètres au nuage de points de
+mesure. La méthode (minimisation des écarts) est détaillée en annexe (Figure 14).
+
+4. Résultats et discussion
+4.1.
+
+Suivi temporel et validation du modèle
+
+Analyse descriptive des suivis temporels obtenus : On peut suivre dans l’activité la concentration de CO2 qui
+indique l’évolution de l’occupation et de l’aération de la salle (Figure 15). Selon les conditions d’aération et
+le taux d’occupation, on met en évidence sur une durée d'une heure de cours, que le régime établi peut être
+atteint rapidement (Figure 15) ou toujours en croissance (Figure 16).
+
+10
+
+Figure 15 : Suivi temporel de CCO2 sur une matinée (portes ouvertes sur le couloir)
+
+Figure 16 : Graphique représentant l’évolution du taux de CO2 en fonction du temps (salle B effectif élevé,
+portes fermées) ; avec modèle ajusté 1 paramètre (ACH)
+Nous remarquons que le taux maximal autorisé (800 ppm) est dépassé. Dans certaines salles
+(salle de math du lycée !) la VMC ne fonctionne visiblement pas (pas d’aspiration au niveau de la bouche
+d’extraction d’air),et la concentration en CO2 atteint les 4710 ppm en une heure, ce qui dépasse toutes les
+recommandations ! Dans d’autres salles où la VMC fonctionne (on utilise un anémomètre qui affiche une
+valeur de 4,4 m.s-1) n’atteindra jamais une telle concentration (voir discussion 5.2 ci-dessous). Le rôle de la
+ventilation mécanique est donc déterminant, mais pas suffisant puisque l’on dépasse tout de même les
+valeurs autorisées rapidement.
+Validation du modèle : La modélisation rend bien compte des évolutions temporelles (pour l’augmentation et
+la diminution du taux de CO2) avec le modèle du 1er ordre dans l’hypothèse d’une atmosphère homogène
+dans des conditions d'aération contrôlées et pour un paramètre d’ajustement unique, 𝑟 (Figure 16). Les
+valeurs de r associées au régime transitoire, et au régime établi sont cohérentes, en supposant un débit de
+production de CO2 expiré 𝐹= 18 L.h-1. Dans certaines situations , il n’y a pas d’accord. Deux valeurs de 𝑟
+différentes sont trouvées si on impose la valeur F = 18 L/h. En relaxant cette contrainte, l’accord est à
+nouveau bon (ajustement avec 2 paramètres). La variabilité de F ( de 18 à 43 L.h-1) sera discutée dans la
+partie 5. (Limites de l’étude 5.3).
+On peut également déterminer le taux de renouvellement horaire correspondant à l’évacuation de
+du CO2 produit par les élèves, une fois que ceux-ci quittent la classe et/ou quand les fenêtres sont
+ouvertes. On remarque que conformément au modèle, la concentration à l’état stationnaire ne dépend PAS
+de la concentration initiale à l’entrée dans la pièce : elle est identique pour la 2e heure de cours après une
+pause trop courte pour que l’ouverture des fenêtres ait permis de faire redescendre la concentration à une
+valeur proche de la concentration extérieur, 𝐶𝑒𝑥𝑡 (Figure 16).
+
+11
+
+4.2.
+
+Analyse de l’effet des termes source : jauge d’occupants
+
+Le graphique ci-dessous nous a permis de valider l’influence du nombre d’occupants de la classe
+(E1.32) pour laquelle les portes sont ouvertes sur le couloir, les fenêtres fermées et les bouches
+d’extraction d’air (VMC) fonctionnent correctement.
+
+Figure 17 : Evolution du taux de CO2 en fonction du nombre d’élèves (N), salle E1.32, portes ouvertes
+Ici, la concentration finale de CO2 (𝐶∞) est presque doublée entre 17 et 40 personnes. On confirme ainsi la
+dépendance entre concentration et effectif présent dans la classe : 𝐶∞ = 𝐶𝑒𝑥𝑡 +
+
+𝑁𝐹
+. Malgré l’ouverture
+𝑟𝑉
+
+de la salle sur le couloir, le taux maximal de CO2 autorisé (trait plein orange) est dépassé avec seulement N
+= 17 personnes. Avec 40 personnes, les capacités cognitives commencent à être altérées (ligne orange
+pointillée). Proposer des jauges d’élèves maximales serait donc intéressant pour limiter l’augmentation du
+taux de CO2 (voir CONCLUSION).
+
+4.3.
+
+Analyse de l’effet de l’aération des salles
+
+Efficacité de l’aération par les fenêtres en fin de séance
+L'aération par les fenêtres est également primordiale entre chaque heure de cours : on peut voir sur
+le graphique ci-dessous la nette différence entre la décroissance du taux de CO2 avec une fenêtre ouverte
+(courbe orange) ou seulement avec l’action des VMC (courbe bleue). De plus, le taux minimal atteint
+lorsqu’on ouvre la fenêtre est bien plus bas que celui atteint lorsqu’on ne l’ouvre pas. Ouvrir les fenêtres
+entre les différents cours permettrait donc d’éviter un taux initial de CO2 trop important pour les dernières
+heures de cours (voir CONCLUSION).
+
+12
+
+Figure 18 : Décroissance du taux de CO2 selon les modalités d’aération : fenêtres ouvertes ou non
+
+4.4.
+
+Aération des salles de classe
+
+Evaluation globale au niveau de l’établissement : Comme nous l’avons écrit plus haut, 𝑟 dépend seulement
+de la qualité de l’aération de la salle. Selon (Courty et al., 2021), la constante 𝑟 typique d’une salle de
+classe serait de 3 h-1 , correspondant à un temps caractéristique 𝜏= 1/𝑟 de 20 minutes. La moyenne
+expérimentale, correspondant la collection de toutes nos mesures sur plus de 9 salles de lycée, est
+𝑟 ≃ 1, 0 ± 0, 4 h-1, soit 𝜏 d’environ 1h. Sa dispersion est grande du fait de la diversité des tailles des salles
+dans notre établissement. On peut en conclure que l’aération de notre lycée est globalement mauvaise. Ce
+chiffre est en fait à interpréter comme une probabilité, c’est à dire que si on prend une salle au hasard, il y a
+90% de chance que ce 𝑟 se trouve entre 0,6 et 1,4 (40 min < 𝜏 < 1h40).
+Débit d’extraction
+𝑄 = 𝑟×𝑉(m3.h-1)
+
+expérimental
+lycée
+
+avec VMC seule
+
+180 ± 60
+
+VMC + portes & fenêtres ouvertes
+
+1400± 500
+
+Norme (RSD l’isère)
+N x 18 m3.h-1
+
+540 (pour 30 élèves)
+
+CO2 (ppm)
+après 2h
+1200 à 4700
+~500
+
+Pour deux salles étudiées en détail et que nous occupons fréquemment : une où la VMC ne fonctionnent pas
+(salle de maths, E2.38) et une ou elle est opérationnelle (salle de DS E1:32) (voir Figure 21) :
+Salle
+
+Volume
+(m3)
+
+1/𝑟
+VMC seule
+
+1/𝑟 : VMC
++ porte ouverte
+
+1/𝑟 : VMC + porte
++ fenêtre ouvertes
+
+𝑐∞ estimé : VMC seule
+
+E2:38 (math)
+
+162
+
+7,1 h
+
+3,5 h
+
+1 h 45
+
+25 500
+
+E1:32 (DS)
+
+233
+
+45 min
+
+20 min
+
+2 min 30
+
+2 200
+
+30 élèves
+
+La figure 19 représente le temps moyen qu’il faut pour atteindre la limite des 800 ppm en fonction du
+nombre d’élèves. On voit à quel point l’aération est insuffisante : avec 10 élèves au bout de 6 minutes, le
+13
+
+taux maximal de CO2 de 800 ppm est atteint. Sachant que les classes de notre lycée comportent jusqu’à 35
+élèves, le taux maximal est atteint en moyenne après 2 minutes (les cours durant environ 2 heures…).
+
+Figure 19 : Temps nécessaire pour dépasser les 800 ppm en fonction du nombre d’élèves
+La figure 20 représente le taux maximal de CO2 atteint en fonction du nombre d’élèves :
+
+Figure 20 : Taux maximal de CO2 atteint à l’état stationnaire en fonction du nombre d’élèves
+On constate que, compte tenu du faible taux de renouvellement horaire dans beaucoup de salles de
+l’établissement, on atteint des seuils élevés. Ainsi, pour N = 20 élèves, on atteint 1700 ppm pour les salles
+les mieux aérées de l’établissement (𝑟 élevé) et 3200 ppm pour les moins bien aérées (𝑟 faible). Cela rend
+compte de l’exposition moyenne des élèves au CO2 (et donc aux aérosols et potentiellement au virus du
+COVID).
+
+5. Limites
+5.1.
+
+Limites de validité du modèle en atmosphère homogène
+
+Si l’accord sur la valeur trouvée de 𝑟 en régime transitoire et stationnaire (établi) est excellent,
+validant ainsi les hypothèses du modèle (atmosphère homogène), nous avons remarqué que pour certaines
+salles (dont le régime d’aération est mal contrôlé - VMC défectueuse ou ventilation naturelle portes
+ouvertes sur le couloir), la modélisation obtenue par un bilan en atmosphère homogène n’est pas toujours
+satisfaisante. Nous avons voulu explorer l’origine d’un tel désaccord. Nous avons ainsi décidé de :
+
+14
+
+i) déterminer par une mesure directe la valeur de r dans les salles où un système de VMC avec plusieurs
+bouches d’extractions fonctionnelles sont présentes à l’aide d’un dispositif “fait maison” (voir Mesurer
+directement le débit d’extraction des VMC (Q)).
+ii) questionner la valeur communément admise pour le débit de production volumique du CO2 (F = 18L/h)
+(voir Métabolisme et variabilité du débit volumique de CO2 expiré (F)). Le volume V et le nombre
+d’occupants de la pièce N étant parfaitement connus, seul le paramètre biologique peut faire varier nos
+mesures. On s’est rendu compte que parfois, il fallait faire varier un même paramètres pour les deux
+régimes d’évolution : le régime transitoire et stationnaire.. Pour que la modélisation corresponde à
+l'évolution de ces expériences, il a fallu mettre en place deux équations pour les deux régimes différents, en
+faisant varier le paramètre F.
+
+5.2.
+
+Mesurer directement le débit d’extraction des VMC (Q)
+
+Grâce au dispositif fabriqué par notre laborantin (Figure 22) à partir d’un anémomètre et d’un pot
+de fleur, nous avons pu mesurer la vitesse de l’air soufflé par la VMC. Nous avons trouvé des valeurs
+différentes selon les salles, car la vitesse de l’air soufflé par certaines VMC était à 0. Dans d’autres salles
+en revanche, les VMC fonctionnaient et nous avons pu établir une moyenne : 𝑣 = 4, 4±0, 8 m.s-1. Nous
+avons ensuite mesuré la surface S d’une section du conduit de la VMC, à l’aide de la formule
+2
+
+−3
+
+𝑆 = π𝑟 = 3, 43×10 m2 ± 0, 0001 m2. La quantité d’air apportée par les VMC au cours du temps
+correspond donc au produit de la surface par la vitesse et par le nombre de VMC.
+Soit : 𝑄 = 𝑆×𝑣×𝑁
+Pour une salle dont les VMC fonctionnent (la salle E1:32), on a : 𝑄 = 216 m3.h-1 ± 40 m3.h-1.
+Cette mesure directe du débit des VMC, même s’il est possible d’être relativement précis, n’est
+cependant pas facilement exploitable. En effet, si un flux d’air est créé entre le haut d’une fenêtre ayant un
+filtre et une bouche d’aération, l’air au niveau des élèves est très peu renouvelé malgré la ventilation : l’air
+aspiré par la bouche d’aération peut provenir directement de l’extérieur. Si la porte ou les fenêtres sont
+ouvertes, la “charge” du système varie et le débit pourrait être plus élevé, même si nous n’avons pas
+mesuré de différence significative en modifiant ces paramètres de contrôle.
+
+5.3.
+
+Métabolisme et variabilité du débit volumique de CO2 expiré
+
+5.3.1.
+
+Mesure de la fraction molaire de CO2 dans l’air expiré par dilution gazeuse
+
+Nous avions besoin de déterminer la quantité ou le volume de CO2 expiré en moyenne par individu.
+Pour cela, nous avions d’abord besoin de trouver quelle fraction molaire de CO2 est présente dans l’air expiré.
+Comme vu plus haut, dans l’introduction, le CO2 représente 0,04% de l’air inspiré par un humain, et 4% de
+l’air expiré (Ligue Pulmonaire Suisse, n.d. ; Air Infiltration and Ventilation Centre (de Gids & Wouters, 2010)).
+Pour vérifier cette valeur, nous avons réalisé une expérience avec un sachet de congélation, une
+boîte “hermétique” Ikéa, le détecteur Air CO2ntrol 5000, et une paille (Figure 23). Nous avons réalisé une
+dilution gazeuse car nous ne pouvions pas mesurer directement l’air que nous expirons : en effet 4% de CO2
+correspond à 40000 ppm, ce qui est beaucoup trop pour le capteur (sa gamme de mesure ne dépasse pas
+15
+
+5000 ppm, et la loi de Beer-Lambert n’est applicable que pour de faibles concentrations). Le principe est
+simple : une personne gonfle le sac avec de l’air expiré à l’aide d’une paille et referme immédiatement (zip)
+le sac ainsi rempli. Le sac est déposé dans la boîte de dilution contenant le détecteur de CO2, qui a servi à
+mesurer la concentration résiduelle initiale dans la boîte. Une fois le couvercle refermé, un dispositif fait
+maison est actionné pour faire éclater le sac contenant l’air expiré dans la boîte. Il ne reste plus qu’à noter
+le taux de CO2 maximal atteint (après un temps d’homogénéisation de quelques minutes). Nous avons
+mesuré le volume de la boîte et le volume du sac de congélation en les remplissant d’eau et en les pesant. À
+l’aide de cela nous avons pu établir le facteur de dilution 𝐹𝑑𝑖𝑙𝑢𝑡𝑖𝑜𝑛 = 25, 6 ± 10, 6 puis la concentration
+en CO2 dans l’air que nous expirons : 𝐶𝐶𝑂 = 𝐶𝑏𝑜î𝑡𝑒× 𝐹 = 3, 9 % ±1 %. Nous avons répété l’expérience
+2
+
+avec une personne qui venait de passer plus d’une heure à l’extérieur, et qui avait même fait un effort
+physique, et nous avons obtenu : 𝐶𝐶𝑂 = 3, 6 %±1 %. Ces valeurs sont cohérentes avec celles trouvées
+2
+
+dans la littérature médicale (environ 4%). Il est prématuré avec ces deux mesures de dire si la variabilité de
+cette concentration est significative en fonction de l’activité physique, ou en lien avec d’autres paramètres
+(une longue période à porter un masque en classe, par exemple).
+
+5.3.2.
+
+Mesure de F par spirométrie
+
+Nous avons réalisé une autre expérience plus directe sur le volume de CO2 expiré par l’être humain :
+la spirométrie. Elle consiste à mesurer la fréquence respiratoire, le volume d’air produit en moyenne par
+expiration, puis de calculer le volume de CO2. Pour cela, nous avons utilisé un ordinateur (logiciel Latis Pro),
+une sonde EXAO, et un tube en plastique. Une personne respirant dans le tuyau active une “turbine” dont la
+rotation est convertie en débit d’air traversant le tuyau (Figure 24) et le logiciel calcule le volume de CO2 au
+cours du temps (par intégration). Avec environ 17 expirations par minute (durée de mesure : 2 minutes),
+nous avions un volume V d’environ 1,14 ±0,03 L d’air expiré (par expiration). Ce qui a ensuite permis de
+calculer la quantité d’air expirée Qair = 0,32 L.s-1 = 1,2 m3.h-1 en divisant par le temps d’une expiration.
+Sachant que la quantité de CO2 dans l’air est d’environ 4% (on peut vérifier ce résultat avec une autre
+expérience ; nous avions obtenu CCO2= 3,9%) nous avons pu calculer F : 𝐹 = 45 L.h-1 ± 2 L.h-1 (à 95% de
+sûreté). Cette valeur est très différente de celle obtenue avec l’autre expérience, et de celle utilisée par
+toutes nos sources. Cet écart peut être dû au fait que la respiration à travers un tuyau peut être éloignée
+d’une respiration naturelle. Par ailleurs, la variabilité de F peut être importante selon les individus, les
+conditions (si on parle ou non, si on est essoufflé ou non, selon le stress…). Notre valeur pour un individu
+unique est très précise, mais ne correspond pas forcément au volume de CO2 expiré en moyenne par un
+humain au repos assis dans une salle de classe.
+
+5.3.3.
+
+Mesure de F à l’aide de la variation massique
+
+Si vous vous êtes déjà pesés avant et après une nuit de sommeil, vous vous êtes sans doute rendu
+compte que vous êtes plus légers le matin. La plupart des personnes interrogées expliquent ce phénomène
+par le fait que nous transpirons la nuit; c’est effectivement un facteur important, mais en réalité, la perte de
+masse d’un individu est due au fait qu’il respire (MacDonald, 2018 et Nogrady, 2014). Suite aux processus
+1
+
+métaboliques (respiration cellulaire), le corps remplace environ 4 des 20 % de dioxygène O2 inspiré en CO2,
+
+16
+
+selon une réaction d’oxydoréduction aérobie. Une partie de l'élément carbone est ainsi évacué dans la
+respiration (masse molaire : O2 32 g/mol, CO2 44 g/mol). Le CO2 est plus lourd que l’O2, car il possède un
+atome de carbone supplémentaire.
+Nous nous sommes donc pesés plusieurs soirs et matins de suite, pour trouver une constante 𝐹 qui donne
+le volume d’air expiré par un individu : 𝐹 =
+
+𝑉𝐶𝑂
+
+2
+
+∆𝑡
+
+=
+
+𝑛×𝑉𝑚
+∆𝑡
+
+=
+
+∆𝑚×𝑉𝑚
+𝑀×∆𝑡
+
+, avec ∆𝑚 la variation
+
+massique, 𝑉𝑚 le volume molaire du CO2, égal à 25,2 mL à 33,85°C (moyenne de Anghel & Iacobescu, 2013),
+𝑀 la masse molaire du CO2 (d’environ 44 g.mol-1) et ∆𝑡 la durée entre les deux pesées.
+Cependant, ce calcul n’est pas parfait; en effet, lors de l’oxydoréduction aérobie des triglycérides (1), de
+l’eau est également produite et évacuée par la respiration et la transpiration :
+𝐶55𝐻104𝑂6 + 78 𝑂2 → 55 𝐶𝑂2 + 52 𝐻2𝑂
+
+(1)
+
+En faisant le bilan des masses molaires des molécules C55H10406, CO2 et H20 (loi de conservation de la
+masse), on se rend compte que 84,1% de la masse du C55H10406 est expulsée sous forme de CO2, et 15,9%
+sous forme de H20. On peut donc compléter notre formule : 𝐹 =
+
+0,841×∆𝑚×𝑉𝑚
+𝑀×∆𝑡
+
+Pour un premier individu (femme, 17 ans; 14 mesures), on a une moyenne de 𝐹 = 14, 5 ± 1 L.h-1.
+Pour un deuxième individu (femme, 17 ans; 12 mesures), on a une moyenne de 𝐹 = 18, 8 ± 0, 8 L.h-1.
+L’ENS (Courty et al., 2021), ainsi que d’autres (Isofilter, 2021 ; Courty et al., 2020) estiment le taux de CO2
+expiré par personne à environ 18 L.h-1. Si les deux premières valeurs s’approchent de ce que l’on peut lire
+dans la littérature scientifique, la dernière en est très éloignée : soit nos mesures sont extrêmement
+incertaines, soit la valeur de F varie beaucoup d’une personne à une autre.
+En effet, la respiration est moins importante la nuit (selon nos calculs théoriques (voir Variabilité
+théorique de F), 𝐹 = 10, 1 ± 0, 6 pour les femmes de 17 ans la nuit), nos balances sont peu précises, et
+on ne peut estimer la quantité d’eau perdue à travers la transpiration. En partant du constat que la nuit, le
+corps humain a besoin de rester à une température constante de 36°C, on peut en conclure que pour réguler
+sa température, le corps rejette plus d’eau qu’il n’en consomme (d’où le besoin de s’hydrater). Il est très
+compliqué d’établir avec précision la masse d’eau et de minéraux perdue à travers la transpiration.
+Selon une analyse théorique, (Figure 25) F varierait donc énormément d’un individu à l’autre : un
+homme âgé de 30 à 60 ans, pesant 85 kg, ayant une activité physique réduite (professeur exerçant sa
+profession), aura un F de 20 L.h-1. Une élève de 50 kg produira 15 L.h-1 de CO2, et un élève de 60 kg 18,6 L.h-1
+de CO2. Au lycée Europole, selon les moyennes des courbes de croissance de l’AFPA (Nouvelles Courbes de
+Croissance Des Filles Françaises / Nouvelles Courbes de Croissance Des Garçons Français - AFPA, 2018),
+𝐹 = 16, 2 ± 1, 7 L.h-1 pour des élèves de terminale, et 𝐹 = 12, 9 ± 1, 7 L.h-1 pour des élèves de
+sixième (ratio 2:1 filles garçons).
+
+5.4.
+
+Ecart à l’hypothèse d’homogénéité
+
+Pour tenter d’évaluer l’évolution spatiale du CO2, nous avons déplacé le capteur à différents
+endroits de la salle, ainsi qu’à différentes hauteurs.
+17
+
+Effet source : un coin de la pièce où il y a peu d’élèves, le taux de CO2 pourra être localement réduit.
+Il faut également faire attention à ne pas placer le capteur trop près d’un élève dans le passage d’une
+respiration. C’est une limite de l’hypothèse d’homogénéité de l’air dans la salle. La modélisation théorique
+dépasse nos compétences (diffusion d’un gaz, mouvement Brownien, équation Navier Stokes …).
+Effet sédimentation : l’air expiré par les élèves est chaud donc le CO2 monte au plafond. Nous avons
+réalisé une expérience en plaçant des capteurs à différentes hauteurs pour tenter de mesurer cet effet
+(Figure 26). Nous avons ensuite utilisé nos résultats pour créer une courbe montrant la sédimentation du
+CO2 (Figure 27) : en effet, le taux de CO2 est plus important en haut de la pièce. Notre modèle part du
+principe que le taux de CO2 est uniforme dans la salle ; le modèle utilisé n’est pas parfait mais encore une
+fois, il a l'avantage d’être maniable.
+Nous essaierons de présenter à Paris quelques expériences qualitatives illustrant les mouvements
+d’un fluide dans une pièce et de les expliquer avec des arguments simples (nombre de Reynolds).
+
+CONCLUSION
+A. Exposition au CO2 ou aux aérosols : la physique des masques
+Nous avons vu que le CO2 et les aérosols ont un même “destin” dans notre salle de classe.
+Concernant l’épidémie de COVID, nous avons un 2e allié : les masques !, dont on peut faire une analyse
+physique simple de l’efficacité. Nous considérons des masques "chirurgicaux", utilisés par la majorité des
+élèves. Nous avons pris des photos de masques avec un microscope optique (Figure 28) et un microscope
+électronique à balayage (Figure 29), (photo Clémence Gaillard, CEA stage de 3e). Nous avons estimé la
+probabilité de transmission des aérosols et gouttelettes à travers les masques (Figure 30) Si l’efficacité
+d’une épaisseur de fibre n’est que de 84%, le nombre de couches élevé (27) donne une probabilité de 0,8%
+de transmission, donc de 99% d’efficacité pour le tissu d’un masque chirurgical. L’efficacité d’usage est
+plus faible s’il est mal ajusté. On estime que l’efficacité globale est d’au moins 85%. (Courty & Kierlik,
+2020). On en conclut que les masques permettent bien d’arrêter l’intégralité des gouttelettes (plus besoin
+de distanciation sociale de 2 m donc) et l’essentiel des aérosols. Cet effet est d’autant plus efficace si à la
+fois les émetteur et récepteur potentiels d’aérosols portent des masques, ce que confirment les chercheurs
+du MIT (Louapre, 2021).
+
+B. Un nouveau protocole sanitaire au lycée Europole ?
+a. Capteurs de CO2 et capteurs Adeunis
+La première solution possible au problème serait que toutes les salles de classe soient équipées
+de capteurs de CO2 qui indiquent quand le taux est trop important. Ainsi, quand le taux de CO2 est trop élevé,
+le professeur ouvre les fenêtres et le taux reste raisonnable. Il existe également depuis quelques semaines
+dans le lycée des capteurs fournis par la région d’Auvergne-Rhône-Alpes (Figure 31), fabriqués par Adeunis,
+une entreprise basée à Voiron, en partenariat avec Advizeo (Robet, 2021). Ces capteurs mesurent le taux de
+CO2, la température et l’humidité. Le but de ces capteurs est le traitement de données sur une grande
+échelle, et nous venons seulement d’accéder aux données (le 13 janvier)..
+18
+
+b. Aérer pour mieux respirer : les VMC
+L’aération est grandement insuffisante dans le cadre du contexte sanitaire, mais aussi dans le
+cadre d’une école où les capacités cognitives doivent être optimisées. Il faut absolument aérer plus, et plus
+souvent. La solution la plus efficace serait d’aérer pendant les interclasses, pour que le taux de CO2 soit à
+son minimum (𝑐𝑒𝑥𝑡) à chaque début de cours, et que les cours à la fin de la journée ne soient pas plus
+impactés que ceux du matin. Quand la température le permet, il faut ouvrir les fenêtres ainsi que les portes
+pour que l’air se renouvelle régulièrement (il est bien entendu impensable d’ouvrir la fenêtre et de chauffer la
+salle en même temps). On pourrait éventuellement s’assurer que les VMC soient aux normes ou, si elles ne
+le sont pas, demander un financement à la région pour les changer.
+
+c. Jauges maximales de personnes
+Si malgré les mesures mises en place, l’aération est toujours insuffisante et la circulation du virus
+trop importante, alors il faut absolument mettre en place des jauges maximales de personnes à ne pas
+dépasser (modifier le paramètre N). Nous avons donc créé des “fiches d’aération” pour deux salles où nous
+avions un nombre suffisant de mesures, pour informer les professeurs sur la nécessité d'aérer.
+
+C. Démarche citoyenne : partager la science
+Après avoir tiré des conclusions de nos expériences, nous voulions partager nos connaissances avec
+d’autres. Des professeurs d’abord (UdPPC Grenoble), puis la direction. Nous souhaitons écrire un article
+pour le Young Scientist Journal. Enfin, dans le cadre du projet “Partager la Science”, nous sommes allés
+dans une classe de CM2 pour leur parler du CO2 et de l’aération. Nous leur avons fait réaliser 4 ateliers :
+1. Caractérisation du CO2 (Figure 32) : montrer comment le CO2 produit par la réaction entre le
+bicarbonate et le vinaigre étouffe la flamme de la bougie.
+2. Fonctionnement du diaphragme et des poumons (Figure 33)
+3. Différence entre l’air inspiré et expiré : avec des ballons et de l’eau de chaux (Figure 34) : celle-ci
+se trouble au contact du CO2 issu de notre respiration, et pas au contact de l’air (témoin).
+4. Mesure de taux de CO2 : qu’est-ce qu’un détecteur, comment est-il construit (détecteur Air CO2ntrol
+5000 et capteur avec ARDUINO) (Figure 35); comment ce taux dépend du lieu et le maintenir bas.
+Contexte sanitaire mis à part, il nous semble très important de sensibiliser les plus jeunes à
+l’importance d’aérer, et plus largement, à la démarche scientifique.
+
+REMERCIEMENTS
+Pour le début du projet en 2020/2021, nous tenons à remercier Thierry Griffo pour son aide
+technique avec les capteurs de CO2 ARDUINO, M. Dompnier pour les mesures qu’il a bien voulu faire lorsque
+nous étions confinés. Mme Riondet et Mme Gaillard pour leur aide dans le développement de notre projet.
+Pour la reprise en 2021/2022, nous tenons à remercier M.Martinet pour son aide extrêmement précieuse,
+ainsi que la supervision du projet, Thierry Griffo pour son ingéniosité pratique. Merci enfin aux enseignants
+qui nous ont laissé faire des mesures pendant leur cours, et la direction pour son soutien.
+
+19
+
+La démarche engagée à l’occasion d’un projet d’Enseignement Scientifique de première au
+printemps 2021 a repris cet automne suite sous forme d’Olympiades de Physique. Grâce à ces Olympiades,
+nous avons bien sûr acquis de nombreuses connaissances, mais aussi mieux appris à nous connaître. Nous
+avons aussi découvert comment une physicienne ou un physicien appréhende le monde avec persévérance
+et détermination : faire sans cesse des aller-retours entre théorie et expérience, se confronter au monde
+matériel avec des expérimentations faites parfois de “bouts de ficelle” ingénieux et à des formulations
+théoriques qui fonctionnent plus ou moins bien… Nous avons aussi découvert lors de la rédaction de ce
+mémoire que “Ce qui se conçoit bien s’énonce clairement” et les mots pour le dire n’arrivent pas toujours
+aisément. Nous avons eu un grand plaisir à participer à cette aventure humaine, en particulier de partager
+nos découvertes avec une classe de CM1/CM2.
+
+RÉFÉRENCES
+Billes de sciences. (2021). Billes de sciences #46 : Jean-Michel Courty - Mesurer le CO2 pour bien aérer
+[Video]. In YouTube. https://www.youtube.com/watch?v=Cs6rupRFXBo
+Courty, J.-M.,, Kierlik, E. & Semin, B. (2020). Bien ventiler pour bien respirer. Pour La Science, 518,
+88–90.
+Courty, J.-M., & Kierlik, E. (2020). Les masques démasqués. Pour La Science, 511, 64–66.
+Courty, J.-M., Elias, F., Maury, B., Morenton, P., Petrelis, F., & Semin, B. (2021). Savoirs ENS.
+https://savoirs.ens.fr/expose.php?id=3930
+Louapre, D. (2021). Comment réduire la transmission du COVID par les aérosols ? – Science étonnante.
+https://scienceetonnante.com/2021/04/30/covid-aerosols/
+Scott, T., & Baute, K. (2019). This is your brain on stale air [Video]. In YouTube.
+https://www.youtube.com/watch?app=desktop&v=1Nh_vxpycEA&feature=youtu.be
+Veritasium.
+(2012).
+Are
+you
+lightest
+https://www.youtube.com/watch?v=lL2e0rWvjKI
+
+in
+
+the
+
+morning?
+
+Simulateur Nous aérons : https://nousaerons.fr/aerer/index.htm
+Simulateur écoles Suisse : https://www.schulen-lueften.ch/fr/simaria
+
+ANNEXE
+BIBLIOGRAPHIE DÉTAILLÉE
+GLOSSAIRE
+
+20
+
+[Video].
+
+In
+
+YouTube.
+
+

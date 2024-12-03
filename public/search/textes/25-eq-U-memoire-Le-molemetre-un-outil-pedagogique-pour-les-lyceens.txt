@@ -1,0 +1,1085 @@
+Lycée Jean de La Fontaine
+
+Mémoire des Olympiades de Physique 2017
+
+LE MOLEMÈTRE
+Outil pour les lycéens
+
+Par Louis GRANDVAUX, Joséphine MARTIN, Thibault DORN et Juliette LAURENT
+
+Edition 2017-2018
+
+Mme GALLICE, M.Carmasol
+
+Résumé……………………………………......………3
+Introduction……………………………………...…...3
+I.
+
+Utilité et utilisation du molemètre………..…...4
+A) Réalisation du molemètre………………...…4
+a. Naissance du projet et réalisation…...….4
+b. Mode d’emploi……………………....……..6
+B) Une utilité pédagogique……………...…......6
+C) Expérience et efficacité…….......................7
+
+II. Le fonctionnement du molemètre………….10
+A) La balance………...…….…………………..10
+B) Amplificateur de cellule de chargeHX711……………………………,,,,,,,,,,,,,…….13
+C) Le processeur-ATMEGA328P……..………14
+D) Le clavier……………………………………..16
+E) L’écran………………………………………..17
+F) L’alimentation………………………………..17
+G) Le programme commenté……………….18
+Conclusion: quel avenir pour le
+molemètre?……………........................................19
+Remerciements……………………………………..19
+Bibliographie……………………………………......20
+
+Résumé
+La quantité de matière, dont l’unité est la mole, est l’une des sept unités de bases du système
+international. C’est une notion essentielle du cours de chimie, de la seconde jusqu’à la terminale,
+voire jusqu’aux études supérieures. Lors des travaux pratiques, elle est essentielle lorsque l’on doit
+prélever des espèces chimiques dans le but de faire réagir ces dernières. En effet, connaître la
+quantité de matière des réactifs va permettre d’assurer les conditions stœchiométriques, évitant
+l’excès d’un de ces derniers. Mais quel élève n’a pas rêvé d’être libéré des calculs de quantité de
+matière lors des travaux pratiques ? Nous avons donc eu l’idée d’un outil qui permettrait de donner
+la quantité de matière d’un échantillon seulement à partir de sa masse, évitant ainsi aux élèves des
+calculs.
+Cet outil, c’est le molemètre. Il s’agit d’un instrument de mesure qui a pour originalité
+l’intégration d’un programme convertissant la masse mesurée en quantité de matière. Ce nouvel
+outil peut s’avérer utile pour les laboratoires, permettant un gain de temps conséquent, mais il peut
+également être utilisé à des fins pédagogiques, rendant la notion de la quantité de matière moins
+abstraite.
+Son interface est simple d’usage, sa structure en plexiglas permet une visibilité totale sur
+l’ensemble de ses composants. Une fois les premières expériences effectuées et réussies, nous avons
+fait évoluer le prototype pour une prise en main optimale. Le molemètre est donc une solution face
+aux erreurs de calcul et sa prise en main ludique le rend accessible à tous.
+
+Introduction
+Qu’est-ce que la mole ? A quoi sert-elle ? Nous nous sommes tous posé un jour la question
+car son concept peut parfois paraître abstrait. Cette relation entre masse et quantité de matière n’est
+pas évidente et les premières approches peuvent être difficile en classe de seconde. Pour les plus
+aguerris, dans les laboratoires, la mole est une unité essentielle et le calcul de la quantité de matière
+peut parfois s’avérer répétitif. Nous nous sommes donc interrogé sur un outil permettant d’effectuer
+cette relation au même titre qu’une balance. Ainsi était née l’idée du molemètre.
+L'idée du molemètre nous est venue en seconde lorsque nous avons appris qu'il n'existait
+pas. Elle s'est ensuite concrétisée durant l'année de première pour finir aux olympiades de Physique
+en terminale. Sa réalisation fut la tâche d'une demi-année. La recherche des différents composants
+du prototype du molemètre ainsi que sa conception a dans un premier temps été réalisée par Louis.
+L'étude plus détaillée des composants ainsi que la création d'un second molemètre en plexiglas et
+d’un troisième imprimé en 3D ont été par la suite l’œuvre de tout le groupe. La chaîne globale du
+molemètre permet de comprendre les différentes étapes jusqu'à l’affichage du de la quantité de
+matière de l'échantillon. Son utilisation est semblable à une balance classique. On y ajoute
+cependant le nom de la molécule pesée est rentré grâce au clavier et sa quantité de matière en mole
+apparaît sur l’écran. Mais comment cela fonctionne-t-il ?
+
+3
+
+I. Utilité et utilisation du molemètre
+A) Réalisation du molemètre
+a) Naissance du projet et réalisation
+La construction du prototype du molemètre a été la première étape de ce projet. Le
+molemètre s’est peu à peu construit à partir de composants commandés sur internet et de guides
+permettant de les assembler. L’idée était déjà là : une balance, dont l’information est traitée par une
+carte Arduino, et un programme qui fait le lien entre l’information de la balance et celle du clavier
+où l’on indique le nom l’espèce pesée. L’instrument permet alors d’afficher la quantité de matière
+sur l'écran, en mole.
+Malgré un projet en apparence simple, de nombreux défis techniques se sont posés.
+En effet, lors de la réalisation du molemètre, des subtilités sur les composants nous étaient
+inconnues et nous avons dû nous familiariser avec chacun d’eux afin d’assurer une compréhension
+optimale de chaque fonctionnalité et ainsi assurer le bon fonctionnement de l’outil. Mais, de réels
+problèmes sont survenus lors de la construction d’un second molemètre, plus performant que le
+précédent. En effet, l’ajout d’une structure permettant au molemètre de ressembler à une balance
+pouvant être utilisée en classe, a été un réel défi lié à la difficulté de travailler le plexiglas. A cela se
+sont ajoutés des problèmes avec quelques composants électroniques défectueux.
+Le prototype du molemètre, c’est-à-dire sa première version, est formé de deux planches de
+bois, l’une pour le socle sur laquelle sont posés les différents composants et une plus petite servant
+de plateau pour la balance, sur laquelle on pose l’échantillon dont on veut déterminer la quantité de
+matière. Une breadboard (plaque de prototypage)
+permet de réaliser des circuits électroniques facilement
+car elle ne nécessite pas de soudure. Les fils appelés
+jumpers se glissent directement dans la plaque. Cela à
+l’avantage d’être modulable et de tester des circuits en
+cours de construction. Mais les différents fils et les
+résistances n’étant pas soudés, il y avait souvent des
+faux-contacts et son efficacité n’était pas optimale,
+notamment lors de la saisie de la formule chimique de l’espèce sur la clavier. Des “mises à jour” du
+molemètre, en particulier au niveau de son programme informatique ont été réalisées, de
+nombreuses fonctionnalités ont été ajoutées. Par exemple, auparavant, il nous était impossible
+d’ajouter au fur et à mesure de la matière à l’échantillon et de connaître instantanément la quantité
+de matière de l’ensemble de l’échantillon. Nous devions alors éteindre puis rallumer l’appareil à
+chaque ajout de matière et constater le changement. Grâce à cette nouvelle fonctionnalité nous
+4
+
+pouvons effectuer des mesures plus précises et ajouter ou enlever de la matière jusqu’à une valeur
+souhaitée. Des améliorations au niveau du clavier sont aussi à noter : au début nous ne pouvions
+entrer que 14 éléments différents et son utilisation était très restreinte. Grâce à une optimisation des
+touches dans le programme nous pouvons à présent ajouter les indices dans les molécules mais
+aussi entrer 27 éléments. Nous avons choisi les premiers éléments du tableau, les éléments utilisés
+en chimie organique ainsi que les métaux. Nous avons écarté les éléments radioactifs car ils ne sont
+pas utilisés en chimie.
+Dans un deuxième temps, la création d’un nouveau molemètre nous a semblé nécessaire
+dans un souci d’esthétique mais également dans la prise en main de l’appareil afin qu’il soit plus
+accessible pour des élèves de lycée. Cette fois-ci, sa construction a été menée dans l’optique d’allier
+design et ergonomie. L’électronique de ce nouveau molemètre est relativement semblable à celle de
+l’ancien. Nous avons préféré utiliser des circuits imprimés perforés pour souder directement les
+composants. Nous avons aussi remplacé la carte par un processeur directement soudé sur le circuit
+et ajouté une batterie rechargeable afin de rendre le molemètre plus pratique dans son utilisation. Un
+quartz défectueux dont avait besoin le processeur et un chargeur de batterie défaillant font partie des
+problèmes rencontrés.
+Nous avions dans un premier temps voulu réaliser la structure à l’aide d’une imprimante 3D.
+Mais la difficulté de prise en main du logiciel de modélisation 3D nous a poussé à nous tourner vers
+d'autres solutions. Nous avons finalement opté pour une structure en plexiglas, qui a l’avantage de
+laisser voir les composants internes. Sa forme particulière proche de celle d’une balance classique
+permet à l’utilisateur de retrouver un objet familier et ainsi de rendre son utilisation plus instinctive
+et donc apporter une meilleure maniabilité. Nous nous sommes donc tournés vers un assemblage
+mécanique de plaques de plexiglas à l’aide de fentes et de vis. La possibilité de pouvoir modifier les
+composants et intervenir en cas de panne fut également un facteur décisif dans le choix de la
+structure. Nous n'avons cependant pas écarté un molemètre imprimé en 3D qui aurait un rendu plus
+proche d'une qualité industrielle. C'est pourquoi nous l'avons modélisé en 3D pour l'imprimer
+prochainement.
+
+Modèle pour imprimante 3D
+
+Molemètre en plexiglas
+
+5
+
+b) Mode d’emploi
+• Allumer le molemètre grâce au bouton On/Off;
+• L’écran affiche ‘Entrez la formule chimique’ ;
+• Saisir chaque atome de l’espèce en appuyant sur la touche
+du clavier correspondante. Le clavier secondaire avec les
+espèces en bleu, est accessible quant à lui grâce au bouton
+situé à côté du clavier
+Pour ajouter un indice, à un élément il suffit d’appuyer sur
+la touche + (exemple : pour H2O, on appuie sur la touche
+H, + , O. Avec le clavier secondaire il est possible
+d’incrémenter de 5 l’indice;
+• Appuyer sur la touche Ok pour valider l’espèce;
+• La quantité de matière en mole et la masse de l’échantillon
+sont affichées en temps réel sur l’écran.
+Remarque : La tare est effectuée lorsque l’on appuie sur Ok. Par rapport à la première version, nous avons
+optimisé l’interface pour qu’elle puisse à nouveau être réalisée en appuyant sur le bouton à côté du clavier.
+On peut effacer la formule avec le bouton secondaire Ok lors de la saisie de la formule.
+
+B) Une utilité pédagogique
+La mole est une unité de mesure abordée en classe de seconde en cours de Physique-Chimie.
+Mais comment obtenir la quantité de matière d’un échantillon d’une molécule à partir d’une masse
+ou d’un volume donné ? Une série de calculs s’annonce lorsque l’on est face à ce problème, faisant
+intervenir masse molaire et concentration molaire, elles-mêmes devant parfois être calculées… Le
+molemètre est là pour optimiser le temps et épargner aux élèves certains de ces calculs durant les
+travaux pratiques. L’information cherchée est instantanée. Voici une vidéo réalisée par les élèves.
+Le molemètre a été avant tout construit dans un objectif pédagogique qui peut se révéler
+utile dans chaque classe du lycée. Dans un premier temps, il peut être utile dans les classes de lycée
+lors de prélèvements d’espèces chimiques. Il permet une meilleure visualisation de la quantité de
+matière en particulier en classe de seconde. En classe de première, pour remplir les conditions
+stœchiométriques d’une réaction, les deux espèces peuvent être prélevées à partir d’une pesée avec
+le molemètre, nous dispensant d’une balance classique. La conservation de la masse et la nonconservation de la quantité de matière deviennent donc concrètes avec celui-ci. Sa prise en main
+facile rend l’appareil accessible d’usage pour les élèves qui n’ont qu'à rentrer le nom de l’espèce,
+mettre l’échantillon sur la balance et la quantité de matière s’affiche instantanément. En évitant le
+passage par la masse des échantillons mis en relation dans la réaction, le molemètre permet un gain
+de temps et d’efficacité, notamment pour les laborantins des lycées, réalisant de nombreuses
+solutions quotidiennement.
+6
+
+Mais, ce gain de temps ne dispense pas aux élèves l’apprentissage de certains calculs, ce qui
+serait alors aux antipodes de la fonction d’un outil pédagogique. Au contraire, le molemètre permet
+la visualisation concrète de cette notion abstraite de “paquet d’entités”, correspondant à une mole
+soit 6 , 02 x 1023 entités. La définition de la mole est le nombre d’entités présentes dans 12 g de
+carbone de 12. Ainsi lorsque 12 g de carbone 12 sont posés sur la balance, le molemètre affiche 1
+mole. Afin de mettre à l’épreuve notre appareil nous sommes venus présenter à une classe de
+seconde, la notion de « la mole » qui leur était totalement étrangère. A l’aide du molemètre, les
+élèves ont alors immédiatement visualisé « la mole » comme une unité de mesure au même titre que
+le gramme. De plus, l’introduction à la masse molaire a été plus facile avec le molemètre. Nous
+avons pu montrer en direct et instantanément aux élèves que 18 g d’eau (H2O) correspondent à 1
+mole de l’espèce, car sa masse molaire est égale à 18 g⋅mol−1 .
+
+C) Expérience et efficacité
+Nous avons réalisé des mesures élémentaires avec le molemètre pour voir combien de
+chiffres significatifs étaient nécessaires pour l’affichage et évaluer sa précision.
+Nom de la
+molécule
+
+Glycérine
+
+Éthanol
+
+Saccharose (Sucre)
+
+Oxyde ferreux
+
+Formule
+
+C3H8O3
+
+C2H6O
+
+C12H22O11
+
+FeO
+
+Masse
+
+21 ,28 g
+
+26 , 07 g
+
+3 ,24 g
+
+2 ,35 g
+
+Masse molaire
+
+92 , 0938 g⋅mol
+
+Quantité de matière
+théorique
+
+0,2310mol
+
+0,5658 mol
+
+0,0095 mol
+
+0,0327 mol
+
+Quantité de matière
+mesurée sur le
+molemètre
+
+0,2532 mol
+
+0,5913 mol
+
+0,0092 mol
+
+0,0326 mol
+
+Précision dans les
+décimales
+
+0,1
+
+0,1
+
+0,001
+
+0,001
+
+Écart théorique expérimental
+
+9,58 %
+
+4,5 %
+
+2,9 %
+
+0,306 %
+
+−1
+
+46 , 0684 g⋅mol
+
+−1
+
+324 , 30 g⋅mol
+
+−1
+
+71 ,844 g⋅mol
+
+−1
+
+Avec le prototype du molemètre, nous avons réalisé dans un premier temps les mesures avec
+la glycérine et l’éthanol. Nous avons pu constater un écart important entre valeurs théoriques et
+valeurs mesurées à l’aide du molemètre. L’éthanol présente le désavantage de s’évaporer. Nous
+avons donc recalibré le molemètre afin d’obtenir de meilleurs résultats avec du sucre et de l’oxyde
+ferreux car ce sont des solides. Toutes ces expériences ont été réalisées sur le prototype du
+molemètre.
+Nous avons essayé de calculer l’incertitude du molemètre pour connaître sa précision. Dans
+un premier temps nous nous sommes intéressés à l’incertitude statistique, de type A. Ce type
+d’incertitude est lié à la fiabilité de l’appareil lorsqu’on répète de nombreuses fois une même
+mesure. Nous avons donc réalisé 20 mesures avec 200,0g, 20,0g, 2,0g puis 0,2g. Avec un affichage
+à un chiffre après la virgule de la masse la mesure réalisée avec le molemètre était toujours
+7
+
+cohérente. Nous n’avons donc pas pu calculer cette incertitude car elle est faible et il faudrait
+réaliser un très grand nombre de mesures pour la déterminer. Ils nous était aussi impossible
+d’afficher d’autres chiffres derrière la virgule car ils sont instables et nous ne pouvions donc pas les
+utiliser. Dans un second temps, nous nous sommes intéressés à l’incertitude de tolérance, de type B.
+La tolérance du capteur de la balance est de 0 , 1 g . Nous pouvons ainsi calculer l’incertitude sur la
+2 t 2×0 , 1
+masse : Um =
+=
+=0 , 12 g . Pour obtenir l’incertitude sur la quantité de matière :
+√3
+√3
+U
+n
+n
+=0 , 12 .
+avec M une constante : U =0 . Donc U =U
++(
+=
+(
+)
+)
+n √ m
+n
+m
+m
+m
+
+Un
+
+=
+
+Um 2
+
+Un 2
+
+m
+
+M
+
+n
+
+m
+
+L’incertitude sur une mesure peut donc être calculée en connaissant la masse et la quantité de
+matière.
+Lorsque l’on fait réagir une mole d’un réactif et une mole d’un autre dans les conditions
+stœchiométriques, on n’obtient pas forcément deux moles du produit de cette réaction
+1 mol+1 mol≠ 2mol . Le molemètre permet de montrer la non-conservation de la quantité de
+matière. C’est l’un de ses principaux intérêts pédagogiques. Seulement, il nous est apparu
+nécessaire de trouver une réaction afin de modéliser ce phénomène. Plusieurs critères devaient être
+pris en compte comme la réalisation d’une expérience entre deux liquides ou solides pouvant être
+faite en salle de Travaux Pratiques, avec des pertes minimes et dont la réaction soit totale. Nous
+avons choisi la réaction fer/soufre qui produit du sulfure de fer.
+Fe(s)+S(s)→FeS(s)
+Quantités de matière
+théorique(mol)
+
+Fe(s)
+
++ S(s)
+
+→ FeS(s)
+
+Initial
+
+0,170
+
+0,170
+
+0
+
+Avancement
+
+0,170 - x
+
+0,170 - x
+
+0+X
+
+Final
+0
+0
+0,170
+Nous avons constitué un mélange homogène de
+9,5 g de fer et de 5,5 g de soufre afin de remplir les
+conditions stœchiométriques. Ensuite, nous avons
+déclenché la réaction avec la flamme d’un chalumeau
+sous hotte pour éviter d’inhaler les gaz toxiques. Le
+produit obtenu au terme de la réaction chimique est le
+sulfure de fer. La quantité de matière obtenue est
+0 , 116 mol ce qui est plus faible que la valeur théorique.
+Cela s’explique par le fait que le fer et le soufre peuvent
+se consumer sans former de sulfure de fer. Le rendement est de 68 %. Nous avons refait
+l’expérience en obtenant 0 , 150 mol avec un rendement de 88 %. On peut voir que
+0 , 170 mol+0 ,170 mol≠0,340 mol mais 0 , 150 mol ce qui correspond à 0 , 170 mol avec des
+n
+0 , 150
+=0 , 001 mol .
+pertes. L’incertitude de cette mesure est U n =U m =0 , 12×
+m
+15 , 0
+Donc n FeS=0 , 150 ±0 , 001 mol .
+
+8
+
+Pb2++2I- → PbI2
+Quantités de matière
+théorique (mol)
+
+Pb2+
+
+2 I-
+
+PbI2
+
+Initial
+
+0.025
+
+0.050
+
+0
+
+Avancement
+
+0.025 - x
+
+0.050 - x
+
+x
+
+0
+
+0
+
+0.025
+
+Final
+2+
+
+Solution d’ions I- :
+Solution d’ions Pb :
+[Pb2+]=0,50mol.L-1
+[I-]=0,50mol.L-1
+VPb2+=50mL
+VI-=100mL
+2+
+Donc nPb2+=[Pb ]*VPb2+=0,025mol
+Donc nI-=[I-]*VI-=0,050mol
+Nous obtenons expérimentalement mPbI2=9,61g donc nPbI2=0,021mol. Ce qui fait un
+rendement de R=
+
+nexp
+0,021
+×100=
+×100=84 %. Cependant, on voit sur le
+n th e
+0,025
+
+produit PbI2 un dépôt blanc qui peut être synonyme d’impuretés et qui a pu
+augmenter le rendement. De plus, le résultat est moins direct que celui de la réaction FeS puisqu’il
+faut déshydrater le précipité et le laisser sécher à l’air en présence de O 2. Nous avons réalisé une
+deuxième fois l’expérience en rinçant davantage et en filtrant avec un entonnoir Büchner. Le
+résultat était plus pur mais le rendement moins bon. Nous avons obtenu : n PbI 2=0 ,012 mol ce qui
+nous fait un rendement de 48 %.
+Synthèse de l’Indigo
+Nous avons essayé de synthétiser l’indigo car c’est une réaction totale faisant
+intervenir des espèces organiques, expérience facilement réalisable dans des
+salles de TP. La formule de l’indigo est C16H10N2O2. Les réactifs sont le 2nitrobenzaldéhyde, l’acétone et des ions hydroxyde qui forment de l’indigo, des
+ions acétate et de l’eau.
+2C7H5NO3+2C3H6O+2 HO-=C16H10N2O2+2 C2H3O2-+4 H2O
+
+Malheureusement, l’indigo est recueilli dans une quantité très faible après filtration sur Büchner. Le
+rendement trop faible a rendu les résultats inexploitables.
+Réaction hydroxyde de cuivre
+Nous avons choisi de faire la réaction entre Cu2+ et 2HO-. Pour ce faire, nous
+avons dissous d’un côté 0,075mol de sulfate de cuivre(II) pentahydraté dans
+un volume de 100mL d’eau afin d’avoir 0,075mol d’ions cuivre et d’un autre
+côté 0,15mol d’hydroxyde dans un volume d’eau de 5,5mL pour obtenir 0,15
+mol d’hydroxyde. Les deux réactifs ont ensuite été mis en contact dans un
+bécher, ce qui a conduit à la formation d’un précipité bleu, l’hydroxyde de
+cuivre.
+Cu²⁺(aq)+2HO-(aq)→Cu(OH)2 (aq)
+
+Le molemètre calcule la quantité de matière en fonction de la masse d’un échantillon. Or le
+précipité étant encore humidifié, nous étions dans l’obligation d’attendre quelques jours afin de
+pouvoir mesurer la quantité de matière du produit sec. Malheureusement, après avoir mis le
+précipité dans une étuve pendant une journée, nous avons constaté qu’au contact de l’air, de l’oxyde
+de cuivre noir CuO s’était formé. Le produit n’étant plus pur, il n’était pas très exploitable par le
+molemètre.
+9
+
+II. Le fonctionnement du molemètre
+L’utilisation du molemètre est rudimentaire, équivalent à celui d’une balance classique dans
+son ensemble. La formule de la molécule pesée est rentré grâce au clavier et sa quantité de matière
+en mole apparaît sur l’écran. Mais comment cela fonctionne-t-il ? La chaîne globale du molemètre
+permet de comprendre les différentes étapes de la pesée jusqu'à l’affichage de la quantité de matière
+contenue dans l’échantillon posé sur la balance.
+
+A) La balance
+La balance du molemètre est constituée d’un socle relié à l’extrémité d’une pièce de métal à
+l’aide de boulons, qui va se déformer sous l’effet d’une contrainte. À la suite de celle-ci, les
+déformations provoquées sont enregistrées à quatre points situés au centre de la pièce de métal. À
+ces emplacements sont placées quatre jauges de déformation (figure 1). Afin d’observer leur
+disposition, nous avons ouvert une balance (figure 3).
+Une jauge de déformation (figure 2) sert à traduire une déformation en une variation de
+résistance électrique. Elle est constituée d’un circuit métallique peu épais, de l’ordre du µm , ayant
+une résistance électrique qui varie lorsqu’il subit une déformation. Lorsque la jauge est compressée,
+sa résistance augmente et lorsqu’elle est en tension sa résistance diminue. Sortir de la gamme de
+déformation élastique de la jauge risquerait de la déformer de façon permanente. Les jauges de
+
+10
+
+déformation du molemètre ne supportent pas une masse de plus 1 kg . Une masse plus importante
+entraînerait une déformation permanente et donc des mesures fausses. Il existe différents types de
+jauges. Celles utilisées dans le molemètre sont des jauges à trame pelliculaire. Ce sont celles que
+l’on retrouve majoritairement sur le marché aujourd’hui.
+
+Figure 1
+
+Figure 2 (Wikipédia sous licence CC BY-SA 2.5)
+
+Figure 3
+
+Afin de mieux comprendre leur fonctionnement, nous avons modélisé un capteur semblable
+à celui présent dans le molemètre. On fabrique alors un capteur de déformation en traçant au crayon
+graphite gras une piste résistive sur un support en papier se déformant sous l’effet d’une force, ici
+par l’intermédiaire de masses allant jusqu’à 400 g . En mesurant la résistance à l’aide d’un
+ohmmètre, on peut ainsi obtenir la variation de résistance provoquée selon différentes masses et
+recréer une balance électronique simple, conforme à celle présente sur le molemètre. Pour cela,
+nous nous sommes munis d’un élévateur, de papier bristol, d’une mine
+graphite grasse, de pinces crocodiles et d’une pince en bois, d’un
+trombone, de deux fils électriques, de masses et d’un ohmmètre. Dans un
+premier temps, on dessine à l’aide de la mine graphite grasse une piste
+résistance en spires dont la résistance électrique est de l’ordre de quelques
+centaines de k Ω . Le papier est percé sur l’avant et le trombone inséré afin
+de permettre la suspension des masses, il est ensuite fixé à l’élévateur à
+l’aide de la pince en bois. Les pinces crocodiles sont fixées aux extrémités
+de la piste résistive et reliées à l’aide de fils électriques à l’ohmmètre afin
+de mesurer sa résistance. La résistance à vide est de 442 kΩ . Puis des
+masses sont suspendues à l’aide du trombone, on observe alors la résistance varier. Les résultats
+sont présentés dans un graphique (figure 4). En réalisant d'autres modélisations, la résistance à vide
+est différente. Ces différences sont dues soit au changement de la forme de la piste résistive, car les
+spires sont plus serrées et proches, soit à une variation de l’amplitude du dessin. Une amplitude plus
+petite permettrait de se rapprocher des résistances que l’on peut trouver dans le molemètre. Pour la
+première modélisation, nous avons pu exprimer la résistance de la jauge en fonction de la masse :
+R jauge =f ( m) =129×103×m+442 , 9×10 3 avec m en kg et R jauge en Ω .
+
+Figure 4
+
+11
+
+Nous obtenons ainsi le lien entre masse et résistance. Les quatre jauges de déformation sont
+montées sur un pont de Wheatstone. En effet, ce montage est utilisé lorsque les variations sur R sont
+ΔR
+<10 %. De plus une variation de résistance est difficilement mesurable en
+R
+électronique. Un pont simple de Wheatstone (figure 5) est composé de trois résistances et d’une
+résistance variable : la jauge de déformation. Il permet de transformer la variation de résistance
+électrique en une variation de tension. La question se pose alors sur l’utilité des quatre jauges de
+déformation de la balance, si une seule permet de récupérer un résultat. Ce choix de quatre jauges
+s’explique par le fait que les variations de résistances des jauges sont faibles comme nous l’avons
+montré à travers la modélisation et, par conséquent, la variation de tension est faible aussi. Les
+quatre jauges permettent donc de de créer une variation de résistance 4 fois plus grande pour obtenir
+une plus grande variation de tension sur les sorties du pont. Les quatre jauges sont branchées sur un
+pont complet de Wheatstone (figure 6). De plus, les jauges de déformation sont sensibles à la
+température. Une température trop élevée pourrait conduire à des mesures fausses. Le pont de
+Wheatstone permet aussi de compenser les variations de résistance liées à la température ou autres
+effets parasites.
+
+trop faibles : quand
+
+Figure 5 (allaboutcircuits sous licence Design Science License)
+
+Figure 6 (allaboutcircuits sous licence Design Science License)
+
+La variation de tension à la sortie (figure 7) peut se calculer théoriquement grâce à la loi
+d’Ohm. On commence d’abord par calculer la tension sur chaque sortie :
+U AN=V A =
+
+U×R3
+
+U BN =V B =
+
+R 1+ R 3
+
+U×R 4
+R 2 +R 4
+
+Donc la différence de potentiel en sortie est obtenue par :
+Δ U=V B−V A=U BA =U
+
+( R +R R + R )
+R3
+
+1
+
+−
+
+3
+
+R4
+
+2
+
+4
+
+Lorsque le pont est équilibré, la différence de potentiel en sortie est nulle : Δ U=0 V , car les quatre
+résistances sont identiques : R 1=R 2 =R 3 =R jaugeàvide . Donc Δ U=U
+
+( 2RR − 2RR )=0 . Lorsqu’une
+
+masse vient déformer la jauge la jauge (figure 5) alors R jauge ≠R . Nous pouvons ainsi mesurer
+Δ U proportionnel à R jauge . Nous avons mesuré cette différence expérimentalement sur la balance
+grâce à un voltmètre et un générateur +5 V . Nous avons ainsi lié la masse et la différence de
+potentiel en sortie de la balance : Δ U=f ( m) =4 , 06×10−3×m−194×10−6 avec m en kg et Δ U
+en V (figure 7).
+12
+
+Figure 7
+
+Maintenant que nous avons transformé une force mécanique en différence de potentiel, il
+nous faut interpréter ce résultat.
+
+B) Amplificateur de cellule de charge - HX711
+Pour interpréter ce résultat nous avons utilisé l’amplificateur de cellule de charge de chez
+Sparkfun. C’est un circuit imprimé qui est composé principalement d’une puce : la puce HX711.
+C’est cette puce qui va se charger d’amplifier le signal et de le convertir dans un format numérique.
+L’amplification du signal se fait grâce à un amplificateur opérationnel. Elle est nécessaire
+car la tension en sortie de la balance est de l’ordre de 0,1 mV. Or le processeur utilisé pour le projet
+ne lit les tensions que par seuil de 5mV. Cette tension est donc trop faible pour être utilisable.
+L’amplificateur opérationnel est un amplificateur différentiel qui va amplifier la tension présente à
+l’une de ses deux entrées. En plus de ses deux entrées,
+l’amplificateur opérationnel possède deux entrées pour son
+alimentation en +5V et -5V. La tension des entrées d’alimentation
+va définir la valeur maximale de la tension de sortie par saturation.
+Mais ce sont les résistances qui contrôlent le gain, en effet
+G=1+
+
+R2
+. Ce montage est appelé un montage non-inverseur.
+R1
+
+L’amplificateur présent dans la puce HX711 possède un gain de 128. L’amplificateur opérationnel
+est monté avec une résistance de 127k Ω et de 1k Ω . La formule du gain de l’amplificateur
+opérationnel est G=1+
+
+R₂
+127×10³
+=1+
+=128 . On obtient en sortie une tension de 12,8 mV pour
+R1
+1×10³
+
+une tension d’entrée de 0,1mV (figure 8).
+
+Figure 8
+
+13
+
+La tension en sortie sera entre 0 et 30mV car pour 1kg on a une tension en sortie de la
+balance de : f (1 , 00 )=4,06×10−3×1 , 00-194×10 -6 =3,86×10−3 V . On multiplie cette valeur par
+128 et on obtient une valeur maximum de sortie de : 3,86×10−3×128=4 , 9 4×10−1 V . Une tension
+de sortie d’une centaine de mV n’est toujours pas interprétable par le processeur. En effet, il ne
+pourrait lire que « 5 valeurs » car son convertisseur analogique-numérique est en 10 bits : 210=1024
+U max
+5 =0 , 0049 V . Les valeurs sont donc lues par seuil de 5mV. La
+possibilités et U palier =
+=
+1024 1024
+puce HX711 possède ainsi un convertisseur analogique-numérique pour transmettre les
+informations au processeur. Un convertisseur analogique-numérique va traduire une information
+analogique, c’est-à-dire une grandeur physique représentée par une autre (ici une force représentée
+par une tension), en une information numérique, c’est-à-dire au format binaire (ici le 0 vaut 0 V et
+le 1 vaut 5 V ). Le format numérique possède l’avantage de ne pas être perturbé par les champs
+magnétiques externes. Dans le cas du molemètre, il permet aussi au processeur une grande plage de
+U
+5
+−7
+valeurs. Il fonctionne sur 24 bits : U palier = max
+= 24 =3 , 0×10 V. Ce qui nous fait 224=1 , 6×107
+24
+2
+2
+valeurs.
+Pour transmettre l’information au processeur, la puce HX11 possède deux sorties : une pour
+les données et l’autre pour l’horloge. Le fil de données va transmettre les données au format binaire
+donc soit 5 V soit 0 V . Nous pourrions alors penser qu’un seul fil serait nécessaire. Cependant
+comment le processeur peut-il faire la différence entre un 0 et trois 0 consécutifs ? C’est là que le fil
+de l’horloge va être utile. A chaque fois qu’un bit va être envoyé (un 1 ou un 0) sur le fil de données
+le fil de l’horloge va envoyer un potentiel de 5 V pour faire comprendre au processeur qu’il peut
+lire l’information.
+Nous avons maintenant une information parfaitement lisible par le processeur et précise.
+
+C) Le processeur – ATMEGA328P
+
+Figure 9 (Wikipédia sous licence CC BY-SA 2.0)
+
+Le processeur utilisé dans le molemètre est un ATMEGA328PU (figure 7). Il est fabriqué
+par la société ATMEL®. C’est un processeur 8 bits programmable possédant 28 broches. Notre
+choix s’est porté sur ce processeur car c’est le processeur présent dans la carte Arduino Uno R3. La
+carte Arduino Uno est un circuit imprimé programmable servant principalement pour le
+prototypage. Son intérêt repose principalement dans le fait que cette carte est open source, c’est-àdire que tout le monde peut voir comment la carte est faite et tout le monde peut faire sa propre
+carte à partir du modèle de l’original. C’est l’un des symboles de la révolution Do It Yourself (faîtes
+14
+
+le vous même). Un point fort de cette carte est aussi sa simplicité : elle possède des sorties pour fils
+de prototypage ce qui permet de mettre en place rapidement des circuits sans soudure, sa
+programmation se fait en C++ un langage de programmation très courant et assez simple. La carte
+possède aussi une câble USB qui permet facilement de la connecter à un ordinateur.
+La version prototype du molemètre utilise le processeur
+ATMEGA328PU sous la forme d’une Arduino Uno. Cela nous a permis
+d’avoir un premier molemètre facilement améliorable car sans soudure.
+Cela permet aussi de comprendre plus facilement comment le molemètre
+fonctionne car il possède moins de composants et donc moins de fils.
+La version finale du molemètre possède un ATMEGA328PU sous la forme standalone,
+c’est-à-dire seule. Nous avons directement soudé le processeur sur un circuit imprimé. Pour
+fonctionner ce processeur a besoin d’une horloge qui va lui indiquer à quelle vitesse le processeur
+doit exécuter les instructions. Notre choix s’est porté sur un
+résonateur céramique de 16MHz. Il présente l’avantage de ne
+nécessiter aucun composant supplémentaire contrairement à un
+quartz. La fréquence de 16MHz est la même que sur la carte Arduino
+Uno. Pour diminuer la consommation du molemètre et ainsi
+améliorer son autonomie, nous pourrions remplacer le résonateur par
+un résonateur de plus basse fréquence. Par exemple, 8MHz, la minimum étant 1MHz. L’avantage
+du processeur ATMEGA328PU dans sa version standalone est qu’il consomme moins d’énergie
+qu’une Arduino Uno car il ne possède pas de DELs. Son montage direct sur un circuit imprimé
+permet aussi de souder les autres composants directement sur le processeur.
+Le processeur est le « cerveau » du molemètre, c’est lui qui va recevoir les informations du
+clavier, du bouton et de la balance, les traiter puis les renvoyer à l’écran. Le calcul qui va permettre
+d’afficher la quantité de matière en mole à l’écran est très simple : le programme va récupérer la
+valeur de la masse molaire M grâce au clavier, puis il va récupérer la valeur de la masse m reçue
+de la balance grâce à l’équation. Grâce à ces valeurs on obtient la quantité de matière grâce la
+formule n=
+
+m
+. Toutes les autres instructions présentes dans le programme servent juste à
+M
+
+coordonner la récupération et l’affichage des données (voir partie G pour le commentaire de
+morceaux du programme). Le molemètre pourra être amélioré en intégrant la masse volumique.
+Ainsi l’utilisateur entre le volume et la masse volumique de l’échantillon et le molemètre calcule la
+ρV
+quantité de matière grâce à la formule n=
+.
+M
+
+15
+
+D) Le clavier
+Le clavier est une matrice de 16 boutons. Une matrice de
+boutons est un assemblement de bouton qui permet de les lier par
+ligne et par colonne (figure 10). Cela permet de n’avoir que 8 fils au
+lieu de 16 nécessaires avec de simples boutons. Pour savoir quel
+bouton est enfoncé, et donc quel élément l’utilisateur a choisi, on
+applique une tension aux différentes entrées et on regarde dans quelle
+sortie on récupère cette tension. On définit ainsi un bouton en
+fonction du fil d’entrée et de sortie. Ce circuit fonctionne en mode
+tout ou rien sur chaque fil : on a soit une tension de 5V soit de 0V.
+Des diodes sont présentes afin d’éviter les court-circuits.
+Cette disposition permet de réduire le nombre de fils mais 8 fils
+restent trop nombreux comparés aux 13 broches digitales du processeur,
+cela n’en laisserait que 5 pour les autres composants. C’est pour cela
+que le clavier du molemètre est monté sur un diviseur de tension.
+
+1
+2
+
+1
+2
+
+2
+
+2
+
+1
+
+1
+
+1
+
+5V
+
+2
+1
+2
+
+1
+2
+
+2
+
+2
+
+1
+
+1
+
+1
+
+R1
+4.7kΩ
+2
+1
+2
+
+1
+2
+
+2
+
+2
+
+1
+
+1
+
+1
+
+R3
+4.7kΩ
+2
+2
+
+1
+2
+
+1
+2
+
+1
+2
+
+2
+
+1
+
+R2
+4.75kΩ
+R4
+1kΩ
+1
+
+R5
+1kΩ
+1
+
+2
+
+R6
+1kΩ
+1
+
+2
+1
+2
+
+R7
+1kΩ
+
+Figure 10
+
+Figure 11
+
+Pour cela nous avons réalisé une simulation (figure 11). Ce
+montage permet donc de n’avoir qu’un seul fil en sortie avec
+une tension variant entre +5 V et 0 V . Chaque bouton
+correspond à une tension différente.
+Ainsi, afin de mieux comprendre le fonctionnement de ce
+dispositif, nous avons réalisé un montage simple constitué de
+deux résistances d’une valeur de 4 ,7 k Ω , d’un générateur
++5 V et de deux boutons poussoirs. Ceux-ci sont branchés de manière à ce que l’on puisse
+mesurer une tension différente à la sortie du circuit. La tension de sortie de circuit est la tension aux
+bornes de R 1 . Lorsqu’on actionne le premier bouton, on mesure une tension : U1=4 , 39 V .
+16
+
+Ensuite, on répète l’opération mais en actionnant cette fois-ci le deuxième bouton. On mesure une
+tension U1=2 , 30 V . Ces résultats s’expliquent grâce à la loi d’additivité des résistances, la loi des
+nœuds et la loi d’Ohm : U=R×I . On a alors U1=I×R1 et I=
+
+U
+. Donc, nous obtenons la
+R 1+ R 2
+
+R1
+U 4 , 39
+=2 ,20 V .
+. Sachant que R 2=R 1=4 , 7 k Ω , on a U1= =
+R1 +R 2
+2
+2
+Ce qui correspond au résultat de l’expérience 2 ,20 V≈2 , 30 V . Dans ce montage nous pouvons
+voir que chaque bouton possède une tension différente. Le même principe est utilisé dans le clavier
+du molemètre mais avec 16 boutons au lieu de 2. Nous avons réalisé une animation pour mieux
+comprendre le fonctionnement du clavier disponible à l’adresse suivante .
+relation suivante U1=U
+
+E) L’écran
+Pour l’affichage du résultat notre choix s’est porté sur un LCD,
+Liquid Crystal Display (Écran à cristaux liquides en français). Le LCD que
+nous avons choisi est un HD44780. C’est un LCD monochromatique qui
+possède 16 colonnes et deux lignes de « cases ». Chaque « case »permet
+d’afficher un caractère. Elles ont une définition de 5x7 pixels. Cet écran LCD
+possède l’avantage d’avoir une base de données de caractères interne. Cela
+lui permet d’afficher les caractères sans avoir à gérer chaque pixel de l’écran.
+Néanmoins un écran LCD seul nécessite 6 fils. C’est pour ça que nous avons
+couplé l’écran avec un module I²C. I²C veut dire Inter-Integrated Circuit.
+C’est un bus informatique qui permet une communication standard entre
+différents composants au niveau matériel et immatériel. Cela permet de communiquer avec
+seulement 2 fils. Nous avons encore une fois optimisé le nombre de fils comme pour le clavier.
+
+F) L’alimentation
+Le prototype du molemètre peut être alimenté de deux façons. La
+première consiste à brancher un câble USB et la seconde à brancher une pile
+9V. Mais avoir un câble USB n’est pas pratique surtout dans un laboratoire,
+le molemètre ne peut pas trop être déplacé. La pile n’est pas rechargeable ce
+qui veut dire qu’il faut la changer régulièrement et ce n’est pas une bonne
+solution pour l’environnement. Nous avons donc
+choisi pour la version finale du molemètre un système de rechargement
+avec une batterie Lithium-Polymère, plus couramment appelée Li-Po.
+La batterie à une tension de 3,7V et une capacité de 1,2Ah nominale. À
+son démarrage, le molemètre a besoin d’une intensité de 125mA pour
+fonctionner pendant quelques secondes. Il a ensuite besoin seulement de
+100mA. Cela veut donc dire que le molemètre peut tenir un peu moins de 11h sans avoir besoin
+d’être rechargé. Les mesures ont été effectuées grâce au programme contenu dans le chargeur de
+batterie.
+En ce qui concerne la connectique, le chargement se fait grâce à un port jack 3,5mm
+alimenté en 9V. La tension de 9V en entrée n’est pas très stable, c’est pour cela qu’elle est régulée à
+5V grâce au module régulateur de tension linéaire L7805CV.
+17
+
+G) Extrait du programme commenté
+Le programme est écrit en C++. Les commentaires sont écrits en gris derrière les //.
+onInput = false;
+if(KP2.Getkey()){ //On regarde s'il y a un intéraction
+}
+avec un bouton
+if(112 <= key && key <= 116){ //Touche # pour
+if(KP2.Key_State() == PRESSED){ //Si un bouton est
+incrémenter l'indice
+appuyé
+lcd.clear(); //On efface l'écran
+int key = analogRead(A0);//On lit la valeur sur la
+number++; //On incrémente l'indice
+broche analogique du clavier
+sprintf(tmpFormula, "%s%d", indiceFormula,
+number); //On initialise la formule temporaire
+if(71 <= key && key <= 75){ //Touche 0
+lcd.print(formula);
+correspondant au cuivre Cu
+lcd.setCursor(0, 1);
+updateNumber(63.546); //On appelle la fonction
+lcd.print(tmpFormula);//On affiche la formule
+qui s'occuppe de la gestion de la masse molaire
+temporaire
+sprintf(formula, "%s%s", formula, "Cu"); //On
+sprintf(tmpFormula, ""); //On remet à zéro la
+ajoute l'élément à la formule
+sprintf(indiceFormula, "%s%s", indiceFormula, " formule temporaire
+molarMass += last; //On ajoute la masse molaire du
+");
+dernier élément
+}
+secondButton = 0;
+if(63 <= key && key <= 67){ //Touche 1
+}else{ //Si ce n'est pas la touche # on affiche la
+correspondant à l'hydrogène H
+formule
+updateNumber(1.008);
+lcd.clear();
+sprintf(formula, "%s%s", formula, "H");
+lcd.print(formula);
+sprintf(indiceFormula, "%s%s", indiceFormula, "
+lcd.setCursor(0, 1);
+");
+lcd.print(indiceFormula);
+}
+Serial.print(indiceFormula);
+}
+…………….
+}
+}
+if(250 <= key && key <= 254){ //Touche D de
+}
+validation
+onTare = true; //On change de phase
+
+Cet extrait du programme est consacré à l’entrée au clavier. Il vérifie si un bouton est
+enfoncé et réalise l’action correspondante à ce bouton, comme l’ajout d’un élément à la formule
+chimique.
+void updateNumber(float M){ // Mise à jour de la masse molaire et de la formule de l'élément
+
+}
+
+last = M; //On attribue à last la valeur de la masse molaire du dernier élément
+molarMass += M; //On ajoute la masse molaire de l'élément à la masse molaire totale
+secondButton = 0;
+if(number != 1){ //On ajoute la valeur temporaire de number à la formule lorsqu'un nouvel élément est ajouté
+sprintf(formula, "%s%s", formula, " ");
+sprintf(indiceFormula, "%s%d", indiceFormula, number);
+number = 1;
+}
+
+Celui-ci est une fonction appelée à chaque fois qu’un élément est ajouté à la formule. Elle a
+pour rôle de mettre à jour cette dernière et la masse molaire ainsi que de prendre en charge l’ajout
+des indices.
+float quantity = scale.get_units() / molarMass; //On récupère la masse et on effectue le calcul du nombre de
+moles n=m/M
+float mass = scale.get_units(); //On récupère la masse
+lcd.clear();
+lcd.print(quantity, 3);lcd.setCursor(8,0);lcd.print("mol");
+lcd.setCursor(0, 1);
+lcd.print(mass, 1);lcd.setCursor(8, 1);lcd.print("g");
+
+Ce dernier correspond au calcul de la quantité de matière et de son affichage sur l’écran.
+
+18
+
+Conclusion : quel avenir pour le molemètre ?
+Les différentes évolutions de molemètre ont permis la création d’un molemètre plus
+performant essayant d’allier esthétique et pratique. Cependant de nombreuses améliorations seraient
+à considérer à l’avenir notamment sur la programmation. Nous pouvons considérer l’ajout de la
+masse volumique et du volume dans le programme, qui permettrait de travailler avec les volumes
+des espèces liquides ou encore l’ajout d’autres éléments présents dans le tableau périodique. Sa
+construction peut également être optimisée notamment dans le choix du matériau et de la découpe
+des pièces afin d’obtenir un outil se rapprochant d’un produit industriel. Serait-il possible
+d’envisager une création à plus grande échelle ? En effet, son utilité pédagogique pourrait convenir
+aux lycées, mais son attractivité serait-elle suffisante ? L’avenir nous le dira car la mole est un sujet
+d’actualité. Elle est en train d’être redéfinie par le bureau des Poids et Mesures. Une mole ne serait
+plus le nombre d’atomes contenus dans 12g de carbones 12 mais défini selon la constante
+d’Avogadro fixée à : NA =6 , 02214 1023 mol−1 . Cela permet de dissocier la mole de la masse dans
+sa définition.
+
+Remerciements
+Nous remercions Mme Gallice, professeur de physique-chimie au lycée Jean de la Fontaine
+pour nous avoir offert l’opportunité de participer aux olympiades, pour sa disponibilité et son
+soutien tout au long de ce projet. Son aide a été des plus précieuses et a été un moteur décisif dans
+l’aboutissement du projet du molemètre.
+Nous remercions également M Carmasol, laborantin du lycée, qui s’est intéressé à notre
+projet, nous a assisté dans toutes nos expériences avec bonne humeur et donné de précieux conseils.
+Nous remercions aussi Thomas Raverdy pour nous avoir aidé à comprendre le logiciel de
+modélisation 3D et nous avoir aidé à modéliser les pièces du molemètre.
+Merci aux classes de secondes et de premières auxquelles nous avons présenté le molemètre
+pour leur attention et leur intérêt pour le molemètre.
+
+19
+
+Bibliographie
+• https://www.allaboutcircuits.com/textbook/direct-current/chpt-9/strain-gauges/
+• https://domologis.fr/category/arduino-2/tutoriel-arduino-diy/arduino-diy-partie-2-montagestandalone/
+
+• https://sonelec-musique.com/electronique.html
+• https://learn.sparkfun.com/tutorials/battery-babysitter-hookup-guide
+• http://www.atmel.com/images/Atmel-8271-8-bit-AVR-Microcontroller-ATmega48A-48PA88A-88PA-168A-168PA-328-328P_datasheet_Complete.pdf
+
+•
+•
+•
+•
+•
+•
+
+https://cdn.sparkfun.com/datasheets/Sensors/ForceFlex/hx711_english.pdf
+http://playground.arduino.cc/Code/OneWireKeyPad
+http://eskimon.fr/
+https://github.com/bogde/HX711
+https://www.thingiverse.com/thing:5029
+http://www.atmel.com/images/Atmel-8271-8-bit-AVR-Microcontroller-ATmega48A-48PA88A-88PA-168A-168PA-328-328P_datasheet_Complete.pdf
+
+• http://www.homautomation.org/2014/04/03/best-ways-to-power-a-arduino-according-toyour-need/
+
+• https://www.arduino.cc/en/Hacking/PinMapping168
+• Les jauges de contrainte par Dylan Courcy et Léa Gubo, élèves de 1èreSTL
+• http://www.physchim.info/webphy/electricite_et_magnetisme/resistance_electrique/jauge_c
+ontrainte_cheap/jauge_contrainte_cheap.html
+
+20
+
+

@@ -1,0 +1,875 @@
+Voletons au gré du son !
+xxvèmes Olympiades de Physique
+
+Lycée Bertran de Born
+Périgueux
+Mathieu Peyrot, Malo Rembaud,
+Nicolas Tafzi et Anys Zoghely
+Avec l’aide de MM. Ducassou et Torrens
+
+Remerciements
+Nous tenons à remercier toutes celles et tous ceux qui ont pu nous aider et
+nous guider dans notre projet. En particulier, les personnels du lycée, venus
+nous ouvrir les portes du laboratoire de nombreuses fois pendant nos expérimentations, malgré des horaires parfois contraignants.
+Nous remercions également les membres du jury académique, et en particulier notre référent, Damien Toussaint, pour leur intérêt et leurs conseils sur
+notre travail, qui nous ont permis d’apporter des améliorations conséquentes à
+ce mémoire. Nous n’oublions pas non plus Cédric Payan (maître de conférences
+au Laboratoire de Mécanique et d’Acoustique de Marseille) qui a relu cet écrit
+et dont les conseils nous ont été très précieux.
+De la même manière, nous remercions le gérant du magasin KCE de Périgueux, qui a passé beaucoup de temps à nous expliquer les dessous de notre
+montage électronique.
+Nous adressons également nos remerciements à tous ceux qui participent à
+l’organisation des Olympiades, en particulier nos professeurs, MM. Ducassou
+et Torrens, dont l’engagement dans ce projet nous a permis d’arriver jusqu’à
+cette ﬁnale.
+
+Résumé
+La lévitation acoustique est un phénomène impressionnant et amusant à
+expérimenter, mais n’en demeure pas moins très intéressant à étudier dans
+le détail. La formation de nœuds et de ventres de vibration, causés par le
+croisement de deux ondes progressives, autorise à se croire magicien pendant
+quelques instants.̇. Le phénomène est encore plus surprenant quand on sait
+qu’il ne tient qu’à des variations de pression de quelques centièmes de pascals,
+ridicules en regard aux écrasants 105 pascals de la pression atmosphérique.
+Nous avons voulu savoir si ce fébrile phénomène était apprivoisable dans
+les conditions du lycée, dans le but de mieux le comprendre et le cerner.
+1
+
+Table des matières
+Remerciements
+
+1
+
+Résumé
+
+1
+
+Introduction
+
+3
+
+I
+
+Ondes sonores
+4
+I.A Présentation générale . . . . . . . . . . . . . . . . . . . . . . . . 4
+I.B Ondes stationnaires . . . . . . . . . . . . . . . . . . . . . . . . . 6
+I.B.1 Présentation . . . . . . . . . . . . . . . . . . . . . . . . . 6
+I.B.2 Modélisation théorique . . . . . . . . . . . . . . . . . . . 7
+I.B.2.a Équation de D’Alembert . . . . . . . . . . . . . 7
+I.B.2.b Étude de la réﬂexion . . . . . . . . . . . . . . . 8
+I.B.2.c Expression de ψ . . . . . . . . . . . . . . . . . 9
+I.B.3 Position des nœuds . . . . . . . . . . . . . . . . . . . . . 11
+I.B.4 Modélisation informatique d’une onde stationnaire . . . . 11
+
+II Expérimentation de la lévitation acoustique
+13
+II.A Matériel . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 13
+II.A.1 Transducteur ultrasonique . . . . . . . . . . . . . . . . . 13
+II.A.2 Alimentation du transducteur . . . . . . . . . . . . . . . 14
+II.B Mise en place de l’expérience . . . . . . . . . . . . . . . . . . . . 15
+II.B.1 Lévitation de polystyrène . . . . . . . . . . . . . . . . . 15
+II.B.2 Lévitation de liquides . . . . . . . . . . . . . . . . . . . . 16
+Conclusion
+
+18
+
+2
+
+Introduction
+L’idée de travailler sur la lévitation acoustique est née en regardant une
+vidéo sur YouTube [1] montrant un professeur de Harvard présentant le phénomène en faisant léviter des boules de polystyrène et des gouttes d’eau. Ce
+phénomène intrigant et amusant nous a donné envie d’en savoir plus et de
+mettre en place un dispositif permettant de le réaliser. C’est donc avec ce
+projet que nous nous sommes lancés dans les olympiades de physique, avec le
+soutien de nos professeurs de physique et de chimie, MM. Torrens et Ducassou.
+La lévitation de manière générale correspond à la neutralisation du poids
+d’un objet grâce à une force au moins aussi importante que celle exercée par la
+gravité, tout ceci sans contact physique. Diverses formes de lévitation existent :
+magnétique (la plus répandue et la plus connue), électrohydrodynamique (au
+moyen de hautes tensions électriques pour mettre des ﬂuides en mouvement)
+ou acoustique (utilisant les ondes sonores).
+Ce dernier type de lévitation est le moins connu des trois et pourtant un
+des plus étonnants. Les premières recherches à son sujet on été réalisées par le
+physicien anglais John William Strutt Rayleigh (1842-1919), il y a maintenant
+plus d’un siècle. En eﬀet, il a rédigé une théorie sur la résonance et un traité
+sur le son qui ﬁrent de lui une référence en acoustique. The theory of sound [2]
+a longtemps servi de référence. Plus récemment, des chercheurs de l’ETHZ
+(Eidgenössische Technische Hochschule Zürich, l’école polytechnique fédérale
+de Zurich) sont parvenus à manipuler de manière précise des objets en lévitation comme des gouttelettes de liquide, des petites boules en acier ou encore
+un cure-dents. Grâce à leur système, ils ont pu réaliser des mélanges (eau et
+sodium par exemple). Ces recherches ont été publiées dans la revue Proceeding
+of the National Academy of Sciences en juillet 2013 [3]. La prouesse a pu être
+repétée par une équipe de l’université de São Paulo [4], cette fois en permettant
+le déplacement du transducteur (et donc celui des objets en lévitation).
+Ce phénomène n’est pas seulement amusant, il oﬀre de nouvelles possibilités dans les années à venir quand à la manipulation d’échantillons dans les
+laboratoires de recherche, avec la possibilité de réaliser des réactions spéciﬁques isolées de tout contact, et donc d’éviter des contaminations à cause de
+la verrerie utilisée, ou encore de manipuler des produits dangereux ou sensibles
+dans les domaines de l’industrie pharmaceutique ou de l’ingénierie chimique.
+Notre objectif est de parvenir à faire léviter des faibles masses, telles que
+de polystyrène, des gouttes de liquides voire même des petits objets.
+3
+
+Chapitre I
+
+Ondes sonores
+I.A
+
+Présentation générale
+
+Une onde acoustique est produite par la vibration d’un objet matériel. Dans
+l’air, il peut s’agir par exemple de la peau d’un tambour, des cordes vocales
+d’un chanteur ou bien encore de la membrane d’un haut-parleur. La vibration
+de cette source produit une légère surpression qui, pour le milieu dans lequel
+elle se trouve, est une perturbation locale. Cette perturbation va ensuite se
+propager dans le milieu de proche en proche. Cette perturbation se déplaçant
+dans le milieu forme ainsi une onde mécanique si le milieu est matériel.
+Il existe deux principaux types d’ondes : les ondes transversales et les ondes
+longitudinales. Une onde est dite transversale si les particules composant le
+milieu de propagation oscillent dans une direction perpendiculaire à la direction
+de propagation de l’onde (ﬁg. I.1). C’est par exemple le cas lors de la vibration
+d’une corde, ou pour les vagues à la surface de l’eau. Sinon, les particules
+vibrent dans la même direction que la propagation de l’onde, l’onde est alors
+qualifée de longitudinale (ﬁg. I.2). Dans le cas d’une onde sonore, onde qui est
+systématiquement longitudinale, nous mesurons l’amplitude de la variation de
+l’onde par la pression acoustique, exprimée en pascals (Pa). Pour donner un
+ordre de grandeur, la variation de pression causée par une personne parlant
+normalement à un mètre de distance de son interlocuteur est d’environ 10-2
+Pa, soit environ 107 fois moins que la pression atmosphérique au niveau de la
+mer.
+Toutes les ondes peuvent être caractérisées par certains paramètres, en
+particulier leurs périodes spatiale et temporelle, qui illustrent donc la double
+périodicité du phénomène ondulatoire.
+— La période spatiale, appelée longueur d’onde, équivaut à la distance λ
+parcourue par l’onde pendant une durée égale à la période temporelle
+T . La longueur d’onde s’exprime en mètres (m).
+— La période temporelle équivaut, en un point x ﬁxé de l’espace, à la
+plus petite durée séparant deux reproductions identiques du phénomène
+ondulatoire. Elle s’exprime en secondes (s).
+4
+
+Voletons au gré du son !
+
+Lycée Bertran de Born
+
+Figure I.1 – Perturbation causée
+par une onde transversale.
+
+Figure I.2 – Perturbation causée
+par une onde longitudinale.
+
+Les périodes spatiale et temporelle sont reliées par la vitesse de propagation
+(ou célérité) v de l’onde, avec λ = v × T .
+Les ondes sonores d’une fréquence comprise entre 20 Hz et 20 kHz sont
+les ondes audibles par l’être humain. Elle possèdent donc une longueur d’onde
+comprise entre 1.7 × 101 m et 1.7 × 10−2 m. Au-delà de cette limite de 20 kHz,
+les ondes sonores sont appelées ultrasons. Cette dénomination vaut jusqu’à la
+fréquence de 1 GHz, à partir de laquelle les sons sont appelés hypersons. En
+dessous de 20 Hz, ces ondes sonores également inaudibles pour l’Homme sont
+qualifées d’infrasons.
+Parmi les ondes acoustiques se distingue la famille très particulière des
+ondes sinusoïdales : il s’agit du modèle ondulatoire le plus simple qui puisse
+être imaginé, une oscillation régulière et sans atténuation autour d’une valeur
+moyenne. Le son produit par cette onde est aussi appelé « son pur ». Pour
+étudier ces ondes, il est nécessaire de considérer d’autres grandeurs :
+— L’amplitude de déplacement A, pouvant être mesurée dans diférentes
+unités dépendant des caractéristiques de l’onde étudiée, est dans le cas
+d’ondes mécaniques l’écart maximal que parcourt une tranche d’air par
+rapport à sa position d’équilibre. Par exemple, si cette particule se déplace entre les valeurs x0 et −x0 , alors l’amplitude est égale à 2x0 . Dans
+les paragraphes suivants, cette amplitude sera notée A0 . Dans le cas
+d’ondes acoustiques, l’amplitude de l’onde de pression est la diférence
+de pression acoustique entre la surpression et la dépression, exprimée
+en pascals (Pa).
+— La fréquence est déﬁnie comme le nombre d’oscillations de l’onde dans
+un intervalle de temps donné. Elle se note f et se mesure donc en
+oscillations par seconde, exprimées en hertz (Hz), équivalents des s-1 .
+Celle-ci est l’inverse de la période temporelle T , soit f = T1 . Il est
+également possible d’utiliser une autre grandeur nommée pulsation, qui
+correspond à la vitesse angulaire qu’aurait un objet en rotation à la
+même fréquence. La pulsation ω est donnée par la relation ω = 2πf et
+s’exprime en radians par seconde (rad.s-1 ).
+5
+
+Voletons au gré du son !
+
+Lycée Bertran de Born
+
+— Nous utiliserons également dans cet écrit le nombre d’onde noté k, déﬁni
+par la relation k = 2π
+. Il s’exprime en radians par mètre (rad.m-1 ).
+λ
+Une onde est généralement représentée dans un graphique en deux dimensions,
+avec en abscisse le temps t ou la position x dans l’espace, et en ordonnée y le
+déplacement d’une tranche d’air par rapport à sa position au repos, c’est-à-dire
+en l’absence de propagation d’onde acoustique. Un graphique de ce type est
+présenté dans le paragraphe suivant, avec (x, y(x)) pour repère (ﬁg. I.3).
+
+I.B
+
+Ondes stationnaires
+
+I.B.1
+
+Présentation
+
+Une onde stationnaire peut être formée lorsque plusieurs ondes de même
+nature possédant la même amplitude et la même fréquence, mais se propageant
+dans des sens opposés, se rencontrent. Cette situation peut notamment être
+obtenue lors de la réﬂexion d’une onde sur une paroi (ﬁg. I.3). L’amplitude de
+l’onde stationnaire pour tous x et t de l’espace et du temps est alors obtenue
+par la somme des deux ondes incidente et réﬂéchie.
+
+Figure I.3 – Série de graphiques montrant l’évolution de l’intensité d’une
+onde stationnaire en fonction de l’espace et du temps (les ondes verte et bleue
+se déplacent respectivement vers la droite et la gauche).
+Selon la position de ce point dans l’espace, les ondes peuvent être en phase
+(ﬁg. I.3, pour t = 2) ou en opposition de phase (ﬁg. I.3, pour t = 0). Dans
+ce premier cas, l’amplitude est maximale : nous pouvons mettre en évidence
+des ventres et des nœuds de vibration. Dans le second cas, les deux ondes
+s’annulent, l’amplitude est nulle quel que soit le point observé.
+
+6
+
+Voletons au gré du son !
+
+Lycée Bertran de Born
+
+I.B.2
+
+Modélisation théorique
+
+I.B.2.a
+
+Équation de D’Alembert
+
+On appelle équation de D’Alembert unidimensionnelle, ou « équation d’onde
+à une dimension », toute équation aux dérivées partielles de la forme suivante :
+∂2ψ
+1 ∂2ψ
+−
+= 0.
+(E.1)
+∂x2
+v 2 ∂t2
+Elle décrit la variation dans le temps d’un phénomène ondulatoire par un terme
+2
+2
+spatial ∂∂xψ2 et un terme temporel ∂∂tψ2 . Dans cette équation, v est la vitesse
+de propagation des ondes progressives constituant l’onde stationnaire. Nous
+allons dans ce paragraphe montrer qu’une onde stationnaire vériﬁe l’équation
+de d’Alembert et qu’elle peut s’écrire de la manière suivante :
+ψ(x, t) = 2A0 sin(kx) sin(ωt).
+
+(E.2)
+
+Calculons alors les dérivées partielles de ψ selon x et t :
+ψ(x, t) = 2A0 sin(ωt) sin(kx)
+ψ(x, t) = 2A0 sin(kx) sin(ωt)
+∂ψ
+∂ψ
+= 2A0 sin(ωt) · k cos(kx)
+= 2A0 sin(kx) · ω cos(ωt)
+∂x
+∂t
+∂2ψ
+∂2ψ
+= 2A0 sin(ωt)k · (−k sin(kx))
+= 2A0 sin(kx)ω · (−ω sin(ωt))
+∂x2
+∂t2
+= −k 2 · 2A0 sin(ωt) sin(kx)
+= −ω 2 · 2A0 sin(kx) sin(ωt).
+
+En les injectant dans l’équation de d’Alembert (E.1), nous trouvons :
+0=
+
+∂2ψ
+1 ∂2ψ
+−
+∂x2
+v 2 ∂t2
+
+1
+(−ω 2 ) · 2A0 sin(kx) sin(ωt)
+2
+v
+
+
+1
+2
+2
+= 2A0 sin(kx) sin(ωt) −k − 2 (−ω )
+v
+
+
+1
+= ψ(x, t) −k 2 − 2 (−ω 2 )
+v!
+2
+ω
+0 = ψ(x, t)
+− k2 .
+v2
+= −k 2 · 2A0 sin(ωt) sin(kx) −
+
+Et cette dernière relation est réductible à une simple équation produit-nul,
+dont le premier facteur ψ(x, t) ne peut être nul pour tous x et t (sinon, aucune perturbation n’aurait lieu, nous ne pourrions donc pas parler d’onde). Le
+second facteur est factorisé par identité remarquable :
+ω2
+− k2 = 0
+v2
+ω 2
+− k2 = 0
+v
+
+
+
+ω
+ω
++k
+− k = 0.
+v
+v
+
+
+
+
+7
+
+Voletons au gré du son !
+
+Lycée Bertran de Born
+
+Or, cette équation étant également un produit nul, nous conservons uniquement le facteur ωv −k, l’autre menant à une solution physiquement inacceptable
+(une des grandeurs négative, ce qui n’est pas possible) :
+
+
+ω
++k
+v
+
+
+
+ω
+−k =0
+v
+ω
+−k =0
+v
+ω = kv
+
+
+Nous retrouvons la relation de dispersion, liant la pulsation ω d’une onde
+à son nombre d’onde k et à sa vitesse v.
+Ainsi, la fonction ψ est solution de l’équation de D’Alembert seulement si
+la dernière égalité est vraie, ce qui est le cas dans tous les milieux non dispersifs
+(comme l’air pour les ondes acoustiques). Cette condition étant vériﬁée, nous
+pourrons utiliser l’expression E.2 dans nos calculs par la suite.
+I.B.2.b
+
+Étude de la réﬂexion
+
+Une autre condition à la formation d’un système d’ondes stationnaires est la
+réﬂexion totale (ou quasiment totale) de l’onde incidente. En eﬀet, les nœuds de
+vibration (endroits où la vibration résultante est nulle) ne peuvent apparaître
+que lorsque les deux ondes sont en permanence en opposition de phase et
+d’amplitude égale, à défaut de ne provoquer toutes les deux une perturbation
+nulle . Nous devons donc démontrer que les amplitudes des ondes incidente et
+réﬂéchie sont, sinon égales, extrêmement proches.
+Pour cela, nous devons étudier la valeur du cœﬃcient de réﬂexion r s’appliquant à l’onde réﬂéchie ψr . Il dépend des impédances Zair et Zverre respectives
+du milieu de propagation et de la surface de réﬂexion, exprimées en pascalssecondes par mètres 1 (Pa.s.m-1 ). Ces valeurs sont données par la relation liant
+la masse volumique ρ du milieu et la vitesse de propagation v du son dans
+celui-ci :
+Z = ρ · v.
+Les valeurs trouvées dans le Handbook of Compressed Gases [5] et dans l’ouvrage Matériaux [6] nous donnent :
+ρair = 1, 2 kg.m-3
+vair = 343, 4 m.s-1
+-3
+
+
+ ρverre = 2500 kg.m
+
+vverre = 5300 m.s-1
+
+
+
+
+
+
+Soient les impédances respectives Zair et Zverre suivantes :
+Zair = 1, 2 × 3, 43 × 102
+= 4, 1 × 102 Pa.s.m-1
+
+Zverre = 2, 5 × 103 × 5, 3 × 103
+= 1, 325 × 107 Pa.s.m-1
+
+1. Cette unité est parfois appelée le rayl, en l’honneur de John William Strutt Rayleigh,
+déjà cité en introduction.
+
+8
+
+Voletons au gré du son !
+
+Lycée Bertran de Born
+
+Comme Zverre ≫ Zair , on peut donc considérer cette approximation :
+r=
+
+Zair − Zverre
+−Zverre
+≈
+Zair + Zverre
+Zverre
+≈ −1 (±10−4 ).
+
+Ce cas fait partie des « cas limites » particuliers. Si r = −1, l’onde se
+réﬂéchit totalement sans aucune perte (l’amplitude de l’onde réﬂéchie équivaut
+à celle de l’onde incidente), en changeant de signe pour les déplacements et
+à l’identique pour les pressions. Mathématiquement, cela se traduit par une
+inversion du signe devant ω et un déphasage de π dans l’expression de l’onde
+réﬂéchie.
+I.B.2.c
+
+Expression de ψ
+
+Dans ce paragraphe, nous allons montrer qu’un système d’ondes stationnaires ne peut apparaître que dans certaines conditions. En particulier, nous
+montrerons que deux ondes progressives se propageant dans des sens opposés
+avec un certain déphasage sont nécessaires.
+
+Figure I.4 – Schéma explicatif pour la mise en équation des ondes
+Soit une onde progressive incidente longitudinale, se propageant dans une
+seule dimension vers le point P (représentée sur le schéma ﬁg. I.4). Elle produit au point M une perturbation dans le sens de l’axe XX ′ dont l’intensité
+(dépendant du temps et de la position du point M ) est donnée par la relation :
+ψi,M (x, t) = A0 cos(ωt − kx)
+Après avoir atteint la surface de réﬂexion en x = xp , l’onde est réﬂéchie 2 puis
+fait subir au point M une seconde perturbation d’intensité
+ψr,M (x, t) = A0 cos(ωt + kx + φ)
+2. La réflexion est considérée comme totale, grâce aux résultats obtenus en I.B.2.b.
+
+9
+
+Voletons au gré du son !
+
+Lycée Bertran de Born
+
+qui se propage cette fois dans le sens négatif de XX ′ . Ici, φ correspond au
+déphasage de l’onde réﬂéchie.
+Sous l’action de ces deux ondes, le point M subit alors une perturbation
+ψM résultante des deux perturbations précédentes, soit :
+ψM (x, t) = ψi,M (x, t) + ψr,M (x, t)
+= A0 cos(ωt − kx) + A0 cos(ωt + kx + φ)
+= A0 [cos(ωt − kx) + cos(ωt + kx + φ)]
+"
+
+!
+
+!#
+
+φ φ
+φ
+φ
++ cos ωt + kx + +
+= A0 cos ωt + − kx −
+2
+2
+2 2
+"
+!
+!
+!
+!
+φ
+φ
+φ
+φ
+= A0 cos ωt +
+cos kx +
++ sin ωt +
+sin kx +
+2
+2
+2
+2
+!
+!
+!
+!#
+φ
+φ
+φ
+φ
++ cos ωt +
+cos kx +
+− sin ωt +
+sin kx +
+2
+2
+2
+2
+!
+!#
+"
+φ
+φ
+= A0 2 cos ωt +
+cos kx +
+2
+2
+!
+!
+φ
+φ
+cos kx +
+.
+ψM (x, t) = 2A0 cos ωt +
+2
+2
+Or, le résultat trouvé en I.B.2.b nous donne φ = π, ce qui nous permet d’écrire :
+ψM (x, t) = 2A0 sin (ωt) sin (kx) ⇔ (E.2)
+Nous retrouvons ici une expression mathématique équivalente à (E.2). Le point
+M est donc pris dans un système d’onde stationnaire, les variables d’espace
+et de temps sont découplées. Ceci nous montre bien que le point M a un
+état vibratoire indépendant du temps. Nous remarquons enﬁn que l’amplitude
+maximale de la vibration selon la position de M est 2A0 , soit le double du
+signal incident.
+Lors de la réﬂexion de l’onde à l’extrémité du milieu de propagation, un
+déphasage se produit entre onde incidente et onde réﬂéchie. Dans notre cas,
+la réﬂexion est supposée totale (cf. I.B.2.b). La surface réﬂechissante ne subit
+alors aucune perturbation, et on peut donc écrire pour le point P situé à
+l’interface entre le milieu de propagation et la surface réﬂechissante :
+ψP (t) = 0
+ψi,P (t) + ψr,P (t) = 0
+A0 cos(ωt − kxP ) + A0 cos(ωt + kxP + φ) = 0
+A0 cos(ωt) = −A0 cos(ωt + φ)
+cos(ωt) = − cos(ωt + φ).
+Cette dernière égalité n’est valable que pour φ = π [2π]. Nous observons
+un phénomène de période 2π, donc nous ne conservons que π comme valeur de
+10
+
+Voletons au gré du son !
+
+Lycée Bertran de Born
+
+φ. Ce résultat rejoint celui établi en I.B.2.b sur le déphasage entre les ondes
+incidente et réﬂéchie, et conﬁrme à nouveau l’expression (E.2).
+Nous concluons ce paragraphe en ajoutant que nous obtiendrons donc un
+système d’onde stationnaire uniquement si nous adaptons convenablement la
+distance entre la source et la plaque où se fait la réﬂexion. En eﬀet, nous avons
+des « conditions aux limites » : la vibration est nulle aux extrémités du milieu
+de propagation (transducteur et surfaace réﬂéchissante). On observe donc un
+nœud à ces deux points. Le système d’ondes stationnaires se retrouvant donc
+nécessairement entre deux nœuds, il comporte un nombre entiers de ventres,
+et sa longueur est donc multiple de la moitié de la longueur d’onde (cf. E.3),
+comme nous allons le démontrer dans le paragraphe suivant.
+
+I.B.3
+
+Position des nœuds
+
+Les nœuds sont déﬁnis comme les points de l’espace de propagation où
+l’amplitude de vibration est toujours nulle. Ils peuvent donc être déﬁnis comme
+l’ensemble des points vériﬁant :
+∀t, ψ(x, t) = 0
+sin(kx) = 0
+kx = nπ, n ∈ N
+π
+x=n .
+k
+, il vient :
+Or, comme par déﬁnition, k = 2π
+λ
+x = n πk
+λ
+= nπ × 2π
+= n λ2
+
+(E.3)
+
+Ce résultat montre que tous les nœuds sont distants de λ2 m, autrement dit,
+qu’il existe un nœud toutes les demi-longueurs d’onde. Ces points présentent
+un intérêt tout particulier, puisque c’est à l’intérieur de ceux-ci que les objets
+en lévitation trouveront un équilibre leur permettant de compenser leur poids.
+
+I.B.4
+
+Modélisation informatique d’une onde stationnaire
+
+Les résultats précédemment détaillés peuvent être utilisés dans un logiciel
+de géométrie dynamique (ici, GeoGebra) pour modéliser une onde stationnaire.
+En entrant les fonctions ψi , ψr et ψ, puis en créant des curseurs pour les
+diﬀérentes variables t, ω, k, et φ, nous obtenons une représentation graphique
+de l’intensité de la perturbation causée par l’onde en fonction de l’abscisse x
+du point observé (ﬁg.
+Bien que ce modèle soit très simpliﬁé, voire simpliste, il est cependant
+adapté à notre expérience, qui utilisera des signaux sinusoïdaux très semblables
+11
+
+Voletons au gré du son !
+
+Lycée Bertran de Born
+
+à ceux simulés. D’autre part, l’étude des séries de Fourier nous apprend que
+tout signal périodique peut être interprété comme une superposition de plusieurs signaux sinusoïdaux simples. Ce type de modèle pourrait alors être utilisé
+pour des situations plus complexes.
+Par ailleurs, le fait que la fonction ψ soit une fonction à deux antécédents
+permet de la représenter comme une application qui associe à tout point du
+plan un point de l’espace. On peut donc la représenter pour tous x et t. Cette
+représentation (ﬁg. I.5) permet une meilleure appréciation de la double périodicité de l’onde, temporelle et spatiale.
+
+Figure I.5 – Modélisation en 3 dimensions des ondes sur GeoGebra
+
+12
+
+Chapitre II
+
+Expérimentation de la
+lévitation acoustique
+II.A
+
+Matériel
+
+II.A.1
+
+Transducteur ultrasonique
+
+Pour générer les ondes sonores progressives nécessaires à la mise en place de
+l’onde stationnaire, nous utilisons un transducteur ultrasonore. Un transducteur est un dispositif permettant de convertir un signal physique en un autre :
+par exemple, la rétine est un transducteur transformant un signal optique en
+un signal nerveux.
+Le transducteur sonore utilise le principe de la piézoélectricité pour convertir un signal électrique (une variation de tension) en ondes sonores (variation
+de pression). La piézoélectricité est un phénomène permettant à certains matériaux 1 de produire un signal électrique lorsqu’ils sont déformés, et réciproquement, de se déformer lorsqu’un courant électrique leur est appliqué. Il s’explique par la structure des matériaux en question : ce sont des solides ioniques,
+dont les barycentres de charges positives et négatives se superposent à l’échelle
+microscopique, donnant un solide globalement neutre. Pourtant, lorsque le matériau est déformé, l’organisation régulière des ions est déformée également et
+les barycentres de charge se déplacent. Ils ne sont alors plus superposés et une
+polarisation du matériau a lieu : il devient alors un dipôle élémentaire.
+Au niveau macroscopique, cela se traduit par des faces du solide chargées
+positivement ou négativement. Ainsi, le matériau piézoélectrique fournit une
+énergie électrique en réponse à la contrainte : celle si s’exprime en coulombs
+par newton (C.N-1 ). Le phénomène opposé (dit eﬀet piézoélectrique inverse)
+peut également se produire : lorsque nous appliquons une tension aux extrémités d’un solide piézoélectrique, l’organisation ionique de celui-ci est modiﬁée
+et celui-ci se déforme. C’est l’eﬀet utilisé par le transducteur sonore, qui, en
+1. Dits « piézomatériaux ».
+
+13
+
+Voletons au gré du son !
+
+Lycée Bertran de Born
+
+se déformant de manière périodique (grâce à l’application d’une tension alternative sur le piézomatériau), émettra des ondes sonores de fréquence égale à
+celle du signal alternatif avec lequel il est déformé.
+Le choix de la fréquence utilisée repose en particulier sur un critère matériel,
+et un autre plus souple, mais néanmoins important :
+— Empiriquement, nous avons constaté des vibrations du transducteur
+lorsqu’une tension alternative de 28,028 kHz était appliquée à ses bornes.
+La lévitation semblait dans ces moments plus eﬃcaces. Nous en avons
+déduit que cette fréquence devait être la fréquence à laquelle le transducteur entre en résonance, démultipliant ainsi l’amplitude de l’onde
+(dans la mesure où l’ampliﬁcateur fournit une puissance suﬃsante).
+— Des considérations plus triviales de confort et de sécurité nous ont
+amené vers les ultrasons, pour éviter un son continu tout au long des
+manipulations, pouvant se révéler dangereux pour l’audition et fortement désagréable.
+
+II.A.2
+
+Alimentation du transducteur
+
+L’alimentation de notre dispositif se fait par courant alternatif, d’une fréquence correspondant à la fréquence de l’onde sonore désirée. Ici, nous utilisons
+un générateurs de fonctions périodiques. Le signal de sortie correspond à une
+tension sinusoïdale d’amplitude 4,24 V (soit une tension eﬃcace de 1,46 V).
+Cela ne permettait d’obtenir qu’une faible puissance, insuﬃsante pour créer
+une onde stationnaire capable de maintenir des objets en lévitation. Il nous a
+donc fallu rechercher un moyen d’ampliﬁer le signal en sortie du générateur.
+Après plusieurs essais utilisant diﬀérents composants de chaîne hi-ﬁ, de
+chargeur d’ordinateur, la solution nous est venue de l’utilisation d’un ampli de
+guitare. En branchant le générateur directement sur l’entrée jack 6,35 mm (au
+moyen d’une soudure sur la prise mâle) et en récupérant ainsi le signal ampliﬁé
+à la sortie du composant dédié à cet eﬀet dans l’ampli, nous obtenions notre
+signal ampliﬁé.
+Ce modèle d’ampliﬁcateur (Fender Frontman 15R) fonctionnant avec des
+transistors, son fonctionnement est assez diﬃcile à appréhender. L’étude du
+schéma électronique (ﬁg.
+Cet ampliﬁcateur nous permet d’obtenir en sortie un signal sinusoïdal d’une
+amplitude de 39,0 V (soit une tens. eﬀ. de 18,7 V), cette fois suﬃsante pour
+faire léviter de petits objets comme nous le verrons dans la section suivante.
+Pourtant, le signal à 28,028 kHz que nous lui appliquons en entrée est bien en
+dehors de sa bande passante (en théorie plus proche du spectre de l’audible),
+son eﬃcacité s’en retrouve donc probablement réduite.
+
+14
+
+Voletons au gré du son !
+
+Lycée Bertran de Born
+
+II.B
+
+Mise en place de l’expérience
+
+II.B.1
+
+Lévitation de polystyrène
+
+Pour mettre en place la lévitation, deux ondes progreesives sont nécessaires. Puisqu’à cette époque nous n’avions qu’un seul transducteur à disposition, nous avons d’abord placé une plaque rigide en verre face au transducteur (lui-même dirigé vers le haut) pour exploiter la réﬂexion de l’onde émise
+(cf. I.B.2.b). Le schéma de ce premier montage est donné en annexe (ﬁg.
+Pour qu’une onde stationnaire se forme, il est nécessaire que la distance
+entre le transducteur et la plaque réﬂéchissante soit un multiple entier de
+λ
+. Étant donné la diﬃculté d’obtenir une distance précise (au regard de la
+2
+précision obtenue sur la fréquence grâce au générateur de fonctions), nous
+procédons en ﬁxant arbitrairement la distance, puis par tâtonnements pour
+obtenir la bonne fréquence (dont dépend λ).
+Par exemple, pour obtenir un nœud tous les 6 mm, nous ﬁxons la distance
+proche d’un multiple de 1,2 cm (le double de la distance entre les nœuds). Le
+343,4
+5
+calcul nous donne f = λv = 1,2×10
+−2 ≈ 2, 8 × 10 Hz, soit une fréquence de 28,6
+kHz environ.
+Ainsi, nous réglons le générateur aux alentours de cette fréquence, puis
+l’adaptons jusqu’à pouvoir faire léviter de petits objets. Nous avons choisi
+pour commencer des boules de polystyrène, pour leur légèreté. La lévitation
+fonctionnait alors très facilement, les boules se plaçant parfois d’elles même
+dans les nœuds une fois assez proches. Lors de certains essais, nous avons
+même réussi à placer plusieurs boules par nœud (ﬁg. II.1).
+
+Figure II.1 – Lévitation acoustique, avec parfois plusieurs boules de polystyrène par nœud
+La lévitation fonctionne alors très bien, nous avons donc pu mesurer la
+distance séparant les nœuds. La fréquence était alors de 28,028 kHz, et la
+
+15
+
+Voletons au gré du son !
+
+Lycée Bertran de Born
+
+formule (E.3) nous donnait :
+λ
+v÷f
+343, 4 ÷ 2, 828 × 104
+=
+=
+= 6, 071 × 10−3 m
+2
+2
+2
+entre chaque nœud. La mesure conﬁrme ces résultats, avec des nœuds eﬀectivement séparés de 6 mm environ (cette mesure ayant été réalisée à l’aide d’une
+règle, l’incertitude liée à celle-ci ne permet pas une plus grande précision).
+Nous avons voulu peser les billes de polystyrène mises en lévitation, mais
+leur masse était tellement faible que même la balance de précision du lycée
+indiquait toujours une masse nulle. Il nous a fallu les peser par « paquets »
+de 10 pour obtenir une masse exploitable. Toutes ces mesures sont regroupées
+dans le tableau
+Ces données nous permettent d’obtenir la masse moyenne mboule
+√ = 2, 34 ×
+10−4 g d’une boule de polystyrène et de déduire l’écart-type σ = V associé
+à cette série (calculé à partir de la variance V ). Nous obtenons donc σ =
+√
+5, 04 × 10−10 = 2, 24 × 10−5 , donnant une idée de la ﬁabilité des mesures
+(écart-type à 9,7 % de la moyenne).
+Des recherches plus approfondies indiquent que le polystyrène de type PSE
+(signifant PolyStyrène Expansé, le matériau dont sont formées les billes) possède une masse volumique de 12 kg.m-3 : c’est donc un matériau de masse volumique extrêmement faible. L’objectif initial de faire léviter des liquides pour
+efectuer des réactions semble donc plus compliqué à atteindre : il faudrait des
+variations de pression acoustique nettement plus fortes, et donc fournir une
+puissance électrique encore plus importante pour parvenir à mettre en lévitation des gouttes dont la masse volumique serait plus de l’ordre de 103 kg.m-3 .
+D’ailleurs, cet objectif que nous nous étions ﬁxés n’était pas atteint lors des
+oraux académiques qui se sont déroulés début décembre.
+
+II.B.2
+
+Lévitation de liquides
+
+Finalement, c’est en ayant commandé un deuxième transducteur puis en
+ayant adapté le montage en conséquence (ﬁg. II.2 et
+C’est empiriquement que nous sommes parvenus à cet objectif, en branchant les deux transducteurs en parallèle et en les plaçant face à face (le
+nouveau transducteur à la place du réﬂecteur dans le montage précédent).
+Cette réussite peut s’expliquer en supposant que l’ampliﬁcateur ne fournissait
+pas sa puissance maximale avec un seul transducteur, du fait de l’impédance
+insuﬃsante du circuit.
+En ajoutant un deuxième transducteur, nous augmentons l’impédance totale (R) du circuit, et donc la puissance totale fournie par l’ampliﬁcateur aux
+deux transducteurs proportionnellement, puisque P = RI 2 . Ce gain de puissance se traduit par une pression acoustique plus importante au niveau des
+ventres de vibration.
+Nous avons tenté de mesurer les possibilités oﬀertes par ce nouveau montage. Il nous a permis de faire léviter à plusieurs reprises du cyclohexane
+16
+
+Voletons au gré du son !
+
+Lycée Bertran de Born
+
+Figure II.2 – Photo du second montage expérimental, avec deux transducteurs
+face à face.
+(C6 H12 ) de masse volumique ρC6 H12 = 7, 786 × 102 kg.m-3 (selon le Lange’s
+handbook of chemistry [7]) et occasionnellement de l’eau (ρeau = 1, 000 × 103
+kg.m-3 ). Une mesure de la masse volumique du polystyrène (1, 21 × 101 kg.m-3 )
+et un tableau comparatif sont donnés en annexe (tableaux B.2 et B.3). Ces
+mesures conﬁrment bien la nette diﬀérence de masses volumiques entre ces
+matériaux, et permettent d’expliquer la facilité avec laquelle nous parvenions
+à faire léviter le polystyrène par rapport à l’eau.
+Peu de temps avant de terminer la rédaction de ce mémoire, nous sommes
+parvenus à faire léviter de l’eau distillée de manière très stable (plusieurs minutes). Ce résultat (ﬁg. II.3) conﬁrme donc bien la ﬁabilité de notre montage,
+et le potentiel qu’il pourrait avoir pour tenter des réactions chimiques en lévitation.
+
+Figure II.3 – Lévitation stable d’une goutte d’eau distillée
+
+17
+
+Conclusion
+Nos recherches et nos expérimentations nous ont permis de mettre en œuvre
+dans le cadre du lycée un phénomène habituellement dévolu aux grands laboratoires : nous avons pu observer des objets de faible masse et des liquides léviter,
+ce que nous prenons comme une réussite, malgré le manque d’informations sur
+les caractéristiques précises de notre montage expérimental.
+Bien conscients des limites de celui-ci, nous aimerions l’améliorer encore
+pour procéder à des mesures plus précises permettant de caractériser ses possibilités de manière plus ﬁne. Nous aimerions également, comme dans la vidéo
+qui nous a inspiré ce projet, réussir à exploiter l’eﬀet Schlieren (strioscopie)
+pour observer les nœuds et ventres de pression qui sont restés invisibles tout
+au long de notre étude, malgré le fait qu’ils soient les clés de nos expériences.
+Enﬁn, nous aurions aimé également augmenter la puissance apportée au transducteur pour faire léviter des objets encore plus massifs. Pour cela, il nous
+aurait fallu étudier plus précisément les puissances d’entrée et de sortie de
+notre transducteur aﬁn de maximiser l’onde de pression qu’il génère. Un ampliﬁcateur plus adapté au domaine ultrasonique aurait peut-être également
+permis cette augmentation en puissance.
+L’étude de la lévitation acoustique permet des avancées dans des domaines
+variés : elle favorise la synthèse de certaines molécules (sous leur forme amorphe
+plutôt que cristalline), permet la manipulation de pièces électroniques très
+sensibles, et simule même la microgravité pour tester le comportement de petits
+objets en apesanteur. Plusieurs études s’appuient également sur la lévitation
+acoustique pour mieux comprendre la physique des mousses, pour laquelle le
+phénomène de lévitation permet de réaliser des observations où l’inﬂuence de
+la gravité dans les transformations physiques et/ou chimiques est fortement
+réduite.
+
+18
+
+Bibliographie
+[1] Harvard Natural Science Lecture Demonstrations : Ultrasonic Levitation, février 2017. https://www.youtube.com/watch?v=XpNbyfxxkWE.
+[2] John William Strutt Rayleigh : The theory of sound. Macmillan, Londres,
+1877.
+[3] Daniele Foresti, Majid Nabavi, Mirko Klingauf, Aldo Ferrari et Dimos
+Poulikakos : Acoustophoretic contactless transport and handling of matter
+in air. Proceedings of the National Academy of Sciences, 110(31):12549–12554,
+juillet 2013. DOI : 10.1073/pnas.1301860110.
+[4] Marco A. B. Andrade, Nicolás Pérez et Julio C. Adamowski : Particle
+manipulation by a non-resonant acoustic levitator. Applied Physics Letters,
+106(1):014101, janvier 2015. DOI : 10.1063/1.4905130.
+[5] Compressed Gas Association, éditeur. Handbook of compressed gases. Kluwer Academic Publishers, Boston, 4ème édition, 1999. ISBN : 978-0-412-78230-5.
+[6] Michel F. Ashby et David R. H Jones : Matériaux. Sciences Sup. Dunod,
+2013. ISBN : 978-2-10-058767-4 978-2-10-059987-5.
+[7] Norbert Adolph Lange : Lange’s handbook of chemistry. McGraw-Hill standard
+handbooks. McGraw-Hill, New York, 16ème édition, 2005. ISBN : 978-0-07143220-7.
+[8] Marie-Noëlle Sanz, Bernard Salamito, Dominique Chardon et François
+Vandenbrouck : Physique tout-en-un, PC-PC*. Dunod, Malakoff, 4ème édition, 2016. ISBN : 978-2-10-074987-4.
+[9] Jared Sagoff : No magic show : real world levitation to inspire better pharmaceuticals, septembre 2012.
+[10] Antonio Fischetti et Editions Belin : Initiation à l’acoustique, cours et
+exercices. Belin, Paris, 2003. ISBN : 978-2-7011-3695-0.
+[11] Christian Cloarec : Cours d’acoustique, 2004. École d’audioprothèse de
+Fougères.
+[12] Ondes progressives et ondes stationnaires.
+[Fichier en ligne] http://
+silicium628.fr/cours/ondes%20stationnaires.pdf.
+[13] Transducteurs piézoélectriques. [Page web] http://www.sinaptec.fr/FR/
+Transducteurs-piezoelectriques-67.html.
+[14] Physique des ondes. [Fichier en ligne] http://sertella.free.fr/cours_psi_
+physique/ondes/ondes%20chapitre%2004.pdf.
+
+19
+
+

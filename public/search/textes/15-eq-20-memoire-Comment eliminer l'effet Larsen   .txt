@@ -1,0 +1,2075 @@
+Olympiades de Physique
+2007-2008
+
+L'indésirable Larsen
+
+AULARD-DORCHE Gabriel, DARTIAILH Matthieu, MAYNARD
+Marie-Aude, PARRENS Coralie
+Professeurs encadrants: ROUX Laurent, GARBAL Gilles
+Lycée Bellevue
+
+REMERCIEMENTS
+
+Pour la réalisation de notre projet, tous nos plus sincères remerciements vont :
+- A nos professeurs, qui nous ont guidés dans notre travail,
+- Aux techniciennes du laboratoire du Lycée Bellevue pour leur grande disponibilité,
+- A Monsieur le Professeur A.R. Bazer-Bachi, pour nous avoir donné accès au matériel du
+département Mesures physiques de l'IUT Paul Sabatier de Toulouse,
+- A tous ceux qui ont supporté avec bonne humeur nos séances d'expérimentation.
+
+1
+
+Sommaire
+
+INTRODUCTION
+
+P3
+
+I- PREMIERE APPROCHE DU PHENOMENE
+
+P4
+
+II - CARACTERISATIONS EN BOUCLE OUVERTE
+
+P6
+
+A- La chaîne Haut-parleur/Micro/Amplificateur α
+B- L'amplificateur β en charge
+III - ETUDE DE L'EFFET LARSEN
+
+P6
+P7
+P9
+
+A- Etude quantitative
+1_ Etude sur la durée
+2_ Influence du gain de la chaîne électrique
+3_ Influence de la distance
+4_ Vérification du non-déphasage
+
+P9
+P9
+P 10
+P 11
+P 11
+
+B- Théorie de l'effet Larsen
+
+P 13
+
+IV - ELIMINATION DE L'EFFET LARSEN
+A- Elimination de l'effet Larsen par utilisation de filtres
+1_ Filtre passe bas RC
+2_ Filtre coupe bande type RLC
+3_ Conclusion: comparaison de l'efficacité des deux filtres
+expérimentés
+B- Quelques recommandations pour éviter l'effet Larsen
+
+ANNEXES
+Annexe 1 : Caractéristiques de la boucle HP/micro/α
+Annexe 2 : Atténuation du son dans l'air
+Annexe 3 : Caractéristiques de l'amplificateur β
+Annexe 4 : Expression de la réjection du filtre passe bas
+Annexe 5 : Expression de la réjection du filtre coupe-bande
+
+P 16
+P 16
+P 16
+P 18
+P 21
+P 22
+
+P 23
+P 24
+P 26
+P 28
+P 31
+P 32
+
+2
+
+INTRODUCTION
+Chacun de nous a certainement déjà assisté à une conférence ou autre manifestation
+publique subitement interrompue par un sifflement strident, douloureux à l'ouie, qui reste
+entretenu jusqu'à ce que quelqu'un intervienne précipitamment pour interrompre ce
+"supplice". Ce phénomène parasite survient aussi souvent lors des concerts et plus
+généralement lorsqu'une chaîne d'amplification audio phonique relie un microphone à un
+haut-parleur.
+En effet, le son généré par les haut-parleurs d'un système de sonorisation peut, dans
+certaines conditions et de façon indésirable, être en partie capté par le microphone puis se
+retrouver à l'entrée de l'amplificateur. Une fois amplifié, ce signal est alors transmis à nouveau
+aux haut-parleurs, augmentant alors l'amplitude du son parasite capté involontairement par le
+microphone, et ainsi de suite... On est donc en présence d'un système bouclé oscillant instable
+qui est à l'origine du fameux sifflement strident, communément appelé "Effet Larsen", du nom
+du physicien danois du XIXème siècle Sören Larsen, qui a été le premier à en expliquer
+l'origine.
+Il s'agit d'un effet qui présente la grande originalité d'être d'une part accepté et fort
+connu de tous pour ses manifestations ostentatoires (son strident venant interrompre concerts
+et beaux discours) alors que d'autre part, rares sont ceux qui se soucient d'apporter la moindre
+explication aux bases théoriques qui donnent naissance à ce phénomène. Ce paradoxe a
+suscité tout notre intérêt et nous a incité à étudier le sujet.
+C'est ainsi que nous nous sommes proposés d'éclairer les mécanismes et le
+fonctionnement physique de cet effet Larsen, en ayant pour objectif de définir les moyens à
+mettre en œuvre pour éliminer ce phénomène souvent très perturbant.
+
+3
+
+I- PREMIERE APPROCHE DU PHENOMENE
+Afin de réussir à éliminer l’effet Larsen, il faut tout d’abord nous attacher à
+comprendre ce phénomène. Ayant déjà vu dans quelles occasions on le rencontre, il est
+maintenant nécessaire de déterminer quels paramètres l’influencent.
+A cet effet nous avons donc tout d’abord mis en place un montage simple.
+
+Photo 1 : Montage initial
+Il se compose ici d’un micro et d’un haut-parleur. Ils sont reliés par deux
+amplificateurs de tension, l’un de gain fixe, nommé α et l’autre de gain réglable, nommé β.
+Pourquoi utiliser deux amplificateurs ? Nous avions en effet tout d’abord essayé vainement
+d’obtenir un Larsen avec un seul amplificateur. Ceci nous a permis de trouver le premier
+paramètre : l’amplification du circuit électrique appelée gain. Lorsque le gain est suffisant
+pour que l'effet Larsen se manifeste, il démarre à partir du bruit ambiant, sans intervention de
+notre part.
+Une fois notre premier Larsen obtenu, nous avons pu cerner les grandeurs
+caractéristiques : la fréquence du son émis et son intensité ainsi que d’autres paramètres,
+notamment la position relative du micro par rapport au haut-parleur dans l’espace. Nous
+avons remarqué ensuite l’influence de la distance entre le micro et le haut-parleur. En plaçant
+le micro dans l’axe du haut-parleur et en modifiant sa position pour un même réglage de β, on
+observe que le Larsen est d’autant plus fort que la distance est faible. De même, en modifiant
+l’angle entre le haut-parleur et le micro, nous avons obtenu ou non un Larsen. En effet, une
+fois le Larsen démarré, nous avons remarqué qu’il peut être stoppé en éloignant le micro de
+l’axe du haut-parleur.
+Nous avons essayé d'utiliser un micro ou un haut-parleur différent. Le Larsen obtenu
+n'est alors pas le même. La nature du matériel influe donc aussi sur l’effet Larsen.
+Voici les paramètres que nous avons identifiés comme influents :
+• La position relative du micro et du haut-parleur
+• Le gain électrique du circuit
+• La nature du matériel
+Une fois tous ces paramètres trouvés, il nous a fallu chercher un montage simple afin de
+pouvoir les faire varier, les uns après les autres. Toutefois, à ce stade, il apparaît que certains
+sont bien trop compliqué à faire varier, le plus difficile étant la variation de la nature du
+matériel. En effet tester tous les paramètres pour de nouveaux appareils et établir toutes les
+caractéristiques pour les dits appareils est très long.
+Par ailleurs nous avons préféré un montage simple ne permettant de varier que la
+distance entre le haut-parleur et le micro à un montage plus complexe où la variation de
+l’angle entre ces appareils aurait pu être mesurée.
+Le montage d’essai doit donc nous permettre une mesure précise de la distance hautparleur/micro et de faire varier l’amplification.
+4
+
+Photo 2 : Montage définitif
+Ce montage est composé d’un haut-parleur fixé à une extrémité d’un support rectiligne
+permettant de faire coulisser un micro positionné dans l'axe du haut-parleur. On peut alors
+faire varier la distance facilement tout en conservant une géométrie alignée. Nous avons
+choisi un micro dynamique qui possède l’avantage de ne pas posséder d’amplification propre.
+Nous pourrons ainsi le démarquer des autres amplificateurs présents dans le circuit et lui
+attribuer le seul rôle de transformer un message mécanique en un message électrique.
+Les amplificateurs sont exactement identiques à ceux utilisés dans notre premier
+montage.
+
+Photo 3 : Amplificateur α
+
+Photo 4 : Amplificateur β
+
+Cependant comme l’amplificateur β n’est pas gradué nous devrons travailler
+constamment avec un oscilloscope branché à ses bornes pour mesurer le gain.
+Notre montage nous permet donc d’étudier quantitativement l’effet Larsen. Mais avant
+de commencer cette étude, il nous sera nécessaire de caractériser chacun des composants de
+ce montage. En effet le Larsen est un phénomène bouclé puisque le son capté par le micro est
+émis par le haut-parleur puis recapté par le micro en ainsi de suite. C’est cette boucle fermée
+qui cause l’effet Larsen. La caractérisation s’effectuera donc en boucle ouverte pour
+déterminer l’influence de chaque constituant sur le Larsen.
+Une fois cette caractérisation réalisée, l’étude proprement dite du phénomène pourra
+commencer. Après avoir observé que la période d'établissement du phénomène présentait des
+difficultés de mesure (enregistrements), nous avons décidé d’étudier le Larsen quand il est
+établi. Enfin c’est quand l’étude sera terminée que nous pourrons chercher comment le limiter
+ou l’éviter.
+5
+
+II - CARACTERISATIONS EN BOUCLE OUVERTE
+L'effet Larsen se manifeste dans un circuit en boucle fermée. Nous avons donc choisi
+de caractériser chacun des éléments en boucle ouverte ce qui revient à tracer le diagramme de
+Bode qui décrit le comportement fréquentiel de l'appareil, avant de commencer l'étude
+proprement dite du phénomène. Ceci devrait nous permettre d'expliquer certains résultats
+d'expérience.
+Nous avons cherché à caractériser deux éléments de notre boucle:
+• l'ensemble constitué par le haut-parleur, le micro et l'amplificateur de tension α
+• l'amplificateur de tension β.
+Durant toute cette démarche, nous avons effectué les mesures avec un oscilloscope. Nous
+avons toujours mesuré des tensions crête à crête.
+A- La chaîne Haut-parleur/Micro/Amplificateur α :
+Nous avons, tout d'abord, voulu caractériser l'amplificateur α dont voici le schéma
+électrique:
+
+On constate que son gain électrique en tension est celui en courant du transistor NPN.
+Cet amplificateur a un comportement linéaire en fréquence et ce jusqu'à plus de
+20 000 Hz, son gain est de 46 dB et il induit un déphasage de π rad (voir annexe 1). Il sature
+dès que lui sont appliquées des tensions de l'ordre du dixième de volt, ce qui se traduit par un
+écrêtage des "tensions négatives". Cependant les tensions aux bornes par un micro dynamique
+comme celui que nous utilisons sont inférieures à ce niveau et lors des expériences que nous
+avons réalisées sur l'effet Larsen, il n'a jamais été amené à saturer.
+Ensuite, nous nous sommes intéressés au haut-parleur et au micro. Nous étions dans
+l'obligation de les caractériser ensemble car nous ne possédions ni haut-parleur, ni micro
+étalon. Cependant, les tensions aux bornes du micro étaient si faibles qu'il était impossible de
+les mesurer avec l'oscilloscope et nous avons donc été obligés de rajouter dans notre chaîne
+l'amplificateur α après le micro.
+Nous cherchons à tracer le diagramme de Bode de cette portion de la boucle. Nous
+allons donc alimenter le haut-parleur avec un GBF (Générateur Basse Fréquence) dont le
+signal sera observé sur la voie 1 de l'oscilloscope. Nous observerons le signal en sortie de
+l'amplificateur α sur la voie 2. La distance entre le haut-parleur et le micro sera maintenue de
+30 cm durant toute la durée de la caractérisation. Nous ne modifierons pas non plus le réglage
+de la tension délivrée par le GBF.
+Nous allons faire varier la fréquence du signal sinusoïdal délivré par le GBF et
+mesurer grâce à l'oscilloscope les tensions entrées sur chacune des voies et leur déphasage.
+Les mesures seront faites dans le silence, c'est à dire en l'absence de bruits parasites audibles.
+6
+
+Photo 5 : Dispositif d'étude
+Remarques:
+ Nous avons veillé à ne pas diriger le haut-parleur vers un mur trop proche et à le tenir
+dégagé des murs (à l'arrière) pour éviter que des phénomènes de réflexion ne viennent
+perturber nos mesures.
+ L'impédance du haut-parleur varie en fonction de la fréquence. Comme le GBF n'est
+un générateur de tension idéal la tension qu'il délivrait n'est pas restée constante. Ceci
+est d'autant plus gênant que nous nous sommes rendus compte plus tard que la
+réponse en tension du micro en fonction de la pression acoustique n'était pas linéaire
+pour des fréquences élevées. Pour remédier à ce problème, il nous aurait fallu un
+générateur de tension idéale que nous ne possédions pas.
+ En ce qui concerne la phase, nous avons choisi de ne mesurer que les retards pour
+n'avoir que des valeurs positives.
+ Les mesures ont été difficiles à réaliser et ont manqué en conséquence de précision car
+le signal en sortie de micro était bruité. Certaines mesures ont été facilitées par
+l'utilisation d'un oscilloscope à mémoire, mais nous n'avons pas pu disposer de cet
+équipement pour l'ensemble des mesures.
+Les résultats et les diagrammes de Bode se trouvent en annexe 1.
+Nous avons, par la suite, cherché à affiner cette caractéristique en la rendant
+indépendante de la distance séparant le haut-parleur et le micro. Pour ce qui est de la phase, la
+correction semblait aisée : nous avons calculé le nombre de longueurs d'onde dans l'air, en
+utilisant la vitesse de l'air à 20° C, pour déterminer le déphasage dans l'air et le soustraire au
+déphasage que nous avons mesuré. Cependant, lors de l'étude de l'effet Larsen, nous avons
+constaté que même la légère variation de la vitesse du son dans l'air, due à celle de la
+température, était à l'origine de variations importantes du déphasage (même si l'écart entre
+deux longueurs d'onde à des températures différentes est faible, il provoque des variations
+importantes du déphasage puisque le haut-parleur et le micro sont séparés par plusieurs
+longueurs d'onde). N'ayant pas mesuré la température durant les caractérisations, nous avons
+choisi de ne pas exprimer le déphasage indépendamment de la distance entre le haut-parleur et
+le micro.
+Quant à l'atténuation du son dans l'air, nous avons cherché à établir une loi générale
+qui nous aurait donné l'atténuation en fonction de la distance de manière indépendante de la
+fréquence. Néanmoins comme nous étions dans l'incapacité de mesurer la pression
+acoustique, cette loi aurait dû nous donner une atténuation de tension. Nous étions parvenus à
+7
+
+une loi dans un cas particulier (la démarche qui nous a permis de l'établir est détaillée en
+annexe 2). Cependant nous n'avons pas réussi à nous séparer des paramètres du matériel
+utilisé, ce qui nous a empêchés d'établir une loi générale puisque le comportement du matériel
+varie selon la fréquence.
+B- L'amplificateur β en charge
+Nous avons choisi de caractériser cet amplificateur en charge car nous nous sommes
+rendu compte, en vérifiant la cohérence des résultats sur la boucle complète après avoir réalisé
+une première caractéristique hors charge, que les variations de l'impédance du haut-parleur
+entraînaient des variations importantes du gain et modifiaient le comportement en saturation
+de l'amplificateur.
+Nous avons donc réalisé deux types de caractérisation :
+• La première caractérisation concerne le comportement en fréquence de β. Le signal
+d'entrée était fourni un GBF qui délivrait une tension constante. L'amplificateur était
+réglé sur son gain maximum. Nous avons effectué les mesures avec un oscilloscope et
+mesuré les tensions, crête à crête pour plus de précision, en entrée et sortie de β. Nous
+avons aussi mesuré le déphasage.
+Les résultats de cette étude sont notés en annexe 3.
+• La seconde caractérisation concerne le comportement en saturation de β. En effet, lors
+de toutes les manifestations de l'effet Larsen, nous avons observé une déformation du
+signal en sortie de cet amplificateur, de ce type:
+
+Photo 6 : Signal en sortie de β en charge et saturé
+Commentaire:
+Nous n'avons observé cette déformation qu'en charge et nous ne savons pas expliquer
+son origine.
+Pour réaliser cette caractérisation, nous avons alimenté l'amplificateur β avec un
+signal alternatif de fréquence 3kHz. Nous lui avons appliqué des tensions de plus en plus
+importantes, et mesuré, crête à crête, les tensions de sortie. Lorsque la déformation est
+apparue, nous avons continué à mesurer les tensions crête à crête par commodité.
+Après les caractérisations de ces deux éléments de la boucle nous n'avons pas jugé
+utile de réaliser celle de la boucle complète puisque les deux éléments ont été caractérisés
+dans leur condition d'utilisation en boucle fermée.
+Nous pouvons donc maintenant passer à l'étude de l'effet Larsen.
+8
+
+III - ETUDE DE L'EFFET LARSEN
+A- Etude quantitative
+Durant cette étude nous avons utilisé le matériel que
+nous avons caractérisé précédemment en veillant à travailler
+dans de bonnes conditions: haut-parleur dégagé des murs et
+silence dans la salle. Pour effectuer nos mesures, nous avons
+eu recours à l'oscilloscope pour le gain de l'amplificateur β et
+à une carte d'acquisition numérique fonctionnant avec le
+logiciel Latis Pro (photo 7 ). Comme durant la première
+partie, le Larsen démarre à partir du bruit ambiant.
+
+Photo 7 : Carte d'acquisition
+Nous avons tout d'abord enregistré un Larsen sur une durée assez longue devant le
+temps de propagation du son dans l'air (quelques périodes). Nous avons étudié le son qui le
+compose et son évolution dans le temps, avant de nous intéresser à l'influence des deux
+paramètres que nous avons identifiés: le réglage de l'amplificateur et la distance séparant le
+haut-parleur et le micro.
+1_ Etude sur la durée
+Nous avons enregistré le signal en sortie de β durant 5 secondes une fois que le Larsen
+est établi (l'intensité du son n'augmente plus). Nous avons réglé β sur son amplification
+maximale pour éviter de capter trop de parasites (en effet, en augmentant le gain de β, on
+diminue sa bande passante) et nous prenons une distance de l'ordre d'un mètre pour éviter de
+saturer la carte d'acquisition (celle-ci sature pour des tensions crête à crête supérieures à 20
+V). Nous avons obtenu le graphique suivant :
+
+Figure 1 : Enregistrement d'un Larsen durant 5 secondes
+Nous avons constaté que l'amplitude du signal était "constante" au cours du temps, ce
+qui signifie que le gain de la boucle complète est de 1 ou encore de 0 dB. De plus, les
+analyses de Fourier (voir figures 2 et 3) réalisées avant 0,5s et après 4,5 s. nous donnent, à la
+précision de la mesure, la même fréquence fondamentale. Le Larsen semble s'apparenter à un
+son pur, les harmoniques qui s'ajoutent à la fréquence fondamentale ne sont pas émises sous
+forme de son par le haut-parleur. Seule la première harmonique très faible devant la
+fondamentale est parfois dans la bande passante du haut-parleur. On peut penser que ces
+9
+
+harmoniques proviennent de la saturation de l'amplificateur β. Nous avons choisi de ne
+conserver que deux chiffres significatifs pour être cohérent avec la précision de la mesure.
+
+Figure 2
+
+Figure 3
+
+Le Larsen s'établit donc à une fréquence particulière qu'il conserve au cours du temps.
+Enfin, à partir de cet enregistrement, nous faisons l'hypothèse que le déphasage au sein de la
+boucle est nul. Nous tacherons de vérifier expérimentalement cette hypothèse lors de l'étude
+du paramètre distance.
+2_ Influence du gain de la chaîne électrique
+Cette fois nous avons placé le micro à une faible distance du haut-parleur (30cm).
+Nous avons réglé l'amplification de β au minimum pour que l'effet Larsen se manifeste et
+nous avons enregistré le signal à la sortie de l'amplificateur β. Ensuite nous avons augmenté le
+gain de β et effectué de nouveaux enregistrements. Le tableau 1 récapitule nos résultats.
+position du bouton
+de réglage
+Ue (V)
+Us (V)
+G
+f (kHz)
+
+1
+3,5
+22,0
+6,3
+3,4
+Tableau 1
+
+2
+
+3
+4,3
+23,0
+5,3
+3,4
+
+4,6
+23,0
+5,0
+3,4
+
+Remarques :
+ Nous avons placé le micro à 30 cm du haut-parleur pour obtenir le Larsen avec une
+amplification assez faible et ainsi disposer d'une capacité de réglage assez importante.
+ Comme nous travaillons avec des amplifications inférieures à l'amplification
+maximale, nous captons beaucoup de parasites qui sont amplifiés et notamment le
+bruit interne de β.
+Nous avons constaté que nous obtenions toujours la même fréquence pour le Larsen
+quelle que soit l'amplification. Nous constatons, par contre, une augmentation de l'amplitude
+du signal en entrée du haut-parleur, qui tient au fait que β sature de manière progressive.
+
+10
+
+3_ Influence de la distance
+Pour réaliser cette étude, nous avons tout d'abord, réglé l'amplification de β de manière
+à obtenir un Larsen pour une distance de un mètre entre le haut-parleur et le micro. Nous
+avons été obligés de régler l'amplification presque au maximum, si bien que nous évitons les
+parasites. Nous avons alors réalisé un enregistrement durant 10 ms, à cette distance, puis
+d'autres, en rapprochant le micro du haut-parleur de 10 cm en 10 cm jusqu'à la distance de
+20cm. L'analyse de Fourier de chacun des enregistrements nous permet de déterminer la
+fréquence fondamentale de chacun des effets Larsen. De plus, nous avons mesuré le gain de
+l'amplificateur β avec un oscilloscope (les tensions sont mesurées crête à crête comme lors de
+la caractérisation de β, puisqu'il sature dés la première mesure).
+Remarque:
+ Bien que le réglage de β soit le même pour toutes les mesures, l'amplification n'est pas
+constante car, lorsque nous diminuons la distance, nous diminuons, du même coup,
+l'atténuation du son dans l'air ; l'amplitude du signal augmente et β sature davantage,
+mais comme il sature progressivement, l'amplitude augmente comme nous l'avions
+déjà constaté.
+Ue (V)
+6,1
+5,6
+5,5
+5,1
+4,5
+4,4
+4,4
+3,5
+3
+
+Us (V)
+Ga = Us/Ue
+D (cm)
+26,5
+4,3
+20,0
+26
+4,6
+30,0
+26,5
+4,8
+40,0
+26
+5,1
+50,0
+21,5
+4,8
+60,0
+22,5
+5,1
+70,0
+23
+5,2
+80,0
+19,5
+5,6
+90,0
+18
+6,0
+100,0
+Tableau 2 : Influence de la distance
+
+f (kHz)
+3,5
+3,4
+4,3
+4,2
+3,0
+4,3
+3,5
+4,2
+4,5
+
+Nous avons obtenu des valeurs de fréquence très différentes selon la distance, comme,
+ce qui semblerait accréditer l'hypothèse que nous avons faite sur l'importance de la phase. De
+plus, en nous reportant à la caractérisation de la chaîne haut-parleur_ micro_ amplificateur α,
+nous avons constaté que toutes les fréquences que nous avions obtenues avaient de bons
+gains. Ceci explique que, lorsque nous diminuons la distance, β soit amené à saturer encore
+plus. Enfin, la chute du gain pour une distance de 60 cm s'explique, elle aussi, à partir des
+caractéristiques du matériel : la fréquence de l'effet Larsen était alors de 3 000 Hz et c'est
+presque à cette fréquence que notre matériel est le plus efficace.
+Maintenant que nous connaissons les fréquences de l'effet Larsen, en fonction de la
+distance, nous allons pouvoir vérifier notre hypothèse sur le non-déphasage.
+4_ Vérification du non-déphasage
+Pour ce faire, nous avons replacé notre matériel dans les mêmes conditions de distance
+et d'amplification que pour un Larsen que nous avions analysé et nous avons alimenté β avec
+un GBF sur lequel nous avons affiché la fréquence du Larsen dans ces conditions. Nous avons
+branché la voie 1 de l'oscilloscope sur l'entrée de β et la voie 2 sur la sortie d'α.
+11
+
+Photo 8 : Dispositif de vérification du non déphasage
+Nous devons, ici, préciser que nous n'avons pas réalisé cette étude lors de la même séance que
+celle sur l'influence de la distance.
+Lorsque nous avons commencé la vérification, nous avons trouvé un déphasage non
+pas de 0 rad mais de π rad. Ce résultat était complètement opposé à celui que nous attendions.
+Cependant, il y a un paramètre que nous n'avions pas pris en compte: la température de
+l'air. Or, celle-ci influe directement sur la célérité du son dans l'air, donc sur la longueur
+d'onde et le déphasage. Nous avions, tout d'abord jugé ce paramètre négligeable, mais
+l'expérience nous en a montré l'importance, ce qui est d'ailleurs confirmé par le calcul:
+calculons la vitesse du son dans l'air selon la formule suivante :
+v = racine(γ*P/µ) avec µ = masse volumique de l'air = 1,29 kg/m3
+ce qui est équivalent à :
+v = racine(γ*R*T/M)
+avec R = 8,31 J/K ; M = masse molaire de l'air = 29,0e-3kg/mol avec γ (coefficient
+adiabatique) = 1,4
+à 10°C, c = 337m/s à 20°C, c = 343m/s
+Ce qui pour une fréquence de 3 000Hz, nous donne à 10°C, λ = 11,2cm et à 20°C
+λ = 11,4 cm. Cette différence semble faible mais multipliée par le nombre de
+longueurs d'onde dans l'air, elle est responsable de fortes variations du déphasage.
+Remarque:
+ La variation de température n'explique pas forcément en totalité le déphasage de π: en
+effet, entre deux expérimentations, la position du micro a pu légèrement varier.
+Pour pallier cette difficulté, nous avons donc enregistré un Larsen puis vérifié immédiatement
+le non-déphasage.
+
+12
+
+Photo 9 : Ecran de l'oscilloscope lors de la vérification du non déphasage
+On constate bien qu'il n'y a pas de déphasage. Néanmoins, comme cette manipulation
+est longue, nous ne l'avons réalisée qu'une fois et nous avons admis que le déphasage était
+toujours nul.
+Nous avons maintenant suffisamment de données tant qualitatives que quantitatives pour
+établir une théorie du Larsen portant notamment sur son déclenchement dont nous avions en
+premier lieu abandonné l'étude à cause de difficultés de mesure.
+
+B- Théorie de l'effet Larsen
+Nous devons tout d'abord présenter une dernière expérience qualitative. Celle-ci est
+très simple. Nous lançons un Larsen et nous interposons la main entre le micro et le hautparleur. Si le gain de la boucle est assez important, nous constatons que le Larsen ne
+s'interrompt pas. Pourtant, en faisant cela, nous augmentons l'atténuation du son dans l'air et
+pour que le Larsen se maintienne, il faut que le gain de la boucle reste de 0 dB. Il est donc
+nécessaire que l'un des éléments de la boucle augmente son gain. Or, le seul qui en ait la
+possibilité est l'élément saturé, dans notre cas, l'amplificateur β. Puisque la tension à ses
+bornes d'entrée diminue, il sature moins et son gain augmente. De même, si nous claquons des
+doigts devant le micro, le Larsen ne s'en trouvera pas modifié car l'élément saturé aura
+détérioré son gain. L'élément saturé stabilise dans une certaine mesure donc le Larsen vis-àvis des paramètres extérieurs.
+Faisons un bilan de nos connaissances à ce stade de notre étude:
+•
+•
+•
+•
+•
+
+lorsque l'amplification est suffisante, l'effet Larsen démarre à partir du bruit ambiant.
+lorsqu'il est établi, le gain de la boucle est de 0dB, le déphasage est nul, un élément du
+circuit est saturé et la fréquence est constante.
+le Larsen accroche sur des fréquences pour lesquelles le matériel a un bon rendement
+le gain de la boucle électrique n'influe pas sur la fréquence
+l'élément saturé régule le gain du circuit et assure dans une certaine mesure sa stabilité
+vis à vis des paramètres extérieurs.
+
+Le Larsen démarrant à partir du bruit ambiant, qui s'apparente pour nous au silence,
+atteint rapidement une puissance acoustique très importante. C'est donc qu'au départ, le gain
+de la boucle est supérieur à 1 ; à chaque tour de boucle, le signal gagne en puissance. Or, le
+Larsen finit par atteindre une puissance maximale et le gain de la boucle retombe alors à 1.
+Mais à ce moment là, un des éléments de la boucle est saturé. Le Larsen augmente donc en
+puissance jusqu'à saturer un des éléments du circuit. Cependant, les appareils électroniques ne
+13
+
+saturent jamais brutalement: tout au long de l'établissement du Larsen, le gain de la boucle va
+évoluer. L'amplificateur saturera en règle générale avant que le haut-parleur ne soit détruit,
+sauf si l'on utilise un amplificateur très puissant par rapport au haut-parleur.
+Intéressons nous maintenant à la fréquence: nous savons qu'elle n'évolue pas de
+manière spontanée et qu'une variation du gain n'entraîne pas, non plus, son évolution. Donc,
+le Larsen s'établit dès le départ sur une fréquence, permettant un déphasage nul, qu'il va
+conserver. Néanmoins, on peut penser qu'il existe plusieurs fréquences, qui dans les mêmes
+conditions, permettraient d'obtenir un déphasage nul. Mais il n'y en a qu'une seule au final. Or
+le Larsen s'établit sur des fréquences auxquelles le matériel est efficace. Donc, au départ, ces
+fréquences vont avoir un meilleur gain et leur puissance acoustique augmentera plus
+rapidement. On peut penser que, dans ces conditions, elles "éclipseront" des fréquences moins
+efficaces. Ce qui peut expliquer que nous n'avons jamais rencontré d'effets Larsen graves qui
+semblent d'ailleurs inexistants. De manière générale, le matériel acoustique est moins efficace
+sur de basses fréquences (pour le nôtre, consulter l'annexe 1). Ceci est lié aux débattements
+mécaniques plus importants que ces basses fréquences impliquent.
+Pour vérifier que la fréquence du Larsen était bien celle, parmi toutes les fréquences
+permettant d'obtenir un déphasage nul, qui avait le meilleur gain, nous avons eu recours de
+nouveau à l'expérience.
+Nous avons cherché à caractériser, en fréquence, l'intégralité de la boucle. Comme
+précédemment nous avons ouvert la boucle entre les deux amplificateurs et alimenté
+l'amplificateur β avec un GBF. De manière à ce que les conditions, de température
+notamment, ne varient pas de façon importante durant la durée de la caractérisation, nous
+avons effectué des enregistrements grâce à une carte d'acquisition.
+Nous avons effectué des enregistrements tous les 100 Hz de 1 000 à 6 000Hz pour
+deux situations différentes: lorsque la distance entre le haut-parleur et le micro est de 30 cm
+puis de 50 cm. Et dans chaque cas, nous avons enregistré le Larsen qui se produisait Nous
+avons ensuite analysé ces enregistrements de manière à déterminer le gain et le déphasage.
+Le graphique qui présentait le déphasage dans la première situation s'est révélé peu
+exploitable du fait du trop faible nombre de points expérimentaux. Par contre, celui de la
+seconde situation souffrait moins de ce défaut. Néanmoins, il nous donnait pour la fréquence
+du Larsen un déphasage de π rad, ce qui nous le savons est impossible. Par contre nous savons
+aussi qu'un tel écart peut être caractéristique d'une inversion de polarité : celle ci s'est
+produite durant nos mesures puisque nous n'avions pas pris le soin d'installer une référence
+commune de potentiel entre nos deux sources de mesure (borne du GBF et borne de sortie de
+l'amplificateur α). Nous avons donc ajusté nos résultats en tenant compte de l'inversion de
+polarité.
+
+Les deux graphiques (figures 4 et 5) regroupent les résultats de cette caractéristique.
+Sur le graphique de déphasage, on constate que le déphasage décroît de 180° à -180°.
+Or un déphasage de -180° est égal à un déphasage de 180° exprimé à modulo 360°, si bien
+qu'on obtient une définition par parties. Nous avons donc choisi de modéliser le déphasage
+par plusieurs segments de droite. Cela nous permet de déterminer les points de non
+déphasage, et ce avec une assez bonne précision puisque l'écart relatif entre la fréquence du
+Larsen et celle du point de non déphasage correspondant sur le graphe est de 1.3%.
+
+14
+
+La détermination de la fréquence des autres points de non déphasage nous permet de
+comparer leur gain à celui de la fréquence du Larsen. Nous constatons que c'est bien la
+fréquence du Larsen qui présente le meilleur gain. Nous sommes donc confortés dans nos
+conclusions même si une seule vérification expérimentale est insuffisante pour les valider.
+
+6,000
+
+4,000
+
+2,000
+
+0,000
+1000
+
+1500
+
+2000
+
+2500
+
+3000
+
+3500
+
+4000
+
+4500
+
+5000
+
+5500
+
+6000
+
+-2,000
+
+-4,000
+
+-6,000
+
+-8,000
+
+-10,000
+
+Figure 4: Courbe du gain en fonction de la fréquence
+
+170,00
+
+120,00
+
+70,00
+
+20,00
+1000
+-30,00
+
+1500
+
+2000
+
+2500
+
+3000
+
+3500
+
+4000
+
+4500
+
+5000
+
+5500
+
+6000
+
+-80,00
+
+-130,00
+
+-180,00
+
+Figure 5: Courbe du déphasage en fonction de la fréquence
+
+15
+
+IV - ELIMINATION DE L'EFFET LARSEN
+Certains guitaristes comme Jimi Hendrix ont mis à profit l'effet Larsen pour enrichir
+leur jeu d'effets musicaux originaux. Cependant, ce phénomène est dans la très grande
+majorité des cas considérés comme gênant. Il convient alors de l'éliminer ou du moins
+d'essayer de l'éviter.
+
+A- Elimination de l'Effet Larsen par utilisation de filtres
+Le principe, illustré figure 4 ci-après, consiste à "éliminer" les fréquences pour
+lesquelles les conditions nécessaires à l'effet Larsen peuvent être satisfaites. Pour cela, on
+réalise un "trou" dans la bande passante de la chaîne d'amplification de façon à réduire
+considérablement le gain pour ces fréquences critiques. Ainsi, le gain de la boucle évoqué
+précédemment est bien inférieur à 1, rendant toute oscillation impossible comme expliqué
+précédemment.
+Cela dit, réaliser un trou dans la bande passante modifie nécessairement la
+représentation spectrale (appelée spectre) et donc la nature du signal radio phonique transmis.
+En effet, la représentation temporelle du signal étant la transformée de Fourier de la
+représentation spectrale, toute modification de cette dernière se traduit par une distorsion du
+signal qui s'en trouve ainsi plus ou moins altéré. Afin de limiter cette distorsion du son et de
+conserver la meilleure qualité de son possible, le "trou" doit être limité au strict nécessaire.
+Pour ce faire, nous sommes amenés à utiliser des filtres très sélectifs, de type coupe bande.
+
+Ampli
+
+Filtre
+Intensité
+
+Fréquence
+Fréquence
+éliminée
+
+Figure 6 : principe de l'élimination de l'effet Larsen
+par filtrage sélectif
+1_ Filtre passe bas RC:
+Dans un premier temps, nous avons étudié un filtre de conception simple et de réalisation
+abordable: le filtre passe bas passif RC. Ce filtre ne coupe que les fréquences hautes (au16
+
+dessus d'une certaine fréquence dite de coupure) et répond donc à notre besoin sachant que
+l'effet Larsen se produit généralement, comme nous l'avons démontré, pour les fréquences
+élevées. Le filtre retenu est passif et basé sur l'association d'un conducteur ohmique de
+résistance R et d'un condensateur de capacité C comme illustré dans la figure ci-après.
+La position du filtre entre les amplificateurs α et β nous semblait le meilleur compromis
+car:
+• d'une part, elle ne dégradait pas la sensibilité du micro comme cela aurait été le cas en
+positionnant le filtre entre le micro et le premier amplificateur,
+• d'autre part, elle ne diminuait pas directement la puissance de sortie disponible pour le
+haut-parleur comme l'aurait fait un filtre en sortie du dernier amplificateur.
+
+Figure 7: filtre passe-bas "RC" étudié pour éliminer l'effet Larsen
+Cependant, lorsque nous avons voulu placer ce filtre entre les deux amplificateurs,
+nous n'obtenions plus aucun signal de sortie. Nous avons donc été contraints de le placer après
+l'amplificateur β même si cela n'est pas optimal pour la puissance disponible aux bornes du
+haut-parleur.
+Dans un filtre RC comme le nôtre, plus la fréquence augmente, plus l'impédance du
+condensateur (l'impédance s'exprimant sous la forme 1/(j 2Π f C) ) diminue, plus Us
+diminue. Le filtre RC réalise donc bien l'effet recherché en éliminant les composantes
+fréquentielles les plus hautes. En première approximation, on peut facilement démontrer que,
+pour une fréquence f donnée, la réjection du filtre qui peut s'exprimer sous la forme │Us(f)│
+/ │Ua(f)│ s'écrit:
+Réjection = 1 / racine (1+ (2Π
+Π f RC)2 )
+
+Pour éliminer les composantes fréquentielles au-delà de 3000Hz (fréquence à laquelle
+nous avons remarqué que le Larsen se produit d'après nos expérimentations précédentes), il
+faut donc que la réjection soit inférieure à 1 pour f = 3000 Hz. Nous avons choisi une
+fréquence de coupure de 2000 Hz pour être sûr que la réjection soit suffisante afin d'éliminer
+le Larsen.
+17
+
+Nous pouvons alors utiliser le tableur Excel pour tracer les courbes donnant cette
+réjection (exprimée en dB) en fonction de la fréquence, pour différentes valeurs des
+paramètres R et C. La figure ci-dessous donne cette courbe pour les valeurs de R et C retenues
+(c'est-à-dire R=10 Ohms et C = 7.98 µF).
+La fréquence de coupure Fc est alors de 1/ (2Π RC), soit de 2000 Hz. A noter que la
+résistance ne doit pas être trop forte car elle affaiblit directement la tension disponible aux
+bornes du haut-parleur et réduit donc l'amplitude du son (quelle que soit la fréquence).
+
+Figure 8: courbe de réjection (amplitude de Us/amplitude Ua) du filtre RC étudié pour R= 10
+Ohms et C= 7.98µF
+
+Cependant, ce filtre présentant l'inconvénient d'amputer toutes les composantes du
+spectre au-delà de sa fréquence de coupure, soit 1 / (2ΠRC), la qualité du son s'en retrouve
+un peu altérée. Nous avons donc convenu d'étudier dans un second temps un filtre plus
+complexe mais mieux adapté à notre besoin: le filtre passif coupe bande de type LC.
+
+2_ Filtre coupe bande type RLC:
+Généralités
+Le filtre retenu est passif et basé sur l'association d'une bobine d'inductance L et d'un
+condensateur de capacité C mis et d'une résistance R comme illustré dans la figure ci-après.
+La position du filtre entre les amplificateurs α et β nous semble le meilleur
+compromis car:
+• d'une part, elle ne dégrade pas la sensibilité du micro comme ce serait le cas en positionnant
+le filtre entre le micro et le premier amplificateur,
+• d'autre part, elle ne diminue pas directement la puissance de sortie disponible pour le hautparleur comme le ferait un filtre en sortie du dernier amplificateur.
+
+18
+
+L
+I
+
+C
+
+ue
+
+R
+
+us
+
+Filtre RLC
+Figure 9 : filtre coupe bande RLC retenu
+Pour les fréquences faibles, la bobine L présente une impédance faible (l'impédance de
+la bobine zL étant égale à jLω) et assure ainsi la transmission du signal audio phonique.
+Pour les fréquences hautes, c'est le condensateur C qui présente une impédance faible
+(impédance du condensateur C étant égale à 1/jCω) et qui assure ainsi la transmission du
+signal audio phonique.
+Pour des fréquences intermédiaires, le filtre présente une réjection significative. En
+effet, la réjection qui s'exprime selon la relation [1] (cf démonstration en annexe 5) est faible
+pour les fréquences intermédiaires. Le numérateur R(1- LCω2)s'annule même pour une
+fréquence particulière f0, rendant ainsi la réjection théoriquement égale à 0 (soit moins l'infini
+dB).
+
+Synthèse du filtre LC
+La réjection du filtre coupe bande, définie comme le rapport des modules:│us(f)
+│/│ue(f) │, peut s'exprimer comme suit:
+
+R(1- LCω2)
+
+│us(f) │
+
+[1]
+
+=
+
+│ue(f) │
+
+racine [R2 (1-LCω2)2 + L2ω2]
+
+avec C = capacité du condensateur
+L = inductance de la bobine
+R = impédance (supposée purement résistive) de charge du filtre
+(voir démonstration en annexe)
+
+La fréquence f0, fréquence pour laquelle la réjection tend vers 0 ou moins l'infini dB, est
+appelée fréquence de résonance et se calcule ainsi:
+19
+
+Réjection = 0
+<=>R(1- LC ω02)= 0
+<=> LCω02 = 1
+<=> f0 = 1 / [2 Π racine (LC)]
+L'efficacité de notre filtre RLC est donc maximum pour f0 = 1 / [2 Π racine (LC)].
+
+D'après nos expérimentations, l'effet Larsen se produit principalement pour deux
+plages de fréquences différentes et centrées autour de 3200Hz et 4300Hz. Nous choisissons
+donc d'utiliser deux filtres RLC placés en série pour éliminer de façon distincte ces deux
+plages de fréquence sensibles, comme illustré figure ci-dessous. Nous devons séparer ces
+deux filtres par un montage suiveur (à base d'amplificateur opérationnel) pour des raisons
+d'adaptation d'impédance. En effet, la théorie présentée ci avant et notamment le calcul de
+réjection ne vaut que si la charge du filtre RLC a une influence négligeable. Les filtres RLC
+doivent être chargés par une très forte impédance.
+
+α
+
+Amplificate
+β
+?
+
++
+
+Filtre RLC
+(f0=4250H
+
++
+
+Filtre RLC
+(f0=3250H
+
+Figure 10: schéma complet du montage avec deux filtres RLC
+
+Dimensionnement des filtres RLC
+Comme pour le filtre précédent, nous utilisant le tableur EXCEL pour dimensionner
+les filtres.
+Nous devons donc choisir les valeurs de R, L et C pour:
+- positionner f0 du premier filtre sur 3200Hz,
+- positionner f0 du deuxième filtre sur 4300Hz.
+De plus, le tableur Excel met en avant le rôle important de R qui définit la sélectivité du
+filtre. Plus R est grand, plus le filtre est sélectif.
+
+20
+
+L'optimisation effectuée directement sur EXCEL nous permet de converger sur les valeurs
+suivantes:
+
+Filtre 1
+Filtre 2
+
+F0 (Hz)
+3200
+4300
+
+R (Ohm)
+150 000
+500 000
+
+L (Henri)
+1
+1
+
+C (Farad)
+2,4 E-9
+1.4 E-9
+
+La réjection ainsi obtenue sur EXCEL est présentée figure ci-dessous.
+2
+
+0
+1000
+
+2000
+
+3000
+
+4000
+
+5000
+
+6000
+
+-2
+
+-4
+
+-6
+
+-8
+
+-10
+
+-12
+
+-14
+
+Figure 11: courbe de réjection (amplitude de Us / amplitude Ue)
+de l'ensemble des 2 filtres RLC étudiés
+
+3_ Conclusion: comparaison de l'efficacité des deux filtres expérimentés:
+Filtre passe bas RC:
+L'insertion du filtre passe bas RC comme présenté ci-avant permet bien d'éliminer
+l'effet Larsen. De plus, on constate que, contrairement à ce que l'on attendait, le son ne se
+trouve pas trop altéré. Après réflexion, l'explication vient du fait que seules les fréquences
+hautes sont éliminées (au delà de 3000Hz). Or, ces dernières contribuent peu à la qualité du
+son perçue par l'oreille humaine, la majorité des composantes fréquentielles des sons usuels se
+situant entre 100Hz et 2000Hz . En conséquence, l'altération du son après filtrage reste
+limitée.
+Filtre coupe bande LC:
+L'insertion des filtres coupe bande RLC est aussi un moyen très efficace pour éliminer
+l'effet Larsen, ce dernier disparaissant instantanément lorsque l'on insère les filtres. De plus,
+on constate que le filtre coupe-bande ainsi obtenu, comme attendu, altère très faiblement la
+21
+
+qualité du son et ne modifie en rien sa puissance. En apportant toute notre attention à l'écoute,
+on note seulement, de façon à peine audible, l'absence de quelques composantes fréquentielle.
+
+Filtre passe bas RC et coupe bande LC, Conclusions:
+Les expériences que nous avons menées soulignent la cohérence entre la théorie et la
+pratique. En effet, comme attendu, le filtre simple passe-bas type RC permet de supprimer
+l'effet Larsen. Cela dit, la mise en œuvre d'un filtre un peu plus complexe coupe bande
+constituée de deux étages RLC apporte des résultats bien plus probants. Ce filtre apporte
+effectivement le meilleur compromis entre d'une part l'efficacité de protection contre l'effet
+Larsen et d'autre part la sauvegarde de la qualité du son.
+
+B- Quelques recommandations pour éviter l'effet Larsen
+Après notre étude, nous sommes en mesure de donner quelques conseils de base
+permettant d'éviter l'effet Larsen.
+
+• Recommandations concernant la nature du matériel utilisé :
+Utiliser des haut-parleurs directifs et des microphones unidirectionnels pour limiter les
+interférences entre le (ou les) haut-parleur(s) et le microphone.
+Ne pas régler l'amplificateur trop fort.
+• Recommandations concernant la configuration du matériel utilisé :
+Orienter le haut-parleur dans la direction opposée à celle du microphone, à une distance
+assez importante de ce dernier, de manière à éviter toute possibilité d'interférence du hautparleur vers le microphone.
+Dans ce même but, attacher un soin particulier à l'aménagement de l'environnement
+général: veiller notamment à ce dernier n'induise pas de réverbération et de résonance qui
+pourraient aussi entraîner des interférences entre haut-parleurs et microphones par des
+chemins indirects.
+Pour les professionnels de la sonorisation, on peut conseiller une approche beaucoup plus
+rigoureuse consistant à caractériser en "boucle ouverte" (voir paragraphe II) la chaîne
+d'amplification pour vérifier que les conditions de l'effet Larsen (amplitude et phase, voir
+paragraphe II) ne puissent être réalisées quelle que soit la position du microphone. Le
+professionnel peut ainsi garantir à l'artiste, par exemple, toute une zone sur une scène de
+spectacle où le chanteur peut se déplacer sans risque d'engendrer un effet larsen.
+
+22
+
+ANNEXES
+
+23
+
+Annexe 1 : Caractéristiques de la boucle HP/micro/α
+Mesures réalisées sur α :
+f (Hz)
+Ue,cc (V)
+Us,cc (V)
+Φ (rad)
+G (dB)
+
+1000
+
+2500
+
+5000
+
+8000
+
+10000
+
+13000
+
+16000
+
+20000
+
+1,65E-02 1,65E-02 1,55E-02 1,60E-02 1,60E-02 1,60E-02 1,60E-02 1,60E-02
+3,50
+π
+47
+
+3,45
+π
+46
+
+3,45
+π
+47
+
+3,35
+π
+46
+
+3,35
+π
+46
+
+3,35
+π
+46
+
+3,35
+π
+46
+
+3,35
+π
+46
+
+Mesures réalisées sur la boucle HP/micro/α (D(HP/micro)=30cm)
+fréquence
+retard
+tension crête à crête
+en entrée de β
+
+f (Hz)
+τ (s)
+
+104
+2,0E-03
+
+150
+2,8E-03
+
+163
+4,1E-03
+
+167
+4,2E-03
+
+173
+4,3E-03
+
+200
+erreur
+
+250
+erreur
+
+Ue,cc (V)
+
+1,45
+
+1,4
+
+1,35
+
+1,35
+
+1,35
+
+1,35
+
+1,35
+
+tension crête à crête
+Us,cc (V)
+1,0E-01 1,1E-01 2,1E-01 5,0E-02 2,4E-01 4,0E-02
+4,0E-02
+en sortie de β
+déphasage
+Φ (rad) [2π] 1,31E+00 2,64E+00 4,17E+00 4,40E+00 4,66E+00 #VALEUR! #VALEUR!
+déphasage
+75
+151
+239
+252
+267
+#VALEUR! #VALEUR!
+Φ (degrés) [360]
+gain
+G (dB)
+-23
+-22
+-16
+-29
+-15
+-31
+-31
+f (Hz)
+300
+350
+400
+500
+600
+700
+800
+900
+1000
+0,0E+00 1,5E-04 3,0E-04 4,0E-04 5,5E-04 5,0E-04 6,3E-04 6,2E-04 3,40E-04
+τ (s)
+Ue,cc (V)
+1,4
+1,4
+1,4
+1,4
+1,4
+1,5
+1,5
+1,56
+1,3
+Us,cc (V)
+5,0E-02 6,0E-02 8,0E-02 8,0E-02 1,0E-01 1,6E-01 2,4E-01 4,0E-01 3,8E-01
+Φ (rad) [2π] 0,00E+00 3,30E-01 7,54E-01 1,26E+00 2,07E+00 2,20E+00 3,14E+00 3,48E+00 2,14E+00
+0
+19
+43
+72
+119
+126
+180
+199
+122
+Φ (degrés) [360]
+G (dB)
+-29
+-27
+-25
+-25
+-23
+-19
+-16
+-12
+-11
+f (Hz)
+τ (s)
+
+1200
+
+1400
+
+1600
+
+1800
+
+2000
+
+2250
+
+2500
+
+2750
+
+3000
+
+2,00E-04 5,57E-04 4,53E-04 4,18E-04 2,50E-04 1,00E-04 5,00E-05 2,57E-04 1,67E-04
+
+Ue,cc (V)
+
+1,55
+
+1,4
+
+1,65
+
+1,7
+
+1,5
+
+1,8
+
+1,9
+
+2
+
+1,7
+
+Us,cc (V)
+
+4,2E-01
+
+4,8E-01
+
+4,8E-01
+
+4,2E-01
+
+3,8E-01
+
+4,6E-01
+
+4,8E-01
+
+5,2E-01
+
+6,0E-01
+
+Φ (rad) [2π]
+
+1,51E+00 4,90E+00 4,55E+00 4,72E+00 3,14E+00 1,41E+00 7,85E-01 4,44E+00 3,14E+00
+
+Φ (degrés) [360]
+
+86
+
+281
+
+261
+
+271
+
+180
+
+81
+
+45
+
+254
+
+180
+
+G (dB)
+
+-11,3
+
+-9,3
+
+-10,7
+
+-12,1
+
+-12
+
+-12
+
+-12
+
+-12
+
+-9,0
+
+f (Hz)
+
+3200
+
+3500
+
+3800
+
+4000
+
+4200
+
+4500
+
+5000
+
+6000
+
+7000
+
+τ (s)
+
+1,66E-04 1,63E-04
+
+0,00
+
+1,36E-04 8,00E-05 1,26E-04 1,50E-04 1,23E-04 1,26E-04
+
+Ue,cc (V)
+
+1,8
+
+2,1
+
+1,9
+
+1,9
+
+2,25
+
+2,35
+
+2,1
+
+2,2
+
+2,35
+
+Us,cc (V)
+
+7,4E-01
+
+5,0E-01
+
+2,8E-01
+
+3,8E-01
+
+7,2E-01
+
+3,6E-01
+
+2,6E-01
+
+2,0E-01
+
+3,4E-01
+
+Φ (rad) [2π]
+
+3,34E+00 3,58E+00 3,14E+00 3,42E+00 2,11E+00 3,57E+00 4,71E+00 4,65E+00 5,56E+00
+
+Φ (degrés) [360]
+
+192
+
+205
+
+180
+
+196
+
+121
+
+204
+
+270
+
+266
+
+319
+
+G (dB)
+
+-7,7
+
+-12
+
+-17
+
+-14
+
+-10
+
+-16
+
+-18
+
+-21
+
+-17
+
+24
+
+Diagramme de Bode de la boucle HP/micro/a (D(HP/micro)=30cm)
+
+0
+100
+
+1000
+
+10000
+
+-5
+
+Gain (dB)
+
+-10
+
+-15
+
+-20
+
+-25
+
+-30
+
+-35
+fréquence (Hz)
+
+350
+
+déphasage (degrés) [360]
+
+300
+
+250
+
+200
+
+150
+
+100
+
+50
+
+0
+100
+
+1000
+
+10000
+
+fréquence (Hz)
+
+25
+
+Annexe 2 : Atténuation du son dans l'air
+Dès nos premières mesures visant à établir une loi qui nous aurait donné l'atténuation
+en tension du son dans l'air, en fonction de la distance, nous nous sommes rendu compte que
+la réponse en tension du micro à la pression acoustique n'était pas toujours linéaire. C'était
+notamment le cas pour des fréquences élevées de l'ordre de 3 000 à 5 000 Hz.
+Nous avons donc cherché à établir une loi à une fréquence particulière où la réponse
+du micro serait proportionnelle à la pression acoustique. La pression acoustique décroît
+comme l'inverse de la distance. Il nous fallait donc trouver une fréquence pour laquelle,
+lorsque nous augmentions la distance entre le micro et le haut-parleur, les tensions aux bornes
+du micro diminuent comme l'inverse de la distance. Par tâtonnements nous avons trouvé la
+fréquence de 560 Hz (voir graphique ci dessous).
+
+Nous avons calculé l'atténuation du son dans l'air et cherché à la modéliser. Pour
+déterminer quelle fonction utiliser, nous avons raisonné pour des valeurs limites. Lorsque la
+distance devient infiniment grande, le gain tend vers zéro. Par contre, lorsque la distance tend
+vers zéro, le gain possède une valeur maximale, qui ne peut être infinie puisque nous devions
+considérer l'atténuation due au matériel acoustique. Nous aurions donc dû utiliser pour notre
+modélisation une hyperbole de la forme y = a/(x+b), ce qui revient à considérer que le hautparleur émet le son suivant une portion de sphère dont le centre se situerait en arrière du hautparleur. Cependant cette modélisation ne donnait pas de très bons résultats et nous nous
+sommes finalement rabattus sur une modélisation par une fonction exponentielle. Les points
+expérimentaux concordent avec cette modélisation (voir graphique ci dessous) qui nous donne
+l'atténuation dans l'air en fonction de la distance à 560 Hz.
+
+26
+
+Le résultat obtenu pour une distance de 30 cm concorde avec la caractérisation en boucle
+ouverte de la chaîne haut-parleur/micro/α. Comme nous étions dans l'incapacité de mesurer
+des pressions acoustiques nous n'avons pas pu dépasser ce stade.
+
+27
+
+Annexe 3 : Caractéristiques de l'amplificateur β
+Caractéristique de l'amplificateur β en charge G= h(f) (gain maximum)
+
+f
+
+100
+
+120
+
+140
+
+160
+
+180
+
+200
+
+220
+
+240
+
+260
+
+280
+
+Ue,cc (V)
+
+0,4
+
+0,4
+
+0,4
+
+0,4
+
+0,4
+
+0,4
+
+0,4
+
+0,4
+
+0,4
+
+0,4
+
+Us,cc (v)
+
+1,75
+
+1,7
+
+1,7
+
+1,65 1,65 1,65 1,65 1,65 1,65
+
+1,65
+
+G (dB)
+
+20,6 20,6 20,6 20,6 20,6 20,6 20,6 20,6 20,6
+
+20,6
+
+f
+
+300
+
+325
+
+350
+
+375
+
+400
+
+450
+
+500
+
+600
+
+700
+
+800
+
+Ue,cc (V)
+
+0,4
+
+0,4
+
+0,4
+
+0,4
+
+0,4
+
+0,4
+
+0,4
+
+0,4
+
+0,4
+
+0,4
+
+Us,cc (v)
+
+1,65 1,65 1,65 1,65 1,65 1,75 1,75 1,75 1,75
+
+1,8
+
+G (dB)
+
+20,6 20,6 20,6 20,6 20,6 20,6 20,6 20,6 20,6
+
+20,7
+
+f
+
+900 1000 1200 1400 1600 1800 2000 2200 2400
+
+2600
+
+Ue,cc (V)
+
+0,4
+
+0,4
+
+0,4
+
+0,4
+
+0,4
+
+0,4
+
+0,4
+
+0,4
+
+0,4
+
+0,4
+
+Us,cc (v)
+
+1,8
+
+1,85 1,85
+
+1,8
+
+1,8
+
+1,95
+
+2,0
+
+2,0
+
+2,1
+
+2,15
+
+G (dB)
+
+20,7 20,7 20,7 20,7 20,7 20,7 20,7 20,7 20,7
+
+20,7
+
+f
+
+2800 3000 3250 3500 3750 4000 4500 5000 6000
+
+7000
+
+8000
+
+Ue,cc (V)
+
+0,4
+
+0,4
+
+0,4
+
+0,4
+
+0,4
+
+0,4
+
+0,4
+
+0,4
+
+0,4
+
+0,4
+
+0,4
+
+Us,cc (v)
+
+2,2
+
+2,2
+
+2,25 2,25
+
+2,3
+
+2,35
+
+2,4
+
+2,45
+
+2,6
+
+2,65
+
+2,75
+
+G (dB)
+
+20,7 20,7 20,8 20,8 20,8 20,8 20,8 20,8 20,8
+
+20,8
+
+20,8
+
+Le déphasage est de l'ordre de 10° pour toutes les fréquences.
+
+28
+
+Caractéristique de l'amplificateur β en charge G=h(f) (gain maximum)
+20,9
+
+Gain (dB)
+
+20,8
+
+20,8
+
+20,7
+
+20,7
+
+20,6
+100
+
+1000
+
+10000
+
+fréquence (Hz)
+
+Saturation de l'amplificateur β en charge à 3 kHz (gain maximum)
+
+Ue,cc (v)
+
+0,1
+
+0,2
+
+0,3
+
+0,4
+
+0,5
+
+0,6
+
+0,7
+
+0,8
+
+0,9
+
+1,0
+
+Us,cc (v)
+
+0,6
+
+1,1
+
+1,7
+
+2,2
+
+2,25
+
+3,35
+
+3,9
+
+4,4
+
+5,0
+
+5,6
+
+Ue,cc (v)
+
+1,1
+
+1,2
+
+1,3
+
+1,4
+
+1,5
+
+1,6
+
+1,7
+
+1,8
+
+1,9
+
+2,0
+
+Us,cc (v)
+
+6,3
+
+6,7
+
+7,3
+
+7,9
+
+8,4
+
+8,8
+
+9,6
+
+10,0 10,4 11,2
+
+Ue,cc (v)
+
+2,1
+
+2,2
+
+2,3
+
+2,4
+
+2,5
+
+2,6
+
+2,7
+
+2,8
+
+Us,cc (v)
+
+11,8 12,4 13,0 13,6 14,2* 14,6 15,2 15,6 16,0 16,5
+
+2,9
+
+3,0
+
+*Déformation du signal
+
+Ue,cc (v)
+
+3,1
+
+3,2
+
+Us,cc (v)
+
+17
+
+17,5 18,0 18,0 18,0
+
+3,3
+
+3,4
+
+3,5
+
+3,6
+
+3,7
+
+3,8
+
+3,9
+
+4,0
+
+18,5 18,5 19,0 19,0 20,0
+
+29
+
+Ue,cc (v)
+
+4,1
+
+Us,cc (v)
+
+20,0 20,0 20,0 20,5 20,5 21,0 23,0 24,0 25,5
+
+4,2
+
+4,4
+
+4,6
+
+4,8
+
+5,0
+
+6,0
+
+7,0
+
+8,0
+
+Comme nous mesurons toujours des tensions crête à crête le gain n'est altéré par la saturation
+que bien après son apparition. Cependant dés cet instant la tension efficace est fortement
+altérée.
+Saturation de l'amplificateur β en charge à 3 kHz (gain maximum)
+30,0
+
+25,0
+
+Us,cc (V)
+
+20,0
+
+15,0
+
+10,0
+
+5,0
+
+0,0
+0
+
+1
+
+2
+
+3
+
+4
+
+5
+
+6
+
+7
+
+8
+
+9
+
+Ue,cc (V)
+
+30
+
+Annexe 4 : Expression de la réjection du filtre passe bas
+Démonstration de la proposition suivante:
+La réjection du filtre qui peut s'exprimer sous la forme│Us(f) │/│Ua(f) │ s'écrit:
+Réjection = 1 / racine (1+ (2Π f RC)2 )
+
+Considérons le pont diviseur de tension suivant:
+
+D'après la loi d'Ohm,
+Ua = (R1 + R2) I
+Us = R2 I
+
+D'où Ua = (R1 + R2) . [Us / R2 ]
+D'où Us = [R2 / (R1+R2)] Ua (1)
+
+Extension du résultat au cas général des impédances
+De façon plus générale, la loi d'ohm est aussi applicable aux impédances, mais relève
+alors du domaine des nombres complexes: Ua, Us et les impédances mises en jeu sont alors
+des nombres complexes. Ces dernières correspondent aux impédances d'un condensateur C et
+d'une résistance R dans notre filtre.
+Le résultat (1) s'écrit alors sous la forme suivante:
+
+Us = [Z2 / (Z1+Z2)] Ua
+Sachant que Z1 = R et Z2 = 1/ jCω.
+Ainsi:
+1/ jCω
+Us = ------------ Ua
+R + 1/ jCω
+1
+Us/Ua = ----------------, Us et Ua complexes
+1 + j RCω
+avec ω = 2 П f
+ω : pulsation ou fréquence angulaire
+Conclusion
+1
+│Us(f) │ / │Ua(f) │ = --------------------------racine (1 + (RC2Πf)2 )
+
+31
+
+Annexe 5 : Expression de la réjection du filtre coupe-bande
+Démonstration de la proposition suivante:
+La réjection du filtre coupe bande, soit le rapport des modules des tensions
+│us(f) │/│ue(f) │, s'exprime sous la forme:
+
+│R (1-LCω2 ) │
+Réjection =
+Racine[R2 (1-LCω2) + L2ω2]
+
+Intéressons-nous au schéma du filtre coupe bande suivant. Le filtre est chargé par une
+résistance pure appelée R.
+uAB
+L
+A
+
+I
+
+B
+
+C
+
+ue
+
+us
+
+R
+
+C
+
+Filtre
+
+Soient z L et z C les impédances de la bobine et du condensateur.
+z L = jLω
+et
+z C= 1 / (jCω)
+avec ω = 2Πf
+Alors, l'impédance équivalente à l'impédance de la bobine et du condensateur en parallèle
+s'écrit:
+z L× z C
+jLω × (1 / (jCω))
+jLω
+z éq =
+=
+=
+z L+ z C
+jLω + 1 / (jCω)
+1-LCω2
+
+Par ailleurs, uAC = uAB + uBC
+jLω
+Soit, ue = us + uAB . D'après la loi d'Ohm, ue = us + z éq × i = us +
+
+× i (1)
+32
+
+1-LCω2
+us
+
+(2)
+
+Or, d'après la loi d'Ohm, i =
+R
+jLω
+
+×
+
+D'où, d'après (1) et (2), ue = us +
+
+1-LCω
+
+us
+D'où
+
+jLω
+
+us
+2
+
+= us ( 1 +
+R
+
+)
+2
+
+R(1- LCω )
+
+1
+=
+jLω
+
+ue
+1+
+
+R(1- LCω2)
+
+R(1- LCω2)
+
+=
+R(1- LCω2) + jLω
+
+Nous pouvons à présent exprimer la réjection du filtre coupe bande, définie comme le rapport
+des modules:│us(f) │/│ue(f) │, comme suit:
+
+R(1- LCω2)
+
+│us(f) │
+=
+
+│ue(f) │
+
+racine [R2 (1-LCω2)2 + L2ω2]
+
+33
+
+

@@ -1,0 +1,382 @@
+La vitesse en roller,
+attention au départ du
+signal
+
+Présenté par :
+DUFOUR Carole
+FAUGIER-TOVAR Jonathan
+SIMPLE François
+
+1
+
+La vitesse en rollers, attention, départ du signal
+I] Introduction
+1/ Présentation du groupe.
+2/ Le compteur de vitesse pour rollers, évolution du sujet.
+3/ Le départ du signal
+4/ La physique autrement… quatre points de vue différents
+
+II] Le magnétisme
+1/ Un tour de roue, solution magnétique.
+2/ La détection d’un champs magnétique grâce à l’effet Hall
+3/ La cellule.
+
+III] La transmission radio
+1/ Une onde électromagnétique
+2/ Le choix des modules
+3/ Mise en œuvre, test de fonctionnement.
+
+IV] Pour afficher la vitesse, obtenir une tension proportionnelle à la vitesse
+1/ Une tension proportionnelle
+2/ Le NE555
+3/ Le filtre passe-bas
+4/ L’afficheur EMV 1025
+
+V] Réglages, Précision
+1/La durée d’impulsion du NE555
+2/Le pont diviseur
+3/Erreur, Précision
+
+VI] Conclusion
+1/ La réalisation du circuit
+2/ Bilan financier
+3/ La conclusion…
+
+I] Introduction
+
+1/ Présentation du groupe
+Nous sommes trois lycéens, Carole Dufour, 16 ans, la plus jeune, Faugier-Tovar Jonathan, 18 ans, et
+Simplex François, 18 ans aussi. Cependant, il ne faut pas oublier de citer deux de nos camarades qui ont travaillé
+avec nous en première, mais qui ont suivi des filières différentes et changer de lycée pour la terminale. Nous
+sommes tous les cinq sur la photo de la première page.
+C’est sur l’idée de la seule fille du groupe que nous avons demandé à notre professeur de génie
+électrique, M. Lacombe, de nous inscrire aux olympiades physiques. Pour tous les quatre, cette expérience était
+une première et même, d’ailleurs, pour tout le lycée de la Côtière.
+
+2
+
+2/ Le compteur de vitesse pour roller, évolution du sujet
+Notre sujet a vu le jour au début des TPE de 1ère, en effet, lors de cette année, comme nous étions en
+1ère S-SI, nous avions la possibilité de développer notre propre projet, et c’est après avoir eu d’excellents
+résultats grâce à celui-ci et avoir découvert le concours pendant les vacances, que nous avons pensé à participer.
+Nous n’avons pas eu de problème pour nous inscrire au milieu des deux années car, sans le savoir, nous
+avions suivi en 1ère la bonne démarche, utilisant les connaissances d’une entreprise sur le magnétisme par
+l’intermédiaire d’un parent d’un des membres du groupe qui nous a fourni les composants utiles. Il s’agissait de
+M. Dufour, travaillant au sein de l’entreprise Electricfil.
+Pendant notre classe de 1ère notre projet a été de mesurer la vitesse d’une personne en rollers. Le
+compteur a donc été terminé à la fin de cette première année et nous avons donc décidé, puisque nous pouvions
+continuer sur le même sujet en terminale, d’améliorer encore notre prototype et de transmettre nos données à un
+afficheur situé dans la main ou dans la poche en utilisant les ondes radio.
+C’est ainsi que nous avons rencontré M. Saintier, de l’entreprise S.O.R.O.D.H.E.L. Il a accepté de nous
+aider à réaliser notre projet en nous fournissant les composants et en nous aidant à trouver des solutions
+techniques aux problèmes rencontrés notamment sur les ondes radio.
+
+3/ Le départ du signal…
+Nous avons donc décidé de présenter notre projet en suivant les évolutions du signal, depuis la marque
+que nous avons faite sur la roue, jusqu’à l'affichage de la vitesse pour nous permettre d’expliquer le mieux
+possible toutes les étapes du traitement du signal, chacune d’entre elles étant illustrées par une expérience
+montrant comment nous avons adapté les caractéris tiques d’un composant ou d’une propriété physique de notre
+circuit. A travers ce projet, nous avons découvert le magnétisme et les ondes radio, tout en élaborant un circuit
+électrique pour atteindre notre but : acquérir une tension proportionnelle à la vitesse qui, grâce à un voltmètre,
+serait affichée dans la main de l’utilisateur.
+
+4/ La physique autrement… 4 points de vue différents
+"Cette expérience m’aura permis de réaliser concrètement un projet même si je trouve que le temps nous a un
+peu manqué. Cependant le fait d’être en contact avec des entreprises a été très enrichissant."
+Jonathan FAUGIER-TOVAR
+« Finalement, ces Olympiades m’auront appris, dans le prolongement des TPE de l’année dernière, à trouver
+des solutions physiques pour résoudre des problèmes concrets. J’ai beaucoup apprécié de travaillé en commun
+avec une entreprise car cela nous donne un aperçu du monde du travail et de ces contraintes, surtout celle du
+temps, puisque nous avons nous mêmes dû respecter un délai. Enfin, l’idée du concours m’a plu, même si
+j’angoisse un peu à l’idée d’être confrontée à d’autres groupes. »
+Carole DUFOUR
+« Les olympiades auront été, pour moi, un moyen de progresser au niveau des applications à la physique et à
+l’électricité et m’a donc aidé à comprendre certaines choses dans le programme de terminale. Nous avons aussi
+appris à réagir face à des problèmes posés lors de l’élaboration du prototype et c’est intéressant de participer à
+un concours pour savoir ce que vaut notre projet en dehors du lycée. »
+François SIMPLEX
+« C'est une belle expérience d'échanges et d'association de personnes entre les élèves, les enseignants, les
+industriels et les olympiades qui a permis de donner un sens et de développer ce projet.
+Je tiens à remercier les élèves pour nous avoir entraînés dans cette aventure. »
+Laurent LACOMBE
+
+3
+
+II]. Le Magnétisme
+1/ Un tour de roue : solution magnétique
+Tout d’abord, pour connaître la vitesse, il nous fallait détecter un tour de roue.
+Pour cela, nous avons envisagé différentes solutions.
+La première était de faire une marque visuelle sur la roue, c’est à dire une
+différence de couleur sur la roue, associée à un capteur de lumière réfléchie. La seconde
+consistait à percer une fenêtre dans la roue laquelle aurait été traversée par un rayon
+infrarouge.
+Mais ces deux solutions posaient des problèmes de fiabilité, puisque la couleur de
+la première risquait d’être salie par la poussière ou la boue et le rayon infrarouge pouvait
+être déplacé et ne plus se trouver dans l'alignement de la fenêtre et du récepteur.
+Ainsi nous avons choisi une troisième solution : la mise en place d’un aimant
+implanté directement dans la roue et associé à une cellule à effet hall, l’aimant produisant
+un champ magnétique qui est ensuite détecté par la cellule sensible à celui-ci.
+Mise en évidence du champs magnétique :
+Cette expérience montre l’action du champ magnétique sur la limaille de fer. Elle consiste à étaler
+de la limaille sur une surface plane et lisse voire glissante comme du verre par exemple et de faire passer un
+aimant de l’autre côté de cette surface de manière à ce que le champ magnétique atteigne la limaille de fer.
+On constate alors que la limaille se place dans une position très précise qui suit les lignes de
+champ créées par l’aimant. En déplaçant l’aimant sous la plaque, on remarque que la limaille se déplace
+dans le même sens mais suit toujours les lignes de champ.
+Limaille de fer
+Plaque de verre
+
+Aimant
+
+Photo d’une expérience similaire. Palais de la découverte Paris.
+
+2/ La détection d'un champs magnétique grâce à l'effet Hall
+Un semi-conducteur, si on lui applique un courant dans une direction, et une induction
+magnétique perpendiculairement, crée une tension dans la troisième direction.
+
+Induction
+magnétique
+V
+Tension de Hall
+
+Source de courant
+
++
+4
+
+III] Transmission radio
+Nous allons expliquer dans cette partie comment nous avons choisi puis mis en œuvre un émetteur
+et un récepteur afin de transmettre le signal du roller à la main.
+Nous n’aurions rien pu faire sans l’aide de l’entreprise SORHODEL, par l’intermédiaire de M.
+Saintier, que nous avons rencontré à deux reprises. En effet, ces rencontres nous ont permis d’affiner nos
+connaissances, de nous rendre compte des problèmes que posait notre système, ainsi que ce que nous étions
+capable de faire. De plus, il nous a fourni les modules radio.
+Mais avant de vouloir élaborer un montage quel qu’il soit, il nous fallait comprendre le principe
+des ondes radio.
+
+1/ Une onde électromagnétique.
+
+Les ondes radio sont des ondes électromagnétiques. Une onde électromagnétique c’est la
+combinaison d'un champ électrique et d'un champ magnétique. Le champ électrique est dû au courant
+circulant dans l'antenne, le champ magnétique est quant à lui dû au déplacement des électrons dans
+l'antenne.
+Cette onde se propage jusqu’au récepteur, où elle est alors de nouveau transformée en un signal
+électrique grâce à son antenne.
+Mais de nombreux systèmes utilisent les transmissions radio, et notre signal, doit être différencié des
+autres. C’est pourquoi émetteurs et récepteurs sont calés sur une certaine fréquence pour résoudre ce
+problème, le signal à émettre est modulé à une fréquence porteuse (Haute fréquence) que le récepteur
+reconnaît. Il élimine alors les fréquences parasites puis démodule le signal : ainsi il récupère le signal
+d’entrée de l’émetteur.
+
+2/ Le choix des modules
+
+Nous avions donc une idée générale de la technologie que nous allions utiliser lorsque nous avons
+rencontré M. Saintier pour la première fois.
+Lors de cet entretient, nous avons envisagé deux solutions possibles pour transmettre nos données.
+La première solution, celle que nous avons retenue, consistait à intercaler émetteur/récepteur entre la cellule
+et le reste du circuit.
+
+Nous utilisions alors un émetteur en
+modulation d’amplitude: cela consiste à
+multiplier la fréquence de la porteuse par le
+signal à émettre. L’enveloppe du signal ainsi
+émis représente le signal de la cellule: un
+signal TOR.
+
+5
+
+III] Pour afficher la vitesse, obtenir une tension proportionnelle
+En début de première, une fois que nous avions eu choisi notre projet, nous avons envisagé
+différentes solutions pour parvenir à notre but : afficher la vitesse de déplacement d’une personne à
+rollers. Le programme de première en génie électrique est tourné surtout vers la logique, et c’est
+pourquoi nous avons d’abords réfléchie à un traitement logique du signal. Mais réaliser un compte
+tour sur une seconde, puis transformer cette vitesse des tours/s aux km/h, et enfin utiliser un afficheur
+qui à chaque seconde viendrait acquérir la vitesse et la maintiendrait jusqu’à la mesure suivante, tout
+ceci dépassait nos connaissances.
+Nous avons donc opté pour une autre solution, obtenir une tension proportionnelle à la
+vitesse de déplacement, et l’afficher grâce à un afficheur voltmètre. Lors de l’élaboration de notre
+circuit, nous avons simulé chaque étape sous Work Bench ( logiciel de simulation électrique ) pour
+savoir si notre solution avait l’e ffet désiré sur le signal, puis avons testé chaque solution
+indépendamment pour vérifier que la réalité correspondait bien à la théorie.
+
+1/ Une tension proportionnelle
+On va montrer que pour obtenir une tension proportionnelle à la vitesse, il suffit de fixer la durée de
+l'impulsion à l'état haut.
+Notons f la fréquence et V la vitesse.
+f=K 1 V , avec K 1 une constante.
+On sait que
+Le rapport cyclique du signal :
+α=
+
+T on
+
+T
+avec T on la durée de l'état haut et T la période, .
+d'où
+
+α =
+
+T on
+1
+f
+
+= f T on= To n K 1 V
+
+La tension moyenne d'un signal rectangulaire U MOY est:
+U MOY = α x E MAX = To n K 1 V x E M A X
+Pour que U MOY soit proportionnelle à V, il faut que T on K 1 E MAX soit une constante.
+Or, K 1 est une constante et EM A X est une constante.
+Il reste donc juste à fixer T on à une durée constante.
+On aura alors U MOY = K 2 V, et K 2 = E MAX T on K 1
+2/ Le NE555.
+La cellule à effet Hall ne nous permettait pas d’obtenir une tension proportionnelle à la
+vitesse. En effet à différente vitesse le rapport cyclique du signal était le même.
+Nous avons donc branché le NE555 en mode monostable (car en mode astable il se
+comporte comme un oscillateur), ainsi à chaque front descendant en entrée (1/3 de Vcc) il déclenche
+une impulsion de durée réglable en sortie a l’aide de la résistance et du condensateur qu’ils lui sont
+associé.
+Passage de
+l’aimant
+Aucun passage
+d’aimant
+
+τ=1.1.R.C
+Un tour de roue
+
+6V
+0V
+
+τ
+
+Passage de
+l’aimant
+Aucun passage
+d’aimant
+Impulsion 6V
+délivrée par le
+NE
+0V
+
+Un tour de roue
+
+Impulsi
+délivrée par
+
+τ
+
+6
+
+V/ Réglages, précision.
+Le circuit était réalisé, nous avions bien une tension proportionnelle à la vitesse. Mais nous devions
+nous assurer que la valeur affichée par le voltmètre était bien celle de la vitesse en km/h. Pour cela,
+nous avons procédé à une vérification en deux temps : tout d’abord un calcul théorique permettant de
+déterminer les valeurs des composants, puis un réglage expérimental des potentiomètres nous
+permettant d’être plus précis.
+
+1/ La durée d’impulsion du NE555.
+Elle est réglée par une résistance R et un condensateur C externes. La durée τ de l’impulsion est alors
+donnée par la formule τ=1.1RC.
+Nous avons exprimé dans le paragraphe précédent la nécessité de fixer une vitesse maximum Vmax.
+Cette vitesse correspond à la tension maximum que peut délivrer l’alimentation, c’est à dire qu’elle
+correspond à un état haut permanent à la sortie du monostable, c’est à dire encore qu’à Vmax, la
+fréquence de rotation fmax est telle que le temps que met la roue à faire un tour est τ.
+
+Période du signal de sortie de la cellule ( notée p en s )
+Passage de l’aimant
+Aucun passage de l’aimant
+5V
+0V
+Impulsion du NE555 ( notée i en s )
+
+Calculs théoriques de R et C :
+A 50 km/h, on a la période P = 1/fmax = τ.
+Le diamètre d de la roue est d = 5.5 cm = 0.055 m donc son périmètre est π x d = 0.055π m
+La vitesse maximum est Vmax = 50 km/h = 500/36 m/s = 13.9 m/s
+fmax = Vmax / d = 500 / (π x 0.055 x 36 ) = 80 Hz
+Donc P = 1/fmax = 1/80 = τ =1.1RC d’où RC = 1/(80 x 1.1 ) = 0.0113
+Nous avons fixé la valeur de notre condensateur à 1µF ce qui imposait une résistance de 11.3 kΩ.
+
+Réglage expérimental :
+C’est alors que nous avons effectué un réglage expérimental. Nous avons remplacé la résistance par un
+potentiomètre de… kΩ pour régler R plus précisément. Nous avons ensuite câblé le NE555 dans ses
+conditions de fonctionnement, et nous lui avons appliqué en entrée un signal de fréquence fmax =
+80Hz. Nous avons alors réglé le potentiomètre pour que le signal de sortie soit en permanence à 6V,
+grâce à un oscilloscope.
+
+7
+
+VI] Conclusion
+1/ La réalisation du circuit
+Le circuit élaboré, il nous restait encore à le réaliser
+concrètement, ce qui n’était pas une mince affaire. Nous l’avons
+fait en plusieurs temps, avec des phases de test entre chaque
+modification.
+Tout d'abord, l'an dernier, nous avons réalisé notre
+circuit en fils vrappés, sur une plaque d'essai. Puis, après le
+déboguage du montage (entre autres oublis, nous n’avions par
+exemple pas raccordé le 6volts au circuit), nous avons soudé les
+composants. A cette époque, l’afficheur était fixé sur le dessus du
+roller.
+Pendant la deuxième année, nous avons mis en œuvre la
+transmission radio, et par conséquent, nous avons du modifié le
+circuit.
+Après différents test, nous avons réalisé un premier
+circuit imprimé pour monter les composants de façon à ce que le
+circuit soit de la taille la plus petite possible (récepteur et afficheur
+
+2/ Bilan financier
+
+Dépenses
+Quantité
+Composants commandés
+2
+Afficheurs voltmètre EMV1025
+1
+5 potentiomètres 22K
+1
+5 potentiomètres 1M
+1
+4 interrupteurs CI
+6
+Pile bouton 3V
+3
+Support de piles
+Total HT
+Total TTC ( TVA 19,6% )
+
+Recettes
+Prix HT à l'unité
+31,38 Subvention des Olympiades
+5,38 Pris en charge par le lycée
+5,38
+10,40
+3,37
+2,75
+112,43
+134,47 Total
+
+Montant
+100
+34,47
+
+134,47
+
+3/ La conclusion
+
+Nous n'aurions pas réussi à réaliser notre projet sans l’aide de l’entreprise
+SORHODEL, par l’intermédiaire de M. Saintier, ainsi qu’ELECTRIFIL qui nous ont
+beaucoup apportés concernant les ondes radios pour l’une et le magnétisme pour l’autre et qui
+nous ont aussi fourni les composants dont nous avions besoin (les cellules à effet hall et les
+émetteurs/récepteurs) De plus, M. Lacombe notre professeur de génie électrique qui nous a
+encadrés, nous a aidés à résoudre les problèmes que nous avons rencontrés lors de la
+réalisation de notre projet. Nous nous sommes rendus compte que au niveau de la terminale, il
+est très difficile de concevoir un produit seuls, mais qu’avec de l’aide nous rencontrons des
+problèmes, nous avons réussi à réaliser notre compteur.
+Cette expérience nous a beaucoup apporté dans le sens où nous avons été en contact
+avec des entreprises et avons appris de nombreuses choses à leur coté.
+
+8
+
+9
+
+

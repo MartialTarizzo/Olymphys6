@@ -1,0 +1,1044 @@
+Lycée André Chamson
+
+LA LÉGENDE DES TOURBILLONS
+
+Mémoire préparé sous la direction de M. Magnoux
+
+Présenté et soutenu par Ylan Hernández-Motte et Jules Péchard
+
+29° Édition des Olympiades de Physique
+Année scolaire 2021/2022
+
+1
+
+SOMMAIRE
+Chapitre 1. Introduction
+1.1 Remerciements -------------------------------------------------------------------------------------------3
+1.2 La légende des tourbillons ------------------------------------------------------------------------------3
+1.3 Étude théorique et expérimentale des tourbillons----------------------------------------------------4
+
+Chapitre 2. Le dispositif expérimental
+2.1 Création du tourbillon----------------------------------------------------------------------------------- 5
+2.2 Pointage--------------------------------------------------------------------------------------------------- 6
+2.3 Chronométrage------------------------------------------------------------------------------------------- 6
+
+Chapitre 3. Description du mouvement
+3.1 Trajectoire ------------------------------------------------------------------------------------------------8
+3.2 Vitesse et accélération ----------------------------------------------------------------------------------8
+
+Chapitre 4. Mesure du temps d’aspiration
+4.1 Détermination des plages de valeurs -----------------------------------------------------------------9
+4.2 Réalisation des mélanges eau/glycérol---------------------------------------------------------------10
+
+Chapitre 5 : Étude du temps d’aspiration
+5.1 Modélisation et programmation ---------------------------------------------------------------------11
+5.2 Exemple de résultats donnés par le code-------------------------------------------------------------12
+5.3 Influence des différents facteurs sur le temps d’aspiration----------------------------------------14
+
+Chapitre 6. Extension à la réalité
+6.1 Nombre de Reynolds-----------------------------------------------------------------------------------16
+6.2 Nombre de Froude-------------------------------------------------------------------------------------- 17
+6.3 Possibilités et limites -----------------------------------------------------------------------------------17
+
+Chapitre 7. Observations annexes
+7.1 Influence de la présence d’obstacles -----------------------------------------------------------------18
+7.2 Distance maximale d’aspiration ----------------------------------------------------------------------19
+7.3 Lien entre tension et viscosité ------------------------------------------------------------------------20
+
+Chapitre 8. Conclusion
+8.1 Bilan -----------------------------------------------------------------------------------------------------20
+8.2 Perspectives futures -----------------------------------------------------------------------------------20
+
+2
+
+Chapitre 1. Introduction
+1.1 Remerciements
+Tout au long de nos recherches, de nombreuses personnes nous sont venues en aide et nous
+tenons ici à les remercier. Tout d’abord bien sûr Mr Magnoux, notre enseignant en sciences
+physiques, qui a passé de nombreuses heures à nous aider à comprendre et à mettre du sens sur des
+phénomènes qui parfois nous dépassaient. Ce mémoire n’aurait pas pu être réalisé sans son soutien.
+Ensuite nous tenons à remercier nos enseignants de mathématiques Mr Couderc et Mr Beaumont
+qui ont toujours été là pour éclaircir certains concepts. Nous aimerions aussi remercier Mr Roux et
+Mme THEMOND qui nous ont fourni le matériel dont nous avions besoin pour nos expériences et
+qui nous ont épaulés lors de notre présentation en visioconférence. Nous remercions aussi l’équipe
+d’administration du lycée André Chamson, et tout particulièrement nos deux CPE, Mme
+Lemmens et Mr. Bouhmid, qui nous ont toujours aidés pour les démarches administratives. Nos
+remerciements s'adressent aussi à Mr Cambon, qui nous a envoyé un long message, plein de pistes
+pour notre étude. Enfin nous voudrions remercier nos parents de nous avoir soutenus lors de ce
+projet et nos camarades de classe qui se sont toujours montrés encourageants. Un grand merci à
+vous tous !
+
+1.2 La légende des tourbillons
+Les tourbillons, phénomènes aussi beaux qu’énigmatiques, se forment lors de conditions
+précises. Tout au long de nos expériences, nous avons essayé de mieux comprendre et analyser les
+interactions entre des objets et ces tourbillons légendaires. Commençons tout d’abord par expliquer
+le terme de tourbillon. Par définition, un tourbillon désigne un écoulement rotatif d’un fluide autour
+d’un axe. Dans notre cas, le fluide en question est de l’eau, c’est pourquoi nous pouvons parler de
+tourbillons maritimes. Dans la mythologie, ces tourbillons maritimes ou maelstrom sont très
+présents. Homère décrivait déjà dans l’Odyssée un maelstrom qu'il nommait le tourbillon de
+Charybde. À travers le temps , ce phénomène maritime mythique perdura dans la littérature. On le
+retrouve dans nombre de romans, tels que Vingt mille lieues sous les mers, écrit par Jules Verne.
+Ces tourbillons maritimes d'où rien ne peut échapper avaient tendance à être exagérés. En effet, il
+existe peu d'histoires de navires pris dans un maelstrom et ne parvenant pas à s’échapper. Par
+contre, ces phénomènes maritimes se formant à l'aide d'un courant de marée ou de fleuve peuvent
+être un véritable danger pour un être humain. C’est cette intrigue de la force des tourbillons,
+
+3
+
+apparue en nous après la lecture de Vingt mille lieues sous les mers et sa fin si énigmatique, qui
+nous poussa à faire cette étude.
+Les tourbillons sont essentiellement des mouvements verticaux descendants. Ils se produisent sous
+le niveau normal de la surface, de manière concentrique. Ils se forment pour différentes raisons. La
+première est la différence de vitesse entre deux courants, par exemple en bord de mer : quand la
+vitesse des vagues sortantes est différente de la vitesse des vagues entrantes , un tourbillon vient se
+former. Ces variations de vitesse entre courants peuvent par exemple être liées aux différentes
+aspérités sous-marines. Pour continuer sur cette idée, lorsqu’un ruisseau se rétrécit, la vitesse du
+courant peut augmenter et dès lors entraîner un tourbillon lors de la rencontre avec un courant plus
+lent. La seconde raison, plus fréquente dans un lac, est l’aspiration de l’eau par un trou de faible
+diamètre. Cette aspiration peut être due à la présence d’une cavité sous le fond de l’eau. Lorsqu’un
+trou apparaît entre le fond et la cavité, l’eau est alors aspirée, formant parfois des tourbillons.
+
+1.3 Étude théorique et expérimentale des tourbillons
+L’objet principal de notre étude est le temps d’aspiration d’un objet, c’est-à-dire le temps
+qu’il faut à un objet pour être aspiré jusqu’au centre du tourbillon. Cependant, dès le début de nos
+recherches, nous nous sommes très vite rendus compte que pour comprendre théoriquement ce qui
+se passe dans un tourbillon, il faut appliquer des mathématiques complexes telles que l’équation de
+Navier-Stokes. Nous avons alors dû trouver une autre solution pour étudier les tourbillons, cette
+fois-ci de manière expérimentale. Nous pouvons facilement imaginer qu’il y a un grand nombre de
+facteurs qui influent sur son mouvement. Nous avons décidé de nous intéresser à trois facteurs. Le
+premier facteur est la vitesse du tourbillon, notée ω tout au long du mémoire. Le deuxième facteur
+est la distance entre l’objet et le centre du tourbillon lorsque l’objet est lâché dans le tourbillon, qui
+sera notée d tout au long du mémoire. Le troisième facteur est la viscosité dynamique du liquide,
+notée η tout au long du mémoire.
+
+4
+
+Chapitre 2. Le dispositif expérimental
+Il nous a donc fallu trouver un moyen de créer un tourbillon en
+laboratoire. Comme nous n’avions pas le matériel nécessaire pour réaliser
+un tourbillon par la méthode des courants ou de l’aspiration, nous avons
+utilisé une autre méthode, très connue des élèves de Physique-Chimie :
+l’agitateur magnétique et un barreau dans un récipient. Bien qu’assez
+simple à produire (il suffit de faire tourner un turbulent, ici le barreau
+magnétique, assez vite), le phénomène qui entraîne la formation d’un
+tourbillon mérite d’être explicité. La cause de la formation de ce tourbillon est le déplacement de
+fluide qu’entraîne le mouvement circulaire de notre agitateur magnétique. En tournant de manière
+circulaire, le barreau forme une zone dans laquelle le liquide est perturbé. Cette perturbation se
+présente sous la forme d’une rotation autour de l’axe z qui ici est le centre du barreau magnétique.
+Lorsqu’une particule de fluide se trouve dans la zone a (voir figure ci-dessus), elle tourne autour de
+l’axe vertical passant par le centre du tourbillon en décrivant des cercles concentriques, tout en
+tournant sur elle-même. Il faut cependant atteindre une certaine vitesse pour que se forme la
+courbure caractéristique du tourbillon, nommée surface libre du tourbillon.
+
+2.1 Création du tourbillon
+Première étape, construire notre agitateur magnétique de grande taille. Pour cela nous avons
+utilisé un moteur bipolaire. Ensuite nous avons construit un socle en bois et nous l’avons fixé à
+l’intérieur. Le tour est joué, il faut maintenant trouver des aimants pour entraîner le barreau. Pour
+cela, nous avons récupéré des aimants dans des disques durs. Nous avons installé un aimant sur
+l’axe du moteur. Voir annexe 1, figure 1 – L’agitateur magnétique. Ce moteur est alimenté par une
+alimentation à tension variable, nous permettant ainsi de modifier la vitesse du moteur, modifiant
+ainsi la vitesse du barreau, et, au final, la vitesse du tourbillon. Voir annexe 1, figure 2 –
+L’alimentation.
+
+Nous avons besoin d’un récipient de grande taille, ayant une forme
+
+cylindrique. Nous nous sommes servis d’une bassine, qui nous permet de part sa taille d’effectuer
+un certain nombre de mesures pour différentes distances d . Le cylindre d’eau dans la bassine
+mesure 29,3 cm de diamètre et 7,5 cm de profondeur. Nous utilisons une bille plastique comme
+objet. Elle mesure 1,94 cm de diamètre et pèse 4 g. Les dimensions sont mesurées au pied à
+coulisse. Voir annexe 1, figure 3 – L’objet. Le barreau utilisé est un morceau de tige métallique. Il
+
+5
+
+mesure 0,76 cm de diamètre et 3,44 cm de longueur. Ce barreau est entraîné par l’aimant fixé sur le
+moteur. Voir annexe 1, figure 4 – Le barreau.
+
+2.2 Pointage
+Après avoir terminé notre dispositif à tourbillon, il nous faut mettre en place un dispositif
+pour réaliser les pointages. En effet, il nous faut pointer des trajectoires pour déterminer le moment
+exact où l’objet est au centre du tourbillon, mais aussi pour obtenir différentes informations sur le
+déplacement de l’objet (sa vitesse, sa trajectoire, etc). Ici, nous avons utilisé un trépied où nous
+avons fixé notre téléphone et deux lampes pour avoir une meilleure luminosité. Voir annexe 1,
+figure 5 – le trépied. Nous enregistrons alors une vidéo avec notre téléphone. Cette vidéo est
+envoyée vers un ordinateur. Elle est d’abord convertie au bon format. Puis nous réalisons le
+pointage avec le logiciel Atelier Scientifique (© Jeulin). Nous choisissons un repère cartésien, dont
+l’origine est placée au centre du tourbillon. L’étalonnage se fait grâce aux dimensions du récipient.
+Une fois effectué, nous obtenons pour chaque pointage les coordonnées de plusieurs points (valeur
+de x et y) associées à un temps donné. À l’aide du logiciel Atelier Scientifique (© Jeulin), nous
+calculons la dérivée de x et de y. Ces informations sont regroupées dans des tableurs. Nous
+obtenons un tableur pour chaque pointage. Nous avons environ 150 lignes pour chaque pointage, et
+nous avons réalisé près d’une cinquantaine de pointages.
+
+2.3 Chronométrage
+La première possibilité pour déterminer le temps d’aspiration est de faire un pointage pour
+chaque mesure. Après avoir utilisé cette méthode sur une première série de mesure, celle-ci s’est
+révélée trop longue. Une autre méthode envisageable aurait été un chronométrage manuel, mais peu
+précis en raison de la subjectivité humaine pour déterminer le moment où l’objet atteint le centre du
+tourbillon. Finalement, le meilleur compromis a été de fabriquer un chronomètre automatique,
+permettant de réduire l’imprécision, tout en conservant une bonne efficacité. Voir annexe 1, figure
+6 – Le dispositif de chronométrage. Ce dispositif de chronométrage se base sur un microcontrôleur
+Arduino Méga 2560. Plusieurs capteurs sont branchés à cet Arduino afin de mesurer la vitesse du
+moteur, la tension aux bornes du moteur, la distance de lâcher et le temps d’aspiration. Un
+servomoteur permet de lâcher la bille dans le tourbillon. Une électrode placée juste au-dessus de la
+surface du tourbillon permet de détecter le moment où la bille atteint le centre du tourbillon. Cette
+bille est recouverte de feuilles d’aluminium. Lorsqu’elle atteint le centre, elle fait contact entre l’eau
+et l’électrode placée au-dessus du tourbillon. Une autre électrode placée sur une paroi du récipient
+permet de détecter le moment où le contact est fait. En plus de cela, un afficheur LCD, un afficheur
+
+6
+
+7 segments et un bouton permettent de communiquer entre l’utilisateur et l’Arduino. Une fois la
+mesure des valeurs effectuée, celles-ci sont envoyées par la liaison série entre l’Arduino et
+l’ordinateur. Ces valeurs sont ensuite recopiées dans un tableur.
+La mesure de la vitesse de rotation du moteur repose sur une photorésistance. C’est un composant
+dont la résistance varie en fonction de l’intensité lumineuse à sa surface. Il est possible d’exploiter
+cette propriété en fixant un disque sur l’axe de rotation du moteur, et en perçant ce disque à un
+endroit. Ensuite, en faisant passer un laser dans ce trou et en fixant la photorésistance de l’autre
+côté, chaque tour peut être détecté par la carte contrôleur. Voir annexe 1, figure 7 – La
+photorésistance et le laser. Pour contrôler la vitesse du barreau, nous filmons celui-ci à une vitesse
+donnée. Ensuite, nous décomposons le mouvement du barreau image par image à l’aide du logiciel
+Atelier Scientifique (© Jeulin), et nous pouvons calculer la vitesse. Nous avons pu vérifier que la
+vitesse du barreau coïncide avec la vitesse du moteur mesurée par l’Arduino.
+La mesure de la tension est complexe car celle-ci est comprise en 2V et 5.5V. Elle ne peut donc pas
+être mesurée directement aux bornes de l’Arduino, les entrées analogiques étant limitées à 5V. Pour
+pallier ce problème, il faut utiliser un pont diviseur de tension. Celui-ci permet de réduire la tension
+aux bornes de l’Arduino.
+La mesure de la distance repose sur le principe de continuité. Des électrodes sont placées à un
+intervalle de distance régulier. La tige filetée fait alors la connexion avec les électrodes et permet à
+l’Arduino de détecter la distance. Voir annexe 1, figure 8 – Mesure de la distance.
+Il faut que l’opérateur puisse interagir avec le système. Les divers paramètres mesurés (vitesse de
+rotation, tension, distance) sont affichés sur un afficheur LCD 16x2. Le temps d’aspiration doit
+aussi être affiché. Cela se fait au moyen d’un afficheur 7 segments. Enfin, il faut un moyen pour
+l’opérateur de déclencher la mesure du temps restant, et d’arrêter la mesure. Cela se fait au moyen
+d’un unique bouton. Voir annexe 1, figure 9 – Afficheurs. Le premier appui sur le bouton
+déclenche le chronométrage. Le deuxième appui, s’il est nécessaire, arrête le chronométrage. Le
+troisième appui, valide l’envoi du temps restant par le port série. Pour le schéma de câblage du
+dispositif de chronométrage, voir annexe 1, figure 10 – Schéma de câblage. Pour le code de
+programmation de l’Arduino, voir annexe 2 – Programme Arduino.
+
+7
+
+Chapitre 3. Description du mouvement
+Après un pointage, nous obtenons donc un tableau de valeurs, dans lequel nous avons le
+temps, x et y. Nous calculons à l’aide du logiciel Atelier Scientifique (© Jeulin) les dérivées
+premières numériques de x e t y , notées respectivement x ' et y ' ainsi que les dérivées secondes
+numériques de x et y , notées respectivement x ' ' et y ' ' . Après cela, nous calculons le rayon r , qui
+est la distance entre le centre du tourbillon et le centre de l’objet, grâce à la formule r= √ x + y .
+2
+
+2
+
+Nous calculons la vitesse de l’objet v objet dans le repère cartésien avec la formule v objet = √ (x ' ) +( y ' )
+2
+
+2
+
+. Nous calculons également l’accélération de l’objet a objet dans le repère cartésien avec la formule
+a objet = √ (x ' ' ) +( y ' ' ) . Nous obtenons ainsi toutes ces valeurs, regroupées dans un tableur pour
+2
+
+2
+
+chaque pointage. L’allure de la courbe de x et y en fonction du temps (voir annexe 3, figure 11)
+s’explique par le fait que l’origine du repère cartésien est placé au centre du tourbillon.
+
+3.1 Trajectoire
+Avant d’étudier les tourbillons, il est nécessaire de les décrire pour les comprendre. L’allure
+de la trajectoire de nos objets est visible dans la figure 1 de l’annexe 3. Cette allure du mouvement
+de notre objet ne varie pas beaucoup selon la vitesse du barreau et la distance de laquelle est lâché
+l’objet. Nous pouvons également tracer la courbe du rayon en fonction du temps (Voir annexe 3,
+figure 13). L’objet se rapproche progressivement du centre du tourbillon au cours du temps.
+
+3.2 Vitesse et accélération
+L’allure des courbes de la vitesse et de l’accélération de l’objet en fonction du temps sont
+visibles dans l’annexe 3, figure 14 et 15. La vitesse et l’accélération de l’objet sont donc
+croissantes au cours du temps. Cependant, on ne parle ici que de la vitesse et de l’accélération
+horizontale. En effet, la prise de vue étant du dessus, il n’est pas possible de prendre en compte le
+déplacement vertical de la bille. Nous pouvons en revanche tracer la courbe de la vitesse en
+fonction du rayon ( Voir annexe 3, figure 16). Nous pouvons observer que plus le rayon est faible,
+plus la vitesse est élevée. Il est également à noter qu’on ne parle ici que de la norme des vecteurs
+vitesse et des vecteurs accélération.
+
+8
+
+Chapitre 4. Mesure du temps d’aspiration
+Dans ce chapitre, notre objectif est de déterminer le temps que possède un objet entraîné par
+un tourbillon avant d’atteindre le centre de celui-ci. Avant d’effectuer les mesures, il faut
+déterminer les plages de valeurs dans lesquelles les mesures seront faites et réaliser les mélanges
+eau/glycérol.
+
+4.1 Détermination des plages de valeurs
+Pour la vitesse du barreau, la vitesse minimale de notre moteur est de 240 trs/min. La vitesse
+minimale est fixée par le barreau. En effet, passé une certaine vitesse, il n’est plus possible
+d’entraîner le barreau avec l’aimant. Cette vitesse est de 600 trs/min. Nous mesurons le temps
+restant pour 10 vitesses différentes, soit 9 intervalles de vitesse. Nous déterminons l’intervalle de
+vitesse :
+
+(600− 240 )
+trs
+=40
+.
+9
+min
+
+Pour la distance, la distance minimale imposée par le dispositif expérimental est de 2 cm, et la
+distance maximale imposée par les bords du récipient est de 11 cm. Pour mesurer 10 valeurs, le pas
+est donc de
+
+(11 −2 )
+=1 cm.
+9
+
+Pour la viscosité, la viscosité minimale est imposée par l’eau, soit 1,005x10^-3 Pa.s . La viscosité
+maximale doit être mesurée. En effet, il est impossible d’utiliser du glycérol pur car le barreau n’est
+pas entraîné. Il faut donc diluer le glycérol petit à petit, jusqu’à trouver la valeur maximale de
+viscosité. Cependant, cette valeur ne peut pas être déterminée directement. En effet, il faut connaître
+la relation entre le pourcentage massique de glycérol et la viscosité. Nous essayons de trouver cette
+relation en mesurant la viscosité de différentes solutions dont le pourcentage massique de glycérol
+est connu. La méthode utilisée est celle du viscosimètre à chute de bille. Cependant, pour des
+faibles valeurs de viscosité, la vitesse de la bille est trop élevée et ne peut pas être vue par la
+caméra. Nous essayons de faire varier les caméras, la luminosité, les tailles des billes, etc, sans
+succès. Nous cherchons donc une relation entre le pourcentage massique de glycérol et la viscosité.
+Nous utilisons la formule hyperbolique proposée par Waterman :
+
+log (η mix )=
+
+x (1− x )
++log (ηw )+ x (log ( ηg ) − log ( ηw ))avec
+− 0,4722+ 0,31977 x
+
+ηmix
+
+qui
+
+est
+
+la
+
+viscosité
+
+dynamique du mélange, ηw qui est la viscosité dynamique de l’eau à 20°C, η g qui est la viscosité
+dynamique du glycérol à 20°C, et x qui est la fraction massique de glycérol dans le mélange. Nous
+9
+
+enlevons
+
+le
+
+log :
+
+ηmix =10
+
+x (1 − x )
++log ( ηw )+ x (log (η g ) −log (ηw ))
+− 0,4722+ 0,31977 x
+
+.
+
+Nous
+
+savons
+
+également
+
+que :
+
+η w =1,005× 10 Pa. setη g=1,49 Pa. s. Nous pouvons donc calculer la viscosité maximale, à l’aide
+−3
+
+de la fraction massique de glycérol. Cette valeur maximale de viscosité est de 0.21 Pa.s. Cette foisci, nous souhaitons avoir une plage de 5 valeurs. L’intervalle de viscosité est donc de :
+
+(0.21− 1.005 x 10−3 )
+4
+
+−2
+
+=5.2 x 10 Pa . s .
+
+4.2 Réalisation des mélanges eau/glycérol
+Il y a donc 5 mélanges eau/glycérol à réaliser, pour 5 valeurs de viscosité différentes. Il faut
+calculer les valeurs de la fraction massique de glycérol pour chaque viscosité. Cela revient à
+x (1 − x )
+
+résoudre l’équation : η =10 − 0,4722+ 0,31977 x +log ( η )+ x (log (η )−log (η ))en connaissant x. Cependant, cela n’est
+mix
+w
+
+g
+
+w
+
+pas faisable à notre humble niveau. Afin de pallier ce problème, on la résout numériquement.
+Maintenant que la fraction massique de glycérol de chaque mélange est connue, il faut réaliser les
+mélanges. Dans un premier temps, il faut déterminer la masse volumique de chaque mélange. Pour
+ce faire, on introduit dans une éprouvette graduée une certain masse m1 de glycérol et une certaine
+masse m2 d’eau, déterminées par la fraction massique de glycérol X =
+
+m1
+
+m1
+. Ensuite, en
+( m1 +m2 ) m
+=
+
+mesurant le volume V de la solution, on peut calculer la masse volumique à l’aide de la formule :
+m
+ρ= . Nous fabriquons un volume Vt =2L de chaque mélange. On calcule la masse mt de chaque
+V
+
+mélange : mt = ρ x Vt. À l’aide de la fraction massique, on peut calculer la masse de glycérol :
+mg =x × mt ainsi que la masse d’eau : meau=mt − mg. À l’aide d’une balance, nous ajoutons les
+
+masses de glycérol et d’eau dans le récipient. Nous avons répété ce calcul pour 4 mélanges; le
+cinquième mélange étant de l’eau pure, nous n’avons pas de calcul à faire. On notera au passage
+que la glycérine utilisée contient du glycérol à 99,5 %, quasi-pure et que l’eau utilisée est de l’eau
+distillée. De plus, toutes les mesures ont été faites dans une pièce chauffée à 20°C dans laquelle sont
+entreposés les liquides afin qu’ils soient à la bonne température car la viscosité est très sensible aux
+variations de température.
+
+10
+
+Chapitre 5 : Étude du temps d’aspiration
+Les mesures du temps d’aspiration ont été faites pour 5 viscosités, 10 vitesses et 10
+distances, soit 500 situations différentes. L’objectif est de relier le temps d’aspiration aux deux
+facteurs, la distance de lâcher d et la vitesse du barreau v, pour une viscosité fixée. Après avoir
+
+mesuré la distance de mise à l’eau et la vitesse du barreau, nous pourrons tracer une courbe à trois
+dimensions. Puis nous essaierons d’obtenir la courbe de tendance de cette courbe. Nous pourrons
+alors déterminer l’équation mathématique à deux variables de la courbe obtenue v,d.
+
+5.1 Modélisation et Programmation
+
+Nous souhaitons obtenir la surface de tendance d’un nuage de points en 3d après avoir obtenu un
+nombre suffisant de points respectivement : A1 (v 1 , d 1 , δ 1 )... A n (v n , d n , δ n ). Les coordonnées de
+chaque point sont le temps d’aspiration, la distance de lâcher et la vitesse de rotation du barreau. Il y
+a un nuage en 3d pour chaque valeur de viscosité, soit au total 5 courbes en 3d. Il a tout d’abord
+fallu pouvoir traduire notre objectif en langage python, ce qui revient à approximer un nuage de
+points
+
+3d
+
+par
+
+une
+
+fonction
+
+à
+
+deux
+
+variables…
+
+A
+
+l’aide
+
+d’un
+
+code
+
+créé
+
+par
+
+http://stackoverflow.com/users/97160/amro qui a justement pour objectif d’approximer de manière
+linéaire, quadratique ou cubique un nuage de points en une surface de tendance en utilisant la
+méthode des moindres carrés. Malgré l’aspect très complet de ce code il a fallu néanmoins le
+modifier pour obtenir des équations à deux variables du temps d’aspiration. Parmi les modifications
+du code d’origine, l’ajout du calcul du coefficient de Pearson fut primordial. Ce coefficient qui est
+compris entre -1 et 1 mesure la corrélation linéaire entre deux ensembles de données ( ici le nuage
+de points et la surface de tendance ). Plus le coefficient est proche de -1 ou 1 plus la corrélation
+entre notre surface de tendance et notre nuage de points est forte. En revanche, si le coefficient de
+Pearson est proche de 0, cela signifie une faible corrélation entre les deux ensembles de données et
+donc ici une surface de tendance éloignée du nuage de points. Nous avions besoin d’ajouter le
+calcul du coefficient de Pearson car dans certains cas la courbe de tendance donnée par le code
+
+11
+
+n’est pas adaptée aux nuages de points qui rend l’approximation du temps d’aspiration vraiment
+mauvaise. Cela est par exemple visible à l’œil nu dans la figure 17 de l’annexe 5.
+Dans d’autres cas, la différence est presque invisible, bien que présente entre deux approximations
+(par exemple, entre une équation linéaire et une équation quadratique). C’est pour cela que nous
+avons besoin d’implémenter ce coefficient pour s’assurer de toujours choisir la bonne fonction.
+L’implantation
+
+de
+
+ce
+
+coefficient
+
+peut
+
+être
+
+possible
+
+à
+
+l’aide
+
+de
+
+la
+
+commande
+
+np.corrcoef(z_vals,t_vals) où z_vals est une matrice ayant pour coefficients le temps restant calculé
+expérimentalement ( et donc aussi la composante z de nos points ) et t_vals qui est l’ensemble des
+valeurs de temps théorique renvoyé par la fonction calculée précédemment. Une fois cette
+
+commande effectuée, nous obtenons une matrice :
+
+où n et k sont les dimensions
+
+de la matrice et où les coefficients non présents sur la diagonale représentent les valeurs du
+coefficient de Pearson à un point donné.
+Bien qu’utile, pour véritablement avoir un sens , il faut connaître la valeur moyenne du coefficient
+de Pearson pour toute notre surface de tendance et ainsi choisir la fonction ayant la surface de
+tendance avec le meilleur coefficient moyen( soit le plus proche de 1 ). Pour obtenir cette valeur
+moyenne il a suffi d’utiliser la commande np.size(k) où k est notre Matrice M et np.size la fonction
+qui renvoie sa dimension . Après avoir obtenu sa dimension nous calculons à l’aide de deux boucles
+
+while cette valeur moyenne en prenant soin d’enlever la valeur des 1 de la diagonale. Le code est
+visible à l’annexe 4.
+
+5.2 Exemple de résultats donnés par le code
+Nous allons ici aborder un exemple d’extraction d’une équation du temps d’aspiration en
+fonction de la vitesse et de la distance de lâcher pour une viscosité = 0,2197Pa.s .
+
+On vient tout d’abord rentrer tous nos points A1 (v 1 , d 1 , δ 1 )... A n (v n , d n , δ n ) dans le code :
+
+12
+
+Ensuite on lance le programme et il nous renvoie l’approximation ayant le coefficient de Pearson le
+plus proche de -1 ou de 1 .
+
+Dans ce cas nous obtenons donc 0.89... et la fonction à deux variables :
+(v , d )=−0.007786831446346537 v +1.9074381433296295 d−1.7049452929195925
+
+L’équation linéaire est la plus précise mais l’approximation quadratique est très proche aussi :
+
+La première ligne affiche ici le coefficient de Pearson et la seconde affiche l’équation quadratique.
+En revanche l’approximation cubique est bien moins précise :
+
+Ici 0,67 ce qui montre une surface de tendance qui a une plus faible corrélation avec notre nuage de
+points ce qui se traduirait par un temps d’aspiration renvoyé par celle-ci beaucoup moins proche du
+temps expérimental calculé. Son équation est affichée en dessous de la première ligne.
+Le code nous renvoie aussi la représentation graphique de notre fonction à deux variables et du
+nuage de points.
+Après avoir obtenu nos équations, nous étudions le temps d’aspiration d’une bille selon certains
+paramètres, tels que la vitesse du barreau, la distance de lâcher et la viscosité du fluide. N’ayant pas
+réussi à obtenir une fonction à trois variables nous devons fixer un paramètre sur les trois. Par
+exemple pour une viscosité =... on obtient une fonction du temps restant en fonction de la vitesse du
+barreau et de la distance de lâcher δ (v , d )=.. .
+
+Comme expliqué dans la partie précédente, ce sera l’équation la plus fiable qui sera affichée parmi
+une approximation linéaire, quadratique et cubique. Nos équations prennent la forme suivante :
+1. Approximation linéaire : f ( x , y )=ax +by +c
+
+13
+
+2. Approximation quadratique : f ( x , y)=ax 2+ by 2+ cxy +dx +ey + f
+3. Approximation cubique : fx , y=ax3 + by3 + cx 2 y +dxy 2 +ex 2 + fy 2 +gxy + hx+iy + j
+Avec : (a , b , c , d , e , f , g ,h , i , j)∈ ℝ 10.
+On obtient les équations suivantes :
+• Pour une viscosité de 0,2197 Pa.s (voir annexe 5, figure 18) :
+δ ( v , d )=−0,007787 v +1,907 d − 1,705
+
+• Pour une viscosité de 0,1650 Pa.s (voir annexe 5, figure 19) :
+δ ( v , d )=−0,01807 v +1,701 d+3,666
+
+• Pour une viscosité de 0,1104 Pa.s (voir annexe 5, figure 20) :
+δ ( v , d )=−0,006463 v+ 0,4749 d+ 2,444
+
+• Pour une viscosité de 0,05568 Pa.s (voir annexe 5, figure 21) :
+δ ( v , d )=−0,001557 v +0,3520 d +0,7326
+
+• Pour une viscosité de 0,001005 Pa.s (voir annexe 5, figure 22) :
+δ ( v , d )=−0,004003 v+ 0,4574 d +1,084
+
+Pour chacune de ces courbes, le coefficient de corrélation est d’environ 0,89. On remarque que les
+meilleures approximations sont linéaires et non cubiques et quadratiques bien que parfois le
+coefficient de ces deux dernières s’approche de 0,89.
+
+5.3 Influence des différents facteurs sur le temps d’aspiration
+Après avoir obtenu nos équations, nous voulions pousser l’étude du temps d’aspiration plus
+loin et comprendre le niveau d’influence des facteurs que nous faisions varier, qui sont : la
+viscosité, la distance de lâcher et la vitesse du barreau. Pour cela nous avons, à l’aide de notre
+algorithme, extrait deux équations en introduisant cette fois-ci la viscosité comme une variable.
+Pour une distance fixe d=4 cm on obtient, avec un coefficient de Pearson d’environ 0.91 :
+δ (η , v )=4.272η+ 0.9297 v − 1.938
+
+14
+
+Pour une vitesse fixe v=320 trs/minon obtient, avec un coefficient de Pearson d’environ 0.91 :
+δ (η , d)=2.175 η+−0.003359 d +2.474
+
+Pour étudier maintenant l’influence de la vitesse par rapport à la viscosité sur le temps restant à
+distance fixe on peut prendre en compte la valeur du gradient de v. Le gradient du temps
+∇ (δ (η , v ))=
+d’aspiration correspond à :⃗
+
+∂δ ⃗ ∂δ ⃗
+i+
+j . Selon le signe et la valeur des coordonnées de ce
+∂η ∂v
+
+vecteur nous pourrons alors savoir laquelle des deux variables influence le plus le temps
+d’aspiration sur toute notre échelle de valeur à une distance d = 4 cm ou une vitesse de rotation fixe
+de 320 trs/min. En effet, étant donné que nous allons étudier le gradient d’une équation linéaire,
+celui-ci sera constant et permettra de donner la tendance de l’influence d’une valeur par rapport à
+une autre.
+∇ (δ (η , v ))=(4,27209 ; 0,929697 ), avec comme
+Commençons par étudier le gradient de δ (η , v ) : ⃗
+
+unité des Pa−1pour le premier coefficient et des s2 . m− 1pour le second. On remarque alors que
+4.27>0.93 donc la viscosité influence plus le temps d’aspiration de la bille que la vitesse de rotation
+du barreau pour une distance de lâché d= 4 cm .
+Étudions maintenant le gradient de δ (η , d) pour une vitesse ω = 320 trs/min:
+⃗
+∇ ( δ ( η , d ))=( 2,1754374041649114 ;−0,0033586195747609673 ) avec comme unité des Pa−1pour
+
+le premier coefficient et des s . m− 1 pour le second.
+On remarque que 2,18 > -0,003 ; ce qui signifie que la viscosité influence plus le temps d’aspiration
+que la distance de lâché.
+Ces résultats sont néanmoins à utiliser avec précaution , ils ne sont valables que dans les conditions
+étudiées (d = 4 cm et ω = 320 trs/min).
+
+Chapitre 6. Extension à la réalité
+Notre étude a été faite sur un petit dispositif expérimental, à l’échelle centimétrique.
+Cependant, il peut être intéressant de la transposer à une autre échelle. Cette extension à la réalité
+nécessite de choisir un facteur d’échelle pour les distances R. Celui-ci désigne le rapport entre les
+
+15
+
+distances réelles et ces mêmes distances dans notre expérience : Lréel=R × Lexp. Ce facteur d’échelle
+s’applique à toutes les distances : taille du récipient, de la bille et du barreau, distance de lâcher de
+la bille, etc. Par ailleurs, ce changement d’échelle implique la conservation ou pas de certains
+nombres sans dimension : dans notre cas , les nombres de Reynolds et de Froude.
+
+6.1 Nombre de Reynolds
+L’expression du nombre de Reynolds est : R=
+
+v × L× ρ
+avec : v → vitesse du fluide ; L →
+η
+
+longueur caractéristique (ici, diamètre du récipient) ; ρ → masse volumique du fluide ; η →
+viscosité dynamique du fluide. Il est donc possible d’étendre cette étude à la réalité en conservant le
+nombre de Reynolds, soit : Rréel =Rexp →
+précédemment
+
+v exp × Lexp × ρexp v réel × Lréel × ρréel
+=
+. Nous avons démontré
+η exp
+ηréel
+
+que : V réel=V exp×√ R de
+
+plus,
+
+on
+
+a:
+
+Lréel =R × Lexp.
+
+Donc
+
+:
+
+η
+η
+v exp×Lexp× ρ exp v exp× √ R×R×Lexp× ρ réel
+ρ exp
+ρ réel
+1,5
+=
+→ η =R × η
+→ ρ exp =R−1,5 × ρ réel .
+η exp
+η réel
+exp
+réel
+exp
+réel
+On pose
+
+η
+=μ avec μ : viscosité cinématique du mélange. On a donc : μexp=R −1,5 × μréel . Si l’on
+ρ
+
+considère que dans la réalité on est dans un milieu aquatique, la valeur de la viscosité cinématique
+de l’eau à 20°C est connue : μréel =μ eau=1,007×10−6 m2 . s. On a donc : μexp=R −1,5×1,007×10− 6.
+Cependant, cette équation ne peut pas être utilisée avec n’importe quelle valeur de viscosité, car les
+expériences se sont faites dans une certaine plage de viscosité cinématique. La viscosité
+cinématique minimum est celle de l’eau, soit : μ min =μ eau=1,007×10−6 m 2 . s . La viscosité
+cinématique maximum est celle du mélange eau/glycérine ayant la viscosité dynamique et la masse
+
+η
+0,2197
+−4 2
+=1,811×10 m . s .
+volumique la plus élevée, soit : μ max = ρ max =
+max
+1213
+On isole R :
+
+μexp=R
+
+−1,5
+
+×1,007×10
+
+−6
+
+→
+
+R−1,5 =
+
+μ exp
+
+1,007×10
+
+−6
+
+→
+
+1
+R
+
+3
+2
+
+=
+
+2
+2
+μ exp
+μ exp
+1
+3
+=
+) → 3 =(
+) → R=
+→ ( 3 ) =(
+−6
+−6
+−6
+3
+1,007×10
+R
+1,007×10
+√ R 1,007×10
+√R
+
+μ exp
+
+1
+
+√
+
+1
+
+−6 2
+
+2
+
+1,007×10−6
+1
+
+2
+μ exp
+(
+)
+1,007×10−6
+
+2
+
+−6
+1,007×10
+1,007×10 3
+R=(
+)
+→
+R= (
+)
+μ exp
+μ exp
+3
+
+μ exp
+
+Nous pouvons calculer le facteur d’échelle minimal R min et le facteur d’échelle maximal Rmax :
+16
+
+→
+→
+
+−6 2
+
+−6 2
+
+−6 2
+
+−6 2
+
+1,007×10 3 1,007×10 3
+1,007×10 3 1,007×10 3
+Rmin =(
+) =(
+) =1 et Rmax =(
+) =(
+) =0,03139
+μ min
+−6
+μ max
+1,007×10
+1,811×10− 4
+
+La conservation du nombre de Reynolds n’est donc possible que lorsque
+
+R∈[0,03139 ; 1] .
+
+Lorsque c’est la cas, il faut donc calculer le temps d’aspiration en choisissant l’équation du
+temps d’aspiration correspondant à la viscosité dynamique donnée par la formule
+μexp =R
+
+−1,5
+
+× μréel . Lorsque le milieu réel est de l’eau douce à 20°C, cette formule devient :
+
+μexp=R −1,5×1,007×10− 6.
+
+Par exemple, le nombre de Reynolds peut être conservé dans le cas d’un plancton assimilé à
+une
+
+R=
+
+sphère
+
+d’1,00
+
+millimètre
+
+de
+
+diamètre.
+
+Lréel D plancton 1,00×10−2
+−2
+=
+=
+=5,15×10 . Donc
+Lexp
+D bille
+1,94
+
+Le
+
+facteur
+
+d’échelle
+
+est
+
+donc :
+
+R∈[0,03139 ; 1] .
+
+6.2 Nombre de Froude
+L’expression du nombre de Froude est :
+
+Fr =
+I
+
+v
+√ gLc
+
+avec : v → vitesse du fluide (en
+
+m/s) ; g → accélération de pesanteur (9,81 m/s²) ; LC → longueur caractéristique (ici, le diamètre du
+récipient). Si le nombre de Froude est conservé lors du changement d’échelle, on peut écrire :
+F réel=F exp
+2
+
+soit :
+2
+
+v réel
+
+v réel
+
+√ R=
+
+√
+
+2
+
+V réel
+V
+
+2
+
+2
+
+2
+
+v réel
+v exp
+v réel
+v exp
+) =(
+) → (
+) =(
+) →
+→ (
+√ gLreel
+√ gLexp
+√ gLreel
+√ gLexp
+
+√ gLreel √ gLexp
+
+Lréel
+v réel
+=
+→ 2 =R →
+2
+v exp Lexp
+v exp
+
+Donc : t réel=
+
+=
+
+2
+
+v exp
+
+2
+exp
+
+→
+
+√ R=
+
+V réel
+→ V réel=V exp×√ R
+V exp
+
+d réel
+d ×R
+d
+→ t réel= exp
+→ t réel= exp ×√ R → t réel=t exp×√ R
+V réel
+V exp
+V exp×√ R
+
+Nous pouvons donc utiliser le nombre de Froude pour étendre cette étude à d’autres échelles.
+
+Le temps d’aspiration sera alors égal au temps d’aspiration dans notre expérience multiplié
+par la racine carrée du facteur d’échelle
+
+6.3 Possibilités et limites
+
+Cette possibilité d’extension de l’étude à la réalité permet de l’utiliser dans des cas concrets.
+Cela peut être dans le domaine maritime avec la navigation des bateaux ou autres. En revanche,
+cette extension trouve très vite ses limites dans les caractéristiques de l’objet. En effet, la forme de
+l’objet n’a pas été prise en compte, tout comme sa masse volumique. Ainsi, il n’est pas possible
+d’étendre notre étude à des embarcations maritimes ayant une forme particulière. De la même
+17
+
+façon, plusieurs facteurs ont été négligés : présence de vagues, de courants marins, mais aussi
+motorisation du bateau, etc.
+
+Chapitre 7. Observations annexes
+7.1 Influence de la présence d’obstacles
+Lors de nos recherches, nous avons été amenés à essayer de comprendre le mouvement de
+l’eau dans le récipient. Pour cela, nous versons quelques gouttes de Bétadine © (contenant du diiode,
+peu soluble dans l’eau) à certains endroits du tourbillon, et nous regardons la trajectoire qu’il
+effectue. Nous observons que l’eau remonte contre la paroi du récipient, puis arrive en surface,
+redescendant dans le tourbillon, se dirige vers les parois, et ainsi de suite. Cependant, que se passet-il si l’on dépose des objets sur le fond ? L’influence de la présence d’obstacles dans le fond du
+récipient varie en fonction de la taille de ces obstacles. En plongeant différents cailloux pour
+simuler des fonds marins, et en utilisant la Bétadine © pour visualiser les courants, plusieurs
+conclusions se dégagent. Tout d’abord, le liquide poursuit sa trajectoire en contournant simplement
+l’obstacle. Ensuite, l’influence de ces obstacles sur le temps d’aspiration varie en fonction de leur
+taille. En effectuant des mesures du temps d’aspiration, il est apparu que celui-ci n’est impacté par
+les obstacles que lorsque leur diamètre dépasse plusieurs centimètres. Lorsqu’ils sont plus petits, les
+obstacles n’ont pas d’influence mesurable sur le temps d’aspiration. De la même façon, les
+obstacles de plusieurs centimètres de diamètre réduisent la taille du tourbillon, contrairement aux
+obstacles de plus faible diamètre.
+
+7.2 Distance maximale d’aspiration
+Lors de nos pointages, nous avons remarqué qu’à partir d’une certaine distance la bille n’est
+pas attirée dans le tourbillon. Nous avons alors voulu étudier ce phénomène, à savoir la distance
+d’aspiration maximale d max pour laquelle notre bille est attirée par le tourbillon. Cette distance
+d’aspiration maximale est la plus grande distance de lâcher à laquelle la bille est attirée au centre du
+tourbillon. Passé cette distance, la bille n’est pas attirée par le tourbillon. On considère que la bille
+n’est pas attirée par le tourbillon lorsque le temps restant est supérieur à 300 secondes. Or, cette
+distance d’aspiration maximale varie en fonction de la viscosité et de la vitesse du barreau. Nous
+avons donc établi l’équation de d max en fonction de la viscosité du liquide et de la vitesse du barreau
+en rentrant dans notre code les valeurs de la viscosité et de la vitesse du barreau en coordonnées x,y
+
+18
+
+et la distance maximale d’aspiration en z. Pour déterminer cette distance maximale, il suffit de lire
+les valeurs dans le tableau de données des pointages :
+
+On choisit la dernière valeur dans l’intervalle [2;11] de distance étudiée avant que le temps restant
+soit supérieur à 300 secondes. Après avoir rentré toutes nos valeurs dans notre code, celui-ci nous
+renvoie l’équation suivante :
+
+Avec un coefficient de Pearson de 0.9142.
+Par la suite nous avons voulu connaître l’influence de la viscosité et la vitesse par rapport à d max .
+Pour cela nous avons étudié le gradient de d max , . Nous avons utilisé une équation linéaire qui nous
+renvoie la valeur de d max , celle-ci ayant un coefficient de Pearson raisonnable de 0.9140.
+d max (η , v )=9.338669191616551 η− 0.0004246669394028582 v +5.14845670770311
+
+En calculant le gradient de d max on obtient :
+
+Comme 9.38>-0.00042 on remarque que la viscosité a une influence bien plus forte que la vitesse
+du barreau sur d max .
+
+7.3 Lien entre tension électrique et viscosité
+Nous nous sommes aussi intéressés au lien entre la tension et la viscosité. Pour cela, nous
+relevons la tension U aux bornes du moteur permettant à ce dernier de toujours tourner à 400
+trs/min, pour plusieurs valeurs de viscosité η. Nous traçons ces valeurs dans un tableur et affichons
+la courbe de tendance. L’équation de cette courbe est : η=0,407 ×U −1,55 . Pour cette équation, le
+coefficient de détermination R² est de 0,93 donc proche de 1 .Notre dispositif expérimental pourrait
+être utilisé comme un viscosimètre. Cependant, cette équation n’est valable que dans la plage de
+viscosité étudiée, c’est-à-dire entre 1,005 ×10− 3 Pa . s et 0,2197 Pa . s.
+
+19
+
+Chapitre 8. Conclusion
+8.1 Bilan
+Finalement, cette étude nous a permis de mieux comprendre la manière dont un objet est
+attiré par un tourbillon. Lorsqu’il est attiré, l’objet décrit une spirale qui se rapproche peu à peu du
+centre du tourbillon. Le temps que met cet objet à atteindre le centre du tourbillon dépend de
+nombreux facteurs. Parmi eux, la distance par rapport au centre du tourbillon, la vitesse du turbulent
+et la viscosité du fluide. Ces facteurs peuvent être réunis dans plusieurs fonctions expérimentales à
+deux variables. Cette fonction est obtenue à partir de l’équation de tendance d’une surface en trois
+dimensions. Nous avons également étendu notre étude à différentes échelles. Enfin, nous avons
+apprécié l’influence d’obstacles dans le fond du récipient ainsi que la distance maximale
+d’aspiration et le lien entre tension et viscosité.
+
+8.2 Perspectives futures
+L’exhaustivité de l’étude peut être améliorée, en prenant en compte un plus grand nombre
+de facteurs. Nous pourrions ainsi essayer d’obtenir le temps d'aspiration d’un être humain pris dans
+un tourbillon avant d’être aspiré dans les profondeurs des mers. Il faudrait pour cela étudier
+l’influence de la masse volumique de l’objet, de la densité de l’eau, etc, sur le temps d'aspiration.
+Notre étude donne donc les premières bases d’une étude plus exhaustive sur les interactions entre
+des êtres humains et des tourbillons. C’est dans cet objectif que nous avons essayé de fournir un
+maximum de clés pour que des personnes le souhaitant puissent reproduire cette étude, en
+fournissant les codes des programmes pythons, du programme Arduino, les schémas de câblage,
+etc...
+
+20
+
+

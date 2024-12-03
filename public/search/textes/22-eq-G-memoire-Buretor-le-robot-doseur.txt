@@ -1,0 +1,691 @@
+Mémoire des Olympiades de Physiques 2015
+-BURETORDiane Marquette, Dorian Aznar et Luc Reveyron du Lycée Français de Saint-Domingue
+
+« En science, la phrase la plus excitante
+que l'on peut entendre, celle qui
+annonce des nouvelles découvertes, ce
+n'est pas "Eureka" mais c'est "drôle". »
+Isaac Asimov
+
+Lycée Français de Saint Domingue
+
+1
+
+Remerciements
+Nous tenons à remercier tous ceux qui nous ont
+aidé à transformer ce rêve en réalité et plus
+particulièrement :
+
+
+
+
+
+
+M . Olivier Clémence, professeur de
+Physiques-Chimie du Lycée Français de
+Saint-Domingue (LFSD), pour son soutien
+sans faille, ses conseils
+avisés
+et sa
+disponibilité à tout moment ;
+M.
+Philippe
+Ortole,
+professeur
+de
+mathématiques
+au
+LFSD,
+pour
+ses
+précieuses remarques et sa bonne humeur
+contagieuse ;
+M. Jérôme Bousquet, M. Sébastien Hanot,
+M. et Manuel Cornuault, respectivement
+professeurs de SVT, de mathématiques et
+de Physiques-Chimie au LFSD pour avoir pris
+le temps de relire notre mémoire.
+
+Introduction
+Les TPE que nous avons réalisés en Première S
+nous ont permis de construire un système de distillation
+solaire. Pour pouvoir vérifier l'efficacité de notre
+système, nous avons décidé de doser la quantité
+d’ions chlorure dans notre eau avant et après
+distillation. Les dosages sont alors apparus comme LA
+solution à notre problème et le club scientifique
+comme LE lieu idéal pour la développer.
+Néanmoins, qu’est-ce que le club scientifique ?
+Il s’agit d’un espace de travail et désormais d’une
+APP (Activité Pédagogique Pilote initiée par M.
+Clémence professeur de physique chimie)nous
+permettant de concrétiser divers défis sous la tutelle
+des professeurs de sciences et notamment grâce aux
+Legos Mindstorms.
+Après une succession de problèmes suivis de
+solutions et de nouvelles questions, Buretor est la
+solution que nous avons trouvée pour pouvoir faire
+des dosages automatiques. Il s’agit d’un robot créé à
+partir de l’assemblage ingénieux de pièces Lego et
+nous permettant de contrôler grâce à un programme
+informatique les différentes étapes d’un dosage avec
+précision et efficacité.
+
+Lycée Français de Saint Domingue
+
+Introduction
+
+Qui sommes-nous ?
+I) Buretor classe O, pour
+Origine
+A)La genèse du projet: Une
+approche purement mécanique
+B)La mise en lumière d’une solution
+grâce à une nouvelle génération
+C)Un laser pour plus de précision
+dans la troisième génération
+
+II) Buretor classe F, pour
+Fonctionnel
+A)Un remaniement du fond et de la
+forme (un de plus…)
+1. Un capteur sur mesure
+2. Une structure fiable
+
+B) Des mathématiques au goutte à
+goutte
+1. Mesure du débit
+2. Obtenir le volume d’une
+goutte grâce à un modèle
+mathématique
+3. Les incertitudes
+4. Un nouveau programme
+5. Vérification de l’influence
+du titrant sur le volume d’une
+goutte
+
+C) Des dosages par dizaines
+1. Première expérience
+2. La dérivée pour déterminer
+le volume équivalent
+
+III) Et après ?
+
+2
+
+Le groupe Sans Limite dans toute sa splendeur
+
+I. Buretor classe O, pour origine
+
+A. La genèse du projet: Une approche purement
+mécanique
+Lorsque que nous avons entrepris de répondre à
+ce nouveau défi de doseur automatique, nous
+sortions d’un grand nombre de petits défis
+essentiellement centrés sur l’aspect mécanique
+de la robotique. C’est pour cela que nous nous
+sommes précipités dans une démarche
+purement mécanique pour débuter notre
+investigation. Ainsi après avoir anticipé le
+programme de terminale S et étudié en quoi
+consistait un dosage, nous avons commencé à
+réaliser plusieurs robots, tous basés sur le même
+principe. Ces machines avaient pour fonction
+d'actionner le robinet d’une burette et de laisser se déverser une certaine quantité de
+produit, et ainsi imiter le dosage manuel en remplaçant la main par un moteur. Le
+moteur étant contrôlable, l'objectif était de fermer le robinet sitôt l’équivalence
+détectée. Chacun des prototypes étaient associés à un capteur de couleur qui servait
+à détecter l’équivalence du dosage. En effet, nos premiers essais utilisaient une
+réaction simple de décoloration de l’ion permanganate (MnO 4-) par les ions Fe2+.
+Notre toute première version de Buretor était très massive. Nous souhaitions tout
+d'abord ouvrir la burette puis la refermer en faisant tourner le moteur de 90°. Le
+principal défaut de ce prototype était son manque de précision. En effet, le système
+d'engrenages relié au "bras" attaché à la burette était instable et imprécis. Une révision
+complète de sa structure apparaissait comme indispensable.
+
+Lycée Français de Saint Domingue
+
+3
+
+Suite aux échecs du premier prototype, nous avons cherché à
+rendre le mouvement du "bras" (actionnant la burette) plus précis.
+Pour cela, nous avons construit un nouveau système d'engrenages
+comportant une vis sans fin. Nous avons aussi changé de moteur,
+choisissant un moteur "medium" qui s'adaptait mieux à notre robot.
+Cependant, la lourdeur héritée de la première version était toujours
+présente. Donc nous avons cherché à alléger le système tout en
+gardant la fiabilité pour actionner la burette.
+Finalement nous nous sommes rendus compte que tout ces
+engrenages étaient superflus, le "médium moteur"
+garantissant une meilleure précision. De plus, le fait de retirer
+les engrenages ont allégé la structure. Ainsi nous avons
+conçu le troisième prototype de robot, la version 1.2.
+Cette nouvelle machine nous permet d’obtenir de bien meilleurs
+résultats que toutes les versions antérieures. Pourtant suite à sa
+conception, nous nous sommes rendus compte que nous nous
+étions égarés. En effet, ce robot constituait une impasse; nous ne
+pouvions pas effectuer de dosage précis avec une machine qui
+actionnait une burette. Cela était dû à deux phénomènes :
+
+
+
+Le système de robinet était imprécis et avait tendance à se dévisser sous
+l’action du robot;
+La quantité de liquide s’écoulant à chaque rotation du moteur n’était pas
+constante au cours de l’expérience. En effet, elle variait en fonction de la
+pression exercée au niveau du robinet. Or, cette dernière dépendait de la
+hauteur du volume contenu par la burette.
+
+Premier Bilan
+Cette première génération de robot nous a permis de nous familiariser avec le
+concept du dosage et de mieux maîtriser les outils mis à notre disposition (aussi bien
+des connaissances scientifiques que des logiciels ou de l'équipement de
+laboratoire). Ensuite ces premiers dispositifs nous ont montré dans quelles directions
+poursuivre nos recherches. En effet nous avons finalement compris que nous devions
+nous concentrer sur un moyen de quantifier le volume distribué par notre doseur.
+Pour cela, l’approche purement mécanique était vouée à l'échec. Il nous fallait un
+capteur capable d'enregistrer le volume qui était libéré. Pour plus de facilité, nous
+avons très vite décidé que le dosage se ferait au goutte à goutte. Cette méthode
+de distribution rendait plus simple la mesure du volume par un capteur. De plus, il
+était plus facile de connaître le volume d’une goutte d’eau que celui d’un filet
+d’eau durant un temps donné.
+Nous avons d’abord cherché à déterminer le volume d’une goutte. Pour cela, nous
+avons déterminé le nombre de gouttes pour un volume donné, soit la masse
+correspondant, car 1,00 mL équivaut à 1,00g. Nous en avons déduit qu’une goutte
+représentait environ 0,044 mL .
+
+Lycée Français de Saint Domingue
+
+4
+
+Néanmoins, nous nous sommes également rendus compte, après de nombreux tests,
+que le volume d’une goutte variait en fonction de la hauteur du volume d’eau au sein
+de la burette (et de la taille de la sortie par laquelle passe la goutte). En effet, lorsque
+la burette est pleine, la pression au niveau de l’embouchure est plus faible et la goutte
+est donc plus petite. Ainsi, pour un même nombre de gouttes, le volume déversé
+n’était jamais identique. D’autre part, l’épaisseur de la burette était tout de même trop
+importante et donc imprécise. Par conséquent, déterminer le volume précis d’une
+goutte était totalement impossible avec une burette. Nous avons donc remplacé celleci par un cathéter plus précis et plus fiable grâce à une étroitesse supplémentaire et
+l'absence de fuite.
+
+Point-méthode: L’interface Lego Mindstorms
+Toute la programmation de notre robot a été réalisée grâce à l’interface Lego
+Mindstorm. Très complète, cette plateforme nous laisse une grande liberté dans la
+réalisation de nos programmes. Notre limite? Notre imagination. Notre contrainte? Que
+cela fonctionne. En plus de proposer un modèle de programmation intuitif, elle nous
+permet d’accéder (en direct) aux mesures d’un grand nombre de capteurs et de les
+intégrer dans les calculs effectués par notre programme. Cerise sur le gâteau, cette
+interface est compatible avec le matériel Vernier, grâce à un petit adaptateur. Toutes les
+mesures obtenues grâce à nos capteurs Vernier (conductimétrie, pH, température)
+peuvent être directement prises en compte par notre programme.
+Pour mettre au point nos propres programmes, une multitude de blocs correspondant à
+des actions, des conditions, etc. sont à notre disposition. Il “suffit” de les assembler. Il en
+existe cinq catégories: actions, boucles et conditions (contrôle du déroulement),
+capteurs, traitement de donnée.
+
+Lycée Français de Saint Domingue
+
+5
+
+B) La mise en lumière d’une solution grâce à une nouvelle
+génération
+Buretor 2.0 était un prototype qui visait à optimiser nos
+résultats mais aussi à résoudre certains problèmes. Tout
+d’abord, nous voulions compter les gouttes précisément.
+Pour cela, nous avons observé les courbes de passage des
+gouttes qui furent obtenues grâce à un capteur qui détecte
+les variations de luminosité. Ce capteur était relié à la brique
+Lego qui transmet les informations à l’ordinateur, puis grâce à
+l’interface Lego Mindstorms qui possède un “data login” nous
+pouvions détecter des fluctuations sur la courbe à chaque
+fois que la lumière de la diode était modifiée. A la fin, nous
+avons obtenu un graphique permettant d’identifier le
+passage des gouttes. Nous nous sommes alors aperçus que notre
+comptage était trop aléatoire. Pour pouvoir y remédier, nous avons eu l'idée de saturer
+le milieu en lumière ce qui nous a permis d'accroître l'efficacité de notre capteur. En
+effet, notre capteur détecte la luminosité ambiante, lorsqu’une goutte passait, la
+luminosité en est modifiée et est alors détectée. De plus, nous avons apporté des
+modifications à la structure car pour pouvoir compter les gouttes, il fallait un parfait
+alignement entre le capteur, la goutte et la diode. Par conséquent, une nouvelle
+structure fut créée, plus ramassée permettant ainsi un meilleur alignement et une plus
+grande stabilité.
+
+Premières mesures obtenues grâce à la version 2.0
+Malgré le fait que nos premières séries de mesures soient inexploitables, nous avons
+persévéré. Ainsi en modifiant les paramètres du capteur d'intensité lumineuse, en
+altérant les conditions de passage des gouttes nous avons réussi à obtenir des résultats
+exploitables.
+
+Lycée Français de Saint Domingue
+
+6
+
+Graphique (exploitable!) en dents de scie de l’intensité lumineuse en fonction du temps
+
+Nous avons enfin obtenu à l’aide d’une diode émettant de la lumière blanche et de
+notre capteur Lego détectant l’intensité lumineuse. Chaque pic correspond à une
+goutte et relate son évolution.
+
+Néanmoins, obtenir ce graphique n’est qu’une première étape, l’exploiter et le
+décomposer sous la forme de conditions et d’actions pour qu’il devienne intelligible de
+sorte que notre robot compte les gouttes en est une autre. Voici plus ou moins notre
+cheminement en six étapes:
+
+Lycée Français de Saint Domingue
+
+7
+
+Schéma résumant la démarche d’écriture d'algorithme pour la détection et donc in
+fine le comptage des gouttes
+
+En ce qui concerne la temporisation de notre robot, elle est vite apparue comme
+nécessaire. En effet, lorsque notre capteur détectait une goutte et que le programme
+la comptait, il recommençait immédiatement à faire le test. Par conséquent, pour une
+même goutte la tension pouvait être à deux reprises supérieure à x. Il fallait donc
+temporiser pendant une fraction de seconde.
+
+Par ailleurs, en étirant le graphique, nous avons remarqué a posteriori que la période
+s’allongeait au cours du temps. Cela confirme le fait que la quantité de volume
+contenu par la burette influence nos mesures. En effet, au début de notre dosage pour
+un même angle d’ouverture, le robinet de notre burette fait tomber un nombre de
+gouttes déterminé dans un temps donné. Or plus, comme la pression exercée au
+niveau du robinet est proportionnelle au volume contenu au-dessus, le débit est donc
+sensiblement supérieur au début de notre expérience. Les périodes sont alors
+sensiblement plus courtes par rapport à celle de la fin de notre dosage. Cependant,
+comme nous nous sommes rendus compte de ce détail qu’après coup, nous n’en
+avons pas tenu compte pour ce prototype.
+
+Lycée Français de Saint Domingue
+
+8
+
+C. Un laser pour plus de précision dans la troisième
+génération
+Une fois de plus, nouvelle version rime avec nouvelle structure. Tout d’abord, nous
+avons décidé d’en finir avec les diodes. En effet, ces composantes étaient
+extrêmement fragiles. D’autre part, une lumière plus concentrée permettait une
+réfraction plus précise. Nous avons donc remplacé la diode par un laser émettant une
+lumière monochromatique.
+
+Nous captions alors les variations de tension aux bornes de la photorésistance. La
+représentation graphique de nos mesures est alors légèrement différente. En effet, il ne
+s’agit plus d’un signal en dents de scie dont les extrémités sont pointues mais
+d’augmentations violentes de la tension lors du passage de la goutte.
+
+Graphique représentant la tension aux bornes de notre photorésistance en fonction du temps
+
+Remarque: On ne tiendra pas compte des flèches qui ne nous apportent aucune
+information. Il s’agit uniquement de la représentation graphique de nos mesures par le
+logiciel LoggerPro.
+Ce nouveau prototype dépasse ainsi nos plus folles espérances en nous fournissant des
+graphiques d’une précision exceptionnelle. Le comptage de gouttes devient alors sans
+faille (du moins tant que l’alignement entre laser, goutte et photo-résistance est assuré).
+
+Lycée Français de Saint Domingue
+
+9
+
+Néanmoins, à chaque séance, nous devions reconstruire notre dispositif expérimental
+(robot et burette, laser ainsi que photorésistance) en les reliant avec tous les câbles
+électriques nécessaires. Nous en avons alors déduit que la version finale devra être en
+un seul bloc pour une utilisation simplifiée.
+
+II) Buretor classe F, pour Fonctionnel
+Finalement après six mois de recherche, ponctués d'échecs suivis immédiatement de
+solutions, nous avons mis au point un nouveau prototype qui résout les problèmes
+rencontrés lors des dernières générations. Nous pouvons enfin compter les gouttes avec
+un taux d’erreur extrêmement faible (une goutte sur 250 soit 0,4% d’erreur). Maintenant
+nous avons la possibilité de nous concentrer sur une nouvelle problématique essentielle:
+
+
+Comment déterminer le volume des gouttes comptées par notre programme ?
+
+A.
+
+Un remaniement du fond et de la forme (un de plus…)
+
+La structure Lego de ce nouveau Buretor est proche de celle de la génération V.2 dans
+la mesure où l’on retrouve l’alignement d’un capteur, d’un émetteur et du robinet à
+l’aide d’une structure compacte et rationalisée. Les principales différences proviennent
+en réalité du changement de nature du capteur et de l’émetteur ainsi que
+l’amélioration de notre robinet.
+
+1. Un capteur sur mesure
+La toute première chose, que nous avons construit pour notre nouveau prototype, est
+son capteur. En effet, le laser était bien trop volumineux pour un prototype se voulant
+léger du point de vue de la structure. D’autre, part, Il s’agit d’un système proche de
+celui de la génération V.3 mais plus compacte.
+
+Nous remplaçons le laser par une diode à infra-rouge, ainsi comme pour les
+expériences effectuées avec le laser, on observe une fluctuation de tension aux bornes
+de la photo-diode lorsque les gouttes passent entre l'émetteur et le récepteur. pas
+parasitée par les autres sources de lumière. L’avantage des infrarouges par rapport au
+laser est que l'émission d’infrarouges n’est pas parasitée par les autres sources de
+lumière.
+
+Lycée Français de Saint Domingue
+
+10
+
+Diagramme d'émission de la LED
+
+Mise à l’épreuve du capteur
+
+Avec une chute de tension aussi importante, le comptage de goutte est bien plus
+simple et surtout précis. En effet, nous obtenons un signal composé d’une succession
+de pics extrêmement fins. Par conséquent, il est presque impossible de compter deux
+fois une même goutte, d’autant plus avec la temporisation!
+
+2.
+
+Une structure fiable
+
+Pour faciliter les manipulations, nous avons conçu une structure simple qui pouvait être
+modifiée à tout moment. En effet, Buretor devait pouvoir évoluer en fonction de ce
+que nous devions faire. Ainsi, il est équipé d’un moteur dédié à l’actionnement du
+robinet (l’ouverture s’effectue au degré près). Mais à tout moment, nous pouvons
+choisir l’ouverture manuelle. Cette structure a donc subi un grand nombre de petites
+modifications au fur et à mesure que les expériences s’enchaînaient, le but étant de le
+rendre le plus pratique possible. Par ailleurs, la barre Lego sur laquelle est accrochée la
+diode infrarouge et le capteur est réglable au niveau de sa hauteur. En effet, pour les
+débits rapides (3 à 4 gouttes/seconde), le capteur doit se trouver quasiment à la même
+hauteur que le robinet pour que la goutte soit détectée correctement avant qu’elle
+ne prenne trop de vitesse.
+
+Lycée Français de Saint Domingue
+
+11
+
+A contrario, plus le débit est faible, plus le capteur doit être éloigné du robinet pour
+conserver un graphique précis composé de pics d’une extrême finesse.
+La dernière grande modification apportée, fut l’incorporation d’un second robinet
+dans le but permettant de stabiliser le débit des gouttes avec l’un et de gérer
+l’ouverture et la fermeture avec l’autre.
+
+B. Des mathématiques au goutte à goutte
+1. Mesure du débit
+Jusqu'à présent, nous considérions le volume de la goutte comme constant. Nous
+savions que les gouttes n'étaient pas uniformes. Cependant, nos prototypes
+précédents ne nous permettaient pas de résoudre ce problème, dans la mesure où
+notre comptage de gouttes n'était pas encore optimal.
+Avec Buretor v.4.0, nous pouvions nous pencher sur ce défi. Grâce aux mesures
+effectuées précédemment, nous avions déjà compris que le volume d’une goutte
+variait en fonction du débit. La première étape nous a alors semblé évidente:
+déterminer le débit (en gouttes par seconde) en modifiant notre programme déjà
+existant.
+
+Au début, nous avons commencé par faire tourner notre programme pendant un
+temps donné, “t”. Nous divisions alors le nombre de gouttes tombées (ng) par t.
+Cependant, nous avons rapidement réalisé que les premières gouttes suivant
+l’ouverture du robinet ne tombaient pas au même débit que les autres. A terme, nous
+avons donc décidé de mesurer le débit au bout de 2 secondes à l’aide d’un
+programme parallèle à celui comptant les gouttes.
+Concrètement, notre programme effectue les actions suivantes:
+1. Attendre 2 secondes que le débit se stabilise (le programme principal compte
+tout de même les gouttes);
+2. Enregistrer une première mesure, n1, indiquant le nombre gouttes tombées à t0;
+3. Attendre 10 secondes;
+4. Enregistrer une deuxième mesure n2, indiquant le nombre de gouttes tombées
+à t 1;
+5. Effectuer le calcul suivant: d (débit) = (n1 - n0)/10.
+
+Lycée Français de Saint Domingue
+
+12
+
+2.
+
+Obtenir le volume d’une goutte grâce à un modèle mathématique
+
+Dès que nous avons su déterminer le débit auquel tombaient nos gouttes, nous devions
+modéliser la fonction mathématique reliant le débit au volume d’une goutte. Ainsi,
+nous avons mesuré plusieurs dizaines de points (indiquant le nombre de gouttes, le
+volume total, et le débit). Pour obtenir des points différents, nous avons fait varier le
+débit et nous avons observé l'évolution du volume d’une goutte (obtenue en divisant le
+volume total par le nombre de gouttes).
+
+Premier modèle mathématique
+
+Notre premier modèle construit avec peu de valeurs nous a montré que l’on pouvait
+déterminer avec une grande précision le volume des gouttes formées par notre doseur.
+En effet, comme nous l’avons évoqué précédemment, notre prototype affiche un
+volume à la goutte près. Or, le modèle nous donne accès au volume d’une goutte en
+fonction du débit. Il s’agit d’une fonction affine représentée graphiquement par une
+droite ne passant pas par l’origine et définie par la relation D*0,003821 + 0,05819, avec
+D le débit. Par conséquent, l’erreur de notre dispositif est de D*0,004 + 0,06mL (données
+affichées par Logger Pro) , et évolue avec le débit. Dans la mesure où le débit utilisé
+pour effectuer un dosage est compris entre 0,7 goutte/s et 3,5 goutte/s, on remplace D
+par 0,7 et 3,5 pour obtenir l’erreur sur le volume en fonction du débit, soit:
+
+Cependant, lors de notre première prise de mesures, nous effectuions uniquement un
+nombre limité de mesures (une dizaine environ). Nous avons donc fait plusieurs séries de
+tests car les premiers étaient évidemment imparfaits à cause de petits incidents. En
+outre, afin d’obtenir un nombre suffisant de mesures pour pouvoir modéliser une
+courbe pertinente nous avons dû trouver divers degrés d’ouverture de la burette. Nous
+avons donc conçu un autre modèle contenant un plus grand nombre de valeurs où on
+apparaissent les incertitudes de chaque point que nous placions.
+
+Lycée Français de Saint Domingue
+
+13
+
+Modèle mathématique appréciant les incertitudes
+
+Ce nouveau modèle confirme la tendance observée sur la première droite. De plus, les
+incertitudes affichées autour des multiples points montrent qu’ils appartiennent tous à
+notre modèle mathématique. Il n’y a alors plus à douter de la validité de ce dernier.
+
+3.
+
+Les Incertitudes
+
+En ce qui concerne les incertitudes en tant que telles, nous constatons que lorsque le
+débit augmente, l'incertitude sur sa mesure s’accroît également. A contrario, le
+phénomène s’inverse pour le volume car plus celui-ci est faible, plus l'incertitude sur le
+volume est importante. Pour déterminer l’incertitude sur le volume total et sur le volume
+d’une goutte, nous calculons l’incertitude pour chaque valeur mesurée comme le
+montre le tableau ci-dessous:
+
+Tableau des mesures et des incertitudes de notre modèle
+
+Les incertitudes de ce tableau sont obtenues grâce aux formules suivantes:
+
+Lycée Français de Saint Domingue
+
+14
+
+Formules des incertitudes
+
+
+
+
+4.
+
+Vg: Volume d’une goutte
+Ng: Nombre de gouttes
+Un nouveau programme
+
+Notre programme v.4.0 garde le même “squelette” que celui de la troisième version; à
+savoir, une colonne vertébrale constituée de la boucle comptant les gouttes.
+Néanmoins, quelques modifications primordiales ont été réalisées:
+1. la boucle du débit a été placée à part pour que le débit soit calculé en même
+temps que les gouttes;
+2. la compensation des variations du volume d’une goutte est assurée grâce à la
+fonction mathématique reliant goutte et débit d’une goutte intégrée dans la
+boucle du comptage de gouttes;
+3. le volume est affiché en direct avec un léger décalage sur la brique Lego
+Mindstorms;
+4. le volume total, le débit et le nombre de gouttes sont stockés dans un fichier
+pour leur exploitation future
+
+5. Vérification de l’influence du titrant sur le volume d’une goutte
+Comme nous l’avons expliqué dans les parties précédentes, nous avons paramétré et
+conçu notre modèle mathématique à partir d’une expérimentation utilisant de l’eau
+distillée. Ceci a très vite soulevé la question de l'influence de l'espèce chimique sur la
+taille des gouttes (et donc leur volume). Par conséquent, nous avons cherché à vérifier
+si les gouttes formées par la soude et le permanganate de potassium (principaux
+titrants utilisés dans le cadre de nos dosages) possédaient un volume différent par
+rapport aux gouttes d’eau, pour un même robinet. Pour cela, nous avons établi un
+protocole pour mesurer leur tension superficielle(γ).
+Le principe est de remplir une fiole jaugée avec une grande précision (à la goutte près)
+de 50,0 mL avec Buretor. Un programme mesure le nombre de gouttes et le débit. Une
+balance avec une précision au centième de gramme nous donne accès à la masse
+de 50,0 mL de l'espèce chimique étudiée. A partir de ces données, nous pouvons
+appliquer une formule liant le ρ (la masse volumique), et le N (le nombre de gouttes) en
+tenant compte du γ0 et N0 les valeurs références indexées sur l’eau.
+Dans le cas d’un liquide de masse volumique s'écoulant par un tube fin, le poids de la
+goutte obtenue est proportionnel à la tension superficielle et au rayon extérieur du
+tube, tel que:
+
+Lycée Français de Saint Domingue
+
+15
+
+En considérant le nombre de gouttes qui s'écoulent pour un volume donné, on en
+déduit que:
+
+On étalonne la mesure à partir d’une valeur de référence 0:
+
+On peut donc conclure que:
+
+Nous avons donc mis en place ce protocole. Une première série d'expériences a été
+effectuée. Cependant, un problème technique nous a empêché d'évaluer le débit
+pour les premières mesures. Ainsi, seules deux mesures prennent en compte le débit.
+
+Lycée Français de Saint Domingue
+
+16
+
+Ces premières mesures nous permettent d'estimer que plus la concentration en
+espèce chimique est faible (donc plus elle est diluée), plus la tension superficielle est
+proche de celle de l’eau. Cela parait logique, dans la mesure où l'espèce chimique est
+tellement diluée que les propriétés des molécules d’eau supplantent celles du titrant,
+qui n’est plus présent qu’en quantité infime. Cependant, en considérant le peu de
+mesures que nous avons pu effectuer nous ne pouvons pas confirmer cette hypothèse.
+Nous cherchons ensuite si la différence de tensions superficielles a une incidence sur
+notre programme de détermination du volume. Pour cela, nous avons placé sur notre
+modèle mathématique les deux valeurs mesurées lors de l'expérience sur la tension
+superficielle pour lesquelles nous connaissions le débit.
+
+Nous avons constaté que pour les deux mesures effectuées (avec une soude à 1.10 -2
+mol/L et à 1.10-3 mol/L), les valeurs s’intègrent bien dans notre modèle mathématique
+(une connaissance plus fine des incertitudes liées à ces mesures permettrait de
+conclure plus sûrement)
+Ainsi, en considérant que nous n’avons pas pu éprouver notre constat dans le cadre
+d’un échantillon plus grand d'expérience sur la tension superficielle, nous admettons
+que notre modèle s’applique à toute espèces chimique (et plus certainement a la
+soude et au permanganate) à condition d'être très diluée (concentration de 1.10-3
+mol.L-1).
+Source documentaire : http://phymain.unisciel.fr/wp-content/uploads/2014/03/bonnel_meca_flu.pdf
+
+C) Des dosages par dizaines
+
+Lycée Français de Saint Domingue
+
+17
+
+Une fois notre modèle incrémenté dans notre programme, nous pouvions enfin
+déterminer le volume ajouté par Buretor. Ainsi, il nous a suffi d’associer un pH à chaque
+volume donné afin d’obtenir la courbe du pH en fonction du volume. Cette dernière
+nous a permis de déterminer le volume de soude ajoutée à l’équivalence et par
+conséquent, la concentration de certains ions dans la solution dosée.
+
+Ce premier dosage pH-métrique vise à vérifier la capacité de notre prototype à réaliser
+un dosage.
+
+Graphique du dosage pH-metrique et de sa dérivée
+
+Une fois cette courbe obtenue, nous avons tracé la dérivée de cette courbe afin de
+déterminer le volume équivalent. Cependant, on constate qu’il n’y a pas suffisamment
+de points, ce qui nous empêche de déduire avec précision le volume équivalent à
+partir de la dérivée.
+
+Lycée Français de Saint Domingue
+
+18
+
+5.La dérivée pour déterminer le volume équivalent
+
+Notre robot savait maintenant compter les gouttes, les “convertir” en un volume
+donné, mesurer le pH et stocker toutes les données mesurées. A la fin du programme,
+nous pouvions ainsi obtenir le volume total, le nombre de gouttes et le débit.
+Cependant, notre objectif final est un dosage. Nous cherchons à déterminer
+directement le volume équivalent avec précision et souhaitons qu’il s’affiche
+automatiquement à la fin du programme. Par conséquent, notre programme doit
+réaliser la dérivée du pH en fonction du volume et donner son maximum.
+La “brique calcul” de l’interface Lego Mindstorm nous permet d’effectuer de
+nombreuses opérations mathématiques mais ne dérive malheureusement pas. Nous
+sommes donc revenus à la définition originelle du nombre dérivé, le taux
+d’accroissement. Cependant, nous avons vite été confrontés à un problème de taille.
+Comment extraire les données stockées sous la forme d’une liste? Pour cela, nous
+avons eu recourt à une petite astuce: chaque donnée est enregistrée avec le numéro
+de la boucle à laquelle elle correspond. Puis, à l’aide d’un test logique (voir
+l’algorithme du programme ci-dessous), nous déterminons si la boucle est paire ou
+impaire et l’incrémentons dans la formule. Le nombre dérivé enfin calculé, nous le
+comparons avec le plus grand enregistré précédemment. En effet, lors du dosage d’un
+acide par une base, la courbe de pH augmente violemment au moment de
+l’équivalence, ce qui se manifeste par un pic de la dérivée avec le maximum
+correspondant au point d’inflexion.
+Nous pouvons traduire notre programme sur l’interface LegoMindstomrs (voir les
+annexes) par l’algorithme suivant:
+1. incrémenter le nombre de boucles effectuées précédemment (elles
+correspondent au nombre de gouttes et donc chacune de nos prises de
+volume);
+2. diviser par 2 le numéro de la boucle;
+3. arrondir le résultat obtenu à l’entier inférieur;
+4. multiplier ce nouvel entier par 2;
+5. voir si l’entier obtenu est égal à celui incrémenté au début:
+a.
+Si vrai, la boucle est paire. Les mesures de pH et du volume associées
+deviennent pHi-1 et Vi-1;
+b.
+Si faux, la boucle est impaire. Les mesures du pH et du volume associées
+deviennent pHi+1 et Vi+1.
+6. On applique alors la formule suivante pHi+1 - pHi-1Vi+1 - Vi+1et obtenons le
+nombre dérivé;
+7. On incrémente le nombre dérivé dans la variable appelé “max”;
+8. On compare les variables “max” et “maximum” (nombre dérivé maximum
+jusqu’à maintenant):
+a.
+Si “max” supérieur à “maximum”, la valeur “max” devient le nouveau
+“maximum”;
+b.
+Si “max” inférieur à “maximum”, la valeur “maximum” reste identique.
+9. On répète cette boucle autant de fois que de gouttes sont tombées lors de la
+première partie du programme.
+
+Lycée Français de Saint Domingue
+
+19
+
+III) Et après ?
+Depuis le début de ce projet, bien des versions de notre prototype se sont succédées,
+précédées de problèmes et heureusement de solutions. Par conséquent, Buretor v.4.0
+est déjà plus performant que son homologue Vernier. En effet, son programme incluant
+la formule mathématique reliant débit et volume d’une goutte permet de compenser
+les erreurs liées aux variations du volume d’une goutte au cours de la réaction. De plus,
+une première étude sur l’influence de l’espèce chimique sur le volume de la goutte,
+nous laisse supposer que ce modèle s’applique à toutes les solutions chimiques utilisées
+la plus part du temps lors d’un dosage. Il peut ainsi faire des dosages avec des volumes
+importants et des solutions peu concentrées tout en conservant sa précision.
+Cependant, malgré que Buretor est atteint sa dernière version en Lego Mindstorms il
+pourrait encore être amélioré, principalement au niveau de sa structure. Cette dernière
+pourrait être entièrement conçue en un bloc grâce à la future imprimante 3D de notre
+lycée.
+A l’heure actuelle, Buretor remplit parfaitement sa fonction première, celle de réaliser
+un dosage. Toute la procédure se fait en complète autonomie une fois le dosage
+lancé. Grâce aux améliorations apportées par la toute dernière version de notre
+programme, notre robot nous donne directement accès au volume équivalent. En
+outre, si une analyse plus poussée de la courbe de dosage est nécessaire, Buretor
+enregistre chaque point (pH en fonction du volume). Ainsi, il ne reste plus
+qu'à transférer ces données sur un autre logiciel (Exel, LoggerPro, Jeulin,..) afin
+d'exploiter au maximum tout le potentiel des nombreuses données collectées ( un point
+toute les deux secondes).
+Pour résumer, Buretor est un robot polyvalent et multi-tâche qui n’a pour limite que
+notre imagination.
+
+Lycée Français de Saint Domingue
+
+20
+
+

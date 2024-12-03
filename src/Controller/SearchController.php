@@ -2,6 +2,8 @@
 
 namespace App\Controller;
 
+use App\Entity\Odpf\OdpfEditionsPassees;
+use App\Entity\Odpf\OdpfEquipesPassees;
 use App\Entity\Odpf\OdpfFichierspasses;
 use Doctrine\Persistence\ManagerRegistry;
 use Mpdf\Tag\Article;
@@ -58,6 +60,7 @@ class SearchController extends AbstractController
             $occurence=null;
             $statResult=null;
             $nsecmax=null;
+            $equipes=null;
            $form->handleRequest($request);
            if ($form->isSubmitted() && $form->isValid()) {
 
@@ -154,31 +157,30 @@ class SearchController extends AbstractController
                // $nsec = $nsecmax;
                $idxDoc = 0;
                $i=0;
-
+               $letters=['A','B','C','D','E','F','G','H','I','J','K','L','M','N','O','P','Q','R','S','T','U','V','W','X','Y','Z'];
                foreach ($assocFileKWCount as $fichier => $kwCount) {
-                   // $nsec--;
-                   $idxDoc += 1;
-                   /*if ($idxDoc > $nsecmax) {
-                       echo "<hr><br>... limite de $nsecmax résultats affichés atteinte ... <br><hr>";
-                       break;
-                   }*/
 
-                   // nettoyage du nom de fichier pour ne garder que le titre du rapport
-                   $titre[$i] = explode('-', $fichier, $limit = 5); // nom rapport = dernier élément
+                   $idxDoc += 1;
+                   // nettoyage du nom de fichier pour ne garder que le titre de l'équipe
+                   $edition = $this->doctrine->getRepository(OdpfEditionsPassees::class)->findOneBy(['edition'=>explode('-', $fichier)[0]]);
+                   $numEq=explode('-', $fichier)[2];
+                    !in_array($numEq,$letters)? $equipes[$i]=$this->doctrine->getRepository(OdpfEquipesPassees::class)->findOneBy(['editionspassees'=>$edition,'numero'=>$numEq]):
+                       $equipes[$i]=$this->doctrine->getRepository(OdpfEquipesPassees::class)->findOneBy(['editionspassees'=>$edition,'lettre'=>$numEq]);
+                   /*$titre[$i] = explode('-', $fichier, $limit = 5); // nom rapport = dernier élément
                    $titre[$i] = substr(end($titre[$i]), 0, -4);    // retrait de ".txt"
-                   $titre[$i] = str_replace('-', ' ', $titre[$i]);  // élimination des "-"
-                   $titre[$i]=$idxDoc.'-'. $titre[$i];
+                   $titre[$i] = str_replace('-', ' ', $titre[$i]);  // élimination des "-"*/
+                   $titre[$i]=$idxDoc.'-'.'Ed'.$edition->getEdition().'- Eq '.$numEq.' - '. $equipes[$i]->getTitreProjet();
                    //echo "<h3>$idxDoc -  $titre</h3><br>"; // le nom du fichier
                    // Affichage de l'édition
-                   [$edition, $reste] = explode('-', $fichier, $limit = 2);
+
                    //echo "Édition n°$edition - ";
-                   $num=$edition;
+                   $numEd=$edition;
                    $edition ="Édition n°$edition - ";
                    //  fabrication de l'url du fichier pdf archivé
                    // encodage du nom du fichier comme portion d'url valable
                    $urlTitre = rawurlencode($fichier);
                    $pdfUrl[$i] = "https://www.olymphys.fr/public/odpf/odpf-archives/" .
-                       $num. "/fichiers/memoires/publie/" .
+                       $numEd. "/fichiers/memoires/publie/" .
                        substr($urlTitre, 0, -3) . "pdf";
 
                    // écriture de la ligne d'info sur les termes trouvés et le lien vers le pdf
@@ -205,6 +207,7 @@ class SearchController extends AbstractController
             'pdfUrl'=>$pdfUrl,
             'nbKeyWord'=>$nbKeyWord,
             'occurence'=>$occurence,
-            'nsecmax'=>$nsecmax,]);
+            'nsecmax'=>$nsecmax,
+            'equipes'=>$equipes]);
     }
 }

@@ -1,0 +1,1550 @@
+OLYMPIADES DE PHYSIQUE France
+XVIIe édition
+
+Année 2009-2010
+
+La Musique du
+Soleil.
+
+Elèves participants :
+
+Avec LACLAVERIE Jean-Michel
+Professeur encadrant
+Lycée Bernard Palissy- AGEN
+Académie de Bordeaux
+
+-1-
+
+Table des matières
+RESUME
+ABSTRACT
+RESUME POLONAIS
+KEY-WORDS
+PARTENAIRES
+INTRODUCTION
+1- Acoustique solaire
+1.1 Des ondes acoustiques dans le Soleil
+1.2 Des outils pour l’observation des phénomènes acoustiques du Soleil.
+2- Approche expérimentale des modes propres de vibration d’une sphère
+2.1 Influence du diamètre de la sphère sur les fréquences de résonance.
+2.2 Influence de la température
+2.3 Réflexion sur les couches internes
+3- Mesures par effet Doppler
+3.1 Mode opératoire
+3.2 Etude d’un déplacement simple
+3.3 Les oscillations
+4- Le Soleil : un instrument de musique
+4.1 Comparaison avec le spectre d’un instrument de musique
+4.1.1 Spectre d’une timbale
+4.1.2 Spectre d’une cloche
+4.1.3 Spectre d’une cymbale
+4.1.4 Spectre d’une grosse caisse
+4.1.5 Spectre d’un piano
+4.1.6 L’eau qui boue
+4.2 Une reconstitution de la musique solaire
+Conclusion
+Sources documentaires
+Annexes
+- Annexe 1 : Evolution des connaissances sur le Soleil
+- Annexe 2 : Vers une interprétation ondulatoire
+- Annexe 3 : L’effet Doppler pour l’étude du Soleil
+- Annexe 4 : Mise au point de l’expérience Doppler
+- Annexe 5 : Quelques fréquences des modes de pression : spectres acoustiques du Soleil
+- Annexe 6 : Notre programme en Visual basic.( Programmation David Fadli)
+RESUME :
+
+-2-
+
+Le Soleil est un instrument de musique dont nous ne pouvons percevoir le son car il
+est trop grave et il n’y a pas de milieu matériel pour permettre sa propagation jusqu’à nous.
+L’étude sonore est cependant possible en regardant vibrer le Soleil, comme le fait la sonde
+SOHO. Le plaisir du musicien n’est pas le seul intérêt de la musique de notre étoile. Son
+écoute permet en effet de mieux connaître la structure solaire. Le Soleil est un résonateur
+sphérique. L’air contenu dans une sphère de Helmholtz en est un aussi. Nous étudions dans ce
+mémoire les fréquences de résonance d’une sphère, et les renseignements qu’elles peuvent
+donner sur sa structure. Pour accéder aux fréquences acoustiques solaires, le spectromètre à
+résonance magnétique Zeeman GOLF de la sonde SOHO, mesure le décalage Doppler de
+certaines raies du sodium du spectre solaire. Nous étudions un modèle simplifié du système
+sonde-Soleil avec une maquette de laboratoire utilisant l’effet Doppler sur des signaux
+ultrasonores. Enfin, nous comparons le spectre du Soleil à celui de divers instruments de
+musique avant de tenter une reconstitution originale de sa musique.
+ABSTRACT
+The sun is a musical instrument whose sound can't be heard because it is too hoarse.
+Moreover, there is no material environement likely to transmit it. Yet, we could study that
+sound by watching the sun vibrate, just as done by the Soho. A musican's pleasure isn't the
+only reason why the music of our star is so fascinating. Indeed, when we listen to the music of
+the sun we more easily understand its structure. The sun is a sphere that produces a sound.
+The air confined in a Helmholtz' s sphere produces a sound too. In these documents, we are
+going to analyse how often a sphere produces a sound wave and all the information it can
+provide us with this structure. In order to have access to the sound waves of the sun, the
+magnetic raisonance spectrometer Zeeman GOLF of the Soho measures the Doppler gap
+between some sodium beam of the solar spectrum. We are going to study a simplified pattern
+of the system probe/sun with a lab model using the deffect on ultrasound signals. Finally, we
+are going to compare the spectrum of the sun to various musical instruments before going to
+reconstitute its original music.
+RESUME (en polonais en hommage au grand astronome polonais Nicolas
+Copernic, qui plaça le Soleil au centre du système solaire):
+Słońce jest instrumentem muzycznym ktırego nie moźemy dostrzec gdyŜvjest zbyt
+niski inie ma materiaku ktıry umozĺiwikby nam jego propagację do nas. Nauka džwięku jest
+jednakźe moźliwa oglądając drgania słońca, tak jak robi to sonda soho odtworzenie muzyki
+słonecznej jest tematem tej pracy. Przyjemność muzyka nie jest samym interesem muzyki
+naszej gxiazdy. Jego skuchanie pozwoli wefekcie lepiej poznać strukťurę skoneczna.
+Studjujemy wtej kronice częstoliwości rezonansu sŧery etekt doplera wykorzy-stany przez
+aparīy skuŜące do obserwacji, następnie porıwnujemy sekońce pośrıd rıŜnycn instrumentıw
+muzycznynch zanim zaczniemy rekonstrukcję oryginalna swej muzyki.
+KEY-WORDS : Soleil – Acoustique – Effet Doppler – Analyse de Fourier.
+PARTENAIRES :
+-
+
+Monsieur Jean-Maurice Robillot a participé à la réalisation d'un des 3 instruments de
+la sonde SOHO (*), dédiés à la sismologie solaire : un spectromètre à résonance
+magnétique Zeeman sur les raies solaire du sodium, instrument désigné par « GOLF »
+
+-3-
+
+(Global Oscillations at Low Frequencies). Ce partenaire a été trouvé grâce à Monsieur
+Yves Leroyer, de la Société Française de Physique, et à Madame Nathalie Brouillet,
+astronome au Laboratoire d'Astrophysique de Bordeaux « LAB-OASU »
+(Observatoire Aquitain des Sciences de l'Univers). Monsieur Robillot avait
+antérieurement développé à Bordeaux un instrument prototype à résonance à 5 canaux
+« MR5 » et avait fait réaliser 6 aimants pour le réseau de 6 stations d’héliosismologie
+autour du globe « IRIS » (International Reseach on the Interior of the Sun), mis en
+œuvre par Eric Fossat, astronome
+du « LUAN » (Laboratoire Universitaire
+d’Astronomie de Nice). C’est cette expérience des spectromètres à résonance et leur
+application à l’héliosismologie qui a entraîné la participation de Mr Robillot à
+l’instrument « GOLF » et au début de l’analyse des données… Puis, avant de partir à
+la retraite en 2005, il a participé à la conception d’un instrument de nouvelle
+génération à 15 canaux « GOLF New Generation ». Ce spectromètre a été développé
+sous la direction de Madame Sylvaine Turck-Chièze au Département d’Astrophysique
+« DAPNIA » du CEA, et un prototype vient d’être testé en été 2008 à l’observatoire
+d’Izaña de Tenerife, observatoire à vocation internationale de l’« IAC » (Instituto de
+Astrofisica de Canarias).
+-
+
+-
+
+Eric Fossat, Astronome à l'Observatoire de Nice, détaché à l'Université depuis 1967.
+Avant tout observateur et instrumentaliste, il a été pionnier de l'héliosismologie dès les
+années 1970, avant d'être de nouveau pionnier de l'Astronomie en Antarctique depuis
+2000. Coordinateur du projet ‘Stella Antarctica’ pour la promotion de l'astronomie du
+futur à la station franco-italienne Concordia, il a reçu en 2002 le prix du rayonnement
+français pour l'ensemble de ses activités scientifiques, particulièrement dans le
+domaine de la coopération internationale. Il a accepté de répondre à nos questions par
+mail.
+L’orchestre d’harmonie la Lyre Agenaise, pour le prêt d’instrument de musique et
+l’enregistrement de la musique d’orchestre.
+Ludmila Wojtalczyk pour la traduction en polonais.
+INTRODUCTION
+
+Le Soleil est un système qui oscille autour d’un état d’équilibre principalement grâce
+aux forces de pression qui sont ici des forces de rappel, comme un pendule pesant oscille à
+cause des forces de gravité. Ces oscillations engendrent des ondes acoustiques stationnaires
+qui s’établissent dans le Soleil, comme dans un instrument de musique.
+Ecoutez un morceau de musique symphonique. Si votre oreille est attentive et si vous
+savez analyser les signaux qu’elle reçoit, vous pouvez en tirer des renseignements sur les
+musiciens, le compositeur, le nombre d’instrument et leur type… comme font les
+astrophysiciens avec le Soleil, grâce à une écoute optique. En effet les ondes acoustiques
+solaires sont des ondes mécaniques, qui ont besoin d’un support matériel pour se propager. Le
+vide entre le Soleil et la terre ne permet pas cette propagation. Par contre, la lumière n’est pas
+une onde mécanique, mais électromagnétique et sa propagation est possible dans le vide.
+Alors les physiciens regardent vibrer le Soleil puisqu’ils ne peuvent l’écouter directement.
+L’analyse des vibrations du Soleil a permis d’améliorer les connaissances sur notre étoile, en
+particulier sur son cœur, car les ondes acoustiques se propagent beaucoup plus rapidement
+que la lumière dans le cœur et dans la zone radiative du Soleil ! Résultat étonnant pour nous et
+très utile pour les astrophysiciens.
+Nous ne sommes que de simples élèves de lycée, avec à notre disposition le matériel
+habituel d’un laboratoire du secondaire. Nous nous sommes demandés quelles expériences
+simples nous pouvions faire pour illustrer l’acoustique solaire. Nous avons donc commencé
+
+-4-
+
+par un travail de lecture et d’analyse de nombreux articles sur le Soleil et sur
+l’héliosismologie pour connaître un peu mieux le sujet de notre travail, qui n’est pas étudié au
+lycée. Cette étude indispensable pour structurer notre progression, constitue la première partie
+de mémoire. Nous avons compris qu’il n’est pas possible de faire des mesures acoustiques
+directes sur le Soleil avec le matériel à notre disposition. Alors nous avons cherché des
+expériences de laboratoire pour illustrer :
+- Les fréquences de résonance d’un résonateur sphérique : nous étudierons les
+fréquences de résonance d’un résonateur sphérique de Helmholtz et leur lien avec la
+taille et la température de la sphère. Les résultats obtenus sur ces sphères de
+laboratoire permettent une comparaison avec les fréquences de résonance solaire qui
+renseignent sur la taille et la température des différentes zones solaires.
+- Les mesures par effet Doppler : l’effet Doppler est utilisé par la sonde Soho pour
+déterminer les fréquences de résonance du Soleil
+- L’analyse de Fourier : Cette analyse permet de déterminer la part des différents modes
+propres dans la vibration du soleil ou d’un instrument de musique.
+- Une reconstitution de la musique solaire : les reconstitutions de la musique solaire que
+l’on
+peut
+écouter
+sur
+le
+site
+de
+l’université
+de
+Stanford
+(http://soi.stanford.edu/results/one_mode_l_1.aiff) par exemple nous ont semblé
+décevantes. Cette « musique » n’est pas belle et s’apparente plus à un bruit qu’à un
+morceau symphonique. Nous avons cherché une voie d’obtention d’une musique
+solaire, qui n’utilise pas les mêmes critères que celles des héliosismologues, mais qui
+donne un résultat plus esthétique.
+Les buts de notre étude sont nombreux, c’est pour cela que nous avons travaillé à 6 élèves
+dans ce groupe, entre le mois de mars 2009 et aujourd’hui. Peut-être que certains
+développement de notre travail sembleront superflus au jury, mais ils ont été indispensables
+pour nous pour comprendre les phénomènes que nous avons rencontré.
+Nous avons lu plusieurs mémoires d’astronomie présentés aux Olympiades les années
+précédentes, et nous y avons trouvé beaucoup de calculs qui nous ont semblé difficiles pour
+des élèves de Terminale S. Nous avons donc choisi, avec notre professeur, de privilégier dans
+ce travail la présentation du sens physique des expériences que nous avons faites, sans utiliser
+un outil mathématique trop difficile pour nous. Nous n’avons pas voulu utiliser ou recopier
+des formules sans vraiment les comprendre. Nous nous sommes limités à de la physique et
+des calculs simples, mais qui permettent cependant d’aborder les résultats les plus importants
+de l’acoustique solaire.
+Donc après avoir présenté un petit aperçu de l’état actuel des connaissances sur le Soleil,
+nous ferons l’étude de résonateurs sphériques de Helmholtz, puis une expérience pour illustrer
+l’effet Doppler qu’utilise la sonde Soho pour déterminer les fréquences de résonance du
+Soleil. Nous comparerons ensuite le spectre acoustique du Soleil à celui de plusieurs
+instruments, et nous tenterons une reconstitution originale de la musique solaire.
+1- Acoustique solaire
+1.1 Des ondes acoustiques dans le Soleil
+Un modèle physique du Soleil, avec ses caractéristiques accessibles, fut établi durant
+la première moitié du XXe siècle. Pour cela il a fallut connaître trois caractéristiques
+essentielles de l’astre :
+- sa masse, de 1,99 1030kg, déterminée par l’étude de l’attraction de l’astre sur d’autres
+corps connus comme la Terre.
+
+-5-
+
+-
+
+son âge de 4,6 milliards d’années déterminé grâce à l’étude des éléments radioactifs de
+longue période comme l’uranium 235 des couches superficielles.
+- sa composition d’origine trouvée à l’aide d’une étude spectographique de la surface du
+Soleil.
+Ce Soleil théorique correspond, à quelques % près d’erreur, au vrai Soleil pour les
+données observables directement comme le rayon, la luminosité, ou encore la température
+externe. Cependant, il reste encore à vérifier le modèle obtenu pour l'intérieur de l'étoile, ce
+qui pose un problème puisque les couches profondes des étoiles sont opaques à tout
+rayonnement électromagnétique donc inaccessibles à toute vision directe.
+En 1960, l'astrophysicien californien Robert Leighton découvre que la surface du
+Soleil est animée de mouvements ondulatoires d'une période moyenne de cinq minutes. Ces
+mouvements sont comparables à ceux animant la Terre lors d’un séisme : une nouvelle
+science, l’héliosismologie venait de naître.
+Cette discipline étudie certains mouvements du Soleil. Cette sismologie particulière
+étudie des vibrations du Soleil qui se propagent depuis sa surface et vont se réfléchir sur les
+différentes couches intérieures. L'étude de ces vibrations permet de "voir" l'intérieur du Soleil
+et de mesurer plusieurs types de caractéristiques de notre étoile. Elles ont été décelées grâce à
+des télescopes au sol puis à l’aide de missions spatiales.
+Le principe de l'héliosismologie est le même que celui de la sismologie terrestre. On
+détermine la composition et l'arrangement d'un milieu enfoui par l'étude de la propagation
+d'ondes acoustiques dans ce milieu, sachant que la vitesse du son dépend de la masse
+volumique et de la température du milieu traversé.
+Ces ondes acoustiques, que le vide de l'espace ne permet pas d'arriver jusqu'à nous,
+s'enfoncent plus ou moins profondément dans le Soleil. Des successions de réfraction et de
+réflexion permettent l’établissement d’ondes stationnaires. Un grand nombre de modes
+d'oscillations sont possibles. On peut comparer cela à l’air pouvant entrer en résonance dans
+un tube ouvert aux deux extrémités et excité par un haut-parleur, comme vu en cours de
+spécialité.
+Il faut tout d’abord un excitateur, c’est à dire un système produisant des vibrations.
+Pour le tube, dans nos expériences de cours de Terminale S, il n’y a qu’un excitateur, le hautparleur. Par contre le Soleil est excité en permanence par de nombreux excitateurs que sont
+les granules de la taille de la France entrant en convection. Les mouvements convectifs créent
+des vibrations qui sont des ondes sonores. Selon un article de M. Fossat, « le bouillonnement
+convectif a, au voisinage de la surface un temps caractéristique de quelques minutes et une
+dimension de l’ordre de 1500 km dans toutes les directions, qui correspond à la demilongueur d’onde pour des périodes de l’ordre de 5 minutes sachant que la vitesse du son à la
+surface solaire est de l’ordre de 7 à 8 km/s.» Le cours de Terminale de physique présente la
+notion de longueur d’onde, c’est à dire la période spatiale du phénomène : λ = cT = c/f.
+Donc ici λ/2 ≈ 8000.5.60/2 = 1200000 m soit 1200 km. On retrouve bien l’ordre de
+grandeur de la dimension des granules.
+Le tube peut entrer en résonance pour des fréquences multiples d’une fréquence
+fondamentale. Si le haut-parleur produit un son correspondant à une de ces fréquences, l’air
+dans le tube vibre fortement en certains points (Ventre) et faiblement en d’autres (Nœud). Des
+ondes stationnaires s’établissent. Par une suite de réflexions partielles, une partie des ondes
+restent dans le tube pour alimenter l’onde stationnaire, et le reste se propage vers l’extérieur.
+Il en est de même dans la sphère solaire. Des ondes stationnaires s’établissent dans la sphère
+solaire, pour permettre l’établissement de modes d’oscillations en trois dimensions dans
+l’ensemble du Soleil. On observe des nœuds et des ventres bien localisés. Néanmoins, ces
+oscillations restent modestes puisque les variations d'amplitude atteignent au maximum dix
+mètres. Le Soleil est soumis à des mouvements de convection similaires à ceux présents dans
+
+-6-
+
+une casserole d'eau bouillante. Ainsi, comme les bulles éclatant à la surface de l'eau, mais à
+bien plus basse fréquence, les grains de gaz du Soleil sont chauffés et produisent un son. Les
+sons provenant du Soleil découlent de propagation de perturbation de pression créant des
+ondes acoustiques c’est à dire de même nature que les ondes sonores que nous connaissons.
+L'héliosismologie vise donc à étudier la partie visible de ces oscillations, c’est à dire
+les " tremblements " de la surface du Soleil en quantifiant leur fréquence et leur vitesse. Le
+Soleil est un « tambour stellaire » et sa surface vibre comme la peau d’un tambour. Mais il
+faut tout d'abord s'intéresser aux causes du phénomène. Pourquoi la surface du Soleil oscille-telle ? Qu’est-ce qui provoque ces mouvements de convection à l’origine de l’excitation ?
+Toute oscillation nécessite la présence d'une force de rappel. Dans le cas de notre
+étoile, il existe deux possibilités. Les ondes de gravité sont dues à l’association de la force de
+rappel (la poussée d’Archimède) à la force de gravitation du Soleil. Elles sont de basses
+fréquences et restent confinées dans la zone interne de l’étoiles car elles sont amorties
+lorsqu’elles traversent la zone convective externe. Elles nous permettent de mieux connaître la
+structure interne du Soleil mais sont difficiles à détecter.
+La deuxième catégorie regroupe les forces de pression Dans ce mode d'oscillation, la
+compressibilité du gaz solaire joue le rôle d'un ressort et provoque la propagation d'ondes
+acoustiques.
+Comme schématisé ci-contre, notre Soleil
+est donc le siège de modes vibratoires de deux
+types : ceux d’ondes sonores ou « modes de
+pression » excités par le bruit dans la photosphère
+(couche convective externe), et ceux de houles
+profondes ou « modes de gravité » excités dans la
+zone limite convective-radiative. C’est la détection
+et l’analyse des multiples modes oscillatoires du
+Soleil qui permet d’étudier la structure et la
+dynamique interne de notre étoile. Mais malgré les
+progrès récents la détection des « modes-p » doit
+être encore améliorée, et la détection des « modesg » n’en est encore qu’à ses débuts.
+Ces oscillations se décomposent en une
+multitude de modes propres qui se comptent
+théoriquement par millions et dont plusieurs milliers
+ont déjà été recensés. Chacun de ces modes est
+porteur d'informations sur les couches traversées.
+L'héliosismologie permet ainsi la collecte de
+renseignements inédits sur l'intérieur encore plein de
+mystère de l’astre.
+Le cours de spécialité de Terminale n’aborde
+l’étude des fréquences de résonance que pour un
+système à une dimension, soit une colonne d’air ou
+une corde. Mais la résonance est possible en une dimension dans l’air d’une clarinette, en
+deux dimensions sur une peau tendue d’une percussion ou en trois dimensions dans le Soleil.
+En cours de spécialité, nous utilisons l’analyse de Fourier pour caractériser le timbre
+d’un instrument, c’est à dire décomposer le signal sonore en une somme de signaux
+sinusoïdaux de fréquences et d’amplitude différentes. Ce qui est possible pour le son d’une
+trompette l’est aussi pour le Soleil. C’est grâce à l‘analyse de Fourier que les acousticiens du
+Soleil ont pu déterminer les fréquences de ses modes propres. En effet, un très grand nombre
+de modes sont superposés à un instant donné, et l’analyse de Fourier permet de déterminer la
+
+-7-
+
+part de chaque mode dans les vibrations globales. Le spectre ci-dessus montre que les modes
+de plus grande amplitude ont une fréquence de l’ordre de 3 mHz.
+Notre Soleil n’est pas l’unique astre parcouru par des ondes acoustiques. C’est le cas
+pour la plupart des étoiles. En 1984, on découvrit qu’Alpha du centaure subissait aussi des
+oscillations de période proche de 5 minutes. Mais ce qui reste étonnant, c’est la faible
+amplitude de ces oscillations solaires.
+1.2 Des outils pour l’observation des phénomènes acoustiques du Soleil.
+Les vibrations acoustiques solaires sont lentes. Il faut des durées d’observation très
+longue pour en faire une étude correcte. Trois moyens différents ont été conçus pour étudier
+pendant 6 mois la musique produite par le Soleil :
+- Spatial avec SOHO(Observatoire Solaire et Héliosphérique / SOlar and Heliospheric
+Observatory) qui est une sonde spatiale de 12 instruments pour l’étude du Soleil, et
+qui a été placée en 1995 au point de Lagrange L1 situé à 1,5 million de km dans la
+direction du soleil, où les forces d’attractions de la Terre et du Soleil entraînent en ce
+point une compensation entre vitesse orbitale solaire et vitesse orbitale terrestre, qui
+induit une "orbite résultante" en co-révolution avec l'orbite terrestre. ( Cette phrase a
+été corrigée par notre partenaire M Robillot. Nous avions simplement écrit que les
+forces d’attraction de la Terre et du Soleil se
+compensent en ce point.)
+- Un réseau de stations sur toute la planète
+(lorsque le Soleil se couche sur une station, une
+autre prend le relais)
+- Une station dans l’antarctique car le Soleil est
+levé pendant 6mois.
+SOHO est un satellite qui a pour but d’étudier le
+Soleil sous toutes ses formes. Il est aujourd’hui en orbite
+autour de l’étoile. L’Institut français d'astrophysique
+spatiale a conçu plusieurs des appareils de la sonde, notamment GOLF (Global Oscillations
+at Low Frequencies), qui enregistre par effet Doppler les vibrations du Soleil. M Robillot et
+M Fossat, nos partenaires, ont participé à ce projet.
+Les instruments GOLF et MDI
+(Michelson Doppler Imager) ont permis
+pour la première fois la mesure de la
+rotation du Soleil dans ses régions les plus
+internes. Les observations, analysées par les
+scientifiques du Service d'Astrophysique
+(SAp) du CEA-DAPNIA, révèlent que
+l'intérieur du Soleil tourne à une vitesse
+constante comme le ferait un corps solide.
+La précision remarquable (de l'ordre de 2
+nanoHertz) sur la mesure de la fréquence de
+ces ondes acoustiques a permis de mettre
+fin à un débat sur la variation de la rotation entre 0.2 et 0.7 Rayon solaire Ro. La région du
+cœur (r<0,15Ro) reste encore inexplorée.
+Notons l’existence d’un autre satellite, COROT, lancé le 27 décembre 2006 et qui a
+pour but principal d’étudier les planètes extra solaires. Il analyse aussi les mouvements
+sismiques des étoiles pour étudier leur structure interne.
+
+-8-
+
+2- Approche expérimentale des modes propres de vibration d’une sphère
+Le Soleil a une forme très proche d’une
+sphère. Et il entre en résonance soumis à
+une excitation acoustique. Notre laboratoire
+possède dix anciens résonateurs de
+Helmholtz en cuivre qui ont une forme
+presque sphérique. L’air contenu dans la
+Schéma
+Ramon
+sphère peut être excité par un haut-parleur
+Alicia
+et entrer en résonance dans certaines
+conditions. Ces résonateurs sont nos premiers modèles du Soleil. Ils sont bien évidemment
+très modestes, mais ils vont nous donner des renseignements sur les modes de résonance
+d’une sphère. Précisons bien que nous nous intéressons à la résonance du volume d’air
+contenu dans l’enveloppe métallique et pas à la résonance de l’enveloppe métallique ellemême. La matière solaire, contenue dans le vide, est un résonateur sphérique. L’air, contenu
+dans l’enveloppe métallique en est un autre.
+Etudions ces résonateurs.
+2.1 Influence du diamètre de la sphère sur
+les fréquences de résonance.
+Nous disposons de 10 résonateurs de
+Helmholtz, soit 10 systèmes à peu près
+sphériques numérotés de 1 à 10 du plus gros
+au plus petit. Nous mesurons leur diamètre
+intérieur en tenant compte de 1’épaisseur du
+cuivre, soit 1 mm.
+Nous relions le GBF à un haut
+parleur. Nous obtenons un son. Nous ouvrons
+le logiciel Latis Pro. L’Entrée Analogique O
+Schéma
+Ramon
+est activée, en mode permanent, pour une
+Alicia
+durée d’acquisition
+de 25 ms. Nous branchons un voltmètre sur le micro, pour déterminer la
+tension efficace. Le micro est également connecté au boîtier d’acquisition du logiciel.
+Le qualité de nos micros à électret est contestable, en particulier leur consommation
+électrique. Attention. En 2h la pile d’un micro est vide ! Il faut donc mettre le micro sur arrêt,
+en déconnectant la pile entre deux expériences. Malgré cela, ils permettent de repérer les
+fréquences de résonance correctement.
+Etudions d’abord les différentes fréquences de résonance obtenues pour la plus grosses
+de nos sphères de Helmholtz . L’écart entre ces fréquences de résonance ne semble pas
+constant. Alors que pour les fréquences de résonance d’une colonne d’air, les fréquences des
+partiels sont des multiples d’une fréquence
+fondamentale, il n’y a pas ici de relation
+Ueff = f(fréquence)
+simple entre ces fréquences. Ces résultats
+ont été confirmés par ceux que nous avons
+Sphère Di = 23 cm
+obtenus pour les autres résonateurs.
+fréquences
+
+Hz
+1
+
+1
+
+delta f en Hz
+123
+
+0,5
+0
+-9-
+
+0
+
+500
+
+1000
+
+1500
+
+2000
+
+2
+3
+4
+5
+6
+7
+
+565
+1015
+1610
+2188
+2654
+2846
+
+442
+450
+595
+578
+466
+192
+
+La première résonance est très marquée et le pic est fin. La seconde est très large et la
+tension efficace du micro ne dépasse pas 0,22 V. Le 3ème pic est moins large que le 4ème. Nous
+ne pouvons pas comparer leurs amplitudes respectives car l’amplitude du signal fourni par le
+haut-parleur dépend de la fréquence. Chaque pic représente un mode propre avec sa fréquence
+et sa vitesse d'oscillation.
+Le spectre permet de déterminer la vitesse d’oscillation de la surface solaire et la
+fréquence de ces oscillations pour chacun des modes.
+Etudions maintenant la fréquence fondamentale pour les différentes sphères. Dans le
+montage précédent la première sphère est remplacée successivement par toutes les autres
+sphères. On ne reporte dans le tableau que les valeurs des fréquences fondamentales que nous
+avons mesurées pour chaque résonateur. On constate que plus la valeur du diamètre est faible,
+c’est à dire plus son volume intérieur est réduit, plus la valeur de la fréquence fondamentale
+correspondant à cette sphère est élevée.
+Volume
+intérieur en
+F1 en
+3
+-3
+1/2
+Diamètre en cm m
+1/V en m
+(1/V)
+Hz
+23 0,006370626
+156,9704378 12,529 120
+12,3 0,000974348
+1026,327683 32,036 242
+8,3 0,000299387
+3340,15869 57,794 373
+6,3 0,000130924
+7638,001324 87,396 510
+5,4 8,2448E-05
+12128,86321 110,13 660
+4,8 5,79058E-05
+17269,41657 131,41 745
+4,3 4,16298E-05
+24021,27256 154,99 877
+3,9 3,10594E-05
+32196,41796 179,43 1002
+3,4 2,05795E-05
+48591,98344 220,44 1118
+3,1 1,55985E-05
+64108,60049 253,2 1300
+
+F1 (Hz) = f((1/V)1/2)
+avec V en m 3
+F1 = 5 ,4 03 4. 1/V
+
+15 0 0
+
+2
+
+R = 0 ,97 73
+10 0 0
+500
+0
+0
+
+10 0
+
+2 00
+
+300
+
+1 /2
+
+On obtient une fonction linéaire : F1 =
+5,4034.1/V0.5 = C.0.0159. 1/V0.5 avec C la célérité
+du son dans l’air de la sphère (340 m/s). Donc, la
+valeur de la fréquence fondamentale est
+inversement proportionnelle à la racine carrée du
+volume de la sphère.
+Plus le volume du résonateur est
+important, plus la valeur de la fréquence
+fondamentale est faible.
+
+Le Soleil est approximativement une sphère et le modèle solaire permet de décrire son
+comportement. Ce modèle est très complexe. La fréquence fondamentale du Soleil est proche
+
+- 10 -
+
+de 140 microHz soit 1,4. 10-4 Hz. Sa température est bien supérieure à celle des sphères de
+Helmholtz. Le Soleil n’est pas un système homogène, alors que l’air dans les sphères est
+homogène. Il est beaucoup plus dense au centre que sur sa périphérie. Il n’est pas contenu
+dans une « sphère de métal », mais dans le vide. Sa température varie d’un point à l’autre et il
+est animé de mouvement de matière dans la zone convective. L’intérêt de notre modèle est de
+montrer que les fréquences de résonance d’un système sphérique dépendent de sa taille.
+L’étude des fréquences de résonance solaire permet de déterminer la taille de diverses zones
+solaires, la pression, la densité, la vitesse de rotation…. L’atout principal de la méthode est de
+pouvoir accéder ainsi aux caractéristiques du cœur du Soleil grâce aux ondes acoustiques qui
+le traversent beaucoup plus rapidement que la lumière.
+2.2 Influence de la température
+Nous mesurons maintenant la première fréquence de résonance de la plus grosse
+sphère de Helmholtz pour diverses températures. Sur la copie d’écran ci-dessous, la mesure à
+35,4°C donne f1 = 130 Hz
+La fréquence de résonance la plus petite d’une sphère de Helmholtz est
+proportionnelle à la célérité du son dans l’air, qui
+dépend de la racine carrée de la température.(BUP 845,
+juin 2002 p 1061).
+La vitesse du son peut être calculée à l'aide de
+l'équation d'état, du coefficient adiabatique γ (gamma), de
+la constante spécifique du gaz Rs et de la température T (K
+en kelvin).
+Avec pour l'air : γ = 1,4
+et
+
+Rs = 287 J/kg/K
+
+Température Température
+(Température
+(°C)
+(°K)
+(°K))1/2
+F1 Hz
+20
+293,13
+17,12103969
+123
+28,4
+301,53
+17,3646192
+128
+35
+308,13
+17,5536321
+130
+51
+324,13
+18,00361075
+132
+70
+343,13
+18,52376852
+134
+81
+354,13
+18,81834212
+135
+
+F1 Hz en fonction de T(K)1/2
+140
+135
+130
+125
+120
+17
+
+17,5
+
+18
+
+- 11 -
+
+18,5
+
+19
+
+Courbe d’étalonnage
+La courbe d’étalonnage, modélisable par une droite dans sa seconde partie permet de
+déterminer la fréquence de résonance de l’air dans la sphère, connaissant sa température, donc
+sa vitesse. Cette vitesse dépend de plusieurs facteurs : elle dépend de la nature, de la pression
+et de la température du milieu.
+Le son se propage aussi dans les autres milieux fluides, et même solides. Ainsi, dans les
+conditions normales de température et de pression, la célérité des ondes acoustiques dans
+l’eau est de 1482 m.s-1, et de 5050 m.s-1 dans l’acier. A l’intérieur de notre cher soleil, sa
+vitesse est de l’ordre de 410 000 m.s-1, valeur qui varie à mesure que l’on pénètre vers le
+centre.
+Pour le Soleil, Eric Fossat écrit que « la fréquence vibratoire dépend de la vitesse du
+son qui est elle-même proportionnelle à la température » (Hors-série Sciences et avenir, août
+1996, p40). La relation fréquence – température a permis par exemple de confirmer les
+estimations théoriques sur la température du cœur solaire, qui était d’environ 15 millions de
+degrés.
+Plus la température est élevée, plus la célérité du son et les fréquences des modes
+propres augmentent.
+2.3 Réflexion sur les couches internes
+La structure interne du Soleil n’est pas homogène, ce qui permet à certaines ondes de
+se réfléchir sur des couches internes. Pour essayer traduire dans nos expériences
+l’inhomogénéité du Soleil, nous avons rempli progressivement d’eau la plus grosse sphère de
+Helmholtz et déterminé sa fréquence de résonance la plus basse. Voici nos résultats
+
+Veau en mL
+
+Vair mL
+F1 en Hz
+0 6370,626303
+100
+6270
+200
+6170
+300
+6070
+400
+5970
+500
+5870
+1000
+5370
+1500
+4870
+2000
+4370
+2500
+3870
+
+F1 en Hz
+
+F1= 10,374x 1/V0.5
+R² = 0,9259
+
+F1 en
+1/2
+(1/V)
+Hz
+120 12,529 130
+129 12,629 131
+133 12,731 133
+134 12,835 134
+135 12,942 135
+138 13,052 138
+145 13,646 145
+151 14,33 151
+158 15,127 158
+166 16,075 166
+
+eau sphère 1
+
+180
+170
+160
+150
+140
+130
+120
+110
+12
+
+13
+
+14
+
+15
+
+16
+
+17
+
+1/V0.5
+
+- 12 -
+
+On obtient la modélisation
+suivante :
+F1 = 10,374.1/V0.5, soit un
+résultat très différent de celui obtenu
+avec les 10 sphères uniquement
+remplies d’air. Donc modifier le
+volume en rajoutant de l’eau n’est pas
+équivalent à une diminution du
+volume global de la sphère ne
+contenant que de l’air. La courbe
+d’étalonnage
+permet
+donc
+de
+déterminer à partir de la mesure de la
+
+fréquence de résonance la quantité d’eau contenue dans le résonateur. De même :
+L’étude des fréquences de résonance solaire permet de connaître sa structure.
+3- Mesures par effet Doppler :
+3.1 Mode opératoire :
+Les mesures grâce à l'effet doppler se font par l'analyse du spectre de la lumière. Mais
+il nous est impossible de travailler avec la lumière, car sa célérité est trop importante, de
+l’ordre de 300 000 km/s. La vitesse de déplacement d’un objet dans le laboratoire de notre
+lycée peut être de l’ordre de 1 m/s. Le rapport v/c vaut donc 1/300000000 = 3,33. 10-9 . Le
+décalage Doppler serait donc de l’ordre du milliardième de la valeur de la fréquence de la
+lumière, ce qui est impossible à déceler avec un spectromètre de lycée.
+Nous effectuons donc nos mesures avec des ultrasons car dans ce cas :
+v/c = 1/340 = 2,9. 10-3. La fréquence des ultrasons est : F = 40 000 Hz et un décalage
+de l’ordre du millième de F, soit de quelques dizaines de hertz est décelable avec un récepteur
+relié au logiciel d’acquisition Latispro.
+La cible mouvante sera un écran en métal (destiné aux montages d’optique) posé
+contre une brique de bois et déplacé à vitesse constante grâce à un moteur ou une plaque
+reliée à un haut parleur pour les oscillations. L’ensemble sera filmé pour pouvoir déterminer
+la vitesse grâce à l’effet Doppler et vérifier nos résultats en analysant le fichier vidéo.
+Mode opératoire de l’expérience doppler
+Récepteur
+
+EA1
+EA0
+EA2
+
+Alimentation
+
+EA3
+EA4
+
+Plaque
+d’acquisition
+
+Réflexion des
+ondes
+ultrasonores
+
++
+
+Emetteur
+
+3.2 Etude d’un déplacement simple
+
+Cible
+inerte
+
+Une fois que le système est opérationnel, on remplace la cible déplacée à la main, par
+une cible tirée par un moteur. Nous filmons le système en mouvement, et l’étude du fichier
+vidéo permet de déterminer la vitesse de la plaque. Ce résultat est comparé à celui obtenu par
+mesure de la fréquence de décalage Doppler.
+
+- 13 -
+
+Afin de vérifier le résultat de notre mesure Doppler, on utilise un moteur qui va tracter
+la plaque de métal sur un chariot. Le mouvement sera ainsi reproductible. On filme le
+mouvement, et en analysant le fichier vidéo, on détermine la vitesse de déplacement du
+mobile. Pour cela, on trace l’évolution de la position en fonction du temps. C’est une droite
+dont la pente a pour valeur la vitesse. On
+vérifie si cette vitesse est conforme à celle
+calculée avec les mesures Doppler.
+Vitesse mesurée par étude de fichier vidéo :
+0,10 m/s
+On suppose donc que la vitesse
+calculée avec les mesures Doppler sera
+proche de 0,10 m/s. Avec Latis pro, on
+mesure la fréquence Doppler ∆f (26,54 Hz)
+et on déduit ensuite la vitesse à partir de
+l’équation : Vo/c = ∆f/2 f. On trouve une
+vitesse de Vo = 0,11 m/s, soit un écart de
+8,3 %.
+3.3 Les oscillations
+Pour étudier des oscillations, nous avons d’abord choisi un haut-parleur, utilisé au
+lycée pour faire vibrer les cordes en cours de spécialité. Nous y avons adapté une plaque
+réfléchissante en aluminium, mais le résultat a été décevant. On observe en sortie du filtre un
+signal ayant exactement la même fréquence que celui fourni par le générateur de signaux. Et
+aucune oscillation due à l’effet Doppler, même pour l’amplitude maximale du signal. Alors
+nous avons modifié notre montage et fait osciller la plaque à la main en la filmant. Les
+oscillations sont ainsi de plus grande amplitude et sont décelées par le montage. La tension du
+filtre passe-bas semble être la superposition d’une tension de fréquence égale à la fréquence
+des oscillations et d’une fréquence doppler variable. Voici les signaux obtenus :
+
+- 14 -
+
+On voit 5 mouvements (aller ou retour
+de la plaque) sur l'enregistrement. A chaque
+fois, la fréquence doppler augmente, se
+stabilise et diminue. Donc à chaque partie du
+mouvement la vitesse augmente, se stabilise et
+diminue. Pour la partie entourée on trouve :
+T =5,9 ms soit ∆f = 169,5 Hz donc v =
+169,5*340/(2*40000) =0,72 m/s =72 cm/s. Ce
+qui est cohérent avec l’analyse du fichier
+vidéo.
+4. Le Soleil : un instrument de musique
+Plusieurs milliers de fréquences différentes sont relevées lorsqu’on étudie un son du
+Soleil. Cela peut être comparé à un accord de nombreuses notes sur le clavier d’un piano. Le
+Soleil, grâce aux mouvements de convection, joue de la musique comme si le vent soufflait
+sur les tuyaux d’un orgue par rafale, c’est à dire de manière aléatoire.
+4.1 Comparaison avec le spectre d’un instrument de musique
+Les acousticiens du Soleil comparent notre étoile à divers instruments de musique dans
+les articles que nous avons lu. Notre partenaire Eric Fossat, dans un article qu’il a écrit pour la
+revue Sciences Avenir en 1996, compare notre étoile à des tuyaux d’orgue, un piano ou encore
+à un tambour stellaire. Pour d’autres scientifiques, le soleil est comparable à une énorme
+cloche, et en analysant ses vibrations, nous pouvons étudier sa structure interne (comme
+lorsqu’une cloche sonne faux, nous savons que sa masse métallique a un défaut). Les
+- 15 -
+
+« acousticiens » du soleil sont donc à la fois opticien (observation de la structure du soleil) et
+sismologue (étudier les vibrations comme cela est fait pour les tremblements de Terre).
+Comparons donc nous aussi le soleil et un instrument de musique. Lorsqu’on souffle
+dans une flûte, la note dure quelques secondes. Pour le Soleil le temps n’est pas à prendre en
+compte, car l’émission sonore ne s’arrête jamais. C’est comme si on soufflait constamment
+dans la flûte. Les vibrations solaires ont des fréquences de l’ordre du millième de Hertz. Elles
+correspondent donc à des sons très graves. C’est pourquoi nous ne pouvons pas entendre à
+l’oreille les sons produits par l’étoile. De plus le son ne se déplace pas dans le vide entre la
+Terre et le Soleil.
+La gamme solaire de vibration couvre seulement un octave et demi et comporte des
+millions de fréquences. Sa période d'oscillation principale est proche de 5mn soit trois
+millièmes de Hertz. Ses fréquences sont donc à peu près 100 000 fois plus graves que celles
+des sons terrestres audibles. Dans certaines zones, la vitesse de propagation des ondes dans le
+Soleil est proche de 410 km/s.
+En pratique, un instrument émettant une note, émet la fréquence de cette note et ses
+"harmoniques" (mais à des fréquences pas exactement double, triple, etc..) et avec une
+distribution de leurs intensités qui lui est spécifique: c'est ce qui caractérise le "timbre" d'un
+instrument.
+Nous avons fait la décomposition en série de Fourier du son de divers instruments :
+une grosse caisse, un tambour, une timbale, une cloche, un piano, un orchestre… Nous avons
+comparé ces spectres de fréquences avec ceux du Soleil. Le Soleil est 10 milliard de fois plus
+gros qu’un instrument de musique. Un piano a 87 notes sur 7 octaves. Le Soleil joue des
+millions sur une octave et demie. C’est donc un
+instrument microtonal. L’intervalle entre deux
+notes est très inférieur au demi-ton.
+Considérons la distribution des modes p
+, et tout d'abord pour l=0 du soleil. On note
+une distribution régulière, avec des séparations
+de l'ordre de 140 µHz. Pour rendre compte des
+modes l=1, 2, 3, etc., cela donne d'autres
+distributions complémentaires, avec toujours
+une séparation proche de 140 µHz, mais des
+fréquences décalées d’un mode l à l’autre. (voir
+tableau paragraphe 4.3)
+4.1.1 Spectre d’une timbale
+
+C’est un son musical de hauteur bien déterminée avec deux fréquences principales à
+139 Hz et 208 Hz, qui correspondent à des modes propres de vibration de la surface de la
+timbale. La surface du Soleil vibre excité par la convection des granules. La peau de la
+- 16 -
+
+timbale vibre excité par un choc avec une baguette. Ce sont les oscillations de la surface du
+Soleil qui sont étudiées par les appareils de mesure. Les oscillations de la surface de la
+timbale engendre un son riche d’un fondamental et d’un harmonique principal. Pour le Soleil,
+il y en a des milliers.
+4.1.2 Spectre d’une cloche
+
+Ce son est aussi musical avec les fréquences principales suivantes : 50 Hz, 75 Hz, 100
+Hz, 198 Hz. L’enveloppe de la cloche n’est pas une simple surface plane comme pour la peau
+de la timbale. Elle englobe plus largement l’air résonant à l’intérieur. On remarque un
+dédoublement de certains pics, comme dans le spectre solaire. Des battements sont visibles
+sur l’enregistrement de la tension du micro, avec une pseudopériode de l’ordre de 300 ms. Le
+signal s’amorti rapidement. Le dédoublement des pics est due à ces battements de deux
+fréquences proches. Pour le Soleil, le dédoublement est du à sa rotation.
+4.1.3 Spectre d’une cymbale
+
+Le signal n’est pas musical. Ce n’est qu’un bruit, pour lequel la décomposition de
+Fourier fait apparaître de très nombreuses fréquences, comme dans le spectre du Soleil. Donc,
+lorsque le spectre solaire, riche de millions de fréquences sur une octave et demi, s’apparente
+davantage à celui d’un bruit que d’un son musical. Est-il alors cohérent que les astronomes
+parlent de musique solaire et pas de bruit ? La superposition de tous les modes solaires
+décalés les uns par rapport aux autres nous semble plus proche d’un bruit que d’un signal
+musical.
+- 17 -
+
+4.1.4 Spectre d’une grosse caisse
+
+Comme pour la cloche, l’enregistrement de cette grosse caisse fait apparaître des
+battements, c’est à dire une évolution périodique lente de l’amplitude du signal. L’analyse de
+Fourier fait apparaître deux pics dominants qui rappellent les doublets des spectres du Soleil.
+4.1.5 Spectre d’un piano
+Nous avons réalisé une expérience à l’aide du logiciel latis pro, d’un piano et d’un
+micro. Nous avons joué toutes les touches du piano en même temps et avons enregistré grâce
+au micro et au logiciel le signal du micro. Puis grâce à l’analyse de Fourier, nous avons
+obtenons un spectre avec de nombreux pics. Voici le spectre d’un vieux piano Bord (Paris) de
+1896 mal accordé.
+
+Nous avons une large ressemblance avec le soleil. La taille du Soleil étant largement
+supérieure à celle d’un piano, les fréquences seront beaucoup plus basses. Toutefois, nous
+observons une similitude dans l’allure générale de la répartition des pics.
+L’écart entre deux fréquences consécutives est beaucoup plus faible pour le Soleil que
+pour le piano. Sur le piano, les cordes sont accordées de façon à obtenir les fréquences des
+notes précises de la gamme tempérée. Pour passer d’une note à la suivante il faut multiplier la
+
+- 18 -
+
+fréquence du son par 12√2. Il faut donc une corde différente (en fait souvent 2 ou 3) pour
+chaque note. Pour le Soleil, il n’y a qu’un seul résonateur principal, une seule sphère
+résonante, c’est à dire l’ensemble de l’astre. Mais comme nous l’avons déjà dit, les granules
+sont les excitateurs de la musique solaire. Entre les granules montants, ce sont surtout les flux
+de plasma redescendant à grande vitesse entre les granules (désignés intergranules) qui font
+un bruit, un peu comme des sifflets, qui génèrent les ondes sonores solaires...
+Nous pouvons donc établir la comparaison suivante :
+Granules
+Excitateurs correspondant à des impacts sur les cordes
+Sphère solaire
+Cordes et caisse de résonance du piano
+4.1.6 L’eau qui boue
+
+Encore un bruit, comme pour les cymbales, mais ici le son est provoqué par la
+convection comme dans le cas du Soleil. L’enregistrement sur 100 ms montre un grand
+nombre de pics et une fréquence dominante vers 480 Hz. Il nous fallait étudier un son produit
+par un mouvement de convection, car le son des granules solaires est produit par leur
+convection.
+4.2 Une reconstitution de la musique solaire
+La musique du Soleil reconstituée par les scientifiques (notamment à Stanford) n’est
+pas belle à écouter. Elle est analogue à la musique de tuyaux d’orgues sans clavier excités au
+gré du vent. Il manque un compositeur.
+Nous avons cherché un nouveau moyen pour créer une musique à partir des
+fréquences émises par le Soleil, en utilisant les résultats de la sonde Soho. Il faut d’abord
+transposer les notes solaires au niveau de fréquences audibles, puis trouver un moyen de les
+produire.
+Nous avons utilisé pour cela un programme en Visual Basic, où un clavier produit
+certaines notes solaires, transposées en sons audibles en multipliant leur fréquence par
+145035. ( Voir en annexe, le tableau de certaines fréquences solaires et de leur transposition)
+
+- 19 -
+
+Ce coefficient permet de transformer en la3 à 440 Hz, la fréquence 3303,12 microHz qui est
+la fréquence dominante du spectre du Soleil. Le la3 joue le même rôle dans notre musique.
+C’est la note de référence, ni trop grave, ni trop aiguë, la note autour de laquelle les mélodies
+sont bâties. L’écart moyen entre deux notes successives est proche de 19,8 Hz. C’est donc une
+valeur plausible de la fréquence fondamentale. Cela correspond à un écart de 136,8 microHz
+pour les véritables fréquences solaires, et cela quelque soit la série.
+Alors que les transpositions habituelle de la musique solaire se font sans musicien,
+utilisons les notes solaires transposées pour jouer une musique originale, où le passage d’une
+note à la suivante se fait en rajoutant 19,8 Hz à la fréquence du son. Pour les notes de la
+gamme tempérée, ce passage correspond à la multiplication par un coefficient : 21/12.
+Cette gamme donne une ambiance musicale particulière. Le musicien n’est pas le
+Soleil. Il n’est ici que l’instrument.
+Ci-dessous des copies d’écran de deux versions de notre programme. David Fadli s’est
+particulièrement investi dans la mise au point de ces logiciels.
+
+Conclusion
+L'héliosismologie a permis des avancées déterminantes dans la connaissance de l'étoile
+la plus proche de la Terre. On tente maintenant de l'appliquer à des étoiles plus lointaines, ce
+qui fait de cette approche une technique d'avenir prometteuse.
+Ce projet nous a demandé beaucoup de temps et de travail pendant la fin de notre
+année de Première S et le début de notre année de Terminale. Nos modèles sont bien sûr très
+modestes, mais ils nous ont permis d’aborder l’acoustique solaire :
+
+- 20 -
+
+-
+
+Le Soleil résonne comme un instrument de musique
+L’utilisation de l’effet Doppler permet de déterminer les fréquences de résonance de
+notre étoile.
+- L’analyse de Fourier met en évidence les points communs entre Soleil et instrument
+de musique (battements, harmoniques, timbre)
+- Le Soleil est à la fois compositeur, interprète et instrument de musique. Sa musique
+peut-être reconstituée et transposée. Elle a une couleur unique en raison de l’écart
+constant de 19,8 Hz entre les notes, alors que dans la gamme tempérée, l’écart entre
+deux notes successives augmente quand les sons deviennent plus aigus.
+- La musique solaire est plus comparable à un bruit qu'à une musique instrumentale, du
+fait de la coexistence de multiples fréquences propres très resserrées, avec une
+distribution restreinte sur moins de deux octaves.
+Un grand merci à M. Robillot, qui a accepté de corriger une première version de ce
+mémoire.
+Nous avons beaucoup apprécié ce travail. Nous espérons que vous aussi.
+Sources documentaires:
+-
+
+-
+
+www.esa.Fr
+http://fr.wikipedia.org/wiki/Soleil
+http://system.solaire.free.fr/Soleil.htm
+
+Articles spécialisés qui nous ont été communiqués par M Robillot et M Fossat en
+particulier : Hors-série Sciences et avenir, août 1996, p36-41.
+Livres de Spécialité physique de Terminale S.
+Annexes :
+
+Annexe 1 : Evolution des connaissances sur le Soleil
+1.1 Nicolas Copernic : du géocentrisme à l’héliocentrisme :
+Le Soleil est né il y a 4,6 milliards d’années. Il permit les premières apparitions de vie
+sur Terre tout juste un milliard d’années plus tard. Et il y a 200000 ans, l’humanité fait son
+apparition.
+L’homme a toujours voulu en savoir plus sur son étoile. Dès l’Antiquité, astronomes et
+mathématiciens ont cherché à percer les mystères du Soleil. En 127 de notre ère, le
+géographe et astronome Claude Ptolémée fait ses premières observations à Alexandrie. En
+s’appuyant sur les mathématiques et sur les travaux de ses prédécesseurs, il expose un
+système géocentrique du monde qui considère la Terre comme étant fixe et au centre de
+l’univers. Il explique, toujours par les mathématiques, les mouvements des planètes, de la
+Lune, du Soleil et des étoiles. Cette théorie fut adoptée par tous à l’époque et enseignée audelà du XVIe siècle.
+Il faudra attendre Copernic pour révolutionner cette conception de l’univers. Il avance,
+suite à un travail de plus de trente ans, que la Terre tourne sur elle-même, que la Lune est un
+satellite de la Terre et que les planètes tournent autour du Soleil. C’est les débuts de
+l’héliocentrisme.
+Il faut savoir que ces théories sont en totale opposition
+avec la vision de l’univers de son époque. Elles furent rejetées
+par l’Eglise pour qui un système géocentrique était justifié par
+les écritures saintes. Notre résumé en polonais est un petit
+hommage à ce grand scientifique polonais qui donna une place
+centrale au Soleil.
+
+- 21 -
+
+Il faudra attendre le XVIIe siècle et les idées d’Isaac Newton sur la mécanique céleste
+pour que la conception de Copernic soit vraiment reconnue en Europe. Ptolémée et Copernic
+ont surtout fait des descriptions mathématiques, tandis que Newton a fait de la physique : il a
+cherché les causes du mouvement des astres pour mieux le décrire.
+Comme tous les hommes qui nous ont précédé, nous regardons vers le Soleil et nous
+cherchons à en savoir plus.
+1.2 Le Soleil aujourd’hui
+Le Soleil est une étoile qui se compose de 74 % d’hydrogène, de 24 % d’hélium et
+d’une fraction d’éléments plus lourds. Le Soleil est plus chaud (5 770 kelvins en surface
+environ) et plus brillant que la moyenne des autres étoiles, avec une couleur jaune tirant sur le
+blanc. Il tire son énergie de réactions de fusion nucléaire qui transforment, dans son noyau,
+l’hydrogène en hélium.
+Il existe dans notre galaxie plus de 100 millions d’étoiles de type spectral identique, ce
+qui fait du Soleil une étoile assez banale. Le Soleil gravite autour du centre de notre galaxie,
+la Voie lactée, dont il est distant d’environ 25 000 années-lumière. Sa période de révolution
+galactique est d’environ 220 millions d’années, et sa vitesse de 217 km·s-1, ce qui correspond
+à une année-lumière tous les 1400 ans (environ), ou une unité astronomique tous les 8 jours.
+Le Soleil tourne également sur lui-même, avec une période de 27 jours terrestres
+environ. En réalité, n’étant pas un objet solide, il subit une rotation différentielle : il tourne
+plus rapidement à l’équateur (25 jours) qu’aux pôles (35 jours). C’est l’étude des tâches
+solaires qui a permis cette découverte. Le Soleil est aussi en rotation autour du barycentre du
+système solaire, ce dernier se situant à un peu plus d’un rayon solaire du centre de l’étoile, en
+raison de la masse importante de Jupiter qui atteint un millième de la masse solaire.
+Bien que le Soleil soit une étoile de taille moyenne, il représente à lui seul plus de
+99 % de la masse du système solaire. Sa forme est presque parfaitement sphérique, avec un
+petit aplatissement aux pôles.
+Contrairement aux planètes telluriques, le Soleil n’a pas de limite extérieure bien
+définie : la densité de ses gaz chute de manière à peu près exponentielle à mesure qu’on
+s’éloigne de son centre. Par contre sa structure interne est bien définie. Le rayon du Soleil est
+mesuré de son centre jusqu’à la photosphère, c’est à dire la couche en-dessous de laquelle les
+gaz sont assez condensés pour être opaques. La structure interne du Soleil n’est pas
+observable directement, aucun instrument visuel ne peut percer sa composition interne. Mais
+de la même façon que la sismologie a permis, par l’étude des ondes produites par les
+tremblements de terre, de déterminer la structure interne de la Terre, l’héliosismologie utilise
+les pulsations solaires pour mesurer et visualiser indirectement la structure interne du Soleil.
+La simulation informatique est également utilisée comme outil théorique pour sonder les
+couches les plus profondes.
+A l'intérieur du Soleil, se trouve un noyau qui occupe 25 % du Soleil, à une
+température de 14 millions de degrés. Puis, plus haut se trouve une zone radiative d'une
+épaisseur de 315 000 km, très dense qui représente 98 % de la masse du Soleil. Un photon
+mettra jusqu'à un million d'années à traverser. La
+température est de 500 000°C à 10 000 000°C.
+A 490 000 km du centre du Soleil il y a une
+zone de convection de 210 000 km qui évacue la
+chaleur vers l'extérieur par des mouvements
+tourbillonnaires, que l’on peut comparer à ceux de
+l’eau bouillant dans une casserole. Ces mouvements
+
+- 22 -
+
+de convection créent, en surface une " supergranulation " qui divise la photosphère en cellules
+d'environs 30 000 km de diamètre.
+La surface visible du Soleil qui a environ 500 km d'épaisseur et une température de 6
+000 °C, est la photosphère. Des nuages de gaz chauds provenant du noyau s'élèvent à la
+surface pour y constituer une structure granuleuse dont chaque grain mesure entre 1 000 et 2
+000 km de diamètre.
+Au-dessus de la photosphère, se trouve la chromosphère pouvant atteindre 10 000 km
+de hauteur.
+L'énergie solaire se crée profondément dans le noyau du Soleil. C'est là où la
+température (15.000.000°C) et la pression (340 milliards de fois la pression terrestre au
+niveau de la mer) est si intense que des réactions nucléaires ont lieu. Comme nous l’avons vu
+en cours, il faut beaucoup d’énergie pour vaincre la répulsion coulombienne et pour permettre
+à des noyaux positifs de se rapprocher suffisamment pour fusionner.
+Nous pouvons donc retenir que le Soleil n’est pas un système homogène, comme ceux
+que nous avons l’habitude d’étudier au lycée. Sa température n’est pas uniforme, sa densité
+non plus. Certaines zones sont en mouvement de convection, comme l’eau qui boue et
+d’autres non. Rien ne semble simple. Pourtant l’étude des ondes acoustiques dans le Soleil
+permet d’accéder à certains renseignements que les élèves de lycée que nous sommes peuvent
+comprendre.
+Annexe2 : Vers une interprétation ondulatoire
+Le programme de Terminale aborde les ondes stationnaires en une dimension. Utilisons
+notre programme pour tenter de mieux comprendre les ondes en trois dimensions dans le
+Soleil.
+Comme nous l’avons vu en cours, une onde acoustique sonore est crée par une suite de
+surpression–dépression. L’exemple du tuyau sonore permet de faire l’interprétation
+ondulatoire en une dimension. Dans un tuyau, l’air ne vibre pas partout avec la même
+intensité. Si le tuyau est ouvert aux deux extrémités, on a à l’intérieur du tuyau une
+succession de zones de fortes vibrations : les ventres, et de zones de faible vibrations : les
+nœuds. On trouve toujours un ventre à chaque extrémité du tuyau. Si le tube est fermé à une
+extrémité, on y trouve toujours un nœud à l’extrémité fermée. Une demi-longueur d’onde
+sépare deux ventres consécutifs et un quart de longueur d’onde sépare un nœud du ventre le
+plus proche.
+Quant à l’onde sonore en elle-même, elle se propage dans le tube de façon plane et
+s’échappe du tube à la sortie en se propageant dans toutes les directions de l’espace.
+Cependant, une partie ne sort pas et est réfléchie : elle repart dans le tube vers la source
+d’émission. On a alors une succession de réflexions : l’onde fait des allers- retours dans le
+tube. La superposition des ondes dans le tube peut créer des ondes stationnaires dans le tube.
+Une onde est définie comme étant une perturbation qui se propage dans un milieu. Elle
+transporte de l’énergie sans créer de transport de matière. En effet, une onde crée un
+mouvement local et éphémère des particules constituant le milieu, mais pas de mouvement de
+convection général de celles-ci. La propagation repose sur la transmission de l’énergie
+cinétique de certaines particules à d’autres. Il faut donc distinguer pour le Soleil le
+mouvement de convection qui transporte de la matière, et le déplacement des ondes sonores
+qui n’en transporte pas.
+Les ondes acoustiques sont dites longitudinales, c’est à dire que la direction de la
+perturbation est la même que celle du déplacement de l’onde. Les ondes acoustiques,
+contrairement aux ondes électromagnétiques qui ont la faculté de se propager dans le vide,
+nécessitent un support matériel pour se propager. Elles utilisent l’élasticité du milieu, celle de
+
+- 23 -
+
+l’air ou celle de la matière du Soleil. C’est pour cela qu’elles ne peuvent parvenir jusqu’à nous
+à travers le vide de l’espace.
+Dans un milieu à deux dimensions, l’onde se
+propage sous la forme de cercles concentriques
+dont le rayon croit en fonction du temps. Prenons
+seulement l’exemple d’une marre où l’on jette un
+caillou : les vaguelettes créées à la surface
+s’éloignent de la surface en formant de plus en
+plus de cercles, qui sont de plus en plus gros.
+Dans un milieu en trois dimensions, il faut
+imaginer une infinité de sphères concentriques
+de rayon croissant.
+Le milieu sphérique du Soleil, est borné par
+le vide de l’espace, c'est-à-dire que sa surface
+limite la propagation des ondes et les
+réfléchissent sous la forme d’ondes stationnaires.
+Comme pour les colonnes d’air étudiées en
+Terminale, la propagation des ondes acoustiques
+dans le Soleil entraîne la formation de ventres et
+de nœuds, mais dans ce cas, ils sont répartis
+aussi bien sur toute la surface qu’en profondeur.
+Cela apparaît très clairement dans la
+modélisation ci-contre que nous a fournie notre
+partenaire Eric Fossat. (Hors-série Sciences et
+avenir, août 1996, p37) Les zones rouges et
+bleues clairs correspondent aux ventres de
+vibration, c’est à dire aux zones où l’amplitude
+des vibrations est grande.
+Les différents modes sont repérés grâce à 3 lettres:
+l : le nombre total de nœuds en surface,
+n : est le nombre de nœuds dans la direction radiale, c'est-à-dire depuis la "surface" jusqu'au
+"cœur" du soleil.
+m : est le nombre de nœuds ou lignes nodales coupant l'équateur.
+En symétrie sphérique, les fréquences de résonances ne dépendent que de l et n, mais
+tout écart à cette symétrie, la rotation notamment, lève la
+dégénérescence en m. La rotation entraîne des dédoublements des
+fréquences (l, n).
+Sur l’image ci contre, l = 0 pour la première sphère et 0 < l < 9
+pour les autres lignes. l augmente du haut vers le bas et m augmente de
+la gauche vers la droite.
+Les ondes créées par le mouvement pénètrent plus ou moins
+profondément dans le Soleil. Les modes de haute fréquence pénètre
+peu et les modes de basse fréquence pénètre beaucoup. Ce sont eux qui
+donneront davantage de renseignements sur les couches profondes du
+Soleil.
+Il y a plus de 10 millions de modes d’oscillations du Soleil.
+Explorons l’intérieur des sphères de Helmhotz avec le micro lors d’une résonance. Nous
+retrouvons des nœuds et des ventres de pression avec le micro. Un nœud de pression
+correspond à un ventre de vibration et un ventre de pression correspond à un nœud de
+vibration.
+
+- 24 -
+
+Annexe 3 : L’effet Doppler pour l’étude du Soleil
+La connaissance des ondes acoustiques dans le Soleil est possible grâce à
+l’exploitation de mesures utilisant l’effet Doppler. L’appareil GOLF, sur lequel a travaillé
+monsieur J-M Robillot fonctionne ainsi. Mais l’effet Doppler n’est pas au programme au
+lycée. Nous avons donc cherché à le comprendre par nos propres moyens et avec l’aide de
+notre professeur.
+L’effet Doppler est un phénomène impliqué dans toute situation où l’émetteur d’une
+onde (quelque soit sa nature : sonore, électromagnétique…) est en mouvement par rapport au
+récepteur. Il fut décrit pour la première fois par l’autrichien Christian Doppler en 1842. En
+effet, la vitesse de l’émetteur entraîne une modification de la fréquence de l’onde, bien que
+celle-ci garde une célérité constante.
+
+Plus concrètement, lorsque l’émetteur et le récepteur de l’onde ont un mouvement de
+rapprochement l’un de l’autre, la fréquence f’ de l’onde reçue est telle que : f’ = f +∆f
+où f est la fréquence de l’onde émise et ∆f la fréquence dite « fréquence Doppler », décalage
+entre f et f’ : ∆f = f’-f . En revanche, lorsque l’émetteur et le récepteur s’éloignent, f’ est telle
+que : f’= f – ∆f
+Dans les deux cas, la fréquence doppler respecte la relation :
+
+V / c = ∆f / f
+Où V est la vitesse du mobile, et c la célérité de l’onde.
+Il est donc possible de calculer la vitesse du mobile : V = c∆f / f
+Si l’émetteur et le récepteur sont côte à côte et que l’onde est réfléchie sur un support mobile
+alors : V = c.∆f / 2f
+Pour des mouvements complexes, cette relation n’est valable qu’avec la vitesse
+radiale, c'est-à-dire la composante du vecteur vitesse projetée sur la ligne de visée, qui relie
+l’émetteur et le récepteur.
+Nous avons essayé de comprendre le sens physique de ce résultat. Soit une source S
+émettant des ondes sonores. L’onde est une suite de surpressions et de dépressions.
+L’émission de deux maximum de pressions successifs est séparée de la durée T, la période du
+phénomène. Soit R un récepteur immobile. Un maximum de pression parcourt la distance SR
+en SR/c. La réception des deux maxima successifs est séparée de T.
+La source se déplace maintenant vers R à la vitesse v. Le premier maximum parcourt
+toujours SR en SR/c. Mais le second est émis alors que la distance source récepteur est plus
+courte : SR-vT. Il parcourt cette distance en (SR-vT)/c. Ce second maximum est reçu à
+l’instant T + (SR-vT)/c. L’intervalle entre la réception du premier maximum et la réception du
+second est donc : ∆t = (T + (SR-vT)/c) – SR/c = T(1-v/c). Donc freception = 1/[ T(1-v/c)] et
+∆f = freception – fémission = 1/[ T(1-v/c)] – 1/T = (v/c)/[ T(1-v/c)] = fémission (v/c)/[ (1-v/c)]
+∆f / fémission = (v/c)/[ (1-v/c)] ≈ v/c si v << c. Nous avons bien retrouvé la relation
+précédente.
+
+- 25 -
+
+En astronomie, l’effet Doppler est appliqué aux ondes
+lumineuses émises par les étoiles. On étudie leur spectre
+lumineux d’émission de raies, ce qui nous permet de conclure
+à l’éloignement de l’étoile par rapport à la Terre ou à son
+rapprochement.
+Lorsque le soleil vibre sur un mode propre, certaines
+zones de sa surface subissent des mouvements importants
+(ventres). Ces mouvements peuvent entraîner le
+« gonflement » ou le « creusement » local de la surface. Ces parties qui s’enfoncent, et celles
+qui se soulèvent sont « reliées » par des zones stables, où la vibration est infime (nœuds). Ce
+que permet de mesurer l’effet Doppler, c’est cette vitesse d’ondulation de la surface solaire,
+que le mouvement soit de rapprochement (par rapport à la surface terrestre) au niveau des
+zones de gonflement, ou qu’il soit un éloignement, au niveau d’une zone d’enfoncement.
+Ces mouvements, aussi infimes soient-ils, sont de l’ordre du cm/s, et doivent donc être
+enregistrés par des spectromètres à effet Doppler d’une précision remarquable. L’analyse des
+mesures est très complexe car les mouvements acoustiques ne sont pas les seuls mouvements
+du Soleil. Le Soleil tourne sur lui-même et dans la galaxie. Il subit des éruptions et de
+nombreux autres mouvements. Le décalage par effet Einstein, ou rougissement gravitationnel
+depuis la photosphère solaire(de l’ordre de 630 m/s) complique encore la situation. Le moins
+perceptible des mouvements est pourtant celui que l’on cherche à mesurer.
+Les mesures Doppler sont effectuées par GOLF sur une raie solaire par Spectrométrie
+à Résonance Magnétique par décomposition Zeeman. Les instruments actuels mesurent 2
+intensités Iblue et Ired sur les flancs d’une raie solaire. La différence Iblue - Ired est un indicateur
+de l’oscillation Doppler de la raie. Les vitesses d’oscillation de la surface du Soleil sont
+cependant très petites et occasionnent donc des décalages très faibles et très difficiles à
+détecter. Ils ne dépassent parfois pas un cent millième de la largeur des raies étudiées !
+Annexe 4 : Mise au point de l’expérience Doppler
+Nous ne sommes que des élèves de lycée pour lesquels la réalisation de ces montages
+s’est révélée délicate. Le matériel est souvent utilisé par de nombreux élèves du lycée, et il est
+fréquent qu’un composant soit hors service. C’est pour cela que nous avons mis au point un
+protocole permettant de réaliser le montage en identifiant les pannes éventuelles. (Et nous en
+avons rencontré souvent !).
+- 1ère étape : Test de l’émetteur et du récepteur d’ultrasons
+On branche l’émetteur sur la borne 12V du boîtier SYSAM SP5 et la masse.
+On branche ensuite la borne « test » de l’émetteur au boîtier d’acquisition entre EA0. Le
+récepteur d’ultrasons n’a pas besoin d’alimentation : on le branche entre EA1 et la masse.
+Dans Latis Pro, on choisit une durée d’acquisition très courte, par exemple 100µs.
+On acquiert (F10) puis on prend soin à vérifier que le signal obtenu est comparable à
+celui la copie d’écran ci-dessous, c'est-à-dire en créneaux pour l’émetteur et sinusoïdal pour le
+récepteur. On change le nom EA1 en Emetteur et EA0 en Récepteur pour repérer facilement
+les signaux étudiés. Soit F la fréquence du signal émis par l’émetteur ultrasonore et f la
+fréquence du signal reçu par le récepteur. Ces fréquences seront différentes si la cible est en
+mouvement.
+
+- 26 -
+
+Signaux Emetteur – Récepteur
+Signaux Emetteur – Récepteur - multiplieur
+- 2 étape : Ajout du multiplieur de tensions
+En multipliant les deux tensions précédentes, on obtiendra un signal riche de plusieurs
+fréquences si la cible est mouvante.
+On branche le multiplieur à +12 V, 0V, -12V sur l’alimentation du boîtier d’acquisition. La
+sortie S du multiplieur est reliée à l’entrée analogique EA2 de l’ordinateur. Comme on le voit
+sur la courbe ci-dessus, la tension de sortie du multiplieur est une simple courbe presque
+sinusoïdale de fréquence 40000 Hz car la cible n’est pas en mouvement.
+- 3ème étape : Ajout du filtre passe bas
+Si la cible est en mouvement la fréquence du signal du récepteur peut s’écrire f = F +
+∆f . On obtient donc 3 fréquences en sortie du multiplieur : F, F-f, F + f soit F, 2F + ∆f et ∆f.
+Le filtre passe bas, comme son nom l’indique ne laisse passer que les signaux de faible
+fréquence. Il permet de supprimer les tensions de fréquence F et 2F + ∆f, et donc de ne garder
+que la tension de fréquence ∆f. C’est cette fréquence qui permettra de déterminer la vitesse de
+la cible.
+nde
+
+Schéma David Fadli
+
+Nous n’avons pas encore étudié ce type de montage en cours, alors nous avons pris les
+valeurs données sur un TP de Mme Christine Lehman, du lycée Jacquart, centre de ressource
+de Paris, trouvé sur internet.
+On alimente l’Amplificateur Opérationnel en +12V, 0V, -12V par le boîtier. On
+récupère la tension de sortie en branchant la sortie S en EA3. Dans le logiciel Latis pro, on
+
+- 27 -
+
+Ueff(V)
+
+allonge le temps de mesure à 100ms car la fréquence de la tension de sortie (∆f) est beaucoup
+plus faible que celle du signal ultrasonore, donc la période plus grande.
+Dans ce TP, R1 = 33 kΩ et C = 2,31 µF. La fréquence de coupure est une grandeur qui
+caractérise le comportement du montage. Elle vaut fc = 1/(2Π R1C) =2,1 Hz. Pour comprendre
+expérimentalement ce montage, nous
+Filtre passe-bas
+avons fait varié la fréquence d’un signal
+sinusoïdal d’amplitude constante. Nous
+8
+avons mesuré la tension efficace en sortie
+7
+du filtre avec un voltmètre. Voici la
+6
+courbe de réponse en fréquence obtenue:
+5
+4
+La tension efficace diminue
+3
+rapidement et s’annule pour 3100 Hz. Un
+2
+tel montage ne laissera pas passer les
+1
+0
+signaux de fréquence supérieure à 3100
+0
+1000
+2000
+3000
+4000
+Hz. C’est ce que nous recherchons.
+F(Hz)
+Cependant la tension Doppler que
+nous cherchons à étudier a une fréquence
+de l’ordre de 100 Hz. N’est-il pas possible d’améliorer ce montage ? Remplaçons la résistance
+R1 par une résistance de 470Ω. La fréquence de coupure vaut alors 146,6 Hz. Voici la courbe
+de réponse en fréquence obtenue:
+Le niveau du générateur
+de signaux n'a pas été modifié entre les
+1,2
+deux expériences. Cependant le niveau
+1
+de sortie du filtre est plus important dans
+0,8
+le premier cas que dans le second pour
+0,6
+0,4
+les fréquences qui nous intéressent. Nous
+0,2
+choisirons donc le premier montage de fc
+0
+= 2,1 Hz pour notre étude du phénomène
+0
+1000
+2000
+3000
+4000
+Doppler.
+F (Hz)
+Sur Latis pro, on ouvre une
+deuxième fenêtre, en y isolant seulement
+la tension en sortie du filtre passe bas. On paramètre une durée d’acquisition de 500 ms. En
+mode d’acquisition permanente, on remarque que si l’on fait varier la position de la brique par
+rapport au système émetteur récepteur, on observe un changement de la fréquence du signal
+du filtre passe bas, selon la rapidité d’éloignement ou de rapprochement de la cible. C’est une
+illustration du phénomène Doppler.
+Ueff(V)
+
+Filtre passe-bas 2
+
+Annexe 5 : Quelques fréquences des modes de pression : spectres acoustiques du Soleil
+Voici des spectres que nous a communiqué Monsieur Robillot, notre partenaire. Ces
+spectres sont des spectres de puissance, et porte donc en ordonnée le carré de l’amplitude du
+signal lumineux par unité de fréquence. Ils montrent l’importance de la durée des mesures sur
+la qualité du spectre. La précision du spectre obtenue augmente avec la durée de l’étude. Le
+dernier spectre, obtenu grâce à 7 mois d’observations, comporte des pics fins et peu de bruit
+de fond.
+Pour une comparaison initiale, voici le spectre obtenu des "oscillations solaires de 5
+minutes" avec une observation depuis le sol durant 8 heures. Les pics sont larges et confus.
+
+- 28 -
+
+Voici maintenant le spectre obtenu avec 4 jours d'enregistrement continu par GOLF,
+spectre où l'on distingue déjà bien l'essentiel les différents modes-p (modes de pressions)
+
+Les pics sont déjà beaucoup plus fins et certains sont dédoublés à cause de la rotation
+du soleil. Puis, à partir d'un enregistrement continu de 13 jours par GOLF, voici un détail du
+spectre
+
+Enfin, un détail du spectre obtenu avec 7 mois d'observations de GOLF (figure_3 page
+220, d'un article de A.H. Gabriel et al. intitulé "Performances and early results from GOLF"
+paru en 1997 dans le livre "The First Results from SOHO" édité par "Kluwer Academic
+Publishers". Cette référence nous est donnée par Monsieur Robillot)
+
+- 29 -
+
+Ces modes de vibration de pression (modes p), obtenus après environ 7 mois de
+mesures GOLF se répartissent en des fréquences très pures de 1116 microHz à 4675
+microHz.
+Ces modes de vibration se présentent en doublets avec une séparation très étroite de
+l'ordre 450 nanoHz soit ~ 0,450 microHz (comparable à la largeur de ces résonances après 6
+mois de détection sans interruption). Il s'agit pour l'essentiel d'un "rotational splitting" , qui est
+dû à la différence de fréquence de résonance entre l'onde qui tourne dans le sens de la
+rotation et celle qui tourne en sens inverse de la rotation des couches du soleil où se propagent
+(majoritairement) tel ou tel modes_p (d'où des différences de splitting des modes_p selon que
+l=1, 2, 3).
+On peut faire plusieurs remarques à propos de la précision qu'arrivent à atteindre les
+astronomes grâce à cette méthode de mesure. Afin d'être exploitables, les fréquences doivent
+être obtenues avec une précision supérieure à celle du niveau de connaissance du modèle
+solaire tel que nous l'avons décrit précédemment, c'est-à-dire qu'elles doivent être mesurées à
+moins de 1% près. Les modes propres ont un temps d'excitation et d'amortissement de
+quelques jours, ce qui donne aux pics correspondants une largeur naturelle de 1 m Hz environ
+(durée de vie de trois jours de l'oscillation). Ceci a pour conséquence que la précision possible
+sur la mesure d'une fréquence ne croît avec le carré du temps d'intégration qu'au-delà de ces
+quelques jours. Or il n'est pas possible d'obtenir de telles durées d'observation en continu sauf
+en travaillent dans l'espace comme l'a fait Soho à cause de la nuit et du mauvais temps. C'est
+pourquoi il s ‘avère nécessaire d'utiliser des réseaux de stations d'observation dispersées sur la
+surface de la planète. Ce problème de fenêtre temporelle affecte donc la précision des
+résultats.
+Annexe 6 : Notre programme en Visual basic.( Programmation David Fadli)
+
+- 30 -
+
+coefficient
+n
+
+Fréquences
+145035Transposition
+audibles
+en Hz
+en Hz
+en Hz
+en Hz
+en Hz
+l=0
+l=1
+l=2
+l=3
+L=4
+0 19,8175824
+0
+0
+0
+0
+1 40,1224824
+0
+0
+0
+0
+2 60,4273824
+0
+0
+0
+0
+3 80,7322824
+0
+0
+0
+0
+4 101,037182
+0
+0
+0
+0
+5 121,342082
+0
+0
+0
+0
+6 141,646982
+0
+0
+0
+0
+7 161,951882
+0
+0
+0
+0
+8 182,819518 192,783423 202,064212
+0
+0
+9 204,023635 213,585793 222,682388
+0
+0
+10 224,569293 233,909547 242,861108
+0
+0
+11 244,616031 253,699573 262,501747 270,500427
+0
+12 264,284227 273,402578 282,19605 290,248393
+0
+13 283,89731 293,09398 301,983175 310,079029
+0
+14 303,638024 312,810038 321,683279 329,680509 336,666845
+15 323,235153 332,386862 341,160029 349,180465
+0
+16 342,674195 351,788194 360,548308 368,670268
+0
+17 362,000108 371,176473 379,926434 388,141217
+0
+18 381,418844 390,616964 399,500358 407,745598 415,428102
+19 400,881091 410,163331 419,098937 427,39784 435,303698
+20 420,427458 429,811223 438,694616 447,037029 455,087922
+21 440,001382 468,938765 458,284494 466,684921 474,774973
+22 459,559351 488,563451 477,941087 486,354568
+23 479,068009 508,214243 497,578826 506,21276
+24 498,757961 527,917248 517,297785 525,920116
+25 518,443561 547,69422 537,171931 545,781209
+26 538,172672 567,598824 556,812571 565,704666
+27 557,84522 587,243814 576,860759 585,36126
+28 577,755625 607,077351 596,694295 605,245559
+
+- 31 -
+
+29 597,602214 627,243017 616,507526 625,074744
+30 617,570633 647,185329 636,562966
+31 637,49264 667,281379
+32 657,88021
+33 678,038625
+
+Tout notre programme est bâti autour de la fonction BEEP qui permet d’émettre un son
+avec le haut-parleur système de l’ordinateur . Déclarons d’abord cette fonction selon un
+modèle trouvé sur un forum de développeur Visualbasic:
+Option Explicit
+Private Declare Function Beep Lib "kernel32" (ByVal dwFreq As Long, ByVal dwDuration
+As Long) As Long
+Il suffit maintenant de créer des boutons de commandes permettant d’émettre un son
+de fréquence choisie, ici 270,50 Hz, pour une durée de 200 ms. Chaque touche du programme
+est un bouton de commande.
+Private Sub Command1_Click()
+Beep CLng(270.500427), 200
+End Sub
+Cette programmation est simple et permet de créer un piano solaire !
+
+- 32 -
+
+

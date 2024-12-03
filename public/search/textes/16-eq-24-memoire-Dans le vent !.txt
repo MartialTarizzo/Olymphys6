@@ -1,0 +1,2357 @@
+2008
+2009
+Dans le vent !
+
+DANIEL Nahom,
+FORESTIER Hadrien,
+BOUILLOUX-LAFONT Arthur
+Lycée Hoche, Versailles
+2008
+
+2009
+
+http://apelh.free.fr
+
+L’Eolienne Savonius
+
+2008
+2009
+
+Sommaire
+Sommaire ................................................................................................................................................ 2
+Introduction......................................................................................................................................... 5
+Genèse du projet ................................................................................................................................. 6
+1
+
+Présentation du banc d’essai et des maquettes ............................................................................. 7
+1.1
+
+Le banc d'essai : ....................................................................................................................... 7
+
+1.1.1
+1.2
+2
+
+Outils et appareils utilisés : ............................................................................................. 8
+
+Les maquettes ......................................................................................................................... 9
+
+Induction électromagnétique ........................................................................................................ 12
+2.1
+
+Mise en évidence................................................................................................................... 12
+
+2.2
+
+Notion de flux magnétique.................................................................................................... 13
+
+2.3
+
+Lois de l’induction.................................................................................................................. 14
+
+2.3.1
+
+Loi de Faraday ............................................................................................................... 14
+
+2.3.2
+
+Loi de Lenz ..................................................................................................................... 14
+
+2.4
+3
+
+Cas précis de l’éolienne Savonius .......................................................................................... 15
+
+Les paramètres jouant un rôle sur le fonctionnement de l’éolienne............................................ 20
+3.1
+
+La vitesse du vent .................................................................................................................. 20
+
+3.2
+
+La fréquence et la vitesse angulaire ...................................................................................... 21
+
+3.3
+
+La tension aux bornes des bobines : f.é.m. induite ............................................................... 22
+
+3.4
+
+L’influence du nombre de spires ........................................................................................... 23
+
+4
+
+Optimisation .................................................................................................................................. 24
+4.1
+
+Etude énergétique de l’éolienne ........................................................................................... 24
+
+4.2
+
+Les différents rendements .................................................................................................... 24
+
+4.2.1
+
+Le rendement total
+
+4.2.2
+
+Les rendements intermédiaires..................................................................................... 26
+
+4.3
+
+.......................................................................................... 24
+
+Influence de la géométrie ..................................................................................................... 27
+
+4.3.1
+
+Définition de Ra ............................................................................................................. 27
+
+4.3.2
+
+Protocole expérimental et résultats obtenus ............................................................... 28
+
+4.4
+
+Etude des deux rendements intermédiaires pour Ra optimal .............................................. 30
+
+4.4.1
+
+Rappel des deux rendements intermédiaires ............................................................... 30
+
+4.4.2
+
+Calcul de
+
+4.5
+
+et
+
+........................................................................................................ 30
+
+Influence du nombre de spires sur la tension induite........................................................... 31
+
+Conclusion ......................................................................................................................................... 33
+5
+
+Bibliographie.................................................................................................................................. 34
+
+2
+
+L’Eolienne Savonius
+
+2008
+2009
+
+6
+
+Remerciements ............................................................................................................................. 34
+
+7
+
+Annexe ........................................................................................................................................... 35
+
+3
+
+L’Eolienne Savonius
+
+2008
+2009
+
+Résumé
+L'énergie éolienne est une énergie renouvelable qui se développera sans doute dans le futur.
+Les éoliennes sont des machines qui transforment l'énergie du vent en une énergie utilisable par
+l'homme. Citons les éoliennes qui produisent de l'électricité ou encore celles qui permettent de
+pomper de l'eau. Il existe de nombreux modèles d'éoliennes, le plus souvent inconnus du grand
+public.
+Ce rapport se propose d'étudier le modèle Savonius. L'étude a pour objectif l'optimisation du modèle
+Savonius à travers une étude paramétrique de plusieurs maquettes d'éoliennes de type Savonius
+produisant de l'électricité. On définit alors l'efficacité d'une maquette par son rendement
+énergétique (la puissance électrique de sortie sur la puissance cinétique du vent d'entrée). Les
+paramètres étudiés sont variés : configuration géométrique du rotor, influence de la vitesse du vent,
+influence du nombre de spires des bobines dans le générateur,... L'étude a été réalisée par
+l'intermédiaire d'un souffleur (mode inverse d'un aspirateur), d'un oscilloscope, d'un stroboscope,
+d'un anémomètre à fil chaud et de résistances réglables.
+L'étude a permis de montrer l'influence de la configuration géométrique sur le rendement
+énergétique. En effet, un rapport e/D aux alentours de 0,3 semble présenter les meilleures
+performances en termes de rendement énergétique. En ce qui concerne les autres paramètres,
+l'influence de la vitesse du vent sur la fréquence de rotation, l'influence du nombre de spires sur la
+f.é.m. induite,... il semble qu'il n'y ait pas de critères optimaux car ils dépendent intrinsèquement des
+caractéristiques de la maquette étudiée. Alors que le rapport « optimal » trouvé peut être généralisé
+à d'autres maquettes (de toutes les tailles).
+L'un des défauts du modèle Savonius est son rendement relativement bas. Ce défaut se confirme car
+les rendements obtenus avec les maquettes étudiées sont faibles. Sachant que les rendements
+calculés sont le rapport de la puissance électrique de sortie sur la puissance cinétique fournie par le
+vent, il est intéressant de savoir quelles transformations énergétiques (transformation de l'énergie
+du vent en énergie mécanique de rotation, et transformation de l'énergie mécanique de rotation en
+énergie électrique) entraînent des rendements si faibles. Malheureusement les conclusions de cette
+étude ne sont pas encore prêtes pour ce rapport écrit.
+
+4
+
+L’Eolienne Savonius
+
+2008
+2009
+
+Introduction
+L’énergie éolienne est sujette d’une attention particulière en ces temps de crise climatique.
+L'éolienne la plus connue est celle à axe horizontal, mais il en existe beaucoup d'autres souvent
+méconnues du grand public.
+Dans ce rapport nous allons justement étudier une de ces éoliennes : celle de type Savonius. Ce
+dernier se décompose en deux études majeures. Premièrement, il convient d'analyser et de bien
+comprendre le fonctionnement de notre éolienne, et particulièrement comment parvient-on à
+obtenir de l'énergie électrique.
+La deuxième partie de ce rapport sera centrée sur l'optimisation du modèle et comprendra une série
+de mesures et d'expérimentations.
+Dans la mesure où le modèle Savonius ne peut être utilisé pour produire de l'énergie à très grande
+échelle, les études à son sujet sont peu nombreuses et relativement datées. Tout en étant loin d'être
+inintéressantes ou de mauvaise qualité, elles sont cependant bien plus générales tandis que ce
+rapport traite exclusivement de maquettes de type Savonius produisant de l'électricité.
+Pourtant, le thème des énergies propres est à la mode. Et dans ce domaine, on ne peut nier que le
+modèle Savonius possède certains avantages que les autres éoliennes n'ont pas forcément : le
+mécanisme se met en route même avec un vent très faible, et surtout, ce dernier peut venir de
+toutes les directions. Il n'est alors pas déraisonnable de penser qu'il puisse être efficace dans le cas
+de petites installations personnelles.
+Comment l’éolienne Savonius fonctionne-t-elle exactement et Comment la rendre la plus efficace
+possible ? En essayant de répondre à ces interrogations, nous avons voulu fournir des résultats à la
+fois intéressants et utiles. Si nous n'avons pas du tout la prétention d'optimiser à la perfection
+l'éolienne Savonius, nous allons tenter, avec les moyens que nous avons, de proposer un rapport le
+plus complet et précis possible.
+
+5
+
+L’Eolienne Savonius
+
+2008
+2009
+
+Genèse du projet
+Le projet a germé lors des TPE de première. Nahom Daniel et son groupe s'étaient dirigés
+vers l'étude de l'énergie éolienne sous tous ses aspects, allant des mouvements des vents au
+fonctionnement de l'éolienne. Suite au succès rencontré par leur travail, certains professeurs
+leur ont conseillé de continuer à exploiter leur sujet. Ils ont ainsi commencé par le concours
+Quintescience, mais, faute de temps, Nahom décida de continuer le projet en vue des
+Olympiades de Physique, comme le lui avaient conseillé différents professeurs de notre
+établissement.
+Toutefois les membres de son ancien groupe ne souhaitant pas continuer l'aventure, Nahom
+a dû se tourner vers de nouveaux coéquipiers. Arthur Bouilloux-Lafont puis Hadrien
+Forestier, tous deux dans sa classe depuis la première, l’ont rejoint.
+C'est ainsi qu'à la rentrée de Terminale, ayant eu la chance d'être à nouveau dans la même
+classe, nous avons commencé notre travail, à raison d'un après-midi par semaine. Le sujet
+initial avait été modifié ; nous nous intéresserions dorénavant aux éoliennes Savonius, sujet
+moins conventionnel que les éoliennes dites à « axe horizontal » et de fait moins connu
+donc, d'une certaine manière, plus intéressant à étudier.
+En effet les études concernant l'éolienne Savonius étaient pour la plupart datées et n'étaient
+pas toujours en accord les uns avec les autres. Cela nous laissait de nombreuses pistes de
+recherche notamment concernant l'optimisation de l'éolienne à la fois géométrique mais
+aussi au niveau de la transformation de l'énergie mécanique en énergie électrique.
+Notre travail s'est fait à travers l'utilisation de différentes maquettes, systèmes de bobines
+etc., comme il sera décrit par la suite. Ainsi au-delà du travail intellectuel concernant la
+démarche scientifique et l'analyse de nos résultats, nous avons aussi dû nous montrer
+perfectionnistes sur le plan de la conception manuelle car la moindre erreur pouvait fausser
+nos résultats sur des semaines, nécessitant de recommencer toutes nos mesures (c’est ainsi
+nous avons enroulé, en bobines, pour près de 400 mètres de fil de cuivre …).
+Nos recherches n'aboutissaient pas jusqu'à la Toussaint et nous avons fini par fabriquer un
+nouveau modèle d'éolienne, plus performant, en bois et en PVC, ce qui nous a permis
+d'enchaîner les résultats en à peine un mois pour finalement aboutir à l'optimisation
+géométrique du rotor Savonius pour le premier dossier mi-novembre. Puis nous avons
+continué à travailler jusqu'à l'oral afin de pouvoir y présenter les nouveaux résultats
+concernant les transferts d'énergie.
+Enfin, entre notre heureuse qualification pour la finale et aujourd'hui, nous avons finalement
+réussi notre entreprise la plus difficile à savoir l'optimisation de la transformation de
+l'énergie mécanique en énergie électrique, projet que nous avions commencé depuis
+septembre mais qui n'était pas présentable lors des qualifications.
+Nous estimons ainsi être arrivés au terme de notre projet (du moins des objectifs que nous
+nous étions fixés) mais nous préparons encore quelque chose d'assez original que nous
+essaierons de développer pour l'oral final...
+
+6
+
+L’Eolienne Savonius
+
+2008
+2009
+
+1.1 Le banc d'essai :
+L'étude des maquettes s'est déroulée sur un banc d'essai constitué d'un souffleur et d'une
+règle permettant le déplacement des maquettes selon un axe défini.
+
+En effet, la puissance du souffleur ne peut pas être modifiée donc les maquettes doivent être
+déplacées afin de simuler un changement de la vitesse de l’air les traversant. Ne pouvant savoir
+exactement quel type d’écoulement se produisait, l’hypothèse d’un écoulement unidimensionnel et
+uniforme dans un plan orthogonal à la direction du vent a été retenue.
+
+7
+
+L’Eolienne Savonius
+
+2008
+2009
+
+1.1.1
+
+Outils et appareils utilisés :
+
+Oscilloscope : l'oscilloscope nous permet de mesurer en temps réel la tension aux bornes des
+maquettes (qui sont des génératrices d’électricité). Ces données sont nécessaires lors du calcul des
+rendements et lors de l'établissement des relations entre la vitesse du vent, la fréquence et
+l'amplitude de la tension produite. L'oscilloscope nous permet aussi de mesurer indirectement la
+fréquence de rotation des rotors car il suffit de diviser la fréquence de la tension par un facteur 4
+pour trouver la fréquence de rotation. (Cf. II)
+Stroboscope : le stroboscope est aussi un moyen de mesurer la fréquence de rotation d’un
+objet. Cependant la fréquence de rotation des maquettes n'étant pas rigoureusement constante
+pour une vitesse du vent donnée, le stroboscope ne permet qu'une approximation de celle-ci. Mais le
+stroboscope nous a aussi permis de vérifier qu’il y avait bien un facteur 4 entre la fréquence de la
+tension observée à l’oscilloscope et celle de la rotation de l’éolienne.
+Anémomètre à fil chaud : l'anémomètre à fil chaud est un appareil permettant de mesurer la
+vitesse du vent. Au contraire des anémomètres traditionnels, il ne s’appuie pas sur un mouvement
+mécanique engendré par le vent.
+Le principe de l'anémomètre à fil chaud repose sur le changement de température dans
+l'espace que provoque un vent plus ou moins fort. L'anémomètre à fil chaud est constitué d'un
+capteur et d'un appareil de lecture des mesures. Le capteur est formé par un fil métallique au sein
+duquel circule un courant électrique. La température de l'air autour du fil métallique influence la
+résistance électrique de celui-ci. Ainsi lorsque le vent souffle fort sur le capteur, le fil métallique est
+refroidi et par conséquent la résistance diminue. Ce qui permet à l'appareil de mesure de nous
+fournir la vitesse du vent.
+Dynamomètre : le dynamomètre permet de mesurer des forces. Cependant la force exercée
+par le vent sur nos maquettes est faible (de l’ordre 0,3 N). Or nous n’avons à notre disposition que de
+dynamomètres à ressort imprécis. Cela amène à de grandes incertitudes et des résultats difficilement
+exploitables. (Cf. Annexe : Force du vent sur l’extrémité d’un rotor en fonction de la vitesse du vent).
+
+8
+
+L’Eolienne Savonius
+
+2008
+2009
+
+1.2 Les maquettes
+Les notations utilisées par la suite sont explicitées sur le schéma ci-dessous montrant la
+configuration d'un rotor à deux demi-cylindres (coupe transversale) :
+
+Nous avons été amenés à fabriquer deux maquettes de rotor différentes:
+Maquette n°1 (M1) : le rotor de cette maquette est constitué de deux demi-bouteilles
+cylindriques en plastique et d'une base circulaire en carton. Sur ce carton sont disposés quatre
+aimants qui en tournant vont induire une tension aux bornes des bobines se trouvant sur la planche
+de la structure complète.
+
+La fabrication de ce type de rotor pose quelques problèmes : d'une part le temps de
+fabrication est important et d'autre part le plastique peut se déformer à haute vitesse, ce qui nous
+amène encore une fois à des incertitudes.
+
+9
+
+L’Eolienne Savonius
+
+2008
+2009
+
+Nous avons fabriqué deux rotors de ce type ayant des rapports e/D différents : 1/6 pour l'un
+et 1/3 pour l'autre. Ces maquettes nous ont permis surtout d'étudier l'influence de la vitesse du vent
+sur la fréquence de rotation, sur la tension produite et l'influence du nombre de spires dans les
+bobines sur l'amplitude de la tension produite. En ce qui concerne une étude de la configuration
+géométrique du rotor il nous a semblé plus pertinent de fabriquer une nouvelle maquette dont on
+pouvait régler les rapports e/D afin d'étudier l'influence de ceux-ci sur le rendement énergétique.
+Maquette n°2 (M2) : le rotor de cette nouvelle maquette est d'une part plus rigide et d'autre
+part réglable. Il est constitué de bases en bois et de deux demi-cylindres en PVC. Nous avons aussi pu
+concevoir un système de trous dans les bases nous permettant de placer les deux demi-cylindres aux
+rapports voulus.
+
+Ce nouveau type de rotor nous a alors permis d'étudier les rapports e/D = 0, e/D = 0,135,
+e/D = 0,220, e/D = 0,305, et e/D = 0,480. En ce qui concerne les aimants, nous avons conservé la
+même disposition que dans le rotor de la première maquette.
+
+10
+
+L’Eolienne Savonius
+
+2008
+2009
+
+Bobines et aimants : le système {bobines} est constitué d'un seul fil de cuivre, couvert d'un
+vernis isolant, disposé de la façon suivante.
+
+Il est important de noter que le sens de l’enroulement des quatre bobines est le même. (Cf.
+II)
+Les aimants utilisés sont des aimants permanents en terres rares constitués de Néodyme, de
+Fer et de Bore :
+. Ils ont la forme d’un disque de 2.5cm de diamètre et 0.4cm de hauteur.
+Leur champ magnétique B est de l’ordre de 1.3 Tesla. De la même manière que pour le sens
+d’enroulement des bobines, les aimants doivent être disposés selon une condition : les pôles des
+aimants faisant face au système {bobines} doivent êtres les mêmes.
+
+11
+
+L’Eolienne Savonius
+
+2008
+2009
+
+Dans cette partie nous allons étudier un aspect fondamental du fonctionnement de notre
+éolienne. Nous allons voir comment cette dernière est à l’origine d’un courant électrique.
+Comment expliquer l’obtention d’une tension aux bornes d’un fil de cuivre n’étant relié à aucun
+générateur électrique ?
+Cela est dû au phénomène d’induction électromagnétique, véritablement découvert et étudié par
+Faraday en 1831. Ce dernier observa qu’un champ magnétique pouvait être à l’origine d’une tension
+que l’on appellera f.é.m. induite (pour Force Electromotrice).
+
+2.1 Mise en évidence
+Le phénomène d’induction est aisément observable à l’aide d’expériences simples :
+
+On approche un pôle Nord d’une bobine de cuivre. Le voltmètre indique l’obtention d’une f.é.m.
+
+L’aimant est proche de la bobine mais de bouge pas : pas de tension induite.
+
+12
+
+L’Eolienne Savonius
+
+2008
+2009
+
+On retire subitement l’aimant : obtention de nouveau d’une f.é.m. induite
+Ces expériences montrent que la f.é.m. induite ne dépend pas des caractéristiques du champ
+magnétique (noté B, en Tesla) mais de la variation de celui-ci.
+A noter que la f.é.m. induite est d’autant plus grande que le mouvement de l’aimant est rapide.
+Ainsi, un aimant produisant un champ magnétique faible, mais déplacé rapidement peut induire une
+f.é.m. plus grande qu’un aimant plus puissant déplacé lentement.
+
+2.2 Notion de flux magnétique
+En refaisant les expériences précédentes avec des bobines de diamètre moindre, des f.é.m.
+plus petites sont obtenues. Ainsi, la valeur de la f.é.m. induite dépend également de la surface S
+traversée par les lignes de champ du champ magnétique B.
+On définit le flux magnétique, exprimé en Wb (T.m²) par :
+(
+
+)
+
+En somme, plus que la variation de B, c’est celle du flux qui est importante.
+Variation de flux  F.é.m. induite.
+
+13
+
+L’Eolienne Savonius
+
+2008
+2009
+
+2.3 Lois de l’induction
+2.3.1
+
+Loi de Faraday
+Des résultats précédents découlent la relation suivante, donnant la tension induite (f.é.m.) :
+
+Dans le cas où le circuit est constitué de N spires de surface identique S (à l’image de nos propres
+bobines), on a :
+. Soit :
+
+Ce qui est tout à fait cohérent dans la mesure où chaque spire est le siège d’une f.é.m. induite. C’est
+cette équation qui est connue sous le nom de « Loi d’induction de Faraday ».
+Nous avons que : La f.é.m. induite est l’opposé du taux de variation du flux total à travers le circuit.
+2.3.2
+
+Loi de Lenz
+
+D’après ce que nous venons de voir, la variation du flux peut être due à plusieurs raisons : le
+champ peut être, réduit, augmenté, de même que la surface traversée peut être modifiée.
+Cependant, quoiqu’il advienne, la f.é.m. possède toujours une polarité bien définie. La loi de Faraday,
+en liant la polarité de la f.é.m. induite à la variation du flux (signe négatif dans l’équation), traduit
+l’idée de Lenz formulée en 1834 et connue désormais sous le nom de Loi de Lenz :
+La f.é.m. induite s’oppose par ses effets aux causes qui lui ont donné naissance.
+En prenant l’exemple d’un circuit fermé simple : la f.é.m. induite produit à son tour, un courant
+induit, responsable de l’apparition d’un champ magnétique induit (B’). Ce champ va s’opposer non
+pas particulièrement à B, mais à la variation (l’augmentation ou à la diminution, selon le cas) du flux,
+car c’est bien la variation du champ magnétique et non la valeur du champ magnétique lui-même qui
+engendre une f.é.m.
+Voyons maintenant comment se traduisent ces résultats dans le cas de notre éolienne.
+
+14
+
+L’Eolienne Savonius
+
+2008
+2009
+
+2.4 Cas précis de l’éolienne Savonius
+Que se passe-t-il exactement pour l’éolienne Savonius ?
+Cette dernière est composée de 4 bobines semblables à celles étudiées précédemment, et toutes
+enroulées dans le même sens (nous verrons pourquoi) :
+
+Sous le socle des pâles sont fixés quatre aimants, tous orientés de la même façon (tous les pôles nord
+vers le haut par exemple). Le cas où l’un des aimants seraient orienté différemment des autres serait
+problématique, nous verrons pourquoi également.
+
+15
+
+L’Eolienne Savonius
+
+2008
+2009
+
+La rotation de l’éolienne permet donc un déplacement constant des aimants, ce qui fait varier le flux
+magnétique en permanence (indispensable, donc, pour générer un courant dans les bobines).
+Voyons précisément ce qui se passe au niveau de chaque bobine lors de l’arrivée d’un aimant.
+Mettons que c’est le pôle Sud de l’aimant qui s’en approche.
+Le champ de l’aimant sort du pôle Nord et entre par son pôle Sud. L’arrivée plus ou moins rapide de
+l’aimant provoque immédiatement une augmentation du flux magnétique. Il y a alors une f.é.m.
+induite dans la bobine, qui produit à son tour un courant induit. Ce courant produit un champ
+magnétique induit (B’) qui va s’opposer à l’augmentation du flux de B (Loi de Lenz), il va donc
+s’opposer à B. Le flux à travers la bobine vaut alors :
+Nous avons déterminé le sens des lignes de champ de B’ et nous pouvons donc en déduire sa
+polarité : un pôle Sud se forme au niveau de la partie haute de la bobine. Enfin, une fois la polarité
+obtenue, et considérant le sens d’enroulement de la bobine, nous en déduisons le sens du courant.
+C’est d’ailleurs pour cela que toutes les bobines doivent être enroulées dans le même sens.
+
+16
+
+L’Eolienne Savonius
+
+2008
+2009
+
+L’arrivée de l’aimant provoque une augmentation de
+L’augmentation de
+induit un courant (le circuit est fermé)
+Ce courant entraîne l’apparition d’un champ induit B’
+B’ s’oppose à B
+Du sens des lignes de champ, on déduit la polarité
+De la polarité, on déduit le sens du courant.
+
+17
+
+L’Eolienne Savonius
+
+2008
+2009
+
+Voici ensuite ce qui se passe lors de l’éloignement de l’aimant.
+Là encore, le mouvement de l’aimant provoque une variation du flux magnétique, seulement, ce
+n’est plus une augmentation mais une diminution. Le champ magnétique induit, B’ va par définition
+s’opposer à cette diminution, il va donc, cette fois, être dans le sens de B. La polarité de l’aimant se
+voit donc inversée (donc le sens du courant également) ; le nord se retrouve au niveau de la partie
+haute de la bobine. Il y a donc cette fois une force d’attraction exercée par la bobine sur l’aimant.
+
+Cette fois, l’éloignement de l’aimant entraîne une diminution de
+Cette variation du flux entraîne un courant induit.
+Ce courant créé un champ induit B’
+B’ est dans le sens de B : il s’oppose à sa diminution.
+D’où la polarité
+D’où le sens du courant.
+
+18
+
+L’Eolienne Savonius
+
+2008
+2009
+
+Si nous avions choisi de rapprocher un pôle Nord des bobines, on observerait le même phénomène à
+ceci près que les lignes de champ de l’aimant se verraient inversés, entrainant le changement de sens
+de tout le reste : les lignes de champ de B’, la polarité et le courant induit. Mais de ce fait, l’aimant se
+verrait toujours repoussé par la bobine lors de son rapprochement (un pôle Nord se créé au sommet
+de la bobine) et attiré lors de son éloignement (formation d’un pôle Sud). On comprend désormais
+pourquoi chacun des quatre aimants doivent être orientés de la même façon.
+Ainsi, dans n’importe quelle situation, le phénomène d’induction électromagnétique s’oppose à la
+rotation de l’éolienne, mais permet d’obtenir une f.é.m. aux bornes des bobines.
+Regardons maintenant les résultats obtenus à l’oscilloscope.
+
+On peut voir que la courbe a une forme sinusoïdale. L’oscilloscope nous renseigne sur la valeur de la
+tension obtenue ainsi que sur la fréquence de rotation de l’éolienne. Pour connaître cette fréquence,
+il faut diviser par quatre la valeur donnée par l’oscilloscope. Expliquons pourquoi :
+Notons A1, A2, A3, et A4 nos aimants et B1, B2, B3 et B4 nos bobines, de telle sort qu’à t donné,
+l’aimant A1 se trouve au dessus de B1, A2 au dessus de B2 et ainsi de suite. Une période Τ s’est
+écoulée lorsque chaque aimant a fait un tour et puis est revenu au dessus de la bobine qui lui
+correspond. Seulement, les quatre aimants étant strictement identiques, c’est le temps qui s’écoule
+entre le passage de l’aimant A1 jusqu’à la bobine B2 qui sera perçu par l’oscilloscope comme une
+période. La vraie période T est obtenue en multipliant par quatre la valeur donnée par l’oscilloscope.
+La fréquence étant l’inverse de la période, cela revient à diviser par quatre la fréquence donnée par
+l’appareil.
+
+19
+
+L’Eolienne Savonius
+
+2008
+2009
+
+3.1 La vitesse du vent
+La vitesse du vent est bien sûr un des paramètres extérieurs les plus importants de nos
+maquettes. Le souffleur, étant un aspirateur en mode inverse, ne peut être réglé afin de souffler de
+l’air à une vitesse donnée. Par conséquent il a été décidé d’étudier les maquettes en les plaçant à des
+distances choisies du souffleur, permettant ainsi de faire varier la vitesse du vent qui traverse les
+rotors.
+
+La première étape a été de mesurer la vitesse du vent lorsque l’on s’éloigne de plus en plus
+du souffleur. Pour ce faire, nous nous sommes servis d’un anémomètre à fil chaud que l’on a placé à
+plus endroits sur l’axe de déplacement des maquettes.
+Ainsi nous avons obtenu cette courbe montrant la vitesse du vent en fonction de la distance :
+V (m/s)
+
+V(D) = 16.02*exp(-D/0.6321)
+10
+
+8
+
+6
+
+4
+
+2
+
+0.1
+
+20
+
+0.2
+
+0.3
+
+0.4
+
+0.5
+
+0.6
+
+0.7
+
+0.8
+D (m)
+
+L’Eolienne Savonius
+
+2008
+2009
+
+Malgré l’utilisation d’un anémomètre à fil chaud des incertitudes de mesures allant de 4.5% à
+17.3% subsistent. C’est pourquoi l’étude des paramètres suivants est faite en fonction du modèle
+choisi pour la vitesse du vent en fonction de la distance :
+
+3.2 La fréquence et la vitesse angulaire
+L’étude de l’influence de la vitesse du vent sur la fréquence de rotation, et par conséquent
+sur la vitesse angulaire des rotors, a été réalisée sur la maquette M1 avec le rotor de rapport Ra =
+1/3.
+f (Hz)
+16
+
+f(V) = 1.071 + 2.512*V + -0.08812*V^2
+
+14
+
+12
+
+10
+
+8
+
+6
+
+4
+
+2
+
+1
+
+2
+
+3
+
+4
+
+5
+
+6
+
+7
+
+8
+
+9
+V (m/s)
+
+Les mesures montrent donc que la fréquence des rotors n’est pas proportionnelle à la vitesse
+du vent. Les forces de frottements fluides se modélisent suivant
+, la puissance x
+dépendant de la vitesse de l’écoulement fluide. Ainsi plus la vitesse du vent est élevée et plus les
+forces de frottements fluides sont grandes.
+La déduction de la vitesse de rotation des rotors se fait alors simplement :
+
+Avec
+
+: vitesse de rotation (rad/s)
+
+Et : fréquence de rotation (Hz)
+
+21
+
+L’Eolienne Savonius
+
+2008
+2009
+
+3.3 La tension aux bornes des bobines : f.é.m. induite
+La deuxième partie de ce rapport a montré qu’un phénomène d’induction électromagnétique
+se manifeste lorsque le rotor des maquettes tourne. En effet, à la base du rotor sont disposés quatre
+aimants tandis que sur la planche de la structure est disposé un système de quatre bobines. Lorsque
+le rotor tourne, le flux magnétique traversant les spires des bobines varie et induit aux bornes du
+système de bobines une f.é.m. Nous avons alors mesuré l’amplitude de la f.é.m. induite en fonction
+de la fréquence de rotation du rotor (maquette M1, rapport Ra = 1/3) :
+U (V)
+
+6
+
+U(f) = 0.3993*f
+
+5
+
+4
+
+3
+
+2
+
+1
+
+2
+
+4
+
+6
+
+8
+
+10
+
+12
+
+14
+
+16
+f (Hz)
+
+D’après les résultats obtenus, la f.é.m. est proportionnelle à la fréquence de rotation. Cela
+est d’ailleurs conforme à la loi de Faraday :
+Simplifions le problème et considérons le champ magnétique variable
+directement au
+dessus d’une bobine. La puissance de ce champ magnétique varie de façon périodique au dessus de
+la bobine, nous pouvons donc supposer que celui-ci vérifie une équation de la forme :
+
+Nous obtenons alors un flux magnétique dans la bobine de la forme suivante :
+
+La loi de Faraday permet alors d’écrire :
+
+22
+
+L’Eolienne Savonius
+
+2008
+2009
+
+La relation proportionnalité entre la f.é.m. induite et la fréquence établie expérimentalement est en
+accord avec la loi de faraday.
+
+3.4 L’influence du nombre de spires
+Le système bobine est constitué quatre bobines à spires chacune. Or, nous avons vu que
+selon la loi de Faraday, la f.é.m. induite aux bornes d’une bobine est proportionnelle au nombre de
+spires constituant cette bobine :
+
+Nous avons donc voulu vérifier cette loi en mesurant la f.é.m. induite aux bornes d’un
+système {bobines} à 80 spires par bobine et aux bornes d’un autre système à 160 spires par bobine.
+U_160 (V) U_80 (V)
+
+4.5
+4
+
+U_80(f) = 0.1884*f
+U_160(f) = 0.357*f
+
+3.5
+3
+2.5
+2
+1.5
+1
+0.5
+
+2
+
+4
+
+6
+
+8
+
+10
+
+12
+
+14
+f (Hz)
+
+Afin de vérifier la relation de proportionnalité entre le nombre de spires par bobine et la f.é.m.
+induite, il suffit alors de faire le rapport du coefficient directeur de
+sur celui de
+:
+
+Théoriquement si on double le nombre de spires par bobine, on double aussi la f.é.m. induite. Ce
+facteur 2 est bien retrouvé expérimentalement à moins de 6% d’erreur, ce qui compte tenu des
+incertitudes est satisfaisant. Par la suite, nous étudierons d’autres systèmes {bobines} afin de
+
+23
+
+L’Eolienne Savonius
+
+2008
+2009
+
+s’assurer de la validité de la relation de proportionnalité entre le nombre de spires et la f.é.m.
+induite.
+
+4.1 Etude énergétique de l’éolienne
+Une éolienne transforme l’énergie cinétique contenue dans le vent en énergie mécanique de
+rotation. Cette énergie peut alors être transformée en énergie électrique si un générateur électrique
+est couplé à l’éolienne. Le générateur électrique, à son tour, va transformer l’énergie mécanique
+fournie par l’éolienne en énergie électrique. Cette transformation est rendue possible grâce au
+phénomène d’induction électromagnétique étudié dans la partie II de ce rapport. Ainsi nous
+obtenons le bilan énergétique suivant :
+
+Nous définissons alors l’efficacité énergétique de nos maquettes comme étant le rapport de
+l’énergie électrique de sortie sur l’énergie cinétique d’entrée du système {Maquette}. Nous nous
+intéressons donc aux différentes transformations énergétiques et surtout leur rendement pour
+optimiser les maquettes.
+
+4.2 Les différents rendements
+Définissons tout d’abord les trois différents rendements :
+4.2.1
+
+Le rendement total
+
+Puissance du vent : Les maquettes étudiées sont traversées par un volume d’air en
+mouvement. Nous considérons que le vent émis par le souffleur est un fluide en écoulement parfait,
+stationnaire, incompressible et unidimensionnel. La première étape du calcul de
+commence
+donc par le calcul de la puissance du vent.
+Rappelons la formule de l’énergie cinétique :
+
+: énergie cinétique (J)
+: masse de l’objet (Kg)
+
+24
+
+L’Eolienne Savonius
+
+2008
+2009
+
+: vitesse de l’objet (m/s)
+Considérons le volume d’air traversant le rotor suivant :
+
+Il y a particules d'air de masse , dans ce pavé, arrivant sur le rotor de l'éolienne pendant une
+durée . La masse volumique de ce cylindre est alors égal à :
+
+ : masse volumique (
+)
+: nombre de particules
+: masse d’une particule ( )
+: volume du cylindre ( )
+Or
+: surface ( )
+: durée ( )
+Donc nous obtenons :
+
+
+
+Donc :
+Puisque ces particules sont en mouvement, on leur associe une énergie cinétique :
+
+Donc :
+Dès lors que l’énergie du vent est connue, le calcul de la puissance du vent est aisé. La puissance est
+la quantité d’énergie fournie au rotor par unité de temps. C’est donc un débit d’énergie.
+
+25
+
+L’Eolienne Savonius
+
+2008
+2009
+
+Donc :
+Donc :
+On a ainsi l’expression de la puissance du vent en fonction de la vitesse du fluide (le vent) et de la
+surface du rotor.
+Puissance électrique : Pour connaître la puissance électrique fournie par l’éolienne, il faut
+brancher le système {bobines} à une résistance afin de fermer le circuit et faire débiter l’éolienne.
+Dans un circuit électrique, on a :
+
+: puissance électrique ( W )
+: tension (V)
+: intensité (A)
+Expression du rendement total :
+On peut maintenant calculer le rendement total :
+
+C’est à partir de ce rendement que nous allons pouvoir optimiser et conclure sur l’efficacité des
+maquettes.
+4.2.2
+
+Les rendements intermédiaires
+
+Nous pouvons aussi nous intéresser aux deux rendements correspondant aux
+transformations de l’énergie cinétique du vent en énergie mécanique de rotation et de l’énergie
+mécanique de rotation en énergie électrique. Ces rendements sont définis ainsi :
+
+26
+
+L’Eolienne Savonius
+
+2008
+2009
+
+4.3 Influence de la géométrie
+4.3.1
+
+Définition de Ra
+
+Comme vous avez pu le voir, l’éolienne de type Savonius est caractérisée par la configuration
+géométrique de son rotor (et plus précisément par le rapport entre l’écart et le diamètre du
+rotor.
+
+Cet écart permet à l’air de circuler entre les deux demi-cylindres et d’exercer une force sur
+l’autre demi-cylindre, mais toujours dans le sens du mouvement.
+
+27
+
+L’Eolienne Savonius
+
+2008
+2009
+
+L’influence de ce phénomène, illustré ci-dessus, sur le rendement énergétique ne pouvant
+être directement établie, à cause de nos limitations techniques, nous nous sommes proposés
+d’étudier le rendement
+
+en fonction des rapports
+
+.
+
+La maquette M2, construite spécialement pour cette étude géométrique nous a permis
+d’étudier les rapports :
+;
+;
+;
+;
+.
+
+4.3.2
+
+Protocole expérimental et résultats obtenus
+
+Les expériences réalisées consistent à faire varier le rapport
+de la maquette M2 et
+calculer le rendement total pour chaque rapport. Cette maquette a été faîte de telle manière qu’un
+minimum de paramètres autre que les rapports varient entre les différents tests. L’éolienne a été
+placée à une distance fixe de la soufflerie lors de ces tests, afin de garder la même vitesse de vent
+traversant le rotor.
+Puissance électrique :
+
+Pour déterminer la puissance électrique fournie par la maquette M2, nous avons fermé le
+circuit électrique en branchant une résistance réglable aux bornes du système {bobines}. Ce système
+a une résistance de l’ordre de 6Ω. Afin de déterminer à quelle valeur nous allions régler la résistance
+du conducteur ohmique, nous avons mesuré l’intensité du courant induit en fonction de la valeur de
+la résistance. Ainsi nous avons décidé de travailler avec R = 10Ω.
+Puissance du vent : A l’aide d’un anémomètre à fil chaud, nous avons mesuré la vitesse du
+vent à la distance choisie pour placer la maquette du souffleur.
+En utilisant les notations du schéma dans 3. i nous pouvons exprimer la surface du rotor traversée
+par le vent.
+Ainsi
+
+28
+
+L’Eolienne Savonius
+
+2008
+2009
+
+: rayon du rotor (m)
+: diamètre du rotor (m) et
+
+: hauteur du rotor (m)
+
+En calculant les différentes surfaces pour chaque rapport et en mesurant la vitesse du vent à
+la distance fixée, nous obtenons la puissance du vent. Le graphique ci-dessous montre le rendement
+en fonction des différents rapports :
+
+Remarque : Nous avons fait une série de mesures pour chaque rapport afin s’assurer de la
+validité des mesures.
+Nous pouvons ainsi conclure à partir de ce graphique sur l’influence des rapports
+sur le
+rendement énergétique. Un rotor de rapport Ra aux alentours de 0.3 semble présenter un
+rendement total supérieur à tout rotor de rapport Ra supérieur ou inférieur à 0.3. Lors de la
+construction d’une éolienne de type Savonius, un rapport Ra aux alentours de 0.3 donnera donc les
+meilleurs résultats en terme de rendement énergétique total.
+Ainsi nous avons pu optimiser la configuration géométrique du rapport Ra de la maquette
+M2. Cependant nous remarquons que le rendement énergétique maximal est faible, en dessous de
+0.6%. Il est à présent nécessaire de s’intéresser aux différentes transformations énergétiques afin de
+déterminer la transformation qui entraîne le plus de pertes et la possibilité d’optimisation de ces
+transformations. Les transformations sont au nombre de deux, et cela implique donc deux
+rendements énergétiques à étudier.
+
+29
+
+L’Eolienne Savonius
+
+2008
+2009
+
+4.4 Etude des deux rendements intermédiaires pour Ra optimal
+4.4.1
+
+Rappel des deux rendements intermédiaires
+
+4.4.2
+
+Calcul de
+
+et
+
+A la suite du rendement total, nous nous sommes intéressés aux rendements intermédiaires
+et nous avons établis avec notre chercheur un protocole expérimental afin calculer ceux-ci. La
+puissance intermédiaire qu'il nous manquait était la puissance aérodynamique du rotor. Pour la
+calculer il nous fallait la valeur du couple exercé par le vent sur le rotor. Afin de calculer cette valeur,
+nous avons établis un système de deux équations à deux inconnues (le moment d'inertie du rotor J
+autour de Z, et le couple aérodynamique exercé par le vent sur le rotor). Une fois ce système résolu,
+nous avons pu calculer les rendements intermédiaires et remarquer que le rendement puissance
+électrique / puissance aérodynamique du rotor est très faible par rapport au rendement puissance
+aérodynamique du rotor / puissance du vent. Nous avons alors décidé de trouver les paramètres
+optimaux pour le générateur électrique afin d'améliorer son rendement.
+Toutefois avant de publier les résultats du protocole expérimental dans ce rapport
+scientifique nous avons voulu être sûrs que l'hypothèse que nous avions faite était valable et
+raisonnable. Pour ce, nous avons demandé à notre chercheur de nous calculer le moment d'inertie
+du rotor autour de Z grâce à un logiciel de simulation mécanique. Le résultat a été décevant car la
+
+30
+
+L’Eolienne Savonius
+
+2008
+2009
+
+valeur donnée par le logiciel est dix fois plus petite que la valeur calculée grâce au système
+d'équations.
+Ainsi par prudence et par rigueur nous préférons ne pas introduire nos résultats sur les deux
+rendements intermédiaires sachant de plus que dans tous les cas, nous ne pouvons optimiser que le
+générateur électrique.
+
+4.5 Influence du nombre de spires sur la tension induite
+
+La loi de Faraday dit que la tension induite aux bornes d’une bobine est proportionnelle au nombre
+de spires constituant celle-ci.
+
+N : nombre de spires
+Ainsi d’après cette loi il suffit d’augmenter le nombre de spires afin d’obtenir une tension induite de
+plus en plus grande. Nous avons voulu d’une part vérifier la proportionnalité entre la tension induite
+et le nombre de spires et d’autre part conclure sur l’optimisation du système {bobines}.
+Or il est aisé de comprendre que cette loi ne peut être valable au-delà d’un certain nombre de spires
+car la puissance du champ magnétique d’un aimant n’est pas infinie. Par conséquent on peut
+affirmer que toutes les spires d’une bobine est aussi haute qu’une table, par exemple, ne seront pas
+les sièges d’une induction électromagnétique du fait de leur éloignement de l’aimant.
+
+Il existe donc un autre facteur important en plus du nombre de spires, à tenir en compte lors de
+l’optimisation du système {bobines}. Cet autre facteur important est évidemment la hauteur des
+bobines. Afin de comparer les bobines il faut donc garder un rapport hauteur/nombre de spires
+constant :
+
+31
+
+L’Eolienne Savonius
+
+2008
+2009
+H (mm)
+
+H(N)=8.755E-5*N
+25
+
+20
+
+15
+
+10
+
+5
+
+50
+
+100
+
+150
+
+200
+
+250
+
+300
+N
+
+Nous pouvons à présent présenter les résultats de nos mesures :
+
+U (V)
+
+3
+
+2.5
+
+2
+
+1.5
+
+1
+
+0.5
+
+50
+
+100
+
+150
+
+200
+
+250
+
+300
+N
+
+Dans ce graphe nous remarquons une première partie linéaire lorsque le nombre de spires est
+compris ente 0 et 100 spires. Il semble donc que la loi de Faraday correspond à la réalité. Cependant
+au-delà de 100 spires nous remarquons que la tension induite ne varie plus proportionnellement.
+
+32
+
+L’Eolienne Savonius
+
+2008
+2009
+
+D’après ces résultats on peut supposer l’existence d’une limite, c’est-à-dire qu’à partir d’un nombre
+de spires la tension induite n’augmentera plus. On peut donc parler de saturation de l’induction
+électromagnétique.
+Lorsque nous comparons les valeurs, nous voyons qu’en doublant le nombre de spires de 160 à 320
+nous n’augmentons la tension induite que de 11.6%. Ce qui représente une augmentation faible alors
+que nous avons doublé la quantité de bobine utilisé. Nous pouvons alors affirmer que d’un point de
+vue économique il est préférable d’utiliser un système {bobines} de 160 spires à un système
+{bobines} de 320 spires.
+En ce qui concerne l’optimisation de ce paramètre, il n’existe pas de nombre de spires optimal car
+cela dépend de la puissance des aimants et des caractéristiques du générateur utilisé. Cependant
+nous pouvons établir un nombre de spires optimal si l’on tient compte du temps nécessaire à la
+fabrication des systèmes bobines, de la place que ces bobines occupent et de la tension induite aux
+bornes de celles-ci. Dans ce cas le système {bobines} de 160 tours semble être le système optimal.
+
+Conclusion
+Finalement, nous pensons pouvoir dire que nous avons atteint une bonne partie de nos objectifs de
+départ.
+Tout d’abord, grâce à une étude approfondie du fonctionnement du rotor Savonius, nous sommes
+parvenus à comprendre bien plus précisément les mécanismes de notre éolienne. Mais, plus que ça,
+c’est ce projet qui nous a poussé à nous intéresser au phénomène d’induction électromagnétique (et
+plus généralement, au magnétisme tout court) dont nous ne savions presque rien jusqu’alors.
+Ensuite, l’optimisation de l’écart des pales, point central de notre étude, s’est finalement soldée par
+l’obtention d’un résultat concluant : un rapport optimal se situe aux alentours de 1/3
+De même pour le cas des systèmes de bobines : a partir d’une certaine valeur que nous avons réussi
+déterminer, la loi de faraday n’est plus vérifiée. Mieux : la valeur de la tension induite semble tendre
+vers une limite. Nous en avons déduit que le meilleur système en termes de rapport
+Performance/Coût de production se situait entre les systèmes 120 spires et 200 spires.
+Enfin, nous tenons à dire que même les difficultés rencontrées, que ce soient celles du début du
+projet (mesures imprécises, maquettes imparfaites…) ou bien celles de fin de parcours (cas de la
+matrice d’inertie par exemple), ont été enrichissantes, car elles nous ont enseigné les difficultés
+d’une démarche expérimentale ainsi que l’exigence de la rigueur et de la précision.
+Notre travail n’étant pas tout à fait terminé, nous comptons bien continuer notre projet (notamment
+à propos de tout ce qui se ramène au calcul de la matrice d’inertie) et nous espérons réussir à
+avancer suffisamment rapidement pour présenter au palais de la découverte de nouvelles
+informations qui ne sont pas contenues dans ce dossier.
+
+33
+
+L’Eolienne Savonius
+
+2008
+2009
+
+1. Jean-Luc Menet, Nachida Bourabaa, Increase in the savonius rotors efficiency via a
+parametric investigation, Ecole Nationale Supérieure d’ingénieurs en Informatique
+Automatique Mécanique Energétique Electronique de Valenciennes (ENSIAME)
+2. Eugene Hecht, Physique, De Boeck Université, 1999, ISBN 2-7445-0018-6
+3. Guy Fontaine, Jean-Claude Paul, Adolphe Tomasino, Physique, 1989, ISBN 2-09-174701-7
+4. Pembina Institute, Build your own turbine, 2006
+5. Ben F. Blackwell, Robert E. Sheldahl, Louis V. Feltz, Wind Tunnel Performance Data for TWOand Three-Bucket Savonius Rotors, 1977
+
+Nous tenons à remercier tout particulièrement l’ensemble des personnes qui ont aide à la réalisation
+de ce projet. En tout premier lieu nos deux professeurs encadrants, Mme Larasse et M. Boisseleau,
+pour leur disponibilité, la qualité de leurs conseils et de leurs remarques, et leurs relectures
+attentives.
+Vient ensuite notre principal contact, Maximilien Petitgenet, jamais avar d’explications et de
+réponses. Nous l'avons connu grâce au journal de la technopole du Futuroscope de juillet 2008. Son
+domaine d'expertise étant celui des éoliennes à axe vertical, il nous a été, et nous sera, d’une aide
+précieuse.
+Nous remercions également tous ceux qui nous ont aidé dans une moindre mesure, qui nous ont
+tout de même apporté un petit plus, ce qui n’est jamais superflu et toujours bienvenu. Merci à notre
+professeur de Physique, merci à Maxime Thielois, professeur de technologie qui nous aide en ce
+moment à réaliser de nouvelles maquettes.
+
+34
+
+L’Eolienne Savonius
+
+2008
+2009
+
+Nous proposons en annexe un rapide survol (non-exhaustif) de nos mesures, de nos résultats, ainsi
+que de nos exploitations. Nous avons ainsi l’opportunité de présenter également tous les graphes et
+autres tableaux de mesures que nous n’avons pu insérer dans les grandes parties de ce dossier. En
+effet, comme nous l’évoquions en conclusion, nous avons parfois éprouvé quelques difficultés, tout
+particulièrement au début du projet, dans la mesure où nous n’arrivions pas à obtenir des résultats
+suffisamment précis. D’où un certain nombre de résultats que nous avons refusé de dévoiler dans le
+dossier.
+
+Distance (cm)
+
+25
+
+30
+
+35
+
+40
+
+45
+
+50
+
+Vitesse max(m/s) 11,2
+
+10,1
+
+10,3
+
+9,3
+
+8,5
+
+Vitesse moyenne
+(m/s)
+
+11,1
+
+9,3
+
+9,85
+
+8,35
+
+8
+
+Vitesse min (m/s)
+
+11
+
+8,5
+
+9,4
+
+7,4
+
+7,5
+
+55
+
+7,9
+
+60
+
+65
+
+70
+
+75
+
+80
+
+7
+
+6,1
+
+6 5,7
+
+5,5
+
+7,2
+
+7 6,55 6,25
+6,1
+
+5,9
+
+5,5
+
+5,2 5,35 5,25 4,75
+4,3 4,7 4,8
+
+V (m/s)
+
+V(D) = 16.02*exp(-D/0.6321)
+10
+
+8
+
+6
+
+4
+
+2
+
+0.1
+
+0.2
+
+0.3
+
+0.4
+
+0.5
+
+0.6
+
+0.7
+
+0.8
+D (m)
+
+Vitesse du vent en fonction de la distance à la soufflerie
+
+35
+
+4
+
+L’Eolienne Savonius
+
+2008
+2009
+
+Lambda (m-1)
+0.7
+
+0.6
+
+0.5
+
+0.4
+
+0.3
+
+0.2
+
+0.1
+
+0.1
+
+0.2
+
+0.3
+
+0.4
+
+0.5
+
+0.6
+
+0.7
+
+0.8
+
+0.9
+D (m)
+
+Lambda en fonction de la distance à la soufflerie. Nous avons défini lambda comme le rapport de la
+vitesse d’un point situé à l’extrémité d’une des pales de l’éolienne, sur la vitesse du vent au niveau de
+l’éolienne.
+Nous avons également réalisé, dans les toutes premières semaines, le graphe suivant, qui rend
+compte de la tension induite en fonction de la fréquence de rotation du rotor :
+U (V)
+
+6
+
+U(f) = 0.4011*f
+5
+
+4
+
+3
+
+2
+
+1
+
+2
+
+4
+
+6
+
+8
+
+10
+
+12
+
+14
+
+16
+f (Hz)
+
+Tension induite en fonction de la fréquence (sur maquette M1,1/3)
+
+36
+
+L’Eolienne Savonius
+
+2008
+2009
+
+En tenant compte des incertitudes, nous avons pu constater que l’évolution était linéaire, ce
+qui correspond à la relation théorique entre la tension et la fréquence du rotor (cf. Partie 3). Nous
+avons tenté de quantifier la force du vent à l’aide de dynamomètres :
+40
+
+Elongation (mm)
+
+35
+30
+25
+20
+15
+
+Elongation dynamomètre (mm)
+
+10
+5
+0
+0
+
+0,2
+
+0,4
+
+0,6
+
+0,8
+
+1
+
+Distance (m)
+
+Elongation du dynamomètre en fonction de la distance à la soufflerie
+Ce qui, traduit en termes de force et de vitesse, donne le graphe suivant :
+F (u.a)
+
+35
+
+30
+
+25
+
+20
+
+15
+
+10
+
+5
+
+1
+
+2
+
+3
+
+4
+
+5
+
+6
+
+7
+
+8
+
+9
+V (m/s)
+
+Force exercée par le vent sur les pales de l’éolienne en fonction de sa vitesse
+Malheureusement, l’imprécision était trop grande pour que ce graphe soit présentable. Nous avons
+donc continué à chercher d’autres pistes.
+
+37
+
+L’Eolienne Savonius
+
+2008
+2009
+R (103 b)
+160
+
+140
+
+120
+
+100
+
+80
+
+60
+
+R(V) = 1.179E4*V
+40
+
+20
+
+2
+
+4
+
+6
+
+8
+
+10
+
+12
+
+14
+V (m/s)
+
+Nombre de Reynolds en fonction de la vitesse de rotation
+Là encore, le résultat n’est pas surprenant. Nous avons alors décidé de nous pencher sur la
+géométrie de l’éolienne.
+Nous avons effectué une série de mesures sur deux maquettes conçues à cet effet : une de rapport
+Ra = 1/3 (M1, 1/3) et une autre de rapport Ra = 1/6 (M1, 1/6)
+
+Distance soufflerie/éolienne (m)
+0.95
+0.90
+0.85
+0.80
+0.75
+0.70
+0.65
+0.60
+0.55
+0.50
+0.45
+0.40
+0.35
+0.30
+
+Période
+(de la
+tension)
+0,0280
+0,0252
+0,0246
+0,0234
+0,0226
+0,0211
+0,0203
+0,0195
+0,0187
+0,0180
+0,0171
+0,0170
+0,0164
+0,0163
+
+Fréquence (de la
+tension) (Hz)
+35,7
+39,7
+40,7
+42,7
+44,2
+47,4
+49,3
+51,3
+53,5
+55,6
+58,5
+58,8
+61,0
+61,3
+
+Fréquence de
+Force du
+l’éolienne (Hz) vent (en mm)
+8,93
+9,93
+10,18
+10,68
+11,06
+11,85
+12,32
+12,82
+13,37
+13,89
+14,62
+14,71
+15,24
+15,34
+
+6
+6
+9
+10
+10
+12,5
+17
+19
+24
+27
+26
+25
+21
+34
+
+Tension (V)
+3.1
+3,3
+3,5
+3,8
+3,9
+4,2
+4,3
+4,5
+4,7
+4,9
+5,1
+5,1
+5,3
+5,4
+
+Mesures effectuées sur la maquette M1, 1/6. Comme expliqué dans la partie 2, la fréquence de la
+tension correspond à la fréquence de l’éolienne multipliée par 4.
+
+38
+
+L’Eolienne Savonius
+
+2008
+2009
+
+Ce qui nous permet de dresser les deux graphes suivants :
+F (Hz)
+60
+
+50
+
+40
+
+30
+
+F(D) = -0.4035*V+75.2
+20
+
+10
+
+10
+
+20
+
+30
+
+40
+
+50
+
+60
+
+70
+
+80
+
+90
+D (cm)
+
+Fréquence (de la tension) en fonction de la distance (maquette M1, 1/6)
+U (V)
+
+U(D) = -0.03609*D+6.62
+
+5
+
+4
+
+3
+
+2
+
+1
+
+10
+
+20
+
+30
+
+40
+
+50
+
+60
+
+70
+
+80
+
+90
+D (cm)
+
+Tension induite en fonction de la distance (maquette M1, 1/6)
+
+39
+
+L’Eolienne Savonius
+
+2008
+2009
+
+Et de même pour la maquette Ra = 1/3 :
+Distance (en cm)
+95
+90
+85
+80
+75
+70
+65
+60
+55
+50
+45
+40
+35
+
+Tension
+min
+3,68
+3,84
+4
+4,24
+4,44
+4,76
+4,96
+5,2
+5,44
+5,76
+6,08
+6,32
+6,58
+
+Tension
+Max
+3,76
+3,92
+4,08
+4,32
+4,56
+4,8
+5,04
+5,32
+5,52
+5,92
+6,16
+6,46
+6,7
+
+Tension
+moyenne
+3,72
+3,88
+4,04
+4,28
+4,5
+4,78
+5
+5,26
+5,48
+5,84
+6,12
+6,39
+6,64
+
+Fréquence
+min
+35,21
+37,88
+39,68
+42,37
+44,64
+47,17
+50
+51,55
+55,56
+58,14
+62,5
+64,1
+65,79
+
+Fréquence
+Max
+35,71
+38,46
+40,32
+43,1
+45,45
+47,62
+51,02
+52,08
+56,18
+58,82
+63,29
+64,94
+66,67
+
+Fréquence
+moyenne
+35,46
+38,17
+40
+42,74
+45,05
+47,4
+50,51
+51,82
+55,87
+58,48
+62,9
+64,52
+66,23
+
+Fréquence
+moyenne (du rotor)
+8,87
+9,54
+10
+10,68
+11,26
+11,85
+12,63
+12,95
+13,97
+14,62
+15,72
+16,13
+16,56
+
+Mesures effectuées sur la maquette M1, 1/3
+
+Ainsi que les graphes associés :
+U (V)
+
+6
+
+5
+
+4
+
+3
+
+U(D) = -0.04939*V+8.275
+2
+
+1
+
+10
+
+20
+
+30
+
+40
+
+50
+
+60
+
+70
+
+80
+
+90
+D (cm)
+
+Tension en fonction de la distance (maquette M1, 1/3)
+
+40
+
+L’Eolienne Savonius
+
+2008
+2009
+
+F (Hz)
+
+60
+
+50
+
+40
+
+30
+
+20
+
+F(D) = -0.5288D+85.08
+10
+
+10
+
+20
+
+30
+
+40
+
+50
+
+60
+
+70
+
+80
+
+90
+D (cm)
+
+Fréquence (de la tension) en fonction de la distance (maquette M1 ,1/3)
+Seulement, considérant que le facteur distance était finalement relatif à nos expériences, nous avons
+finalement préféré prendre pour variable la vitesse du vent, plus générale, et obtenue grâce à la
+courbe donnée au tout début de cette annexe. En superposant alors les deux courbes, on obtient :
+f1 (Hz) f2
+16
+
+14
+
+12
+
+10
+
+f1(V) = -0.088*V^2+2.512*V+1.071
+8
+
+f2(V) = -0.112*V^2+2.502*V+1.653
+6
+
+4
+
+2
+
+1
+
+2
+
+3
+
+4
+
+5
+
+6
+
+7
+
+8
+
+9
+V (m/s)
+
+Fréquence de rotation du rotor en fonction de la vitesse du vent. La courbe f1 correspond à la
+maquette M1, 1/3 et la courbe f2 correspond à la maquette M1, 1/6
+
+41
+
+L’Eolienne Savonius
+
+2008
+2009
+
+C’est afin de pouvoir déterminer un rapport optimal que nous avons construit la maquette M2,
+présentée dans la première partie de ce dossier. En refaisant sur cette maquette une partie des
+mesures que nous venons d’exposer, et en effectuant les calculs détaillés dans la partie 4, nous
+sommes finalement parvenu à obtenir ce graphe :
+
+Rendement total en fonction du rapport
+Ce qui conclut l’optimisation de la géométrie de l’éolienne, juste à temps pour présenter notre travail
+lors des sélections académiques. Une fois ce stade passé, nous avons pu continuer notre étude en
+vue de la finale nationale. Nous nous sommes intéressés au système {bobine}, après avoir compris
+que le phénomène d’induction électromagnétique s’opposait à la rotation de l’éolienne, rendant
+ainsi possible un éventuel système {bobines} optimal.
+Nous avons fixé la distance à 91 cm, et nous avons déterminé que la hauteur de là bobine serait
+proportionnelle au nombre de spire (afin de ne pas fausser nos résultats) :
+Nombre de spires
+
+42
+
+Hauteur (cm)
+80
+0,7
+100
+0,875
+120
+1,05
+160
+1,4
+200
+1,75
+260
+2,275
+320
+2,8
+
+L’Eolienne Savonius
+
+2008
+2009
+
+Premièrement, nous avons voulu constater que cette force s’opposant à la rotation, s’exerçait bien
+dans notre cas. Nous avons donc réalisé une rapide expérience :
+Circuit
+ouvert
+Vitesse angulaire
+(rad/s)
+
+Circuit
+fermé
+
+41,94
+
+Puissance
+ouverte
+
+38,77
+
+Puissance
+fermée
+
+1,09631
+
+Puissance
+cédée
+
+1,01345
+
+0,08286
+
+Maquette (M2, 0.305) Distance = 91 cm et nombre de spires N = 160
+(En effet, il n’y a pas de force s’exerçant sur les pales de l’éolienne lorsque le circuit est ouvert (cf.
+partie 2))
+Ensuite, nous avons mesuré la valeur de la tension induite en fonction du nombre de spires sur nos
+deux systèmes de bobines, 160 et 80 spires :
+Distance (m)
+
+Tension (V) 80
+tours
+
+Tension(V) 160
+tours
+
+Quotient
+
+0,9
+
+1,8
+
+3,4
+
+1,89
+
+0,8
+
+1,98
+
+3,72
+
+1,88
+
+0,7
+
+2,2
+
+4,12
+
+1,87
+
+0,6
+
+2,32
+
+4,4
+
+1,9
+
+0,5
+
+2,5
+
+4,8
+
+1,92
+
+Mesures effectuées sur la maquette M1, 1/3
+En reprenant ces valeurs sur un graphique donnant l’évolution de la tension induite en fonction de la
+fréquence :
+U_80 (V) U_160 (V)
+
+4.5
+4
+
+U_80(f) = 0.1884*f
+U_160(f) = 0.357*f
+
+3.5
+3
+2.5
+2
+1.5
+1
+0.5
+
+2
+
+4
+
+6
+
+8
+
+10
+
+12
+
+14
+f (Hz)
+
+43
+
+L’Eolienne Savonius
+
+2008
+2009
+
+Nous avons dû alors construire plusieurs autres systèmes de bobines : 40, 100, 120, 200, 260 et 230
+spires. Enfin, nous avons effectué les mêmes mesures que précédemment (mais sur la maquette M2,
+0.305) :
+Spires (N)
+
+44
+
+Résistance du système
+
+Amplitude tension
+
+Fréquence
+
+40
+40
+40
+40
+
+2
+2
+2
+2
+
+0,98
+1,12
+1,06
+1
+
+24,75
+25,25
+24,75
+25
+
+80
+80
+80
+80
+
+3,4
+3,4
+3,4
+3,4
+
+2,08
+2,02
+2,06
+2
+
+25
+25,51
+25,77
+25,71
+
+100
+100
+100
+100
+
+4,8
+4,8
+4,8
+4,8
+
+2,42
+2,4
+2,46
+2,48
+
+25
+25,25
+25
+24,75
+
+120
+120
+120
+120
+
+5.1
+5.1
+5.1
+5.1
+
+2,78
+2,7
+2,74
+2,76
+
+25
+24,5
+24,75
+25,25
+
+160
+160
+160
+160
+
+6,5
+6,5
+6,5
+6,5
+
+3,08
+3,06
+3,06
+3,1
+
+25
+24,75
+24,75
+25
+
+200
+200
+200
+200
+
+8,4
+8,4
+8,4
+8,4
+
+3,26
+3,18
+3,18
+3,2
+
+24,1
+24,2
+24,3
+24,04
+
+260
+260
+260
+260
+
+11,2
+11,2
+11,2
+11,2
+
+3,32
+3,34
+3,32
+3,32
+
+25
+24,75
+24,51
+24,75
+
+320
+320
+320
+320
+
+13,5
+13,5
+13,5
+13,5
+
+3,46
+3,44
+3,42
+3,4
+
+24,75
+25
+25,25
+25
+
+L’Eolienne Savonius
+
+2008
+2009
+
+Et nous obtenons ainsi le graphique suivant :
+U (V)
+
+3
+
+2.5
+
+2
+
+1.5
+
+1
+
+0.5
+
+50
+
+100
+
+150
+
+200
+
+250
+
+300
+N
+
+Tension induite en fonction du nombre de spires (maquette (M2, 0.305))
+
+45
+
+

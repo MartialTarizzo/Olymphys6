@@ -1,0 +1,672 @@
+OLYMPIADES DE PHYSIQUE 2008
+
+LGT Jean Monnet
+
+Annemasse
+
+74
+
+Pourquoi orienter un panneau solaire ?........................... p 3
+Hypothèse de départ...................... ........... ........... p 3
+PRESENTATION GENERALE
+I) Première approche : Explication du système d’axe.......... p 4
+II) Présentation des moteurs..................................... p 6
+III) Présentation de la platine................................... p 8
+IV) Alimentations.................................................. p 10
+MODES DE FONCTIONNEMENT
+I) Mode par suivi théorique....................................... p 12
+II) Mode capteur
+1° Placement des capteurs.................................... p 13
+2° Présentation du support de capteur....................... p 14
+3° Présentation de la plaque électronique.................... p 16
+4° Présentation du programme................................ p 18
+III) Cycle de départ.............................................. p 19
+IV) Mode utilisant la tension du panneau........................ p 21
+BILAN ENERGETIQUE............................................p 22
+QUELQUES APPLICATIONS......................................p 24
+ANNEXES.................................................................... p 25
+
+Pourquoi orienter un panneau solaire ?
+Un panneau solaire transforme l’énergie du soleil en énergie électrique : Le
+panneau est constitué de couches de silicium chargées positivement et
+négativement. Quand les rayons du soleil entre en contact avec le panneau, il
+fournit de l’énergie qui permet de réaliser une réaction entre les couches : Cela
+crée une différence de potentiel électrique et donc crée un courant électrique
+qui peut charger des batteries. De plus, plus le panneau reçoit d’énergie solaire,
+plus il produit d’électricité.
+Cela nous a amené à réfléchir à
+comment optimiser la réception d’énergie.
+Après quelques recherches, nous avons
+découvert que le panneau reçoit mieux les
+rayons du soleil si ceux ci arrivent
+perpendiculairement au plan formé par le
+panneau (comme sur l’image de gauche de la
+figure si dessous). Il y a plusieurs raisons à
+cette position :
+-La réflexion est quasi nulle quand le panneau
+est de face.
+-Nous avons aussi remarqué que, comme nous
+montre la figure à gauche, la surface sur
+laquelle les rayons tapent est réduite quand le
+panneau n’est pas perpendiculaire aux rayons
+
+Hypothèse de départ
+Nous avons, pour trouver comment orienter
+le panneau, réalisé une étude sur le
+déplacement de la terre autour du soleil. Cela
+nous a amené à découvrir que la terre ne
+réalise pas un cercle autour du soleil, mais
+une ellipse (voir figure). Cela modifie
+l’attraction gravitationnelle du soleil sur la
+terre et donc fait varier la vitesse de terre :
+La terre ne tourne pas à vitesse constante
+autour du soleil, cela influe sur la durée des
+journées : La rotation de la terre sur elle même est influencée par celle de la
+terre autour du soleil. Cela modifie l’heure du « midi moyen » (qui est la moyenne
+entre les midis), le midi étant le moment de la journée ou le soleil est le plus haut
+dans le ciel. Cela fait aussi varier la durée des journées. Ce décalage n’étant pas
+constant et de plus, relativement minime, nous n’en tiendrons pas compte pour la
+suite.
+
+I) Première approche : Explication du système d’axe
+Comme nous l’avons vu précédemment, le panneau solaire doit suivre le
+soleil, c’est à dire, il faut que les rayons qu’il reçoit lui soient perpendiculaires.
+Pour cela, il faut rendre le panneau mobile, il faut donc concevoir un mécanisme
+qui permettrait au panneau de suivre le soleil suivant sa position dans la journée
+(de l’est à l’ouest) et sa hauteur dans le ciel qui change avec la déclinaison
+solaire (angle variant à cause de l’inclinaison de la terre).
+Cela nous fait donc deux axes à contrôler. Pour cela, sur notre système
+nous avons deux moteurs qui ont pour chacun d’eux, le but de rendre un de ces
+mouvements possible.
+Nous avons un moteur qui entraîne la rotation d’un arbre sur lequel est
+fixé le panneau. Cela donc permettra au panneau d’aller de l’est à l’ouest.
+
+Pour le deuxième axe, nous avons un moteur qui entraîne une vis sans fin afin
+d’obtenir un pantographe ou une sorte de cric. En tournant, la vis sans fin
+éloignera ou rapprochera les côtés du cric à l'aide d'écrous dans lesquels celle-ci
+passe. Ceci fera rétrécir ou grandir le cric.
+
+Ainsi, mécaniquement, le panneau peut suivre le soleil. Mais de quel façon doit-on
+gérer ces deux axes pour y parvenir ?
+Pour cela, il nous faut étudier la trajectoire du soleil par rapport à la
+Terre. Nous nous
+placerons alors dans
+le référentiel
+terrestre, c'est à
+dire, dans le cas où le
+Soleil tourne autour
+de la Terre. Le soleil
+mets alors dans ce
+cas 24h pour
+effectuer sa rotation
+autour de la terre.
+Au cours de l’année, sa hauteur dans le ciel (déclinaison) varie :Nous
+pouvons remarquer que la trajectoire du soleil pendant la journée forme un plan.
+Or, pour que notre panneau soit orienté plein soleil, il faut donc qu’il soit
+perpendiculaire à ce fameux plan.
+De plus, comme la hauteur du Soleil au zénith ne varie que de quelques
+degrés par mois, il nous suffit de régler la hauteur du panneau une fois par
+semaine.
+
+II) Présentation des moteurs
+Pendant la journée, il n'y a que le premier moteur (est/ouest) qui
+fonctionne. Ce moteur est dit pas à pas, c'est-àdire qu’il permet de transformer une impulsion
+électrique en un mouvement angulaire appelé
+« pas ». Ce type de moteur possède un certain
+nombre de crans qui sont franchis grâce à
+l’impulsion de l’automate. L’automate contrôle
+donc la vitesse de rotation du moteur mais
+également son déplacement angulaire.
+Dans notre cas, Ce type de moteur peut
+être très intéressant, car en connaissant le
+déplacement qu’a effectué le panneau pour « trouver » le soleil, nous pouvons
+détecter d’éventuelles erreurs de fonctionnement. Par exemple, imaginons que
+l’horloge de l’automate indique 12h et que le panneau soit complètement dirigé
+
+vers l’ouest, l’automate pourra alors voir l’erreur et la corriger ou, autre
+exemple, empêcher l’axe de tourner au delà des angles limites. Ceci nous évite
+donc de mettre une multitude de capteur de position.
+Mais ceci n’est pas le seul avantage que nous avons à utiliser un tel moteur.
+En effet en connaissant le déplacement du panneau par rapport à sa position Est,
+Nous pouvons alors calculer l’heure qu’il est à ce moment précis cependant ce
+résultat reste très relatif car nos capteurs ne sont pas d’une précision parfaite,
+mais suffisamment pour donner une valeur approchée. Plus tard nous
+expliquerons ce principe plus en détail.
+
+Pour le deuxième axe nous utiliserons le
+moteur de gauche, qui est un moteur « normal ».
+Il possède juste un couple très élevé, e qui
+permet de résister facilement aux intempéries
+Pour déterminer le déplacement nous
+avons un capteur de position qui compte le
+nombre de tour.
+
+Ce graphique représente l’inclinaison effectuée en fonction du nombre de tours
+du moteur
+Nous pouvons remarquer que la courbe n’est pas régulière, mais pour
+simplifier, nous prendrons des valeurs plus ou moins approximatives symbolisées
+par la droite en rouge
+100
+Inclinaison en Degres
+
+90
+80
+70
+60
+50
+40
+30
+20
+10
+0
+0
+
+10
+
+20
+
+30
+
+40
+
+50
+
+60
+
+70
+
+Nbre tours
+
+80
+
+90
+
+100 110 120
+
+III) Présentation de la platine
+La platine et la partie commande de notre système c'est-à-dire qu’elle
+gère toutes les données des capteurs pour ensuite donner les ordres à la partie
+opérative qui en les exécutant permettra au système de remplir sa fonction
+principale qui est d’orienter un panneau solaire.
+D’une façon plus simple nous pouvons considérer la platine comme le
+« cerveau du système », c’est pourquoi elle est essentielle et organisée de
+manière ordonnée en plusieurs parties qui on toute un rôle important dans le
+fonctionnement du « corps » dans son entier.
+
+L’automate :
+*Une fois les
+informations récupérées, elles
+sont gérées et analysées par
+l’automate (matière grise) qui
+va en déduire des ordres, des
+informations d’après le
+programme inséré dedans.
+
+Les borniers :
+* Les capteurs (yeux, peau,
+oreilles…) reçoivent des informations qui
+par le biais du câble électrique (nerfs) les
+achemine jusqu’à la platine (cerveau) par
+des connections qui sont les borniers.
+Ceux-ci servent également à amener
+l’énergie alimentant la platine
+
+Les fusibles :
+*Mais comme notre cerveau, l’automate
+a besoin d’être alimenté en énergie. Les
+fusibles ont pour rôle de sécuriser l’automate
+de cette énergie en coupant l’alimentation dans
+le cas où nous aurions trop d’énergie arrivant
+dans les composants.
+
+Les relais :
+*Ces ordres doivent être
+exécutés par les moteurs (membres,
+muscles) pour cela on utilise des
+relais (moelle épinière) qui contrôlent
+le courant arrivant dans les moteurs
+(énergie, calorie)
+
+Dans le corps humain, l’énergie est réapprovisionnée en nous alimentant.
+Avec notre système c’est la même chose.
+L’énergie produite par le panneau (nourriture) est stockée dans des
+batteries (estomac) et auparavant aura été régulée, mise à la bonne tension
+grâce au régulateur (œsophage). Ensuite grâce aux câbles (système sanguin),
+l’électricité alimente toutes les parties du système.
+
+IV) Alimentations
+1° Alimentation des batteries
+Mais analysons maintenant cette alimentation électrique avec plus de
+précision :
+
+L’énergie produite par les panneaux est
+régulée à la tension de 12v qui va
+ensuite alimenter deux batteries de 12v
+branchées en série. Nous obtenons alors
+du 24v ou du 12v
+
+2° Alimentation du moteur pas à pas
+Pour faire fonctionner le moteur pas à pas, nous avons besoin d’une tension
+de 8 volts. Or, nous ne disposons que de 12V et 24V. C’est pourquoi, nous allons
+utiliser un régulateur de tension réglable à base de LM 317.
+
+LM 317
+R1
+
+12 V
+
+8V
+
+R2
+
+3° Alimentation de la carte
+
+Masse créée
+
+La carte est alimentée en 12V continu, mais pour l’alimentation des
+amplificateurs opérationnels (et surtout pour un montage soustracteur), nous
+avons besoin d’une alimentation symétrique (+Vcc et –Vcc). Pour cela, grâce au
+montage ci dessous, nous réalisons un point que nous prenons comme neutre et
+qui nous permet d’avoir du +6V -6V.
+
+I) Mode par suivi théorique
+Comme montré précédemment, nous avons besoin de deux axes pour suivre
+le déplacement du soleil. Dans ce mode, en sachant l’heure, nous allons suivre le
+soleil, en supposant connaître sa position. Pour cela, nous programmons les deux
+axes séparément :
+-L’axe est-ouest :
+*Cet axe effectue presque un demi tour chaque jour et effectue le retour
+pendant la nuit.
+*Le matin, il part à la position « Est maximum »et chaque heure, il réalise
+15°. Le soir, il s’arrête quand il n’a plus assez de soleil.
+-L’axe nord-sud :
+*Cet axe se déplace une fois par semaine : Chaque dimanche soir à 18h, il
+doit faire un tour pour compenser le décalage de la déclinaison solaire.
+Ce mode est relativement simple et pas très précis. De plus, son étude
+complète n’est pas très intéressante à réaliser, c’est pourquoi, nous nous
+attarderons plus sur le mode capteur
+
+II) Mode capteur
+Ce mode permet d’assurer un suivi très précis du soleil, cependant la précision
+des capteurs varie en fonction du temps atmosphérique. En effet si le temps est
+nuageux, ce mode devient moins précis. C’est pourquoi il s’agit plus d’un mode
+« théorique ».
+1° Placement des capteurs
+
+Restistance (en ohms)
+
+Pour le fonctionnement de notre mode, nous
+avons placé un capteur de chaque côté du panneau
+(Voir figure à gauche). Les capteurs Sud et Nord
+servent à orienter l’axe Nord/Sud, puis les
+capteurs Est et Ouest servent à orienter l’axe
+Est/Sud (logique !).Les capteurs sont situés en
+dessous du panneau pour plusieurs raisons.
+Nous avons positionné les capteurs de telle manière que lorsque le panneau
+est orienté plein soleil, ils se
+retrouvent à l’ombre. Mais quand
+le panneau n’est pas orienté, un
+des deux capteurs sort alors de
+l’ombre et perd alors de la
+résistance par rapport à l’autre
+car il est plus éclairé. L’automate
+peut alors détecter ce décalage et le réparer. C’est pourquoi il n’y a que le
+moment où le panneau est correctement orienté où la valeur de sortie des
+capteurs soit égale.
+Mais pourquoi ne pas avoir choisi de les mettre simplement à coté du
+panneau et de comparer leur
+Resistance d'un capteur en fonction de la luminosité
+intensité lumineuse ?
+Comme le montre le graphique
+si dessous, les différences de
+résistances sont bien plus
+importantes lorsque la
+luminosité est faible.
+
+Luminosté (en lumens)
+
+2° Présentation du support de capteur
+
+Nos capteurs sont des photos résistances, c'est-àdire que leur résistance varie en fonction de la lumière qu’ils
+reçoivent. Le problème est qu’ils sont sensibles non
+seulement à la lumière du soleil, mais aussi à tout autre type
+de lumière comme la réflexion du sol. C’est pourquoi il nous
+faut fabriquer un support de capteur qui puisse isoler ces
+rayons « parasites » tout en optimisant ceux du soleil. Pour
+cela nous avons crée ceci :
+
+Il s’agit d’une sorte de boîtier dans lequel nous
+mettons le capteur :
+
+Le capteur est positionné dans une sorte de tube qui lui permet d’isoler les
+rayons « parasites » Mais comment conserver les « bons » rayons ?
+
+A la base du support on installe un miroir qui a pour but de dévier les rayons sur
+le capteur, de telle manière à ce que plus le panneau est orienté plein soleil, plus
+les rayons viennent converger vers le capteur.
+Puis, comme le support sera mis de façon à ce que la normale au panneau
+atteigne juste l’entrée du capteur quand le panneau sera plein soleil, les rayons
+seront alors stoppés par ce dernier et le capteur se trouvera à l’ombre. Nous
+avons alors pendant ce passage une augmentation importante de la résistance.
+
+Quand le panneau n’est pas orienté
+
+Quand le panneau n’est pas orienté plein soleil, alors un des deux capteurs
+est exposé au soleil et l’autre reste à l’ombre. La différence de résistance entre
+les deux est alors largement suffisante pour que l’automate puisse la corriger.
+
+3° Présentation de la plaque électronique
+Le programme exécuté par l’automate est réalisé en grafcet.
+Il permet de faire le lien entre les capteurs et les moteurs.
+Les capteurs nous donnant des donnés analogiques (donnés
+avec une tension variable récupérée à un point (voir figure)),
+elles ne peuvent pas être traitées par l’automate (il n’accepte
+que les données logiques (tension 12V ou 0V)).
+Pour cela, nous avons réalisé un montage électronique qui
+transforme la tension récupérée en donnée logique. Nous
+avons réalisé un montage diviseur avec deux résistances pour
+que la tension soit située entre 0 et +Vcc : Le neutre que nous
+avons créé n’est pas très stable donc nous évitons de le
+charger. Avec le montage de la figure, si la résistance augmente (donc si la
+luminosité diminue), la tension diminue et inversement. Donc plus la tension est
+élevé plus la luminosité est forte.
+Notre montage est réalisé deux fois, une fois pour les capteurs Est et
+Ouest et l’autre pour les capteur Nord et Sud. Dans l’explication nous
+prendrons les capteurs Est et Ouest en exemple. Donc nous avons deux
+capteurs qui nous permettent d’avoir deux tensions qui montrent si la
+luminosité augmente et inversement (UcE pour le capteur Est et UcO pour le
+capteur Ouest.).
+
+Nous les envoyons dans un
+amplificateur opérationnel (AOP) dans
+un montage comparateur à sortie
+logique : Nous obtenons donc à la
+sortie +Vcc si UcE>UcO ou –Vcc si
+l’inverse (On appellera cette sortie
+« sortie 1 de la carte » par la suite).
+Cette sortie est directement reliée à
+l’automate. Or pour l’automate, -Vcc
+représente son neutre donc la sortie
+sera soit 0 soit 12V.
+
+Après, nous avons réalisé deux autres
+montages comparateurs de tensions
+avec sortie logique : l’un compare la
+tension de la soustraction à une
+tension référence comprise entre
+0.01V et 0.9V (tension réglable grâce
+à une résistance variable.), et l’autre
+compare notre tension soustraite à
+une tension référence comprise entre
+-0.9 et -0.01. Cela nous permet de
+savoir si notre tension de soustraction
+est comprise dans un intervalle proche
+de 0.
+
+Pour cela, nous faisons passer les deux
+tensions logiques obtenues (soit U(cE-cO)>0.9 et U(cE-cO)<0.9) dans une porte logique
+ET : si nous sommes dans l’intervalle désiré,
+la sortie sera +Vcc sinon ce sera –Vcc, soit
+0 ou 12V pour l’automate.
+
+Dans la seconde branche de notre
+montage (qu’on appellera « sortie 2
+de la carte » par la suite), nous avons
+commencé par soustraire nos deux
+tensions. Nous pouvons dire que si
+cette soustraction approche de 0
+alors UcE=UcO.
+
+4° Présentation du programme
+Le principe du programme est simple : à l’aide des deux entrées créées par la
+carte, nous savons si le panneau est en position plein soleil, et dans le cas
+contraire, nous savons quel est le capteur ayant l’intensité la plus forte : cela
+nous permet de le remettre au bon endroit.
+Dans le programme, à l’étape 0, deux transitions
+s’offrent : elles ont deux conditions communes : le
+panneau ne doit pas être bien placé (donc la sortie 2
+de la carte n’est pas activée). Nous effectuons
+alors une temporisation de 0.1 seconde sur l’étape
+0, pendant laquelle il ne se passe rien. Cette
+temporisation sert juste à empêcher le programme
+de tourner trop rapidement, autrement il réalise les
+boucles beaucoup trop vite.
+Maintenant, nous savons que si le panneau est
+bien placé, alors il ne se passe rien tout en
+l’empêchant de tourner trop vite. Maintenant,
+il faut savoir comment le régler s’il est mal placé.
+Pour cela, il suffit de savoir si la sortie 1 de la
+carte est activée ou non. Si elle l’est, le capteur Est
+reçoit une intensité lumineuse supérieure au
+capteur Ouest. Cela nous permet de débloquer l’une
+des deux étapes suivantes.
+
+Cette boucle s’arrête à l’étape
+0 quand E=O (dans cet exemple).
+Pour les capteur Nord et Sud, ce
+serait la même chose.
+
+A l’étape 2 ou 3, le moteur tourne dans un
+sens ou dans l’autre en activant l’inverseur ou
+pas. Je laisse juste le temps d’envoyer une
+impulsion au moteur pour qu’il se déplace
+uniquement d’un pas, on repart donc à l’étape 0,
+puis recommence à voir dans quel sens il doit
+tourner jusqu’à se qu’il soit bien placé.
+
+III) Cycle de départ
+
+Ceci n’est pas un mode à proprement parler.
+C’est juste un « autorun ». Le programme qui se lance
+au démarrage représente plus concrètement, un mix
+des deux modes présentés ci dessus, un mix entre un
+suivi au capteur et de la théorie.
+
+Explications : quand nous
+démarrons l’automate avec le
+programme total (les deux
+modes précédents, un moyen de
+changer de mode, et l’autorun),
+nous avons besoin de connaître
+l’heure et la date pour l’exécution du mode
+automatique. Le problème que nous avons avec
+cet automate, c’est qu’il ne possède pas d’écran
+qui nous permette de visualiser et régler
+l’heure.
+Pour cela, nous avons décidé que ce soit
+directement le panneau qui nous permette de
+retrouver l’heure, grâce au mode capteur qui
+détermine la position du soleil dans le ciel, et si
+nous prenons notre mode automatique à l’envers, nous pouvons en faire découler
+l’heure.
+Plus concrètement, voilà le déroulement
+des étapes du programme :
+
+1) Le panneau se positionne face au soleil grâce au capteur
+(même système que dans la présentation du mode capteur).
+2) Quand le panneau est orienté plein soleil, nous connaissons alors la position
+du soleil dans le ciel. Ce qui permet ensuite avec des produits en croix de
+retrouver l’heure et la date (vu que nous supposons la vitesse de la terre
+constante):
+
+Pour l’heure :
+La terre met 24h pour faire un tour sur elle
+même:
+Nous prenons minuit comme point 0° donc :
+[Heure]= (24*[Angle calculé])/360
+Pour la date :
+Nous allons trouvé deux dates car le soleil se
+retrouve deux fois à la même position car il y a deux moments dans l’année
+où la déclinaison solaire est identique vu que c’est en fait un déplacement
+d’ « aller retour ». Les deux déclinaisons extrêmes sont:
+-La déclinaison au solstice d’été : +23,45°
+-La déclinaison au solstice d’hiver : -23,45°
+Ces mesures d’angles sont réalisées par rapport à la déclinaison à
+l’équinoxe. Pour simplifier nos calculs, nous allons prendre les mesures par
+rapport à la déclinaison du solstice d’hiver, donc :
+-La déclinaison au solstice d’été : 46.90°
+-La déclinaison au solstice d’hiver : 0°
+
+Les solstices ne tombant jamais à la même
+date, nous supposons que :
+- Le solstice d’été a lieu le 21 Juin soit
+le
+ème
+172 jour de l’année.
+- Le solstice d’hiver a lieu le 21
+Décembre soit le 355ème jour de
+l’année.
+Si le soleil va du solstice d’hiver vers le
+solstice d’été, nous avons :
+[Date1]=((365*[angle mesuré])/360)+355
+Le produit en croix nous donne le nombre de jours écoulés depuis que
+l’angle est égal à 0° donc depuis le 21 décembre. C’est pour cela, qu’on
+ajoute 355.
+Et si le soleil va du solstice d’été vers le solstice d’hiver, le produit
+en croix nous donne dans ce cas le nombre de jours qu’il reste avant le
+solstice d’hiver donc nous trouvons cette formule :
+[date2]=355-(365*[angle mesuré])/360
+Une fois que nous avons ces deux dates, il faut refaire ce test dix
+jours plus tard pour savoir quelle date est exacte.
+
+IV) Mode utilisant la tension du panneau
+Pour orienter notre panneau nous utilisons des capteur photo résistances,
+nous utilisons leur tension de sortie puisque elle varie en fonction de
+l’intensité lumineuse reçue. Cependant notre panneau réagit à peu près de la
+même façon, c’est à dire que la tension de sortie du panneau varie en fonction de
+l’intensité lumineuse reçue. En effet, plus il y a de lumière, plus grande est la
+tension et inversement.
+Alors dans ce cas, pourquoi ne pas avoir tout simplement utilisé cette
+donnée pour orienter le panneau, il nous aurait suffit de le diriger vers la tension
+la plus forte ?
+Cela est dû au matériel, la tension du panneau correspond à une donnée
+analogique, or notre automate ne possède pas d’entrées analogiques. Donc nous ne
+pouvons pas utiliser cette valeur. Mais avec nos capteurs "photo résistance" nous
+avons aussi au départ des valeurs analogiques alors pourquoi ne pourrait-on pas
+faire pareil avec le panneau ?
+C’est parce que avec les capteurs, nous faisons une comparaison de tension
+qui à juste pour but de trouver quel capteur reçoit le plus de lumière. Or avec le
+panneau il nous faudrait comparer la tension présente avec une antérieure
+( après déplacement du moteur) afin de savoir le sens de rotation à effectuer.
+Ce qui nous est impossible car il faudrait alors créer une fonction mémoire qui
+sauvegarderait les valeurs des tensions pour ensuite les comparer et cela et
+beaucoup trop compliqué pour être intéressant.
+
+BILAN ENERGETIQUE
+Energie consommée
+Composant du système
+utilisant de l’énergie
+Automate
+Carte électronique
+Régulateur
++ Moteur pas a pas
+Moteur continu
+TOTAL
+
+Puissance consommée
+(en W)
+4,6
+0,60
+13,6
+
+Energie pour une journée
+moyenne (en Wh)
+1,1.102
+1,4.101
+3,4
+
+4,8.10-3
+20
+1,3.102
+Remarque : les moteurs ne fonctionnent pas toute la journée comme les autres
+composants.
+1,0
+
+Energie produite
+En utilisant les résultats d’une étude réalisé par la Centrale Solaire de Genève
+(http://www.notre-planete.info/actualites/actu_615_geneve_centrale_solaire.php),
+nous avons pu retrouver que le rendement de l’énergie réelle par rapport à l’énergie
+en fonctionnement optimal est de 11% pour un panneau solaire fixe dans la région de
+Genève.
+En comparant deux études (une de l’INES et l’autre d’une société
+espagnole), nous avons pu trouver que le gain d’énergie d’un panneau orienté par
+rapport à un panneau fixe est de 30 à 40%.
+D’après ces informations, on peut calculer l’énergie réelle produite par notre
+panneau pendant une journée moyenne :
+Puissance du panneau :
+5,2 Wp
+Energie optimale fixe :
+125 W.h
+sur une journée moyenne
+Energie optimale mobile :
+168 W.h
+sur une journée moyenne
+Energie réelle :
+18,5 W.h sur une journée moyenne
+
+Bilan
+Le bilan des énergies est largement négatif ce qui montre que notre système
+n’est pas optimisé pour l’instant.
+Il y a plusieurs raisons pour cela :
+- la taille du panneau est réduite d’où une puissance faible.
+Si on utilise un panneau de puissance égale à 55 Wp, on obtient une énergie
+réelle égale à 196 W.h ce qui suffit à faire tourner notre système (mais ne
+permet pas de récupérer beaucoup d’énergie électrique).
+
+- l’automate n’est pas adapté à notre système.
+En effet, il doit convertir la tension du secteur en une tension continue de
+24 V ce qui représente une perte d’énergie. De plus ses capacités
+dépassent largement ce qu’on lui demande. Il faudrait utiliser un
+microcontrôleur (PIC), qui consomme que très peu d’énergie.
+
+QUELQUES APPLICATIONS
+Des applications industrielles utilisant le même principe que notre système
+existent.
+Ainsi, à Freiburg (Allemagne), on trouve une centrale solaire mobile (voir
+photo).
+Une société espagnole, PROSOLMED à Valence, a aussi commencé à
+commercialiser des « suiveurs » solaires. Contrairement à notre système, ces
+suiveurs n’utilisent qu’un axe de rotation.
+
+De façon réaliste, notre système est surtout adapté pour être fixé à des
+engins mobiles.
+En effet, sa possibilité de vérifier la position du Soleil et d’en déduire la position
+et le mouvement du panneau optimaux est pratique dans le cas d’un bateau ou
+d’un camping car.
+On peut même imaginer une utilisation dans l’espace pour les panneaux
+solaires alimentant les satellites et les stations spatiales.
+
+ANNEXES
+Le bilan financier
+Pour finir nous proposons un bilan financier afin de détailler le coût de notre
+système.
+Batterie 12 V
+Panneau solaire
+Petit matériel
+
+56,73 €
+67 €
+10,65 €
+
+payé par le crédit Olympiades.
+payé par le crédit Olympiades.
+payé par le crédit Olympiades.
+
+Moteur pas à pas (+ pièces de rechange)
+90,82 €
+payé par le crédit Rectorat.
+Régulateur solaire
+29,95 €
+payé par le crédit Rectorat.
+Tous le reste : automate, pièces usinées, composants électriques, parties mobiles
+en bois et métal … ont été fournies par les laboratoires de sciences de
+l'ingénieur, de sciences physiques et de mécanique-productique du lycée ou
+récupérés par nos soins.
+
+Remerciements
+Un remerciement particulier aux professeurs de mécanique pour leur aide et leur
+patience pour l'usinage des pièces de notre système.
+Merci donc à messieurs Dabeesing et Detraz !
+Un remerciement aussi à nos dessinatrices, Elody et Agathe !
+
+

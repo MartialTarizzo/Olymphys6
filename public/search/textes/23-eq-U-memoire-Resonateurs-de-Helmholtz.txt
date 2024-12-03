@@ -1,0 +1,2136 @@
+Équipe U - École Alsacienne
+
+Ambroise Boyer | Chloé Leblanc | Aymeric Molinier | Lilien Sauvage
+
+Résumé du projet
+
+Notre étude a porté sur la propagation du son dans des objets de la vie de tous les jours. Beaucoup d’objets du quotidien résonnent lorsqu’ils sont excités, notamment par une source sonore.
+Nous sommes donc partis à la recherche du meilleur résonateur, dit de Helmholtz, pourvu d’une
+résonance optimale.
+Dans une première partie, nous expliquons d’abord ce qu’est un résonateur et quelles sont les
+caractéristiques qu’on peut lui attribuer. Nous avons ainsi fait plusieurs séries de mesures avec des
+résonateurs de la vie courante : des canettes, des bouteilles variées et même des boules de Noël.
+Dans un deuxième temps, nous avons approfondi notre analyse, ainsi nous avons mesuré la résonance d’un même résonateur en faisant varier son volume interne (par adjonction d’eau). L’étude
+des mesures permet de déterminer plusieurs paramètres intéressants.
+Enfin, nous avons travaillé à la construction de notre propre résonateur et tenté de mettre en
+évidence l’impact des résonateurs sur la réverbération du son dans un milieu clos comme un module
+de cartons que nous avions construit.
+
+Olympiades de Physique
+
+Résumé du projet
+
+Ambroise Boyer | Chloé Leblanc | Aymeric Molinier | Lilien Sauvage
+
+Équipe U - École Alsacienne
+
+Table des matières
+
+Introduction...................................................................................................................................................
+
+1
+
+1.
+
+À la découverte des résonateurs ........................................................................................................
+
+2
+
+1.A. Qu’est ce qu’un résonateur de Helmholtz ? . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+
+2
+
+1.B. Caractérisation du résonateur. . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+
+2
+
+1.C. Mesurer la réponse du résonateur à n’importe quelle fréquence . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+
+3
+
+1.D. Le facteur de qualité . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+
+5
+
+1.E. Analyse des résultats . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+
+6
+
+Étude approfondie de résonateurs ....................................................................................................
+
+7
+
+2.A. De l’étude des volumes . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+
+7
+
+2.B. De l’exploitation des données . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+
+9
+
+2.C. Application à la canette . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+
+9
+
+2.
+
+3.
+
+Jouons avec les résonateurs ................................................................................................................ 10
+3.A. Construisons notre résonateur . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+
+10
+
+3.B. Réverbération & Résonateur . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+
+13
+
+Conclusion ..................................................................................................................................................... 16
+Annexes .......................................................................................................................................................... 18
+De la géométrie de la canette. . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+
+18
+
+Protocole pour la mesure du temps de réverbération . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+
+19
+
+Incertitudes . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+
+20
+
+Couplages de résonateurs . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+
+21
+
+Graphiques, images et schémas................................................................................................................. 23
+Bibliographie & Références ....................................................................................................................... 24
+
+Olympiades de Physique
+
+page 1| 25
+
+Ambroise Boyer | Chloé Leblanc | Aymeric Molinier | Lilien Sauvage
+
+Équipe U - École Alsacienne
+
+Introduction
+Durant l’Antiquité et ce jusqu’au Moyen-Âge, il était très commun de voir des trous dans les murs des églises.
+Ces ouvertures n’étaient pas des défauts de construction, mais en fait des cols de vases enfouis dans la maçonnerie des édifices. De nos jours, cette présence de poteries en terre cuite demeure encore inexpliquée. Depuis le
+XIXème siècle, de nombreuses interprétations d’historiens se sont accumulées pour générer un véritable mystère autour de ces céramiques. Alors que certains archéologues émirent l’idée que ces vases étaient destinés
+à éviter la craquelure des fresques et enduits, d’autres proposèrent qu’ils aient servi à réguler la température
+ainsi que l’humidité des églises. Certains allèrent jusqu’à penser que ces vases étaient des réservoirs à lampes
+à huile, ou bien même des cachettes à trésor. Cependant, l’hypothèse la plus acceptée est que l’utilité de ces
+céramiques était relative à l’acoustique.
+
+Cette interprétation remonte aux textes de Vitruve, au 1er siècle avant J.-C. Dans son traité De Architectura,
+l’ingénieur romain explique que la fonction de ces vases (échéa) était de transmettre les voix d’acteurs. Placés
+dans les théâtres, sous les sièges des spectateurs, ils étaient disposés de manière à ce que les sons partants
+de la scène viennent frapper le fond de chaque vase, se retrouvant ainsi puissamment répercutés. Cependant,
+l’auteur reconnaît lui-même que les vases n’étaient pas présents dans les murs des théâtres romains et, faute
+de précisions, on ne sait pas où il en avait aperçu. Notre étude portera donc sur l’observation des phénomènes
+de la réverbération et comment la présence d’objets de la vie de tous les jours peut influencer la propagation
+du son. En effet, certains objets peuvent agir comme résonateurs dans des espaces clos.
+Après une première partie où nous tenterons d’appréhender le modèle de Helmholtz, de cerner les définitions
+et principales formules relatives au résonateur, nous tenterons d’en proposer une analyse plus approfondie
+en déterminant, pour chaque résonateur, ses caractéristiques et propriétés, pour terminer par une étude de
+l’utilisation ludique que l’on peut faire de ces résonateurs.
+
+Olympiades de Physique
+
+page 1| 25
+
+Équipe U - École Alsacienne
+
+Ambroise Boyer | Chloé Leblanc | Aymeric Molinier | Lilien Sauvage
+
+1.
+
+À la découverte des résonateurs
+
+1.A.
+
+Qu’est ce qu’un résonateur de Helmholtz ?
+
+Hermann V ON H ELMHOLTZ (1821-1894) est à l’origine du tout premier « résonateur de Helmholtz ». Pour
+extraire les harmoniques d’un son total, il imagina des récipients percés d’un orifice et utilisa ces résonateurs
+pour étudier la complexité des sons et accéder à la décomposition harmonique des sons complexes, grâce à
+des séries de résonateurs de tailles différentes.
+Le résonateur Aujourd’hui, un résonateur est en pratique un dispositif constitué d’une enceinte de volume
+V (en m3 ) terminée par un tube fin de longueur l (en m) et de section s (en m2 ). L’air contenu dans l’enceinte
+peut vibrer sous l’action d’une onde sonore émise à l’entrée du tube. C’est un système résonant, de pulsation
+propre : celle-ci est relatée par la formule (5). Lorsqu’on excite un résonateur, le volume d’air V qu’il contient
+entre en surpression, la masse qui le comprime étant l’air contenu dans le col du résonateur. Ce volume d’air
+qui oscille s’échappe difficilement du fait des dimensions contraignantes du col.
+l
+s
+
+V
+Enceinte du résonateur
+
+Col du résonateur
+
+F IGURE 1 – Schéma simplifié d’un résonateur de Helmholtz
+
+1.B.
+
+Caractérisation du résonateur
+
+Un modèle simple Le modèle le plus simple est de volume de l’enceinte en mètres cubes. Dans le disposiconsidérer que l’air situé dans le col oscille en bloc, tif masse-ressort, la masse M peut se mettre à vibrer à
+comme un bouchon qui coulisserait. On considère la fréquence f suivante :
+alors le résonateur comme analogue à un système
+r
+1
+K
+masse-ressort. Si l’on note M la masse d’air contenue
+(3)
+f=
+dans le col, on peut calculer :
+2π M
+
+M = lsρ
+
+Cette fréquence est aussi la fréquence de résonance
+du système : si l’on force la masse M à osciller à la fréoù ρ est la masse volumique de l’air en kilogrammes quence de résonance f , le mouvement sera de grande
+par mètre cube, l la longueur du col en mètres et s la amplitude. La fréquence de résonance d’un résonasection du col (c’est à dire l’aire d’une tranche du col) teur de Helmholtz est donc, par combinaison des foren mètres carrés.
+mules (2) et (3) :
+(1)
+
+L’air, un ressort On peut déterminer la constante de
+raideur notée K de l’air qui joue le rôle de ressort :
+(2)
+
+s2 ρc2
+K=
+V
+
+On a ici, s la section du col en mètres carrés, ρ la masse
+volumique de l’air en grammes par mètre cube, c la célérité du son dans l’air en kilomètres par seconde et V le
+
+Olympiades de Physique
+
+(4)
+
+1
+f=
+2π
+
+s
+
+s2 ρc2
+c
+=
+V lsρ
+2π
+
+r
+
+s
+lV
+
+On peut aussi définir la pulsation propre :
+
+r
+(5)
+
+ω = 2πf ⇐⇒ ω = c
+
+s
+lV
+page 2| 25
+
+Équipe U - École Alsacienne
+
+Ambroise Boyer | Chloé Leblanc | Aymeric Molinier | Lilien Sauvage
+
+De la formule à la mesure Le résonateur a, on l’a vu une fréquence de résonance qui est formalisée dans
+la formule (4) et qui lui est propre en fonction de ses paramètres. On peut chercher à calculer cette fréquence
+mais aussi à la mesurer par différentes méthodes.
+Méthode spectrale On peut déterminer la fréquence de résonance par une étude spectrale du son. Le logiciel A CQUISONIC peut calculer et afficher le spectre d’un enregistrement de l’excitation sonore d’un résonateur. Le logiciel convertit le fichier son (au format WAW) en une représentation graphique de l’amplitude du
+son en fonction du temps. On peut ensuite sélectionner seulement une partie de l’enregistrement (pour éviter
+les perturbations de début d’enregistrement). A CQUISONIC traite les données et affiche le spectre du son, en
+affichant une unité relative (de 0 à 1) en fonction de la fréquence en Hz. Plus l’ordonnée est importante à
+une fréquence donnée, plus la résonance est effective. Le point ayant 1 pour ordonnée est donc le point dont
+l’abscisse correspond à la fréquence de résonance.
+363Hz
+
+1,00
+
+426Hz
+
+UA
+
+Canette de 33cL
+Boule de noël
+
+0,50
+
+0
+
+200
+
+400
+
+600
+
+800 1 000 1 200 1 400 1 600 1 800 2 000 2 200 2 400 2 600 2 800 3 000 3 200 3 400
+f/Hz
+
+F IGURE 2 – Spectre sonore d’un son au contact d’une canette de 33 cl et d’une boule de Noël
+
+1.C.
+
+Mesurer la réponse du résonateur à n’importe quelle fréquence
+
+Matériel nécessaire La mesure de la résonance va s’effectuer avec un générateur basse fréquence (G BF), un
+oscilloscope, microphone introduit dans le résonateur (que ce soit une canette de soda, une boule de Noël, ou
+une bouteille) et un haut-parleur placé à proximité du résonateur.
+Voir le son ! De par la nature des instruments utilisés, on constate que la mesure porte non pas sur une
+mesure du son dans le milieu avec un sonomètre, mais sur une mesure de tension : celle du microphone.
+De fait, la tension aux bornes du microphone est d’autant plus grande que la quantité de son enregistrée par le
+microphone est importante. On utilise ainsi un microphone pour transformer l’énergie acoustique du milieu
+en énergie électrique, dont on peut récupérer les caractéristiques (tension, intensité...) avec un oscilloscope. À
+cet effet, on utilise les deux canaux de l’oscilloscope : le premier pour vérifier la tension délivrée par le générateur qui est transmise au haut-parleur, et le second pour constater la fréquence qui traverse le microphone.
+Une photo du matériel de l’expérimentation est disponible en page 6.
+Protocole Nous avons ainsi placé le résonateur à étudier face au haut-parleur, lui même relié au G BF. Nous
+pouvions envoyer des ondes sonores sinusoïdales à la fréquence de notre choix et voir comment se comportait
+le résonateur. Nous mettions ensuite le microphone dans le résonateur : il ne touchait ni les parois ni le fond
+ni le haut de celui-ci et était positionné toujours à la même profondeur grâce à une marque réalisée sur le
+cordon. Le microphone était branché à un oscilloscope qui mesurait, sur son premier canal, la tension délivrée
+par le générateur basse fréquence, ce qui nous permettait de vérifier que l’amplitude de la tension aux bornes
+du haut-parleur ne variait pas avec la fréquence.
+Olympiades de Physique
+
+page 3| 25
+
+Équipe U - École Alsacienne
+
+Ambroise Boyer | Chloé Leblanc | Aymeric Molinier | Lilien Sauvage
+
+Procédé On constate que la tension aux bornes du microphone passe par un maximum à une certaine fréquence : c’est la fréquence de résonance. On balaie en fréquence autour de la fréquence de résonance et pour
+chaque f on mesure l’amplitude du signal capté par le microphone par étude sur l’oscilloscope. Pour mieux
+visualiser le phénomène de résonance, on trace la courbe de la tension U aux bornes du microphone en fonction de la fréquence de l’onde émise au sein du résonateur. On peut ensuite représenter ces données dans un
+graphique à l’aide des logiciels E XCEL ou R EGRESSI. C’est à partir de l’étude de ces graphiques que l’on peut
+déterminer la fréquence de résonance.
+Conditions expérimentales et facteurs d’incertitudes Les expériences ont ainsi été réalisés vers les mois de
+Mai/Juin 2015 à des températures voisines de 20 à 25◦ C. L’amplitude choisie pour le générateur a toujours été
+la même. Quelques difficultés notables influençant l’incertitude qui entoure ces mesures sont à relever :
+1. D’une part la sensibilité du générateur basse fréquence qui empêche une sélection facile de la fréquence, ce qui
+aboutit à des choix de fréquences relativement irréguliers
+2. La lecture sur l’oscilloscope, malgré les changements de calibre permettant d’affiner la précision, laisse une part
+assez importante d’incertitude.
+3. Le placement du microphone n’était pas parfaitement identique à chaque fois : la décision a donc été prise de
+faire une marque sur le cordon qui le relie à l’oscilloscope pour servir de point de repère qui devait correspondre
+avec le bord haut de l’objet, le microphone était ainsi placé à l’intérieur de l’objet.
+4. À noter que, plus le pas choisi entre deux fréquences testées est faible, plus la détermination de la fréquence
+de résonance est précise. Idéalement il faudrait mesurer la tension aux bornes du microphone pour toutes les
+fréquences audibles possibles ce qui était compliqué.
+
+Les courbes obtenues
+
+0,60
+normale
+longue
+
+0,40
+
+U/V
+
+U/V
+
+0,30
+0,20
+
+0,20
+
+0,10
+
+300
+
+350
+
+400
+f/Hz
+
+450
+
+440
+
+460
+
+480
+
+500
+520
+f/Hz
+
+Étude de la résonance de deux canettes de
+
+Étude de la résonance d’une canette
+
+33cL de géométrie différente
+
+de volume 15 cL
+
+540
+
+560
+
+580
+
+1,00
+0,80
+U
+Umax
+
+1,50
+
+U/V
+
+1,00
+
+0,60
+0,40
+0,20
+
+0,50
+
+−100
+80
+
+90
+
+100
+
+110
+f/Hz
+
+120
+
+130
+
+−50
+
+0
+
+140
+33cL (normale)
+
+33cL (longue)
+
+Étude de la résonance
+
+Évolution relative des résonances
+
+bouteille de volume 75 cL
+
+autour de la fréquence de résonance
+
+Olympiades de Physique
+
+50
+
+∆f
+15cL
+
+75cL
+
+page 4| 25
+
+Équipe U - École Alsacienne
+
+Ambroise Boyer | Chloé Leblanc | Aymeric Molinier | Lilien Sauvage
+
+1.D.
+
+Le facteur de qualité
+Umax
+
+0,30
+
+M
+
+Canette de 33cL
+(normale)
+
+Umax
+√
+2
+
+U/V
+
+∆f
+0,20
+
+0,10
+
+395Hz
+
+300
+
+320
+
+340
+
+360
+
+380
+
+408Hz
+
+400
+
+420
+
+440
+
+460
+
+480
+
+f/Hz
+
+F IGURE 3 – Méthode graphique de détermination du facteur de qualité Q
+Méthode de calcul du facteur de qualité Dans ce l’on calcule ∆f leur différence.
+graphe, on a reporté la tension aux bornes du micro- On obtient ensuite :
+phone à diverses fréquences (placées en abscisses).
+fr
+On constate que la courbe forme un V inversé, et
+(6)
+Q=
+∆f
+qu’on peut donc trouver une valeur fr pour laquelle
+on a Umax . Ce fr est ainsi la fréquence de résonance du
+Un exemple Ici, on a un point M qui a pour coorrésonateur testé, ici une canette de 33cL de volume.
+données (fr ; Umax ) avec M (404 ; 0, 36). On calcule
+Pour calculer le facteur de qualité, on sélectionne la ensuite : 0,√36 ≈ 0, 254. On reporte ensuite les deux
+2
+Umax
+valeur Umax et l’on calcule : √ . À cette valeur, on points A et B tels que leur ordonnée soit aussi 0, 254.
+2
+regarde les deux points correspondants sur le graphe, On obtient ainsi : A (395 ; 0, 254) et B (408 ; 0, 254).
+qui sont placés de part et d’autre de fr du point de On prend ensuite : ∆f = 408 − 395 = 13.
+vue des abscisses et en dessous de Umax du point de
+vue des ordonnées. On reporte leurs deux abscisses et
+Résonateur
+
+On obtient donc : Q =
+
+404
+≈ 31, 1.
+13
+
+Format
+
+Fréquence de résonance
+
+Facteur de qualité
+
+33 cL (normale)
+15 cL
+
+404 Hz
+384 Hz
+512 Hz
+
+28, 9
+22, 6
+20, 5
+
+Bouteille
+
+75 cL
+
+109 Hz
+
+31, 1
+
+Résonateur
+
+Diamètre du col
+
+Fréquence de résonance
+
+Facteur de qualité
+
+32 mm
+
+188, 7 Hz
+220 Hz
+260, 5 Hz
+
+29, 03
+29, 72
+31, 01
+
+Canette
+
+Tube PVC
+
+33 cL (longue)
+
+40 mm
+50 mm
+
+Olympiades de Physique
+
+page 5| 25
+
+Ambroise Boyer | Chloé Leblanc | Aymeric Molinier | Lilien Sauvage
+
+1.E.
+
+Équipe U - École Alsacienne
+
+Analyse des résultats
+
+Le paramètre Géométrie On constate que les deux canettes de même volume (33 cL) mais de dimensions et
+de géométrie différentes, ont des facteurs de qualités différents, et des fréquences de résonance différentes.
+Ce qui est intéressant, c’est de voir en pratique que le volume n’est pas la seule variable d’ajustement du
+facteur de qualité mais que la géométrie du résonateur est une des composantes de mesure de ce facteur de
+qualité. De fait, changer la longueur du col et/ou sa surface, a une incidence sur la résonance du résonateur,
+même à volume global constant.
+Le paramètre Volume En comparant les figures 9 et 10, nous constatons, lors de l’étude de la canette de 15 cl
+que plusieurs caractéristiques ont changé, à commencer par une fréquence de résonance plus élevée, ce qui est
+cohérent avec la formule (4) qui montre que le volume est un des paramètres dans l’expression de la fréquence
+de résonance d’un résonateur. On constate aussi que le facteur de qualité de cette canette est plus faible : il
+n’y a pas de pic de résonance, pas de fréquence de résonance clairement délimitée mais une plage de résonance
+vers 510 Hz.
+Des résultats très différents Nous constatons que la bouteille a un facteur de qualité intéressant, la courbe
+est très resserrée autour du pic de résonance. Cependant, la bouteille n’est pas un résonateur « idéal » : sa
+fréquence de résonance est très faible (vers 107 Hz) ce qui va poser problème lors des expériences futures : de
+fait c’est une valeur de fréquence très basse, un son très grave, très faible par rapport aux fréquences émises
+par la parole humaine par exemple.
+
+F IGURE 4 – Photo du montage expérimental de mesure du facteur de qualité
+De gauche à droite : l’oscilloscope, le GBF, le microphone avec l’objet à tester, et le haut-parleur dirigé vers l’objet
+
+Olympiades de Physique
+
+page 6| 25
+
+Équipe U - École Alsacienne
+
+Ambroise Boyer | Chloé Leblanc | Aymeric Molinier | Lilien Sauvage
+
+2.
+
+Étude approfondie de résonateurs
+
+2.A.
+
+De l’étude des volumes
+
+Vk
+V0
+Vs
+
+F IGURE 5 – Représentation schématique des différents volumes composant un résonateur
+Hypothèses et conditions Nous nous sommes demandés si l’on pouvait faire varier la fréquence de
+résonance d’une canette en faisant varier le volume
+d’air qu’elle contenait. Si l’on se réfère à la formule
+(3), la fréquence de résonance augmente lorsque le volume d’air comprimé diminue. Pour diminuer ce volume, on introduit dans le résonateur un certain volume d’eau qui réduit d’autant le volume Vs . Nous
+prévoyions que la fréquence de résonance augmente
+lorsque le volume du résonateur diminue (lorsque
+la quantité d’eau ajoutée augmente). Nous faisions
+nos mesures pendant une à trois heures dans une salle
+non climatisée, portes et fenêtres fermées, dans le plus
+grand calme. La température a varié dans un intervalle de 25 à 30◦ C en fonction des jours.
+
+En présence d’un volume Veau dans la bouteille on a :
+(9)
+
+Vr = Vs − Veau
+
+En combinant la formule (4) et la formule (17), on peut
+écrire :
+c
+2π
+
+r
+
+(10)
+
+fr =
+
+(11)
+
+⇐⇒ fr2 =
+
+c
+s
+=
+l Vr
+2π
+
+r
+
+s
+l (Vs − Veau )
+
+1
+c2 s
+·
+2
+4π l Vs − Veau
+
+On peut ensuite réécrire (11) sous la forme :
+(12)
+
+fr2 =
+
+avec
+
+a=
+
+a
+Vs − Veau
+
+c2 s
+4π 2 l
+
+Les volumes La forme de la bouteille s’éloigne de la
+forme «idéale» d’un résonateur de Helmholtz tel que
+On peut donc définir, à partir de la formule (12) que :
+présenté en figure 1. Dans la figure ci-dessus le volume
+d’air qui coulisse, qui joue le rôle de masse, corres1
+Vs Veau
+(13)
+=
+−
+2
+pond au volume noté Vk sur la figure. Le volume de
+fr
+a
+a
+l’enceinte de ce résonateur de Helmholtz est noté Vs :
+1
+c’est le volume d’air qui joue le rôle de ressort. Dans
+Courbe obtenue La courbe de F = 2 en fonction
+fr
+la situation initiale, en absence d’eau dans le bouteille,
+du volume d’eau ajouté doit donc être une droite déon a :
+croissante. Les paramètres de cette courbe permettent
+(7)
+Vr = Vs
+de déterminer Vs donc Vk qui représente le volume
+d’air qui coulisse. L’étude permet de modéliser la
+(8)
+Vs = V0 − Vk
+bouteille (ou la canette ou la boule de Noël) comme
+un résonateur de Helmholtz.
+où V0 est le volume total du résonateur
+Olympiades de Physique
+
+page 7| 25
+
+Équipe U - École Alsacienne
+
+Ambroise Boyer | Chloé Leblanc | Aymeric Molinier | Lilien Sauvage
+
+Les courbes obtenues
+Étude de la fréquence de résonance selon le volume d’eau ajouté (pour la canette)
+
+Données
+Régression linéaire
+
+F/10−6 · Hz −2
+
+5,5
+
+1
+= F = A · Veau + B
+fr2
+A = (−1, 9 ± 0, 1) × 10−5 L−1 · Hz −2
+B = (5, 77 ± 0, 09) × 10−6 Hz −2
+
+5
+4,5
+
+Écart-type sur F = 146 · 10−9 Hz−2
+
+4
+
+Intervalle de confiance à 95%
+3,5
+
+20
+
+40
+
+60
+V /mL
+
+80
+
+100
+
+Étude de la fréquence de résonance selon le volume d’eau ajouté (pour la boule de Noël)
+
+F/10−6 · Hz −2
+
+6
+1
+= F = A · Veau + B
+fr2
+A = (−4, 38 ± 0, 9) × 10−6 L−1 · Hz −2
+B = (6, 39 ± 0, 3) × 10−6 Hz −2
+
+5,5
+
+5
+
+Écart-type sur F = 146 · 10−9 Hz−2
+
+4,5
+
+Intervalle de confiance à 95%
+4
+
+0
+
+10
+
+20
+
+30
+V /mL
+
+40
+
+50
+
+Étude de la fréquence de résonance selon le volume d’eau ajouté (pour la bouteille)
+
+F/10−6 · Hz −2
+
+8
+
+7
+
+1
+= F = A · Veau + B
+fr2
+A = (−1, 2 ± 0, 17) × 10−4 L−1 · Hz −2
+B = (8, 7 ± 0, 3) × 10−5 Hz −2
+
+6
+
+Écart-type sur F = 146 · 10−9 Hz−2
+
+5
+
+Intervalle de confiance à 95%
+4
+
+0
+
+50
+
+Olympiades de Physique
+
+100
+
+150
+200
+V /mL
+
+250
+
+300
+
+page 8| 25
+
+Équipe U - École Alsacienne
+
+Ambroise Boyer | Chloé Leblanc | Aymeric Molinier | Lilien Sauvage
+
+2.B.
+
+De l’exploitation des données
+
+De l’exploitation du coefficient directeur
+
+De l’exploitation de l’ordonnée à l’origine
+
+En combinant la formule (21) et l’expression de F On se réfère dans les expressions suivantes aux voavec la régression linéaire effectuée dans R EGRESSI de lumes Vs et Vk définis dans les expressions (15) et (16),
+on peut rappeler :
+forme :
+
+(14)
+
+F = A · Veau + B
+
+(15)
+
+A · Veau + B =
+
+Vs Veau
+1
+Vs
+−
+= − Veau +
+a
+a
+a
+a
+
+1
+1
+On peut ici identifier que A = − ⇐⇒ a = −
+a
+A
+Vs
+Vs
+d’où on peut remplacer :
+= 1 , en rappelant que
+a
+−A
+Vs
+= B on peut écrire :
+a
+
+fr =
+
+c
+2π
+
+s
+c
+=
+l Vr
+2π
+
+(18)
+
+fr2 =
+
+c2 s
+1
+·
+2
+4π l Vs − Veau
+
+r
+
+s
+l (Vs − Veau )
+
+Que l’on peut réécrire comme :
+(19)
+
+fr2 =
+
+avec
+
+a=
+
+a
+Vs − Veau
+
+c2 s
+4π 2 l
+
+à partir de (26) on peut écrire que :
+
+Vs
+B
+1 = B ⇐⇒ Vs = − A
+−A
+
+(16)
+
+r
+
+(17)
+
+(20)
+
+Pour la canette On peut donc calculer pour la ca−5, 77 × 10−6
+nette : Vs = −
+= 3, 03 × 10−1 L =
+1, 9 × 10−5
+30, 3 cL. Et l’on peut calculer : Vk = V0 − Vs =
+33, 0 − 30, 3 = 2, 7 cL.
+
+(200 )
+
+(21)
+
+1
+1
+1
+= · Vs − · Veau
+fr2
+a
+a
+4π 2 l
+1
+= 2
+a
+c s
+2
+c s 1
+l=
+·
+4π 2 a
+1
+étant le coefficient directeur
+a
+
+Résonateur
+
+Volume V0
+
+Volume Vs
+
+Volume Vk
+
+Bouteille
+
+75 cL
+
+72, 5 cL
+
+2, 5 cL
+
+Boule de Noël
+
+16, 3 cL
+
+14, 6 cL
+
+1, 7 cL
+
+Canette
+
+33 cL
+
+30, 3 cL
+
+2, 7 cL
+
+2.C.
+
+1
+est le coeffcient directeur de l’expression, c2 peut
+a
+être déterminé - étant une valeur tabulée - et s estimé
+ou mesuré, donc on peut déterminer la hauteur du col
+pour n’importe quel résonateur.
+
+Application à la canette
+
+Paramètre
+
+Valeur
+
+Section s
+
+3, 4 cm2
+
+Fréquence de résonance f
+
+404Hz
+
+Coeffcient directeur
+
+−1, 9 × 10−2 m−3 · Hz −2
+
+Célérité du son c
+
+344, 85 m · s−1
+
+4π 2 × l
+(344, 85)2 × 3, 4 × 10−4
+2
+⇐⇒ (344, 85) × 3, 4 × 10−4 × 1, 9 × 10−2 = 4π 2 × l
+1, 9 × 10−2 =
+
+Olympiades de Physique
+
+(344, 85)2 × 3, 4 × 10−4 × 1, 9 × 10−2
+4π 2
+0, 768
+⇐⇒ l =
+m
+4π 2
+⇐⇒ l =
+
+⇐⇒ l = 0, 0195 m = 2, 0 cm
+La longueur du col l de la canette fait donc 1, 95 cm
+ce qui est un ordre de grandeur tout à fait cohérent
+avec sa géométrie. En annexe est placée le détail de la
+détermination de l’incertitude pour l.
+page 9| 25
+
+Équipe U - École Alsacienne
+
+Ambroise Boyer | Chloé Leblanc | Aymeric Molinier | Lilien Sauvage
+
+3.
+
+Jouons avec les résonateurs
+
+3.A.
+
+Construisons notre résonateur
+
+Atelier pratique Après les Olympiades régionales, nous avons décidé de construire nous même un résonateur d’un format différent de ceux déjà étudiés. Nous avons commencé par créer un modèle de résonateur en
+PVC qui reprenait la forme basique d’une canette sauf que l’extrémité était droite et non en forme de base de
+cône.
+Construction Nous avons créé ce résonateur à partir de deux tubes en PVC. L’un était un tube normal (complètement ouvert à ses deux extrémités) tandis que l’autre était bouché à seulement l’une de ses extrémités.
+Cette extrémité bouchée possédait un trou dont nous avons fait varier la circonférence (32, 40 ou 50 millimètres de diamètre). Nous avons ensuite assemblé les deux extrémités ouvertes des tubes à l’aide d’un scotch
+renforcé pour empêcher toute fuite d’air du résonateur. Ainsi, nous obtenions un résonateur de Helmoltz dont
+nous connaissions plusieurs paramètres : sa section et son volume.
+La section s L’étude de notre résonateur s’est déroulée en deux phases d’expériences. En premier lieu, nous
+avons étudié la fréquence de résonance et le facteur de qualité du résonateur en faisant varier la section s de
+l’ouverture. Pour réaliser ces mesures, nous avons utilisé le même protocole que pour l’étude des canettes.
+Système étudié
+
+Fréquence de résonance (/Hz)
+
+Facteur de qualité
+
+ds = 32mm
+
+188,7
+
+29
+
+ds = 40mm
+
+220
+
+30
+
+ds = 50mm
+
+260,5
+
+31
+
+ds = 32 mm
+
+ds = 40 mm
+
+ds = 50 mm
+
+0,30
+
+s
+
+0,25
+
+l
+U/V
+
+0,20
+
+S
+
+0,15
+0,10
+0,05
+
+160
+
+180
+
+200
+
+220
+f/Hz
+
+240
+
+260
+
+280
+
+Schéma des paramètres s, S et l
+
+Olympiades de Physique
+
+page 10| 25
+
+Équipe U - École Alsacienne
+
+Ambroise Boyer | Chloé Leblanc | Aymeric Molinier | Lilien Sauvage
+
+Les courbes obtenues
+Étude pour le résonateur ayant un diamètre de col de 32 mm
+
+Umax
+
+0,30
+
+ds = 32 mm
+
+Umax
+√
+2
+
+Umax
+√ = 0, 3044V
+2
+f1 = 185, 5Hz et f2 = 192Hz
+
+U/V
+
+0,20
+
+∆f = 6, 5Hz
+0,10
+
+185, 5Hz
+
+170
+
+175
+
+180
+
+fr = 188,7 Hz
+fr
+188, 7
+Q=
+=
+= 29
+∆f
+6, 5
+
+192Hz
+
+185
+
+190
+f /Hz
+
+195
+
+200
+
+205
+
+Étude pour le résonateur ayant un diamètre de col de 40 mm
+0,30
+Umax
+
+ds = 40 mm
+
+f1 = 216, 6Hz et f2 = 224Hz
+
+U/V
+
+0,20
+
+Umax
+√ = 0, 1964V
+2
+
+Umax
+√
+2
+
+∆f = 7, 4Hz
+0,10
+
+216, 6Hz
+
+200
+
+205
+
+210
+
+215
+
+fr = 220,7 Hz
+220
+fr
+=
+= 30
+Q=
+∆f
+7, 4
+
+224Hz
+
+220
+
+225
+
+230
+
+235
+
+f /Hz
+
+Étude pour le résonateur ayant un diamètre de col de 50 mm
+0,30
+Umax
+
+Umax
+√ = 0, 1849V
+2
+
+Umax
+√
+2
+
+f1 = 255, 8Hz et f2 = 264, 2Hz
+
+U/V
+
+0,20
+
+ds = 50 mm
+
+∆f = 8, 4Hz
+0,10
+
+255, 8Hz
+
+240
+
+Olympiades de Physique
+
+250
+
+fr = 188,7 Hz
+fr
+260, 5
+Q=
+=
+= 31
+∆f
+8, 4
+
+264, 2Hz
+
+260
+f /Hz
+
+270
+
+280
+
+page 11| 25
+
+Équipe U - École Alsacienne
+
+Ambroise Boyer | Chloé Leblanc | Aymeric Molinier | Lilien Sauvage
+
+Conclusion Les mesures effectuées sont très proches des valeurs théoriques calculées. Nos résultats nous
+permettent de revenir à l’une des propriétés du résonateur de Helmholtz : quand on réduit la section, la
+fréquence de résonance augmente.
+Volume d’eau La seconde phase de notre étude expérimentale avait pour but d’étudier l’évolution de la
+fréquence de résonance de notre résonateur (avec une section s de diamètre 32 mm) en fonction du volume
+d’air dans son enceinte. Pour cela nous avons ajouté de l’eau petit à petit dans le résonateur, comme lors de
+l’étude de la fréquence de résonance en fonction de l’eau dans les canettes de 330 mL.
+Les courbes obtenues
+Étude de la fréquence de résonance selon le volume d’eau ajouté (pour le résonateur PVC)
+
+F/10−6 · Hz −2
+
+25
+20
+
+F = A · Veau + B
+A = (−2, 4 ± 0, 2) × 10−5 L−1 · Hz −2
+Ce qui équivaut à :
+A = (−2, 4 ± 0, 2) × 10−2 m−3 · Hz −2
+B = (2, 76 ± 0, 04) × 10−5 Hz −2
+
+15
+10
+
+Écart-type surF = 348, 6 · 10−9 Hz−2
+
+5
+
+Intervalle de confiance à 95%
+0
+
+50
+
+100
+
+150
+V /mL
+
+200
+
+250
+
+300
+
+Information sur la section Il est aussi
+important de remarquer que le dispositif,
+pourvu d’un diamètre indicatif de 32 mm
+à son extrémité, est également pourvu d’un
+petit décrochement qui est visible en rouge
+sur l’image ci-joint. Ce décrochement a été
+mesuré et c’est la section minorée qui est
+utilisée dans l’application numérique suivante.
+
+Application numérique
+Paramètre
+
+Valeur
+
+Section s
+
+π · (2,8)
+≈ 6, 2 cm2
+4
+
+Fréquence de résonance f
+
+188, 7 Hz
+
+Coefficient directeur
+
+−2, 4 × 10−5 L−1 · Hz −2
+
+Célérité du son c à 18, 5◦ C
+
+342, 5 m · s−1
+
+Olympiades de Physique
+
+2
+
+4π 2 × l
+(342, 5)2 × 6, 2 × 10−4
+2, 4 × 10−2 × (342, 5)2 × 6, 2 × 10−4
+⇐⇒ l =
+4π 2
+1, 75
+⇐⇒ l =
+4π 2
+⇐⇒ l = 0, 044 m
+⇐⇒ l = 4, 4 cm
+2, 4 × 10−2 =
+
+page 12| 25
+
+Ambroise Boyer | Chloé Leblanc | Aymeric Molinier | Lilien Sauvage
+
+3.B.
+
+Équipe U - École Alsacienne
+
+Réverbération & Résonateur
+
+Onde et paroi La réflexion de l’onde sonore contre la paroi qui est à l’origine de l’écho, une réverbération
+néfaste, puisque le décalage entre l’onde sonore directe et l’onde sonore réfléchie est trop important, dépassant
+0, 1s. Elle devient perceptible à l’oreille humaine, ce qui perturbe le confort acoustique de l’utilisateur.
+Le temps de réverbération On peut ainsi définir un temps de réverbération, qui correspond au temps que
+met le son en un endroit à décroitre de 60 dB à partir du moment où la source sonore n’émet plus. La réverbération a un avantage indéniable (si elle n’est pas trop faible, ce qui donnerait un rendu sonore sec, ou au
+contraire si elle est trop importante, rendant un « effet cathédrale », fatigant pour l’auditeur) c’est qu’elle permet de soutenir l’intensité sonore qui décline avec la distance puisque la réverbération permet de rediriger
+le son vers l’auditeur. D’où l’intérêt d’une conception architecturale prenant en compte cette réverbération
+pour soutenir le confort acoustique de ses utilisateurs.
+La canette de soda : un résonateur approprié Après avoir trouvé les fréquences de résonances de différents
+objets du quotidien, nous avons montré que la canette de soda 33 cl est le meilleur résonateur. Nous avons
+donc voulu mettre en pratique la théorie et tenter de voir si le fait de mettre des canettes dans un lieu clos
+pouvait faire diminuer le temps de réverbération. Cette expérience est analogue aux amphores placées dans
+les murs des églises, ayant la fonction de réduire le temps de réverbération et ainsi améliorer l’acoustique de
+l’église 1 .
+Expérimentation, objectifs La manipulation a donc consisté à envoyer du son dans un lieu clos à l’aide d’un
+haut-parleur branché à un GBF (sur fréquence fixe correspondant à la fréquence de résonance des canettes)
+puis de couper le haut parleur à l’aide d’un interrupteur et de mesurer le temps de réverbération à l’aide
+d’un sonomètre relié à un dispositif E X AO qui permettait d’afficher en temps réel les données mesurées par le
+sonomètre et de les retraiter pour obtenir un temps de réverbération (le logiciel utilisé est S YNCHRONIE). Nous
+nous sommes inspirés du protocole mis au point par M. A LAIN J OUVE au lycée Rosa Parks de l’Académie de
+Lyon.
+Exploitation des données Il existe plusieurs méthodes pour calculer le temps de réverbération. Pour ces expériences nous avons utilisé le logiciel S YNCHRONIE, qui nous a permis de récupérer et de traiter les données.
+Grâce à celui-ci nous avons pu fixer un seuil de déclenchement de la mesure exactement au moment où nous
+éteignons le GBF. Ainsi, le logiciel permettant de tracer des courbes de l’intensité sonore en fonction du temps,
+nous avons pu relever, à l’aide d’un réticule, le temps qu’il a fallu au son pour décroître de 60 dB, établissant
+ainsi le temps de réverbération.
+Échec de la manipulation dans une salle de classe Nous avons en premier lieu essayé cette manipulation
+dans une salle de classe (environ 100 m3 ) avec et sans un lot de 16 canettes. Cependant, les résultats n’ont pas
+été satisfaisants, car les temps de réverbération étaient les mêmes avec ou sans les canettes. Nous en avons
+alors conclu que la pièce était probablement trop grande et qu’ainsi la différence avec et sans les canettes ne
+pouvait pas être observée.
+
+1. Se référer à l’introduction
+
+Olympiades de Physique
+
+page 13| 25
+
+Ambroise Boyer | Chloé Leblanc | Aymeric Molinier | Lilien Sauvage
+
+Équipe U - École Alsacienne
+
+F IGURE 6 – Dispositif de mesure du temps de réverbération
+Le montage consiste en un haut-parleur, un GBF, un sonomètre,
+une console ExAO, et un montage électrique comportant un interrupteur
+
+Nouvelle tentative Nous avons donc voulu essayer la même expérience mais dans un lieu moins volumineux. Nous nous sommes donc procurés quatre cartons de déménagement que nous avons fixés ensemble
+pour former une seule grande boîte d’environ 1m3 . Nous avons répété le même montage que dans la salle
+en insérant le sonomètre et le haut parleur dans le carton. Les résultats ont été très nuancés : nous avons
+mesuré un temps de réverbération d’environ 300 ms dans le carton seul et très légèrement inférieur dans le
+carton muni des 16 canettes de soda, en tout cas beaucoup plus lisible et satisfaisant que lors de la première
+expérience. L’effet des canettes n’étant pas mesurable avec certitude dans nos conditions d’expérimentations,
+il nous est difficile de conclure avec certitude de l’effet de la présence de résonateurs.
+
+F IGURE 7 – Photos des expérimentations de temps de réverbération
+Á gauche, la vue d’ensemble de la construction réalisée
+Au milieu, les canettes suspendues à une tringle à l’intérieur de la construction
+Á droite, le sonomètre et le haut-parleur, placé sous les canettes suspendues
+
+Les courbes fournies ci-dessus sont celles de la dernière expérience en date qui a été réalisée avec un sonomètre
+de meilleure qualité, nous permettant d’avoir des courbes plus précises.
+
+Olympiades de Physique
+
+page 14| 25
+
+Équipe U - École Alsacienne
+
+Ambroise Boyer | Chloé Leblanc | Aymeric Molinier | Lilien Sauvage
+
+0,9
+
+U /V
+
+0,8
+
+0,7
+
+0,6
+
+0,5
+
+0,4
+0
+
+0,5
+
+1
+
+1,5
+
+2
+
+2,5
+
+3
+
+3,5
+
+4
+
+t /s
+
+F IGURE 8 – Graphiques de la tension mesurée en fonction du temps
+Nous mesurons ici le temps de réverbération d’une onde sonore de fréquence 417 Hz
+Avec les canettes en bleu
+Sans les canettes en rouge
+
+Avec un autre résonateur Enfin, nous avons répété cette expérience en changeant les résonateurs pour voir
+si nous trouverions un temps de réverbération meilleur que dans le carton seul mais moins bien que dans
+le carton muni des canettes (les canettes ayant étant préalablement désignées comme les meilleurs résonateurs). Nous avons donc essayé avec des petites bouteilles. Cependant, cette fois-ci, les résultats n’ont pas
+été concluants : nous avons trouvé environ le même temps de réverbération avec et sans les bouteilles. Nous
+avons alors pensé que les trous laissés dans le carton composé pouvait être le facteur à l’origine de ces résultats
+inattendus. En effet, il y avait présence au niveau des jointures entre les quatre cartons d’espaces communiquant avec le reste de la salle.
+
+Olympiades de Physique
+
+page 15| 25
+
+Ambroise Boyer | Chloé Leblanc | Aymeric Molinier | Lilien Sauvage
+
+Équipe U - École Alsacienne
+
+Conclusion
+Nous avons eu l’occasion, au cours de notre recherche, de découvrir cet objet qu’est le résonateur de Helmholtz, quelles en sont les propriétés et tenter de cerner ses possibles utilisations pratiques et ludiques.
+Propriétés du résonateur Dans le cadre de ces travaux, nous avons d’abord tenté de distinguer ses propriétés
+physiques et les formules mathématiques qu’on peut lui appliquer. Ce sont principalement les formules de
+détermination de la fréquence de résonance et le modèle masse-ressort qu’on peut appliquer au résonateur
+qui ont attiré notre attention.
+Mise en mouvement d’une masse d’air dans le col De fait, un résonateur de Helmholtz est un système
+masse-ressort d’une remarquable efficacité : on peut tout à fait observer expérimentalement la mise en mouvement de la masse d’air dans le col du résonateur. Ceci par l’importance de l’intensité acoustique qu’elle
+induit. C’est à partir de ce point remarquable que nous avons travaillé.
+Des caractères propres Nous les avons examiné sous toutes les coutures ces objets du quotidien, si simples
+et pourtant si complexes, que ce soit la canette de soda, la boule de Noël ou les résonateurs en PVC que
+nous avons construit. Nous avons travaillé à leur attribuer des caractéristiques propres : facteur de qualité,
+détermination des volumes en mouvement et jouant le rôle de ressort, impact sur la réverbération dans un
+milieu ouvert puis fermé...
+Des informations clés Mieux encore, par étude de leur résonance en fonction du volume de l’enceinte du
+résonateur, nous avons pu en retrouver les caractéristiques acoustiques et distinguer la masse d’air qui oscille
+et celle qui joue le rôle de ressort. Nous sommes même allés jusqu’à créer notre propre modèle de résonateur
+de Helmholtz.
+Nos conclusions Nos conclusions sont les suivantes : les résonateurs sont uniques entre eux et ils ont chacun
+des propriétés propres, un facteur de qualité propre. Si leurs caractéristiques ont été étudiées avec succès,
+leur utilisation concrète est plus complexe. Cependant, la mise en évidence de l’effet des résonateurs sur la
+réverbération n’est pas évident au premier coup d’œil, nos résultats sont mitigés du fait des multiples facteurs
+qui entrent en jeux lors de la mesure de la réverbération.
+Le mystère des vases Depuis l’Antiquité, les vases incrustés dans les murs des édifices religieux sont connus pour
+leur propriétés acoustiques. Alors, ces vases, résonateurs ou non ? Difficile de conclure, bien que nous ayons étudié
+plusieurs résonateurs, plusieurs dispositions lors de la mesure de la réverbération, il nous est impossible de vous offrir
+une réponse claire. Ce qui est certain, c’est que c’est ces vases n’ont pas encore livré tous leurs secrets !
+
+Olympiades de Physique
+
+page 16| 25
+
+Ambroise Boyer | Chloé Leblanc | Aymeric Molinier | Lilien Sauvage
+
+Équipe U - École Alsacienne
+
+Nos remerciements
+Nous tenons à adresser tous nos remerciements aux personnes qui nous ont aidées
+dans la réalisation de ce projet.
+Nos remerciements les plus chaleureux vont bien évidemment à Mme Piveteau qui
+tout au long de cette aventure nous a apporté soutien, conseils et bonne humeur.
+Son écoute et son dévouement nous ont vraiment aidé tout au long de ce parcours
+scientifique complexe mais passionnant.
+Nous souhaiterions aussi remercier tous ceux qui nous ont permis de mener à bien
+ce projet. Geoffroy Lerosey et Fabrice Lemoult tout d’abord, qui nous ont accueilli à
+l’Institut de Physique du Globe et nous ont permis de pouvoir avancer dans notre
+recherche. Jean Rosin, acousticien à Aéroports de Paris nous a également donné de
+précieux conseil concernant la réverbération.
+M. Ménétrier ensuite, professeur de Physique-Chimie à l’École Alsacienne, qui nous
+a également grandement aidé au cours de notre recherche ; l’équipe pédagogique de
+l’École et tous ceux qui ont rendu ce projet possible par leur soutien, leurs conseils
+et leur aide.
+Pour finir, nous aimerions vous remercier de nous avoir donné cette chance rare
+de travailler dans ce cadre différent, stimulant et enrichissant qu’est celui de la recherche. Cela a été un réel plaisir pour nous de construire pas à pas notre étude et
+d’avoir la chance de vous la présenter.
+
+Olympiades de Physique
+
+page 17| 25
+
+Équipe U - École Alsacienne
+
+Ambroise Boyer | Chloé Leblanc | Aymeric Molinier | Lilien Sauvage
+
+Annexes
+De la géométrie de la canette
+On peut composer plusieurs volumes différents avec la canette. Pour pouvoir mieux comprendre la géométrie
+même de la canette nous avons essayé d’un proposer un modèle géométrique permettant de comprendre intuitivement la géométrie de cet objet et d’en proposer une mesure de volume fondée sur ce modèle particulier.
+On constate que la canette n’est ni plus ni moins qu’un cylindre particulier : il possède une terminaison particulière à ses deux extrémités. Or, on peut géométriquement assimiler ces volumes particuliers à des tranches
+de cônes. Sur la figure ci-dessous, le dessus de la canette peut être assimilé à la tranche bleue du cône cidessous. Pour calculer le volume de cette portion bleue, on peut calculer le volume total du grand cône (la
+réunion des sections rouges et bleus) auquel on soustrait le volume du petit cône rouge.
+Si l’on note VH le volume du grand cône (réunion des
+sections rouges et bleues) et Vh le volume du petit
+cône (le cône rouge sur la figure) :
+
+Or, si l’on coupe ce cône selon un plan vertical sur sa
+diagonale on obtient une figure :
+
+h
+
+H
+
+1
+VH − Vh = π(R2 H − r2 h)
+3
+π
+⇐⇒ VH − Vh = (R2 H − r2 H + r2 a)
+3
+
+
+π
+aR
+2
+2
+2
+⇐⇒ VH − Vh =
+(R − r ) + r a
+3 R−r
+⇐⇒ VH − Vh =
+
+
+π
+aR(R + r) + r2 a
+3
+
+⇐⇒ VH − Vh =
+
+
+aπ
+R2 + Rr + r2
+3
+
+On peut donc calculer à partir des estimations faites
+pour les mesures :
+
+r
+a
+R
+
+
+
+a = 1, 2 cm
+
+
+6, 59
+R=
+cm
+
+2
+
+
+r = 2, 5 cm
+
+Du fait que nous nous plaçons ici dans une situation
+de Thalès, nous pouvons écrire :
+r
+R
+r
+=
+=
+, d’où l’on déduit :
+D’où l’on déduit que le volume de cette section de
+h
+H
+H −a
+H(R − r) = a R
+cône est égal à :
+aR
+⇐⇒ H =
+.
+R−r
+Nous avons déterminé la mesure de H on peut donc
+v ≈ 32 mL soit 3, 2 cL
+1 2
+utiliser la formule de volume du cône (V = πr h)
+ce qui est légèrement supérieur au volume Vk =
+3
+où r est le rayon du cercle à la base et h la hauteur du
+2, 7 cL d’air oscillant à la fréquence de résonance
+cône pour mesurer ce qui nous intéresse.
+calculé au cours de l’étude
+
+Olympiades de Physique
+
+page 18| 25
+
+Équipe U - École Alsacienne
+
+Ambroise Boyer | Chloé Leblanc | Aymeric Molinier | Lilien Sauvage
+
+Protocole pour la mesure du temps de réverbération
+Dans le cadre de cette expérience, nous nous sommes inspirés du protocole mis au point par M. A LAIN
+J OUVE au lycée Rosa Parks de l’Académie de Lyon. C’est à dire l’étude simultanée de la tension délivrée par
+le générateur et la tension délivrée le sonomètre. Ces deux informations sont récupérées par dispositif E X AO
+sur le logiciel S YNCHRONIE afin de pouvoir afficher les courbes de tension en fonction du temps pour les deux
+dispositifs.
+À ce titre, S YNCHRONIE nous a permis de paramétrer un seuil de déclenchement à partir duquel les mesures
+étaient enregistrées.
+Circuit électrique Pour pouvoir récupérer ces données correctement, nous avons utilisé un schéma électrique similaire à celui proposé par M. J OUVE :
+EA0
+Sonomètre
+
+Haut-parleur
+
+GBF
+
+10 kΩ
+EA1
+1 µF
+
+F IGURE 9 – Circuit électrique utilisé pour la mesure du temps de réverbération
+
+Olympiades de Physique
+
+page 19| 25
+
+Équipe U - École Alsacienne
+
+Ambroise Boyer | Chloé Leblanc | Aymeric Molinier | Lilien Sauvage
+
+Incertitudes
+Incertitude pour l
+
+On peut estimer :
+
+On rappelle :
+
+u(d) =
+l=
+
+c2 s
+1
+·−
+2
+4π
+K
+
+Ainsi on peut déterminer :
+
+s
+2 
+2 
+2
+u(s)
+u(K)
+2u(c)
+u(l) = l·
++
++
+s
+K
+c
+
+Si l’on étudie l’incertitude du l du résonateur PVC :
+
+U (K) = 2 · 10−6 m−3 · Hz −2
+u(K) = 1 · 10−6 m−3 · Hz −2
+
+p
+u2 (D) + 4u2 (e)
+
+√
+2 · 0, 1
+u(D) = u(e) = √
+cm
+12
+u(d) =
+u(d) =
+
+p
+5 · u2 (D) cm
+√
+
+5 · u(D) cm
+
+À partir de ces données, on peut déterminer :
+
+√
+5 · 2 · 0, 1
+√
+12 · d
+√
+0, 1 · 10
+u(s)
+= √
+= 6, 5 · 10−2
+s
+3 · 2, 8
+u(s)
+=2·
+s
+
+√
+
+Pour u(c), on a une incertitude de lecture sur le ther- On peut donc établir :
+momètre de 0, 1◦ C, on peut donc déterminer les valeurs de c pour l’intervalle défini par l’incertitude de
+p
+u(l) = l · (6, 5 · 10−2 )2 + (4, 5 · 10−5 )2 + (6 · 10−4 )2 m
+mesure. Or l’incertitude-type de c pour les deux valeurs extrêmes est très faible, on l’évalue à 0, 1m · s−1 .
+En réalité, seule l’incertitude sur le section comporte
+un réel impact sur l’incertitude globale de la détermi−1
+−1
+nation de la longueur l du col. Ainsi, on peut approxiu(c) = 1 · 10 m · s
+mer :
+Pour déterminer la surface du col du résonateur, on
+a utilisé une règle graduée au millimètre en faisant
+deux mesures :
+— Celle du diamètre du col noté D
+— Celle du décrochement noté e
+−→ On obtient un diamètre corrigé d par d = D − 2 · e
+
+s=π·
+
+d2
+4
+
+u(s) = 2 ·
+
+u(l) = l ·
+
+p
+(6, 5 · 10−2 )2 = 4, 4 · 6, 5 · 10−2
+
+u(l) = 0, 3 cm
+Avec un intervalle de confiance de 95 %
+
+U (l) = 0, 6 cm
+s
+u(s)
+2 · u(d)
+· u(d) ⇐⇒
+=
+d
+s
+d
+
+Olympiades de Physique
+
+l = (4, 4 ± 0, 6) cm
+page 20| 25
+
+Équipe U - École Alsacienne
+
+Ambroise Boyer | Chloé Leblanc | Aymeric Molinier | Lilien Sauvage
+
+Couplages de résonateurs
+Premiers résultats Nous allons essayer d’observer ce qu’il se passe lorsqu’on assemble plusieurs canettes
+ensembles côte à côte. Lorsqu’on couple deux canettes, un échange d’énergie entre les deux systèmes résonants a lieu. Ces deux systèmes devraient alors former à eux deux un seul système masse-ressort, dont la
+particularité est qu’il possède deux fréquences de résonance, appelées modes. Il y aura un mode pour lequel
+les deux systèmes vont résonner en phase, puis un autre pour lequel ils raisonneront en antiphase. Pour reprendre l’analogie avec un système masse-ressort, deux masses qui se déplacent en phase ont un mouvement
+identique et simultané. Elles se déplacent ensemble, et restent à la même distance l’une de l’autre. Lorsque
+deux masses résonnent en antiphrase, leurs mouvements sont opposés ou bien en décalage.
+Encore plus de canettes Similairement, dans un ensemble de canettes collées les unes aux autres, chaque
+canette interagit avec sa voisine pour récupérer du son et en émettre. Ce comportement se répète pour chaque
+canette de l’ensemble. L’énergie est alors transportée partout dans l’ensemble, créant ainsi un grand ensemble
+de résonance. Cet ensemble présente n modes de résonance où n est le nombre de canettes. Expérimentalement, on retrouve cela en traçant l’amplitude en fonction de la fréquence dans le grand ensemble. On obtient
+non plus un grand pic comme dans l’étude avec une canette mais n pics distincts.
+Avec deux canettes Nous avons tout d’abord assemblé deux canettes côte à côte et avons placé le microcravate dans l’une d’entre-elles. Nous avons ensuite mesuré les variations en fonction de la fréquence, comme
+avec une seule canette. Nous attendions une courbe avec deux pics distincts, représentant les deux modes. Or,
+celle que nous avons obtenu n’avait qu’un seul grand pic.
+0,60
+
+U /V
+
+0,60
+0,40
+0,40
+0,20
+
+0,20
+
+300
+
+350
+
+400
+f /Hz
+
+450
+
+500
+
+380
+
+400
+
+420
+
+440
+
+f /Hz
+
+F IGURE 10 – Résonance de deux canettes couplées horizontalement puis verticalement
+Couplage vertical Nous avons ensuite décidé d’assembler les deux canettes en les superposant. Nous voulions savoir s’il y aurait une différence dans nos résultats si nous changions leur arrangement. Avec les deux
+mêmes canettes, nous avons en effet trouvé une courbe très différente, dont l’allure se rapprochait déjà plus
+du profil bimodal recherché.
+Correspondance avec M. Lerosey Cherchant à comprendre où était le problème, nous avons contacté G EOF FROY L EROSEY , un des intervenants de la conférence Manipuler les sons avec des canettes. Il nous a expliqué que
+« à cause de la dissipation visqueuse et thermodynamique, les modes propres ne sont pas réellement séparés en fréquence,
+mais se mélangent les uns les autres, d’où la difficulté de les mesurer ».
+
+Olympiades de Physique
+
+page 21| 25
+
+Équipe U - École Alsacienne
+
+Ambroise Boyer | Chloé Leblanc | Aymeric Molinier | Lilien Sauvage
+
+A l’occasion de sa conférence, lui aussi avait mesuré avec son équipe les modes d’un ensemble de 49 canettes,
+disposées dans un carré de 7 par 7. Son protocole consistait à placer 8 hauts parleurs autour du carré de
+canettes, puis d’émettre avec chaque haut-parleur indépendamment et mesurer la tension au-dessus de toutes
+les canettes avec un micro, et ce pour tous les haut-parleurs.
+M. Lerosey nous a cependant conseillé de mesurer individuellement la tension en fonction de la fréquence
+dans chaque canette de l’ensemble étudié, puis de faire la moyenne des tensions à chaque fréquence. Nous
+avons donc refait notre expérience, mais cette fois avec un ensemble de 4 canettes, disposées en carré.
+Lors d’un échange ultérieur que nous avons eu avec lui et Fabrice Lemoult à l’Institut de Physique du Globe,
+il nous a expliqué que le modèle des couplages de canettes ne fonctionne réellement qu’en simulation. Dans
+la réalité, du fait des perturbations sonores, des paramètres de la salle d’expérience, etc... il est impossible
+d’aboutir à des résultats aussi probants.
+1
+
+2
+
+3
+
+4
+
+F IGURE 11 – Disposition des canettes lors du couplage horizontal à 4 canettes
+
+Conditions expérimentales Nous avons mesuré la tension entre 346 et 446 Hz. Tous les 7 Hz, nous placions
+le microphone dans une canette. Nous attendions environ une minute pour que la canette se mette à résonner,
+puis nous mesurions la tension avant de changer le microphone de canette. De par la durée d’attente pour
+que chaque canette se mette à résonner et par le nombre de mesures faites, cette manipulation qui nous a pris
+un certain temps. Voici le graphe que nous avons obtenu :
+
+0,3
+
+1
+2
+3
+4
+
+0,25
+
+(2)
+(3)
+
+U /V
+
+0,2
+
+(4)
+
+0,15
+
+(1)
+0,1
+0,05
+
+350
+
+360
+
+370
+
+380
+
+390
+
+400
+
+410
+
+420
+
+430
+
+440
+
+450
+
+f /Hz
+
+F IGURE 12 – Mesure de la résonance en fonction de la fréquence pour chacune des 4 canettes
+Résultats peu probants En faisant la moyenne des résonance de chaque canette comme suggéré, quatre pics
+semblent à peu près se distinguer sur le graphe. Cependant, les résultats ne sont pas très probants.
+
+Olympiades de Physique
+
+page 22| 25
+
+Ambroise Boyer | Chloé Leblanc | Aymeric Molinier | Lilien Sauvage
+
+Équipe U - École Alsacienne
+
+Graphiques, images et schémas
+1
+
+Schéma simplifié d’un résonateur de Helmholtz. . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+
+2
+
+2
+
+Spectre sonore d’un son au contact d’une canette de 33 cl et d’une boule de Noël . . . . . . . . . . . . . . . . . . . . . . . .
+
+3
+
+3
+
+Méthode graphique de détermination du facteur de qualité Q . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+
+5
+
+4
+
+Photo du montage expérimental de mesure du facteur de qualité . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+
+6
+
+5
+
+Représentation schématique des différents volumes composant un résonateur . . . . . . . . . . . . . . . . . . . . . . . . . .
+
+7
+
+6
+
+Dispositif de mesure du temps de réverbération . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+
+14
+
+7
+
+Photos des expérimentations de temps de réverbération . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+
+14
+
+8
+
+Graphiques de la tension mesurée en fonction du temps. . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+
+15
+
+9
+
+Circuit électrique utilisé pour la mesure du temps de réverbération . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+
+19
+
+10
+
+Résonance de deux canettes couplées horizontalement puis verticalement . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+
+21
+
+11
+
+Disposition des canettes lors du couplage horizontal à 4 canettes . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+
+22
+
+12
+
+Mesure de la résonance en fonction de la fréquence pour chacune des 4 canettes. . . . . . . . . . . . . . . . . . . . . . . . .
+
+22
+
+Olympiades de Physique
+
+page 23| 25
+
+Équipe U - École Alsacienne
+
+Ambroise Boyer | Chloé Leblanc | Aymeric Molinier | Lilien Sauvage
+
+Bibliographie & Références
+Valeur actuelle de l’acoustique musicale de helmholtz
+Patrice Bailhache
+Revue d’histoire des sciences, 1986
+Un archétype d’oscillateur : le résonateur acoustique de Helmholtz
+Frédérique Bernardot, Janine Bruneaux et Jean Matricon
+Bulletin de l’Union des Physiciens, 2002
+Seuils d’oscillation de la clarinette : validité de la représentation excitateur-résonateur
+Didier Ferrand, Fabrice Silva et Christophe Vergez
+10ème Congrès Français d’Acoustique de Lyon, 2010
+Les vases dits acoustiques dans les églises médiévales : un programme d’étude interdisciplinaire
+Bénédicte Palazzo-Bertholon, Jean-Christophe Valière
+4e Congrès International d’Archéologie Médiévale et Moderne, 2007
+Experimental study of the Helmholtz resonance of a violin
+Guy Vandergrift
+American Journal of Physics n◦ 61, 1993
+Quality factors and conductances in Helmholtz resonators
+Michael J. Moloney
+American Association of Physics Teachers, 2004
+Sculpter les sons
+Jean-Michel Courty et Edouard Kierlik
+Pour la science n◦ 436, 2014
+Manipuler les ondes acoustiques avec des canettes de soda
+Geoffroy Lerosey, Nadège Kaina et Fabrice Lemoult
+Les Conférences Expérimentales de l’ESPCI ParisTech, 23 septembre 2013
+
+Olympiades de Physique
+
+page 24| 25
+
+

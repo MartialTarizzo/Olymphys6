@@ -1,0 +1,816 @@
+Réalisé par Antoine LEFEVRE et Florian THOUANT
+Encadré par Maxime BONIS
+
+COMMUNIQUER PAR LA
+LUMIERE
+
+Année : 2014/2015
+
+Lycée Pierre de la Ramée
+
+Saint-Quentin
+1
+
+SOMMAIRE
+INTRODUCTION........................................................................................................................p.3
+UN PETIT PEU D'HISTOIRE......................................................................................................p.3
+LES CRISTAUX LIQUIDES.......................................................................................................p.4
+1. Description................................................................................................................................p.4
+2. Fonctionnement.........................................................................................................................p.5
+3. La polarisation de la lumière.....................................................................................................p.6
+4. Pouvoir rotatoire.......................................................................................................................p.8
+RECHERCHE DE CRISTAUX LIQUIDES................................................................................p.9
+1. Par récupération(1)....................................................................................................................p.9
+2. Par synthèse chimique...............................................................................................................p.9
+3. Par récupération(2)....................................................................................................................p.11
+ENVOI D'UN MESSAGE PAR CRISTAUX LIQUIDES...........................................................p.13
+1. Émission du signal....................................................................................................................p.13
+2. Réception du signal...................................................................................................................p.15
+3. Pourquoi dt = 0,08s ?................................................................................................................p.18
+4. Conclusion de cette expérience.................................................................................................p.18
+ENVOI D'UN MESSAGE PAR FIBRE OPTIQUE.....................................................................p.19
+1. Composition d'une fibre optique...............................................................................................p.19
+2. Fonctionnement d'une fibre optique.........................................................................................p.19
+3. Montage....................................................................................................................................p.20
+4. Les modifications des programmes..........................................................................................p.21
+5. Les limites.................................................................................................................................p.21
+CONCLUSION.............................................................................................................................p.22
+Remerciements..............................................................................................................................p.23
+Bibliographie.................................................................................................................................p.23
+Sitographie....................................................................................................................................p.24
+ANNEXE 1 : Télécommunications..............................................................................................p.25
+ANNEXE 2: Protocole de la synthèse des cristaux liquides........................................................p.27
+ANNEXE 3 : Fabrication de verre conducteur, photos................................................................p.29
+ANNEXE 4 : Photos de la première synthèse .............................................................................p.30
+ANNEXE 5 : Documents de la deuxième synthèse......................................................................p.31
+ANNEXE 6 : Programmes Python...............................................................................................p.32
+2
+
+Introduction
+En début d'année de première S, M. Bonis est venu nous présenter le concours des Olympiades de la
+physique. Malheureusement, tout au long de l'année nous n'étions que deux élèves dans notre groupe. Non
+découragés, nous nous sommes mis en tête de trouver un projet.
+Ayant tous les deux lu le dossier de Science et Vie Junior sur la lumière et étant tous deux passionnés par
+cette thématique, nous nous sommes décidés à essayer de transmettre un texte grâce à la lumière, un peu comme la
+fibre optique ou les ondes radio, mais nous voulions utiliser notre propre système.
+Dès lors, nous nous sommes demandé comment mener à bien notre projet. Nous avons pensé à utiliser un
+laser et deux ordinateurs (un pour émettre et coder le message, l'autre comme récepteur du message). Après
+plusieurs séances à réfléchir à un moyen de moduler le rayon du laser, différentes solutions sont apparues : nous
+pouvions utiliser soit un laser modulable directement, soit un système mécanique ou chimique pouvant obturer le
+faisceau de façon commandée. Les cristaux liquides, utilisés dans certaines lunettes 3D et dans certains écrans, ont
+été suggérés par M. Bonis et ils ont retenu notre attention. Cette espèce chimique a la faculté de laisser passer ou
+pas la lumière selon qu'elle est soumise à une tension électrique ou non. Après une année de travail, nous avons
+réussi à envoyer quelques mots grâce à un laser modulé par des cristaux liquides. Cette expérience est le cœur de
+notre projet, et nous l'avons présentée au concours régional.
+Suite aux suggestions du jury à Champs-sur-Marne, nous avons prolongé notre travail par quelques
+expériences sur la polarisation de la lumière, permettant de mieux comprendre le fonctionnement des cristaux
+liquides. Nous avons également mis la main sur un kit diode-laser fibre optique pour réaliser l'expérience d'envoi
+d'un message de façon plus actuelle !
+
+Un petit peu d'histoire
+Nous avons procédé à une recherche sur l'histoire de la communication. Les détails complets sont dans
+l'annexe 1.
+Nous pouvons citer l'utilisation des signaux de fumée ou du morse, qui reposent sur le principe de codage de
+l'information.
+Intéressons-nous au photophone de Bell qui a réussi à transmettre un son par la lumière.
+
+Photophone de Graham Bell
+
+3
+
+En 1876, Graham Bell invente le téléphone, on peut maintenant transmettre un son grâce à l'électricité. Mais G.
+Bell est persuadé que le téléphone n'est pas la meilleure invention, car celle-ci est coûteuse dans la pose des fils. Il
+fit alors une découverte : le photophone. Cet appareil permet de transmettre un son par la lumière. En effet, Bell a
+réussi à moduler la lumière ce qui lui a permis de transmettre sa voix. Des plaques de sélénium reçoivent ce signal
+lumineux et le convertissent en signal électrique, puis un haut-parleur convertit le signal électrique en signal
+sonore.
+Aujourd'hui, la fibre optique est utilisée. Elle est constituée d'un émetteur de lumière (laser pulsé) et d'un milieu
+transmetteur, une fibre de verre très mince et d'un récepteur.
+
+Les cristaux liquides
+1. Description
+
+Photo de l'afficheur à cristaux liquides utilisé dans le projet
+
+Dans notre projet final, nous avons utilisé un afficheur de calculatrice que nous avons démontée, pour ne
+garder que la partie contenant les cristaux liquides.
+
+4
+
+Photo de l'afficheur de calculatrice démonté
+
+Quelles sont les propriétés des cristaux liquides ?
+Tout d'abord, les cristaux liquides sont caractérisés par un état intermédiaire entre la phase cristalline, où règne un
+ordre de position tridimensionnel (tel que les diamants...) et la phase liquide (eau...) où aucun ordre n’existe. C'est
+pourquoi nous les appelons les « cristaux » « liquides ». Ils ont été découverts en 1888 par l’Autrichien Friedrich
+Reinitzer et son collègue Lehmann. Ces cristaux liquides sont répertoriés dans trois grandes familles :
+- Phase smectique car elle possède des propriétés mécaniques proches de celles d'un film savonneux
+(savon se dit smectos en grec).
+- Phase nématique car cette phase présente souvent des défauts ressemblant à des fils (nêmatos en grec).
+- Phase cholestérique car elle a été découverte dans des dérivés du cholestérol.
+
+2. Fonctionnement
+La plupart des cristaux liquides sont composés de molécules neutres, mais quelques fois certaines
+molécules peuvent être assimilées à des dipôles électriques (à cause de la nature de leurs atomes). Ces molécules
+ont tendance à s'aligner un peu au hasard, mais quand on applique une tension, elles opèrent une rotation jusqu'à
+s'aligner parallèlement à l'axe du champ électrique.
+Cette particularité de certains cristaux liquides est utilisée dans les écrans LCD. Les verres sont traités et
+brossés pour que les cristaux liquides s'alignent par rapport aux électrodes. Celles-ci sont décalées de 90 degrés,
+ainsi les cristaux liquides prennent une forme d'hélice. Les électrodes sont suivies de polariseurs alignés dans leur
+« axe de brossage » . En voici un schéma explicatif :
+
+5
+
+Voilà comment fonctionnent les cristaux liquides dans les afficheurs et quelles sont leurs propriétés. Mais
+ces afficheurs ont quelques limites que les spécialistes essayent toujours de surpasser. Nous pouvons citer par
+exemple leur temps de réponse assez lent (quelques ms pour de bons cristaux) que nous pouvons expliquer par le
+temps que mettent les cristaux liquides à s'aligner par rapport au champ électrique auquel ils sont soumis.
+
+3. La polarisation
+Pour mieux comprendre l'action des cristaux liquides sur la lumière, intéressons-nous de plus près à la
+notion de polarisation.
+Naturellement la lumière vibre dans toutes les directions transversales à sa direction de propagation.
+
+6
+
+Grâce à un polariseur nous pouvons « sélectionner » l'axe vibratoire que nous voulons. Voici un schéma
+explicatif :
+
+Un seul axe vibratoire est gardé, mais nous voyons que cette polarisation diminue l'intensité lumineuse du
+faisceau lumineux.
+A présent, on place après ce premier polariseur un second polariseur appelé analyseur.
+L'intensité lumineuse du faisceau en sortie sera plus ou moins élevée, tout dépendra de l'angle entre les deux
+polariseurs.
+La loi de Malus permet de trouver cette intensité lumineuse. Cette loi dit que I=I 0 cos²θ. Voici un schéma
+explicatif (ceci fonctionne pour une lumière déjà polarisée) :
+
+A la sortie de l'analyseur, l'intensité de la lumière sera égale à l'intensité I. Si l'angle θ est égal à 0 (l'axe de
+transmission du polariseur et de l'analyseur sont alors confondus), on a cos²0=1. L'intensité lumineuse transmise
+est I=I0 cos²θ =I0  1 = I0 et elle est donc maximale.
+Dans notre cas, les cristaux liquides font tourner la polarisation de 90° et l'analyseur est perpendiculaire au
+premier polariseur, on obtient donc une intensité maximale en l'absence de tension exercée. En effet, les cristaux
+liquides ont la particularité de pouvoir changer l'axe vibratoire de la lumière polarisée. On dit qu'ils ont un pouvoir
+rotatoire, ce que nous allons expliquer plus en détail dans la partie suivante.
+
+7
+
+4. Pouvoir rotatoire
+Nous avons étudié cette rotation de la polarisation de la lumière grâce à une expérience utilisant du
+maltose à la place des cristaux liquides, que nous n'avions pas en notre possession en dehors des écrans (nous
+expliquons nos tentatives pour nous en procurer dans la partie suivante).
+En effet, toute molécule chirale a la particularité de pouvoir « tourner » la lumière polarisée. Pour notre
+expérience, nous avons choisi du maltose, pour son pouvoir rotatoire élevé et sa disponibilité au lycée.
+Définition d'une espèce chirale : Un objet ou un système est dit chiral s’il constitue l’image miroir d’un autre objet
+ou système avec lequel il ne se confond pas.
+Ex : 2 mains sont chirales
+
+Chaque espèce chirale dispose d'un pouvoir rotatoire spécifique [α] λ ,T dépendant de la température et de
+la longueur d'onde de la lumière. Une lumière polarisée passant à travers une cuve de longueur ltourne d'un angle
+α déterminé par la loi de Biot :
+α = [α]λ, T  l  c
+avec :
+
+α : angle de rotation de la lumière polarisée en °,
+
+l : longueur de la cuve en dm,
+c: concentration de la solution en g par cm³.
+
+Dans notre expérience, nous utilisons une cuve de 0,75 dm avec une concentration en solution de 0,80 g/mL, ce
+qui est proche de la concentration de saturation 1,08 g/mL à 20°C. La dissolution complète a pris plus d'une heure.
+Nous avons utilisé une balance et une fiole jaugée.
+Le pouvoir rotatoire spécifique du maltose à 20°C est de +130°  2° pour la longueur d'onde du sodium 589 nm
+donc en théorie :
+α =[α]D20  l  c = +130  0,75  0,8 = 78°
+Dans notre expérience, nous avons mesuré un pouvoir rotatoire de 53° avec la lampe au sodium. Cette valeur est
+très différente de la valeur théorique. Pour voir si cela venait d'une erreur, notre professeur de chimie nous a
+montré une mesure au polarimètre et nous avons trouvé quasiment la même valeur. Ayant vérifié tout ce que nous
+pouvions, nous nous disons que le maltose utilisé était peut-être trop vieux (la boite date de 2001).
+Nous avons fait d'autres mesures : avec un laser vert à 532 nm nous obtenons un angle de rotation de 65° et avec
+un laser rouge à 650 nm on mesure 43°.
+
+8
+
+Maintenant nous allons vous expliquer comment nous avons obtenu ces fameux cristaux liquides.
+
+Obtention de cristaux liquides
+1. Par récupération (1)
+Nous avons tout d'abord tenté de récupérer les cristaux liquides en démontant un vieux portable. En effet,
+ce composé est présent dans de nombreux objets technologiques dont les portables. Mais cela fut assez compliqué
+et au final, nous avons perdu tous les cristaux liquides présents dans le portable... C'est pourquoi nous avons voulu
+tenter sa synthèse (nous n'avons pas trouvé le moyen d'acheter des cristaux liquides purs sur Internet et nous
+avions été découragés pour retenter une récupération de ces cristaux dans des objets quotidiens, pensant que dans
+tous nos essais, l'extraction serait aussi compliquée qu'avec le portable).
+Étant dans l'incapacité de trouver comment acheter des cristaux liquides sur Internet (dans les volumes
+qui nous intéressaient), nous nous sommes décidés à tenter leur synthèse. En effet, nous avions trouvé plusieurs
+sites qui nous proposaient une méthode pour synthétiser un cristal liquide : le MBBA (ou N-(4méthoxybenzylidène)-4-butylaniline) qui est le plus répandu.
+
+2. Par synthèse chimique
+Avant même de commander les réactifs pour la synthèse, un problème émergea : comment réussir à faire
+passer du courant sur une plaque de verre ? Nous devions effectivement utiliser une plaque de verre conducteur
+pour pouvoir déposer les cristaux liquides et leur faire subir une tension. Nous avons trouvé un moyen pour
+« électriser » une plaque de verre. Pour ce faire, nous avons procédé à l'ajout de chlorure d'étain en poudre que
+nous avons fait fondre sur la plaque et grâce à un sèche-cheveux, nous l'avons appliqué sur toute sa surface
+(photos en annexe 3).
+Après avoir procédé à plusieurs essais (du fait de la complexité à appliquer le produit assez rapidement sur tout le
+verre avant qu'il ne se solidifie ), nous sommes finalement parvenus à notre objectif sur une petite zone. Nous
+avons pu y mesurer une résistance de quelques kiloohms entre deux pointes posées séparées d'un centimètre, alors
+que sur du verre normal cette résistance est infinie.
+Nous pouvions donc procéder à la tâche suivante : la synthèse des cristaux liquides.
+
+9
+
+Notre source était : http://wiki.scienceamusante.net/index.php?title=Synth%C3%A8se_du_MBBA.
+Nous avons commandé du 4-méthoxybenzaldéhyde qui est un liquide incolore irritant pour la peau et les
+muqueuses et du 4-butylaniline qui est un liquide incolore toxique, qui n'étaient pas présents dans notre lycée.
+Une fois les produits arrivés nous avons suivi le protocole afin de pouvoir synthétiser du MBBA (pour le
+protocole complet voir annexe 2).
+
+(a) Etapes de l'expérience
+Tout d'abord nous cherchons à fabriquer une imine (qui présente les caractéristiques d'un cristal
+liquide). Voici l'équation de la réaction :
+Réactifs
+
+Produit
+
+dans l’éthanol en présence d’acide éthanoïque
+
+Il s'agit d'une condensation du 4-heptyloxybenzaldéhyde avec la 4-butylaniline, c'est-à-dire une réaction
+d’addition accompagnée d’une élimination d’une petite molécule, ici de l’eau, H2O.
+Pour réaliser la synthèse des cristaux liquides nous avons dû utiliser un montage de chauffage à reflux pour
+mélanger le 4-méthoxybenzaldéhyde avec le 4-butylaniline et l' éthanol, l'éthanol jouant le rôle de solvant. Puis
+nous avons distillé l'éthanol, la couleur du mélange devait ainsi devenir jaune (résultat tout autre comme décrit
+ensuite). Ensuite nous avons mélangé la solution avec de l'éther éthylique permettant de nettoyer les derniers
+résidus et pour finir nous avons séché la solution avec du sulfate de sodium anhydre puis évaporé l'éther sous
+vide.
+
+(b) Résultats de l'expérience
+Nous avons procédé à la mise en pratique de ce protocole un mercredi après-midi sur un TP d'environ 3h.
+Nous avons suivi le protocole, la solution avait une couleur jaunâtre comme indiqué dans celui-ci. Nous avons
+réussi l'étape de chauffage à reflux du milieu.
+Ensuite, nous devions procéder à la distillation de l'éthanol et nous avons mis en place un montage de distillation.
+Celle-ci commença très bien, jusqu'à ce qu'une brume, ou plutôt un brouillard apparaisse dans le ballon rond, et
+monte dans la colonne à distiller. Par prévention nous avons préféré arrêter la distillation.
+Après un certain temps d'attente, deux phases apparaissent dans le ballon rond, l'une de « couleur » noire
+et l'autre la « nuée ». Au final, la solution était devenue noire alors qu'elle était de couleur jaune au début de la
+réaction et devait le rester (photos disponibles dans l'annexe 4). Cette apparition de brouillard ne devait en aucun
+cas avoir lieu. Plusieurs hypothèses peuvent expliquer ceci :
+- Des réactifs de départ de qualité insuffisante (pas assez purs?).
+- Un protocole pas assez rigoureux.
+- Un chauffage trop violent ayant entraîné la dégradation de l'un des produits.
+
+Après test, il s'avère qu'aucun cristal liquide n'a été récupéré. Nous avons mis en tension le liquide sur des
+lames de fer (le liquide était incolore au début de l'essai car l'épaisseur était petite) mais aucune obstruction de la
+
+10
+
+lumière n'a été visible alors que le protocole indiquait un noircissement sous tension.
+Du fait de cette mauvaise manipulation et de la durée de l'expérience assez longue (plus de 3h), nous avons
+préféré laisser cette méthode de côté à ce moment-là. Mais après notre qualification aux Olympiades nationales,
+encouragés par l'intérêt et les conseils du jury par rapport à cette synthèse, nous avons décidé de retenter la
+synthèse des cristaux liquides avec l'aide de nos professeurs de chimie Mme Denel et M. Voisin.
+
+( c ) Nouvelle tentative de synthèse
+Cette fois-ci le protocole a été modifié pour que l'eau soit éliminée directement pendant la synthèse. En effet, le
+MBBA est une imine susceptible d'être détruite par l'eau produite en même temps qu'elle et donc de reformer les
+réactifs utilisés. Mais lors de la distillation de l'eau, celle-ci emporte avec elle une partie de l'éthanol qui joue le
+rôle de solvant. C'est pourquoi nous ajoutons au compte-goutte de l'éthanol. Pendant la distillation, nous
+observons une température d'ébullition de 78°C (cf annexe 5).
+Voici une photo de l'expérience :
+
+A l'issue de l'expérience nous avons récupéré des cristaux que nous avons lavés à l'éther diéthylique (cf annexe 5).
+Nous avons mesuré une température de fusion au banc Köfler des cristaux formés d'environ 80°C (au lieu de 18°C
+prévue).
+Un test de mise sous tension de ces cristaux, solubilisés dans l'éthanol, n'a donné aucun résultat : les produits
+n'obscurcissent pas la lumière.
+
+3. Par récupération (2)
+Du fait de l'échec de notre synthèse, nous retentons la récupération de cristaux liquides via des objets du
+quotidien mais cette fois-ci avec un afficheur bien plus simple que celui d'un portable. Nous avons commandé un
+afficheur de calculatrice mais en pièces détachées ce qui fait qu'il est ainsi beaucoup plus maniable. Nous avons
+
+11
+
+identifié la plaque contenant les cristaux liquides plus aisément. De plus, la présence de fiches nous facilita le
+travail pour faire réagir les cristaux liquides (mais la recherche d'un contact électrique optimal sur les fiches n'est
+jamais évident). Voici un schéma de notre plaquette. Ce schéma n'était pas fourni par la notice, et nous avons dû
+tâtonner et observer le circuit intégré qui était collé dessus pour bien comprendre comment faire réagir un pixel.
+
+fiche
+
+masse
+
+Cristaux
+liquides
+
+Schéma de la plaquette de cristaux liquides
+
+Nb : Les contacts électriques étaient assez mauvais. Nous avons donc essayé de mettre en œuvre plusieurs moyens
+pour permettre un meilleur contact. Nous avons finalement opté pour des fils dénudés tenus par des pinces
+crocodiles.
+
+12
+
+Expérience d'envoi d'un message grâce aux cristaux liquides
+1. Émission du signal
+
+Photo représentant le montage d'émission
+
+Afin d'émettre notre message, nous devons disposer d'un ordinateur (équipé du logiciel LatisPro et de
+notre programme), puis d'un laser (ici nous utilisons un laser de classe 2 ayant une puissance de 1 mW), de nos
+cristaux liquides (cf schéma dans la partie sur l'extraction des cristaux liquides). Mais l'inconvénient de la
+plaquette de cristaux liquides est qu'elle diffuse la lumière (= étalement de la lumière). C'est pourquoi nous
+utilisons une lentille convergente d'une distance focale f' de 20 cm afin de faire converger le maximum de lumière
+en un point (sur le photorécepteur).
+D'après la méthode de Bessel, pour qu'une image réelle puisse se former il faut que la distance D soit supérieure à
+4f'. Ici la distance entre l'émetteur et le récepteur est d'environ 80 cm donc f' doit être supérieure à 80/4= 20 cm,
+c'est pourquoi nous avons choisi une lentille ayant une distance focale f' de 20 cm.
+
+Tout d'abord, nous devons saisir le message puis le traduire par l'intermédiaire d'un programme
+informatique. Nous avons choisi le langage de programmation Python. M. Bonis nous y a initiés avant de pouvoir
+passer à l'application sur notre projet. Les programmes complets sont proposés dans l'annexe 5.
+
+13
+
+Le programme d'émission a pour but de demander le ou les mot(s) dans une fenêtre puis de les traduire en un
+signal électrique dont les valeurs sont écrites dans un bloc note.
+Grâce à différentes fonctions de Python, on traduit chaque caractère saisi, en un octet c'est-à-dire une suite de 8
+bits (ceci correspond à la traduction binaire pour une lettre). Au niveau du signal électrique associé, chaque bit
+correspond à 4 points, ce qui permet d'avoir un créneau de qualité correcte et diminue ainsi le risque d'erreur dû au
+temps de réponse des cristaux liquides. Cela assure de plus grandes chances de bonne réception.
+Le programme d'émission crée un fichier texte (ci-contre à gauche) où seront écrites les valeurs du signal
+électrique dans la colonne 1 et les valeurs de temps dans la colonne 2. Un bit 1 est représenté par 4 points
+dont la valeur est égale à 4 V, et un bit 0 est représenté par 4 points à 0 V. Le pas de temps choisi est de
+0,08 s, ce qui fait 0,32 s pour transmettre un bit.
+Prenons l'exemple de la lettre A, tout d'abord notre programme traduit cette lettre en son code ascii (grâce à
+une fonction de Python), ici 065 puis en son code binaire (toujours grâce à une fonction de Python) ici
+01000001. Comme vous pouvez le constater, un bit 1 (4444) est ajouté avant le 010000001, et 8 bits 0 sont
+ajoutés à la fin. Ces ajouts servent à la détection du début et de la fin du message, nous y reviendrons.
+Nous importons ensuite ce ficher texte vers le logiciel LatisPro qui nous permet de pouvoir les visualiser
+graphiquement. Le logiciel permet également de commander une carte d'acquisition envoyant des signaux
+électriques correspondant ici aux variations du graphique. Cette carte d'acquisition est reliée à notre
+plaquette à cristaux liquides via nos fils dénudés et pinces crocodiles, et permet de les commander. Ainsi,
+pour un bit qui vaut 1, il y aura donc une émission de tension de 4 V pendant 0,08  4 = 0,32 seconde et
+l'écran de cristaux liquides paraîtra noir. Voici la représentation graphique de notre lettre A.
+
+Capture d'écran du logiciel LatisPro à l'émission de A
+
+14
+
+Le faisceau du laser placé devant l'écran est soit absorbé soit diffusé par l'écran (d'où la présence de la
+lentille permettant de concentrer le signal) et sera capté par la partie réception.
+Nb : bit 0 : pas de tension électrique donc la lumière passe et bit1 : une tension électrique est émise donc les
+cristaux s'obscurcissent et la lumière ne passe pas.
+Remarque : l'amplitude de 4 V peut être modifiée pour optimiser la réponse des cristaux, nous avons obtenu
+finalement de meilleurs résultats avec 6V. La réponse des cristaux et la qualité des contacts électriques sont
+sensibles à l'humidité et à la température.
+
+2. Réception du signal
+
+Photo représentant la partie réception de notre montage
+
+Le signal émis arrive dans la partie réception. On fait converger la lumière au maximum dans le récepteur,
+qui est un phototransistor, alimenté par un générateur continu (10 V). Le signal électrique issu du photorécepteur
+est enregistré avec une deuxième carte d'acquisition et visualisé dans LatisPro. Cette carte d'acquisition admet un
+maximum d'acquisition à 10V. En la saturant (c'est-à-dire en dépassant 10 V), nous obtenons des signaux plus
+carrés quand nous envoyons un bit 0.
+De plus, nous avons choisi un phototransistor infrarouge. Comme nous pouvons le voir sur la courbe de
+réponse spectrale ci-dessous, ce récepteur perçoit les ondes rouges du domaine du visible. On peut ainsi faire
+l'expérience sans obscurité, la lumière ambiante ne contient que peu de rouge et le récepteur y est peu sensible.
+Ce type de photorécepteur a l'avantage de donner une tension importante en sortie mais il est assez lent,
+nous y reviendrons.
+
+15
+
+Courbe typique de réponse d'une photodiode (nous n'avons pas trouvé
+la courbe exacte de notre photorécepteur)
+
+Voici le signal obtenu à la réception de la lettre A :
+
+Pour pouvoir travailler sur ce signal et reconstituer le message émis nous exportons les valeurs de tension et de
+temps dans un fichier texte, qui sera ensuite lu par un programme Python de réception.
+Voici la forme du début du fichier texte obtenu ( temps, tension). Le pas de temps est choisi 0,02 s, et la durée d'un
+bit est 0,32 s.
+
+16
+
+Temps;EA4
+
+→
+
+Plusieurs problèmes se posent :
+
+0;10
+
+- Comment le programme pourra différencier la
+
+0.02;10
+
+colonne temps et celle des tensions ?
+
+0.04;10
+
+- Quand le message commence-t-il et quand
+
+0.06;10
+
+s'arrête-t-il ?
+
+0.08;10
+
+- Comment limiter le risque de mauvaise
+
+0.1;10
+
+interprétation du message (à cause du retard
+
+0.12;10
+
+des cristaux liquides ?
+
+0.14;10
+0.16;10
+
+Voici les différentes étapes de notre programme de réception (complet en annexe 5) :
+- Au début, nous demandons au programme de lire les données des deux colonnes, sans les stocker tant
+que la tension reçue est supérieure à 5 V (soit quand le cristal liquide est éteint et laisse passer la lumière). Ainsi,
+quand la tension reçue est supérieure à 5 V, nous demandons au programme de lire le premier bit du message qui
+correspond à un 1 sans le stocker. Mais il ne lit que les 15 premières lignes et non 16, car quand le programme a
+détecté une tension supérieure à 5 V soit la première ligne du bit « 1 », ensuite il ne compte plus celle-ci. C'est
+pourquoi il doit lire les 16 – 1=15 premières lignes, pour éviter qu'il y ait un décalage dans le décodage du signal.
+- Ensuite, nous voulons que le programme arrive à reconnaître une lettre et la traduise. Or une lettre est
+composée d'un octet soit 8 bits, c'est pourquoi nous avons écrit une boucle « pour » 8 tours. Ensuite, à chaque tour,
+le programme doit lire 16 lignes soit un bit. Ici la durée d'un bit est de 0,08/0,020 soit 16 lignes dans la réception
+des données car 0,020 seconde correspond à la durée entre la réception de chaque point (que nous avons
+paramétrée sur LatisPro) et le 0,08 correspond à la durée entre chaque point émis (dans le programme d'émission).
+Le programme différencie à chaque ligne la colonne « temps » et celle des tensions nommée « volt » grâce à la
+fonction split qui reconnaît le séparateur « ; ».
+Nous voyons que dans notre exemple, un bit dure 0,32 s (en rouge) et un octet 2,56 s (en bleu), d'où l'utilité de
+notre boucle dans le programme.
+- Puis nous lui demandons de repérer le maximum de la colonne « volt » pour chaque bit. On évite ainsi
+que le programme ne prenne en compte le temps de transition pour que le cristal liquide change d'aspect, ce qui
+risque de parasiter notre message. Nous avons renforcé la fiabilité du programme.
+- Enfin, si le maximum est supérieur à 9 V (en vert) alors le programme en déduit que le bit vaut 0. Sur
+notre graphique, toutes les valeurs supérieures à cette ligne représentent un bit 0. En effet, si la tension reçue est
+supérieure à 9 V, cela signifie que la lumière traverse les cristaux liquides et donc qu'aucun courant ne passe dans
+ceux-ci. La valeur de 9 V a été choisie comme palier car le récepteur est saturé et a pour palier 10 V. Par
+déduction, si le maximum est inférieur à 9 V le bit vaut 1.
+- Puis cela 8 fois, ainsi nous avons un octet. Pour notre lettre, celui-ci est [01000001]. Grâce à la fonction
+chr qui permet de traduire des chiffres binaires en lettre, nous pouvons traduire notre octet. Nous utilisons la
+fonction int qui permet de convertir une chaîne de caractères en nombre, car jusque-là notre octet était considéré
+comme une suite de caractères.
+
+17
+
+- Mais en réalité notre message n'était pas composé d'un seul octet mais de 2 (nous avons ajouté un bit de
+début et un octet de fin pour que notre programme sache quand s'arrêter). Ainsi lorsqu'il détecte l'octet '00000000'
+(qui ne correspond à aucun caractère) il s'arrête, mais celui-ci est aussi traduit par notre programme. C'est
+pourquoi nous utilisons la fonction len qui « compte » la longueur, le nombre de caractères de l'octet, ainsi le
+message=message-(n-1), qui permet d'enlever l'octet final.
+
+3. Pourquoi choisir dt = 0.08 s ?
+Après avoir fini la programmation de la réception et de l'émission du signal, il nous fallait optimiser nos
+variables afin d'améliorer la rapidité de la transmission. Or comme nous l'avons déjà vu auparavant, les cristaux
+liquides ont un temps de réponse lent, celui-ci est plus ou moins grand selon la qualité de ces derniers. Ainsi, nous
+avons testé nos cristaux afin de trouver la meilleure durée possible entre chaque période. Dans notre programme
+une période « type » créneau est composée d'un bit « 0 » et d'un « 1 », ce qui dure 4  0,08 + 4  0,08 s = 0,64s.
+(On rappelle qu'à l'émission un bit est représenté par 4 points, d'où le 4).
+Nous avons réalisé plusieurs essais de réponse à un créneau avant de choisir cette valeur.
+Pour une période de créneau de 1 s, le fonctionnement est en général bon. C'est ce signal que nous
+utilisons à chaque fois que nous installons l'expérience pour tester notre matériel.
+Pour une période de 0,5 s, des défauts peuvent apparaître, suivant la qualité de placement de nos pinces
+crocodiles. Nous avons donc choisi une valeur de période intermédiaire T = 0,64 s, donnant priorité à la qualité du
+signal plutôt qu'à la vitesse de transmission, qui reste de toute façon faible : quelques bits par seconde avec nos
+cristaux.
+
+4. Conclusion de cette expérience
+Grâce aux cristaux liquides, nous pouvons envoyer des messages avec une vitesse de 3 bit/s car les
+cristaux liquides n'ont pas le temps pour s'exciter et revenir à leur état initial. Cette valeur est bien inférieure aux
+autres moyens de communication comme la fibre optique qui peut émettre avec un débit de
+10 Gbit/s. De ce fait, nous avons tenté la même expérience, le montage restant le même, avec la fibre optique mais
+en changeant les valeurs permettant le fonctionnement du programme. Avec cette fibre optique nous pouvons alors
+envoyer un message 1000 fois plus vite mais nous sommes encore loin des valeurs du réseau de
+télécommunication !
+
+18
+
+Envoi d'un message par fibre optique
+1. Composition d'une fibre optique
+Une fibre optique est composée de trois éléments :
+•
+
+Le cœur, généralement composé de silice (dérivé du silicium), c'est ici que la lumière se propage en se
+réfléchissant.
+
+•
+
+La gaine optique, qui est composée du même matériau que le cœur, mais de moins bonne qualité : l'indice
+de réfraction est alors inférieur à celui du cœur.
+
+•
+
+Le revêtement de protection généralement en plastique.
+
+2. Fonctionnement d'une fibre optique
+Tout d'abord, il faut savoir que le fonctionnement de la fibre optique est basé sur le principe de la
+réflexion totale interne, soit lorsque le rayon réfracté n'existe plus.
+Pour qu'il y ait réflexion totale interne de la lumière il faut que :
+- L'indice de réfraction du milieu incident soit plus grand que celui du milieu réfracté.
+- L'angle d'incidence doit être supérieur à l'angle critique.
+Voici une illustration du phénomène :
+
+Grâce à la loi de Snell-Descartes, nous pouvons trouver cet angle critique (θc) qui est l’angle incident avec lequel
+l'angle de réfraction est pris égal à 90°. Si l'angle incident est supérieur à cet angle critique alors il y a réflexion
+interne totale :
+
+19
+
+Nous savons d'autre part que la fibre optique ne peut pas transmettre à l'infini un faisceau lumineux, celui-ci
+baisse en puissance avec la distance.
+Nous savons que la puissance lumineuse en sortie (P S ) diminue exponentiellement en fonction de la distance :
+PS = Pe exp(-α L)
+avec
+
+Pe: puissance lumineuse à l'entrée de la fibre optique
+α : le coefficient d'atténuation
+L : la longueur de la fibre optique
+
+Ainsi pour certaines longueurs d'onde, le coefficient d'atténuation est moins élevé. Cela est le cas pour
+une onde de longueur d'onde voisine de 1,55 μm ou encore vers 1,3 μm. Ces ondes sont situées dans le domaine
+du proche infrarouge. Ce domaine de longueurs d'onde est utilisé aujourd’hui dans les télécommunications.
+
+La fibre optique est déjà une grande avancée dans la vitesse des télécommunications mais nous voyons que ses
+capacités peuvent être atténuées par plusieurs facteurs :
+•
+
+Selon l'angle à laquelle la lumière se réfracte, la silice a un indice de réfraction qui varie en fonction de la
+fréquence.
+
+•
+
+En fonction de la distance : avec la distance, la puissance lumineuse diminue.
+
+•
+
+La rapidité des transmetteurs optiques.
+
+Aujourd'hui, la fibre optique permet le transfert de 10 Gbit/s (au maximum). Ce débit est un milliard de
+fois plus grand que pour le transfert d'informations grâce aux cristaux liquides que nous avons utilisés (3 bit/s) et
+un million de fois plus grand que pour notre deuxième système (1000 bit/s).
+
+3. Montage de l'expérience
+
+20
+
+Nous gardons le même photorécepteur. La partie réception est inchangée.
+L'émetteur est une diode laser, alimentée par un générateur continu, et commandée sur sa borne TTL par un
+deuxième signal électrique, issu de la carte d'acquisition du montage émission.
+
+4. Les modifications des programmes
+Nous utilisons toujours les mêmes programmes mais nous avons modifié quelques variables comme la durée entre
+chaque point. En effet, le système étant plus rapide nous pouvons envoyer un message plus vite.
+Le dt à l'émission vaut à présent 0,248 ms, multiplié par 4 cela fait 0,992 ms pour un bit, soit un débit d'environ
+1 kbit/s. Nous aurions pu tenter d'aller plus vite, mais le signal se déforme autour de 3 à 4 kbit/s.
+Nous avons également dû modifier la valeur d'un bit 1 (donc de la tension émise). Dans notre premier programme
+la tension émise était soit 6 V (bit 1) soit 0 V (bit 0). Ici, après quelques tests, le signal est optimal pour des
+tensions de 10 V (bit 1) et -5 V (bit 0). Ces valeurs permettent de faire clignoter au mieux la diode laser et de
+recevoir un signal carré entre 0 V et 10 V plus facilement exploitable par notre programme de réception.
+Le message étant envoyé rapidement, nous devons faire une acquisition avec déclenchement automatique à la
+réception. Ci-dessous l'allure de l'envoi et réception de la lettre A.
+
+5. Les limites
+Grâce à ce système nous avons pu transmettre des informations avec un débit de 1000 bit/s donc
+beaucoup plus rapidement qu'avec notre système avec des cristaux liquides mais cela est très loin des capacités
+actuelles. En effet, aujourd'hui la transmission peut s'effectuer avec un débit d'environ 10 Gbit/s grâce à la fibre
+optique soit dix millions de fois plus vite.
+Il semblerait que la limite principale soit notre phototransistor qui est, comme nous l'avons déjà dit, assez lent. Il
+nous faudrait optimiser le choix de notre récepteur et de notre émetteur pour approcher davantage des débits
+usuels de fibre optique.
+
+21
+
+Conclusion
+Pour conclure, il nous a fallu une année entière pour mener à bien notre projet, en étant
+confrontés à de multiples reprises à des problèmes auxquels nous n'avions pas pensé. Nous avons
+pu, grâce au concours des Olympiades de la physique, mettre en place une démarche scientifique de
+recherche pour finaliser notre projet. Nous avons pu nous investir dans un travail d'équipe et avoir
+le plaisir d'avancer ensemble dans une thématique qui nous passionne.
+Nous avons ainsi pu répondre à notre problématique du tout début à savoir : est-il possible
+de transmettre un message par la lumière ? Bien évidemment oui comme nous l'avons montré par
+deux réalisations. Grâce à nos systèmes nous pouvons transmettre des messages à des débits de 2 à
+3 bit/s avec les cristaux et à 1000 bit/s avec la diode laser, ce qui est nettement inférieur au débit
+potentiel du réseau Internet. Cela est dû au mauvais temps de réponse de nos cristaux liquides dans
+le premier cas, et au photorécepteur dans le second cas.
+Grâce à notre projet, nous avons aussi découvert la programmation en Python et mieux
+compris l’intérêt du langage binaire utilisé couramment aujourd'hui. Celui-ci est irremplaçable car
+facilement manipulable du fait qu'il est basé sur une simple variation de tension électrique. Même si
+le signal reçu est parasité, il est possible de reconstituer le signal avec peu d'erreurs. Exemple avec
+le mot « bonjour », transmis par les cristaux liquides sous-alimentés, où malgré des problèmes
+importants de réponses, seul un bit est erroné (dépassement des 9 volts pour un 0).
+
+22
+
+Remerciements
+Nous souhaitons tout d'abord adresser à notre professeur tuteur Mr Bonis nos plus grands
+remerciements. Il nous a incité à participer au concours des Olympiades de Physique et au cours de
+cette préparation, il nous a encadré, a suggéré des idées et nous a aidé pendant plus d'une année
+pour que notre projet aboutisse. Il nous a fait découvrir de la physique que l'on aborde pas au lycée.
+Nous remercions aussi ses collèges de l'équipe pédagogique, M Voisin et Mme Denel qui nous ont
+aidé pour la seconde expérience de chimie : retenter la synthèse des cristaux liquides qui fut ratée
+lors du premier essai. Ils sont également intervenus dans la préparation à l'oral.
+Mme Denel et M Bonis nous ont aussi aidé dans la mise en page et la correction de notre rapport.
+Nous remercions aussi le lycée pour le prêt du matériel et la mise à disposition de salles de tp pour
+mener à bien nos expériences dès que nous avions un créneau de libre.
+Pour finir, nous remercions le jury Île-de-France qui nous a permis d'arriver à ce stade et en nous
+donnant des pistes de travail pour améliorer le projet.
+
+BIBLIOGRAPHIE
+La physique par les objets quotidiens (Belin), de Cédric Ray et Jean-Claude Poizat, pour les
+cristaux liquides (figures).
+Panorama de la physique (Belin), articles sur les cristaux liquides et les fibres optiques (multiauteurs).
+
+23
+
+SITOGRAPHIE
+INTRODUCTION
+http://www.cnes.fr/web/CNES-fr/209-informations-legales.php
+WS INTERACTIVE (consulté le 10/11/2014), Histoire et Techniques de la télécommunication [en
+ligne]
+https://www.youtube.com/watch?v=0kjlITYI9Lk
+YOUTUBE (consulté le 10/11/2014), Histoire des télécommunications et de la fibre optique [en
+ligne]
+
+SYNTHESE CHIMIQUE
+http://wiki.scienceamusante.net/index.php?title=scienceamusante.net:%C3%80_propos
+Clovis Darrigan, Anima-Science, « Science amusante » <http://scienceamusante.net>. Consulté le 10/11/2014
+
+http://wiki.scienceamusante.net/index.php?title=Fabrication_d%27un_affichage_
+%C3%A0_cristaux_liquides
+Clovis Darrigan, Anima-Science, « Science amusante » <http://scienceamusante.net>. Consulté le 10/11/2014
+
+FONCTIONNEMENT DES CRISTAUX LIQUIDES
+https://www.youtube.com/watch?v=Ldf-WPekVyk
+Thomas Schwenke, youtube, « fonctionnement d'un affichage à cristaux liquides », consulté le
+10/11/2014
+http://www.prepa-cpe.fr/documents/Les_cristaux_liquides.pdf
+Caroline BESSON, Estelle LABOULLE, Cécile LE VAN, TIPE « les cristaux liquides », consulté
+le 10/11/2014
+https://www.youtube.com/watch?v=U-1d9dlCnto
+https://www.youtube.com/watch?v=sjQKg-RS704
+http://www.larecherche.fr/idees/back-to-basic/cristaux-liquides-01-04-2002-74832
+http://informafun.free.fr/fonctionnement.htm
+
+24
+
+ANNEXE 1
+L'histoire des télécommunications et de la télécommunication optique
+La télécommunication s'imposa assez rapidement pour l'Homme. Dès l'Antiquité, on voit apparaître les
+premières traces de messages, torches et phares lumineux en Grèce, la fumée chez les Indiens (plus tard dans
+l'Histoire). Mais ces dispositifs ont des portées limitées à quelques kilomètres. Il faut attendre la fin de la
+Révolution Française où le télégraphe optique de Chappe relie Paris et Lille. Celui-ci est composé d'une grande
+tour, visible à plus de dix kilomètres, sur laquelle est fixée une armature métallique. Grâce à un système
+mécanique, nous pouvons former toutes les lettres de l'alphabet.
+
+Puis en 1836-38, les Anglais Edward Davy, William Looke et Charles Wheastone vont inventer et mettre au
+point le télégraphe, grâce à un petit mécanisme qui permet d'envoyer un signal électrique court ou long. Samuel
+Morse invente l'alphabet Morse qui permet l'utilisation du télégraphe. Le signal peut atteindre jusqu'à 30 km (où il
+perd en intensité) c'est pourquoi des relais sont installés tous les 30 km.
+
+En 1858, le premier câble transatlantique est posé, mais il fut endommagé au bout de quelques jours. Remplacé en
+1866, il fut utilisé pendant une centaine d'années.
+En 1889, Tesla réalise un générateur à hautes fréquences, 15 kHz, et expérimente la première communication
+
+25
+
+radio. Peu de temps avant, Heinrich Rudolf Hertz avait mis en évidence les ondes radio qu'il a nommées les
+« ondes hertziennes ». En 1890, Branly découvrit la radioconduction. Puis en 1893, le professeur Alexandre
+Popov découvre le principe de l'antenne pour les liaisons à grandes distances, ce qui permit à Guglielmo Marconi
+de mettre en place les premières liaisons hertziennes à travers les Alpes suisses. Après plusieurs améliorations du
+modèle de cette radio, en 1907, l'américain Lee De Forest invente la triode qui permit le départ de l'industrie
+radio-électronique.
+Mais le problème est que les signaux s'affaiblissent avec la distance et que la qualité du signal dépend des
+conditions météorologiques et de la taille des obstacles naturels.
+
+Avec l'apparition des premiers satellites les liaisons radio ont une plus grande portée, mais le problème reste
+identique selon les conditions météorologiques, la réception est plus ou moins bonne.
+En 1854 John Tyndall démontra que la lumière peut se propager à travers un tube d'eau grâce à de multiples
+réflexions internes, ce qui lui permet d'imaginer qu'un tube de verre pourrait « conduire » la lumière. Hansell créa
+en 1926 un dispositif de fibre en verre ou en plastique qui permit de transmettre une image.
+Mais la fibre optique fut d'abord utilisée non pas pour la communication mais pour la médecine. En 1956 Curtiss
+inventa la première fibre optique et en 1957 Hirschowitz l'utilisa comme endoscope sur un patient.
+
+En 1970, les scientifiques de Corning Glass Works développèrent la première fibre optique monomode
+pouvant être utilisée dans les réseaux de communication. Puis en 1975, le premier système de communication
+téléphonique optique fut testé par les Anglais puis installé aux Etats-Unis. Vers la fin des années 1970, les
+compagnies téléphoniques modifièrent leurs infrastructures et installèrent la fibre optique.
+Enfin en 1991, Desurvire et Payne démontrèrent l'amplification optique qui permit la création de l'Internet
+haut débit. Par la suite, les premiers câbles de fibre optique sous-marins furent développés et installés.
+Aujourd'hui, les secteurs médicaux, informatiques, militaires, de la télécommunication, de l'industrie
+utilisent les systèmes de fibre optique pour une large variété d'applications.
+
+26
+
+ANNEXE 2
+Le protocole complet de l'expérience de chimie
+Matériel et produits
+•
+•
+•
+•
+•
+•
+•
+
+Ballon de 25 mL monocol
+Réfrigérant à boules
+Barreau aimanté et agitateur magnétique chauffant
+Ensemble de distillation
+Erlenmeyer de 100 mL
+Filtre en verre fritté n°3
+Système de filtration sous vide
+
+• 4-méthoxybenzaldéhyde (p-anisaldéhyde)
+• 4-butylaniline
+• Éthanol absolu
+• Éther éthylique
+• Sulfate de sodium
+
+Mode opératoire
+• Réaliser un montage de chauffage à reflux comme illustré ci-contre.
+• Introduire dans le ballon :
+• 4 mL de 4-méthoxybenzaldéhyde
+• 5,2 mL de 4-butylaniline
+• 4 mL d’éthanol absolu
+• Chauffer au reflux pendant une heure puis laisser refroidir.
+• Remplacer le réfrigérant par un ensemble de distillation et distiller tout l’éthanol
+(palier de température à environ 78°C).
+• Laisser refroidir et transvaser le milieu réactionnel dans un erlenmeyer de 100 mL puis
+ajouter 40 mL d’éther éthylique
+.
+• Sécher la solution sur du sulfate de sodium anhydre pendant environ 1 heure puis filtrer la
+solution.
+• Évaporer l’éther sous vide jusqu’à obtention d’une solution trouble à température ambiante.
+
+Résultats et discussion
+• Lors de cette synthèse, il est préférable de distiller préalablement la 4-butylaniline et le 4méthoxybenzaldéhyde en raison de la présence d’impuretés dans les produits commerciaux.
+• La synthèse du MBBA fait intervenir la formation d’une imine par réaction entre un
+aldéhyde et une aniline.
+27
+
+• Le composé obtenu, en raison de la double conjugaison par les cycles aromatiques de part et
+d’autre de l’imine, possède une bonne stabilité vis-à-vis de l’eau.
+• La réaction se déroule comme suit : la 4-butylaniline attaque le 4-méthoxybenzaldéhyde
+pour donner un intermédiaire zwittérionique 7 qui subit une prototropie pour donner 8. Ce
+composé va se protonner et l’élimination d’eau conduit à 10. L’élimination d’un proton
+permet de former l’imine 11 :
+
+L’éthanol est un bon solvant permettant de dissoudre toutes les espèces en présence. Dès le mélange
+des réactifs, le milieu réactionnel se colore en jaune, indiquant le déroulement d’une réaction.
+•La distillation de l’éthanol en fin de manipulation permet d’éliminer l’eau contenue dans le milieu.
+En effet, lors de la réaction, de l’eau est produite, capable d’hydrolyser l’imine formée pour
+redonner l’aldéhyde. L’éthanol formant un azéotrope avec l’eau, sa distillation permet d’éliminer
+toute l’eau formée et donc de déplacer définitivement les différents équilibres vers la formation de
+l’imine. En fin de distillation, le milieu se présente sous la forme d’un liquide trouble, le cristal
+liquide (MBBA).
+
+28
+
+ANNEXE 3
+Photos de l'expérience (1) de fabrication du verre
+conducteur
+
+29
+
+ANNEXE 4
+Photos de l'expérience 1 de synthèse des cristaux
+liquides
+Photo de la solution distillée à l'instant t=0
+de l'arrêt de la distillation
+
+Photo de la solution quelques temps après
+l'arrêt de la distillation
+
+Photo de la solution à l'instant final
+
+30
+
+ANNEXE 5
+Documents de l'expérience 2 de synthèse des cristaux
+liquides
+
+Cristaux avant et après purification à l'éther
+
+31
+
+ANNEXE 6
+PROGRAMMATION
+• EMISSION
+
+32
+
+•
+
+RECEPTION
+
+33
+
+

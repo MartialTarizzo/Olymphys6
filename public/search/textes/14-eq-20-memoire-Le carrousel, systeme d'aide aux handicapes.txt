@@ -1,0 +1,811 @@
+Olympiades de physique
+2006/2007
+
+Un système d’aide aux handicapés
+
+POTHAIN Mélanie
+LAFRECHOUX Leslie
+BOUGEANT Matthieu
+encadrés par M. LEFEVRE
+
+Lycée G. St Hilaire - ETAMPES
+
+Sujet :
+
+Le carrousel
+
+Problématique :
+
+Peut-on faciliter le déplacement des personnes handicapées
+avec un système simple ?
+
+Résumé :
+Les personnes handicapées rencontrant beaucoup de problèmes pour monter de
+simples trottoirs avec leurs fauteuils roulants motorisés, les élèves ont
+réfléchis à la possibilité d’adapter un système motorisé sur les fauteuils afin
+de permettre facilement la montée d’un trottoir. Une étude technique
+préalable a été réalisée et une maquette a été construite afin de modéliser le
+système baptisé « carrousel ».
+
+Elèves :
+POTHAIN Mélanie
+LAFRECHOUX Leslie
+BOUGEANT Matthieu
+
+Professeur encadrant :
+LEFEVRE Yoann
+
+Lycée G. St Hilaire – Etampes
+
+Le carrousel
+
+-2-
+
+Année 2006/2007
+
+SOMMAIRE
+SOMMAIRE ________________________________________________ 3
+INTRODUCTION ____________________________________________ 4
+I. L'ETUDE DU BESOIN_______________________________________ 5
+1) La bête à cornes ______________________________________ 5
+2) La pieuvre ___________________________________________ 6
+3) Le diagramme FAST ____________________________________ 7
+II. LA MISE EN OEUVRE ______________________________________ 8
+1) Construction d’une première vraie maquette __________________ 8
+2) Les problèmes rencontrés________________________________ 8
+3) La maquette virtuelle ___________________________________ 9
+III. L'ETUDE ENERGETIQUE ET LA MECANIQUE__________________ 11
+1) Pourquoi ce système permet-il de monter les trottoirs ? ________ 11
+2) Estimation du couple et des puissances des moteurs____________ 12
+3) Réalisation effective de la motorisation ____________________ 15
+IV. L'ABOUTISSEMENT FINAL (LA MONTEE D'UNE MARCHE) _______ 19
+1) La maquette réelle finale _______________________________ 19
+2) La maquette virtuelle finale _____________________________ 20
+3) Les problèmes persistants ______________________________ 22
+CONCLUSION _____________________________________________ 24
+BIBLIOGRAPHIE ___________________________________________ 25
+ANNEXE 1 : NOTRE PARTENAIRE ______________________________ 26
+ANNEXE 2 : LE CARROUSEL AU NIVEAU MOLECULAIRE ! ____________ 29
+
+Lycée G. St Hilaire – Etampes
+
+Le carrousel
+
+-3-
+
+Année 2006/2007
+
+INTRODUCTION
+Notre projet fait suite au sujet de TPE que nous avons présenté en
+première. Nous avons choisis le domaine de l'handicap car nous étions
+fortement intéressés par l’aspect social de celui-ci. Nous avions pour but
+d’apporter de l’aide aux personnes utilisant des fauteuils roulants car nous
+avions remarqué leurs difficultés de mobilité dès lors qu’ils rencontraient un
+obstacle. Nous souhaitions donc trouver un système qui pouvait y remédier.
+C’est ainsi que notre projet de « carrousel » fût mis en place. Il s’agit
+d’un système composé de trois petites roues que l’on adapte sur chaque coté
+avant d’un fauteuil motorisé. Cela permet de monter des petits obstacles tel
+qu’un trottoir avec le moins d’efforts possibles.
+Nous avons appelé notre système « carrousel » car notre système est
+comparable aux manèges carrousels pour lesquels l’ensemble tourne autour d’un
+axe central.
+
+Principe du « carrousel » en marche
+
+Lycée G. St Hilaire – Etampes
+
+Le carrousel
+
+-4-
+
+Année 2006/2007
+
+I. L'ETUDE DU BESOIN
+Pour commencer, nous avons essayer de décrire le besoin auquel devait
+répondre le système technique, en utilisant plusieurs outils de l’ingénieur aux
+noms un peu barbares : la « bête à cornes », la « pieuvre » et le diagramme
+FAST.
+
+1) La bête à cornes
+D’abord, nous avons défini les enjeux de notre produit : il est fait pour
+être installé sur des fauteuils roulants et surtout électriques, ensuite, il est
+destiné aux utilisateurs de fauteuils roulants qui pourront ainsi avoir une plus
+grande autonomie. Car, finalement, notre système a pour but de monter les
+trottoirs ou les petits obstacles avec le moins d’effort possible.
+
+La bête à cornes du « carrousel »
+Lycée G. St Hilaire – Etampes
+
+Le carrousel
+
+-5-
+
+Année 2006/2007
+
+2) La pieuvre
+Nous avons ensuite étudié l’environnement de notre système. Nous avons
+utilisé un autre outil de l’ingénieur, appelé « pieuvre », qui est un schéma
+regroupant les différentes fonctions qui sont liées au système. Il y a les
+
+fonctions principales qui permettent au système de répondre au besoin de
+l’utilisateur et les fonctions contraintes qui, comme son nom l’indique, sont les
+contraintes liées au système.
+On peut dire que, dans notre système, il y a deux fonctions principales :
+- l’une est qu’il puisse fonctionner dans la rue (fonction F1 )
+- l’autre est qu’on puisse lui adapter un moteur (fonction F2 )
+Il y a aussi des fonctions contraintes comme :
+- il ne faut pas qu’il prenne trop d’espace sur le fauteuil (fonction C1 )
+- il faut une sécurité totale avec l’utilisateur ou son entourage (fonction C2 )
+- il faut que l’ensemble soit un minimum esthétique (fonction C3 )
+- il faut que son coût soit raisonnable (fonction C4 )
+
+La pieuvre et le diagramme des interacteurs du « carrousel »
+Lycée G. St Hilaire – Etampes
+
+Le carrousel
+
+-6-
+
+Année 2006/2007
+
+3) Le diagramme FAST
+Le dernier outil de l’ingénieur utilisé est le diagramme FAST (Function
+Analysis System Technique). Il permet, à partir de la fonction principale à
+satisfaire (monter les trottoirs), une décomposition en fonctions techniques
+pour aboutir à des solutions technologiques.
+Le but principal de notre carrousel est bien sûr de monter les trottoirs. Il faut
+pour cela l’alimenter, c’est-à-dire apporter de l’énergie au moteur et pour cela
+on utilisera une batterie. Et, afin de pouvoir contrôler l’alimentation, on
+rajoutera un interrupteur on/off.
+Il faut également que notre carrousel puisse se déplacer. Pour cela, nous
+devons créer une rotation des roues, ce qui nous amène à trois choses :
+- convertir l’énergie électrique en énergie mécanique de rotation et cela grâce
+au moteur électrique
+- adapter et transmettre le mouvement grâce à un système pignon/chaîne
+- transformer le mouvement grâce aux roues du carrousel.
+
+Lycée G. St Hilaire – Etampes
+
+Le carrousel
+
+-7-
+
+Année 2006/2007
+
+II. LA MISE EN OEUVRE
+1) Construction d’une première vraie maquette
+Au début, notre projet de maquette était basé entièrement sur un
+système carrousel, c’est à dire que nous n’avions pas représenté entièrement un
+fauteuil roulant. Nous pensions que nous pourrions monter un trottoir avec
+simplement comme puissance celle du moteur qui permet de faire avancer le
+système.
+
+Notre
+
+solution
+
+technique
+
+était
+
+composée
+
+d’élastiques
+
+qui
+
+transmettaient le couple des moteurs aux roues. Le carrousel devait entrer en
+contact avec le trottoir, il devait le monter, par la seule puissance du moteur
+qui réalisait l’avancement (la translation). Or, notre maquette (fabriquée avec
+des Mécano et entraînée par des moteurs (récupérés sur une voiture
+téléguidée) ne répondait pas du tout aux attentes et surtout ne correspondait
+pas à la solution technique envisagée après plusieurs études. Voyons quels
+étaient ces problèmes.
+
+2) Les problèmes rencontrés
+Le principal problème de la première maquette était que les élastiques
+qui faisaient le contact entre les roues et les branches du moteur, à la façon de
+courroies, étaient totalement inadaptés. Il y avait un problème de résistance et
+d’adhérence mais malheureusement c’était la seule solution que nous avions sur
+le moment.
+
+Lycée G. St Hilaire – Etampes
+
+Le carrousel
+
+-8-
+
+Année 2006/2007
+
+Nous avons présenté notre maquette au concours Quintesciences en juin
+2006 et celle-ci n’arrivait seulement qu'à faire une petite rotation, la solution
+technique choisie (par contrainte) n’étant pas du tout adaptée. C’est pourquoi
+nous avons décidé de créer une maquette virtuelle sous le logiciel Inventor,
+maquette qui aurait été l’idéale pour nous.
+
+3) La maquette virtuelle
+Sur notre maquette virtuelle, nous avons remplacé les élastiques par des
+systèmes pignons/chaînes pour entraîner les roues mais nous avons également
+rajouté des roulements pour minimiser les frottements. Ces roulements, les
+pignons et les chaînes ont été sélectionnés dans la bibliothèque du logiciel
+
+Inventor qui utilise des éléments standard présents sur le marché.
+Enfin, nous avons pu étudier la faisabilité de notre système, grâce au
+logiciel Inventor, en observant la maquette virtuelle en train de monter un
+trottoir :
+
+En percutant le trottoir, le moteur avant se met en route, permettant
+aux carrousels fixés à l’avant d’entamer leur rotation pour escalader
+l’obstacle. La poussée du moteur arrière finit d’achever la montée.
+Lycée G. St Hilaire – Etampes
+
+Le carrousel
+
+-9-
+
+Année 2006/2007
+
+Les deux exemplaires de carrousel (à fixer sur les deux côtés avant du
+fauteuil) ont finalement été construits avec des Mécano.
+
+Lycée G. St Hilaire – Etampes
+
+Le carrousel
+
+-10-
+
+Année 2006/2007
+
+III. L'ETUDE ENERGETIQUE ET LA
+MECANIQUE
+1) Pourquoi ce système permet-il de monter les
+trottoirs ?
+Sans le système du carrousel, le
+fauteuil roulant classique ne peut monter
+les trottoirs : les roues avant ont un
+diamètre beaucoup trop faibles pour
+
+Fig. 1
+
+passer l’obstacle (fig. 1).
+
+Avec le système du carrousel, la montée à l’avant est aisée (fig. 2 à 5).
+
+Fig. 2
+
+Fig. 3
+
+Fig. 4
+
+Fig. 5
+
+Fig. 6
+
+Lycée G. St Hilaire – Etampes
+
+Fig. 7
+
+Le carrousel
+
+-11-
+
+Année 2006/2007
+
+Une fois que le système du carrousel réalise avec succès la montée du trottoir
+par les roues avant, le carrousel est sur le trottoir mais les roues arrière sont
+encore sur la route. Dès lors, le centre de gravité du fauteuil se retrouve
+surélevé (fig. 5). Puisque les roues arrière ont un diamètre beaucoup plus grand
+que les roues avant, celles-ci, avec l’aide de la surélévation du centre de gravité
+du fauteuil, peuvent monter le trottoir beaucoup plus facilement (fig. 6 et 7).
+
+Sur les figures, nous voyons également un problème de déséquilibre du
+fauteuil lors de la montée (au moment où le carrousel est sur le trottoir et que
+les roues arrière sont sur la route). Pour pallier à ce problème, nous avons
+pensé équiper les siéges du fauteuil de deux vérins au niveau des fixations
+arrière. Ces deux vérins élèveraient les siéges au moment de la montée du
+trottoir et baisseraient le fauteuil au moment où le fauteuil serait
+complètement sur le trottoir. Mais le temps et les moyens nous ont manqué et
+nous avons laissé le système sans les vérins.
+
+2) Estimation du couple et des puissances des
+moteurs
+a. Hypothèses pour les calculs
+Nous pouvons estimer le poids du fauteuil roulant, personne comprise, à
+140 kg. Puisqu’il y a 4 roues sur le fauteuil, chaque carrousel placé sur les 2
+roues avant supporte une masse : 140/4 = 35 kg.
+Nous posons une vitesse de 0,5 m.s-1 ( ≈ 2 km/h) qui nous semble convenable.
+Nous avons estimé la hauteur d’un trottoir à 7 cm.
+Lycée G. St Hilaire – Etampes
+
+Le carrousel
+
+-12-
+
+Année 2006/2007
+
+b. Calcul de la puissance nécessaire pour un moteur du carrousel
+Nous avons étudié le système comme s’il devait monter un plan incliné à
+45° car nos connaissances ne nous permettent pas de le faire pour la situation
+réelle (contact sans glissement au niveau de la roue et du trottoir avec rotation
+en plus).
+Utilisons le théorème de l’énergie cinétique :
+
+Système étudié : Les deux roues à terre du carrousel
+Forces appliqués à ce système :
+
+r
+- le poids P
+
+r
+- la réaction du support R
+- la force motrice Fm
+
+∆EC = WR + WP + WFm
+Mais, comme on suppose la vitesse constante, on a : ∆EC = 0.
+
+r
+Or, WR = 0 car R est perpendiculaire à la trajectoire en tout point et à chaque
+instant.
+Donc : WP + WFm = 0
+
+Lycée G. St Hilaire – Etampes
+
+Le carrousel
+
+-13-
+
+Année 2006/2007
+
+D’où : - WP = WFm
+soit : m x g x BC = Fm x AC
+m x g x AC x sin α = Fm x AC
+Fm = m x g x sin α
+Puissance motrice = Fm x v
+= m x g x sin α x v .
+= 35 x 10 x sin (45) x 0,5
+Puissance motrice ≈ 125 W.
+Vu les simplifications effectuées au départ (pente rectiligne et non pas
+montée réelle de trottoir), la puissance motrice nécessaire du moteur doit
+certainement être supérieure à cette valeur trouvée. De plus, il convient de
+choisir une puissance plus élevée par mesure de sécurité. Pour chaque
+carrousel, un moteur proche de 200 W semble donc être l’idéal.
+
+b. Calcul du couple nécessaire à la rotation d’un carrousel
+Rappelons
+supporte
+
+que
+
+une
+
+chaque
+masse
+
+carrousel
+d’environ
+
+35 kg, soit une force de 350 N. Une broche
+
+30 cm
+
+d’un des carrousels installés à l’avant du
+fauteuil mesurera environ 30 cm.
+On obtient un couple de :
+Couple = F x d = 350 x 0,3 ≈ 100 N.m.
+
+Lycée G. St Hilaire – Etampes
+
+Le carrousel
+
+-14-
+
+Année 2006/2007
+
+Toujours par mesure de sécurité, un couple au moins deux fois supérieur serait
+nécessaire, soit de 200 N.m.
+
+3) Réalisation effective de la motorisation
+Chaque moteur doit donc être relativement puissant
+
+mais il doit
+
+également être irréversible car, lors de la rotation du moteur, si une panne
+survient, le carrousel ne doit en aucun cas faire demi-tour !
+Pour ce qui est du moteur de la maquette, après avoir réfléchi, plusieurs
+solutions constructives sont apparues :
+- moteur de Mécano (pas assez puissant donc abandonné)
+- moteur plus vis sans fin (pas de moteur disponible donc abandonné)
+- moteur pour chaque carrousel (problème de synchronisation donc abandonné)
+Pour notre maquette, nous avons finalement récupéré un seul moteur, avec
+un réducteur associé, qui sera associé aux deux carrousels avant.
+
+- Etude de la puissance du moteur, version maquette :
+Les caractéristiques du moto-reducteur que nous avons trouvé pour
+notre maquette sont :
+
+Vitesse nominale : ω m = 20 tr/min ≈ 2,1 rad/s
+Couple nominal : Cm = 125 kg.cm = 12,5 N.m
+Couple de blocage : 810 kg.cm
+
+La puissance motrice du moteur de notre maquette vaut donc :
+Puissance motrice =
+
+ω m x Cm
+
+Lycée G. St Hilaire – Etampes
+
+Le carrousel
+
+-15-
+
+Année 2006/2007
+
+= 2,1 x 12.5
+= 26 W
+Le moteur que nous utilisons développe donc une puissance de 26 W.
+
+Considérons que la maquette pèse 4 kg : nous pouvons alors dire qu’une
+masse de 1 kg s’applique sur chaque carrousel (puisqu’il y a 4 roues sur le
+fauteuil). En réalisant la même étude que précédemment appliquée à notre
+maquette, nous trouvons que la puissance motrice théorique nécessaire pour un
+seul carrousel doit être de : Pm = m x g x sin α x v = 1 x 10 x sin(45) x 0,5 ≈ 3,5 W.
+Puisque nous avons deux carrousels mais qu’un seul moteur à disposition, celui-ci
+doit donc développer théoriquement une puissance double. En prenant en
+compte les erreurs dues aux simplifications de notre étude (montée rectiligne)
+et par mesure de sécurité, la puissance théorique du moteur de notre maquette
+ne doit pas être en dessous de 15 W, ce qui est effectivement le cas.
+
+- Etude du couple du moteur, version maquette :
+Sur notre maquette, chaque carrousel doit supporter une masse de 1 kg,
+soit une force d’environ F = 10 N. Sachant qu’une broche de notre carrousel sur
+notre maquette mesure une longueur d = 10 cm
+(photo ci-contre), on obtient un couple de :
+C = F x d = 10 x 0,1 = 1 N.m.
+10 cm
+
+Toujours par mesure de sécurité, un couple de
+valeur double conviendrait, soit un couple de 2 N.m. Le moteur que nous avons
+
+Lycée G. St Hilaire – Etampes
+
+Le carrousel
+
+-16-
+
+Année 2006/2007
+
+récupéré possède un couple de sortie de 12,5 N.m, ce qui est amplement
+suffisant pour assurer la rotation.
+
+Ainsi, le moteur récupéré est assez puissant pour faire la rotation
+demandée : nous adaptons donc notre maquette pour recevoir ce moteur et
+pour que celui-ci entraîne les deux carrousels (on réalise deux accouplements
+entre les axes).
+Enfin, pour transmettre le couple du moteur à l’axe, nous avons fixé des
+engrenages plastiques (trouvés dans de vieilles imprimantes), le mieux étant
+d’avoir des engrenages en acier mais nous n’en avons pas trouvés. Les
+engrenages ne correspondant pas au diamètre du moteur et de l’axe, nous avons
+adapté ceux-ci pour qu’ils réussissent la transmission.
+
+Le moteur de la maquette et les engrenages
+
+Lycée G. St Hilaire – Etampes
+
+Le carrousel
+
+-17-
+
+Année 2006/2007
+
+Nous sommes pleinement conscients que le moteur que nous utilisons pour
+notre maquette n’est pas adapté et que les engrenages non plus. Il faudrait,
+idéalement, que la vitesse de rotation du carrousel soit plus faible que celle que
+nous obtenons (inutile que les carrousels tournent vite, même dangereux). Pour
+une première phase de projet, si la maquette réussit à monter un trottoir
+(adapté à la taille de la maquette), ce sera déjà une grande réussite pour nous !
+
+Lycée G. St Hilaire – Etampes
+
+Le carrousel
+
+-18-
+
+Année 2006/2007
+
+IV. L'ABOUTISSEMENT FINAL
+(LA MONTEE D'UNE MARCHE)
+1) La maquette réelle finale
+Pour les Olympiades de Physique, nous avons construits deux
+carrousels qui seront liés entre eux.
+
+Les deux carrousels séparés
+Nous avons commencé à entreprendre un mini fauteuil roulant en prenant
+des mesures sur un fauteuil roulant grandeur réelle. Notre maquette est en
+
+Mécano à l’échelle 1/3, avec deux carrousels à l’avant qui ne feront qu’une
+simple rotation, guidés par un moteur, et qui suivra une translation grâce à la
+propulsion des roues arrière qui entraînent le fauteuil. Le montage doit être
+précis pour que les axes des roues ne frottent pas.
+Lycée G. St Hilaire – Etampes
+
+Le carrousel
+
+-19-
+
+Année 2006/2007
+
+De plus nous avons essayé de créer un trottoir à l’échelle et avec la
+même matière que les trottoirs pour correspondre le plus possible à la réalité
+au niveau de l’adhérence, afin de tester au mieux notre maquette.
+
+Vu d’ensemble de la maquette réalisée
+(ainsi que le trottoir bitumé)
+
+2) La maquette virtuelle finale
+Nous avons dessiné le système du Carrousel intégré au fauteuil roulant sur le
+logiciel de DAO Inventor afin de pouvoir mieux visualiser notre projet idéal. Il
+est à noter que toutes les pièces utilisées pour la réalisation du système virtuel
+sont standardisées afin de permettre par la suite une démarche industrielle
+plus aisée.
+
+Lycée G. St Hilaire – Etampes
+
+Le carrousel
+
+-20-
+
+Année 2006/2007
+
+Le fauteuil roulant et les 2 carrousels à l’avant
+En particulier, le système réel du carrousel sera associé à des moteurs à vis
+sans fin :
+
+Un des deux carrousels
+
+Le moteur à vis sans fin
+
+Enfin, nous souhaiterions intégrer des vérins au fauteuil afin que le
+dossier de celui-ci reste bien perpendiculaire au plancher pendant la montée du
+
+Lycée G. St Hilaire – Etampes
+
+Le carrousel
+
+-21-
+
+Année 2006/2007
+
+trottoir. Malheureusement, nous n’avons cependant pas eu le temps ni les
+moyens pour mettre en place ce projet. Nous l’avons donc seulement créé sur
+
+Inventor.
+
+Les deux vérins fixés sous le siège du fauteuil
+
+3) Les problèmes persistants
+Les problèmes qui persistent au niveau de notre maquette sont des
+problèmes de solidité et de précision. En effet, il faudrait que le bâti du
+carrousel soit le plus solide possible pour minimiser les erreurs, ce qui est
+difficile avec des Mécano. Il faudrait également une extrême précision au
+niveau des roues pour permettre les transmission de puissance ce qui est aussi
+très délicat.
+De plus, rappelons que les moteurs de notre maquette ne sont pas
+réellement adaptés. Le problème d’irréversibilité du moteur fut réglé du fait
+que le moto-réducteur récupéré possède un nombre d’étages assez important :
+il y a beaucoup d’engrenages, donc on ne peut pas faire tourner l’axe du moteur
+en faisant tourner l’axe de sortie, la réversibilité ne peut donc se faire. Le
+
+Lycée G. St Hilaire – Etampes
+
+Le carrousel
+
+-22-
+
+Année 2006/2007
+
+choix sur la maquette du couple des moteurs arrières s’est également posé,
+ainsi que leur puissance (car, ne l’oublions pas, sans les moteurs arrières, le
+carrousel ne sert à rien). Mais, en réalité, les fauteuils roulants motorisés
+possèdent leurs propres moteurs de propulsion à l’arrière : ce problème sur
+notre maquette n’en est donc pas un.
+La batterie sera sûrement la même pour tous les moteurs et sera située
+soit sur la maquette, soit avec la télécommande. En réalité, la batterie est
+également déjà sur le fauteuil roulant motorisé.
+
+Lycée G. St Hilaire – Etampes
+
+Le carrousel
+
+-23-
+
+Année 2006/2007
+
+CONCLUSION
+Notre maquette finale enfin réalisée, nous avons pu constater qu’il était
+compliqué de choisir des moteurs adaptés. Notre maquette se rapproche
+maintenant de notre idée initiale et fonctionne. Mais, nous le savons, notre
+projet est loin d'être terminé. En effet, par les contraintes du temps, des
+connaissances et des moyens, nous n'avons pu mettre en oeuvre tous nos idéaux
+quant à la réussite du "carrousel". Néanmoins, bien que notre projet ne soit pas
+entièrement finalisé, nous avons appris au fil des heures à travailler en groupe
+et à intégrer nos cours de première et de terminale dans un objet concret. Ce
+projet nous a permis de nous responsabiliser et de prendre conscience que pour
+concrétiser un projet il faut beaucoup de persévérance. Cela nous a également
+permis d'intégrer un monde que l'on ne connaissait que très peu, celui du monde
+de la recherche et du développement et nous sommes heureux d'avoir pu nous
+investir dans une cause qui nous tient à cœur.
+
+Lycée G. St Hilaire – Etampes
+
+Le carrousel
+
+-24-
+
+Année 2006/2007
+
+BIBLIOGRAPHIE
+Personnes ayant permis l’évolution de notre TPE :
+- M. Ausseray, professeur de mécanique
+- M. Hugues Le Masnes (Top Chair)
+- M Reynald Rugoslilo (chef du service secrétariat médical du centre de
+rééducation du château de Soisy sur Seine)
+- M Christian Joachim (chercheur au CEMES)
+
+Internet :
+
+TopChair, notre partenaire : http://perso.orange.fr/topchair/contact_fr.htm
+CERAH : Centre d'Etudes et de Recherche des Appareillages pour Handicapés
+http://www.cerahtec.sga.defense.gouv.fr/index.htm
+
+Lycée G. St Hilaire – Etampes
+
+Le carrousel
+
+-25-
+
+Année 2006/2007
+
+ANNEXE 1 : NOTRE PARTENAIRE
+Nous sommes allés à la rencontre d’un des constructeurs de Topchair,
+système qui permet aux fauteuils roulants de monter et descendre des
+escaliers grâce à un système différent du notre. Le TopChair utilise des
+chenilles à la manière des chars d’assauts.
+
+LE TOPCHAIR
+
+Ce système peut monter une pente de près de 60%. Le Topchair monte
+des trottoirs ou des marches jusqu’à 20 cm et peut monter 300 marches et en
+descendre 1000. Il met environ 25 secondes pour monter 8 marches et, sur
+route, il a une vitesse maximale de 9 km/h. Le prix de conception s’élève à 6000
+euros et son prix de vente sera d’environ 12000 euros.
+Lycée G. St Hilaire – Etampes
+
+Le carrousel
+
+-26-
+
+Année 2006/2007
+
+Un système contrôle également l’inclinaison du châssis et du siège en le
+maintenant horizontalement automatiquement grâce à un vérin (voir la photo).
+Ce sont des capteurs qui détectent la présence des marches qui permettent de
+provoquer la rentrée ou la sortie du train de roues arrière.
+
+L’utilisateur de ce système ne perçoit aucun choc mais il existe une limite à ce
+système : en effet, l’utilisateur ne doit pas peser plus de 85 kg.
+Le travail pour parvenir à ce résultat peut se décomposer en 3 étapes. Il
+a fallut 2 ans pour fabriquer un prototype de fauteuil roulant électrique muni
+de chenilles et dont le siège reste bien horizontal. Il a fallut encore 2 ans pour
+adapter les roues puis un an pour automatiser les commandes.
+Le Topchair est le premier fauteuil roulant qui monte les escaliers et qui
+est homologué par le CERAH, centre d'étude et de recherche des appareillages
+pour handicapés.
+
+Lycée G. St Hilaire – Etampes
+
+Le carrousel
+
+-27-
+
+Année 2006/2007
+
+Premier essai réalisé le 29 juin 2005, avec une hauteur de marche de 20 cm :
+
+Pour les contacter : info@topchair.net
+
+Lycée G. St Hilaire – Etampes
+
+Le carrousel
+
+-28-
+
+Année 2006/2007
+
+ANNEXE 2 :
+LE CARROUSEL AU NIVEAU MOLECULAIRE !
+Nous avons été très surpris de découvrir l’existence d’un système qui utilise le
+même principe que notre carrousel mais à l’échelle moléculaire. Voyons brièvement en
+quoi consiste ce système, appelé ici brouette moléculaire.
+Le principe de la brouette moléculaire
+De récentes avancées dans l’imagerie et la manipulation de molécules ont permis
+de découvrir une molécule présentant des propriétés électroniques particulières mais
+aussi des propriétés mécaniques inédites à l’échelle microscopique. Il est maintenant
+possible de travailler sur une seule molécule et non sur une assemblée de molécules. La
+translation ou la rotation d’une seule molécule ayant déjà été observées, les
+chercheurs ont imaginé une molécule capable de combiner ces deux mouvements.
+Dans le cas d’une brouette macroscopique, une poussée (translation) permet
+d’induire la rotation de la roue. Par analogie avec une brouette, nous avons ceci :
+
+Il y a : 1 châssis
+
+Lycée G. St Hilaire – Etampes
+
+2 roues
+
+2 liaisons châssis/roues
+
+Le carrousel
+
+-29-
+
+2 poignées
+
+Année 2006/2007
+
+Au commencement du projet, il ne devait y avoir qu’une seule roue (en bleu) :
+
+Mais finalement le projet fut abandonné car cette molécule n'était pas
+synthétisable, principalement pour des raisons de faisabilité.
+
+Comment et dans quel but utiliser cette brouette ?
+Afin de manipuler cette nanobrouette, il faut agir sur les poignée de
+celle-ci (c’est à dire la partie bleue). Cette action se fait grâce à la pointe d’un
+microscope à effet tunnel. Cela créera une translation et nous obtiendrons de
+cette manière une rotation au niveau des roues (l’équivalent de notre
+carrousel). On notera également que leurs roues utilisent des propriétés
+identiques aux nôtres, c'est-à-dire ici 3 fragments triptycènes, composés de 3
+pâles à 120° l’une de l’autre.
+
+Vue de dessus
+et vue de profil de la brouette molécule en modèle moléculaire
+Lycée G. St Hilaire – Etampes
+
+Le carrousel
+
+-30-
+
+Année 2006/2007
+
+Cette brouette a la même fonction que notre carrousel : elle est capable
+de monter sur un atome comme notre carrousel monte sur un trottoir. Elle
+permet également de pouvoir mieux étudier les atomes. A l’avenir, cette
+brouette moléculaire va donc être étudiée pour cartographier précisément
+différentes surfaces.
+
+1.
+
+2.
+
+3.
+pointe du microscope (poignée)
+pâle de la roue
+
+4.
+
+surface atomique
+5.
+
+Modélisation de la rotation d’un tiers de tour d’une des roues de la brouette
+
+Pour contacter le chercheur G. Rapenne responsable de cette synthèse :
+rapenne@cemes.fr
+
+Lycée G. St Hilaire – Etampes
+
+Le carrousel
+
+-31-
+
+Année 2006/2007
+
+

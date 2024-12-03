@@ -1,0 +1,585 @@
+Olympiades de la Physique 2006-2007
+Lycée Louis Pergaud et Lycée Victor Hugo de Besançon (25 000)
+
+Multi Son
+Etude des sonneries « mosquitone » et d’effets sonores.
+
+Elèves : Pierre MARAVAL
+Alexandre FLEURET
+Galdim ZEQIRI
+Baptiste LEMERCIER
+Michaël BOURGEOIS
+Professeurs : Sylvie GUILLOSSEAU
+Jean-Michel JUSSIAUX
+
+Conseiller scientifique : Marc TULOUP
+
+Sommaire
+
+- Résumé de notre olympiade
+: page 3
+- Introduction
+: page 5
+-Comment fonctionne l’oreille ?
+: page 8
+-Audition et âge : le principe des « sonneries antiprof » : page 9
+-Analyse des sonneries
+: page 11
+-Les Sons de Tartini
+: page 12
+-A la recherche de la non-linéarité
+: page 15
+-Mutinerie à bord les harmoniques absents
+: page 18
+-Création d’un mosquitone
+: page 20
+-Conclusion temporaire
+: page 21
+
+2
+
+Résumé de notre olympiade
+Nous avions entendu parler de sonneries de téléphone portable inaudibles par les adultes car
+trop aigues.
+Après recherche et acquisition de ces sonneries nous les avons analysées. Les plus
+intéressantes d’entre elles étaient composées de plusieurs fréquences, par exemple 18 000 Hz et 9 000
+Hz (plus faible). Pourquoi est-ce qu’en écoutant plusieurs de ces sonneries simultanément des sons
+plus graves semblaient nous apparaître ou certains être renforcés?
+Pour montrer cela, on crée séparément les 2 fréquences principales des sons, puis on les joue
+isolément ou simultanément, sur 1 ou 2 haut-parleurs. Les fréquences lorsqu’elles sont jouées
+ensemble semblent se renforcer . Mais pas tout le temps, pourquoi ?
+Nous sommes conduits à envisager une cause possible : Une non-linéarité.
+Le fait que la présence d'une fréquence semble renforcer la perception d'une autre nous a
+amené à nous intéresser aux phénomènes non linéaires. Il s'agit d'une réponse de l'oreille qui n'est pas
+proportionnelle à la variation de pression de l'air ambiant. Nous avons vérifié (microphone et
+oscilloscope numérique, ou microphone, enregistrement sur PC et analyse en fréquence) que la chaîne
+carte son, amplificateur, haut-parleur, microphone ne provoque pas (trop) de non-linéarité.
+La littérature indique que l'oreille est sensible à la pression (en fait, aux variations de pression
+de l'air). Des expériences avec un synthétiseur montrent qu'elle ne paraît pas sensible au carré de la
+pression.
+Expériences attestant de la non linéarité du 2eme ordre :
+* Des expériences avec un synthétiseur montrent qu'elle ne paraît pas sensible au carré de la
+pression (n'est pas un détecteur quadratique) car pour un détecteur quadratique
+f1 -> 2f1
+f2 -> 2f2
+(f1 + f2) -> 2f1, 2f2, f2 – f1 et f1 + f2
+donc Do3 serait entendu comme Do4, Sol3 comme Sol4 (ce qui ne serait qu'une question de
+convention), mais
+Do3 + Sol 3 donnerait Do4 + Sol4 + Do2 + Mi4 (note intermédiaire) alors que nous entendons Do3 +
+Sol3 + Do2 + Do4, ou Do4 + Sol4 + Do3 + Do5.
+Le test a été aussi effectué avec les notes ... Nous n'entendons pas la note intermédiaire
+De plus si l’on envoie ces mêmes notes avec un casques dans une oreille différente le phénomène ne
+se produit pas.
+Experience attestant d’une non linéarité du 3eme ordre :
+Si elle est cubique y = x3 , des fréquences de 4000 et 12000 Hz donnent du 4000, du 12000
+Hz, du 2 x 4000 – 12000 = -6000 Hz (qui renforce le 6000 Hz) du 2 x 12000 – 4000 = 20000 Hz
+quasi inaudible, du 3 x 4000 = 12000 Hz (qui renforce le 12000 Hz), du 2 x 4000 + 12000 = 20000
+Hz, du 4000 + 2 x 12000 = 28000 Hz inaudible, du 3 x 12000 = 36000 Hz inaudible. Cela correspond
+mieux à notre écoute, mais nous ne pouvons pas trancher avec certitude.
+
+Nous concluons donc que l’oreille a un comportement non-linéaire du troisième degré. Deux
+fréquences f1 et f2 donnent, entre autres, une fréquence supplémentaire 2 f1 - f2. Ce phénomène
+avait déjà été utilisé par le violoniste Tartini, pour faire sonner son violon dans le grave.
+
+3
+
+Mais une autre expérience contredit cette hypothèse : la superposition de deux ultrasons à 40000 et
+41000 Hz donne du 1 000 Hz, soit f2-f1, linéarité du deuxième degré, car les fréquences produites par
+le troisième degré seraient inaudibles.
+Nous admettons donc que la non-linéarité du second degré est faible et qu'elle apparaît ici parce que
+l'autre est cachée. Ou que l'oreille ne réagit pas de la même façon à ces fréquences ultrasonores (que
+certains d'entre nous entendent !)
+Nous nous penchons alors sur les théories de l’audition.
+
+Helmholtz avait déjà proposé en 1863 la théorie de la place (une zone de la cochlée entre en
+résonance pour une fréquence incidente) : la composante à F1 est le résultat de distorsion cochléaire.
+Cette distorsion réintroduit de l'énergie à la fréquence différence (n + 1)F1 – nF1 = F1.
+Chaque paire d'harmoniques adjacents génère de l'énergie dans le fondamental.
+Shouten (1950 - 1970) propose de décaler les harmoniques en fréquence.
+mais si on décale d'une valeur ∆f (par exemple 2 Hz) ces harmoniques, donc 2502, 2602, 2702, 2802,
+2902, 3002, le fondamental parait lui aussi décalé de ∆f . Cela n'est pas perceptible directement, le
+son grave paraît le même. Mais on peut faire battre ce 102 Hz avec du 100 Hz, et cela à une fréquence
+de 2 Hz.
+Par exemple tous les harmoniques décalés avec une amplitude de 0,1 V et du 100 Hz avec une
+amplitude 20 fois plus faible soit 0,005 V. Si notre chaîne sonore était étalonnée, cela permettrait la
+mesure de l'amplitude de la fréquence de 102 Hz créée par l'oreille.
+Une autre possibilité est de superposer les fréquences
+2400, 2500, 2600, 2700, 2800 Hz et
+3002, 3102, 3202, 3302, 3402 Hz
+on entend encore du (environ) 100 Hz, battant à 2 Hz.
+Aucune explication se basant sur les non-linéarités ne semble convenir.
+Théories temporelles
+Des auteurs (Shouten, Patterson en 1995) proposent une autre interprétation : l'oreille mesurerait
+l'intervalle de temps séparant les pics produits par la superposition des harmoniques. Mais cette
+hypothèse ne peut expliquer ce qui se passe en cas de décalage de ∆f, car du 2502 et du 2602 Hz
+battent à 100 Hz et pas à 102 Hz.
+Création d’un Mosquitone (sonnerie)
+Nous avons superposé les harmoniques de rang élevé (25 et plus) du 440 et du 660 Hz, avec de petits
+décalages en fréquence pour obtenir un effet de battement.
+Conclusion : Plus nous avons avancé dans nos recherches et plus nous avons rencontré des
+phénomènes surprenants.
+De nombreuses recherches sur l'audition sont encore en cours. C'est un phénomène
+extraordinairement complexe et subtil. Il semble que l'oreille traite le son à la fois selon sa fréquence
+(tonotopie) comme l'envisageait Helmholtz et temporellement, avec des effets de rétroaction subtils et
+encore incomplètement compris.
+4
+
+Introduction
+Nous avons entendu parler de sonneries pour téléphones portables audibles par les élèves,
+mais pas par leurs professeurs.
+Quel est le principe physique mis en jeu dans ces sonneries ? S'agit-il seulement de sons très
+aigus, audibles uniquement par de jeunes oreilles ? Ou est-ce que des principes plus complexes sont
+exploités ?
+Mais présentons d’abord les membres de l’équipe :
+
+A tout seigneur tout honneur commençons par présenter nos deux professeurs :
+
+-M Jussiaux, professeur de physique chimie au lycée Victor Hugo de Besançon.
+-Mme Guillosseau, professeur de physique chimie au lycée Pergaud de Besançon.
+Passons maintenant aux élèves :
+-Baptiste LEMERCIER, du lycée Victor Hugo de Besançon
+-Pierre MARAVAL
+-Michaël BOURGEOIS
+-Galdim ZEQIRI
+-Alexandre FLEURET
+tous trois du Lycée Pergaud de Besançon
+
+5
+
+Recherches de ces sonneries
+Nous avons employé plusieurs méthodes. D'abord une tentative de téléchargement payant sur
+le site mosquitone. Il nous a fallu remplir un questionnaire Internet, passer un sms payant, puis un
+deuxième pour redire ce que nous avions déjà envoyé par mail Internet, puis nous nous sommes
+retrouvés connectés sur wasp, l'Internet payant des portables. Pendant de longues minutes, nous avons
+téléchargé un fichier son au format .wave (donc non compressé, alors que le format Mp3 aurait gagné
+un temps précieux), puis le téléchargement a été interrompu. Bilan : 5 euros pour ne rien obtenir, du
+vol caractérisé.
+Nous avons aussi tenté d'enregistrer ces sonneries, en démonstration sur Internet. Au lycée,
+cela s'est révélé impossible. Notre professeur est parvenu à télécharger 4 fichiers Mosquitone qu'il a
+rapidement analysé, mais il a dû formater son disque dur et les a perdu. Depuis, impossible
+d'enregistrer en direct.
+Nous avons alors essayé de raccorder deux ordinateurs PC, l'un lisant le son, l'autre
+l'enregistrant. Les résultats ont été contradictoires, voir plus loin.
+Enfin, Baptiste, entendant dans la cour du lycée Victor Hugo plusieurs de ces sonneries, en a transféré
+quelques unes par la méthode téléphone portable, pocket Pc, carte SD, lecteur de cartes sur PC. Ouf !
+
+Premières observations :
+Certains sons sont audibles par tout le monde. Ils ne présentent rien de particulier et sont sans
+intérêt.
+D'autres sont totalement inaudibles. Il s'avère que le son est d'amplitude nulle, ce qui
+n'empêche pas certains de dire dans les forums qu'ils ont entendu quelque chose. Peut-être un
+sifflement de leur amplificateur ?
+Quelques sons sont nettement plus audibles par les élèves que par leur professeur. Ils
+comportent un mélange de fréquences audibles par tous de faible amplitude et de sons très aigus
+audibles uniquement par les élèves et de forte amplitude.
+Les sons suraigus paraissent vibrer comme le son d'une fraise de dentiste.
+Si sur un site Internet on écoute simultanément plusieurs sons suraigus, un son à beaucoup
+plus basse fréquence apparaît. Le même phénomène se produit parfois si on enregistre un son suraigu
+d'un PC vers un autre PC, ou même en direct depuis Internet. Un oscillographe numérique muni de la
+fonction FFT montre dans ce cas que le spectre se complique, avec plein de pics équidistants. Nous
+en cherchons l'origine.
+Il semble qu'il s'agisse d'un problème lié à l'échantillonnage à une fréquence d'un signal
+préalablement échantillonné à une autre fréquence.
+Certains sons comportent simplement une fréquence suraiguë inaudible par le professeur, mais
+c'est sans intérêt, car nous savons faire cela à l'aide d'un générateur basse fréquence, ce qui nous
+permettra d'économiser cinq euros.
+Hypothèses
+Les sons suraigus renforceraient-ils la perception des sons audibles ? Cela nous a conduit à
+approfondir des recherches sur les phénomènes de non-linéarité.
+
+6
+
+Expériences
+En fait, nous avons réalisé de multiples expériences, en fonction de notre inspiration et des
+difficultés rencontrées : Création de sons à l'aide de GBF ou d'un ordinateur. Émission de ces sons par
+divers haut-parleurs ou émetteurs ultra sonores ou encore casque pour séparer le signal reçu par
+chacune des deux oreilles. Analyse par logiciel ou par oscillographe numérique. Emploi de
+multiplieurs pour réaliser des non-linéarités. Étude du tube de Kundt, étude de la réflexion d'un son
+sur un mur (à faire). Visualisation de la vibration d'une membrane éclairée par un faisceau laser.
+
+Notre espace de travail habituel sur PC : Magnétophone, Windows Media Player 2, SonNonLin.
+Nous avons aussi beaucoup travaillé avec Wavefft
+
+7
+
+Comment fonctionne l'oreille?
+A] Anatomie de l'oreille
+L'oreille humaine est composé de:
+-L'oreille externe,qui est la partie visible de l'oreille. Elle comprend le pavillon et le conduit auditif
+externe.
+-L'oreille moyenne,qui comprend le tympan et une chaîne d'osselets : le marteau, l'enclume et l'étrier.
+-L'oreille interne, qui est constitué de la cochlée, du vestibule et du nerf auditif.
+
+B] Fonctionnement de l'oreille
+Le son est capté par l'oreille externe, puis est conduit jusqu'au tympan. Le tympan va capter les vibrations de l'air qui constituent ce son. Ces vibrations sont ensuite transmises aux osselets. Elles deviennent des vibrations mécaniques. Elles se propagent ensuite dans les liquides de l'oreille interne. Ces
+vibrations sont transformés en informations nerveuses par la cochlée, qui seront plus loin interprétés
+par le cerveau.
+(image prise sur wikipedia.fr).
+
+8
+
+Audition et âge : le principe des « sonneries antiprof »
+L’audition baisse généralement avec l’âge, à cause d’une rigidification et d’une détérioration
+de tout le système auditif (tympan, osselets, …), mais il est intéressant de noter que la plage des
+fréquences diminue du côté des fréquences aigues.
+
+Les courbes ci-dessus, dites « courbes de Fletcher » représentent la de perception auditive par
+l’oreille d’un sujet normal en fonction de la fréquence (en Hz). La plage de fréquences audibles
+s’étend généralement de 20 Hz à 20 000 Hz. Les courbes rouges sont plus précises que les bleues, et
+la plus basse représente le seuil d’audibilité du son ; les autres représentent des sons d’intensités
+diverses (en phonies).Image Wikipedia.
+
+9
+
+On voit ici que les personnes « âgées », c’est à dire de plus de 20 ans, ont une ouie nettement
+plus faible dans les aigues (en théorie, cela concerne 95 % des gens de plus de 35 ans). Graphique
+IURC-Inserm.
+
+C’est cet élément qui est exploité par les créateurs de ces sonneries pour jeunes désireux
+d’enfreindre sans risque les règlements intérieurs de leurs lycées ou collèges en laissant leurs
+téléphones portables allumés.
+
+Précisons à leur décharge que l’idée provient d’une entreprise qui lança il y a quelques mois
+en Grande-Bretagne un boîtier « anti-jeunes » qui produisait des sons très désagréables mais audibles
+uniquement par les jeunes pour déloger d’éventuels « squatteurs » des parkings des supermarchés
+d’Angleterre.
+
+10
+
+Première Etape : Analyse des sonneries :
+
+Nous décidons dès lors d’analyser les sonneries que nous avons obtenu, en utilisant le logiciel
+Wavefft, (nous ne disposons pas de logiciels comme Mapple ou Mathematica). Rappelons les
+premiers résultats qui furent étranges mais pas très surprenants :
+
+Il apparut sur les représentations temporelles que les sonneries présentées sur les sites Internet
+comme les plus inaudibles étaient vides, personne ne pouvait donc les entendre. Celles qui étaient
+présentées comme de degré « normal » purent être distinguées par tous, y compris les professeurs,
+leur intérêt est donc limité.
+
+Mais, comme nous l’avons déjà dit, certains sons remplissaient les promesses de leurs éditeurs
+et étaient quasi-inaudibles par les professeurs mais audibles par les élèves.
+
+Leur analyse fréquentielle révéla que certains n’étaient composés que d’une seule fréquence
+(autour de 17 et 18 kHz ), mais que d’autres, plus audibles, étaient constitués de plusieurs fréquences.
+Exemple : 11 800, 12 400 et 12 900 environ, à amplitudes similaires, la précision du logiciel n’étant
+pas très bonne pour des fréquences élevées.
+
+Sonnerie
+« Mosquitone normal »
+« Mosquitone high »
+
+« Mosquitone ultra »
+
+Fréquence (Hz)
+18 000
+6 000
+19 000
+11 000
+9 000
+1 002
+0
+
+Amplitude (V)
+0,9
+0,176
+0,76
+0,0107
+0,045
+0,028
+
+Si le principe de base nous est tout de suite apparu, la raison d’être de 2 ou 3 fréquences, alors
+que ça marche aussi avec une seule, nous a poussé à chercher un peu plus.
+
+Les recherches des élèves et les connaissances des professeurs nous menèrent sur la piste d’un
+phénomène appelé « Troisième son de Tartini », du nom d’un violoniste italien qui parvenait en
+jouant 2 notes, à en faire entendre 3, dont une plus grave que les deux autres, le « troisième son ». Il
+arrivait ainsi à jouer des notes graves qu’un violon ne pouvait habituellement pas produire.
+
+Dans notre cas, cela signifierait un renforcement des fréquences audibles voire l’apparition de
+nouvelles fréquences à l’oreille, soit un son plus facilement audible pour les jeunes (parce que 18 000
+Hz, même très fort, ça ne s’entend pas très bien dans un cours).
+
+Nous décidons donc de mettre en évidence et de décrire, voire d’expliquer, ce phénomène.
+11
+
+Commentaire [LXM1] : A
+revoir
+
+Les Sons de Tartini
+
+Nous avons tout d’abord cherché à reproduire ces sons fantômes grâce à un synthétiseur.
+Résultats :
+-le troisième son est assez dur à distinguer pour une oreille non entraînée mais il existe
+réellement.
+-il est plus facile à entendre quand le volume est au maximum (distorsion due à la saturation)
+
+Nous avons ensuite utilisé les GBF, les oscilloscopes et le logiciel Wavefft pour créer des sons
+et tenter de déterminer plus de choses à propos de ce phénomène.
+Quelques manipulations nous ont permis de nous orienter vers la piste d’une non linéarité du
+système auditif :
+
+On superpose deux sons sinusoïdaux de fréquences f1 et f2. On entend bien f1 et f2 et plus
+faiblement (mieux après entraînement de notre oreille) 2f1 – f2 et encore plus difficilement 2f2 – f1.
+Exemple au synthé Do3 (262 Hz) + Sol3 (392 Hz) donne à l’écoute Do3, Sol3, Do2 (131 Hz) et Do4
+(523 Hz). Nous avons refait cette expérience au synthé, au GBF, et avec le PC, et nous avions les
+mêmes résultats.
+
+Autre exemple musical :
+
+Commentaire [LXM2] : A
+placer
+
+12
+
+Or ce phénomène peut être provoqué par une non-linéarité, du système auditif par exemple, ce
+qui signifierait que la « réponse » de l’oreille à un signal sonore n’est pas fonction de ce signal mais
+de son carré, ou de son cube, ou de son inverse, etc.
+Question qui nous est alors venue à l'esprit : L'oreille est-elle sensible au déplacement de l'air,
+à la variation de pression ou à la puissance sonore, carré de ces grandeurs ? Nous envisagerons plus
+tard une réponse à cette question.
+L'expérience précédente montre que l'oreille n'est pas sensible au carré de ces grandeurs (n'est
+pas un détecteur quadratique) car, le son étant une somme de sinusoïdes, pour un détecteur
+quadratique :
+f1 -> 2f1
+f2 -> 2f2
+(f1 + f2) -> 2f1, 2f2, f2 – f1 et f1 + f2
+Donc Do3 serait entendu comme Do4, Sol3 comme Sol4, mais
+Do3 + Sol 3 donnerait Do4 + Sol4 + Do2 + Mi4 alors que nous entendons Do3 + Sol3 + Do2 + Do4,
+ou Do4 + Sol4 + Do3 + Do5.
+Calculs pour un détecteur quadratique (sensible au carré du signal) :
+cos (a + b) = cos a cos b – sin a sin b
+cos (a - b) = cos a cos b + sin a sin b
+En sommant, il vient : cos (a + b) + cos (a – b) = 2 cos a cos b
+ou cos a cos b = ½ [cos (a + b) + cos (a – b)]
+Donc cos2 a = cos a cos a = ½ [ cos 2a + cos 0] = ½ + ½ cos 2a
+La fréquence f1 donne donc 2f1.
+cos (a + b)² = cos2 a + cos2 b + 2 cos a cos b = 1 + cos 2a + cos 2b + cos (a + b) + cos (a – b)
+Cette expression contient des termes en cosinus de
+a-b, 2a, a+b, 2b.
+L'oreille semble donc plutôt réagir avec une non-linéarité d'ordre 3.
+
+Calculs pour un détecteur sensible au cube du signal (cubique) :
+(x + y)3 = x3 + y3 + 3 x2 y + 3 x y2
+= (cos a + cos b)3 = cos3 a + cos3 b + 3 cos2 a cos b + 3 cos a cos2 b
+= cos a cos2 a + cos b cos2 b + 3 cos2 a cos b + 3 cos a cos2 b
+= cos a [½ + ½ cos 2a ] + cos b [½ + ½ cos 2b ] + 3 [½ + ½ cos 2a ] cos b + 3 cos a [½ + ½ cos 2a ]
+Cette expression contient des termes en cosinus de
+a, b, 3a, a, 3b, b, 2a+b, 2a-b, a+2b, 2b-a
+soit a, b, 2a-b, 2b-a, 3a, 2a+b, a+2b, 3b.
+
+13
+
+Si cette non-linéarité est quadratique y = x2 (il restera à chercher ce que sont ces grandeurs x
+et y), des fréquences de 2000 et 6000 Hz sont entendues comme 2 x 2000 = 4000 Hz, 2 x 6000 =
+12000 Hz, 6000 – 2000 = 4000 Hz (renforcement du 4000 Hz) et 6000 + 2000 = 8000 Hz, deuxième
+harmonique du 4000 Hz. Nous ne l'avons pas entendu, mais il peut avoir été masqué. Le renforcement
+du 12000 Hz n'est pas expliqué.
+Si elle est cubique y = x3 , des fréquences de 4000 et 12000 Hz donnent du 4000, du 12000
+Hz, du 2 x 4000 – 12000 = -6000 Hz (qui renforce le 6000 Hz) du 2 x 12000 – 4000 = 20000 Hz
+quasi inaudible, du 3 x 4000 = 12000 Hz (qui renforce le 12000 Hz), du 2 x 4000 + 12000 = 20000
+Hz, du 4000 + 2 x 12000 = 28000 Hz inaudible, du 3 x 12000 = 36000 Hz inaudible. Cela correspond
+mieux à notre écoute, mais nous ne pouvons pas trancher avec certitude.
+
+Montage expérimental de
+base avec GBF avec un ou
+deux haut-parleurs. Nous
+utilisions aussi beaucoup le
+PC pour créer ou analyser les
+sons (sous formes de fichiers
+wave) avec le logiciel
+wavefft.
+
+Cependant l'expérience suivante est contradictoire :
+Si nous approchons de l'oreille deux émetteurs à ultrasons alimentés en 40 kHz et 41 kHz,
+nous entendons du 1 kHz, ce qui fait penser à une non-linéarité du second ordre (phénomène dit de
+battement).
+Les autres fréquences, 80, 82, 81 kHz sont inaudibles.
+Il semble qu'il y ait une contradiction entre ces deux expériences. Donc soit l'effet quadratique
+existe toujours, mais faiblement, et il ne devient remarquable que dans le cas où les fréquences
+produites par un effet cubique sont toutes inaudibles (ici la plus basse est 2 x 40 – 41 = 39 kHz), soit
+la transmission du son ne s'effectue pas de la même façon, selon qu'il s'agit de sons audibles ou
+d'ultrasons.
+De même pour l'écoute d'un son dont les harmoniques graves ont été enlevés. Ceux-ci
+semblent créés par l'audition.
+Pas si sur. Le fondamental est-il créé par différence entre deux fréquences a – b (en ce cas
+c'est un effet quadratique) ou par 2a – b (effet cubique).
+
+Mais ici commence à intervenir un autre élément, le matériel. En effet, la non-linéarité et le ou
+les sons supplémentaires pourraient aussi provenir de la mauvaise qualité des cartes sons du lycée,
+14
+
+des hauts parleurs, les câbles et tout le matériel en général peuvent, sinon fausser, du moins gêner les
+manipulations.
+Conclusion partielle des expériences précédentes :
+Il semblerait donc que la réponse de l’oreille en fonction des fréquences d’ondes différentes se
+face sur une position différente de la cochlée . Ceci engendrerait une réponse plutôt quadratique pour
+les hautes fréquences (ex 40 et 41 KHz) sur une zone spécifiée et une réponse cubique pour les
+fréquences audibles ou basses sur une autre zone.
+
+15
+
+A la recherche de la non - linéarité
+. Pour vérifier que cette non-linéarité ne provient pas de l'amplificateur, ni des haut-parleurs,
+nous envoyons l'une des fréquences sur le canal gauche et l'autre sur le canal droit de la carte son, tout
+en vérifiant que celle-ci est bien stéréo. En approchant les deux haut-parleurs de la même oreille,
+nous entendons bien les sons supplémentaires. Nous ne les entendons pas si un haut-parleur est
+approché de l'oreille droite et l'autre de la gauche Le cerveau ne crée donc pas ces sons
+supplémentaires. La chaîne sonore non plus (sauf si on pousse le volume à fond).
+
+Commentaire [LXM3] : A
+développer ; en contradiction avec
+les expériences de Houtsma et
+Goldstein de 1972
+
+On voit ci-dessous l’impact d’une carte son saturée sur les mesures (ici avec Wavefft, de PC à
+PC). Nous avions ici à l’origine un fichier son contenant les fréquences 2500, 2600, 2700, 2800,
+2900, 3000Hz, soit les plus grands pic visibles à gauche sur la FFT du haut. L’axe des ordonnées
+montre l’amplitude et on voit bien ici que la carte son a une mauvaise courbe de linéarité. La série de
+fréquences à droite et les quelques pics à gauche sont apparus dans la carte son.
+Carte son
+saturée
+
+16
+
+Carte son
+non
+saturée
+
+Ici la carte son n’est pas saturée, les fréquences initiales sont les mêmes, on observe tout de
+même des fréquences supplémentaires, mais beaucoup plus aigues. On ne retrouve pas les sons
+supplémentaires, et ces fréquences plus aigues seraient absolument inaudibles si on envoyait du
+17 000 Hz ou approchant comme dans les Mosquitones.
+
+Nous avions bien sûr le meilleur échantillonnage possible pour nos sons « wave » sur
+ordinateur.
+Nous déduisons donc que les fréquences supplémentaires apparaissent soit dans l’air, soit dans
+l’oreille, et nous penchons pour l’oreille.
+Quand à l’air, nous avons tenté d’observer des phénomènes liés aux non-linéarités avec un
+laser et un tube de Kundt, qui aurait pu aussi nous permettre de trancher sur la sensibilité de l’oreille
+interne au déplacement ou à la pression.
+
+On envoie un son à l’extrémité d’un tube de Kundt grâce a un GBF et a un haut-parleur
+Malheureusement, l’imprécision de la membrane et du LASER du lycée nous ont empêché de
+faire des mesures concluantes.
+Avec du matériel idéal nous aurions sûrement pu mesurer, ou évaluer, les différences de
+déplacement de la membrane en fonction de la fréquence (donc de la longueur d’onde) du son envoyé
+a l’extrémité du tube de Kundt.
+Nous avons du nous orienter vers d’autres manipulations.
+
+17
+
+Nous avons donc tenté d’enregistrer ces sons avec un micro puis de les visualiser à
+l’oscilloscope puis avec Wavefft.
+Nous eûmes de grandes difficultés, les parasites s’ engouffrant par le moindre élément de la
+chaîne (air fils) haut-parleurs – microphone – oscilloscope.
+
+Finalement nous avons pu avoir la certitude que les sons supplémentaires n’apparaissaient pas
+dans l’air. Voici un enregistrement sur PC au microphone analysé avec wavefft. Les fréquences
+envoyées sont 2 500, 2 600, 2700, 2800, 2 900 et 3 000 Hertz. Aucune fréquence supplémentaire
+n’apparaît, alors qu’à l’écoute alors qu’a l’écoute on ne distingue que le 100 Hz.
+Différentes théories ont tenté d’expliquer le phénomène :
+Helmholtz avait déjà proposé en 1863 la théorie de la place (une zone de la cochlée entre en
+résonance pour une fréquence incidente) : la composante à F1 est le résultat de distorsion cochléaire.
+Cette distorsion réintroduit de l'énergie à la fréquence différence (n + 1)F1 – nF1 = F1.
+Chaque paire d'harmoniques adjacents génère de l'énergie dans le fondamental.
+Georg von Békésy (prix Nobel 1961 de physiologie), experiments.html original publié en 1960,
+deuxième édition en 1989, avait montré qu'il ne s'agissait pas d'un phénomène de résonance, mais que
+la cochlée vibrait différemment selon la fréquence appliquée à la fenêtre ovale.
+Shouten (1950 - 1970) propose de décaler les harmoniques en fréquence.
+mais si on décale d'une valeur ∆f (par exemple 2 Hz) ces harmoniques, donc 2502, 2602, 2702, 2802,
+2902, 3002, le fondamental parait lui aussi décalé de ∆f . Cela n'est pas perceptible directement, le
+son grave paraît le même. Mais on peut faire battre ce 102 Hz avec du 100 Hz, et cela à une fréquence
+de 2 Hz.
+Par exemple tous les harmoniques décalés avec une amplitude de 0,1 V et du 100 Hz avec une
+amplitude 20 fois plus faible soit 0,005 V. Si notre chaîne sonore était étalonnée, cela permettrait la
+mesure de l'amplitude de la fréquence de 102 Hz créée par l'oreille.
+
+18
+
+Mutinerie à bord ! Les harmoniques absents
+Mutin avait construit un orgue comportant uniquement les notes de fréquence multiple du 32
+Hz et a découvert le curieux phénomène qui suit et que nous avons reproduit en nous basant sur un
+fondamental à 100 Hz :
+On peut superposer les harmoniques 2 et 3 d'un fondamental à 100 Hz. On entend alors une note à
+100 Hz. La suite est plus surprenante :
+La superposition des harmoniques 25 à 30 d'un fondamental à 100 Hz, donc 2500, 2600 ... 3000 Hz
+donne à l'écoute un son grave de fréquence 100 Hz, mais très directif, il faut tendre l'oreille
+directement vers le haut-parleur. Cela semble confirmer l'explication précédente d'une non-linéarité
+du deuxième degré, donnant f2 - f1 soit 100 Hz.
+Nous choisissons un fondamental à 100 Hz, mais nous ne gardons que les harmoniques 25, 26,
+27, puis 25, 26, 27, 28, 29, 30. En écoutant ce son, à un niveau assez fort, nous entendons nettement
+le fondamental à 100 Hz. Nos essais d'estimation de l'amplitude de ce 100 Hz créé par l'oreille, en
+employant des battements entre ce 100 Hz et du 103 Hz de faible niveau ajouté à la suite
+d'harmoniques, n'a rien donné au lycée, que ce soit sur les haut-parleurs ou sur un casque : Après
+divers tests, il s'avère que la carte son de l'ordinateur du lycée coupe fortement le 103 Hz.
+Voici le spectre en fréquences de l'enregistrement donné par un microphone, branché sur la
+carte son du PC, et placé près du haut-parleur : Il s'agit d'une copie d'écran du logiciel WaveFFT. La
+représentation temporelle a été zoomée pour montrer quelques périodes seulement : On note que la
+période est bien de 1/100 de seconde, donc la fréquence de 100 Hz. Le spectre en fréquence a été
+recadré de manière à augmenter les amplitudes. On ne remarque aucun pic à 100 Hz. La FFT a été
+effectuée sur 262 144 points.
+
+Le son de 100 Hz serait donc généré par l’oreille étant donné que la FFT n’atteste pas de sa
+présence.
+Quelques problèmes se sont posés à nous car les enceintes passaient très mal le 103 Hz.
+L’astuce réside dans le phénomène vu juste précédemment. Nous avons donc crée des harmoniques
+du 100 Hz en ne gardant que les 25, 26, 27, 28, 29, 30 eme harmoniques. De la même façon nous
+avons crée les harmoniques 25, 26, 27, 28, 29, 30, du 103 Hz et il s’avère que cette fois ci, le
+battement entre le 100 et 103 Hz est bel et bien distinct. Ce battement serait généré par le 100 Hz et le
+103Hz, fréquences créées dans l’oreille.
+19
+
+La superposition des harmoniques 25 à 30 d'un fondamental à 100 Hz, donc 2500, 2600 ...
+3000 Hz donne à l'écoute un son grave de fréquence 100 Hz, mais très directif, il faut tendre l'oreille
+directement vers le haut-parleur. Cela semble confirmer l'explication précédente d'une non-linéarité
+du deuxième degré, donnant f2 - f1 soit 100 Hz.
+A titre de comparaison, voici le spectre du même signal auquel a été ajouté une sinusoïde de
+fréquence 103 Hz, d'amplitude 0,005 V (soit 20 fois moins que les harmoniques 25 à 30, d'amplitude
+0,1 V), sinusoïde que nous entendons distinctement battre avec celle à 100 Hz créée par notre oreille
+(qui est donc d'amplitude proche), cela avec du matériel, carte son et écouteurs de qualité correcte.
+
+Création d'un mosquitone
+Nous avons superposé les harmoniques de rang élevé (25 et plus) du 440 et du 660 Hz, avec de petits
+décalages en fréquence pour obtenir un effet de battement. Ceci fait nous l’avons testé…
+Nous sommes donc maintenant capables de mettre en ligne nos découvertes et de fonder notre propre
+société « Mosquitone and Cie » afin de vendre notre sonnerie.
+
+20
+
+Conclusion
+Comme nous l’avons vu, le phénomènes de 3ème son de Tartini et de Mutin sont bien réels et
+ne dépendent en aucun cas d’une quelconque altération due a un problème de matériel ou par un
+quelconque fait se déroulant dans l’air.
+C’est bien notre oreille qui crée ces sons, dus a son fonctionnement non linéaire, a priori de
+3eme degrés. Les sons se « renforcent mutuellement » et créent même d’autres sons a la fois plus
+aigues et plus graves.
+Nos fameuses sonneries a « ultrason » utilise un phénomène physiologique bien connue : la
+perte de sensibilité de notre oreille au cours de notre vie, néanmoins les applications de ces
+phénomènes sont multiples et variés.
+Ces effets physiques sont très intéressants car certains effets nous ont semblé de plus
+« spectaculaires », en particulier les battements lorsque nous « superposons » deux sons de
+fréquences proches (par exemple un son de 4000 Hz avec un son de 4002 Hz).
+Pour finir sur un note (haha) plus anecdotique, nous avons dues prendre de grandes précaution lors de
+certaine de nos expérience car nous mettions alors en jeu des sons de fréquence et d’amplitude élevés
+qui auraient pues abîmer de façon irréversible nos oreilles. Nous eûmes tout au plus que quelque
+migraine passagère.
+Ce problème nous a paru de plus en plus difficile. Nous avons été confrontés a de multiples
+contradictions. Nous avons alors pris contacts avec des personnes qualifiés :
+-Baptiste est allé au début des vacances de Noël au CHU de Besançon.
+Il a pris contact avec un professeur spécialiste d’ORL. Ce dernier lui a expliqué de façon plus précise
+le fonctionnement de l’oreille mais Baptiste n’a pas obtenu ici d’information sur les non linéarité.
+-Nous avons tenté de prendre contact, via mail, avec une clinique privée de Béziers, cette dernière
+étant très réputée pour les problèmes liés a l’audition. Malheureusement nous n’avons reçu aucune
+réponse.
+-Pierre a alors pris contact avec M Rolland Carrat, auteur d’une théorie innovante sur l’oreille,
+travaillant au centre d’audiophonologie infantile de Tours. Il a été intéressé par notre projet et nous
+conseilla d’augmenter de renouveler nos expériences en augmentant l’intensité sonore.
+Théoriquement les effets résultant de la non linéarité devraient être amplifié avec
+l’augmentation de l’intensité sonore alors que, bizarrement, nous avons obtenue ces effets même avec
+des intensité sonores relativement faible.
+Nous poursuivons donc actuellement nos recherches.
+
+21
+
+

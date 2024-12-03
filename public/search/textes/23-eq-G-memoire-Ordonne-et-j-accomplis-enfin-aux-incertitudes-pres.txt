@@ -1,0 +1,692 @@
+Ordonne et j'accomplis
+enfin... aux incertitudes près.
+
+‘’La théorie, c'est quand on sait tout et que rien ne fonctionne.
+La pratique, c'est quand tout fonctionne et que personne ne sait
+pourquoi.
+Ici, nous avons réuni théorie et pratique: Rien ne fonctionne... et
+personne ne sait pourquoi !’’
+Albert Einstein.
+
+Lycée Français de Saint Domingue
+
+Résumé
+La balistique est une des notions importantes de physique abordée dans le programme de
+TS et les équations horaires sont parfois indigestes pour certains élèves. Rendre concrètes
+et attrayantes ses équations a été le premier objectif du robot que nous avons développés.
+Effectivement, il est capable d'envoyer une bille à une distance choisie par l'utilisateur de
+manière totalement autonome en déterminant le bon couple vitesse initiale/angle du canon
+avec l'horizontale. Après la satisfaction qualitative vint la déception quantitative et une étude
+précise des incertitudes nous a permis de grandes améliorations. Le projet “ordonne et
+j’accomplis” est un projet de robotique qui est parti d’une problématique simple et qui est
+maintenant, après de nombreux mois de travail et de prises de têtes dans la joie et la bonne
+humeur, un projet complexe qui a le potentiel de s'étendre encore vers des applications
+diverses.
+
+Lycée Français de Saint Domingue
+2
+
+Sommaire.
+I) Élastique : ​
+commencer par le plus compliqué
+A. Genèse du robot
+B. Étalonnage
+C. Incertitudes
+D. Abandon
+II) Ressort ​
+plus simple mais pas trivial
+A. Construction
+B. Programme
+1. Calcul de portée / équation
+2. Angle
+C. Les limites de ‘’​
+Ordonne et j’accomplis’’
+III) Le début d’une nouvelle génération
+A. Le canon 3D: le salut pour des résultats plus fiables
+B. Influence des frottements et incertitudes de répétabilité
+C. Des améliorations sur le robot 3D
+D. Conclusion temporaire
+IV) Un challenge qui nous a ouvert l’esprit
+A. Un challenge à la fois drôle et intéressant
+B. Les incertitudes sur les deux robots
+C. Le passage à la caméra Lego
+D. Conclusion
+
+Schéma bilan du fonctionnement du robot.
+
+Lycée Français de Saint Domingue
+3
+
+Introduction
+Le ‘’Club Scientifique et Robotique’’ est un club créé par M. Clémence, notre professeur de
+Physique­Chimie, afin de nous faire découvrir les sciences d’une autre façon. Dans ce club,
+on apprend à résoudre des problèmes scientifiques en créant des machines automatisées et
+programmées en croisant plusieurs domaines scientifiques, principalement à l’aide de LEGO
+Mindstorms. Le club est encadré par nos professeurs de sciences.
+En classe de Seconde, un membre de notre groupe, Alexandre, travaillait sur un robot qui
+avait pour but d'étudier les équations de balistique pour les élèves de Terminale S, dans le
+cadre du Club. Ce fut le début de ce merveilleux projet. Un projet qui a évolué, après des
+années de travail, pour devenir ce qu’il est aujourd’hui.
+Ordonne et j’accomplis est un robot qui, grâce à une programmation informatique non
+triviale et des pièces de Lego Mindstorms judicieusement ajustées, nous permet de lui
+demander de lancer une bille à une certaine distance. Il fait donc les calculs nécessaires et,
+comme son nom l’indique, il accomplit la tâche qu’on lui demande avec une précision… à
+préciser !
+
+L’équipe
+Loup : J’ai toujours aimé me lancer des défis et tenter de me surpasser dans les domaines
+scientifiques, particulièrement en physique. Le club robotique m’a permis de maîtriser de
+nouvelles compétences, notamment la programmation.
+
+Lycée Français de Saint Domingue
+4
+
+Alexandre : Depuis que je suis petit, je suis passionné par l’informatique et la physique.
+Depuis quelques années, j’ai commencé à vouloir en apprendre plus sur la programmation,
+la mécanique et la conception de robots. C’est pour cela que je suis rentré dans le club.
+Rocio : Je suis rentrée au club scientifique et robotique car je voulais découvrir la robotique
+(conception, programmation, défis) et aussi pour enrichir mes connaissances scientifiques.
+
+I) Élastique comme propulseur : ​
+commencer par le plus compliqué !!!
+A. La genèse du robot :​
+des LEGO et des élastiques
+Le robot avait pour but d’étudier la trajectoire d’une parabole (programme de TS). Nous
+nous sommes donc lancés dans la conception d’une catapulte ! Mais, faute d'efficacité et de
+précision, nous nous sommes plutôt basés sur le principe d’une arbalète : la bille serait
+entraînée sur la longueur du canon par des élastiques.
+Les objectifs que nous avions en tête lors de la conception de notre robot étaient
+premièrement de pouvoir envoyer une bille à vitesse variable et deuxièmement à différents
+angles (entre 0 et 45 degrés). Pour faire face au défi, nous nous sommes appropriés
+l’équation d’une parabole et les autres outils mathématiques nécessaires (accessoirement,
+hors programme en Première S).
+Par la suite, notre professeur nous annonça que l’on devait entrer une distance sur le robot
+et que ce dernier devait faire retomber la bille à cette même distance. Ce défi, au départ,
+nous a semblé impossible…
+Nous avons alors construit un robot lanceur de billes. Nous nous sommes inspirés des
+armes à feu pour créer un canon dans lequel une bille est propulsée par deux élastiques.
+L’angle du canon pouvait varier de 0 à 45 degrés. Une fois le canon construit, nous avons
+pris en compte les trois mécanismes que devait comporter notre robot.
+● Tout d’abord, le chargeur : il mettait en tension l’élastique
+● Ensuite, le mécanisme d’orientation : un moteur qui ferait varier l’angle d’inclinaison
+du canon de 0 à 45 degrés.
+● Enfin, le système de libération : son rôle était de libérer instantanément l’élastique
+pour tirer.
+Au niveau des performances :
+Nous avons dû étalonner avec un angle de 45 degrés à pleine puissance pour parvenir à
+une distance maximale de 7 mètres.
+
+Lycée Français de Saint Domingue
+5
+
+B. L’étalonnage : ​
+la découverte d’un nouveau monde
+Nous avons par conséquent dû faire appel à de nouvelles méthodes. La portée d'un
+projectile correspond à la longueur entre la projection horizontale du point où le projectile est
+lâché par le système lui donnant son impulsion (dans notre cas, le robot) et la projection
+horizontale du point de chute du projectile. Elle est donc la projection horizontale d'une
+trajectoire courbe en deux dimensions. Il y a alors une relation entre la portée, la vitesse et
+l’angle, qui se traduit par la formule ci­dessous que nous savons désormais démontrer :
+
+Cette formule nous a permis de créer le tableau d'étalonnage ci dessous avec une variation
+de l’angle de 10° à 44° et de 0,17 à 0,77 en radians et une vitesse de la bille allant de 1 à 7
+m/s.
+
+Lycée Français de Saint Domingue
+6
+
+Tableau d’étalonnage donnant la portée en fonction de l’angle et de la vitesse
+
+Graphique montrant la vitesse de la bille en fonction du temps
+Pour trouver la vitesse initiale, nous avons utilisé le logiciel Logger pro. Ce logiciel nous
+permet, à partir d’une vidéo filmée avec une caméra rapide à 400 images par seconde, de
+pointer la position de la bille en fonction du temps à la sortie du canon. On en déduit ensuite
+la mesure de la vitesse moyenne de la bille. Les résultats sont exposés dans le graphique
+ci­dessus​
+, qui montre que l’écart type est de 0,07 m/s, ce qui est faible. On peut en
+conclure que cette méthode de mesure est fiable.
+
+Lycée Français de Saint Domingue
+7
+
+C. Des incertitudes : ​
+la pratique ne correspond pas toujours à la théorie
+La courbe ci­dessous montre que pour 6 tirs utilisant un même recul des élastiques, nous
+obtenions 6 vitesses de bille différentes :
+
+​
+Courbe tracée d'après les résultats des expériences
+​
+Nous avons ainsi pu voir que nos résultats n’étaient pas constants. Il y avait donc une erreur
+quelque part, que nous devions trouver. Après avoir jeté un coup d’oeil à l’état de nos
+élastiques, nous avons compris que le problème était d’origine mécanique. En effet, les
+élastiques avaient tendance à se détériorer, ce qui influait sur leur potentiel élastique. Après
+des mois de travail, comme notre conception mécanique n'était pas tout à fait correcte, nous
+obtenions des résultats qui ne correspondaient pas à la théorie, c’est­à­dire à notre tableau
+d’étalonnage.
+
+D. Abandon : le passage à une nouvelle conception
+Après cette série d’essais, nous nous sommes rendus compte que les défauts du robot ne
+permettraient jamais de trouver des résultats fiables. Les élastiques étaient mal fixés et à
+chaque tir, il fallait les remettre en place. Ils exerçaient aussi une forte pression qui
+ralentissait le moteur et les résultats étaient donc un peu erratiques. Nous avions un
+problème inhérent à la conception qui compromettait tous nos résultats. Nous avons alors
+dû abandonner ce robot, la larme à l’oeil et la rage au ventre. Mais cet abandon nous a
+permis d'évoluer et de passer à une conception différente. Après avoir réfléchi, nous avons
+trouvé l’idée de notre robot actuel : le mécanisme avec ressort.
+
+Lycée Français de Saint Domingue
+8
+
+II) Ressort : ​
+plus simple mais pas trivial
+A. Construction
+
+Nous avions fini par accepter le fait que le robot “​
+Ordonne et j'accomplis”​version élastique
+n'était pas la solution optimale. Il fallait repenser la mécanique de tir. Utiliser un ressort
+paraissait une solution plus fiable. Nous avons d’abord construit le canon avec le percuteur.
+La balle repose sur la pointe du canon et le percuteur est entraîné par le ressort. Un premier
+moteur enroule une ficelle attachée au ressort pour le faire reculer. A l’aide d’un second
+moteur, on vient débrayer pour relâcher le ressort qui entraîne le percuteur au bout du
+canon pour frapper dans la bille.
+
+Nous avons utilisé des vérins motorisés LEGO pour changer l’angle de tir, ce qui nous
+permettait d’être plus précis avec un système plus simple que l’ancienne version.
+L’angle d’orientation du canon est géré par un accéléromètre dont on utilise la composante z
+pour mesurer g​
+en temps réel et en déduire l’angle de l’axe du canon avec l’horizontale.
+z​
+
+Lycée Français de Saint Domingue
+9
+
+Le système de débrayage (système de libération du percuteur) est composé du moteur de
+relâchement qui fait tourner une pièce de LEGO, celle­ci fait remonter le moteur de tension
+et détache les deux engrenages l’un de l’autre pour relâcher le fil.
+
+Pour commencer la programmation, il nous fallait d’abord déterminer le nombre de degrés
+de rotation du moteur nécessaire pour réussir à débrayer. Au départ, l’embrayage ne se
+faisait pas de manière assez rapide et en conséquence, les tirs n’étaient pas fidèles. Pour
+contourner ce problème, nous avons rajouté de la puissance au moteur dans le programme.
+
+B. Programme
+1. Calcul de portée algorithme/équation
+Avec le robot version élastique, nous n’avions pas encore travaillé sur la physique du tir et
+sur la programmation. Pour avoir une machine avec des résultats fiables, il fallait donc
+d’abord comprendre la formule de la portée.
+Cette formule devait être ​
+programmée. ​
+Mais en quoi consiste ce programme et quelles sont
+les étapes essentielles ?
+
+Lycée Français de Saint Domingue
+10
+
+Le programme consiste à déterminer les paramètres v​
+0 (vitesse initiale de la bille) et α
+(angle entre le vecteur V​
+0 et
+​ l’horizontale) afin d’envoyer la bille à la portée saisie par
+l’opérateur.
+Ainsi, dans le programme, nous devions trouver un moyen d’optimiser les calculs faits par le
+robot. Nous avions donc le choix entre deux algorithmes : un premier, qui calcule pour
+chaque angle α toutes les portées possibles en fonction de la vitesse initiale V​
+, et un
+0​
+deuxième algorithme avec le même but, mais une procédure différente qui incrémente en
+même temps V​
+et α .
+0​
+Examinons maintenant les deux algorithmes envisagés et comparons­les afin de savoir
+lequel est le plus efficace :
+
+On peut constater que le deuxième algorithme effectue moins de calculs et nous donne
+donc le résultat plus rapidement. Mais il pose aussi un problème : il est moins précis. Nous
+avons donc dû choisir des incréments pour l’angle et la vitesse qui nous permettent d’être
+suffisamment précis.
+Pour cela, nous avons créé le tableau à double entrée sur Excel ci­dessous qui nous permet
+de visualiser l'incrément adapté pour la vitesse et l’angle. La diagonale en gris plus soutenu
+du tableau suivant montre les valeurs retenues par le programme après comparaison avec
+la portée souhaitée.
+
+Lycée Français de Saint Domingue
+11
+
+Tableau d’étalonnage avec les incréments
+
+Détail de la boucle d’incrément :
+
+Le calcul :
+
+Après avoir éprouvé ce nouveau programme par de nombreux essais, nous avons remarqué
+que les tirs obtenus ne correspondaient toujours pas à nos attentes, en particulier pour les
+petites distances.
+Après analyse du tir, nous nous sommes rendus compte que lorsque notre robot modifie son
+angle de tir, il modifie aussi la hauteur à laquelle la bille part.
+
+Lycée Français de Saint Domingue
+12
+
+Nous avons donc rajouté un calcul de trigonométrie qui nous permet de connaître cette
+hauteur en fonction de l’angle de tir et nous l’avons implémenté dans les calculs de la portée
+:
+
+H = d + sin(α) * lc
+où ​
+lc​
+: longueur du canon et​
+d​
+: hauteur de l’axe de rotation
+L’équation de la portée est alors celle­ci :
+
+v cos(α)
+
+d= * g
+
+(v * sin(α) +
+
+√(v * sin(α)) + 2 * g * H )
+2
+
+2. Angle
+Pour pouvoir lancer la bille à la distance exacte,
+le robot doit changer son angle de tir (relation
+portée, vitesse, angle). Pour avoir l’angle de tir
+désiré, on utilise un accéléromètre, qui sert à
+mesurer l’angle et qui nous dit à quel moment (et
+donc à quel angle) le robot doit s'arrêter pour
+obtenir la portée demandée.
+Après un tir, la variable degré compte le nombre
+de degrés dont le moteur a tourné pour faire
+monter les pistons. Cette variable nous permet
+de ramener le canon à la valeur minimale de
+l’angle. Pour mesurer l’angle, nous utilisons un
+accéléromètre et nous devons donc effectuer ce
+petit calcul ci­dessous :
+
+Lycée Français de Saint Domingue
+13
+
+Les moteurs LEGO peuvent effectuer des rotations d’au minimum 1°. Nous avons alors
+mesuré la précision théorique de notre système mécanique. Elle est de 0,0036° grâce au
+engrenages, ce qui nous permet de dire que l’incertitude sur l’angle ne vient pas de la
+conception du robot, mais plutôt de l'accéléromètre.
+
+C. Les limites de “​
+Ordonne et j'accomplis’​
+’
+Ordonne et j’accomplis est un robot qui est passé par plusieurs étapes pour devenir ce qu’il
+est aujourd’hui. Nous avons commencé par le plus compliqué, avec des élastiques qui ont
+été un échec, mais nous avons continué à chercher des solutions et nous en avons trouvé
+une avec des moyens simples, des LEGO et un ressort. Mais, même si cette version est
+désormais fonctionnelle, elle présente tout de même des limites.
+
+Canon avec un nombre important de pièces
+Comme notre robot est composé de LEGO, il contient une quantité colossale de
+pièces, ce qui entraîne forcément un jeu entre elles et génère du “chaos”. Ce dernier
+engendre des divergences dans les distances mesurées et le robot manque parfois de
+fidélité.
+Plus concrètement, les pièces nous limitent aussi quand il est nécessaire d’apporter
+quelques modifications au robot. Il faut tout démonter, puis tout remettre en place de la
+même manière. Cela nous fait perdre du temps. Cette version du robot a pu être améliorée
+grâce à la nouvelle acquisition du lycée : l’imprimante 3D.
+
+Lycée Français de Saint Domingue
+14
+
+III) Pour aller plus loin
+A. Le canon imprimé en 3D : le salut pour des résultats plus fiables
+
+Après nous être rendus compte que la fiabilité des résultats de ‘’​
+Ordonne et j’accomplis’’
+était liée en grande partie à la conception du canon, nous avons décidé de remplacer ce
+dernier par un autre plus pratique. Grâce à l’imprimante 3D du lycée, nous avons pu
+concevoir un canon composé d’un seul bloc. Ceci nous a permis de diminuer les incertitudes
+et d’obtenir de meilleurs résultats, c’est­à­dire des résultats plus en accord avec la théorie.
+Nous avons toutefois décidé de conserver le premier canon tout en Lego, qui possède
+certaines qualités, et de faire évoluer les deux versions en parallèle. Nous en profiterons
+pour faire des tests comparatifs.
+
+Tableau série de tir
+
+Lycée Français de Saint Domingue
+15
+
+B. Influence des frottements et incertitudes de répétabilité.
+Malgré le canon réalisé avec l’imprimante 3D, ‘’​
+Ordonne et j’accomplis’’ ​
+reste encore soumis
+aux frottements du canon, mais aussi à d’autres influences totalement indépendantes de sa
+conception. Même avec un programme et un canon améliorés, les ‘’hautes’’ vitesses
+continuent à être un souci pour notre robot puisque la portée réelle est inférieure à la portée
+attendue. Il y a donc d’autres forces en jeu qui influent sur la portée. La première est due à
+l’influence des frottements de l’air, mais n’affecte que les tirs à plus de 6 mètres. Les autres
+pertes d'énergie peuvent s’expliquer par l’influence de l’angle de tir du canon. La quantité
+d'énergie nécessaire pour compenser le poids du percuteur change en fonction de l’angle de
+tir. Ayant fait les étalonnages avec un angle fixe de 10 %, nous n’avions pas pris en compte
+cette perte.
+
+Nous pouvons voir que puisque le travail du poids n’est pas perpendiculaire à la direction du
+percuteur, un ralentissement se produit.
+
+Pour obtenir des valeurs plus proches de la réalité, nous avons donc calculé théoriquement
+
+α​
+, de la masse du percuteur m ,
+de la constante de raideur k ​
+, de la longueur du ressort tendu l ,​
+de la longueur du ressort
+la valeur de cette perte de vitesse en fonction de l’angle
+
+Lycée Français de Saint Domingue
+16
+
+détendu
+
+l0 ​
+et de la longueur finale du ressort dans le canon après le tir lf ​
+. On utilise cette
+
+première formule pour calculer la vitesse du percuteur pour le premier canon (en Legos) :
+
+V =
+
+√
+
+2
+k
+(l
+−
+l
+)
+0 + 2 * g * sin(α)(lf − l)
+m
+
+On utilise ensuite celle­ci pour le deuxième robot à canon imprimé (les deux formules sont
+différentes car le ressort du canon 3D est détendu au repos alors que le ressort du premier
+canon reste tendu même au repos) :
+
+V =
+
+√
+
+(l − l0 )( mk (l − l0 ) − 2 * gl * sin(α)
+
+Le deuxième terme étant négligeable, on peut simplifier de la manière suivante :
+
+V =
+
+√
+
+(l − l0 )( mk (l − l0 ) =
+
+√
+
+k .(l­l​
+)
+0​
+m
+
+Nous avons ensuite calculé les vitesses à 0° et à 45° pour des reculs différents du percuteur
+et pour le robot classique:
+
+Lycée Français de Saint Domingue
+17
+
+Les conséquences sur la vitesse sont très importantes à petite vitesse et expliquent
+largement les mesures erratiques observées.
+Pour tester la fiabilité de notre robot, nous avons effectué des calculs d’incertitude.
+Premièrement, on effectue 10 tirs pour chaque valeur de portée demandée (ici, de 1 m à 2,5
+m) et on mesure la portée réalisée. On peut alors calculer les écarts­types de ces séries,
+puis en déduire l’incertitude de répétabilité. On peut ainsi prévoir un encadrement des
+résultats des tirs. Les incertitudes pour des portées de 1,5 m et 2 m sont plutôt faibles, mais
+elles sont énormes pour les petites et les grandes distances. Ceci est une limite de notre
+robot 3D.
+
+Tableau récapitulatif des tirs et des incertitudes de répétabilités
+
+Graphique des distances obtenues en fonction des distances demandées avec les
+incertitudes
+
+Lycée Français de Saint Domingue
+18
+
+C. Des améliorations sur le robot 3D
+Avant de tester une nouvelle application pour notre robot, nous avons optimisé une partie du
+canon imprimé. Nous avons installé un deuxième ressort et placé ces deux ressorts dans
+l’axe du canon afin d’empêcher ce dernier de se tordre. Ensuite, nous avons ouvert le bout
+du canon pour pouvoir filmer la bille avec une caméra lors du tir afin de mesurer la vitesse
+initiale.
+
+D. Conclusion “temporaire”
+A l’heure actuelle, ​
+Ordonne et j’accomplis ​
+remplit sa fonction, qui consiste à envoyer
+la bille à la distance demandée, même si c’est aux erreurs près. Toute la procédure se fait
+en complète autonomie une fois qu’on a ordonné sa mission au robot. Grâce aux
+améliorations apportées par la toute dernière version de la conception, le robot semble
+nettement plus fidèle et nous donne des résultats qui s’améliorent à chaque fois.
+Il nous reste toutefois un gros travail pour quantifier plus clairement les fameuses
+incertitudes de mesures. ​
+Ordonne et j’accomplis n’en est qu’à ses débuts. Maintenant que
+l’on a trouvé des solutions aux plus grands problèmes et que l’on a découvert
+progressivement les réponses aux questions auxquelles il nous semblait impossible de
+répondre au départ, nous sommes dans la dernière ligne droite et nous y allons avec toutes
+nos forces.
+
+IV) Un challenge pour vérifier la précision de notre robot
+A. Un challenge à la fois drôle et intéressant
+Alors que nous étions en train de travailler sur notre robot et de préparer en même temps
+l’oral des Olympiades, l’ouverture de la saison d’hiver de basket­ball de la NBA nous a
+donné l’idée d’un défi. Pour voir si notre robot était suffisamment précis, nous devions
+réussir à lui faire tirer une bille dans un panier de basket. Malgré notre envie d’exécuter une
+simulation à taille réelle, nous avons dû nous contenter d’une échelle de 1/10 (n’oublions
+
+Lycée Français de Saint Domingue
+19
+
+pas que nos robots sont faits de Lego et ne sont donc pas assez puissants pour tirer une
+balle de basket­ball). Un terrain de basket fait 26 m de long et le panier est à une hauteur de
+3 m. Pour la simulation, cela revient à faire un tir à 2,60 m et donc à 30 cm de hauteur. Ce tir
+simulera un basketteur tirant de l’autre bout du terrain.
+
+Les équations que l’on utilise pour notre robot sont faites pour tirer au niveau du sol. Pour
+que la trajectoire de la balle passe par le panier, on trouve une portée au sol de 3,11 m.
+Notre algorithme calcule alors un couple vitesse V​
+et angle alpha de 5,72 m/s et 26°.
+0​
+Nous en profitons pour réaliser ces expériences avec nos deux robots. Ceux­ci manquant
+parfois le panier, nous avons fait des calculs d’incertitude. Voici ​
+les valeurs extrêmes en
+cumulant les incertitudes sur le robot avec deux ressorts, dans le cas du tir de basket.
+
+Valeurs extrêmes en cumulant les incertitudes sur le robot avec deux ressorts
+
+Lycée Français de Saint Domingue
+20
+
+B. Les incertitudes sur les deux robots
+Incertitudes
+théoriques sur
+la vitesse
+
+Portée
+maximale
+
+Incertitudes de
+répétabilité sur
+la vitesse
+
+Nombre de
+pièces dans le
+canon
+
+Canon imprimé
+
+0,024 * V m/s
+
+9m
+
+0,24 m/s
+
+Peu
+
+Canon non
+imprimé
+
+0,025 * V m/s
+
+4,70 m
+
+0,2 m/s
+
+Beaucoup
+
+Δl
+Δv
+1 Δk
+v = l −l0 + 2 k
+
+1 Δm
++2 m
+
+Pour comparer les deux robots, on peut utiliser différents critères. Il y a d’abord les
+incertitudes sur la vitesse, qui peuvent être calculées théoriquement grâce à l’équation
+ci­dessus ou par répétabilité. On remarque que les incertitudes théoriques s’expriment sous
+la forme delta v/ v et dépendent donc de la vitesse, alors que les autres incertitudes
+apparaissent pour une certaine vitesse, d’environ 5,5 m/s ici, qui est la vitesse à laquelle le
+robot doit lancer la bille pour arriver à la distance désirée, dans ce cas 3,1 m.
+Avec le robot dont le canon est entièrement en Lego, on a pu constater une meilleure
+précision aux alentours de 5,5 m/s. Cela nous a permis d'améliorer notre algorithme. En
+effet, nous l’avons modifié pour qu’il recherche d’abord un couple angle/vitesse, mais en
+fixant la vitesse à 5,5 m/s. S’il n’en trouve pas, il revient à l’ancien algorithme.
+D’autre part, le robot imprimé avec l’imprimante 3D comporte effectivement moins de pièces.
+Son canon est plus simple, ce qui réduit le chaos généré par les pièces par rapport à l’autre
+robot. Ce modèle correspond donc davantage à la théorie. De plus, grâce à la crémaillère,
+on a pu calculer théoriquement le recul du ressort (R en m) en fonction des tours du moteur
+(T en º). En effet, la crémaillère est dentée et nous avons mesuré la longueur de 5 dents.
+
+5 dents = 15, 92 mm
+3 tours = 1080º ⇒ 8 dents ⇒ 15, 92 * 8 / 5 = 0, 02547 m
+1080 / 0, 02547 = 4, 240.104 tours/m
+4, 240.104 * T = R
+
+Lycée Français de Saint Domingue
+21
+
+Nous avons ensuite comparé ce coefficient avec celui
+obtenu en mesurant des valeurs réelles. On obtient un
+coefficient de 45370, ce qui est assez proche du calcul
+théorique précédent.
+
+En connaissant le recul du ressort, on peut alors calculer la vitesse théorique du percuteur
+lorsqu’il est relâché. Grâce à cette formule pour le robot classique :
+
+vf =
+
+√
+
+2
+
+k(l−l )
+− 2sinα(l − lf ) + m 0
+
+2
+
+k(l −l )
+− fm 0
+
+et cette formule pour le robot imprimé 3D avec les deux ressorts qui sont au repos au départ
+:
+
+vf =
+
+√ (l − l )
+2k
+m
+
+0
+
+l est la longueur du ressort tendu, l​
+0 est la longueur du ressort quand il est détendu et l​
+f est
+la longueur du ressort quand il est au repos dans le robot. Elle est différente de l​
+0 car le
+ressort est déjà un peu tendu au repos. Nous avons obtenu cette formule grâce aux
+équations de l'énergie potentielle élastique avec k, la constante de raideur du ressort. La
+vitesse du percuteur est supposée être la même que la vitesse initiale de la bille. En effet,
+sur une vidéo a 1200 ips on a pu voir qu’il ne la quitte pas.
+
+Lycée Français de Saint Domingue
+22
+
+Vidéo à haute vitesse pour mesurer la vitesse du percuteur et de la bille
+On fait une simulation des tours de moteurs en fonction de la vitesse de la bille en utilisant la
+formule théorique (en bleu) et en y ajoutant les incertitudes. On lui superpose des valeurs
+réelles (en rouge) obtenues en mesurant la vitesse avec un capteur Photogate Vernier. On
+voit que cette simulation est proche des valeurs réelles et que nos résultats correspondent
+au modèle théorique.
+
+Graphique des couples vitesse et tours de moteurs théoriques et réels
+Si l’on fait le bilan, on peut dire que les deux robots sont complémentaires. Nous en avons
+conclu que l’idéal serait de réaliser une troisième version qui combinerait le meilleur de
+chaque robot pour concevoir un modèle qui soit le plus précis et le plus performant possible.
+Nous nous sommes rendus compte que ce robot que nous avions construit pouvait
+permettre de faire des choses intéressantes ou utiles. On pourrait, par exemple, le coupler à
+un capteur de distance infrarouge ou à un détecteur de mouvement pour faire des systèmes
+d’arrosage de précision ou tirer sur des objets en mouvement. On pourrait même en faire un
+outil pédagogique qui pourrait simuler le tir d’une balle pour faire découvrir la balistique aux
+TS ! Et si on arrivait à le faire tirer à des vitesses plus élevées, il permettrait d’étudier les
+
+Lycée Français de Saint Domingue
+23
+
+frottements de l’air sur une sphère. Les applications de notre robot sont nombreuses et les
+idées ne manquent pas.
+Les contraintes de temps et la date du concours ne nous permettaient pas de tout explorer.
+En revanche, nous avons pensé à une amélioration rapide qui consistait à le doter d’une
+fonctionnalité nouvelle : la vue ! Nous avons donc décidé de le coupler à une caméra Lego
+NXTCam­v4 qui lui permet de détecter une cible et de la viser.
+
+C. Le passage à la caméra Lego
+La caméra Lego NXTCam­v4 peut reconnaître certaines couleurs. Pointée sur un objet
+d’une de ces couleurs, elle peut en donner les coordonnées. L’algorithme utilise ces
+coordonnées pour que le robot se place face à l’objet. Pour cela, on utilise une plate­forme
+tournante qui, grâce au programme, fait bouger le canon pour pouvoir visualiser l’objectif et,
+enfin, tirer sur l’objet ciblé.
+
+D. Conclusion.
+“​
+Ordonne et j’accomplis​
+" est un robot né d’une idée simple, mais qui est devenu, après
+beaucoup d’efforts et un travail soutenu, un robot complexe et, dans une certaine mesure,
+spectaculaire.
+Il est l’illustration parfaite d’un rêve devenu réalité. Plus qu’un simple robot, il est le résultat
+de nombreux mois de travail, de moments de désespoir où l’on ne voyait pas comment s’en
+sortir et de moments heureux où nous obtenions des résultats cohérents, explicables, voire
+fidèles. Il nous a montré qu’avec patience et dévouement, tout est possible.
+“​
+Ordonne et j’accomplis​
+” nous a forcé à acquérir avant l’heure non seulement des notions de
+physique, de programmation et de robotique, mais il nous a aussi appris à persévérer et à
+continuer quoi qu’il arrive ! Merci de nous avoir donné l'opportunité de participer à cette
+aventure qui, nous l’espérons, va se poursuivre.
+REMERCIEMENTS
+Nous voulons remercier tous ceux qui nous ont aidés, qui ont contribué d’une manière ou
+d’une autre à la réalisation de notre projet et qui nous ont donné l'opportunité de découvrir
+ce nouveau monde. Remerciements spéciaux à :
+M. Olivier Clémence professeur de Sciences Physiques et Chimiques au Lycée français de
+Saint­Domingue, pour son dévouement, son soutien inconditionnel et pour son esprit
+irremplaçable.
+M. Jérome Bousquet​
+, professeur de S.V.T au Lycée Français de Saint­Domingue, pour ses
+remarques pertinentes, ses conseils et sa disponibilité.
+M. Julien Leuillot​
+, professeur de mathématiques au Lycée français de Saint­Domingue,
+pour ses précieuses remarques et le temps qu’il nous a consacré.
+
+Lycée Français de Saint Domingue
+24
+
+

@@ -1,0 +1,682 @@
+Année 2022/2023
+
+La pression … c’est physique !
+
+Équipe A - Lycée Massillon
+LEMONNIER Malo, WINDENBERGER Zoé, HAMON Gaëlle, CARPENTIER Anatole, GIBEAU Clélia,
+BONY Clara, BOULARAND Arthur, DE SA Lydie dirigée par Mme PRADEAU Marine et M. Jérôme
+BRUNET
+1
+
+Sommaire
+Introduction …………………………………………………………………………………………………………………………………………………………….p.3
+I . S’approprier la notion de « pression » ………………………………………………………………………………………………………………….p.4
+II . Intérêt historique : 400 ans de la naissance de B. Pascal (hommage)…………………………………………………………………..p.4
+1) Qui est Blaise Pascal ?
+2) Sur les traces de Blaise Pascal et Florin Périer, de Massillon au sommet du Puy de Dôme.
+III. Résultats obtenus…………………………………………………………………………………………………………………………………………………p.6
+1. Evolution de la pression en fonction de l’altitude entre Massillon et le sommet du Puy de Dôme : P = f(z)
+2. Complément avec les mesures faites aux Arcs P= f(z)
+IV. Compléments théoriques………………………………………………………………………………………………………………………………………p.7
+1) Comment la densité de l’air et la pression évoluent au sein de l’atmosphère ?
+2) La température est-elle un facteur négligeable ?
+3) Les modèles de la pression dans l’atmosphère
+V. Exploitation des résultats………………………………………………………………………………………………………………………………………p.10
+1) Expérience du Puy de Dôme
+2) Expérience des arcs
+VI. Accès à la valeur de « R : constante des gaz parfaits » ……………………………………………………………………………………….p.12
+1.
+
+A partir de la modélisation exponentielle : résultat ?
+
+2. Expériences complémentaires sur la nature de l’air et mesure de R
+a. P= f(1/V) à quantité de matière et température constantes
+b. P=f(T) à quantité de matière constante et volume constants
+c. P=f(n) à température et volume constants
+Conclusion …………………………………………………………………………………………………………………………………………………………….…p19
+Sitographie………………………………………………………………………………………………………………………………………………………………p.19
+Remerciements……………………………………………………………………………………………………………………………………………………….p19.
+Annexes
+A- Programme « Arduino »
+B- Tableaux de mesures issus des appareils analogiques et Arduino
+C- Fiches techniques des pressiomètres
+D- Calculs des incertitudes
+E- Démonstrations P=f(z) pour le cas fluide incompressible et le cas isotherme
+F- Communication avec J.Brunet, extrait d’un mail du 6 novembre 2022
+G- Trajet de la randonnée
+H- Capteur « Arduino »
+I- Tableaux de mesures brutes des Arcs
+
+2
+
+Introduction
+Rares sont les individus qui ne savent apprécier pleinement une promenade ou une randonnée dans
+les hauteurs de nos contrées. Que ce soit pour pratiquer des sports d’hiver, respirer l’air pur, observer de
+nouveaux écosystèmes, les montagnes deviennent un lieu privilégié et propice à l’épanouissement individuel
+et collectif. Pourtant qui n’a pas déjà ressenti un certain malaise alors qu’il tentait d'atteindre le sommet d’une
+montagne ? Comment expliquer qu’une sensation d’étouffement s’éprenne de nous quand nous gagnons en
+altitude ?
+L’être humain ne peut vivre sans respirer apportant ainsi le dioxygène nécessaire à l’activité des cellules de
+notre organisme. Si ces malaises paraissent tenir pour origine un manque d’oxygénation, pour quelles raisons
+le dioxygène semble-t-il se raréfier lorsque l’altitude augmente ?
+Il y a quatre siècles, un mathématicien, philosophe, théologien et physicien réputé, originaire de notre belle
+ville « Clairemont » nommé Blaise Pascal avait décidé de porter son intérêt sur le phénomène de « force
+pressante » et avait utilisé un laboratoire grandeur nature : le Puy de Dôme !
+C’est pourquoi, pour lui rendre hommage, nous avons entrepris de marcher sur ses pas, afin de mieux
+comprendre la notion de fluide et de pression, à travers l’exemple de la pression atmosphérique.
+Comment la pression évolue-t-elle en fonction de l’altitude ? Quels paramètres doivent être pris en compte
+pour la calculer ? Comment modéliser l’évolution de la pression selon les caractéristiques que nous associons
+à l’atmosphère ? Nous tenterons de répondre à l’ensemble de ces questions en étudiant le comportement du
+fluide qu’est l’air environnant et en utilisant plusieurs modèles pour représenter l’évolution de la pression.
+Depuis la sélection interacadémique, nous avons approfondi nos recherches, en particulier sur les implications
+très concrètes des notions de pression et température en aviation mais la limitation du nombre de page du
+rapport ne nous a pas permis de tout écrire. Il a fallu faire un choix entre les expériences sur les gaz et les
+implications en aviation. Nous avons choisi de montrer de nouveau nos travaux expérimentaux et nous serons
+disponibles pour répondre à des questions concernant l’aviation. Nous avons également complété nos
+connaissances au sujet de la piézoélectricité, phénomène au cœur de la conception des capteurs de pression.
+C’est avec une grande fierté que nous vous présentons notre travail en hommage à Blaise Pascal, le génie et
+l’audace de ce grand homme nous ont de plus en plus touchés au fur et à mesure de notre progression. Nous
+nous sommes sentis concernés par « l’année Pascal » et avons pu profiter de la première des conférences
+Pascaliennes donnée par Monsieur Cédric Villani, le 13 janvier dernier à Clermont-Ferrand.
+
+3
+
+I. S’approprier la notion de « pression ».
+Tout a commencé par des questionnements autour de différentes expériences :
+-
+
+Pourquoi une balle de ping-pong reste-t-elle en « lévitation » au-dessus d’un sèche -cheveux soufflant de l’air
+(chaud ou froid) jusqu’à une inclinaison importante du sèche-cheveux par rapport à la verticale (35°) ?
+
+-
+
+Pourquoi deux feuilles de papier se faisant face se rapprochent-elles l’une de l’autre lorsque l’on souffle entre
+les deux ? (Ce qui était pour nous contre-intuitif !)
+
+Ces réflexions ont fait progressivement apparaître la nécessité d’une grandeur, d’une force qui, dans le premier cas,
+s’oppose avec le poids à la force exercée par l’air du sèche-cheveux et dans le deuxième cas qui « appuie » sur les feuilles
+de papier pour qu’elles se rapprochent.
+En s’inspirant de notre cours de première en physique-chimie, nous avons pu introduire la pression, force exercée sur
+une surface.
+En nous interrogeant sur cette grandeur, notre professeur a réalisé que nous pourrions reproduire une illustre
+expérience et nous a invité à nous documenter sur Blaise Pascal.
+
+II. Intérêt historique : 400 ans de la naissance de B.
+Pascal.
+1) Qui est Blaise Pascal ?
+Blaise Pascal, est né en 1623 à Clermont-Ferrand en Auvergne et est mort en 1662 à Paris en étant connu pour être un
+mathématicien, philosophe, théologien et physicien français.
+C’est lui qui a notamment mis au point l'ancêtre de la calculatrice (La « Pascaline ») et de nombreuses inventions mais
+aussi écrit "les Pensées" pour défendre la religion chrétienne. Il souhaite que les découvertes du cœur et de la raison se
+renouvellent sans cesse.
+Autodidacte, Blaise Pascal n’a jamais étudié à l'école ou à l'université. Il a été éduqué par son père qui, en plus de
+travailler pour le gouvernement dans la collecte des impôts, était un homme d'une grande culture.
+En 1639, à l'âge de 16 ans seulement, Pascal écrit « Essai pour les Coniques ». Cette année-là, son père a été transféré
+à Rouen et c'est là que Pascal a mené ses premières recherches dans le domaine de la physique.
+Plus tard, en 1647, B. Pascal revient à Paris et se consacre à la recherche scientifique. Il mène des expériences sur la
+pression atmosphérique, écrit un traité sur le vide, invente la presse hydraulique et la seringue, et perfectionne le
+baromètre de Torricelli.
+En mathématiques, sa théorie des probabilités et son « Traité du triangle arithmétique » (1654) sont devenus célèbres.
+Son travail sera d'une grande valeur pour le futur des statistiques.
+En 1657, Pascal écrit « Éléments de géométrie » qui regroupe sa philosophie des mathématiques en prouvant que la
+géométrie est un modèle de raisonnement et un guide assez souple pour conduire la pensée dans des ordres différents.
+En effet, tout au long de sa vie, pour vérifier ses idées, il utilise l’expérimentation ce qui est en totale opposition avec la
+déduction logique employée par les cartésiens de l’époque. Correspondant avec les grands scientifiques de son époque
+(Fermat, Roberval, Descartes), et malgré sa santé fragile, il va travailler avec acharnement et utiliser ses
+correspondances pour nourrir et faire émerger ses idées avec rigueur.
+4
+
+Et c’est ainsi que le 19 septembre 1648, Florin Périer réalise l’expérience d’observation du vide mandé par Blaise Pascal,
+une fois en bas et une fois en haut du Puy de Dôme.
+
+Leur protocole :
+●
+●
+●
+●
+●
+
+Remplir jusqu’au bord un tube de vif-argent (Mercure)
+Retourner le tube en plongeant son ouverture dans le vif argent dont
+un vaisseau est lui-même rempli
+Prendre des mesures en bas du Puy de dôme et marquer sur le tube le
+niveau atteint par le vif-argent
+Monter au sommet du Puy de Dôme
+Mesurer à nouveau la hauteur du vif-argent dans le tube pour vérifier
+si la pression de l’air varie avec l’élévation,
+
+Observations en bas de la montagne :
+Le liquide dans le tube redescend jusqu’à un niveau de 71,2 cm audessus du niveau du vif-argent contenu dans le vaisseau
+Observations en haut de la montagne :
+Le niveau du vif argent dans le tube est à 62,70 cm au-dessus du niveau du vif-argent dans le vaisseau.
+L’expérience est répétée 5 fois et le résultat ne diffère jamais.
+In Fine, les expériences de Florin Périer détruisent le principe selon lequel le vide ne peut exister dans le nature
+et met en avant la diminution de la pression atmosphérique parallèlement à une élévation de l’altitude comme
+l’avait justement supposé Blaise Pascal.
+NB : Blaise Pascal est le premier savant au monde à prendre comme terrain d’expérience une montagne, notre
+montagne : le Puy de Dôme.
+
+2) Sur les traces de B.Pascal et F.Périer, de Massillon au sommet du Puy de Dôme.
+Nous avons décidé de faire une randonnée de Massillon, notre lycée au cœur
+de Clermont-Ferrand, jusqu’au sommet du Puy de Dôme afin de reproduire les
+expériences de Messieurs Périer et Blaise Pascal.
+Nous avions besoin de matériel pour prendre des mesures de pression,
+d’altitude et de température que nous pouvions transporter facilement.
+Lors des recherches préparatoires, nous avions commandé un capteur de
+pression, température et hygrométrie (voir annexe H) et créé un programme
+(voir annexe A) et un montage Arduino qui pouvait mesurer les trois données
+voulues : P, T et hygrométrie permettant de calculer la masse volumique de l’air.
+Puis nous nous sommes aussi munis de différents appareils de mesure de
+température et de pression afin d’avoir la meilleure précision possible. (Voir
+annexe C)
+Nous aurions aimé faire l’expérience avec un vrai baromètre au mercure, mais celui qu’on a pu se procurer (via l’UDPPC)
+avait une colonne fragmentée que l’on a réparé seulement le 14 janvier 2023 grâce à Jérôme Brunet.
+Une fois l’organisation prête, notre départ fut programmé le vendredi 24 juin 2022 à 8h45 de
+Massillon avec sacs à dos, ordinateur, Arduino et capteurs, lors d’une journée très ensoleillée
+en période de canicule.
+Lors de notre randonnée nous nous sommes arrêtés devant l’église Saint Pierre des Minimes
+pour réaliser une mesure à l’endroit même où F. Périer l’avait faite 400 ans auparavant.
+Puis notre protocole prévoyait de reproduire les mesures tous les 100m de dénivelé.
+À chaque arrêt, nous prenions 3 mesures avec tous nos capteurs et les prenions en note afin
+de pouvoir exploiter ces mesures. (Voir tableau annexe 1) Une fois arrivé au sommet du Puy
+de Dôme, au bout de 15,2 km de marche et après avoir brûlé 1400 kilocalories😀 d’après une
+montre connectée, nous avons pu confirmer qualitativement l’expérience de Périer et de
+5
+
+Pascal. En effet, la pression de l’air diminue lorsque l’altitude augmente. Nous sommes passés de 973 hPa (à 335 m
+d’altitude) à 861 hPa à 1351 m).
+
+Deux mois plus tard, en vacances dans la station des ARCS 1800 (en Savoie), nous avons décidé de reproduire
+l’expérience mais sur des altitudes plus élevées. Nous sommes donc partis, le 24 août, lors
+d’une journée ensoleillée, avec un capteur de pression pour une randonnée jusqu’à
+l’Aiguille grive à 2732 m d’altitude et ensuite grâce au téléphérique jusqu’à l’Aiguille rouge
+à 3226 m.
+Nos mesures (voir annexe I) ont reproduit l’expérience de Blaise Pascal en ayant une
+altitude beaucoup plus haute. Nous en avons donc déduit que cette loi, n’a pas de
+limite d’altitude : plus on monte, plus la pression est basse quelle que soit l’altitude !
+
+III. Résultats obtenus
+1) Evolution de la pression en fonction de l’altitude entre Massillon et le sommet du Puy de Dôme : P = f(z)
+Nous avons relevé nos résultats à l’aide de tableaux (voir annexe B). Nous avons après représenté la pression en fonction
+de l’altitude à l’aide de graphiques.
+
+Courbe représentant l’évolution de la pression atmosphérique au Puy de Dôme, en hPa, en fonction de l’altitude par le
+logiciel Latispro
+
+6
+
+2)Complément avec les mesures faites aux Arcs P= f(z)
+Courbe représentant l’évolution de la pression atmosphérique, en hPa, aux Arcs, en fonction de l’altitude par le logiciel
+Latispro
+
+A première vue, la pression, à la manière de l'eau, semble évoluer de façon affine an fonction de l’altitude, ce qui est
+surprenant.
+Cependant, cela veut dire que la pression sera nulle à une certaine altitude. Si cette altitude se trouve dans l’atmosphère
+cela semble impossible. Il pourrait donc y avoir un autre modèle qui passe par nos points et qui ne s'annule pas au sein
+de l’atmosphère. Le modèle exponentiel semble possible car cette fonction de référence est toujours positive. De plus,
+d’autres facteurs que l’altitude pourraient entrer en compte en utilisant ce modèle.
+Nous nous sommes donc intéressés aux théories traitant de la pression ainsi que de l’atmosphère.
+
+IV. Compléments théoriques
+Pour donner du sens aux modèles que nous avons testés, une approche théorique est indispensable : nous nous
+sommes donc intéressés à la notion d’atmosphère et son fonctionnement.
+1) Comment la densité de l’air et la pression évolue au sein de l’atmosphère ?
+L’atmosphère est un ensemble de couches de différentes altitudes dans lesquelles se trouvent les différents gaz
+qui nous entourent et qui composent ce que nous appelons l’air atmosphérique. Comme n’importe quelle entité, cet
+air possède une masse et donc un poids. Les gaz compris dans l’atmosphère sont donc comme tous les autres corps,
+attirés par la terre. Dans notre expérience nous nous intéressons essentiellement à la troposphère, première épaisseur
+de l’atmosphère. Cette première couche contient la plus grande partie des molécules de gaz atmosphérique et c’est
+aussi celle dans laquelle nous vivons et avons donc effectué toutes nos mesures. En raison de l’attraction
+gravitationnelle de la terre, les gaz se maintiennent aux alentours de la terre. Si nous venons à nous concentrer sur une
+colonne d’air spécifique dont la hauteur est indéfinie, plus nous prenons de l’altitude dans cette colonne, plus la quantité
+d’air au-dessus de nous va diminuer. On considère donc que la pression exercée par l’air au niveau de la mer est
+supérieure car la quantité d’air est à son maximum. Plus l’altitude augmente, plus la pression atmosphérique va donc
+diminuer.
+Cependant, d’autres facteurs peuvent entrer en jeu lors de l’étude de la pression atmosphérique et de son lien avec
+l’altitude. Quels sont ces facteurs et sont-ils négligeables?
+
+7
+
+-La pesanteur g sur Terre évolue aussi en fonction de l’altitude. En effet, g= G*M T /𝑑2 . Plus on s’éloigne du centre de
+la Terre, moins l’intensité de pesanteur sera élevée. Cependant, cette variation est négligeable lors de nos mesures :
+A Clermont-Ferrand (400 m d’altitude): g= G*MT / (𝑅𝑡𝑒𝑟𝑟𝑒 + 𝑎𝑙𝑡)2
+= 9,81m.s-2
+
+Rterre= 6,37 x106 m G= 6,67x10−11
+MT = 5,97×1024 kg
+
+En haut de l’aiguille Rouge (3200m d’altitude): g= G*MT / (𝑅𝑡𝑒𝑟𝑟𝑒 + 𝑎𝑙𝑡)2
+= 9,80 m.s-2
+La différence est donc bien négligeable. Nous ne la prendrons donc pas en compte dans l’analyse de nos résultats et
+dans les modèles utilisés.
+-L’air est un gaz donc il est compressible et la troposphère, dont nous avons déjà pu parler, est compressée par toutes
+les autres couches atmosphériques qui la surplombent. Cela la rend donc plus dense que toutes les autres. Cela
+s’explique par la force d’attraction gravitationnelle de la Terre qui maintient les molécules à une basse altitude. Cela
+signifie que la densité de l’air au niveau de la mer reste largement supérieure à celle mesurée par exemple au sommet
+de l’aiguille rouge (3226 m).
+
+2) La température est-elle un facteur négligeable ?
+Lors de l’étude de la troposphère, il est dit que le gradient thermique y est de 0,65 K pour 100m. Pour simplifier, on
+perd environ 0,65°C. Lorsque l’altitude augmente de 100 m la température décroît donc linéairement en fonction de
+l’altitude et permet de mettre en jeu une nouvelle variable dans le calcul de la pression atmosphérique puisque les
+molécules d’air seront plus condensées à une altitude plus élevée.
+Nous pouvons vérifier cela par un expérience simple: aux Arcs, nous avons mesuré la température à une altitude de
+2679m à l’aide d’un thermomètre mis à disposition. T(2679)= 13°C= 286K. Nous sommes montés en téléphérique et
+moins de 30 minutes plus tard nous avons mesuré la température en haut de l’Aiguille rouge(3220m). T(3220)= 9°C=
+282K. L’intervalle de temps était suffisamment faible pour pouvoir négliger l’impact de l’évolution de la température au
+cours de la journée. Gradient thermique pour 100m: (286-282) / (32,20-26,79)= 0,739 K/hm
+Cette valeur se rapproche de la valeur annoncée au début du paragraphe. Nous pouvons conclure que la température
+diminue bien lorsque que l’altitude augmente. L’écart entre la valeur réelle et la valeur théorique s’explique par la
+mesure de température au Kelvin près. De plus, le gradient thermique peut évoluer en fonction des conditions
+météorologiques.(Calcul incertitude en annexe D)
+Cependant, les mesures de pressions au Puy de Dôme ainsi qu’aux Arcs ont été faites au cours de toute une journée. La
+température augmentait donc au cours de la matinée alors que nous montions. Nos valeurs sont donc stables autour
+des 20°C au Puy de Dôme et 15°C aux Arcs. Nous négligerons donc l’évolution de la température en fonction de l’altitude
+dans le traitement des résultats et l'étude des modèles en étant conscients qu’il s’agit d’une approximation.
+
+8
+
+Graphique représentant la température en fonction de l’altitude prise à l’aide d’Arduino au Puy de Dôme.
+
+Si on écarte la valeur la plus
+éloignée de la tendance, une
+moyenne autour de 20,3° est
+envisageable.
+
+Nous avons approfondi la notion de gradient de température car le jury de Bordeaux nous a fait remarquer que ce
+gradient dépendait de la couche d’atmosphère dans laquelle on était. En effet :
+
+La courbe en rouge montre que l’évolution de la
+température quand l’altitude augmente dépend de la
+couche de l’atmosphère. On voit même que si la
+température baisse en fonction de l’altitude dans la
+troposphère, elle augmente dans la stratosphère !
+Le gradient de température dans chaque couche est
+déterminé par la source de chaleur de la couche. La
+plupart des processus importants de l’atmosphère ont
+lieu dans les deux couches les plus basses : la
+troposphère et la stratosphère.
+
+De la surface de la terre à 11-12 km d’altitude, la température diminue avec la hauteur. Ce phénomène est dû au fait
+que le rayonnement solaire frappe la terre et que celle-ci réchauffe ensuite l’air au-dessus d’elle. Ainsi, plus l’air est
+proche du sol, plus il se réchauffe.
+Dans la stratosphère se trouve l’ozone. Comme l’ozone interagit avec la lumière du soleil, la couche d’ozone située au
+sommet de la stratosphère a un effet de réchauffement, et dans cette couche de l’atmosphère, le gradient de
+température est positif. Cependant, lorsque l’on s’élève au-dessus de la couche d’ozone et que l’on entre dans la
+mésosphère,
+le
+gradient
+devient
+à
+nouveau
+négatif.
+
+3) Les modèles de la pression dans l’atmosphère
+En partant de la deuxième loi de Newton appliquée à un volume de fluide, dans le référentiel terrestre supposé galiléen,
+on démontre que : (Annexe E)
+
+A partir de ce résultat, nous allons tester deux hypothèses.
+
+9
+
+a) Air= fluide incompressible et isotherme ?
+Dans le cas d’un fluide incompressible comme pour les liquides, la masse volumique est une constante.
+On a 𝑑(𝑧) = -𝜌𝑔𝑑𝑧 ce qui donne entre deux altitudes 𝑧1 et 𝑧2 :
+
+Soit : (𝑧2 ) − 𝑃(𝑧1 ) = −𝜌𝑔(𝑧2 − 𝑧1 )
+Si on note z2 = z et z1 = 0 , on arrive à P(z) = P0 – ρ.g.z
+La pression est exprimée en Pascal avec P0 = 101 300 Pa
+La masse volumique 𝜌 est en kg.m-3
+L’altitude en mètres et g= 9,81 m.s-2 correspondant à la pesanteur sur Terre.
+b) Air= fluide compressible et isotherme ?
+Dans ce modèle, on obtient :
+Mair= 2,896 x 10-2 g.mol-1
+
+V. Exploitation des résultats
+1) Expérience du Puy de Dôme
+
+Modèle affine de P=f(z)
+Calcul de l’incertitude de la
+pression:
+D’après la fiche technique du
+baromètre:
+u(P)= P*0.02+4 hPa
+Incertitude pour l’altitude : nous
+avons pris les altitudes à l’aide
+d’une carte IGN qui affiche le
+nivellement tous les 10 mètres.
+Soit: u(alt)= 5m
+
+Modèle exponentiel de P=f(z)
+
+10
+
+Ces résultats sont ceux obtenus avec un de nos baromètres. Ceux du second baromètre ainsi que ceux obtenus à l’aide
+de notre capteur Arduino sont en annexe ainsi que le calcul des incertitudes associées.
+Le modèle affine et le modèle exponentiel semblent convenir tous les deux aux mesures. Ainsi on obtient :
+
+P(z)= 1006,3 – 0,1112 z pour le premier modèle et P(z) = 1011,4 e-0,0001 z pour le deuxième modèle.
+Cela signifie qu’à cette altitude et pour les mesures réalisées dans les conditions de notre expérience, l’air peut être
+justement traité comme un fluide incompressible (modèle 1) ou comme une atmosphère isotherme (modèle 2). Nos
+mesures ne permettent pas de discriminer un des modèles, ce qui est assez surprenant pour nous à première vue.
+
+Graphique représentant les deux modèles ci-dessus
+
+2) Les Arcs
+
+Modèle affine de P=f(z)
+
+11
+
+Modèle exponentiel de P=f(z)
+
+Les résultats sont semblables à ceux obtenus pour le Puy de Dôme : on ne peut pas discriminer le modèle
+« incompressible » du modèle « atmosphère isotherme » avec nos mesures.
+Nous pensons que sur la plage de mesure dont on dispose de 300 m à 3400m, on ne peut pas distinguer la courbe P =
+f(z) de sa tangente en un point, et que pour cette raison, nous n’arrivons pas à discriminer un modèle. Avec des mesures
+à de plus hautes altitudes encore, peut-être pourrions-nous différencier les tendances de l’évolution de P en fonction
+de z. Si on se fie aux modélisations ci-après, nous aurions dû mener nos expériences entre 2500 m et 8 000 m !
+
+Pour obtenir le modèle exponentiel, il a fallu introduire la notion de « Gaz parfait » dans l’équation de départ. Cela nous
+a donné l’idée de vérifier si l’air se comportait bien comme tel et de faire une mesure de la constante des Gaz Parfaits
+R.
+
+VI. Accès à la valeur de « R : constante des gaz parfaits »
+1) A partir de la modélisation exponentielle : résultat ?
+Les expériences menées nous permettent d’avoir accès à une constante physique, la constante des gaz parfaits,
+loi introduite dans le modèle 2 qui aboutit à la décroissance exponentielle de la pression en fonction de
+l’altitude. La calculer permettrait de vérifier la qualité de nos modèles ainsi que nos mesures. Retrouver cette
+valeur pourrait vérifier la qualité du modèle d’atmosphère isotherme.
+En théorie l’argument de l’exponentielle correspond à
+
+𝑀𝑔
+où M, g, T et R ont déjà été définies.
+𝑅𝑇
+
+12
+
+𝑀𝑔
+
+La modélisation par Excel donne un argument 0,0001 ainsi 𝑅𝑇 = 0.0001, on peut calculer R !
+Cependant Excel nous fournit une valeur très peu précise. A partir de la démonstration du modèle (annexe E)
+on obtient:
+𝑀𝑔
+
+Ln(P/Po)= − 𝑅𝑇 𝑧
+Ln(P/Po)= −𝑘𝑧
+En utilisant les résultats du Puy de Dôme ci-dessus: Po= 1011 hPa
+En calculant Ln(P/Po) pour chaque valeur de l’altitude, on obtient la modélisation graphique ci-dessous:
+
+Courbe représentative de ln P/P0 = f (z) par le logiciel Regressi
+Résultat de la modélisation : ln (P/P0) = -0,000122 z
+𝑀𝑔
+
+Ainsi : 𝑅𝑇 = 1,22× 10−4
+𝑀𝑔
+
+2,896×10−2 ∗9,807
+
+R= 𝑇𝑘 = 1,22×10−4 ∗291,5 = 7,99 J/K/mol
+Nous remarquons que l’argument de l’exponentielle de chacune de nos représentations graphiques est en fait
+la moyenne de l’argument de chacune de nos mesures. Ainsi nous pouvons calculer la valeur de R
+correspondant à chaque mesure à partir de la démonstration du deuxième modèle.
+𝑀𝑔
+
+On obtient : R= 𝑇∗𝐿𝑛(𝑃/𝑃𝑜
+
+avec les valeurs de Po issues de notre modélisation graphique et de température
+
+associée à chaque série de température (21,5°C en moyenne pour la série de mesures que nous étudions).
+Nous remarquons que nous sommes proches de la valeur théorique de R (8,31 usi). Les résultats obtenus avec
+la série de mesure provenant d’Arduino ainsi que celle provenant des Arcs semblent les plus corrects avec une
+différence inférieure ou égale à 0,2. Ces résultats ont donc une marge d’erreur inférieure à 2,4%. Nous pouvons
+donc supposer que notre capteur Arduino est plus précis qu’un baromètre ordinaire. Aussi, il semble judicieux
+de recueillir des mesures sur une échelle plus élevée (1500 contre 1000 mètres) et à des altitudes plus élevées
+(jusqu’à 3200 m). Cependant ces résultats restent inexacts en raison de l’incertitude principalement liée à la
+température qui est considérée comme constante dans notre modèle.
+Calcul de l’incertitude pour R : (Nous négligeons l'incertitude liée à g, M. Nous prendrons ainsi en compte la
+moyenne de nos incertitudes liées à la pression lors de nos mesure (22hPa) :
+𝑈(𝑇)
+𝑈(𝑃)
+²+
+²)^½ ∗ 𝑅
+𝑇
+𝑃
+
+U(R)= (
+
+Nos valeurs de T sont comprises entre 17 et 22°C soit 290 et 295 K. La moyenne de la température est de 291,5K
+et celle de la pression de 910 hPa. On a donc :
+13
+
+3
+
+22
+
+U(R)= (291,5 ² + 910 ²)^½ ∗ 𝑅
+=0,20 usi
+7,79 usi < Rmesuré < 8,19 usi
+Nous sommes à 0,1 près de la valeur attendue soit 1,2%. Les résultats restent proches de la réalité mais inexacts.
+Il faudrait peut-être prendre en compte d’autres facteurs ou chercher une meilleure manière de calculer
+l’incertitude. De plus la précisions de nos mesures (3 chiffres significatifs) nous empêchera d’avoir de meilleurs
+résultats. Nous comprenons alors les limites d’un baromètre et l’intérêt d’un capteur Arduino.
+Nous pouvons aussi remettre en cause la validité de notre modèle.
+L’air se comporte-t-il comme un gaz parfait ?
+Un gaz est considéré parfait lorsque ses molécules n'interagissent pas entre elles, en dehors des chocs
+survenant lorsqu'elles se rencontrent. Cependant, tous les gaz peuvent être parfaits lorsqu'ils ont une pression
+assez basse. En effet, tout gaz subissant une pression inférieure à 2 bars est considéré parfait. Lorsqu’un gaz
+n’est pas parfait, nous disons qu’il est réel.
+
+2) Expériences complémentaires sur la nature de l’air et mesure de R
+Comme pour trouver le modèle exponentiel nous avons introduit le fait que l’air était un gaz parfait, nous avons voulu
+en savoir plus sur ce point. Peut-on vérifier que l’air se comporte bien comme tel ? Il va nous falloir mesurer la pression
+P d’un échantillon de gaz en faisant varier seulement un paramètre à chaque fois, les deux autres étant constants.
+
+a) P= f(1/V) à n,T = cste
+Nous avons donc réalisé une expérience permettant de trouver la variation de pression en fonction de la variation de
+volume. Les autres variables sont constantes.
+L'expérience de la seringue a permis d’établir un lien, puis une relation de mathématique entre la pression et le volume.
+Lors de cette expérience, nous avons pris une seringue graduée en mL et nous avons tiré le piston de la seringue jusqu’à
+la plus grande graduation, c’est-à-dire 50 mL. Nous avons relié le bout de la seringue à un pressiomètre avec un tuyau
+en faisant attention qu’il n’y ait pas de fuite d’air de sorte que le système soit hermétique. Ensuite, nous avons relevé
+la pression indiquée par le pressiomètre à la plus grande graduation. Puis nous avons poussé le piston de la seringue
+afin d’avoir la même quantité de matière d’air mais contenu dans un plus petit volume. Nous avons relevé la pression
+sur le pressiomètre. Enfin, nous avons effectué cette même étape jusqu’à ce que nous arrivions à la plus petite
+graduation, c’est-à-dire 25 mL. Nous n’avons pas pu aller au-delà de 25 mL car la pression étant trop forte, le tuyau
+reliant la seringue et le pressiomètre s'est retiré. Nous avons dû corriger le volume d’air car le tuyau reliant le
+pressiomètre à la seringue contient aussi de l’air. Suite à l’expérience, nous avons fait un tableau contenant nos
+résultats. Nous avons aussi fait un graphique contenant les incertitudes quant aux mesures de la pression.
+Voici un schéma de principe de l'expérience :
+
+14
+
+Résultats obtenus :
+
+Pour l’instant, les mesures ne sont pas satisfaisantes et nous allons refaire la manipulation.
+Conclusion : Pas besoin d’aller plus loin pour s’apercevoir que la pression dans la seringue n’évolue pas de façon linéaire
+avec l’inverse du volume, même corrigé ! Il y a quelque chose qui ne va pas.
+Après avoir laissé quelque temps cette expérience, nous y sommes revenus en changeant le protocole : nous avons
+enfermé un très petit volume mesurable dans la seringue (20 mL) puis nous avons détendu le gaz en mesurant la
+pression. Doucement, pour que la température puisse rester constante pendant la détente.
+Les résultats obtenus sont les suivants :
+P = 1,81 x 1/V
+
+=
+
+15
+
+Calcul de R : le coefficient directeur vaut k = n x R x T , l’expérience a été faite à T = 292 K
+pour n=V/Vm = 16,6x10-6/0,024 = 7,0 10-4 mol (Vm calculé avec R = 8,314usi, P=1,019 105 Pa et T=292K)
+Ainsi R = k/(nxT) = 1,75/(7,0 10-4 x 292) = 8,56 J/K/mol
+Calcul d’incertitude : un modèle affine donne un meilleur résultat en terme de coefficient de corrélation (r=1), on va
+se servir de ce résultat pour estimer l’incertitude sur la pente.
+Modèle linéaire : k = 1,81 usi
+Modèle affine k’= 1,68 usi
+En choisissant k = (1,81 + 1,68 )/2 = 1,75 usi on estime l’incertitude U(k) = 1,75-1,68 = 0,070 usi
+En réduisant l’incertitude sur R à U(R)= R x [(U(k)/k)²]1/2 = 8,56 x 0,070/1,75 = 0,34 usi
+On peut annoncer ainsi une valeur R telle que R= 8,56 J/K/mol ± 0,34 J /K/mol et la valeur de 8,31 (admise en
+théorie) se trouve dans l’intervalle. La courbe obtenue valide le modèle de gaz parfait dans les conditions de
+l’expérience.
+Remarque : Après de nouvelles mesures, le protocole en « compression » a fourni aussi des résultats où P et (1/V) sont
+proportionnels. Nous avons malgré tout tenu à laisser nos premiers résultats car nous nous étions imaginés qu’en
+compression, nous sortions éventuellement du comportement « parfait » du gaz et nous avions alors fait de nouvelles
+recherches et découvert une autre loi, la loi de Laplace. Après la sélection académique, nous avons abandonné cette
+piste car il semblerait que la loi de Laplace soit aussi valable pour les gaz parfaits et qu’elle soit compliquée à
+appréhender à notre niveau.
+b) P=f(T) à n,V=cste
+Nous avons réalisé une expérience permettant de trouver la variation de pression en fonction de la variation de
+température. Les autres variables n, et V étant constantes.
+L'expérience du « bain marie » a permis d’établir un lien, puis une relation de proportionnalité entre la pression et la
+température. Lors de cette expérience, nous avons préparé cinq bacs d’eau. Chaque bac avait été chauffé à une
+température différente et un des bacs était à température ambiante. Nous avons relevé la température de chaque bac
+à l’aide d’un thermomètre. Nous avons pris un erlenmeyer (plutôt qu’une seringue, paroi rigide pour que V soit
+constant !) que nous avons bouché et relié à un pressiomètre avec un tuyau en faisant attention à ce que l’air ne puisse
+pas passer, comme lors de l’expérience précédente, afin d’avoir un système hermétique. En maintenant notre main
+appuyée sur le bouchon, nous avons mis l’erlenmeyer dans tous les bacs sans enlever le bouchon, afin d’avoir toujours
+la même quantité de matière d’air. Nous avons ainsi relevé la pression pour chaque bac. Suite à l’expérience, nous avons
+
+16
+
+fait un tableau contenant nos résultats. Nous avons aussi fait un graphique contenant les incertitudes quant aux
+mesures de la pression et de la température. Voici un schéma de principe de l'expérience :
+
+Résultats obtenus :
+𝑛𝑅
+
+𝑛𝑅
+
+On obtient : P = 321 T or P V = n R T donc P = 𝑉 𝑇 donc 𝑉 = 321, comme on a travaillé à V et n constants, on peut
+calculer R !
+Avec cette formule, nous pouvons, à partir d’une même pression, faire varier les différentes variables (n, puis T, puis V)
+afin de trouver R.
+Avec les données de l’expérience des bains-marie, nous allons tenter de calculer la constante des gaz parfaits.
+Tout d’abord, nous avons dû calculer le volume d’air contenu dans l’erlenmeyer. L’erlenmeyer a une contenance de 100
+mL, cependant le bouchon prenant de l’espace, il n’y avait pas 100 mL d’air lors de l’expérience. Pour trouver le volume,
+nous avons d’abord pesé l’erlenmeyer sans le bouchon alors qu’il était vide. Puis, nous avons marqué avec un trait
+l’endroit où le bouchon s’arrêtait lorsqu’il était mis sur l’erlenmeyer. Nous avons rempli l’erlenmeyer d’eau jusqu’au
+trait et nous l’avons pesé. Ainsi, nous avons trouvé la masse de l’eau présente dans l’erlenmeyer.
+𝑚𝑒𝑟𝑙𝑒𝑛 𝑟𝑒𝑚𝑝𝑙𝑖 = 203, 79 𝑔
+
+𝑚𝑒𝑟𝑙𝑒𝑛 𝑣𝑖𝑑𝑒 = 61, 76 𝑔
+𝑚𝑒𝑎𝑢 = 203,79 − 61,76 = 142,03 𝑔 = 1,42 × 10−1 𝑘𝑔
+
+Sachant que la formule de la masse volumique est 𝜌 =
+
+𝑚
+et que 𝜌𝑒𝑎𝑢 = 1𝑘𝑔. 𝐿−1 :
+𝑉
+
+On peut donc calculer le volume d’eau contenu dans l’erlenmeyer :
+𝑚𝑒𝑎𝑢 1,42 × 10−1
+𝑉=
+=
+= 1,42 × 10−1 𝐿 = 1,42 × 10−4 𝑚3
+𝜌𝑒𝑎𝑢
+1
+
+17
+
+Le volume d’eau contenu dans l'erlenmeyer est le même que le volume d’air donc, nous savons maintenant le volume
+d’air dans l’erlenmeyer lors de l’expérience.
+Le coefficient directeur de la droite est
+
+𝑛𝑅
+. D’après l’équation de la droite que le logiciel Excel nous a fourni 𝑃 = 321 𝑇,
+𝑉
+
+le coefficient directeur de la droite est 321 Pa/K.
+𝑛𝑅
+
+D’où : 𝑉 = 321
+𝑛𝑅 = 321 × 𝑉 avec 𝑉 = 1,42 × 10−4 𝑚3
+𝑛𝑅 = 321 × 1,42 × 10−4 = 4,56 × 10−2 mol
+Nous recherchons n la quantité de matière présente dans le volume 𝑉 = 1,42 × 10−1 𝐿
+𝑉
+
+Sachant que 𝑛𝑔𝑎𝑧 = 𝑉 avec 𝑉𝑚 = 23,077 𝐿/𝑚𝑜𝑙.
+𝑚
+
+𝑉
+
+Donc : 𝑛 = 𝑉 =
+𝑚
+
+1,42×10−1
+= 6,15 × 10−3 𝑚𝑜𝑙
+23,077
+
+Revenons à l’équation des gaz parfait :
+𝑛𝑅 = 4,56 × 10−2
+𝑅=
+
+4,56 × 10−2 4,56 × 10−2
+=
+= 7,41 𝐽. 𝑚𝑜𝑙 −1 . 𝐾 −1
+𝑛
+6,15 × 10−3
+
+Nous avons donc trouvé une valeur approchée de la constante des gaz parfait 𝑅 = 7,41 𝐽. 𝑚𝑜𝑙 −1 . 𝐾 −1 .
+Le graphique valide donc la loi des gaz parfait P est proportionnelle à T dans les conditions de l’expérience.
+c) P=f(n) à T et V constants
+Grâce à l’interaction avec Jérôme Brunet, nous avons compris comment procéder pour faire varier la quantité de
+matière dans un même volume de gaz. (Annexe E) Pour l’instant, nous avons acheté le gaz Hélium mais nous n’avons
+pas fait la manipulation. Il faudrait pouvoir peser une quantité d’Hélium et d’air et il faut une balance drôlement précise
+pour mesurer une différence de masse pour le même volume d’air… Nous proposons d’ailleurs d’évaluer quel devrait
+être le niveau de précision de la balance pour réaliser la manipulation.
+On sait que la masse volumique ρHe=0,178 kg/m3 et ρair=1,204 kg/m3 à 20°C et 0 m d’altitude…
+Donc si on enferme un volume de 1m3, la différence de masse entre les deux échantillons sera :
+Δm = mair – mHe = 1,204-0,178 = 1,026 kg ; entendu que nous ne mesurerons pas un volume de 1m3 mais plutôt un
+volume de 100mL soit 104 fois moins que la seringue hypothétique envisagée plus haut, la différence de masse sera
+aussi divisée par 104 . On s’attend donc à une différence de masse de l’ordre de 1,026/104= 1,026 10-4 kg soit 0,1026 g.
+Avec une balance précise au 1/100 de gramme, on pourra mesurer une différence de masse entre la seringue remplie
+d’air et celle remplie d’hélium. (Enfin, a priori)
+Nous n’avons pas réalisé cette expérience car le jury de Bordeaux nous a plutôt incité à travailler sur les capteurs utilisés
+dans le capteur Arduino BME 280.
+
+18
+
+Conclusion :
+Nous arrivons au terme de notre travail et nous avons fait beaucoup de mesures que nous avons essayé de traiter pour
+en extraire des informations générales. Ainsi, nous avons abouti à des expressions de la pression atmosphérique en
+fonction de l’altitude et nous avons discuté de la pertinence des modèles établis. Puis, de fil en aiguille, nous nous
+sommes intéressés à l’état de « gaz parfait » et en essayant d’explorer les limites du modèle. Si faire les expériences et
+les randonnées nous ont procuré beaucoup de plaisir, nous nous sommes rendu compte que le traitement des mesures
+et la confrontation à des théories était fastidieux. La rédaction du compte-rendu a demandé du temps également, des
+remaniements, pour essayer de bien mettre en valeur nos pensées et nos efforts. Nous avons bien compris la notion de
+pression et nous maitrisons mieux les mathématiques, les conversions, les calculs d’incertitudes, après ce long travail.
+Enfin, d’avoir reproduit une expérience historique nous a permis de mieux connaître Blaise Pascal et de rester humble
+devant ce personnage impressionnant par la variété de son génie (philosophie, théologie, physique, mathématiques)
+Entre la sélection interacadémique et la finale nous sommes allés visiter le musée Lecocq (à Clermont-Ferrand) où un
+exemplaire de la célèbre « Pascaline » est présenté, ainsi qu’une exposition de différents appareils pouvant mesurer la
+pression (capsule de Vidie, reconstitution d’un baromètre de Torricelli).
+En perspective, nous aimerions visiter le laboratoire de Jérôme Brunet, où, avec son équipe, il « invente » des capteurs
+mesurant la concentration de polluants de l’atmosphère en très petites quantités. Refaire la randonnée au Puy de
+Dôme, en faisant seulement deux mesures avec le baromètre à mercure réparé nous plairait également et nous le ferons
+peut-être le jour anniversaire du 19 juin ! A cette occasion, rencontrer des chercheurs ou techniciens qui travaillent au
+chalet du Puy de Dôme pour l’Observatoire de Physique du Globe de Clermont-Ferrand (OPGC) nous ferait très plaisir
+aussi.
+Nous vous remercions pour avoir lu tout notre dossier.
+Bilbliographie/Sitographie
+Capteur Arduino:
+https://passionelectronique.fr/tutorial-bme280/
+Démonstration atmosphère isotherme:
+http://flachize.e-monsite.com/medias/files/modele-de-l-atmosphere-isotherme.pdf
+ENS Lyon détermination de l’altitude des montagnes par la méthode barométrique :
+https://planet-terre.ens-lyon.fr/ressource/altitude-methode-barometrique.xml
+Article du BUP envoyé par un des membres du jury de Bordeaux
+
+Remerciements
+Nous souhaitons adresser nos plus sincères remerciements à tous ceux qui ont œuvré pour ce projet, nous ont soutenu
+et nous permettent de vivre cette incroyable aventure !
+Nous remercions notre professeur de Physique-Chimie, Madame Pradeau qui a fait vivre notre groupe, nous a soutenu,
+encouragé et nous a beaucoup appris humainement dans la construction d’un projet en groupe ; Jérôme Brunet,
+chercheur à l’Université Clermont Auvergne qui nous est venu en aide, nous a ouvert de nouveaux horizons et a su être
+à notre disposition pour des questions. Nous tenons également à remercier le lycée Massillon qui nous soutient depuis
+le début, les professeurs qui se sont intéressés à nos expériences, Monsieur Det, notre professeur de Mathématiques
+qui nous a accompagnés lors de la randonnée au Puy de Dôme, Madame Legrand qui nous a accompagnés à Bordeaux
+et Lyon, la préparatrice Laëtitia qui a commandé le matériel nécessaire, et enfin nos familles qui ont eu confiance en
+nous et nous soutiennent.
+
+19
+
+

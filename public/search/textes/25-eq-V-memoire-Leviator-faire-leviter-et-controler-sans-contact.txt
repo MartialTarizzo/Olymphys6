@@ -1,0 +1,1884 @@
+Raverdy Thomas et Mantell Florian Fukuta
+Professeur référent: Mme Sabine Gallice
+
+Le Léviator, faire léviter et contrôler
+sans contact
+Olympiades de Physique 2017/2018
+
+1
+T. Raverdy, F. Mantell - Leviator
+
+Le Léviator : faire léviter et contrôler sans contact
+https://github.com/ttraverdy/Leviator-Project
+Lycée Jean de la Fontaine, 75016 Paris
+Thomas Raverdy
+
+Florian Fukuta Mantell
+
+Remerciements
+Nous tenons à remercier toutes les personnes qui ont contribué au succès de ce projet et qui nous ont aidés lors de la rédaction
+de ce mémoire.
+Tout d'abord, nous adressons nos remerciements à notre professeure, Mme Gallice du lycée Jean de la Fontaine qui nous a
+encadrés tout le long du projet. Nous remercions également M. Carmasol, personnel du laboratoire de physique et de chimie du
+lycée pour son soutien et les nombreux échanges que nous avons eu avec lui.
+Nous tenons à remercier vivement le professeur Takayuki Hoshi, de l’université de Tokyo, pour son accueil et ses réponses à
+nos nombreuses questions. Nous tenons également à remercier M. Asier Marzo de l’université de Bristol pour son partage de
+la connaissance à travers ses instructions et prototypes qu’il a publié et pour avoir lui aussi accepté de s’intéresser à notre travail
+et avoir répondu à nos questions.
+Enfin, nous tenons à remercier toutes les personnes qui nous ont conseillées et relues lors de la rédaction de ce mémoire.
+
+Résumé
+La lévitation acoustique, un phénomène avec encore peu d’applications qui pourtant présente un énorme potentiel, a suscité
+notre attention du fait de pouvoir défier la gravité. Le principe de lévitation acoustique sera dans ce mémoire analysé puis mis
+en œuvre et visualisé avec divers dispositifs. Ces derniers retracent l’évolution de notre projet, allant d’une lévitation simple à
+un contrôle des objets lévités. Nous montrerons, avec des observations et des mesures, la réalisation, les capacités et les limites
+de notre création, le Léviator.
+
+1 Introduction
+La majorité des personnes ayant vu Star Wars se
+souviennent des scènes où Dark Vador utilise la force pour
+faire léviter des objets ou des personnes. Cette scène de film
+de science-fiction, bien qu’elle paraisse surréaliste, est
+maintenant beaucoup plus proche de la réalité que l’on ne
+le pense. Vous n’y croyez pas ? La lévitation acoustique le
+peut ! Enfin, théoriquement ...
+Cette technologie bien que toujours en développement,
+nous a séduit, du fait qu’elle offre une possibilité nouvelle
+de défier la gravitation. C’est au travers de vidéos sur
+YouTube que nous avons découverts plusieurs dispositifs et
+nous sommes posé la question suivante : Que mettre en
+œuvre pour avoir une contribution originale dans ce
+domaine ?
+Nous avons tout d’abord procédé à une longue phase de
+travaux de recherches qui a duré plusieurs mois afin de
+mieux comprendre le phénomène par le biais d’internet, de
+vidéos, de publications et de discussions et échanges de
+
+mails avec des chercheurs des universités de Tokyo et de
+Bristol. Après cette longue étape, nous nous sommes lancés
+dans la conception et la construction de dispositifs utilisant
+des transducteurs ultrasoniques permettant la lévitation de
+petits objets. Enfin, nous sommes parvenus à créer le
+Léviator, un dispositif original pour le contrôle des
+déplacements en 3 dimensions, dans l’espace de petits
+objets en utilisant la lévitation acoustique.
+
+2 Principes généraux des ondes
+Avant d’aborder la lévitation acoustique, nous allons définir
+quelques principes physiques de base concernant les ondes
+en général, et les ondes acoustiques en particulier, et décrire
+comment les ondes interfèrent entre elles.
+
+2.1 Typologie des ondes
+Définition : Une onde est la propagation d'une perturbation
+produisant sur son passage une variation réversible du
+milieu dans lequel elle se propage.
+2
+
+T. Raverdy, F. Mantell - Leviator
+
+Dans ce document, nous nous concentrons sur les ondes
+progressives, c’est-à-dire les ondes pour lesquelles la
+perturbation qu’elles créent se propage. Cette propagation
+des ondes correspond à l'évolution et la progression de
+celles-ci au sein d’un milieu.
+Les ondes longitudinales sont les ondes dont la
+perturbation produite par ces dernières s'effectue dans la
+même direction que la propagation de l'onde. Les ondes
+acoustiques ou encore un système de ressort en sont des
+exemples.
+
+Figure 1: Ondes longitudinale à haute et basse amplitude
+
+Une onde mécanique est une onde nécessitant un milieu
+matériel pour se propager. Néanmoins, la présence d’un
+support ne suppose pas un déplacement global de matière.
+Une onde mécanique peut être définie comme un transport
+d’énergie sans déplacement de matière. Le son en est un
+exemple, mais ce n’est pas le cas de la lumière, qui peut se
+propager dans le vide et se classe dans les ondes
+électromagnétiques.
+Définition : La phase est la position d’un point dans le
+temps sur un cycle de forme d’onde. Un cycle complet
+d’une onde, en radian phase 2π, revient à “avancer” d’une
+longueur d’onde et dans le temps d’une période T. Dans le
+cas d’une onde périodique, cette “avancée” revient à un
+retour à la valeur initiale de l’axe des ordonnées.
+
+2.2 Propriétés des ondes à 40kHz
+La période temporelle et longueur d’onde sont reliées par la
+relation 𝜆 = 𝑣 × 𝑇 avec λ en m, 𝑐 en m/s et T en s.
+Pour nos expérimentations, nous considérons que la vitesse
+du son dans l’air est de 340 m/s.
+La fréquence d’une onde est reliée à la célérité (c) et à la
+longueur d'onde (λ) par la relation 𝑓 = 𝑐/𝜆 et à la période
+par la relation 𝑓 = 1/𝑇.
+Sachant que les ultrasons que nous utilisons dans ce projet
+sont tous à une fréquence de 40 kHz, il est ainsi possible de
+définir la période T :
+1
+1
+1
+𝑓= 𝑇= 𝑇=
+= 0.000025 𝑠 = 25 𝜇𝑠
+𝑇
+𝑓
+40 000
+Une période d’une onde sonore à 40 kHz est donc de 25 μs
+On calcule maintenant la longueur d’onde λ :
+𝜆 = 𝑐 × 𝑇𝜆 = 340 × 2.5 × 10−5 𝜆 = 0.0085 𝑚
+La longueur d’onde 𝜆 d’une onde sonore à 40kHz est donc
+de 8.5mm.
+
+2.3 Les ondes acoustiques
+2.3.1 Le son
+Une onde sonore est une onde mécanique et élastique
+longitudinale de compression-dilatation. Le son se propage
+donc au travers de supports fluides, solides, gazeux ou
+liquides tout en créant une alternance de zones de
+surpression et de dépression dans le sens de propagation de
+l’onde.
+Lorsqu’un son est émis, il exerce une pression sur le milieu
+environnant, dans l’atmosphère terrestre, ce milieu
+correspond à l’air environnant. La pression (qui correspond
+à l’amplitude de l’onde sonore) est mesurée en Pascal Pa.
+Le son correspond à une vibration d’un fluide
+(principalement l’air) et est perçue par l’oreille humaine
+dans un domaine compris entre 20 Hz et 20 kHz. Les sons
+au-dessous de 20 Hz sont appelés infrasons et les sons audessus de 20 kHz sont appelés ultrasons. Les infrasons et
+les ultrasons sont inaudibles pour l’Homme.
+
+2.3.2 La génération d’ultrasons
+
+Figure 2: Phase d’une onde sinusoïdale
+
+La Figure 2 montre comment un cycle constitue 2π phase
+(360°). Un radian de phase est égal à environ 57,3 °.
+T. Raverdy, F. Mantell - Leviator
+
+Un transducteur est un dispositif convertissant un signal en
+un autre, dans notre cas, un signal électrique en une onde
+sonore. On parle donc de transducteur électro-acoustique
+plus communément appelé haut-parleur. Il existe trois types
+de haut-parleurs : électrodynamiques, électrostatiques et
+piézo-électriques. La plupart des haut-parleurs sont
+électrodynamiques pour leur faible coût de fabrication. Les
+3
+
+haut-parleurs ultrasons disponibles dans le commerce sont
+électrodynamiques ou piézo-électriques.
+
+Figure 3: Schéma de coupe d’un haut-parleur
+électrodynamique
+
+Le fonctionnement d’un transducteur électrodynamique est
+le suivant. L’énergie électrique reçue par le transducteur est
+tout d’abord transformée en une énergie mécanique par la
+bobine et l’aimant par principe d’électromagnétisme. Puis
+l’énergie mécanique, sous forme de vibration, est transmise
+à la membrane par l’aimant qui va elle-même vibrer. Elle
+transmet ainsi l’énergie mécanique à l’air ce qui donne une
+onde sonore.
+Réciproquement, lors d’une stimulation de la membrane par
+un son, l’aimant et la bobine créent un signal électrique. Le
+transducteur peut donc aussi remplir un rôle de
+récepteur.
+La piézoélectricité est la propriété d’un matériau de
+produire un courant électrique sous une pression physique
+ou inversement. Ce phénomène est utilisé dans les
+transducteurs piézoélectriques pour la génération d’ondes
+sonores ultrasoniques : lorsqu’ils reçoivent un signal
+électrique, le matériau piézoélectrique à l’intérieur de celuici se compresse, générant des ondes sonores. Avec un
+générateur de signal électrique sinusoïdal, le matériau vibre,
+du fait de la compression et de la décompression qui a lieu
+sous l’effet du courant.
+Dans ce projet, nous utilisons des transducteurs
+électrodynamiques.
+
+2.4 Ondes et interférences
+Une interférence se produit lorsque deux ondes susceptibles
+d'interagir se combinent. (Dans notre cas, des ondes sonores
+sinusoïdales créent une interférence.)
+Ce phénomène apparaît souvent en optique avec les ondes
+lumineuses, mais il s'obtient également avec d'autres types
+d'ondes comme des ondes sonores. A savoir aussi, le
+
+phénomène d'interférence ne se produit uniquement lors de
+la combinaison de deux ondes de même fréquence.
+
+Figure 4: Visualisation d’interférences de deux ondes
+mécaniques sur une cuve à ondes
+
+Rappel : dans le cas d’onde sonore, le milieu de propagation
+étant tridimensionnel, les interférences sont donc des
+surfaces.
+
+Figure 5: Interférences constructives et destructives
+
+Les
+interférences
+constructives
+et
+destructives
+correspondent aux interférences extrêmes (voir Figure 5).
+Lorsque deux ondes se superposent en vibrant en phase,
+c’est-à-dire que les maximum et minimum coïncident,
+l’onde résultante possède une amplitude deux fois plus
+grande du fait de la création d’interférences constructives.
+Lorsque deux ondes se superposent en vibrant en
+opposition de phase, (les maximums d’une onde
+correspondent aux minimums de l’autre), il y a des
+interférences destructives : il n’y a pas d’onde résultante.
+Dans les cas intermédiaires, l’onde résultante possède une
+amplitude plus grande ou plus petite en fonction de la
+proximité entre les deux ondes.
+Le tableau suivant résume les conditions sur le retard pour
+que l’on ait des interférences constructives ou destructives
+(avec k un entier relatif)
+Constr.
+
+Destr.
+
+Retard
+Nul ou multiple entier de la période
+Τ = k×T
+Multiple impair de la demi-période
+Τ’= (2×k+1) ×T/2
+
+4
+T. Raverdy, F. Mantell - Leviator
+
+3 Lévitation acoustique: principe et
+état de l’art
+
+onde stationnaire, on obtient de la lévitation tous les
+4.25mm :
+𝜆 = 8,5 𝑚𝑚 𝜆/2= 4.25 𝑚𝑚
+
+En physique, la lévitation est le fait, pour un objet, de se
+déplacer ou de rester en suspension au-dessus du sol, sous
+l'effet d'une force connue (la sustentation qui est proche de
+la lévitation maintient un objet à faible distance d'une
+surface). La lévitation peut être obtenue par différentes
+forces (acoustique, électrostatique, électromagnétique, ou
+optique).
+
+3.1 Principe et premières découvertes
+La possibilité de faire léviter des objets avec le son a été
+découverte, dans le cadre d’un programme spatial américain
+et a été rendu public par la NASA en 1975, en vue d’un
+développement et d’une application commerciale. La
+lévitation acoustique est rendue possible par le principe des
+ondes stationnaires.
+Les ondes stationnaires sont des phénomènes résultant de
+la propagation simultanée dans des sens opposés de
+plusieurs ondes de même fréquence et de même amplitude,
+dans le même milieu physique.
+Lorsqu’elle se produit, une vibration stationnaire se crée,
+avec formation de points fixes appelés nœuds de pression
+(nodes) Np, qui correspondent à des ventres de vibration,
+Vv, où les déplacements ont une grande amplitude. A
+l’inverse, on observe des zones de grandes variations de
+pression entre chaque nœud, appelées ventres de pression
+(antinode) Vp. A ces ventres de pression, correspondent les
+nœuds de vibration, Nv, où les déplacements ont une faible
+amplitude. Ces ondes forment une figure dont certains
+éléments sont fixes dans le temps comme les nœuds.
+La Figure 6 représente des schématisations d’ondes
+stationnaires avec des graphes montrant la pression
+résultante. On peut identifier les nœuds (en rouge) fixes,
+pour lesquels la pression ne varie pas. Dans le cas des
+ventres, ici en bleu, des variations de pression sont visibles
+sur le schéma de l’onde sonore ainsi que sur la courbe
+représentative de la pression (en rouge).
+La lévitation acoustique consiste ainsi à piéger les objets
+lévités dans des nœuds.
+Cette technologie est possible grâce à la non-linéarité des
+ondes sonores.
+Whymark [5] met en évidence la possibilité de faire léviter
+des objets sur un axe vertical sans contrôle. Avec un
+réflecteur situé à une distance d = 𝑘 × 𝜆/2 , avec 𝑘 un
+entier. Il est ainsi possible d’observer de la lévitation
+acoustique.Les nœuds se présentant tous les λ/2 sur une
+
+Figure 6 : Ondes stationnaires
+
+En approfondissant nos recherches sur l’explication de la
+lévitation acoustique, nous avons relevé [4] [9]
+l’importance de plusieurs facteurs comme la densité et la
+compressibilité de l’objet lévité et du milieu.
+Ces facteurs déterminent la position de l’objet lévité sur
+l’onde stationnaire, qui sera soit aux nœuds de pression, soit
+aux ventres de pression [9].
+Dans notre cas, nous faisons léviter des billes de
+polystyrène expansé au nœud de pression, dont la densité ρ
+(1× 103 kg/m3) est supérieure et dont la compressibilité ß
+(2.5 × 10−10 𝑃𝑎−1 ) est inférieure à celles de l’air qui est le
+milieu, avec respectivement ρ0 (1.2 kg/m3) et ß0 (7.1 ×
+10−6 𝑃𝑎−1 ).
+
+5
+T. Raverdy, F. Mantell - Leviator
+
+Figure 7: Evolution des dispositifs de lévitation acoustique
+
+Nous nous sommes intéressés aux forces qui entrent en jeu
+dans la lévitation acoustique. En lisant le début de la thèse
+de Mme Angelica Castro, nous avons compris que des forces,
+appelées Acoustic radiation force correspondent à des
+actions mécaniques liées à l’excès de pression moyenne qui
+existe à la surface de l’objet (il y a des interférences entre
+l’onde incidente et celle diffusées par l’objet en lévitation
+qui crée des excès de pression). L’excès de pression intégrée
+sur la surface donne la force acoustique moyenne.
+Mais la force acoustique peut aussi être exprimée comme
+dérivant d’un potentiel d’énergie U, la relation est :
+𝐹 = −𝑉∇𝑈, ( 𝑎𝑣𝑒𝑐 ∇ : gradient Avec V le volume de la
+sphère et U le potentiel d’énergie)
+La première Acoustic radiation pressure force, appelée PRF,
+symbolisée Fz est à l’origine du placement des billes de
+polystyrène dans les nœuds de pression des ondes
+stationnaires. La force axiale Fz est orientée des ventres de
+pressions vers les nœuds de pressions. La formule de Fz
+s’obtient en faisant la dérivée partielle de U par rapport à z :
+𝜕𝑈
+𝐹𝑧 ≡ −𝑉
+|
+𝜕𝑧 (𝑥,𝑧)=(0,0)
+avec U défini par la formule suivante :
+𝐴2
+2𝜋𝑧
+2
+2
+(𝐵
+𝑈 = 𝑔(𝑥, 𝑦)
+{−𝐵
++
++
+1
+−
+𝛾)𝑐𝑜𝑠
+(
+)}
+𝜌0 𝑐 2
+𝜆
+avec 𝐵 = 3(𝜌 − 𝜌_0 )/(2𝜌 + 𝜌0 ) 𝜌0 la masse volumique
+du milieu, 𝜌 , la masse volumique de l’objet lévité, 𝛾 =
+𝛽/𝛽_0 , avec 𝛽 la compressibilité de l’objet et 𝛽0 la
+compressibilité du milieu, A, l’amplitude RMS (Root Mean
+Square) de la pression qu’exerce l’onde stationnaire, 𝜆 la
+longueur d’onde, c la célérité du son, et x, y et z, les
+coordonnées du point étudié.
+Dans la formule de Fz, on a V le volume de la sphère lévitée
+et U le potentiel d’énergie. Lorsque les plaques sont placées
+horizontalement c’est ⃗⃗⃗
+𝐹𝑧 qui compense le poids 𝑃⃗ (figure à
+
+La Transverse Pressure Radiation Force (TPRF), appelé Fx,
+est une force parallèle aux transducteurs qui entre en jeu
+lorsque l’onde stationnaire est horizontale (plaques placées
+verticalement ). Dans ce cas de figure, la force axiale Fz ne
+permet pas de contrer la force gravitationnelle G ou le poids
+de la bille 𝑃⃗ . C’est la force secondaire qui contre alors la
+gravité bien qu’environ dix fois moins forte que la force
+axiale.
+Comme pour Fz, la formule de la force Fx est issue de la
+dérivée partielle par rapport à x de 𝐹 = −𝑉∇𝑈 , ( ∇ :
+gradient) soit :
+𝜕𝑈
+𝐹𝑥 ≡ −𝑉
+|
+𝜆
+𝜕𝑥 (𝑦,𝑧)=(0,4)
+Avec V le volume de la sphère et U le potentiel d’énergie.
+
+Figure 8: Fx et Fz en fonction de la position des transducteurs
+
+Cette force secondaire Fx est par ailleurs la cause de la
+formation d'agrégats planaires de billes parallèles aux
+plaques de transducteurs avec d’autres forces secondaires
+appelées forces de Bjerknes lorsque ces billes sont placées
+sur un même nœud (voir figure ci-dessous).
+
+gauche dans la figure 8) l’objet lévité peut être environ 7,3
+[4] fois plus massifs que quand les vecteurs 𝑃⃗ et ⃗⃗⃗
+𝐹𝑧 sont
+orthogonaux.
+6
+T. Raverdy, F. Mantell - Leviator
+
+Nous avons également compris que dans le cas d’une onde
+stationnaire, les nœuds de pression correspondent à des
+« puits » de potentiel d’énergie acoustique.
+Les seules postions stables sont celles pour lesquelles U
+(Figure 10 à droite) est minimal, et correspondent aux nœuds
+de pression (Np) (voir Figures 10 et 11). Les positions sont
+de deux types. Il y a des positions d’équilibre stables dans
+les puits de potentiel (Np) et d’autres des positions
+d’équilibre instable aux sommets (Vp), où les billes ne
+peuvent pas rester en lévitation.
+
+3.2 Limites de la lévitation acoustique
+Il y a une limite pratique dans la masse et la dimension des
+objets lévités qui se situent vers les milligrammes et les cm3.
+Dans ce projet, nous avons principalement fait léviter des
+billes de polystyrènes de diamètre moyen de 1mm.
+Pour calculer leur masse moyenne, nous calculons tout
+d’abord leur volume V :
+4
+𝑉 = 𝜋𝑟 3
+3
+
+4
+𝑉𝑏𝑖𝑙𝑙𝑒 = 𝜋 × (0.5 × 10−3 )3 = 5.24 ∙ 10−10 𝑚3
+3
+𝑚𝑏𝑖𝑙𝑙𝑒 = 𝑉𝑏𝑖𝑙𝑙𝑒 × 𝜌
+𝑚𝑏𝑖𝑙𝑙𝑒 = 5.24 ∙ 10
+
+−10
+
+× 1.0 ∙ 103 = 5.24 ∙ 10
+
+−7
+
+𝑘𝑔
+
+𝑃𝑏𝑖𝑙𝑙𝑒 = 𝑚𝑏𝑖𝑙𝑙𝑒 × 𝑔 = 5.14 × 10−6 𝑁
+Avec ρ, la masse volumique du polystyrène expansé, en
+moyenne égale a 𝜌 = 1.0 ∙ 103 kg/m3
+
+Figure 9: Force et potentiel accoustique
+
+Les objets les plus lourds lévités jusqu’à maintenant sont de
+l’ordre du kg et nécessitent un matériel coûteux [1].
+Bien que les transducteurs piézoélectriques soient efficaces
+pour de la lévitation acoustique à l’échelle d’un
+transducteur, ils deviennent difficilement utilisables pour
+des raisons de coût, de poids, de consommation électrique,
+et de taille pour un dispositif nécessitant une multitude de
+transducteurs. Les solutions existantes à base de plaques
+de transducteurs utilisent donc toutes des transducteurs
+électrodynamiques.
+
+3.3 Dispositifs expérimentaux
+Figure 10: champ acoustique
+
+Pendant trente ans, cette technologie semble ne pas
+connaître de développement. Néanmoins, ce dernier a été
+relancé en 2005, par des chercheurs espagnols, et connaît
+une évolution et une démocratisation grâce à l’évolution et
+la baisse des prix des composants électroniques. En 2013,
+un groupe de chercheur japonais est parvenu à contrôler des
+particules tout en les faisant léviter. Il devient alors possible
+de voir une application dans le domaine médical et
+pharmaceutique. La lévitation acoustique présente un atout
+par l'absence de contact direct avec l’objet lévité, qui permet
+par exemple de garantir une pureté de produit
+pharmaceutique. C’est une technologie avec encore peu
+d’applications mais qui présente un grand potentiel.
+
+Nous décrivons maintenant différents dispositifs de
+lévitation acoustique récents.
+
+3.3.1 PixieDust et Université de Tokyo
+
+Le premier dispositif que nous avons découvert, et le plus
+avancé, est le dispositif de PixieDust [4] développé par des
+chercheurs de l’université de Tokyo (Yoichi Ochiai,
+7
+
+T. Raverdy, F. Mantell - Leviator
+
+Takayuki Hoshi, Jun Rekimoto), décrit dans le document
+Three-dimensional Mid-Air Acoustic Manipulation.
+Ce dispositif est constitué de quatre plaques en opposition
+de 285 transducteurs chacune. Cet appareil est capable de
+faire léviter différents objets comme des écrous, des
+résistances et des billes de polystyrènes de diamètres
+variables de 0,6mm à 2mm, il est également capable de
+déplacer dans les 3 dimensions ces objets sans contact,
+seulement en modifiant le signal électrique envoyé aux
+transducteurs. Chaque plaque de transducteurs est contrôlée
+par une carte FPGA, et sont synchronisées entre elles.
+Ce dispositif innove en permettant un contrôle fin en trois
+dimensions de multiples objets. Cette manipulation repose
+sur un contrôle des signaux des transducteurs qui permettent
+de déplacer les nœuds des ondes stationnaires.
+
+conseillé pour TinyLev de l’alimenter entre 6 et 12 V et
+pour BigLev entre 12 et 20 V pour obtenir plus de puissance
+afin de léviter des objets plus massifs.
+Le circuit est composé de 72 transducteurs disposés sur
+deux plaques concaves mises en opposition. Les
+transducteurs sont reliés en partie en dérivation et en partie
+en série. L’alimentation se fait de la manière suivante : on a
+des boucles de transducteurs connectés en série (6, 12 et 18
+transducteurs). Ces boucles sont connectées en dérivation
+au driver L298N. Le courant est généré par une alimentation
+à 24V qui en passant par un réducteur de tension est capable
+d'être réglé entre 1 et 24V, sauf que le driver fonctionne à
+tension minimale de 6V. La tension est donc réglable entre
+6 et 24V.
+
+3.3.2 TinyLev et TractorBeam de l’université
+de Bristol
+-
+
+Le chercheur Asier Marzo travaille sur la lévitation
+acoustique au sein d’une équipe de l’université de Bristol.
+Dans ce cadre, il a développé deux prototypes
+TinyLev/BigLev [6] et TractorBeam [7], et publié en
+OpenSource l’ensemble des plans, des fichiers pour
+l’impression 3D et du code ainsi que des instructions de
+montage détaillées sur le site Instructables.
+
+-
+
+Figure 11: Schéma électrique TinyLev et BigLev
+
+Chaque boucle rouge reliant les transducteurs représente un
+circuit en dérivation avec les bornes positives et négatives
+reliées respectivement aux câbles rouges et noirs reliant les
+plaques de transducteurs et le driver L298N.
+
+3.3.3 LeviPath de l’université de Bristol
+
+-
+
+TinyLev1 (gauche) TractorBeam2 (droite)
+
+Les dispositifs TinyLev/BigLev se distinguent par leur
+taille. Le circuit électrique et le fonctionnement reste le
+même à l’exception des transducteurs qui sont d’une plus
+grande dimension (16 mm pour BigLev et 10 mm pour
+TinyLev) et de la tension à laquelle on les alimente. Il est
+
+LeviPath
+Asier Marzo et l’équipe de Bristol ont également contribué
+au projet LeviPath pour lequel seul un document de
+
+1http://www.instructables.com/id/Acoustic-Levitator/
+
+2http://www.instructables.com/id/Acoustic-Tractor-Beam/
+
+8
+T. Raverdy, F. Mantell - Leviator
+
+recherche est disponible : LeviPath: Modular Acoustic
+Levitation for 3D Path Visualisations. [2]
+LeviPath est un petit système modulaire capable de faire
+léviter des objets et de les déplacer simplement en 3
+dimensions. Ce dispositif se compose de 2 plaques
+opposées de 16 transducteurs créant des ondes stationnaires
+faisant léviter des objets. Il est capable de contrôler
+simultanément plusieurs objets (mais sans croisement de
+trajectoires).
+Plusieurs dispositifs peuvent être joints entre eux pour
+agrandir sa taille. Le contrôle des transducteurs est géré par
+un algorithme créé par les chercheurs qui ont conçu cet
+appareil. Ce dispositif, bien que constitué de 16
+transducteurs par plaques, est capable de positionner des
+objets sur 49 positions différentes sur les 2 dimensions
+parallèles au plan constitué par les plaques. De nombreux
+positionnements autres sont également possibles avec la 3e
+dimension.
+Les déplacements se font en modulant l’amplitude du
+courant alimentant les transducteurs de manière coordonnée
+dans le cas de déplacements parallèles aux plaques, et par
+des changements de phases pour les déplacements verticaux
+
+3.3.4 Conclusion
+Ces dispositifs nous ont beaucoup intrigués et également
+influencés pour la réalisation de notre dispositif. Ils nous ont
+montré qu’il était possible de contrôler finement les
+mouvements des particules (PixieDust), et que des
+dispositifs aux fonctionnalités similaires mais plus
+facilement réalisables (TinyLev, TractorBeam) pouvaient
+être conçus. Cela nous a encouragés dans notre travail en se
+fixant différentes étapes intermédiaires.
+
+4 Réalisation de dispositifs existants
+Avant de commencer la conception de notre dispositif, nous
+avons d’abord cherché à reproduire des dispositifs existants
+afin de comprendre leur fonctionnement et leurs limitations.
+
+4.1 La plaque de M. Hoshi
+Nous (Thomas, Fukuta) devions passer les vacances d’été
+en famille au Japon. Après avoir découvert les vidéos de
+PixieDust sur YouTube, et grâce à des connaissances, nous
+avons pu rentrer en contact avec un des chercheurs de
+PixieDust, le professeur Takayuki Hoshi de l’université de
+Tokyo qui se spécialise dans la lévitation et la manipulation
+d’objet dans l’espace [3]. Il nous a donc accueillis dans son
+laboratoire le 27 juillet 2017 où nous avons visualisé pour
+T. Raverdy, F. Mantell - Leviator
+
+la première fois de la lévitation acoustique. Nous avons pu
+discuter avec lui pendant deux heures. Il a entre autre
+répondu à nos questions et donné de nombreux conseils
+(qualité des transducteurs, synchronisation des émetteurs,
+code de contrôle, microcontrôleurs).
+Il nous a présenté deux dispositifs. Le premier (utilisé pour
+PixieDust), est une plaque constituée de 285 transducteurs
+émettant à 40kHz tous contrôlés indépendamment par
+ordinateur. Le dispositif était si puissant que nous pouvions
+sentir dans la paume de notre main une pression lorsque
+nous la mettions au-dessus du dispositif en marche.
+
+Figure 12: Visite du laboratoire du Professeur Hoshi
+
+Le deuxième dispositif était une plaque de 50 transducteurs
+avec un générateur de fréquence ultrason disponible dans
+une boutique spécialisée au Japon. Il nous a conseillé de
+réaliser ce deuxième montage pour débuter. De retour en
+France, nous l’avons alors construit et réussi à obtenir de la
+lévitation acoustique. Ce dispositif comporte cependant des
+désavantages et défauts.
+Il nécessite un réflecteur, le plus souvent la table sur
+laquelle nous travaillions, et la plaque doit être maintenue
+manuellement en place à la bonne distance pour avoir des
+ondes stationnaires ce qui est difficile en continue. La
+lévitation est ainsi très instable
+Un autre problème est que l’alimentation de la carte PCB
+pour générer les ondes est limitée à 12V, et étant donné
+que la puissance des transducteurs la plaque était
+relativement faible, la distance maximale pour pouvoir faire
+léviter des billes de polystyrène est d’environ 10 cm.
+Enfin, ce montage nécessitait l’utilisation d’une plaque
+PCB fournie en même temps que les transducteurs sur
+laquelle un potentiomètre très peu précis régulait la
+génération de courant alternatif à 40 kHz qui était ensuite
+envoyé aux transducteurs.
+Ces contraintes rendent ainsi très difficile le placement de
+billes sur différents nœuds simultanément et nécessite
+beaucoup de précision.
+9
+
+Nous avons alors décidé d’améliorer ce montage en
+remplaçant la carte PCB imprécise par une carte Arduino
+Nano et un driver L298N. Un programme générant un
+courant alternatif à 40 kHz est installé sur la carte arduino
+et le driver, alimenté en courant continu à une tension U. Il
+a pour fonction de combiner le courant généré par la carte
+Arduino et le courant continu reçu afin de générer en sortie
+un courant alternatif de 40 kHz de tension U. Nous avons
+ainsi amélioré la partie du montage en charge de générer
+l’alimentation des transducteurs.
+
+tourner vers l’autre dispositif, “Acoustic Leviator” décliné
+en trois tailles permet la lévitation et le contrôle d’objet sur
+un axe. Nous avons construit deux tailles différentes de ce
+dispositif : TinyLev et BigLev.
+
+Figure 15 : Dispositifs TinyLev et BigLev avec en repère une
+règle de 30cm
+
+Figure 13 : Schéma électrique du dispositif après notre
+modification
+
+Dans le schéma ci-dessus, réalisé avec le logiciel Fritzing3,
+nous avons représenté le circuit électrique du dispositif avec
+nos modifications. Par souci de lisibilité, nous avons choisi
+de ne pas représenter le branchement en dérivation de
+l’ensemble des transducteurs. La figure ci-dessous montre
+la plaque montée avec les transducteurs ainsi que le PCB du
+générateur de fréquence ultrasons.
+
+Figure 14 : Plaque du Prof. Hoshi et PCB générateur ultrasons
+
+4.2 TinyLev et BigLev
+Après avoir réussi à fabriquer le dispositif de l’université de
+Tokyo, nous avons décidé de fabriquer ceux de l’Université
+de Bristol afin d’expérimenter le contrôle du déplacement
+des objets en lévitation.
+Le premier, TractorBeam est un dispositif portatif capable
+de faire léviter des objets au centre d’une coupole de
+transducteurs. Cependant, la hauteur de nos transducteurs
+16mm ne correspondant pas au montage nous avons dû nous
+
+3 http://fritzing.org/home/
+
+Nous avons utilisé les instructions de montage détaillées (23
+étapes) sur le site Instructables4. Une fois que nous avions à
+notre disposition les outils et les composants, nous avons
+mis environ 8 heures à assembler et mettre en place les deux
+dispositifs.
+Ces derniers, tout comme le Léviator décrit plus loin,
+utilisent des transducteurs émettant dans les 40 kHz. La
+longueur d’onde λ est donnée par la formule suivante :
+𝑐
+𝜆=
+𝑓
+avec λ, la longueur d’onde en m ; qui est égal à 8.5 mm, 𝑐
+la vitesse du son dans le milieu, ici l’air, soit 340 m/s, et 𝑓
+la fréquence en Hz, 𝑓 = 40 000 𝐻𝑧.
+Les nœuds générés par les ondes stationnaires sont donc
+situés tous les 4,25 mm.
+La possibilité de déplacement pour un montage si simple
+nous a intrigués. L’étude du code du programme nous a
+révélé que les déplacements que l’on peut observer avec ces
+dispositifs sont dus à un changement de phase des signaux
+émis par les transducteurs : l’augmentation de la phase du
+signal émis par une des plaques d’un côté et d’une
+diminution de la phase de l’autre provoque un déplacement
+des ondes stationnaires, des nœuds et des ventres sur l’axe
+perpendiculaire au centre des plaques de transducteurs.
+
+4.2.1 TinyLev
+Nous avons mesuré la vitesse de déplacement d’une bille
+de polystyrène avec les dispositifs BigLev/TinyLev qui est
+de ≈2,76 mm/s (calcul à l’aide du logiciel Regressi utilisé
+
+4https://www.instructables.com/id/Acoustic-Levitator/
+
+10
+T. Raverdy, F. Mantell - Leviator
+
+aussi au lycée). Le résultat a été obtenu par pointage des
+positions successives de billes le long de l’axe de lévitation.
+
+Le nombre de billes sur l’axe reste identique de 12 V à
+20 V. On peut donc en conclure que la longueur de l’axe de
+lévitation ne change pas selon la tension. On note que lors
+du déplacement des billes, celles qui sortent de l’axe sont
+rapidement éjectées. On peut en conclure que l’axe sur
+lequel on a de la lévitation est un paramètre important à
+prendre en compte lors des mesures avec ces dispositifs
+capables de faire léviter et contrôler des objets sur un axe.
+
+4.2.3 Mesures
+
+Figure 16: lévitation de billes de polystyrène sur TinyLev
+
+4.2.2 BigLev
+
+Figure 18: Mesure de la force pressante exercée par l’intermédiaire
+de la masse
+
+De manière générale, lorsque la tension augmente, la force
+pressante mesurée par la balance augmente. On note une
+augmentation plus ou moins linéaire.
+Pour la même tension de 6 V à 12 V, on note un écart moyen
+de 39,25 mg, soit 3.85 mN, entre les deux montages
+TinyLev et BigLev. Cet écart est sans doute dû à la
+dimension des transducteurs et donc à la surface de la
+membrane qui émet des ultrasons.
+
+Force pressante en mN en fonction de la
+tension pour BigLev et TinyLev
+
+30
+
+Force pressante en mN
+
+BigLev est un dispositif d’une dimension supérieure à
+TinyLev, le circuit et les composants sont identiques (voir
+schéma électrique de TinyLev plus haut) à la différence de
+la taille des transducteurs (10 mm de diamètre pour TinyLev
+et 16 mm pour BigLev, voir Annexe) et de la pièce imprimée
+qui est plus grande et constituée de deux parties.
+On observe qu’à partir d’une certaine distance du centre, les
+zones de stabilité où lévitent les billes commencent à dévier
+de l’axe central reliant le centre des deux paraboles. On
+cherche à déterminer la longueur de cet axe de lévitation.
+Lors du fonctionnement du dispositif, nous faisons léviter
+plusieurs billes sur cet axe. Nous constatons qu’il y a au
+maximum 13 billes sur cet axe avant que les billes divergent,
+soit une distance égale à douze 𝜆/2 . En sachant que la
+fréquence émise est à 40 kHz, on peut calculer la distance
+séparant chaque nœud avec la définition de la longueur
+d’onde.
+Nous avons calculé précédemment que l’écartement entre 2
+nœuds était de 4,25 mm, et donc la longueur de l’axe de
+lévitation est de 51mm (12 × 4.25 𝑚𝑚).
+
+Nous avons tout d’abord mesuré la force pressante exercée
+par les deux montages par l’intermédiaire d’une balance
+d’une précision de l’ordre de 10-5 kg (0.01 g) en fonction de
+la tension
+Les mesures ont été réalisées en orientant les transducteurs
+vers la balance de manière à ce que la surface de la balance
+capte la totalité de la force générée par les transducteurs.
+
+23,7
+
+25
+
+20,6
+
+20
+13,9
+
+15
+10
+
+5,79
+
+5
+
+3,12
+1,07 1,96
+
+0
+Figure 17: Lévitation de billes de polystyrène (1mm de dia.)
+sur BigLev à une tension de 16V
+
+6
+
+8
+BigLev
+
+8,04
+2,94
+
+10
+
+15,9
+
+9,7
+5,3
+
+12
+14
+16
+18
+TinyLev
+Tension en V
+
+20
+
+22
+
+11
+T. Raverdy, F. Mantell - Leviator
+
+Nous avons ensuite décidé de comparer les deux dispositifs
+sur différents critères. Cependant, mis à part dans la mesure
+de la force pressante, l’utilisation de TinyLev se fait entre
+6 V et 12 V et BigLev entre 12 V et 20 V mis à part dans la
+mesure de la force pressante, ce qui ne permet pas d’obtenir
+des valeurs de comparaison à la même tension mis à part à
+12V. On peut néanmoins étudier les variations des valeurs
+en fonction de la tension.
+Avec des billes de polystyrène de 1 mm de diamètre en
+moyenne, on fait varier les paramètres suivants :
+- La tension
+- Le nombre d’objets lévités
+Les graphiques donnent les valeurs obtenues après 5 à 10
+essais en moyenne. Cependant, des variations significatives
+sont parfois apparues. Un plus grand nombre d’expériences
+serait nécessaire pour affiner les résultats et pour définir
+l’incertitude. Avec les deux dispositifs, nous mesurons
+d’abord le nombre total maximal de billes lévitées selon
+la tension ce qui nous permet d’obtenir les graphique
+suivant :
+
+On remarque qu'il n'y a pas de variation stable en fonction
+de la tension.
+On décide de s’intéresser ensuite au nombre maximal de
+billes lévitées sur un seul nœud au centre du dispositif,
+là où la lévitation est la plus efficace. Pour obtenir le
+nombre de billes le plus conséquent, nous avons pris comme
+point de mesures le nœud central qui concentre
+théoriquement le plus de puissance du fait que les
+transducteurs soient tous orientés vers ce point.
+
+On constate que les valeurs varient beaucoup
+indépendamment de la tension pour BigLev tandis que pour
+TinyLev, elles décroient de 29 billes à 6 V jusqu’à 22 billes
+à 12 V. Le nombre de billes lévités par les deux dispositifs
+ne semble pas présenter de grand écart.
+Nous avons ensuite étudié le déplacement des billes de
+polystyrène le long de l’axe de lévitation. Pour cette
+expérience, nous déplaçons un ensemble de billes disposées
+sur plusieurs nœuds en faisant un aller-retour entre les deux
+extrémités de l’axe de lévitation.
+
+Nous avons remarqué que beaucoup de billes décrochent et
+tombent pendant les premières secondes du déplacement.
+Les valeurs représentées dans le graphe présenté
+postérieurement correspondent au nombre de billes qui sont
+toujours maintenues en lévitation après cet aller-retour,
+malgré le décrochage de nombreuses billes.
+Le nombre de billes déplacées ne semble pas avoir de lien
+direct avec la tension. Cependant BigLev semble pouvoir
+déplacer davantage de billes, particulièrement à 16 V.
+Nous avons ensuite étudié le taux de décrochage des billes
+lors du déplacement de la manière suivante:
+On détermine tout d’abord la valeur moyenne de billes
+totales lévitées à partir des valeurs du premier graphique
+présenté plus haut.
+- Moyenne BigLev : (40+28+30+25+36) /5 = 31,8
+- Moyenne TinyLev : (30+26+24+32)/4 = 28
+On mesure ensuite le nombre de billes qui ont décroché
+suite aux déplacements (tableau ci-dessous).
+Tension en V
+BigLev
+TinyLev
+6
+27
+8
+21
+10
+17
+12
+35
+29
+14
+19
+16
+9
+18
+11
+20
+30
+Moyenne
+20,8
+23,5
+12
+
+T. Raverdy, F. Mantell - Leviator
+
+On détermine en pourcentage le taux de décrochement
+(arrondi au millième) ci-dessous :
+- BigLev :(20.8/31.8) x100 = 65,40%
+- TinyLev : (23.5/28) x100 = 83,93%
+A la vue de ces pourcentages, on constate que bien que si
+une ou quelques billes peuvent être déplacés sans
+problèmes, les grands amas de billes tombent et ne
+parviennent pas à être déplacées, particulièrement pour
+TinyLev. Dans le cas de BigLev, beaucoup de billes
+tombent et ne parviennent pas à être déplacées.
+
+5 Le Léviator
+Après avoir construits les dispositifs qui nous étaient
+disponibles depuis Internet et que nous ayons approfondis
+nos connaissances grâce à ces derniers, nous nous sommes
+alors lancés dans la création du Léviator.
+
+5.1 Origine du Léviator
+Au fur et à mesure de notre progression, le projet du
+Léviator a évolué en fonction des recommandations de M.
+Hoshi (PixieDust/Tokyo) et M. Marzo (TinyLev et
+Levipath/Bristol), et des limites rencontrées.
+
+Hoshi, nous avons alors envisagé d’utiliser de multiples
+cartes Arduino Nano reliées entre elles.
+En découvrant le dispositif Levipath, nous avons réalisé que
+le déplacement de particules par lévitation acoustique était
+également possible avec un nombre plus limité de
+transducteurs. Nous avons contacté M. Marzo de
+l’université de Bristol (également responsable des projets
+TinyLev/BigLev et TractorBeam), En répondant à nos
+emails, il nous a également beaucoup aidé en nous éclairant
+sur des points que nous ne comprenions pas et en nous
+faisant des recommandations (utilisation et limites des
+drivers L298N, choix de transducteurs). Ainsi, il nous a
+recommandé l’utilisation d’une carte Arduino MEGA afin
+de centraliser le contrôle de tous les transducteurs sur une
+seule carte pour faciliter la programmation, mais aussi pour
+éviter tout problème de délais ou de décalages entre cartes.
+Cependant, même si une carte Arduino MEGA permet de
+contrôler indépendamment 64 transducteurs au maximum,
+nous avons rencontré de grandes difficultés pour d’une part
+maintenir la fréquence voulue uniformément sur chaque
+transducteur (limite de vitesse du microcontrôleur) et
+d’autre part comprendre suffisamment bien les
+interférences entre les transducteurs en fonction des
+changements de phase et d’amplitude.
+Nous avons donc choisi dans un premier temps d’utiliser la
+moitié du nombre potentiel de transducteurs contrôlables
+(dispositif de 2 plaques de 16 transducteurs chacune) et de
+se focaliser sur le contrôle 2D.
+
+5.2 Conception du Léviator
+5.2.1 La conception et impression 3D
+
+Figure 19: Projet initial de Léviator
+
+Le projet initial était de créer un dispositif de 4 plaques en
+opposition, de 49 transducteurs chacune, inspiré du
+montage de l’Université de Tokyo afin de réaliser des
+déplacements de petits objets en 3 dimensions. Ce projet
+nous semblait techniquement accessible. Cependant,
+lorsque nous avons rencontré le professeur Hoshi à Tokyo,
+nous avons réalisé la complexité technique liée à la
+synchronisation à de telles fréquences d’un grand nombre
+de transducteurs, et qui nécessite dans leur cas des cartes
+FPGA spécialement conçues. Suite aux discussions avec M.
+
+La conception d’un dispositif de lévitation acoustique
+nécessite la création d’un ensemble de pièces pour attacher
+les composants, autant pour l’organisation du montage que
+pour éviter les court-circuits.
+Nous avons pu avoir accès à une imprimante 3D Ultimaker
+2 Extended+ et l’avons utilisé pour imprimer nos pièces.
+Pour les créer, nous avons utilisé le logiciel FreeCAD 5 .
+Nous avons ainsi appris la conception de pièce 3D et à
+utiliser une imprimante 3D.
+Pour la partie transducteur du Léviator, nous avons créé un
+ensemble en 20 pièces : 4 pièces constituent un support
+élévateur par lesquelles passent les câbles; un cadre et un
+support pour arranger les transducteurs 4 par 4; des piliers
+amovibles permettent de tester différents écartements et de
+
+5https://www.freecadweb.org/
+
+13
+T. Raverdy, F. Mantell - Leviator
+
+dissocier les deux côtés pour faciliter les tests et le
+rangement. En plus de cela, nous avons également conçu
+des pièces sur lesquelles nous avons pu visser les drivers
+L298N.
+
+robot). Il est capable de transmettre la tension et la
+puissance qu’il reçoit sur 4 pins de sorties différentes, en
+combinant chacune de ces sorties avec un signal reçu sur
+une des 4 pins de contrôle. Chaque driver L298N peut donc
+contrôler indépendamment 4 transducteurs.
+Les transducteurs Manorshi (MSO-P1640H12T) sont des
+transducteurs de 16mm de diamètre émettant à
+40.0±1.0KHz pour créer des ondes stationnaires permettant
+la lévitation acoustique.
+
+Figure 20: Logiciel FreeCAD de conception 3D
+
+Nous avons dû développer de nombreux prototypes et
+essayer différentes techniques d’impression (orientation de
+la pièce, pièces creuses ou pleines, impression partielle de
+pièces à recoller, …) avant d’obtenir le dispositif final.
+Figure 23 : Dispositif complet du Léviator
+
+Figure 21: logiciel CURA de slicing et impression 3D
+
+5.2.2 Câblage et Schéma du circuit électrique
+
+Figure 24: Détails de montage du Léviator
+
+Le dispositif complet (voir Figure 19) comporte 32
+transducteurs Manorshi de 16mm de diamètre répartis sur
+deux plaques et connectés à 8 drivers L298N eux même
+pilotés par une carte Arduino MEGA. L’ensemble est
+alimenté par deux adaptateurs secteurs.
+Le driver L298N (ou double pont H) est un composant
+souvent utilisé pour le contrôle de moteur électrique (drone,
+
+Pour alimenter correctement l’ensemble du dispositif, nous
+avons choisi un système alimenté par 2 convertisseurs
+secteur-DC de courant continu (24 V) qui permet
+d’alimenter de manière stable l’ensemble du dispositif.
+La carte Arduino MEGA dispose d’un microcontrôleur
+Atmega2560 à 16 MHz et qui dispose de 128 KB de
+mémoire flash pour stocker le code et 8 KB de SRAM pour
+l’exécution. La carte possède 54 pins digitales et 16 pins
+analogiques.
+L’alimentation du dispositif se fait en dérivation. Chaque
+pin de sortie d’un driver L298N est connecté au pôle + d’un
+transducteur, et l’ensemble des pôles - des transducteurs
+sont reliés à la terre des drivers L298N qui sont elle-même
+reliées à la terre des alimentations. Ainsi, en sortie nous
+14
+
+T. Raverdy,
+F. Mantell
+- Leviator
+Figure
+22: Schéma
+électrique du Léviator
+
+avons le signal voulu avec la puissance et la tension d’entrée
+du driver.
+Afin de simplifier le montage, des borniers (non représentés
+sur le schéma présenté précédemment) sont utilisés. Nous
+avons aussi choisis de ne pas représenter tous les câbles
+dans le schéma Figure 15. Les photos ci-dessous montre le
+dispositif complet monté, avec les deux faces de
+transducteurs séparées.
+
+5.2.3 Montage des transducteurs
+Pour la réalisation du Léviator, nous avons dû contrôler les
+transducteurs commandés en Chine pour vérifier leur
+polarité à l’aide d’un oscilloscope (entre 10% et 20% des
+transducteurs avaient leur indication de polarité
+erronée).Nous avons pour cela utilisé les transducteurs en
+récepteur (méthode préconisée par M. Asier Marzo). Nous
+connectons les pattes des transducteurs avec l’oscilloscope
+et “tapotons” ou stimulons la membrane avec une tige pour
+créer, à partir du mouvement de l’aimant dans la bobine, un
+signal électrique, qui, sur l'écran de l’oscilloscope, affiche
+un signal positif ou négatif. A partir de la borne reliée à
+l’oscilloscope, nous avons ainsi pu déterminer et marquer la
+borne positive de chaque transducteur.
+
+- lorsque 8 transducteurs sont activés (2 carrés de 4
+transducteurs) sur chaque plaque, cette fois-ci, en plus des
+axes sur les transducteurs et ceux entre des transducteurs
+voisins, nous avons également un 9e axe situé au centre du
+carré, formé par le groupement de 4 transducteurs.
+Nous avons imaginé plusieurs hypothèses. C’est à ce
+moment que nous avons étudié les interférences
+constructives et destructives en cours de physique. Nous
+savions que nos signaux électriques qui étaient envoyés aux
+transducteurs étaient de même phase, même fréquence et de
+même vitesse. Ainsi, nous avons procédé à l’expérience
+suivante pour confirmer ou infirmer notre hypothèse
+supposant que l’existence d’un axe de lévitation
+supplémentaire entre transducteurs est due à des
+interférences. L’expérience consistait à allumer 2
+transducteurs voisins sur chaque plaque l’un à une phase π,
+l’autre à une phase 0. La même expérience a également été
+faite avec 4 transducteurs.
+Nous supposions ainsi la création d’interférences
+destructives ainsi qu’une absence de lévitation acoustique.
+
+5.3 Première observations
+Après avoir monté les plaques de transducteurs du Léviator,
+nous avons pu lancer des tests expérimentaux pour vérifier
+que la lévitation avec notre dispositif était possible. Nous
+avons donc fait des tests en activant simultanément 2, 4 et 8
+transducteurs (répartis sur les 2 plaques). Nous avons ainsi
+pu faire les observations suivantes :
+- Lorsque 2 transducteurs opposés sont allumés, la
+lévitation acoustique est mise en évidence mais est peu
+puissante.
+- lorsque 4 transducteurs sont activés (2 transducteurs
+voisins sur chaque plaque), nous observons tout d’abord
+deux axes de lévitation entre chaque paire de transducteurs
+opposés, ainsi qu’un 3ième axe de lévitation beaucoup plus
+stable et plus puissant situé entre les deux premiers axes et
+dû aux interférences
+
+Nous avons donc pu vérifier expérimentalement notre
+hypothèse puisque malgré nos multiples tentatives, nous
+avons échoué à faire léviter des billes de polystyrène à cet
+endroit. Nous en avons déduit qu’il y avait une absence de
+lévitation entre les transducteurs en opposition. Ainsi, nous
+avons pu conclure de cette expérience que l’existence d’un
+3e axe de lévitation entre transducteurs voisins de même
+phase était sûrement due à des interférences constructives.
+
+5.4 Boutons et déplacements : choix 2D
+Une fois le montage fini, nous avons dû faire un choix dans
+la méthode de contrôle des déplacements des petits objets
+en lévitation. Nous avions tout d’abord la possibilité de
+contrôler l’ensemble du dispositif par ordinateur, d’utiliser
+des boutons ou enfin utiliser une autre carte de
+programmation pour envoyer des informations que le
+programme interprète en mouvement. La première option
+avait pour point négatif l’obligation d’utiliser le serial
+terminal : une connexion par câble entre la carte Arduino et
+15
+
+T. Raverdy, F. Mantell - Leviator
+
+l’ordinateur : le problème est que cela ralentit fortement le
+fonctionnement de la carte Arduino, La 2e option pose
+comme problème de devoir utiliser plus de pins de la carte.
+La 3e option qui nous a été suggérée par M. Asier paraissait
+intéressante, néanmoins nous a semblé très compliquée
+autant électroniquement que informatiquement.
+
+Figure 25 : Schéma électrique des boutons par rapport à la
+carte Arduino
+
+Nous avons donc opté pour le choix le plus simple, celui
+d’utiliser 4 boutons pour contrôler les déplacements. Les 4
+boutons ont pour fonction faire avancer, reculer, aller à
+droite et aller à gauche l’objet lévité par le Léviator. Ces
+derniers sont reliés à la carte Arduino des ports 50 à 53.
+Nous avons laissé de côté la 3e dimension et avons opté
+pour un contrôle en 2 dimensions du fait de la complexité
+de la programmation. Néanmoins, un contrôle en 3
+dimensions est possible (méthode similaire à celle des
+montages TinyLev et BigLev) et est pour nous la prochaine
+étape. Elle a nécessité d’ajouter des changements de phase
+pour déplacer un objet en hauteur et impliquera un long
+travail d’expérimentation et de vérification. C’est pourquoi,
+pour notre première version du Léviator, nous avons opté
+pour les déplacements en 2 dimensions dans le plan
+parallèle aux transducteurs.
+
+5.5 Programmation Arduino et Python
+Nous utilisons une carte Arduino MEGA pour piloter les
+transducteurs du Léviator. En analysant le code de TinyLev,
+nous avons constaté que le code pour envoyer le signal aux
+transducteurs utilisait un tableau de valeurs (de type byte)
+avec toutes les combinaisons pour gérer la puissance
+(PWM) et les changements de phase, et non pas une variable
+mise à jour en fonction de la valeur à envoyer. Produire un
+tableau similaire pour le Léviator était trop compliqué
+(chaque cycle comprends 24 valeurs, et il nous faut gérer 16
+combinaisons stables avec la particule à une position et 68
+déplacements nécessitant une évolution en 16 étapes d’un
+état stable à un autre, soit en tout 423936 valeurs). Nous
+
+avons donc décidé d’utiliser un algorithme pour mettre à
+jour des variables dynamiquement.
+
+Nous avons commencé à expérimenter différents
+programmes mais n'arrivions pas à obtenir de lévitation. En
+visualisant le signal à l’oscilloscope, nous avons observé
+que le signal était très en dessous des 40kHz (en dessous du
+kHz). Nous avons alors constaté expérimentalement que la
+gestion dynamique de variables, de boucles, et d’appel de
+fonctions étaient bien trop pénalisant pour le
+microcontrôleur, et qu’il était impossible de générer un
+signal à 40kHz de cette manière. Un tableau avec toutes les
+valeurs en dur était nécessaire.
+Il nous a alors été conseillé de créer un programme en
+langage Python qui génère le texte du programme Arduino.
+Ce programme Python utilise des fonctions, des boucles et
+des variables pour générer rapidement le tableau qui est
+ensuite compilé pour l’Arduino MEGA.
+Lors du développement du code, nous avons dû faire face
+aux problèmes suivants :
+Problème 1 - Si l’Arduino MEGA possède 128KB de
+mémoire flash pour le stockage, elle ne possède que 8KB
+de mémoire ram pour l'exécution (code et variables). Les
+données en mémoire flash ne peuvent pas être accédées
+directement. Il faut d’abord copier les valeurs en mémoire
+ram. Nous avons donc dû gérer des copies à chaque
+déplacement ou changement d’état stable.
+Problème 2 - En mémoire flash, un tableau ne peut avoir
+qu’un maximum de 32768 valeurs (2^16). Pour avoir
+l’ensemble des valeurs pour les animations, nous avons dû
+séparer le tableau des valeurs en plusieurs parties et gérer
+les accès en fonction.
+Problème 3 - Pour obtenir la lévitation acoustique, il est
+impératif de maintenir le signal vers les transducteurs à
+40kHz (+ ou - 0,3 kHz). A chaque changement dans
+l’organisation du code, nous avons dû vérifier avec
+l’oscilloscope que le signal était à la bonne fréquence sur
+16
+
+T. Raverdy, F. Mantell - Leviator
+
+l’ensemble des transducteurs, et sinon corriger en
+réduisant/augmentant des temporisations. Nous avons
+entre-autre constaté que lors d’un accès à un tableau de
+plusieurs centaines de valeurs, les temps d’accès au début
+et à la fin du tableau étaient différents et entrainaient une
+trop grande différence de signal entre les premiers et les
+derniers transducteurs (environ 5 kHz).
+
+problème est que cette distance correspond à une distance
+optimale dans le cas de transducteurs de diamètre de 10mm.
+Or ceux du Léviator étant de 16 mm de diamètre, la distance
+n’est pas optimale, donnant un axe de lévitation très
+distordu:
+
+Problème 4 - Pour la gestion des déplacements, nous avons
+d’abord utilisé la fonction digitalRead() d’Arduino qui
+récupère le signal sur un pin de la carte en utilisant une
+résistance interne pour gérer le pull-up mais cet appel
+était trop long et coupait brutalement la lévitation et
+dupliquait les appels car la résistance est trop importante.
+Un montage séparé et une lecture directe du port a été
+nécessaire.
+Figure 27: Axe de lévitation avec piliers de 43mm
+
+Figure 26: Sorties de l'oscilloscope
+
+La copie d’écran de l’oscilloscope ci-dessus montre les
+signaux obtenus au final sur les pins arduino (canal 2 en
+bleu dans le bas de l’écran) et en sortie des transducteurs
+(canal 1 en jaune en haut) qui sont à la fréquence voulue de
+40,06kHz.
+L’ensemble du code est disponible en Licence Libre sur le
+site GitHub. L’ensemble du code est commenté, et une page
+de documentation contient les explications sur les
+différentes parties du code. Les fichiers STL pour
+l’impression 3D et les schémas de montage y sont
+également disponibles.
+
+Néanmoins cette instabilité peut être réglée en surélevant
+légèrement la plaque du haut.
+Pour les autres piliers, de 85mm soit 10xλ/2, il a donc 2 x
+10 nœuds (λ/2), cette fois-ci l’axe est beaucoup plus droit.
+Sur cette photo, on distingue clairement où l’axe est présent
+et où il ne l’est pas.14 billes lévitent sur l’axe, il mesure
+donc 13λ/2 soit 55,25mm. Les 3 trois nœuds les plus
+proches de chaque plaque, 6 au total, ne présentent pas
+d’axe de lévitation au centre, la lévitation s’observe
+seulement sur les axes de chaque transducteur.
+
+5.6 Expérimentations
+5.6.1 Axe de lévitation : théorie et
+expérimentation
+Nous avons conçu deux modèles différents de piliers
+séparant les 2 plaques de transducteurs du Léviator
+Les premiers mesurent 43mm. Cette distance est identique
+à la distance entre les plaques du dispositif Levipath. Le
+
+Figure 28: Axe de lévitation avec piliers de 85mm
+
+Si on suppose que les interférences constructives expliquent
+la présence d’un axe central, elles ne se forment qu’à partir
+de 3 nœuds dans le cas de notre dispositif. Une distance
+minimale de 6λ/2 est donc nécessaire au minimum pour de
+la lévitation sur un axe central
+17
+
+T. Raverdy, F. Mantell - Leviator
+
+5.6.2 Mesure de la force pressante exercée
+Comme nous l’avons fait avec les dispositifs TinyLev et
+BigLev, nous avons mesuré avec la même balance de
+précision 10-5kg (cg) la force pressante qu’exerce(nt) 1, 2,
+4, 8 et 16 transducteur(s) d’une plaque du Léviator. Pour
+faire ces mesures, nous avons rapproché le plus que
+possible, environ 1 mm d’écart, sans toucher notre dispositif
+de la balance afin de mesurer au mieux la pression exercée
+par le(s) transducteur(s).
+
+Pour cela, nous avons fait varier le nombre d’itérations dans
+le code de mouvement (initialement 8000 itérations par
+étape, pour un total de 16 étapes par mouvement soit 128k
+itérations, ce qui donne 3,2 secondes à 40kHz pour un
+déplacement de 16mm, soit 5mm/s).
+
+Figure 30 : vitesse de déplacement de LeviPath
+
+Pour chaque test, nous avons effectué 20 déplacements dans
+les deux sens sur la première ligne du Léviator. Pour les
+tests avec plusieurs billes, l’ensemble des billes était stocké
+dans un même nœud.
+Figure 29: Mesure à la balance de la pression exercée par 4
+transducteurs
+
+Nous avons ainsi pu dresser le tableau suivant :
+Nb de
+transducteurs/M
+esures
+
+Masse m en g relevée par
+l’intermédiaire de la
+balance
+
+Force
+pressante en
+N (P=m x g)
+
+1
+
+0.98mN
+
+4
+
+2.45mN
+
+8
+
+4.60mN
+
+16
+
+10.7mN
+
+#
+itéra.
+
+Vitesse
+
+8000
+8000
+8000
+8000
+4000
+4000
+4000
+4000
+3000
+3000
+3000
+3000
+2000
+2000
+2000
+2000
+
+5mm/s
+5mm/s
+5mm/s
+5mm/s
+1cm/s
+1cm/s
+1cm/s
+1cm/s
+1,5cm/s
+1,5cm/s
+1,5cm/s
+1,5cm/s
+2cm/s
+2cm/s
+2cm/s
+2cm/s
+
+Nb
+de
+billes
+1
+2
+3
+4
+1
+2
+3
+4
+1
+2
+3
+4
+1
+2
+3
+4
+
+Succès
+
+erreurs
+
+%succès
+
+20
+20
+20
+17
+20
+19
+19
+17
+20
+20
+20
+20
+16
+17
+9
+7
+
+0
+0
+0
+3
+0
+1
+1
+3
+0
+0
+0
+0
+4
+3
+11
+13
+
+100%
+100%
+100%
+85%
+100%
+95%
+95%
+85%
+100%
+100%
+100%
+100%
+80%
+85%
+45%
+35%
+
+5.6.4 Déplacements dans la 3e dimension
+5.6.3 Mesure de la vitesse de déplacement
+Dans LeviPath, les chercheurs de Bristol ont mesuré le taux
+de succès du déplacement de particules à différentes
+vitesses (Figure ci-dessus). Nous avons cherché à
+reproduire cette expérience et évaluer la qualité de notre
+dispositif.
+
+Après être parvenu à réaliser des déplacements en 2
+dimensions dans un plan parallèle aux plaques de
+transducteurs, nous avons cherché à étendre le contrôle de
+l’objet lévité à la 3D.
+Nous avons pour cela étudié le code utilisé dans BigLev et
+TinyLev pour réaliser les déplacements de particules le long
+de l’axe.
+
+18
+T. Raverdy, F. Mantell - Leviator
+
+Dans le code, un tableau 2D (24x24) de valeurs
+hexadécimales permet ces déplacements. Chaque ligne
+correspond à une étape. A chaque étape, la période
+d’activation des transducteurs d’une des plaques se décale
+d’un cran. Il y a donc un décalage progressif (λ/24) de la
+phase d’émission des transducteurs d’une des plaques tandis
+que l’autre conserve sa phase initiale d’émission. Ces
+décalages de phase provoquent une modification de l’onde
+stationnaire, une des ondes constituantes glissant
+progressivement, ce qui entraîne alors un glissement des
+nœuds et des ventres, et donc des billes de polystyrène
+lévitant sur ces nœuds. A chaque cycle de 2π de décalage de
+phase, le pointeur revient à la première ligne du tableau
+permettant de continuer de changer la phase et de ne pas être
+limité à un déplacement maximal de λ/2.
+Nous avons donc intégré ces décalages de phase à notre
+programme. A la pression des nouveaux boutons noir et
+blanc, l’objet lévité avec le Léviator monte ou descend du
+fait du décalage de phase des transducteurs d’une plaque.
+Pour faciliter la programmation, un déplacement correspond
+à un décalage de phase complet de 2π, correspondant à un
+déplacement en Z de 4,25mm (λ/2 car seule une des deux
+ondes constitutives varie de phase, divisant par deux le
+déplacement).
+Si les mouvements en 2D se basent sur une animation
+impliquant 6 transducteurs et utilisant la modulation
+d’amplitude des signaux envoyés aux transducteurs, le
+déplacement perpendiculaire aux plaques de transducteurs
+utilise le changement de phase pour déplacer les nœuds.
+
+Nous avons pour cela réalisé une feuille de calcul qui calcule
+la distance de l’objet aux différents transducteurs en fonction
+de la hauteur de l’objet par rapport à la plaque et de son
+déplacement à chaque étape de l’animation (théorème de
+Pythagore).
+Au début de l’animation, les 4 transducteurs initiaux sont
+considérés comme étant à la phase de référence (état stable
+de lévitation). Pour cela, la distance entre la particule et le
+transducteur doit être un multiple de λ. En fonction de cette
+distance, la hauteur de la bille par rapport au plan des
+transducteurs peut être calculée. Le décalage de phase par
+rapport à ces transducteurs initiaux peut être ensuite calculé
+pour les deux transducteurs supplémentaires. Les 6
+transducteurs allumés ont donc le point focal sur l’objet à
+déplacer. Nous considérons ensuite 12 étapes pour le
+déplacement de la bille sur l’axe Y. Nous calculons alors
+pour chaque étape la distance entre la bille et chaque
+transducteur (seuls les calculs sur trois transducteurs sur
+l’axe Y sont nécessaires, les 3 autres étant symétriques). Le
+décalage de phase à appliquer résultant de la variation de la
+distance peut alors être calculé.
+Dans le cas du Leviator, et liée à la nécessité de maintenir le
+signal à 40kHz, le signal généré se base sur un tableau de 12
+valeurs (i.e., l’onde est générée par l’envoi successif et en
+boucle des 12 valeurs). Chaque décalage dans le tableau
+correspond donc à un à un décalage de phase de π/6 (2π/12).
+
+5.6.5 Affinage des déplacements
+En comparant les déplacements du Léviator sur le plan XY
+et ceux sur l’axe Z, nous constatons que les déplacements
+sur l’axe Z sont plus fluides et plus stables. Nous avons donc
+cherché à utiliser également le changement de phase pour
+déplacer les objets dans le plan XY et nous approcher de la
+méthode de déplacement utilisée par PixieDust. En effet, en
+modulant avec précision la phase d’émission des
+transducteurs de chaque plaque, PixieDust parvient à créer
+un point focal de l’ensemble des transducteurs, qui
+correspond à un nœud de pression d’une onde stationnaire
+générée par une interférence constructive entre les ondes
+créées par l’ensemble des transducteurs de chaque plaque.
+Nous avons dans un premier temps cherché à déterminer les
+décalages de phases nécessaires à appliquer à 6
+transducteurs (bloc de 2x3) pour amener un objet de la
+position initiale à la destination en 12 étapes (déplacement
+d’une position de la bille).
+
+T. Raverdy, F. Mantell - Leviator
+
+Figure 31: déplacement par modulation de phase
+
+Il est important de noter que le déplacement par changement
+de phase est sensible à la distance entre le plaque et l’objet
+lévité. Le tableau des signaux à émettre doit donc être étendu
+pour prendre en compte différentes hauteurs. Il est
+également nécessaire de “connaitre” la position initiale de la
+bille pour appliquer le bon schéma de déplacement et
+garantir que la bille ne change pas de hauteur de manière non
+contrôlée.
+Le tableau ci-dessous indique les changements à appliquer
+pour les trois transducteurs à trois hauteurs différentes.
+19
+
+Etape
+
+0
+
+1
+
+2
+
+3
+
+4
+
+5
+
+6
+
+7
+
+8
+
+9 10 11 12
+
+40,97mm T1
+
+0
+
+0
+
+1
+
+1
+
+2
+
+2
+
+3
+
+4
+
+5
+
+5
+
+7
+
+8
+
+T2
+
+0
+
+0 11 11 11 11 11 11 11 11 11 0
+
+0
+
+T3
+
+8
+
+7
+
+6
+
+5
+
+5
+
+4
+
+3
+
+2
+
+2
+
+1
+
+1
+
+0
+
+0
+
+32,1mm T1
+
+0
+
+1
+
+1
+
+2
+
+2
+
+3
+
+4
+
+5
+
+6
+
+7
+
+8
+
+9 10
+
+T2
+
+0
+
+0 11 11 11 11 11 11 11 11 11 0
+
+T3
+
+10 9
+
+8
+
+7
+
+6
+
+5
+
+4
+
+3
+
+2
+
+2
+
+0
+
+1
+
+2
+
+3
+
+4
+
+5
+
+6
+
+7
+
+8 10 11 0
+
+22,87mm T1
+
+1
+
+6
+
+1
+
+1
+
+0
+0
+
+T2
+
+0 11 11 11 10 10 10 10 10 11 11 11 0
+
+T3
+
+0 11 10 8
+
+7
+
+6
+
+5
+
+4
+
+3
+
+2
+
+1
+
+1
+
+0
+
+Afin d’étudier plus facilement les interactions entre les
+transducteurs, nous avons cherché des outils de simulation.
+Cependant, les simulateurs disponibles (FOCUS6 et k-wave7
+pour Mathlab) ne nous ont pas permis de créer des plaques
+de transducteurs en opposition. Nous n’avons donc pas pu
+explorer cette voie.
+
+6 Conclusion
+
+Les instructions du Léviator seront publiées sur une page
+Instructables, le lien sera publié sur la page Github du projet,
+sur laquelle sera publié le code informatique.
+
+7 Liens du projet
+Lien de la page Github :
+https://github.com/ttraverdy/Leviator-Project
+Lien de la chaine Youtube du projet :
+https://www.youtube.com/channel/UCdGrtRZ7fIeak36F0Q
+d5pNw
+
+8 Références
+[1] Researchers demonstrate acoustic levitation of a large sphere
+https://phys.org/news/2016-08-acoustic-levitation-large-sphere.html
+[2] Omirou, T., Marzo, A., Seah, S. A., & Subramanian, S. (2015).
+LeviPath: Modular Acoustic Levitation for 3D Path Visualisations. In
+CHI '15 Proceedings of the 33rd Annual ACM Conference on Human
+Factors in Computing Systems (pp. 309-312 ). Association for Computing
+Machinery (ACM). DOI: 10.1145/2702123.2702333
+
+Le projet du Leviator nous a permis tout d’abord
+l’acquisition d’une multitude de savoir-faire : grâce à ce
+projet, nous avons appris à souder, concevoir et imprimer
+avec une imprimante 3D, à programmer en Python ou en
+langage Arduino, à faire des protocoles expérimentaux par
+nous-même, … Ce projet nous a également introduits au
+monde de la recherche, nous avons rencontrés et nous
+sommes rentrés en contact avec des chercheurs de plusieurs
+pays qui nous ont largement soutenus dans notre projet, avec
+une volonté de partage de la connaissance. C’est ce qui nous
+a poussés à publier en Open Source notre projet, tant la partie
+programmation que le dispositif en lui-même.
+Néanmoins, nous avons dû faire beaucoup de choix durant
+ce projet dans ce qui est des ambitions et de ce que nous
+avons pu faire. Nous avons ainsi dû faire face à de
+nombreuses déceptions, notamment avec les révisions des
+ambitions au vue des difficultés et du temps. Ces
+complications ont aussi bien été techniques que théoriques :
+des connaissances incomplètes sur des phénomènes comme
+entre autres les interférences, nous ont empêchées de
+comprendre entièrement la lévitation acoustique et les
+phénomènes qui entrent en jeu dans celle-ci.
+Cependant, nous sommes parvenus à atteindre notre objectif
+initial de contrôler dans l’espace un objet lévité grâce à un
+dispositif, le Léviator, que nous avons conçu de nous-même.
+
+[3] Hoshi T. (2012) Compact Ultrasound Device for Noncontact
+Interaction. In: Nijholt A., Romão T., ReidsmaD. (eds) Advances in
+Computer Entertainment. Lecture Notes in Computer Science, vol 7624.
+Springer, Berlin, Heidelberg
+
+6 [http://www.egr.msu.edu/~fultras-web/index.php]
+
+7 [http://www.k-wave.org]
+
+[4] Yoichi Ochiai , Takayuki Hoshi , Jun Rekimoto, Pixie dust: graphics
+generated by levitated and animated objects in computational acousticpotential field, ACM Transactions on Graphics (TOG), v.33 n.4, July
+2014
+[5] Whymark R (1975) Acoustic field positioning for containerless
+processing. Ultrasonics 13:251–261
+[6] Marzo, Asier& Barnes, Adrian & W. Drinkwater, Bruce. (2017).
+TinyLev: A multi-emitter single-axis acoustic levitator. Review of
+Scientific Instruments. 88. 085105. 10.1063/1.4989995.
+[7] Marzo A., Ghobrial A., Cox L., Caleap M., Croxford A. & Drinkwater
+B. W. Realization of compact tractor beams using acoustic delay-lines.
+2017. Applied Physic Letters.
+[8] Marzo, A., Corkett, T., & Drinkwater, B. W. Ultraino: an Open
+Phased-Array System for Narrowband Airborne Ultrasound
+Transmission. 2017. IEEE Trans Ultrasonics FF.
+[9] Angelica Castro. Manipulation of biomimetic objects in acoustic
+levitation. Acoustics [physics.class-ph]. Université Pierre et Marie Curie
+- Paris VI, 2013. English.
+
+20
+T. Raverdy, F. Mantell - Leviator
+
+

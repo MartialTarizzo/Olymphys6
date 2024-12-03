@@ -1,0 +1,726 @@
+Strouhal et les turbulences
+
+Equipe D* :
+CHAUX Loïc
+PIARD Justine
+MARQUES Léa
+Lycée International Charles de Gaulle (Dijon)
+Professeur : M. DUGUERY Alex
+
+1
+
+Sommaire :
+Résumé--------------------------------------------------------------------------------------------------------------3
+Introduction--------------------------------------------------------------------------------------------------------4
+I] Ecoulement turbulent, caractérisation ?-------------------------------------------------------------4
+1) Sans obstacles------------------------------------------------------------------------------------------------4
+2) Qu’est-ce qu’un écoulement turbulent ?----------------------------------------------------------5
+3) Avec Strouhal : le nombre de Strouhal--------------------------------------------------------------6
+II] Expérimentations---------------------------------------------------------------------------------------------7
+1) Prototype et réglages des paramètres techniques---------------------------------------------7
+2) Problèmes rencontrés dans le prototype-----------------------------------------------------------8
+3) Deuxième montage-----------------------------------------------------------------------------------------9
+4) Mesure et interprétation des données--------------------------------------------------------------10
+5) Observation des turbulences en trois dimensions-----------------------------------------------14
+III] Etude d’une application : les piles de pont-------------------------------------------------------15
+Conclusion--------------------------------------------------------------------------------------------------------17
+Remerciements-------------------------------------------------------------------------------------------------18
+Bibliographie-----------------------------------------------------------------------------------------------------19
+
+2
+
+Résumé :
+
+Le phénomène des turbulences est un domaine de la mécanique des
+fluides qui a attiré notre attention car il est impliqué dans de nombreux
+domaines (aéronautique, soufflerie, écoulement du sang, turbulences dans
+les gaz…). Nous nous sommes intéressés aux turbulences provoquées par la
+présence d’un obstacle dans l’écoulement d’un fluide et notamment au
+nombre de Strouhal qui se cache derrière ces tourbillons. Dans tous les articles
+que nous avons lus, le nombre de Strouhal était considéré comme constant
+(≈0,2), les mesures étant généralement faites sur des obstacles cylindriques.
+Cela signifie donc que, dans la théorie, pour deux obstacles de même
+longueur caractéristique, Strouhal doit être proche de 0,2. Cependant, nous
+n’avons pas trouvé d’études faites sur des obstacles autres que cylindriques
+et nous nous sommes alors demandé si Strouhal ne variait pas selon la forme
+de l’obstacle. Nous avons ensuite étendu cette étude à un cas plus concret,
+celui des piles de pont.
+
+3
+
+Introduction :
+Si la maîtrise de l’air et de l’eau intéresse les humains depuis la préhistoire, l’étude de
+la turbulence en elle-même n’a réellement débuté qu’assez tard, au XVIIe siècle.
+Léonard de Vinci s’est en effet intéressé à ce phénomène et a laissé de nombreuses
+notes, croquis, schémas qui témoignent de sa tentative de comprendre le
+mouvement des fluides. La turbulence est ensuite plus ou moins laissée de côté
+pendant de nombreuses décennies. Quelques grands noms de la recherche sur les
+fluides turbulents sont Navier, Stokes ou encore Reynolds qui ont chacun contribué à
+la compréhension du phénomène. L’étude des fluides turbulents connaît ensuite un
+grand essor au XXème siècle lorsque sont abordés les écoulements de fluides visqueux
+dans des tuyaux cylindriques, et qu'est établie la différence entre un écoulement
+laminaire et un écoulement turbulent. L’étude de ces écoulements est
+particulièrement importante dans la construction d’ouvrages soumis à des courants
+turbulents comme les ponts car elles posent notamment le problème de l’érosion.
+Ces écoulements turbulents peuvent être étudiés en plaçant un obstacle dans un
+écoulement laminaire. Cependant, les expériences qui ont déjà été réalisées
+utilisaient uniquement des obstacles cylindriques. Les formules et nombres à notre
+disposition prévoient-ils une quelconque influence de la forme d’un obstacle sur les
+turbulences qu’il provoque ? La forme de l'obstacle a-t-elle une quelconque
+influence sur les caractéristiques de l'écoulement et des tourbillons observés ? Le
+nombre de Strouhal caractérise-t-il vraiment un écoulement turbulent ? Comment
+optimiser alors la forme des piles de ponts pour limiter le phénomène d’érosion
+autour
+de
+celles-ci ?
+
+I.
+
+Ecoulement turbulent, caractérisation ?
+1) Sans obstacle
+
+Lorsqu’un fluide s’écoule, cet écoulement peut être caractérisé par plusieurs
+nombres adimensionnés et autres paramètres.
+a) Le nombre de Reynolds : 𝑅𝑅 =
+
+𝑣𝑣.𝐷𝐷𝐶𝐶
+𝜂𝜂
+
+avec 𝑣𝑣 la vitesse de l’écoulement en m.s-1,
+
+DC le diamètre de la conduite dans laquelle s’écoule le fluide en m et η la
+viscosité cinématique du fluide en m2s-1. Reynolds permet de caractériser
+l’inertie et la convection d’un écoulement :
+Si 𝑅𝑅<1, l’écoulement est rampant
+Si 𝑅𝑅<1000, l’écoulement est laminaire
+Si 𝑅𝑅>1000, l’écoulement est turbulent
+
+4
+
+On peut également dire que le nombre de Reynolds est le rapport entre les
+forces d’inertie et les forces visqueuses soit 𝑅𝑅𝑅𝑅 =
+
+𝐹𝐹𝑖𝑖
+
+𝐹𝐹𝑣𝑣
+
+=
+
+𝑚𝑚.𝑎𝑎
+𝜂𝜂.𝑆𝑆
+
+. Ainsi, lorsque Reynolds
+
+est inférieur à 1, les forces visqueuses dominent et lorsque Reynolds est
+supérieur à 1, les forces d’inertie dominent.
+
+b) Le nombre de Froude : 𝐹𝐹𝐹𝐹 =
+
+𝑣𝑣
+
+𝐴𝐴
+�𝑔𝑔
+𝐵𝐵
+
+avec 𝑣𝑣 la vitesse d’écoulement en m.s-1, 𝑔𝑔
+
+l’accélération de la pesanteur (≈ 9.81𝑚𝑚. 𝑠𝑠 −2 ), 𝐴𝐴 la section d’écoulement en m2
+et 𝐵𝐵 la largeur de la surface libre en m. Froude caractérise l'effet de la gravité
+et de l’inertie d’un fluide sur l'écoulement. Il peut également s’écrire comme
+étant le rapport des forces d’inertie sur la force de gravité soit 𝐹𝐹𝐹𝐹 =
+
+𝐹𝐹𝑖𝑖
+
+𝐹𝐹𝑔𝑔𝑔𝑔𝑔𝑔𝑔𝑔𝑔𝑔𝑔𝑔é
+
+.
+
+c) La viscosité dynamique : 𝜇𝜇 caractérise l’aptitude d’un fluide à s’écouler. Elle
+s’exprime kg.m-1.s-1
+𝜇𝜇
+
+d) La viscosité cinématique : 𝜂𝜂 = , 𝜌𝜌 étant la masse volumique du fluide en
+𝜌𝜌
+
+kg.m-3. Elle s’exprime donc en m2.s-1.
+
+2) Qu’est-ce qu’un écoulement turbulent ?
+Si le nombre de Reynolds est très élevé ou si l’écoulement est perturbé par un
+obstacle, il devient turbulent. Cela signifie que des structures tourbillonnaires
+apparaissent. Elles peuvent être observées en insérant de l’encre colorée comme on
+le voit sur la figure 1.
+
+Figure 1 : Ecoulement turbulent en aval d’un obstacle « étoile »
+
+Lors d’un écoulement autour d’un obstacle, deux tourbillons symétriques
+apparaissent de chaque côté de cet obstacle avec une certaine fréquence (Figure
+1). C’est ce qu’on appelle le phénomène des tourbillons alternés ou allée de
+tourbillons de Von Karman.
+
+5
+
+En observant de près les structures tourbillonnaires, le physicien Kolmogorov a
+remarqué que les tourbillons devenaient de plus en plus petits jusqu’à se dissiper
+complètement. Le tourbillon est en fait une structure permettant la dissipation de
+l’énergie cinétique des grandes échelles vers les petites échelles jusqu’à atteindre la
+dimension dite de Kolmogorov à laquelle les tourbillons disparaissent totalement, leur
+énergie cinétique étant entièrement dissipée. Un écoulement turbulent est donc une
+dissipation d’énergie.
+
+3) Avec obstacle : le nombre de Strouhal
+Si l’on insère un obstacle perpendiculairement au sens de l’écoulement, les
+nombres adimensionnés de Reynolds et de Froude sont toujours valables mais on
+peut ajouter le nombre de Strouhal qui va tout particulièrement nous intéresser dans
+notre étude.
+Ce paramètre fut introduit par Lord Rayleigh en 1915. Il le nomma d’après
+Vincent Strouhal, un physicien tchèque de la deuxième moitié du XIXème siècle,
+spécialisé en physique expérimentale, qui étudia la relation entre les notes émises
+par un fil tendu soumis au vent, la vitesse du vent et le diamètre du fil.
+Le nombre de Strouhal est un nombre adimensionnel décrivant les
+mécanismes d’écoulement oscillant. Il est défini selon la relation 𝑆𝑆𝑆𝑆 =
+
+𝑓𝑓𝑓𝑓
+avec 𝑓𝑓 la
+𝑣𝑣
+
+fréquence d’apparition des tourbillons en s-1, 𝐷𝐷 le diamètre de la section de
+l’obstacle en m et 𝑣𝑣 la vitesse d’écoulement du fluide en m.s-1. Il traduit la
+stationnarité du fluide. Il peut s’exprimer comme le rapport entre les forces
+d’instationnarité et les forces d’inertie soit 𝑆𝑆𝑆𝑆 =
+
+𝐹𝐹𝑖𝑖𝑖𝑖𝑖𝑖𝑖𝑖𝑖𝑖𝑖𝑖𝑖𝑖𝑖𝑖𝑖𝑖𝑖𝑖𝑖𝑖𝑖𝑖𝑖𝑖𝑖𝑖é
+𝐹𝐹𝑖𝑖
+
+. Si St << 1, l’écoulement
+
+est dit quasi-stationnaire, les forces d’inertie dominent.
+Il est souvent mis en relation avec Reynolds dans des graphiques sur lesquels
+nous constatons que pour une large gamme du nombre de Reynolds, Strouhal vaut
+0,2.
+Cependant, les expériences sont presque tout le temps réalisées avec des
+obstacles cylindriques. Nous nous sommes donc posés les questions de savoir
+comment variait Strouhal pour d’autres obstacles, si la valeur 0,2 était spécifique aux
+cylindres et avons alors mis en place une expérience pour le savoir.
+
+6
+
+II.
+
+Expérimentation
+1) Prototype et réglages des paramètres techniques
+
+L’objectif de notre expérience était d’observer des
+turbulences créées par un obstacle dans un écoulement
+laminaire d’eau.
+Il a tout d’abord fallu concevoir un
+prototype. Il s’agissait d’un montage avec comme chambre
+d’écoulement principal un tuyau de PVC (gouttière PVC) de
+couleur blanche/jaune de 100 cm de long et de 75 mm de
+largeur (au diamètre).
+Nous avons retenu l’idée d’utiliser une gouttière, et de la
+placer de manière complètement horizontale, car cela a
+résolu beaucoup de problème, concernant par exemple
+l’injection du colorant, ou encore le positionnement de l’objet
+dans le tube.
+
+Figure 2 : Prototype expérimental
+
+A l’entrée de ce tuyau, nous avons mis des pailles qui avaient pour rôle de
+créer un flux laminaire. Ensuite, en amont de ces pailles nous avons rajouté un
+morceau de mousse circulaire (la partie verte d’une éponge), censé unifier le flux
+d’eau dans les pailles. Puis, pour pouvoir envoyer de l’eau dans la gouttière, nous
+avons adapté des embouts de bouteille et percé les bouchons, pour pouvoir y
+brancher un tuyau d’eau relié au robinet. L’opération a été répétée pour l’autre
+extrémité de la gouttière. Ainsi l’eau atteignit une hauteur stable correspondant à
+celle du bouchon de la bouteille, par rapport au fond de la chambre d’écoulement.
+Pour pouvoir observer les turbulences créées par
+l’obstacle, nous avons pensé à insérer du colorant dans le flux
+d’eau (censé être laminaire). Tout d’abord, nous avons fait
+quelques tests de contraste des colorants sur fond blanc, pour
+choisir celui qui ressortait le mieux (Figure 3). Nous avons
+retenu le colorant vert. Nous avons de plus regardé les
+spectres d’absorption de chacun de ces colorants et
+constaté que l’absorbance au niveau du pic était la plus
+élevée pour le colorant vert (Figure 4). Nous avons décidé de
+le diluer dans de l’eau (d’un facteur 10), puis nous en avons
+rempli un petit réservoir en hauteur. Le colorant a ensuite été
+injecté grâce à un petit tuyau relié à une pipette pasteur
+(Figure 5). Nous avons réussi à observer nos premières
+turbulences.
+
+7
+
+Figure 3 : Contraste de différents
+colorants
+
+Figure 5 :
+Système
+d’injection
+d’encre
+
+Figure 4 : Spectres d’absorption des
+colorants testés
+
+2) Problèmes rencontrés dans le prototype
+La réalisation de ce prototype ne fut pas concluante du premier coup. Nous
+avons en effet rencontré plusieurs difficultés :
+ Maintien des pailles dans la gouttière : le tube n’étant pas fermé, il fallait
+maintenir les pailles par le dessus. Nous les avons donc accrochées avec des
+rilsans.
+ Oscillation à la sortie : pour l’arrivée d’eau, tout se passait bien, mais à la
+sortie, il y avait de l’air qui rentrait avec l’eau dans le petit tuyau. Cela créait
+des vibrations dans le tube entraînant du bruit. Pour corriger ce problème,
+nous avons enlevé le bouchon du bout de bouteille, pour placer l’extrémité
+du tube au-dessus de l’évier, pour avoir un écoulement libre dans ce dernier.
+ Ajout du tampon Gex : cela a créé une pression vers l’extérieur du tube, et le
+bout de bouteille que l’on avait fabriqué pour faire rentrer l’eau dans le tuyau
+se détachait. Nous avons donc eu l’idée de collé au joint silicone le tout, ce
+qui a également eu pour effet de rendre totalement étanche l’installation.
+ Profil de vitesses : nous ne savions pas si le débit d'eau aux robinets du lycée
+était constant. Ce problème a été réglé grâce au tampon Gex que nous
+avons rajouté en amont des pailles, qui donnait une vitesse plutôt constante à
+l'eau. Mais la paroi intérieure du tube n'étant pas très lisse, la vitesse
+
+8
+
+d’écoulement était moins élevée vers les parois, que dans le reste du tube,
+créant un profil de vitesses a priori dérangeant puisque c'est cela même qui
+peut rendre un écoulement turbulent. Cependant, l'observation des
+premières turbulences se faisait relativement poche de la surface, où la
+différence de vitesse se faisait peu ressentir. La vitesse de l'écoulement était
+contrôlée par le degré d'ouverture du robinet.
+ Injection de l’encre : au départ nous avions utilisé de
+l’encre non diluée, dans une aiguille coudée (Figure 6). Le
+résultat était peu satisfaisant, car la pipette était trop
+épaisse et créait des turbulences. De plus, l’encre était
+trop concentrée, ce qui ne nous permettait pas de bien
+observer d’éventuelles turbulences
+
+3) Deuxième montage
+
+Figure 6 : Système
+d’arrivée d’encre du
+montage 1
+
+Ce prototype nécessitant des améliorations, nous avons décidé de réaliser un
+nouveau montage qui tenait compte des différents problèmes rencontrés
+auparavant.
+Tout d’abord, plutôt que de faire une gouttière sur l’ensemble du tuyau, nous
+avons laissé le tuyau complet aux extrémités ce qui permet un raccord plus simple
+au niveau de l’arrivée d’eau, un maintien des pailles plus efficace et ce qui évite
+une déformation de tuyau susceptible de fausser les observations. Nous avons
+ensuite, à l’aide de plusieurs raccords, fait un divergent s’enclenchant parfaitement
+dans le tuyau. Nous l’avons relié à l’aide d’un tuyau d’arrosage, au robinet.
+Pour la sortie, afin de réguler le niveau d’eau, nous avons mis en place un
+plan incliné.
+De plus, pour éviter des frottements trop élevés sur la surface du tuyau, celui-ci
+a été peint à l’intérieur dans le but qu’il soit le plus lisse possible. Cela a également
+permis d’avoir un fond blanc pour les prises de vue.
+Quant à l’encre, nous avons acheté de l’encre en poudre. Au départ, nous
+avions préparé une solution de concentration massique 10 g/L mais elle restait très
+épaisse, nous l’avons donc diluée 5 fois.
+
+9
+
+4) Mesures et interprétation des données
+
+Pour répondre à nos questions, il nous fallait mesurer la vitesse de
+l’écoulement ainsi que la fréquence des tourbillons obtenus.
+Nous avons considéré 3 constantes :
+• Le diamètre de la conduite DC=100 mm
+• Le diamètre de l’obstacle D=10 mm
+• La viscosité de l’eau à 14°C η=1,174.10-6 m².s-1
+Pour 7 formes d’obstacles différentes (figure 8) et 8 vitesses différentes, à l’aide
+des logiciels Regressi et AviMéca, nous avons mesuré les vitesses et les fréquences de
+tourbillons de manière à calculer par la suite les nombres de Reynolds et de Strouhal.
+Nous allons vous présenter les techniques de mesure pour une vitesse et une
+fréquence puis nous exposerons l’ensemble des résultats obtenus. Mais avant cela,
+quelques images de nos observations pour bien comprendre le phénomène :
+
+D
+
+D
+
+D
+
+D
+
+D = 10,0 mm
+D
+
+D
+
+Figure 8 : Les obstacles et leurs cotes
+
+Figure 7 : Ecoulement laminaire avant insertion
+de l’obstacle
+
+(en ce qui concerne l’ovale et l’ellipse, 3
+largeurs différentes ont été utilisées : L =
+2D ; L = 3D ; L = 4D)
+
+Figures 9 et 10 : Deux différents écoulements
+turbulents avec des allées de Von Karman
+
+10
+
+ Mesure de la vitesse avec AviMéca et Regressi :
+Nous avons placé un objet dans l’écoulement ainsi qu’un mètre pour
+l’étalonnage. Nous avons ensuite pointé le flotteur sur un certain nombre d’images
+de la vidéo (Figure 11). AviMéca a alors créé un tableau de valeurs que nous avons
+exporté dans Regressi pour tracer une courbe d’étalonnage dont le coefficient
+directeur nous donne la vitesse de l’écoulement (Figure 12) :
+
+Figure 11 : Mesure de la vitesse sur
+AviMéca
+
+Figure 12 : tracé d’une courbe
+d’étalonnage sur Regressi
+
+ Mesure de la fréquence des tourbillons :
+
+De nouveau avec AviMéca, nous avons
+pointé le premier tourbillon se formant puis
+avons compté combien de tourbillons se
+formaient avant de pointer le dernier tourbillon
+(Figure 13). Le calcul
+
+𝑓𝑓 =
+
+𝑛𝑛𝑛𝑛𝑛𝑛𝑛𝑛𝑛𝑛𝑛𝑛𝑛𝑛𝑛𝑛𝑛𝑛𝑛𝑛𝑛𝑛𝑛𝑛𝑛𝑛𝑛𝑛𝑛𝑛𝑛𝑛𝑛𝑛𝑛𝑛𝑛𝑛
+∆𝑡𝑡
+
+nous donnait alors la fréquence (avec ∆𝑡𝑡
+l’écart temporel entre le premier tourbillon
+pointé et le dernier).
+Figure 13 : Comptage des tourbillons sur AviMeca
+
+Les mesures que nous effectuons sont sujettes à des incertitudes que nous
+nous devons de calculer pour évaluer la fiabilité de nos résultats.
+
+11
+
+Présentations des différentes incertitudes :
+ Incertitudes sur les vitesses d'écoulement :
+
+∆𝑉𝑉
+𝑉𝑉
+
+vitesses sont données par le logiciel Regressi)
+
+ Incertitudes sur la fréquence des tourbillons :
+
+∆𝑑𝑑
+
+=
+
+∆𝑓𝑓
+
+𝑑𝑑
+
+𝑓𝑓
+
++
+
+=
+
+∆𝜏𝜏
+𝜏𝜏
+
+∆𝑁𝑁
+𝑁𝑁
+
+(les incertitudes sur les
+
++
+
+∆𝜏𝜏′
+𝜏𝜏′
+
+(la valeur change
+
+pour chaque mesure de fréquence, τ’ étant différent pour chaque
+fréquence.)
+ Incertitude sur le diamètre des obstacles : d’après le constructeur ∆L = 0,5 mm
+ Incertitude sur la viscosité :
+
+∆η
+𝜂𝜂
+
+=
+
+0,033∗10−6
+1,174∗10−6
+
+= 2,8% (on considère que ∆η est la
+
+différence de viscosité entre une température de 14°C et 15°C sachant que
+notre eau avait une température de 14°C)
+ Incertitude sur le diamètre de la conduite :
+ Conséquences pour Reynolds et Strouhal :
+
+∆𝐷𝐷
+
+𝐷𝐷
+∆𝑆𝑆𝑆𝑆
+
+𝑆𝑆𝑆𝑆
+∆𝑅𝑅𝑅𝑅
+𝑅𝑅𝑅𝑅
+
+=
+=
+
+=
+
+0,1
+96
+∆𝐿𝐿
+
+𝐿𝐿
+∆𝜂𝜂
+𝜂𝜂
+
+= 0,1%
+
++
+
++
+
+∆𝑓𝑓
+
+𝑓𝑓
+∆𝐷𝐷
+𝐷𝐷
+
++
+
++
+
+∆𝑉𝑉
+
+𝑉𝑉
+∆𝑉𝑉
+𝑉𝑉
+
+Les incertitudes de Strouhal et de Reynolds apparaissent sur les graphiques sous
+forme d’ellipses.
+
+Figure 14 : Superposition des différents graphiques
+représentant Strouhal en fonction de Reynolds
+
+Interprétation des résultats :
+ Nous avons constaté plusieurs choses. Tout d’abord, pour les formes cylindre,
+carré, étoile et triangle, on observe un palier de Strouhal à 0,2 comme le
+prévoyait la théorie. On constate en effet, qu’au niveau de ce 0,2, les ellipses
+d’incertitudes de ces formes se recoupent (Figure 14).
+
+12
+
+ En ce qui concerne les ellipses, les résultats sont assez intéressants. En effet sur
+le graphique de l’ellipse 2 qui est telle que L=3D (figure 15), on constate une
+chute assez significative de Strouhal dans les grands Reynolds (Figure 16). Or
+un physicien japonais qui a étudié Strouhal avec des obstacles rectangulaires
+de différentes dimensions, observe que pour un rectangle dont la longueur
+est égale à 3 fois la largeur, Strouhal chute dans les grands Reynolds (figure
+17).
+
+D
+L
+
+Figure 15 : Ellipse telle que L=3D
+
+Figure 16 : Strouhal en fonction de Reynolds pour l'ellipse
+L=3D
+
+Figure 17 : Résultats du physicien japonais
+
+Pour l’ellipse 3, nous n’avons pas eu de tourbillons à la plus faible vitesse
+d’écoulement. Strouhal est donc nul pour cette vitesse. Cette ellipse est telle
+que L=4D. Nous avons donc supposé que les tourbillons ne pouvaient pas se
+former, leur période spatiale étant sans doute du même ordre de grandeur
+que L (Figure 18).
+Figure 18 : Strouhal en fonction de
+Reynolds pour l'ellipse 3
+
+13
+
+ En ce qui concerne les ovales, nous avons constaté que pour la vitesse
+la plus faible, les tourbillons de Von Karman ne se forment pas, le
+nombre de Strouhal est donc nul. Cela confirme donc l’hypothèse que
+la longueur de l’obstacle dans le sens de l’écoulement modifie le
+régime d’écoulement après l’obstacle. Pour expliquer alors l’apparition
+de tourbillons pour les ellipses L=2D et L=3D à la vitesse le plus faible,
+nous avons supposé que la forme d’attaque ou l’angle de courbure en
+était l’origine.
+
+5) Observations des turbulences en trois dimensions
+Suite aux recommandations du jury du concours interacadémique, nous avons
+changé le tuyau PVC pour un tuyau en PMMA transparent de 1000 mm de longueur
+et de 80 mm de largeur intérieure, afin d’observer les turbulences en trois dimensions.
+Nous avons en même temps rendu le montage démontable et donc plus
+facilement transportable (ce qui ne fut pas sans difficultés techniques pour
+l'étanchéité de l'assemblage)
+Voici les images obtenues :
+
+Figure 19 : Montage numéro 3
+
+Figure 20 : Observation d’un écoulement laminaire en
+aval d’un ovale de diamètre D et de longueur L=4D
+
+On observe bien deux lignes de courant colorées, qui passent de chaque côté de
+l'obstacle ovale sans être perturbées. Les lignes colorées restent à la même
+profondeur au long du parcourt en aval de l'obstacle.
+
+14
+
+Figure 21 : Observation de turbulences en 3
+dimensions en aval d’un obstacle
+cylindrique de diamètre D.
+
+Avec le même réglage de débit au robinet et donc la même vitesse
+d'écoulement dans la conduite, on observe maintenant, avec un obstacle
+cylindrique de diamètre D, des turbulences qui font apparaître des boucles de lignes
+de courant, qui se forment périodiquement (T) avec la même géométrie. Les
+boucles rouges et bleues sont les mêmes de chaque côté de l'obstacle et elles se
+forment avec un décalage temporel de T/2. On observe au bout d'un certain temps
+une allée de Von Karman en trois dimensions.
+
+III.
+
+Etude d’une application : les piles de pont
+
+Dans la nature, les turbulences sont omniprésentes et l’Homme doit adapter
+ses technologies en les prenant en compte. Par exemple, lors de la construction de
+ponts, les structures porteuses du tablier, appelées « piles de pont », sont soumises
+aux courants turbulents de la rivière. Dans notre étude, la rivière peut être assimilée à
+la conduite et une pile de pont à l’obstacle. On peut ainsi simuler l’effet des
+turbulences sur le lit granulaire de la rivière autour de cette pile de pont en le
+reproduisant avec du sable.
+Deux types de tourbillons peuvent agir aux alentours des piles de ponts :
+- Le tourbillon en fer à cheval se formant près du lit granulaire
+- Les tourbillons de sillage à l’origine de l’allée de Von Karman que
+nous avons observée dans la partie I. (Figure 9-10)
+Ces tourbillons provoquent l’érosion du lit granulaire que l’on appelle affouillement.
+D’après les travaux d’autres physiciens (comme ceux de F. LACHAUSSEE),
+l’affouillement peut prendre différentes formes :
+- Une fosse d’affouillement entourant le cylindre causée par le
+tourbillon en fer à cheval. C’est l’affouillement le plus profond et le
+plus dangereux quant à la stabilité du pont.
+- Deux fosses allongées communément appelées « oreilles de lapin »
+causées par les tourbillons de sillage. Elles se forment beaucoup plus
+en aval de l’obstacle et ne constituent pas un grand danger du fait
+de leur faible profondeur.
+Cette étude expérimentale a été effectuée avec un obstacle cylindrique.
+Pourtant, on remarque que la majorité des ponts sont construits, depuis
+longtemps, sur des piles de forme ovale, sans doute car les études qualitatives ont
+montré que l’affouillement est moins prononcé pour des piles de pont de cette
+forme. Cela est d’ailleurs cohérent avec nos premiers résultats expérimentaux : un
+obstacle ovale, pour des vitesses faibles, ne modifie pas le régime de l’écoulement,
+
+15
+
+et ne provoque ainsi aucune turbulence en aval. L’affouillement serait ainsi limité par
+une turbulence plus faible.
+Nous avons expérimenté avec différents types de sables. Nos résultats actuels
+ne sont pas pertinents car le sable est pour l'instant de granulométrie trop importante
+ou trop irrégulière à l'échelle de l'obstacle. Aucun affouillement n'est constaté après
+4 h00 d'écoulement. Nous avons sélectionné finalement du sable siliceux de rivière
+dit "0,2" dans le bâtiment, mais qui est composé encore de beaucoup de grains
+nettement plus gros. Nous allons donc, dans le temps qui nous reste, sécher ce sable
+et le tamisé (tamis encore à trouver) pour obtenir une granulométrie au maximum
+égale à 0,2 mm et recommencer les expériences avec différents obstacles.
+On a aussi conscience que pour ce type d'expérience, la consommation
+d'eau est grande et qu'il serait judicieux de faire une autre expérience, vraiment
+différente, en circuit fermé, qui permettrait de consommer beaucoup moins d'eau.
+
+16
+
+CONCLUSION
+Durant nos travaux, nous nous sommes intéressés aux turbulences induites par
+la présence d’un obstacle dans un écoulement d’eau. Ce genre de phénomène est
+aujourd’hui essentiellement caractérisé par un paramètre adimensionné : le nombre
+de Strouhal. Dans la littérature, il est étudié presque uniquement dans le cadre de
+turbulences provoquées par un obstacle cylindrique. Pourtant, il nous semblait
+“cohérent” que la forme de l’obstacle influence les tourbillons qu’il provoque.
+Nos expériences étaient basées sur l’observation de turbulences provoquées
+par sept objets de forme différentes à différentes vitesses (donc différents nombres
+de Reynolds). Nous sommes alors parvenus à la conclusion que Strouhal caractérise
+sans surprise un écoulement turbulent, mais pas de manière complète.
+Nous avons bien observé, comme la littérature le prédisait, la présence d’un
+palier du nombre de Strouhal à 0,2 pour un large intervalle de nombre de Reynolds,
+et pour un obstacle pas trop long dans le sens de l’écoulement. Cependant, pour
+un certain ratio entre la largeur et la longueur de l'obstacle, Strouhal sort de cet
+intervalle. La forme influence donc parfois le nombre de Strouhal, quand bien même
+cela n’est pas prévu par sa formule.
+De plus, l’étude des turbulences est indispensable avant la construction de
+ponts dans des rivières. En effet, les piles de pont sont sujettes aux turbulences
+induites par le cours d’eau. Ces dernières sont responsables d’une érosion autour de
+la pile nommée affouillement. Tout comme le nombre de Strouhal est influencé par
+la longueur de l’obstacle dans le sens de l’écoulement, l’érosion varie selon
+l’ampleur des turbulences et donc de la longueur des piles de ponts. De manière
+empirique, les piles de pont ont d’ailleurs été construites avec une forme allongée.
+Ces longues semaines de travail nous ont donc à la fois fait découvert un sujet
+non évoqué ou étudié tardivement dans le cursus scolaire, mais nous ont également
+permis de découvrir la démarche scientifique. Monter entièrement une expérience,
+analyser puis interpréter les résultats autant d’étapes qui nous plongent dans l’univers
+de la recherche scientifique.
+
+17
+
+Remerciements
+C’est pour nous une très belle expérience de mener un projet scientifique qui
+nous tenait à cœur dans un domaine qui nous inspire et éveille notre curiosité. Nous
+voudrions tout d’abord remercier M. Duguery, notre professeur de physique au sein
+du lycée, qui, toujours de bonne humeur et avec beaucoup d'enthousiasme, nous
+transmet ses connaissances et sa passion pour la physique.
+De plus, c’est en partie grâce à David Château, professeur de Physique en
+classe préparatoire, ami et collègue de M. Duguery, que nous avons connu Strouhal
+et c’est pourquoi nous tenions tout particulièrement à le remercier.
+Nous souhaitons également remercier M. Lachaussée, doctorant en physique,
+qui nous a permis d’approfondir la partie appliquée de notre étude concernant
+l’effet des turbulences autour des piles de pont.
+Nous voulons aussi remercier Viviane et Julianne, les deux préparatrices du
+laboratoire de Physique-Chimie du Lycée, qui n'ont pas hésité à apporter leur aide
+quand nous en avions besoin et qui nous ont fait gagner un temps précieux,
+notamment dans la recherche, la mise en place du matériel et le rangement de
+celui-ci.
+Nous voulons également souligner le travail précieux de l’entreprise Matrix 3D
+qui a conçu et fabriqué les obstacles nécessaires à l’expérience.
+Nous sommes reconnaissants envers le Lycée Charles de Gaulle, et
+notamment notre proviseur M. Meunier-Lariotte, qui a mis à notre disposition des
+moyens matériels et financiers nous permettant de mener à bien notre projet.
+Mais c’est aussi grâce à toute l’équipe qui organise les Olympiades que nous
+avons pu vivre cette expérience unique, de concevoir une expérience de A à Z, et
+de nous rendre compte de toutes les difficultés que cela implique.
+
+18
+
+BIBLIOGRAPHIE
+Articles Internet ou informatisés :
+CORUM Jonathan, The Strouhal Number in Cruising Flight, 27 octobre 2003
+http://style.org/strouhalflight/
+ELOY Christophe, Optimal Strouhal Number for swimming animals, 1 février 2011
+GRANIER Olivier, http://olivier.granier.free.fr/cariboost_files/meca-flu-PC.pdf
+HEMON Pascal, Vibrations couplées avec le vent, octobre 2004 (cours Polytechnique
+Palaiseau) http://www.ladhyx.polytechnique.fr/people/pascal/pdf/polyaeroelasticite.pdf
+LACHAUSSÉE Florent, Motifs d’érosion dans le sillage d’un cylindre, 2017,
+http://www.fast.u-psud.fr/~bertho/papers/Bertho_RNL2017.pdf
+OKAJIMA Atsushi, Strouhal numbers of rectangular cylinders, 18 mars 1982
+http://www.hds.bme.hu/~fhegedus/VortexShedding/Irodalom/1982%20Strouhal%20n
+umbers%20of%20rectangular%20cylinders.pdf
+ROQUES Michel, Mécanique des fluides, 2005 (cours BTS)
+TADRIST Loïc, Léonard de Vinci, homme de science : L’instigateur de la turbulence ?,
+septembre 2011 http://loic.tadrist.pagespersoorange.fr/Files/Other/Master%20Philosophie.pdf
+TAYLOR Graham, NUDDS Roberts, THOMAS Adrian, Flying and swimming animals
+cruise at a Strouhal number tuned for high power efficiency, 16 octobre 2003
+https://www.nature.com/articles/nature02000
+
+Vidéo :
+
+MORTIER-DUMONT Baptiste, Créer un jet d'eau parfait, 23 août 2014 (vidéo)
+https://www.youtube.com/watch?v=rscpnV5DBSo&feature=youtu.be
+
+19
+
+

@@ -1,0 +1,965 @@
+Passive Tuned Mass Damper, un sujet qui secoue pas mal
+(Comment faire de la physique à moindre coût)
+
+Projet présenté par l’équipe Q :
+
+
+
+
+
+
+Axelle Picard
+Joséphine Marbot
+Samy Rachati
+Thien Thach Nguyen
+Romain Andre
+
+Lycée Henri Poincaré
+Nancy
+2015/2016
+
+Encadrée par M. Rachid Zaid
+1
+
+Plan d’étude
+Table des matières
+I) Introduction : résumé ...................................................................................................................3
+1. Article de journal ........................................................................................................................3
+2. Contexte .......................................................................................................................................4
+
+II) Approche de la problématique .................................................................................................4
+1. Pendule simple non amorti libre (oscillateur harmonique) ...............................................5
+A. Etude théorique .........................................................................................................................5
+B. Vérifions que x(t) = A.cos (  .t + ) est bien solution de l’équation différentielle d’un
+oscillateur harmonique ....................................................................................................................6
+C. Isochronisme des petites oscillations pour un pendule simple………………………………………………7
+
+2. Oscillateur amorti par frottement fluide en régime libre expérimentale : exploitation
+avec « Regavi » et « Regressi » ......................................................................................................8
+
+III) Approche expérimentale de notre système d’étude : mât-pendule ........................ 11
+1. Recherche de la fréquence propre du système ................................................................. 11
+2. Présentation des résultats expérimentaux ........................................................................ 12
+3. Conclusion ................................................................................................................................ 13
+A. Limites du modèle ................................................................................................................ 13
+B. Améliorations envisageables .............................................................................................. 14
+
+IV) Amortisseur visqueux ......................................................................................................14
+1. Principe du système ................................................................................................................ 14
+2. Approche expérimentale ....................................................................................................... 14
+A. Recherche de la viscosité dynamique de quelques fluides ..................................................... 15
+B. Amortissement visqueux ......................................................................................................... 16
+C. Viscosité et température d’un fluide visqueux ....................................................................... 17
+D. Modélisation mathématique .................................................................................................. 18
+
+V) Conclusion ..........................................................................................................................19
+
+Référence ............................................................................................................................20
+Annexes ................................................................................................................................21
+2
+
+I) Introduction : résumé
+On assiste aujourd’hui à une course effrénée entre les pays asiatiques, ceux du golfe
+arabique et les Etats-Unis, à celui qui construira l’édifice le plus haut. Cependant, cette quête
+de prestige par la hauteur est dangereuse au vu du bouleversement climatique actuel et de
+la résistance de ces bâtiments.
+Notre travail est axé sur l’étude d’une des techniques parasismiques adoptée
+actuellement : le PTMD pour Passive Tuned Mass Damper. Il consiste à identifier les
+paramètres sur lesquels il faut intervenir afin d’optimiser la protection de ces hautes
+structures, en cas de séisme.
+Cette étude sera prolongée par la réponse à la problématique posée par
+l’encombrement du pendule du PTMD : un système d’amortissement visqueux pourrait-il
+être envisageable ?
+
+1. Article de journal :
+Nous avons été sensibilisés à la technique du PTMD, par la lecture d’un article paru sur :
+
+3
+
+2. Contexte :
+Dans les zones à risque sismique, les architectes ont recours à différentes techniques
+parasismiques afin de protéger les bâtiments lors de tremblements de terre. La protection la
+mieux adaptée constitue ainsi un enjeu majeur dans la conception de ces bâtiments. Une
+des techniques couramment employée est celle du Passive Tuned Mass Damper (PTMD),
+dite de l’amortissement à masse accordée. Il s’agit d’un pendule fixé au sommet du
+bâtiment et qui va se mettre à osciller en présence de perturbations extérieures et limiter les
+déplacements du bâtiment en dissipant l’énergie apportée par les séismes.
+La tour Taipei 101, située à Taiwan, mesure 508
+mètres de haut (93 étages) pour une masse totale de 70 000
+tonnes. Elle fut achevée en 2003. Construite en zone
+sismique, cette tour a dû être munie d’un PTMD. Entre le
+88ème et le 92ème étage, on peut donc observer un pendule
+d’acier sphérique de 660 tonnes pour un rayon de 2,7
+mètres. Celui-ci est soutenu par quatre câbles de 4,5 cm
+d’épaisseur, et amorti par huit vérins hydrauliques qui
+permettent de dissiper l’énergie cinétique que le pendule
+acquiert pendant un séisme, puisqu’il est alors sujet à des
+oscillations d’amplitude 1,5 m en moyenne. L’intérêt est que
+les oscillations de la tour peuvent alors être atténuées de 30
+% à 40 %. Son efficacité a été vérifiée lors du séisme Sichuan
+qui a frappé Taiwan en 2008 ; elle est d’autant plus
+remarquable que le coût du PTMD ne représente que 0,2 % du coût total de construction du
+bâtiment.
+
+II) Approche de la problématique
+Problématique
+ Le PTMD a-t-il une quelconque influence sur les déplacements d’un immeuble
+lorsque celui-ci est soumis à des actions naturelles extérieures (séisme, bourrasque
+de vent) ?
+ Dans l’affirmatif, identifier les paramètres du PTMD à affiner pour optimiser une
+protection de l’édifice.
+L’amortisseur utilisé dans le PTMD est un pendule simple oscillant autour de sa position
+d’équilibre sous l’action d’une force extérieure.
+
+4
+
+1. Pendule simple non amorti (oscillateur harmonique) :
+A. Etude théorique du mouvement d’un pendule simple
+
+Référentiel terrestre supposé galiléen
+Le système étudié est une masse m
+ponctuelle, suspendue à un point 0 par un fil
+inextensible, considéré sans masse et de
+longueur l (fig. 1)
+Le PFD appliqué à la masse m donne
+fig.1
+(les frottements de l’air sont négligés dans un
+premier temps).
+
+P + T = ma
+
+La projection de
+
+sur les axes ux et uz fournit deux équations :
+
+- m.g =
+
+On pose Sin 
+
+et
+
+g / l = 02 pulsation propre du système
+
+Dans le cas de l’approximation des petits angles (Θ ≈ 0) on pose T ≈ m.g
+Finalement
+
+
+
+(équilibre)
+
+s’écrit
+=0
+
+équation différentielle d’un oscillateur harmonique
+
+La résolution de cette équation différentielle consiste à établir une solution dont la forme
+générale est :
+x(t) = A.cos ( .t +  )
+
+5
+
+B. Vérifions que x(t) = A.cos (  .t +  ) est bien solution de l’équation
+différentielle d’un oscillateur harmonique
+-
+
+par une méthode analytique
+x(t) = A.cos ( .t +  )
+
+s’écrit alors
+
+=0
+
+soit
+
+La période des oscillations du pendule simple autour de sa position d’équilibre s’écrit
+T=
+
+donc
+
+-
+
+par une proche expérimentale
+
+Fig. 2
+
+La modélisation du mouvement de la masse m donne bien une sinusoïde de la forme
+x’(t) = a + b.sin ( .t + )
+On posera x(t) = x’(t) – a = b.sin ( .t + ) avec b = x0
+(l’origine à l’équilibre n’a pas pu être définie de façon précise lors de l’étude sur Regavi +
+Regressi)
+
+6
+
+-
+
+Déterminons les constantes A et
+
+de cette solution :
+
+A l’instant initial t = 0
+ le pendule est écarté d’une amplitude x0 de sa position
+d’équilibre
+ le pendule est immobile, sa vitesse est nulle
+x(t) = A.cos ( .t + )
+
+x(t = 0) = A.cos  = x0
+
+
+
+=0
+
+
+Finalement
+
+x0
+x(t) = x0 .cos .t
+
+C. Isochronisme des petites oscillations pour un pendule simple
+
+7
+
+2. Oscillateur amorti par frottement fluide en régime libre :
+Les oscillateurs harmoniques non-amortis sont des systèmes conservatifs, mais
+idéaux, nos expériences répétées ont montré l’existence d’une perte d'énergie qui a
+accompagné notre processus physique étudié.
+Pour rendre compte de cette dissipation d'énergie, introduisons la force de frottement F.
+D’après la loi de Stokes à très basse vitesse (vitesse de la masse m du pendule simple,
+mesurée à l’aide de Regavi < 5m/s dans l’air)
+R Pour une boule de rayon R
+
+Ffrot = - v
+
+
+ Coefficient caractéristique de la géométrie du solide
+ Coefficient de viscosité du fluide (dépend de la température)
+ k = 
+(air)
+ (eau)
+(glycérine)
+
+0°C
+0.017*10-3
+1.8*10-3
+-----
+
+20°C
+40°C
+-3
+0.018*10
+0.019*10-3
+-3
+1.0*10
+0.7*10-3
+1490*10-3
+-----
+
+(source : owlge.ch/IMG/pdf/frottement.pdf) 
+
+Cela se traduit par l’introduction d’un terme dissipatif dans l'équation du mouvement.
+PFD : F = m.a
+
+P + T + F = ma
+
+projeté sur les deux axes, cela donne :
+
+
+ T . sin   k .x  m. x
+
+
+
+T . cos  m.g  m. z
+
+
+
+On pose
+ m.g.
+
+et T ≈ m.g à l’équilibre (approximation des petites oscillations)
+
+
+
+x
+ k . x  m. x
+l
+
+
+
+x
+
+k  g
+. x  .x  0
+m
+l
+
+Le système d’oscillations amorties par frottement de fluide libre, a pour équation
+différentielle régissant l’évolution de x(t) de forme canonique :
+x   0 . x   0 .x  0
+Q
+
+
+
+On pose
+
+g
+k 0
+2
+et  0 
+
+l
+m
+Q
+
+
+
+Q étant le facteur de qualité et la pulsation propre du
+
+système
+8
+
+Divers régimes possibles :
+L’équation différentielle x   0 . x   0 .x  0 a pour équation caractéristique :
+Q
+
+
+
+
+r ²  0 r  0  0
+Q
+2
+
+Le discriminant vaut :   4. 0 (
+
+1
+
+2
+
+4Q
+
+2
+
+ 1) Il existe 3 cas possibles selon le signe du
+
+discriminant :
+a. Régime apériodique :   0; Q 
+
+1
+2
+1
+
+On obtient deux racines réelles et négatives
+
+1
+
+r   .( 2Q 
+1
+
+0
+
+4Q
+
+1
+
+Car
+
+1
+
+4Q
+
+2
+
+1 
+
+1
+
+4Q
+
+2
+
+b. Régime critique :   0; Q 
+
+
+
+ 1)
+
+2
+
+ 1)
+
+1
+
+r   .( 2Q 
+2
+
+2
+
+0
+
+4Q
+
+1
+2Q
+
+1
+2
+
+On obtient une racine double r    0   0 puisque Q = ½
+2Q
+
+c. Régime pseudo - périodique amorti :   0; Q 
+
+On obtient deux racines complexes :
+
+
+
+1
+2
+
+r   2Q  j 
+0
+
+0
+
+Avec un terme réel   0 et un terme complexe
+ 0 1
+2Q
+
+1
+
+1
+
+4Q
+
+2
+
+
+
+  j
+0
+
+2Q
+
+1
+
+4Q
+
+2
+
+9
+
+ L’enveloppe est représentée par exp
+
+ t  exp( t ) où est un temps de
+0
+
+2Q
+
+2
+
+relaxation puisqu’au bout de quelques temps le régime libre devient négligeable et
+on obtient un état d'équilibre (ici x(∞)=0).
+ Si la force de frottement est faible : Q et sont grands.
+ Le régime pseudo périodique amorti a pour pseudo période T avec
+
+  0 1 
+
+1
+
+4Q
+
+2
+
+si Q >> 1 (en pratique Q >> 5) alors    0 et T ≈ T0
+
+Représentation graphique de x(t)
+Fig. 3
+ On peut déterminer expérimentalement l’ordre de grandeur du facteur de qualité à
+partir du décrément logarithmique, en comptant le nombre de maxima d’amplitude
+non négligeable. La courbe fig.3 en compte 6 maximas.
+Le décrément logarithmique s’écrit selon la littérature scientifique.
+1
+x(t )
+  ln(
+)
+n x(t  nT )
+avec n entier et x(t )  exp(  0 t ).[ X n . cos(.t   )
+2Q
+d’où x(t  n.T )  exp(  0 .n.T ).x(t )
+2Q
+
+10
+
+Finalement
+
+   0 .T   0 (
+2Q
+
+1 2
+1 2
+)( )   0 ( )(
+2Q 
+2Q  0
+
+1
+1
+
+)
+
+1
+
+4Q
+
+2
+
+
+Q 1
+
+1
+
+4Q
+
+2
+
+Si Q >> 1 (en pratique Q ≥ 5) on obtient δ =  / Q
+ Le décrément logarithmique est défini pour le régime libre.
+(Source http://mawy33.free.fr/cours%20sup/33-109%20m%C3%A9ca%20oscillations%20libres.pdf)
+
+III) Approche expérimentale de notre système d’étude: mât-pendule
+La structure retenue est une maquette [Figure 4] d’immeuble en bois à laquelle est fixé
+un pendule. Un moteur avec excentrique simule les secousses sismiques (oscillateur amorti
+en régime forcé). Les paramètres de la maquette sont regroupés dans la [Table 1].
+
+Notre dispositif parasismique
+Fig.4
+
+1. Recherche de la fréquence propre du système :
+Fréquence propre : le système est soumis à une entrée
+échelon d’une dizaine de centimètres. L’acquisition de
+la position du toit par rapport au sol, avec un pas de
+temps d’acquisition de 0,1 s, est réalisée quatre fois
+consécutives [Figure 5]. La pseudo-période des
+oscillations amorties obtenues, que l’on peut assimiler
+à la période propre de la maquette, vaut 1 s ; sa
+fréquence propre vaut donc f0 = 1, 0 Hz.
+Mise en mouvement de notre dispositif
+(voir réponse graphique [figure 5])
+
+11
+
+2. Présentation des résultats expérimentaux :
+L’objectif est de déterminer les grandeurs caractéristiques du pendule (masse et
+longueur) réduisant au mieux les oscillations du toit de la maquette. Pour des raisons
+pratiques, la fréquence du moteur sera imposée durant toutes les expériences à f = 1, 0 Hz.
+La longueur du pendule est d’abord fixée arbitrairement à l = 15 cm, pour étudier
+l’influence de la masse sur le comportement du bâtiment. Le logiciel « Atelier Scientifique »,
+à l’aide d’une webcam fixée au sol, permet d’enregistrer la position du centre du toit de la
+maquette à chaque image. L’expérience est réitérée plusieurs fois pour affiner la précision
+des résultats et déterminer statistiquement l’incertitude sur les amplitudes des oscillations.
+L’étude de chaque vidéo fournit une amplitude moyenne en fonction de la masse ; on
+peut ainsi rechercher la masse optimale pour l’amortissement des oscillations.
+La [Figure 6] correspond aux oscillations du bâtiment en l’absence de pendule ; la
+[Figure 7] à une masse de 200 g. La [Figure 8] représente l’amplitude moyenne des
+mouvements du toit de la maquette dans le référentiel du laboratoire en fonction de la
+masse m du pendule. Elle ne représente cependant pas les mouvements du pendule, qui
+jouent un rôle important dans la viabilité du système. On peut distinguer trois parties :
+– m  [0; 100] g : on constate que l’amplitude croît, variant entre 20 cm et 25 cm. En
+effet, le pendule est en phase avec le bâtiment et ne fait donc qu’amplifier ses oscillations
+De plus, les fortes oscillations du pendule risquent de détruire les éventuels murs de la
+maquette.
+– m  [100, 400] g : l’amplitude des déplacements du toit diminue fortement,
+passant à moins de 4 cm parfois. Le pendule est presque constamment en opposition de
+phase avec le bâtiment. Le TMD est donc particulièrement performant, pour une masse en
+outre raisonnable par rapport à la masse de l’ensemble.
+– m  [400, 700] g : la protection du bâtiment est encore efficace, mais la masse du
+pendule est manifestement bien trop grande pour la maquette, qui présente des risques de
+rupture.
+La masse optimale pour cette maquette est donc m = 200 g pour une longueur l = 15
+cm : les oscillations ont diminué d’un facteur 10 par rapport à l’expérience sans pendule et le
+rapport des masses est de 8 %.
+ Une fois cette masse optimale déterminée, nous avons fait varier la longueur de la
+corde à masse m = 200 g fixée. Le graphe [Figure 9] représente l’amplitude moyenne
+des oscillations du toit en fonction de la longueur du pendule : la longueur optimale
+est de 25 cm.
+Pour améliorer ces résultats, il faudrait réitérer le processus en fixant l = 25 cm et rechercher
+plus finement la masse optimale, et ainsi de suite.
+
+12
+
+3. Conclusion :
+Les résultats expérimentaux obtenus mettent en évidence la diminution des
+amplitudes du bâtiment en présence d’un PTMD. Excité par le mouvement de la structure,
+le pendule s'oppose à ce mouvement et dissipe l’énergie reçue par les secousses
+extérieures au bâtiment.
+Cet amortisseur à masse accordée s'avère être très performant lors d'un séisme et
+peut en effet de manière très efficace réduire la force des ondes reçues par l’édifice ;
+empêchant ainsi la structure de s’écrouler.
+Il convient cependant de souligner quelques limites à ce système d’étude.
+A. Limites du modèle :
+– les écarts entre la réalité et une maquette idéale ;
+– les écarts entre les maquettes idéale et expérimentale ;
+a. Ecarts entre la réalité et une maquette idéale
+– La répartition des masses est très différente entre la réalité et notre maquette :
+(seuls les montants, le toit et le pendule sont présents dans notre modèle, ce qui est très
+différent de la réalité, où la masse totale est répartie de manière bien plus homogène entre
+les étages. La maquette est donc moins rigide et plus résistante à la rupture que dans le cas
+réel).
+– La masse du pendule est généralement de l’ordre de 1 % de la masse totale du
+bâtiment, alors que pour la maquette ce rapport est plutôt de 8 %. En effet, une plus grande
+masse est requise pour réduire les oscillations de la maquette plus souple. Le risque encouru
+est une destruction d’un montant ou du PTMD lui-même.
+– La maquette ne peut être en rapport d’homothétie avec une vraie tour à cause des
+trop grandes oscillations du pendule. Cela fait donc intervenir des considérations techniques
+de résistance des matériaux, dont notre modèle ne tient pas compte.
+b. Ecarts entre les maquettes idéale et expérimentale
+– Assimilation de la flexion des montants en bois à un ressort de torsion : cette
+approximation reste correcte aux petits angles mais devient discutable lorsque l’amplitude
+des oscillations augmente. Dans notre expérience, elle ne cause donc que des écarts faibles
+au modèle et reste donc valable
+– Incertitudes dans la lecture de la position du toit lors du traitement des images. Un
+grand nombre de mesures nous a cependant permis de diminuer grandement les barres
+d’erreurs.
+
+13
+
+B. Améliorations envisageables :
+ Représenter un bâtiment dans des proportions réelles, en prenant en compte, par exemple,
+la répartition des masses et d’autres paramètres propres à un bâtiment (ce qui se fait
+actuellement dans les différents bureaux d’études où on utilise, entre autre, la simulation
+avec « SolidWorks »). L’optimisation des grandeurs caractéristiques du pendule dans ces
+nouvelles conditions est aussi envisageable.
+
+Conclusion :
+L’utilisation de Tuned Mass Damper est certes répandue, mais sous différentes
+formes. Certains amortisseurs sont ainsi dits actifs : reliés à un réseau d’accéléromètres, le
+PTMD (éventuellement constitué de plusieurs masses au lieu d’une seule) peut se déplacer
+de façon motorisée et asservie afin d’atténuer les oscillations du sommet du bâtiment de
+manière optimale.
+Nous avons aussi pensé à un autre système d’amortissement dont le rendement a été
+prouvé et qui pourrait s’appliquer à notre modèle de hauts bâtiments : l’amortisseur
+visqueux afin de palier à l’encombrement du pendule dans le PTMD.
+
+IV)
+
+Amortisseur visqueux
+
+1. Principe du système :
+Le système retenu est celui d’une bille qui se déplace selon un mouvement de va-etvient dans un cylindre contenant un liquide visqueux. Solidaire du bâtiment, il absorbe
+l'énergie induite lors d'un séisme au moyen d'une friction entre la bille, le cylindre et le
+liquide.
+
+2. Approche expérimentale :
+A. Recherche des viscosités dynamiques de quelques fluides :
+On fait chuter une bille dans un fluide visqueux contenu dans une éprouvette
+graduée de diamètre très grand devant celui de la bille. En fonction de la viscosité du fluide,
+la bille atteint plus ou moins rapidement une vitesse limite de chute constante, assez faible
+pour introduire la force de frottement décrite par la Loi de Stokes :
+f = 6. .r.m.vlimite
+La bille est lâchée sans vitesse initiale, au centre de la section de l’éprouvette utilisée, de
+manière à ne pas entrainer des effets perturbateurs, près des bords, qui modifieraient de
+manière non négligeable la mesure effectuée.
+
+14
+
+Nous avons effectué un nombre suffisant de mesures de manière à pouvoir conduire une
+étude statistique convenable.
+μ = viscosité dynamique (Pa/s)
+m = masse de la bille (kg)
+r = rayon de la bille (m)
+ρ = masse volumique du liquide (kg/m3)
+V = Volume de la bille (m3)
+v = Vitesse limite (m/s)
+g = intensité de la pesanteur = 9,81 m/s2 (selon la littérature) et 9,88 m/s2 selon notre calcul
+lors de notre manipulation «isochronismes des petites oscillations» d’un pendule simple
+Chute verticale d’un solide soumis à des frottements
+Description :
+- Système : le corps de masse m
+- Référentiel : terrestre considéré comme galiléen
+On considère une masse m qui chute sans vitesse initiale dans un fluide.
+Les seules forces appliquées sont : le poids P = m.g
+la force de frottement du fluide donnée par Stokes f = 6.π..r.v
+et la poussée d’Archimède π = .V.g
+PFD  F = P + f + π = m.a sa projection
+sur l’axe vertical donne
+
+
+m.g - 6.π..r.v - .V.g = m . z
+
+
+On pose v = z vitesse de la masse m dans
+le fluide
+
+
+(m   .V ).g  6. . .r. z
+= z+
+m
+m
+équation différentielle qui régit l’évolution
+de z(t)
+
+
+Lorsque la vitesse limite est atteinte z  0 dans ce cas
+
+(m   .V ).g
+=
+6. . .r
+
+
+
+z  vlim ite = constante
+
+avec m = mbille = bille . Vbille
+
+15
+
+Figure 10 :
+Photo paraffine
+
+fluide
+Température du fluide
+ (littérature scientifique)
+ (valeur expérimentale)
+
+Figure 11 :
+Photo huile d’olive
+
+Paraffine
+20°C
+110 – 230 mPa.s
+(206,86 ±5.50) mPa.s à 95 %
+(206,86 ± 9.09) mPa.s à 99 %
+
+Huile d’olive
+20°C
+Environ 0,1 Pa.s
+(0,095 ±0,011) Pa.s à 95 %
+(0,095 ± 0,016) Pa.s à 99 %
+
+Sources
+http://www.columbiapetro.com/Our_Products/Light-Heavy_Liquid_Paraffin/lightheavy_liquid_paraffin.html
+
+On suppose que la paraffine serait plus efficace que l’huile d’olive comme
+amortisseur visqueux, car il a une viscosité dynamique plus grande.
+B. Amortissement visqueux :
+Nous avons rendu solidaire à notre maquette un système formé d’un tube à essai
+contenant un fluide visqueux + une bille et nous avons soumis l’ensemble à un régime forcé
+à l’aide de notre moteur à excentrique.
+L’expérience est filmée avec une webcam fixée de face et associée au logiciel
+« Atelier scientifique ».
+Une série de mesures est effectuée pour chaque fluide
+afin de faire une étude statistique pour tenir compte des
+erreurs expérimentales.
+- le système visqueux paraffine (sans bille) : il amortit
+faiblement les oscillations de la maquette, on pense que
+cela est du à l’air laissé dans le tube à essai, la
+paraffine+air a agit en quelque sorte comme un PTMD
+(pendule) [figure 12]
+
+16
+
+-
+
+le système visqueux huile d’olive + bille : les oscillations ont diminué d’un facteur de
+1.6 par rapport à la maquette à vide [figure 13]
+
+-
+
+le système visqueux paraffine + bille possède l’amortissement le plus élevé dans
+notre expérience [figure 14]
+
+-
+
+amplitude la maquette à vide (sans amortissement visqueux) [figure 15]
+
+-
+
+le système visqueux optimal pour cette maquette est, paraffine + bille [figure 16]: les
+oscillations ont diminué d’un facteur 3 par rapport à l’expérience à vide
+
+ En réalisant plusieurs tests d’amortissement avec différents fluides visqueux, nous avons
+pu constater que l’efficacité du système varie en fonction de sa viscosité [figure 17]. Or
+celle-ci a le désavantage de changer de propriétés si la température varie.
+C. Viscosité et température d’un fluide visqueux
+Pour des raisons de commodités, nous avons opté de tester la viscosité en fonction
+de la température pour un fluide autre que ceux utilisés
+Une même bille en acier est lâchée à plusieurs reprises (pour une étude statistique) dans
+une éprouvette remplie de miel, chauffée à différentes températures à l’aide d’un bainmarie.
+Selon l’expérience de jackson Derock :
+
+Source https://www.youtube.com/watch?v=AgB4KP2J07g
+
+Cette courbe traduit la diminution de la viscosité du miel en fonction de l’augmentation de la
+température avec une étude statistique des erreurs d’expérimentation, traduite par les
+barres d’erreurs rouges.
+
+17
+
+En effet comme  
+
+
+
+(m.g  
+
+.v.g )
+
+fluide
+
+dis tan ce
+6. .r.
+durée
+
+(m.g  
+
+.v.g )
+
+fluide
+
+6. .r.v lim ite
+=
+
+(m.g  
+
+avec vlimite = constante 
+
+.v.g )
+
+fluide
+
+6. .r.dis tan ce
+
+dis tan ce
+durée
+
+.durée  cons tan te.durée
+
+Pour une expérience réalisée dans les mêmes conditions, de façon répétitive.
+ Donc la viscosité et la durée de chute de la bille sont proportionnelles
+D. Modélisation mathématique
+A l’aide du logiciel « Regressi » nous avons cherché à établir une loi mathématique
+décrivant le comportement du miel en fonction de la température absolue (°K). La
+modélisation de d = f(T) donne avec un écart expérience/modèle de 1,2 %
+d = a.exp (T/ ) + b
+avec
+
+a (s) = 3,7.1018 et (°k) = 7,8 constantes expérimentales
+d (s) durée de chute de la bille et T (°K) température du fluide
+b (s) ajustement par rapport à l’origine = 1,54
+
+Ce modèle est cohérent avec celui donné par la littérature scientifique, en effet le modèle
+empirique qui traduit l’évolution de la viscosité d’un fluide en fonction de la température
+s’écrit :
+ = a’.exp (T/’)
+a’(s) et ’ (°k) constantes expérimentales
+Source formules http://www.formules-physique.com/categorie/1133
+Source http://ressources.univ-lemans.fr/AccesLibre/UM/Pedago/physique/02/divers/stokes.html
+
+Sources d’erreurs :
+-
+
+masse du miel qui change à chaque récupération de la bille
+température varie sensiblement entre la sortie de l’éprouvette de miel du bain-marie
+et le début de la manipulation
+chronométrage entre lâcher et arrivée de la bille au fond de l’éprouvette
+lâcher de la bille ne se fait pas à la même hauteur
+
+Comment réduire les erreurs commises :
+18
+
+peser systématiquement la masse de miel et compléter en cas de besoin
+penser à un système de chauffage intégré
+
+-
+
+lâcher de bille avec un dispositif fixe
+filmer l’expérience avec une caméra fixe entre deux intervalles de graduations au lieu
+de chronométrer entre le lâcher et l’arrivée au fond de l’éprouvette
+procéder à plus de lâcher pour une étude statistique plus poussée
+
+V) Conclusion
+Aujourd’hui encore, des articles sont écrits les journaux pour témoigner de la réussite
+technique du PTMD.
+
+« A défaut d’avoir pu maintenir longtemps son statut de plus haut bâtiment au
+monde, la tour Taipei 101 à Taïwan vient d’établir un nouveau record. Son mécanisme
+interne d’absorption des chocs a effectué son plus important mouvement jamais enregistré,
+se déplaçant de plus d’un mètre. Un mouvement qui a permis au gratte-ciel de 510 mètres
+de haut de résister aux bourrasques à plus de 200 km/h du typhon Soudelor qui a traversé
+récemment l’Asie. Dans une région fortement exposée aux tempêtes comme aux risques de
+tremblements de terre, il a fallu particulièrement soigner le système d’amortisseur qui
+équipe toutes les tours vertigineuses. Ici, c’est un « amortisseur harmonique », une immense
+boule lestée de 6 mètres de diamètre pesant 660 tonnes et installée entre les 87e et 92e
+étages de la tour. Installé sur des cylindres hydrauliques et retenu par des câbles, cet
+immense contrepoids doit pouvoir osciller en opposition de phase lorsque le bâtiment fait
+face à des secousses (de vent ou sismique), récupérant ainsi de l’énergie.
+Le système est étudié pour résister à un tremblement de terre de 7 sur l'échelle de
+Richter. Sous l'action des typhons, le déplacement des étages les plus hauts pourrait être de
+3m ».
+
+19
+
+Références
+[1] Physique 2 - MP, concours commun mines-ponts. 2007.
+[2] X. Bohan. Modélisation du comportement mécanique d’assemblages bois avec
+prise en compte de critères de rupture. PhD thesis, UBP Clermont-Ferrand, 2009.
+[3] M. Clotaire. Vulnérabilité Sismique de l’échelle du bâtiment à celle de la ville –
+Apport des techniques expérimentales in situ - Application à Grenoble. PhD thesis,
+UJF Grenoble, 2007.
+[4] J.J. Connor. Introduction to Structural Motion Control. Prentice Hall, 2002.
+[5] R. Jankowski, M. Kujawa, and C. Szymczak. Reduction of steel chimney vibrations with a
+pendulum damper.Task Quarterly, page 8, jan. 2004.
+[6] T. Nagase. World conference on earthquake engineering, fév. 2000.
+[7] T. Smail and M. Abed. Symposium international sur la construction en zone sismique, oct.
+2013.
+[8] A.F. Vakakis and R.H. Rand. Normal modes and global dynamics of a two-degree-ofbfreedom non-linear system.International Journal of Non-Linear Mechanics, page 14,
+sep. 1992.
+[9] T. Smail and M. Abed. Symposium international sur la construction en zone sismique, oct.
+2013.
+[10] http://bhernand.chez.com/jeunes.html
+[11] Oscillations amorties et forcées - Résonance, Ecole Nationale d'Ingénieurs de Tarbes,
+2012-2013
+[12] Le Figaro.fr
+[13] http://www.physagreg.fr/mecanique/m13/M13-oscillateurs.pdf
+[14] http://gilbert.gastebois.pagesperso-orange.fr/java/spherique/theorie_spherique.pdf
+[15] http://pcsi-unautreregard.over-blog.com/
+
+20
+
+[Table 1]
+
+Figure 5 : Position du toit en fonction du temps, en réponse à une entrée échelon
+d’environ 20 cm
+
+Figure 6 : Position du toit en fonction du temps, à vide (m = 0 g) et l = 15 cm
+
+21
+
+Figure 7 : Position du toit en fonction du temps, à la masse optimale (m = 200 g) et l =
+15 cm
+
+Figure 8 : Amplitude moyenne des oscillations du toit en fonction de la masse du
+pendule
+
+Figure 9 : Amplitude moyenne des oscillations du toit en fonction de la longueur du pendule
+
+22
+
+Figure 12 : amplitude de la maquette avec amortissement visqueux paraffine en
+fonction du temps
+
+Figure 13 : amplitude de la maquette avec amortissement visqueux huile d’olive + bille
+en fonction du temps
+
+23
+
+Figure 14 : amplitude de la maquette avec amortissement visqueux paraffine + bille en
+fonction du temps
+
+Figure 15 : amplitude de la maquette à vide
+
+Figure 16 : moyenne des amplitudes de la maquette en fonction de l’amortisseur visqueux
+
+24
+
+Figure 17 : amplitude de la maquette en fonction des amortisseurs visqueux
+
+25
+
+

@@ -1,0 +1,1902 @@
+Funiculaire à Contrepoids à Eau
+
+Page 1/36
+
+Sommaire
+I. Présentation ..................................................................................3
+11.. EEllèèvveess dduu ggrroouuppee ......................................................................................3
+22.. PPrrooffeesssseeuurr ccoooorrddiinnaatteeuurr...........................................................................3
+33.. EEttaabblliisssseem
+meenntt...........................................................................................3
+44.. PPaarrtteennaaiirreess ...............................................................................................3
+
+III. Budget ........................................................................................6
+IV. Analyse fonctionnelle ..................................................................7
+11.. «
+«B
+Bêêttee àà ccoorrnneess »
+»......................................................................................7
+22.. «
+« PPiieeuuvvrree »
+» ...............................................................................................8
+33.. D
+i
+a
+g
+r
+a
+m
+m
+e
+Diagramme FFA
+ASSTT......................................................................................9
+44.. CChhaaîînnee dd’’éénneerrggiiee eett dd’’iinnffoorrm
+maattiioonn ......................................................... 10
+
+V. Conception de la maquette .........................................................11
+11.. PPrréésseennttaattiioonn ........................................................................................... 11
+22.. EEttaappeess ddee ccoonnssttrruuccttiioonn........................................................................... 11
+33.. PPrroobbllèèm
+meess rreennccoonnttrrééss ............................................................................ 13
+
+VI. Conception électrique et informatique......................................14
+11.. PPrréésseennttaattiioonn ........................................................................................... 14
+22.. R
+Rééaalliissaattiioonn ddeess sscchhéém
+maass éélleeccttrriiqquueess..................................................... 15
+33.. R
+é
+a
+l
+i
+s
+a
+t
+i
+o
+n
+d
+u
+t
+y
+p
+o
+n
+Réalisation du typon eett dduu cciirrccuuiitt iim
+mpprriim
+méé ........................................... 17
+44.. R
+Rééaalliissaattiioonn dduu pprrooggrraam
+mm
+mee..................................................................... 18
+11.. PPrriinncciippee ffoonnddaam
+meennttaall ddee llaa ddyynnaam
+miiqquuee................................................. 22
+22.. A
+p
+p
+l
+i
+c
+a
+t
+i
+o
+n
+à
+n
+o
+t
+r
+e
+s
+y
+s
+t
+è
+m
+e
+...................................................................
+22
+Application à notre système
+33.. EEttuuddee dduu ssyyssttèèm
+mee ddaannss llee ccaass iiddééaall oouu lleess ffrrootttteem
+meennttss ssoonntt nnéégglliiggééss. 23
+44.. EEttuuddee dduu ssyyssttèèm
+e
+d
+a
+n
+s
+l
+e
+c
+a
+s
+o
+ù
+l
+e
+s
+f
+r
+o
+t
+t
+e
+m
+e
+n
+t
+s
+me dans le cas où les frottements nnee ssoonntt ppaass nnéégglliiggééss
+.................................................................................................................... 25
+55.. CCoom
+mppaarraaiissoonn ddeess rrééssuullttaattss eexxppéérriim
+meennttaauuxx eett ddee ll’’ééttuuddee tthhééoorriiqquuee .... 31
+66.. EExxpplliiccaattiioonn ddeess pprriisseess ddee m
+e
+s
+u
+r
+e
+s
+mesures......................................................... 35
+
+VIII. Conclusion ..............................................................................36
+11.. SSuurr llee pprroojjeett............................................................................................ 36
+22.. SSoouurrcceess ................................................................................................... 36
+33.. LLooggiicciieellss uuttiilliissééss ..................................................................................... 36
+44.. R
+Reem
+meerrcciieem
+meennttss....................................................................................... 36
+
+Funiculaire à Contrepoids à Eau
+
+Page 2/36
+
+I. Présentation
+11.. EEllèèvveess dduu ggrroouuppee
+•
+•
+•
+
+MASQUELET Quentin
+MELLET Geoffray
+PERRET Thibaud
+
+22.. P
+Prrooffeesssseeuurr ccoooorrddiinnaatteeuurr
+•
+
+ERRAMI Mustapha
+
+33.. EEttaabblliisssseem
+meenntt
+•
+
+Lycée René Cassin, TARARE
+
+44.. P
+Paarrtteennaaiirreess
+•
+
+Rectorat de l'Académie de Lyon
+
+•
+
+Conseil régional Rhônes-Alpes
+
+•
+
+Société Française de Physique
+
+•
+
+Université Claude Bernard de Lyon
+
+•
+
+École Normale Supérieure de Lyon
+
+Funiculaire à Contrepoids à Eau
+
+Page 3/36
+
+II. Résumé du projet
+De tout temps l’homme a cherché à se déplacer ou alors à transporter des objets très
+lourds de manière pratique. Dès la période des pyramides, les hommes utilisaient un
+système avec des rondins de bois pour faire glisser les pierres. Ensuite des systèmes à
+contrepoids ont été élaborés. De nos jours de nombreux moyens de transport sont en
+activité, mais la plupart consomment beaucoup trop d’énergie et sont souvent nuisibles à
+notre environnement. Ce problème pouvant engendrer d’importantes catastrophes
+naturelles et réduire l’espérance de vie de l’être humain.
+Nous avons cherché alors à répondre à la problématique suivante :
+
+Comment concevoir et réaliser un moyen de transport
+permettant d’utiliser l’énergie et le progrès, tout en respectant
+l’environnement ?
+Pour cela nous avons pensé tout d’abord à un moyen de transport tel que le
+funiculaire, car il est bien moins consommateur d’énergie que la plupart des autres
+moyens de transport. D’autre part pour la gratuité de l’énergie, nous avons équipé notre
+funiculaire d’un système à contrepoids à eau. La réalisation de notre maquette a constitué
+la plus grosse partie de notre projet. Nous avons consacré plus d’une année scolaire pour
+mener à bien ce projet. Au final nos travaux ont abouti à la réalisation d’un funiculaire à
+contrepoids à eau opérationnel, même a échelle réduite.
+Pour rester dans le contexte écologique tout en utilisant de l’énergie, nous avons
+équipé tout d’abord notre maquette de quatre panneaux solaires. L’énergie recueillie
+grâce au soleil nous permet alors d’alimenter deux électrovannes qui vont nous permettre
+d’effectuer le remplissage des cabines en eau au niveau de la station haute. Puis nous
+avons raccordé nos panneaux solaires à des batteries, ces dernières stockeront le surplus
+d’énergie captée afin de la réutiliser pour le fonctionnement de notre funiculaire durant la
+nuit.
+
+Funiculaire à Contrepoids à Eau
+
+Page 4/36
+
+L’une des deux cabines, qui est placée au niveau de la station haute et qui est reliée
+par un câble à l’autre cabine placée à la station basse, est remplie d’eau, elle devient
+alors plus lourde que l’autre et se met à descendre. Arrivée à la station basse notre
+cabine se videra grâce à un système de doigt (un doigt étant placé à la station basse va
+lever la bille placée dans le clapet anti-retour situé dans la cabine, cette dernière retenant
+l’eau, enclenchera alors la vidange de la cabine).
+Puis pour automatiser notre funiculaire nous avons créé un programme. Un
+microcontrôleur joue alors le rôle du cerveau pour faire fonctionner notre projet. Par la
+suite plusieurs expériences nous ont permis de faire une étude plus approfondie du
+mécanisme de notre funiculaire. Pour nous venir en aide dans ce projet M. Jaubert
+Ludovic, qui prépare un doctorat en physique, est intervenant en tant que moniteur de
+physique du CIES de Lyon.
+Devant les difficultés de réalisation de notre projet, le temps de travail dont nous
+disposions dans le cadre du Projet Personnel Encadré avec nos professeurs de Science de
+l’Ingénieur était trop faible pour nos ambitions. Il nous a donc fallu continuer notre travail
+en dehors des cours, au lycée avec l’aide précieuse de monsieur Errami et chez nous avec
+nos propres moyens.
+
+Funiculaire à Contrepoids à Eau
+
+Page 5/36
+
+III. Budget
+
+Recettes :
+Organismes
+
+Sommes allouées (€)
+
+SFP Olympiades de Physique
+
+250
+
+Rectorat de l'académie de Lyon
+
+160
+
+Conseil Régional du Rhône
+
+130
+
+Etablissement
+
+80
+
+Total
+
+620
+
+Dépenses :
+Organismes
+
+Sommes allouées (€)
+
+Matériel de réalisation
+
+440
+
+Documentation
+
+70
+
+Transport
+
+120
+
+Total
+
+620
+
+Funiculaire à Contrepoids à Eau
+
+Page 6/36
+
+IV. Analyse fonctionnelle
+
+11.. «
+«B
+Bêêttee àà ccoorrnneess »
+»
+
+Aux personnes
+voulant monter
+ou descendre un
+dénivelé
+
+Sur les passagers
+
+Funiculaire à
+contre poids
+à eau
+
+Monter ou descendre des
+personnes grâce à un moyen de
+transport utilisant l’énergie
+hydraulique
+
+Funiculaire à Contrepoids à Eau
+
+Page 7/36
+
+22.. «
+«P
+Piieeuuvvrree »
+»
+Station Haute
+&
+Station Basse
+
+Passagers
+
+FP1
+FC3
+
+FC4
+
+Funiculaire à contrepoids
+À eau
+FC1
+Pente
+FC2
+
+FP2
+Energie
+Hydraulique
+
+Normes de
+Sécurité
+
+FFPP11 :: Emmener les passagers à la station basse et à la station haute.
+FFCC11 :: Monter ou descendre les passagers suivant la pente.
+FFCC22 :: Avoir des normes de sécurité pour les passagers.
+FFCC33 :: Arrêter le funiculaire à la station basse et à la station haute.
+FFCC44 :: Etre un moyen de transport pour les passagers.
+FFCC55 :: Utiliser l’énergie hydraulique pour monter les cabines.
+
+Funiculaire à Contrepoids à Eau
+
+Page 8/36
+
+33.. D
+Diiaaggrraam
+mm
+mee FFA
+ASSTT
+
+Fil de pêche
+
+Liées les
+cabines par un
+lien flexible
+Poulie de
+renvoie
+
+Rails de petit
+train
+Monter ou
+descendre des
+passagers
+
+Monter ou
+descendre les
+cabines
+
+Guider chaque
+cabine
+
+Roues de petit
+train
+
+Réservoir
+
+Remplir la
+cabine haute
+
+Electrovannes
+
+Tuyau en
+plastique
+Provoquer un
+déséquilibre
+
+Clapets antiretour
+Vider la cabine
+basse
+Doigts
+métalliques
+
+Funiculaire à Contrepoids à Eau
+
+Page 9/36
+
+44.. C
+Chhaaîînnee dd’’éénneerrggiiee eett dd’’iinnffoorrm
+maattiioonn
+Chaîne d’information :
+
+Acquérir
+
+Traiter
+
+Constituants :
+Boutons poussoirs,
+Capteurs
+
+Constituants :
+Microcontrôleur
+
+Communiquer
+
+Ordre chaîne d’énergie
+
+Chaîne d’énergie :
+Source d’énergie
+Solaire
+Energie :
+Électrique
+
+Alimenter
+
+Constituants :
+Panneaux
+solaires
+Batteries
+
+Energie :
+Électrique
+
+Distribuer
+
+Convertir
+
+Constituants :
+
+Constituants :
+Electrovannes
+
+Transistors
+
+Funiculaire à Contrepoids à Eau
+
+Energie :
+Mécanique
+
+Energie :
+Mécanique
+
+Transmettre
+
+Agir
+
+Constituants :
+Contrepoids
+
+Page 10/36
+
+V. Conception de la maquette
+11.. P
+Prréésseennttaattiioonn
+En mécanique nos trois gros travaux consistaient en :
+•
+•
+•
+
+la recherche des dimensions de la maquette
+le problème de l’étanchéité des cabines
+le positionnement rectiligne des rails
+
+22.. EEttaappeess ddee ccoonnssttrruuccttiioonn
+Pour réaliser notre maquette nous avons procédé par plusieurs grandes étapes :
+
+1ère étape :
+•
+•
+
+Recherche des dimensions et de la forme de notre maquette
+Réalisation de différentes études et de plans, ce qui nous a amené à trouver les
+dimensions suivantes :
+1. Dénivelé : 94 cm
+2. Longueur totale : 130 cm
+3. Pente : 100%
+4. Largeur : 40 cm
+
+•
+
+Modélisation du socle sur Solidworks® afin de vérifier les dimensions choisies et
+dans l’optique de modéliser l’ensemble du projet. (cf.1)
+
+1) Mise en plan du socle
+Funiculaire à Contrepoids à Eau
+
+Page 11/36
+
+2ème étape :
+Assemblage des différents composants de la maquette ainsi que la réalisation des
+cuves. (cf.2)
+
+2) Mise en plan d’une cuve
+
+Funiculaire à Contrepoids à Eau
+
+Page 12/36
+
+3ème étape :
+Modélisation complète de la maquette sur Solidworks® afin de réaliser une vidéo du
+fonctionnement de notre maquette. (cf.3)
+
+3) Modélisation de la maquette
+
+33.. P
+Prroobbllèèm
+meess rreennccoonnttrrééss
+Nous avons rencontré différents problèmes durant la construction de la maquette tel
+que l’étanchéité, le guidage, la fixation des doigts et des électrovannes.
+
+Funiculaire à Contrepoids à Eau
+
+Page 13/36
+
+VI. Conception électrique et informatique
+11.. P
+Prréésseennttaattiioonn
+Pour automatiser notre funiculaire, nous avons du diviser notre travail en deux
+grandes parties :
+La partie électrique :
+Le remplissage de nos cabines repose sur l’utilisation de deux électrovannes
+alimentées en 24 Volts. Pour rester dans notre objectif majeur, à savoir être écologique,
+nous voulions que notre funiculaire soit complètement autonome. Pour cela nous avons
+installé quatre panneaux solaires qui viennent recharger deux batteries de 12 Volts
+branchées en série afin d’alimenter les électrovannes.
+La partie informatique :
+Afin d’automatiser le remplissage de nos cabines, nous avons choisi d’utiliser deux
+capteurs ILS disposés à la station haute permettant de détecter la présence des cabines
+et d’envoyer l’information au microcontrôleur (PICBASIC 1S). Le microcontrôleur est le
+« cerveau » du funiculaire, c’est lui qui gère son fonctionnement à travers un programme
+que nous avons élaboré, ensuite il envoie l’ordre ou non aux électrovannes afin de gérer
+leur fonctionnement.
+
+Funiculaire à Contrepoids à Eau
+
+Page 14/36
+
+22.. R
+Rééaalliissaattiioonn ddeess sscchhéém
+maass éélleeccttrriiqquueess
+Description du schéma général :
+
+Electrovannes
+
+Les deux batteries délivrent 24V. Un régulateur de tension placé sur le circuit imprimé
+permet d’avoir une tension de 5V pour alimenter le microcontrôleur, les capteurs ILS et
+les boutons poussoirs. Ensuite le microcontrôleur placé sur le circuit imprimé donne
+l’ordre aux électrovannes de s’ouvrir ou non en fonction des capteurs.
+
+Panneaux Solaires
+
+Circuit
+Imprimé
+
+2 Batteries 12V
+
+Funiculaire à Contrepoids à Eau
+
+Page 15/36
+
+Description du schéma du circuit imprimé :
+Le circuit est alimente en 5V grâce au régulateur de tension. Les informations
+(capteurs et boutons poussoirs) arrivent au microcontrôleur par les broches 0, 1, 13 et 14
+et les « ordres » sortent par les broches 3 et 10. Des leds sont installées pour vérifier la
+mise sous tension du circuit, et du fonctionnement des électrovannes (une par
+électrovanne).
+
+Calcul des résistances :
+•
+
+Résistance avant les transistors
+
+R1=U1/I1
+
+I1 : 3mA
+
+U1= UA-Ut (UA: tension alimentation; Ut=tension transistor)
+=5,0-0,7
+=4,3
+=> R1=U1/I1=4,3/0,003=1433 R1 :1433Ω
+Or une résistance de 1433Ω n’existant pas, nous avons installé des résistances de 1200Ω
+choisies dans la série Renard E 24.
+
+Funiculaire à Contrepoids à Eau
+
+Page 16/36
+
+33.. R
+Rééaalliissaattiioonn dduu ttyyppoonn eett dduu cciirrccuuiitt iim
+mpprriim
+méé
+Tout d’abord, nous avons réalisé le typon sur le logiciel TCI en nous inspirant du
+schéma électrique vu précédemment. (cf.1)
+
+1) Typon
+Ensuite nous l'avons imprimé sur un transparent qui a été photocopié sur une plaque
+cuivrée. Une fois la photocopie réalisé, la plaque est rincée dans un produit avant d’être
+insérée dans de l’acide qui ronge le cuivre non protégé par la photocopie, ce qui laisse
+donc apparaître les pistes cuivrées dessinées sur TCI. (cf.2)
+
+2) Carte dans l’acide
+Funiculaire à Contrepoids à Eau
+
+Page 17/36
+
+Puis, nous avons soudé les composants sur la carte, les borniers, condensateur,
+régulateur de tension, support pour le microcontrôleur, transistors, résistance et enfin les
+leds. (cf.3)
+
+3) Carte finie
+
+44.. R
+Rééaalliissaattiioonn dduu pprrooggrraam
+mm
+mee
+Pour que le microcontrôleur gère notre funiculaire, il a fallu que nous réalisions au
+préalable l’organigramme puis, et que nous créions un programme avec le logiciel
+« PICBASIC Studio ».
+
+Funiculaire à Contrepoids à Eau
+
+Page 18/36
+
+Funiculaire à Contrepoids à Eau
+
+Page 19/36
+
+VII. Etude Physique
+Prérequis :
+
+∆Em = ∆Ep + ∆Ec
+∆Em = Wforce frottement = 0
+
+m0 : masse cabine
+mg : masse d’eau dans la cabine de gauche
+md : masse d’eau dans la cabine de droite
+h : hauteur entre les 2 stations du funiculaire
+
+Station Haute
+
+h
+Station Basse
+α
+
+•
+
+α = 45°
+
+Utilisation du théorème de l’énergie mécanique.
+
+Etat initial :
+La cabine de droite est en haut et la cabine de gauche est en bas.
+Epi = (m0 + md ) ⋅ g ⋅ h
+Eci = 0 car la vitesse initiale est nulle
+Etat final :
+La cabine de gauche est en haut et la cabine de droite est en bas.
+Ici, les 2 cabines ont la même vitesse.
+Ecf =
+
+( 2m0 + m d + m g ) ⋅ v f
+
+2
+
+2
+
+Epf = (m0 + m g ) ⋅ g ⋅ h car Epd = 0 car h=0
+Funiculaire à Contrepoids à Eau
+
+Page 20/36
+
+En effet, la cabine de droite étant à la station basse (donc à h=0), son énergie potentielle
+est nulle.
+∆Ep = Epf - Epi
+∆Ec = Ecf - Eci
+∆Em = (Epf - Epi) + Ecf car Eci =0
+2
+
+( 2m0 + m d + m g ) ⋅ v f 
+∆Em = ((m0 + m g ) ⋅ g ⋅ h) − ((m0 + md ) ⋅ g ⋅ h) +
+
+2
+
+
+
+2
+
+( 2m0 + m d + m g ) ⋅ v f 
+∆Em = ( g ⋅ h)(m g − md ) +
+
+2
+
+
+
+ ( 2m0 + m d + m g ) ⋅ v f 2 
+
+ = ∆Em – (( g ⋅ h)(m − m ) )
+g
+d
+
+
+2
+
+
+∆Em = 0
+
+2
+
+vf =
+
+vf =
+
+− 2( g ⋅ h)(m g − md )
+( 2m0 + m d + m g )
+2( g ⋅ h)(−m g + md )
+( 2m0 + m d + m g )
+
+L’équation montre que si mg > md , l’équation n’est pas solvable donc les cabines ne
+bougent pas.
+
+Funiculaire à Contrepoids à Eau
+
+Page 21/36
+
+11.. P
+Prriinncciippee ffoonnddaam
+meennttaall ddee llaa ddyynnaam
+miiqquuee
+a) Le principe
+Le principe fondamental de la dynamique, appliqué à un point matériel M, s’énonce
+de la manière suivante :
+r
+f
+∑ = m⋅a
+avec
+
+a l’accélération du point matériel.
+r
+∑ f la somme des forces extérieures s’appliquant sur le point
+
+Le principe fondamental de la dynamique étant applicable dans un référentiel galiléen.
+
+b) Les vecteur vitesse et accélération :
+r
+En notant x = OM le vecteur position du point matériel M dans le repère d’origine O
+r
+r dx r
+Le vecteur vitesse est défini par : v =
+= x'
+dt
+r
+r
+r
+r dv dx ' d 2 x r
+Le vecteur accélération est défini par : a =
+=
+= 2 = x''
+dt
+dt
+dt
+Ainsi le principe fondamental de la dynamique
+peut s’écrire :
+r
+r
+∑ f = m ⋅ a = m ⋅ x''
+
+22.. A
+Apppplliiccaattiioonn àà nnoottrree ssyyssttèèm
+mee
+a) Constitution du système :
+Notre système est constitué de deux cabines relié par un fil : la cabine gauche
+(notée g) et la cabine droite (notée d) :
+
+Droite
+
+Gauche
+α
+
+Vue de face
+
+Funiculaire à Contrepoids à Eau
+
+Vue de profil
+
+Page 22/36
+
+b) Le repère choisi :
+Le repère d’étude utilisé est constitué d’un axe Ox ayant la direction de la pente
+comme représenté ci-dessous :
+
+x
+
+x
+
+O
+
+Droite
+
+Gauche
+
+O
+
+α
+
+Vue de face
+
+Vue de profil
+
+c) Hypothèse sur le fil :
+Pour toutes les résolutions et les discussions réalisées ci-dessous, nous avons fait
+l’hypothèse suivante :
+Le fil utilisé est inextensible (il n’est pas étirable).
+
+33.. EEttuuddee dduu ssyyssttèèm
+mee ddaannss llee ccaass iiddééaall oouu lleess ffrrootttteem
+meennttss ssoonntt
+nnéégglliiggééss
+a) Bilan des forces :
+Dans cette première étude nous allons considérer que les cabines ne subissent
+aucun frottement.
+
+x
+r
+Rd
+
+O
+r
+Rg
+α
+
+r
+r Td
+Pd
+
+r
+Tg
+r
+Pg
+
+Dans ce cas là chaque cabine est soumise à 3 forces : son poids ; la réaction de la
+pente et la tension du câble.
+Si nous reprenons nos hypothèses :
+
+Funiculaire à Contrepoids à Eau
+
+Page 23/36
+
+Les cabines ne subissent aucun frottement de la part de la pente, ainsi les
+réactions du support seront perpendiculaires à la pente.
+Le câble n’est pas étirable, ainsi, en norme Tg = Td , de plus x g ' = − xd ' et x g ' ' = − xd ' '
+
+b) Résolution du problème :
+On applique le principe fondamental de la dynamique à la cabine de droite et à la cabine
+de gauche :
+Cabine de droite :
+r r r
+r
+md ⋅ ad = md ⋅ xd ' ' = Pd + Td + Rd
+On projette cette égalité sur l’axe Ox (cf. le schéma ci-dessus)) :
+md ⋅ xd ' ' = − Pd sin(α ) + Td
+D’où
+Td = md ⋅ xd ' '+ Pd sin(α )
+Cabine de gauche :
+r r r
+r
+m g ⋅ a g = m g ⋅ x g ' ' = Pg + Tg + Rg
+On projette cette égalité sur l’axe Ox (cf. le schéma ci-dessus)) :
+mg ⋅ x g ' ' = − Pg sin(α ) + Tg
+D’où
+Tg = mg ⋅ x g ' '+ Pg sin(α )
+Comme le fil n’est pas étirable
+Tg = Td , de plus x g ' = − xd ' et x g ' ' = − xd ' '
+D’où : mg ⋅ x g ' '+ Pg sin(α ) = md ⋅ xd ' '+ Pd sin(α )
+En notant x = x g
+On arrive à :
+mg ⋅ x ' '+ Pg sin(α ) = −md ⋅ x' '+ Pd sin(α )
+
+(mg + md ) ⋅ x ' ' = ( Pd − Pg ). sin(α )
+Soit :
+
+x ''=
+
+(md − mg ).g . sin(α )
+(mg + md )
+
+Donc l’accélération est constante étant donné que les masses et que g restent
+constantes.
+Donc, en choisissant l’origine des temps le moment où les cabines débutent leurs
+mouvements ( x' (t = 0) = x g ' (t = 0) = − xd ' (t = 0) = 0 ), on arrive à :
+
+x '=
+
+Funiculaire à Contrepoids à Eau
+
+(md − mg ).g. sin(α )
+( m g + md )
+
+t
+
+Page 24/36
+
+c) Première discussion : nécessité de prendre en compte les
+frottements
+Nous reviendrons plus tard sur la réalisation pratique de l’étude expérimentale (sa
+conception pratique, les différentes mesures réalisées…etc.).
+Cependant pour évaluer la pertinence de notre étude théorique sans frottement, nous
+allons dés à présent commenter certains résultats expérimentaux.
+Dans la configuration : md – mg = 220 g et md + mg = 2120 g l’angle α = 48,2° , on
+obtient :
+V=f(t)
+1,4
+1,2
+
+V(m/s)
+
+1
+0,8
+
+vexp
+
+0,6
+
+vthéo
+
+0,4
+0,2
+0
+0
+
+0,2
+
+0,4
+
+0,6
+
+0,8
+
+1
+
+1,2
+
+1,4
+
+1,6
+
+1,8
+
+t(s)
+
+Les résultats expérimentaux étant éloignés des résultats théoriques (en particulier
+pour des grands temps), il nous a semblé nécessaire de reprendre notre étude théorique
+mais avec les frottements.
+
+44.. EEttuuddee dduu ssyyssttèèm
+mee ddaannss llee ccaass ooùù lleess ffrrootttteem
+meennttss nnee ssoonntt ppaass
+nnéégglliiggééss
+a) Bilan des forces
+Les forces non prises en compte précédemment sont les forces de frottement.
+Une force de frottement est une force due à l’adhérence, au niveau microscopique, des
+matériaux entre eux (entre deux solides ou entre un solide et un fluide).
+Cette force est opposée au déplacement ou à la mise en mouvement d’un objet.
+
+Funiculaire à Contrepoids à Eau
+
+Page 25/36
+
+x
+r
+Rd
+
+r
+Pd
+
+O
+r
+Rg
+r
+fg
+α
+
+r
+fd
+
+r
+Td
+
+r
+Tg
+r
+Pg
+
+Dans notre cas on peut refaire le schéma de la situation physique pour représentée
+les forces s’exerçant sur les chariots.
+La situation est représentée dans le cas où le chariot de droite (indice d) descend tandis
+que le chariot de gauche (indice g) monte.
+
+r
+f
+Pour conserver la notation introduite, on notera d la force de frottement exercée
+r
+sur le chariot droit et f g la force de frottement sur le chariot gauche.
+
+r
+
+r
+
+On conservera donc la notation Rd et Rg pour exprimer les composantes
+normales des réactions du support sur le chariot droit et gauche.
+Cette convention nous permettant de mieux voir les forces de frottements dans
+notre résolution et de conserver les notations introduites précédemment.
+Nous gardons en tête que, dans le cas d’une force de frottement solide, la force de
+frottement et la composante normale de la réaction du support sont les deux
+composantes d’une même force appelée la réaction du support.
+Dernier point : nous avons négligé, pour cette mise en équation les autres forces de
+frottement appliquées au système (sur les axes des poulies…etc.)
+
+b) Résolution du problème :
+On appliquera le principe fondamental de la dynamique à la cabine de droite et à la
+cabine de gauche :
+Cabine de droite :
+r
+r
+r
+r
+r
+md ⋅ ad = md ⋅ xd ' ' = Pd + Td + Rd + f d
+On projette cette égalité sur l’axe Ox (cf. le schéma ci-dessus)) :
+md ⋅ xd ' ' = − Pd sin(α ) + Td + f d
+D’où
+Td = md ⋅ xd ' '+ Pd sin(α ) − f d
+Cabine de gauche :
+r
+r r r
+r
+m g ⋅ a g = m g ⋅ x g ' ' = Pg + Tg + Rg + f d
+Funiculaire à Contrepoids à Eau
+
+Page 26/36
+
+On projette cette égalité sur l’axe Ox (cf. le schéma ci-dessus)) :
+mg ⋅ x g ' ' = − Pg sin(α ) + Tg − f g
+D’où
+Tg = mg ⋅ x g ' '+ Pg sin(α ) + f g
+Comme le câble n’est pas étirable
+Tg = Td , de plus x g ' = − xd ' et x g ' ' = − xd ' '
+d’où : md ⋅ xd ' '+ Pd sin(α ) − f d = m g ⋅ x g ' '+ Pg sin(α ) + f g
+En notant x = x g , on arrive à :
+
+− md ⋅ x ' '+ Pd sin(α ) − f d = m g ⋅ x ' '+ Pg sin(α ) + f g
+(m g + md ) ⋅ x ' ' = ( Pd − Pg ).sin(α ) − f d − f g
+D’où
+(mg + md ) ⋅ x ' ' = ( Pd − Pg ). sin(α ) − ( f d + f g )
+Ainsi :
+
+x '' =
+
+(md − m g ).g.sin(α )
+( m g + md )
+
+−
+
+( fd + f g )
+( m g + md )
+
+Donc, en choisissant l’origine des temps le moment où les cabines débutent leurs
+mouvements ( x' (t = 0) = x g ' (t = 0) = − xd ' (t = 0) = 0 ), on arrive à :
+
+ (md − mg ).g . sin(α ) ( f d + f g ) 
+x '= 
+−
+.t
+(mg + md )
+(mg + md ) 
+
+
+Funiculaire à Contrepoids à Eau
+
+Page 27/36
+
+c) Deuxième discussion : nécessité de prendre en compte les
+frottements solides et fluides
+Nous reviendrons plus tard sur la réalisation pratique de l’étude expérimentale (sa
+conception pratique, les différentes mesures réalisées…etc.).
+Cependant pour évaluer la pertinence de notre étude théorique, nous allons dés à
+présent commenter certains résultats expérimentaux.
+Dans la configuration : md – mg = 170 g et md + mg = 2070 g l’angle α = 48,2°, on
+obtient :
+V = f(t)
+0,7
+0,6
+
+V(m/s)
+
+0,5
+
+y = 0,2242x + 0,195
+R2 = 0,8808
+
+0,4
+0,3
+0,2
+0,1
+0
+0
+
+0,2
+
+0,4
+
+0,6
+
+0,8
+
+1
+
+1,2
+
+1,4
+
+1,6
+
+1,8
+
+2
+
+t(s)
+
+V = f(t)
+0,7
+0,6
+
+V(m/s)
+
+0,5
+y = -0,1068x 2 + 0,4206x + 0,1334
+R2 = 0,9238
+
+0,4
+0,3
+0,2
+0,1
+0
+0
+
+0,2
+
+0,4
+
+0,6
+
+0,8
+
+1
+
+1,2
+
+1,4
+
+1,6
+
+1,8
+
+2
+
+t(s)
+
+En observant les deux types de modélisations choisies (linéaire ou polynôme
+d’ordre 2), on observe que la modélisation avec un polynôme d’ordre 2 semble beaucoup
+plus pertinente que la modélisation avec une relation linéaire.
+Cette observation peut se faire :
+« A l’œil » : lorsque l’on observe les résultats expérimentaux, ceux-ci semblent
+« s’infléchir » pour des grands temps comme la modélisation avec un polynôme d’ordre 2.
+En regardant les cœfficients de détermination (corrélation) R² on observe qu’avec
+la modélisation avec un polynôme d’ordre 2, R²= 0,9238, alors qu’avec la modélisation
+linéaire, R²= 0,8808. Or on sait que plus R² est proche de 1 et plus la modélisation peut
+être considérée comme intéressante.
+
+Funiculaire à Contrepoids à Eau
+
+Page 28/36
+
+ (md − mg ).g . sin(α ) ( f d + f g ) 
+−
+En revenant à notre résultat théorique : x ' = 
+.t , on
+(mg + md )
+(mg + md ) 
+
+s’aperçoit que si fd + fg est constante on obtiendrait une relation linéaire entre x’ et t ce
+qui est en désaccord avec notre discussion ci-dessus.
+On peut donc en conclure qu’il nous faut considérer des forces de frottements qui
+ne soient pas constantes au cours du mouvement des chariots.
+Cette dernière constatation exclue le fait de considérer que les forces de
+frottements solides.
+
+d) Les forces de frottements :
+Nous allons prendre en compte les différents types de frottement :
+Force de frottement solide : d’après le loi de Coulomb (lorsque le corps est en
+mouvement)
+fsolide = f.RN avec f : le coefficient de frottement cinétique
+fsolide = f.R (avec nos notations)
+ainsi, dans notre cas :
+fsolide =f.(md + mg).g.cos(α)
+on trouve Rd = md.g.cos(α) et Rg = mg.g.cos(α) en appliquant le principe fondamentale de la
+dynamique.
+Lorsque l’on projette les forces selon l’axe perpendiculaire à Ox, on obtient ces
+relations en disant que, selon cet axe, il n’y a pas de mouvement.
+Force de frottement fluide :
+ffluide = γ.V = γ.x’ avec γ la constante de frottement fluide.
+
+e) Résolution complète du problème : mise en équation
+En introduisant ces forces dans la relation obtenue précédemment :
+
+(mg + md ) ⋅ x ' ' = ( Pd − Pg ). sin(α ) − (md + mg ). f .g. cos(α ) − γ .x'
+D’où
+
+md − mg
+
+x ''=
+
+md + mg
+
+.g. sin(α ) − f .g. cos(α ) −
+
+γ
+md + mg
+
+.x '
+
+Ou encore :
+
+x ' '+
+
+γ
+md + mg
+
+.x ' =
+
+md − mg
+md + mg
+
+.g. sin(α ) − f .g. cos(α )
+
+Qui peut se mettre sous la forme :
+
+x ' '+ B.x' = A
+avec B =
+
+γ
+md + mg
+
+et A =
+
+Funiculaire à Contrepoids à Eau
+
+md − mg
+md + mg
+
+.g. sin(α ) − f .g. cos(α )
+Page 29/36
+
+f) Résolution complète du problème : résolution de l’équation
+différentielle : x ' '+ B.x' = A :
+•
+
+Equation sans second membre :
+x ' '+ B.x' = 0
+
+L’équation caractéristique correspondante à cette équation différentielle est :
+r2 + B.r = 0
+Le discriminant de ce trinôme est ∆ = B2 (>0)
+D’où r = 0 ou r = -B
+La solution générale de l’équation sans second membre est donc :
+x = D.e-B.t + C
+avec D et C des constantes
+
+•
+
+Solution particulière de l’équation différentielle avec second
+membre x ' '+ B.x' = A :
+
+On choisie la solution la plus simple correspondant à x’’ = 0
+A
+x ' ' = 0 ⇔ B.x' = A ⇔ x' =
+B
+A
+Ainsi x = .t + E avec E une constante.
+B
+
+•
+
+Solution générale de l’équation différentielle avec second membre
+x ' '+ B.x' = A :
+
+La solution générale est :
+A
+x = .t + D.e − B.t + F avec F une constante (F = E+C)
+B
+Conditions initiales, détermination des constantes :
+On sait que à t = 0 : x = 0 et x’ = 0
+A t=0:x=0
+D + F = 0 ⇔ D = −F
+D’où
+A
+x = .t + F . 1 − e − B.t
+B
+A t = 0 : x’ = 0
+A
+Or x' = + B.F .e − B.t
+B
+A
+A
+D’où
++ B.F = 0 ⇔ F = − 2
+B
+B
+
+[
+
+]
+
+Ainsi
+
+Funiculaire à Contrepoids à Eau
+
+Page 30/36
+
+A
+A
+.t − 2 . 1 − e − B.t
+B
+B
+A
+et x' = . 1 − e − B.t
+B
+
+[
+
+x=
+
+[
+
+]
+
+]
+
+avec B =
+
+γ
+md + mg
+
+et A =
+
+md − mg
+md + mg
+
+.g. sin(α ) − f .g. cos(α )
+
+• Discussion
+Une fois encore on observe que le résultat obtenu n’a pas la forme de notre
+modélisation expérimentale (un polynôme d’ordre 2).
+Cependant si le temps t est faible devant la constante B on peut réaliser un
+développement limité de e-B.t au deuxième ordre pour retrouver un polynôme d’ordre 2
+Développement limité de e-B.t au deuxième ordre :
+2
+− B .t
+2 t
+e = 1 − B.t + B .
+2
+On obtient pour x’ :
+A
+t2 
+x' = . B.t − B 2 . 
+2
+B 
+•
+
+Soit x' = A.t − AB.
+
+t2
+2
+
+• En conclusion :
+La résolution de l’équation différentielle
+
+x ' '+ B.x' = A
+
+avec B =
+
+γ
+md + mg
+
+et A =
+
+md − mg
+md + mg
+
+.g. sin(α ) − f .g. cos(α )
+
+En faisant un développement limité au deuxième ordre de la solution, donne :
+AB 2
+x' = A.t −
+.t
+2
+
+55.. C
+Coom
+mppaarraaiissoonn ddeess rrééssuullttaattss eexxppéérriim
+meennttaauuxx eett ddee ll’’ééttuuddee
+tthhééoorriiqquuee
+a) Le choix de l’étude de x’
+Nous avons fait le choix de nous intéresser à x’ car c’est une grandeur facilement
+mesurable, qui représente à nos yeux correctement l’état du mouvement des chariots, et
+menant à moins d’imprécisions (expérimentales) que x’’.
+
+b)Les calculs de constantes de frottement
+Nous allons relier les résultats expérimentaux obtenus avec les grandeurs
+physiques introduites par les relations suivantes :
+AB 2
+La solution théorique est x' = A.t −
+.t avec
+2
+
+Funiculaire à Contrepoids à Eau
+
+Page 31/36
+
+B=
+
+γ
+md + mg
+
+et A =
+
+md − mg
+md + mg
+
+.g. sin(α ) − f .g. cos(α )
+
+Ce qui nous permet d’écrire :
+m − mg
+f .g. cos(α ) = d
+.g. sin(α ) − A
+md + mg
+D’où : f =
+
+md − mg
+md + mg
+
+. tan(α ) −
+
+A
+g. cos(α )
+
+Et
+
+γ = B.(md + mg )
+
+c) Les résultats expérimentaux :
+Voici un tableau synthétisant les différents résultats expérimentaux obtenus, ainsi
+que les résultats des calculs des coefficients de frottements (on rappelle que la solution
+AB 2
+théorique est x' = A.t −
+.t )
+2
+
+Enregistrements
+
+md-mg (g)
+
+md+mg (g)
+
+modélisation x' = a.t-b.t²+c
+
+b
+
+A=a
+
+Enregistrement 1
+Enregistrement 2
+Enregistrement 4
+Enregistrement 5
+Enregistrement 6
+Enregistrement 7
+
+120
+170
+220
+270
+320
+370
+
+2020
+2070
+2120
+2170
+2220
+2270
+
+y = -0,0761x2 + 0,2714x + 0,1075
+
+0,0761
+0,1068
+0,1314
+0,2286
+0,2577
+0,2288
+
+0,2714
+0,4206
+0,5824
+0,8437
+0,9829
+1,0186
+
+Enregistrements
+
+B = 2b/a
+
+Enregistrement 1
+Enregistrement 2
+Enregistrement 4
+Enregistrement 5
+Enregistrement 6
+Enregistrement 7
+
+0,56079587
+0,50784593
+0,45123626
+0,54189878
+0,52436667
+0,44924406
+
+f =
+
+y = -0,1068x2 + 0,4206x + 0,1334
+y = -0,1314x2 + 0,5824x + 0,0786
+y = -0,2286x2 + 0,8437x + 0,0523
+y = -0,2577x2 + 0,9829x + 0,0788
+y = -0,2288x2 + 1,0186x + 0,1125
+
+md − m g
+md + mg
+
+. tan(α ) −
+
+2,4935E-02
+2,7528E-02
+2,6995E-02
+1,0129E-02
+1,0896E-02
+2,6520E-02
+
+A
+g. cos(α )
+
+γ = B.(md + mg )
+
+R²
+
+1,132807664
+1,051241084
+0,956620879
+1,175920351
+1,164094008
+1,019784017
+
+0,8259
+0,9238
+0,9697
+0,9702
+0,986
+0,9788
+
+d) Discussion sur les résultats expérimentaux :
+•
+
+Le coefficient de frottement solide :
+
+Ce coefficient de frottement solide, intervenant dans la loi de Coulomb, dépend
+uniquement de la nature des solides en contact.
+Ce coefficient ne dépend donc pas, a priori, de l’état de mouvement du solide.
+Nos résultats expérimentaux semblent être en accord avec ce fait.
+
+Funiculaire à Contrepoids à Eau
+
+Page 32/36
+
+En effet, comme le montre le tableau ci-dessous, la valeur calculée est du même ordre
+pour tous les enregistrements réalisés (avec une différence notable pour l’enregistrement
+5 et 6) :
+
+Enregistrements
+
+md-mg (g)
+
+md+mg (g)
+
+Enregistrement 1
+Enregistrement 2
+Enregistrement 4
+Enregistrement 5
+Enregistrement 6
+Enregistrement 7
+
+120
+170
+220
+270
+320
+370
+
+2020
+2070
+2120
+2170
+2220
+2270
+
+f =
+
+md − m g
+md + mg
+
+. tan(α ) −
+
+A
+g. cos(α )
+
+2,4935E-02
+2,7528E-02
+2,6995E-02
+1,0129E-02
+1,0896E-02
+2,6520E-02
+
+Un deuxième argument semble confirmer la validité des nos mesures.
+En partant des chariots immobiles, nous avons mesuré la différence de masse
+minimum pour qu’il y ait mise en mouvement du système : md – mg = 70g avec
+md + mg =1970 g
+Cette mesure nous permet d’avoir une idée de la valeur du coefficient de frottement
+R
+statique f s de notre système (le rapport T maximum en dessous duquel le mouvement
+RN
+est impossible).
+m − mg
+fs = d
+. tan(α )
+md + m g
+Dans notre cas : f s = 4,0.10 −2
+La loi de Coulomb sur le frottement prévoit que le coefficient de frottement
+statique f s est du même ordre que le coefficient de frottement cinétique f tout en lui
+étant supérieur ( f s > f ).
+Nos résultats semblent donc en accord avec cette loi de Coulomb.
+
+•
+
+Le coefficient de frottement fluide :
+
+Ce coefficient de frottement fluide de la nature du fluide qui entoure le solide, et
+de la forme du solide.
+Ce coefficient ne dépend donc pas, a priori, de l’état de mouvement du solide.
+
+Funiculaire à Contrepoids à Eau
+
+Page 33/36
+
+Nos résultats expérimentaux semblent être en accord avec ce fait.
+En effet, comme le montre le tableau ci-dessous, la valeur calculée est du même ordre
+pour tous les enregistrements réalisés :
+
+Enregistrements
+
+md-mg (g)
+
+md+mg (g)
+
+γ = B.(md + mg )
+
+Enregistrement 1
+Enregistrement 2
+Enregistrement 4
+Enregistrement 5
+Enregistrement 6
+Enregistrement 7
+
+120
+170
+220
+270
+320
+370
+
+2020
+2070
+2120
+2170
+2220
+2270
+
+1,132807664
+1,051241084
+0,956620879
+1,175920351
+1,164094008
+1,019784017
+
+Par contre, si on essaye de comparer l’ordre de grandeur obtenu avec ce que nous
+donnerait la formule de Stockes du frottement fluide, on observe une différence très
+importante.
+En effet, la formule de Stockes du frottement fluide, dans le cas d’une sphère de rayon
+R est :
+r
+r
+r
+f = −6Π.R.η .V = −6Π.R.η .x '
+avec η le coefficient de viscosité du fluide
+Nos chariots ayant une taille caractéristique : D = 10 cm, nous pouvons déterminer un
+ordre de grandeur de notre coefficient γ.
+D
+γ = 2 × 6Π. .η
+2
+(on multiplier par 2 car il y a 2 chariots)
+Dans l’air η = 18.10-6 N.s.m-2 :
+On arrive à
+5
+γ = 2 × 6Π. .18.10 −6 = 1.10 −3
+2
+On est donc loin de l’ordre de grandeur du γ expérimental (γ ≈ 1), et cette
+différence d’ordre de grandeur ne peut pas s’expliquer, bien entendu, par le fait que
+nous avons raisonné comme si nos chariots avaient la forme d’une sphère.
+Il semble qu’il y ait donc d’autres sources de frottement fluide qui s’exercent sur le
+système.
+Nous n’avons malheureusement pas eu le temps de les rechercher par manque de temps.
+
+•
+
+Validité de notre modèle ?
+
+Pour clore cette discussion, il nous reste à vérifier la validité de nos approximations,
+en particulier la pertinence de notre développement limité à l’ordre 2.
+Pour cela comparons e − B.t avec 1 − B.t + B 2 .
+
+t2
+dans le cas où le coefficient BT est
+2
+
+maximum.
+Nos mesures nous ont donné B ≈ 0,5 et le temps maximum de nos acquisitions est t ≈ 2s.
+Funiculaire à Contrepoids à Eau
+
+Page 34/36
+
+On peut donc calculer l’écart relatif entre e − B.t et 1 − B.t + B 2 .
+e
+
+− B .t
+
+t2
+pour Bt = 1 :
+2
+
+2
+
+2 t 
+− 1 − B.t + B .  e −1 − 1 − 1 + 1 
+2
+2
+
+
+=
+= 27%
+− B .t
+−1t
+e
+e
+
+Ce qui reste correct (par exemple pour l’enregistrement 7 le temps maximum de nos
+acquisitions est t ≈ 1 s, ce qui nous amène à un écart relatif égal à 3 %).
+
+66.. EExxpplliiccaattiioonn ddeess pprriisseess ddee m
+meessuurreess
+Pour comparer notre funiculaire avec la théorie (étude dynamique), nous avons réalisé
+une expérience.
+Pour cela, nous avons filmé les mouvements des cabines pour différentes masses et
+ensuite nous avons exploité ces vidéos à l’aide du logiciel « avimeca ». Nous avons pointé
+ème
+1
+le déplacement de la cabine droite (descendante) tout les
+de seconde afin d’obtenir
+14
+des mesures très précises.
+
+Funiculaire à Contrepoids à Eau
+
+Page 35/36
+
+VIII. Conclusion
+11.. SSuurr llee pprroojjeett
+Ce projet a contribué à l’enrichissement de nos connaissances dans le domaine
+scientifique. Il nous a permis de nous projeter dans l’avenir en utilisant une démarche
+d’ingénieur. Nos recherches individuelles ou effectuées en groupe nous ont permis de
+résoudre divers problèmes. Nous avons réussi à être complémentaires afin de mener à
+bien notre projet.
+
+22.. SSoouurrcceess
+http://www.funimag.com/funimag19/CAT01FR.htm (site dédié aux funiculaires)
+http://www.funimag.com/funimag19/Lynton01FR.htm(site dédié aux funiculaires)
+http://fr.wikipedia.org/wiki/Funiculaire (définition d’une encyclopédie)
+http://www.funiculaire.fr/ (site du funiculaire de St Hilaire de Touvet)
+
+33.. LLooggiicciieellss uuttiilliissééss
+•
+•
+•
+•
+•
+•
+•
+
+Windows
+Solidworks® (modélisation mécanique)
+Workbench (schématisation électronique)
+TCI (schematisation de typon pour les circuits imprimes)
+SDS (schematisation électronique et électrique)
+PICBASIC Studio (conception de programme)
+Avimeca (pointage d’un objet)
+
+44.. R
+Reem
+meerrcciieem
+meennttss
+•
+•
+•
+•
+•
+•
+•
+•
+•
+
+M. Pinault et M. Vallon : professeurs de Sciences de l’Ingénieur, pour leurs
+explications et leurs conseils.
+M. Errami : professeur de physique-chimie, pour son aide, son soutien et
+l’organisation.
+M. Jaubert Ludovic et M. Duffait Roger : chercheurs, pour leurs aides.
+M. Bruno : professeur de physique-chimie, pour son aide pour les expériences.
+L’Organisation des Olympiades de Physique.
+Le Lycée René Cassin, pour son soutien général.
+Nos partenaires.
+Le funiculaire de St Hilaire du Touvet.
+Usine de Métallurgie.
+
+Funiculaire à Contrepoids à Eau
+
+Page 36/36
+
+

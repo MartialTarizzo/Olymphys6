@@ -85,7 +85,7 @@
 
                 {% for i in 0..min(titre|length-1, nsecmax-1) %}
                     <h5>{{ titre[i] }}</h5>
-                 &nbsp;    &nbsp;    &nbsp;    &nbsp;<a href="{{pdfUrl[i] }}" target='_blank'>Afficher le mémoire</a><br>
+                 &nbsp;    &nbsp;    &nbsp;    &nbsp;<a href="{{pdfUrl[i] }}" target='_blank'>Afficher le mémoire</a> - <a href="{{path('odpf_editionspassees_equipe',{'id': equipes[i].id})}}" target='_blank'>Voir la page de l'équipe</a> <br>
                     <span style='font-style:italic;'> <b>mots-clés trouvés : <span style='background-color:yellow;'>{{ occurence[i] }}</span></b></span>
                     <br>
                     <br>

@@ -1,0 +1,464 @@
+UN AMPLI AUDIO
+POUR FAIRE RIRE LES OISEAUX
+Par
+Alexandre Meyer: élève en terminale S au Lycée Hoche
+Thomas Zielinski: élève en seconde au Lycée Hoche
+
+Passionnés d'électronique, nous nous sommes rencontrés à l'atelier scientifique du
+Lycée Hoche en 2009 et c'est là qu'est née notre coopération sur le sujet des amplificateurs
+audio, thème qui nous passionne tous les deux.
+
+Page 1
+
+Sommaire
+Introduction (page 3)
+I-Présentation de l'étude (page 4)
+1) Principe de l'amplification et de la restitution du son (page 4)
+2) La puissance électrique (page 4)
+3) Le niveau sonore - Principe de fonctionnement d’un hautparleur (page 5)
+4) Les séries de Fourier (page 6)
+II-Présentation des expériences (page 7)
+1) Etude de l’amplificateur pour PC (page 8)
+2) Etude de l’amplificateur en intensité (page 11)
+>Point sur les filtres de fréquence (page 12)
+3) Principe et étude de l’amplificateur en tension (page 15)
+>Point sur les résistances parasites (page 18)
+Conclusion (page 22)
+
+Page 2
+
+Introduction
+Il est souvent difficile de choisir des amplificateurs audio adaptés à un usage spécifique. Les caractéristiques
+présentées sur l’emballage se résument souvent à la puissance électrique fournie aux haut-parleurs compatibles et à
+la bande passante de l’ensemble amplificateur-enceintes.
+Un grand nombre de modèles ayant les mêmes caractéristiques de base, le consommateur ne peut s'en
+remettre qu'à la réputation d'une marque pour juger de ses performances.
+C’est à partir de ce constat que nous avons décidé d’étudier plus en détails les caractéristiques
+d’amplificateurs du commerce et de comparer les résultats obtenus avec ceux de montages expérimentaux, afin de
+tirer des conclusions sur les performances des produits grand public, et de cerner les paramètres déterminants pour
+le choix d’amplificateurs de bonne qualité.
+Nous tenterons également de proposer une alternative dans la conception d’amplificateurs audio pour
+augmenter la qualité sonore et le rendement énergétique.
+
+Page 3
+
+I) Présentation de l’étude
+1) Principe de l’amplification et de la restitution du son
+Un système d'amplification audio classique est constitué de deux éléments de base :
+- un amplificateur audio, permettant d'amplifier un signal électrique, image du son à restituer ;
+- les enceintes constituées d'un caisson et de haut-parleurs transformant l’énergie électrique issue de
+l'amplificateur en énergie mécanique sous forme d’ondes sonores restituées à l’auditeur.
+
+2) La puissance électrique
+La puissance électrique P délivrée ou consommée par un appareil s’exprime en Watts (symbole W) : il s’agit
+du produit de la tension U en Volts (V) par l’intensité I en Ampères (A) :
+La puissance électrique moyenne a comme expression:
+
+Dans le cas d’un circuit d’amplification audio, on s’intéresse :
+- à la puissance électrique consommée par l’amplificateur (issue du secteur 220V) ;
+- à la puissance électrique délivrée au travers du signal électrique amplifié en sortie.
+Page 4
+
+En utilisant la loi d’Ohm (U=RI donc I=U/R), on obtient la puissance moyenne en Watts RMS (Wrms) délivrée par le
+circuit amplificateur à un conducteur ohmique de résistance R :
+
+3) Le niveau sonore - Principe de fonctionnement d’un haut-parleur
+Le niveau sonore (noté L) s’exprime en dixièmes de Bel (B) ou décibels (dB) et se mesure avec un sonomètre.
+Il s'obtient par la relation :
+
+avec l'intensité sonore mesurée et l'intensité sonore minimale audible par l'être humain (1,0x10-12 W/m²).
+L'intensité sonore correspond à la puissance en watts par unité de surface (le m²) avec laquelle l’air fait pression sur
+un corps. Le niveau SPL (« Sound Pressure Level ») pour un haut-parleur correspond au niveau sonore mesuré à une
+distance D de 1 mètre du haut-parleur quand une puissance électrique de 1Wrms lui est fournie (exemple :
+89dB/W/m).
+L’énergie électrique délivrée par le circuit est transformée par le haut-parleur en énergie mécanique grâce à
+une bobine : à partir d’un courant électrique alternatif, elle crée un champ magnétique également alternatif qui
+interagit avec celui d’un aimant permanent placé en son centre. De cette alternance d'attractions et de répulsions
+résulte une force qui fait osciller la bobine au rythme du signal électrique ; celle-ci étant solidaire de la membrane du
+haut-parleur, on obtient une génération d’ondes sonores par déplacement de cette dernière.
+
+Chaque haut-parleur possède une (ou plusieurs) fréquence(s) de résonance pour laquelle l’amplitude de
+vibration de la membrane est maximale : elles correspondent aux fréquences auxquelles il y a le moins de pertes
+d’énergie dans la structure du haut-parleur.
+
+Page 5
+
+4) Les séries de Fourier
+Un signal sonore semble à première vue n’être qu’une onde chaotique sans véritable identité
+mathématique. Cependant, on s’est aperçu que toute onde sonore peut être décomposée en une somme de signaux
+sinusoïdaux. Ces ondes sinusoïdales varient bien sûr en intensité et en fréquence au cours du temps, pour former un
+son complexe.
+Décomposer un son de cette façon consiste à l'exprimer sous la forme d'une série de Fourier (du nom de
+Joseph Fourier, mathématicien physicien qui découvrit cette propriété), qui se présente couramment sous la forme
+d’un diagramme représentant l’intensité du signal en fonction de la fréquence.
+Par exemple, prenons le son suivant :
+
+Il est en fait la somme de ces deux signaux sinusoïdaux :
+
+Fréquence f et amplitude a >>>
+
+<<<Fréquence 2f et amplitude 1.5a
+
+Et voici sa série de Fourier :
+
+Page 6
+
+Cette propriété des ondes sonores est très intéressante, car étudier le comportement d’un amplificateur
+uniquement en régime sinusoïdal permet de tirer des conclusions valables pour toutes les formes d’ondes que l’on
+pourrait rencontrer dans n’importe quelle bande son. C’est pourquoi nous allons caractériser le comportement de
+nos amplificateurs en fonction de la fréquence d’un signal sinusoïdal appliqué en entrée.
+
+II) Présentation des expériences
+Dans nos expériences, nous avons utilisé, en entrée de l'amplificateur, un GBF (Générateur Basses
+Fréquences) en tension sinusoïdale.
+Nous avons fait varier la fréquence du GBF sur toute la gamme des sons audibles, de 20Hz à 20 kHz et avons
+mesuré, à amplitude constante :
+- la tension maximale Umax en sortie de l'amplificateur à l'aide d'un oscilloscope et l'intensité efficace ieff à
+l'aide d'un ampèremètre, afin de calculer la puissance électrique en sortie de l'amplificateur
+- le niveau sonore L en dB grâce au sonomètre placé à une distance donnée
+Nous disposons pour cela de trois circuits d’amplification différents ;
+- un que nous avons récupéré dans des enceintes pour PC ;
+- un autre que nous avons conçu et qui régule uniquement l’intensité de sortie vers les haut-parleurs ;
+- un deuxième que nous avons également conçu et qui régule quant à lui la tension de sortie vers les hautparleurs ;
+
+ainsi que de trois types d’enceintes ;
+- des enceintes pour PC ;
+- des mini enceintes hifi ;
+- une paire d’enceintes en bois conçues et construites par nos soins.
+Dans notre étude, nous serons amenés à représenter, en fonction de la fréquence, l’amplitude et la
+puissance électrique d’un signal en sortie d’amplificateur, le niveau sonore en sortie d’un haut-parleur et le
+déphasage de la tension entre la sortie et l’entrée d’un amplificateur.
+
+Page 7
+
+1) Etude de l’amplificateur pour PC
+a) Avec ses propres enceintes
+en bleu : courbe représentant la puissance électrique fournie par l'amplificateur
+en rouge : le niveau sonore mesuré au sonomètre
+
+Nous n'avons pas pu faire nos mesures dans des conditions identiques. Plusieurs paramètres variaient,
+comme la puissance électrique délivrée par l'amplificateur ou les réflexions des ondes sonores dans la
+salle. C'est pourquoi nous avons fait le choix de les présenter en ne conservant que les proportions entre
+les valeurs d'une même série de mesures, de manière à pouvoir comparer ces dernières entre elles. Par
+exemple, les courbes de puissance électrique représentent, en fonction de la fréquence, le rapport
+P/Pmax, avec Pmax la puissance maximale relevée dans chaque série de mesures. Nous avons choisi le
+même compromis en ce qui concerne les courbes de niveau sonore : y(f) = L/Lmax.
+Observations :
+- la courbe de puissance n’est pas constante et la puissance délivrée par l’amplificateur du commerce
+diminue globalement quand la fréquence augmente ;
+- la courbe du niveau sonore présente des oscillations à certaines fréquences, le niveau sonore est plus
+important qu’à d’autres, mais il n’y a pas de baisse trop importante.
+
+Page 8
+
+b) Avec l’enceinte hi-fi
+
+Nous avons rajouté sur le diagramme précédent les deux nouvelles courbes : en violet pour le niveau sonore et en
+bleu clair pour la puissance électrique
+Interprétations :
+- on remarque que l’allure de cette courbe de puissance est quasiment identique à la précédente ; on peut
+en déduire que l’enceinte utilisée n’a aucune influence sur l’allure de la courbe de puissance que va délivrer
+l’amplificateur du commerce en fonction de la fréquence.
+- la courbe de variation du niveau sonore en fonction de la fréquence présente toujours des oscillations mais
+celles-ci sont différentes de la courbe précédente : l’enceinte du commerce et l’enceinte hi-fi ne
+convertissent donc pas la puissance électrique reçue avec les mêmes imperfections en fonction de la
+fréquence.
+A l’écoute d’un morceau de musique, on remarque que l’enceinte hi-fi fournit un son plus fort que l’enceinte
+en bois à puissance électrique égale, lui-même supérieur à celui produit par l’enceinte du commerce.
+>>>Remarque 1 : la puissance sonore varie en fonction de l’enceinte utilisée
+La différence observée provient des grandeurs caractéristiques des haut-parleurs (voir intro). Les enceintes
+que nous avons mises au point ont des boomers de niveau SPL de 92dB/W/m et des tweeters de 97dB/W/m sur
+lesquels nous avons placé des obturateurs afin de diminuer la proportion de puissance qui sera perçue par
+l’auditeur. Elles ont ainsi un niveau SPL global d’environ 92dB/W/m. On peut donc affirmer que comme le niveau
+sonore délivré par la mini enceinte hi-fi est plus important à puissance électrique égale fournie par le circuit que
+celui de l’enceinte en bois, son niveau SPL sera supérieur à 92dB/W/m. Par un raisonnement analogue, nous arrivons
+à la conclusion que les enceintes pour PC ont un niveau SPL inférieur à 92dB/W/m.
+
+Page 9
+
+Mais il faut savoir que le niveau sonore en dB à la sortie d’un haut-parleur n’est pas proportionnel à la
+puissance électrique qu’il consomme ; en effet, il existe une fonction non linéaire qui lie ces deux grandeurs : la
+fonction logarithme décimal. Si l’on veut augmenter le niveau sonore de 3dB (plus précisément de log(2) Bel (environ
+3.01dB)), il faut multiplier la puissance électrique fournie par deux. Donc si L est le niveau sonore en dB obtenu avec
+une puissance électrique P et L’ avec une puissance P’, on a la relation :
+
+Par exemple, si un haut-parleur donne une puissance sonore de 88dB à 1m quand on lui fournit 1WRMS, on ne
+mesurera que 91dB pour 2WRMS, 94dB pour 4WRMS et 103dB pour 32WRMS.
+Ainsi, on se rend bien compte que le niveau SPL des haut-parleurs est un élément important dans le choix
+d’enceintes de bonne qualité.
+
+>>>Remarque 2 : les circuits d’amplification dissipent de la chaleur grâce à leurs refroidisseurs.
+Cette chaleur est produite par effet Joule dans les composants du circuit, et notamment dans les transistors
+de puissance ; il s’agit de la transformation d’une partie de la puissance électrique consommée par le circuit en
+chaleur, et donc de perte d’énergie qui ne servira pas à faire fonctionner les haut-parleurs.
+La perte de puissance par effet Joule peut se mesurer de façon simple en soustrayant tout simplement la
+puissance PS que le circuit fournit par ses sorties à la puissance PE qu’il consomme.
+Le rendement d’un circuit vaut
+
+et est souvent exprimé en pourcentage.
+
+Ainsi les unités centrales d’ordinateur convertissent presque la totalité de la puissance qu’elles consomment
+(environ 800 à 1300 Watts) en chaleur ; en effet, les seules sorties qu’elles possèdent sont des connexions véhiculant
+de l’information et consommant quelques microwatts.
+Suivant les types d’architecture des montages électroniques et la qualité des composants utilisés, la
+proportion des pertes peut varier sensiblement entre des circuits qui ont pourtant la même fonction et qui ont des
+caractéristiques semblables. Par exemple, le rendement des circuits d’amplification audio courants ont un
+rendement situé entre 10 et 75% à pleine puissance. Les deux amplificateurs que nous avons conçus atteignent eux
+65 à 70% de rendement, ce qui est tout-à-fait honorable.
+En somme, la puissance électrique fournie par le circuit aux haut-parleurs ne reflète pas la réelle
+consommation de l’ensemble qui peut varier du double au décuple suivant les modèles. Et d’autant que plus les
+pertes par effet Joule ainsi que la puissance électrique totale consommée par le circuit augmentent, plus il faudra
+consommer d’énergie pour faire tourner les ventilateurs de refroidissement qui ont eux aussi un rendement assez
+faible (40 à 60%). Il faut donc mieux acheter un amplificateur moins puissant (et en général moins cher) et l’associer
+à des haut-parleurs qui ont un bon rendement pour moins consommer.
+
+Page 10
+
+2) Etude de l’amplificateur en intensité
+Nous allons dans cette partie interpréter les résultats de mesures sur un amplificateur en intensité que nous
+avons fabriqué.
+Il a été spécialement conçu pour délivrer une intensité constante en sortie vers le haut-parleur : la tension de
+sortie ne dépend donc que de l’impédance du haut-parleur.
+Nous avons pris pour l’expérience notre enceinte en bois qui a une fréquence de résonance de 100Hz
+d’après les caractéristiques du haut-parleur fournies par le fabricant.
+Voici la courbe représentant l’amplitude de la tension aux bornes de l’enceinte en bois en fonction de la fréquence.
+
+Nous pouvons remarquer une très forte augmentation de l’amplitude de la tension aux alentours de 100Hz.
+On peut donc en déduire que comme l’intensité reste constante quelle que soit la fréquence, c’est
+l’impédance de la bobine du haut-parleur qui augmente à sa fréquence de résonance. Or comme la puissance
+fournie à l’enceinte vaut le produit de l’intensité efficace par la tension efficace, une hausse de tension implique une
+hausse de la puissance délivrée par le circuit. Ainsi, si f est une fréquence quelconque et F une fréquence de
+résonance d’un haut-parleur, on a :
+est constant pour tout f.
+Si
+
+, alors comme
+
+,
+, donc si
+
+augmente,
+
+.
+augmente aussi.
+
+Page 11
+
+Ce qui nous donne, avec une intensité efficace de 500mA :
+
+Les circuits d’amplification en intensité sont couramment utilisés pour les amplificateurs audio, mais les concepteurs
+doivent alors rajouter un ou plusieurs filtres qui diminuent l’intensité et donc la puissance fournie aux enceintes à
+certaines fréquences pour compenser la hausse de leur impédance et la résonance de leur membrane.
+Point sur les filtres de fréquence
+Un filtre de fréquence est un circuit électronique qui atténue plus ou moins des signaux alternatifs en
+fonction de leur fréquence. Le signal soumis au filtre s’en trouve ainsi modifié. On considère qu’un filtre ne coupe
+pas une fréquence tant que l’amplitude du signal concerné perd moins de 50% de sa valeur initiale (ou 3dB) ; la
+bande passante d’un filtre est ainsi constituée de l’ensemble des fréquences non coupées. Il existe plusieurs
+principaux types de filtres :
+- les filtres passe-haut qui coupent toutes les fréquences situées en dessous d’une valeur seuil
+caractéristique du filtre, c'est-à-dire sa fréquence de coupure;
+
+Page 12
+
+- les filtres passe-bas qui coupent toutes les fréquences supérieures à sa fréquence de coupure;
+
+- les filtres passe-bande qui coupent à la fois les fréquences inférieures à une valeur a et supérieures à une
+autre valeur b, avec a inférieur ou égal à b ;
+
+- les filtres coupe-bande qui coupent toutes les fréquences situées entre deux valeurs a et b, avec a inférieur
+ou égal à b.
+
+Page 13
+
+Pour améliorer les performances de leurs amplificateurs, les constructeurs utilisent un ou plusieurs filtres
+coupe-bande en entrée de l’amplificateur qui atténuent le signal correspondant à la fréquence de résonance de
+l’enceinte.
+>>>Remarque 3 : le filtre doit être bien réglé et les réglages sont différents pour chaque enceinte.
+Mais cela pose un problème majeur : si l’on veut changer d’enceintes, il faut re-régler les filtres en s’aidant
+d’appareils de mesure lourds (GBF, sonomètre), ce qui n’est pas commode si l’amplificateur est destiné à pouvoir
+être branché à différentes enceintes.
+La solution que les constructeurs ont adoptée est de placer un filtre coupe-bande permanent dans chaque
+enceinte et aucun dans le circuit. Ce filtre a pour rôle de dissiper une partie de l’énergie électrique fournie par le
+circuit, mais uniquement à la fréquence de résonance du haut-parleur et suffisamment pour atténuer cette
+résonance. Ces filtres sont généralement composés d’un condensateur et d’une bobine placés en série (filtre LC), le
+tout en parallèle du haut-parleur, comme le montre le schéma ci-dessous :
+
+Il y a cependant trois défauts majeurs à ce système :
+- premièrement, il consomme beaucoup d’énergie et la dissipe par effet Joule. Cela est encore plus
+problématique quand la puissance dissipée doit être importante (pour les grosses enceintes) car il faut alors
+renforcer la résistance thermique des bobines, et le filtre peut alors valoir une centaine d’euros à lui tout
+seul ;
+- deuxièmement, une enceinte n’a jamais une seule fréquence de résonance, et il faut cependant un filtre
+par fréquence de résonance ; on imagine bien alors le prix des enceintes qui ont une bande passante
+parfaitement constante ;
+- troisièmement, la tolérance, c'est-à-dire la marge d’erreur dans les valeurs des composants utilisés et dans
+la détermination de la fréquence effective de résonance du haut-parleur doit impérativement être très
+restreinte pour garantir la qualité du son. Les enceintes de qualité avec filtre intégré sont donc
+nécessairement assez chères.
+Remarque : certains constructeurs dimensionnent leurs haut-parleurs pour que leur fréquence de
+résonance soit en dehors leur bande passante. Cependant cette alternative n’est intéressante que pour les caissons
+de basses qui voient alors leur niveau SPL augmenter à la limite des infrasons, mais ne lisse en rien le niveau sonore
+mesurable à la sortie de ces haut-parleurs.
+
+Page 14
+
+3) Principe et étude de l’amplificateur en tension
+Nous avons alors essayé de comprendre plus en détail le mécanisme de résonance du haut-parleur afin de
+trouver une solution adaptée aux amplificateurs de puissance pour rendre la courbe de niveau sonore la plus
+constante possible en fonction de la fréquence.
+Nous savons déjà que l’explication d’un point de vue mécanique est très simple : de la même manière qu’un
+verre résonne à une fréquence constante lorsqu’on tape légèrement dessus avec un couvert, les membranes des
+haut-parleurs ont chacune des fréquences auxquelles elles produisent un son plus fort qu’à d’autres fréquences, et
+cela avec la même énergie qui leur est fournie. Nous ne pouvons rien changer de ce côté-là, car les haut-parleurs ne
+se prêtent pas bien, du fait de leur grande fragilité, à des modifications mécaniques.
+Du point de vue électrique, nous avons remarqué dans nos expériences que l’amplitude de la tension aux
+bornes des haut-parleurs augmentait quand on les faisait vibrer à leur fréquence de résonance. Comme on utilisait
+des amplificateurs qui fonctionnent en intensité, c’est-à-dire que l’amplitude de l’intensité passant dans les hautparleurs était constante quelle qu’ait été la fréquence, il faut en déduire que selon la loi d’Ohm (U=ZI), c’est
+l’impédance des bobinages qui augmente à la résonance.
+Ainsi, à la fréquence de résonance, la puissance consommée (P=UI) par le haut-parleur augmente car son
+impédance augmentant, la tension à ses bornes devient plus importante. Ceci amplifie le phénomène naturel de
+résonance de la membrane.
+Il nous est alors venu une idée : si l’amplificateur régulait non plus l’intensité de sortie mais la tension aux
+bornes des haut-parleurs, la solution à tous les problèmes de résonance serait trouvée. En effet, le but est de réduire
+la puissance consommée par le haut-parleur à sa fréquence de résonance, sans connaître celle-ci et sans dissiper
+d’énergie par effet Joule. Or si on régule l’amplitude de la tension du signal électrique, quand l’impédance du hautparleur augmente, l’intensité qui le traverse diminue et la puissance qu’il consomme diminue également, ce qui
+vient compenser la résonance mécanique de la membrane.
+est constante pour tout f.
+A
+
+,
+
+.
+
+D’où :
+Comme
+
+, si
+
+augmente,
+
+diminue et
+
+diminue.
+
+Ainsi, il n’y a plus besoin de filtre à régler, plus d’énergie dissipée par effet Joule, plus de problème de
+précision dans la correction de la résonance, et l’amplificateur électronique compense de lui-même les multiples
+fréquences de résonance que pourrait avoir chaque haut-parleur.
+
+Page 15
+
+a) Avec l’enceinte du commerce
+
+b) Avec l’enceinte hi-fi
+
+Page 16
+
+c) Avec l’enceinte en bois
+
+Interprétations :
+-on observe avec cet amplificateur en tension des chutes importantes de puissance à certaines fréquences,
+mais contrairement au premier amplificateur, ces fréquences particulières dépendent de l’enceinte utilisée ; deux
+chutes à 65Hz et à 190Hz pour l’enceinte hi-fi et une à 100Hz pour l’enceinte en bois. Mais ces fréquences
+correspondent exactement aux fréquences de résonance des enceintes. L’amplificateur en tension réduit donc bien
+de lui-même la puissance qu’il fournit aux fréquences de résonance des enceintes, sans que l’on ait dû le régler au
+préalable. Il y a moins de gaspillage d'énergie.
+
+Conclusion :
+Du point de vue énergétique, l’amplificateur en tension s’avère donc être plus performant que les
+amplificateurs en intensité avec ou sans filtre(s). Mais il est impératif de respecter une condition pour profiter de ses
+avantages : la résistance électrique des connexions entre l’amplificateur en tension et les haut-parleurs doit être le
+plus faible possible.
+En effet, nous avons supposé jusqu’à présent que cette résistance était nulle ; mais que se passerait-il si elle
+montait à quelques Ohms, du fait d’une longueur de câbles importante par exemple ?
+
+Page 17
+
+Point sur les résistances parasites
+
+La tension aux bornes du haut-parleur ne serait plus égale à celle régulée par l’amplificateur, mais on aurait :
+Uh = Ua x (Z/(Z+R)) au lieu de Uh = Ua.
+De même, i = Ua/(Z+R) au lieu de i = Ua/Z.
+Ainsi, si on simule la puissance fournie par un amplificateur en tension délivrant une tension efficace de 4 V à
+un haut-parleur d’impédance Z en série avec une résistance parasite de 0 Ohms (en vert) et de 2 Ohms (en rouge),
+on obtient le graphe suivant :
+
+Page 18
+
+Il devient alors évident que plus la résistance parasite est grande, plus les pertes d’énergie par effet joule
+sont importantes et moins la correction de la puissance pour compenser la résonance est effective au niveau du
+haut-parleur. Il faut donc minimiser au maximum cette résistance de connexion entre les enceintes et l’amplificateur
+en tension.
+Remarque : les amplificateurs en intensité n’ont pas ce problème, car l’intensité étant la même dans le hautparleur et dans les câbles, la résistance des ces derniers n’a aucune incidence sur la puissance fournie aux enceintes.
+Par contre, ces résistances parasites augmentent la tension globale dans la boucle du haut-parleur. Il faudra donc
+veiller à ne pas atteindre une saturation en tension.
+4. Evaluation de la qualité du signal électrique à la sortie de l’amplificateur du commerce et de celui en tension
+Dans cette dernière partie, nous allons comparer le déphasage du signal électrique entre l’entrée et la sortie
+de l’amplificateur du commerce et de celui en tension, connectés chacun aux trois enceintes.
+Le déphasage correspond au retard entre le moment où le signal entre et le moment où il sort de
+l’amplificateur. Cette grandeur dépend de la fréquence du signal en question.
+Quand le déphasage est nul ou tout du moins constant le long de la bande de fréquences audibles, cela
+signifie que l’amplificateur ne déforme pas le signal d’entrée. Par contre, si le déphasage n’est pas constant sur cette
+plage, la restitution sonore s’en trouvera altérée.
+a) L’amplificateur du commerce
+
+Nous pouvons observer ci-dessus le déphasage en sortie de l’amplificateur du commerce, auquel nous avons
+branché successivement plusieurs enceintes :
+- En bleu les enceintes d'origine
+
+- En rouge les enceintes hi-fi
+
+- En vert nos enceintes en bois
+Page 19
+
+Observations :
+- le déphasage varie fortement entre 56 et 1000Hz, mais reste constant de 1000 à 18000Hz ;
+- les courbes ne varient pas beaucoup selon l’enceinte utilisée, mais l’enceinte en bois donne un déphasage
+moins important en basses fréquences.
+Interprétations :
+Quelle que soit l’enceinte utilisée, l’amplificateur du commerce déphase le signal de sortie d'environ /2 à
+56 Hz, et à un déphasage nul à partir de 750 Hz. Les sons de basses fréquences seront donc déphasés d'un quart de
+période par rapport aux médiums et aux aigus, et ce qui peut nuire de façon significative à la dynamique du son.
+
+Page 20
+
+b) L’amplificateur en tension
+
+Observations :
+- le déphasage est négatif entre 56 et 200Hz, reste constant entre 200 et 7000Hz, et est positif entre 7000 et
+18000Hz.
+- le modèle d'enceinte influence peu l'allure des courbes
+Interprétations :
+L’amplificateur en tension déphase beaucoup moins le signal en basses fréquences par rapport à
+l’amplificateur du commerce, mais le déphasage en hautes fréquences est un peu plus important.
+
+Conclusion : on peut dire que l’amplificateur en tension génère une distorsion du signal électrique
+globalement plus faible que celle de l’amplificateur du commerce. La qualité de la restitution sonore sera donc
+meilleure.
+
+Page 21
+
+Conclusion
+Nous avons ainsi cerné quatre paramètres importants dans le choix d’amplificateurs de qualité :
+- le rendement des haut-parleurs : en effet, ils dissipent la plus grande partie de l’énergie électrique ; environ
+90 à 99% est transformée soit en chaleur par effet Joule, soit en énergie de déformation dans les matériaux
+le composant (les amortisseurs), et il y a également des pertes électromagnétiques au niveau de la bobine.
+Prendre un haut-parleur qui a un niveau SPL supérieur de 3dB/W/m revient à diviser par deux la puissance
+qu’il consommera pour fournir un même niveau sonore.
+- le rendement du circuit d’amplification : là aussi, on peut facilement minimiser les pertes énergétiques. Si
+l’on dispose d’enceintes à bon rendement, l’amplificateur électronique n’a pas besoin de fournir beaucoup
+d’énergie pour que le niveau acoustique en sortie soit convenable ; un amplificateur 1000W avec 50% de
+pertes dans le circuit et 95% dans l’enceinte fournira le même niveau sonore qu’un autre de 350W avec 30%
+de pertes dans le circuit et 90% dans l’enceinte. Il est également à noter que plus un circuit d’amplification
+doit fournir d’énergie électrique, moins son rendement est important, et ceci est nécessaire pour garantir
+une qualité sonore convenable.
+- le choix des filtres : il est fort probable que si un amplificateur électronique est fourni avec ses propres
+enceintes, le filtre soit placé à l’entrée du circuit ; il dissipe alors beaucoup moins d’énergie que s’il était
+placé dans les enceintes. Après, tout dépend de ce que le consommateur désire comme niveau de flexibilité
+pour son matériel ;
+- le déphasage du signal : il influe beaucoup sur la qualité du son et est essentiellement lié aux filtres RC
+(résistance-condensateur) présents dans l’architecture des amplificateurs. Plus les valeurs des résistances et
+des capacités des condensateurs sont élevées, moins il y a de déphasage en basses fréquences.
+
+Page 22
+
+

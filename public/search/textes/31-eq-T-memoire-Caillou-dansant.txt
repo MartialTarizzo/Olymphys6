@@ -1,0 +1,1085 @@
+Rocher dansant - ONP 2024
+Nacim AISSANI, Eugénie JACOVIC, Raphaël PORTAIL, Eva SMIDTAS
+18 Janvier 2024 - Lycée Louis-Le-Grand
+
+Table des matières
+1 Introduction et premières questions
+1.1 Introduction . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+1.2 Une première approche du problème . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+1.2.1 Modélisation et résolution algébrique . . . . . . . . . . . . . . . . . . . . . . . . . . .
+1.2.2 Application numérique . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+1.3 Pourquoi y a-t-il un petit creux sous le rocher ? . . . . . . . . . . . . . . . . . . . . . . . . . .
+1.4 Pour aller plus loin, questions d’étanchéité . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+1.5 Vérification expérimentale . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+
+2
+2
+3
+3
+3
+4
+4
+5
+
+2 Expériences réalisées
+2.1 Mesures de pressions . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+2.2 Mesures du débit volumique . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+2.3 Étude du mouvement du rocher en rotation . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+2.4 Expérience avec une lentille . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+2.4.1 Variation de débit . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+2.4.2 Variation de masse . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+
+5
+5
+6
+7
+8
+8
+8
+
+3 Proposition d’un modèle théorique
+3.1 Théorème de Bernoulli . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+3.1.1 Nombre de Reynolds et énergie de frottements . . . . . . . . . . . . . . . . . . . . . .
+3.1.2 Équation différentielle . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+3.2 Expression de la force résultante des pressions statiques . . . . . . . . . . . . . . . . . . . . .
+
+9
+10
+11
+11
+11
+
+4 Étude du couplage en rotation du rocher
+4.1 Mode opératoire . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+4.2 Interprétation des résultats . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+4.2.1 La trajectoire . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+4.2.2 La vitesse angulaire de rotation . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+4.2.3 Énergie cinétique de rotation . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+4.2.4 Conservation de l’énergie . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+4.2.5 Oscillation amortie du rocher . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+
+13
+13
+13
+13
+13
+14
+16
+18
+
+5 Conclusion
+
+20
+
+6 Bibliographie
+
+20
+
+1
+
+1
+
+Introduction et premières questions
+
+1.1
+
+Introduction
+
+Au cours d’un voyage scolaire au hasard d’une visite touristique nous avons vu une fontaine surprenante à
+la fin du mois de juin 2023. Il s’agit d’un gros rocher de plusieurs tonnes qui semblait flotter au toucher sur la
+place devant un musée de Science à Grenade, El Parque de la Sciencias. Nous avons même pu monter dessus
+à plusieurs, et il avait 3 degrés de liberté. Le rocher peut sur une certaine plage se déplacer latéralement en
+x, y et en rotation. Dès notre retour en France, nous avons voulu comprendre et expérimenter, comment cela
+était possible.
+Ni une, ni deux, encouragé par notre professeur qui acceptait d’en faire un sujet de contrôle pour ses futurs
+élèves si nous parvenions à en faire un sujet, nous voilà achetant tuyau et plâtre dans un grand magasin de
+bricolage pour fabriquer une maquette.
+Nous avons estimé des ordres de grandeurs, nous nous sommes confrontés à des échecs et des réussites.
+Nous avons découvert les sites Internet et des papiers scientifiques. Nous avons été heureux de retrouver ce
+que nous avions trouvé par nous-même comme l’épaisseur de l’ordre du millimètre de la couche d’eau. Et quoi
+qu’il en soit on y trouve des études théoriques de fontaine qui s’en rapprochent, appelée Kugel ball qui sont
+parfaitement sphérique ou cylindrique, mais qui ne se translatent pas. Les études sont toutes théoriques, sans
+que les physiciens n’aient vérifié expérimentalement leurs modèles. Les entreprises ou artistes qui fabriquent
+de telles fontaines, pour les plus développées sont indiennes et ne communiquent pas sur les caractéristiques
+techniques de leurs fontaines.
+Nous sommes heureux de présenter ici pour la première fois une maquette expérimentale, des conseils
+pour la réaliser et des mesures expérimentales pour appuyer le modèle théorique de la modélisation avec de
+nombreux résultats qui surprennent l’intuition.
+Dans une première partie nous présentons la fontaine de Grenade, et notre maquette. Dans une seconde
+partie nous présenterons les principes de base théorique et les mesures expérimentales en adéquation. Dans
+une troisième partie nous étudierons des aspects secondaires : comment s’assurer de la mise en route par
+un creux caché sous la fontaine, la dynamique du rocher avec les mouvements de translation de rotation et
+d’oscillation. Enfin dans une partie de discussion nous aborderons les limites et l’ouverture.
+Voici une vidéo de la fontaine qui met en mouvement un rocher :
+https://youtu.be/v5t1zlFqy5A
+
+Figure 1 – Nous sur la fontaine
+
+2
+
+1.2
+
+Une première approche du problème
+
+Quelques petites questions pour comprendre le fonctionnement d’une fontaine de Galilée :
+
+5. Vérifier expérimentalement
+Notions à connaître :
+— Notion d’équilibre
+— Pression isostatique
+
+1. Quelle est la hauteur d’un château d’eau (10
+m ↔ 1 bar) ?
+
+Remarque : Cette modélisation du problème est analogue à celui des crics hydrauliques.
+On ne connaît pas la pression au robinet dans une
+maison, on va essayer de l’estimer.
+Pour cela on va estimer la hauteur d’un château
+d’eau à 20 m.
+
+2. Quelle masse peut-on soulever avec une surface de contact de forme carrée avec un côté
+de longueur d = 6 cm ?
+3. Pourquoi y a-t-il un petit creux sous le rocher ?
+4. A quel point le rocher doit-elle être lisse ?
+1.2.1
+
+Modélisation et résolution algébrique
+
+Le système étudié est le rocher, dans le repère
+terrestre.
+Bilan des forces :
+— Le poids P⃗ = m⃗g
+— La force pressante en basF⃗Pb (ou réaction du support)
+— la force pressante en hautF⃗Pa (pression
+atmosphérique)
+On s’intéresse à la situation en équilibre, i.e.
+la somme des forces exercées sur le système est
+nulle :
+P⃗ + F⃗p + F⃗Pa = ⃗0
+d’où
+m · g + Pa · S = P b · S
+
+(1)
+Figure 2 – Schéma du problème
+
+De plus, la pression hydrostatique (⇔ isostatique) entre le point de contact rocher/eau et le haut du
+réservoir (ici : le château d’eau) nous donne :
+
+Pb = Pa + h · ρeau · g
+
+Avec ρeau : La masse volumique de l’eau
+Pa : La pression en haut du château d’eau (pression
+atmosphérique standard)
+h : La différence de hauteur entre le haut du château
+d’eau et le rocher
+
+(2)
+
+En combinant (1) avec (2) on obtient les calculs suivant :
+(Pb − Pa ) · S
+g
+(h · ρeau · g) · S
+=
+g
+
+m=
+
+Soit finalement,
+m = S · h · ρeau
+1.2.2
+
+Application numérique
+
+On suppose que la surface est un carré de côté d = 6 cm d’où S = d2 .
+3
+
+(3)
+
+Soit S = 36 cm2 = 3, 6 · 10−3 m2
+h = 20 m
+
+ρeau = 1000 kg.m−3
+
+Donc
+m = 72kg
+
+1.3
+
+Pourquoi y a-t-il un petit creux sous le rocher ?
+
+Le creux sous le rocher permet d’avoir toujours une surface de contact minimale suffisante entre le rocher
+et l’eau. S’il n’y a pas de creux, cela revient à faire les calculs (voir la partie 1.2.2 Application numérique)
+avec S = 1 cm2 , qui représente la section du tuyau. On obtient dans ce cas que l’on peut soulever une masse
+jusqu’à 3 kg seulement.
+Selon les cahiers des charges, lorsque l’on construit une telle fontaine, il y a deux possibilités pour placer
+le creux : dans le socle, ou dans le rocher.
+
+(a) Creux dans le rocher
+
+(b) Creux dans le socle
+
+Figure 3 – Deux types de chambre
+Chaque emplacement possible du creux possède des avantages différents, voir figure 3. Le creux dans le
+rocher permet une fabrication plus facile, toutefois, il faut faire attention à ce que le creux reste au-dessus du
+rocher lors de l’interruption de l’arrivée d’eau , afin de permettre le déclenchement autonome de la fontaine.
+En revanche, le creux dans le socle permet plus de liberté de mouvement, sous réserve que la forme du rocher
+le permette. Dans le cas d’une sphère parfaite, la structure peut alors pivoter indéfiniment dans toutes les
+directions. Toutefois, si la roche adopte une forme partiellement sphérique, la localisation du creux devient
+moins cruciale.
+Pour notre dispositif expérimental destiné à prendre des mesures, nous avons délibérément opté pour
+l’emplacement du creux au sein du rocher, ce choix étant motivé par la facilité accrue du processus de
+construction.
+
+1.4
+
+Pour aller plus loin, questions d’étanchéité
+
+Jusque-là, nous avons supposé que le support et le rocher agissent comme un piston dans un cric hydraulique idéal, c’est-à-dire sans frottement ni fuite. En réalité, une fuite trop importante, qui dépend de la
+hauteur à laquelle le rocher se soulève, peut être fatale.
+Remarque : Lorsqu’on ouvre un robinet d’eau, on a la pression maximale, mais si on ouvre un deuxième
+robinet en même temps, la pression qui sort de chacun des deux robinet est plus faible que la pression
+maximale qui sortait auparavant du premier robinet.
+Donc on admet qu’une fuite de surface égale à 1 cm2 , ce qui correspond à la section d’ouverture d’un seul
+robinet standard, est supportable. En effet, si la fuite est plus grande, l’hypothèse d’une eau statique ne sera
+plus utilisable dans notre modèle.
+La surface de fuite Sf est égale au périmètre du socle de diamètre D = 30 cm multiplié par la hauteur
+hf du soulèvement de le rocher :
+Sf = π · D · hf
+
+(4)
+
+Soit :
+hf =
+
+Sf
+π·D
+
+(5)
+
+Remarque : La hauteur hf doit être supérieur aux irrégularités de surface du socle et de le rocher (qui ne
+sont pas parfaitement lisses).
+
+4
+
+Application Numérique
+hf = 0, 1mm
+Ainsi, pour soulever une masse de l’ordre de 100 kg, il faut des irrégularités dans la surface de contact
+entre le rocher et le socle inférieures à 0, 1 mm, sans quoi il faudra se contenter d’une masse plus faible.
+
+1.5
+
+Vérification expérimentale
+
+Voici la fontaine réalisée (Figure 4), voir en annexe la construction.
+
+Figure 4 – Reproduction maison
+
+2
+
+Expériences réalisées
+
+Lors de l’élaboration du modèle théorique de la fontaine, celui-ci faisait intervenir des grandeurs. L’objectif
+est de mesurer les grandeurs facilement mesurables et puis grâce à notre modèle en déduire celles qui le sont
+moins
+
+2.1
+
+Mesures de pressions
+
+Pour mesurer l’évolution de la pression lorsque l’eau se déplace dans la fontaine, on connecte les tuyaux
+des sorties du support prévu à cet effet aux pressiomètres qu’on a calibré pour qu’ils affichent tous la même
+pression initialement , ou l’orgue de tubes dont les niveaux d’eau initial sont marqués , correspondant à la
+pression atmosphérique et la variation du niveau d’eau nous permet de connaître la pression de manière plus
+précise. En effet les avec l’orgue on mesure les pressions en Pascal tandis qu’avec les pressiomètres on les
+mesure en hectopascal.
+Pour mieux identifier les pressiomètres, nous les avons numérotés avec le numéro 1 (cf figure 5c) qui
+correspond à la sortie la plus proche du centre et 4 la plus éloignée.
+
+5
+
+(a) Sorties du support
+
+(b) Pressiomètres
+tuyaux.
+
+reliés
+
+aux
+(c) Acquisition de l’état initial
+
+Figure 5 – Mesures de pressions
+
+Figure 6 – Graphique des différentes mesures de pression
+Les pressiomètres mesure donc une différence d’environ 20 hPa et 24 hPa avec l’orgue entre la première
+et dernière sortie alors qu’il n’y a seulement 1.3cm qui les sépare. Cela met donc en évidence les frottements
+entre les parois et l’eau. Cependant, ces valeurs restent toutefois élevées et suscitent certaines réserves quant
+à leur validité.
+
+2.2
+
+Mesures du débit volumique
+
+En connaissant le débit volumique de l’eau dans notre système, on pourra alors connaître la vitesse du
+fluide à n’importe quel endroit. Pour mesurer ce débit, nous utilisons deux bassines, un chronomètre et une
+balance.
+La première bassine sert à récupérer l’eau et centraliser les pertes parce qu’elle est trouée. Une fois que les
+ajustements faits pour que la galette soit totalement soulevée par l’eau, nous utilisons la deuxième bassine
+pour récupérer l’eau s’échappant de la première bassine. Nous mesurons ensuite le temps qu’il faut pour que
+la seconde bassine se remplisse de moitié, et on pèse la bassine avec une balance.
+(
+∆t = 21.66s et M = 4589.7g Pour l’axe normal
+∆t = 15.18s et M = 4368.6g Pour l’axe dévié
+En enlevant la masse de la bassine lorsqu’elle est vide, nous avons la masse d’eau récupérée :
+On a mesuré : mbassine = 418.3g
+Grâce à la masse volumique de l’eau, on a le volume récupéré :
+meau
+Veau =
+ρeau
+6
+
+Deuxième bassine
+
+Première bassine
+Première bassine
+Figure 7 – Montage avec les bassines
+Et pour obtenir le débit volumique, on a la formule :
+Qv =
+
+Veau
+M − mbassine
+=
+∆t
+ρeau · ∆t
+
+Application numérique :
+(
+Qv = 1.93 · 10−4 m3 · s−1
+Q′v = 2.60 · 10−4 m3 · s−1
+
+le débit volumique avec l’axe normal
+le débit volumique avec l’axe dévié
+
+Ces valeurs nous semblent cohérentes, en effet par l’inclinaison de l’axe dévié, l’eau est éjectée plus facilement
+
+2.3
+
+Étude du mouvement du rocher en rotation
+
+Pour en apprendre plus sur les frottements qu’il y a entre la galette et l’eau. Nous nous sommes intéressés
+à l’évolution de la vitesse de la galette lorsqu’on la mettait en mouvement.
+
+Figure 8 – Marqueurs sur la galette
+
+7
+
+Pour avoir une vitesse, nous avons dessiné des formes sur la surface
+de la galette, le but étant de suivre le triangle rouge et le rectangle
+bleu est placé à une distance connue du triangle rouge qui nous
+permettra de définir l’échelle dans le logiciel d’analyse vidéo. Pour
+filmer le mouvement nous avons placé une caméra juste au-dessus
+de la fontaine pour ne pas avoir d’effets de perspectives.
+Nous avons filmé deux mouvements : lorsque la galette est en
+rotation et lorsqu’elle se balance. Et à l’aide du logiciel tracker,
+nous avons pu déterminer de manière automatique la position du
+triangle rouge dans chacune des images constituant la vidéo et
+ainsi déterminer sa vitesse en fonction du temps.
+Figure 9 – Caméra
+
+2.4
+
+Expérience avec une lentille
+
+Nous avons décidé de reproduire nos expériences avec une lentille en verre.
+Notre choix est dû à plusieurs facteurs :
+- meilleures finissions et plus esthétique
+- meilleure répartition de masse
+- vision plus précise des phénomènes ayant lieux sous
+la galette flottante
+Nous avons donc recrée le montage (voir Figure 10) :
+
+Figure 11 – Profil de la lentille
+Figure 10 – Photo du montage
+Afin d’avoir des nous avons fait variés certains paramètres. Nous avons crée un tableau avec ces différents
+paramètres, à retrouver en annexe.
+2.4.1
+
+Variation de débit
+
+Tout d’abord intéressons nous à la variation de débit. Nous avons réalisés trois expérience en faisant varier
+le débits du robinet. Nous nous sommes placés dans une situation avec un débit faible, moyen puis fort. Grâce
+à ces expériences nous avons pu analyser la variations de différents paramètres. On peut observer la variation
+de pressions h dans les chambres. (voir Figure 13)
+Remarque : On constate qu’on passe par un minimum de pression pour un débit moyen.
+On peut aussi d’intéresser au soulèvement H de la lentille. La différence entre la position initiale H1 et la
+position finale H2, nous donne l’épaisseur du filet d’eau qui circule au cours de l’expérience.
+2.4.2
+
+Variation de masse
+
+Nous avons réalisés trois expérience en faisant varier le masses que nous posions sur la lentille. Nous nous
+sommes placés dans une situation avec un débit moyens et avons réalisé les expériences sans, avec 1 anneau
+et avec 2 anneaux. De même, nous obtenons une nouvelle courbe. Les courbes obtenues sont en accord avec
+
+8
+
+Figure 13 – Graphique représentant l’évolution
+de la pression en millimètre d’eau en fonction de
+plusieurs débits
+
+Figure 12 – Vue latérale
+de l’orgue
+
+nos attentes. En effet, plus la masse augmente, plus la galette appuie sur le tuyau et donc moins d’eau sort
+du tuyau.
+
+Figure 14 – Graphique représentant l’évolution de la pression en millimètre d’eau en fonction de plusieurs
+masses
+
+3
+
+Proposition d’un modèle théorique
+
+Nous avons divisé le système en 3 zones d’études, la A correspond
+au jet d’eau entrant, la B à la chambre, et la C qui commence à
+la sortie de la chambre. Ce modèle s’intéresse particulièrement à
+la zone C.
+On ne connaît pas les valeurs des coefficients de frottements. Cette section vise à déterminer ces grandeurs
+inconnues expérimentalement, à travers une modélisation théorique de l’évolution des pressions au fur et à
+mesure que l’eau s’écoule entre le socle et le rocher. Nous nous situons en régime permanent et stable.
+
+9
+
+3.1
+
+Théorème de Bernoulli
+
+Toutes les variables utilisées sont récapitulées en annexe. On souhaite déterminer la pression p à un angle
+ϕ, pour cela, on utilise le théorème de Bernoulli :
+ρv12
+ρv 2
++ ρgz1 + p1 + ∆Ev = 2 + ρgz2 + p2
+2
+2
+
+(6)
+
+avec
+* v - vitesse du fluide
+* g - accélération de la pesanteur
+* z - Altitude
+* p - Pression
+* ρ - masse volumique du fluide
+*∆Ev correspond aux travail volumique des forces de frottements :
+
+soit :
+- Discrétisation du probème
+ρ · dv 2
+Nous allons chercher à définir une équation différendp = δEv −
+− ρg · dz
+2
+tielle à partir de notre équation de Bernoulli. Afin de
+déterminer la fonction pression à l’angle ϕ.
+La première chose à faire face au nombre important de variables, est de mettre en relation celles-ci.
+Nous utiliserons donc l’équation de Bernoulli en
+Notre but étant de modéliser une fonction pression
+passant sous la forme infinitésimale. On fait alors
+en fonction d’un angle, on va essayer d’exprimer l’ald’abord une discrétisation du problème. On déduit
+titude z et la vitesse v chacune en fonction de l’angle
+à partir de l’équation de Bernoulli :
+ϕ
+De cette manière, on trouve (démonstration en annexe)
+:
+1
+p2 − p1 = ∆Ev − ρ(v22 − v12 ) − ρg(z2 − z1 )
+z = R(1 − cos(ϕ))
+2
+- Déterminons la vitesse
+
+Figure 15 – Visualisation 3d de la surface (en rose) sans le socle
+Sous l’hypothèse que l’eau est un fluide incompressible, le débit volumique est alors constant. Il s’exprime :
+Qv = Sϕ · vϕ
+avec Sϕ la surface normale au vecteur vitesse vϕ à l’angle ϕ
+Il vient alors :
+Qv
+vϕ =
+Sϕ
+La surface à l’angle ϕ , sous l’hypothèse que h«R, est égale à (démonstration en annexe) :
+Sϕ = 2πRh sin(ϕ) cos(ϕ)
+d’où :
+vϕ =
+
+a
+sin(ϕ) cos(ϕ)
+10
+
+avec
+
+Qv
+2πRh
+On obtient des formules pour la pression en fonction de ϕ et en fonction du régime :
+a=
+
+en régime turbulent
+en régime laminaire
+k2 aR
+k1 a2 R
+fL (ϕ)
+pturbulent (ϕ) =
+fT (ϕ) plaminaire (ϕ) =
+h
+h
++ ρgR · alt(ϕ)
++ ρgR · alt(ϕ)
+ρ
+ρ 2
++ a2 · dyna(ϕ)
++ a · dyna(ϕ)
+2
+2
++ plaminaire (ϕtr )
++ p0
+avec fL , fT , alt, dyna des fonctions dépendantes de ϕ.
+Interprétation : Avec cette expression de la pression, on
+remarque que deux grandeurs sont en compétition. En
+effet, la diminution de la vitesse, d’après le théorème de
+Bernoulli, a pour effet d’augmenter la pression (courbe
+bleue montrant la contribution de l’énergie cinétique à
+la pression). Cependant, tout en s’éloignant de l’axe, la
+surface de contact s’accroît et les frottements globaux
+avec(courbe rouge) et on observe que la pesanteur n’a
+pas de grande influence. La somme donne la pression
+global(courbe grise), et les mesures de pression menées
+durant des expériences concluent sur la domination des
+frottements, la pression diminue lorsqu’on s’éloigne du
+jet.
+3.1.1
+
+Nombre de Reynolds et énergie de frottements
+
+Dans notre équation, il nous reste encore δEv à
+déterminer en fonction de l’angle. On à affaire à des
+frottements fluides : il faut donc déterminer si on se
+trouve dans un régime laminaire ou turbulent. Pour
+déterminer le régime de frottements dans lequel on se
+trouve, on calcule le nombre de Reynolds Re :
+ρ·v·e
+Re =
+η
+
+La fonction Re est donc facilement modélisable
+puisqu’elle ne dépend que de constantes déjà déterminées. Mais on se retrouve face à un autre problème :
+on a un changement de régime qui s’opère à un certain angle ϕtransition . Le liquide se trouvant avant cet
+angle se trouve en régime turbulent avant de passer
+en régime laminaire. Ainsi on a deux δEv qu’on appellera δEv1 l’énergie perdue en régime laminaire et
+δEv2 l’énergie perdue dans le cas du régime turbulent.
+avec e = h · cos(x) l’épaisseur de la couche li- On a alors (démonstration en annexe) :
+quide. La vitesse et l’épaisseur de couche fluide varie
+avec l’angle. Ainsi, ce nombre de Reynolds n’est pas
+constant : c’est une fonction de l’angle. On remarque
+−R · dϕ
+δEv2 =
+· k2 · v 2
+que v évolue selon l’inverse de e avec l’angle. Ainsi
+e
+notre expression peut se simplifier en :
+Re(ϕ) =
+3.1.2
+
+ρ · Qv
+2πR · η · sin(ϕ)
+
+δEv1 =
+
+Équation différentielle
+
+Maintenant que l’on a explicité toutes les variables
+en fonction de ϕ, on peut résoudre notre équation
+
+3.2
+
+−R · dϕ
+· k1 · v
+e
+
+différentielle. Les calculs et la fonction obtenue sont
+spécifiés en annexe
+
+Expression de la force résultante des pressions statiques
+
+Maintenant que nous avons exprimé la pression, il faut exprimer la force exprimées par celles-ci
+
+11
+
+Nous avons deux régimes de pressions. On distingue alors les forces causées par des pressions à ϕ <
+ϕtransition (régime laminaire : on appelle cette résultante intermédiaire Flaminaire ), et le cas contraire, où
+ϕ > ϕtransition , on appelle cette résultante intermédiaire Fturbulent .
+La résultante des forces de pression du fluide, verticale et vers le haut devient alors :
+FP statique = Flaminaire + Fturbulent
+L’expression générale d’une force exercée par une pression statique sur une surface élémentaire est :
+dF = P · dS
+Nous ne prenons que la composante verticale de nos forces ainsi obtenues : en effet, la composante
+horizontale de chaque force élémentaire est compensée par la composante horizontale de la force opposé par
+l’axe ∆.
+L’expression devient alors :
+dF (ϕ) = p(ϕ) · cos(ϕ) · dS
+On a de plus (démonstration en annexe) :
+dS = R2 sin(ϕ) · dϕ · dθ
+Il vient donc que :
+Fturbulent = R2
+Flaminaire = R2
+
+Z ϕmax
+
+Z 2π
+pturbulent (ϕ) cos(ϕ) sin(ϕ)dϕ
+
+ϕtr
+Z ϕtr
+
+dθ
+
+0
+Z 2π
+
+plaminaire (ϕ) cos(ϕ) sin(ϕ)dϕ
+ϕmin
+
+dθ
+0
+
+On obtient ainsi (démonstration en annexe) :
+
+
+aR
++ βtot ρgR + γtot ρa2 + δtot p0
+FP statique = 2πR2 (αturbulent k1 + αlaminaire k2 )
+h
+où α, β, γ, δ des constantes déterminées uniquement à partir de ϕmin et de ϕmax . On doit ajouter à cette
+force la force de pression dynamique exercée par l’arrivée d’eau. On approxime en supposant que la pression
+est uniforme dans la section de tuyau :
+ρQ2v
+FP t =
++ p0 St
+2St
+
+Ainsi, pour atteindre la position d’équilibre, il faut que la somme de nos forces contrebalance la force due
+à la pression atmosphérique et le poids de la pierre.
+mg + patm Ssocle = FP statique + FP dynamique
+Il nous reste deux variables à déterminer à partir de nos mesures expérimentales : k2 et h. Pour les déterminer,
+on peut modéliser la fonction donnant k2 à partir de h grâce à notre précédente équation.
+k2 = h
+
+
+1  mg + patm Ssocle − FP dynamique
+2
+−
+βρgR
+−
+γρa
+−
+δp
+0
+αa2 R
+2πR2
+
+En modélisant cette fonction sur une calculatrice graphique, nous pouvons finalement regarder l’allure de
+la courbe des pressions en fonction de h : on a isolé notre variable. On retrouve :
+h = 0, 6mm
+k2 = 39.7kg · m−3
+
+12
+
+Figure 16 – évolution de la pression en fonction de l’angle ϕenzoneC
+
+4
+
+Étude du couplage en rotation du rocher
+
+4.1
+
+Mode opératoire
+
+Tracker est un logiciel qui permet de numériser les trajectoires de mobiles à partir d’enregistrements vidéo.
+Nous avons donc décidé, grâce à ce logiciel, d’analyser la vidéo de mise en rotation de la galette.
+Après avoir défini une échelle et la position initiale de la masse ponctuelle qui est dans notre cas le triangle
+rouge, nous avons lancé un repérage automatique des points sur 2085 images. Grâce aux valeurs obtenues
+soit le temps en secondes et la position en fonction de x et y, nous avons exporté notre fichier en extension
+txt dans Regressi, afin d’analyser nos données expérimentales.
+
+4.2
+
+Interprétation des résultats
+
+4.2.1
+
+La trajectoire
+
+Tout d’abord intéressons nous à la trajectoire du
+La trajectoire est circulaire, ce qui est bien en actriangle rouge. Nous obtenons le graphique de la Fi- cord avec nos attentes.
+gure qui représente l’évolution de y en fonction de x.
+Remarque : Certains points ne suivent pas une trajectoire circulaire. On pourrait l’expliquer par le fait
+qu’au début de la vidéo, la rotation de la galette est
+assez lente et celle-ci reste immobile pendant une certaine durée de temps.
+
+Figure 17 – Trajectoire, x en fonction de y
+2
+4.2.2
+
+La vitesse angulaire de rotation
+
+13
+
+Figure 18 – Analyse de Fourier
+On peut déterminer la valeur de la vitesse angulaire
+à l’aide de l’analyse de Fourier. Si on étudie une partie de la courbe représentant x en fonction du temps,
+à un instant où nous sommes en régime permanent,
+nous obtenons le graphique de la Figure 18.
+On observe un spectre monospectral, avec une
+harmonique de fréquence f de 0,4448Hz. Or par définition la vitesse angulaire est donnée par l’expression :
+ω=
+
+Figure 19 – Notations
+
+2π
+T
+
+θ=ω· t
+Ainsi :
+
+Ce qui équivaut à :
+
+v = (θ)′ · r
+ω = 2π · f
+
+D’où :
+v=ω· r
+
+L’application numérique nous donne ω = 2,795 rad/s
+- Expression de l’énergie cinétique de rotation
+En élevant au carré :
+4.2.3
+
+v2 = ω2 · r2
+
+Énergie cinétique de rotation
+
+Notre système est en rotation, il a donc une énergie Ainsi puisque :
+cinétique de rotation qui est donnée par l’expression :
+1 X
+Ec total = ·
+mi · vi2
+2
+1
+En remplaçant :
+Ecr = · J∆ · ω 2
+2
+1 X
+Ec total = ·
+mi · r2 · ω 2
+2
+J∆ est appelé le moment d’inertie.
+Par identification, on obtient que :
+X
+J∆ =
+mi · r 2
+
+- Expression de la vitesse
+On sait, grâce au schéma de la Figure que :
+14
+
+En remplaçant, on obtient l’expression finale de h :
+r
+r
+h = R · 1 − ( )2 − R + h0
+R
+
+- Détermination de J∆
+Déterminons la masse mi . Comme nous le montre la
+Figure, on peut dire que le volume de est :
+
+Ce qui nous donne :
+p
+h = R2 − r2 − R + h0
+Remarque : On peut procéder à une vérification. Si
+r=0, on retombe bien sur l’égalité h=h0 .
+En intégrant, on peut déterminer la valeur de J∆ .
+Z rmax
+dmi · r2
+J∆ =
+0
+
+Figure 20 – Vue en 3D
+
+D’où, avec ce qui précède on peut écrire que :
+Z rmax
+J∆ = ρ · 2π
+r · h · dr · r2
+
+dV = 2πr · h · dr
+
+0
+
+Ainsi :
+
+On obtient pour expression finale :
+
+mi = ρplatre · dV
+En remplacant avec l’expression de dV, on obtient :
+
+Z rmax
+J∆ = ρ · 2π
+
+mi = ρplatre · 2πr · h · dr
+
+p
+r · ( R2 − r2 − R + h0 ) · dr · r2
+
+0
+
+Déterminons h. En effectuant de la trigonométrie
+dans le triangle ABC de la Figure.
+
+Nous pouvons déterminer la valeur de J∆ par une
+approximation numérique avec le logiciel Regressi.
+
+Figure 22 – Expressions sur le logiciel Regressi
+Figure 21 – Vue transversale de la situation
+
+Remarque : ρplatre nous est inconnu. Nous pouvons chercher sur internet une valeur mais celle-ci
+reste approximative. Or pour déterminer ρplatre , il
+nous faut le volume et la masse. Nous connaissons
+la masse mais pas le volume. Par déplacement d’eau,
+on récupère 1094g d’eau soit 1094m3 .
+Ainsi en appliquant la relation :
+
+On obtient que :
+cos(ϕ) =
+
+(R − h0 ) + h
+R
+
+Ce qui équivaut à :
+R · cos(ϕ) = (R − h0 ) + h
+
+ρplatre =
+
+D’où :
+
+mgalette
+dV
+
+On obtient que : ρplatre = 1360 kg/m3
+
+h = R · cos(ϕ) − R + h0
+Or on remarque que :
+r
+R
+
+Nous pouvons désormais déclarer dans Regressi
+ρplatre comme un paramètre. On obtient ainsi que :
+J∆ = 12,51 10−3 m2 /kg
+Pour finir, on trouve par application numérique que :
+
+1 − (sin(ϕ))2
+
+Ecr = 4, 89 · 10−2 J
+
+sin(ϕ) =
+De plus :
+cos(ϕ) =
+
+p
+
+15
+
+4.2.4
+
+Conservation de l’énergie
+
+Nous pouvons maintenant nous intéresser à la conservation de l’énergie entre 2 points que l’on notera A
+et B.
+Par définition :
+∆Ecr = Somme des travaux des couples extérieurs
+Notons qu’un couple de force peut mettre un objet en rotation. On a donc par définition :
+∆Ecr = +Γ · (ΘB − ΘA )
+Avec :
+→
+−
+- Γ le couple d’entraînement en N/m qui est moteur d’où le +.
+−→
+−→
+- ΘA et ΘB les deux forces qui s’exercent sur le solide en rotation.
+On a ainsi grâce à ce qui précède que :
+1
+2
+2
+· J∆ · (ωB
+− ωA
+) = Γ · ω · ∆t
+2
+
+Remarque : Le ωf représenté sur l’axe des ordonnées est la vitesse de rotation "filtrée" qui nous donne
+uniquement les valeurs positives de ω, d’où l’appellation.
+
+Figure 23 – Évolution de la vitesse angulaire en fonction du temps
+Si nous simplifions la situation pour le moment à un instant t par la Figure.
+
+Figure 24 – Graphique simplifié
+Nous pouvons dire que :
+ωB = ωA + (ω)′ ∆t
+16
+
+(ωB )2 = (ωA )2 + 2 · ωB · (ω)′ ∆t + ((ω)′ ∆t)2
+On néglige l’ordre 2. On a ainsi que :
+(ωB )2 − (ωA )2 = 2 · ωB · (ω)′ ∆t
+En remplaçant dans la relation précédente, on obtient l’égalité :
+1
+· J∆ · (2 · ωA · (ω)′ ∆t) = Γ · ω
+2
+En simplifiant, on obtient :
+J∆ · (ω)′ = Γ
+Or le couple Γ dépend de plusieurs facteurs :
+- de la surface de contact S
+- de la vitesse de rotation du fluide ωF
+- de la vitesse de rotation du disque ω
+- d’une coefficient d’entraînement ke
+On remarque de plus sur la Figure 22 qu’à un certain instant la vitesse de rotation devient constante.
+Cela signifie que le fluide et la galette ont atteint la même vitesse de rotation.
+En prenant en compte cette remarque, en se plaçant dans une situation laminaire et en notant que le fluide
+tourne à une vitesse en entraînant le disque flottant, on peut finalement noté :
+J ∆ · (ω)′ = ke · S · (ωF − ω)
+Ce qui équivaut à :
+(ω)′ +
+
+ke · S
+ke · S
+·ω =
+· ωF
+J∆
+J∆
+
+On pose :
+c=
+
+ke · S
+J∆
+
+Notre relation s’écrit alors :
+(ω)′ + c · ω = c · ωF
+- Équation différentielle
+En résolvant l’équation ci-dessus (démonstration en annexe), on obtient :
+ω = ωF · (1 − e−ct )
+Modélisons nos valeurs avec cette dernière relation et déterminons expérimentalement la valeur de c. Avec
+Regressi, on obtient la modélisation suivante :
+
+17
+
+Figure 25 – Modélisation de la vitesse angulaire
+- Coefficient de frottement
+Le coefficient de frottement, noté ke , permet d’évaluer la difficulté avec laquelle la surface d’un matériau
+peut glisser en contact d’un autre matériau et c’est en partie grâce à notre modélisation que nous allons
+pouvoir le déterminer. Nous avons dit précédemment que :
+ke · S
+J∆
+
+c=
+Ainsi :
+
+J∆ · c
+S
+Nous avons vu précédemment de S est la surface de contact entre la galette et l’eau. La surface de contact
+est un carré de 7cm de côté, et donc de surface S=49 cm2 .
+L’application numérique nous donne :
+ke = 1, 9 · 10−5
+ke =
+
+4.2.5
+
+Oscillation amortie du rocher
+
+Si on dévie l’axe de la galette de plâtre de sa position stable, on observe alors une oscillation à la manière
+d’un pendule. On peut alors se demander comment modéliser une telle évolution.
+Nous avons alors fait l’expérience. à l’aide du logiciel tracker, nous avons pu suivre l’angle formé entre
+la verticale et l’axe de la galette. L’évolution du systême s’apparente à celui d’un pendule simple amorti.
+On fait l’hypothèse de frottements en kv 2 . Pour modéliser l’évolution théorique du système, on a commencé
+par établir un bilan des forces. Si on peut faire l’approximation de modéliser notre galette comme un point
+matériel :
+
+18
+
+On associe une base polaire locale dans le référentiel galiléen pour étudier le mouvement d’oscillation.
+On a alors :
+
+⃗
+
+RN = −RN · e⃗r
+⃗
+f
+= −k · v · ⃗v
+
+⃗
+P
+= mg · cos(α) · e⃗r − mg · sin(α) · e⃗θ
+D’après le PFD, comme R est constant :
+P⃗ + R⃗N + f⃗ = m⃗a
+Or R est constant. On en déduit les valeurs des
+vitesses et des accélérations :
+⃗a = −R · α̇2 · e⃗r + R · α̈ · e⃗θ
+⃗v = R · α̇ · e⃗θ
+On peut ainsi en déduire :
+mg · cos(α) · e⃗r − mg · sin(α) · e⃗θ − RN · e⃗r − k|Rα̇|Rα̇ · e⃗θ
+= m(−Rα̇2 · e⃗r + Rα̈ · e⃗θ )
+Soit
+ en projection sur e⃗r et e⃗θ :
+2
+
+mg · cos(α) − RN = −mR · α̇
+
+
+−mg · sin(α) − k|Rα̇|Rα̇ = mR · α̈
+On obtient notre équation différentielle en utilisant notre projection sur e⃗θ . L’équation finale est
+donc :
+g
+k
+α̈ + |Rα̇|α̇ + sin(α) = 0
+m
+R
+Nous avons pu résoudre cette équation numériquement par une méthode itérative d’euler à l’aide
+Figure 26 – Bilan des forces sur la galette à un mod’un programme python spécifié en annexe. Nous
+ment quelconque de l’oscillation
+avons ainsi pu exporter les angles théoriques et les
+comparer avec les angles expérimentaux.
+Nous avons pu résoudre cette équation numériquement à l’aide d’un programme python spécifié
+en annexe. Nous avons ainsi pu exporter les angles
+théoriques et les comparer avec les angles expérimentaux.
+
+Figure 27 – Résultats expérimentaux et théoriques
+Pour un coefficient de frottement k = 1, 75 kg · m−3 L’amortissement entre la théorie et l’expérimental
+est relativement semblable ce qui confirme notre hypothèse sur les frottements. Néanmoins, on observe une
+fréquence légèrement différente
+19
+
+5
+
+Conclusion
+
+Nous sommes heureux d’avoir modélisé et construit ce caillou flottant pour la première fois qui présente des
+similitudes mais aussi des différences avec le modèle entièrement sphérique (kugel ball). Nous sommes ravis
+d’avoir pu comparer notre modèle à la pratique et nous avons construit trois fontaines. Nous avons appris de
+nombreuses compétences lors de la réalisation de ce projet comme rédiger en LATEX, utiliser certains logiciels
+comme Tracker et Regressi, ou encore comment prendre des mesures permettant de vérifier ou réfuter notre
+modèle. Dans les jours à venir, nous allons poursuivre notre aventure en continuant nos mesures notamment,
+la hauteur de soulèvement et la pression plus précisément, grâce à un matériel qui arrivera sous peu.
+Merci à Anne-Laure Dalibard avec qui nous avons pu discuter de ce projet et qui nous a partagé son
+métier de mathématicienne et ses modélisations de masses d’eau.
+
+6
+
+Bibliographie
+
+Jacco H. Snoeijer and Ko van der Weele, "Physics of the granite sphere fountain," American Journal of
+Physics 82, 1029 (2014), doi : 10.1119/1.4886365. View online
+
+20
+
+

@@ -1,0 +1,706 @@
+Kaplas : des chutes édifiantes
+
+Auteurs : COUZIER Juliette - GOURRIN Arthur – COUSTURIAN Louis
+Encadrés par : Monsieur Ducassou et Monsieur Torrens
+
+Année 2016-2017
+
+Kaplas : Des chutes édifiantes
+
+1/20
+
+RESUME
+
+Les kaplas sont des jouets familiers, simples et faisant appel à l’imagination. Les possibilités
+de créations sont infinies tout comme l’amusement que l’on prend à les concevoir… Mais parfois,
+le plus amusant est de les voir chuter. Bien évidemment, les kaplas permettent aussi de construire
+des structures proches de nos propres habitations, malheureusement soumises, de temps à autre,
+à des catastrophes naturelles telles que les tremblements de terre.
+Notre projet consiste donc à modéliser des séismes à l’échelle de tours constituées de
+kaplas, puis à étudier leur chute. Nous avons pour cela mis au point une table vibrante produisant
+des secousses susceptibles de reproduire les effets d’un séisme à petite échelle. Nous avons fait
+diverses expériences de reproductibilité, testé plusieurs structures et avons tenté d’évaluer la durée de stabilité d’une tour en fonction des contraintes qu’elle subit. Nous avons également essayé
+d’optimiser nos tours pour les rendre plus résistantes aux secousses. Ainsi, nos expériences permettent d’évaluer les conséquences d’un séisme à l’échelle des kaplas et de déterminer les techniques parasismiques les plus efficaces.
+
+Kaplas : Des chutes édifiantes
+
+2/20
+
+TABLE DES MATIERES
+Résumé ............................................................................................................................................................................... 2
+1.
+
+Introduction ................................................................................................................................................................ 4
+
+1.
+
+Aspects théoriques ..................................................................................................................................................... 5
+1.1.
+
+Qu’est-ce qu’une onde ? ................................................................................................................................... 5
+
+1.2.
+
+Séismes .............................................................................................................................................................. 5
+
+1.2.1.
+
+Phénomène ................................................................................................................................................... 5
+
+1.2.2.
+
+Ondes sismiques ........................................................................................................................................... 6
+
+1.3.
+
+2.
+
+3.
+
+Caractéristiques physiques des kaplas .............................................................................................................. 7
+
+1.3.1.
+
+Dimensions et matériau ................................................................................................................................ 7
+
+1.3.2.
+
+Coefficient de frottement solide................................................................................................................... 8
+
+Table sismique : .......................................................................................................................................................... 8
+2.1.
+
+Notre démarche ................................................................................................................................................ 8
+
+2.2.
+
+Son fonctionnement........................................................................................................................................ 11
+
+2.3.
+
+Ses limites........................................................................................................................................................ 12
+
+Optimisation de la structure d’une tour de kaplas ................................................................................................... 13
+3.1.
+
+Position du problème ...................................................................................................................................... 13
+
+3.2.
+
+Calcul de la durée de stabilité d'une tour ....................................................................................................... 13
+
+3.3.
+
+Test de reproductibilité ................................................................................................................................... 13
+
+3.4.
+
+Influence de la masse de la tour et de sa hauteur sur le temps de chute ...................................................... 14
+
+3.5.
+
+Influence de l'écart entre les kaplas d'une construction sur le temps d'effondrement de la tour ................. 15
+
+3.6.
+
+Taipei 101 ........................................................................................................................................................ 16
+
+4.
+
+Conclusion ................................................................................................................................................................ 18
+
+5.
+
+Bibliographie ............................................................................................................................................................. 19
+
+Kaplas : Des chutes édifiantes
+
+3/20
+
+1. INTRODUCTION
+
+La première chose que l’on fait lorsque l’on joue avec des kaplas, c’est de construire une
+tour. La seconde, c’est de la faire tomber. Cette chute peut avoir été provoquée volontairement
+ou être la conséquence d’un geste maladroit mais, dans les deux cas, elle apparaît relativement
+aléatoire et complexe.
+
+Pour la rendre plus régulière, si toutefois cela est possible, nous la provoquons par des vibrations engendrées par une table vibrante de notre conception et qui entrainent, à force de secousses, l’effondrement de la structure de kaplas posée sur cette table. Il nous a semblé intéressant d’observer l’effet de ces secousses sur les tours de kaplas et nous avons trouvé pertinent de
+faire un parallèle avec les séismes, ainsi nous avons choisi d’adapter nos conditions expérimentales aux caractéristiques des tremblements de Terre.
+
+La question que nous nous sommes alors posé, était de savoir comment nous allions modéliser des séismes à l’échelle des kaplas. Dans cet objectif, nous avons commencé par nous documenter sur les séismes, puis nous avons constaté qu’il nous fallait disposer d’un moyen de simuler
+des vibrations proches de celles des séismes réels, vibrations que nous pourrions faire interagir
+avec des structures de kaplas, nous avons donc alors commencé la construction de notre table
+vibrante.
+
+Comment modéliser des séismes à l’échelle des kaplas ?
+
+Kaplas : Des chutes édifiantes
+
+4/20
+
+1. ASPECTS THEORIQUES
+1.1. QU’EST-CE QU’UNE ONDE ?
+Une onde est une perturbation, c’est à dire une variation de propriétés physiques (pression, champ de gravitation, champ électromagnétique…) d’un milieu. Elle se déplace avec une vitesse qui dépend du milieu, le son n’a par
+exemple pas la même vitesse dans l’air (340 m/s à 0°C et 101 325 Pa) et dans l’eau (1 500 m/s environ). Dans le cadre
+de nos modélisations, nous considèrerons que l’onde se déplace à vitesse fixe.
+Une onde mécanique est considérée comme une propagation de matière (eau pour les vagues, air pour le son
+dans la plupart des cas, terre pour les séismes). Elle ne s’accompagne pas d’un déplacement global du milieu lui-même
+et par définition ne peut pas se propager dans le vide car elle a besoin d’un support matériel pour voyager. (1)
+Nous pouvons distinguer plusieurs types d’onde, les solitons qui sont des uniques ondes (le mascaret ou le
+tsunami qui sont une seule vague ou même un tremblement de terre qui n’est pas périodique) et les ondes oscillantes,
+périodiques comme celles formées par l’eau quand un caillou tombe dans le milieu ou le son.
+Nous distinguons les ondes en plusieurs catégories :
+•
+•
+
+Les ondes longitudinales, où les points du milieu de propagation se déplacent localement selon la direction
+de la perturbation (exemple : la compression ou la décompression d'un ressort, le son dans l’eau ou l’air…)
+Les ondes transversales, où les points du milieu de propagation se déplacent localement et perpendiculairement au sens de la perturbation.
+
+1.2. SEISMES
+Les séismes, du fait de leur caractère imprévisible, des importants dégâts qu’ils causent et des pertes humaines désastreuses qu’ils provoquent, représentent un enjeu pour l’humanité et notamment pour les chercheurs,
+dans des domaines divers.
+
+1.2.1. PHENOMENE
+Les séismes se produisent généralement le long des zones de rencontre entre deux plaques tectoniques. Ils
+sont dus au déplacement violent de masses rocheuses souterraines qui libèrent en quelques instants une énergie très
+importante accumulée au fil des années du fait des contraintes mécaniques extrêmes qu’elles subissent. Le point de
+rupture des roches est appelé « foyer » du séisme tandis que le point en surface à la verticale du foyer porte le nom
+d’ « épicentre ».
+
+Figure 1 : Schéma des caractéristiques d’un séisme (10)
+
+Nous mesurons la puissance d’un séisme par une grandeur appelée magnitude. Elle se rapportait anciennement sur l’échelle de Richter, le nom est d’ailleurs resté, mais désormais nous utilisons une autre échelle développée
+par Kanamori à partir de l’échelle de Richter (d’après le site de l’USGS (2) : The Richter scale is an outdated method
+that is no longer used that measured the largest wiggle on the recording, but other magnitude scales measure diffeKaplas : Des chutes édifiantes
+
+5/20
+
+rent parts of the earthquake). C’est l’échelle des magnitudes de moment. C’est une échelle logarithmique : une augmentation de 1 sur l’échelle correspond à une multiplication par 30 de l’énergie dégagée par le séisme et à une multiplication par 10 de son amplitude. Pour avoir une idée des énergies mises en jeu, il faut s’imaginer que l’explosion de
+la plus grosse bombe atomique de l’histoire (la tsar bomba, 57 MT) correspond à l’énergie d’un séisme de magnitude
+6.0.
+Le plus violent tremblement de Terre jamais recensé avait une magnitude de 9.5 et s’est produit au Pérou
+tandis que parmi les plus meurtriers, nous pouvons citer celui de Port-au-Prince à Haïti qui a fait 300 000 morts et
+autant de blessés, pour une magnitude évaluée entre 7.0 et 7.3. Ainsi, ce n’est pas forcément la magnitude qui indique le mieux les dégâts causés, il faut aussi prendre en compte la zone touchée, le nombre d’habitant, le type de
+construction, la période de l’année etc.… D’autres échelles existent donc, parmi lesquelles nous pouvons citer celle de
+Mercalli qui est qualitative et se base sur la description des dégâts causés par le séisme.
+
+1.2.2. ONDES SISMIQUES
+Les ondes sismiques sont des ondes élastiques, c’est à dire qu’elles correspondent à la propagation d’une
+déformation d’un milieu. L'énergie de départ va provoquer le déplacement des particules terrestres, qui vont à leur
+tour déplacer d'autres particules et ainsi de suite jusqu’à ce que l’énergie se soit entièrement dissipée. Les vibrations
+partent du foyer du séisme et se propagent dans toutes les directions. Nous pouvons distinguer parmi elles les ondes
+de Love et les ondes S qui provoquent un ébranlement horizontal. Ces ondes sont responsables de nombreux dégâts
+touchant les fondations d'un édifice, qui n'est pas une construction parasismique, ces types d’onde nous intéressent
+-1
+donc particulièrement. Les ondes de Love se propagent à environ 4 km.s . Enfin, le dernier type d’ondes correspond
+aux ondes P également qualifiées d’ondes longitudinales, ce sont les ondes plus rapides (leur vitesse varie de 6 à 13
+-1
+km.s si elles se propagent au niveau de la surface ou au niveau du noyau). Leur action peut être assimilée à celle d’un
+ressort car elles provoquent des dilatations et des compressions successives des roches. (3)
+
+Figure 2 : Schéma de la propagation des différents
+types d’onde (2)
+
+Kaplas : Des chutes édifiantes
+
+6/20
+
+1.3. CARACTERISTIQUES PHYSIQUES DES KAPLAS
+Les Kaplas sont connus mondialement comme étant un jeu de construction pour les enfants, ainsi que les
+adultes qui le sont restés. Il s'agit de planchettes de bois, que nous pouvons empiler les unes sur les autres afin de
+réaliser les constructions les plus variées et originales possibles. Le Kapla a été inventé par Tom van der Bruggen. Le
+contexte même de l'invention des kaplas repose sur leur utilité. En effet, le créateur ressentit le besoin de modéliser
+un château qu'il désirait construire en France afin de le visualiser plus aisément. Cependant les blocs en bois dont il
+disposait ne lui convenaient pas, il décida alors d'utiliser des planchettes de bois. Cette invention, qui n'existait au
+début que par nécessité arriva sur le marché du jouet en 1987. (4)
+
+1.3.1. DIMENSIONS ET MATERIAU
+Le Kapla présente la spécificité d'être un jouet « naturel », il est constitué à 100 % de pin des Landes. Les
+planches sont identiques, elles ont donc les mêmes dimensions : 11,7 cm de longueur, 2,34 cm de largeur et 0,78 cm
+d'épaisseur. Elles répondent aux normes suivantes : 1 largeur représente 3 épaisseurs, et 1 longueur représente 5
+largeurs (soit 15 épaisseurs).
+Cet objet étant le support principal de notre projet nous avons d'abord décidé de l'étudier avec plus d'attention. Afin de calculer ses dimensions moyennes, nous avons mesuré la longueur, la largeur, l'épaisseur à l'aide de verniers, et la masse de cent kaplas à l'aide d'une balance de précision (modèle Practum, Sartorius).
+Avec ces données nous avons pu caractériser les propriétés physiques de ces planches (dimension, masse,
+masse volumique) et estimer la variabilité de ces paramètres.
+1
+
+L'ensemble de ces informations nous a permis de trouver les caractéristiques physiques suivantes :
+•
+•
+•
+•
+•
+
+longueur moyenne : (11,78 ± 0,02) cm
+largeur moyenne : (2,36 ± 0,02) cm
+épaisseur moyenne : (0,79 ± 0,02) cm
+masse moyenne : (12 ± 3) g
+-3
+masse volumique moyenne : (550 ± 150) kg.m
+
+Selon le site officiel kapla, une largeur représente trois épaisseurs : 0,79 x 3 = 2,37 cm, une longueur représente cinq largeurs ; 5 x 2,36 = 11,8 cm. En tenant compte des différentes incertitudes, nous retrouvons des valeurs en
+accord avec nos résultats.
+Enfin, nous avons comparé notre masse volumique moyenne aux masses volumiques des différents types de
+-3
+bois. Celle qui se rapprochait le plus de notre résultat était la masse volumique du pin (500kg.m ).Ce qui est également en accord avec la description du site. Nous constatons que nos mesures sont conformes aux « dimensions officielles ».
+Nous pouvons cependant constater que les incertitudes concernant la masse moyenne et la masse volumique
+moyenne sont très importantes. Nous pourrions expliquer ces chiffres par le fait que le bois n’est pas un matériau
+homogène. En effet la présence de nœuds dans certains kaplas isolés peut apporter une densité localement plus importante. Etant donné que le calcul de la masse volumique dépend de la valeur de la masse, cela peut également
+justifier la présence d’une incertitude aussi conséquente pour cette caractéristique.
+
+1
+
+Dans l’intégralité de ce rapport, nous avons assimilé l’incertitude de mesure à l’écart type.
+
+Kaplas : Des chutes édifiantes
+
+7/20
+
+1.3.2. COEFFICIENT DE FROTTEMENT SOLIDE
+Pour la suite nous avions besoin de calculer le coefficient de frottement solide kapla contre kapla que nous
+avons déterminé expérimentalement (voir la méthode de calcul en annexe).
+Lorsqu’un kapla est sur la face et frotte contre d’autres kaplas, alors pour 10 mesures du coefficient de frottements
+vaut :
+1,45
+
+0,29
+
+Lorsqu’un kapla est sur la tranche et frotte contre d’autres kaplas, alors pour 10 mesures du coefficient de
+frottements vaut :
+0,69
+
+0,18
+
+Le coefficient de frottement est différent pour un kapla sur la tranche et pour un kapla sur la face. C’est le
+coefficient de frottement lorsque le kapla est sur la tranche qui nous intéresse car dans nos tours de kaplas, les kaplas
+sont posés sur la tranche.
+
+2. TABLE SISMIQUE :
+2.1. NOTRE DEMARCHE
+Nous nous sommes intéressés aux effets des ondes sismiques P et S sur différentes structures de kaplas que
+nous allions construire. Or, pour modéliser et étudier cette influence, il nous fallait disposer d'un moyen de reproduire
+des vibrations proches d'un séisme réel mais également une structure capable de supporter des tours qui seraient
+soumises à ses vibrations, moyen que nous n’avions pour l’instant pas à notre disposition. C'est donc dans cette
+optique que nous avons commencé à construire entièrement un outil qui serait capable de nous permettre d’effectuer
+nos futures expériences, notre table vibrante.
+Nous avons donc effectué des recherches sur les séismes eux-mêmes, mais également sur des laboratoires
+qui travaillent sur les ondes sismiques, en particulier le projet tamaris (5) et qui utilisent des systèmes modélisant
+l'impact réel des séismes sur des bâtiments.
+
+Plaque support
+polycarbonate
+
+Vibreur vertical
+
+Tige filetée
+Tasseaux de bois surmontés
+de ressorts
+
+Plaque intermédiaire
+Plaque support béton
+
+Figure 3 : Schéma de face de la table vibrante mettant en évidence le positionnement du vibreur vertical entre les plaques
+
+Nous avons ensuite commencé par réaliser des schémas et des plans de notre table vibrante, en choisissant
+tout d'abord d'utiliser un seul vibreur. La table devait se diviser en deux parties, une première plus solide qui sert de
+socle et qui est sensée rester immobile. Elle est composée d’un bloc de béton de 40x40 cm de large et 4 cm
+d’épaisseur sur lequel nous avons fixé une armature en bois.
+Kaplas : Des chutes édifiantes
+
+8/20
+
+La seconde partie mobile et légère (une plaque de polycarbonate) servira de support à nos constructions.
+Nous avons placé un premier vibreur entre les deux plaques. Le vibreur a été fixé ensuite sous la plaque de plastique à
+l'aide d'une tige filetée.
+Les premiers essais ont mis en évidence plusieurs problèmes, en effet dans la première version de notre table
+vibrante, la plaque support (supérieure) était fixée directement sur les tasseaux de bois, or ces derniers absorbaient
+alors une grande partie des vibrations transmises. Pour remédier à ce problème nous avons choisi d'ajouter des
+ressorts sous les quatre coins de la plaque entre les tasseaux de bois. Notre objectif était ainsi d’augmenter l’intensité
+des vibrations transmises par le vibreur à la plaque.
+Ensuite, en approfondissant nos recherches nous avons pu constater que les vibrations verticales ne
+suffisaient pas à modéliser un séisme. Afin de rendre notre dispositif le plus réaliste possible, nous avons donc ajouté
+un second vibreur pour disposer de vibrations horizontales. Ce deuxième vibreur est donc fixé, de manière horizontale,
+sur un support fixe (potence), et relié à la plaque supérieure, ce qui permet au vibreur de rester solidaire de la table et
+de l'accompagner dans son mouvement.
+
+Plaque support polycarbonate
+Vibreur
+
+Accéléromètre
+
+Vibreurs (mouvement horizontal)
+
+GBF
+Alimentation
+de
+l’amplificateur
+Amplificateur
+
+Plaque supérieure support
+(plastique)
+
+Plaque de béton
+
+Vibreur (mouvement vertical)
+
+Figure 4 : Photographies légendées du deuxième modèle de la table vibrante
+
+Kaplas : Des chutes édifiantes
+
+9/20
+
+Oscilloscope
+Vibreur
+
+GBF
+Amplificateur
+
+Plaque
+vibrante
+
+Figure 5 : Dernier modèle de table vibrante
+
+Nous nous sommes ensuite rendus compte, après avoir présenté notre projet aux Olympiades régionales que
+le modèle de table vibrante pouvait encore être amélioré. Après avoir privilégié l’aspect réaliste d’un séisme avec
+l’utilisation de deux vibreurs, fournissant ainsi l’excitation dans deux dimensions, nous avons choisi de modifier notre
+table vibrante afin de faciliter l’exploitation de nos résultats d’un point de vue mathématique.
+Le modèle se compose d’un vibreur qui fait bouger la plaque de polycarbonate selon l’axe x. Ce choix
+d’étudier une excitation dans une seule dimension est réducteur en comparaison avec la réalité puisque un séisme fait
+trembler la Terre dans toutes les directions. Cependant, de cette manière, nous étudions un phénomène plus simple
+et qui ne dépend que d’un petit nombre de paramètres expérimentaux. Il est également moins difficile à décrire mathématiquement. Enfin Enfin, les ondes P et S n’ont pas la même vitesse de propagation et les ondes P arrivent en
+premier mais ne font pas beaucoup de dégâts. Cette seule excitation horizontale peut être assimilée à l’étude des
+ondes de Love et des ondes S, qui sont en réalité celles qui causent le plus de dégâts aux constructions nonparasismiques.
+Nous utilisons, pour faire fonctionner notre table vibrante, un amplificateur dont les transistors chauffent
+rapidement lorsqu’on met le système en fonctionnement. Pour pallier cet échauffement excessif, nous utilisons une
+plaque de refroidissement qui dissipe la chaleur. Mais ce n’est pas suffisant; nous avons ajouté un ventilateur qui
+permet de dissiper la chaleur beaucoup plus rapidement. De cette manière, les composants ne chauffent plus du tout
+et il n’y a pas de risque de les abimer, même après une longue durée d’utilisation de la table.
+Il a également été nécessaire d’obtenir un signal sinusoïdal en sortie du GBF. En ajustant les paramètres de
+fréquence et d’amplitude, on arrive à obtenir une sinusoïde régulière que l’on contrôle via l’oscilloscope. Là encore, il
+s’agit d’une simplification de la réalité car il est bien évident que les ondes sismiques ne sont pas des sinusoïdes, loin
+s’en faut. Pourtant, l’excitation apportée à la tour est bien plus régulière avec ce type de signal et par conséquent les
+résultats sont plus faciles à interpréter.
+
+Kaplas : Des chutes édifiantes
+
+10/20
+
+2.2. SON FONCTIONNEMENT
+Oscilloscope
+
+Vibreur
+
+Ventilateur
+
+Amplificateur
+-15 V
+GBF
+
+0V
+
++15 V
+
+Générateur de
+courant continu
+
+Figure 6 : Schéma du montage électrique de la table vibrante
+
+L’alimentation électrique des vibreurs, se fait grâce à
+deux appareils complémentaires : un GBF et un amplificateur. Le GBF nous permet de régler avec précision la
+fréquence et la tension des vibreurs. Nous avons utilisé un amplificateur afin d'augmenter la tension fournie par le
+générateur, et aussi dans le but de pouvoir faire fonctionner le vibreur correctement.
+Dans le deuxième modèle de table vibrante, le signal à l’entrée des vibreurs était constitué de "pics" à cause
+d’une saturation de l’amplificateur. Pour étudier les fréquences de résonnances, nous avons voulu obtenir un signal
+sinusoïdal en sortie du GBF. En ajustant les paramètres de fréquence et d’amplitude, on arrive à obtenir une sinusoïde
+parfaitement régulière que l’on contrôle via l’oscilloscope. Là encore, il s’agit d’une simplification de la réalité car il est
+bien évident que les ondes sismiques ne sont pas des sinusoïdes, loin s’en faut. Pourtant, l’excitation apportée à la
+tour est bien plus régulière avec ce type de signal et par conséquent les résultats sont plus faciles à interpréter.
+En réalité, bien qu’un séisme soit un soliton, il est constitué d’ondes périodiques (de 0,1 à 30 Hz (6)) et selon
+les séries de Fourier, on pourrait décomposer ce séisme périodique en série trigonométrique (suite de fonctions
+trigonométriques comme cosinus ou sinus). Ainsi, étudier certaines fréquences à l’aide d’ondes sinusoïdales nous
+pemettrait peut-être d’étudier des séismes avec une certaine fréquence fondamentale (la fréquence de base de cette
+série trigonométrique).
+
+Kaplas : Des chutes édifiantes
+
+11/20
+
+Figure 7 : Signaux en "pics" puis sinusoïdaux
+
+2.3. SES LIMITES
+Notre table vibrante est un modèle créé dans le but d'être le plus proche possible de la réalité mais il possède
+des limites. En effet, les vibreurs supportent un poids maximal, ce qui restreint les possibilités de construction de tours.
+De plus, la plaque vibrante absorbe une partie des vibrations, ce qui peut affecter les valeurs que nous mesurons au
+cours de nos expériences.
+En outre, nous ne disposons que de l'excitation horizontale (de la gauche vers la droite) dans une dimension
+mais nous pourrions envisager l’ajout d'un second vibreur, afin de posséder les vibrations correspondant aux deux
+dimensions du plan. Enfin, le signal à la sortie de l’amplificateur est complètement périodique. Or dans la réalité, les
+séismes ne sont pas périodiques. Ils peuvent avoir une fréquence mais aucun motif ne se répète véritablement.
+Dans notre deuxième modèle, les vibreurs horizontaux et verticaux étaient en phase, or, dans la réalité, les
+ondes P (ondes verticales) et les ondes S (ondes horizontales) ne sont pas en phase car elles n’ont pas la même vitesse
+et pour un point assez éloigné de l’épicentre du séisme, elles ne l’atteignent pas au même moment. Une amélioration
+possible de notre second modèle de table aurait été d’introduire un déphasage entre les deux signaux ou mieux encore d’alimenter les deux vibreurs de façon indépendante.
+
+Kaplas : Des chutes édifiantes
+
+12/20
+
+3. OPTIMISATION DE LA STRUCTURE D’UNE TOUR DE KAPLAS
+3.1. POSITION DU PROBLEME
+Nous tentons de construire une table vibrante pouvant reproduire les séismes à l’échelle d’une tour en kaplas.
+La plaque s’est révélée être un outil de modélisation efficace, qui nous a par exemple permis de provoquer la chute de
+tours en kaplas assez facilement mais serait-il possible d’augmenter la durée de stabilité d’une tour en fonction des
+différents paramètres, à savoir sa hauteur, sa masse, etc. ? Dans l’optique de modéliser des séismes à l’échelle de
+kaplas et donc des bâtiments humains à l’échelle de tour en kaplas, comment pourrions-nous optimiser la forme
+d’une tour et sa hauteur afin qu’elle s’effondre le plus lentement possible ?
+Les premiers tests (de reproductibilité, de l’influence de la masse et de l’écart) ont été réalisés avec le deuxième modèle de table vibrante mais les résultats restent valables pour le dernier modèle, il n’y a que les valeurs qui
+changent mais l’allure du graphe reste identique.
+
+3.2. CALCUL DE LA DUREE DE STABILITE D'UNE TOUR
+Nous avons voulu trouver un moyen de calculer la durée de stabilité d’une tour en ayant l’accéléromètre de
+la plaque. Dans un premier temps, nous avons calculé cette durée de stabilité avec le second modèle en prenant en
+compte les frottements (voir calculs en annexe). En prenant la même situation que celle en annexe et avec notre dernier modèle, vu que
+considérant que
+2 cm).
+
+, pour obtenir la durée de stabilité, il suffit d’intégrer l’accélération deux fois (en
+
+0 et que (0) = 0) et de regarder à partir de quel temps , ( ) >
+
+avec
+
+le décalage des (ici
+
+3.3. TEST DE REPRODUCTIBILITE
+Un de nos premiers tests effectués a été un test de reproductibilité, nous avons construit dix tours de kaplas,
+constituées de dix étages, toutes identiques (écart entre les kaplas de 3 cm) puis nous avons mesuré le temps de
+chute de chacune d’elles, quand elles étaient soumises à une fréquence de 2,0 Hz.
+Une tour de dix kaplas de haut, séparés par un écart de 3 cm prendra en moyenne 24,09s pour s’effondrer,
+pour un écart-type de 2.74s. Compte tenu des conditions expérimentales et du fait qu’il est difficile de reproduire des
+tours exactement identiques, nous pouvons dire que les valeurs sont similaires et que le phénomène est reproductible
+au niveau de la durée de stabilité.
+Pour avoir un écart constant entre les kaplas de chaque étage on utilise des kaplas marqués à la base de la
+tour. On peut donc obtenir un premier étage avec l’écart souhaité puis on monte la tour on respectant cet écart.
+
+Figure 8 : Photographie des kaplas gradués servant à mesurer l’écart à la
+base de la tour
+
+Kaplas : Des chutes édifiantes
+
+13/20
+
+3.4. INFLUENCE DE LA MASSE DE LA TOUR ET DE SA HAUTEUR SUR LE TEMPS DE CHUTE
+
+Dans le but d'étudier le rôle de la masse sur le temps d'effondrement d'une structure, nous avons réalisé
+l'expérience suivante :
+Nous avons construit « un chariot » de kaplas sur lequel nous avons disposé différentes masses, que nous
+avons exposé à une vibration de 2,0 Hz grâce à la table sismique. Pour chaque masse étudiée, nous avons mesuré
+plusieurs valeurs correspondant au temps d'effondrement de la structure, dont nous avons ensuite fait la moyenne :
+
+Graphique représentant le temps de chute des constructions en
+fonction de la masse ajoutée (g)
+18
+
+Temps de chute (s)
+
+16
+14
+12
+10
+8
+6
+4
+2
+0
+0
+
+200
+
+400
+
+600
+
+800
+
+1000
+
+1200
+
+Masse (g)
+
+Sur ce graphique, nous pouvons remarquer que le temps de chute augmente quand la masse ajoutée à la
+tour augmente elle aussi, de plus un palier semble apparaître pour une masse de 300g, le temps de chute va ensuite
+diminuer, jusqu’à 500g, où il augmente de nouveau. Nous observons, par la suite, une augmentation très importante
+de la durée de stabilité entre 500 et 1000g, en effet on passe de environ 9 secondes de stabilité pour 500 grammes à
+environ 16 secondes pour 1000 grammes, ce temps correspond donc à la stabilité maximale dans le cadre de notre
+expérience.
+Nos tours de dix kaplas de haut, soit vingt kaplas pèsent donc 240 g (1.3.1) et mettent bien 8 secondes pour
+tomber. Des tours avec plus de kaplas semblent plus indiquées pour construire une tour stable.
+
+Kaplas : Des chutes édifiantes
+
+14/20
+
+3.5. INFLUENCE DE L'ECART ENTRE LES KAPLAS D'UNE CONSTRUCTION SUR LE TEMPS
+D'EFFONDREMENT DE LA TOUR
+
+Dans le but de comparer le temps d'effondrement de différentes constructions selon leur structure, nous
+avons donc construit des tours de dix kaplas de haut (chaque étage est constitué de deux kaplas) en faisant varier
+l'écartement entre les kaplas de chaque étage. L'écart varie de 0 (les deux kaplas sont collés) à 10 cm (écart maximal
+permis par les dimensions des kaplas).
+
+Temps de chute des structures en fonction de l'écart entre
+les kaplas
+35
+
+Temps de chute (s)
+
+30
+25
+20
+15
+10
+5
+0
+0
+
+2
+
+4
+
+6
+
+8
+
+10
+
+12
+
+Ecart entre les kaplas (cm)
+
+Les structures dont les kaplas ont un écartement de 2,5 cm semblent donc être les plus stables, en effet le
+temps de chute d'une telle tour est environ de 26 secondes, ce qui est la valeur maximale obtenue au cours de nos
+tests. En effet, quand l’écart des kaplas se situe entre 0 et 2 centimètres, la durée de stabilité des tours augmente
+fortement, allant de 2 secondes quand l’écart est de 0 cm à environ 24 secondes pour 2cm d’écart. De 2 à 4 cm d’écart,
+le temps de chute semble se stabiliser, comme nous le montre le « plateau » décrit par la courbe, le temps de chute
+est alors de environ 25 s. Un maximum apparaît seulement pour 2,5 cm. A partir de 4 cm jusqu’à 10 (dernière valeur
+mesurée), la durée de stabilité ne cesse de diminuer, pour une valeur finale de 12 secondes.
+
+Kaplas : Des chutes édifiantes
+
+15/20
+
+3.6. TAIPEI 101
+Afin de reproduire un système parasismique semblable à celui présent dans la tour Taipei 101, nous avons
+reproduit un pendule à petite échelle. Il est censé amortir l’ébranlement de la tour de kaplas et optimiser son temps
+de stabilité.
+Taipei 101 est une tour de 509 m de haut construite à Taiwan. Elle est
+située dans une zone fortement sismique et pour que cette tour puisse résister aux typhons et aux tremblements de terre, elle est équipée d’une boule en
+acier de 660 tonnes. (7)
+
+Figure 9 : Dispositif antisismique de la tour Taipei
+101
+
+Avant toute chose, nous avons obtenu la fréquence de résonance du pendule expérimentalement, en le
+fixant entre deux supports. On obtient la valeur expérimentale suivante : 1,65 Hz.
+
+Figure 10 : Obtention de la fréquence de résonance
+du pendule expérimentalement
+
+Les résultats sont en accord avec la théorie. En effet, le pendule mesure 11 cm et pour des petites oscillations, la
+période d’un pendule simple est de :
+!
+=2
+"
+
+=2
+
+0,11
+= 0, 67 $
+9,8
+
+Or, on a par définition de la fréquence :
+=
+
+Kaplas : Des chutes édifiantes
+
+1
+
+=
+
+1
+= 1, 5 %&
+0,67
+
+16/20
+
+Ensuite, nous déterminons la fréquence de résonance d’une tour de 10 kaplas de haut en regardant à quelle
+fréquence la tour s’écroule le plus rapidement (avec une amplitude de sortie toujours identique). Nous obtenons une
+valeur oscillant entre 10 et 20 Hz. La plage est grande car le temps de stabilité de ces tours est plutôt faible et ne
+diffère que deux à cinq secondes.
+
+Figure 11 : Schéma de Taipei 101 en kapla
+
+Enfin, nous pouvons remarquer que la présence d’un pendule parasismique permet de modifier la fréquence
+de résonance du bâtiment (dans ce cas elle diminue et se trouve en dessous de 10 Hz) et en comparant avec les
+différentes fréquences des séismes, nous pourrions prendre la fréquence avec le plus d’écart avec celle du séisme
+pour éviter que le bâtiment entre en résonance lors d’un séisme et ne s’écroule plus facilement et rapidement.
+
+Kaplas : Des chutes édifiantes
+
+17/20
+
+4. CONCLUSION
+
+Nos recherches et nos expériences nous ont permis de modéliser les séismes à l’échelle des kaplas, en particulier grâce à la réalisation de notre table vibrante. La table, qui reste un outil de modélisation à cause de ses limites,
+s’est révélée efficace pendant nos différents tests. Quand nous avons, par exemple, soumis dix tours que nous voulions identiques, à la même vibration, nous avons bien obtenu des résultats cohérents.
+
+De plus, malgré le fait qu’un modèle de tour construite en kapla présente de grandes différences avec un
+bâtiment habité par l’homme, nous pouvons considérer le fait que tout bâtiment, qui peut potentiellement être soumis à des ondes sismiques, pourra voir sa résistance préalablement testée en laboratoire par exemple. Quel meilleur
+moyen d’évaluer le comportement face aux chocs d’une tour de dix mètres de haut que de tester une maquette réduite de celle-ci, soumise à une modélisation de séisme ?
+
+L’étude des kaplas, qui pouvaient sembler être une échelle qui soit peu réaliste et incomparable aux structures dans lesquelles nous habitons, nous a au contraire montré que même pour des tours de kaplas, une optimisation
+était possible, que ce soit dans la masse de la tour ou encore dans l’écartement choisi entre les kaplas des différents
+étages. De plus, il faut garder à l’esprit que certaines solutions que nous avons mises en place, pour renforcer la stabilité de nos tours, sont à l’heure actuelle utilisées dans les constructions parasismiques. Par exemple, l’utilisation d’un
+plancher sous la tour de kaplas, afin d’absorber les vibrations transmises par les vibreurs, peut s’apparenter aux fondations situées sous nos propres bâtiments ou encore, la modification de l’architecture de la tour qui était carrée lors
+de nos tests mais qui pourrait être plus ronde… Peut-être existe-t-il d’autres moyens d’optimiser les tours en kaplas
+qui puissent être réalisés à l’échelle humaine pour des constructions parasismiques ? Des recherches sont mêmes en
+cours pour dévier des ondes sismiques de surfaces (8). L’utilisation de ce genre de tables vibrantes pourrait être utile
+pour tester ces différentes techniques en laboratoire.
+
+Kaplas : Des chutes édifiantes
+
+18/20
+
+Figure 12 : Photographie de tour avec une base sphérique (à gauche) et dont les fondations sont un tapis de kaplas (à droite)
+
+5. BIBLIOGRAPHIE
+1. Antczak, Stanislas et Le Maréchal, Jean-François. Ondes et particules. Physique Chimie Terminale S. 2012, pp. 37-41.
+2. Institut d'études géologiques des États-Unis. earthquake ugs. [Online] [Cited: 09 2016, 06.]
+http://earthquake.usgs.gov/.
+3. junon.u-3mrs.fr. Projet Sismo des écoles. [En ligne] [Citation : 10 10 2016.] http://junon.u3mrs.fr/ms01w004/sismo-des-ecoles/public-html/seisgram/ondes_sismiques.htm.
+4. L'histoire du kapla. kapla.com. [En ligne] 20 02 2016. http://www.kapla.com/vitrine/jeu-kapla/kapla-histoire/.
+5. Site CEA - Tamaris. [En ligne] http://www-tamaris.cea.fr/html/fr/essais/tamaris.php.
+6. Qu'est-ce qu'un séisme ? Laboratoire d'Etudes de Mécanique SIsmique (EMSI). [En ligne] [Citation : 12 01 2017.]
+http://www-tamaris.cea.fr/html/fr/notions/seisme.php.
+7. Taipei 101. World Federation of Great Towers. [En ligne] [Citation : 12 01 2017.] http://www.greattowers.com/fr/towers/taipei-101-2/.
+8. Cape d'invisibilté...contre les séismes. C.N.R.S. [En ligne] [Citation : 12 01 2017.]
+http://www2.cnrs.fr/presse/communique/1639.htm.
+9. Brébec, Jean-Marie. Lois du frottement. Mécanique du solide et des systèmes MP PC. 2004, 5, pp. 111-118.
+10. Site pédagogique SVT. [En ligne] 21 04 2016. http://www.vivelessvt.com/college/4eme/les-seismes/.
+11. Ressource pédagogique SVT. [En ligne] 10 04 2016. http://svt4vr.e-monsite.com.
+
+Kaplas : Des chutes édifiantes
+
+19/20
+
+12. Projet Sismo des écoles. junon.u-3mrs.fr. [En ligne] [Citation : 10 10 2016.] http://junon.u3mrs.fr/ms01w004/sismo-des-ecoles/public-html/seisgram/ondes_sismiques.htm.
+13. Auzou. Physique et Chimie, Magister 2000. 2000 : s.n.
+14. Science : les volcans et les séismes. ecolerenan.com. [En ligne] http://www.ecolerenan.com/index.php/105gautiercat/classescat/cycle3cat/classescm1cat/classecm1bcat/215-cm1bscienceslesvolcansetlesseismes.
+
+Kaplas : Des chutes édifiantes
+
+20/20
+
+

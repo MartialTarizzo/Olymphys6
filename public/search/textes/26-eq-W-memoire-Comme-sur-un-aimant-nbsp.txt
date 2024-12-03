@@ -1,0 +1,1201 @@
+Comme
+sur un aimant !
+METZ Thibaut, SCHRECKENBERG Hugo, VARESCON Killian
+
+ÉLABORATION D’UN SYSTÈME DE
+SUSPENSION À L’AIDE DE LA RÉPULSION
+MAGNÉTIQUE ENTRE DES AIMANTS
+NÉODYME.
+Professeur encadrant : M. Lohner
+
+LYCÉE LE GYMNASE JEAN-STURM
+À STRASBOURG
+
+COMME SUR UN AIMANT !
+
+Résumé
+Bien souvent, les routes de campagne sillonnant les plantations viticoles sont
+cahoteuses, et nombre de fois a-t-on eu la joie (ou l’horreur) durant un trajet en voiture de
+se retrouver secoué dans tout les sens. C’est ainsi que nous est venu à l’esprit la question
+des suspensions. Les suspensions hydrauliques habituelles n’étant pas suffisantes, nous
+nous sommes posés la question suivante : un système utilisant les propriétés répulsives des
+aimants pourrait-il amortir les chocs plus efficacement ? Nous avons donc étudié les
+oscillations d’un module, en rajoutant du poids ou non, en faisant varier l’intensité du
+champ magnétique ainsi que d’autres paramètres. Ainsi, dans ce projet vous découvrirez
+donc comment grâce à la force répulsive magnétique vous ne renverserez plus votre café
+en voiture !
+
+Table des matières
+Introduction
+I.
+
+Etude des aimants
+
+A. Les aimants et le champ magnétique
+B. Détermination de la cartographie des aimants
+
+II. Etude du champ magnétique à l’équilibre
+
+A. Hauteur d’équilibre sans ajout de masse
+B. Hauteur d’équilibre avec ajout de masse
+C. Le champ magnétique dans notre système
+D. Hauteur d’équilibre avec ajout de masse correspondant à la masse
+d’aimants
+
+III. Etude de la dynamique du champ magnétique
+
+A. Expérimentation
+B. Visite du laboratoire ICUBE : utilisation d’une caméra a haute vitesse
+C. Conclusion
+
+IV. Etude des oscillations a régime forcé
+A. Expérimentation
+B. Interprétation
+C. Conclusion
+
+V. Prospectives
+
+A. Génération d’une tension électrique
+B. Injection de courant dans la bobine afin de ralentir notre module
+C. Prototype
+
+Conclusion
+Remerciement
+Références
+OLYMPIADES DE PHYSIQUE FRANCE
+
+PAGE 2 SUR 20
+
+ANNÉE 2018-2019
+
+COMME SUR UN AIMANT !
+
+LISTE DES NOTATIONS, ABRÉVIATIONS ET SYMBOLES EMPLOYÉS
+n
+
+le nombre d’aimants du module
+
+a
+
+aire de la plaque conductrice de la sonde a effet Hall
+
+mn
+
+somme de la masse des aimants du module
+
+I
+
+courant circulant dans la sonde de Hall
+
+ma
+
+masse additionnelle attachée aux aimants
+
+Uh
+
+tension de Hall
+
+h0
+
+hauteur initiale à laquelle est lâché le module
+
+g
+
+champ de pesanteur terrestre
+
+mTOT
+
+fa
+
+fréquence d’oscillation des aimants
+
+B⃗
+
+mTOT = ma + m n
+champ magnétique
+
+fs
+
+fréquence d’oscillation de la structure
+
+Rh
+
+constante de Hall
+
+Aa
+
+amplitude des oscillations des aimants
+
+As
+
+amplitude des oscillations de la structure
+
+Introduction :
+Les aimants sont présents dans notre quotidien, ils sont par exemple exploités dans
+différents jeux pour enfant, dans certains systèmes de fermeture, sur nos frigidaires, etc. On
+peut également les trouver dans le monde du travail. En effet, les aimants sont exploités
+dans différentes usines, par exemple dans celles où l’on extrait le fer. Les aimants ont la
+capacité, que l’on pourrait presque qualifier de magique, à attirer les métaux. Mais
+développons nous tout le potentiel que possèdent les aimants ? Ne pourrait-on pas plus
+exploiter la capacité des aimants ? Lorsqu’on pense aux aimants, leur propriété d’attraction,
+celle qu’on a le plus l’habitude d’expérimenter est souvent abordée. Cependant, n’avez
+vous jamais essayé de joindre deux aimants qui se repoussent sans qu’aucun d’eux ne se
+retourne ? Assez difficile n’est-ce pas ?
+La force de répulsion des aimants est si intense qu’il est presque impossible de
+mettre deux faces similaires en contact. Ce phénomène de répulsion magnétique n’est
+aujourd’hui pas très exploité car il est très difficilement exploitable. Elon Musk est l’un des
+seul qui a su contrôler la répulsion magnétique avec son train supersonique connu sous le
+nom d’Hyperloop. Mais ne pourrait-on exploiter la répulsion magnétique d’une autre
+manière ? Comment fonctionne la répulsion magnétique ? Est-il possible de la mesurer ?
+
+OLYMPIADES DE PHYSIQUE FRANCE
+
+PAGE 3 SUR 20
+
+ANNÉE 2018-2019
+
+COMME SUR UN AIMANT !
+
+I.
+
+Étude des aimants
+A. Les aimants et le champ magnétique
+1. Le magnétisme
+
+Le magnétisme est une force fondamentale, avec la gravité pour les êtres humains.
+En étudiant les propriétés des aimants et des phénomènes qui s’y rattachent, on peut
+souligner que les aimants sont caractérisés par leurs pôles. En effet, comme le montre le
+schéma ci-dessous, chaque aimant possède un pôle magnétique nord noté N et un pôle
+magnétique sud noté S. Selon la disposition de ces pôles, les aimants peuvent s’attirer ou se
+repousser.
+
+Les pôles de polarité opposés s’attirent (figure a et b) alors que deux pôles de même
+polarité se repoussent (figure c et d). Le magnétisme n’admet que des dipôles. En effet, un
+aimant ne possédant qu’un pôle nord ou sud n’a jamais été observé. Lorsqu’un aimant est
+divisé en deux parties distinctes, chacune de ces parties possèdent un nouveau pôle nord
+et un nouveau pôle sud.
+Le champ magnétique provient du
+mouvement des électrons. La « boucle
+de courant » créée par les électrons
+génère un moment magnétique. La
+somme statistique de tous les moments
+magnétiques atomiques forme un
+moment magnétique macroscopique.
+2. Le champ magnétique
+Le champ magnétique est un champ vectoriel résultant du déplacement de charges.
+Ainsi les aimants ne sont pas les seules sources de champ magnétique : la Terre possède
+également un champ magnétique par exemple. En outre, un conducteur parcouru par un
+courant génère également un champ magnétique. Le champ magnétique peut être
+représenté comme un ensemble de lignes reliant un pôle nord à un pôle sud. Ces lignes
+sont appelées lignes de champ. Il est également important de souligner qu’un aimant ne
+peut être mis en lévitation sans que des forces externes au système soient présentes. En
+effet d’après le théorème d’Earnshaw, des charges ponctuelles ne peuvent pas être en
+équilibre si des interactions autres que les interactions électrostatiques comme l’interaction
+gravitationnelle sont présentes.
+OLYMPIADES DE PHYSIQUE FRANCE
+
+PAGE 4 SUR 20
+
+ANNÉE 2018-2019
+
+COMME SUR UN AIMANT !
+
+3. Force de Lorentz
+La force de Lorentz est l’action d’un champ magnétique sur une charge électrique. En
+effet, la force magnétique f ⃗ appelée force de Lorentz, agit sur les électrons en mouvement.
+La force de Lorentz possède trois grandes propriétés : elle est perpendiculaire aux vecteurs
+champ et vitesse, son intensité dépend des valeurs de la vitesse et du champ et celle-ci est
+nulle si les vecteurs vitesse et champ sont parallèles ou si au moins un des deux vecteurs est
+nul.
+Loi de Lorentz : La force magnétique f ⃗ subie par une particule de charge q se déplaçant
+avec la vitesse v ⃗ dans un champ magnétique B ⃗ s’écrit : f ⃗ = q v ⃗ × B ⃗
+f ⃗ est perpendiculaire à v ⃗ et à B ⃗ ;
+f = | q × sin(α) | vB, où α est l’angle formé par v ⃗ et B .⃗
+D’après le théorème de l’énergie cinétique, la force de Lorentz ne contribue pas à la
+variation de l’énergie cinétique de la particule chargée. Il n’y a pas d’énergie potentielle
+associée à cette force.
+
+B. Détermination de la cartographie des aimants
+1. Les aimants utilisés
+Les aimants utilisés lors de nos expériences sont des aimants permanents en
+néodyme. Un aimant permanent est un aimant dont les pôles ne changent jamais. Ces
+aimants sont des alliages de néodyme, de fer et de bore. Les aimants en néodyme sont les
+aimants permanents les plus puissants sur le marché. Ceux que nous avons utilisés sont
+cylindriques de hauteur 5mm et de diamètre 25mm (+/- 1mm). Un aimant pèse environ
+18,4 grammes. Ces aimants ont une rémanence entre 1,29 et 1,32 T.
+
+2. Les sondes à effet Hall
+La cartographique du champ magnétique de nos aimants a été réalisée avec des
+capteurs à effet Hall qui mesurent l’intensité du champ magnétique. Les capteurs utilisés
+sont constitués d’une fine plaque rectangulaire sur laquelle on trouve un conducteur ou un
+semi conducteur. Le courant va circuler entre deux électrodes situées parallèlement l’une
+de l’autre. Les électrons vont se déplacer le long de l’axe des abscisses et lorsqu’ils seront
+soumis à un champ magnétique ils vont se déplacer sur l’axe des ordonnées comme on
+peut le voir sur le schéma ci-dessous. En effet, comme énoncé précédemment, lorsqu’un
+courant est soumis à un champ magnétique, les forces magnétiques de Lorentz agissent
+perpendiculairement au champ. Au cours de la mesure, les électrons vont se diriger d’un
+côté de la plaque conductrice. Ce déplacement de charges va créer un amas de charges
+négatives et un amas de charges positives qui va entrainer une force électrique
+d’opposition et une tension appelée la tension de Hall.
+
+Fz = q ×
+
+U
+U
+j
+j
+équilibre : q
+= B
+× B et Felec = qE = q
+nq
+dx
+d
+n
+
+d
+OLYMPIADES DE PHYSIQUE FRANCE
+
+PAGE 5 SUR 20
+
+ANNÉE 2018-2019
+
+COMME SUR UN AIMANT !
+
+Grâce à cette tension et à la formule ci-dessous, l’intensité du champ magnétique va
+pouvoir être calculée par le système Arduino auquel on a branché le capteur.
+
+Uh = Rh
+
+IB
+a
+
+3. La cartographie du champ magnétique
+Afin de cartographier la champ magnétique de nos aimants nous avons utilisé une
+plaque Arduino et réalisé une structure en lego™ visible dans l’annexe partie D. Les deux
+capteurs à effet Hall ont été collés de part et d’autre d’un lego™ qui a été déplacé sur
+l’ensemble de la surface de la structure.
+
+Champ vectoriel d’un aimant
+
+Champ vectoriel de deux aimants
+
+On remarque que le champ magnétique croît en fonction du nombre d’aimant. Le
+champ magnétique de deux aimants est plus fort que le champ magnétique d’un aimant.
+Cependant bien que le nombre d’aimants soit doublé, le champ magnétique ne double
+pas.
+Grace à la plaque Arduino (et le programme situé en annexe partie B et C) et à notre
+structure nous avons également pu déterminer le champ magnétique total de deux aimants
+en opposition, cf annexe partie A.
+En rapprochant deux aimants, lorsque deux pôles similaires (deux pôles nord ou
+deux pôles sud) sont à proximité, le champ magnétique s’oppose et par conséquent les
+aimants vont soit se repousser, soit l’un d’entre eux va se retourner. Inversement, lorsque
+deux pôles de polarité opposée sont a proximité, les champs magnétiques vont dans le
+même sens et les aimants vont s’attirer.
+
+II.
+
+Etude de la répulsion magnétique à l’équilibre
+
+Comme vu précédemment les deux pôles similaires d’un aimant se repoussent. Les
+suspensions vont par la suite tirer profit de ce phénomène. Ainsi l’un de nos buts est donc
+de mesurer la force de répulsion entre les aimants en fonction de la distance qui les sépare.
+Pour cela nous allons donc effectuer différentes mesures en modifiant des paramètres tels
+que l’intensité du champ magnétique ou encore la masse.
+OLYMPIADES DE PHYSIQUE FRANCE
+
+PAGE 6 SUR 20
+
+ANNÉE 2018-2019
+
+COMME SUR UN AIMANT !
+
+A.
+
+Hauteur d’équilibre
+1.
+
+Principe des mesures
+
+Pour mesurer la force de répulsion des aimants, nous avons placé des aimants en
+néodyme cylindriques, orientés afin de se repousser, de telle manière que leurs axes soient
+alignés verticalement. Pour cela nous avons réalisé des structures en bois visibles cidessous. Le matériau choisi a été le bois car c’est un matériau que l’on peut facilement
+transformer mais surtout un matériau qui n’a aucune influence sur le champ magnétique,
+d’après l’une de nos expériences. Le trou du haut a été fait de telle manière qu’un tube en
+plexiglass puisse être emboité et ainsi tenu verticalement, tube dans lequel les aimants du
+dessus vont être insérés. Le tube en Plexiglas a été percé afin que l’air s’échappe. En effet,
+suite à des mesures nous avons observé que l’air en restant bloqué dans le tube, modifie la
+pression et par conséquent la distance h.
+
+Tube de Plexiglas
+
+Aimants (ici au
+nombre de 3)
+h
+
+Socle en
+bois
+Aimant (ici
+au nombre
+de 1)
+
+De gauche à droite : photo du montage; schéma du montage
+Dans un premier temps, nous avons choisi d’effectuer nos mesures avec un seul
+aimant placé en dessous de la structure. Lors de nos premières expériences nous avons fait
+varier un seul paramètre : le nombre d’aimants placé dans le tube. La distance, notée h, qui
+sépare le haut de l’aimant placé dans la trappe du bas de la base du premier aimant en
+lévitation a été mesurée à chaque reprise.
+2.
+
+L’influence de la masse
+
+Nombre d’aimants dans le tube
+
+9
+
+8
+
+7
+
+6
+
+5
+
+4
+
+Distance h (en cm)
+
+4,3
+
+4,35
+
+4,5
+
+4,65
+
+4,9
+
+5,1
+
+OLYMPIADES DE PHYSIQUE FRANCE
+
+PAGE 7 SUR 20
+
+ANNÉE 2018-2019
+
+COMME SUR UN AIMANT !
+
+À chaque reprise, un seul aimant se trouvait au bas de la
+structure. Pour un nombre d’aimants dans le tube inférieur à 3
+comme on peut le voir sur la photo ci-contre, il devient très difficile
+de mesurer la distance h car celle-ci n’est pas constante. En effet, du
+fait de la légère différence entre le diamètre du tube et celui de nos
+aimants, les aimants dans le tube vont chercher à se retourner afin
+de présenter leur face sud face à la face nord de l’aimant du bas.
+L’expérience qui a permis de déterminer la distance h en
+faisant varier le nombre d’aimants a été réalisée dans les mêmes
+conditions. La distance h mesurée dépend principalement de deux facteurs : la masse que
+représente les aimants et le champ magnétique des aimants. En déterminant l’intensité du
+champ magnétique B ⃗ de nos aimants, nous nous sommes rendus compte que plus le
+nombre d’aimant est élevé, plus le champ magnétique est fort. Cependant il est important
+de souligner que si le nombre d’aimants est doublé, l’intensité du champ magnétique
+augmente certes, mais elle n’est pas doublée.
+m2
+m1
+On peut donc écrire l’inégalité suivante :
+≠2
+∥ B2 ⃗∥
+∥ B1 ⃗∥
+La masse est doublée mais l’intensité du champ magnétique n’est pas doublée. Il est donc
+logique que la distance h est d’autant plus grande lorsque le nombre d’aimant est faible.
+
+B.
+
+Hauteur d’équilibre avec ajout de masse
+1. Principe des mesures
+Tube de Plexiglas
+
+Masse ajoutée
+
+Aimants (ici au nombre de 3)
+
+h
+Socle en bois
+
+La masse semble donc posséder
+une grande influence sur la distance
+h. Pour mettre cela en évidence,
+nous avons fait varier la masse de
+tous les aimants en ajoutant un
+poids sur le dernier aimant en
+lévitation .
+La distance h a été mesurée selon
+une masse ajoutée qui évoluait à
+chaque reprise de 10g jusqu’à une
+masse maximum de 500g.
+
+Aimant (ici au
+nombre de 1)
+
+2.
+
+Modélisation en fonction de la masse ajoutée
+
+Observation : La distance h est d’autant plus faible lorsque la masse ajoutée est
+grande. En effet, en ajoutant une masse donnée, la masse globale du module que l’on
+appellera par la suite masse réelle augmente alors que l’intensité du champ magnétique
+reste la même. Le module de 9 aimants auquel une masse a été ajoutée est plus lourd
+qu’un module de 9 aimants auquel aucune masse n’est rajoutée, en revanche l’intensité du
+OLYMPIADES DE PHYSIQUE FRANCE
+
+PAGE 8 SUR 20
+
+ANNÉE 2018-2019
+
+COMME SUR UN AIMANT !
+
+champ magnétique reste inchangée. Le module de 4 aimants auquel une masse a été
+ajoutée va donc descendre dans le tube jusqu’à atteindre un nouveau équilibre et la
+distance h va diminuer.
+Hauteur 9 aimants (en cm)
+
+4,5
+
+Hauteur 5 aimants (en cm)
+
+3,34
+2,76
+2,18
+1,6
+
+0
+
+100
+
+200
+
+300
+
+400
+
+500
+
+Masse ajoutée en grammes
+
+Graphique représentant la distance h en fonction de la masse ajoutée pour 5 et 9 aimants
+3.
+
+Modélisation en fonction de la masse réelle
+
+La masse réelle est notée mTOT. mTOT = mn + ma
+Hauteur 8 aimants (en cm)
+700
+masse ajoutée (g)
+
+distance h en cm
+
+3,92
+
+560
+420
+280
+140
+0
+
+2
+
+2,5
+
+3
+
+3,5
+
+4
+
+4,5
+
+distance h (cm)
+
+Graphique représentant la masse ajoutée en fonction de la distance h pour 8 aimants
+En modélisant une courbe, on trouve une parabole avec un coefficient de régression
+linéaire correct qui est égal à 0,9942. Cependant on obtient pas les mêmes paraboles
+lorsque le nombre d’aimants du haut varie. Pour 8 aimants on obtient la fonction
+h(m) = 5,25 × 10−6 m 2 − 0,008m + 5,31.
+4. À la recherche d’une loi (reliant h à la masse)
+• Loi pour 7 aimants
+Les différentes courbes précédentes représentant la hauteur en fonction de la masse réelle
+avaient une ressemblance aux courbes
+
+OLYMPIADES DE PHYSIQUE FRANCE
+
+1
+. On devrait donc trouver une loi reliant h à la
+hx
+
+PAGE 9 SUR 20
+
+ANNÉE 2018-2019
+
+COMME SUR UN AIMANT !
+
+1
+. Un calcul de régression montre que l’équation de la courbe s’écrit :
+hx
+mTOT = 3156x − 116,15. Si on suppose que l’exposant doit être exactement égal à 1,7 ;
+1
+alors le graphique représentant mTOT en fonction de
+peut être représenté
+h 1,7
+masse réel en
+
+approximativement par une droite.
+
+Graphique représentant la masse réelle en fonction de la hauteur h pour 7 aimants
+
+masse réelle (g)
+
+700
+
+y = 3156x - 116,15
+R² = 0,9953
+
+525
+
+350
+
+175
+
+0
+0,065
+
+0,093
+
+0,121
+
+0,149
+
+0,176
+
+0,204
+
+0,232
+
+0,26
+
+1/h^(1,7)
+
+C. Le champ magnétique dans notre système
+1. Mesure de l’intensité du champ magnétique l’équilibre
+Pour mesurer le champ magnétique au niveau de la distance h, une sonde à été
+déplacée dans le tube entre les aimants du haut et celui du bas. Nous avons utilisé la même
+sonde et la même plaque Arduino précédemment utilisées
+pour la cartographie du champ magnétique des aimants.
+Dans notre montage, la sonde reste fixe. Le tube est
+déplacé de haut en bas de millimètre en millimètre à l’aide
+du support élévateur visible sur la photo. Ainsi on mesure
+l’intensité du champ magnétique chaque millimètre entre
+l’aimant du bas et celui du haut. Pour 4 aimants dans le tube,
+on obtient les graphique ci-dessous représentant l’intensité
+du champ magnétique en fonction de la distance h.
+
+2. A la recherche d’une équation modélisant le champ magnétique
+À un point donnée dans la distance d’équilibre, l’intensité du champ magnétique
+s’annule ce qui signifie que les forces magnétiques se compensent. Lorsque la sonde est
+située au plus proche des aimants, on obtient les mêmes valeurs. On obtient ce résultat car
+notre capteur sature à 0,1T. Au plus proche des aimants, l’intensité du champ magnétique
+dépasse les 0,1T. Nous avons essayé de modéliser la courbe expérimentale obtenue. Il est
+très difficile de trouver une fonction qui correspond à chaque point. Dans un premier temps
+OLYMPIADES DE PHYSIQUE FRANCE
+
+PAGE 10 SUR 20
+
+ANNÉE 2018-2019
+
+COMME SUR UN AIMANT !
+
+la fonction I (x) = k × tan(α × h) semblait bien modéliser nos mesures. Le nombre d’aimants
+du haut étant différent de celui du bas, les coefficients k et alpha variaient selon le signe de
+l’intensité du champ magnétique.
+Cependant suite à plusieurs tentatives de modélisation nous avons remarqué qu’une
+équation sous la forme d’un sinus hyperbolique modélisait mieux nos valeurs. Ainsi à l’aide
+du logiciel geogebra nous avons obtenus les équations ci dessous :
+• I = 220sinh(−1.775(h − 1,905)) pour la partie positive de la courbe avec un écart moyen
+entre le modèle et la courbe obtenue expérimentalement de 4,7%
+• I = 376,8sinh(−0.97(h − 1,865)) pour la partie négative avec un écart moyen entre le
+modèle et la courbe obtenue expérimentalement de 3,5%.
+
+La même expérience avec un même nombre d’aimant en bas et en haut de la
+structure a été réalisée. Celle-ci est consultable dans les annexes.
+
+D. Hauteur d’équilibre avec ajout de masse correspondant à la masse
+d’aimants
+Tube de Plexiglas
+
+F⃗
+
+Masse ajoutée
+Aimants (ici au nombre de 3)
+
+P
+
+h
+Socle en bois
+Aimant (ici au
+nombre de 1)
+
+Nous avons ensuite étudié la variation de la distance h lorsque la masse ajoutée
+correspondait à un nombre d’aimant. Quelques mesures nous ont permis de déterminer la
+OLYMPIADES DE PHYSIQUE FRANCE
+
+PAGE 11 SUR 20
+
+ANNÉE 2018-2019
+
+COMME SUR UN AIMANT !
+
+masse moyenne d’un aimant au dixième de gramme près. Un aimant a une masse de 18,4
+grammes. Nous avons donc réalisé différents poids correspondant à la masse d’un, de deux
+et de trois aimants.
+La distance d’équilibre est caractérisée par une compensation du poids par la force
+magnétique F .⃗ À l’équilibre on a donc : ∥ F ∥⃗ = mg avec g = 9,8 N.kg-1
+Avec un seul aimant, le module se retourne. Nous ne pouvons donc pas faire de mesure
+avec un seul aimant. Avec une masse en plus il ne peut se retourner.
+Masse ajoutée (en g)
+
+Masse réelle (en g)
+
+Hauteur (en m)
+
+Force magnétique (en N)
+
+0
+
+18,4
+
+indéterminée
+
+0,18032
+
+18,4
+
+36,8
+
+0,046
+
+0,36064
+
+36,8
+
+55,2
+
+0,041
+
+0,54096
+
+55,2
+
+73,6
+
+0,037
+
+0,72128
+
+73,6
+
+92
+
+0,034
+
+0,9016
+
+92
+
+110,4
+
+0,032
+
+1,08192
+
+110,4
+
+128,8
+
+0,03
+
+1,26224
+
+128,8
+
+147,2
+
+0,0285
+
+1,44256
+
+En représentant la force magnétique en fonction de l’inverse de la distance h au
+carré on obtient une fonction affine.
+
+force magnétique
+(N)
+
+Graphique représentant la force magnétique en fonction de la distance h
+1,6
+
+y = 0,0014x - 0,3118
+R² = 0,9996
+
+1,2
+0,8
+0,4
+0
+0,00E+00
+
+3,25E+02
+
+6,50E+02
+
+9,75E+02
+
+1,30E+03
+
+1/h^2
+Pour un nombre d’aimants différents dans le tube, l’exposant n’est pas tout le temps
+égal à 2.
+
+III. Etude de la dynamique du champ magnétique
+A. Expérimentation
+1. Protocole général
+Nous souhaitons dans cette partie étudier la dynamique de répulsion magnétique. Notre
+but est d’observer le comportement des aimants en répulsion lors d’oscillations en fonction de
+OLYMPIADES DE PHYSIQUE FRANCE
+
+PAGE 12 SUR 20
+
+ANNÉE 2018-2019
+
+COMME SUR UN AIMANT !
+
+leur nombre, et de la masse que l’on ajoute. Ainsi, nous
+proposons l’expérience ci contre. Un ensemble d’un
+nombre n d’aimants, de masse mn plus une masse
+ajoutée ma sont lâchés d’une hauteur h 0 initiale. La
+masse d’un seul aimant est m = 18,4 g . La masse totale
+du module est mTOTAL = mA + mn.
+Dans le socle en bois est placé un aimant
+(similaire à ceux lâchés). On prendra soin de vérifier que
+le groupe d’aimants lâché et l’aimant dans le socle en
+bois se repoussent bien, et donc qu’une même polarité
+se fait face.
+
+On choisi dans cette expérience de faire varier 2
+paramètres l’un après l’autre séparément, n et ma . On
+fixe h 0 (la hauteur initiale). On étudie ainsi la hauteur h (en mètres) du bas du dernier aimant
+au cours du temps (noté t en secondes). Pour étudier l’évolution de l’aimant dans le tube de
+PVC au cours du temps, on filme le dispositif avec un téléphone équipé d’une caméra
+capturant 240 images par seconde, au ralenti. On prendra soin de rétablir le temps réel car
+la vidéo obtenue est ralentie par un facteur 8.
+A l’aide du logiciel Tracker on pointe automatiquement la position du bas de l’aimant
+oscillant sur la vidéo, image par image. En exemple, ici, le pointage automatique de la
+position de l’expérience 1 (détail des paramètres dans l’annexe partie F) avec le logiciel
+Tracker :
+
+On exporte ces données sur le logiciel Regressi pour pouvoir les manipuler, calculer
+la vitesse verticale vx =
+
+d vx
+dx
+et l’accélération verticale ax =
+(et par extension la somme
+dt
+dt
+
+des forces exercées sur les aimants)
+
+En exemple, sur la page suivante un graphique résultant de l’exportation des
+données de l’expérience n°2 obtenues sur Regressi. En bleu la position en fonction
+du temps, en rouge la vitesse des aimants en fonction du temps.
+OLYMPIADES DE PHYSIQUE FRANCE
+
+PAGE 13 SUR 20
+
+ANNÉE 2018-2019
+
+1
+
+COMME SUR UN AIMANT !
+
+2.
+
+Observations experimentales (les courbes et résumés d’expériences se trouvent
+en annexe partie F)
+
+Observation n°1 : D’abord lorsque nous modifions uniquement le nombre d’aimants
+sans rajouter de masse nous constatons que pour les expériences 2, 3 et 4 la force répulsive
+magnétique n’a pas été suffisante pour empêcher les aimants de percuter le socle en bois
+lors de la première oscillation, et donc il faut noter une perte d’énergie.
+Observation n°2 : Pour les expériences 2 et 5, et 4 et 7 on remarque que lorsqu’il y a
+une masse en plus l’amortissement est beaucoup plus long et les oscillations sont bien plus
+nombreuses et durent dans le temps, là où les aimants seuls oscillent moins et sur un temps
+plus court.
+Observation n°2 bis : Toutefois, lorsque l’on compare les expériences 3 et 6 on
+constate le phénomène inverse : les aimants avec une masse relaxe plus vite et les
+oscillations sont moins nombreuses que sans masse. Cela semble contradictoire, nous
+supposons que des frottements avec le tube lors de l’expérience sont a l’origine de cette
+incohérence avec l’observation précédente.
+Observation n°3 : D’après les expériences
+3, 5 et 7, et comme nous pouvons le voir ci contre,
+plus on ajoute une masse importante sur les 3
+aimants, plus il y a d’oscillations et plus le module
+met de temps avant d’être à l’équilibre, à relaxer.
+O b s e r v at i o n n ° 3 b i s : Ce p e n d a n t ,
+l’expérience n°6 entre en contradiction avec
+l’observation 3 ; l’ajout de masse a eu l’effet inverse
+(cf courbes ci-contre) : le module relaxe plus vite et
+oscille moins que sans masse. Une hypothèse
+serait que des forces de frottements avec le tube
+lors de la manipulation aient ralenti le module, à
+l’origine de cette incohérence avec la remarque
+précédente.
+OLYMPIADES DE PHYSIQUE FRANCE
+
+PAGE 14 SUR 20
+
+t (s)
+
+ANNÉE 2018-2019
+
+COMME SUR UN AIMANT !
+
+Observation n°4 : Comme on peut le
+voir, une oscillation a pu être modélisée par
+une parabole
+d’équation
+2
+x = c × tr + b × tr + a à partir des données
+de l’expérience n°1 avec un écart aux valeurs
+inférieur à 1%. Cependant, l’ensemble de ces
+oscillations ne peut-être modélisé par une
+seule parabole. Nous avons donc pu
+remarquer que les oscillations peuvent en
+partie s’apparenter à des trajectoires
+paraboliques.
+
+B. Visite du laboratoire ICUBE : utilisation d’une caméra à haute vitesse
+Au sein du laboratoire ICUBE prenant place au sein du Centre National de Recherche
+Scientifique de Strasbourg nous avons pu solutionner un problème que nous avions
+rencontré lors de nos expériences. En effet, la caméra filmant 240 image par seconde n’est
+pas assez rapide pour filmer en détail le rebond du module d’aimant. Or ce rebond nous
+intéresse tour particulièrement car la force magnétique y est la plus intense. Le laboratoire
+où nous nous sommes rendus est spécialisé dans la fabrication de caméras très haute
+vitesse et d’appareils optiques. A l’aide d’une caméra filmant 1000 images par seconde
+fabriquée par le laboratoire nous avons pu obtenir les données manquantes.
+Suite à l’observation vidéo du déplacement de l’aimant dans le tube nous avons pu
+remarquer qu’il y a en fait des frottements secs ou frottements solides entre le tube et le
+module d’aimants. Nous avons donc complété notre modèle ainsi, et obtenu l’équation
+
+suivante : a ⃗ = g ⃗ +
+
+1
+Fmag ⃗ + ff luide ⃗ + fsolide ⃗
+(
+)
+m
+
+fsolide ⃗
+
+Voici ci contre un schéma résumant les différentes forces s’exerçants
+sur l’aimant dans le tube lorsqu’il chute. Comme nous avons pu le
+remarquer, lors des oscillations dans le tube de l’aimant la force magnétique
+pousse les aimants à frotter les parois du tube. En effet, la force magnétique
+tend a retourner l’aimant pour que les 2 pôles s’attirent, le tube l’en
+empêchant, ces frottements secs sont de plus en plus intense lorsque le
+module d’aimants est très proche de la base de la structure. C’est pour cette
+raison que nous avons ajouté ces frottements solides dans notre équation.
+Exprimons maintenant les différentes forces s’exerçant sur le module
+d’aimant :
+
+- Le poids : P ⃗ = m g ⃗
+-
+
+la force de répulsion magnétique : Fmag ⃗ =
+
+- la force de frottement fluide ff luide ⃗ = − α v ⃗
+
+Kmag
+h n1
+
+PAGE 15 SUR 20
+
+P⃗
+fsolide ⃗
+
+ff luide ⃗
+
+k⃗
+
+- la force de frottement solide aimants-tube Fsolide ⃗ = −
+OLYMPIADES DE PHYSIQUE FRANCE
+
+Fmag ⃗
+
+v⃗
+β
+| | v ⃗ | | hn2
+ANNÉE 2018-2019
+
+COMME SUR UN AIMANT !
+
+On obtient ainsi l’équation suivante par projection sur l’axe Oz orienté vers le haut :
+
+az = − g +
+
+1 Kmag
+dh
+β
+dh
+−
+α
+−
+signe
+( dt ))
+m ( h n1
+dt
+hn2
+
+Afin de déterminer n1 et n 2 nous allons exploiter les données obtenues au laboratoire
+ICUBE. Nous ne nous intéresserons qu’au rebond du module d’aimant, car le nombre
+d’images total devient trop conséquent à traiter sinon.
+Suite à nos recherches (en annexe partie G), nous avons trouvé un modèle étant très
+proche de l’expérience, d’équation : az = − 10 +
+
+0,003
+0,006
+−
+sgn(V
+)
+. Sur la page
+h 2,7
+h 1,9
+
+suivante se trouve un graphe représentant le modèle en vert et en violet l’expérience.
+
+C. Conclusion
+
+v (m.s-1)
+
+h (m)
+
+t (s)
+
+t (s)
+
+Nous constatons donc d’après nos expériences qu’une masse importante sur
+nos suspensions provoquera des oscillations plus nombreuses, et une durée accrue
+avant l’équilibre. Il nous faut donc trouver un moyen de limiter ces oscillations.
+Il y a aussi des similitudes notables entre les oscillations du module et une
+trajectoire parabolique.
+
+IV. Etude des oscillations à régime forcé
+A. Expérimentation
+1. Protocole général
+Dans l’optique de créer des suspensions à répulsion magnétique, nous avons
+souhaité créer une expérience nous permettant de tester différentes configurations de ces
+premières, en simulant les conditions réelles d’une route possédant des imperfections.
+Nous avons donc créée une machine de test (cf schéma ci-dessous). Dans une caisse en
+bois (ici en brun clair) nous avons placé un moteur (ici en jaune), faisant tourner une barre
+métallique (en gris). Un cylindre (en bleu) a été vissé dans cette barre de manière
+OLYMPIADES DE PHYSIQUE FRANCE
+
+PAGE 16 SUR 20
+
+ANNÉE 2018-2019
+
+COMME SUR UN AIMANT !
+
+décentrée. Une seconde barre de métal (en vert) est vissée dans un cylindre en
+bois (en brun foncé) et repose sur le cylindre. Le cylindre en bois est lui même
+fixé à un rail de tiroir lui permettant de glisser verticalement sans frottement
+tout en étant parfaitement guidé. Enfin, est vissée à ce cylindre de bois une
+structure similaire à celle utilisée dans les expériences précédentes, avec en
+orange un socle contenant un aimant et un tube de plexiglass contenant le
+module d’aimant oscillant.
+A l’aide d’un potentiomètre on règle la vitesse de rotation du
+moteur, nous permettant ainsi d’avoir différentes fréquences d’oscillation
+de la structure, et ainsi de trouver la fréquence de résonance de
+l’oscillateur. Nous filmons le dispositif une fois l’oscillation du module
+stabilisée, puis on applique la méthode de repérage vidéo et de
+traitement de données du paragraphe 1. partie III.A. On répètera
+l’opération afin d’avoir assez de vidéos et donc de données pour
+déterminer la résonance. On notera fa la fréquence d’oscillation du
+module, Aa son amplitude; et fs la fréquence d’oscillation de la structure, et As son
+amplitude.
+Le graphique de Fourier fourni par Regressi nous aidera à déterminer la fréquence
+d’oscillation de la structure. Pour déterminer
+l’amplitude de l’oscillation de la structure et du
+module, nous ferons la moyenne des amplitudes
+de chaque période.
+Voici ci contre un graphique représentant
+l’évolution de la hauteur de l’aimant (en bleu), et
+l’évolution de la hauteur de la structure (en
+rouge) en fonction du temps. Ici, on peut voir
+graphiquement que l’amplitude du module est
+plus faible que celle de la structure.
+
+2.
+
+Observations expérimentales (les courbes et résumés d’expériences se trouvent
+en annexe partie H)
+
+Observation n°1 : l’ajout de masse semble avoir une faible influence sur la
+fréquence de résonance. En effet, sur les différentes expériences, 1, 2 et 3, on remarque
+que la fréquence de résonance fondamentale est d’environ 3,85Hz ; peu importe la masse
+rajoutée.
+Observation n°2 : l’amplitude maximale au niveau de la fréquence de résonance est
+nettement plus grande lorsque l’on rajoute une masse. En effet, si l’on compare les
+expériences 1, 2 et 3, on remarque que le rapport
+
+Aa
+est plus grand pour l’expérience 3
+As
+
+que pour les expériences 2 et 1, et ce même rapport pour l’expérience 2 est plus grand que
+pour l’expérience 1.
+OLYMPIADES DE PHYSIQUE FRANCE
+
+PAGE 17 SUR 20
+
+ANNÉE 2018-2019
+
+1
+
+COMME SUR UN AIMANT !
+
+Observation n°3 : On remarque un phénomène très particulier lors de l’expérience
+3, phénomène moins perceptible dans l’expérience 2 et absent dans l’expérience 1. On ne
+compte pas une fréquence de résonance mais deux. En effet, on observe une première
+résonance, de fréquence fs = 3,85Hz , puis une seconde, équivalent au double de la
+première : fs = 7,69Hz . Lorsque l’on atteint cette deuxième fréquence de résonance, sorte
+d’harmonique de la première, l’amplitude maximale obtenue est plus faible que lors de la
+fondamentale.
+Observation n°4 : La seconde résonance n’est pas perceptible lorsque la masse est
+trop faible. En deçà d’un seuil (qui reste à déterminer) la seconde résonance disparait. Ce
+phénomène se remarque par le fait que l’expérience 1 ne présente pas de seconde
+résonance, et l’expérience 2 en présente une dont l’amplitude d’oscillation est nettement
+moins grande que la première résonance.
+Observation n°5 : Lorsque la fréquence dépasse un certain seuil, le module n’oscille
+presque plus, il atteint un équilibre et l’amplitude tend théoriquement vers 0. En effet, la
+structure effectue des allés-retours si rapide que l’inertie de l’aimant réduit son amplitude.
+
+B. Interprétation
+Dans l’observation n°2 nous remarquons que la masse fait augmenter l’amplitude
+maximale lors de la résonance. Ceci s’explique par le fait que la masse étant plus grande,
+l’énergie mécanique, qui dans notre système est constante (car la structure réinjecte
+constamment de l’énergie), est plus grande. Ainsi, plus la masse augmente, plus l’amplitude
+maximale est grande.
+Aussi, dans l’observation n°3, on constate plusieurs résonances. Cela s’explique par le
+fait que contrairement à un oscillateur à ressort, notre module d’aimant n’est pas lié
+physiquement au bas de la suspension. Ainsi, si l’on double la fréquence de résonance, la
+structure a le temps de faire un allé-retour en plus durant la phase de vol de l’aimant.
+Lorsque celui-ci redescend, il est synchrone avec le mouvement de la structure. Ainsi, la
+structure réinjecte de l’énergie dans le système.
+L’observation n°4 s’explique par le fait que le temps de vol du module lorsqu’on
+double la fréquence est inférieur au temps nécéssaire à la structure de fait un aller retour.
+Lorsque la masse est trop faible, le module a une inertie plus faible, et donc reste
+longtemps en l’air.
+
+C. Conclusion
+Les expériences réalisées nous permettent de déterminer la ou les fréquence(s) de
+résonance. Ainsi nous savons à quel moment nos suspensions sont les moins efficaces.
+Nous pouvons ainsi tester différents modes de réduction de l’amplitude, comme les
+courants de Foucault ou l’induction.
+Aussi, nous savons que la masse joue sur l’amplitude d’oscillation de nos suspensions
+et donc par conséquent il faut prendre soin de ne pas trop charger le véhicule.
+OLYMPIADES DE PHYSIQUE FRANCE
+
+PAGE 18 SUR 20
+
+ANNÉE 2018-2019
+
+COMME SUR UN AIMANT !
+
+IV. Prospectives
+A. Génération d’une tension électrique
+Nous avons décidé d’utiliser l’induction et
+les courants de Foucault en faisant osciller notre
+module à travers une bobine de cuivre. Le
+montage en photo ci-contre a été adopté.
+Lorsque les aimants oscillent dans le tube
+lui même inséré dans une bobine de cuivre, une
+variation de tension a été mesurée à l’aide de
+l’interface d’acquisition analogique numérique
+orphylab. On obtient la courbe ci-dessous lorsque qu’on représente la tension en fonction
+du temps pour 3 aimants. Cette mesure de tension va par la suite nous permettre de
+calculer la vitesse de déplacement de l’aimant dans la bobine.
+
+B. Injection de courant dans la bobine afin de ralentir notre module
+Notre but ultime est d’injecter du courant dans la bobine de cuivre afin que celle
+génère un champ magnétique ralentissant le module d’aimants, et permettrait de contrôler
+les oscillations de nos aimants c’est à dire la dureté de nos suspensions.
+
+C. Prototype
+Pour les suspensions finales, nous
+avons eu l’idée de coupler plusieurs
+suspensions individuelles. La pièce cicontre en aluminium a été réalisée. Dans
+chaque trou sera introduit des aimants.
+Cependant nous sommes encore entrain
+d’y réfléchir car pour coupler plusieurs
+suspensions individuelles il faudrait tout
+d’abord étudier l’influence qu’un aimant
+mis dans un trou a sur un aimant voisin.
+
+OLYMPIADES DE PHYSIQUE FRANCE
+
+PAGE 19 SUR 20
+
+ANNÉE 2018-2019
+
+COMME SUR UN AIMANT !
+
+Conclusion
+D’un point de vue humain, ce projet nous a permis de mettre à l’épreuve notre
+patience, notre rigueur, et notre persévérance mais nous a également permis de forger un
+esprit d’équipe. Nous avons aussi appris à surmonter certains problèmes à travers nos
+recherches parfois compliquées et semées d’embûches. D’un point de vue scientifique, il
+nous a fallu redoubler d’ingéniosité pour élaborer des expériences et créer nos propres
+appareils de mesures. Nous avons eu l’occasion de travailler avec des outils tels que
+Géogébra, Scilab, Arduino ou encore Orphylab, dont nous aurons surement l’utilité dans
+nos études futures. Nous avons pu étudier en détail le phénomène de répulsion
+magnétique, que nous souhaitons exploiter par la suite afin de réaliser des suspensions. Le
+travail sur la dynamique de répulsion des aimants nous donne une idée du comportement
+de nos suspensions future face aux chocs de la route. Nous avons déjà en tête des pistes
+pour réduire les oscillations et éviter les chocs des aimants, et peut être pour contrôler la
+raideur des suspensions.
+
+Remerciement
+Nous tenons tout particulièrement à remercier notre professeur encadrant M. Lohner.
+mais aussi Mme Vonesch et M. Volgringer, professeurs de physique-chimie dans notre
+lycée, qui nous ont soutenus tout au long du projet, ainsi que M. et Mme Elophe
+respectivement professeur de mathématiques et préparatrice en salle de physique-chimie
+pour leur aide précieuse.
+
+Références
+• Modèles et calcul des systèmes de suspension magnétique passive-développements et calculs analytiques
+en 2D et 3D des interactions entre aimants permanents, Hicham Allag. https://tel.archives-ouvertes.fr/
+tel-00569274/document
+• L’effet Hall, Gilbert Gastebois. http://gilbert.gastebois.pagesperso-orange.fr/java/hall/theorie_hall.pdf
+• Continuous-Time Ratiometric Linear Hall-Effect Sensor ICs. https://www.allegromicro.com/~/media/Files/
+Datasheets/A1301-2-Datasheet.ashx
+• Magnetism. http://www.wright.edu/~guy.vandegrift/openstaxphysics/chaps/22%20Magnetism.pdf
+• Cours de Magnétostatique, Jonathan Ferreira. http://ipag.obs.ujf-grenoble.fr/~ferreirj/enseignement/
+magneto_complet.pdf
+• Spéciale PSI - Cours « Electromagnétisme » : http://sertella.free.fr/cours_psi_physique/electromagnetisme/
+foucault.pdf
+• Claude Divoux, mai 2006 : http://www.physique-appliquee.net/physique/electromagnetisme/
+notions_d_electromagnetisme.pdf
+
+OLYMPIADES DE PHYSIQUE FRANCE
+
+PAGE 20 SUR 20
+
+ANNÉE 2018-2019
+
+

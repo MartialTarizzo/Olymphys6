@@ -1,0 +1,675 @@
+Canon Magnétique
+
+XIXèmes Olympiades de Physique
+
+BERTRAND Yannick
+GUYENARD Nicolas
+METRAL Célestin
+
+1
+
+SOMMAIRE
+
+I) Historique du projet ................................................................................... 4
+II) Aspect théorique du projet ...................................................................... 4
+III) Caractéristiques techniques ..................................................................... 6
+a) Le projectile .......................................................................................... 6
+b) Les bobines ........................................................................................... 8
+c) Les capteurs ........................................................................................ 13
+d) L’inversion du sens du courant dans la bobine ................................. 15
+e) L’automate .......................................................................................... 17
+f) L’alimentation ..................................................................................... 20
+g) La réalisation mécanique .................................................................... 20
+IV) Projets .................................................................................................. 23
+V) Remerciements ...................................................................................... 23
+VI) Annexe ................................................................................................. 24
+
+2
+
+Résumé
+
+Ce projet s’intitule Canon magnétique et à été présenté aux Olympiades de Physique, lors de la
+session 2011-2012.
+Nous avons décidé de créer un canon de ce type car le domaine du magnétisme est quelque chose de
+très intéressant et nous avions envie de déplacer un objet sans le toucher, et dans l’idéal de le
+contrôler.
+Dans ce mémoire, nous détaillons la théorique du projet, en parlant du champ magnétique induit dans
+les bobines, puis nous parlons des caractéristiques techniques : les bobines, les aimants, les capteurs,
+l’inversion du sens du courant, l’automate, et enfin l’alimentation. Nous détaillons enfin les
+problèmes que nous avons rencontrés au cours de ce projet.
+Les résultats expérimentaux que nous avons obtenus vis-à-vis de la distance de tir et des mouvements
+que nous avons pu donner à notre projectile ont été très satisfaisants.
+Bonne lecture.
+
+3
+
+I)
+
+Historique du projet
+
+Nous sommes trois élèves actuellement en Terminale S et étant très intéressés par les sciences. Le
+magnétisme est un domaine qui nous était assez inconnu mais très fascinant.
+
+Fig. 1 : Vis en équilibre sous l’effet d’une pile d’aimant placée audessus d’elles.
+Nous avons alors eu l’idée de faire un canon dont le projectile serait propulsé par un champ
+magnétique créé par des bobines.
+Le brevet du canon magnétique a été déposé par le physicien norvégien Kristian Birkeland en 1900.
+Ce chercheur avait alors eu l’idée de faire passer du courant dans un solénoïde, ce qui attirait un
+élément ferromagnétique en son centre. Puis, en inversant le sens du courant, donc du champ
+magnétique, il produisait un effet répulsif qui projetait l’aimant hors de la bobine.
+Nous avons observé des prototypes de canons magnétiques, mais ces derniers ne projetaient que des
+clous en fer et ne fonctionnaient que « dans un seul sens de courant ». En effet, du courant était
+emmagasiné dans des condensateurs reliés à une bobine, créant ainsi un champ magnétique intense
+mais de très courte durée. De plus, les manipulateurs utilisaient des tensions très importantes, ce qui
+est dangereux. Nous voulions réaliser plus qu’un simple canon car nous souhaitons contrôler le
+mouvement du projectile dans le tube.
+Nous avons alors voulu utiliser des bobines dont nous inverserions le sens du champ magnétique au
+moment où le projectile passerait à l’intérieur.
+II) Théorique du projet
+Nous savons que nous pouvons attirer un aimant grâce à une bobine mais si nous ne faisons rien,
+celui-ci s’arrête au milieu de la bobine.
+4
+
+Fig. 2a: Explication de l’arrêt dans la bobine.
+Le pôle sud de notre aimant est attiré par le pôle
+nord de la bobine. C’est ce qui fait avancer notre aimant
+vers le centre de la bobine.
+Mais, une fois qu’il a dépassé le milieu, c’est
+maintenant le pôle sud de l’aimant qui est repoussé par
+le pôle sud de la bobine. Il va donc être repoussé en
+arrière, jusqu’à dépasser de nouveau le milieu de la
+bobine.
+Ce cycle se reproduit plusieurs fois, avec à
+chaque fois de moins en moins d’amplitude, à cause des
+frottements, ce qui conduit à un arrêt de l’aimant au
+milieu de la bobine, où les forces se compensent.
+Nous devons donc couper l’alimentation de la bobine
+lorsque l’aimant arrive au milieu.
+
+Fig. 2b : Même situation avec inversion.
+Une deuxième (et meilleure) solution s’offre aussi à
+nous : nous pouvons inverser le sens du champ
+magnétique de la bobine, afin de repousser le projectile.
+Cette inversion n’est pas obligatoire mais rend le canon
+plus puissant, car on "exploite" deux fois la bobine au
+lieu d'une seule fois pour encore plus accélérer notre
+projectile.
+
+Le problème majeur de cette inversion du courant c’est qu’il s’agit d’un circuit inductif.
+Contrairement à la résistance, la bobine n’accepte pas les discontinuités de courant. L’ouverture d’un
+circuit inductif peut engendrer une surtension pouvant endommager l’interrupteur de commande.
+Cette surtension est d’ailleurs mise en évidence par l’expérience expliquée figure3.
+
+5
+
+Fig. 3 : Une étincelle lors de l'ouverture d'un circuit inductif (RL).
+Toute la difficulté est de réaliser un montage permettant l’inversion du courant dans une bobine
+d’autant plus que le courant devra posséder une intensité importante afin que le champ magnétique
+dans la bobine soit le plus important possible.
+Pour savoir quand inverser le sens du courant, il faut détecter la présence du projectile. On utilise
+donc des capteurs qui enverront un signal à un automate qui s’occupera de l’inversion du sens du
+courant.
+Cette inversion nous pose un second problème. Nous avons parlé précédemment du fait que le
+courant continuait à s’écouler après l’ouverture du circuit. Mais le courant ne s’établit pas
+instantanément dans notre bobine, pour les mêmes raisons.
+Analyse vidéo :
+Nous avons voulu analyser une vidéo pour mesurer la vitesse de notre projectile en sortie de tube.
+Malheureusement notre appareil ne prenant pas assez d’images par seconde, nous n’avons pu faire
+qu’une approximation. Cette vitesse était alors de 5m/s.
+III) Caractéristiques techniques
+a) Le projectile
+Nous allons d'abord étudier le projectile, car c'est à partir de lui que nous avons défini le diamètre des
+bobines, ainsi que leur puissance (intensité de leur champ magnétique).
+Nous avons premièrement comparé un projectile en fer et un projectile aimanté, et il était très clair
+que le matériau aimanté était celui qui était le plus soumis au champ magnétique ; nous nous sommes
+par conséquent procuré des aimants. Peu puissants, et relativement gros, nous avons voulu les
+remplacer. Nous avons réussi à nous procurer des aimants petits mais cependant très puissants qui
+sont adaptés à notre projet car nous pouvons modifier la longueur du ''missile''. Ces aimants sont en
+alliage à base de néodyme.
+6
+
+Fig 4 : Nos différents types d'aimants
+Une fois les aimants trouvés, il a fallu déterminer le nombre optimal.
+56
+
+290
+
+54
+270
+
+52
+250
+
+50
+
+230
+
+48
+
+210
+
+46
+44
+
+190
+
+42
+170
+
+40
+3
+
+150
+2
+
+4
+
+6
+
+8
+
+10
+
+12
+
+14
+
+16
+
+18
+
+4
+
+5
+
+6
+
+7
+
+8
+
+9
+
+10
+
+11
+
+12
+
+20
+
+70
+68
+66
+64
+62
+
+Fig. 5 : graphiques de la distance parcourue en fonction du
+nombre d’aimants projetés et d’angles différents (en haut à
+gauche : 0°, en haut à droite : 90° et ci-contre : 45°)
+
+60
+58
+56
+54
+52
+50
+3
+
+4
+
+5
+
+6
+
+7
+
+8
+
+9
+
+10
+
+11
+
+12
+
+7
+
+Nous avons pour cela mesuré la distance atteinte par le projectile en fonction du nombre d'aimants, et
+cela pour différentes inclinaisons : 0°, 45° et 90° (fig. 5). Nous avons donc décidé d'utiliser 6 aimants
+dans notre projectile, car, quand l'inclinaison augmente, c'est le nombre optimal d’aimants.
+Les aimants ne s'alignant pas parfaitement d'eux-mêmes ils frottent contre la paroi intérieure du tube,
+nous avons réalisé un « missile » en plastique dans lequel les aimants sont placés. Hélas, nous nous
+sommes aperçus que cet enrobage, étant d'un diamètre plus élevé que le projectile d'aimants à nu,
+allait moins vite dans notre tube car il l’obstruait quasiment complètement, empêchant l’air de
+circuler correctement. Nous avons donc usiné des faces à partir du cylindre, ce qui a eu pour effet de
+lui faire gagner de la vitesse.
+
+Fig. 6 : Au-dessus, une pile de six aimants « à nu » ; en-dessous, le « missile » de plastique contenant
+une pile identique.
+b) Les bobines, de la théorie à la réalisation.
+Les bobines sont un élément essentiel du canon et beaucoup de paramètres sont à prendre en compte :
+le diamètre du fil, le nombre de spires, et la longueur du solénoïde. Nous avons voulu copier les
+bobines du lycée, car c'était le seul modèle dont nous disposions initialement. Elles mesurent 21cm,
+et possèdent environ 4200 spires, ce qui correspond à 600 spires pour 3cm de bobine.
+
+Fig.
+
+7:
+
+Une
+
+bobine
+
+du
+
+lycée,
+
+support
+
+de
+
+nos
+
+premières
+
+expérimentations.
+8
+
+Ces bobines ne fournissant pas un champ magnétique très puissant, nous avons décidé de nous baser
+sur un nombre de spires plus grand : 800. La résistance du fil augmentant avec la longueur de celuici, nous avons décidé de faire plusieurs petites bobines avec une moindre résistance, plutôt qu’une
+seule grosse bobine avec une grosse résistance (ce qui réduirait notre intensité de champ magnétique,
+selon les formules ci-dessus).
+Un premier essai avec 800 spires (90m de fil) sur une largeur de 10cm nous donnait une intensité de
+champ magnétique de 0,045T (Teslas, unité de mesure de l’intensité du champ magnétique), et un
+autre toujours avec 90m de fil, mais sur 3cm, nous donne une intensité de champ magnétique de
+0,120T.
+Nous avons alors choisi de réaliser de courtes bobines car elles sont plus efficaces et, si l’on se réfère
+à la formule de la force du champ magnétique, on observe que nous avons besoin d’une variation
+d’intensité du champ : la force est proportionnelle à la dérivée du champ magnétique. Il est donc
+important que le champ ne soit pas uniforme.
+
+Fig. 8 & 9 : La première et la seconde bobine, nos premiers prototypes
+Nous avons voulu après, déterminer théoriquement le diamètre optimal du fil qu'il nous fallait. Nous
+avons eu besoin de plusieurs relations pour réussir à exprimer la résistance de la bobine en fonction
+du diamètre du fil. La formule de l'intensité du champ magnétique s'exprime par :
+
+Avec :
+-B l'intensité du champ magnétique (en T : Teslas)
+-µ 0 la constante magnétique (4π.10-7 T.m.A-1)
+-N le nombre de spires
+-I l'intensité du courant dans la bobine (en A)
+-l la longueur du solénoïde (en m)
+Nous avons également besoin de la loi d'Ohm :
+
+9
+
+Nous nous sommes fixés une limite de 4A et notre générateur nous limitait à 12V donc nos
+bobines devaient avoir une résistance de 3Ω. Attention : Cette résistance est celle de la bobine « à
+froid ». En effet, si on laisse notre bobine branchée trop longtemps, elle chauffe (effet Joule), et sa
+résistance augmente. Nous avons donc choisi de n’alimenter que deux bobines en même temps et
+pendant de courts instants.
+Ainsi que de la formule de la résistance en fonction du matériau utilisé :
+
+Avec :
+-R la résistance (en Ω)
+-ρ la résistivité (en Ω.m)
+-L la longueur du fil (en m)
+-s la section du fil (en m²)
+Nous avons déduit le diamètre moyen de relations liant le nombre d'étages de fil avec le
+nombre de spires et le diamètre du fil.
+
+Fig. 10: Schéma en coupe transversale d'une bobine.
+
+On a donc la longueur de fil L par :
+
+Avec :
+-dmoyen est le diamètre moyen de la bobine (en m) (voir schéma ci-dessus)
+-N le nombre de spires de la bobine
+
+10
+
+Or on a :
+
+Avec :
+-dtube est le diamètre du tube (en m)
+-h la hauteur de fil (en m)
+-e le nombre d'étages de fil
+-dfil le diamètre du fil (en m)
+-r le rayon du fil (en m)
+De plus nous avons les relations suivantes concernant les bobines :
+
+Avec :
+-N est le nombre de spires de la bobine
+-n est le nombre de spires par étage
+-e est le nombre d'étages de la bobine
+Et:
+
+Avec :
+-n le nombre de spires par étage
+-l la longueur du solénoïde
+-dfil le diamètre du fil et r le rayon du fil.
+D'où:
+
+En remplaçant dans la formule de la résistance, on obtient :
+
+11
+
+Fig. 11 : Un graphique étonnamment simple pour une formule si compliquée.
+
+Nous avons voulu déterminer le diamètre de fil optimal, en nous basant sur 800 spires, car un
+trop petit fil entraine une chauffe, mais un gros fil restreint le nombre de spires par étage de notre
+bobine. Graphiquement, on trouve R=3 Ω pour r=0,42 mm donc d=0,84 mm, ce qui nous a fait
+choisir un fil de 0,9 mm (voir figure 11).
+Il est important que le fil soit isolé pour éviter tout court-circuit. Notre choix s’est alors porté
+sur un fil de cuivre émaillé, fil utilisé dans la majorité des bobines qu'il est facile de se procurer.
+Nous avons ensuite mesuré le temps d’établissement du courant dans la bobine grâce à une
+pince ampère-métrique branchée à un oscilloscope à mémoire. Nous avons obtenu une valeur de
+transition de 11ms pour que l’intensité du courant passe de - 4 A à 4 A. Et réciproquement.
+L
+n’est pas valide dans le cas de ce circuit mais il
+R
+permet de comprendre que cette constante de temps est opposée aux autres choix effectués. En effet,
+pour augmenter le champ magnétique on augmente le nombre de spire de la bobine, on augmente
+aussi l’inductance L et de plus on cherche à ne pas trop augmenter R sinon ça va limiter l’intensité. Il
+faut donc trouver le bon compromis permettant d’avoir un champ intense et une transition rapide. La
+valeur d’une transition à 11 ms est un bon compromis.
+
+Le modèle de la constante de temps τ =
+
+12
+
+c) Le choix du capteur :
+Il nous faut savoir quand inverser les bobines, et donc où est l'aimant dans notre canon. Lorsque ce
+capteur détecte le projectile, il en informe l’automate.
+Grâce à ces capteurs, nous projetons de calculer la vitesse de notre projectile en sortie du canon.
+Il existe quatre principaux types de capteurs qui peuvent détecter le passage d’un objet, même
+rapide :
+Des capteurs à ultrasons
+Ces capteurs de son ne sont pas adaptés à notre utilisation, car le projectile est contenu dans un tube
+en plexiglas.
+Des portes optiques
+Composées d'une diode et d'un photorécepteur, qui renvoie un signal quand le faisceau lumineux est
+interrompu. Ce capteur pourrait être intéressant, mais le plexiglas pouvant être rayé et rendu opaque,
+ces capteurs ne conviennent pas.
+Des capteurs magnétiques
+Ces capteurs détectent les champs magnétiques, ce qui n'est pas très adapté dans notre situation, car
+le signal est brouillé par le champ généré par les bobines.
+
+13
+
+Des cellules inductives
+
+Fig.12 : Capteur à cellule inductive.
+Ces capteurs contiennent un oscillateur L-C (Inductance-Capacité). La valeur de l’inductance est
+modifiée lorsqu’un métal, surtout s’il est ferromagnétique, s’approche du capteur changeant ainsi la
+valeur de l’inductance donc la fréquence de l’oscillateur. Ainsi quand notre projectile passe dans le
+tube, il perturbe l’oscillateur. Cette perturbation entraîne la création d'une différence de potentiel de
+24V, que l'automate va détecter.
+
+Ces capteurs ont une portée de détection de 8mm. Cette portée se trouve des deux côtés, et le
+diamètre du capteur est de 7mm.
+Il détecte donc le projectile sur une distance de 23mm. Nous pourrons grâce à l’automate compter le
+temps de détection, et ainsi calculer la vitesse du projectile.
+
+Fig.13 : Détection d’aimants par le capteur.
+14
+
+d) L’inversion du sens du courant dans la bobine : les ponts en H
+
+Fig.14 : Pont en H L6203
+L’inversion du sens courant dans une bobine ne se fait pas simplement, il est nécessaire d’utiliser un
+pont en H afin de pouvoir écouler le courant durant les phases d’ouvertures. Ces ponts en H sont
+formés de transistors, équivalent à des interrupteurs commandés et de diodes permettant l’écoulement
+du courant durant les phases d’ouvertures.
+La bobine étant un élément composé d'une grande longueur de fil électrique, elle est considérée
+comme une résistance. De ce fait, lorsque l'on ouvre un circuit électrique contenant une bobine, le
+courant continue de circuler pendant un très court moment : la bobine devient génératrice. Cela suffit
+à créer une différence de potentiel énorme au niveau de l'interrupteur, et l'on observe un arc
+électrique.
+Pour cette raison, il nous a semblé difficile de fabriquer ces composants nous-mêmes. Nous
+en avons alors trouvé qui servent normalement dans les moteurs pas à pas.
+
+Fig. 15 : Le fonctionnement d'un pont en H. Note : les interrupteurs sont unidirectionnels, ce qui
+explique le trajet du courant, représenté par les flèches.
+
+15
+
+Lors de la phase 1, les interrupteurs S1 et S4 sont ouverts, et S2 et S3 sont fermés : le courant
+s’écoule dans un premier sens (ici le sens 1).
+Lors de la phase transitoire, les interrupteurs s’inversent : S1 et S4 se ferment, S2 et S3 s’ouvrent. La
+bobine devient alors génératrice et le courant qu’elle produit se déverse dans la borne plus du
+générateur via les diodes de roue libre et non par les interrupteurs car ils sont unidirectionnels.
+Enfin, lorsque dans la bobine le courant s’annule celui-ci passe alors dans l’autre sens (ici le
+sens 2).
+
+Fig. 16 : Schéma interne du composant
+Ces composants ont été compliqués à maîtriser, même avec la documentation technique. Ce sont eux
+qui ont limité notre intensité à 4A, car au delà ils chauffent jusqu'à « griller ».
+Ce composant possède 3 entrées logiques : ENABLE, IN1 et IN2.
+ENABLE
+IN1
+IN2
+Courant
+
+0
+X
+X
+0
+
+1
+1
+1
+0 (court-circuit)
+
+1
+1
+0
+sens
+
+1
+0
+1
+sens opposé
+
+Fig. 16 : Table de vérité du
+composant
+
+ENABLE sert à "activer" le composant, et aucun courant ne passe si son niveau logique n'est pas 1.
+IN1 sert à alimenter un des deux interrupteurs situés "à gauche" de la bobine.
+IN2 sert, lui, à alimenter un des deux interrupteurs situés "à droite" la bobine
+
+.
+
+16
+
+e) L'automate
+Ce composant est le cerveau de notre projet. Il nous a été offert par CB Equipements. C'est lui qui
+gère l'inversion des bobines, qui réalise les temporisations, et pour réaliser cela il est programmé par
+nos soins sur ordinateur à l'aide d'un logiciel interface. Ce programme est disponible dans l’annexe à
+la fin du dossier. Il peut gérer jusqu'à 3000 instructions par seconde, qui lui permet de réagir
+rapidement lorsqu’il doit attendre une petite milliseconde après la détection. Il fournit des entrées et
+des sorties logiques qui lui permettent de communiquer avec les autres éléments du circuit, soit les
+capteurs, les ponts en H, et un bouton pour lancer le programme.
+
+Fig.17 : Automate modulaire TWDLMDA40DTK
+
+Ces sorties fournissant une tension ( 24 V ) supérieure à ce que peut recevoir une porte inverseuse de
+polarité, nous avons dû créer des ponts diviseurs de tension ( 2-7 V ). Ce montage permet de réduire
+la tension d’un circuit électrique, en disposant deux résistances selon le schéma ci-dessous (figure
+18). La valeur des deux résistances se calcule selon la formule suivante :
+
+Nous avons donc trouvé que des résistances R1= 47 kΩ et
+R2=10 kΩ convenaient.
+
+17
+
+Fig. 18 : Schéma de montage général. L’automate fourni du 24V, tension qui va être
+réduite à 4V par le pont diviseur de tension pour pouvoir commander logiquement le pont en H. Ce
+dernier alimente ensuite la bobine elle-même.
+
+Évidemment, nous ne pouvons pas inverser instantanément le courant qui circule dans la bobine. En
+effet, quand on détecte le projectile, il ne se trouve pas encore pile au milieu de notre bobine : nous
+devons encore attendre un moment. C’est notre temporisation. Elle est importante : Si on inverse trop
+tôt, notre projectile est repoussé. Si on attend trop longtemps, il s’arrête au centre de la bobine.
+
+18
+
+Début
+
+Bouton marche
+Alimentation Bobine1
+
+Détection 1
+Attendre 10ms
+
+Inversion Bobine1
+Alimentation Bobine2
+
+Détection 2
+
+Attendre 3ms
+Extinction Bobine1
+Inversion Bobine2
+Alimentation Bobine3
+
+Nous avons pris soin
+d’éteindre le plus
+rapidement possible les
+bobines, afin d’éviter
+qu’elles ne chauffent.
+
+Détection 3
+Attendre 1ms
+
+Extinction Bobine2
+Inversion Bobine3
+
+Attendre 1s
+
+Eteindre Bobine3
+
+Fin
+
+Fig. 19 : Organigramme de notre programme
+
+19
+
+f) L’alimentation :
+Nous devons alimenter au maximum 2 bobines simultanément avec une intensité de 4A. Nous avons
+donc la formule :
+
+L’application numérique nous donne une puissance de 120 W. Nous avons donc choisi une
+alimentation de 150 W pour alimenter les bobines. Notre alimentation est dite « à découpage ».
+Nous possédons une seconde alimentation de 24V qui fournit du courant à l’automate.
+Elle doit être aussi capable d’accepter un courant lors de l’ouverture du circuit inductif.
+g) La réalisation mécanique :
+Tout d’abord nous avons choisi d’utiliser un tube transparent pour voir où le projectile se déplace
+à l’intérieur. Ensuite, il nous a fallu réaliser plusieurs éléments nous-mêmes tellement ils sont
+spécifiques à notre projet : des supports de bobine, des supports de capteurs, des bagues de serrage
+ainsi qu'un coffret de protection pour l'ensemble automate-composants.
+Les supports de bobine sont l’axe autour duquel nous avons bobiné notre fil.
+Ils nous permettent aussi de déplacer à notre aise les bobines le long du tube.
+
+Fig.20a: Usinage des supports de bobines.
+
+Fig.20b: Un support vide.
+
+Nous avons aussi fait des supports pour maintenir les capteurs, ainsi que des bagues de serrage pour
+maintenir le tout et avoir des écartements fixes.
+
+20
+
+Fig.21: Un ensemble de bobine. De gauche à droite :
+une bague de serrage; la bobine dans son support ; un support de capteur.
+Nous avons aussi choisi de fabriquer une boîte sur mesure visant à contenir la partie
+électronique du projet. Elle est équipée de ventilateurs pour refroidir les ponts en H.
+
+Fig.22a : Perçage d’un orifice pour ventilateur
+
+Fig.22b : Séchage de la boîte
+
+Fig.22c : Intérieur de la boîte de protection.
+
+21
+
+Nous avons aussi fabriqué un fond amovible, sur lequel nous avons fixé l’automate ainsi que les
+ponts en H. Nous avons fixé des fiches sur la face avant de la boîte, afin de simplifier les
+branchements.
+
+Fig.24 : Façade de la boîte
+Lorsque nous avons acquis les éléments, il nous a fallu les mettre en marche. Le père de Nicolas,
+Mr J-M Guyenard, avait déjà utilisé ce type d'automate, et nous avons pu rapidement prendre
+connaissance du logiciel de programmation. Toutefois, notre programme est en constante évolution
+car nous devons modifier les temporisations, l'ordre des commandes…
+Les ponts en H ont été les éléments les plus durs à maîtriser. Même aidés de la documentation, il
+nous a été difficile de les mettre en place : nous devions savoir à quelle "patte" du composant
+correspondait quelle fonction. Nous en avons accidentellement cassé quelques-uns : quelques faux
+contacts et mauvaises soudures et une erreur de masse commune en sont venus à bout. Comme nous
+les utilisions à leur intensité maximale de fonctionnement, 4A, ceux-ci ont aussi beaucoup chauffé, et
+nous avons dû monter des dissipateurs, et équiper la boîte de ventilateurs.
+Le choix des capteurs nous a aussi occupés un long moment. Nous avons initialement pensé à une
+association de diode et capteur infrarouge, mais le tube en plexiglas étant légèrement opaque et
+susceptible d'être rayé, le rayon lumineux serait affecté. Nous avons pu obtenir des cellules
+inductives, et après quelques tests où nous avons vérifié si elles étaient bien non-influencées par le
+champ
+magnétique
+de
+la
+bobine
+(ces
+tests
+étaient
+concluants).
+Le second problème que nous avons rencontré avec ces capteurs, était : mais où les placer ? Juste
+devant la bobine ? À l’intérieur ? Plus loin ? Nous avons finalement décidé de placer le capteur avant
+la bobine, et de faire une temporisation.
+22
+
+Plus récemment, nous nous sommes rendu compte que les vis qui nous permettaient de fixer les
+bobines étaient en métal ! Notre projectile était fortement ralenti par ces dernières car il les
+aimantait : nous avons dû les remplacer par des vis en plastique.
+
+IV) Projets
+Comme nous le souhaitions après les oraux régionaux, nous avons réussi à créer un prototype de
+programme permettant de faire osciller notre projectile pendant un temps relativement long (de
+l’ordre de 8 à 10 secondes) entre deux de nos bobines. Mais les réglages nécessaires au bon
+fonctionnement de ce programme étant vraiment très précis, il est très difficile d’atteindre un
+« rebond perpétuel ». En effet, il suffit que le canon soit penché de quelques degrés, que les capteurs
+soit éloignés de quelques millimètres pour avoir une réaction différente : sortie immédiate du
+projectile, arrêt à l’intérieur… Nous souhaitons le perfectionner pour atteindre l’idéal du contrôle
+quasi-total et parfait du projectile.
+Le jury de Lyon nous avait aussi conseillé d’effectuer une analyse énergétique et de la trajectoire
+du projectile : nous avons pour cela demandé à notre professeur de nous expliquer les bases
+nécessaires de la balistique.
+
+V) Remerciements
+Nous remercions toutes les personnes qui nous ont aidés à la réalisation de ce projet, Mr Bottos
+pour nous avoir proposé de participer aux Olympiades, tous les préparateurs et professeurs de
+physique du Lycée Charles Baudelaire à qui nous avons demandé les clefs de la salle et du
+matériel pour nos expériences, Mr Jean-Marc Guyenard pour la réalisation technique de nombreux
+éléments de notre projet, et les entreprises qui nous ont offert certains éléments. Grâce à eux, nous
+avons pu vivre cette expérience formidable et instructive qu'est de participer aux Olympiades de
+Physique.
+
+23
+
+VI) Annexe
+Documentation des Ponts en H (Page 1/4)
+
+24
+
+Documentation des Ponts en H ( Page 2/4 )
+
+25
+
+Documentation des Ponts en H ( Page 3/4 )
+
+26
+
+Documentation des Ponts en H ( Page 4/4 )
+
+27
+
+

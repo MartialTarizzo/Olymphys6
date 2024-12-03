@@ -1,0 +1,1555 @@
+Lycée Lalande (Bourg-en-Bresse)
+Groupe : Interféro
+
+Roux Camille (1ère S)
+Durupt Valentin (1ère S)
+
+ODPF 2016
+Nationale, Paris
+
+Bousch Victor(1ère S)
+Fevre Romain (Term S)
+
+Interférences Lumineuses,
+La recherche des étoiles binaires
+
+encadrants :
+Schworer Guillaume
+Observatoire de Paris
+Butet Jean-Baptiste, Lycée Lalande
+Goiffon Serge, Lycée Lalande
+
+RÉSUMÉ :
+Additionner plusieurs petits télescopes séparés de plusieurs mètres permet
+d’avoir un appareil qui a la même résolution qu’un grand télescope de diamètre
+équivalent. Nous avons voulu créer notre propre appareil, d’une résolution théorique
+équivalente à un télescope de 50 cm mais fait à partir de deux lunettes de 8 cm.
+Cet appareillage crée des interférences, nous avons donc fait des expériences
+pour comprendre ce phénomène et tenter d’en tirer des informations sur des étoiles
+binaires ​
+angle, rapport de luminosité, écartement angulaire​
+et débuter des mesures sur
+des objets du ciel avec un appareillage semblable à notre double lunette : le masque à
+deux trous.
+Notre montage n’étant pas encore au point : les difficultés mécaniques sont très
+compliquées à contourner car il faut être précis à la longueur d’onde près.
+Par des expériences avec des sources cohérentes, des modélisations et des
+traitements informatiques, nous arrivons à maîtriser la chaîne d’acquisition mais le ciel
+nous joue des tours : nous n’avons pas encore réussi à faire une mesure exploitable sur
+une étoile binaire à cause du temps.
+
+2/47
+
+Remerciements
+Nous tenons tout particulièrement à remercier nos professeurs encadrants, M.
+BUTET et M. GOIFFON, qui nous ont suivi depuis notre choix de sujet et guidés dans nos
+démarches expérimentales et les problèmes rencontrés.
+Un grand merci aussi à Guillaume Schwörer, Doctorant à l’Observatoire de
+Paris-Meudon, sans qui rien de ceci n’aurait été possible. Les sessions de
+vidéo-conférence sont des souvenirs très forts : un grand merci pour la patience dont il
+a fait preuve face à notre afflux de questions.
+Enfin, nous tenions à remercier l’association astronomique de l’Ain pour le prêt
+de ses locaux, ses instruments, ainsi que son aide logistique lors de nos premières
+présentations du projet.
+Nous nous excusons auprès des lecteurs de la longueur du rapport mais il nous a
+été impossible de traiter correctement notre projet en 20 pages.
+
+3/47
+
+Astres de plusieurs millions de kilomètres de diamètre, les étoiles font pourtant
+pâle figure sur la voûte céleste. Distantes de milliers voire de millions de milliards de
+kilomètres, toutes, à l’exception du Soleil, nous paraissent ponctuelles.
+Mais l’astrophysique requiert l’étude de ces astres, qui en réalité ne sont pas
+ponctuels. On définira la taille apparente telle que l’angle formé par les deux extrémités
+de l’étoile. Ainsi, la taille apparente d’une étoile telle que Bételgeuse (α Orini) est
+ième
+d’environ 0.018” (seconde d’arc), une seconde d’arc correspondant à 1/3600​
+de
+degré. Les télescopes actuels permettent d’étudier certaines étoiles, mais cela a un
+revers : des télescopes de plusieurs mètres de diamètre (E-ELT : taille prévue 39m), aux
+prix de centaines de millions de dollars. Totalement hors de portée ne serait-ce que
+pour une Université.
+Alors comment l’amateur pourrait-il étudier ces astres ? Le télescope à objectif dilué
+permet de se passer d’une grande partie de l’objectif et de n’avoir que deux petits
+morceaux. Grâce à certaines propriétés optiques de la lumière, la résolution est le
+double de celle d’un télescope complet. Ainsi, on obtient la résolution d’un télescope de
+100 mètres de diamètre en espaçant deux petits télescopes -quelle que soit leur taillede 50 mètres l’un de l’autre.
+L’étude des étoiles binaires permet d’accéder à certains mouvements, conforter si les
+systèmes sont liés par la gravitation ou si ce sont juste des illusions de parallaxes.
+Mesurer l’écartement et l’angle des binaires permet de préciser les paramètres de
+révolution de ces astres et ce sont des mesures utiles dans la compréhension de certains
+phénomènes astronomiques.
+
+Nous allons réaliser un tel instrument, en restant toutefois sur des dimensions plus
+restreintes, avec un écartement de 25cm.
+Comment la combinaison de deux petits instruments permet-elle de rivaliser avec de
+grands instruments en résolution ?
+
+4/47
+
+I­ Notions sur la lumière et ses comportements
+A/ Historique des télescopes interférentiels
+B/ Généralités sur les comportements dus à l’optique
+ondulatoire
+1­ La diffraction
+2­ Les interférences
+II­ Notre télescope
+A/ Du schéma de principe à la réalisation
+B/ Difficultés techniques rencontrées
+
+III­ Observations et résultats
+A/ L’observation de lasers
+B/ Modélisation informatique de l’observation d’étoiles
+C/ L’observation d’étoiles avec un masque d’Young
+
+5/47
+
+I­ Généralités sur la lumière et ses comportements
+A/ Historique des télescopes interférenciels
+L’idée de faire interférer des ondes lumineuses pour réaliser des mesures en
+astronomie a pour la première fois été décrite par ​
+Hippolyte Fizeau vers 1850,
+
+effectuée par ​
+Albert Michelson en 1920 et enfin développée par ​
+Antoine Labeyrie
+depuis les années 1970. Cette technique permet de combiner la lumière reçue par
+plusieurs miroirs séparés et donc de disposer virtuellement de l'équivalent d'un miroir
+plus important, en passant outre les nuisances optiques dues à l’agitation
+atmosphérique terrestre. Ainsi, en orientant deux télescopes vers un même objet
+céleste, les astronomes parviennent à en obtenir des signaux lumineux distincts.
+Une fois reconstitués, ces signaux fournissent une image combinant des franges
+sombres et claires, les ​
+''franges interférométriques''​
+.
+En 1989, le prototype d’un interféromètre optique, le Grand Interféromètre à
+deux Télescopes (GI2T) donne ses premiers résultats. Il permet de voir des détails de la
+surface des étoiles, ou des détails de l’environnement.
+C’est en 1996 que le principe de l’​
+hypertélescope est établi. Il est mis au point
+par ​
+Antoine Labeyrie​
+, astronome français, spécialisé dans l'​
+interférométrie​
+.
+Selon ce dernier :
+“L'hypertélescope est un miroir géant en pointillé. En disposant
+de nombreux petits miroirs sur une surface imaginaire représentant un
+immense réflecteur sphérique, on peut produire des images aussi
+détaillées que celle qu'on aurait obtenue avec ce grand diamètre. Mais
+pour cela, il faut installer nos détecteurs là où convergent les faisceaux
+lumineux : à plusieurs dizaines de mètres de hauteu​
+r”
+Ainsi, il faut une surface naturellement sphérique, ou mieux parabolique, pour
+pouvoir disposer les miroirs, afin de réaliser ce qu’on appelle un télescope dilué.
+Le prototype est mis au point en 2002, doté d’un ballon dans lequel l’astronome
+a placé un capteur qui récupère les informations renvoyées par les miroirs, à
+l'observatoire de Haute-Provence.
+En 2004, la nacelle est suspendue à la précision requise pour combiner la
+lumière issue de deux miroirs juxtaposés. Sept ans plus tard, Antoine Labeyrie et son
+6/47
+
+équipe débutent un test de l’hypertélescope dans la vallée de l’Ubaye ; le concept de la
+nacelle suspendue par un ballon est abandonné et la construction d’un second
+prototype est entamée, dans le vallon de la Moutière, à Bayasse. Il fera 57 mètres de
+diamètre, avec deux miroirs espacés de 16 mètres, et la nacelle sera finalement
+suspendue par six câbles. Théoriquement, cet instrument devrait permettre de voir des
+détails 20 fois plus fins qu’avec le télescope spatial Hubble, mais l’enjeu est
+considérable, car il nécessite d’être réglé très précisément : au millimètre pour la
+nacelle suspendue, et à quelques micromètres près pour les miroirs les uns par rapport
+aux autres. De plus, le dispositif focal de l’hypertélescope produit une image directe
+instantanée et non une image reconstituée après calculs à partir d’images successives.1
+Le radiotélescope ALMA (​
+Atacama Large Millimeter and submillimeter Array​
+),
+installé à plus de 5 000 mètres d’altitude dans le désert d’Atacama au nord du Chili,
+utilise aussi l’interférométrie, mais cette fois dans le domaine des ondes radios : en
+radioastronomie. Réunissant l’Europe, les Etats-Unis et le Japon, le projet, toujours en
+construction, a coûté 1,4 milliard de dollars. Constitué aujourd’hui de 66 antennes, il est
+déjà opérationnel et devrait permettre à terme :
+•
+
+l'étude de l'univers jeune à travers l'observation de galaxies distantes ;
+
+•
+
+l'étude de la formation des étoiles à travers l'observation des nuages
+moléculaires (comme par exemple celui dans la constellation d’Orion)
+
+•
+
+l'étude de la formation des​
+exo-planètes
+​
+
+•
+
+la recherche d'exo-planètes par​
+astrométrie
+​
+
+•
+
+l'étude du système solaire reposant sur l'étude des poussières et sur celle des
+atmosphères de différentes planètes comme Mars et Vénus (ce dernier sujet
+permettra par exemple de se faire une meilleure idée de leur dynamique
+atmosphérique ou encore de détecter une éventuelle présence d'eau)
+Le ​
+Very Large Telescope interferometer (VLTi) utilise aussi la technique de
+
+l’interférométrie. Il combine la lumière des télescopes de 8,2 mètres du ​
+Very Large
+Telescope (VLT), espacés d’une trentaine de mètres et celle de 4 télescopes auxiliaires
+de 1,8 mètre, mobiles, installé au Cerro Paranal au nord du Chili. Le premier essai du
+VLT date du 17 mars 2001, avec l’étoile Sirius, très brillante, à l’aide de deux des
+télescopes auxiliaires.
+
+1
+
+Site officiel du LISE : Laboratoire d’Analyses Stellaires et Exoplanétaires
+https://lise.oca.eu/spip.php?rubrique27
+
+7/47
+
+Le principal avantage d’un hypertélescope par rapport à un interféromètre est la
+formation immédiate d’un image lisible et qui ne nécessite pas de traitement
+informatique et mathématique. En ce qui nous concerne, nous avons fait de
+l’interférométrie.
+A quoi cela peut-il servir ?
+L’expérience de Michelson et Pease (1920)
+La première mesure d’un diamètre stellaire grâce à l’interférométrie a été
+réalisée au Mont Wilson aux États Unis, en 1920, sur Bételgeuse, grâce à Albert
+Michelson et Francis Pease.
+
+extrait du livre : Optique, une approche expérimentale et pratique, de Boeck
+À l'entrée du télescope de 100 pouces (environ 2 mètre 54) du mont Wilson, en
+Californie, ils ont fixé une poutre sur laquelle étaient installés quatre miroirs, chacun
+incliné à 45°. L’écartement entre les deux miroirs situés vers les extrémités de la poutre
+(M1 et M2) est variable (d). en revanche, l’écartement entre les deux miroirs situés plus
+8/47
+
+à l’intérieur (M3 et M4) est fixe (a). Les deux faisceaux lumineux obtenus passent à
+travers deux fentes percées dans un masque, placé à l’entrée du télescope. Une lame
+transparente permet de focaliser correctement les deux faisceaux dans le plan focal du
+télescope, tandis qu’une autre lame d’épaisseur variable permet de compenser la
+différence de chemin optique des deux faisceaux.
+Ce système présente deux avantages :
+-
+
+L’écartement maximal de d était de 6 mètres. Ainsi, Michelson et Pease
+obtenaient l’équivalent d’un télescope unique de 6 mètres de diamètre.
+
+-
+
+L’interfrange, directement dépendante de (a) ne varie plus puisque (a) est un
+écartement fixe.
+Michelson et Pease écartèrent donc progressivement les deux miroirs M1 et M2.
+
+les franges d’interférence se brouillent, puis disparaissent : c’est l’annulation de
+contraste des franges d’interférence, on dit que l’étoile est résolue.
+Pour Bételgeuse, l’annulation du contraste est obtenue lorsque les miroirs M1 et
+M2 sont écartés de 3,065 mètres. Cette distance peut être calculée grâce à la formule :
+λ
+dmin = 1, 22 Δα
+
+Avec Δα le diamètre angulaire de l’étoile, λ sa longueur d’onde. Ainsi, en
+mesurant
+
+dmin , il est possible de déduire Δα. Pour Bételgeuse, cela donne
+−9
+
+−7
+Δα = 1, 22 575×10
+3, 065 = 2, 29 × 10 rad = 0, 047′′
+
+Cependant, la technique fut abandonnée parce qu’elle avait été jugée trop
+difficile et qu’à cause de la turbulence atmosphérique, on ne pouvait l’utiliser qu’avec de
+petits miroirs, donc uniquement sur des astres très brillants.
+Elle tomba donc dans l'oubli jusqu'aux années 1970, où l'astronome français
+Antoine Labeyrie réalisa le premier interféromètre à deux télescopes.
+Il détourne le problème en utilisant la méthode des ​
+speckles​
+, soit les tavelures, un
+système qui consiste à filmer la déformation des images pour les reconstruire plus tard.
+Sur le plateau de Calern, ainsi qu'à l'observatoire de Meudon, il parvint à obtenir les
+premières franges d'interférences en utilisant deux petits télescopes. La principale
+difficulté étant que la lumière issue des deux télescopes doit avoir parcouru exactement
+la même distance depuis l'étoile.
+
+9/47
+
+Pour quel type d’astres cette technique est-elle adaptée ?
+•
+
+Pour les étoiles proches, afin de voir les détails de leur surface, et mieux
+comprendre leur fonctionnement
+
+•
+
+Lors du passage des exoplanètes devant leur étoile
+
+•
+
+On peut sonder leur atmosphère par spectroscopie et rechercher des molécules,
+qui seraient des indices de vie
+
+•
+
+Mais il est aussi possible de voir des astres plus éloignés, moins lumineux, en
+dehors de notre galaxie, jusqu’aux “confins de l’Univers connu”2
+
+B/ Généralités sur
+ondulatoire de la lumière
+
+les
+
+comportements
+
+au
+
+caractère
+
+1. La diffraction
+La diffraction est un phénomène purement ondulatoire : au passage d’un obstacle,
+une onde va “s’éclater” plus ou moins. Afin d’essayer de comprendre les paramètres guidant
+la diffraction, nous avons fait plusieurs expériences.
+Tout d’abord, nous avons regardé en quoi la taille de l’obstacle (ici un fil) influait sur
+“l’éclatement” du faisceau.
+
+-
+
+Matériel :
+Laser (vert : λ=532nm ou rouge : λ ~ 650 nm)
+Fils ou fentes (épaisseur a ∈ {40; 50; 80; 100; 127}µm)
+
+-
+
+Écran
+Schéma de l’expérience de diffraction:
+
+2
+
+Ciel & Espace
+
+10/47
+
+11/47
+
+Nous avons réalisé une expérience avec un laser rouge. Avec chaque fente
+disponible (tailles dans “Matériel”), nous avons mesuré la taille de la tache centrale de
+diffraction sur un écran à 1.8m.
+Épaisseur obstacle : a ( × 10−5 m)
+
+1/a
+× 10 m−1)
+
+12.7
+
+7.87
+
+1.8
+
+10.0
+
+10.0
+
+2.5
+
+8.00
+
+12.5
+
+2.9
+
+5.00
+
+20.0
+
+4.6
+
+4.00
+
+25.0
+
+6.2
+
+3
+
+( Taille tâche centrale
+diffraction : d ( × 10−2 m)
+
+de
+
+En traçant d = f (a) , on obtient cette courbe :
+
+Cette courbe est difficilement exploitable. Mais elle ressemble à une hyperbole.
+Nous traçons donc d = f ( 1a ) et voilà la courbe obtenue : c’est une droite qui passe par
+−6
+
+l’origine. La courbe de tendance nous donne d = 2.40×10
+.
+a
+
+12/47
+
+Nous supposons (et vérifions avec des expériences dans d’autres longueurs
+d’onde) que d est proportionnel à λ et à D. Donc 2.40 × 10−6 = kλD ( k ∈ ℝ
+).
+Nous connaissons λ et D. On en tire k=2.
+
+d = 2λaD
+Q​
+uel rôle joue la diffraction en astronomie ?
+
+Lorsque nous regardons un objet lointain avec un télescope nous voyons en fait
+sa tache de diffraction donnée par le télescope, nommée tâche de Airy dans le cas d’une
+étoile.
+Dans un petit télescope, ​
+a (le diamètre du télescope) sera plus petit donc la tache
+d'Airy sera plus grande, ce qui fait que lorsque l'on veut observer deux objets
+rapprochés avec un petit télescope, on observera 2 taches d'Airy superposées et donc
+impossibles à distinguer.
+Pour pouvoir séparer deux étoiles rapprochées, il faudra avoir un télescope plus
+grand, qui aura un pouvoir de résolution plus grand et qui permettra de séparer les
+deux taches car elles seront plus petites. On dit que les étoiles sont séparées à partir du
+moment où la tâche de Airy de l’une ne passe plus sur le centre de la tâche de Airy de
+l’autre.
+Un télescope de plus grand diamètre a donc un plus grand pouvoir de résolution.
+
+13/47
+
+En haut à gauche : taches d’Airy d’une binaire observée avec un télescope de petit
+diamètre, étoiles tout juste résolues.
+En haut à droite : avec un diamètre de télescope plus grand, étoiles bien résolues.
+En bas: avec un diamètre de télescope encore plus grand, étoiles parfaitement résolues.
+
+D’après la relation, si l’on change la longueur d’onde de la lumière, la taille de la
+tache d’Airy augmente ou diminue : si la longueur d’onde augmente, la taille de la tache
+augmente proportionnellement. Il sera donc plus efficace dans notre cas d’utiliser une
+lumière de longueur d’onde relativement basse pour gagner en résolution : le bleu
+semble donc le plus approprié. Pour augmenter le pouvoir de résolution, on utilisera
+donc un filtre qui sélectionne une bande du spectre de la lumière dans le bleu.
+Puisqu'un grand télescope est coûteux, nous avons alors décidé d'utiliser deux
+petits télescopes -des lunettes en fait- qui auront le même pouvoir séparateur qu'un
+télescope plus grand. En effet, Pour augmenter le pouvoir de résolution, il faut
+augmenter le diamètre. Mais cela coûte cher. Nous avons donc séparé nos lunettes de 8
+cm de diamètre, de 25 cm pour créer un télescope de pouvoir de résolution équivalent
+à un télescope de 25 cm. -on verra que c’est en fait équivalent à un télescope de 50 cmCependant, les images obtenues seront des interférences et non l’image directe.
+Nous allons voir pourquoi.
+
+2. Les interférences
+Découverte expérimentale
+
+Matériel:
+- Laser (vert : λ=532nm ou rouge : λ=630-650 nm)
+- Deux double fentes espacées de 0.1 et 0.2 mm
+
+14/47
+
+Si nous rajoutons une fente à côté de la fente précédent, nous obtenons des “stries”, des
+alternances de lumière et d’absences de lumière. C’est ce que l’on appelle les
+interférences.
+Dans notre cas, nous allons utiliser un laser vert de 532 nm de longueur d’onde,
+nous le faisons passer dans une double fentes et le projetons sur un écran, c’est
+l’expérience des fentes de Young.
+
+Nous observons alors sur l’écran des figures d’interférence:
+
+Figures d’interférence avec un laser rouge (λ=624nm) et des fentes espacées de 0.25 mm
+Si l’on obtient cette figure, c’est que les faisceaux séparés du laser peuvent
+interférer entre eux : cela veut dire qu’ils sont cohérents à la fois temporellement et
+spatialement.
+C’est une propriété intéressante des LASERs qui émettent pendant un certain
+temps beaucoup de photons tous “identiques” (co-phasés). Étant identiques, un photon
+peut interférer avec son “voisin”. Mais dans le cas d’une étoile, les photons sont tous
+différents l’un après l’autre.
+Lorsqu’un photon arrive au niveau des lunettes, il est assimilable à une onde
+plane : il les traverse toutes les deux en même temps. Dans ce cas d’interférométrie,
+15/47
+
+c’est la nature ondulatoire de la lumière qu’il est important de considérer, et non sa
+nature corpusculaire. Les deux portions d’onde plane pourront interférer entre elles
+uniquement si elle parcourent la même distance afin d’arriver en même temps sur le
+capteur.
+Ceci implique une très forte contrainte mécanique : Il nous faudra donc
+régler les chemin optiques à une fraction de longueur d’onde près.
+Cela signifie que plus la longueur d’onde est grande plus le montage sera facile à
+réaliser, car la finesse de réglage sera moindre. Il sera donc avantageux d’observer dans
+le rouge, dans ce cas là nous aurions le droit à une fraction de 630nm de décalage entre
+les deux ondes et seulement une fraction de 532nm dans le vert.
+Nous avons donc décidé d’observer préférentiellement dans le vert, afin que les
+interférences soient facilement observables et que le phénomène de diffraction ne
+réduise pas trop notre résolution.
+Que se passe-t-il si il y a deux étoiles à observer ? Deux sources différentes
+peuvent-elles interférer ?
+Pour vérifier cela, nous avons effectué la même expérience avec deux lasers
+ayant des longueurs d’onde différentes -rouge et vert-, puis avec des lasers ayant
+théoriquement la même longueur d’onde et les rayons n’ont pas interférés dans les deux
+cas, on doit donc bien utiliser une même source pour observer des interférences.
+Deux ondes lumineuses provenant de deux sources différentes ne peuvent pas
+interférer.
+
+Superposition des figures de diffraction de lasers de couleurs différentes : il n’y a pas de
+figure d’interférence
+
+16/47
+
+Calcul de la différence du chemin optique
+Soit δ = d 2 − d 1 ​
+la différence de marche entre les deux rayons, S 1S S = a ​
+et
+MO=D. La distance ​
+a​
+est très petite par rapport à D donc θ′ ≈ θ ​
+car les angles θ′ et θ
+sont très petits.
+Les triangles rectangles S 1S 2H et T S 1S 2 , avec T le point tel que θ =
+un angle en commun
+
+, ont
+
+qui n’est leur angle droit ; leur dernier angle a donc la
+. Nous pouvons en déduire dans le triangle S 1S 2H ​
+que
+
+même mesure:
+
+OP
+sinθ = δa et dans le triangle MOP que​tanθ = OM
+= Dy .
+
+Cependant nous avons vu que l’angle θ ​
+est petit donc tanθ ≈ sinθ soit
+y
+ay
+δ
+a = D ⇔δ= D
+
+Tout d’abord nous considérerons que les interférences sont constructrices. Il faut
+alors que la différence de marche δ soit un multiple de la longueur d’onde.
+kλD
+
+d’où δ = kλ ⇔ y = a ​
+avec k∊
+Z.
+
+k = 0 , y 1 = λD
+k = 1 , y 2 = 2λD
+k = 2​
+D’où​
+y 0 = 0​
+lorsque​
+lorsque​
+lorsque​
+etc​
+...
+a ​
+a ​
+La distance entre deux franges constructives est donc
+λD
+λD
+i = 2λD
+a − a = a
+
+Ensuite nous considérons que les franges sont destructives, le coefficient doit être de la
+forme k=(2n+1)/2 ou m+0.5 (avec m et n des entiers relatifs) donc
+17/47
+
+δ = (2k+1)λ
+⇔ y = (2k+1)λD
+où
+2
+2a
+
+3λ×D
+k∊
+Z. D’où les solution​
+s y 0 = λD
+etc. La
+2a ; y 1 2a ​
+
+λD
+2λD
+λD
+distance entre deux fentes est donc i′ = 3λD
+2a − 2a = 2a = a . On remarque alors que
+
+la distance entre les franges destructives et constructives est la même i = λD
+, nous
+a ​
+pouvons donc conclure que:
+La distance entre deux franges, constructives ou destructives, est donnée par
+l’équation i = λD
+avec λ ​
+la longueur d’onde de la lumière, ​
+D la distance entre les
+a ​
+franges et l’écran et a la distance entre les deux fentes
+
+Pour vérifier cette loi nous allons l’utiliser avec nos mesures:
+
+D = 4, 5m a = 2, 0 × 10 −4m et λ = 5, 32 × 10 −7m :
+On obtient une interfrange i =
+
+5,32.10 −7×4,5
+= 1, 2 × 10 −2m
+2,0×0 −4
+
+or nous avions mesuré qu’il y avait 10 franges sur 10 cm, soit 9 interfranges par
+-1​
+centimètre, nous trouvions donc i = 1,0.10​
+/9 =1,1 cm.
+Le résultat expérimental étant en accord avec la loi théorique.
+Nous pouvons donc conclure que la taille et la séparation des franges
+d’interférences sont inversement proportionnelles à la distance des deux fentes mais
+que la taille des franges, la longueur d’onde et la distance fentes/tableau sont
+proportionnelles.
+Comme nous le voyons avec nos mesures, lorsque la séparation entre les fentes
+diminue, le nombre de franges aux 10 centimètres augmente.
+
+Poussant un peu plus loin le raisonnement pour savoir quand ont lieu les
+interférences, nous nous sommes demandés ce qu’il arriverait si on avait deux figures
+de diffractions provenant d’une même source LASER et que nous les rapprochions l’une
+de l’autre : verrions-nous les interférences se faire directement sur l’écran ?
+Nous avons donc réalisé l’expérience
+suivante : nous avons séparé un faisceau
+LASER à l’aide d’une séparatrice, fait passer
+les deux lasers dans une double fente puis
+recombiné les LASER sur l’écran.
+-expérience particulièrement compliquée à
+réaliser, tellement les réglages sont finsMatériel :
+- un laser rouge (He+ Ne)
+18/47
+
+- une lame semi-réfléchissante
+- deux fentes simples écartées de quelques centimètres
+- une diode laser rouge
+
+séparation/recombinaison d’un faisceau LASER
+Dans notre expérience, nous avons cherché à démontrer que deux faisceaux
+lumineux provenant de la même source interféraient entre eux, même séparés. Tout
+d’abord, nous avons fait passer la lumière d’un laser rouge à travers une lame
+séparatrice. A la sortie de la lame, on obtient donc deux faisceaux.
+Nous avons fait passer chaque faisceau dans une des deux fentes simples. Puis
+nous avons tenté de les recombiner sur l’écran en réglant la lame séparatrice. Les deux
+taches de diffraction se superposant, nous aurions du observer des interférences (car
+c’est la même source, on devrait donc obtenir des ondes ayant les mêmes propriétés
+physiques arrivant au même endroit).
+Lors de la première expérience, nous n'avons rien observé. Nous utilisions alors
+une diode LASER. Nous avons mis cet échec sur le fait que la longueur de cohérence de
+la diode LASER était trop faible : la cohérence est de l’ordre du dixième de millimètre.
+Or la séparatrice induit un décalage d’au moins 5cm dans notre montage.
+Afin de résoudre ce problème, nous avons répété l’expérience en remplaçant la
+diode laser par un laser Hélium-Néon (632 nm) qui possède une cohérence plus
+importante, de l’ordre de la dizaine de centimètres. Cependant nous n’avons pas obtenu
+le résultat attendu.
+Nous pensons que cela vient du fait que les deux faisceaux censés interférer
+n’étaient pas parallèles, ainsi, l’angle formé par les faisceaux au niveau de l’écran
+diminuait fortement le contraste des franges. Le contraste diminue beaucoup lorsque
+cet angle n’est pas nul, et comme le nôtre était important (plusieurs degrés) nous ne
+pouvions observer de franges.
+
+Nous avons donc recommencé l’expérience en prenant en compte 2 critères :
+- ‘i’ sera tout petit car les fentes seront éloignées de quelques centimètres
+(ordre de grandeur de i, le dixième de millimètre)
+19/47
+
+- la longueur D devra être grande pour que les interférence soient visibles.
+Nous avons donc augmenté la distance entre les fentes et le tableau de sorte que
+les faisceaux arrivent les plus parallèles possible. Nous nous sommes aussi posés la
+question de la taille des franges que l’on observerait.
+Avec un objectif micrométrique, nous pourrions voir des franges vraiment
+petites (1/50e de millimètre). Pour les calculs, nous avons choisis de prendre une
+interfrange qui aurait pu être visible à l’oeil nu : 0,3 mm
+On s’est alors demandé quelle devait être la distance minimale D entre les fentes
+et l‘écran sachant que l’espace entre les deux fentes ‘a’ est fixe et vaut 2cm. Nous avons
+vu que l’interfrange (ou la distance entre deux franges) se calcule comme ceci: i = λD
+a
+donc la distance est D vaut D = a λ×i =
+
+0,02×3,0×10 −4
+≈ 9, 52m
+6,3×10 −7
+
+, pour voir les
+
+interférences il faudrait donc que la distance écran/fentes soit supérieure à 9,52 mètres.
+Lors du deuxième essai, nous avons donc pris une distance de 12 mètres entre
+l’écran et les fentes et un espace entre les fentes de 2 centimètres. Comme prévu nous
+avons vu une figure d’interférence avec l’objectif micrométrique.
+Nous avons vu qu’en superposant la figure de diffraction de ​
+deux lasers
+différents de même longueur d’onde dont les fentes sont espacées de 2 centimètres et
+situées à 12 mètres de l’écran, nous n’obtenions pas de figure d’interférences, puis qu’en
+superposant deux figures de diffraction d’un ​
+même laser ​
+nous obtenions des figures
+d’interférence. Nous pouvons donc conclure que les ondes qui interfèrent doivent venir
+de la même source.
+Nous en sommes venus a conclure que l’angle entre les faisceaux devant
+interférer doit être le plus faible possible pour avoir le plus haut contraste possible: si
+les ondes n’arrivent pas parallèlement, les franges sont moins contrastées. Plus l’angle
+augmente, moins les ondes sont en phase : les franges seront moins contrastées et
+finiront par disparaître.
+Un conséquence pratique : il est donc important que nos deux lunettes soient
+bien parallèles afin que les deux faisceaux aient le même angle en arrivant au niveau des
+prismes. Dans ce cas-là, les faisceaux arrivant sur le capteur de l’appareil
+photographique auront un très petit angle ce qui nous permettra d’observer des franges
+bien contrastées.
+Comment expliquer la formation des interférences ?
+
+Nous pouvons voir sur les figures d’interférences des franges lumineuses et des
+franges plus sombres, cela est dû aux conditions d’interférences constructives et
+destructives à la rencontre de deux ondes. En effet quand il y a une opposition de
+phases, le maximum d’une onde correspond au minimum de l’autre lorsqu’on
+additionne leurs intensités, on retrouve toujours zéro, les franges sont sombres : les
+interférences sont destructrices.
+20/47
+
+En revanche, quand les deux ondes sont en phase, la maximum d’une onde
+correspond au maximum de l’autre et inversement, lorsqu’on additionne leurs
+intensités on trouve un maximum d’intensité élevé, les franges seront très lumineuses.
+Les ondes franges très lumineuses deviennent de moins en moins lumineuses jusqu’à
+devenir sombres. Plus on s’éloigne des franges où l’intensité est la plus haute, plus les
+ondes se déphasent jusqu’à être en opposition de phase. Après elle se rapprochent
+progressivement d’être en phase avec l’autre onde etc.
+
+Interférences destructives.
+
+Interférences constructives.
+
+Il est donc assez compliqué d’obtenir des interférences dans le visible en
+astronomie car les contraintes mécaniques sont très fortes : la différence de marche doit
+être inférieur à lambda. En radioastronomie par contre, cela est beaucoup plus facile car
+les longueurs d’ondes sont de l’ordre du mètre. Mais nous les utilisons puisqu’elles
+présentent beaucoup d’avantages par rapport à un télescope classique.
+Un télescope à objectif dilué permet d’avoir une résolution deux fois supérieure à
+celle d’un télescope classique de diamètre égal à l’espacement entre nos lunettes, soit
+25cm. En effet avec un télescope à objectif dilué nous observons à la fois dans le
+maximum de l’intensité lumineuse (franges constructives) et à la fois dans le minimum
+de l’intensité lumineuse (franges destructives) alors qu’un télescope classique
+n’observe que dans l’intensité lumineuse maximale. Notre instrument a donc la même
+résolution qu’un télescope de 50cm de diamètre. De plus il n’a pas les inconvénients
+d’un grand télescope qui sont, son poids et son prix puisque les miroirs sont plus petits.
+Cependant les interférences sont très sensibles aux conditions expérimentales
+puisqu’il faut que la différence entre les chemins optiques des deux ondes soit
+inférieure à une longueur d’onde, soit 532nm dans le vert et 630nm dans le rouge, si
+quelque chose bouge dans le montage, les chemins optiques seront à régler de nouveau.
+De plus la surface du miroir reste relativement faible, ce qui fait que la quantité de
+lumière qui entre reste elle aussi relativement faible. Il faut donc viser des cibles très
+lumineuses.
+
+21/47
+
+Finalement l’image prise ne nous donne quasiment aucune information directe
+sur l’étoile observée, il est donc primordial de traiter l’image informatiquement.
+Ce traitement est d’autant plus important dans la cas des étoiles binaires. En effet
+une étoile binaire est constituée de deux composantes : l’étoile principale et son
+compagnon (respectivement ayant la plus forte et la plus faible magnitude apparente)
+et donc deux sources de lumière différentes. Chacune des étoiles produira alors une
+figure d’interférence mais comme les photons proviennent de deux sources différentes,
+les figures d’interférences seront superposées et impossible à analyser à l’oeil nu.
+
+II­ Notre télescope
+A/ Schéma de principe et réalisation
+Nous avons utilisé deux lunettes de caractéristiques optiques identiques, 80mm
+d’ouverture et 400mm de focale ; deux oculaires identiques de 8mm de focale ; quatre
+prismes droits ; un APN avec son objectif réglé à 70mm de focale.
+Grâce à ces données, nous pouvons calculer la focale équivalente du système.
+
+Nous savons que :
+(1)
+
+et que
+
+Mais d’après les relations de trigonométrie :
+22/47
+
+(2)
+
+et aussi
+
+(3)
+
+On exprime D’ avec (2) :
+
+On remplace dans (3) :
+Il vient
+D’après (1) :
+
+Donc notre système a une focale équivalente de
+
+soit 3 500mm ou 3.5m.
+
+Schéma optique du télescope à objectif dilué
+Les prismes sont modélisés par des miroirs
+
+23/47
+
+Notre instrument de mesure en place.
+Notre instrument est fixé sur une planche en bois, sous laquelle se trouve une
+queue d'aronde permettant l’adaptation sur une monture astronomique. Nous pouvons
+changer la distance de trajet du faisceau lumineux issu de la lunette de gauche en jouant
+sur la position d’un prisme à l’aide d’un Palmer micrométrique, trois autres prismes
+permettent de diriger les faisceaux en un même point sur le capteur de l’appareil
+photographique.
+
+24/47
+
+B/ Les difficultés rencontrées
+​
+Avec notre schéma et notre matériel, nous nous sommes lancé dans la
+construction de notre lunette à objectif dilué, mais nous nous sommes heurtés à
+quelques difficultés.
+Nous avions deux choix de réalisation :
+- deux télescopes sur deux montures séparées
+- deux télescopes sur une seule monture
+Le premier présente l’avantage de pouvoir régler la distance entre les deux
+instruments, mais il faut alors mettre en place une (voir deux) lignes à retard qui
+doivent fonctionner en permanence pour avoir des interférences car du fait de la
+rotation de la Terre, la distance parcourue change en continu. Nous avons donc choisi la
+deuxième option qui permet d’avoir la stabilité dans la distance parcourue par la
+lumière(les instruments tournent ensemble).
+Ensuite, il faut pouvoir régler les trajets des faisceaux lumineux de manière à ce
+qu’ils soient les mêmes à moins d’une longueur d’onde près.
+Cela représente moins de 0.5µm et se procurer un instrument aussi précis est
+difficile et coûteux. Nous nous contentons donc d’un Palmer précis à 10 micromètres
+près, il sera donc compliqué de régler la position du prisme à une longueur d’onde près.
+Pour faire la mise au point à l’infini, nous devons écarter très loin les oculaires de
+la lunette et les portes oculaires se sont révélés insuffisants. Nous avons donc du
+installer un ​
+extender qui permet d’éloigner l’oculaire de la lunette. Mais cela a un gros
+inconvénient : l’effet de levier qui pèse sur le porte oculaires est bien plus élevé,
+d’autant plus que les oculaires eux-mêmes sont très lourds. Il faudra donc rajouter un
+système pour aider le porte oculaires à supporter ce poids qui génère des flexions.
+
+.
+
+25/47
+
+De plus, la focale équivalente de ce montage est de 3,5 m et le champ est tout
+petit (moins de 1 degré). Il est donc TRES difficile de régler une lunette
+indépendemment de l’autre, la stabilité de l’ensemble n’étant pas parfaite.
+Pour le moment, après de longues heures de réglages, nous sommes arrivés à
+obtenir une image d’une étoile artificielle mais nous n’avons pas obtenu d’interférences
+car l’échantillonnage de l’APN utilisé est trop faible.
+
+III­ Nos observations
+A/ Observations de lasers
+Afin de régler les lunettes et faire sortir leurs faisceaux lumineux le plus
+parfaitement possible, nous avons utilisé une étoile artificielle faite grâce à un laser vert
+et une fibre optique. Ceci nous permettra d’obtenir des interférences, même si la
+précision souhaitée n’est pas au RDV.
+Placés à une dizaine de mètres, ce qui n’est pas suffisant pour observer au sens
+strict l’étoile qui était alors résolue empêchant l’apparition de franges d’interférence,
+nous avons pu la pointer et ainsi régler l’horizontalité de la lunette 2. Ensuite, nous
+avons pu mettre en place les prismes liés à cette lunette.
+Après cela, nous avons pu observer la toute première image de notre instrument, avec
+une seule lunette ouverte toutefois. Nous nous sommes donc rendu compte que, compte
+tenu de la taille de la pupille de sortie (diamètre du faisceau lumineux à la sortie de
+l’oculaire) et de la distance entre le capteur et cet oculaire, la taille de l’image est très
+petite sur le capteur, ne recouvrant pas tout le prisme. Le champs observé est lui aussi
+minuscule, représentant une dizaine de centimètres de diamètre à une dizaine de
+mètres. (moins de 1° )
+Fort heureusement, nous pouvons adapter un chercheur réticulé à notre lunette
+ayant un champs plus large et nous permettant de centrer l’objet plus facilement.
+Quand nous aurons réglé la seconde lunette, nous essaierons d’observer une
+étoile artificielle constituée avec un laser. Les avantages par rapport à une vraie étoile
+sont que nous pouvons observer une source cohérente sur une longue distance et nous
+n’aurons donc pas à régler le palmer à moins d’une longueur d’onde près, mais juste à
+trouver un multiple de cette longueur d’onde.
+De plus cette étoile ne bougera pas. Aussi, nous pourrons l’observer quelque soit
+le temps, et de jour.
+Toutefois, il nous faudra nous en éloigner d’une grande distance, de manière à ce
+qu’elle ne soit pas résolue par un télescope d’ouverture de 25 cm. Celui-ci ayant un
+pouvoir séparateur de 0.55 seconde d’arc.
+
+26/47
+
+La taille apparente δ d’un objet de diamètre ​
+d et éloigné d’une distance ​
+D sont reliés par
+la relation :
+d
+tan( δ2 ) = 2D
+
+360°=1 296 000”=2 π rad
+−7
+
+Donc 0.55” ≈ 8.49 × 10
+
+−6
+× π​
+rad ≈ 2.67 × 10 ​
+rad
+−6
+
+Soit si l’on veut que δ ≤ 2.67 × 10
+d
+D ≥ 2tan(0.5δ)
+
+, on aura :
+​
+
+On prendra donc
+D ≫ 46.88 m
+Donc, notre prochain défi sera d’observer l’étoile artificielle à une distance qui fera que
+nous observerons des interférences, plus de 50 m .
+Mais que devrions-nous obtenir si nous observions une étoile binaire avec notre
+instrument ?
+
+B/ Modélisation d’étoiles
+Le délai que nous avons eu pour penser et mettre en place ce projet ne nous a
+pas permis de rendre notre instrument opérationnel pour l’instant -mais nous ne
+désespérons pas-.
+Toutefois, nous pouvons simuler ce que nous verrons grâce au logiciel de
+programmation python. Le script fournit en annexe permet cela -code gracieusement
+écrit et expliqué par notre correspondant scientifique, M. Schworer Guillaume,
+observatoire de Paris-. Nous avons aussi fait des mesures sur ciel réel avec un masque à
+deux trous.
+Le programme affiche quatre images :
+L’image réelle des étoiles sur le ciel (intensité maximale de 1, fort grossissement) :
+
+27/47
+
+Dans notre télescope, les étoiles ne seraient pas résolues, nous aurions une taches
+oblongue ne permettant pas la séparation des deux composantes.
+L’image que nous verrons du système binaire dans notre instrument
+(portion grossie) :
+
+On voit clairement les franges d’interférences apparaître.
+L’image que nous pourrons reconstituer grâce à la transformée de Fourier :
+
+28/47
+
+Les tâches visibles sont les images des masques -ou lunettes-. Nous observons
+une image d’un masque centrale, et deux images de part et d’autre. On observe une
+symétrie car aux équations trigonométriques correspondent deux solutions : α et α +
+π.
+Observons un des deux côtés. On observe autant d’images de masques qu’il y a de
+combinaisons de deux masques. Avec deux masques, on en a une. Avec trois masques,
+on en a trois. On observerait alors 3x2 (images latérales) + 1 (image centrale) soit 7
+images.
+D’une manière générale, avec n masques -ou lunettes- on observe
+2 × (n − 1)! + 1 ​
+images lors de la transformée de Fourier (on peut le démontrer par
+réccurence).
+Spectre de puissance, transformée de Fourier
+
+29/47
+
+Cette analyse nous permet d’avoir accès à l’angle formé par les deux étoiles ainsi
+qu’à leur rapport des flux lumineux (ou irradiance, ou encore éclairement energétique
+en W .m−2 ).
+Cet angle se lit dans le sens direct pour la première solution et dans le sens indirect
+pour la seconde. C’est l’angle formé par une normale aux franges et l’horizontale. Ici, on
+lit α = 34 π ou α = −π
+. C’est la première solution qui avait été paramétrée.
+4 ​
+Soient P 1 et P 2 les flux ( P 1 ≥ P 2 ) des étoiles 1 et 2. Ici, P 1 est ramené à 1 (en effectuant
+P1
+P 1 ) et P 2 à
+
+P
+
+R = P 21 (on prendra plus tard R′ = R−1) . Grâce à notre analyse sur l’image, on
+
+peut avoir R en moyennant les valeurs dans un cercle noir (les valeurs sont identiques
+dans chaque cercle).
+Si on a R, on peut avoir le rapport des magnitudes apparentes entre les deux étoiles.
+Quand on divise l’irradiance par 2.5, on augmente la magnitude de 1.
+P
+On a P 2 = R1′ . On veut donc savoir à “​
+combien de divisions par 2.5 correspond diviser R’ ​
+“,
+c’est à dire résoudre R′ = 2.5x en x. log R′ = x × log2.5
+
+log R′
+<=> x = log
+2.5
+
+P
+
+Puisque R′ = P 12 , on en déduit que m, la différence de magnitude entre les deux étoiles,
+vaut :
+P
+
+log P 1
+2
+
+log 2.5
+
+30/47
+
+L’acquisition des images se fera sur une ou plusieurs nuits sur des cibles que
+nous aurons choisies. Il nous faut une étoile très brillante pour avoir un temps de pose
+le plus petit possible et ne pas être gênés par la turbulence atmosphérique, ayant une
+composante double à moins d’une seconde d’arc de distance (sinon on peut la résoudre
+sans problème et ce n’est pas intéressant, et telle que la différence de magnitude entre
+les deux composantes soit la plus faible possible pour avoir des franges les plus
+contrastées possibles (environ 1 magnitude). L’acquisition se fera à l’observatoire de
+l’AAA situé dans les hauts de Bourg, là où la pollution lumineuse est plus faible.
+Pour avoir des interférences, il faut que les ondes arrivent en même temps. C’est
+aussi pour cette raison que les pauses doivent être très courtes. En effet, la turbulence
+atmosphérique, en plus de distordre les images, est particulièrement mauvaise pour
+l’interférométrie : les masses d’air de température extraordinaire ont un indice de
+réfraction différent de celui de l’air de référence. Ces bulles d’air, mues par les vents,
+agissent telles des lentilles (divergentes ou convergentes) et modifient le parcours de la
+lumière (​
+fig. 1​
+). Ces effets, lorsqu’ils se passent en haute atmosphère affectent la qualité
+des images. Mais s’il venait à se produire dans le chemin optique entre les lunettes et le
+capteur, les interférences ne seraient pas stables. On peut limiter les causes de plusieurs
+façon, à condition de les déterminer.
+
+31/47
+
+fig. 1
+On peut en retenir deux principales : l’air et le matériel, qui du fait de sa chaleur, modifie
+la température de l’air à immédiate proximité.
+Pour le premier facteur, on peut isoler notre montage de l’air ambiant (et par la même
+occasion limiter les parasites lumineux). Pour le second, il faut prévoir une mise en
+température. Celle-ci consiste à laisser à température ambiante (qui doit être stable) le
+matériel pendant 1h30-2h le temps qu’il se refroidisse.
+Passées toutes ces contraintes mécaniques, on pourra s'atteler à l'acquisition des
+données.
+Le traitement des images.
+Nous avons utilisé un masque à deux trous sur un télescope de 30cm pour
+simuler notre double lunette (voir sous partie suivante). Nous sommes sortis plusieurs
+fois pour faire les réglages et prendre des photos avec l’aide d’un APN canon 1100D.
+Une fois les images acquises, il faut en éliminer les défauts qui peuvent l’être et
+minimiser ceux qui ne peuvent être éliminés. C’est le principe du prétraitement et du
+stacking ​
+(empilement des images unitaires).
+Le prétraitement se passe en trois étapes :
+- la soustraction du bruit de lecture (ou ​
+offset ou Bias​
+)
+- la soustraction du noir ou bruit thermique (ou ​
+dark​
+)
+- la division par la PLU -plage de lumière uniforme-(ou ​
+flat-field​
+)
+Le BIAS est une image de très courte pose (1/4000 avec notre appareil photo
+(APN par la suite)), de même ISO que les images de l’étoile (brutes par la suite) et dans
+le noir le plus total possible. Cette image permet de retrouver le bruit de lecture et la
+trame induits par le capteur. On le soustrait pour avoir un niveau bas proche de zéro et
+enlever le trame.
+On passe ensuite au noir. C’est une image prise là encore dans le noir, mais cette
+fois avec le même temps de pose que les brutes, et toujours avec le même ISO. Ce noir
+nous permet de retrouver les photosites défectueux qui émettent un électron
+(interprété comme un photon) spontanément. Cette réaction augmente avec la
+température. Il est donc nécessaire de faire les images de noir avec la même
+température que les brutes. C’est à cause de cette corrélation avec la température que
+les pixels faussés obtenus sont nommés “pixels chauds”. Ce défaut étant répété toujours
+par le même photosite, on élimine les pixels chauds de cette manière.
+La présence d’équipement optiques tels l’oculaire, les poussières, surtout celles
+situées sur le capteur ou très près de lui, ainsi que des défauts de réactivité des
+photosites peuvent entraîner une uniformité dans l’image. Pour remédier à cela, on
+réalise une PLU qui consiste à prendre une image, sans avoir touché à l’optique, d’un
+champs uniformément éclairé (ciel diurne, boîte à ​
+flat [lampe néon plate]...). Ainsi, en
+divisant les brutes par cette image, on uniformise l’image. ​
+(Voir annexe 4)
+
+32/47
+
+Le prétraitement est fini. Mais sur chaque image brute réside un bruit aléatoire,
+du à la température, au capteur, … Étant aléatoire, il n’est pas reproductible à
+l’identique. On peut aussi avoir des traces d’avion, satellite, rayon cosmique… Pour
+éliminer ces défauts, que l’on peut retrouver (notamment le bruit aléatoire) sur les
+images de prétraitement, on empile le plus d’images possible, le rapport signal sur bruit
+(aléatoire) diminuant avec la racine du nombre d’images.
+Plusieurs types d’empilement sont possible. Les plus utilisés sont la moyenne et
+la médiane. Nous allons travailler avec des fréquences. Cet empilement sera donc
+effectué plus tard dans le traitement, après la transformée de Fourier.
+Maintenant, nous pouvons sélectionner une petite partie autour de l’étoile car le
+grand capteur fournissant beaucoup de pixels, le temps de calcul peut être considérable.
+Nous sélectionnons une portion d’environ 600 par 600 pixels autour de l’étoile. Nous
+lançons ensuite la transformée de Fourier. De là, nous pouvons empiler les différents
+résultats, et moyenner le bruits aléatoire et autres défauts non corrigés.
+Nous devrons alors obtenir une image proche de celle calculée (avec des
+différences bien sûr sur le rapport des luminosités, des angles…).
+
+Nous aurons donc finalement accès :
+● au rapport des luminosités
+● l’angle entre les composantes
+● l’écartement angulaire
+Mais nous aurons perdu le côté duquel se trouve la composante secondaire.
+L’écartement que nous pourrons mesurer sera largement inférieur à la résolution
+théorique d’une lunette de diamètre de 8 cm.
+
+C/ Observations avec un masque à deux trous
+Afin d’avoir des mesures concrètes et manipuler des données brutes autres que
+de la modélisation, nous avons reproduit l’expérience de Stephen et Fizeau : placer un
+masque avec deux trous devant un télescope pour obtenir des franges.
+Ceci est équivalent à notre double lunette. (même espacement, même diamètre)
+
+33/47
+
+Nous nous sommes donc rendu à l’observatoire de Ramasse-Ceyzériat de
+l’Association Astronomique de l’Ain (AAA) pour faire ces expérimentations.
+Nous disposons d’un télescope de 300mm d’ouverture et 3000mm de focale sans
+compléments optiques et de deux masques, un avec deux trous et un second avec trois.
+Nous pouvons aussi modifier l’ouverture des trous, entre 8.5cm et 3cm.
+Nous avons pointé sur Altaïr (α ​
+Aquilae​
+), une étoile simple et brillante pour
+faire les premiers réglages. Les résultats ont été concluants puisque nous avons vu des
+franges.
+
+Un zoom sur l’étoile dans une image brute (non traitée) :
+
+34/47
+
+Un zoom sur l’étoile dans une image prétraitée :
+
+Étoile reconstituée après addition (stacking) de 15 images d’une durée unitaire de
+1/320e de seconde avec le masque
+
+On note l’absence d’autres images de masque, ce qui est normal vu que Altair est
+une étoile simple. On note aussi que le fond n’est pas à un niveau 0. Cela est du au fait
+que les conditions d’expérimentation ne sont jamais parfaites.
+
+Mais l’observation d’étoiles doubles a été plus compliquée en raison de la
+magnitude apparente plus faible et du fait que le candidat le plus sérieux, λ ​
+cygnii​
+,
+commençait à fortement décliner dans le halo lumineux de Bourg.
+Nous avons réussi à prendre des images mais aucun signal correct n’est encore
+ressorti de nos traitements.
+35/47
+
+Depuis, à cause de la météo de la Bresse et du temps qui nous a manqué à tous,
+nous n’avons pas pu renouveler l’expérience ensemble. Mais il semble que rien ne soit
+réellement exploitable :
+
+Cette fois-ci, il n’y a que le fond qui est présent, le signal faible de l’étoile double
+doit être noyé dans ce bruit.
+D’autres étoiles doubles du ciel d’hiver semblent prometteuses, notamment
+Porrima (γ ​
+Virginis​
+).
+Nous avons aussi pointé sur η ​
+Orionis​
+, qui est une étoile binaire. Nous l’avons
+d’abord observée en réduisant le diamètre du télescope à 90 mm, en pleine ouverture,
+et enfin à l’aide du masque, ce qui a donné les résultats suivants :
+
+9 cm d’ouverture
+
+36/47
+
+30 cm d’ouverture
+
+Présence possible de franges sur η ​
+Orionis
+Conclusion
+Construire un télescope à objectif dilué se révèle très utile. En effet, grâce à deux
+petits télescopes, des prismes et des oculaires, on peut créer un instrument de grande
+résolution, pour un coût réduit et un poids réduit aussi. Notre télescope a un coût
+inférieur à 500€ (sans APN) et un poids de quelques kilogrammes, alors qu’un télescope
+d’environ 25cm de diamètre et d’une focale de 2.5m se situe autour de 1 500€-2 000€
+pour un poids de 10 à 15kg. De plus, on peut tout à fait augmenter encore la distance
+entre les deux télescopes pour augmenter la résolution.
+Néanmoins, on se heurte à des problèmes de niveau technique : la précision des
+chemins optiques, le fait de devoir calculer l’image et pas seulement la lire, et la perte
+37/47
+
+d’une partie de l’information sur l’angle entre deux étoiles et une restriction des cibles
+aux cibles les plus brillantes. (pour cause de petit diamètre)
+Dans le domaine professionel, l’observation spatiale grâce à l'interférométrie est
+puissante, et des agences internationales, telles l’ESO (​
+European Southern Observatory​
+),
+utilisent cette technologie. On pourra citer l’exemple du VLTi (​
+Very Large Telescope
+interferometer​
+) qui utilise quatre télescopes de 8m et leurs télescopes auxiliaires (au
+total 8 instruments) pour former un télescope virtuel de 30 à 300m de diamètre, en
+observant dans les domaines radio et infrarouge. Le réseau ALMA (​
+Atacama Large
+Milimeter Array​
+) constitue un réseau composé de 66 antennes implantées sous le ciel du
+Chili. -mais dans le domaine radioMais le télescope à objectif dilué sera sans doute supplanté par l’hypertélescope,
+concept proposé par Antoine Labeyrie, qui lui permet de combiner optique légère et peu
+coûteuse et image lisible immédiatement. Mais la technicité des réglages est toujours
+présente.
+La course folle aux télescopes géants, qui a débuté avec le conflit
+Américano-Soviétique lors de la Guerre Froide, pourrait bien prendre fin avec l’arrivée
+de cette technologie qui permet de se passer de lourds et coûteux instruments.
+
+38/47
+
+Annexes :
+
+1. Tableau de mesures de diffraction et d’interférences avec un laser vert et un laser
+rouge.
+Vert (532 nm)
+Diffraction
+
+Interférences deux fentes
+
+taille du fil
+
+taille une tache diffraction
+
+400 µm
+
+0,7 cm
+
+127 µm
+
+3,5 cm
+
+38 µm
+
+5,5 cm
+
+écartement des fentes
+
+nombre de franges /10 cm
+
+0,2 mm
+
+10
+
+0,1 mm
+
+12
+
+taille du fil
+
+taille une tache diffraction
+
+400 µm
+
+0,7 cm
+
+127 µm
+
+2,4 cm
+
+38 µm
+
+4,9 cm
+
+écartement des fentes
+
+nombre de franges /10 cm
+
+0,2 mm
+
+9
+
+0,1 mm
+
+9
+
+Rouge (630­650 nm)
+Diffraction
+
+Interférences deux fentes
+
+Laser­fente = 14,5 cm
+fente tableau = 4 m 50 cm
+
+39/47
+
+2. Liste des binaires observables
+Début automne : Lambda Cygni, magnitudes ​
+4,85​
+6,07​séparation : ​
+​
+0,9
+
+Fin automne/hiver : ​
+Porrima (gamma Vierge) magnitudes 3,5+3,5 Séparation
+
+1,3''
+3. code pour la simulation python :
+# -*- coding: utf-8 -*import numpy as np
+import matplotlib.pyplot as plt
+import matplotlib.cm as cm
+import matplotlib.patches
+from matplotlib.pyplot import Normalize as matplotlibpyplotNormalize
+#import cairo
+import scipy.signal as ss
+
+MAS2RAD = 4.8481368110953594e-09
+
+def colorbar(cmap="jet", cm_min=0, cm_max=1):
+"""
+Example use:
+cmap, norm, mappable = colorbar('jet', min, max)
+plt.scatter(x, y, c, cmap=cmap, norm=norm)
+cb = plt.colorbar(mappable)
+"""
+cmap = cm.get_cmap(cmap)
+norm = matplotlibpyplotNormalize(cm_min, cm_max)
+mappable = cm.ScalarMappable(cmap=cmap, norm=norm)
+mappable._A = []
+return cmap, norm, mappable
+
+def disk_add2array(arr, x0, y0, radius, dummy=None):
+if radius<0.5: # if radius tiny, just add a dot to the center pixel
+arr[int(round(x0)), int(round(y0))] += 1.
+return arr
+
+40/47
+
+x, y = np.meshgrid(np.arange(arr.shape[0])-x0, np.arange(arr.shape[1])-y0)
+r=np.hypot(x, y)
+r[r>radius]=radius*10.
+r[r<=radius]=1.
+r[r>radius*9]=0.
+if r.max()==0: raise Exception, "Nothing plotted (probably radius too small)"
+return arr+r/r.max()
+def spectre(ar):
+return np.abs(np.fft.fftshift(np.fft.fft2(ar)))
+
+class Star(object):
+"""
+Class to compute a star seen through an interferometer
+Initializes a star
+sep: angular separation to reference in milli-arc-second
+pa: position angle to reference in radian
+cr: contrast ratio to reference in ratio
+"""
+def __init__(self, sep, pa, cr):
+self.sep = sep
+self.pa = pa
+self.cr = cr
+def compvis(self, u, v, wl):
+"""
+Calculates the complex visibilities of the object
+u, v: spatial coordinates in meters
+wl: wavelength in meters
+"""
+ret = np.zeros(u.shape, dtype=complex)
+th = self.pa+1.5707963267948966 # np.pi/2
+ddec = self.sep*np.cos(th)*MAS2RAD
+dra = -self.sep*np.sin(th)*MAS2RAD
+# analytical fourier transform for a point source
+oscil = -6.283185307179586*(u*dra + v*ddec) / wl # np.pi*2
+ret.real = np.cos(oscil)
+ret.imag = np.sin(oscil)
+
+41/47
+
+return ret, 1./self.cr
+def image(self, sepmax, nbpts=101):
+"""
+Returns a model-image of the object
+"""
+im = np.zeros((nbpts, nbpts))
+x0,
+
+y0
+
+=
+
+np.array([self.sep*np.cos(self.pa+1.5707963267948966),
+
+-self.sep*np.sin(self.pa+1.5707963267948966)])/(2*sepmax)*nbpts+0.5*nbpts
+index = tuple(np.round([x0, y0]).astype('int'))
+im[index] = 1./self.cr
+return im
+
+class System(object):
+"""
+Class to compute a bunch of stars seen through an interferometer at a wl wavelength
+objs is a list of stars
+wl is the wavelength in meter
+"""
+def __init__(self, objs, wl):
+self.objs = []
+if not np.iterable(objs): objs = [objs]
+for item in objs:
+if not isinstance(item, Star): raise Exception, "You must add a star object"
+self.objs.append(item)
+self.wl = wl
+def compvis(self, u, v):
+"""
+Calculates the complex visibilities of the combination of objects
+u, v: spatial coordinates
+wl: wavelength
+"""
+totcomp = np.zeros(u.shape, dtype=complex)
+totflux = 0.
+for item in self.objs:
+comp, flux = item.compvis(u=u, v=v, wl=self.wl)
+totcomp += comp*flux
+totflux += flux
+return totcomp/totflux
+
+42/47
+
+def showuv(self, blmax, nbpts=101, cmap='jet', cm_min=None, cm_max=None):
+"""
+Shows the square visibility of the bunch of stars up to blmax spatial frequency in meters
+"""
+u, v = np.meshgrid(np.linspace(-blmax, blmax, nbpts), np.linspace(-blmax, blmax, nbpts))
+compvis = np.abs(self.compvis(u=u, v=v))**2
+if cm_min is None: cm_min = compvis.min()
+if cm_max is None: cm_max = compvis.max()
+cmap, norm, mappable = colorbar(cmap=cmap, cm_min=cm_min, cm_max=cm_max)
+plt.matshow(compvis, origin='lower', extent=[-blmax, blmax, -blmax, blmax], cmap=cmap, norm=norm)
+plt.colorbar(mappable)
+def image(self, sepmax, nbpts=101):
+im = np.zeros((nbpts, nbpts))
+for item in self.objs:
+im += item.image(sepmax=sepmax, nbpts=nbpts)
+return im
+
+def showimage(self, sepmax, nbpts=101, cmap='jet', cm_min=None, cm_max=None):
+"""
+Shows an image of the bunch of stars
+Field of view is [-sepmax, sepmax] in both RA and DEC in milli-arc-second
+"""
+im = self.image(sepmax=sepmax, nbpts=nbpts)
+if cm_min is None: cm_min = im.min()
+if cm_max is None: cm_max = im.max()
+cmap, norm, mappable = colorbar(cmap=cmap, cm_min=cm_min, cm_max=cm_max)
+plt.matshow(im, origin='lower', extent=[-sepmax, sepmax, -sepmax, sepmax], cmap=cmap, norm=norm)
+plt.colorbar(mappable)
+
+class Telescopes(object):
+"""
+Initializes a telescope array
+holes is a list of tuples (x, y)
+x, y are position in space of the telescopes in meter
+diam is the telescope diameter in meter
+pxfov is the field of view of a pixel in the sensor, in milli-arc-second per pixel
+nbpx is the number of pixels in the sensor, must be square
+"""
+
+43/47
+
+def __init__(self, holes, diam, pxfov, nbpx, wl):
+self.x = []
+self.y = []
+self.diam = diam
+for item in holes:
+if len(item)!=2: raise Exception, "Should be a list of tuples (x, y)"
+self.x.append(item[0])
+self.y.append(item[1])
+self.x = np.asarray(self.x)
+self.y = np.asarray(self.y)
+self.n_tel = self.x.size
+self.b_angle = np.zeros([self.n_tel, self.n_tel])
+self.b_length = np.zeros([self.n_tel, self.n_tel])
+for i in range(self.n_tel):
+self.b_angle[i] = np.arctan2(self.y-self.y[i], self.x-self.x[i])
+self.b_length[i] = np.hypot(self.y-self.y[i], self.x-self.x[i])
+self.pxfov = pxfov
+self.nbpx = nbpx
+self.fov = pxfov*nbpx
+self.wl = wl
+self.make_tel()
+self.make_psf()
+
+def make_tel(self):
+"""
+Creates a throughput array of the mask where 1 is full transmission and 0 is no transmission. Adds
+``mask`` attribute to the mask object.
+"""
+self.mask = np.zeros([self.nbpx, self.nbpx]) # initializes the array
+maskscale = self.nbpx/(2*self.wl/(2*self.pxfov*MAS2RAD))
+x_coords_center = self.x*maskscale + self.nbpx/2. # moves all coordinates to the center of the array
+y_coords_center = self.y*maskscale + self.nbpx/2. # moves all coordinates to the center of the array
+radius = self.diam/2.*maskscale # gets the hole size in pixels
+# for each hole, draw
+for i in range(self.n_tel):
+self.mask = disk_add2array(self.mask, x_coords_center[i], y_coords_center[i], radius, 1.)
+def showtel(self):
+if not hasattr(self, 'mask'): raise Exception, "You must compute the mask first"
+
+44/47
+
+cmap, norm, mappable = colorbar(cmap='jet', cm_min=0, cm_max=1)
+phi = self.wl/(2*self.pxfov*MAS2RAD)*1000 # en mm
+plt.matshow(self.mask, origin='lower', extent=[-phi,phi,-phi,phi], cmap=cmap, norm=norm)
+plt.title('Telescopes, ni mm')
+plt.colorbar(mappable)
+
+def make_psf(self):
+"""
+Calculates the psf of the mask. Adds psf attribute to the mask object.
+"""
+if not hasattr(self, 'mask'): raise Exception, "You must compute the mask first"
+self.psf = np.abs(np.fft.fftshift(np.fft.fft2(self.mask)))**2
+self.psf = self.psf/self.psf.sum() # normalize to sum = 1
+
+def showpsf(self):
+sz = self.fov/2.
+plt.matshow(self.psf, origin='lower', extent=[-sz,sz,-sz,sz])
+
+def generate_image(self, image):
+"""
+Convolves an image with the psf of the mask
+"""
+if not hasattr(self, 'psf'): raise Exception, "You must compute the psf first"
+return ss.fftconvolve(image, self.psf, mode='same')
+
+def showimage(self, system):
+image = system.image(self.pxfov*self.nbpx/2., nbpts=self.nbpx)
+sz = self.fov/2.
+plt.matshow(self.generate_image(image), origin='lower', extent=[-sz,sz,-sz,sz])
+
+def showspectre(self, system):
+image = system.image(self.pxfov*self.nbpx/2., nbpts=self.nbpx)
+sz = self.wl/(2*self.fov/512.*MAS2RAD)
+plt.matshow(spectre(self.generate_image(image)), origin='lower', extent=[-sz,sz,-sz,sz])
+
+def showmeasure(self, system):
+
+45/47
+
+blmax = self.wl/(2*self.fov/512.*MAS2RAD)
+system.showuv(blmax=blmax, nbpts=self.nbpx)
+plt.plot(0,0,'dk')
+for pa, sep in zip(self.b_angle.ravel(), self.b_length.ravel()):
+if sep!=0 or pa!=0:
+plt.gca().add_patch(matplotlib.patches.Circle((sep*np.cos(pa), sep*np.sin(pa)), self.diam, lw=2,
+fc='k', fill=False))
+plt.gca().set_xlim([-blmax, blmax])
+plt.gca().set_ylim([-blmax, blmax])
+
+wl = 550e-9 # longueur d'onde
+nbpx = 512 # nb pixel de la camera
+pxfov = 120 # milli-arc-second per px de la camera
+
+a = Star(0, 0, 1.) # étoile centrale
+b = Star(500, 135./180*np.pi, 1.) # compagnon à 0.5 arcsec, angle 135° et 1 magnitude plus faible
+s = System([a,b], 550e-9) # système des 2 étoiles
+s.showimage(pxfov*nbpx/2., nbpts=nbpx) # plein champ, centre du capteur = 0
+#champuv = s.showuv(1) # visibilités carrées jusqu'à 1m de diamètre
+
+t = Telescopes([(-0.15,0),(0.15,0)], 0.06, pxfov, nbpx, wl) # créer un réseau de 2 télescopes espacés de 30cm,
+chacun de 6cm de diamètre
+t.showimage(s) # l'image captée par la caméra
+t.showspectre(s) # l'image après un traitement par fft, pour la mesure des visibilités carrées
+t.showmeasure(s) # lieux de mesure des visibilités carrées projeté sur le champ uv du système
+
+46/47
+
+4. Images et étapes du prétraitement d’Altaïr (α du cygne)
+
+5.Liste de binaires observable à l’oeil nu :
+-Archid, magnitude 3,7 et 7,4 (Cassiopée)
+-Almach, magnitude 2,3 et 5,1 (
+-Ras Algethi, magnitude 4,5 et 5,5 (Hercule)
+-Albireo, magnitude 3,4 et 5,2 (Cygne)
+-Porrima, magnitude
+
+Bibliographie:
+https://fr.wikipedia.org/wiki/Interf%C3%A9rence
+Livre de terminales S, physique Chimie
+Une approche expérimentale et pratique, Sylvain Houard, éditions De Boeck
+Site de l’ESO : http://www.eso.org/public/
+
+47/47
+
+

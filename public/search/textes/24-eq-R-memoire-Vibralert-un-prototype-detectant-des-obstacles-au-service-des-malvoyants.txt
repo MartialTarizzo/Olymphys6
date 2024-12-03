@@ -1,0 +1,1534 @@
+Vibralert : un prototype détectant les obstacles
+au service des malvoyants
+
+Olympiades de Physique France 2016-2017
+
+FORCIER Gabin
+ROUXEVILLE Maxence
+LEDUC Simon
+
+Saint-Sébastien-sur-Loire
+
+Académie de Nantes
+
+Mme LONGUET – professeur de Physique-Chimie
+
+1
+
+Résumé
+Lors de notre projet de TPE, nous avions réalisé un prototype permettant de détecter un obstacle à une distance donnée et d’en
+avertir l’utilisateur par le biais de vibrations dans le poignet. L’avantage de ce dispositif est qu’il laisse les mains libres à son usager.
+Suite à cela nous avons mené des études sur les différents aspects liés à des phénomènes physiques dans le fonctionnement et la
+construction de notre prototype du fait que nous n’avions pris connaissance des Olympiades seulement qu’en cette année de
+terminale.
+Les différentes études que nous avons menées autour de notre projet permettent d’expliquer le fonctionnement de notre capteur
+de distance à ultrasons, d’établir les caractéristiques du mode de communication sans fils que nous avions choisis, de comparer
+la résistance aux chutes de différents matériaux pour nos pièces et de mesurer la consommation énergétique de notre dispositif.
+Ainsi, les différents calculs théoriques, expériences et simulations que nous avons mis en œuvres pour mener à bien ces études
+nous ont permis de cerner les performances, les défauts et les aspects de la physique appliqués à notre prototype.
+
+2
+
+Table des matières
+Table des matières ............................................................................................................................................................ 3
+Introduction ...................................................................................................................................................................... 4
+1
+
+Présentation du prototype........................................................................................................................................ 5
+
+2
+
+Etude du capteur à ultrasons .................................................................................................................................... 6
+2.1
+
+3
+
+4
+
+2.1.1
+
+Propagation des ondes acoustiques ......................................................................................................... 6
+
+2.1.2
+
+Vitesse du son dans l’air............................................................................................................................ 6
+
+2.1.3
+
+Réflexion, réfraction et diffraction............................................................................................................ 7
+
+2.2
+
+Présentation et fonctionnement du capteur .................................................................................................... 8
+
+2.3
+
+Mesures expérimentales................................................................................................................................... 8
+
+2.3.1
+
+Distance maximale mesurée avec différents matériaux........................................................................... 8
+
+2.3.2
+
+Sensibilité du capteur et cône de détection ............................................................................................. 9
+
+Etude de la Communication sans fil ........................................................................................................................ 11
+3.1
+
+Présentation du dispositif de communication ................................................................................................ 11
+
+3.2
+
+Mesure expérimentale de la bande de fréquence du dispositif de communication...................................... 11
+
+3.3
+
+Portée du signal radio ..................................................................................................................................... 13
+
+3.4
+
+Améliorations possibles .................................................................................................................................. 13
+
+Etude de la résistance des matériaux par simulation ............................................................................................. 14
+4.1
+
+Principes de la résistance des matériaux ........................................................................................................ 14
+
+4.2
+
+Simulation de chute ........................................................................................................................................ 15
+
+4.2.1
+
+Le boîtier capteur .................................................................................................................................... 15
+
+4.2.2
+
+Le bracelet vibratoire .............................................................................................................................. 15
+
+4.3
+
+Simulation d’arrachage ................................................................................................................................... 16
+
+4.3.1
+
+L’attache à la ceinture ............................................................................................................................. 16
+
+4.3.2
+
+Le capteur à ultrasons ............................................................................................................................. 17
+
+4.4
+5
+
+Caractéristiques physiques des ondes acoustiques .......................................................................................... 6
+
+Améliorations possibles .................................................................................................................................. 17
+
+Etude de la consommation énergétique du prototype .......................................................................................... 18
+5.1
+
+Schéma électronique du boîtier capteur et du bracelet vibratoire ................................................................ 18
+
+5.2
+
+Mesure de la consommation énergétique du boîtier capteur et de son autonomie ..................................... 18
+
+Conclusion ....................................................................................................................................................................... 20
+Annexes ........................................................................................................................................................................... 21
+Remerciements ............................................................................................................................................................... 22
+
+3
+
+Introduction
+Aujourd’hui, l’accès facile à la technologie industrielle par le biais d’Internet, de logiciels de modélisation assistée ou encore de
+l’impression 3D rend la création de projets innovants à la portée de tous. En effet, une simple idée peut désormais faire émerger
+un prototype capable de révolutionner notre quotidien et ce sans avoir besoin de recourir à de nombreuses entreprises assurant la
+fabrication des différentes pièces.
+La conception, la modélisation et la fabrication d’un projet est maintenant accessible à moindre coût pour peu que vous possédiez
+un ordinateur, quelques cartes électroniques reprogrammables, une imprimante 3D et de bonnes idées. Cette démocratisation de
+la technologie et de sa complexité offre de formidables perspectives à un projet innovant. La clef de voûte de toute réalisation tient
+évidemment des attentes que nous avons envers elle : son utilité ? Quel besoin est-elle censée combler ? Sur quoi doit-elle agir ?
+Néanmoins, un prototype possède aussi des contraintes budgétaires et de temps.
+Concernant notre projet, nous avons voulu allier le service à la personne et l’utilisation de nouvelles technologies mettant en avant
+le « fait-maison » comme celles citées ci-dessus. Le choix d’une réalisation utile au quotidien et innovante fut primordiale à nos
+yeux. Le souci de créer une véritable production répondant à un besoin existant tout en prenant en compte des aspects de notre
+société de consommation a permis aussi d’orienter la conception de notre prototype.
+Finalement, c’est vers les personnes malvoyantes que notre projet s’est dirigé. Effectivement, ces problèmes touchent actuellement
+près de 50 millions (cécité) et 135 millions (malvoyance) de personnes dans le monde. En France, les chiffres de 2008 sont
+approximativement de 65 000 aveugles et 1 200 000 malvoyants (profonds et moyens).
+Les solutions les plus abordables pour ces personnes sont très limitées et reposent sur l’utilisation de cannes encombrantes et
+visibles, ce qui peut engendrer une sensation de rejet et d’exclusion de la part de personnes n’acceptant pas leur handicap. De plus,
+une autre solution, plus efficace, mais nettement moins abordable, est l’adoption d’un chien pour aveugle. Cependant, le prix de
+revient d’un tel chien, bien qu’il soit remis gratuitement à son propriétaire, est d’environ 15 000€ à 19 000€, un service qui ne peut
+donc pas être à la portée de tous.
+La réalisation de ce prototype s’est effectuée en 30h « théoriques » de travail car c’est le projet que nous avons développé lors de
+notre épreuve de TPE en 1ère S-SI. En réalité il nous a demandé de nombreuses heures supplémentaires réparties sur notre temps
+libre pour en arriver à une version aboutie.
+Suite à cela, nos professeurs de physique de cette année et de l’an dernier nous ont sollicités en début d’année de terminale (vers
+mi-Septembre) pour participer au concours des Olympiades de Physique France de 2016 -2017. Néanmoins, nous n’avions pas fait
+d’études approfondies concernant différents aspects physiques liés au prototype de notre TPE. Motivés par ce concours nous nous
+sommes donc organisés durant près de 2 mois (de mi-Septembre à mi-Novembre) pour réaliser toutes les études correspondant au
+fonctionnement et à la construction même de notre prototype en rapport avec des aspects physiques.
+C’est grâce à une organisation rigoureuse de notre emploi du temps et une répartition du travail à faire tout au long de ces 2 mois
+sur nos pauses du midi et notre temps libre que nous avons réalisé les différentes études présentées ci-après. Ces études ne
+présentent donc pas une version finale de notre dispositif, repensée et retravaillée mais complètent le travail qui doit normalement
+s’effectuer en amont d’un tel projet et qui vise à connaître, comprendre, vérifier et exploiter les différentes caractéristiques du
+prototype, tant au niveau théorique qu’expérimental.
+
+4
+
+1 Présentation du prototype
+Au vue du peu de moyens et de technologies proposées aux personnes malvoyantes
+nous avons établi un cahier des charges des différents besoins et contraintes qui
+rentraient en ligne de compte dans l’élaboration d’un prototype mis au service de
+ces personnes souffrant d’un handicap.
+Tout d’abord, l’élaboration de cette innovation a nécessité la comparaison de
+différents types de capteurs pour savoir en quoi les ultrasons étaient les plus adaptés
+à cette situation. Le capteur choisi étant destiné à mesurer la distance séparant
+l’utilisateur d’un éventuel obstacle. Ajoutons que le choix de cartes Arduino s’est
+révélé adéquat de par leur programmation simple et à la portée de tous.
+
+Doc.1 Le prototype fabriqué
+
+Enfin nous avons comparé 4 modules de communication sans fil exploitant des
+technologies différentes afin de choisir celui qui correspondait le mieux, selon nous, avec les connaissances que nous possédions.
+Nous avions alors comparé le HC-06, l’ESP44, les modules émetteurs/récepteurs 433MHz et enfin le nrf24L01 avant de choisir
+d’utiliser ce dernier pour communiquer entre les différentes parties de notre dispositif.
+
+Doc.2
+
+Le choix d’une architecture fonctionnelle en deux parties distinctes : un
+bracelet vibratoire (Doc.4) pour avertir l’utilisateur et un boîtier capteur pour
+effectuer la mesure, s’est révélé la plus performante. Effectivement,
+l’utilisateur peut porter au niveau de sa ceinture le boîtier capteur sans être
+gêné. Grâce à une attache (Doc.2) inspirée des différents systèmes d’attache
+sur pantalon, la personne malvoyante pour positionner le prototype à
+n’importe quel endroit sur l’avant de son bassin. Ensuite l’orientation du
+capteur est réglable pour assurer une prise de mesure alignée avec la
+trajectoire de l’utilisateur et une prise en main simple. (Doc.5)
+
+Boîtier capteur
+
+Bracelet
+vibratoire
+
+Au niveau du bracelet vibratoire, l’attache est simple et efficace et s’effectue à l’aide d’une
+fixation velcro permettant d’ajuster le bracelet à la taille du poignet.
+C’est ainsi que lorsque le dispositif est correctement positionné, il est à même de détecter un Doc.3 Schéma de fonctionnement
+obstacle à une distance préprogrammée dans la zone de détection définie par les caractéristiques
+techniques du capteur. Si tel est le cas, un « message d’alerte » est envoyé au bracelet qui, s’il confirme l’avoir bien reçu, se met à
+émettre une vibration dans le poignet de l’utilisateur qui se retrouve par conséquent prévenu.
+(Doc.3)
+Depuis quelques années, la technologie de l’impression 3D prend de
+plus en plus de place au sein de la création industrielle. Ce nouveau
+moyen de production permet de créer des supports et des pièces aux
+formes complexes avec une très bonne précision et de manière très
+simple voire presque autonome. Il suffit d’abord de modéliser la ou les
+pièces à imprimer sur un logiciel de conception assistée par ordinateur
+(CAO). Ce moyen d’obtenir des pièces facilement pose cependant des
+limites au niveau de la durée de fabrication qui exclut obligatoirement
+toute ambition de production à une échelle industrielle. Néanmoins,
+cette méthode est idéale pour proposer un premier prototype et c’est
+pour cela que nous l’avons exploitée dans la fabrication de nos pièces.
+
+Doc.4 Bracelet vibratoire
+
+Doc.5 Rotation possible du capteur
+
+5
+
+2 Etude du capteur à ultrasons
+2.1 Caractéristiques physiques des ondes acoustiques
+
+2.1.1 Propagation des ondes acoustiques
+Pour mesurer la distance entre l’utilisateur et un éventuel obstacle, nous avons choisi d’utiliser un capteur à ultrasons. Ce type de
+capteur est aujourd’hui très répandu, peu onéreux et facile d’utilisation. De plus, il s’avérait être l’appareil de mesure idéal
+répondant à nos besoins. Ce capteur utilisant le domaine des ondes ultrasonores, il nous paraissait évident de nous renseigner plus
+en détail sur les ondes acoustiques et plus particulièrement sur leurs caractéristiques et leur comportement dans l’air.
+Tout d’abord, une onde acoustique correspond au déplacement d’un son dans un milieu. Les ondes sonores sont des ondes
+mécaniques car elles se propagent sous forme de perturbations dans un milieu sans y engendrer de déplacement de matière mais
+des variations de pression. Dans l’air, le milieu de propagation que nous utilisons, les ondes ultrasonores sont longitudinales à trois
+dimensions. Elles sont dites longitudinales car le sens de propagation des ondes est de même direction que celui de la déformation.
+Les ondes ultrasonores sont aussi tridimensionnelles car elles se déplacent dans les trois dimensions de l’espace.
+De plus, il existe plusieurs facteurs permettant de caractériser une onde acoustique :
+
+
+
+
+La période (T), exprimée généralement en seconde, correspond à un intervalle de temps constant durant lequel un
+processus se reproduit, identique à lui-même. Dans le cas d’une onde sonore, c’est le temps que l’onde met à revenir à
+l’identique à une position précédente.
+La fréquence (f), exprimée en Hertz (Hz) correspond au nombre d'oscillations d’un phénomène périodique en une seconde.
+La fréquence est directement liée à la période par la relation :
+
+
+
+
+=
+
+.
+
+La longueur d’onde ( ), exprimée en mètre, qui correspond à la distance parcourue par l’onde durant le temps d’une
+période T.
+La vitesse de propagation ou célérité de l’onde, exprimée en mètre par seconde. Elle varie en fonction di milieu de
+propagation et fera l’objet de la prochaine sous-partie.
+
+=
+
+Ces caractéristiques sont liées par cette seule et même relation littérale :
+
+Dans le cas des ondes ultrasonores se propageant dans l’air, la plage de fréquence est généralement admise entre 20 kHz à 1 GHz.
+Elles sont donc inaudibles par l’Homme qui peut seulement entendre des sons compris entre 20Hz et 20kHz.
+
+2.1.2
+
+Vitesse du son dans l’air
+
+Comme précisé précédemment, la vitesse de propagation des ondes sonores varie en fonction des milieux qu’elle est amenée à
+parcourir. Pour l’utilisation de notre prototype, le capteur effectue ses mesures seulement dans l’air. Ainsi, nous nous sommes
+uniquement informés sur la vitesse du son dans les gaz, et plus
+particulièrement dans l’air. (Doc.6)
+
+La formule dont nous nous sommes servis pour calculer la célérité des
+ondes sonores dans l’air utilise le coefficient adiabatique de l’air ( :
+rapport des capacités thermiques de l’air à pression et volume
+constant), la constante spécifique de l’air ( : on l’obtient en divisant
+la constante universelle des gaz parfaits par la masse molaire du gaz
+étudié) et bien évidemment la température en degré Kelvin (0°C =
+273K).
+Pour l’application numérique de la formule nous avons pris pour
+valeurs
+= 287,058 J.kg-1.K-1 et = 1,4 en considérant l’air comme
+un gaz parfait.
+Nous avons donc utilisé la formule suivante :
+
+Vitesse du son dans l'air en
+fonction de la température
+370
+
+vitesse du son (m/s)
+
+La vitesse de propagation des ondes sonores dans les gaz dépend de
+nombreux facteurs. En effet, elle varie en fonction de la pression du
+gaz, de sa masse volumique, mais surtout en fonction de sa
+température.
+
+360
+350
+340
+330
+320
+310
+
+-40
+
+Doc.6
+
+-20
+
+0
+
+20
+
+40
+
+60
+
+Température (°C)
+
+Le graphique ci-contre
+montre que la courbe de
+vitesse/température n’est
+pas une droite.
+
+6
+
+2.1.3
+
+Réflexion, réfraction et diffraction
+
+Rappelons que les ondes acoustiques sont des ondes tridimensionnelles et donc pour le cas de notre dispositif, elles se propagent
+dans l’air. Lorsqu’elles se propagent, les ondes ne subissent pas de changement de direction si elles sont considérées en tant que
+vecteurs. En revanche, quand elles rencontrent un obstacle, quel qu’il soit, les ondes sonores sont soumises à différents
+phénomènes, qui varient en fonction de l’obstacle rencontré.
+Tout d’abord, lorsqu'une onde acoustique rencontre un obstacle, deux phénomènes majeurs se produisent : l’onde est réfléchie et
+réfractée (Doc.7). L’onde réfléchie est l’onde renvoyée par l’obstacle tandis que l’onde réfractée correspond à l’absorption d’une
+partie de l’onde initiale. Dans le schéma ci-contre, les valeurs sont liées par la relation de Snell-Descartes :
+
+Si le milieu 1 correspond à l’air alors αi > α2L car l’indice de réfraction de n’importe quel milieu est supérieur à celui de l’air
+considéré comme l’indice de réfraction de référence égale à 1,0 pour une vitesse du son à 340m/s.
+Dans le cas d’une réflexion, αi = α1L.
+Il existe cependant un angle limite pour lequel l’onde réfractée n’est plus réfractée mais longe la paroi de l’obstacle (milieu 2 sur le
+schéma Doc.8), cette onde est alors appelée onde rampante.
+
+Doc.7 Réflexion et réfraction d’une onde sonore
+
+Doc.8 Création d’une onde rampante
+
+Les phénomènes de réflexion et de réfraction ont aussi une influence sur l’énergie de l’onde initiale. En effet, celle-ci est divisée car
+l’onde se sépare. Pour pouvoir calculer le pourcentage d’énergie réfléchie et réfractée, on se sert de la notion d’impédance
+acoustique.
+Cette valeur notée Z correspond à la résistance d’un milieu au passage d’une onde. On calcule l’impédance acoustique à l’aide de
+la formule suivante :
+Avec
+
+: la densité du milieu traversé et
+
+: la vitesse de l’onde.
+
+Cas spécifiques : Il arrive souvent que l’obstacle rencontré ne soit pas plan. Dans ce cas-là, plusieurs cas de figures s’offrent à nous:
+
+
+
+Soit la surface de l’obstacle est rugueuse ou irrégulière, alors les rayons réfléchis et réfractés sont dispersés. (Doc.10)
+Soit la surface de l’obstacle est concave vers le haut et les rayons réfractés convergent, soit la surface de l’obstacle est
+concave vers le bas et les rayons réfractés divergent. (Doc.9)
+
+Doc.9 Surfaces concaves
+
+Doc.10 Surface plane et rugueuse
+7
+
+
+
+Enfin, il existe un dernier cas particulier appelé phénomène de diffraction. Pour que celuici se produise, il faut que plusieurs conditions soient réunies. Il faut d’abord que l’obstacle
+soit plan et ait de fines extrémités. Quant à l’onde sonore, il faut que son angle d’incidence
+soit oblique et qu’il permette la création d’ondes rampantes. Ces ondes rampantes seront
+ainsi transformées en ondes diffractées aux extrémités de l’obstacle. Il est quand même à
+noter que l’énergie demandée pour créer une diffraction de cette manière est trop
+importante par rapport à l’énergie transmise pour nos ondes ultrasonores. (Doc.11)
+
+Doc.11 Diffraction d’une onde
+2.2 Présentation et fonctionnement du capteur
+
+Doc.12 SRF05
+
+Comme indiqué précédemment, nous nous sommes servis d’un capteur à ultrasons qui sert à
+mesurer la distance entre un éventuel obstacle et l’utilisateur de notre dispositif. Ce capteur à
+ultrasons est le SRF05 (Doc.12) fabriqué par ETC (Electronic Theatre Controls).
+Ce composant électronique facilement utilisable et exploitable peut mesurer une distance entre un
+obstacle et lui jusqu’à près de 4 mètres avec une précision de plus ou moins 1 cm. De plus, ce capteur
+est capable de détecter un obstacle au sein d’un cône que nous présentons dans une partie
+ultérieure. Ces caractéristiques répondaient parfaitement à nos attentes en termes de détection,
+précision et distance de mesure. Ce type de capteur est aussi relativement facile à trouver, peu
+onéreux et présente un bon rapport qualité/prix.
+
+Globalement, le fonctionnement du SRF05 est assez simple. Le capteur est
+composé d’un émetteur et d’un récepteur. L’émetteur envoie des salves
+d’ondes ultrasonores qui, si elles rencontrent un obstacle sur une distance
+d’environ 4 mètres sont réfléchies et perçues par le récepteur. Puis,
+l’électronique fait le reste. La carte Arduino calcule le temps entre l'émission de
+l’onde et sa réception, le divise par 2 pour obtenir le temps que l’onde met
+avant de rencontrer l’obstacle. Enfin, la carte calcule la distance à laquelle se
+trouve l’obstacle en s’aidant de la vitesse du son dans l’air et du temps calculé
+précédemment. (Doc.13)
+Voltmètre affichant une
+tension
+
+Doc.13
+Dans le fonctionnement plus technique du capteur : une pastille piézoélectrique transforme une
+décharge électrique en vibration mécanique provoquant des ondes ultrasonores, dans le cas de
+l’émetteur. Tandis qu’une transformation inverse de l’énergie s’opère pour le récepteur. (Doc.14)
+
+Doc.14 Schéma du fonctionnement
+d’une pastille piézoélectrique
+
+2.3 Mesures expérimentales
+2.3.1
+
+Distance maximale mesurée avec différents matériaux
+
+En raison de cette expérience, nous avons cherché à connaître la distance maximale que notre capteur à ultrasons était à même de
+mesurer pour des obstacles de différents matériaux et de différentes formes, et avec quelles incertitudes ces mesures étaient-elles
+enregistrées.
+Pour réaliser cette expérience nous avons au préalable mesuré la température de la pièce pour calculer le plus précisement possible
+la vitesse du son l’air. La température T étant de 18°C nous avons calculé la vitesse du son V :
+=
+×
+× = 1,4 × 287,058 × (18 + 273) = 342m/s
+Nous avons donc modifié cette valeur dans le programme de l’Arduino puis avons procédés aux tests.
+Nous avions sélectionné 8 obstacles nature variées :
+ Une plaque de métal de 0,4m par 1m
+ Une plaque de plastique PVC de 0,4m par 1m
+ Un cylindre de plastique PVC de 0,5m et diamètre 0,4m
+ Une plaque de mousse de 0,3m par 0,3m par 0,1m
+ Une plaque de bois de 0,5m par 0,8m
+ Un gilet en laine
+ Un tuyau de plastique PVC de 1,5m et de diamètre 0,085m
+ Un barre de bois de 2m par 0,025m par 0,025m
+
+8
+
+Nous avons donc mesuré successivement la distance au sol séparant le capteur de l’obstacle et l’avons comparé avec la distance
+mesurée par le capteur affichée sur un ordinateur. Nous avons fait plusieurs prises de mesures pour chaque obstacle afin d’écarter
+toute erreur et avoir une incertitude la plus faible. Celle-ci même que nous avons déterminée avec des mesures successives.
+
+Doc.15 Schéma de la réflexion d’une onde ultrasonore sur obstacle
+Ces tests nous ont permis de déterminer et prouver que les matériaux ne réfléchissent pas tous les ondes ultrasonores de la même
+manière, certains seront détectés avec une meilleure précision (comme le métal ou le plastique) . De plus, la forme de l’obstacle à
+un fort impact en fonction de s’il est circulaire ou plat face aux ondes émises (par exemple, plaque de bois et barre de bois).
+Enfin, cette expérience nous a permis d’émettre l’hypothèse que les ondes réfléchies par l’obstacle se comportent comme s’il
+existait un émetteur virtuel situé à égale distance du capteur par rapport à la face de l’obstacle réfléchissant les ondes ultrasonores,
+qui serait à l’origine du cône de détection réfléchi par l’obstacle. (Doc.15)
+
+2.3.2 Sensibilité du capteur et cône de détection
+L’intérêt d’utiliser un capteur de distance à ultrasons est Doc.16 Schéma du montage de
+l’expérience
+avant tout qu’il peut détecter et mesurer la distance d’un
+obstacle dans une zone de détection semblable à un cône
+ayant l’émetteur comme origine. Le principal avantage de
+cette zone de mesure est qu’un obstacle peut être
+détecté même s’il ne se trouve pas exactement dans l’axe
+du capteur. En effet, des objets, parois ou meubles situés
+à l’intérieur de ce cône pourront être détectés et
+l’utilisateur avertit s’il se rapproche trop près de l’un
+d’eux.
+Nous avons donc bien évidement cherché à connaître les dimensions de ce cône
+et la sensibilité du capteur en fonction des différentes zones de ce cône. La
+sensibilité nous indique ainsi dans quelle zone du cône un obstacle à le plus de
+chance d’être détecté.
+
+Obstacle de référence
+Repère gradué
+
+Pour réaliser ces mesures nous avons tracé un grand repère au sol de 4x4m que
+nous avons gradué tous les 10cm. Nous avons ensuite placé le capteur de
+manière surélevé par rapport au sol, environ 40cm, pour ne pas risquer de
+mesurer sa distance avec le sol et ainsi fausser les mesures. (Doc.17)
+Ensuite nous avons relié l’émetteur et le récepteur à un système d’acquisition
+SYSAM-SP5 afin d’utiliser le logiciel Latis Pro en tant qu’oscilloscope sur un
+ordinateur. (Doc.16)
+
+Capteur à ultrasons
+Origine axe x
+Origine axe y
+
+Doc.17 Photo de la disposition de l’expérience 9
+
+Notre expérience consistait donc à calculer la distance mesurée par le capteur grâce à l’intervalle de temps séparant le signal de
+l’émetteur de celui du récepteur et de relever la tension donnée par le récepteur lorsqu’il recevait une onde ultrasonore. La tension
+mesurée correspond alors à la sensibilité du capteur. D’après le fonctionnement de notre capteur de distance à ultrasons, plus la
+tension en sortie du récepteur est élevée et plus la sensibilité est moindre. C’est-à-dire que plus la tension sera élevée et moins
+l’obstacle a de chance d’être détecté.
+Une fois le repère mis en place et le capteur placé à son origine, nous avons mesuré la température environnante, qui était de
+16,6°C, pour déterminer la vitesse du son V :
+
+Ensuite, après avoir modifié la vitesse du son dans le programme du capteur, nous avons choisi un obstacle de référence qui s’est
+avéré être une plaque métallique de 0.40m par 1.12m. Une fois toutes ces conditions réunies nous avons pu débuter l’expérience
+par des mesures de distance d’obstacles grâce à l’intervalle de temps émetteur/récepteur. La formule permettant de calculer cette
+distance est :
+ d : la distance (en m)
+ V : la vitesse du son (en m/s)
+ Δt : l’intervalle de temps séparant l’émission de la réception (en s)
+En effet puisque l’onde ultrasonore parcourt un aller-retour lorsque qu’elle rencontre un obstacle alors la distance le séparant du
+capteur correspond à la moitié de la distance parcourue par l’onde.
+Pour trouver la différence de temps séparant l’émission de la réception nous calculons la différence de temps entre deux pics du
+relevé.
+
+
+
+=
+
+
+
+=
+
+
+
+=
+
+×
+×
+×
+
+=
+=
+=
+
+×(
+
+,
+
+×
+
+,
+
+×
+
+)
+
+×( ,
+
+×
+
+,
+
+×
+
+)
+
+×( ,
+
+×
+
+,
+
+×
+
+)
+
+= 14,3cm
+
+= 20,5cm
+= 33,9cm
+
+Après cela, nous avons commencé le relevé des tensions en sortie du récepteur. Pour se
+faire, nous avons effectué un relevé à chaque graduation de notre repère, soit un relevé tous
+les 10cm. Chaque tension était assimilée à des coordonnées permettant de la situer dans le
+repère. Au total, nous avons relevé 276 tensions manuellement avec chacune leurs propres
+coordonnées que nous avons rentrées dans un tableur.
+
+Doc.19 Cône de détection et amplitude de la tension mesurée
+
+Nous avons pu observer
+que
+lorsque
+notre
+obstacle de référence
+n’était pas détecté, la
+tension en sortie du
+récepteur était de 4,7V.
+Cela signifie que plus nos
+valeurs se rapprochaient
+de la limite de 4,7V et
+plus la sensibilité était
+faible.
+Une fois ces relevés
+effectués, nous avons
+utilisé le logiciel Matlab
+afin de reproduire le
+cône de mesure propre
+au capteur et ses
+différentes amplitudes
+de tension du récepteur
+correspondant à la
+sensibilité du capteur.
+
+Doc.20 Cône de détection et mesure de l’angle d’ouverture
+
+Doc.18 Cône de détection et amplitude
+de la tension mesurée
+
+Le logiciel Matlab, que
+nous n’avions jamais utilisé auparavant, est couramment utilisé dans les entreprises tant son
+champ d’action est vaste et que cet outil est puissant. Il nous a servi à modéliser ces
+
+10
+
+graphiques mettant en évidence les différentes amplitudes de tension dans un plan à deux dimensions correspondant au repère
+que nous avions tracé au sol. (Doc.18 Doc.19 et Doc.20)
+Ce graphique ci-dessous nous indique l’angle d’ouverture du cône, ainsi jusqu’à 1m le cône est ouvert d’environ 150°, il rétrécie
+ensuite jusqu’aux environs de 120° vers 2m puis 80° autour de 3m et enfin 60° voir moins après 4m. (Doc.20)
+Les différents relevés que nous avons effectués permettent de tracer le cône de détection du capteur en fonction de sa sensibilité.
+Comme démontré dans l’expérience précédente, tous les matériaux ne seront pas détectés de la même manière. Nous pouvons
+observer ainsi que la portée maximum de notre capteur sans risque d’erreur est d’environ 4.30m. Rappelons néanmoins que la
+précision de ces relevés est de +-10cm.
+D’après l’échelle de teinte utilisée, plus la couleur tant vers le rouge et plus la sensibilité est élevée, donc l’amplitude de la tension
+est faible.
+
+3 Etude de la Communication sans fil
+3.1 Présentation du dispositif de communication
+Une communication de données sans fil est nécessaire au sein de notre dispositif de détection et d’avertissement d’obstacle afin
+de lier le boîtier capteur au bracelet vibratoire. Ainsi, notre prototype se débarrasse d’un long câble encombrant devant relier le
+boîtier de mesure situé au niveau du bassin au bracelet d’avertissement attaché au poignet de l’utilisateur en mettant à profit
+l’utilisation de modules de communication bien plus discrets et pratiques. Cette communication permet d’envoyer le message
+« alerte obstacle » du boîtier capteur vers le bracelet afin que ce dernier allume un moteur vibratoire.
+Le module de communication sans fil que nous avons choisi est un nrf24L01 (Doc.20). C’est un dispositif
+s’utilisant en tant qu’émetteur ou récepteur que nous exploitons en duo avec un protocole maître/esclave.
+Il transmet des données par modulation de fréquence via des ondes radios avec une bande de fréquence
+de 2.4GHz. Il fonctionne sur une bande ISM (Industrielle Scientifique et Médicale) à usage libre, c’est-à-dire
+que n’importe qui a le droit d’exploiter cette bande de fréquence sans devoir payer une autorisation
+d’utilisation. L’exploitation de bandes à usage libre dans notre cadre présente cependant d’éventuelles
+possibilités de brouillage par d’autres systèmes utilisant une même bande de fréquence. Pour pallier à ce
+problème, ce module de communication dispose de 128 canaux différents.
+
+Doc.20
+
+Concernant les caractéristiques électroniques de ce module, sa puissance de sortie peut varier entre -18dBm et 0dBm avec une
+puissance équivalente à 1mW et 12,3mA pour 0dB. De plus, le nrf24L01 possède deux sensibilités différentes pouvant être définie
+par sa programmation :
+ Pour un débit de 2 Mbit/s, la puissance du signal reçu devra être comprise entre -82dBm et 0dBm soit une puissance
+équivalente à 10-8.2mW.
+ Pour un débit de 1 Mbit/s, la puissance du signal reçu devra être comprise entre -85dBm et 0dBm soit une puissance
+équivalente à 10-8.5mW.
+On obtient ces conversions de puissances grâce à la formule :
+= 10 log
+Cela signifie que doubler le débit engendre une sensibilité deux fois moindre alors que la puissance utilisée et par conséquent la
+consommation énergétique est plus élevée. Il est donc préférable d’utiliser ce module de communication avec un débit de 1 Mbit/s.
+
+3.2 Mesure expérimentale de la bande de fréquence du dispositif de communication
+Grâce à un partenariat mis en place avec l’école d’ingénieur Polytech Nantes, nous avons pu bénéficier d’appareils et
+d’infrastructures spécialisés dans l’étude de systèmes de communication. Ainsi, le 21 octobre 2016, nous nous sommes rendus sur
+le site de Polytech Nantes afin de réaliser des expériences permettant de vérifier les caractéristiques techniques fournies par le
+fabricant au sujet de notre module de communication.
+Nous y avons rencontré monsieur Jean-François DIOURIS, professeur en système de communication et traitement du signal ainsi
+que monsieur BRUNET, ingénieur à l’IETR (institut d'électronique et de télécommunications de Rennes) avec qui nous avons pu
+échanger au sujet de notre dispositif de communication sans fil et réaliser différentes expériences de mesure des signaux. Au terme
+de cette matinée très enrichissante avec ces spécialistes des systèmes de communication, nous avons finalement compris et cerné
+les différentes caractéristiques de fonctionnement de notre émetteur/récepteur.
+Dans le cadre de la mesure expérimentale de la bande de fréquence de notre dispositif, nous avons cherché à vérifier la bande de
+2.4GHz spécifiée par le fabricant et quelle plage de fréquence correspondait au signal reçu.
+
+11
+
+Pour se faire nous avons bénéficié d’une chambre
+d’expérimentation recréant un espace libre pour la
+propagation des ondes électromagnétique
+(Doc.21). Un espace libre est un endroit où les
+ondes émises depuis un système de
+communication ne subissent aucune réflexion par
+des obstacles ou parois comme c’est généralement
+le cas dans l’environnement où le système en
+question est utilisé. L’extérieur de cette chambre
+est entièrement métallique et forme une cage de
+Faraday isolant l’intérieur de toutes les ondes
+électromagnétiques présentes à l’extérieur.
+L’intérieur est lui tapissé de parois absorbantes
+(Doc.22) qui empêchent les ondes émises de se
+réfléchir afin que l’intérieur puisse être considéré
+comme un espace libre.
+Afin d’obtenir des résultats reflétant la réalité des
+signaux radios émis et non un cas isolé, nous avons
+modifié la programmation de notre émetteur afin
+qu’il envoie des messages aléatoires. Grâce à cela,
+les relevés de puissances et de fréquences
+mesurées ne caractérisaient pas un seul signal
+correspondant au message « alerte obstacle »
+mais bien l’ensemble des signaux transmis par
+l’émetteur pour en connaître son fonctionnement
+global.
+
+Parois recouvertes
+d’absorbants
+électromagnétiques
+Emplacement de
+l’émetteur
+L’antenne réceptrice se
+trouve à l’emplacement de
+l’objectif
+
+Doc.21 Chambre de mesure
+Ces graphiques de Puissance – Fréquence (Doc.23 et Doc.24) mettent en
+évidence les signaux reçus par l’antenne de réception. On voit que la bande
+de fréquence mesurée correspond à 2,475682 GHz et que le signal est
+contenu dans une plage de fréquence de 1MHz.
+On observe aussi que la puissance du signal reçue par l’antenne est de
+-53,15dBm qui est bien supérieur à la limite de fonctionnement de -85dBm.
+Or, l’antenne de réception est située à 5m de l’émetteur donc notre module
+de communication peut facilement transmettre des données à l’échelle de
+quelques dizaines de centimètres dans le cas d’une utilisation concrète car
+PR = -53,15dBm >> -83dbm pour une distance R = 5m.
+
+Doc.22 Schéma explicatif du
+fonctionnement d’un absorbant
+
+Doc.23 Relevé du signal d’émission radio
+
+Ces mesures de fréquences nous permettent donc de valider la bande de
+fréquence de 2,4GHz fournie par le fabricant.
+
+Doc.24 Signal d’émission radio ajusté
+12
+
+3.3 Portée du signal radio
+Nous savons dorénavant que la bande de fréquence du signal est de 2,4GHz mais nous ne savons pas quelle est la portée théorique
+maximale de notre dispositif au sein d’un espace libre. Rappelons le, cette distance maximale est absolument fausse en réalité mais
+elle permet de mettre en évidence les limites de notre nrf24l01 dans la meilleure configuration qui soit.
+Notre module de communication est omnidirectionnel, c’est-à-dire qu’il émet le signal
+envoyé dans toutes les directions, ce qui peut être représenté par une sphère (Doc.24).
+Or, nous cherchons la distance maximale à laquelle peut être situé un émetteur de son
+récepteur avant que la puissance du signal ne soit trop faible pour qu’il soit perçu
+correctement et sans risque d’erreur.
+L’équation des télécommunications de Friis est uniquement valable dans le cas d’un
+espace libre et permet de trouver cette distance R.
+
+
+
+
+
+
+
+
+Doc.24 Sphère représentative de
+PR : puissance de l’antenne de réception (en W), or PR = -85dBm soit 10-8,5mW l’émission omnidirectionnelle du signal
+PT : puissance de l’antenne d’émission (en W), or PT = 0dBm soit 1mW
+GR : gain linéaire de l’antenne de réception
+GT : gain linéaire de l’antenne d’émission
+R : la distance en (en m)
+λ : longueur d’onde (en m)
+
+Dans ce cas, on considère que les gains des antennes de réceptions et d’émissions, qui sont identiques, sont égaux et
+correspondent à environ 0dB soit un gain de 1.
+Pour calculer λ, il suffit d’appliquer cette formule :
+
+
+
+c : vitesse de la lumière (en m/s), or c = 3x108 m/s
+f : fréquence (en HZ), or f = 2,47 GHz
+
+Soit, λ =
+
+,
+
+×
+×
+
+= 0,121 m
+Soit = 609 m au sein d’un espace
+libre, dans un environnement
+d’utilisation R ≈ 15m.
+
+3.4 Améliorations possibles
+Suite à notre entretien avec monsieur DIOURIS et BRUNET, nous avons déterminé des améliorations possibles à
+apporter à notre prototype en ce qui concerne la communication sans fil. Tout d’abord, il faut veiller à ne pas
+choisir un matériau conducteur pour notre boîtier qui pourrait perturber le rayonnement électromagnétique, le
+corps humain provoque déjà une atténuation à cause de la grande quantité d’eau dont il est constitué sans que
+nous perturbions d’avantage le signal.
+De plus, l’utilisation de bandes de fréquences libres nécessiterait de pouvoir changer de canal s’il se retrouvait
+brouillé et d’incorporer un contrôle d’erreur grâce à un bit de parité supplémentaire ou un protocole de
+redondance comme le CRC (Contrôle de redondance cyclique).
+Enfin, une optimisation de la consommation énergétique serait judicieuse : optimisation du temps d’allumage, du
+débit etc…
+Nous avons d’ailleurs mis en évidence que l’utilisation du Bluetooth Low Energy s’intégrerai mieux dans une
+version finale du prototype grâce à son interopérabilité, sa standardisation et sa plus grande facilité à passer les
+tests des normes CEM (Compatibilité Electromagnétique).
+
+13
+
+4 Etude de la résistance des
+matériaux par simulation
+4.1 Principes de la résistance des matériaux
+La résistance des matériaux (RDM) permet le calcul des contraintes et déformations s’exerçant au sein d’un
+matériau soumis à certains efforts. Elle ramène l’étude du comportement global d’une structure à celle du
+comportement local du matériau. Ainsi l’évolution de la déformation d’un matériau peut être visualisée en
+fonction des différentes contraintes qui lui sont appliquées. On utilise la RDM afin de valider l’utilisation de
+matériaux au sein d’une structure subissant ou pouvant être amenée à subir différents efforts.
+Lorsqu’une structure est soumise à des contraintes, il faut vérifier que les
+déformations restent dans le domaine élastique qui assure à la géométrie et la
+mécanique de la pièce de revenir à leurs états initiaux après que la déformation
+ait eu lieu. Si la limite d’élasticité Re est franchie, le matériau va subir des
+déformations irréversibles et entrer dans le domaine plastique qui cause une
+déformation permanente en l’absence de contrainte.
+Cette limite est propre à chaque matériau et symbolise le seuil à partir duquel
+une substance fragile est amenée à se rompre par une fracture contrairement
+à un matériau ductile (Doc.25) qui continue de se déformer dans le domaine
+plastique. Il va jusqu’à atteindre une limite ultime de résistance à la rupture Rm,
+au-delà de laquelle le matériau est amené à se rompre au niveau d’une
+déformation maximale, située après la limite de résistance à la traction. Cette
+limite est généralement caractérisée par un allongement maximal noté A en %
+qui correspond à une variation de longueur Δl de la pièce.
+
+Doc.25
+
+D’après la loi de Hooke, lors de déformations de faibles amplitudes, ne dépassant pas la limite d’élasticité, l’effort
+F de traction est proportionnel à l’allongement Δl. On obtient donc une courbe linéaire dont la pente est définie
+par le module d’Young noté E. C’est en effet une constante qui relie la contrainte σ à la déformation ε grâce à la
+formule :
+σ = ε
+
+Doc.26 Diagramme de contrainte -
+
+On connaissant ces différentes caractéristiques pour un matériau donné,
+nous sommes en mesure d’établir un diagramme de contrainte-déformation
+(exemple avec Doc.26). Il met en évidence les différentes phases de
+déformations que possède un matériau afin de vérifier si le matériau en
+question correspond aux attentes fixées par le cahier des charges et s’il est
+donc en mesure de résister aux différentes sollicitations extérieures qui
+peuvent se manifester. Si la limite d’élasticité est inconnue ou reste flou dans
+certains cas, comme l’aluminium, on applique une légère déformation
+permanente égale à 0,2%.
+
+déformation
+
+Une pièce en service pourrait subir une déformation plastique inopinée à cause d’un événement imprévu qui
+rendrait par conséquent la pièce inutilisable, c’est pour cela qu’un coefficient de sécurité est généralement
+appliqué à la limite d’élasticité pour parer toute éventualité.
+Dans le cadre d’une traction ou compression, la contrainte σ, assimilée comme contrainte normale, peut être
+calculée : σ =
+
+avec σ en unité de pression (Pa ou MPa) et F la force en Newton et enfin S la surface normale
+
+à cette force. La déformation ε est un allongement relatif qui ne possède donc pas d’unité, il s’obtient grâce à :
+qui correspond aux variations de longueurs de la pièce avec l0 avant et l’après déformation.
+
+14
+
+Par simulation, l’étude de contraintes appliquées à une pièce ou un ensemble de pièces mettra en évidence des
+relevés de contraintes de Von Mises se rapprochant plus près de la réalité. En effet, ce type de contrainte est une
+moyenne des contraintes normales et transversales mises en œuvre dans une simulation donnée. Il fait appel au
+critère de Von Mises qui permet de mieux cibler la réalité des contraintes mises en jeux.
+
+4.2 Simulation de chute
+
+4.2.1 Le boîtier capteur
+Dans le cadre des études que nous avons réalisées sur notre prototype celle du choix d’un matériau approprié
+semblait incontournable. Il nous a donc fallut définir différents matériaux à comparer et différentes situations où
+notre dispositif serait amené à subir des efforts intenses. Cependant, la géométrie complexe de l’assemblage de
+nos pièces nous empêchait de réaliser ces situations théoriquement par de simples calculs. Ajoutons que le budget
+allié au temps limité dont nous disposions excluaient toute possibilité de réaliser des tests réels avec différents
+exemplaires de notre prototype fabriqué en matériaux différents et subissant divers expériences. Nous nous
+sommes donc résolument tournés vers la simulation informatique.
+Le logiciel SolidWorks (Doc.27) de conception assisté par ordinateur sur lequel nous avions
+auparavant conçu nos différentes pièces permet de simuler différentes situations comme des
+tests de chute ou encore des analyses statiques d’efforts. Ce sont donc ces deux types de
+simulations que nous avons décidé d’étudier dans le cadre de tests de chute à une hauteur
+donnée de 1m (correspondant à une hauteur moyenne où se situe la ceinture) et de tests
+d’arrachage de différentes parties du boîtier capteur.
+
+Doc.27 Logo SolidWorks
+
+Cependant, du fait que nos pièces ont été imprimées en 3D le matériau n’est pas isotrope, c’est-à-dire que ses
+propriétés ne sont pas identiques dans toutes les directions de l’espace. Néanmoins, les simulations que nous
+avons effectuées avec différents matériaux les considèrent comme tel. En effet, ces tests ont pour but de trouver
+le matériau idéal qui devrait être utilisé dans une version aboutie et commerciale de notre prototype, or la
+technologie de l’impression 3D ne permet pas une fabrication à grande échelle de nos pièces qui seront bien plus
+facilement créées par moulage ce qui engendrerait un matériau isotrope.
+
+Doc.28
+
+Nous avons choisi de comparer 3 matériaux polymères qui sont : l’ABS
+(Acrylonitrile butadiène styrène), le PP (Polypropylène) et le PA (Polyamides) qui
+sont des plastiques couramment utilisés dans la fabrication d’objets destinés au
+quotidien. Leurs caractéristiques sont données dans le tableau de l’annexe 1. Les
+propriétés attribuées à ces matériaux varient en fonction de différents facteurs
+comme leurs compositions ou la température, les données exploitées
+correspondent donc aux pires possibilités que les matériaux peuvent adopter en
+tant que propriétés mécaniques et géométriques.
+
+Test de chute n°1 :
+Dans le cadre de la première simulation, nous effectuons une chute du boîtier capteur d’une
+hauteur de 1m avec une accélération gravitationnelle de 9.8 m.s-2. Le sens et la direction de la
+chute ainsi que la face d’impact sont mis en évidences ci-contre. (cf annexe 2)
+Test de chute n°2 :
+Dans le cadre de la seconde simulation nous effectuons une chute du boîtier capteur avec
+les mêmes paramètres mais un sens, une direction et une face d’impact différente
+présentés ci-contre. (cf annexe 3)
+
+4.2.2 Le bracelet vibratoire
+Test de chute n°3 :
+Dans le cadre de la troisième simulation, c’est le bracelet vibratoire qui effectue une chute
+de 2m avec une accélération gravitationnelle égale à 9.8 m/s2. Le sens et la direction de la
+chute ainsi que la face d’impact sont mis en évidences ci-contre. (cf annexe 4)
+
+15
+
+Grâce à ces 3 tests de chute différents nous avons pu mettre en évidence que selon les risques de chocs auxquels
+s’expose notre prototype, le meilleur de ces 3 matériaux avec leurs compositions les plus fragiles, se retrouverait
+être un polyamide car les deux autres polymères étudiés n’ont pas réussi à passer tous les tests de chute avec
+succès. Cependant, notons que des compositions différentes de l’ABS et du polypropylène en adéquation avec les
+risques auxquels s’exposent nos pièces pourraient tout-à-fait satisfaire notre cahier des charges.
+
+Déformation maximale
+
+σ Contraintes maximales
+
+Ε DÉFORMATION
+
+0,02
+
+Test chute 1
+(MPa) 40
+30
+20
+10
+0
+
+0,015
+0,01
+0,005
+
+Test chute 3
+
+Test chute 2
+
+0
+test chute 1 test chute 2 test chute 3
+
+Doc.29
+
+ABS
+
+PA
+
+Doc.30
+
+PP
+
+ABS
+
+PA
+
+PP
+
+Nous pouvons donc observer que les déformations occasionnées (Doc.29) par une chute d’un mètre (Test 1 et 2)
+ou deux mètres (Test 3) dans le cadre de la simulation sont très faibles. Attention cependant, les simulations que
+nous réalisées ne constituent pas des essais de traction. Nous exploitons certaines propriétés de la RDM pour
+expliquer des phénomènes de déformation dues aux chocs. Le Doc.30 résume les différentes contraintes
+survenues lors de tests.
+
+4.3 Simulation d’arrachage
+
+4.3.1 L’attache à la ceinture
+Un autre risque pouvant potentiellement arriver à un appareil s’utilisant au quotidien dans tout type
+d’environnement et pour lequel des simulations d’efforts sont nécessaire serait le vol à l’arraché de notre appareil
+porté par une personne vulnérable.
+
+Doc.31 Relevés visuels des contraintes appliquées sur les fixations
+
+ABS
+
+PA
+
+PP
+
+En effet, dans le cas de Fixation
+l’attache à la ceinture nous attache
+avons cherché à savoir quelle
+force en Newton serait
+nécessaire pour atteindre la
+contrainte de résistance
+limite au-delà de laquelle le
+matériau est susceptible de
+Fixation
+se rompre au niveau de la
+capteur
+fixation de l’attache située
+Doc.32 Emplacement des
+sur notre boîtier (Doc.31 et
+fixations
+Doc.32). Pour se faire, nous
+avons contraint notre boîtier à adopter une géométrie
+fixe et avons reporté l’effort nécessaire à une rupture
+du matériau au niveau de la fixation de l’attache à la
+ceinture sur le boîtier. Pour se faire, nous avons créé des
+simulations statiques successives afin de trouver à partir
+de quel effort attendririons-nous la résistance limite
+donnée dans l’annexe 1.
+
+effort nécessaire pour atteindre la limite de résistance à la traction (en N)
+Couleur d’après le relevé de la limite d’élasticité
+
+ABS
+800
+Jaune-vert
+
+PA
+2200
+vert
+
+PP
+800
+jaune
+
+16
+
+L’effort nécessaire pour atteindre la limite de résistance fournie par le bras de l’agresseur lors d’un arrachement
+de l’appareil peut être reproduit par l’effort qu’exerce la vis métallique, reliant le boîtier à l’attache et servant de
+pivot, sur les deux fixations de l’attache.
+Finalement, le matériau le plus propice à résister à un intense effort statique est un polyamide. Néanmoins, l’effort
+demandé pour atteindre la limite de résistance de l’ABS et du polypropylène est colossal et inatteignable par un
+bras humain.
+
+4.3.2 Le capteur à ultrasons
+Le second test d’arrachage concerne l’emplacement du
+capteur à ultrasons monté autour d’une vis permettant de
+régler son orientation. Nous avons cherché à savoir quel
+effort serait nécessaire pour atteindre la limite de résistance
+du matériau au niveau des fixations du capteur (Doc.33). Les
+deux fixations du boîtier permettant d’accrocher l’attache à
+la ceinture ainsi que le capteur de distance sont les deux
+parties les plus vulnérables du boîtier à cause de leurs faibles
+épaisseurs et de leurs positionnements sur des faces
+extérieures.
+L’intérêt de cette seconde simulation statique est donc de
+savoir quel est le seuil d’effort au-delà duquel la pièce risque
+une rupture. Nous avons pour cela procédé de la même
+manière que pour le test d’arrachage de l’attache à la
+ceinture mais cette fois-ci concernant l’emplacement du
+capteur à ultrasons.
+
+ABS
+
+PA
+
+PP
+
+Doc.33 Relevés visuels des contraintes appliquées sur les fixations
+
+Grâce à ces deux simulations statiques de tests d’arrachage
+nous pouvons observer que les efforts nécessaires pour
+atteindre la limite de résistance sont largement supérieurs
+pour un polyamide :
+
+≈3×
+
+effort nécessaire pour atteindre la limite de résistance à la traction
+(en N)
+Couleur d’après le relevé de la limite d’élasticité
+
+≈3×
+ABS
+500
+
+PA
+1700
+
+PP
+500
+
+Jaune-vert
+
+vert
+
+jaune
+
+4.4 Améliorations possibles
+D’après les différentes simulations que nous avons effectuées grâce à SolidWorks, nous avons pu faire ressortir
+les potentielles sollicitations mécaniques auxquelles notre prototype doit être à même de faire face et de résister.
+Suivant les 3 matériaux que nous avions sélectionnés et d’après leurs propriétés les moins performantes que nous
+avions trouvées, nous sommes en mesure d’affirmer qu’un polymère polyamide correspondrait au mieux à notre
+cahier des charges malgré son coût relativement élevé par rapport aux autres matériaux : entre 3,61 et 3,97 €/kg.
+Cependant, l’ABS ou le polypropylène peuvent adopter une composition différente en fonction des besoins pour
+lesquels ils sont sollicités. En effet, la limite d’élasticité de l’ABS peut varier entre 18,5 et 51 MPa et celle du
+polypropylène entre 20,7 et 37,2 MPa. Ainsi, une meilleure composition de l’ABS permettrait de l’utiliser en tant
+que matériau pour nos pièces. D’autant plus que son coût est moins élevé : entre 2,26 et 2,49 €/kg.
+Nous pourrions aussi réduire les contraintes exercées dans nos pièces lors des différentes simulations en adoptant
+des formes lisses et bombées absorbant mieux les chocs et en renforçant les fixations pour une meilleure
+résistance à l’effort.
+Enfin, la masse des matériaux joue aussi un rôle important pour un prototype portatif. Comme indiqué dans
+l’annexe n°1, le polypropylène est le plus léger des 3 matériaux.
+
+17
+
+5 Etude de la consommation
+énergétique du prototype
+5.1 Schéma électronique du boîtier capteur et du bracelet vibratoire
+
+Doc.34 Schéma électronique Boîtier capteur
+
+Doc.35 Schéma électronique Bracelet vibratoire
+
+Le boîtier capteur est somme toute composé de peu de composants électroniques (Doc.34) : un microcontrôleur
+reprogrammable (Arduino Mega 2560), un capteur de distance à ultrasons (le SRF05), un module de
+communication sans fil émetteur (le nrf24L01) et enfin une alimentation externe de 9V. Et le bracelet vibratoire
+en possède autant (Doc.35) : un microcontrôleur reprogrammable (Arduino Pro mini v3.3), un moteur vibratoire,
+un module de communication sans fil récepteur (le nrf24L01) et une alimentation externe de 3,3V.
+La complexité de ces deux systèmes électroniques ne réside pas dans le nombre de composants impliqués dans le
+fonctionnement de ces systèmes mais dans la nécessité de réduire l’espace occupé par ceux-ci au maximum pour
+rendre l’appareil ergonomique et transportable à la ceinture ou au poignet. Nous avons donc dû étudier plusieurs
+architectures fonctionnelles afin d’en déterminer la plus optimisée.
+Les solutions d’alimentation trouvées pour le boîtier capteur et le bracelet vibratoire peuvent bénéficier
+d’améliorations. En effet, le choix de piles était la solution la plus simple et la plus sûr que nous pouvions prendre
+pour créer notre prototype. Cependant, des batteries au Lithium seraient plus adéquates pour l’utilisation
+quotidienne que nous voulons faire de notre prototype. Leur capacité de pouvoir se recharger se révélerait bien
+plus pratique à utiliser que des changements réguliers de piles.
+
+5.2
+
+Mesure de la consommation énergétique du boîtier capteur et de son
+autonomie
+
+Aujourd’hui, chaque objet technologique étant muni d’une alimentation portable vise à avoir la meilleure
+autonomie possible tout en ayant une consommation moindre. Dans notre cas, la partie boitier capteur du
+dispositif est alimentée par une pile 9V. Ce type d’alimentation fut principalement choisi pour son faible coût et
+sa facilité d’utilisation pour alimenter une carte Arduino Mega. En revanche, une fois usée, la pile n’est pas
+réutilisable et il faut la remplacer par une pile neuve. Ce type d’alimentation ne s’avère donc pas très écologique
+ni économique. Il faudrait envisager de remplacer cette pile par une batterie rechargeable.
+
+18
+
+Doc.36 Photo du montage de l’expérience
+
+Doc.37 Schéma du montage de l’expérience
+
+Pour envisager un éventuel changement d’alimentation, nous devions mesurer la consommation énergétique du
+dispositif lors de son fonctionnement au complet : détection d’un obstacle et transmission du message d’alerte
+(Doc.36 et Doc.37). Ces mesures pourront donc être d’une grande aide pour déterminer les caractéristiques
+techniques d'une prochaine source d’alimentation. Pour réaliser ces mesures, nous avons utilisé le logiciel
+LabVIEW en mode acquisition. Notre protocole consistait à prendre une mesure de courant et de tension toutes
+les minutes. Pendant toute la durée des mesures, notre dispositif était en fonctionnement. Ainsi, nous avons pu
+établir des relevés de la consommation d’énergie en fonction du temps sur une durée de près de 26 heures. Voici
+ces relevés traduits sous forme de courbes.
+
+Doc.38
+
+Doc.39
+D’après ces relevés, nous voyons que notre boîtier capteur possède une autonomie relativement faible de l’ordre
+de 150min soit 2h30. En effet, l’Arduino est en mesure de faire fonctionner le module de communication et le
+capteur à ultrasons tant que la tension d’alimentation (Doc.39), donc de la pile, ne descend pas en dessous de
+7,5V. Lorsque la tension atteint environ 8V, la pile a du mal fournir l’intensité nécessaire et diminue déjà sa tension
+en fonction des sollicitations du capteur : détection d’obstacle ou non pour compenser l’intensité demandée.
+Lorsque la tension de la pile arrive aux environs de 5V, l’Arduino commence à avoir du mal à être alimenté, la
+plage de tension qu’il supporte va en effet de 5 à 12V. En deçà de 5V, l’Arduino s’éteint et la pile cesse de diminuer
+sa tension car il n’y a plus de composants électroniques qui continuent de consommer de l’énergie.
+Lors de la phase d’utilisation « normale » du boîtier capteur, durant 2h30, il consomme environ 0.075A/h avant
+de diminuer petit à petit sa consommation du fait des différents composants qui ne peuvent plus être alimenter
+correctement. Lorsque l’Arduino s’éteint, la consommation passe à environ 0.005A/h qui correspond en réalité au
+bruit électronique environnant la zone d’expérimentation. (Doc38)
+
+19
+
+Conclusion
+En somme, les secteurs du handicap et de l’accessibilité à la personne sont des domaines en pleine expansion où
+de nombreuses innovations sont possibles. Ainsi, notre dispositif anti-collision pour personnes malvoyantes
+propose un nouveau moyen à celles-ci de se déplacer. Ce projet possède donc tout naturellement des contraintes
+et des besoins liés à l’handicap qui demandent des solutions techniques bien particulières, adaptées à une
+personne souffrant de cécité.
+De ce fait, il nous est alors venu l’idée d’exploiter un capteur de distance afin d’avertir un utilisateur si celui-ci
+s’approche trop près d’un obstacle. Après quelques tests sur différentes technologies de capteurs, nous avons
+finalement confirmé que l’utilisation d’un capteur à ultrasons tel que le SRF05 correspondait au mieux à nos
+attentes vis-à-vis de ce projet, soit la portée, la précision et le cône de mesure que nous avons vérifié
+expérimentalement afin de cerner les caractéristiques techniques propres à notre capteur. Néanmoins, ce capteur
+rend le dispositif inoppérant dans la foule et ne peut pas localiser l’obstacle avec précision.
+Evidemment, un capteur seul ne peut en rien avertir une personne, il doit pour cela être couplé à des élements
+électroniques telle qu’une carte Arduino et s’implanter dans une réalisation portative et ergonomique. Cependant,
+qui dis électronique dis aussi consommation d’énergie, c’est pour cela que nous avons testé l’autonomie et la
+consommation énergétique de notre prototype dans le cadre de son utilisation complète afin d’en faire ressortir
+ses besoins énergétiques propres .
+De plus, nos choix se sont orientés vers un dispositif divisé en deux parties. L’une s’occupant d’acquérir et de
+traiter les données du capteur puis d’envoyer un message d’avertissement à la seconde partie qui, une fois le
+message reçu, se charge d’avertir l’utilisateur par le biais de vibrations dans le poignet. Cet ensemble a ainsi pour
+rôle d’orienter l’utilisateur sans que celui-ci ne soit encombré au niveau des mains ou ne doit porter des dispositifs
+contraignants sur son corps. Pour limiter l’encombrant de ce prototype, les deux parties : le boîtier capteur et le
+bracelet vibratoire sont reliés par radiocommunication et non par liaisons filaires. Nous avons donc vérifié
+expérimentalement les caractéristiques techniques de notre module de communication ce qui nous a permis de
+faire ressortir des améliorations que nous devrions apporter à la communication sans fil s’opérant dans notre
+prototype.
+Enfin, notre prototype se destine à être porté par une personne ce qui signifie que les pièces le constituant doivent
+nécessairement pouvoir résister à de fortes sollicitations ponctuelles de chocs ou d’efforts intenses afin de garantir
+l’intégrité de l’appareil tout en étant léger pour un dispositif qui se veut portatif. Pour cela, nous avons comparé
+3 matériaux selon leurs propriétés mécaniques et géométriques face à différents tests de chute et d’arrachage.
+Grâce à la simulation informatique, nous avons pu mener à bien ces tests afin de choisir quel matériau
+corresponderait au mieux à nos attentes pour constituer nos pièces du prototype. Il s’est avéré que les polymères
+polyamides correspondaient au mieux à nos besoins même si une composition différente de l’ABS pourrait en faire
+un sérieux candidat.
+Expériences personnelles :
+Simon LEDUC : Ce projet a été un réel enrichissement vis-à-vis du vaste champ de connaissance qu’il nous a amené
+à étudier pour le réaliser. Ca a été un vrai de plaisir de participer à son aboutissement depuis le stade d’une simple
+idée puis de sa réalisation et fabrication et enfin les différentes études que nous avons réalisé pour les Olympiades.
+Il nous a demandé beaucoup de temps pris en majorité sur notre temps libre mais constitue un formidable projet
+destiné à une utilisation concrète au quotidien.
+Maxence ROUXEVILLE : Pour moi, le simple fait que notre prototype ait pu voir le jour est une réussite. De plus,
+lors de nos recherches et expériences nous avons travaillé sur de nombreux domaines. J’ai donc pu acquérir de
+nombreuses notions scientifiques et techniques. Au-delà des connaissances, la dimension sociale du projet et le
+travail de groupe furent très enrichissants. Je suis donc très satisfait du travail accompli et du résultat de notre
+projet.
+Gabin FORCIER : Ce projet m’a permis non seulement d’apprendre à travailler en groupe mais surtout
+l’importance de bien se répartir les tâches et de bien communiquer entre nous. Ce concours, demandant
+beaucoup de temps et d’implication, nous apprend à s’organiser de façon minutieuse. Au-delà de l’apport des
+connaissances techniques et scientifiques très intéressantes et utiles, ce projet m’a fait prendre conscience qu’une
+simple idée pourrait aider des personnes souffrants d’un handicap dans leur vie quotidienne
+
+20
+
+Annexes
+Annexe 1
+ABS
+1010
+1.1
+18.5
+27.6
+2.26 - 2.49
+0.180
+
+Masse volumique (kg/m3)
+Module d’Young (MPa)
+Limite d’élasticité (MPa)
+Résistance à la traction (MPa)
+Prix (€/kg)
+Masse du boîtier capteur (en kg)
+
+PA
+1120
+2.62
+50
+90
+3.61 – 3.97
+0.200
+
+PP
+890
+0.896
+20.7
+27.6
+1.53 – 1.76
+0.159
+
+Données tirées de la base de données CES Edupack Universités de Granta Design
+
+Annexe 2
+Contrainte maximale (MPa)
+Contrainte minimale (MPa)
+Domaine de déformation
+maximale
+Zone où se situent les plus fortes
+contraintes
+Déformation maximale
+Déformation minimale
+Déplacement maximum (mm)
+Déplacement minimum (mm)
+Zone où se situent les
+déplacements les plus importants
+
+ABS
+2.428e+001
+2.023
+plastique
+
+PA
+3.844e+001
+3.203
+élastique
+
+PP
+1.842e+001
+1.619
+élastique
+
+Sur les contours de la
+face d’impact, le plus
+au niveau des angles
+
+Sur les contours de la
+face d’impact, le plus au
+niveau des angles
+1.035e-002
+8.628e-004
+5.568e-001
+5.329e-002
+Au niveau des fixations
+du capteur de distance
+
+Sur les contours de la face
+d’impact, le plus au niveau
+des angles
+1.579e-002
+1.315e-003
+7.487e-001
+6.838e-002
+Au niveau des fixations du
+capteur de distance
+
+Non 38 << 90
+
+Non 18 <<28
+
+1.584e-002
+1.320e-003
+7.329e-001
+6.718e-002
+Au niveau des
+fixations du capteur
+de distance
+Non mais presque
+24<28
+
+Rupture d’une pièce
+
+Annexe 3
+ABS
+Contrainte maximale (MPa)
+Contrainte minimale (MPa)
+Domaine de déformation
+maximale
+Zone où se situent les plus
+fortes contraintes
+Déformation maximale
+Déformation minimale
+Déplacement maximum (mm)
+Déplacement minimum (mm)
+Zone où se situent les
+déplacements les plus
+importants
+Rupture d’une pièce
+
+PA
+
+PP
+
+2.540e+001
+2.116
+plastique
+
+3.091e+001
+2.576
+élastique
+
+2.091e+001
+1.743
+plastique
+
+Couvercle du boîtier,
+sommets de la face
+d’impact
+
+Bordures du couvercle,
+sommets les plus éloignés
+de la face d’impact
+
+Couvercle du boîtier,
+sommets de la face
+d’impact
+8.143e-003
+6.785e-004
+7.116e-001
+6.166e-002
+Bordures du couvercle,
+sommets les plus éloignés
+de la face d’impact
+
+Couvercle du boîtier,
+sommets de la face
+d’impact
+1.702e-002
+1.418e-003
+6.700e-001
+5.903e-002
+Bordures du couvercle,
+sommets les plus éloignés
+de la face d’impact
+
+Non mais presque 25<28
+
+Non 31 << 90
+
+Non 21 << 27.6
+
+1.706e-002
+1.422e-003
+6.709e-001
+5.977e-002
+
+21
+
+Annexe 4
+ABS
+Contrainte maximale (MPa)
+Contrainte minimale (MPa)
+Domaine de déformation
+maximale
+
+Zone où se situent les plus
+fortes contraintes
+
+Déformation maximale
+Déformation minimale
+Déplacement maximum (mm)
+Déplacement minimum (mm)
+Zone où se situent les
+déplacements les plus
+importants
+Rupture d’une pièce
+
+PA
+
+1.825e+001
+1.521
+élastique
+Remarque : la forme
+bombée du couvercle
+absorbe mieux les chocs
+Fixation intérieure du
+couvercle, extrémité du
+dôme du couvercle
+
+PP
+3.225e+001
+2.687
+élastique
+
+1.568e+001
+1.306
+élastique
+
+Fixation intérieure du
+couvercle, extrémité
+du dôme du
+couvercle
+
+Fixation intérieure du
+couvercle, extrémité
+du dôme du couvercle
+
+Contour du couvercle
+
+9.294e-003
+7.745e-004
+3.427e-001
+3.220e-002
+Contour du couvercle
+
+1.399e-002
+1.166e-003
+3.241e-001
+3.041e-002
+Contour du couvercle
+
+Non 18 << 28
+
+Non 32 << 90
+
+Non 15 << 28
+
+1.322e-002
+1.102e-003
+3.264e-001
+3.025e-002
+
+A cause du trop grand nombre de relevés que nous avons effectués pour les 3
+différents tests de chute, nous ne pouvons pas afficher les différents résultats
+dans notre dossier à cause de son nombre de pages limité. Nous vous invitons
+donc à consulter le site web que nous avons créé pour notre projet vis-à-vis des
+Olympiades de Physique. Les informations importantes de ces relevés de
+simulations ont été notifiées dans chaque tableau des tests de chutes. Les
+relevés que nous exposons sur notre site sont donc facultatifs mais permettent
+de bien mieux se rendre compte de la répartition des contraintes lors des
+chutes. Notre site est aussi disponible à l’adresse : https://goo.gl/tDyIgr
+
+Remerciements
+Nous tenons à remercier tout particulièrement :
+
+
+Notre professeur de Sciences-Physiques Mme. LONGUET chargée d’encadrer notre projet ainsi que
+l’équipe enseignante de Physique-Chimie : Mme. BLANCHO, M. ROUILLE, M. BLAIN. Ils se sont rendus
+disponible pour nous épauler dans ce projet.
+
+
+
+Notre professeur de Sciences-de-l’ingénieur M. MESSAGER qui nous a aussi soutenu.
+
+
+
+M. Jean-François DIOURIS, professeur en système de communication et traitement du signal mais aussi
+directeur adjoint de l’IETR ainsi que M. BRUNET, ingénieur à l’IETR qui nous ont aidés dans la
+compréhension et la mise en évidence expérimentale de caractéristiques techniques liées à la
+communication sans fil de notre prototype au sein de l’école d’ingénieur Polytech Nantes.
+
+
+
+M. Vincent HAUTCOEUR, professeur au sein de l’école d’ingénieur de l’ICAM pour son soutien dans
+notre projet et la mise en place d’un partenariat avec l’ICAM
+
+
+
+Notre lycée de la Joliverie pour son soutien dans notre projet et sa mise à notre disposition de matériels
+et technologies telle qu’une imprimante 3D.
+
+Un grand merci aussi à ceux qui rendent possible cette aventure scientifique que sont les Olympiades de
+Physique.
+
+22
+
+

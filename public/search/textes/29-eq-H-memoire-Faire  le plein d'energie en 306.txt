@@ -1,0 +1,655 @@
+OLYMPIADES DE PHYSIQUE 2022
+
+CHARGER SES BATTERIES EN 306
+Ou comment récupérer de l’énergie perdue pour
+produire de l’énergie électrique pour pourquoi
+pas recharger nos téléphones ?
+
+BORTEEL Robin
+DELEMOTTE Nathan
+PLET Hugo
+
+1
+
+SOMMAIRE
+
+I.L’effet Seebeck et la thermoélectricité
+a.Historique
+b.Mise en évidence
+c.Améliorations
+d.Un peu de théorie
+
+II.Les modules Peltier
+a.Mise en évidence
+b.Fontionnement d’un module Peltier
+c.Caractérisation d’un module Peltier
+
+III.Une salle de TP qui recharge les batteries
+a.Peut-on charger une batterie avec un module Peltier ?
+b.Où placer les modules Peltier ?
+c. Installation sur un prototype
+
+2
+
+Nous sommes trois élèves de 1STI2D. Quand, en début d’année, on nous a proposé de rejoindre
+l’atelier pour travailler sur un projet, nous avons été très vite intéressés même si nous n’avions pas
+d’idées précises sur ce que nous voulions faire. Lors de la première rencontre, en regardant dans le
+labo de l’atelier, Nous avons assez vite remarqué que des modules Peltier étaient présents et l’idée
+de travailler avec nous a fortement séduit. Et c’est ensuite assez naturellement que nous avons
+cherché à les exploiter pour récupérer de l’énergie
+
+I.
+
+L’effet Seebeck et la thermoélectricité
+a. Historique
+
+1821 : Le physicien allemand Thomas Johann Seebeck découvre le premier effet
+thermoélectrique :il remarque qu'une aiguille aimantée est déviée lorsqu'elle est placée entre
+deux conducteurs de natures différentes liés à leur extrémité par des jonctions et qu’une des
+jonctions est maintenue à une température plus élevée que l'autre.
+Cet effet fut interprété comme une apparition d'un champ magnétique et bien plus tard par
+l'apparition d'un courant électrique entre les jonctions froide et chaude
+1834 : Le physicien Français Jean Peltier découvre le phénomène inverse de l'effet Seebeck.
+Quand on fait passer un courant électrique dans un circuit formé de métaux de natures
+différentes, un transfert thermique se déroule entre les jonctions.
+1838 : Heinrich Lenz explique les découvertes de Peltier à l'aide du couple thermoélectrique
+antimoine/bismuth.
+1851 : William Thomson (lord Kelvin) relie les effets Seebeck et Peltier.
+1865 : Robert Bunsen et Joseph Stefan montrent que les semi-conducteurs donnent également
+naissance à l'effet Seebeck avec un rendement très supérieurs à ceux obtenus avec les métaux.
+1990 : On pense à la thermoélectricité avec les nouvelles prises de conscience des problèmes
+environnementaux
+
+3
+
+b. Mise en évidence expérimental
+-
+
+Réalisation de l’expérience historique
+
+Observation : Quand il existe une différence de température entre les deux jonctions, l’aiguille
+aimantée change de direction et est déviée légèrement dans une direction perpendiculaire aux
+deux lames. Un champ magnétique est créé.
+Interprétation : Le champ magnétique créé est produit par l’apparition d’un courant électrique
+dans le circuit formé par les deux métaux. La différence de température est donc à l’origine de
+la production d’un courant électrique.
+Nous avons donc reproduit ici l’expérience de Seebeck en utilisant de l’aluminium et du fer
+avec les moyens à notre disposition. Ce phénomène particulier correspond à la découverte de
+la thermoélectricité.
+
+-
+
+Mise en évidence de la production d’une tension quand on place les jonctions à deux
+températures différentes
+
+Description : Nous avons réalisé la jonction entre deux métaux différents : Aluminium et
+fer. La première jonction est chauffée par l’intermédiaire d’une flamme et la seconde et
+reliée au multimètre branché en voltmètre à la température ambiante.
+
+Les deux jonctions sont à la même
+température
+
+Les deux jonctions sont à des températures
+différentes
+
+Observation : Quand la jonction est sous la flamme, on mesure une tension aux bornes de
+la suivante.
+4
+
+Conclusion : L’effet Seebeck est vérifié. Une tension apparait quand il existe une
+différence de température entre les deux jonctions de métaux de natures différentes. Un
+courant est donc susceptible de circuler dans un circuit formé de deux métaux de natures
+différentes.
+
+c. Améliorations
+En observant cet effet, nous avons eu envie d’obtenir une tension encore plus importante.
+Nous nous sommes alors décidés à placer plusieurs jonctions successives de fer et
+d’aluminium. Il fallait alors s’organiser pour créer alternativement des jonctions chaudes et
+des jonctions froides. Après plusieurs essais avec des torsions plus ou moins importantes pour
+réussir à combiner les zones chaudes et les zones froides, nous avons imaginé l’assemblage
+suivant :
+CORPS FROID
+
+CORPS CHAUD
+
+Observation : La tension obtenue est plus importante qu’avec une simple jonction
+Conclusion : Quand on augmente le nombre de jonction la tension obtenue est plus importante
+
+d. Un peu de théorie
+
+Quand nous chauffons un fil métallique à une extrémité, un transfert thermique par
+conduction se produit. En effet, l’agitation thermique va augmenter progressivement de
+l’extrémité chaude à l’extrémité froide. Dans ce cas particulier des métaux, les électrons libres
+vont gagner de l’énergie et vont pouvoir passer d’un atome chaud à un atome froid assez
+facilement ce qui donnera un très léger excès ‘électrons dans la zone froide par rapport à la
+zone chaude tant que l’équilibre thermique ne sera pas atteint.
+
+5
+
+Si nous réalisons la même chose avec un autre métal, nous observerons la même chose avec
+un quantité d’électrons différente à l’extrémité car chaque métal possède sa propre
+conductivité.
+
+En joignant les deux métaux et en chauffant leur jonction, nous obtiendrons aux extrémités
+opposées des quantités d’électrons différentes et donc l’apparition d’une faible tension
+électrique.
+
+Ainsi si nous fermons par une autre jonction le circuit formés des deux métaux, nous verrons
+apparaitre un courant électrique (d’où l’apparition du champ magnétique dans l’expérience
+historique)
+La différence de potentielle obtenue U est proportionnelle à la différence de température entre
+les deux jonctions ΔT : U = Ks  T où KS est le coefficient de Seebeck du couple de métaux
+choisis.
+On peut trouver des coefficients de Seebeck associé à un matériau. Dans ce cas, le coefficient
+cité au-dessus est égale à la différence des coefficient Seebeck associés à chaque matériau.
+Illustration : Détermination de la constante Seebeck du couple Fer/Cuivre
+-
+
+Dispositif expérimental : Nous avons
+réalisé une jonction entre un fil de
+cuivre et deux fils de fer. Une des
+jonctions est plongée dans de l’eau
+froide et l’autre dans l’eau chaude.
+Nous avons mesuré la tension aux
+bornes des jonctions en fonction de
+l’écart en température
+
+6
+
+-
+
+Mesures :
+
+Nous avons placé sur le diagramme la valeur théorique déterminée avec les valeurs des
+constantes trouvées sur internet : pour le couple Cuivre/fer, KS= 11,6-1,19 ≈10, 4μV/K
+tc
+
+∆T
+
+U1
+
+Uth
+
+20
+
+40
+
+20
+
+0,0003 0,0002082
+
+20
+
+50
+
+30
+
+0,0003 0,0003123
+
+20
+
+60
+
+40
+
+0,0004 0,0004164
+
+20
+
+70
+
+50
+
+0,0005 0,0005205
+
+20
+
+80
+
+60
+
+0,0007 0,0006246
+
+20
+
+90
+
+70
+
+0,0008 0,0007287
+
+U1
+
+Tension (V)
+
+tf
+
+Uth
+
+Linéaire (U1)
+
+U = 1E-05ΔT
+
+0,001
+0,0009
+0,0008
+0,0007
+0,0006
+0,0005
+0,0004
+0,0003
+0,0002
+0,0001
+0
+0
+
+20
+
+40
+
+60
+
+80
+
+Ecart en température( °C)
+
+Les valeurs de tension mesurées sont très faibles et notre voltmètre semble mal adapté à ses
+valeurs, c’est pourquoi nous avons considéré une incertitude de 0,1mV sur la tension ;
+L’incertitude sur la température étant de 1°C.
+La courbe théorique est très voisine de la courbe expérimentale. Nous trouvons un coefficient
+de Seebeck pour le couple Fer/Cuivre de 10μV/K qui est de 10,4μV/K sur internet.
+
+II.
+
+Les modules Peltier
+a. Mise en évidence expérimentale
+
+Un module Peltier est constitué de deux plaques minces parallèles à l’intérieur desquelles, on
+trouve des semi-conducteurs dopés.
+Les semi-conducteurs sont des matériaux ayant des propriétés intermédiaires entre les isolants
+et les métaux et ayant la particularité d’être facilement conducteur sous l’effet d’une énergie
+très faible.
+Expériences qualitatives :
+-
+
+On place notre main sur le module : une tension apparait
+aussitôt
+
+7
+
+-
+
+On place une flamme au contact d’une face : Une
+tension plus importante apparait aux bornes du
+module. Cette tension diminue ensuite
+progressivement pour disparaitre.
+Après avoir réfléchi, on se rend compte que l’air
+chaud au niveau de la flamme finit par réchauffer
+l’air froid situé de l’autre côté : Il faudra veiller
+par la suite à réussir à maintenir la différence de
+température en les deux faces.
+
+On remarque que les tensions produites par un module Peltier sont plus importantes que celles
+récupérées par une simple jonction entre deux métaux.
+On branche un générateur aux bornes du Peltier : On remarque qu’une face chauffe fortement.
+Pour le vérifier nous prenons des photos avec la caméra infrarouge.
+Ce phénomène n’est pas utile dans le projet mais existe : le passage d’un courant électrique
+crée une différence de température entre les deux faces.
+
+b. Fonctionnement d’un module Peltier
+Schéma de fonctionnement et structure d’un module Peltier
+
+Un module Peltier est constitué d’une succession de jonctions de semi-conducteurs placés
+entre deux plaques métalliques thermiquement conductrices.
+Quand les deux plaques sont à des températures différentes, une tension apparaît aux bornes
+du module. Comme nous l’avons vu dans l’historique, les semi-conducteurs possèdent des
+propriétés thermoélectriques plus importantes que les métaux. Les tensions sont plus grandes
+car nous avons des matériaux semi-conducteurs aux coefficients de Seebeck plus importants
+que les métaux et surtout un nombre de jonctions très important.
+
+8
+
+c. Caractérisation d’un module Peltier
+Nous avons décidé de déterminer les caractéristiques électriques des modules Peltier qui
+étaient à notre disposition en mesurant les grandeurs électriques produites en fonction de
+l’écart en température en les deux faces de notre module. Tout nous semblait assez évident à
+réaliser. On a donc décidé de fixer la face froide à la température de la salle (contact de l’air
+ambiant) et de placer l’autre face à une température plus élevée. Comme nous ne pouvons pas
+mesurer la température de la flamme, nous avons choisi d’utiliser de l’eau chaude chauffée à
+l’aide la bouilloire électrique du labo.
+Après quelques essais, nous nous sommes rendus compte que la mise en place allait être assez
+délicate. En effet, il est assez difficile de placer le module à la surface de l’eau et de le
+maintenir parfaitement horizontal. A l’aide de différentes pinces, nous avons plus ou moins
+réussi à relever le défi, mais les mesures réalisées n’étaient pas stables et la tension observée
+chutait assez rapidement vers une valeur nulle. Après avoir analysé la situation, nous avons
+compris que la proximité des deux sources de chaleur faisait qu’assez rapidement les deux
+faces atteignaient un équilibre thermique car la chaleur de la face chaude venait réchauffer la
+face froide. L’effet cherché disparaissait.
+Nous avons donc choisi de récupérer un système de
+refroidissement pour pompe à bière qui est équipé d’une cuve de
+circulation de liquide sur une face et d’un radiateur pour diffuser
+la chaleur sur l’autre face. Nous avons donc fait circuler de l’eau
+du robinet dans la cuve pour être sûr que sa température reste
+constante et nous avons plongé le radiateur collé sur l’autre face
+dans l’eau chaude à différentes températures
+
+9
+
+-
+
+Tension produite en fonction de l’écart en température
+
+Nous avons mesuré la tension aux bornes du module en fonction de la température avec le
+dispositif
+U(V)
+0,24
+0,35
+0,72
+0,75
+1,12
+1,25
+1,5
+1,52
+1,93
+2,25
+2,6
+2,65
+
+3
+U= 0,0376ΔT
+R² = 0,9974
+
+2,5
+
+Tension U en V
+
+ΔT (°C)
+8
+10
+18
+20
+28
+35
+38
+45
+48
+58
+68
+73
+
+2
+1,5
+1
+0,5
+0
+0
+
+10
+
+20
+
+30
+
+40
+
+50
+
+60
+
+70
+
+80
+
+Ecart de température entre les deux faces (°C)
+
+Conclusion : La tension produite par un module Peltier est proportionnelle à la différence de
+température entre ses deux faces.
+Si nous souhaitons produire une tension élevée, il sera nécessaire de trouver une situation
+dans laquelle la différence de température sera importante.
+-
+
+Courant généré en fonction de l’écart en température
+
+Nous avons mesuré le courant généré en fonction de l’écart en température entre les deux
+faces.
+I (A)
+0,23
+0,4
+0,5
+0,67
+0,785
+0,88
+0,93
+
+1,2
+
+I= 0,0132 ΔT
+R² = 0,9987
+
+1
+
+Intensité (A)
+
+ΔT (°C)
+18
+28
+38
+48
+58
+68
+73
+
+0,8
+0,6
+0,4
+0,2
+0
+0
+
+10
+
+20
+
+30
+
+40
+
+50
+
+60
+
+70
+
+80
+
+Ecart de température entre les deux faces (°C)
+
+Conclusion : L’intensité du courant électrique est proportionnelle à la différence de
+température en les deux faces du module Peltier.
+10
+
+Puissance produite en fonction de l’écart et en température
+
+-
+
+Nous avons calculé à l’aide deux mesures précédentes la puissance fournit par le module en
+fonction de l’écart en température entre les deux faces.
+P (W)
+0
+0,166
+0,448
+0,750
+1,293
+1,766
+2,288
+2,465
+
+3,000
+
+Puissance délivrée en W
+
+ΔT (°C)
+0
+18
+28
+38
+48
+58
+68
+73
+
+P = 0,0004ΔT2
+R² = 0,9931
+
+2,500
+2,000
+1,500
+1,000
+0,500
+0,000
+0
+
+10
+
+20
+
+30
+
+40
+
+50
+
+60
+
+70
+
+80
+
+Ecart de température entre les deux faces (°C)
+
+La courbe de tendance montre que la puissance produite semble suivre ΔT². Pour le vérifier
+nous choisissons de tracer La puissance en fonction de ΔT²
+3
+
+Puissance (W)
+
+2,5
+2
+P = 0,0005ΔT²
+R² = 0,996
+
+1,5
+1
+0,5
+0
+0
+
+1000
+
+2000
+
+3000
+
+4000
+
+5000
+
+6000
+
+ΔT² (°C²)
+
+Conclusion : La puissance délivrée évolue proportionnellement à l’écart en température au
+carré ΔT².
+Pour produire une tension suffisante, pour charger des batteries, il sera nécessaire de trouver
+une source de chaleur perdue pour placer une face du Peltier et de réussir à maintenir l’autre
+face à une température fixe.
+
+11
+
+III.
+
+Une salle de TP qui recharge nos batteries
+
+Dans notre démarche de récupération de l’énergie perdue dans notre environnement, nous
+avons pensé à nos ordinateurs. En effet, ils chauffent beaucoup et cette chaleur est « perdue ».
+Pourquoi ne pas l’utiliser avec nos modules Peltier ?
+
+a. Peut-on charger une batterie avec un module Peltier ?
+Pour nos premiers essais, nous avons trouvé dans le labo des raquettes à mouches électriques
+qui fonctionnent sur piles. Nous avons décidé d’essayer de les mettre en route avec notre
+module Peltier. Pour cela nous avons placé le module entre une source chaude et une source
+froide. Nous avons remarqué que la diode s’allume, mais nous avons du mal à obtenir l’éclair
+quand nous court circuitons les deux grilles. En effet, notre module ne fournit qu’une tension
+de 1,5V alors qu’il faudrait 3V pour qu’elle soit totalement chargée.
+
+12
+
+b. Où placer le ou les modules Peltier sur un ordinateur pour obtenir une face
+chaude et une face froide ?
+Dans un premier temps nous avons démonté la plaque du boîtier d’un PC pour voir les
+composants. La pièce qui chauffe le plus semble être le processeur. Nous avons alors décidé
+de transformer la chaleur qu’il produit pour en transformer une partie en énergie électrique
+qu’on utiliserait pour charger une batterie.
+c. Installation sur un prototype
+Nous avons ensuite démonté toutes les pièces qui n’étaient pas
+indispensables au fonctionnement et qui produisent de la chaleur à
+l’intérieur du boiter et donc seraient à l’origine d’un réchauffement de la
+face qui doit rester froide.
+Pour accéder au processeur, il a fallu démonter également le ventirad
+Il a fallu ensuite nettoyer l’ancienne pâte thermique sur le processeur et le
+ventirad
+Ensuite nous avons placé le module Peltier entre le processeur et du
+ventirad
+Nous avons mis de la pâte thermique sur les deux côtés du module Peltier afin d’augmenter la
+conduction thermique et donc l’écart de température
+Pour augmenter la différence de température et aussi pour la maintenir
+nous avons décidé de mettre deux ventilateurs sur le ventirad
+Ne possédant qu’une seule prise pour le ventilateur sur la carte mère nous
+avons décidé de souder les deux ventilateurs directement sur
+l’alimentation du pc en 12 v continu
+Nous avons donc ensuite placer les deux ventilateurs sur le ventirad grâce
+à des rilsans
+Nous avons ensuite branché le multimètre sur le module Peltier avant
+d’allumer le PC. Une tension importante apparait voisine des 3V.
+Malheureusement le pc surchauffe très vite parce que la présence du
+module Peltier ralentit fortement la dissipation de chaleur.
+Nous avons redémonté le ventirad pour retirer le module et pour placer
+deux modules Peltier sur les bords du ventirad afin de ne pas faire
+surchauffer le processeur
+Nous avons installé de la nouvelle pâte thermique sur le processeur et
+les 2 module Peltier
+Nous avons donc choisi de mettre les modules en série afin d’augmenter
+la tension puis nous avons placé nos ventilateurs de manière à ce qu’ils
+évacuent la chaleur de l’intérieur vers l’extérieur pour éviter une
+élévation de température trop importante de la face froide.
+13
+
+Nous avons un résultat décevant avec une tension insuffisant pour l’utilisation souhaitée.
+La caméra thermique va nous aider à identifier les zones chaudes et froide de notre système.
+
+Il semble que la zone choisie soit la bonne. Il nous faut donc améliorer notre système de
+refroidissement en plaçant plus correctement nos ventilateurs. La caméra thermique nous a
+donné beaucoup de renseignements pour le positionnement du module.
+D’autre part nous souhaitons récupérer plus de chaleur sur la face chaude de notre module.
+Nous nous sommes dit qu’en diminuant le nombre d’ailettes du ventirad, on diminuerait la
+dissipation de l’énergie (augmentation de la température de chaque ailette sans faire prendre
+de risque au microprocesseur. La difficulté était de démonter les ailettes et de replacer une sur
+deux.
+Grâce à un décapeur thermique, nous avons dessoudé la totalité des ailettes. Nous avons
+ensuite modélisé sur Solidworks un support pour nos ailettes de manière à pouvoir les
+replacer en en éliminant une sur deux. Une fois l’impression 3D terminée, il a fallu remonter
+l’ensemble. Pour cela nous avons placé de l’étain sur le support, avons positionné les ailettes
+et placé le tout sur une plaque chauffante de manière à souder en une seule fois la totalité des
+ailettes.
+
+14
+
+Pour régler le volume sonore de ventilateur nous avons monté un interrupteur pour activer ou
+désactiver manuellement le ventilateur.
+
+A ce stade du projet, nous devons réussir à placer nos modules sur un ordinateur en
+fonctionnement courant.
+
+15
+
+

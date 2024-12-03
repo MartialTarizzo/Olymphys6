@@ -1,0 +1,431 @@
+Compensation de la diffusion par anticipation
+
+Florine Ballon
+Florent Baubet
+Luc Baudinaud
+Pierre Beaufort
+Alexis Bossard
+Allan Gwozdz
+Anaïs Restoux
+1
+Alexandre Tunstall
+
+Résumé
+
+La compensation de la diffusion dans le traitement d'image est un problème ancien et très
+étudié.
+Nous traitons ici d'un cas particulier où nous ne traitons pas l'image après diffusion, mais nous
+traitons l'image-objet avant diffusion afin qu'elle compense par anticipation la diffusion à
+venir. L'objectif à long terme est de créer des lunettes permettant à des personnes ayant une
+cornée diffusante, de voir.
+Notre travail a consisté à mettre en place des stratégies de traitement mathématique et à
+démontrer leur efficacité.
+Nous avons ainsi prouvé qu'il était possible de traiter une image afin qu'elle puisse être vue au
+travers d'une plaque diffusante, à la fois d'un point de vue numérique et tout récemment, d'un
+point de vue expérimental.
+
+Remarque préalable
+Notre travail portant sur du traitement d'image, il est probable que certaines images-résultats
+importantes ne soient pas correctement rendues lors de l'impression, ce qui gênerait le lecteur
+dans la compréhension de l'analyse. Il est donc préférable de lire ce rapport sur écran.
+
+Compensation de la diffusion par anticipation
+
+2
+
+Sommaire
+
+I.Présentation du projet
+II.Principe
+1. Description du phénomène
+2. Principe du traitement de compensation par anticipation
+III.Modélisation numérique
+1. Position du problème
+2. Stratégie n°1 : prétraitement (faibles diffusions)
+3. Stratégie n°2 : la solution d'optimisation (fortes diffusions)
+IV. Modèle expérimental
+1. Acquisition de la matrice de transfert
+2. Démonstration expérimentale
+
+V. Discussion
+VI.Perspectives
+1. Pistes de diminution des écarts simulation/expérience
+2. Amélioration de la stratégie de traitement numérique
+3. Transposition en ophtalmologie
+
+Conclusion
+Remerciements
+Bibliographie
+
+Compensation de la diffusion par anticipation
+
+3
+
+I. Présentation du projet
+Le projet a vu le jour en juin 2014 avec la création d'un club scientifique composé de 3
+élèves de première et 3 élèves de terminale encadrés par leur professeur de physique.
+Aujourd’hui, le projet est porté par un groupe de 8 élèves. Il se distingue par son caractère
+ambitieux et nouveau.
+
+Il est fondé sur un problème médical qui est
+l'opacification de la cornée. Les personnes souffrant de cette
+pathologie ont une cornée qui diffuse. Cette maladie étant
+évolutive, les personnes sont condamnées à terme à voir une
+image entièrement blanche1.
+
+L'idée serait de concevoir des lunettes actives qui permettraient de voir à des
+personnes aveuglées par la diffusion de leur cornée.
+Webcam qui transmet l'image au
+processeur
+
+Processeur qui traite
+l'image
+
+Face interne : écran affichant l'image
+générée par le processeur
+
+Notre problématique est de vérifier la faisabilité du principe :
+Peut-on compenser la diffusion par anticipation par traitement d'image ?
+
+1
+
+Le seul remède connu est la greffe de cornée qui est rejetée entre 6 mois et 20 ans.
+
+Compensation de la diffusion par anticipation
+
+4
+
+II. Principe
+1. Description du phénomène
+Prenons l'exemple d'un pixel affiché sur un écran. Pour un oeil sans diffusion, si le
+cristallin accommode sur l'écran, il se forme un pixel sur la rétine.
+
+Par contre, si la cornée est diffusante, au lieu d'un pixel image, on obtient un ensemble
+de pixels d'intensité variable.
+
+Compensation de la diffusion par anticipation
+
+5
+
+2. Principe du traitement de compensation par anticipation
+L'écran objet peut être modélisé par une matrice bidimensionnelle, 50×50 par
+exemple, en raisonnant en monochrome. L'image formée sur la rétine est alors une matrice
+bidimensionnelle de même ordre (50×50). L'écran diffuseur peut donc être caractérisé par une
+matrice de transfert 50x50x50x50.
+
+Compensation de la diffusion par anticipation
+
+6
+
+Notre idée est de multiplier l'image fournie par une webcam par l'inverse de la matrice
+de transfert de la cornée diffusante et d'afficher l'image résultante sur un écran devant l'oeil.
+
+L'image se reforme nette sur la rétine.
+
+Compensation de la diffusion par anticipation
+
+7
+
+III. Modélisation numérique
+
+Nous devons trouver l'image X telle que
+
+T ×X =A
+T est la matrice de transfert
+A est l’image d’origine.
+C'est un problème inverse, mais qui a certaines spécificités.
+
+1.
+
+Position du problème
+a. Modélisation numérique de la diffusion
+
+Une faible diffusion est modélisée par une matrice de transfert T tri-diagonale, proche
+de la matrice identité.
+Une forte diffusion est modélisée par une matrice où l'on s'écarte plus de la matrice identité.
+
+Images multipliées par des matrices de transfert simulant de la diffusion faible à forte.
+
+Compensation de la diffusion par anticipation
+
+8
+
+b. Résolution du système
+Le système est inversible et nous obtenons une matrice solution X.
+Ensuite, nous devons afficher sur un écran cette matrice solution X.
+Cependant, on observe que cette matrice X possède des nombres négatifs. On ne peut donc
+pas retranscrire ces valeurs dans une image, dont les pixels ne peuvent avoir que des valeurs
+positives.
+Si l'on fait cela voici ce qui se produit :
+
+Cette problématique est nouvelle et spécifique au fait que l'on cherche à compenser la
+diffusion par anticipation et non a posteriori comme dans la littérature scientifique.
+Pour résoudre ce problème nous avons testé de nombreuses stratégies.
+Nous présentons ci-dessous celles qui ont d'ores et déjà abouti aux résultats espérés.
+
+Compensation de la diffusion par anticipation
+
+9
+
+2.
+
+Stratégie n°1 : prétraitement (faibles diffusions)
+
+Pour résoudre ce problème, nous avons étudié une stratégie de prétraitement d'image.
+La diminution du contraste de l'image A permet de ne pas obtenir de nombres négatifs
+dans la matrice solution X.
+On retrouve l'image de départ sans bruits, avec seulement un contraste réduit.
+
+La diminution du contraste en prétraitement est donc une stratégie qui fonctionne
+parfaitement.
+
+Cependant, dans le cas fortement diffusant, la diminution du contraste nécessaire est
+telle que l'on ne voit plus l'image. Nous avons donc cherché une autre stratégie pour les cas
+plus diffusants.
+
+Compensation de la diffusion par anticipation
+
+10
+
+3.
+
+Stratégie n°2 : la solution d'optimisation (fortes diffusions)
+a. Principe
+
+La stratégie que nous avons adoptée dans le cadre des fortes diffusions est de chercher
+une solution partielle sous contraintes.
+La formalisation de cette méthode nous a été fournie par un professeur de
+mathématiques de l'école Centrale de Lyon, Gregory Vial ; il s'agit d'une optimisation :
+
+Pour ce faire nous utilisons une fonction de minimisation par moindres carrés fournie
+par Matlab, appelée « lsqlin » dans laquelle on résout le même système matriciel expliqué
+précédemment mais où on impose deux contraintes : que les nombres de la matrice solution
+soient compris entre 0 et 255.
+
+b. Résultats dans les cas de forte diffusion
+
+On voit ici que la diffusion est tellement forte que le texte disparaît (image en haut à droite)
+On résout le système matriciel à doubles contraintes et on obtient une image X.
+Lorsqu’on multiplie cette image X avec la matrice de transfert, on peut observer que l’on
+retrouve le texte. On ne retrouve évidemment pas la totalité de l’information (granulosité) car
+X est une solution partielle.
+Pour les fortes diffusions, une stratégie d'optimisation permet de récupérer
+l'information.
+
+Compensation de la diffusion par anticipation
+
+1
+
+IV. Modèle expérimental
+Pour répondre à notre problématique il s'agit aussi de savoir s'il est possible de
+déterminer expérimentalement une telle matrice de transfert.
+Pour ce faire, nous avons mis en place le dispositif expérimental ci-dessous composé
+d’un écran, d’une plaque de plexiglas, qui va servir de milieu diffusant (qui représente la
+cornée opacifiée) et d’une caméra.
+
+Dans une première partie, nous montrons comment nous déterminons expérimentalement la
+matrice de transfert de la zone de la plaque étudiée, puis dans une deuxième partie nous
+montrons nos résultats expérimentaux.
+
+Compensation de la diffusion par anticipation
+
+2
+
+1. Acquisition de la matrice de transfert
+a. Matrice de transfert brute
+On sélectionne une zone de l'écran de 50x50. On va chercher à savoir comment
+chaque pixel de cette zone est diffusé par la plaque. Pour cela, on allume chaque pixel un à
+un, et on prend une photo du résultat vu au travers de la plaque de Plexiglas. On voit alors un
+petit ensemble de pixels allumés, ce qui décrit bien le devenir de ce pixel.
+
+Ceci est automatisé au moyen d'un programme réalisé sur le logiciel Processing
+(version simplifiée de Java). On obtient donc 2500 images de 50x50 pixels correspondant aux
+images de chacun des 2500 pixels. C'est notre matrice de transfert expérimentale.
+
+Compensation de la diffusion par anticipation
+
+3
+
+b. Bidimensionnalisation
+Cette matrice de transfert est à 4 dimensions et ses dimensions sont 50x50x50x50.
+Pour profiter des fonctions de calcul qui existent sur les matrices bidimensionnelles, on va,
+dans une étape intermédiaire, transformer cette matrice 4D en matrice 2D. Pour cela, avec un
+programme rédigé sur Matlab, on transforme chaque photo de 50x50 pixels en une colonne de
+1x2500 pixels. Puis, on concatène ces colonnes ensemble et on obtient une matrice
+bidimensionnelle de toutes les photos.
+On a donc une matrice de transfert expérimentale de 2500x2500 sur lequel nous
+pouvons réaliser nos calculs.
+
+Matrice de transfert expérimentale de
+2500x2500 qui modélise la diffusion de la
+plaque de plexiglas
+
+Compensation de la diffusion par anticipation
+
+4
+
+2. Démonstration expérimentale
+Nous avons montré par simulation que nous avons une amélioration grâce à notre
+traitement numérique. Vérifions ces résultats expérimentalement.
+Nous avons affiché sur l'écran derrière la plaque l'image d'origine A puis l'image
+solution d'optimisation X. Voici ce que nous obtenons.
+
+L'amélioration de l'image au niveau expérimental est visible mais moins spectaculaire
+que dans la simulation.
+
+V. Discussion
+Le procédé théorique fonctionne et cela est confirmé par l'expérience.
+Cependant les résultats expérimentaux présentent des écarts par rapport aux
+prédictions par simulation.
+Nous observons que l'image diffuse expérimentalement est différente de l'image
+prédite théoriquement T*A.
+Nous avons calculé la corrélation entre ces deux images et avons obtenu 5 %
+Nous en concluons que notre matrice de transfert transcrit partiellement le processus
+diffusif réel.
+Les sources de cet écart peuvent être diverses : bruit de capteur (webcam), bruit de
+fond de l'écran (rétroéclairage), bruit de quantification (codage des valeurs de X sur 8
+bits lors de la transformation en image), variations du gain du capteur (webcam).
+Dans la partie qui suit nous présentons nos pistes de travail actuelles pour diminuer
+ces écarts.
+
+Compensation de la diffusion par anticipation
+
+5
+
+VI. Perspectives
+1. Pistes de diminution des écarts simulation/expérience
+a. Bruit de l'écran
+Pour réduire le bruit issu du rétroéclairage de l'écran , nous avons acheté des écrans à LED.
+b. Bruit de quantification
+Pour réduire le bruit de quantification, nous étudions la faisabilité d'acheter des écrans codés
+en 16 bits.
+c. Bruit de capteur et contrôle du gain
+Pour réduire le bruit de capteur de la webcam et pour pouvoir contrôler l'exposition du
+capteur, nous venons d'installer des caméras CCD2.
+d. Compensation numérique des écarts
+Notons
+
+T p × A=Dexp é rimentale
+
+T p la matrice de transfert parfaite telle que :
+
+l'image d'origine et
+
+où A est
+
+Dexp é rimentale est l'image d'origine diffuse expérimentalement.
+
+Notons T notre matrice de transfert imparfaite, telle que :
+T × A=D simulation avec D simulation ≠ Dexp é rimentale
+Nous avons calculé le vecteur δ solution de l'équation :
+
+Dsimulation . δ=Dexp é rimentale
+
+(1)
+
+Ici ce n'est pas un produit matriciel normal, mais un produit terme à terme appelé produit matriciel de Hadamard. Nous pouvons donc écrire que: T p × A=T × A . δ
+On peut simplifier l'écriture et ainsi obtenir : T p =T . δ
+
+(2)
+
+Nous avons ainsi pu calculer Tp avec l'équation (2).
+Cette fois-ci la corrélation entre l'image diffuse expérimentale et celle prédite par simulation
+avec cette matrice de transfert Tp vaut : 99,94%, au lieu des 5% précédents. Nous avons donc
+trouvé un moyen de corriger numériquement les écarts expérimentaux de notre matrice de
+transfert.
+Nous poursuivons ces travaux en essayant d'évaluer s'il existe un écart systématique indépendant des images d'origine qui se transcrirait par un δ moyen qui nous permettrait d'apporter
+une correction numérique à T.
+
+2
+
+Nous remercions chaleureusement le laboratoire CRPP-CNRS pour ce don.
+
+Compensation de la diffusion par anticipation
+
+6
+
+2. Amélioration de la stratégie de traitement numérique
+Nous avons également entrepris d’essayer de transformer des images de textes plus petits :
+
+On peut voir que dans l’image retrouvée, on ne distingue pas le texte. On voudrait
+optimiser le traitement car l’optimisation intervient de manière non ciblée. On voudrait donc
+cibler l’optimisation dans les hautes fréquences (c’est-à-dire le contour du texte) pour voir le
+texte net. Pour avoir plus de renseignement sur la faisabilité de ce ciblage, nous avons entamé
+une collaboration avec des chercheurs dans le traitement de l’image au laboratoire Xlim à
+Poitiers.
+
+3. Transposition en ophtalmologie
+Ce principe peut-il être transposé en ophtalmologie pour obtenir la matrice de transfert d'une
+cornée malade ?
+Il existe un appareil en ophtalmologie qui affiche un point rouge en face de l'oeil et prend une
+photo en confocal de la rétine pour savoir comment est l'image.
+L'objectif de cet appareil est de fournir une information visuelle et qualitative à
+l'ophtalmologiste.
+Il suffirait d'automatiser cet appareil pour faire bouger le point rouge et à chaque fois prendre
+un photo de la rétine pour transposer la méthode ci-dessus.
+
+Compensation de la diffusion par anticipation
+
+7
+
+Conclusion
+
+En 18 mois, nous avons réussi à démontrer qu'il était numériquement possible de traiter
+une image de manière à ce qu'elle puisse être vue au travers d'un objet diffusant (cornée,
+vitre diffusante,…), à la fois en simulation, et par l'expérience.
+Ceci n'avait jamais été fait3 et c'est un résultat important tant sur le plan fondamental et
+que dans une perspective de concrétisation.
+Ceci a été rendu possible grâce à un investissement colossal de notre petit groupe d'élèves
+tant sur le plan du travail que sur la communication, la recherche de subventions et
+sponsors, la logistique.
+
+En lumière incohérente. En lumière cohérente, des travaux ont été menés par diverses
+équipes dont l'ESPCI [1], basés sur le retournement temporel, mais très difficiles à
+transposer au cas de nos lunettes.
+3
+
+Compensation de la diffusion par anticipation
+
+8
+
+Remerciements
+Notre équipe remercie :
+Nos soutiens publics:
+
+Nos sponsors privés :
+
+- Olympiades de Physique
+- Science à l'école et Fondation C Génial
+- Université de Poitiers
+- Conseil Départemental de la Vienne
+
+- Ramé optique, Civray
+- RLM Distribution, Civray
+
+Notre établissement, d'un soutien inconditionnel : lycée André Theuriet
+Nos partenaires et collaborateurs institutionnels :
+- M. Grégory Vial, professeur de Mathématique à l'école Centrale de Lyon pour son aide
+sur la formulation mathématique de nos intuitions
+- M. Frédéric Placin, professeur agrégé de physique au lycée Magenta à Bordeaux, pour
+son aide sur la programmation en Processing
+- Le laboratoire Xlim du Futuroscope de Poitiers, pour son aide sur les sources d'écart sur
+la matrice de transfert
+- le Laboratoire CRPP-CNRS de Pessac (33) pour nous avoir donné plusieurs caméras
+CCD avec objectifs et cartes d'acquisition.
+- le laboratoire de Physique du Trinity College de Dublin pour avoir mis à notre
+disposition ses calculateurs.
+- le département de R&D d'ESSILOR pour avoir étudié la transposition de notre
+traitement sur des lunettes.
+- Et toutes les autres personnes qui nous ont apporté des réponses deci-delà (Abdou
+Ghermouche, chercheur en informatique au LABRI, Pessac ; Dr. Briat, opthalmologiste,
+Poitiers/La Rochelle,...)
+
+Bibliographie
+[1] Image Transmission through an opaque material, S. Popoff et al, Nature Communications, 1,
+81 (2010)
+
+Compensation de la diffusion par anticipation
+
+9
+
+

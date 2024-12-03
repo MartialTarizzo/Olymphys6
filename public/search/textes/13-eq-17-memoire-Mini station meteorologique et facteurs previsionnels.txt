@@ -1,0 +1,1485 @@
+Sommaire
+
+Présentation………………………………………………………….P.3
+
+Résumé du projet……………………………………………………P.4
+
+Bilan financier……………………………………………………….P.5
+
+Historique…………………………………………………………….P.6
+
+Station météorologique……...………………………………………P.8
+• Les capteurs………...……………………………….……...…P.8
+• Exploitation des données……………...……………...………P.11
+• Le Picbasic et son programme…………….............................P.14
+• Réalisation de la maquette………………...............................P.17
+Etude de la météorologie………........................................................P.18
+• Dynamisme atmosphérique…………………...…...…….…...P.18
+• Elaboration d’une technique locale et amateur……...……...P.26
+
+Conclusion…………………………………………………..….……P.31
+
+Remerciements et sources………………………………………..... P.31
+
+Page 2
+
+Présentation
+-
+
+Elèves du groupe : David GARIN, Quentin GOUJON, Florent JOYET, élèves en terminale
+scientifique.
+Professeur coordinateur : Mustapha ERRAMI.
+Etablissement : Lycée René Cassin à Tarare.
+Partenaires :
+o Conseil régional de Rhône Alpes,
+o Rectorat de l’académie de Lyon,
+o Société française de physique,
+o Université Claude BERNARD de Lyon.
+
+De gauche à droite : David GARIN, Quentin GOUJON, Florent JOYET, Mustapha ERRAMI.
+
+Page 3
+
+Résumé du projet
+De tout temps l’Homme a cherché à percer les mystères des phénomènes atmosphériques. Ces derniers
+conditionnent en effet grandement la vie, voire même la survie, de l’être humain. Dès l’Antiquité ces
+phénomènes sont omniprésents dans la vie des peuples comme en témoigne par exemple la fonction attribuée
+aux dieux grecs et romains. Le plus célèbre d’entre eux, Zeus, étant en effet dieu de la foudre. Plus tard, les
+courants humanistes ont eu une approche plus scientifique afin d’expliquer ces phénomènes. A cette époque est
+né alors le terme météorologie, désignant la science qui étudie les phénomènes atmosphériques.
+Nous avons cherché alors à répondre à la problématique suivante :
+Comment recueillir les données utiles en météorologie et prévoir le temps à venir ?
+
+Pour ce faire, il nous fallu tout d’abord construire une station météorologique électronique. Cela a
+constitué la plus grosse partie de notre projet. Nous avons ainsi suivi scrupuleusement la démarche d’ ingénieur :
+de la définition du cahier des charges (création des grandes «bases » du projet à la conception). Ce travail de
+grande ampleur a nécessité plus d’un an de travail. Au final nous sommes en possession d’une station météo
+unique car elle a été entièrement réalisée par nos soins, et sophistiquée comparativement aux autres produits
+présents sur ce marché en pleine expansion de nos jours. En effet elle délivre les données suivantes à
+l’utilisateur : température intérieure et extérieure, taux d’humidité relative, éclairement, pression atmosphérique,
+force et direction du vent ainsi que la quantité de précipitations. Pour recueillir ces données nous avons utilisé
+des capteurs électroniques ; nous avons construit une girouette munie d’un système astucieux de codage et un
+pluviomètre à augets basculeurs. Toutes ces données sont traitées par un microcontrôleur, le « cerveau » de la
+station. Nous avons conçu le programme permettant de faire fonctionner à notre guise le microcontrôleur, ce qui
+nous a aussi permis d’ajouter d’autres fonctions à la station, qui constituent véritablement l’originalité de notre
+station. En effet, nous avons conçu un mode réglage qui permet à l’utilisateur de programmer un grand nombre
+de paramètres de la station, ce qui introuvable sur le marché actuel. L’utilisateur peut par exemple programmer
+des mémorisations des variables comme la température moyenne, minimale et maximale, la pluviométrie, sur
+une période de son choix. Il peut en outre régler une alarme qui peut lui servir de réveil matin ou le prévenir
+d’une condition extrême (température élevée, vent très fort) dont il peut lui même régler le seuil ! D’autres
+fonctions, nécessaires pour la prévision ont été ajoutées comme le réglage de l’altitude ou indispensable à
+l’utilisateur comme le réglage de la date et de l’heure ; d’autres sont purement accessoires comme par exemple
+l’allumage de LED de couleurs différentes pour signaler le jour ou la nuit. Enfin, l’utilisateur est prévenu qu’il
+est nécessaire d’arroser son jardin ou ses jardinières grâce à l’allumage de voyants. Il peut lui même régler la
+quantité d’eau nécessaire en fonction de la nature de ses plantes !
+
+Afin d’indiquer à l’utilisateur les prévisions et la nécessité d’arroser, il nous a fallu établir une méthode.
+Pour cela nous avons suivi une démarche scientifique. Tout d’abord nous nous sommes intéressés au
+fonctionnement de la météorologie afin de comprendre cette science particulièrement complexe. Nous avons mis
+dans la mesure du possible les phénomènes responsables en évidence expérimentalement comme la force de
+Coriolis. Une fois ce travail réalisé nous avons conçu notre propre méthode de prévision du temps et de
+l’arrosage grâce aux caractéristiques que nous avions montrées au préalable.
+
+Page 4
+
+Bilan financier
+
+Recettes :
+
+Organismes
+SFP Olympiades de physique
+Rectorat de l’Académie de Lyon
+Conseil Régional du Rhône
+Etablissement
+TOTAL
+
+Somme allouée (€)
+600
+420
+380
+104
+1504
+
+Articles
+Matériel de réalisation
+Documentation
+Transport
+TOTAL
+
+Coût (€)
+1244
+200
+60
+1504
+
+Dépenses :
+
+Page 5
+
+Historique
+L’histoire de la météorologie semble au premier abord assez ancienne : on note en effet de premières
+allusions aux phénomènes météorologiques dès l’Antiquité. Cependant, ils étaient privés d’instruments de
+mesure, indispensables à l’étude de cette science. La météorologie a ainsi connu un véritable tournant à partir de
+l’invention du premier instrument de mesure au XVème siècle : la girouette.
+Dès lors, les innovations s’enchaînèrent et permirent une grande avancée de la science.
+Nous étudierons ainsi dans un premier temps l’histoire de la météorologie avant 1500, puis nous
+pencherons sur la période qui s’étend de cette date à nos jours.
+I)
+II)
+
+La météorologie, de l’Antiquité au Moyen Age : une science d’observation.
+La météorologie depuis le tournant humaniste : une science d’explication.
+I)
+
+La météorologie, de l’Antiquité au Moyen Age : une science d’observation.
+
+La première trace écrite traitant des phénomènes atmosphériques remonte au troisième millénaire avant
+Jésus Christ : le Chinois Nei Tsing Sou Wen rédige le premier ouvrage sur la météorologie qui comporte les
+premières prévisions. Au quatrième siècle avant JC, le savant grec Aristote se montre très intéressé par
+l’atmosphère et rédige trois ouvrages : La physique, Du Ciel et Les Météorologiques qui traitent des phénomènes
+atmosphériques et de la nature. C’est d’après l’ouvrage Meteorologiae (Les Météorologiques) que le terme
+météorologie est né. En outre le philosophe Tyrtannus rédige également un ouvrage sur la météorologie nommé
+Les signes du temps et Philon de Byzance invente un appareil, nommé thermoscope, qui indique une variation
+de température. En outre, les Mérovingiens et les Carolingiens s’appuient sur les planètes pour élaborer des
+prévisions : l’astrométéorologie est d’ailleurs toujours utilisée aujourd’hui pour établir des prévisions
+saisonnières. Puis, Charlemagne établit au neuvième siècle une échelle de direction des vents à partir des
+points cardinaux. Ensuite, Léon Batista Alberti est le premier qui parvient à mesurer la force du vent grâce à un
+anémomètre à pression.
+Ainsi, durant la période s’étendant de l’Antiquité au Moyen Age, bien que certains savants se montrent
+intéressés par les phénomènes atmosphériques, la météorologie demeure une science balbutiante faute de
+moyens de mesure, et de connaissance de l’atmosphère…
+II)
+
+La météorologie depuis le tournant humaniste : une science d’explication.
+
+Le premier tournant dans l’histoire de la météorologie intervient en 1500 : Léonard de Vinci crée la
+girouette afin de connaître la direction du vent. Ainsi commence la Renaissance qui s’annonce riche en
+découvertes. En outre le développement de la météorologie implique une meilleure connaissance de
+l’atmosphère. C’est ainsi qu’en 1610 le flamand Jan Baptist Van Helmont distingue les divers gaz de l’air, il
+nomme d’ailleurs le dioxyde de carbone « gaz sylvestre ». Puis en 1615 Isaac Beeckmann met partiellement en
+évidence la pression atmosphérique grâce à des pompes aspirantes. En 1630 Le chimiste français Jean Rey
+démontre que l’air à une masse : il pèse des métaux après oxydation dans l’air et constate que leur masse est
+plus élevée. Grâce à ces découvertes plusieurs innovations marquantes vont être réalisées. Tout d’abord Castelli
+invente le pluviomètre en 1639, puis en 1640 Ferdinand II de Toscane met au point l’hygromètre. En 1641
+Galilée met en place un thermomètre. Ensuite le physicien italien Evangélista Torricelli démontre l’existence de
+la pression atmosphérique grâce à l’expérience du vide : il met ainsi au point le premier baromètre constitué
+d’un tube recourbé rempli de mercure. Grâce à cette découverte Blaise Pascal démontre que la pression varie
+en fonction de l’altitude en se rendant au Puy de Dôme. En 1639 Ottaviano Castelli parvient à rendre compte
+assez précisément des quantités de précipitation tombées. En 1650, Hooke met au point le premier
+anémomètre. En 1654 le premier réseau météorologique voit le jour grâce à Antinori. L’allemand Otto Von
+Guericke est le premier à prévoir une tempête en 1660 ; de plus il met au point le baromètre à eau : il s’agit
+d’une boîte vide d’air qui se comprime et se déprime selon la pression atmosphérique. En 1662, Boyle et
+Mariotte établissent la loi de compressibilité des gaz. En 1673, Christian Huygens invente le thermomètre
+en développant l’idée de Galilée. Puis, en 1680, l’Anglais Richard Towneley invente le pluviomètre qui porte
+aujourd’hui son nom. En 1735, Halley découvre les propriétés des alizés. En 1736, le Suédois Celsius introduit
+l’échelle centigrade.
+En 1748, la météorologie connaît un nouveau tournant. Forts des instruments inventés jusqu’alors,
+Wilson et Melville effectuent les premières mesures grâce à un cerf-volant. Jacques Charles reprend cette idée
+
+Page 6
+
+et mesure les données à 3400 mètres d’altitude grâce à un ballon : la météorologie prend ainsi une nouvelle
+dimension : l’étude de l’atmosphère. Au début du XIXème siècle, Lamarck et Howard établissent les premières
+classifications des nuages. En 1783, Lavoisier et Laplace démontre les échanges de chaleur. Puis, en 1824,
+Fourier met en évidence l’effet de serre. En 1836, Gustave Gaspard Coriolis établit le théorème qui porte son
+nom sur les courants aériens, ce théorème est mis en évidence par l’expérience du pendule de Foucault. Au
+milieu du XIXème siècle, l’invention du télégraphe permet la mise en commun des relevés afin d’élaborer des
+prévisions plus fiables. En 1854, le Verrier jette les bases de la météorologie française en instituant un réseau de
+treize stations, pour éviter les accidents maritimes de la flotte française. En 1856, William Ferrel montre que la
+rotation de la Terre influe sur la direction des vents. En 1860 naît le premier réseau européen pour la
+prévision du temps. Francis Galton, dans son ouvrage Meteographica, établit la théorie des anticyclones. Au
+début du XXème siècle sont découvertes la stratosphère puis la mésosphère. En 1921, Vilhem Bjerknes
+introduit les notions de masse d’air et de fronts. En 1938 est construite la première station météorologique
+sur l’eau, et cette même année le tourbillon de Rossby est utilisé pour déterminer le sens de déplacement des
+perturbations, il permet d’établir de très bonnes prévisions jusqu’à 24 heures. L’Organisation
+Météorologique Mondiale (OMM) naît en 1951 afin d’établir un système d’échange plus rapide et plus complet
+des données.
+Le 1er avril 1960 est un nouveau moment fort dans le développement de la météorologie : le premier
+satellite météorologique nommé Tiros est lancé. Le premier satellite géostationnaire Météosat est lancé à
+son tour. En 1999, on démontre que l’activité solaire jouerait un rôle important sur le climat.
+Ainsi, la Renaissance a marqué un grand tournant dans l’avancée de la météorologie : les
+nombreuses inventions d’instruments et l’intérêt porté à l’étude de l’atmosphère ont permis de faire un
+grand pas en avant. A partir du milieu du XXème siècle, la météorologie a connu un nouveau tournant avec
+le lancement des premiers satellites. Toutefois, de nombreux progrès restent à faire dans cette science
+plutôt récente : l’étude du Soleil et l’apparition de l’ordinateur quantique pourrait marquer une nouvelle
+avancée dans cette science…
+
+Page 7
+
+I La Station Météo
+A partir de pièces détachées, nous avons eu pour objectif de construire une station météorologique
+donnant toutes les informations utiles, et cela pour une large gamme d’utilisateurs allant du domaine familial
+aux métiers nécessitant des données météorologiques (Agriculteurs par exemple). Nous allons étudier chacun de
+ces éléments ainsi que leurs connexions.
+
+I.1 Les Capteurs
+
+Tout d’abord nous avons étudié quelles étaient les méthodes pour l’acquisition des facteurs météorologiques. La
+solution la plus efficace est l’utilisation de capteurs renvoyant une information électrique (Tension ou
+Résistivité), qui demande ensuite d’être traitée par un circuit électronique mais qui est beaucoup plus exploitable
+(création de moyenne, système d’alarme…)
+
+•
+
+L’hygromètre
+
+L’hygromètre fonctionne de manière simple, il fournit une tension analogique Vs, tel que :
+Humidité = ( Vs – 0,891) / 0,0316
+
+Vs
+L’hygromètre nous indique l’humidité de l’air. Tout d’abord il faut savoir que l'humidité
+exprime la présence d'un mélange d'air sec et de vapeur d’eau. Ces capteurs prennent
+comme diélectrique, c’est à dire comme isolant l’air car il ne possède pas d’électrons libres
+pouvant transporter le courant électrique et dès lors on peut mesurer directement son taux d’humidité. En effet
+les chercheurs ont prouvé que la constante diélectrique de l’air est en relation directe avec son taux
+d’humidité dans l'air ambiant. En général, quand on parle de mesure d'humidité, on fait allusion au taux
+d'humidité exprimé en % qui est en fait l'humidité relative. La détermination de cette mesure est complexe car
+elle est étroitement liée à d'autres grandeurs physiques telles que la température et la pression. Pour pouvoir
+connaître l’humidité les recherches se sont orientées vers un capteur de type capacitif puisque c'est ce type de
+capteur qui peut donner les meilleurs résultats tout en restant simple.
+
+•
+
+La thermo résistance et photo résistance
+La variation de la résistance provoque un changement de potentiel Vs.
+Ce potentiel est ensuite converti en lux et degrés Celsius.
+La résistance en série est de 320 kΩ pour la photo résistance et de 2200 Ω pour la
+thermo résistance.
+
+Vs
+
+Page 8
+
+Il en résulte que
+Température
+variant avec la température)
+Eclairement
+
+= 2,5 + Kt (ou Kt est un coefficient
+= 50,037. Vs-1,2893
+
+Principe de la thermistance :
+Nous disposons sur notre station de deux thermistances qui nous permettent de mesurer la température. Il faut
+savoir que c'est un composant passif fabriqué en matériau semi-conducteur.
+Tout d’abord ce capteur est constitué d’un cristal, à température nulle il ne possède pas d’électrons libres
+donc il n’y a pas de conduction, le cristal est isolant. Par contre lorsque la température augmente il y a création
+de paires électron trou et donc la conduction est plus forte .C’est avec cela qu’on détermine la température car
+elle est fonction de la conduction. Et donc le microcontrôleur traite ces données et en déduit la température.
+Lorsque la température augmente la résistance diminue.
+Certaines thermistances ont des résistances qui diminuent et leur coefficient de température devient alors
+négatif : on les appelle des CTN.
+L’avantage est que ce capteur peut être miniaturisé. Il y a certains inconvénients comme la non linéarité du
+signal de sortie, la limitation de la plage de température (environ 200 degrés) et bien sûr comme pour toute
+résistance, l’effet joule qui peut provoquer un échauffement de la température et donc fausser les mesures.
+
+La photo résistance :
+Elle sert à mesurer l’éclairement d’un milieu, il s’exprime en lux. Son principe est très complexe : Un cristal
+semi conducteur à température basse contient peu d'électrons libres. De plus la conductivité du cristal est très
+faible, proche de celle d'un isolant donc lorsque la température du cristal augmente, de plus en plus d'électrons
+qui étaient immobilisés dans les liaisons covalentes s'échappent et peuvent participer à la conductivité du
+courant.
+A température constante si le même cristal semi-conducteur est soumis à une radiation lumineuse, l'énergie
+apportée par les photons peut suffire à libérer certains électrons utilisés dans les liaisons covalentes entre
+atomes du cristal.
+Plus l’éclairement sera fort plus il y aura d’électrons qui assureront la conduction et donc on peut facilement
+connaître l’éclairement grâce a la résistance qui varie donc en fonction de l’intensité lumineuse. La résistance
+est inversement proportionnelle à la lumière reçue.
+
+•
+
+La girouette
+
+Tout d’abord, nous avons conçu la girouette. Nous avons dessiné un
+coq que nous avons découpé sur une plaque de bois. Nous avons décidé
+d’utiliser ce matériau dans notre système pour plusieurs raisons : il est
+très facilement utilisable et a un faible coût, de plus c’est un produit
+naturel donc non polluant et permet ainsi de préserver l’environnement,
+ce qui n’est pas le cas des dérivés du pétrole, le PVC par exemple,
+enfin il s’adapte parfaitement dans un environnement naturel. Toutefois
+les matériaux plastiques ont une qualité essentielle que le bois ne
+possède pas : ils résistent mieux aux intempéries. Ensuite nous avons réalisé un
+support au centre duquel nous avons percé et inséré un tube métallique. Pour
+garantir la stabilité de la girouette, nous avons réalisé un contrefort. Nous avons
+ensuite découpé les quatre lettres représentant les points cardinaux que nous
+avons collés sur le tube donc sur le bâti afin que ces lettres soient fixées. Puis
+nous avons inséré la tige plantée dans le coq en prenant les mesures nécessaires
+pour limiter les frottements et le jeu: utilisation d’écrous meulés et de graisse.
+
+Page 9
+
+Nous avons ensuite fixé un disque sur lequel nous avions réalisé les zones correspondantes au code Gray,
+sous le support afin qu’il ne soit pas visible et que les détecteurs soient protégés de la pluie. Nous avions en effet
+prévu le dépassement nécessaire de la tige. Le code Gray consiste à dessiner des portions de cercle sur un
+disque et à les remplir de blanc ou de noir de façon à ce que, dans notre cas, les 23 soit 8 combinaisons possibles
+soient uniques et que un seul paramètre change à la fois.
+Nous utilisons alors des photos détecteurs qui permettent
+l’émission par une diode d’un rayon infra rouge. Ensuite le
+phototransistor permet l’obtention d’un signal logique 0 si le
+rayon est réfléchi par le blanc (0volts) ou d’un signal logique
+1 (5volts) si le rayon est absorbé par le noir. Chaque
+combinaison binaire correspond alors à une unique position.
+Pic
+001 nord
+101 nord-est.
+010 sud …
+
+•
+
+Le capteur de Pression
+
+Le capteur de pression donne une tension analogique
+Vs, tel que :
+Pression (kPa) = ( Vs + 0,4845) / 0,0459
+
+Ce capteur a pour fonction de nous fournir la pression relative dans le cadre de notre station. Son principe
+physique est de transformer la déformation de la membrane qui est soumise à une force : la pression
+atmosphérique, en une variation de capacité. En effet, il suffit de placer l'une des armatures d'un condensateur
+sur la membrane qui se déforme et l'autre sur une pièce solidaire du corps non soumise à la déformation, dans ce
+cas la capacité varie directement avec la pression. Le schéma suivant montre le principe d’un capteur absolu à
+gauche et d’un capteur différentiel à droite.
+
+Page 10
+
+•
+
+Le pluviomètre à auget
+Sous le poids de l’eau, un godet bascule et provoque la
+fermeture d’un Interrupteur à Lames Souples (ILS) pendant
+que le deuxième godet solidaire se remplit à son tour.
+Inconvénient : la quantité d’eau restante dans un godet après
+l’arrêt des précipitations, insuffisante au basculement n’est pas
+prise en compte. Toutefois, nous avons choisi d’utiliser ce
+système pour sa relative facilité de fabrication, sa fiabilité et
+son prix.
+Pic
+Un basculement correspond à 1 L.m-2
+
+•
+
+L’anémomètre
+Il est le système le plus couramment utilisé pour acquérir la force du vent.
+Plusieurs « coupelles » (3 en général) sont fixées à une tige qui peut pivoter
+dans son support. A l’extrémité inférieure de cette tige, deux aimants sont
+fixés : un ILS fixe détecte alors le champ magnétique, et une fréquence est
+observable. On distingue quatre impulsions par tour. Nous avons opté pour ce
+système, sa fiabilité étant sans faille bien qu’il ne détecte certes que la
+composante horizontale du vent.
+Quatre impulsions correspondent à 1 km.h-1 de vent.
+
+Chaque capteur fonctionne indépendamment des autres, ce qui permet une plus grande fiabilité, tous fournissent
+une tension comme grandeur de sortie, car c’est ce qui est le plus exploitable
+
+I.2 Exploitation des données
+Tous les facteurs météorologiques sont désormais connus, on peut exploiter les donnés obtenues.
+
+Il nous faut d’abord une alimentation capable de
+nous fournir une tension continue de 5 volts aussi à
+partir du secteur que d’une pile 9V, pour cela nous
+utilisons un régulateur 7805. Le courant secteur est
+converti par un transformateur du commerce (nous
+ne l’avons pas fait pour des raisons de sécurité). Une
+diode de protection empêche l’inversion de polarité
+et le condensateur lisse les variations de tension.
+
+•
+Pour afficher les informations, nous utilisons un écran de 20 colonnes et
+4 lignes rétro éclairées. L’écran est ainsi lisible même en pleine nuit.
+Il permet un affichage numérique des données, donc on a une précision beaucoup
+plus importante avec un système à lecture graphique
+
+Page 11
+
+•
+
+Tout d’abord nous avons décidé que la station météorologique donnerait l’heure et la date à l’utilisateur
+
+•
+
+L’alarme :
+
+Pour avertir des conditions climatiques particulières
+ou d’une heure définie, la station météo dispose
+d’une alarme. Le Picbasic commande un transistor
+qui ferme une alimentation 9 volts de puissance qui
+alimente le haut parleur, lui-même contrôlé par un
+oscillateur associé à un autre transistor. La diode
+Zener servant à fournir une tension proche de 5 volts
+Pic
+pour le circuit intégré.
+L’alarme sonne pendant une minute ou jusqu'à
+l’appui sur un bouton poussoir. Un seul facteur peut
+être observé à la fois, la station observe s’il est
+supérieur ou inférieur (à la demande de l’utilisateur)
+à une valeur seuil fixée par l’utilisateur. L’alarme peut bien sûr être désactivée.
+
+Pic
+
+Pour recueillir les ordres de
+l’utilisateur,
+la
+station
+dispose de 6 boutons
+poussoirs. Nous avons choisi
+de ne pas utiliser un système
+logique (un bouton poussoir
+par Entrée du Picbasic), car il
+n’y aurait pas eu assez de
+ports. On a donc opté pour un
+système analogique proposé
+par le constructeur du
+Picbasic.
+- Si l’on n’appuie pas sur un
+bouton poussoir, l’intensité
+dans le circuit est nulle,
+l’entrée
+analogique
+du
+Picbasic détecte une tension
+de 5 volts et retourne la
+valeur 0.
+- Si l’on appuie sur le premier bouton, le potentiel du Picbasic est de 0 volts et retourne la valeur 1.
+- Dans le cas de l’appuie sur le second boutons poussoirs le potentiel vaut 0,45 volts et la valeur 2 est
+retournée. Il en va de même pour les quatre autres boutons poussoirs.
+- Si l’on appuie sur deux boutons poussoirs à la fois, seul celui qui a le plus petit numéro est détecté, car le
+second se retrouve court-circuité.
+•
+
+Les DEL (diodes électroluminescentes)
+
+Une DEL rouge signale si la station est en marche ou à l’arrêt .Deux autres indiquent
+s’il fait jour (bleu) ou nuit (rouge). Le seuil ayant été arbitrairement établi à 100 Lux
+De plus pour signaler à l’utilisateur le fonctionnement de la station une LED rouge a été
+installée à coté de l’interrupteur de Marche/Arrêt
+
+Page 12
+
+Pour fonctionner de façon optimale la station météo nécessite quelques réglages simples de la part de
+l’utilisateur
+Pour rentrer dans le mode réglage il faut appuyer sur le bouton 6 nommé réglage, un second appui sur ce
+bouton permet de ressortir de ce mode. Le message d’accueil suivant s’affiche :
+Les boutons 1 à 5 permettent (si l’on appui sur l’un d’eux)
+de régler un domaine au choix. L’écran adéquat s’affiche
+alors, à chaque entrée dans le mode réglage on ne peut
+régler qu’un seul domaine à la fois.
+
+•
+
+Voici les 4 domaines réglables :
+Le bouton 1 permet le réglage Date/heure :
+Chaque bouton commande incrémentation d’un paramètre,
+selon les indications affichées sur l’écran.
+On ne peut pas faire varier les secondes, elles repartiront de
+zéro à la sortie du mode réglage.
+
+•
+
+Le bouton 2 permet de régler l’alarme :
+De la même façon les boutons 1 et 2 permettent
+respectivement de régler l’heure et la minute où l’alarme
+sonnera si celle-ci est active, ce qui est indiqué à l’écran. Le
+bouton 3 permet de l’activer ou de la désactiver.
+
+•
+
+Le bouton 3 permet la gestion de la pluviométrie et de la température :
+La station enregistre les températures minimales et
+maximales, le bouton 1 permet de les réinitialiser. Le bouton
+3 fait de même avec la pluviométrie, car, par définition, elle
+doit être enregistrée (c’est une pluviométrie cumulative)
+Mais la station peut aussi périodiquement réinitialiser ces
+valeurs : 3 modes sont possibles, soit cette réinitialisation est
+journalière (tous les jours à minuit), soit hebdomadaire (tous
+les dimanche à minuit), soit uniquement par l’utilisateur.
+Les boutons 2 et 4 permettent ce réglage.
+
+•
+
+Le bouton 4 permet de programmer une alarme conditions extérieures
+Si l’utilisateur le souhaite, l’alarme peut sonner si la valeur
+d’un capteur dépasse un seuil. Le bouton 1 sélectionne le
+capteur (parmi le vent, température extérieure et intérieure,
+humidité, luminosité et pression). Le bouton 2 sélectionne
+les modalités : supérieure ou inférieure à un seuil défini avec
+le bouton 3, par incrémentation. Le bouton 4 active ou
+désactive l’alarme de la même façon que l’alarme heure. Les
+2 alarmes peuvent fonctionner simultanément.
+
+Page 13
+
+I.3 Le Picbasic et son programe
+C’est le « cerveau » de la station, l’appareil qui va gérer la station est un microcontrôleur de la famille des
+Picbasic.
+Nous avons d’abord utilisé un Picbasic 1S, certes modeste dans ses possibilités, mais qui nous convenait pour
+nos expérimentations. Cependant au fur et à mesure que nous avancions dans le projet, nous nous retrouvions
+bloqués à cause de l’insuffisance des capacités du Picbasic 1S. On a investi dans un Picbasic 2000 R5 le plus
+puissant de la famille des Pic.
+
+Picbasic 2000 :
+
+Picbasic 1S :
+
+Connexion PC
+Mémoire
+Microcontrôleur
+
+Entrées/sorties
+
+Horloge
+
+•
+Le Picbasic 2000 dispose de 33 Entrées/Sorties logiques (0 ou 5 volts) dont 10 peuvent aussi
+effectuer des conversions analogiques numériques (CAN) sur 10 bits (soit 1024 possibilités) avec une
+gamme de tension de 0 à 5 volts. Deux ports proposent même une conversion sur 12 bits (4096 possibilités). Le
+principal problème du Picbasic 1S est le fait qu’il ne possède que 5 ports pouvant faire la conversion sur 8 bits.
+Or il nous faut 6 ports CAN, de plus 255 possibilités ne nous donnait pas assez de précision : ±2°C pour la
+température et ±10 hPa pour la pression. Les deux modèles ont aussi une entrée destinée uniquement à
+comptabiliser des impulsions sur 0 ou 5 volts, et un bus de communication avec d’autres composants .Nous
+utilisons ce bus pour l’écran LCD rétro éclairé.
+•
+Le PB1S dispose de 4 Ko de mémoire de type EPROM, une technologie qui permet de conserver les
+données du programme même quant le PB n’est plus alimenté en électricité
+Le PB2000 dispose quand à lui d’une mémoire beaucoup plus importante qui nous est nécessaire pour le
+programme : 32 Ko de mémoire Flash, successeur de EPROM, plus rapide et plus fiable
+•
+Le microcontrôleur est le circuit qui fait tous les calculs logiques, son fonctionnement est similaire
+à celui d’un microprocesseur d’ordinateur. Il dispose de RAM dans ses registres internes. Cette mémoire
+volatile sert à stocker les variables au cours du fonctionnement du programme (une variable est un mot dans un
+programme qui contient une valeur numérique que l’on peut modifier, utiliser ou afficher à l’écran, par
+exemple savoir quel est le dernier bouton poussoir utilisé).
+•
+La connexion PC ne sert que pendant la phase de développement du programme. En effet il faut écrire
+le programme dans la mémoire pour que celui-ci puisse fonctionner. Un câble relie donc l’ordinateur au
+Picbasic. Le code est écrit et transféré grâce au logiciel Picbasic studio fourni par le constructeur dont voici une
+capture d’écran :
+
+Page 14
+
+Le langage de programmation est un dérivé du basic. Le grand avantage de ce logiciel est de faire le mode
+« pas à pas », c’est à dire exécuter une seule action puis attendre les ordres du programmeur et donner toutes
+les valeurs des variables et de les modifier si nécessaire. Ce qui permet de voir ses erreurs plus facilement et
+ainsi de gagner du temps.
+•
+Une platine de développement est commercialisée
+par le constructeur du Picbasic. Elle dispose d’une
+alimentation intégrée, de boutons poussoirs, de DEL, de
+potentiomètres pour simuler une entrée analogique, un buzzer
+ainsi qu’une plaque de connexion sans soudure qui permet de
+simuler avant de souder définitivement à l’étain.
+
+Voici le schéma synthétique du programme, qui est une suite d’instructions qui permet au microcontrôleur
+d’exécuter toutes les actions nécessaires au fonctionnement de la station. Le schéma ci-dessous n’est pas le vrai
+programme, qui fait plus de 12 pages de lignes de codes (voir capture d’écran ci-dessus) et qui est difficilement
+compréhensible pour les personnes qui n’ont pas de connaissances en Basic.
+
+Page 15
+
+Initialisation : Déclarer l’écran, les variables
+
+Acquérir les tensions ou les niveaux logiques des capteurs
+
+Détecter l’impulsion d’un BP et enregistrer son numéro
+
+Mode normal
+
+Mode réglage
+
+Convertir les valeurs dans les bonnes unités
+
+Afficher l’écran demandé avec les valeurs
+converties et informations ou accueil
+
+Toutes les secondes
+
+Afficher l’écran demandé avec la configuration
+en cours ou accueil
+
+Enregistrer la configuration modifiée
+
+Compter le nombre d’impulsions de l’anémomètre
+
+Gérer les alarmes
+
+•
+
+Le code utilise les interruptions. Il s’agit suite à un événement défini ou à un intervalle de temps
+régulier de stopper le déroulement du programme pour se rendre dans une portion du code précise,
+d’exécuter cette partie et de reprendre normalement le déroulement du programme. Pour la mesure
+de la vitesse du vent cette solution est la plus satisfaisante, mais nous l’utilisons aussi pour le
+pluviomètre.
+
+•
+
+L’entrée spécifique de comptage nous permet de connaître le nombre d’impulsions de l’anémomètre.
+
+•
+
+Le programme se compose principalement de quelques instructions :
+o Si comparaison Alors…Sinon
+If A<B then …else
+o Localiser caractère
+locate 0,0
+o Ecrire «texte» ou variable
+print «texte» ou dec(nom_var,nbre_char)
+o Affectation
+nom_var = 3
+
+Page 16
+
+I.4 La Réalisation de la maquette
+Nous avons réalisé une maquette dans le but de modéliser notre station météo. Nous avons disposé des
+composants qui nous permettent de recueillir des données extérieures ainsi que les voyants nous permettant de
+communiquer avec la station. Notre but n’était pas de miniaturiser la station mais de réunir tous les composants
+qui lui sont nécessaires pour fonctionner en un même ensemble pour faciliter son transport et pour avoir une
+vision globale de celle-ci. Pour cela nous avons créé un support rectangulaire en bois que nous avons peint en
+blanc. Nous avons tout d’abord fixé les boutons poussoirs après avoir percé préalablement des trous pour les
+accueillir, ceux-ci permettent à l’utilisateur de communiquer avec la station. Puis nous avons disposé un écran
+quatre lignes rétro éclairé au centre pour permettre à l’utilisateur de visualiser les différentes données proposées
+par la station. Ensuite nous avons accroché les différents capteurs : la thermistance qui recueille la température ,
+la photo résistance qui renseigne sur l’éclairement , l’ hygromètre qui capte l’humidité de l’air puis pour finir
+nous avons disposé l’hygromètre nous renseignant sur la pression de l’air. Nous avons fixé des LED et des
+interrupteurs pour mettre en marche la station. Nous présentons ce côté du support, de l’autre il y a le
+microprocesseur, les montages électriques et les circuits divers. La maquette est donc le cœur de notre station
+météorologique et donc nous l’avons réalisée nous même de façon artisanale avec le plus de soin possible.
+
+Page 17
+
+Désormais, nous sommes en possession des différentes données nécessaires en météorologie. Nous
+pouvons alors passer à la seconde phase de notre projet : la prévision. Pour ce faire, nous aborderons une
+démarche scientifique : il est d’abord nécessaire de comprendre les principales causes des changements du
+temps ; il nous faut donc avant toute chose nous intéresser aux principes qui régissent la météorologie. Puis
+dans un deuxième temps, grâce à nos connaissances sur la météorologie nous procéderons à l’élaboration de
+notre propre technique de prévision.
+
+II)
+
+Etude de la météorologie :
+
+Tout d’abord il convient de donner une définition précise de la météorologie. La météorologie est la
+science qui étudie l’atmosphère terrestre, les phénomènes qui s’y déroulent ainsi que leurs interactions avec
+le sol et la mer.
+
+Quels sont les principes qui régissent la météorologie ?
+Afin d’être le plus efficace possible lors de la conception de notre propre méthode de prévision nous
+avons décidé de nous pencher en détail sur le fonctionnement de la météorologie afin de mieux comprendre
+cette science, et de mettre en évidence, dans la mesure du possible, les principes physiques responsables des
+phénomènes atmosphériques.
+
+II.1 Dynamisme atmosphérique :
+Notre planète est entourée d’un fluide appelé air qui constitue ce qu’on appelle l’atmosphère. Or un
+fluide possède des caractéristiques propres, qu’il est nécessaire d’étudier afin de comprendre la météorologie.
+Nous tenterons d’abord de répondre à la question suivante :
+Comment naît le vent, qu’est qu’une dépression, qu’est ce qu’un anticyclone ?
+A) pression atmosphérique, courants et échanges thermiques :
+La pression atmosphérique est le poids exercé par une colonne d’air par unité de surface. La
+pression atmosphérique est ainsi définie par P= F/S avec F : force en newton et S : surface en m2 . De plus la
+pression atmosphérique dépend de la température. En effet le mouvement brownien des particules de l’air est
+d’autant plus marqué que la température est élevée, on parle d’agitation thermique. Grâce à ce pré requis que
+nous ne mettrons pas expérimentalement en évidence car cette propriété se manifeste dans la vie de tous les
+jours, par exemple lors de la cuisson grâce à une « cocotte-minute », nous savons désormais qu’il faut
+s’intéresser en fait aux variations de température pour trouver des différences de pression.
+* La Terre étant inclinée de 23°, la répartition de l’énergie solaire sur l’atmosphère est inégale car les rayons
+solaires ont une inclinaison différente selon le lieu d’incidence. Ils arrivent à la verticale à l’équateur tandis que
+l’angle d’incidence est très élevé aux
+pôles : la surface éclairée aux pôles est donc
+bien plus importante qu’à l’équateur
+pour un faisceau de même dimension, d’où des
+différences de température de
+l’atmosphère.
+
+Page 18
+
+On parle dans ce cas de facteur astronomique.
+*De plus, il se produit des échanges thermiques qui produisent des variations de température. Effectivement la
+vaporisation de l’eau est endothermique, elle consomme de l’énergie. Montrons le expérimentalement : nous
+disposons d’une gourde contenant de l’eau. Nous disposons autour de cette gourde un torchon humide puis
+provoquons la vaporisation de l’eau contenue dans ce torchon et mesurons à différents instants la température de
+l’eau contenue dans la gourde. Puis nous mesurons la durée nécessaire à la même chute de température avec le
+torchon sec.
+
+Expérience permettant de démontrer que la vaporisation de l’eau est endothermique.
+On prend à t=0s, T= 50°C, ∆t= 82 s durée nécessaire à une chute de 5°C avec vaporisation.
+Sans vaporisation (torchon sec) on n’observe aucune variation de température de l’eau dans la gourde.
+Or nous conservons pour les deux expériences les paramètres suivants : masse d’eau, durée de l’expérience,
+énergie thermique délivrée par le sèche cheveux. Or ∆Q n’est pas la même pour les deux expériences (la
+vaporisation de l’eau provoque un refroidissement) d’où ∆Qeau<0 dans le cas de la vaporisation et ∆Qeau=0
+sans vaporisation.
+On a ainsi montré que la vaporisation est endothermique.
+Généralisons ce cas à l’atmosphère terrestre : on en déduit que la vaporisation de l’eau des océans consomme
+de l’énergie, d’où des différences de température entre l’air situé au dessus du sol et au dessus des océans.
+Ainsi nous avons démontré une deuxième cause des variations de température donc de pression de l’atmosphère
+terrestre.
+*Enfin, intéressons nous à la dernière cause des variations de pression. Le sol terrestre possède une propriété
+particulière : il rayonne en direction de l’atmosphère les ondes de grande longueur d’onde : le
+rayonnement infrarouge. Les nuages réfléchissent ensuite à leur tour une partie du rayonnement : il en résulte
+un réchauffement des couches basses de l’atmosphère. En outre l’eau rayonne plus de radiations donc se
+réchauffe moins rapidement que le sol, ainsi les différences de température entre l’air situé au-dessus des
+océans et du sol est encore accentué.
+
+Montrons maintenant qu’un fluide se dirige d’une haute vers une basse pression.
+
+Page 19
+
+Pour ce faire, réalisons l’expérience suivante : à l’aide d’un système de siphon, créons une dépression dans un
+cristallisoir contenant de l’eau :
+
+On observe alors que le fluide se dirige d’une haute vers une basse pression, un fluide suit ainsi un
+gradient de pression (différence de pression). Ainsi nous avons montré expérimentalement que l’air se dirige
+dans l’atmosphère d’un lieu de haute pression vers un lieu de basse pression. . Désormais nous savons qu’il
+existe des variations de pression dans l’atmosphère mais aussi qu’il existe des flux (vents).
+
+Il nous faut enfin montrer expérimentalement une propriété caractéristique des masses d’air de
+températures différentes : l’ascendance de l’air chaud.
+Prenons un certain volume d’au froide (colorée en jaune) et injectons de l’eau chaude (colorée en violet) et
+observons :
+
+Quelques
+instants plus
+tard
+
+Nous voyons que l’eau chaude, moins dense que l’eau froide, a un mouvement ascendant. Par
+analogie (généralisation aux fluides), l’air chaud a ainsi un mouvement ascendant par rapport à une masse
+d’air froid
+
+Page 20
+
+Désormais, forts de ces observations nous pouvons établir quelques principes fondamentaux de la
+
+météorologie illustrés par des schémas pour une explication plus claire :
+L’air chaud d’une haute pression se
+dirige vers une basse pression. Or l’air
+chaud monte et ainsi se refroidit, il
+redescend alors vers la haute pression.
+
+Dans les anticyclones, l’air descend pour se rendre vers les
+basses pressions ; l’humidité relative de l’air diminue et les
+nuages sont chassés.
+
+Page 21
+
+Dans les dépressions, l’air monte poussé
+par les hautes pressions ; l’air chargé
+d’humidité à proximité du sol se refroidit
+et des nuages se forment.
+
+A l’échelle planétaire, on peut ainsi établir le modèle ci-dessous : l’air chaud de l’équateur remonte vers
+les pôles mais vers le trentième latitude nord, l’air est déjà refroidi et redescend vers l’équateur : l’air décrit ce
+que l’on appelle une cellule de Hadley, du nom du scientifique qui fut le premier à mettre ce phénomène en
+évidence.
+
+Désormais,
+nous avons une idée générale
+des
+mouvements
+atmosphérique et nous avons
+répondu
+à
+notre
+problématique. Cependant, on
+peut
+adresser
+l’objection suivante : après
+avoir regardé quelques
+bulletins météo on peut se
+demander pourquoi les courants aériens ne décrivent pas une trajectoires rectilignes, et pourquoi
+s’établit-il une sorte « d’enroulement » autour des anticyclones ou des dépressions ? Nous avons en fait
+oublié de prendre en compte un élément essentiel lors de notre analyse : la rotation de la Terre. Penchons nous
+sur le champ sur cette question.
+
+B) la force de Coriolis :
+Les courants aériens seraient ainsi forts simples si la Terre ne tournait pas, les différences de pression
+s’équilibreraient rapidement et il n’y aurait pas de vents. Cependant, Gustave Gaspard Coriolis a démontré que
+la rotation du globe entraînait des forces centrifuges qui déviaient les courants aériens. Selon Coriolis, la
+trajectoire d’un objet est déviée quand son déplacement est lié par une force d’inertie à la rotation de la Terre.
+Cette force est constituée d’une composante verticale, peu importante en météorologie et d’une composante
+horizontale. Cette dernière se manifeste en fonction de la latitude et provoque une déviation des courants
+aériens vers l’est dans l’hémisphère nord et vers l’ouest dans l’hémisphère sud. A l’équateur seule la
+composante verticale agit, les vents ne sont donc pas déviés. N’oublions pas également les forces de
+frottements entre le sol et l’atmosphère, ils engendrent ce que l’on appelle un effet de freinage des vents.
+Nous nous proposons maintenant de mettre en évidence cette force expérimentalement. Nous disposons d’un
+plateau tournant et
+créons une dépression dans l’eau
+contenue
+dans
+un
+cristallisoir grâce à un siphon :
+
+Page 22
+
+•
+
+cas 1 : rotation en sens direct (hémisphère nord)
+
+On
+
+observe une déviation des cristaux vers la droite et un enroulement des courants dans le sens indirect autour
+de la dépression.
+•
+
+cas 2 : rotation dans le sens indirect (hémisphère sud) :
+
+On observe une déviation vers la gauche et un enroulement dans le sens direct autour de la dépression.
+Ainsi d’après ce que nous avons montré, nous pouvons désormais établir le schéma suivant :
+
+Page 23
+
+Conséquences de la force de Coriolis sur les
+courants aériens
+
+HP
+
+BP
+
+En somme nous avons montré expérimentalement que la force de Coriolis provoquait une déviation des
+courants aériens et ainsi l’enroulement dans le sens direct des vents autour d’une basse pression.
+
+Il reste cependant une question qui reste en suspens : comment se forme les précipitations ? C’est ce
+que nous allons tenter d’élucider dans un troisième temps.
+
+C)
+
+les fronts :
+
+Nous avons vu précédemment que l’air chaud est moins dense que l’air froid. Ainsi deux masses
+d’air de température différentes ne se mélangent pas et le front est défini comme étant la surface de contact
+entre ces masses d’air.
+Lors de l’avancée d’un front froid, l’air froid glisse sous l’air chaud, l’air chaud est donc repoussé d’où
+convection et une grande instabilité due à la chaleur latente libérée très élevée (car la vapeur d’eau contient
+beaucoup d’énergie) qui peut provoquer l’apparition d’orage nécessitant beaucoup d’énergie.
+Symbole :
+
+Page 24
+
+Lors de l’avancée d’un front chaud, l’air chaud glisse sur l’air froid, l’instabilité est moins grande
+que dans le cas d’un front froid. Il y a également condensation de la vapeur d’eau donc formation de nuages
+et chute de précipitations :
+
+Symbole :
+
+Il existe aussi ce que l’on appelle les fronts occlus. Un tel front se forme au sein d’une dépression
+lorsque un front froid rattrape un front chaud ; la dépression n’est alors plus alimentée en air chaud et est en
+phase de comblement.
+Symbole :
+
+D
+
+les outils et les méthodes de prévision :
+
+Les météorologues, grâce à tous ces principes qui régissent la météorologie, établissent ce que l’on
+appelle des modèles numériques. Ils disposent de satellites, de ballons sondes, d’un réseau de stations météos
+immenses et de super calculateurs. Ils regroupent ainsi des milliards de données. Ces données sont alors traitées
+selon le modèle. Chaque grande puissance dispose de son propre modèle, les plus connus sont GFS, Bracknell,
+Nogaps et Arpège (français).
+
+Modèle GFS présentant
+le géopotentiel (travail
+d’une force en fonction
+de l’altitude)
+
+Page 25
+
+Ainsi, nous avons établi les grands principes qui régissent la météorologie afin de mieux comprendre les
+mécanismes de cette science. Nous pouvons alors passer au travail de prévision.
+
+II.2 Elaboration d’une technique de prévision amateur et locale :
+Désormais nous avons démontré pas à pas tous les grands principes qui régissent la météorologie. Dans
+le cas de notre station il nous faut prévoir le temps à échelle locale. Nous nous contenterons d’une échéance
+assez faible (24h) car nous ne disposons pas des moyens professionnels. De plus, ne disposant que de données
+locales et de surface, il nous faut élaborer notre propre méthode de prévision grâce aux connaissances
+emmagasinées grâce à l’étude de cette science.
+Tout d’abord il faut savoir qu’il existe plusieurs méthodes de prévision :
+
+•
+
+•
+
+la méthode de la persistance : elle consiste à admettre que sous nos latitudes il y a 70% de
+chance qu’il fasse demain le même temps qu’aujourd’hui. Cependant, tout bon météorologue se
+refuse à utiliser cette méthode, pas très scientifique…
+
+•
+
+la méthode de la tendance : connaissant les vitesses et directions des systèmes météorologiques,
+on peut déterminer à quel moment la dépression ou l’anticyclone atteindra une région
+donnée. Cette méthode ne peut pas être utilisée dans notre cas car nous possédons seulement des
+données locales.
+
+La méthode par analogie : cette méthode consiste à répertorier toutes les situations se produisant
+pour un type de temps. Ainsi lorsque les mêmes conditions se reproduisent on peut alors déterminer le temps
+qu’il fera. L’inconvénient principal est que cette méthode nécessite une grande période d’observation et que les
+conditions ne se retrouvent jamais exactement à l’identique.
+
+Pour poursuivre notre démarche jusqu’au bout, nous devons établir notre propre méthode. Nous
+avons décidé d’utiliser la méthode par analogie, car elle nous paraît comme étant la plus adaptée à notre cas.
+Pour ce faire il est nécessaire de constituer une base de données importante. Nous avons ainsi défini notre
+propre base de données composée des valeurs suivantes : pression, taux d’humidité relative, point de rosée,
+direction et force du vent, sur une période d’un an (2004) à Savigny lès Beaune (Saône et Loire, alt : 275m).
+Nous avons calculé la pression moyenne sur une journée et le point de rosée puis reporté ces données sur Excel
+et réalisé les graphes représentant l’évolution de toutes ces variables mois par mois. Ce travail colossal mais
+non moins indispensable nous a permis de disposer d’une base de 1830 données.
+Exemple du mois de juin :
+1
+
+1017,15
+
+4
+
+14,62
+
+98,2
+
+NNE
+
+2
+
+1021,05
+
+9
+
+12,78
+
+86,6
+
+NO
+
+3
+
+1024,4
+
+8
+
+10,89
+
+87
+
+NO
+
+4
+
+1022,15
+
+5
+
+12,37
+
+81,1
+
+NO
+
+5
+
+1018,3
+
+5
+
+12,61
+
+81,9
+
+NO
+
+6
+
+1018,45
+
+6
+
+11,21
+
+72,8
+
+ONO
+
+7
+
+1023,35
+
+5
+
+13,41
+
+72,7
+
+ONO
+
+8
+
+1021,6
+
+6
+
+15,68
+
+72,1
+
+ONO
+
+9
+
+1022
+
+5
+
+15,85
+
+64,9
+
+ONO
+
+10
+
+1020,15
+
+5
+
+16,59
+
+65,6
+
+ONO
+
+Page 26
+
+11
+
+1020,95
+
+4
+
+17,88
+
+12
+
+1023,05
+
+6
+
+12,31
+
+76,3
+
+ONO
+
+13
+
+1026,5
+
+6
+
+10,16
+
+75,7
+
+NO
+
+14
+
+1025,45
+
+7
+
+11,37
+
+68,6
+
+ONO
+
+15
+
+1020,7
+
+5
+
+13,17
+
+74,8
+
+ONO
+
+16
+
+1018,7
+
+5
+
+13,21
+
+72,7
+
+NO
+
+17
+
+1015,8
+
+6
+
+12,52
+
+68,6
+
+ONO
+
+18
+
+1010,8
+
+6
+
+11,9
+
+73,3
+
+NO
+
+19
+
+1008,7
+
+3
+
+11,08
+
+86,4
+
+ONO
+
+20
+
+1010,1
+
+4
+
+10,54
+
+84,5
+
+ONO
+
+21
+
+1013,8
+
+4
+
+10,37
+
+74,8
+
+ONO
+
+22
+
+1013,7
+
+4
+
+15,03
+
+89,9
+
+ONO
+
+23
+
+1013,95
+
+7
+
+15
+
+78,1
+
+NO
+
+24
+
+1017,05
+
+7
+
+10,46
+
+72,4
+
+ONO
+
+25
+
+1019,4
+
+5
+
+10,33
+
+70,4
+
+ONO
+
+26
+
+1020,45
+
+5
+
+12
+
+69,7
+
+E
+
+27
+
+1021,3
+
+4
+
+16,58
+
+75,9
+
+ONO
+
+28
+
+1025
+
+4
+
+13,97
+
+67,4
+
+ONO
+
+29
+
+1024,35
+
+5
+
+10,89
+
+62
+
+ONO
+
+30
+
+1018,35
+
+5
+
+12,02
+
+60,1
+
+ONO
+
+Colonne 1 : jours
+Colonne 2 : pression moyenne
+Colonne 3 : force moyenne du vent
+Colonne 4 : point de rosée
+Colonne 5 : taux d’humidité relative
+Colonne 6 : direction du vent
+Courbe représentant l’évolution de la pression ce mois-ci :
+
+Page 27
+
+92,1
+
+ESE
+
+P=f(t)
+1028
+1026
+
+1024
+1022
+
+1020
+
+P
+
+1018
+
+1016
+1014
+
+1012
+1010
+
+1008
+1006
+0
+
+5
+
+10
+
+15
+
+20
+
+25
+
+jours
+
+Intéressons nous également aux masses d’air qui arrivent en France et à leurs caractéristiques :
+
+Page 28
+
+30
+
+35
+
+noms
+
+origines
+
+caractéristiques
+
+air polaire (arctique)
+
+régions polaires
+
+sec et froid
+
+air polaire maritime
+air polaire continental
+
+régions polaires et courants sur la mer
+régions polaires et courants sur
+continent
+
+air tropical
+
+hautes pressions subtropicales
+
+chaud et sec
+
+air tropical maritime
+
+Atlantique
+
+chaud et humide
+
+frais et humide
+le
+froid et très sec
+
+air tropical continental Afrique du nord, Moyen Orient
+
+chaud et très sec
+
+air maritime
+
+Atlantique
+
+humide
+
+air continental
+
+Europe et Asie (continents)
+
+sec
+
+Page 29
+
+Dès lors nous sommes en possession de toutes les connaissances et données nécessaires. Nous pouvons
+alors procéder à l’établissement de notre méthode, secondés par M.Gagnard, professeur à l’université Lyon 1 et
+président d’une association météorologique :
+Pour toutes les saisons sauf hiver :
+• temps pluvieux  baisse de 3 hPa durant les 3 dernières heures
+• beau temps  hausse de 3 hPa durant les 3 dernières heures
+Cas particulier : l’hiver : il est nécessaire de tenir compte d’autres variables :
+• temps nuageux  altitude < 400m et vent < 3m/s et hausse de 3hPa durant les 3 dernières
+heures
+• beau temps  altitude < 400m et vent > 3m/s et hausse de 3hPa durant les 3 dernières heures
+ou  altitude > 400m et hausse de 3hPa durant les 3 dernières heures
+• temps neigeux  baisse de 3 hPa durant les 3 dernières heures et température < 0°C
+Cette méthode détermine le temps prévu dans 24h. Nous avons pu estimer lors d’une période de test que
+la fiabilité de cette méthode est de l’ordre de 80% (le but était de dépasser les 70% de la méthode de la
+persistance…). Il demeure ainsi une incertitude de 20% à laquelle nous devons tenter d’apporter des
+explications :
+• Tout d’abord, nous avons vu dans I) que le temps dépend en grande partie du temps qu’il se
+produit à une grande distance du point donné : l’évolution des systèmes peut être déterminée
+assez précisément à condition de retracer son évolution dans le temps. C’est pourquoi les
+organisations météorologiques disposent d’un réseau de stations.
+• De plus, nous avons vu aussi dans I) que le temps au sol dépend en grande partie de l’évolution des
+conditions en altitude (notamment pour les fronts). Or nous ne disposons pas de ballons sondes
+ou de satellites.
+• En outre, grâce à toutes ces données les modèles numériques permettent de déterminer le temps à
+venir grâce à des systèmes qui peuvent comporter 9 équations. La relative faible capacité de
+notre microcontrôleur est aussi responsable de l’imprécision.
+
+Enfin nous avons établi une méthode permettant d’avertir l’utilisateur qu’un arrosage est nécessaire. Pour
+cela il nous faut connaître l’évapotranspiration, c’est à dire la quantité d’eau qui s’échappe du sol par
+évaporation naturelle.
+D’après le modèle de Blaney et Criddle, ETP = p.(0.46T + 8,13) en mm par m2 par jour
+avec p = (100.DJ) / (12*365) où DJ est la durée du jour en heures et T : température moyenne journalière
+de l'air.
+Connaissant désormais l’évapotranspiration et la quantité de précipitations recueillie, nous pouvons
+déterminer quand le sol aura besoin d’être arrosé.
+Remarque : les caractéristiques de la vitesse du vent et d’humidité relative ne sont pas prises en compte dans
+cette formule car elles sont négligeables devant la température. En outre, toutes les plantes consomment un
+certain volume d’eau, différent selon le type de plante, il est donc nécessaire d’ajouter un mode réglage de la
+quantité d’eau absorbée par la plante donnée dans le mode « réglage ».
+
+Page 30
+
+Conclusion
+En conclusion, ce projet passionnant a été un grand enrichissement pour tous pour plusieurs raisons.
+Tout d’abord, nous avons remarqué la complexité du passage de la théorie à la pratique : en pratique par exemple
+nous avons rencontré de nombreux problèmes dus aux capteurs et à leurs circuits de fonctionnement. En plus,
+nous avons constaté la multitude des facteurs rentrant en jeu dans la prévision météorologique et ainsi la
+difficulté de réaliser des prévisions à échelle locale. Au final nous avons un projet auquel nous avons associé la
+théorie au service de la pratique : nous avons construit une station météo unique, évolutive et originale, pouvant
+répondre aux besoins de tout type d’utilisateur.
+
+Remerciements :
+Nous remercions, pour leurs aide et conseils :
+-
+
+Monsieur Duffait professeur à l’université Claude Bernard.
+Messieurs Pinault et Vallon professeurs des Sciences de l’ingénieur.
+Monsieur Oliveira proviseur adjoint du lycée René CASSIN.
+Messieurs Gagnard et Dupont pour leur aide précieuse en météorologie
+Les météorologues de la station météo du mont Aigoual
+
+Sources, logiciels et documents utilisés :
+Internet :
+- http://www.radiospares.fr/: données constructeurs des composants utilisés
+- http://www.conrad.fr/ : données constructeurs
+- http://www.ac-orleans-tours.fr/sti-gel/RessPedago/PLUVIOMETRE.HTM: site réalisé par des
+professeurs de STI décrivant un TP s’appuyant sur un pluviomètre « à électrodes »
+- http://www.lextronic.fr/: renseignements pic basic
+- http://perso.wanadoo.fr/michel.hubin/capteurs/climato/chap_cl1.htm: aide concernant le recueil des
+données météo.
+- http://www.baroland.com/: prospection du marché
+- http:// www.lextronic.fr/Comfile/Appliq/Station.pdf: appui pour la compréhension du fonctionnement
+d’un pluviomètre à augets.
+- http://www.meteofrance.com/FR/pedagogie/coin_education/doc_tpe.jsp: découverte de la météorologie
+- http://www.aigoual.asso.fr/: aide concernant la météorologie
+- meteolafleche.fr : site d’un passionné
+- infoclimat.fr : site très complet dédié à la météo
+- ffme.fr : cours de météorologie
+- m.hubin.fr : chercheur au CNRS expliquant le fonctionnement des capteurs
+- m.vial.fr : site d’un passionné contenant des cours très clair
+Livre : Guide de la météorologie, Günther D. Roth
+
+Logiciels :
+- TCI : réalisation typons CI
+- Solidworks : représentation 3D pluviomètre et girouette
+- Workbench : schématisation montages
+- Word et Excel : réalisation dossier
+- Picbasic-studio : programmation pic.
+- Photoshop : logiciel de retouches photo
+- Acrobat : génération PDF
+Divers :
+- Visite de la dernière station météorologique d’altitude habitée et surveillée en permanence par des hommes au
+Mont Aigoual dans les Cévennes. Visite du musée qui est consacré à la météorologie (cf. site ci-dessus) : aide
+précieuse dans la conception de notre station.
+
+Page 31
+
+

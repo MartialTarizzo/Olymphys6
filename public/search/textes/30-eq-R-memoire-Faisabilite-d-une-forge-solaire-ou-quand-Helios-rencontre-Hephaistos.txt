@@ -1,0 +1,1066 @@
+Faisabilité d’une forge solaire,
+ou quand Hélios rencontre Héphaïstos
+
+1
+
+MELET-GAREL Elio / PASCAL--VINCENT Juliette / BARROIS Eliott
+
+Sommaire
+I-Introduction -----------------------------------------------------------------------II-Recherches préliminaires ------------------------------------------------------1-Moyens de concentration possibles
+2-Choix du concentrateur après réflexion
+III-Calculs ----------------------------------------------------------------------------1-Calculs concernant la pièce à chauffer
+2-Calcul des pertes par convection naturelle
+3-Calcul des pertes par conduction avec le support
+4-Calcul pertes par rayonnement
+5-Total des pertes
+6-Puissance nécessaire
+IV-Dimensions et forme ------------------------------------------------------------1) parabole
+2) héliostat
+V-Choix du réflecteur --------------------------------------------------------------- 10
+VI-Premier prototype de parabole ----------------------------------------------- 10
+VII-Construction de la maquette ------------------------------------------------- 11
+VIII-Matériel et méthodes --------------------------------------------------------- 11
+1-Conditions avec vent
+2-Conditions sans vent
+IX-Résultats --------------------------------------------------------------------------- 13
+1-Résultats avec vent
+2-résultats sans vent
+X-Discussion -------------------------------------------------------------------------- 18
+XI-Remerciements ------------------------------------------------------------------- 20
+
+2
+4
+5
+
+8
+
+-----------------------------------------------------------------------------------------------------------------------I-Introduction
+Imaginez vous, forgeron, vous perpétuez cette tradition aussi respectée qu’utile depuis une vingtaine d’années, mais un
+jour vous voyez le prix du gaz augmenter, vous ne pouvez donc plus alimenter votre « devil-forge »… le charbon devient
+rare, le bois n’est pas assez rentable, l’électricité est limitée… qu’allez-vous devenir ? Et si l’on regarde sur le long
+terme, qui réparera les outils les plus nécessaires à l’agriculture, l’alimentation, l’artisanat, etc ? Vos voisins ont déjà
+déposés devant votre porte une faux à détordre, une fourche cassée, et le nombre de commandes ne diminuent pas...
+Dépités, pour ne pas dire déprimés, vous sortez de chez vous, sous le soleil assommant, c’est pourtant le mois de mars,
+mais le dérèglement climatique a chassé le froid. Vous cherchez l’ombre pour être plus à l’aise… mais tout ce soleil…
+pourquoi ne pas l’utiliser ? Peut-être ne faudrait-il pas le considérer comme l’ennemi, mais plutôt comme l’allié ?
+Pourquoi ? Et bien parce que trop peu de gens y ont déjà pensé.
+Mais cette réponse est trop rapide ! Laissez nous développer...
+Que vous soyez climato-sceptiques ou alarmistes, si vous habitez dans le sud de la France, vous avez
+certainement déjà souffert de la chaleur pendant les longues journées d’été, cherchant l’ombre et attendant que le soir
+arrive pour apporter un peu de douceur. Et bien pourquoi ne pas s’en servir plutôt que de le subir ? Les ressources vont
+s’épuiser, et les rapports du GIEC sont toujours plus pessimistes, nous ne pourrons pas vivre ainsi éternellement, et il y
+aura un jour ou l’autre la nécessité de passer à un mode de vie différent, moins énergivore. C’est pourquoi nous imitons
+ainsi d’autres compagnies qui ont déjà pris les devants sur ce sujet, et les suivons dans ce raisonnement qui nous parait
+juste, pour résoudre le problème dès aujourd’hui plutôt que de se retrouver au pied du mur dans quelques années.
+Le travail du métal à chaud, communément appelé forge, est ancré dans notre histoire depuis la nuit des temps,
+et fut une véritable source de richesses et de progrès. Jusqu’à arriver à aujourd’hui, où nous ne pouvons pas nous en
+
+2
+
+passer. Une fourchette, un ordinateur, ou ne serait-ce qu’un clou ou une vis sont passés par cette étape. Le processus de
+forge est essentiel. Mais il y a 400 ans ou plus, personne ne se souciait de consommer des quantités phénoménales de
+charbon… Cependant, il est devenu évident que ce ne sera pas durable. Ainsi, ce projet a pour but de développer un
+moyen plus écologique pour forger et pour travailler le métal à chaud. Même si l’invention pourrait évidemment être
+plus polyvalente et être très intéressante pour d’autres applications telles que la cuisine ou le moulage de différents
+matériaux.
+Quand on creuse un peu plus le sujet, on se rend facilement compte que tous les types de forges, ou même de
+chaudières ou tout autres moyens de chauffer reposent sur la combustion de ressources fossiles… ainsi, le charbon
+utilisé traditionnellement est issu de grosses exploitations minières parfois à l’autre bout de la planète, le gaz (butane et
+propane majoritairement) n’est pas mieux d’un point de vu écologique, provenant lui aussi de Russie, d’Algérie ou de
+Norvège, et relâchant aussi une quantité phénoménale de Gaz à Effet de Serre (nommés GES dans ce mémoire,
+principalement du dioxyde de carbone). Il restait une solution ; la forge à induction ! Il s’agit d’une installation qui
+permet de faire passer un champ magnétique intense à travers la pièce d’acier grâce à une bobine, pour la faire chauffer
+via la perte du courant de Foucault sous forme de chaleur, c’est une méthode assez efficace et qui ne relâche à première
+vue presque pas de GES, et qui est largement utilisé dans de nombreuses industries… Mais qui consomme des quantités
+phénoménales d’électricité...
+Bref, le bilan n’est pas incroyable, et une transition complète à l’énergie renouvelable n’est pas prête d’arriver.
+Sans être pessimistes, nous pensons qu’il sera compliqué dans un futur proche d’imaginer qu’une forge à induction
+puisse être alimentée par une éolienne ou des panneaux photovoltaïques. Surtout que tout le monde n’aura pas l’argent
+pour se payer une telle installation, et que la fabrication même des panneaux solaires ou des générateurs est productrice
+de GES. Bref, il nous fallait autre chose !
+Nous avons donc décidé de nous tourner vers le solaire. C’est une source d’énergie qui est de plus en plus
+utilisée et qui est inépuisable à l’échelle humaine, tant que les conditions météorologiques permettent son utilisation.
+Ainsi, la plupart des pays du monde reçoivent assez de soleil pour qu’une installation solaire soit rentable et efficace,
+alors pourquoi ne pas tenter d’approfondir le sujet ?
+Pour pouvoir arriver à nos fins, nous avons décidé que l’installation devait pouvoir délivrer assez d’énergie
+pour pouvoir chauffer un cylindre d’acier de 4,0cm de diamètre et 12, 0 cm de hauteur, jusqu’à 1000°C – température
+de forge la plus haute, en moins de 12min – seuil de rentabilité moyen. Le tout au mois de Décembre par un jour de
+beau temps, et au Vigan (30120)… Un défi que nous nous devions d’accepter !
+Évidemment, il existe d’autres ressources que celles citées précédemment, comme le dihydrogène qui intéresse
+de plus en plus les chercheurs du monde entier, mais son développement sera long et coûteux, et ne sera certainement
+pas accessible aux populations les plus démunies avant de nombreuses décennies. Nous voulons offrir une méthode
+simple et efficace pour produire de l’énergie thermique dans n’importe quelle région du monde avec assez
+d’ensoleillement. Nous aurions pu utiliser l’énergie électrique ou cinétique grâce au déplacement de l’eau qui est
+accessible à presque tous, mais il est impossible de chauffer quoi que ce soit avec. Tandis que les gaz produits de
+manière «verte » sont très souvent peu rentables et non durables, alors il ne reste que le soleil. Nous sommes aussi
+conscient que le soleil à déjà été utilisé dans de nombreuses applications, notamment des cuiseurs solaires, des briquets ,
+etc. Mais nous pensons offrir quelque chose de différent, permettant d’exploiter d’avantage l’énergie lumineuse
+produite par ce fascinant astre au centre de notre Système Solaire.
+
+II-Recherches préliminaires
+1-Moyens de concentration possibles
+Après quelques recherches, nous avons réalisé une liste des différents moyens de concentration possibles pour un tel
+dispositif, sachant que le soleil étant très lointain, on peut considérer que les rayons sont parallèles entre eux. Et que
+l’on veut les concentrer en un point nommé point focal ou foyer, en nous plaçant évidemment dans un référentiel
+terrestre, et qu’il faudra donc un moyen de bouger le moyen de concentration puisque la source lumineuse sera en
+mouvement et sa position dans le ciel au cours de la journée évoluera.
+
+Les lentilles en verre : elles ont plusieurs désavantages, premièrement, elles ne
+laissent pas passer toutes les longueurs d’ondes, une partie de la puissance est donc
+perdue. Ensuite, elles ont un coût de construction élevé et le transport est assez
+complexe à cause de leur poids et leur fragilité quand leur volume est trop important.
+Il y a aussi une aberration chromatique qui se produit lorsque les rayons traversent une lentille, c’est à dire que
+la lumière blanche est décomposée en rayons de différentes couleurs, qui convergent chacun en des points différent
+alignés sur l’axe optique, ce qui empêche les rayons de ce concentrer précisément et de former un foyer. Pour chaque
+
+3
+
+couleur, il y a un foyer image différent car la vergence, et donc la distance focale d’une lentille, dépend de l’indice
+optique du matériau, dont la valeur varie avec la longueur d’onde (matériau transparent dit dispersif). Si l’on prend
+l’exemple d’une lentille avec une distance focale de 1m, la distance entre les images du rouge et du bleu serait de
+0,25mm. Il y a aussi d’autres aberrations pour les lentilles, comme les aberrations géométriques et notamment
+sphériques. Les aberrations sphériques font que les rayons du bord et du centre de la lentille ne se focalisent pas au
+même point. En définitive, les lentilles ne sont pas le meilleur des moyens de concentrer les rayons du soleil pour forger
+avec.
+Les miroirs sont certainement plus intéressants dans notre cas que les lentilles, car ils permettent de diriger les
+rayons autrement que les lentilles qui ne font que les concentrer en leur point focal. En d’autres mots, nous pouvons
+placer autant de miroirs que nous voulons et chacun pourra diriger ses rayons au foyer, tandis qu’une seule lentille ne
+peut envoyer des rayons au foyer, et qu’il est impossible d’en rajouter. Cela permet donc d’avoir un meilleur contrôle
+sur le point focal puisque l’on peut plus aisément augmenter ou diminuer la quantité d’énergie renvoyée au point focal,
+et donc la température finale. De plus, l’utilisation de miroirs permet un changement ou une réparation plus facile et
+moins coûteuse. Et il est souvent plus simple de se procurer de grands miroirs que de grandes lentilles. Des lentilles de
+plusieurs mètres de diamètre doivent être commandées sur mesure dans des entreprises spécialisées, et seraient très
+coûteuses, alors que de grands miroirs sont facilement trouvables dans des magasins de bricolage. La preuve est simple,
+tout le monde en a chez soi, dans les chambres, la salle de bain, etc. C’est quelque-chose de très commun dans notre
+société, et bien plus simple à trouver que des lentilles.
+De plus, les miroirs ne provoquent pas d’aberrations chromatiques puisque la lumière ne les traversent pas,
+mais certains miroirs comme les miroirs sphériques peuvent provoquer des aberrations géométriques (ici sphérique
+comme pour les lentilles), mais les miroirs paraboliques n’en provoquent pas, les rayons réfléchis passeront donc
+toujours par le même point (enfin… dans le cas d’une parabole parfaite). Dans les miroirs sphériques, la taille de
+l'ouverture doit être réduite pour limiter les rayons marginaux. Dans un miroir parabolique, les rayons marginaux ne
+posent aucun problème, par conséquent, la taille de l'ouverture peut être augmentée, or une plus grande ouverture
+signifie une collecte de plus de lumière et une augmentation de la température du foyer.
+Une parabole simple, composée de nombreux miroirs géométriques, le tout suivant les
+rayons du soleil, pourrait être une bonne solution..
+Mais le plus gros problème serait la difficulté pour accéder au point focal lorsque le
+soleil au zénith et que la parabole est horizontale, pointée vers le ciel… cas légèrement
+embarrassant puisque la parabole sera certainement de grande taille, et que l’on ne doit
+pas avoir besoin d’un palan pour accéder au foyer...
+Nous pourrions aussi utiliser des miroirs plats dirigeables, il serait alors facile d’accéder
+au point focal, mais nous aurions des difficultés pour régler tous les miroirs rapidement.
+Cela nécessiterait beaucoup de moteurs tous contrôlés par une carte électronique et
+dépendants de l’électricité sur secteur. Il faudrait donc un entretien coûteux et le point de
+vue écologique diminuerait fortement.
+On pourrait aussi considérer un héliostat dirigeable simple associé avec une parabole
+immobile. Dans ce cas, la parabole est dos au soleil et fixe, sans aucun moyen de pivoter,
+mais on place en face un miroir plat légèrement plus grand qui, lui, est orientable
+(nommé héliostat). Il renvoie les rayons du soleil sur la parabole qui grâce à ça pourra
+les concentrer. Ce moyen de concentration permet d’accéder facilement au point focal,
+mais il nécessite d’avoir deux miroirs.
+
+Il existe aussi des concentrateurs cylindriques, composés d’un miroir courbé sous la
+forme d’un cylindre. Mais le point focal ne peut pas être assez petit ni précis pour notre
+utilisation (puisque c’est un arc de cercle et non pas une parabole), il est donc impossible
+d’accéder à d’assez hautes températures pour forger.
+
+2-Choix du concentrateur après réflexion
+Nous avons choisi de faire cette forge avec un héliostat simple pivotant et une parabole fixe pour plusieurs
+raisons. Tout d’abord, ce dispositif est moins coûteux à fabriquer qu’une lentille, et il plus facile à réparer qu’une grande
+
+4
+
+partie des autres moyens de concentration. Il est aussi moins énergivore dans la production des matériaux, et la
+fabrication en matériaux recyclés est plus aisée à mettre en pratique.
+De plus, sa fabrication ne nécessite que très peu de qualifications manuelles, et est donc potentiellement
+reproductible dans des pays où le besoin se fait d’autant plus ressentir mais où la main d’œuvre qualifiée est rare.
+Comme autre avantage, il est facile d’accéder au point focal qui reste fixe tout le long de la journée. Et il est
+aussi possible de faire varier la puissance en cachant une partie de la parabole, ou en rajoutant des héliostats. Ensuite, il
+nous est possible de se passer (presque) entièrement de moteurs et d’électricité lors de son fonctionnement. Et enfin,
+cette disposition est compatible avec de nombreux domaines et est aisé à mettre en application.Pas seulement pour la
+forge, mais aussi pour la cuisine, la production d’électricité avec des moteurs Stirling (ils sont alimentés grâce à une
+source de chaleur qui va fournir le moteur en énergie, qui dans notre cas est le foyer), le moulage de plastiques ou
+d’autres matériaux, etc…
+A savoir qu’une parabole est à la base une courbe ou une surface renvoyant les rayons incidents à un point
+focal. Ainsi, le diamètre d’une parabole correspond à la distance entre les deux segments de la courbe (voir annexe pour
+des schémas) soit entre les deux bords du dispositif, ce qui correspond également à la « corde ». En conséquence, une
+parabole sphérique n’existe pas, et une parabole a toujours une courbure parabolique. Cela s’éloigne de la vision
+mathématique de la parabole, et se rapproche un peu de l’idée populaire de ce qu’est une parabole, bien qu’elle puisse
+prendre n’importe quelle forme et peut très bien ne pas être circulaire. Comme exemple, une antenne radio est une
+parabole: sa forme est elliptique (et non pas circulaire), et sa surface est une courbe parabolique. Par ailleurs, le centre
+d’une parabole correspond a son sommet. Dans ce mémoire, nous considérerons donc une parabole comme étant une
+surface à courbure parabolique. Qu’importe son apparence.
+
+III-Calculs
+1-Données concernant la géométrie et la nature de la pièce à chauffer
+Rappelons que nous voulons pouvoir chauffer un cylindre d’acier de 4, 0 cm de large et 12, 0 cm de long,
+jusqu’à 1000°C, en moins de 12min. Le tout au mois de Décembre par un jour de beau temps, et au Vigan (30120).
+Nous pouvons donc faire quelques premiers calculs en relation avec cela :
+Volume d’acier à chauffer (cylindre de 4,0cm de diamètre et de 12,0cm de haut) :
+V = π × R² × H
+soit : V = π × 2,0² × 12,0
+soit : V = 0,00015 m3 ou 1,5 × 10-4 m³
+(150cm3 sera sans doute plus compréhensible)
+Masse de la pièce : m = ρ × V
+7850 × 1,5 × 10-4 = 1,2 kg (avec la masse volumique de l’acier ρ = 7850 kg/m³ )
+Surface de la pièce : S = 2πr2+2πrh (avec : r = rayon en mètre h = hauteur en mètre) :
+S = (2 × π × 0,020²) + (2 × π × 0,020 × 0,120 ) = 0,018m²
+Chaleur massique de l’acier : c = 450 J/Kg/K
+Température désirée = 1000°C soit 1273 K
+2-Calcul des pertes par convection naturelle avec l’air
+formule littérale : Φcv = - h × S × ΔTT
+où : F = puissance en Watt
+h = coefficient d’échange thermique en W/m², ici correspondant à une moyenne entre 5 et 18 m/s, soit les
+vitesses de circulation de l’air les plus fréquentes.
+S = surface de la paroi en m²
+ΔTT = écart de température entre la paroi et l’air en °C
+Φcv = - 10 × 0,018 × 980 = - 1,8 x 10² W
+Les pertes par convection naturelles atteignent donc les - 180W.
+3-Calcul des pertes par conduction avec le support
+Coefficient de conductivité thermique du béton cellulaire = 0,080W.m-1 . K-1
+On considère le point de contact entre la pièce et le béton cellulaire de : 1,0cm de large sur 12, 0 cm de long, soit 12cm²,
+soit 0,0012m².
+Le béton cellulaire ayant une épaisseur de 10 cm et étant assez long pour soutenir toute la pièce.
+On ignore le réchauffement du béton cellulaire par les rayons solaires ne touchant pas la pièce d’acier, et on considère
+que le béton est à température ambiante.
+
+Φcdcd= −λ ∗S∗ΔT
+e
+
+Où :
+
+5
+
+Φcd = puissance en W
+λ = coefficient de conduction du matériaux en W/m.K
+e = épaisseur de l’isolant en m
+S = surface du matériaux en m²
+ΔTT = écart de température entre les 2 parois en °C ou K
+Application :
+
+Φcdcd=
+
+−0,080
+∗0,0012∗1000=−0,96 W
+0,10
+
+Les pertes par conduction avec le support sont de - 0,96W.
+
+4-Calcul des pertes par rayonnement électromagnétique
+Formule littérale : Φr = - a x ϭ x T x S ( Loi de Kirchhoff généralisée)
+où :
+Φr = pertes par rayonnement en W
+a = coefficient d’émission de l’acier ( 0,70 sans unité)
+ϭ = constante de Stefan-Boltzmann ( 5,675 × 10-8 W.m-2 . K-4 )
+T = Température de la pièce en K ( 1000 + 273 = 1273 K )
+S = surface de la pièce ( 0,018 m² )
+Application :
+Φr =- 0,70 × (5,675 x 10-8) × 12734 × 0,018 = - 1,8 × 103 W
+Les pertes par rayonnement sont donc de - 1,8 × 103 W, environ - 1800W
+5-Total des pertes
+Convection = - 1,8 x 10² W
+Conduction = - 0,96 W
+Rayonnement = - 1,8 × 103 W
+Total ( Ppertes ) =- 1,8 x 10² - 0,96 - (1,8 × 103 ) = - 1,9 x 103 W
+Au total, il y a donc environ - 1,9.103 W de pertes thermiques…
+6-Puissance nécessaire
+On peut écrire grâce au premier principe de thermodynamique que : ΔU = U = Qp + Qcv +Qr + Qcb
+Si le régime permanent est atteint, la température T du système ne varie pas et ΔU = U ne varie pas donc : ΔU = U = 0
+On divise ensuite par ΔU = t et o n obtient : ϕp + ϕcv + ϕr + ϕcb = 0 ou - ϕcv - ϕr - ϕcb = ϕp
+Soit : ϕp = - ( -1,9 x 103 W ) = 1,9 .103 W
+Mais cela est sans prendre en compte la partie de ϕ p réfléchie par l’acier (le coefficient de transmission, dépendant de
+son état de surface), égal en moyenne à 0,38 pour le fer (ici on considère que fer et acier son semblables sur ce
+point).Ce coefficient, correspondant à la proportion de la puissance lumineuse surfacique incidente (donc d’origine
+solaire) absorbée par la pièce d’acier, a été obtenue à partir d'un calcul d' intégration numérique (méthode des rectangles
+) sur un domaine des longueurs d'onde donnée (voir graphiques en Annexe) du produit de la courbe 1 (réflectance de
+l'acier en fonction de la longueur d'onde ) et de la courbe 2 ( la puissance surfacique du Soleil, considéré comme un
+corps noir, en fonction de la longueur d'onde). Ce calcul as été réalisé par Mr. Roux, professeur de Physique-Chimie au
+Lycée André Chamson du Vigan.
+En intégrant ce coefficient, cela revient à faire : 1,9 x 103 / 0,38 = 5,0.103 W
+En revanche, cela est sans prendre en compte la fraction de la puissance lumineuse qui sera absorbée par les matériaux
+réfléchissants, de la parabole et de l’héliostat, que l’on considère pour l’instant efficaces à 90 % chacun, soit reflétant
+90 % de l’énergie qu’ils reçoivent.
+5000 / (0,90x0,90) = 6173, arrondit à 6200W
+Pour que la température soit à l’équilibre, en régime permanent.
+Ci dessous un schéma incluant un bilan thermique (système étudié : le cylindre d’acier), sans l’héliostat.
+
+6
+
+soleil
+
+IV-Dimensions et forme
+1) Parabole
+Pour connaître la taille d’une parabole capable de produire cette énergie, nous avions dans un premier temps
+utilisés un calculateur, mais il s’est avéré que sa fiabilité laissait désirer, et nous avons donc à présent changé de
+méthode.
+Premièrement, nous avons voulus déterminer la puissance lumineuse surfacique incidente minimale à laquelle nous
+voulions que la parabole puisse délivrer les 6200W à l’objet en acier. En d’autres termes nous avions besoin de
+connaître l’irradiance par beau temps, en décembre, au Vigan. Nous avons donc utilisés une base de données PVGIS
+basée sur des études européennes de l’irradiance solaire (W/m²) dans la majorité des endroits du monde pour connaître
+le rendement des panneaux solaires dans chaque région. Ainsi, la base de donnée nous rendait accessible tout ce qu’il
+nous fallait, et ce avec un simple clic sur la
+Résultats quotidiens des
+Cité Scolaire du Vigan via une vue
+données PVGIS en décembre
+satellite.
+La courbe ci-dessous en est le résultat
+D’après la courbe ci-contre, issue de la
+modélisation PVGIS, nous avons choisis
+de placer le minimum à 440W/m².
+Cette puissance étant disponible de 9h
+jusqu’à 14h, et laissant donc 5h
+d’utilisation de la parabole par jour de beau
+temps.
+
+7
+
+Par bon sens, nous savons déjà que les mois d’été constitueront la période la plus efficace d’utilisation, mais
+nous voulions pouvoir l’utiliser toute l’année, donc nous nous sommes basés sur le mois de Décembre où l’irradiance
+est minimale.
+Pour ensuite déterminer la taille et les dimensions de la parabole, nous nous sommes cette fois-ci basés sur la
+surface de celle-ci, soit pour atteindre les 6200W avec 440W de puissance lumineuse surfacique incidente, d’environ
+14m². Puisque 6200 /440 = 14.
+Notons que dans l’imaginaire collectif, une parabole est vue de face comme un disque, mais que, pour limiter
+la prise au vent et simplifier l’entretien et la maintenance, nous nous concentrerons ici sur une parabole rectangulaire en
+vue de face.
+Autrement dit, une parabole ronde offrirait une trop grande prise au vent, placerais le point focal trop haut par
+rapport au sol, rendrait l’entretien difficile, et les réparations hasardeuses,. Tandis qu’une parabole rectangulaire (soit
+plus long que large), serait plus proche du sol et limiterait la prise au vent, tout en rendant le point focal plus accessible
+et en simplifiant l’entretien et les diverses réparations. Pour ce faire nous ne parlerons donc pas du diamètre concernant
+notre dispositif, mais plutôt de longueur et de hauteur.
+Nous en avons donc déduits qu’il nous faudrait une parabole rectangulaire de 6m60 de long et 2m15 de haut
+pour dépasser les 14m² (ici 14,19m² > 14m²) Mais le rectangle serait courbé vers l’intérieur (concave) au profil de
+l’équation d’une parabole suivant la distance focale voulue. Évidemment, l’équation doit être respectée partout à
+l’identique.
+Pour récapituler, nous avons maintenant une parabole rectangulaire de 2m15 de haut et 6m60 de long, avec une
+aire supérieure à 14m², permettant de délivrer 6200W en Décembre au Vigan, quand la puissance lumineuse surfacique
+incidente est supérieure à 440W/m².
+
+2) Héliostat
+Rappelons que le but d’un héliostat (miroir plan inclinable) est de se mouvoir pour diriger les rayons incidents
+sur la parabole qui, elle, reste fixe. Avec pour avantage un point focal qui ne se décale pas avec le temps, et une bien
+plus grande simplicité d’utilisation.
+Il faudrait donc aussi un héliostat de plus de 14m² de surface, et qui puisse renvoyer sur l’intégralité du
+réflecteur. Pour cela il faudrait un miroir de plus de 2,15m de haut et plus de 6,60m de long. Avec au moins la même
+efficacité de réflexion que la parabole, donc 90 %, en considérant que le réflecteur utilisé est le même.
+L’Héliostat devant pouvoir suivre la course du soleil au fil de la journée, nous avons utilisés le site suivant :
+https://www.sunearthtools.com/dp/tools/pos_sun.php?lang=fr pour déterminer l’angle d’incidence des rayons suivant le
+mois et le jour, et en déduire par trigonométrie l’angle auquel doit être incliné la surface réfléchissante de l’Héliostat.
+Nous avons ici utilisés les donnés d’incidence concernant le solstice d’été, puisque c’est en France la date à laquelle
+l’élévation et l’azimut sont au maximum.
+Pour définir les dimensions de l’héliostat, soit sa hauteur et
+sa longueur, on suppose que sa structure globale forme de
+profil un triangle ABC rectangle en B. On travaille
+également avec un sol plat et parallèle aux rayons renvoyés
+vers la parabole. Les rayons du Soleil arrivant tous
+parallèles entre eux et ayant le même angle d’incidence. Il
+faut donc que les rayons réfléchis par l’héliostat soient
+parallèles au sol, avec un angle d’incidence fixé par la
+position du Soleil à un instant donné.
+D’après le site web précédent, nous savons que l’angle
+d’incidence maximum est de 68,0° en juillet, nous
+utiliserons donc cette valeur pour déterminer l’angle
+maximal auquel devra se placer l’héliostat. C’est à dire
+l’inclinaison maximale à laquelle il devra se placer pour
+renvoyer assez de rayons incidents sur la parabole pour
+toujours l’éclairer entièrement.
+Ici, nous nous concentrerons donc sur la détermination du la
+longueur du segment AC pour un angle d’incidence ϴ de
+68°.
+L’angle entre les rayons incident sur l’héliostat et les rayons renvoyés est le même que l’angle d’incidence par rapport
+au sol. Et l’héliostat étant un miroir plat, son angle total est de 180,0°. Tandis que les angles entre les rayons incidents et
+
+8
+
+la normale au miroir, et l’angle entre les rayon réfléchis et la normale au miroir sont identiques et valent donc
+(180,0°-68,0°) / 2, soit 56,0°, notés α.
+Grâce aux angles internes-alternes on sait que l’angle au point A du triangle vaut 56° aussi.
+Grâce à la trigonométrie on peut dire que :
+sin(A) = côté opposé / hypoténuse = BC / AC
+AC = BC / sin(α) = 2,15 / sin(56,0) = 2,59 m soit environ 2m60.
+Nous avons aussi calculés de la même manière la longueur de l’Héliostat à définir avec l’angle maximal auquel il devra
+pivoter à gauche ou à droite en vue aérienne. Le côté opposé mesurant 660cm et l’angle faisant 45°, l’hypoténuse est
+donc : 6,60 / sin(45,0) = 9,33 m.
+L’héliostat devrait donc, pour pouvoir continuer d’éclairer la totalité de la parabole à n’importe quelle saison, mesurer
+260cm de haut et 943cm de long, et pouvoir s’incliner de 56,0° vers l’arrière par rapport au sol, et de 45,0° à gauche et à
+droite de manière symétrique par rapport au point de pivot (voir annexe et les propositions de plans industriels).
+Des propositions de système d’automatisation du mouvement de l’héliostat, et les calculs de l’ombre portée de la
+parabole pour déterminer la distance la séparant de l’héliostat sont en annexe.
+
+V-Choix du réflecteur
+But : 90 % d’efficacité, donc qui renvoie 90 % du rayonnement qu’il reçoit.
+Matériaux réfléchissants disponibles sur le marché :
+- aluminium / inox poli
+- miroir en verre (miroir de salle de bain, d’armoire, miroir ménager)
+- miroir en plastique avec couche d’aluminium (panneaux de salle de bains / 30euros le m²)
+- mylar (couverture de survie, bâche d’horticulture)
+- scotch réfléchissant
+- S-reflect (produit commercial de Solar Brother)
+- peinture réfléchissante en aérosol
+- dépôt sous vide d’hélium, d’argent ou d’autres éléments réfléchissants
+Pour des raisons écologiques, nous aurions voulu utiliser du film mylar tel que des couvertures de survie, mais
+il est très compliqué de connaître l’efficacité d’un tel matériau car celle-ci est surtout due à sa qualité...et varie entre 60
+% et 90 %, alors nous avons conclu qu’il faudrait tester cette méthode, mais que des matériaux plus performants
+devraient être utilisés si la couverture de survie ne suffit pas, comme du mylar d’horticulture ou du S-Reflect.
+Le mylar lui-même n’est pas particulièrement plus « écologique » que les autres moyens, mais étant disponible
+dans les couvertures de survie, ce serait plus dans un cadre de « réutilisation » et de « low-tech ».
+
+VI-Premier prototype de parabole
+
+Ci-dessus le schéma du premier prototype réalisé, qui nous permettait simplement de vérifier que le film mylar
+incurvé reflétait correctement les rayons en un point (plus ou moins précis). A présent elle a subit de considérables
+
+9
+
+changements pour optimiser la visibilité des rayons, comme le remplacement de la lampe par un laser et l’ajout d’un
+bac de fluorescéine entre le laser et le Mylar pour voir les rayons plus décemment.
+VII-Construction de la maquette
+Notons que, ayant utilisés une autre méthode pour calculer les dimensions, la forme, etc. de la parabole
+précédente, mais que le résultat est approximativement le même, la maquette suivante aura été réalisée à partir de la
+méthode abandonnée. Pour faire simple, on pourrait résumer cette méthode à l’utilisation d’une ébauche de calculateur
+en ligne pour déterminer l’aire et les dimensions de la parabole, puis ensuite de ramener la forme ronde à une forme
+rectangulaire avec des calculs d’intégrale faits par Mr. Couderc (professeur de mathématiques au Lycée AndréChamson, les calculs écrits sur une feuille scannée sont en annexe), et d’enfin ajouter une marge pour couvrir
+d’éventuels défauts ou problèmes. Mais bien que nous ayons changés de méthode depuis, les résultats sont assez
+proches au niveau de la maquette, et on considérera ici que les deux sont « équivalentes ».
+Nous ne pouvons évidemment pas, pour des raisons de budget, de temps et de place, fabriquer un miroir
+parabolique de plus de 6m de long et 2m de haut… Même si nous l’aurions voulu, et nous avons donc du nous rabattre
+sur une maquette à 1/4 du miroir parabolique prévu. Ainsi, nous avons simplement divisé les dimensions par quatre et
+avons fait tous les calculs nécessaires à sa réalisation. Il ne faut pas oublier que ϕ p est 16 fois plus faible sur la maquette
+car on réduit la surface d’un facteur 16 en divisant les dimensions par 4.
+Après un peu de réflexion, nous avons conclu que la maquette serait faite de la même manière que les bordés
+(constituant du bordage) d’un navire en bois. C’est à dire une multitude de lattes côtes à côtes clouées sur des morceaux
+de bois courbe donnant l’aspect arrondi à la coque, ces derniers étant appelés « couples ».
+Le but étant de faire une sorte de moule en négatif composé de plusieurs couples, eux-mêmes fixés sur deux planches
+pour les soutenir, et sur lesquels nous pourrions ensuite venir clouer et coller des lattes souples à l’intérieur pour former
+la bordée (dans notre cas une succession de lattes côtes à côtes pour former une surface lisse et courbe). Et sur
+lesquelles nous pourrions venir fixer le film réfléchissant avec du scotch double-face.
+Pour cela, nous avons beaucoup utilisé de tableurs, ce qui nous a permis de calculer :
+→ le nombre de lattes nécessaires suivant leur longueur et leur largeur
+→ l’angle de contact entre chaque latte
+→ la hauteur de chaque couple
+→ la courbe des couples
+→ l’angle de contact entre les lattes et les couples
+Pour les photos de la construction et une meilleure visualisation du processus, se référer à l’Annexe.
+
+VIII-Matériel et méthodes :
+Nous avons ensuite voulu tester notre maquette et étudier son fonctionnement. Évidemment, tester une
+parabole solaire revient à avoir du temps devant soi, et des conditions météorologiques convenables. Les deux premiers
+créneaux sur lesquels nous avons fait les mesures furent identiques, c’est à dire que la température ambiante (± 20°C),
+la vitesse du vent et l’ensoleillement étaient très proches sinon semblables.
+Nous avons testé de nombreuses choses, mais les conditions étaient changeantes, et bien que l’on ait, pendant
+trois « séances » d’affilée rencontré les mêmes conditions météorologiques et horaires, la dernière séance fut assez
+différente avec presque aucun vent, nous avons donc regroupé les expériences en deux catégories, avec vent et sans
+vent.
+Remarque 1 : la parabole elle-même ne chauffe pas, et n’est jamais montée au-delà de 27°C, mais le
+point focal, lui, est chaud.
+Remarque 2 : les mesures de températures sur les différents matériaux et objets sont effectués grâce à un
+thermomètre infrarouge (« Infrared Thermometer DT8380 »). Malheureusement, le point laser de visée
+n’étant pas visible au foyer du fait de la lumière trop intense, nous avons balayé la zone chauffée pour en
+extraire la valeur de température la plus cohérente. De ce fait, nous ne pouvons pas dire précisément à quel
+endroit sur la pièce les mesures ont été faites, mais comme nous avons toujours retenues les températures
+moyennes les plus hautes, il est certain qu’il s’agissait de celle au foyer.
+Conditions avec vent :
+Les trois premières fois, la température ambiante était de 20-25°C, et le vent avait une vitesse moyenne de
+2,8m/s (soit environ 10km/h, mesuré avec une mini-station météo « Oregon Scientific » ), le tout vers la mi-journée,
+avant que le soleil ne soit au plus haut.
+Nous avons installé la parabole face au soleil, et l’avons incliné en la maintenant immobile avec un support en
+bois à l’arrière et une cale coincée sous l’avant de la structure en bois. Puis deux tréteaux ont été mis sur les côtés et on
+a posé une barre de bois dessus pour pouvoir suspendre des objets au point focal, au dessus d’un billot de bois protégé
+
+10
+
+par une dalle en béton cellulaire que l’on avait posée là avant d’installer la parabole. Trouver la parfaite inclinaison pour
+que le point focal se forme correctement ne fut jamais simple, mais Elio finit par prendre le coup de main, et à présent il
+est possible de commencer les expériences après une vingtaine de minutes de préparation :
+Les premiers matériaux à avoir été mis au foyer – l’endroit le plus chaud où le point focal est situé – furent une
+poêle en fonte de 2kg, à l’aspect noir mat particulièrement intéressant pour son albédo très faible (proportion de rayons
+lumineux réfléchi par rapport à la quantité de rayons lumineux incidents, plus l’albédo est bas plus un objet est sombre,
+et plus il absorbe de rayons lumineux et donc d’énergie). Puis un fer-plat d’acier de construction de 380g, qui, comme
+tous les objets en acier utilisés dans les expériences qui vont suivre, était revêtu naturellement de Calamine. La
+Calamine est un dépôt de surface qui apparaît lors de la chauffe et de la mise en forme de l’acier dans les industries ou à
+la forge, donnant un aspect gris foncé à la pièce. Ensuite une fine plaque d’aluminium, anodisé en gris sombre d’un
+côté, d’une vingtaine de centimètres de large et d’une trentaine de long, sur deux millimètres d’épaisseur et
+s’approchant des 230g. Puis on a mis au foyer une boule de laine d’acier, trouvable dans les rayons de cuisine comme
+éponge abrasive pour la vaisselle. Cette laine a la particularité de chauffer très vite et très haut, grâce aux fils très fins
+d’acier qui peuvent chauffer très vite à cause de leur masse faible. On exposa ensuite à la chaleur un morceau de
+contreplaqué d’okoumé (bois de construction exotique), placé dans une petite cavité creusée dans du béton cellulaire et
+dotée d’une fente pour laisser passer le morceau de bois, de façon à isoler l’intérieur et limiter l’effet du vent. Curieux
+de savoir s’il était possible de faire fondre du métal, nous avons aussi soumis aux rayons une feuille d’étain pliée de
+80g.
+Enfin, on changea notre manière de procéder en remplaçant les deux tréteaux et la barre de suspension par un
+rail dans l’axe du soleil, sur lequel pouvait glisser un bloc de bois dans lequel on pouvait venir fixer à l’aide d’une fente
+nos objets, pour mieux contrôler la distance entre la parabole et l’objet. On y plaça une plaque d’acier de 1600g et la
+même plaque d’aluminium que précédemment.
+
+Schéma de la disposition de la parabole avec le rail et le socle coulissant
+
+Remarque :
+Les matériaux utilisés étaient très
+souvent sombres, donc un albédo
+plus bas et donc plus d’énergie
+absorbée. De ce fait, la
+température avant l‘expérience
+des divers objets et matériaux
+peut être plus élevée que la
+température ambiante, due à
+l’action chauffante du soleil. Ici,
+de l’acier peint en noir et laissé
+depuis le matin au soleil
+atteignait 45°C sans l’avoir mis
+au foyer.
+
+Conditions sans vent :
+A la dernière séance, le samedi 15 octobre 2022, certainement un des jours les plus chauds et ensoleillés du
+mois, Elio a ressorti la parabole pour terminer les expériences dans les conditions les plus exceptionnelles.
+La séance commença vers 11h du matin et se termina vers 14h. Il n’y eu aucun vent et la température changea
+peu (15°C au début et 18°C à la fin), et il n’y avait presque aucun nuage à l’horizon. On mis donc d’abord au foyer des
+petites plaquettes carrées d’acier (appelées « pièces » dans le reste du mémoire), de 4,0 cm de coté et de 5mm
+d’épaisseur. Il y en eu d’abord une seule au foyer, puis deux, trois, et enfin quatre ensemble, disposées les unes derrières
+les autres sur le bloc de bois posé sur le rail, où seulement l’une des pièces était en contact direct avec les rayons
+lumineux. Le point focal étant très proche du bois, nous l’avons recouvert de scotch réfléchissant pour ne pas que le
+bois ne s’enflamme. Après avoir exposés chacun des lots de pièces, ce fut au tour d’un fer-plat rectangulaire en acier de
+300g de chauffer, puis à un gros bloc de 900g, et enfin de la même plaque d’acier de 1600g mais poncée à vif du coté
+non exposé. Puis dernièrement, on mit dans un petit récipient rectangulaire en aluminium fin, d’une dizaine de
+centimètre de haut, de 5 de large et de 2 d’épaisseur, 50mL d’eau plate.
+Remarque 1 : La terre tourne ! Si ça vous paraît anodin, ça ne l’était pas pour nous ! Car cela signifiait que
+les rayons arrivaient sur la parabole avec un angle qui changeait lentement, et qui avait pour conséquence le
+déplacement du point focal avec le temps… Chose assez embarrassante que de voir le foyer se décaler au bout
+de quelques minutes à peine… Mais on pouvait anticiper cela, et quand on commençait à voir de l’ombre se
+créer dans le rail en aluminium sur lequel reposait notre objet sur son socle, cela voulait dire que l’on devait
+tourner délicatement les deux
+moitiés de parabole pour rectifier la position du foyer, sans oublier de
+
+11
+
+aussi tourner le rail ! Cette
+technique nous permit de faire des expériences plus longues allant jusqu’à
+15 minutes, même si parfois assez complexes.
+Remarque 2 : Le foyer n’est pas un point mais plutôt une zone plus ou moins elliptique. En théorie,
+une parabole parfaite aurait un point focal minuscule, et donc un foyer tout aussi microscopique. Mais cela
+est impossible à atteindre, et les imprécisions de fabrication rendent le foyer circulaire pour une parabole
+circulaire ou elliptique pour une parabole rectangulaire.
+
+IX-Résultats :
+Résultats avec vent :
+Quand on a voulu chauffer la poêle en fonte de 2kg, on se rendit compte qu’après une étape à une centaine de
+degrés à 1min, la température se stabilisait pour atteindre 200°C au centre, sur ce qui nous semblait être une zone plus
+ou moins ronde d’une dizaine de centimètres de diamètre, et 100°C sur la périphérie, elle aussi d’une dizaine de
+centimètres de largeur, et ce après 5minutes seulement. Nous avons tout de même laissé la poêle suspendue pendant dix
+minutes, mais rien ne changea. Ayant atteint la température maximale avec la poêle, on conclut que cela suffisait déjà
+pour de la cuisine basique, par exemple pour cuire un œuf. Même s’il était sûrement possible de monter encore plus
+haut en température en limitant la convection naturelle due au vent et en ajoutant de l’isolation autour de la poêle.
+Ensuite, le fer-plat donna des indications pour le moins surprenantes. On plaça la moitié au foyer et on attendit,
+après 5min la partie exposée était à 170°C, et après 10min à 200°C, sans augmenter d’avantage. On aurait pensé que la
+cavité de béton cellulaire l’aurait fait chauffer plus que la poêle seulement suspendue, mais apparemment ça n’avait pas
+changé grand-chose.
+On observa presque les mêmes résultats en y plaçant la plaque d’aluminium anodisée ; avant l’expérience la
+surface sombre était à 45°C, et après 3min d’exposition elle était à 200°C au centre. Elle atteignit son maximum après
+5min, où son centre atteignit 215°C sur un diamètre de 5cm. (pour une meilleure visualisation :
+https://youtu.be/SA0NjXR4kq0 / https://youtu.be/z-bFSzqR8Kw → négligez les discussions ! Nous vous conseillons de
+couper le son, et vous informons que nous n’avions pas fait attention à l’audio lors de l’enregistrement ! Et parfois il y
+a beaucoup d’erreurs dans ce que l’on dit dans les vidéos…).
+Mais le test de la laine d’acier nous surprit beaucoup, car en 30s la partie au foyer commença à fumer et
+prendre une multitude de couleurs (Vidéo laine d’acier : https://youtu.be/DWx2XyQnuCE). On la retira immédiatement
+pour l’observer, et ne l’avons pas remise au foyer car cela nous suffisait déjà. Comme il est possible de voir dans la
+photo ci-dessous, l’acier a pris une couleur très caractéristique correspondant à la température atteinte. Ce changement
+de couleur a été étudié depuis des siècles et est aujourd’hui encore beaucoup utilisé comme thermomètre par les
+forgerons et couteliers du monde entier pour lire la température de l’acier, appelé « diagramme de revenu ». Ainsi, nous
+pouvons déterminer la température de l’acier en comparant sa couleur avec un diagramme la reliant à la température
+maximale atteinte. Nous ne détaillerons pas ce procédé par la suite, et n’afficherons que la température déduite.
+Il fut très simple, non seulement de déterminer avec précision la taille du foyer, mais aussi de lire la
+température avec la couleur. Ainsi, nous pouvons déduire que le foyer fait environ 4cm de long, et 3cm de large,
+prouvant ainsi la capacité à faire un point focal plus long que large et non pas rond comme pour beaucoup de paraboles.
+Et les fils ont atteints 250-300°C au foyer. Cette différence par rapport aux températures mesurées avec le thermomètre
+sur les objets précédents s’explique par le peu de vent à ce moment, et de la facilité de chauffe sous forme de fil. En
+effet, plus un fil sera fin, plus il sera simple de le faire chauffer ou fondre.
+
+Boule de laine d’acier après exposition au foyer de
+la parabole
+
+12
+
+« Diagramme de revenu »
+
+Le morceau de contreplaqué placé au foyer fit tout ce qu’il y avait de plus prévisible (vidéo contreplaqué :
+https://youtu.be/Jq5RlKRNljA), noircir progressivement, puis fumer et rougir, sans flammes à cause du point d’éclair
+pas encore atteint (vers 300-400°C, le bois s’enflamme spontanément, c’est ce qu’on appelle « point d‘éclair »). Mais
+aucune information n’est réellement exploitable de cette expérience, mis à part le fait que l‘on peut allumer du charbon
+ou transformer lentement du bois en braises, ici en 30secondes.
+Puis nous passâmes à l’étain, qui est fort heureusement trouvable assez facilement, autant dans les ustensiles
+de vaisselle anciens que dans les magasins spécialisés, et sa température de fusion étant très basse (environ 232°C),
+cela le rend très apprécié des bijoutiers, artisans, plombiers et bricoleurs. Que ce soit pour braser des tubes de cuivre ou
+mouler des statuettes ou des bijoux. Un morceau de tôle d’étain pliée et accrochée à un fil de fer, le tout suspendu au
+foyer et le tour était joué. Le morceau a commencé à fondre après à peine 1min20s… jusqu’à ce qu’on retire le reste de
+la tôle à 1min50s. (vidéo fusion de l’étain : https://youtu.be/Q7qbrfVwpe0) Nous avons ensuite laissé refroidir le
+monticule d’étain, résultat de sa fusion, pour ensuite le peser sur une balance précise au demi gramme qui nous indiqua
+80g. Soit 57 % de la masse initiale de 140g.
+Ambitieux, nous avons donc voulu tenter de mouler un petit objet, en utilisant comme creuset une éprouvette
+en verre borosilicaté, donc résistante aux chocs thermiques, et d’y placer à l’intérieur de l’étain destiné à être fondu.
+Mais au bout de la minute et des vingt secondes, l’étain était toujours solide… et toujours identique 10min après…
+Pourquoi ça n’avait pas marché ? Et bien parce que les rayons, plutôt que de traverser la paroi de verre, étaient en partie
+déviés par celle-ci par réfraction. Si bien que ce n’était plus qu’une fraction de la lumière qui atteignait l’étain à
+l’intérieur… et que cela lui valu de ne pas dépasser les 90°C…
+On prit cet échec comme il se devait, et on abandonna l’idée de fondre de l’étain dans un creuset avec une
+parabole comme celle-ci, car nous aurions dû dans le cas contraire nous procurer des creusets
+« spéciaux » plus
+transparents et adaptés… qui coûtent cher et auraient mis trop de temps à nous parvenir.
+On changea l’organisation de la parabole comme expliqué précédemment, et on installa le rail et son socle de
+bois coulissant, pour cette fois avancer graduellement vers la parabole le socle supportant la plaque d’aluminium
+anodisée de 5cm toutes les 30 secondes, pour repérer plus précisément la zone la plus efficace, soit l’endroit ou le point
+focal est le plus petit, et où le foyer est le plus chaud. Donc l’endroit le plus intéressant pour nous.
+Le graphique obtenu après traitement des données avec Libre-Office Calc est sur la page suivante.
+
+Zone où le foyer
+est le plus chaud
+
+Incertitude due à la mesure manuelle des températures : ± 2°C ( Tmes+2 > T > Tmes-2 )
+
+13
+
+Nous pouvons donc voir que le foyer est le plus chaud à environ 45cm de la surface de la parabole suivant
+l’axe de symétrie, où la plaque monta à 227°C. Cette expérience ayant été faite en début d’après-midi l’intensité
+lumineuse était plus élevée que précédemment et la température légèrement supérieure
+Pour savoir plus précisément la répartition de la température au foyer, nous avons fixés à 45,0 cm de distance
+la plaque d’acier de 1600g, et avons balayé la zone avec le thermomètre, la quadrillant le plus régulièrement possible.
+Et avons ensuite traités le jeu de données avec le logiciel R. La « carte thermique » du foyer est affichée à la page
+suivante.
+Malheureusement, trois erreurs se sont incrustées dans le script et ont générées les trois tâches visibles, qui ne
+sont nullement des zones plus froides mais seulement des « bugs ».
+La seconde chose à nous avoir interpellé était la température étrangement basse, avec le centre du foyer ne
+dépassant pas les 200°C… mais l’explication fut assez simple à trouver rétrospectivement en nous souvenant de la
+petite couche nuageuse qui avait commencé à se former et à absorber une petite partie de l’intensité lumineuse
+incidente. C’est pour cette raison que la température avait été plus basse.
+
+Carré de 10 cm de coté
+
+Carte thermique au foyer (axes en cm, et échelle de température en °C)
+Résultats sans vent :
+Avec le même principe que précédemment, et l’utilisation du rail et du socle coulissant, nous avons placé
+d’abord une pièce d’acier au foyer, et avons attendu plusieurs minutes, mesurant sa température toutes les 30s et
+l’inscrivant dans un tableur. Puis avons fait la même expérience avec deux pièces, trois pièces, puis quatre pièces, et
+avons transformé le jeu de données en plusieurs graphiques ci dessous :
+(coté face = coté exposé aux rayons, au point focal / coté dos = coté caché opposé au coté face, non exposé)
+1 pièce d’acier = 60 g ( + / - 40 x40 x 5 mm )
+
+Evolution de la temperature de pièces d'acier en fonction du temps
+
+T (°C)
+
+1 pièce d'acier = 60g (+/-40x40x5mm)
+350
+300
+250
+200
+150
+100
+50
+0
+
+1 pièce
+2 pièces
+3 pièces
+4 pièces
+
+Temps ( en secondes )
+
+14
+
+Lot de 2 pièces d’acier en train de
+chauffer à 45cm de la parabole.
+
+Evolution de la température de 4 pièces d'acier, suivant si les mesures sont du coté face ou dos, en fonction du temps
+1 pièce d'acier = 60g (+/-40x40x5mm)
+
+Nuage !
+
+350
+300
+250
+200
+
+Dos
+Face
+
+T(°C)
+
+150
+100
+50
+0
+
+Temps ( en secondes )
+
+Il est d’abord possible de voir que l’ajout de pièces à l’arrière de celle exposée ne change en rien sa vitesse de
+montée en température et sa température finale qui reste de 320°C (± 1°C), pour un temps de chauffe de 900s. Nous
+pouvons définir la vitesse de montée en température comme la dérivée de T par rapport au temps, égale donc au
+coefficient directeur de la tangente à la courbe, et qui est donc maximale à t = 0, s puis diminue pour s’annuler une fois
+l’équilibre thermique atteint. La vitesse de chauffe à t = 0 s étant d’approximativement 48°C/s (coefficient directeur de
+la courbe de tendance entre les tout premiers points de la courbe).
+En revanche, la différence entre le côté face et le coté dos du lot de pièces est très marquée. La température au
+dos du lot de 4 pièces (là où la différence est la plus marquée) est en effet d’une centaine de degrés inférieure à celle du
+coté face. Mais nous avons repéré autre chose tout aussi intéressant : premièrement, la montée en température du côté
+dos est bien plus progressive que du côté face avec une allure de la courbe similaire. Mais le passage d’un nuage dans le
+ciel nous a offert une donnée exceptionnelle. Car il a fait chuter la température du côté face de 25°C (c’était un petit
+nuage…), mais n’a eu aucun impact visible sur la température du coté dos. En effet, comme la pièce au dos n’est pas en
+contact direct avec les rayons lumineux et ne chauffe que grâce au contact avec les autres pièces chaudes par
+conduction, elle est bien moins impactée par de faibles changements et sa température est beaucoup plus stable. Autre
+chose est facilement visible : la différence flagrante de température comparée aux séances « avec vent » !
+En effet, ici les pièces d’acier ont atteint les 320°C ! Cela s’explique par l’absence complète de vent qui a
+fortement diminué les pertes par convection.
+
+300°C
+
+Ci-contre les photos des lots de
+1 pièce, deux pièces et 4
+pièces. Le lot de 3 pièces ayant
+été endommagé puis réutilisé
+pour le lot de 4 pièces, donc
+n’est pas en photo.
+
+325°C
+
+320°C
+
+250°C
+
+320°C
+
+270°C
+280°C
+Températures issues de la lecture des couleurs avec le diagramme de revenu affiché
+plus haut.
+
+15
+
+Puis, pour simuler un travail
+de forge, nous avons placé avec
+le même dispositif un fer-plat
+d’acier de 300g et avons étudié
+l’évolution de sa température
+en son centre. (graphique cidessous)
+
+Evolution de la temperature d'un fer-plat d'acier
+
+320°C
+
+300°C
+
+T (°C)
+
+pièce d'acier de 300g (+/- 185 x 40 x 5mm)
+400
+300
+200
+100
+0
+
+270°C
+<200°C
+
+Fer-plat d’acier vu du coté dos, après la chauffe.
+15 125 173 201 217 226 270 272 281 300 299 302 327 323 310 318
+Temps (en secondes)
+
+Nous avons ensuite fait de même avec un petit
+bloc d’acier de 900g, mais bien que la montée en température soit plus lente, on parvint après 20 minutes à le porter à
+310°C presque uniformément sut toute sa surface. Mais nous n’avons pas de courbe le montrant.
+Puis, pour visualiser le point focal dans sa totalité plutôt que sur des segments, on plaça la plaque d’acier de
+1600g au foyer, le point focal dirigé en son centre :
+
+290°C
+
+270°C
+
+250°C
+
+Evolution de la temperature d'une plaque d'acier en fonction du temps
+
+<200°C
+
+T (°C)
+
+Plaque d'acier : 1700g ( +/- 270 x 270 x 3mm )
+300
+250
+200
+150
+100
+50
+0
+Centre de la plaque d’acier de 3mm d’épaisseur
+Temps ( en secondes )
+
+Et enfin, simplement pour voir s’il était possible de faire bouillir de l’eau, nous avons placé 50mL d’eau du
+robinet initialement à 12°C. A 5 minutes elle commença à frémir et le thermomètre afficha 92°C (±1°), puis elle se mit à
+bouillir au bout de 7 minutes quand elle était arrivée à 101°C (±1°).
+
+X-Comparaison entre l’Expérimental et le Théorique (et importance des différents facteurs) :
+Une équation différentielle a été établie et résolue numériquement par des enseignants du lycée Andre Chamson pour
+modéliser l’évolution de la température de la pièce d’acier en fonction du temps, et ensuite la comparer à celle des
+résultats. La résolution a été faite via un programme écrit en Python. Le script est en annexe . Pour établir cette
+équation, on part du Premier Principe de Thermodynamique
+ΔU = U = Qp + Qcv +Qr + Qcb
+m.c.ΔU = T = Qp + Qcv +Qr + Qcb
+m.c.(ΔU = T / ΔU = t) = (Qp / ΔU = t )+ (Qcv / ΔU = t) + (Qr / ΔU = t ) + (Qcb / ΔU = t)
+Si ΔU = T tend vers 0, alors ΔU = T / ΔU = t tends vers sa dérivée, soit : dT /dt et (Qp / ΔU = t ) tend vers ϕp , ….etc
+Donc : m.c.(dT /dt) = ϕp + ϕcv + ϕr + ϕcb polynôme d’ordre 4 en T (voir script) ; les expressions des puissances
+thermiques en fonction de T sont les mêmes que celles du III)
+Les calculs ont été réalisés par M Roux, professeur de physique-chimie du lycée André Chamson, et le script par Mr.
+Roux et Mr. Magnoux.
+Nous nous concentrerons ici sur l’étude d’une « pièce » d’acier placée au foyer, soit pour rappel un carré
+d’acier de 40mm de coté, 5mm d’épaisseur, et d’environ 60g. Chauffée sans vent, avec un ciel dégagé, avec environ
+400W/m² de puissance lumineuse surfacique, en octobre.
+
+16
+
+T(°C)
+
+Rappelons que, expérimentalement, nous avons pu (sans vent ni nuages) la faire atteindre un plafond d’environ 320°C,
+en environ 900s, comme indiqué par la courbe ci-dessous.
+Pour tracer la courbe théorique, nous nous sommes appuyés sur
+Evolution de la temperature T de pièces d'acier en fonction du temps plusieurs facteurs qui – nous pensons – influent sur la température : la
+400
+puissance lumineuse surfacique reçue par le dispositif (dépendant de
+300
+la période de l’année ) , les caractéristiques de l’objet placé au foyer,
+ainsi que son coefficient de transmission, son émissivité, et la vitesse
+200
+du vent.
+100
+La courbe suivante sera appelée Norme, pour la réaliser au plus près de
+0
+la courbe expérimentale nous avons donc inscrits les valeurs suivantes
+dans le Script :
+eps = 0,72 H = 10
+Tr = 0,08
+Ps = 400W/m²
+Voici la courbe qui en résulte ci-dessous :
+Temps (en s)
+
+T (en °C)
+
+Evolution théorique de la température T en fonction du temps
+350
+H est lié à la vitesse du vent, soit si H = 10 pour un vent
+300
+quasiment nul, et ou la vitesse du vent augmente quand H
+250
+augmente.
+200
+eps correspondant à l’émissivité de l’acier
+150
+Tr correspondant au coefficient de transmission, soit la quantité
+100
+d’énergie absorbée par la pièce d’acier suivant son aspect de
+50
+surface, plus la pièce est sombre plus le coefficient est élevé
+0
+Ps correspondant à la puissance lumineuse surfacique incidente
+Ici, la pièce atteindrait théoriquement un plafond de
+320°C en environ 850s. Très proche donc des 320°C en 900s
+temps (en s)
+mesurés. Et les allures des courbes sont semblables.
+Pour mieux comprendre l’impact des différents facteurs
+(vent, mois, Tr et émissivité .), nous avons fait varier les différents paramètres inclus dans le script python, les courbes
+qui en résultent sont affichées ci-dessous, sur la base de la Norme, indiquée dans la légende.
+350
+300
+250
+200
+150
+100
+50
+0
+
+800
+700
+600
+500
+400
+300
+200
+100
+0
+
+H=10 (norme)
+H=17
+H=25
+H=32
+H=39
+H=46
+
+450
+400
+350
+300
+250
+200
+150
+100
+50
+0
+
+eps=0,30
+eps=0,40
+eps=0,50
+eps=0,60
+Eps=0,72 (norme)
+Eps=0,80
+
+500
+Tr=0,50
+Tr=0,40
+Tr=0,30
+Tr=0,20
+Tr=0,08 (Norme)
+Tr=0,02
+
+400
+300
+200
+100
+0
+
+17
+
+Ps=800W/m²
+Ps=600W/m²
+Ps=400W/m²
+(norme)
+
+Ps=700W/m²
+Ps=500W/m²
+Ps=300W/m²
+
+On peut déjà voir que, comme prévu, et comme expérimenté, la température de l’objet au point focal tend à
+baisser quand la vitesse du vent augmente, donc quand les phénomènes de convection s’intensifient.
+Mais en effet, l’aspect de surface détermine directement la quantité d’énergie que l’objet pourra absorber, et sa
+température y est fortement liée. Et nous pouvons voir grâce à aux courbes de Tr, que soigner l’aspect de la surface
+exposée aux rayons pourrait être très important dans le cas où le but serait d’atteindre les températures les plus hautes. Il
+serait même peut-être envisageable d’y réfléchir d’avantages pour essayer de trouver un juste milieux entre coûts
+(environnemental et économique) et température atteinte, en assombrissant par divers moyens la surface de l’objet
+chauffé. L’autre avantage étant la montée en température bien plus rapide.
+Aussi, lorsque l’émissivité de l’acier baisse (traduisible par un changement d’acier utilisé), la température
+semble continuer d’augmenter (lentement) pendant un peu plus longtemps que la Norme, et l’objet finit donc par
+atteindre une température finale un peu plus élevée. On peut en déduire que de l’acier doux en parfait état (eps = 0,200,32) chaufferait mieux que de l’acier utilisé pour la norme, ici considéré comme de l’acier doux terni ou de l’acier
+oxydé (eps ± 0,70).
+De plus, chose logique, il est clair que l’augmentation de la puissance lumineuse surfacique incidente induit
+l’augmentation de la température finale.
+
+XI-Discussion
+Ces expériences nous permettent de montrer le bon fonctionnement d’un tel dispositif. Et il est possible d’être
+quasiment certain de l’efficacité qu’aurait une parabole de grande taille, non seulement grâce aux mesures faites avec le
+thermomètre, mais surtout en vérifiant ces mesures avec la couleur des échantillons d’acier exposés au foyer, et ensuite
+en repérant la ressemblance entre la courbe expérimentale et théorique. Et bien que son efficacité soit directement liée
+aux conditions météorologiques (vent, nuages…) et aux caractéristiques de l’objet placé au foyer (matière, état de
+surface...), nous avons conclu que la maquette elle-même pourrait être utilisée d’office, notamment lors du « revenu »,
+une des étapes de fabrication des couteaux, qui nécessite une montée en température de la lame à 250-300°C. Cette
+étape est primordiale, car après que le couteau ait été « trempé », c’est à dire chauffé vers 850-1000°C pendant quelques
+minutes puis refroidi brutalement à température ambiante, celui-ci devient très dur (jusqu’à 64 Hrc, le Hrc étant une
+échelle de dureté utilisée en coutellerie), mais aussi très cassant… C’est le « revenu » qui, en chauffant légèrement
+l’acier de la lame, le détend et l’assoupli assez pour qu’il devienne utilisable. C’est ce qui permet à un couteau de ne pas
+se casser quand il se tord, et qui le fait revenir à sa position initiale.
+Aucun revenu n’a été réalisé pour l’instant avec la maquette, mais il est certain qu’il est possible d’y arriver, et
+qu’Elio se plaira à utiliser la maquette plutôt que des chalumeaux à gaz quand il aura de nouveau du temps à consacrer à
+la coutellerie.
+Quant à la parabole de grande taille, elle pourrait être utilisée dans un futur proche pour tous les petits travaux
+de forge, la trempe de lames de couteau, la cuisine, etc. Parabole qui serait bâtie sur les mêmes plans et concepts, mais
+de plus grandes dimensions et avec l’ajout d’un héliostat pour simplifier la mise en pratique.
+Malheureusement, pour que les résultats soient parfaitement fiables, il faudrait refaire plusieurs fois les
+expériences dans un maximum de conditions différentes et à des périodes de l’année différentes. Et nous ne pouvons
+donc prévoir exactement le comportement d’une parabole plus grande, car nous manquons actuellement de résultats
+avec la maquette. Il faudrait répéter ces expériences encore de nombreuses fois et ainsi affiner les prévisions. Mais cela
+ne nous empêchera pas de continuer les recherches, et d’un jour développer un dispositif plus grand, même sans une
+connaissance parfaite de son comportement. Le principal étant sa capacité à chauffer rapidement et à de hautes
+températures, son coût bas et sa réplicabilité la plus aisée possible. De plus, le script Python utilisé pour comparer les
+courbes expérimentales et théoriques est toutefois limité, et ne permet pas de prédire avec précision comment réagirait
+une parabole de grande taille mais seulement au niveau de la maquette.
+Mai nos objectifs sont actuellement atteints, car nous avons bel et bien réussi à chauffer de l’acier à des
+températures pouvant atteindre 300°C. Et il est évident que l’on devrait accéder aux 1000°C aisément avec un dispositif
+plus grand, de 6,60m de long et 2,15m de hauteur comme établit plus tôt dans le mémoire.
+De plus, nous sommes confiants vis à vis de l’avenir d’un tel dispositif, car bien que l’installation nécessite du
+soleil en grande quantité et un climat si possible chaud et sec, il reste un grand choix de zones géographiques, voir de
+pays, où ce dispositif serait viable. Notamment dans le sud de la France, en Espagne, en Italie, dans le Nord de
+l’Afrique, dans le sud des États-Unis, etc.... Suffisamment pour que l’on considère ce moyen de chauffe comme
+intéressant à grande échelle.
+De plus, ses domaines d’applications sont nombreux, par exemple dans l’industrie, un secteur fortement
+émetteur de gaz à effets de serre. Bien que certaines entreprises n’aimeront pas l’importance des facteurs
+météorologiques, n’importe quelle industrie pourrait opter pour ce dispositif, avec comme complément, quand la
+puissance n’est pas suffisante, de brûleurs à gaz ou de résistances électriques, l’ensemble réduisant tout de même
+l’impact carbone de la forge ou de l’entreprise.
+
+18
+
+Ce dispositif permettant de chauffer autant que l’intensité lumineuse le permet, il est en effet possible de forger
+massivement tant que les conditions météorologiques sont favorables.
+Mais ses secteurs d’applications sont bien plus larges que l’industrie, notamment dans la cuisine écologique, la
+forge artisanale – puisque c’était l’idée originelle du projet – mais aussi la production d’électricité avec des moteurs
+Stirling et son stockage sous forme d’énergie thermique, ainsi que la fabrication de polymères comme à Odeillo, ou
+dans la fabrication de silicate de sodium (colle largement utilisée dans les industries de papier et de carton) ou de bien
+d’autres produits nécessitant de hautes températures.
+Si l’on compare la parabole et son héliostat avec les autres moyens de chauffe, il est aussi possible de voir qu’il
+s’agit d’un dispositif bien plus sécuritaire et simple d’utilisation que nombre ses congénères. Car malgré la présence du
+point focal extrêmement chaud, et de la lumière insoutenable émise au foyer, il n’y a aucune risque d’explosion, de
+surchauffe, de court circuit, ou de rejets de gaz ou de substances nocives. De plus, aucun stockage de combustible n’est
+nécessaire, et l’équipement de protection est commun à tous bricoleurs un peu expérimentés.Et les seules contraintes
+sont le port de lunettes adaptées ou d’un masque de soudure, ainsi que s’équiper de gants isolants pour manipuler les
+objets chauffés. Mais aucune manœuvre dangereuse n’est à prévoir lors de son utilisation.
+Du point de vu environnemental, il s’agit d’une révolution ! Car il s’agit d’un dispositif très peu polluant, qui
+ne dégage ni dioxyde de carbone ni méthane, et dont l’utilisation ne nécessite presque pas d’électricité, si ce n’est celle
+produite sur place par les cellules photovoltaïques servant de capteurs solaires et alimentant les moteurs directionnels,
+pour que l’Héliostat, ne l’oublions pas, s’oriente d’elle-même au cours de la journée. Cela signifiant une simplicité
+d’utilisation hors norme, avec seulement des opérations d’entretien ou de vérification de son bon fonctionnement
+occasionnelles. Et dans tous les cas, aucun raccordement au secteur ou aucune production externe d’énergie (groupe
+électrogène ou autre ) n’est à prévoir, bien au contraire.
+Sa fabrication est relativement simple et aussi peu polluante, sa structure pouvant être faite en bois si un toit
+amovible est prévu (par exemple avec un hangar sur rails), tandis que les découpes et l’assemblage ne nécessitent
+aucune machine-outils et très peu d’électricité et de consommables. Il est même possible d’utiliser du bois local
+puisqu’il ne nécessite aucune particularités techniques pour la structure, tandis que les lattes peuvent êtres fabriquées
+soi-même avec un peu de temps et du contreplaqué de récupération (par exemple celui utilisé pour les coffrages de
+béton arrondis, assez souple et souvent jeté après utilisation).
+L’industrie métallurgique est avec les cimenteries l’activité industrielle la plus consommatrice d’énergie. En
+France, elle consomme annuellement environ 1,4 ktep (kilo-tonne-équivalent-pétrole) de gaz, 2,2 ktep d’électricité, et
+4,7 ktep de combustibles minéraux solides… (charbon, coke...) un dispositif comme celui exposé dans ce mémoire
+permettrait de réduire considérablement cette consommation. Nous ne pouvons prédire la quantité économisée
+puisqu’elle dépendrait de la zone géographique où elle serait installée, mais cela serait déjà une avancée dans la
+neutralité carbone de la France, mais aussi du monde entier. A petite et à grande échelle.
+La popularisation d’un tel dispositif chez les artisans serait aussi facilement atteignable (par l’usage de petites
+aides à un passage à l’artisanat écologique, ainsi que par des démarches publicitaires), et améliorerait la santé des
+artisans tout en limitant leur impact carbone au maximum, et en préservant la dynamique de leur secteur d’activité.
+Nous avons enfin imaginé un nom et un logo représentant ce dispositif que nous pensons envisageable, à
+présent nommé « SunForge », dont il est possible de voir une première idée de logo dans l’annexe et en fin du mémoire.
+L’urgence climatique nécessite des actions concrètes, dans certains pays on déforeste 75% des forêts
+pour les brûler ensuite dans les fours, et on détruit le peu de nature intacte en y installant des forages pétroliers,
+des gazoducs, ou des mines.
+La pollution de l’air à cause des microparticules et des résidus de la combustion apporte cancers et
+maladies pulmonaires.
+La sixième extinction de masse est déjà amorcée, la biodiversité est en déclin à cause de la destruction de
+l’environnement et du changement climatique, lié en grande partie à l’exploitation des combustibles fossiles et de
+leur utilisation massive.
+Les ressources fossiles sont en cours d’épuisement, et sont toujours celles utilisées en grande majorité.
+Il est temps de changer nos habitudes, et nous avons dans l’espoir de développer cette parabole dans un
+futur le plus proche possible et la rendre accessible à la majorité.
+
+19
+
+XI-Remerciements
+Nous souhaitons remercier :
+- Notre professeur de Physique-Chimie Mr. Magnoux pour son aide et sa disponibilité tout au long de l’année.
+- Nos parents qui nous ont soutenu tout au long du projet et nous ont permis de le mener à sa fin. Dont certains nous ont
+aussi procurés des matériaux pour la construction de la maquette.
+-Le professeur de Physique-Chimie Mr. Roux, pour son aide considérable au niveau théorique, ses explications toujours
+pertinentes, et pour nous avoir prêté du matériel de mesure.
+- L’équipe de la direction, dont bien sûr nôtre proviseur Mr. Chareyre et nôtre principal Mr. Pernel, ainsi que nôtre CPE
+Lycée Mme Lemmens, qui nous ont permis la participation à ce projet.
+- La MDL (maison des lycéens) du Vigan, qui nous a aidé à l’achat des matériaux de base et consommables pour la
+réalisation de la maquette.
+- L’équipe des Olympiades de l’année précédente pour nous avoir « initiés » aux Olympiades et nous avoir donné envie
+d’y participer.
+- L’intégralité des élèves de la classe et du lycée, qui nous ont encouragé tout au long de l’année.
+- Les enseignants de spécialités qui nous ont aidé et soutenu dès que le besoin s’en ressentait.
+- Le professeur de littérature retraité Yves Gouraud pour nous avoir aiguillé et renseigné sur la réalisation concrète de la
+parabole.
+- Le professeur de Mathématiques Mr. Couderc, qui nous as aidé pour la résolution des calculs hors-programmes.
+
+20
+
+

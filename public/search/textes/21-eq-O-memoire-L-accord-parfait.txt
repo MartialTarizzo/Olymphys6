@@ -1,0 +1,1471 @@
+21e Olympiades de Physique
+Epreuves Nationales
+7 et 8 février 2014
+
+L'accord
+parfait
+CORTET Auriane
+MAISONNIER Clementine
+EL MOUTAOUAKKIL Amal
+CHARRION Adrien
+Elèves de terminale S
+Lycée Rosa Parks
+Neuville/Saône
+
+Page 1
+
+Table des matières
+Remerciements...................................................................................................................................................2
+1Résumé du projet..............................................................................................................................................3
+2Descriptif de la guitare utilisée dans ce projet..................................................................................................3
+3Rappels succincts sur les modes de vibration d'une corde aux extrémités fixes.............................................4
+3.1Les ondes stationnaires ...........................................................................................................................4
+3.2Conséquences sur la vibration de la corde...............................................................................................4
+4Les notes émises par les cordes d'une guitare.................................................................................................5
+5La sensibilité fréquentielle de l'oreille humaine- notion de Savart ...................................................................5
+6Généralités sur l'accord d'une corde de guitare................................................................................................5
+6.1Principe.....................................................................................................................................................5
+6.2Valeur des tensions des cordes de guitare...............................................................................................6
+7Mesures.............................................................................................................................................................6
+7.1Mesures de l'allongement des cordes de nylon en fonction de la tension...............................................6
+7.2Variation de la fréquence propre pour un tour de clef...............................................................................7
+7.3Signal obtenu au niveau du micro. Amortissement des cordes ...............................................................8
+7.4Le signal observé lors de l'excitation de la corde.....................................................................................9
+7.5Evolution du spectre au cours de amortissement de la vibration.............................................................9
+7.6Influence de la façon d'exciter la corde sur le timbre obtenu(v annexe 13 - 6)......................................10
+a)Influence de la position des doigts du musicien..................................................................................10
+b)Influence du doigté du musicien..........................................................................................................10
+c)Conclusion...........................................................................................................................................10
+8Chaîne de régulation de l'accordeur de guitare..............................................................................................10
+8.1Synoptique..............................................................................................................................................10
+8.2Le micro...................................................................................................................................................11
+8.3Le comparateur à deux seuils inverseur................................................................................................11
+8.4La conversion fréquence - tension..........................................................................................................12
+8.5Moteur pas à pas....................................................................................................................................13
+a)Pourquoi un moteur pas à pas ?.........................................................................................................13
+b)Le couple du moteur pas à pas..........................................................................................................13
+8.6La carte micro-contrôleur Arduino Uno...................................................................................................14
+8.7La conversion analogique numérique.....................................................................................................14
+8.8Principe du programme chargé dans l'Arduino : ....................................................................................14
+9Réalisation pratique ........................................................................................................................................15
+9.1 Réalisation de la pièce de couplage avec les clefs...............................................................................15
+9.2L'alimentation en énergie........................................................................................................................16
+9.3Réalisation des circuits électroniques.....................................................................................................16
+9.4La sélection de la corde à accorder........................................................................................................16
+9.5L'accordeur achevé ................................................................................................................................16
+10Essais- Mise au point....................................................................................................................................17
+11Résultats........................................................................................................................................................17
+Méthode d'accord standard .........................................................................................................................17
+12Conclusion.....................................................................................................................................................18
+13Annexes.........................................................................................................................................................19
+13.1Analyse de Fourier du son émis par la corde 5 depuis l'attaque jusqu'à sa disparition.......................19
+13.2Courbes donnant la force appliquée en fonction de l’allongement des cordes....................................21
+13.3Calcul de la variation de fréquence résultant d'une petite variation de tension...................................22
+13.4Schémas des circuits électronique.......................................................................................................22
+13.5Carte Arduino Uno.................................................................................................................................22
+13.6Spectres du son émis par la corde 5 excitée de différentes façons.....................................................23
+13.7Programme Arduino..............................................................................................................................24
+13.8Caractéristiques du moteur pas à pas..................................................................................................25
+13.9Le circuit LM 350...................................................................................................................................26
+13.10Le câblage du circuit électronique......................................................................................................26
+13.11Buget...................................................................................................................................................27
+
+Remerciements
+Nous remercions Mme Jacques notre professeure de sciences de l'ingénieur et M Jouve notre
+professeur de physique pour l'aide qu'ils nous ont apporté pour la réalisation de ce projet. Nous
+remercions Madame Dugourgeot, proviseure du Lycée Rosa Parks, pour la salle qu'elle met à la
+disposition de l'atelier scientifique, ce qui a facilité la mise au point de notre appareil.
+Nous remercions aussi le comité des Olympiades de Physique pour le financement accordé sans
+lequel nous n'aurions pas pu mener à son terme ce projet.
+
+Page 2
+
+1 Résumé du projet
+Nous avons construit un accordeur automatique de guitare sèche classique ou acoustique. Il est
+capable de tourner les clefs et d'ajuster la tension des cordes afin d'obtenir les notes correctes. Pour
+cela un moteur pas à pas, piloté par une carte Arduino Uno, est relié aux clefs de l'instrument par le
+musicien. Un dispositif électronique transforme le son émis par une corde en une tension continue
+proportionnelle à la fréquence. Cette tension est lue par la carte Arduino dans laquelle nous avons
+téléversé un programme informatique. Ce programme compare la tension avec une tension de
+consigne qui dépend de chaque corde et que nous avons préalablement déterminée. La carte fait
+tourner la clef pour obtenir un accord correct soit dans le sens horaire si la fréquence est trop basse,
+soit dans le sens antihoraire si la fréquence est trop élevée.
+Nous avons dû étudier en détail la vibration d'une corde de guitare, depuis son excitation jusqu'à la
+fin de son amortissement afin de régler cet accordeur. Finalement il fixe la fréquence de vibration à ±
+0,5 Hz près.
+Nous sommes conscients qu'un musicien averti accordera sûrement mieux sa guitare que notre
+dispositif, mais notre système peut être utile pour un musicien débutant éloigné de son professeur et
+incapable d'accorder seul sa guitare. .
+
+2 Descriptif de la guitare utilisée dans ce projet
+Nous avons utilisé une guitare sèche munie de cordes en nylon.
+C'est une guitare en tout point identique à celle de la figure ci-dessous.
+
+Page 3
+
+3 Rappels succincts sur les modes de vibration d'une corde aux
+extrémités fixes
+3.1
+
+Les ondes stationnaires
+
+Lorsqu'on excite avec un vibreur un corde tendue avec ses deux extrémités fixes on constate
+l'apparition d'ondes stationnaires pour certaines fréquences bien déterminées. L'aspect de la corde
+est alors particulier et on observe des fuseaux et des nœuds fixes dans l'espace.
+Pour la plus petite fréquence f1 la corde présente un seul fuseau, le milieu
+de la corde est animé d'une vibration ayant une amplitude bien plus grande
+que celle du vibreur excitateur.
+Ce mode de vibration est le mode fondamental.
+Pour une fréquence double de f1 on observe deux fuseaux avec un nœud
+de vibration au milieu, pour la fréquence triple on observe trois fuseaux .etc .
+Le phénomène a lieu si la longeur de la corde est un mulitple entier de la
+demi- longueur d'onde de l'onde qui se propage sur la corde.
+
+3.2
+
+Conséquences sur la vibration de la corde
+
+Lorsqu'on excite une corde de guitare, tous les modes de vibration peuvent avoir lieu en même
+temps, ce qui a pour conséquence l'obtention d'un signal complexe.
+Nous avons enregistré le signal émis par les cordes et réalisé une analyse spectrale de Fourier avec
+le logiciel Latis Pro.
+Nous obtenons par exemple le résultat suivant pour la corde n°2.
+
+Ce qui donne l'analyse de Fourier suivante .
+
+Nous constatons que la fréquence fondamentale qui définit la note jouée a une amplitude à peu près
+égale à celle de l'harmonique 2, ce qui donne un signal présentant des extremums secondaires
+marqués qui vont rendre délicate la mise au point de l'accordeur.
+Page 4
+
+4 Les notes émises par les cordes d'une guitare
+Les 6 cordes de la guitare correctement accordées émettent les notes suivantes :
+corde
+note
+fréquence(Hz)
+
+6
+mi1
+82,4
+
+5
+la1
+110
+
+4
+re2
+146,8
+
+3
+sol2
+196
+
+2
+si2
+246,9
+
+1
+mi3
+329,6
+
+5 La sensibilité fréquentielle de l'oreille humaine- notion de Savart
+Pour exprimer l'écart de hauteur entre deux sons, on introduit une unité associée au pouvoir
+séparateur de l'oreille, le savart. Ainsi deux fréquences f1 et f2 sont séparées de :
+σ = 1000 log10 (
+
+f1
+) grandeur exprimée en savart.
+f2
+
+L'oreille humaine standard est capable de distinguer deux fréquences séparée par 5 savarts.
+Le rapport entre les deux fréquences est donc
+
+σ
+f1
+=10 1000
+f2
+
+=
+
+10
+
+5
+1000
+
+= 1,011.
+
+Pour la fréquence de la sixième corde de mi1 égale à 82,4 Hz l'intervalle de fréquence théorique
+correspondant à une variation de 5 savarts est ∆f = |f1 - f| = |82,4 - 1,011×82,4| = 0,011×82,4 = 0,9
+Hz.
+On peut donc tolérer un accord de cette corde à ± 0,45 Hz près. On arrondit à 0,5 Hz cette valeur.
+corde
+note
+fréquence(Hz)
+acuité(Hz)
+
+6
+mi1
+82,4
+± 0,5
+
+5
+la1
+110
+± 0,61
+
+4
+re2
+146,8
+± 0,81
+
+3
+sol2
+196
+± 1,1
+
+2
+si2
+246,9
+± 1,4
+
+1
+mi3
+329,6
+± 1,8
+
+Acuité à 5 savarts pour les 6 notes des cordes de la guitare
+
+6 Généralités sur l'accord d'une corde de guitare
+6.1
+
+Principe
+
+La fréquence fondamentale donne la hauteur de la note. Elle correspond à un mode de résonance à
+un seul fuseau.
+Un fuseau a une longueur égale à la moitié de la longueur d'onde.
+Un fuseau correspond donc à une longueur d'onde λ = 2×L où L est la longueur de la corde
+
+√
+
+T
+où T est le tension de la corde
+µ
+exprimée en N et µ la masse linéique de la corde exprime en kg.m-1.
+Si la fréquence du fondamental est f1 on peut écrire :
+c
+c
+1 T
+λ=
+donc 2×L =
+=
+et la note du fondamental a pour fréquence :
+f1
+f1
+f1 µ
+1 T
+f1 =
+2.L µ
+Le réglage de la tension T permet de régler la fréquence de résonance du fondamental donc de la
+note jouée.
+Pour régler la hauteur de la note jouée par une corde, on « tend » plus ou moins la corde.
+La vitesse de l'onde sur la corde est donnée par la relation c=
+
+√
+
+√
+
+Page 5
+
+Pour cela, on tourne la clef ce qui a pour effet d'appliquer une force d'intensité plus ou moins grande
+sur la corde.
+On modifie donc la célérité de l'onde mécanique sur la corde.
+La longueur utile de la corde ne change pas car la distance entre le sillet de tête et le chevalet ne
+change pas et reste égale à 63 cm.
+Il se peut que cette longueur soit très légèrement modifiée puisque la corde fixée sur la table
+d'harmonie via le chevalet peut déformer légèrement le manche.
+Le fait de tirer sur la corde avec une tension réglable modifie aussi la longueur totale de la corde et
+par conséquent, également sa masse linéique.
+6.2
+
+Valeur des tensions des cordes de guitare.
+
+Nous avons mesuré la masse linéique au repos de chaque corde en nylon de la guitare ce qui nous
+a permis de calculer les tensions des cordes connaissant la fréquence de résonance du
+fondamental..
+
+√
+
+1 T
+2.L µ
+
+La tension T d'une corde est donnée par la relation f1 =
+
+soit
+
+T =4.L2. µ . f 21
+L = 63 cm et µ varie avec la corde, de même que f1.
+Voici les résultats de nos mesures de la masse linéique et de notre calcul des tensions:
+Corde
+
+1
+
+2
+
+3
+
+4
+
+5
+
+6
+
+f1(Hz)
+
+329,6
+
+246,9
+
+196
+
+146,8
+
+110
+
+82,4
+
+µ(kg.m-1) Marque Savarez rouge fort tirant 4,0×10-4 5,47×10-4 9 ,6×10-4 1,9×10-3 3,0×10-3 5,5×10-3
+T(N)
+69
+53
+58
+65
+58
+59
+Les tensions ont des valeurs assez élevées, l'ensemble correspond à une force de 360 N environ.
+Ces valeurs dépendent de la nature des cordes : acier, nylon , etc.
+
+7 Mesures
+7.1
+
+Mesures de l'allongement des cordes de nylon en fonction de la tension.
+
+Nous avons mesuré l'allongement ∆L des cordes en nylon(Marque Savarez rouge fort tirant) pour
+des tensions T comprises entre 0 et 60 N proches des valeurs données par notre tableau précédent
+en suspendant à ces cordes des disques d’haltérophilie.
+Nous obtenons des droites passant par l'origine (annexe 13-2) ce qui montre que les cordes sont
+dans leur domaine d'élasticité.
+Nous pouvons écrire pour chaque corde F = kcorde ×∆L. où kcorde est le coefficient directeur de chaque
+droite obtenue.
+Corde
+f1(Hz)
+-1
+
+kcorde(N.m )
+
+1
+
+2
+
+3
+
+4
+
+5
+
+6
+
+329,6
+
+246,9
+
+196
+
+146,8
+
+110
+
+82,4
+
+836
+
+1270
+
+2120
+
+1470
+
+1050
+
+962
+
+Nous avons pu constater cependant que si on laisse une corde soumise à l'action d'une tension de
+50 N pendant plusieurs heures, la corde s'allonge et ne revient plus à sa longueur initiale. C'est sans
+doute pour cela qu'il faut d'accorder très souvent une guitare.
+Page 6
+
+7.2
+
+Variation de la fréquence propre pour un tour de clef
+
+Pour la mise au point de notre appareil il est important d'avoir un ordre de grandeur de la variation de
+fréquence de la fréquence f1 lorsqu'on fait tourner la clef d'un tour.
+Étude expérimentale
+Nous enregistrons le signal correspondant au son émis par une des cordes de la guitare accordée
+correctement, puis nous tournons d'un tour la clef en détendant la corde ou en la tendant plus.
+Voici les résultats :
+Corde
+
+1
+
+2
+
+3
+
+4
+
+5
+
+6
+
+f1(Hz)
+
+329,6
+
+246,9
+
+196
+
+146,8
+
+110
+
+82,4
+
+T(N)
+
+50,1
+
+56,4
+
+62,1
+
+68,4
+
+43,9
+
+40
+
+∆f1(Hz) pour 1
+tour sens horaire
+
++ 32
+
++30
+
++26
+
+10
+
++6
+
++6
+
+∆f1(Hz) pour 1
+tour sens anti
+horaire
+
+-30
+
+-17
+
+-34
+
+-15
+
+-5
+
+-10
+
+Nous constatons que la variation de fréquence augmente avec la fréquence de résonance de la
+corde.
+Elle est du même ordre de grandeur si on tend ou détend la corde.
+
+Page 7
+
+7.3
+
+Signal obtenu au niveau du micro. Amortissement des cordes
+
+Nous avons enregistré le signal obtenu à la sortie de notre micro et observé l'amortissement de
+chaque corde depuis l'excitation. l'enregistrement est effectué à l'aide du logiciel Latis Pro et
+l'interface Sysam. la durée de l'acquisition est de 5 s et le nombre de points d’échantillonnage est de
+20 000.
+
+corde 4
+corde 1
+
+Corde 5
+
+corde 2
+
+Corde 3
+
+corde 6
+
+L’amortissement rapide du signal (moins de 5 s)rend la mise au point de l'accordeur délicate.
+Les signaux sont saturés entre 0 et 500 ms car nous avons placé le micro dans la caisse de
+résonance afin de mieux évaluer la durée de l'extinction du son. Ceci provient de la forte
+amplification du micro.
+La corde 6 de mi1 plus lourde s’amortit beaucoup plus lentement que la corde 1 de mi3 plus légère.
+Cela aura un effet important pour le réglage de l'accordeur.
+
+Page 8
+
+7.4
+
+Le signal observé lors de l'excitation de la corde
+
+Lors de la mise au point de notre appareil, nous avons rencontré des difficultés lorsque nous tenions
+compte de l'attaque. Pour essayer de comprendre l'origine de ces difficultés, nous avons enregistré
+le signal lorsque le musicien excite la corde en la grattant.
+Par exemple pour la corde 5(110 Hz) nous obtenons l'enregistrement suivant, il concerne les 400
+premières millisecondes.
+
+.
+Spectre de Fourier du son obtenu lors de l'attaque. La zone bleue indique l'intervalle de temps sur
+lequel est calculé le spectre de Fourier.
+Lors de l'attaque, le spectre est confus et il faudra donc que l'accordeur n'en tienne pas compte
+comme nous l'avons constaté intuitivement.
+7.5
+
+Evolution du spectre au cours de amortissement de la vibration
+
+Nous constatons que, lors de l'excitation de la corde, l'amplitude du signal augmente et possède de
+nombreux harmoniques , ensuite, la fréquence correcte est jouée , mais se superposent des
+harmoniques et plus particulièrement l'harmonique 2, comme nous le montre l'analyse spectrale
+effectuée sur différents intervalles de temps lors de l'enregistrement :( v annexe 13-1)
+Il apparaît que les harmoniques de rang 2 et 3 s'atténuent assez rapidement. L'harmonique 2,
+d'amplitude plus importante que le fondamental pour des instants compris entre 0 et 300 ms s'amortit
+et son amplitude devient inférieure à celle du fondamental pour des instant supérieurs. Le son émis
+par la guitare s'appauvrit en harmoniques au cours du temps lors de son amortissement. Au bout
+Page 9
+
+d'une seconde, pour la corde 5, le son se rapproche d'un son sinusoïdal, seul le fondamental a une
+amplitude importante dans l'analyse de Fourier. Cet appauvrissement en harmonique du signal au
+cours de son amortissement peut expliquer que le son d'une guitare est agréable surtout juste après
+l'excitation de la corde. Par contre cela sera plutôt un avantage pour la mise au point de notre
+accordeur car la mesure de la fréquence est plus simple.
+7.6
+
+Influence de la façon d'exciter la corde sur le timbre obtenu(v annexe 13 - 6)
+
+Nous avons constaté que notre accordeur fonctionne plus ou moins bien selon la manière dont on
+excite la corde. Aussi avons nous essayé de comprendre pourquoi.
+a)
+
+Influence de la position des doigts du musicien
+
+Nous avons étudié le spectre du son émis par la corde 5 pendant 500 ms après l'attaque. pour des
+lieux d'excitation situés à des distances différentes du chevalet.
+Les distances choisies sont 5 cm, 10cm, 15 cm et 20 cm.
+La distance de 15 cm correspond à un lieu d'excitation situé sur la rosace.
+On constate que c'est ce lieu qui donne le spectre le plus riche en harmoniques.
+b)
+
+Influence du doigté du musicien
+
+Nous avons examiné le spectre du son émi par la corde 5 lorsque le musicien l'excite en un lieu
+situé sur la rosace mais soit en la pinçant franchement et en la tirant vers le haut soit en la
+« frottant » transversalement et délicatement.
+Nous obtenons deux spectres différents.
+c)
+
+Conclusion
+
+Nous confirmons avec l'analyse spectrale que le timbre du son est différent selon la manière dont on
+excite la corde, mais cela n'explique pas vraiment pourquoi l'accordeur est plus efficace pour une
+corde frottée délicatement. Il est possible que notre dispositif de conversion fréquence -tension ne
+détecte pas la bonne fréquence pour certaines combinaisons d'harmoniques occasionnant des
+extremums secondaires très marqués.
+
+8 Chaîne de régulation de l'accordeur de guitare
+8.1
+
+Synoptique
+
+Micro
+
+Convertisseur
+fréquence tension
+
+Comparateur à deux seuils
+
+amplificateur
+
+Carte Arduino
+
+Consigne : corde accordée
+
+Page 10
+
+Module de
+commande du moteur
+
+Moteur pas à pas
+
+8.2
+
+Le micro
+
+Le micro est un micro à électret possédant un amplificateur intégré. Il doit
+être alimenté sous 5 V, tension disponible sur la carte Arduino
+Il nous permet d'obtenir des tensions d'une amplitude de l’ordre de 2 volts à
+partir des sons émis par les différentes cordes lorsque le micro est placé
+dans la caisse de résonance de la guitare.
+
+8.3
+
+Le comparateur à deux seuils inverseur
+
+Le convertisseur fréquence tension fonctionne correctement si le signal qui
+l'attaque est un signal rectangulaire. On doit donc transformer le signal sonore en un signal
+rectangulaire.
+Un comparateur à deux seuils est indispensable à cause de la forme du signal complexe délivrée par
+une corde de guitare.
+Les deux seuils doivent être assez éloignés afin de ne détecter que le maximum ou le minium du
+signal, non pas les extrêmums secondaires.
+Pour un tel comparateur les deux tensions de seuils inverseur sont données par les relations :
+V BH=U ref
+
+R2
+R1
++V sat
+et
+R1 +R2
+R1 +R2
+
+V BB=Uref
+
+R2
+R1+R 2
+
+La tension de référence Uref est de 4 V et les deux résistors de réaction sont constituées par un
+potentiomètre 10 tours de 25 kΩ. On peut ainsi régler les deux tensions de seuil. La tension Vsat = 6,8
+V environ pour notre montage alimenté sous 8 V.
+Entre le micro et le comparateur, un amplificateur dont le gain est différent selon la corde à accorder
+permet d'ajuster la tension maximale afin qu'elle soit adapté au seuil haut du comparateur à
+hystérésis.
+Les deux montages sont réalisés à l'aide d'un circuit intégré possédant 4 amplificateurs opérationnels
+le LM324.
+Il ne nécessite pas d'alimentation symétrique. Nous l'alimentons sous 8V
+Voici les signaux obtenus avec la corde 2
+
+.
+La courbe bleue est le signal issu du micro(sans amplification), la courbe rouge est le signal issu du
+comparateur à hystérésis.
+Page 11
+
+8.4
+
+La conversion fréquence - tension
+
+Le convertisseur fréquence tension est un montage construit autour du circuit intégré LM331. Le
+schéma est indiqué ci-dessous :
+
+Nous avons tracé la courbe d'étalonnage de ce convertisseur. Nous obtenons les tensions U
+suivantes et la droite suivante ;
+cordes
+mi1 82,4 Hz
+la1 110,0 Hz
+ré2 146,8 Hz
+sol2 196,0 Hz
+si2 246,9 Hz
+mi3 329,6 Hz
+
+f(Hz)
+
+U(V)
+82,4
+110
+146,8
+196
+246,9
+329,6
+
+0,601
+0,809
+1,069
+1,43
+1,8
+2,39
+
+U (V)
+
+2
+
+1,5
+
+1
+
+0,5
+
+50
+
+100
+
+150
+
+200
+
+250
+
+300
+f (Hz)
+
+Nous obtenons une fonction linéaire d'équation U = af×f où af = 7,28×10-3 V.Hz-1 avec 0,48 % d'écart
+relatif.
+
+Page 12
+
+8.5
+a)
+
+Moteur pas à pas
+Pourquoi un moteur pas à pas ?
+
+L'accord doit être précis, aussi un moteur pas à pas est adapté à cette utilisation car l'angle de
+rotation du moteur est programmable et donc prévisible ce que ne permet pas un moteur à courant
+continu à balais.
+On trouve dans le commerce des moteurs pas à pas à moto-réducteur qui tourne de 0,9° par pas.
+Vérifions que cette valeur de l'angle de rotation d'un pas convient à notre accordeur.
+Le moteur pas à pas tourne au minimum de θ = 0,9°.
+Les mesures de variation de fréquence pour un tour de clef du paragraphe 7.2 permettent de
+déterminer la variation de fréquence attendue pour une rotation de 0,9° = 2,5×10-3 tour en supposant
+une variation proportionnelle de la fréquence pour une petite variation de tension de la corde comme
+le suggère l'étude théorique de l'annexe 13-3
+Corde
+
+1
+
+2
+
+∆f1(Hz) pour 1 tour de clef horaire + 32 +30
+∆f1(Hz) pour 0,9 ° horaire
+
+3
+
+4
+
+5
+
+6
+
++26
+
+10
+
++6
+
++6
+
+0,08 0,075 0,065 0,025 0,015 0,015
+
+On constate que cette variation est très inférieure à la valeur de l’acuité fréquentielle d'un auditeur
+moyen. Le pas de 0,9° est donc adapté.
+b)
+
+Le couple du moteur pas à pas
+
+Nous avons mesuré le couple que l'on doit appliquer sur les clefs pour qu'elles tournent.
+Pour cela nous avons réalisé le montage suivant :
+Une tige de longueur L = 1 m est fixée en l'une de ses extrémités à la clef et son autre extrémité est
+fixée à un dynamomètre à ressort.
+L
+tige
+clef
+F
+dynamomètre
+
+On mesure la force F qui est nécessaire à la mise en rotation de la clef.
+Nous avons trouvé l'ordre de grandeur du couple : C = L×F = 0,5 N.m
+Le moteur pas à pas choisi doit pouvoir fournir ce couple. C'est le cas puisque le constructeur
+annonce un couple maximum 1,6 N.m.(v annexe 13-8)
+
+Page 13
+
+8.6
+
+La carte micro-contrôleur Arduino Uno
+
+Les cartes micro-contrôleur Arduino sont des cartes libres de droit « Opensources » qui peuvent être réalisées par quiconque. De ce fait, elles sont
+peu onéreuses
+Nous utilisons une carte Arduino Uno sur laquelle on fixe une carte Arduino
+de commande du moteur ; cette dernière permet de fournir la puissance
+nécessaire au moteur pas à pas.
+La carte Arduino Uno a une capacité mémoire de 34 ko qui permet de
+mémoriser des programmes assez complets. Par exemple, notre programme
+n'occupe que 4,7 ko.
+8.7
+
+La conversion analogique numérique
+
+Le convertisseur analogique numérique(CAN) de la carte Arduino est un
+convertisseur 10 bits dont on peut choisir la tension de pleine échelle UPE.
+Le pas de ce convertisseur est donc ∆Uconv =
+
+UPE
+210
+
+Le convertisseur fréquence tension délivre une tension Uf qui varie de 4,7×10-3 V par Hz.
+On veut que l'accord soit effectué à 0, 5 Hz près, valeur égale à l'ordre de grandeur de l'accuité
+fréquentielle de l'oreille humaine. La variation de tension Uf est donc de environ de 4,7 /2 = 2,5 mV
+Pour que le CAN soit sensible à cette variation, il faut que son pas soit inférieur à 2,5 mV
+Donc ∆Uconv =
+
+UPE
+210
+
+< 2,5×10-3 donc UPE < 1024×2,5×10-3 = 2,56 V
+
+Nous avons en fait utilisé une tension pleine échelle de 2,8 V que nous règlons sur la carte Arduino.
+
+8.8
+
+Principe du programme chargé dans l'Arduino :
+
+(v annexe 13-7)
+Le programme, une fois téléversé dans la carte, tourne en boucle tant que la carte est sous tension.
+Cette boucle contient les étapes qui suivent.
+On lit sur l'entrée analogique A2 la tension délivrée par le convertisseur fréquence tension .
+Si cette tension est suffisamment élevée, ce qui indique que ce n'est pas un bruit fortuit, le
+processus d'accordage est lancé 100 ms après l'attaque afin d'éliminer celle ci.
+La carte convertit cette valeur en une valeur binaire codée sur 10 bits que l'on appelle Ucorde,
+comprise entre 0 et 1024 pour une pleine échelle de 2,8 V
+Le programme lit sur l'entrée analogique A3 une tension qui indique quelle corde est accordée tout
+en calculant la valeur moyenne de Ucorde sur 300 valeurs. La rapidité de la carte le permet et cela ne
+ralentit pas le processus d'accordage.
+Un tableau codé en valeur binaire indique quelle valeur de Ucorde correspond à un accord correct
+pour la corde choisie, c'est la tension de consigne Uconsigne.
+Si Ucorde < Uconsigne,, la fréquence est trop basse, alors le moteur doit tourner dans le sens horaire et
+tendre de plus en plus la corde.
+Si Ucorde>Uconsigne , la fréquence est trop élevée, alors le moteur doit tourner dans le sens antihoraire
+et détendre la corde.
+Des pauses de quelques centaines de millisecondes sont prévues pour éviter que les bruits
+Page 14
+
+indésirables ne soient pas pris en compte.
+De plus pour les cordes 1,2,3,4 l'accordage ne démarre que si la fréquence est suffisement élevée.
+En outre on utilise éventuellement le port série USB pour lire les valeurs de Ucorde,, de la consigne, du
+numéro de la corde accordée afin de contrôler le bon fonctionnement du processus. C'est ce qui
+nous a permis de constater la nécessité du calcul de la valeur moyenne de Ucorde.
+
+9 Réalisation pratique
+9.1
+
+Réalisation de la pièce de couplage avec les clefs
+
+Grâce au logiciel « SolidWorks », nous avons conçu une pièce de couplage permettant de
+transmettre la rotation du moteur pas à pas à la clef de la guitare.
+Nous l'avons réalisée ensuite avec l'imprimante 3D disponible au laboratoire de sciences l'ingénieur.
+Une première pièce qui s’emboîtait parfaitement dans les clefs de notre guitare ne donna pas
+satisfaction car le bruit du moteur pas à pas se transmettait directement à la guitare et la caisse de
+résonance l'amplifiait. Ce son parasite empêchait le bon fonctionnement de notre accordeur car sa
+fréquence de 100 Hz très voisine de la fréquence de résonance de la caisse de la guitare, et des
+fréquences des cordes que nous voulions accorder ne pouvait être filtrée facilement.
+Nous avons donc conçu ensuite une nouvelle pièce en forme de U assez large qui permet de coller
+des patins en feutre sur les parois. Ce sont ces patins en feutre qui sont en contact avec la clef. Ils
+absorbent suffisamment le son du moteur pour que l'accordeur ne soit pas trop perturbé.
+
+Première version de la pièce de couplage
+
+Pièce de couplage définitive
+
+Imprimante 3D disponible au laboratoire de SI.
+
+Page 15
+
+9.2
+
+L'alimentation en énergie
+
+L'accordeur est alimenté par un transformateur du commerce 8 V 5 A.
+La commande du moteur est assurée par un circuit intégré RIT LM 350 de puissance et délivrant une
+tension de sortie ajustable. Il abaisse la tension de 8 V à la tension de 3 V valeur maximale admise
+par le moteur pas à pas. L'intensité maximale qu'il peut
+délivrée est de 3 A, valeur inférieure à l'intensité de 0,9 A
+consommée par les bobines du moteur pas à pas . Il est
+monté sur un radiateur car il doit dissiper environ 5 W.
+
+9.3
+
+Réalisation des circuits électroniques
+
+Nous avons réalisé les circuits électroniques sur des
+plaques d'essais à bandes de cuivre prédécoupées.
+
+9.4
+
+La sélection de la corde à accorder
+
+Un commutateur rotatif à six position est relié à l'entrée A3 de la carte Arduino. Chacune des six
+positions est reliée au point milieu d'un pont diviseur qui permet d'obtenir une
+tension comprise entre 0 et 8,2 V indiquant qui est le choix de la corde selon le
+tableau suivant .
+Corde
+
+1
+
+2
+
+3
+
+4
+
+5
+
+6
+
+Tension(V
+
+0
+
+0,5
+
+1
+
+1,5
+
+2
+
+2,5
+
+Ce commutateur à six positions possède deux circuits, le second circuit permet
+de choisir six gains différents pour l'amplificateur qui précède le comparateur à
+deux seuils inverseur.
+9.5
+
+L'accordeur achevé
+
+Voici la photo de l'accordeur terminé :et de sa mise en place sur l'une des clefs.
+
+Page 16
+
+10 Essais- Mise au point
+On place le micro dans la caisse de résonance de la guitare.
+Le premier essai d'accord sur la corde 1 fut un échec car le programme Arduino était trop simple : il
+ne prenait pas compte l'amortissement rapide de la corde et la lecture de la fréquence était alors
+erronée. De même, la phase d'excitation n'était pas écartée et le moteur tournait alors dans le
+mauvais sens. De plus la rotation était souvent hasardeuse. En examinant, grâce au moniteur série
+du logiciel Arduino, les valeurs mesurées de Ucorde, nous avons pu constaté que ces valeurs variaient
+périodiquement autour d'une valeur moyenne, essentiellement parce que la tension délivrée par le
+convertisseur fréquence tension n'est pas rigoureusement constant. Il est le siège d'une ondulation
+résiduelle.
+Nous avons corrigé ces défauts en introduisant des pauses de durées adaptées aux cordes , en
+réglant le gain de l'amplification différemment pour chaque corde afin que le signal soit compatible
+avec les seuils du comparateur à hystérésis, et en calculant la valeur moyenne du signal délivré par
+le convertisseur fréquence -tenson avant de la comparer à la consigne.
+De cette façon le moteur ne tourne que quelques centaines de millisecondes après l'attaque de la
+note, lorsque la corde vibre normalement et que l'amplitude de vibration est suffisante pour que le
+son du moteur soit négligeable devant celui émis par la caisse de résonance. Cette rotation dure
+quelques dizaines de cycles du programme Arduino, le nombre ayant été ajusté en fonction de la
+corde accordée en réalisant des essais. L'ensemble de ces opérations correspond à une seconde
+environ.
+Ensuite le programme attend trois secondes avant de réaliser une nouvelle mesure afin de ne pas
+prendre en compte les bruits parasites.
+Le moteur tourne ainsi toutes les 4 secondes jusqu'à ce que la note obtenue soit correcte.
+La durée d'un accordage peut être assez longue.
+Lorsque la corde est accordée, le moteur ne tourne plus ou a tendance à osciller légèrement. Pour
+éviter ces oscillations, le programme défini un intervalle étroit centré sur la bonne valeur dans lequel
+on considère que la fréquence est correcte.
+Cet intervalle est en valeur binaire de ± 1 soit un intervalle de tension ∆Uf = ± 2,7×10-3 V et donc un
+∆ Uf
+intervalle de fréquence ∆f =
+= ± 2,7×10-3/7,24.10-3 = ± 0,4 Hz. qui est dans la limite d’acuité de
+af
+l'oreille moyenne.
+
+11 Résultats
+◦ Méthode d'accord standard
+Pour vérifier le bon accord de la guitare, nous avons désaccordé successivement toutes les cordes
+en les détendant ou en les tendant trop.
+Nous enregistrons le signal correspondant à chaque corde après l'accordage à l'aide de l'interface
+Sysam et le logiciel Latis Pro.
+Nous mesurons la période et en déduisons la fréquence de la note ainsi jouée.
+Nous trouvons des différences 0,5 Hz environ entre la valeur attendue et notre valeur mesurée.
+Nous utilisons aussi une application pour Smartphone qui permet d'accorder les guitares. Elle nous
+indique effectivement que l'accord obtenu est de bonne qualité.
+
+Page 17
+
+12 Conclusion
+La mise au point de cet accordeur nous a permis de mieux connaître la manière dont une corde de
+guitare vibre.
+Sans l'aide du micro-contrôleurArduino, il aurait été impossible de réaliser ce dispositif.
+Notre accordeur donne un bon résultat puisque la fréquence d'accord est obtenue à 0,5 Hz près,
+mais nous sommes conscients qu'un musicien confirmé accordera sa guitare plus rapidement et plus
+facilement. Notre appareil peut cependant aider un débutant éloigné de toute personne capable de
+l'aider pour accorder sa guitare.même si des applications smartphones accordeur de guitare sont
+disponibles gratuitement.
+Nous sommes très contents de cette participation au concours des Olympiades de Physique qui
+nous aide à approfondir nos connaissances en physique et à progresser dans notre aisance à l'oral.
+
+Page 18
+
+13 Annexes
+13.1 Analyse de Fourier du son émis par la corde 5 depuis l'attaque jusqu'à sa
+disparition.
+La zone bleue indique l'intervalle de temps sur lequel est calculée la transformée de Fourier.
+
+Spectre obtenue 120 ms après l'excitation
+
+Spectre obtenue entre 120 ms et 200 ms après l'excitation
+
+Page 19
+
+Spectre obtenue entre 200 ms et 300 ms après l'excitation
+
+Spectre obtenue entre 300 ms et 400 ms après l'excitation
+
+Page 20
+
+Spectre obtenue 800 ms après l'excitation
+13.2
+
+Courbes donnant la force appliquée en fonction de l’allongement des cordes
+
+Modèles linéaires F = k×∆L
+
+corde
+
+1
+
+2
+
+3
+
+4
+
+5
+
+6
+
+écart
+relatif %
+
+3,7 %
+
+6,3 %
+
+3,8 %
+
+6,4 %
+
+15 %
+
+7,1 %
+
+k en N/m
+
+831
+
+1,27×103
+
+2,12×103
+
+1,47×103
+
+1,05×103
+
+962
+
+Page 21
+
+13.3
+
+Calcul de la variation de fréquence résultant d'une petite variation de tension
+
+Une petite variation de tension ∆Τ correspond à une variation ∆f1 de fréquence d'accord :
+
+√
+
+1 T
+par rapport à T
+2.L µ
+df 1
+1
+1
+=
+(1)
+dF 2L √µ 2 √ T
+D'après les courbes donnant l'allongement de la corde en fonction de la tension appliquée, une
+variation de tension est donnée par ∆Τ = kcorde×∆L
+
+Dérivons la relation f1 =
+
+Une variation de tension ∆Τ correspond à une variation ∆f1 de fréquence d'accord :
+Considérons que T est la tension de la corde au voisinage de l'accord correct de la corde,
+1
+∆T
+1 k∆L
+La relation permet d'écrire : ∆f1 =
+=
+2L √ µ 2 √T
+2L √µ 2 √ T
+
+13.4
+
+Schémas des circuits électronique
+
+25 kK
+15
+
+13.5
+
+Carte Arduino Uno
+
+Carte Arduinio UNO
+
+Contrôleur de moteur 2A L298 (Shield) pour Arduino
+
+Page 22
+
+13.6
+
+Spectres du son émis par la corde 5 excitée de différentes façons
+
+Corde 5 excitée à 20 cm du chevalet
+
+Corde pincée à 15 cm du chevalet
+
+Corde 5 excitée à 15 cm du chevalet
+
+Corde 5 excitée à 10 cm du chevalet
+
+Corde « frottée » à 15 cm du chevalet
+
+Corde 5 excitée à 5 cm du chevalet
+
+Page 23
+
+13.7
+
+Programme Arduino
+
+/*Pilotage moteur pas à pas bipolaire
+phase 1 : fils noir et vrt
+phase 2 : fils rouge et bleu
+Tableau de commande du module DUal DC Motor shield
+Inputs
+EnA(B) Input 1(3) Input 2(4)
+M1+ (M2+) and M1- (M2-) output
+1
+1
+1
+HIGH state for both output (motor stopped)
+1
+0
+0
+LOW state for both uotput (motor stopped)
+1
+1
+0
+Current flows from M1+ to M1- (direction 1)
+1
+0
+1
+Current floes from M1- to M1+ (direction 2)
+0
+X
+X
+High impedance (motor is in free running
+*/
+int corde;
+int frequence,EA3;
+int sortie_boucle;
+int note[] = {858,642,505,382, 286,212 };//valeur binaire calculée à partir
+des tensions en V de chaque note
+//int note[] = {779,585,459,346, 259,192 };// valeur binaires empiriques
+données par la valeur moyenne calculée par le programme losque les
+cordes sont accordées
+int temps_mesure_notes[] ={ 20,80,60,60,60,80};//Valeur du nombre de
+cycles de laboucle d'accord en ternant compte de l'amortissement
+int M[10];
+
+void setup() {
+//initialize serial communication at 9600 bits per second
+Serial.begin(9600);
+analogReference(EXTERNAL);//tension pleine échelle 3,3 V
+for (int n=0;n<5;n++){ //inialise les valeurs du calcul de la moyenne à 0
+M[n]=0;
+}
+/*initialise les pin de commande du moteur
+Arduino pin Function Arduino pin Function
+Channel A
+| Channel B
+9 Input 1 | 2 Input 3
+10 Input 2 | 6 Input 4
+3 EnA (PWM) | 5 EnB (PWM)
+A0 Current sense| A1 Current sense
+pin digitale 3 : commande PWM moteur A.
+Sens moteur A pin 9 et 10
+capteur du courant moteur A pin A0
+pin digitale 5 : commande PWM moteur B.
+Sens moteur B pin 2 et 6
+capteur du courant moteur B pin A1
+*/
+//défintions des bornes phase A
+pinMode(9,OUTPUT);
+pinMode(10,OUTPUT);
+pinMode(3,OUTPUT);
+analogWrite(3,255);
+//Défintion des bornes phase B
+pinMode(2,OUTPUT);
+pinMode(6,OUTPUT);
+pinMode(5,OUTPUT);
+analogWrite(5,255);
+//Mise à zà©ro des deux phases
+digitalWrite(9,LOW);
+digitalWrite(10,LOW);
+digitalWrite(2,LOW);
+digitalWrite(6,LOW);
+// Variables utilisà©es
+int corde = 1;//initialise la corde à accorder à la corde 1 la plus aigue
+/* Tension délivrée par le convertisseur f-U et fréquence jouées par
+chaque corde
+corde 1 : 2,39 V : 330 Hz
+corde 2 : 1,80 V : 247 Hz
+corde 3 : 1,430 V : 196 Hz
+corde 4 : 1,069 V : 146 Hz
+corde 5 : 0,809 V : 110 Hz
+corde 6 : 0,601 V : 82 Hz
+
+*/
+
+}
+void loop(){
+/* Choix de la corde à accorder
+tensions appliquées sur l'entrée EA3 selon la position du commutateur
+rotatif
+0 V soit EA3 = 0 en binaire : corde la plus grave n °6
+0,5 V soit EA3 = 178 en binaire : corde n °5
+1 V soit EA3 = 359 en binaire : corde n °4
+1,5 V soit EA3 = 538 en binaire : corde n °3
+2 V soit EA3 = 717 en binaire : corde n °2
+2,5 V soit EA3 = 896 en binaire : corde n °1
+*/
+//corde = 1;//par défaut l'accordeur est sensé accorder la corde n°1
+EA3 = analogRead(3);// Choix de la corde à accorder
+
+if (EA3<80) {
+corde =6;
+}
+if ((EA3>100)&&(EA3<250)){
+corde=5;
+}
+if ((EA3>270)&&(EA3<430)){
+corde=4;
+}
+if ((EA3>470)&&(EA3<610)){
+corde=3;
+}
+if ((EA3>650)&&(EA3<790)){
+corde=2;
+}
+if ((EA3>820)&&(EA3<960)){
+corde=1;
+}
+//Boucle d'accordage de la corde
+sortie_boucle= 0;
+frequence = analogRead(2);
+Serial.print(frequence);
+Serial.print(':');
+Serial.print(EA3);
+Serial.print(':');
+Serial.print(corde);
+Serial.print(':');
+Serial.println(note[corde-1]);
+if (frequence>150){
+switch (corde){
+case 6 :
+delay(150);
+case 5 :
+delay(10);
+case 4 :
+delay(10);
+case 3 :
+delay(10);
+case 2 :
+delay(250);
+case 1 :
+delay(10);
+}
+while (sortie_boucle<temps_mesure_notes[corde-1]){
+frequence = analogRead(2);
+if (frequence>150) {
+long moyenne =0;
+for(int n=0;n<300;n++){
+frequence = analogRead(2);
+moyenne =moyenne+frequence;
+}
+
+frequence = int(moyenne/300);
+Serial.println(frequence);
+
+Page 24
+
+{
+if (corde== 6) {
+rotation_moteur();}
+if (corde== 5) {
+rotation_moteur();}
+if (corde== 4){ if ((frequence>250)&&(frequence<450)){
+rotation_moteur();}}
+if (corde==3){ if ((frequence>400)&&(frequence<550)){
+rotation_moteur();}}
+if (corde==2){ if ((frequence>500)&&(frequence<660)){
+rotation_moteur();}}
+if (corde==1){ if ((frequence>700)&&(frequence<950)){
+rotation_moteur();}}
+
+}
+sortie_boucle++;
+delay(25);
+}
+arret_moteur();
+if (corde==1){
+delay(500);
+}
+if (corde==2){
+delay(500);
+}
+if (corde==3){
+delay(500);
+}
+if (corde==4){
+delay(1000);
+}
+if (corde==5){
+delay(2000);
+}
+if (corde==6){
+delay(2000);
+}
+}
+else {
+digitalWrite(10,LOW);
+digitalWrite(9,LOW);
+digitalWrite(2,LOW);
+digitalWrite(6,LOW);
+}
+}
+void rotation_moteur()
+
+13.8
+
+if (frequence<note[corde-1]-1){
+sens_horaire();
+}
+if (frequence>note[corde-1]+1){
+sens_antihoraire();
+}
+if ((frequence<=note[corde-1]+1)&&(frequence>=note[corde-1]-1)){
+arret_moteur();
+}
+}
+void sens_horaire(){
+digitalWrite(9,HIGH);
+digitalWrite(10,LOW);
+delay(10);
+digitalWrite(2,LOW);
+digitalWrite(6,HIGH);
+delay(10);
+digitalWrite(9,LOW);
+digitalWrite(10,HIGH);
+delay(10);
+digitalWrite(2,HIGH);
+digitalWrite(6,LOW);
+delay(10);
+}
+void sens_antihoraire(){
+digitalWrite(10,HIGH);
+digitalWrite(9,LOW);
+delay(10);
+digitalWrite(2,LOW);
+digitalWrite(6,HIGH);
+delay(10);
+digitalWrite(10,LOW);
+digitalWrite(9,HIGH);
+delay(10);
+digitalWrite(2,HIGH);
+digitalWrite(6,LOW);
+delay(10);
+}
+void arret_moteur(){
+digitalWrite(10,LOW);
+digitalWrite(9,LOW);
+digitalWrite(2,LOW);
+digitalWrite(6,LOW);
+}
+
+Caractéristiques du moteur pas à pas
+
+Page 25
+
+13.9
+
+Le circuit LM 350
+
+13.10 Le câblage du circuit électronique
+
+Page 26
+
+13.11 Buget
+
+Libellé
+Subvention Olympiades Physique
+
+Recettes Dépenses
+250 €
+
+Alimentation à découpage
+
+44,9 €
+
+Moteur pas à pas
+
+47,9 €
+
+Composants électroniques
+
+85,78 €
+
+Microphone amplifié
+
+9,86 €
+
+Cordon USB
+
+4,5 €
+
+Platine Arduino
+
+25,9 €
+
+Coffret en plastique
+
+15,9 €
+
+Cordes guitare
+
+15 €
+
+frais port
+
+14 €
+250 €
+
+263,74 €
+
+Page 27
+
+

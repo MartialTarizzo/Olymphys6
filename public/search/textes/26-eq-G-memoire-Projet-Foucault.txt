@@ -1,0 +1,837 @@
+PROJET FOUCAULT
+
+PAR : LUCIANI MERY, QUENTIN GOMES, ALYS ARNOUD ET MARTIN LECLERC
+
+PROFESSEUR : MR PICHOUD
+
+1
+
+TABLE DES MATIERES
+Résumé
+PREMIERE PARTIE INTRODUCTIVE : PRINCIPE DE LA METHODE DU MIROIR TOURNANT
+DEUXIEME PARTIE : MONTAGE OPTIQUE (par Luciani)
+CHOIX DE LA SOURCE
+METHODE SPHERIQUE
+Le montage
+Calculs d’ordres de grandeurs
+METHODE PLANE
+Le nouveau montage
+Les dimensions du montage
+La lentille
+TROISIEME PARTIE : CONCEPTION (par Alys)
+SUPPORT DE LENTILLES ET MIROIRS
+Cahier des charges
+Conservatoire des arts et métiers
+Conception 3D
+Impression 3D
+MIROIR TOURNANT 3D
+Cahier des charges
+Conservatoire des arts et métiers
+Conception 3D
+Impression 3D
+USINAGE
+Côtes
+L’atelier de productique du LPO Charles Coeffin
+QUATRIEME PARTIE : MOTORISATION ET PILOTAGE (par Martin et Quentin)
+MOTORISATION (par Martin)
+Méthode utilisée à l’époque
+Choix du moteur brushless
+Choix de l’ESC
+Choix de la batterie
+Connexions
+PILOTAGE (par Martin)
+CONTROLE DE LA VITESSE (par Quentin)
+Principe du tachymètre
+Fréquencemètre
+Tests
+CINQUIEME PARTIE : MESURES ET RESULTATS
+ETALONNAGE DE L’ECRAN
+ESTIMATION GROSSIERE DE C
+MESURE DE C
+Photographies du spot lumineux
+Détermination de la position du centre S’ du spot lumineux
+Tracé de la position du centre S’ en fonction de la fréquence de rotation du miroir
+Calcul de la célérité de la lumière dans l’air
+Estimation de l’incertitude Δc sur la valeur de la célérité
+Conclusion
+
+3
+3
+4
+4
+5
+5
+6
+6
+6
+7
+7
+9
+9
+9
+9
+9
+9
+10
+10
+10
+10
+10
+11
+11
+11
+12
+12
+12
+12
+12
+13
+13
+13
+14
+14
+14
+16
+17
+17
+17
+18
+18
+18
+18
+18
+19
+19
+
+2
+
+Résumé
+Nous sommes des élèves du club de sciences du lycée Yves Leborgne en Guadeloupe.
+L’année dernière, notre camarade Luciani est venue nous demander de l’aide par rapport à un projet qui lui
+tenait à cœur. Elle avait pour ambition de reconstituer une expérience historique : l’expérience du miroir
+tournant de Foucault.
+Plus connu pour ses travaux sur la mise en évidence de la rotation de la terre avec la célèbre expérience du
+pendule de Foucault, ce physicien de génie fût le premier à mesurer la vitesse de la lumière dans un
+laboratoire.
+Il n’en fallu pas moins pour éveiller notre curiosité et nous décidions de nous lancer dans cette grande aventure
+de la mesure de la vitesse de la lumière dans notre laboratoire du club de sciences.
+PREMIERE PARTIE INTRODUCTIVE : PRINCIPE DE LA METHODE DU MIROIR TOURNANT
+L’idée de Foucault consistait à éclairer avec une source lumineuse S un miroir plan placé au centre de courbure
+C d’un miroir sphérique. Le miroir plan est orienté de manière à ce que la lumière se réfléchisse sur le miroir
+sphérique. Les rayons qui se réfléchissent sur le miroir sphérique vont revenir suivant la même
+direction puisqu’ils se confondent avec la normale au point d’incidence I.
+
+Et ce quelle que soit l’orientation du miroir plan, comme le montre la simulation ci-dessous obtenue grâce au
+logiciel « OPTGEO » sur laquelle le miroir plan a légèrement tourné dans le sens trigonométrique autour d’un
+axe perpendiculaire au plan de la feuille passant par son centre.
+
+Donc, si le miroir plan entre lentement en rotation, tous les rayons issus de S qui se réfléchissent sur le miroir
+sphérique vont revenir au point S.
+Mais, si le miroir plan tourne suffisamment vite, celui-ci aura légèrement tourné d’un angle α pendant la durée
+d’aller-retour de la lumière entre le miroir plan et le miroir sphérique car la vitesse de la lumière n’est pas
+infinie.
+
+3
+
+Comme le montre le schéma ci-dessous, lorsqu’un miroir s’incline d’un angle α, les rayons réfléchis pivotent
+d’un angle 2α :
+
+En effet, les angles α et α1 sont égaux car complémentaires et α1 = α2 d’après la loi de Descartes relative à la
+réflexion.
+Le faisceau retour sera donc légèrement décalé par rapport à la source S.
+La mesure de ce décalage permet de remonter à la célérité c de la lumière dans l’air en connaissant la vitesse
+de rotation du miroir et le rayon de courbure 0C du miroir sphérique. Cette mesure sera d’autant meilleure que
+l’angle α sera grand et donc que la distance entre le miroir plan et le miroir sphérique sera importante.
+En effet, en notant O le centre du miroir sphérique, lorsque le miroir plan a tourné d’un angle α, la lumière a
+parcouru la distance 2OC pendant une durée Δt. Soit c = 2OC/Δt. Par définition, la fréquence N de rotation du
+miroir plan correspond au nombre de tours effectué par celui-ci en une seconde. Nous pouvons donc écrire :
+ΔtxNx2 = α.
+Finalement : c = 4 xOCxN/α
+Enfin, ça c’est la théorie ! Lisez la suite si vous voulez savoir ce que cela donne en pratique !
+DEUXIEME PARTIE : MONTAGE OPTIQUE (par Luciani)
+A) CHOIX DE LA SOURCE
+
+A son époque, Foucault utilisait un Héliostat pour
+éclairer le miroir tournant. C’était un dispositif à
+miroirs qui renvoie la lumière du Soleil, quelle que
+soit sa position dans une direction donnée. Nous
+décidons de le remplacer par un laser à cause de sa
+grande directivité.
+
+Laser He-Ne 2mW
+
+Héliostat
+
+Foucault utilisait une mire transparente éclairée par l’héliostat
+dont il projetait l’image grâce à une lentille convergente sur le
+miroir sphérique. L’image retour de cette image était observée à
+travers un microscope. La position de la mire lorsque le miroir
+est au repos était repérée au préalable par une croix. Nous
+proposons de remplacer la mire par un spot laser projetée sur
+papier millimétré.
+
+Mire et croix
+
+4
+
+Papier mm sur tuyau
+PVC
+
+Caméra dans tuyau pvc
+
+Comme il est dangereux de regarder directement la source laser, nous utiliserons une
+caméra. Si nous voulons pouvoir effectuer nos mesures avec un bon contraste, nous
+devons protéger notre écran de la lumière extérieure. Nous utiliserons un cercle de
+papier mm collé sur un bout de tuyau de pvc. Nous glissons notre webcam dans un
+autre bout de tuyau pvc et nous raccordons les deux avec un manchon.
+
+Ensemble raccordé
+par un manchon
+
+B) METHODE SPHERIQUE
+L’image de la source S se forme sur le
+miroir sphérique grâce à une lentille
+convergente de focale 300 mm. Tout
+comme Foucault, nous utilisons une
+lame semi réfléchissante. Il s’agit
+d’une lame transparente traitée pour
+ne laisser passer que 50% de la
+lumière incidente et en réfléchir les
+50 autres %. Ainsi, le faisceau retour
+ne sera pas superposé avec le
+faisceau incident.
+
+1) Le montage
+
+2) Calculs d’ordres de grandeurs
+Nous avons vu dans la première partie que c = 4 OCxN/α. En notant L la distance entre le miroir
+plan tournant et le miroir sphérique, on peut écrire : c = 4 LN/α.
+La plus grande dimension de la salle que nous occupons pour le club de sciences est de l’ordre de
+5m. Nous pouvons raisonner sans tenir compte de la lame semi-réfléchissante car celle-ci a
+seulement pour effet de modifier la direction d’observation du point S’.
+En première approximation, nous considérons que le miroir sphérique est suffisamment éloigné
+de la lentille convergente donc que le point S’ se trouve au foyer de la lentille convergente.
+D’après le schéma ci-dessous, nous pouvons écrire : tan2α≈2α (angle petit)≈ΔS’/f
+
+Alors c = 8
+
+LNf/ΔS’ et ΔS’ = 8
+
+LNf/c
+
+5
+
+A l’époque de Foucault, le miroir tournait à 400 tours/seconde. Les dimensions de notre salle
+étant de l’ordre de 5 m et la lentille convergente de focale 300 mm, nous obtenons un décalage
+de ΔS’ ≈ 8x3,14x5x400x0,300/(3x108)≈5x10-5m soit 50 µm.
+A moins de travailler dans une salle plus grande, il nous paraît difficile de mesurer un tel décalage.
+C) METHODE PLANE
+1) Le nouveau montage
+
+En 1878, le physicien A. Michelson a eu l’idée de remplacer le miroir sphérique par un miroir plan fixe. Pour
+que la lumière réfléchie par ce miroir fixe revienne toujours dans la même direction quelle que soit
+l’orientation du miroir tournant, il plaça le centre du miroir tournant au foyer d’une lentille convergente de
+façon à ce que l’image de la source se forme sur le miroir fixe
+Le faisceau principal évolue entre la lentille et le miroir fixe parallèlement à l’axe optique de la lentille étant
+donné que le miroir tournant est dans le foyer de la lentille. Sur le miroir fixe, perpendiculaire à l’axe optique,
+le faisceau principal se réfléchit sur lui-même et revient par le même chemin au miroir tournant,
+indépendamment de sa position.
+Remarque : compte tenu des dimensions du montage, nous n’utiliserons pas de condenseur dans cette partie
+car une trop grande partie de la lumière issue de S ne serait pas réfléchie par le miroir tournant à cause de la
+divergence du faisceau.
+2) Les dimensions du montage
+Pour ce montage, la lumière parcourt la distance 2(f+b) pendant que le miroir tournant effectue une rotation
+d’un angle α pendant la durée Δt d’aller-retour de la lumière entre le miroir tournant et le miroir fixe.
+Donc, c = 2(f+b)/Δt.
+Comme α=ΔtxNx2 , alors c = 4
+
+(f+b)N/α
+
+Avec maintenant tan2α≈2α (angle petit)≈ΔS’/a.
+
+S’’
+ΔS’
+S’
+
+Donc c = 8
+
+Miroir tournant
+
+2α
+a
+
+(f+b)aN/ ΔS’
+
+6
+
+En appliquant la relation de conjugaison des lentilles :
+On montre que : (f+b)a=f(2a+f), alors c = 8
+
+1
+𝑎+𝑓
+
+1
+
+1
+
+𝑏
+
+𝑓
+
++ =
+
+f(2a+f)N/ ΔS’
+
+Un déplacement ΔS’ le plus grand possible exige donc une vitesse de rotation N la plus grande possible, une
+distance focale f la plus grande possible et une distance a la plus grande possible.
+La distance a peut en principe être choisie au gré de l’expérimentateur. Par contre, il faut s’accommoder de
+pertes d’intensité issues de la divergence du faisceau laser et d’un grand travail d’ajustage. Le dispositif
+schématisé ci-dessous représente un compromis pour lequel le laser et le miroir final sont côte à côte, donc
+a = f + b.
+Par application de la relation de conjugaison des lentilles, on trouve :
+a = (1 + √2)𝑓
+La distance a entre le laser et le miroir tournant correspond donc à la longueur totale du montage.
+3) La lentille
+a)
+
+Quelle lentille choisir ?
+
+Nous devons choisir une lentille de grande distance focale.
+De plus, l’image de S étant générée tant que le faisceau venant du miroir tournant est situé dans l’angle
+d’ouverture de la lentille, lorsque le miroir entre en rotation, la luminosité de l’image de S sera par conséquent
+d’autant plus forte que la largeur utilisable de la lentille est grande. Il faudra donc choisir une lentille de grand
+diamètre.
+Au lycée, nous ne disposons que de lentilles de diamètre 40 mm.
+Voici la liste des focales dont nous disposons au lycée ainsi que leurs vergences :
+f(mm)
+V(δ)
+
+333
+3
+
+300
+3,33
+
+250
+4
+
+200
+5
+
+150
+6,67
+
+125
+8
+
+100
+10
+
+50
+20
+
+-333
+-3
+
+-300
+-3,33
+
+-200
+-5
+
+-100
+-10
+
+-50
+-20
+
+La lentille de plus grande focale dont nous disposons est de 333 mm soit a = (1 + √2) × 0,333 = 80,4 𝑐𝑚
+Pour une vitesse de rotation de 400 tours/s, ce qui est déjà important,
+ΔS’ = 8f(2a+f)xNxΠ /c = 8x0,333x(2x0,804+0,333)x400x3,14/(3x108)≈ 0,02 mm. Une fois encore, la mesure de
+ce décalage nous semble délicate. A moins d’augmenter la distance focale de la lentille…
+b) Comment obtenir une distance focale plus grande ?
+Notre idée sera d’utiliser une combinaison de deux lentilles afin d’augmenter la distance focale et obtenir ainsi
+un déplacement ΔS’ plus grand.
+En effet, lorsque l’on accole deux lentilles minces de vergences V1 et V2, la vergence V de l’ensemble est de :
+V = V1 + V2, si on considère confondus leurs centres optiques.
+Nous allons donc utiliser la relation d’addition des vergences en combinant une lentille convergente avec une
+lentille divergente afin d’obtenir un système optique convergent de plus petite vergence possible.
+Nous constatons qu’il est théoriquement possible d’obtenir un système de vergence 0,33 δ soit une focale de
+3m environ, en associant une lentille convergente de 300 mm avec une lentille divergente de -333 mm.
+Avec cette association, nous obtenons un déplacement ΔS’ = 1,76 mm pour une vitesse de rotation du miroir
+de 400 Hz.
+
+7
+
+c)
+
+Mesure de la distance focale réelle
+
+En plaçant notre combinaison de lentilles face au soleil, nous constatons que la distance focale de l’ensemble
+est bien inférieure à 3m. Nous l’estimons très grossièrement à 2m.
+En effet, les lentilles que nous utilisons possèdent une épaisseur et la distance e entre leur centre n’est donc
+pas nulle.
+Dans ce cas, il faut utiliser la relation de Gullstrand pour calculer la vergence de l’ensemble :
+V = V1 + V2 – eV1V2
+Association de lentilles
+Écran
+A cause des incertitudes sur les valeurs des vergences des
+lentilles fournies par le fabriquant et surtout l’incertitude sur
+la valeur de e, nous choisissons de mesurer la vergence de
+l’ensemble.
+Télémètre
+Pour cela, nous plaçons un condenseur (lentille de focale
+courte de 50 mm) devant un laser afin d’obtenir une source
+S la plus ponctuelle possible.
+Nous plaçons notre combinaison de lentilles à une distance
+x connue de S mesurée au télémètre laser de l’ordre du
+double de la distance focale de la combinaison. Nous
+cherchons la position x’ de l’image S’ de S sur un écran.
+Nous en déduisons f d’après la relation de conjugaison des
+lentilles
+Les résultats sont les suivants :
+
+Condenseur
+
+Laser
+
+Soit f = (1,90 ± 0,01) m à 95%
+Ce qui conduit à un déplacement ΔS’ = 0,70 mm
+pour une vitesse de rotation du miroir de 400 Hz
+et à un montage dont les dimensions sont :
+a = (1 + √2) × 1,90 = 4,59 𝑚
+
+Rendez-vous à Lille pour découvrir le montage complet !
+
+8
+
+TROISIEME PARTIE : CONCEPTION (par Alys : voir l’annexe pour le détail de cette partie)
+A) SUPPORTS DE LENTILLES ET MIROIRS
+1) Cahier des charges
+Luciani m’a demandé de lui imprimer des pieds
+et des supports avec les directives suivantes :
+Pieds réglables en hauteur et inclinaison.
+Diamètre 4 cm.
+Fermoir amovible.
+Epaisseur des miroirs et lentilles 2mm.
+Hauteur du centre à 10 cm.
+Un support pour miroir.
+Un support pour lame semi-réfléchissante.
+Un support pouvant contenir 2 lentilles
+accolées.
+
+2) Conservatoire des arts et métiers
+Je suis d’abord allé voir à quoi ressemblaient les
+pieds utilisés par Foucault à l’époque pour m’en
+inspirer. J’ai donc pris contact avec le conservatoire
+national du musée des arts et métiers (CNAM) qui
+m’a envoyé quelques photos.
+
+3) Conception 3D
+
+Puis j’ai passé quelques heures avec le
+logiciel SOLIDWORKS afin de réaliser les
+pièces.
+
+Support pour miroir et lame.
+4) Impression 3D
+Enfin, j’ai procédé à l’impression.
+
+Lentille convergente
+
+Lame séparatrice
+
+Miroir fixe
+
+9
+
+B) MIROIR TOURNANT 3D
+1) Cahier des charges
+Pour la conception du support du miroir
+tournant, les contraintes sont les
+suivantes :
+Pieds réglables en hauteur et inclinaison.
+Diamètre du miroir 4 cm.
+Diamètre du moteur 37 mm.
+Longueur du moteur 4 cm.
+Axe du moteur 4mm.
+Longueur de l’axe 12 mm.
+Hauteur du centre du miroir : 10 cm.
+
+2) Conservatoire des arts et métier
+Là encore, avant de commencer à
+travailler, je me suis inspiré du miroir
+tournant utilisé par Foucault à l’époque.
+
+3) Conception 3D
+
+J’ai opté pour un support de miroir dont les axes sont guidés par deux
+roulements à bille. Le support sera donc porté par les guides des
+roulements et non par l’axe du moteur. Le moteur sera relié au
+support du miroir par un accouplement flexible pour éviter que les
+vibrations endommagent les roulements. La pièce la plus délicate à
+réaliser est le support de miroir car l’ensemble « miroir-supportfermoir » doit être parfaitement équilibré pour éviter les vibrations.
+Inutile de dire que je n’ai pas compté mes heures entre le temps
+passé sous SOLIDWORKS et sur les forums internet. Mais le résultat
+en valait la peine !
+4) Impression 3D
+
+Le prototype final vous sera
+présenté lors de la finale et il
+fonctionne !
+
+10
+
+C) USINAGE
+Même si le prototype imprimé répond aux attentes de Luciani, il ne serait pas prudent de l’utiliser de manière
+intensive car les vitesses de rotation étant élevées, les vibrations risquent de devenir destructrice pour le
+plastique utilisé (ABS). Le risque de projection de matière n’étant pas nulle, je ne pouvais pas livrer mon miroir
+tournant en l’état. Je décide donc de me rapprocher d’un atelier afin de faire usiner mes pièces. Notre
+professeur de physique nous a mis en relation avec un ancien professeur de productique pour lui faire part de
+notre projet. Celui-ci a tout de suite été enthousiasmé par notre idée et nous a demandé de lui fournir les côtes
+de nos différentes pièces afin de les usiner avec nous. Cette expérience fût extrêmement enrichissante
+humainement et intellectuellement. Il a fallu apporter des modifications en fonction des contraintes que nous
+indiquait le professeur d’atelier. C’était vraiment passionnant. Le détail de ce travail se trouve en annexe.
+1) Côtes
+Voici un exemple de côtes que nous avons fourni.
+
+Côtes support miroir tournant de côté
+
+Côtes support miroir tournant de face
+
+2) L’atelier de productique du LPO Charles COEFFIN
+
+Tour
+
+Fraiseuse
+
+Miroir tournant assemblé
+Miroir tournant démonté
+
+11
+
+QUATRIEME PARTIE : MOTORISATION ET PILOTAGE (par Martin et Quentin)
+A) MOTORISATION (par Martin)
+1) Méthode utilisée à l’époque
+A l’époque, la rotation est assurée par :
+•
+•
+
+une turbine mise au point par Gustave Froment
+une soufflerie à air comprimé mise au point par Aristide Cavaillé-Coll
+
+Soufflerie
+
+Turbine
+2) Choix du moteur brushless
+
+Le moteur brushless ou « sans balais » en un moteur triphasé utilisé notamment en modélisme. Il est piloté par
+un courant alternatif triphasé dont la fréquence variera en fonction de la vitesse de rotation souhaitée.
+Nous avons choisi un moteur de la marque « XPOWER » de 3540 KV. Le KV est la vitesse de rotation maximale
+du moteur à vide par volt. Le constructeur recommande d’utiliser une batterie LIPO 4S (voir plus loin le choix
+de la batterie) ce qui correspond à une tension de 14,8V. La fréquence théorique N de rotation à vide maximale
+sera donc égale à :
+N = 3540 x 14,8 / 60 = 873 tours/seconde.
+Le courant maximale à ne pas dépasser étant de 50 A, cela va
+conditionner notre choix d’ESC.
+3) Choix de l’ESC
+
+L’ESC ou « Electronic Speed Controler »
+est un circuit électronique permettant
+de contrôler la vitesse du moteur. Il
+peut générer un courant alternatif
+triphasé dont la fréquence variera en
+fonction de la vitesse de rotation
+souhaitée.
+
+BEC
+
+Phases à relier au moteur
+
+Alimentation
+Interrupteur
+de sécurité
+
+Comme le recommande le fabriquant, nous avons choisi un contrôleur pouvant supporter un courant maximale
+de 60A, supérieur à celui que peut supporter le moteur.
+Le BEC (Batterie Eliminator Circuit) est un régulateur de tension. Nous verrons plus loin son utilité.
+
+12
+
+4) Choix de la batterie
+Nous utilisons une batterie LIPO
+(lithium polymère) 2S ou 4S (S pour
+cellule). Une cellule délivre une
+tension de 3,7 V. Il faut être très
+prudent avec ses batteries,
+notamment lors de leur charge.
+LIPO 2S
+
+LIPO 4S
+
+5) Connexions
+
+Après quelques soudures, l’ensemble
+est connecté !
+
+B) PILOTAGE (par Martin)
+Nous avons fait le choix de piloter le moteur via le BEC de l’ESC. Nous avons relié deux des bornes de ce dernier
+à l’alimentation d’une carte ARDUINO, la troisième étant relié au PIN D8.
+
+BEC
+
+Le programme est le suivant : le pilotage se fait grâce à un potentiomètre relié au PIN A0. Le signal électrique
+est numérisé par le CAN du microcontrôleur puis convertie (« maping ») en signal lue par l’ESC.
+
+13
+
+C) CONTROLE DE LA VITESSE (par Quentin)
+a)
+
+Principe du tachymètre
+Le principe est le suivant : une
+photodiode polarisée en inverse
+délivre un courant sortant de son
+anode lorsque celle-ci est éclairée.
+
+En reliant la photodiode à une
+résistance, on obtient une
+tension électrique à ses bornes
+proportionnelle au courant
+délivrée d’après la loi d’Ohm.
+
+On éclaire le miroir tournant avec
+un laser et on l’oriente de manière
+à ce que le faisceau réfléchi éclaire
+la photodiode à chaque tour.
+
+Laser
+
+Miroir en rotation
+
+Photodiode
+
+On observe, grâce à un oscilloscope,
+la tension électrique aux bornes de
+la résistance lorsque le miroir est en
+rotation.
+
+La mesure de la période du signal nous permet d’accéder à sa fréquence et donc à la vitesse de rotation du
+miroir mais ce n’est pas très pratique.
+
+14
+
+b) Fréquencemètre
+Pour pouvoir obtenir directement la fréquence de rotation
+du miroir, nous lisons la tension aux bornes de la résistance
+sur le TIMER de la PIN 5 du microcontrôleur. Ce TIMER 16
+bits sera incrémenté sur des fronts montants pendant une
+seconde puis remis à zéro. La valeur de l’incrémentation qui
+correspond à la fréquence de rotation du moteur sera
+affichée sur un écran LCD comme le montre le schéma cicontre réalisé avec le logiciel FRITZING.
+Rappel : la fréquence d’un signal périodique est le nombre de
+fois que ce signal se répète par seconde.
+L’idée de ce programme est d’utiliser deux « timers » :
+Le premier « timer « (registre 16 bits relié à la borne D5 de la carte) est configuré en mode « capture ». Il va
+compter les passages du faisceau laser devant la diode. L’idée étant d’afficher la valeur du « timer 1 » sur
+l’écran LCD toutes les secondes, ce qui correspond à la fréquence, puis de le remettre à zéro.
+Le second « timer » sera configuré en mode générateur d’interruptions périodiques. C’est-à-dire que l’on va
+interrompre le programme périodiquement. On utilise pour cela l’horloge de la carte (16 MHz) à laquelle on
+applique un facteur de division (prescaler=1024) et on déclenche une interruption au bout de 256 tops
+d’horloge ce qui fait : 256x1024/(16x106) ≃ 1/60 secondes.
+On appelle à ce moment une fonction qui incrémente une variable ni (nombre d’interruptions) et lorsque ni
+atteint la valeur de 60 (c’est-à-dire toutes les secondes), on affiche la valeur contenue dans le « timer 1 ».
+Ci-dessous, le programme détaillé :
+
+15
+
+c)
+
+Tests
+
+Nous avons voulu tester la fiabilité de notre tachymètre sur la plage de fréquence que nous allons utiliser.
+C’est-à-dire de 0 à 400 Hz. Pour cela, nous avons relié les bornes de la résistance à une carte d’acquisition et
+nous avons mesuré la fréquence du signal obtenu pour différentes vitesses de rotation du miroir.
+
+f=
+
+1
+0,007901
+
+= 127 𝐻𝑧
+
+LCD : 124 TPS
+Nous avons ensuite tracé la courbe de la
+valeur lue sur l’écran LCD (TPS : tours/s)
+en fonction de la fréquence mesurée.
+Le coefficient directeur de cette fonction
+linéaire étant très proche de l’unité
+(incertitude relative de 0,6%), nous
+pouvons donc conclure sur la fiabilité de
+la valeur affichée sur notre tachymètre.
+Remarque : les fluctuations de la vitesse
+de rotation du miroir entraînent une
+fluctuation de la valeur lue de quelques
+Hz ce qui devra être pris en compte dans
+nos mesures.
+
+16
+
+CINQUIEME PARTIE : MESURES ET RESULTATS
+A) ETALONNAGE DE L’ECRAN
+On photographie l’écran avec un éclairage blanc et on étalonne l’image avec le logiciel SALSAJ.
+
+B) ESTIMATION GROSSIERE DE C
+On réalise deux photographies du spot pour deux sens de rotation du miroir différents et on réalise une coupe
+à deux dimensions avec le logiciel SALSAJ.
+Spot à –214Hz
+
+Coupes avec SALSAJ
+
+Spot à 205Hz
+
+On observe bien un déplacement de la position du spot lumineux.
+On détermine la variation de la position du spot lumineux : ΔS’ = 2,79 - 2,14 = 0,65 mm
+On calcul la célérité de la lumière dans l’air avec c = 8
+c= 8
+
+f(2a+f)N/ ΔS’
+
+x 1,90 x (2x4,59+1,90)x(205+214)/(0,65x10-3) = 3,41 x 108 m/s
+
+Ecart relatif avec la valeur théorique de 300 000 km/s = 14 %
+Nous pouvons dire que l’ordre de grandeur est correct mais nous allons voir comment améliorer cette mesure.
+
+17
+
+C) MESURE DE C
+1) Photographies du spot lumineux
+Nous avons réalisé plusieurs photographies du spot lumineux pour différentes fréquences :
+
+2) Détermination de la position S’ du centre du spot lumineux
+Nous avons ensuite effectué les différentes coupes lumineuses avec la logiciel SALSAJ afin de déterminer la
+position S’ du centre des différents spots lumineux. Nous avons ensuite rentré nos résultats dans le tableur
+REGRESSI.
+Remarque : pour déterminer l’incertitude type de la position S’ du spot, nous
+avons estimé un encadrement de sa position (S’max-S’min) que nous avons
+divisé par 2√3.
+L’incertitude sur la lecture de la fréquence est estimée par rapport aux légères
+fluctuations de l’affichage de l’écran LCD pendant la mesure :
+
+5
+2√3
+
+= 1,4𝐻𝑧
+
+3) Tracé de la position du centre S’ en fonction de la fréquence de rotation du miroir
+Puis nous traçons la courbe de la position S’ du centre du spot en fonction de la fréquence de rotation du
+miroir.
+
+Après modélisation, nous obtenons
+une relation affine : S’ = kxN + S’0
+Nous en déduisons la position S’0 du
+centre du spot lorsque le miroir est à
+l’arrêt : 2,37 mm et le coefficient
+k = (1,75 ± 0,24) x 10-6 m.s
+
+4) Calcul de la célérité de la lumière dans l’air
+A partir de la relation c = 8
+S’ = 8
+
+f(2a+f)N/ ΔS’, nous en déduisons :
+
+f(2a+f)N/c + S’0 donc 8
+
+f(2a+f)/c = k et c = 8
+
+f(2a+f)/k
+
+Ce qui donne : c = 8 x1,90x(2x4,59+1,90)/ (1,75x10-6) = 302 000 km/s
+Soit un écart relatif de 0,7 % par rapport à la valeur théorique.
+
+18
+
+5) Estimation de l’incertitude Δc sur la valeur de la célérité
+Nous pouvons écrire que :
+2
+
+𝛥𝑐 2
+𝛥𝑓 2
+𝛥(2𝑎 + 𝑓)
+𝛥𝑘 2
+( ) =( ) +(
+) +( )
+𝑐
+𝑓
+2𝑎 + 𝑓
+𝑘
+𝛥𝑓
+𝑓
+
+=
+
+0,01
+1,90
+
+𝛥(2𝑎+𝑓)
+2𝑎+𝑓
+
+= 5,26 × 10−3 (voir C.3.c PARTIE 2)
+
+=
+
+√2(𝛥𝑎)2 +(𝛥𝑓)²
+2𝑎+𝑓
+
+=
+
+√2(0,01)2 +(0,01)²
+2×4,58+1,90
+
+= 1,57 × 10−3 (On estime à 1 cm l’incertitude sur la mesure de la
+
+distance a même si le fabriquant du télémètre nous annonce 2 mm)
+∆𝑘 0,24
+=
+= 1,37 × 10−1
+𝑘
+1,75
+On voit qu’on peut négliger les incertitudes sur les distances f et a par rapport à k.
+Soit
+
+𝛥𝑐
+𝑐
+
+≈
+
+𝛥𝑘
+𝑘
+
+= et Δc ≃
+
+𝛥𝑘
+𝑘
+
+× 𝑐 = 41 000 𝑘𝑚/𝑠
+
+Donc 𝑐 = (302 000 ± 41 000)𝑚/𝑠 avec une probabilité de 95%
+Et une incertitude relative de :
+
+𝛥𝑐
+𝑐
+
+= 14%
+
+Conclusion
+Pour conclure, nous pouvons dire que ce projet a été très enrichissant et nous a beaucoup apporté. Nous avons
+appris à travailler en équipe. Nous nous sommes confrontés à de réelles difficultés expérimentales. Nous nous
+sommes parfois sentis dans la peau de ce génial physicien qu’était Léon Foucault lorsqu’il essayait de mettre en
+œuvre son expérience et avons pu réaliser à quel point il faut être persévérant afin d’obtenir des mesures
+exploitables.
+Comme perspectives, nous envisageons de fabriquer un récipient transparent suffisamment long pouvant
+contenir de l’eau afin de mesurer la vitesse de la lumière dans l’eau comme Foucault l’avait fait à l’époque afin
+de valider la théorie ondulatoire de propagation de la lumière.
+
+19
+
+

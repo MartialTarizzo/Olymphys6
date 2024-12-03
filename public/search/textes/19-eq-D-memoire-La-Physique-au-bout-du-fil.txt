@@ -1,0 +1,458 @@
+Lycée Suger de Saint-Denis
+
+La Physique au bout du fil
+
+Travail présenté par :
+
+Encadré par :
+
+Sabrina Ben Yahya ET Sammy Fergoug
+
+Mohamed EL Abed
+
+Élèves de Première S
+
+professeur de Physique
+
+1 Olympiades de la Physique 2011-2012
+
+Résumé :
+Lorsqu’on fait passer un courant dans un fil conducteur, celui s’échauffe (c’est
+l’effet Joule) et sa température augmente. Si ce fil est ensuite soumis à un
+courant d’air (ni chaud ni froid), sa température diminue. La température finit
+par atteindre une valeur d’équilibre qui dépend de la vitesse du courant d’air.
+Ainsi, la mesure de cette température est une mesure indirecte de la vitesse.
+Dans les ouvrages de référence, la méthode dite d’anémométrie à fil chaud
+repose sur la mesure de la tension aux bornes du fil car la résistance de celui-ci
+est censée varier avec la température. Nous avons, pour notre projet, choisi un
+fil dont la résistance ne varie pas sur le domaine de températures exploré (de
+20° C à 200°C) pour voir s’il est quand même possible d’estimer correctement
+la vitesse par un moyen très simple.
+
+2 Olympiades de la Physique 2011-2012
+
+Remerciements
+
+Nous tenons à remercier :
+• Messieurs Richard Colombo et Frédéric Bossuyt de la société Micrelec
+de nous avoir prêté le module d’acquisition OrphyLab.
+• Monsieur Sébastien Portal de la société National Instrument pour ses précieux
+conseils.
+• Monsieur Wladimir Toutain du groupe de formation des Maîtres à l’université
+Denis Diderot pour son accueil et pour avoir mis à notre disposition le matériel
+qui nous a permis de mettre au point nos expériences.
+• Messieurs Pierre Slangen (Mines d’Alès) et Jean Michel Desse (Onera )pour leurs
+conseils techniques en matière de visualisation d’écoulements de gaz.
+
+3 Olympiades de la Physique 2011-2012
+
+Présentations
+Nous sommes deux élèves de Première S du Lycée Suger de Saint Denis. Dès le
+début de l’année, notre professeur de Physique nous a parlé des olympiades
+de la Physique mais sans idée précise de projet.
+L’idée de participer à une compétition nous a motivés et dans le cadre de
+l’accompagnement personnalisé, nous avons mené une recherche. Nous
+avons commencé par une étude des Lasers puis par l’étude de la « bougie
+balançoire » mais l’interprétation du phénomène faisait appel à la théorie du
+Chaos incompréhensible à notre niveau ; Nous avons donc renoncé.
+Début octobre, notre professeur nous raconte sa visite au salon Mesure Expo à
+Paris et notamment sa rencontre avec un fabricant d’anémomètres ; c’est
+ainsi que s’est imposée l’idée du projet car nous avons été séduits par la
+simplicité du diapositif expérimental et l’élégance de la méthode de mesure.
+Nous étions trois à travailler sur ce projet jusqu’à ce que notre camarade
+Anissa nous abandonne pour un autre projet fascinée qu’elle était par la
+beauté des LEDs. Au fur et à mesure de nos recherches nous avons découvert
+qu'il existait plusieurs méthodes de mesure de vitesse mais c’est l'anémomètre
+à fil chaud a retenu notre attention.
+En suivant le fil nous avons découvert que les échanges thermiques recèlent
+une richesse physique insoupçonnée.
+
+4 Olympiades de la Physique 2011-2012
+
+Plan
+Introduction
+1. Bilan de puissance
+2. Hypothèses physiques
+3. Relation fondamentale de l’anémométrie : Loi de King
+4. Montage
+4.1 Vue d’ensemble
+4.2 Schéma général
+4.3 Choix des capteurs
+a. thermomètre
+b. Anémomètre
+5. Le protocole expérimental :
+5.1 Tâtonnements
+5.2 Le réchauffement Sisyphe
+5.3 Mesure de la température d’équilibre en fonction de la vitesse du
+jet d’air
+6. Exploitation des résultats : modélisation
+7. Limites de la méthode
+Conclusion
+
+5 Olympiades de la Physique 2011-2012
+
+Introduction
+Anémomètre, terme du XVIIIe siècle, composé du préfixe « anémo » (en grec
+« νεµος », « anemos », en français « vent ») et du suffixe « mètre »
+(« mesure »), est un appareil permettant de mesurer la vitesse ou la pression
+du vent.
+
+Anémomètre à coupelles
+
+Nous nous intéressons dans ce projet à la possibilité de mesurer la vitesse du
+vent en étudiant les échanges thermiques d’un fil chauffé par un courant
+électrique et refroidi par un courant d’air.
+Les techniques que l’on trouve dans la littérature font appel à un système
+électronique très sensible, appelé pont de Wheatstone, qui nous a semblé
+difficile à réaliser.
+Nous avons adopté une technique plus simple à notre niveau moyennant
+quelques hypothèses dont nous avons vérifié la validité à posteriori.
+
+6 Olympiades de la Physique 2011-2012
+
+1. Bilan de puissance
+
+I
+
+On considère un fil de longueur l et de diamètre d (l >>d). On fait circuler
+dans ce fil de résistance R un courant d’intensité I.
+La variation d’énergie du fil par unité de temps dE/dt est due à deux termes:
+La puissance reçue par effet Joule et La puissance cédée à l’air ambiant Pa,
+ce qui s’écrit :
+dE/dt = PJ -Pa
+Le fil atteint rapidement l’équilibre avec une température Teq supérieure à la
+température ambiante T0 et donnée par le bilan de puissance : PJ = Pa
+Examinons chacun de ces termes séparément :
+1. La puissance reçue par effet Joule
+Celle-ci s’écrit PJ =RI2
+2. La puissance cédée à l’air ambiant
+Le fil chauffé peut céder de l’énergie par :
+• Conduction vers l’air ; Processus qui fait intervenir la conductivité thermique ka
+de l’air (en Wm-1K-1) : ka l (Teq-T0) représente la puissance cédée à l’air par
+conduction
+•
+
+Conduction vers les supports du fil ; Processus qui fait intervenir la conductivité
+thermique kf du fil.
+
+• Convection due au mouvement de l’air.
+• Rayonnement thermique.
+7 Olympiades de la Physique 2011-2012
+
+2. Hypothèses physiques
+Notre fil est constitué d’un alliage de Nickel et de chrome (Tfusion =1400°C) de
+longueur 900 mm et de diamètre 0.5 mm ; Sa résistance électrique vaut 2.2 Ω
+et reste constante sur le domaine de température exploré comme on peut le
+vérifier avec les indications fixes de l’alimentation stabilisée.
+Dans les conditions de l’expérience (I=1 A à 2.5A) la température peut
+atteindre 75°C et on n’observe pas de rayonnement (le fil commence à
+rougeoyer à partir de I=3.5 A). On peut donc le négliger devant les autres
+transferts thermiques.
+L’échange thermique entre deux corps est d’autant plus important que la
+surface de contact entre ces deux corps est importante. La longueur du fil
+étant grande devant son diamètre, il s’ensuit que la surface latérale du fil en
+contact avec l’air est beaucoup plus grande que la surface en contact avec
+les supports du fil ; On négligera donc la conduction vers les supports.
+Compte tenu de ces hypothèses, La puissance cédée à l’air s’écrit :
+Pa = h(Teq-T0)A
+Où
+• A est l’aire de la surface latérale du fil : A =πdl
+• Teq est la température d’équilibre du fil en Kelvin (K)
+• T0 est la température de l’air ambiant en Kelvin (K)
+• h le coefficient de transfert (unités : Wm-2K-1)
+Les physiciens des fluides ont l’habitude de travailler avec des grandeurs
+sans dimensions appelés nombres.
+Ainsi la combinaison : hd/ka où k est la conductivité thermique de l’air
+est un nombre sans dimensions appelé nombre de Nusselt.
+Nu = hd/ka
+En multipliant numérateur et dénominateur par la même quantité
+
+8 Olympiades de la Physique 2011-2012
+
+l (Teq-T0) on voit que Nu représente le rapport de la puissance transférée
+totale à la puissance transférée par conduction uniquement.
+En remplaçant dans l’expression de Pa, il vient :
+Pa = πl ka (Teq-T0) Nu
+
+Le bilan de puissance s’écrit alors :
+RI2 = πl ka (Teq-T0) Nu
+Application numérique : Ordre de grandeur du nombre de Nusselt dans
+les conditions de l’expérience.
+Avec I=1 A, R=2.2 Ω, l =20 cm, ka =0.02 Wm-1K-1, Teq-T0=30 °C
+On obtient Nu de l’ordre de 5 : le transfert par conduction ne représente
+que 1/5 du transfert total. Autrement dit le transfert par convection est 4
+fois plus efficace que le transfert par conduction. Les hypothèses de
+départ sont donc bien vérifiées.
+
+3. Relation fondamentale de l’anémométrie : Loi
+de King
+La question est maintenant de faire apparaitre la vitesse U de l’air dans ces
+équations.
+Introduisons un deuxième nombre sans dimensions : le nombre de Reynolds
+Re = Ud/νa
+Où νa est la viscosité de l’air (νa =15. 10-6 m2 s-1, νmiel =4280. 10-6 m2 s-1).
+Le nombre de Reynolds permet de comparer les forces d’inerties aux forces
+visqueuses.
+La loi de King (1914) affirme que
+Nu =a+b(Re)0.5
+Où a et b sont des constantes.
+9 Olympiades de la Physique 2011-2012
+
+A l’équilibre on peut donc écrire :
+RI2 = πl ka (Teq-T0)( a+b(Re)0.5)
+Ou encore :
+Teq =T0 +RI2/(A+BU0.5)
+Nous allons donc mesurer la température d’équilibre du fil pour différentes
+vitesses et voir si l’on peut modéliser la courbe obtenue en utilisant la loi de
+King.
+
+4. Le montage
+4.1 Vue d’ensemble
+
+Le montage est constitué par :
+Un sèche-cheveux à « souffle froid » (c'est-à-dire à température
+ambiante)
+Une résistance chauffante de bouilloire
+Une alimentation stabilisée
+Une sonde thermométrique Pt 100
+Un anémomètre à hélice
+Un boitier d’acquisition OrphyLab
+Un ordinateur qui pilote l’acquisition et effectue le traitement du signal
+(Logiciel Regressi)
+10 Olympiades de la Physique 2011-2012
+
+4.2 Schéma général
+Alimentation
+Stabilisée
+
+Anémomètre
+
+Sèche-cheveux
+Fil
+
+Distance
+U
+
+Ordinateur :
+traitement du
+signal
+
+T
+
+Sonde
+thermométrique
+en contact
+avec le fil
+
+Système
+d’acquisition
+Cable
+USB
+
+4.3 Choix des capteurs
+a) Le thermomètre
+Nous disposons au Lycée de thermomètre à sonde pt100 (voir Notice en
+annexe) qui permet de faire des mesures de -50°C à 110°C. Le principal
+intérêt de cette sonde est qu’elle peut être reliée à l’ordinateur pour faire
+des acquisitions. La sonde doit préalablement être étalonnée à l’aide de
+deux points de mesures.
+b) L’anémomètre
+Une recherche sur internet a permis de recenser les magasins qui vendent des
+anémomètres à Paris : il s’agit des magasins qui distribuent du matériel de voile.
+Nous avons trouvé le notre au magasin « Au vieux campeur » dans le 5ème.
+
+11 Olympiades de la Physique 2011-2012
+
+5. Protocole expérimental et résultats des
+mesures
+5.1 Tâtonnements
+Nous avons commencé par faire des essais avec un sèche-cheveux qui se
+trouvait au laboratoire mais celui-ci chauffait ce qui faussait la mesure. Nous
+avons ensuite acheté un radiateur mais avec souffle d’air froid ; Celui-ci ne
+produisait pas un courant d’air uniforme ; Nous avons alors eu l’idée de
+construire une conduite pour canaliser le flux mais celui devenait faible dès
+que l’on s’éloignait de 1 m et la géométrie ne facilitait pas lecture de
+l’anémomètre. Nous avons ensuite acheté un sèche-cheveux puissant et
+possédant une fonction « souffle froid ».
+Nous avons pu alors procédé à des mesures reproductibles.
+L’anémomètre et le thermomètre doivent être très proche du fil si on veut des
+mesure précise. Nous disposons au laboratoire du Lycée de résistances
+chauffantes montées sur support ;Nous avons donc naturellement pensé à les
+utiliser.
+
+5.2 Le réchauffement Sisyphe1
+Nous avons voulu savoir dans un premier temps comment variait la vitesse de
+refroidissement avec la vitesse du jet d’air ; Nous avons pour cela opéré de la
+manière suivante :
+0. Régler les paramètres de l’acquisition à durée totale : 33min 20s, et
+échantillonnage : 1 point par seconde
+1. Régler à l’aide de l’alimentation stabilisée l’intensité du courant à 1 A : la
+température monte.
+2. Dès que la température se stabilise, allumer le sèche-cheveux qui se trouve
+au plus près du fil : la température tombe rapidement.
+
+1
+
+Par analogie avec la situation du héros de la mythologie grecque condamné à pousser éternellement un rocher vers
+le sommet d’une montagne, rocher qui retombe dans la vallée aussitôt le sommet atteint. (Voir aussi Le
+refroidissement Sisyphe)
+
+12 Olympiades de la Physique 2011-2012
+
+3. Dès que la température se stabilise, éteindre le sèche cheveu et attendre
+que la température retourne à la valeur d’équilibre avant refroidissement.
+4. Eloigner le sèche cheveu et l’allumer : constater que le refroidissement est
+moins rapide.
+5. Faire subir au fil plusieurs cycles.
+Le résultat est donné dans le graphique suivant :
+
+U=1.4ms-1
+
+U=6.4ms-1
+
+La courbe de droite représente la dérivée de la température en fonction du
+temps. On observe des pics qui représentent la valeur de la vitesse de
+refroidissement.
+On remarque bien que la profondeur de ces pics est d’autant plus petite que
+la vitesse du jet d’air est petite.
+
+5.3 Mesure de la température d’équilibre en fonction de la vitesse du
+jet d’air
+Dans cette série de mesures, nous avons réglé l’intensité du courant à 2.5
+A afin que la température d’équilibre (en l’absence de refroidissement)
+soit située autour de 90°C. Nous avons commencé les mesures avec le
+sèche-cheveu proche du fil puis en l’éloignant progressivement. Nous
+avons attendu à chaque fois l’établissement d’un équilibre (palier de
+13 Olympiades de la Physique 2011-2012
+
+température). L’acquisition a duré 16 min. Les résultats apparaissent dans
+le graphique suivant :
+
+La dernière mesure a été réalisée en rapprochant au maximum le sèchecheveux du fil. Nous avons extrait de cette courbe le tableau suivant :
+U [ms-1]
+
+T [°C]
+
+5.2
+
+44.3
+
+3.5
+
+44.5
+
+1.9
+
+53.8
+
+1.2
+
+69.2
+
+0.9
+
+77.1
+
+Erreurs absolues :
+∆T=O.1°C et ∆U=O.1m/s
+
+14 Olympiades de la Physique 2011-2012
+
+6. Exploitation des résultats : modélisation à l’aide
+du logiciel Regressi
+Modélisons la variation de Teq en fonction de U par la relation:
+Teq =T0 +RI2/(A+BUn)
+Où A et B et n sont les paramètres de la modélisation
+
+On trouve :
+A=-0.2335 SI
+B=0.5419 SI
+et n=0.509 avec écart relatif de 0.53%.
+Nous retrouvons bien l’exposant 0.5 de la loi de King, ce qui est assez
+satisfaisant !
+On en déduit la formule qui permet de calculer la vitesse du jet connaissant la
+température d’équilibre du fil:
+
+U= (1/B2)*([RI2/ (Teq –T0)] -A) 2
+15 Olympiades de la Physique 2011-2012
+
+7. Limites de la méthode
+La loi de King n’est valable que pour les écoulements laminaires autour de
+fils cylindriques. Le fil que nous avons utilisé jusqu’à présent était entortillé (voir
+la couverture); Suite aux recommandations du jury nous en avons extrait un fil
+droit (L=33 mm, R=0.6Ω) et nous avons voulu voir si l’écoulement de l’air autour
+du fil était laminaire ou turbulent. Les valeurs du nombre de Reynolds Re=
+Ud/νa de notre géométrie se situent entre 30 et 173 mais il est difficile à ce
+stade de conclure. Il nous fallait visualiser l’écoulement…
+Après avoir consulté par téléphone des spécialistes de mécanique des fluides
+notre professeur nous a conseillé de mettre en oeuvre une méthode de
+visualisation optique appelée strioscopie schlieren.
+La strioscopie est une technique de visualisation optique reposant sur la
+déviation d’un faisceau lumineux en présence d’un gradient de densité dans
+le champ observé.
+Explications : Le fil chauffé modifie la densité de l’air (l’air chaud est moins
+dense que l’air ambiant) et la modification de la densité de l’air modifie à son
+tour l’indice de réfraction de l’air (Loi de Gladstone). Les rayons lumineux
+s’incurvent. Une lame de cutter placée à l’endroit où se forme l’image du fil
+permet d’intercepter une partie du faisceau et de faire ressortir les rayons
+perturbés par la variation d’indice.
+Montage :
+Lame de cutter
+Lentille, f=300mm
+
+Source lumineuse
+
+Trou
+
+Alimentation stabilisée
+
+16 Olympiades de la Physique 2011-2012
+
+Condenseur
+
+Résultats
+Pas de courant
+d’air :
+convection
+libre
+
+Souffle d’air :
+convection
+forcée
+
+Re =36
+
+Re=83
+
+A basse vitesse on peut voir que les lignes d’écoulement de l’air sont
+à peu près droites et parallèles entre elles mais à grande vitesse ce
+n’est plus le cas. Il y a eu une transition laminaire-turbulent.
+La formule permettant de calculer la vitesse n’est plus valable : il
+faudra procéder à un nouvel ajustement selon une autre loi
+empirique.
+
+17 Olympiades de la Physique 2011-2012
+
+Conclusion :
+La méthode employée donne de bons résultats pour les faibles vitesses et
+est indépendante du fil pourvu que sa longueur soit grande devant son
+diamètre et que sa résistance ne varie pas pendant la durée de
+l’expérience. Nous envisageons de faire des essais en plein air.
+Ce projet nous a conduit à travers trois grands domaines de la
+physique : la Thermique, la mécanique des fluide et l’optique. En nous
+intéressant à un simple fil nous avons donc appris beaucoup de Physique ;
+Celle-ci était réellement au bout du fil.
+
+18 Olympiades de la Physique 2011-2012
+
+Références
+1. Méthodes expérimentales en mécanique des fluides, F.Moissy, Université Paris
+
+Sud Orsay, 2004 http://www.fast.u-psud.fr/~moisy/teaching/memf.pdf
+2. http://fr.wikipedia.org/wiki/An%C3%A9mom%C3%A8tre
+3. http://www.aerospacelab-journal.org/sites/www.aerospacelab-journal.org/files/AL1-09_1.pdf
+4. http://www.mines-ales.fr/~cmgd/ILOA/ILOA.html#Eschli
+
+19 Olympiades de la Physique 2011-2012
+
+

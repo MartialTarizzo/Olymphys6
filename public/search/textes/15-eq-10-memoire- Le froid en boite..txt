@@ -1,0 +1,938 @@
+Charline Moreau
+
+Guillaume Vandermoere
+
+Théo Antoine
+2007
+
+Sommaire
+ Introduction
+ Problématique
+ Analyse fonctionnelle
+ Réalisation du produit et différentes études
+effectuées
+1.
+
+Le projet initial
+
+2.
+
+Le choix du sac isotherme de base
+
+3.
+
+Le choix de la sonde
+a. La sonde PT100 notice de l’utilisateur
+b. Test de la sonde
+c. comparaison des résultats avec les données du
+fabriquant.
+
+4.
+
+Mise en œuvre du circuit
+a. Mise en place du circuit sur la platine
+b. Tests sur la tension à la sortie du circuit
+
+5.
+
+Choix de l'afficheur
+a. Mise en place de l'afficheur sur le circuit
+
+6.
+7.
+
+Circuit de LEDs
+Mise en place sur platine
+a. Comparaison avec la température existante
+validation après le réglage du deuxième
+potentiomètre
+
+8.
+
+Assemblage du produit
+
+9.
+
+Bilan thermique
+
+10.
+
+Finalisation du produit
+
+11.
+
+Conclusion
+1
+
+LE FROID EN BOITE :
+
+ Introduction :
+A cause des crises récentes dans le domaine alimentaire (vache folle, grippe aviaire), les
+consommateurs sont nourris d’une sorte d’inquiétude permanente à propos de ce qui touche à
+la nourriture. Les consommateurs cherchent donc un moyen de limiter le risque d’infection
+alimentaire due au développement des microbes sur les produits dits périssables. Pour garder
+des produits sains, on conserve les produits périssables à basse température en fonction de la
+nature du produit, c’est le principe de la chaîne du froid. Pour éviter au produit de se
+réchauffer, c’est-à-dire pour éviter de briser la chaîne du froid, nous avons choisi d’améliorer
+un sac isotherme
+
+ Problématique
+Contrôler et communiquer la température dans un sac isotherme et indiquer les plages de
+conservations idéales.
+
+ Analyse fonctionnelle
+Nous avons fait une étude afin de comprendre quels étaient les besoins de l'utilisateur et en quoi
+notre projet pourrait s'avérer utile dans la vie quotidienne.
+Voici ci-dessous les différents diagrammes qui permettent de comprendre ce besoin.
+
+2
+
+Le diagramme bête à corne énonce le principal besoin auquel répond le produit.
+
+Le diagramme pieuvre permet de mettre en place les différents éléments qui constituent
+l'environnement du produit, définissant ainsi les contraintes qui seront les notre au cours de notre
+production.
+3
+
+Fonction
+Fp1
+Fp2
+Fc1
+Fc2
+Fc3
+Fc4
+Fc5
+
+Définition de la fonction
+Conserver les aliments
+Afficher la température
+Résister au milieu ambiant
+Utiliser l’énergie électrique
+Plaire à l’utilisateur
+Indiquer les plages de conservation idéales
+Etre pratique
+
+Le graphe de la fonction globale permet de faire l'analyse fonctionnelle de notre produit en
+définissant la matière d'œuvre.
+
+4
+
+Afficher plages (Frais/Surgelé)
+de conservation
+
+Enfin, le diagramme fast est une étude plus poussée des fonctions de notre produit en
+représentant de manière ordonnée toutes les fonctions techniques du sac.
+
+5
+
+ Réalisation du produit et différentes études
+effectuées
+1. Le projet initial
+
+2. Le choix du sac isotherme de base
+Nous devons tout d'abord réfléchir sur le type de sac qui correspondrait le mieux à nos
+critères de sélections. Les voici, ci-dessous énoncés:
+•
+
+La structure: - Un sac rectangulaire pour son esthétisme, son adaptation aux
+formes des emballages des produits commercialisés et pour permettre une meilleur
+mise en place d'une plaque rectangulaire au fond du sac.
+-Un sac comportant de nombreuses épaisseurs afin de perdre le moins
+d'énergie possible.
+
+•
+
+Les Matériaux:- Nous souhaitons de plus utiliser des matériaux solides afin de
+protéger le capteur ainsi que les composants électroniques du circuit imprimé que
+nous allons créer.
+- Nous allons déterminer la nature du matériau de la plaque qui sera
+en contact à la fois avec les produits contenus dans le sac isotherme
+et le ou les capteurs. Nous avons donc recherché les différentes
+conductivités thermiques des matériaux.
+
+6
+
+Tableau récapitulatif des conductivités de certains matériaux
+Matériaux Conductivité thermique
+-1
+
+Diamant
+Argent
+Cuivre
+Or
+Aluminium(pur
+eté de 99,9%)
+Al SIC
+Carbone
+Platine
+Acier doux
+Acier
+Titane
+Quartz
+Marbre
+Verre
+Eau
+
+-1
+
+(W·m ·K )
+Valeurs pour une température
+de 20 °C
+895-2300
+429
+401
+317
+237
+150-200
+129
+71,6
+46
+26
+20
+6,8-12
+2,5
+1,35
+0,6
+
+L’utilisation d’une plaque métallique au fond du sac semble le plus adapté à notre projet car ce
+matériau allie la solidité ainsi qu’une bonne conductivité.
+•
+
+Le Capteur:- Nous allons étudier la variation de la résistance en fonction de la
+température.
+
+3. Le choix de la sonde
+
+Le sac isotherme permet de conserver la température de différents produits autant surgelés
+que froids, ainsi, nous avons tourné notre choix de sonde pour mesurer la température dans le
+sac isotherme vers la sonde PT100 plutôt que vers une autre sonde de température car cette
+sonde répondait à nos exigences concernant les limite de température à mesurer c'est-à-dire
+entre -30°C et 10°C. De plus la sonde PT100 a été choisie car elle résistait aussi à
+l'humidité. La sonde Pt 100 propose également une relation linéaire entre la résistance et la
+température, ce qui peut s’avérer plus pratique pour manipuler les résultats de la sonde.
+
+7
+
+a. La sonde PT100 (notice de l’utilisateur)
+type
+
+Température
+
+Sonde platine PT 100
+
+-200°C / +850°C
+
+R=ρ·L/S(la résistivité s’exprime donc en Ω·m)
+La sonde PT100 permet de mesurer le changement de résistivité d'un filament de platine enroulé autour
+d'une tige de verre. En général, les sondes PT100 ont une valeur de résistivité de 100 ohms pour 0°C. La
+variation de résistivité est environ de 0.4 ohms/°, avec une précision de +/- 0.3°.La relation pour calculer
+la résistance d’une telle sonde est R=ρ·L/S(la résistivité s’exprime donc en Ω·m).
+Les sondes sont branchées à des convertisseurs, qui transforment le faible signal en tension 0-10 V ou en
+courant 4/20 mA interprétables par les automatismes ou les afficheurs numériques.
+
+b. Test de la sonde
+Nous avons testé la résistance de la sonde à l’aide d’un ohmmètre et d’eau.
+Dans un bêcher, nous avons mesuré la résistance de la sonde suivant différentes températures.
+
+8
+
+Tableau récapitulatif des mesures faites par le groupe
+Température Résistance
+-12
+94,18
+-8
+95,7
+-3
+97,62
+0
+100
+1
+99,06
+2
+99,84
+5
+102,6
+22
+110,2
+25
+109,2
+30
+110,5
+35
+112,7
+40
+114,2
+45
+120,5
+50
+119,4
+62
+124,3
+68
+132,6
+
+o Courbe récapitulative des mesures
+
+9
+
+c. comparaison des résultats avec les données du
+fabriquant.
+
+La courbe témoin symbolisant la relation entre la résistance et la température et la courbe de nos mesures sont
+quasiment semblable ce qui nous permet de continuer notre projet car la sonde est fiable et correspond aux
+mesures données par le fabriquant.
+
+Courbe de résistance de la platine
+PT100 donnée par le fabriquant.
+
+4. Mise en œuvre du circuit
+a. Mise en place du circuit sur la platine
+Il nous a fallu transformer la relation entre la température et la résistance en relation entre la tension et la résistance.
+Nous avons commencé par réaliser notre circuit sur une platine, c’est à dire que nous avons d'abord réalisé un essai avant de
+passer à notre montage définitif.
+Nous avons réalisé le montage suivant qui se caractérise par la relation ci-dessous :
+
+10
+
+Tension en fonction de la température à la sortie
+du 1er montage
+-30
+
+-20
+
+-10
+
+0
+
+10
+
+20
+
+30
+
+-0,8
+
+Tension
+
+-0,85
+-0,9
+-0,95
+-1
+-1,05
+-1,1
+-1,15
+Température
+
+A la suite de ce premier montage on obtient la courbe si dessus .Or cette courbe ne représente pas une relation linéaire, il faut
+changer l ordonné à l’origine et la pente pour permettre d’avoir une relation plus pratique.
+Ce montage a pour but de pouvoir mettre la sonde en application.
+La sonde permet une modification de résistance et, grâce à ce circuit elle permet de créer une variation de tension.
+Comme nous n'avions pas tout les composants du circuit (notamment ceux qui permettent d'alimenter le circuit; c'est-à-dire le
+support de piles 12V et 12V-->15V et -15V) nous avons utilisé un générateur directement +15 , -15 et 0V.
+
+On va donc ajouter un deuxième circuit avec un AOP pour conditionner la tension de sortie du premier circuit proportionnelle
+à la température. On effectue un décalage de 1V de la courbe de manière à avoir 0V pour 0°C puis une inversion et une
+amplification du signal pour l’adapter à l’afficheur voltmètre.
+
+11
+
+Sortie 2ièm e m ontage
+30
+V2 en volt
+
+20
+10
+0
+-30
+
+-20
+
+-10
+
+-10 0
+
+10
+
+20
+
+30
+
+-20
+-30
+Tem pératrure en °C
+
+A la sortie du premier circuit on a une relation affine décroissante du type V1 = -0.004*T – 1 avec T la température.
+Grâce à ce 2ième montage, la relation devient linéaire croissante avec un gain ajustable par le potentiomètre.
+Le circuit a pour relation : V2= -(Rpot/R)*(V1+1) donc V2=G*0.004*T ⇒ V2=K*T. Pour avoir un gain K de 1V/°C il faut
+un potentiomètre de 250 KΩ car Rpot= K*R/0,004 = K*1000/0,004
+Voici le montage sur platine ainsi obtenu :
+
+12
+
+-
+
+13
+
+B. Tests sur la tension à la sortie du circuit
+
+Suite à la fabrication du circuit, nous pouvons maintenant prendre les mesures de la tension à
+la sortie du circuit sachant que celle-ci va être primordiale dans la transmission de la
+température à l’utilisateur.
+
+Tension à la sortie du circuit
+o Tableau des récapitulatif des résultats de l’expérience
+Température
+(°C)
+Tension (V)
+30
+-1.1381
+35
+-1.1598
+40
+-1.1713
+45
+-1.187
+50
+-1.2041
+55
+-1.2115
+
+o Courbe récapitulative des résultats de l’expérience à la sortie du premier montage.
+-1,13
+-1,14
+-1,15
+
+V1
+
+-1,16
+-1,17
+
+Série1
+
+-1,18
+
+Linéaire (Série1)
+
+-1,19
+-1,2
+-1,21
+
+y = -0,0029x - 1,0534
+
+-1,22
+0
+
+20
+
+40
+
+60
+
+Tem pérature (°C)
+
+5. Choix de l'afficheur
+1. Mise en place de l'afficheur sur le circuit
+Le projet initial consistait à transmettre la température à l’aide de LED cependant, nous avons
+finalement décidé de compléter la transmission au moyen d’un afficheur. Celui-ci permettra à
+l’utilisateur de connaître directement la température à l’intérieur du sac.
+Nous avions de nombreux critères afin de choisir notre afficheur/voltmètre. Cet appareil
+affiche la tension qu’il reçoit à l’une de ces bornes. Nous avions défini la plage de
+température à mesurer allant de -20°C à 50°C. Il nous aurait fallu un afficheur voltmètre allant
+de -20V à 50V avec un gain de 1V/°C mais les afficheurs commercialisés disposent d'une
+plages de lecture de ± 200mV ou . ± 2 V. Nous avons alors changé la relation entre la
+température et la tension grâce au potentiomètre pour avoir un gain de 10mV/°C et ainsi
+pouvoir utiliser un afficheur ± 2 V qui affiche la valeur en millivolt sur à 4 digits. L’afficheur
+14
+
+possède un point dont on peut configurer la position pour séparer la partie entière de la partie
+décimale et ainsi éviter de se retrouver avec un point à un endroit non souhaitable.
+Pour avoir un gain K de 100mV/°C on calcule Rpot à partir de Rpot= K*R/0,004 =
+0,1*1000/0,004=25 KΩ.
+Si la température vaut 20°C, on aura V2=2000 mV, si on configure le point de l'afficheur en
+dV le résultat affiché vaudra 20.0 dV soit 20.0°C
+Ci-dessous le branchement de l’afficheur au circuit.
+
+6. Circuit des Leds :
+
+Grâce à ce circuit de LEDs, on peut définir deux plages de mesures : le frais et le congelé.
+D'après nos recherches nous nous sommes aperçu que les produis frais devaient se conserver
+entre 0 et 6°C et que les surgelés devaient impérativement être conservés en dessous de 15°C. On utilise la tension qui arrive sur l’afficheur qui a l’avantage d’être déjà adapté à nos
+besoins et on la compare à différentes consignes avec des amplificateurs opérationnels.
+Ensuite deux LEDs, une verte indique que le produit est bien conservé et une rouge indique
+qu’il faut refroidir le contenu du sac.
+Un inverseur permet à l'utilisateur de choisir le type de conservation à surveiller Frais ou
+Congelé.
+
+15
+
+Ampli
+Consigne 0°
+
+Inverseur
+
+Consigne 6°
+600mV
+
+Consigne -15°
+-1500mV
+
+7. Mise en place sur support fixe
+
+a. Comparaison avec la température existante
+validation après le réglage du deuxième
+potentiomètre
+Le réglage final de notre montage était celui du deuxième potentiomètre qui permettait, par
+l’intermédiaire de l’afficheur de faire part à l’utilisateur de la température. La comparaison
+avec la température extérieure nous a permit d’effectuer ce réglage précisément.
+
+Nous avons finalement fixé sur une platine notre montage tout d’abord en soudant les composant puis en
+reproduisant notre circuit initial en wrappant.
+
+16
+
+ANNEXE
+Schéma du montage
+
+17
+
+Schéma du circuit
+
+Wrappage du circuit
+
+Circuit achevé
+
+18
+
+b. Mise en place du circuit des LEDs
+
+Test de l’allumage des LEDs en fonction de la température
+
+Ensemble du montage créé afin d’effectué les différents tests finals
+
+19
+
+8. Assemblage du produit
+
+20
+
+9. Bilan thermique
+
+Qu’est ce que la thermique ?
+La thermique est la science qui traite de la production de chaleur ou de froid grâce à l’énergie et inversement
+de la production d’énergie en partant d’une différence de température. Cette science traite également des transferts de chaleur
+qui ont lieu grâce à certains phénomènes physiques à savoir conduction, convection et rayonnement. Dans le cas de notre sac
+isotherme on s’intéressera à la production de froid et aux transferts de chaleurs.
+On appelle conduction le phénomène physique qui provoque un transfert de chaleurs entre 2 milieux en contact de
+températures différentes. (Exemple : lorsque l’on touche un objet froid, la main se refroidit à son tour).
+La convection est le phénomène qui provoque une mise en mouvement des molécules dans un fluide. Lorsqu’il y a
+une différence de température il y a donc une différence de masse due la dilatation thermique et par l’effet de la poussée
+d’Archimède, il se créé un mouvement qui fait monter les molécules les plus chargées de chaleur qui atteignent
+progressivement la surface du fluide tout en transférant par conduction, sa chaleur de proche en proche. A cause de ce
+transfert, les molécules en mouvement perdent peu a peu leur chaleur et donc retombe a cause de l’effet de la gravité.
+Le rayonnement est le phénomène, qui par onde ou par un mouvement de particule, transmet de l’énergie. Dans
+certains cas, le rayonnement permet de transférer de la chaleur, qui est une forme d’énergie.
+
+Dans le cas de notre sac :
+
+On constate que le rayonnement solaire réchauffe l’air qui par de multiples conductions va réchauffer l’air intérieur du sac.
+Dans ce sac a lieu une convection du a la différence de température entre l’air extérieur chaud et l’air froid de l’élément
+réfrigérant du sac. Le phénomène de convection nous permet de placer cet élément sur le haut de sac pour permettre de brasser
+l’air intérieur et ainsi créer un milieu dont la température est plus homogène.
+
+21
+
+Résistance thermique :
+De manière analogue à la résistance électrique la résistance thermique d’un matériau exprime sa résistance au
+passage d’un flux de chaleur. Cette résistance s’exprime en °C/W. Plus la résistance est grande, plus la chaleur de chaque
+milieu est conservée,à l’inverse une résistance faible créé une homogénéité entre les 2 milieu. Ce transfert de chaleur n’est pas
+instantané.
+T °C
+
+Text
+
+Evolution de Tin
+
+Equilibre atteint
+Dépend de la résistance thermique
+du matériau
+Temps
+
+Inertie thermique (dépend de la capacité
+thermique du matériau)
+(évolution non instantané de la
+température)
+Text
+°C
+
+température
+
+Tint
+°C
+
+Qu’est ce qu’un bilan thermique ?
+Un bilan thermique est un constat de l’évolution des températures au cours du temps. Dans le cas du sac
+isotherme, le but est d’équilibrer l’apport de chaleur de l’air chaud par une source de froid pour conserver la même
+température pendant un certain temps (plus d’une demi-heure).Pour changer le bilan thermique, il est possible d’influer sur la
+résistance thermique des matériaux (en faisant varier leur épaisseur par exemple) ou d’installer une source de froid plus
+importante néanmoins ces solutions prennent plus de place et diminue ainsi l’espace intérieur du sac ou augmente
+l’encombrement de celui-ci. Schématiquement notre bilan thermique est le suivant :
+
+22
+
+A chaque instant la source de froid et la source de chaud tendent vers un équilibre, même si dans le cas de notre sac qui se
+veut portable,la source de froid n’est pas alimenté et reste une source temporaire qui va se décharger au fil du temps.
+l’équilibre est donc rompu au bout d’un certain temps et ce en fonction de la capacité thermique de la source de froid.
+BILAN THERMIQUE DU SAC
+Surface
+
+M2
+0,1300
+0,2000
+0,2700
+M2
+0,1080
+0,0702
+0,0520
+0,2302
+
+Hauteur
+largeur
+Longueur
+Haut + bas
+Coté long
+Coté court
+Total surface
+
+La zone en contact avec l’air ambiant est un facteur important pour déterminer le flux de chaleur car elle influe sur la
+résistance thermique des différents matériaux.
+
+Sac isolant mince
+Caractéristiques Sac
+
+Matériau
+
+Tissu extérieur Bleu
+
+Toile
+films à
+bulles d’air
+en
+polyéthylène
+ignifugé
+revêtus
+d’aluminium
+
+Isolant mince avec films à bulles d’air en
+polyéthylène ignifugé revêtus d’aluminium
+
+Global
+corrigé avec pont thermique de
+surface sac
+température Intérieure
+température Extérieure
+Delta T
+Puissance transmise
+puissance transmise en W
+
+R
+Conductivité (=E /
+Surface
+K(W/m².°C)
+Epaisseur (m) thermique λ
+λ)
+Si (m²)
+(W/m.°C)
+en
+°C/W
+0,0004
+0,04
+0,01 1,0000
+
+0,002
+
+0,025
+
+0,08
+
+1,0000
+
+1
+25%
+0,2302
+m2
+-21
+°C
+25
+°C
+46
+°C
+KxSx(T°C exter -T°C inter)
+147,07
+W
+
+11,11111
+13,88889
+
+Grâce à ce tableau de calcul, on constate que la puissance transmise et de 147.07W pour obtenir une situation d’équilibre
+thermique, il faudrait une source de froid de 147.07W. Nous avons donc décidé d’utiliser une plaque eutectique comme source
+de froid
+
+Une plaque eutectique qu’est ce que c’est ?
+Une plaque eutectique est ceci :
+Eutectique signifie que la plaque contient une espèce chimique supplémentaire qui a pour
+utilité d’abaisser la température de fusion mais quel est l’intérêt dans le rôle de cette plaque ?
+Le but est en fait de créer le seuil de basculement le plus bas possible pour restituer le plus
+d’énergie possible ; car quand le solide passe de l’état solide à l’état liquide, il libère de
+l’énergie constamment jusqu’à la transformation totale du solide en liquide, cette phase de
+23
+
+transition permet de gagner un sursis non négligeable d’énergie pour le même encombrement. Cette transition se fait à
+tempér
+ature
+quasim
+ent
+constan
+te.
+
+Nous avons utilisé une plaque existante ainsi que ses caracteristiques afin de définir les caracteristiques de nos plaques
+eutectiques .
+
+24
+
+Volume de la plaque
+(cm3)
+Energie founie en kcal/h Energie en W
+553,35
+25
+29,06604969
+
+plaque 2
+
+Watt
+
+kcal
+
+Conversion kcal/watt
+
+0,86011
+
+1
+
+En utilisant cette plaque on obtient les résultats suivants sur la durée de l’équilibre thermique :
+Plaque eutectique
+capacité de restitution Kcal
+25
+capacité de restitution W/heure (Kcal /0,86011)
+29,07
+temps d'autonomie
+0,20
+On constate que l’autonomie est très limitée (0.2h=12min).
+
+Kcal
+W/heure
+Heures
+
+Comment y remédier ?
+Nous avons décider de tester notre sac en rajoutant une couche de 5mm de polystyrène pour augmenter la résistance
+thermique:
+
+Caractéristiques
+Sac
+Matériau
+Tissu extérieur
+Bleu
+Toile
+Tissu intérieur
+Toile
+Isolant
+Polystyrène
+extrudé 5
+cm
+Global
+corrigé avec
+pont thermique
+de 25%
+
+Conductivité
+Epaisseur thermique λ R (=E / λ )
+(m)
+(W/m.°C)
+en °C/W
+0,0004
+
+0,04
+
+0,01
+
+1,0000
+
+0,0004
+
+0,04
+
+0,01
+
+1,0000
+
+0,05
+
+0,029
+
+1,72413793
+
+1,0000
+1
+
+0,2302
+
+m2
+
+-21
+
+°C
+
+25
+46
+
+°C
+°C
+
+puissance
+transmise
+
+KxSx(T°C exter -T°C
+inter)
+
+Plaque
+eutectique
+capacité de
+restitution Kcal
+capacité de
+restitution
+W.heure (Kcal
+/0,86011)
+temps
+d'autonomie
+
+7,63
+
+25
+
+29,07
+3,81
+
+0,5766554
+
+0,72081925
+
+surface sac
+température
+Intérieure
+température
+Extérieure
+Delta T
+
+puissance
+transmise en W
+
+Surface
+Si (m²) K(W/m².°C)
+
+W
+
+Kcal
+
+W.heure
+Heures
+25
+
+Relevé expérimental thermique de notre sac:
+Afin de calculer la résistance thermique du sac , nous avons préparé notre sac en placant une plaque eutectique en haut du sac
+et disposé différentes sondes afin de mesurer la température à l'intérieur ,et à l'extérieur .
+Nous avons effectué un enregistrement sur ordinateur de l'évolution des températures pendant quelques heures.
+
+Relevé 1 sans ajout d'isolant :
+
+La plaque eutectique maintient une température d'environ
+"-5,8°C" pendant 26 mn pour une température extérieure
+de 22°C
+
+Courbe bleu (1) : Température extérieure
+Courbe Rouge (2) : Température sur la plaque eutectique
+Courbe Rose (3) : Température sous la plaque métallique au fond du sac
+Courbe Verte (4) : Température sur la plaque métallique au fond du sac
+Calcul de la résistance thermique de notre sac :
+
+Calcul de la résistance thermique du sac :
+P=K.S(Text-Tint) ⇒ K.S= P/(22+5,8) avec P =E/T= 29,07/0,43=67,60 W ⇒ K.S= 67,60/27,8=2,43 W/°C
+⇒ Rth = 1/KS = 0,41 °C/W
+
+26
+
+Relevé 2 avec ajout d'isolant :
+
+La plaque eutectique maintient une température d'environ
+"-8,5°C" pendant 3 h pour une température extérieure de
+21°C
+
+Courbe bleu (1) : Température extérieure
+Courbe Rouge (2) : Température sous la plaque métallique au fond du sac
+Courbe Rose (3): Température sur la plaque eutectique
+Courbe Verte (4) : Température sur la plaque métallique au fond du sac
+
+Avec la même source de froid on s’aperçoit que l’autonomie de la plaque est fortement augmentée car grâce au polystyrène, il
+y a moins de pertes de froid
+Calcul de la résistance thermique du sac avec ajout d'isolant :
+P=K.S(Text-Tint) ⇒ K.S= P/(21+8,5) avec P =E/T= 29,07/3=9,69 W ⇒ K.S= 9,69/29,5=0,328 W/°C
+⇒ Rth = 1/KS = 3,04 °C/W
+
+27
+
+Nous souhaitons tout particulièrement remercier Mr Lafage, ingénieur en
+thermique à Soprano, qui nous a apporté de nombreux conseils pour
+réaliser le bilan thermique.
+
+28
+
+10. Finalisation du produit
+
+Notice d'utilisation de votre
+
+Pour plus de confort, notre équipe a développé un
+produit vous permettant de transporter vos aliments
+dans des conditions optimales en vous transmettant
+à tout moment de votre choix la température à
+l'intérieur de votre sac.
+Afin de connaître la température intérieure du sac, il
+vous suffit de presser le bouton on/off du sac.
+
+Tableau récapitulatif des températures idéales de
+conservation des aliments :
+Congelé
+
+≤ - 15°C
+
+Frais
+
+0°c≤ produit≤ 6° C
+
+ Conclusion
+Nous étions emballés par l'idée de départ de notre projet et il fut très intéressant de mener à bien
+un projet de création comme celui du sac isotherme.
+L'amélioration du sac répond à un réel besoin des utilisateurs qui cherchent à connaître la
+température à laquelle leurs produits sont conservés lors de leurs transports.
+Il fut parfois difficile de comprendre l'électronique à notre niveau et nous avons découvert de
+nombreuses techniques inconnues jusqu'à lors. En effet, les sondes, les amplificateurs, les
+potentiomètres ainsi que les résistances nous ont permis de créer un moyen efficace de
+transmettre la température de produits à l'intérieur d'un sac, grâce à une relation existante entre la
+température et la résistance. Nous avons ainsi pu entrevoir comment fonctionnait les capteurs ,
+véritables outils de la vie courante utilisés dans les voitures comme les capteur de niveau d'huile
+ou d'essence ou encore les capteurs d'humidité ou de température dans les stations météo.
+La difficulté réside de même dans la répartition des taches entre les membres du groupes qui ont
+souvent des façons de travailler différentes.
+Nous avons pensé à d’autres améliorations possibles pour le sac isotherme comme la régulation
+de cette température qui s'avérerait être utile pour permettre un transport des produits dans les
+meilleures conditions.
+29
+
+

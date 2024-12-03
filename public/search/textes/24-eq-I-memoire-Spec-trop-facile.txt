@@ -1,0 +1,682 @@
+OLYMPIADES DE PHYSIQUE 2017
+
+LE SPECTROPHOTOMÈTRE ABORDABLE
+“PAS DE PATIENCE, PAS DE SCIENCE”
+Jean-Pierre Jarroux
+Est-ce possible, quand on est au lycée, de concevoir un spectrophotomètre performant,
+pédagogique et bon marché ?
+
+LE SPECTROPHOTOMETRE ABORDABLE
+LE “SPECTROFACILE“
+REMERCIEMENTS
+Nous tenons à remercier M. Clémence, qui nous a guidés, aidés et enseigné tout ce que nous savons au sujet
+de la spectrophotométrie et de la robotique.
+Nous remercions également Christian Lopez Arguello, présent au début de l’aventure, avec qui nous avons
+posé les premières pierres du projet, ainsi que José Armando Henriquez Roa pour avoir conçu et
+programmé l’interface graphique.
+Nous voulons remercier M. Loeuillot pour ses remarques, ses conseils et sa disponibilité, et Mme Jaouen
+pour nous avoir aidés à revoir la structure et la cohérence de notre dossier.
+Enfin, nous remercions nos partenaires Total et Dagoma pour leur soutien.
+
+QUI SOMMES-NOUS ?
+Nous sommes trois élèves de Première et Terminale S du lycée français de Saint Domingue, en République
+Dominicaine, passionnés par les sciences et la technologie. Nous nous sommes rencontrés au club
+robotique il y a deux ans. Nous avons appris ensemble les bases de la programmation et travaillé sur des
+défis jusqu’à nous unir autour de ce projet passionnant : la mise au point et l’optimisation d’un
+spectrophotomètre.
+
+LE CLUB ROBOTIQUE
+Notre professeur principal de 1ère S était M. Clémence, qui est aussi le fondateur du Club Robotique et
+notre professeur de Terminale S. Ce club regroupe des élèves de la 6ème à la Terminale. Le monde de la
+robotique et de la programmation est bien connu de certains d’entre eux, d’autres en ont une idée et
+d’autres encore découvrent un univers inconnu qui ne demande qu’à être exploré.
+Grâce au matériel fourni par l'école et notamment les kit LEGO Mindstorms, les cartes Arduino ou notre
+imprimante 3D, nous pouvons réaliser nos propres objets, repoussant ainsi les limites de notre créativité.
+Afin de réaliser ces projets, M. Clémence nous a montré qu’il fallait de la créativité, de la logique et des
+connaissances dans différents domaines, tels que les mathématiques, les sciences physiques et la SVT. Ce
+club nous a permis de développer notre sens de la démarche scientifique et de la maîtriser.
+
+1
+
+SOMMAIRE
+I. L’origine du projet
+II. Vers un premier prototype en LEGO Mindstorms
+A. Les bases de la spectrophotométrie
+B. Notre premier robot
+C. Les résultats
+III. La révolution : le capteur CCD couplé à un microcontrôleur
+A. Fonctionnement d’un capteur CCD
+B. Conception de la boîte
+C. Ce que fait ” spectrofacile”
+IV. L’optimisation
+A. Auto étalonnage en intensité et en longueur d’onde
+B. Et les mesures dans tout ça...
+C. Les caractéristiques de notre spectrofacile
+V. Les évolutions, les perspectives
+A. La transition
+B. Exploiter et Sauvegarder
+C. Partager des données via Internet ou sms
+D. Pour aller plus loin
+E. Prélèvement automatique des échantillons
+VI. Utilisation Pratique
+A. DEL Nocive !
+B. Spectrospace
+Conclusion
+Bibliographie
+
+2
+
+I.
+
+L’ORIGINE DU PROJET
+
+Nous avons pris connaissance de la notion de spectre en classe de seconde, c'est la première fois qu'on a
+parlé de spectres et vu un spectrophotomètre en fonctionnement. Cette même année, notre professeur de
+physique nous a invités au club de robotique où nous avons appris la programmation de base, nous avons
+commencé avec un kit EV3 et des blocs de LEGO avec lequel nous essayons de réussir de petits défis. A la
+fin de l’année nous avons décidé de démarrer le projet du spectrophotomètre.
+En classe de 1 S, nous avons découvert la notion d'absorbance et comment celle-ci permettait d’accéder à
+la concentration d'une solution. Grâce à cela nous avons réussi à intégrer le projet spectrophotomètre dans
+notre TPE, effectivement, nous l'avons utilisé afin de mesurer la concentration d'une solution d'algues et
+établir la relation entre la concentration en algues et taux de CO dans l´environnement.
+ère
+
+2
+
+Finalement en classe de terminale nous avons approfondi nos connaissances avec le microcontrôleur
+Arduino (Uno pour découvrir puis Nano pour miniaturiser), ce qui non seulement nous ouvre les portes à
+des nouveaux projets mais qui nous permet d´approfondir et améliorer notre projet actuel.
+
+II.
+
+VERS UN PREMIER PROTOTYPE EN LEGO MINDSTORMS
+A. Les bases de la spectrophotométrie
+
+La lumière est une onde périodique progressive et électromagnétique. La lumière que nous pouvons
+percevoir avec nos yeux fait partie du domaine du visible, c'est l’ensemble des lumières ayant une longueur
+d’onde comprise entre 400 et 700 nm. En envoyant de la lumière blanche sur un réseau par réflexion, nous
+observons un spectre de lumière blanche qui apparaît, celui-ci est composé de toutes les longueurs d’ondes
+comprises entre 400 et 700 nm. Si nous analysons cette lumière avec un spectrophotomètre nous obtenons
+la courbe ci-dessous :
+
+En faisant passer cette même lumière à travers une solution contenant une concentration donnée de
+chlorophylle nous observons le spectre B. ci-dessus.
+Une grande partie des longueurs d’onde du bleu et une partie de celles du rouge ont été absorbées, on peut
+donc dire que les espèces chimiques qui font partie de la molécule de la chlorophylle ont absorbé ces
+
+3
+
+longueurs d’ondes. Chaque espèce chimique a son propre spectre d’absorption, ce qui rend possible
+l’identification d’une espèce chimique par son spectre d’absorption.
+L’absorbance A est une quantité numérique utilisé en spectrophotométrie, notamment dans le domaine des
+mesures de concentrations chimiques. Elle est définie par la relation :
+, où I est l'intensité
+énergétique transmise et I0 l'intensité énergétique à une longueur d'onde donnée, avant traversée du
+milieu.
+Pour qu’un spectrophotomètre accède à cette grandeur, il faut absolument qu’il soit en mesure de
+déterminer I0 et I pour chaque longueur d’onde.
+
+B. Notre premier robot
+QU’EST-CE QU’UN ROBOT ?
+Un robot, c’est un appareil automatique capable de manipuler des objets ou d'exécuter des opérations
+selon un programme.
+Notre professeur nous avait donné la piste suivante pour créer notre premier robot : ” Le principe est de
+déplacer un capteur de lumière le long d’un spectre obtenu grâce à une source de lumière blanche, une
+lentille convergente une fente et un réseau”.
+Alors que nous étions en Seconde, nous avons décidé d’utiliser une boîte de LEGO Mindstorms EV3, pour
+faire balayer le capteur le long du spectre obtenu. Nous avons construit un premier, un deuxième et un
+troisième prototype.
+Quand l’ensemble a été mécaniquement stable, nous avons fait un premier programme qui enregistrerait à
+chaque déplacement élémentaire du capteur (environ 0,01 mm) la valeur de la tension aux bornes du
+capteur dans un fichier.
+
+Deux prototypes
+
+LES PREMIERS RESULTATS
+Afin de vérifier nos résultats, nous gardions les valeurs et les longueurs d’ondes correspondantes sur un
+fichier de format .CSV et nous l’exportions dans un tableur (Logger Pro).
+
+4
+
+Voici nos meilleurs résultats avec le spectrophotomètre LEGO sur Logger Pro (spectre de lumière blanche
+DEL) :
+
+Graphique de notre spectrophotomètre (au-dessus) et celui d’un spectrophotomètre commercial (en dessous)
+*Note : le décalage entre les deux spectres est dû au fait que l’étalonnage n´est pas présent et surtout car
+les deux graphiques sont en fonction de données différentes. La première montre l’intensité en fonction du
+nombre de tours de boucle i et le deuxième montre l’intensité en fonction de la longueur d’onde.
+Notre niveau en programmation s’améliorant,
+nous avons enrichi notre robot de quelques
+fonctionnalités en particulier : l’affichage du
+“profil spectral” sur l’écran de l’interface LEGO
+ainsi que la valeur de lambda max (la longueur
+d’onde pour laquelle l’intensité est maximum).
+Voici un algorithme simplifié de notre robot
+Mindstorms qui affiche l’intensité de la lumière
+incidente. On est encore bien loin des fonctions
+de base d’un spectrophotomètre…
+Au bout d’une année de travail et quelques huit
+prototypes différents, nous étions en mesure
+d’afficher l’ensemble des courbes sur l’écran de
+la brique LEGO. Une valeur de l’absorbance
+d’une solution à une longueur d’onde donnée
+apparaissait également et variait en fonction
+de la concentration de la solution interposée
+sur le trajet de la lumière.
+DESCRIPTION DU FONCTIONNEMENT
+ Déclaration des variables :
+ t : c’est à dire le nombre de degrés dont doit tourner le moteur afin de parcourir 4,0 cm pour
+300 répétitions (le spectre fait 4,0 cm de large et va de 400 nm à 700 nm donc la première
+valeur correspond à 400 nm et à chaque t la longueur d’onde est augmentée d’une unité).
+
+5
+
+
+
+
+
+
+
+
+
+
+ Io : la variable correspondant à l’intensité de la lumière transmise passant par le solvant pour
+chaque longueur d’onde (pour chaque valeur de t).
+ I : la variable correspondant à l’intensité de la lumière transmise passant par la solution colorée
+pour chaque longueur d’onde (pour chaque valeur de t).
+ ABS : la valeur de l’absorbance pour chaque longueur d’onde.
+ LAM : la valeur de la longueur d’onde pour le maximum de l’absorption.
+Acquisition du spectre de la lumière qui passe à travers le solvant et stockage des valeurs de Io dans
+une boucle.
+Calcul du lambda max d’émission de la lampe (pour étalonnage et vérification).
+Affichage de la courbe obtenue et des outils de sélection du lambda max (curseur vertical).
+Acquisition du spectre de la lumière qui passe à travers la solution colorée et stockage des valeurs
+de l'intensité I dans une boucle.
+Calcul de l’absorbance pour chaque longueur d’onde et stockage des valeurs de ABS.
+Calcul du lambda max de l’absorbance.
+Déplacement du capteur vers de t tours correspondant à lambda max.
+Mesure en temps réel de I pour la solution interposée et affichage de la valeur de l’absorbance.
+
+C. Les résultats
+
+La courbe qui se dessine sur l'écran de la brique LEGO (spectre de lumière blanche sans étalonnage)
+Nous avons obtenu des résultats médiocres dans l’ensemble car nous nous sommes rendu compte qu’il y
+avait plusieurs facteurs qu'il fallait prendre en compte : la source de lumière trop large provoquait de la
+
+6
+
+lumière parasite et le spectrophotomètre était trop large dans l’ensemble et le capteur était peu sensible, ce
+qui rendait les mesures imprécises.
+Bien que médiocres, les résultats paraissaient encourageants pour notre professeur.
+Au cours du temps notre projet a évolué davantage, en même temps nos résultats sont devenus de plus en
+plus précis, nous nous rapprochions de notre but sans toutefois l’atteindre.
+
+III.
+
+LA RÉVOLUTION : LE CAPTEUR CCD COUPLE A UN MICROCONTROLEUR
+
+A. Fonctionnement d’un capteur CCD
+En avril 2016, lorsque notre professeur nous a apporté un
+capteur CCD (“charged-coupled device”, type TSL1402r)
+nous avons vu la possibilité d’améliorer nos résultats. Nous
+avons donc continué avec un microcontrôleur Arduino nano
+pour réduire les dimensions de notre spectrophotomètre.
+Ce capteur CCD est composé d'une rangée de 256
+photodiodes de 55 x 55 microns espacées de 8 microns, pour
+une longueur totale de 16,23mm. Ce dernier possède des
+caractéristiques lui permettant de collecter des photons, proportionnellement à la lumière que le capteur
+reçoit.
+PRINCIPE DE FONCTIONNEMENT DE NOTRE SPECTROMETRE AVEC CAPTEUR CCD
+De la source de lumière jusqu'à la formation d’un spectre net sur le capteur, il existe de multiples étapes :
+ Tout d’abord, on utilise une source de lumière variable : celle-ci peut être une DEL, une lampe
+spectrale, etc…
+ Ensuite, on fait passer la lumière par une fente, ce qui va créer un rayon lumineux. On peut alors
+ajouter un milieu que ce rayon va traverser, et ce milieu peut contenir un solvant pur (eau distillée),
+ou une solution (exemple du permanganate de potassium).
+ Puis ce rayon lumineux arrive sur un morceau de DVD, qui va décomposer la lumière.
+ Finalement, le spectre se forme sur le capteur CCD (dimensions dans la partie III, A.), qui va ainsi
+lire pour chaque photodiode une tension ou signal (fonctionnement expliqué à la suite)
+
+7
+
+La modélisation qui nous a permis de dimensionner le boitier du spectrophotomètre
+La barrette CCD fournit un signal électrique reproduisant l’intensité
+lumineuse perçue par ses différents pixels. La barrette CCD est
+modélisée par un ensemble de photodiodes reliées à des
+condensateurs, pendant le temps d’intégration (réglable par
+l’intermédiaire du programme et fondamental pour l’étalonnage en
+intensité), les interrupteurs sont ouverts et la lumière reçue par
+chaque photodiode crée un courant qui charge les condensateurs.
+Ensuite, les interrupteurs contrôlés par le microprogramme se
+ferment et la charge (proportionnelle à la lumière reçue pendant la
+durée d’intégration) est vidée, ce signal analogique était avant
+converti en signal numérique par un CAN 10 bits (signal de sortie
+variant entre 0 et 1023) et stocké dans une liste, le stockage et la gestion de cette information occupait une
+grande partie des 2ko de mémoire de notre microcontrôleur. C’est pour cela que nous utilisons maintenant
+un codage sous 8 bits (signal de sortie variant entre 0 et 255) qui utilise moins de mémoire et ainsi nous
+permet d’intégrer des nouvelles fonctions telles que la prise en compte du spectre obscur pour toutes les
+photodiodes du capteur ou envisager d’exploiter la loi de Beer-Lambert directement par notre
+spectrofacile.
+Une fois le signal électrique transmis, les interrupteurs s’ouvrent et une nouvelle période d’intégration
+commence.
+Tout le travail réalisé sur le spectrophotomètre LEGO nous a énormément servi pour comprendre le
+principe et pouvoir associer un algorithme à chaque action à réaliser. Il fallait maintenant associer les
+différents éléments dans un boîtier optimisé.
+
+8
+
+PARVENIR A LIRE L’ENSEMBLE DES 256 PHOTODIODES DU CAPTEUR AVEC UNE CARTE ARDUINO
+
+Photo de notre premier circuit avec l’Arduino et le capteur CCD
+Avec ce nouveau matériel, il nous a fallu apprendre à programmer dans le langage de Arduino afin de faire
+communiquer les différentes parties du spectrophotomètre : capteur, écran, bouton.
+Notre objectif était le suivant : nous envoyons un faisceau lumineux qui traverse une fente, puis une
+solution. La solution absorbe une partie de la lumière. La lumière arrive finalement sur un morceau de
+DVD, qui décompose la lumière, nous obtenons ainsi un spectre. Ensuite, par réflexion ce spectre est
+projeté sur le capteur CCD.
+En ce qui concerne le capteur, nous avons eu la chance de trouver sur le playground Arduino
+(http://playground.arduino.cc/Main/TSL1402R) un petit programme permettant de décharger l’ensemble
+des photodiodes de notre TSL1402.
+A partir de cet élément essentiel, nous avons élaboré un programme (en annexe) qui permet d’exploiter la
+lumière reçue par le capteur pour en extraire l’absorbance d’une solution en fonction de la longueur d’onde
+et surtout de se placer au maximum d’absorption afin d’utiliser la loi de Beer-Lambert.
+De la théorie à la pratique, il n’y a qu’un pas. Parfois, ce pas est très grand et nous avons pu nous en rendre
+compte lors de cette phase délicate qui consistait à faire cohabiter notre partie électronique avec la partie
+optique.
+Dès que tout a été en place, nous avons fait des tests pour vérifier le fonctionnement du capteur CCD et
+l’affichage sur l'écran. Nous avons pu faire afficher la courbe, les longueurs d’ondes et avons retrouvé les
+valeurs des longueurs d’ondes reliées au point d'intensité maximale en comparant chaque valeur.
+Nous avons veillé à ce que notre capteur ne recueille que le 1er ordre (animation geogebra), ainsi il n’y a
+pas de chevauchement entre le rouge du deuxième ordre et le bleu du premier.
+
+B. La conception de la nouvelle boite
+La conception de la boîte du spectrofacile n’a pas été une tâche simple. On a dû prendre en compte
+plusieurs facteurs. Le premier, et le plus important, fut de maintenir les dimensions de la boîte au
+minimum, afin de ne pas dépasser celles de notre référence (SpectroVis Vernier). Ensuite, on a dû prendre
+en compte, comme mentionné auparavant, l’animation
+Geogebra qui nous donne des chiffres clés sur la formation du
+spectre sur une surface grâce au réseau plan. Finalement, on a
+dû rajouter des fonctions à la boîte : la possibilité d’ajouter un
+milieu par lequel traversera le faisceau lumineux, la
+possibilité de pivoter le réseau afin que le spectre formé soit
+davantage sur le capteur, le positionnement de la lentille
+
+9
+
+convergente de focale 20 mm, un dispositif de réglage fin du support de réseau pour l’étalonnage en
+longueur d’onde, dispositif de mise au point de l’image de la fente, les orifices pour la connectique etc…
+Quelques modèles qui ont été réalisés
+
+Voici deux vues du boitier qui, à l’heure actuelle, offre les meilleurs résultats
+
+C. Ce que fait ” spectrofacile”
+Le spectrophotomètre est donc capable de lire le spectre d'émission d’une source de lumière qui va du
+laser, à la lampe spectrale, en passant par la lumière blanche et le spectre d'absorption d'une espèce en
+solution. Pour ce dernier, il compare dans un premier temps, les valeurs d'intensité de la lumière incidente
+afin d'afficher la longueur d’onde pour laquelle l’intensité est maximale. Puis, il répète l’opération pour le
+spectre d’absorption, en déterminant et affichant pour lui aussi le lambda max. A partir de ce dernier, il
+mesure en permanence l’intensité transmise par la solution colorée et calcule en temps réel l'absorbance.
+Pour rendre ses mesures plus tangibles, l’ensemble des courbes est affiché et les valeurs d’absorbance sont
+également proposées et réactualisées chaque 2 secondes.
+Une remarque à propos des spectres d’émissions.
+Les spectres affichés sont bruts : il s’agit du spectre de la lumière vue par l’appareil de mesure, donc
+modifié par la sensibilité spectrale du capteur CCD, les caractéristiques du réseau, ... Il faut donc être
+
+10
+
+prudent quand on interprète la forme des spectres d’émission (recherche d’un maximum d’émission,
+discussion de l’intensité relative de différents pics, ...).
+Pour corriger ce défaut, Il faudrait avoir plus que les 2ko de mémoire flash dont nous disposons sur la carte
+Arduino Nano, afin de déterminer et stocker la contribution de notre spectrophotomètre sur le spectre qu’il
+capture et la soustraire aux futures acquisitions.
+
+IV.
+
+L’OPTIMISATION
+
+Grâce à une modélisation Geogebra de la situation, nous avons pu retrouver l’angle et la position exacte
+qu’il nous faut afin d’obtenir le spectre sur le capteur. Sachant que les valeurs d'intensité que lit le capteur
+de lumière peuvent être reliées aux longueurs d’ondes correspondantes. Ceci permet de réduire
+l’incertitude de la longueur d’onde affichée pour les premières mesures, mais n’évite pas le nécessaire
+étalonnage.
+
+A. Auto étalonnage en intensité et en longueur d’onde
+Dans un premier temps, grâce au fait que nous pouvons contrôler le temps d'intégration (c’est à dire la
+durée de collecte des photons) du CCD, nous pouvons contrôler l'intensité de la lumière et faire en sorte
+que notre capteur puisse afficher les 1023 états possibles de chaque pixel. Ainsi, pour notre
+spectrophotomètre, le graphique obtenu lors de la mesure du blanc possède un maximum qui affleure avec
+l’extrémité haute de l’écran, optimisant ainsi l’affichage et la précision.
+
+Comment faire afficher les bonnes longueurs d’ondes ? (Schéma du calcul et de son origine ci-dessous)
+La longueur d’onde est calculée de la façon suivante : Nous utilisons un capteur CCD de 256 photodiodes
+qui doit rendre compte des 300 nm de longueur d’onde entre 400 et 700 nm. Notre écran ne peut pas
+afficher toutes ces valeurs. Alors nous retrouvons combien de longueurs d’ondes par pixel nous allons
+afficher. Nous faisons 300/256 et nous retrouvons environ 1.1718. Nous le multiplions par le compteur i de
+la boucle de lecture du capteur (où i est le rang de la valeur captée par une photodiode, ex : i = 15
+correspond à la 15ième photodiode qui reçoit une intensité). Puis nous ajoutons 400 pour les nanomètres
+qui manquent pour avoir 700nm.
+
+11
+
+Donc i*(300/256) + 400.
+
+Cette relation nous permet de retrouver pour chaque intensité, la longueur d’onde correspondante.
+Mais celle-ci nous limite car cette installation ne nous permettra pas d’avoir des longueurs d’ondes précises
+au centième près (exemple du doublet de sodium qui est de 589,59 nm). Il nous faudrait un i = 161,783,
+malheureusement notre i est toujours un entier.
+ETALONNAGE EN INTENSITE (OU COMMENT PROFITER AU MAXIMUM DES POSSIBILITES DU
+CAPTEUR ET DE L’ECRAN)
+D’autre part, le code d’auto-étalonnage est finalement très simple : Tant que la valeur maximale de
+l’intensité lue pour chaque pixel est inférieure à l’intensité maximale affichable, on augmente le temps
+d'intégration par 50 microsecondes”.
+
+Capture d’écran du logiciel Logger Pro montrant comment on a déterminé le polynôme, celui-ci nous permet
+d’améliorer la précision
+En utilisant le logiciel Logger Pro et sa fonction de modélisation nous avons fait la correspondance entre les
+lambda réels du mercure et les lambda expérimentaux mesurées par nous, ce qui nous donne un polynôme
+du 3ème degré. Grâce à celui-ci nous pouvons améliorer la justesse de notre spectrophotomètre.
+
+12
+
+L’algorithme simplifié d’auto-étalonnage
+En ce qui concerne l’étalonnage en longueur d’onde, nous avons une
+première indication. Le fait d’avoir une diode comme source de lumière
+est certes un handicap pour les longueurs d’ondes proches de l’infrarouge
+(intensités faibles), mais elle présente un pic à 469 nm qui permet de
+vérifier lors de l’acquisition du spectre “blanc” que le capteur et le réseau
+demeurent correctement placés.
+Cette stratégie très pratique n’est cependant pas suffisante pour garantir des
+mesures correctes pour le lycée.
+Nous avons donc utilisé plusieurs sources de lumière disponible dans le
+laboratoire. A l’aide de deux vis de réglage, nous avons pu faire correspondre
+la valeur des pics mesurée par spectrofacile avec les valeurs attendues. Alors
+le réglage a pour but détalonner les longueurs d’ondes et l’intensité
+correspondante.
+
+Schémas du principe
+
+Avec une lampe à vapeur de sodium, le doublet n’est pas résolu, mais l’ordre de grandeur de la longueur
+d’onde est quant à lui tout à fait correct.
+
+13
+
+Pour la lampe à vapeur de mercure, le plus grand pic est fin et clairement à 544 nm, ce qui est très proche
+de la valeur attendue.
+
+Une dernière confirmation avec un laser. Le spectrofacile indique 533 nm pour 532nm théoriques.
+
+B. Et les mesures dans tout ça...
+LES PREMIERS RESULTATS EN SPECTROPHOTOMETRIE ET... LA DESILLUSION !
+Les premières mesures qui ne s'intéressaient que superficiellement à l’intensité de la lumière en fonction
+de la longueur d’onde masquaient finalement un problème difficile à détecter.
+En effet, malheureusement, lorsque nous tentions de vérifier la loi de Beer-Lambert, notre courbe
+présentait systématiquement une ordonnée à l’origine non nulle.
+C’est finalement grâce à un document traitant du logiciel des spectrophotomètres CCD Oceanoptics
+disponible sur ce site https://phitem.univ-grenoble-alpes.fr/ que nous avons trouvé la solution.
+Il s’agit du SPECTRE D'OBSCURITÉ !!!
+Effectivement, dans le calcul de l’absorbance, nous considérons
+
+or, nous ne prenions pas en
+
+compte le fameux spectre d’obscurité qui est présent même quand le spectrophotomètre est éteint et
+l'orifice d’entrée de la lumière est obstrué.
+En considérant ce dernier et en appelant I l’intensité de ce spectre d’obscurité pour toutes les longueurs
+ob
+
+d’onde, l’absorbance est modifiée et devient :
+
+14
+
+Grâce à cette modification clairement visible dans le programme en annexe, la loi de Beer-Lambert est
+désormais vérifiée quelle que soit la couleur de la solution.
+
+NOTRE SOLUTION FACE AU SPECTRE D'OBSCURITÉ
+Afin d’enlever le spectre d'obscurité, nous avons créé un nouveau bloc de code qui permet de mesurer
+l'intensité de la lumière avec la DEL éteinte puis de stocker ces valeurs dans une liste “[IntArrayobs]”.
+Maintenant avec cette liste nous pouvons enlever les valeurs parasites du spectre d'obscurité à chaque
+mesure que nous réalisons.
+LA VERIFICATION EXPERIMENTALE
+Afin de tester notre spectrophotomètre nous avons pris des solutions de permanganates de potassium de
+concentration connues. Nous les avons placés dans des cuves puis dans le spectrophotomètre dans le but
+de comparer la longueur d’onde maximale retrouvée avec celle des produits commerciaux. Dernièrement,
+si tout se passe bien, nous cherchons à retrouver la loi de Beer-Lambert ainsi que l’Absorbance est
+proportionnel à la concentration.
+Voici quelques images du spectrofacile et les données et les courbes qu’il affiche.
+
+Solutions de permanganate de potassium
+
+Le spectre de la lumière avec
+solvant
+
+Vue du dessus du spectrofacile
+
+Le spectre d'absorption de la solution en bleu
+et absorbance en vert
+
+15
+
+Concentration de 3,0*10-4
+
+Concentration de 8,0*10-5
+
+Concentration de 4,0*10-5
+
+Lectures permanentes de l’absorbance au lambda max (Solutions de permanganate de potassium)
+
+C. Les caractéristiques de notre spectrofacile
+Notre spectrophotomètre permet de voir les spectres d'absorption en temps réel sur son écran ce qui veut
+dire, que l’on n’a pas besoin d'un ordinateur pour pouvoir accéder aux données collectées par le
+spectrophotomètre. Grâce à l'utilisation du microcontrôleur Arduino, tout le code du “spectrofacile” est
+facilement accessible et ouvert à des modifications par l’utilisateur.
+
+NOTRE “SPECTROFACILE” FACE A UN SPECTROPHOTOMETRE COMMERCIAL
+Spectrofacile
+
+Spectrophotomètre Vernier
+
+Dimensions
+
+12 cm x 12 cm x 5 cm
+
+15 cm x 9 cm x 4 cm
+
+Source de Lumière
+
+Diode électroluminescente
+
+Incandescent avec support LED
+
+Senseur
+
+Capteur CCD linéaire
+
+Capteur CCD linéaire
+
+Plage de longueur d´onde
+
+400 - 700 nm
+
+380 nm - 950 nm
+
+Résolution
+
+≅ 1.17 nm / pixel
+
+~1 nm
+
+Temps de scan
+
+0,5 s
+
+~2 s
+
+Spécifications de notre spectrophotomètre
+
+Prix
+
+Arduino nano
+
+2,5 €
+
+Capteur CCD TSL1402R
+
+11 €
+
+LED
+
+0,10 €
+
+Plaque d’essai
+
+2€
+
+Réseau (1200 traits/mm) tarif unitaire
+
+80 €
+
+16
+
+Pièce
+
+DVD (1351 traits/mm)
+
+Moins d’1€
+
+Boite
+
+Quelques centimes
+
+Total
+
+95 € ou 26 €
+
+Tableau montrant les prix de notre matériel
+
+Prix du SpectroVis Plus Spectrophotomètre Vernier (utilisé au Lycée)
+Les caractéristiques que nous devons obtenir pour que notre spectrophotomètre soit compétitif sont
+nombreuses. Il doit arriver à donner les mesures les plus précises possibles tout en conservant un prix
+abordable comparé aux prix d´appareils similaires. Nous pouvons réduire la taille du boîtier afin de le
+rendre plus mobile. En plus de cela, nous cherchons à ce qu'il soit le plus autonome possible, c'est-à-dire,
+par exemple, qu'il n'ait pas besoin d'un ordinateur comme intermédiaire, on arrive par exemple à utiliser
+des batteries pour téléphone portable afin de l’alimenter. C’est pour cette raison que le calcul constant de
+l´absorbance ainsi que l'affichage des données et du spectre sur un écran propre au spectrophotomètre
+sont très importants. Il présente également un avantage non négligeable, puisque le logiciel étant libre et
+facile à modifier, l’interface d’utilisation est paramétrable à volonté. On peut ainsi tout à fait imaginer un TP
+pas à pas où les consignes seraient délivrées au fur et à mesure des étapes.
+Finalement, le spectrophotomètre permettra d'analyser des espèces chimiques, avec une précision
+acceptable et pourra fonctionner indépendamment grâce à son écran, pour un prix de moins de 100 dollars.
+Cela le rend très compétitif face à un spectrophotomètre Vernier, par exemple, qui a une précision similaire
+et qui n'a pas d'écran indépendant pour un coût de 577 dollars.
+
+V.
+
+LES EVOLUTIONS, LES PERSPECTIVES, APPLICATIONS
+
+Dans un premier temps, nous voulons améliorer notre spectrophotomètre en ajoutant à notre diode
+électroluminescente une lampe à filament. En faisant ceci, nous augmentons l'intensité lumineuse vers les
+grandes longueurs d’onde, permettant ainsi d’augmenter la précision à ces longueurs d’onde.
+Dans le futur, nous voulons ajouter la possibilité de sauvegarder les données collectées dans une carte SD
+pour qu’elles puissent être exploitées dans l’interface graphique programmée par Jose Armando. Cela nous
+permettra éventuellement de tracer des courbes d'étalonnage en utilisant la loi de Beer-Lambert et étudier
+d'une manière plus précise le spectre d’absorption et de bénéficier de plus de mémoire. Pour cela nous
+voulons ajouter la possibilité d’entrer des valeurs en utilisant une télécommande, nous avons déjà fait des
+
+17
+
+essais mains nous n’avons pas encore réussi à l'intégrer dans le programme principal à cause de problèmes
+de mémoire insuffisante.
+De plus, nous avons créé un menu pour que l’utilisation du spectrophotomètre soit conviviale pour les
+utilisateurs. C’est menu utilisateur modifiable signifiant qu’il peut être modifiée à la volonté de l’utilisateur.
+Récemment la compagnie française Total nous propose un partenariat afin de créer la possibilité de
+travailler sur l’absorption de l’huile de vidange. Intéressé par cet offre nous avons commencé à tester notre
+spectrophotomètre avec de l’huile d’olive (Kirkland) et de soja (Crisol qui est une marque dominicaine).
+Nous aimerions également travailler avec une carte Arduino possédant une plus grande mémoire afin de
+mieux gérer les spectres d’émissions.
+
+Images des courbes prises par le spectrofacile de gauche à droite l’huile d’olive et l’huile de soya.
+Ce spectrophotomètre totalement modifiable pourrait nous permettre d’ajouter un système de
+prélèvement automatique d'échantillon. Ceci serait utile dans le cas où l’utilisateur voudrait mesurer
+l’absorbance de plusieurs solutions les unes à la suite des autres. Afin de faire cette action, nous avons
+pensé à utiliser un moteur et un porte-cuve qui permettra le déplacement des solutions devant le
+spectrophotomètre (c’est une idée qui est toujours en développement).
+
+VI.
+
+UTILISATION PRATIQUE
+
+A. DEL Nocives !!!
+A l’heure où la lumière DEL semble être remise en cause par une étude de l’Inserm, le spectroFacile permet
+d’éclairer les doutes sur les différentes DEL possiblement nocives.
+D'après l’article de l’Inserm, les DEL sont constitués des longueurs d’ondes de lumières bleues et de
+lumière jaune. La lumière bleue est celle qui provoque la dégénérescence de la rétine.
+Comment ?
+En sachant, quelles longueurs d’ondes des DEL affectent nos yeux nous pouvons déterminer si la DEL est
+nocive ou pas. Il suffit tout simplement de placer la DEL devant la fente du spectrofacile et observer le
+spectre obtenu. Ce dernier affichera la longueur d’onde auxquelles l'intensité de la lumière est la plus
+élevée. Puis en comparant avec la longueur d’onde des DEL nocives nous pouvons déterminer si la DEL est
+nocive ou inoffensives.
+
+18
+
+B. Spectrospace
+Notre professeur nous a proposé davantage la possibilité de rattacher un télescope au spectrofacile pour
+analyser la lumière des étoiles. Il suffirait de se fixer sur une étoile avec le télescope puis de faire passer la
+lumière collectée par la lunette par la fente du spectrofacile. Tout afin d’analyser la composition des
+couches superficielles des étoiles.
+Tout ceci est toujours une idée que nous aimerions développée dans le futur.
+
+CONCLUSION
+Après trois ans d’effort et d'amélioration constante, le spectrophotomètre a été pour nous, vraiment plus
+qu’un simple projet. Nous avons tous appris des choses fondamentales pour notre prochaine vie d’étudiant,
+comme l’importance du travail en équipe, la communication et l’autonomie et, peut-être plus que tout, la
+persévérance. Nous nous sommes souvent trouvés dans des moments difficiles et parfois nous ne
+parvenions pas à expliquer des résultats erronés, mais malgré tout cela, nous avons su garder notre calme
+et ne pas nous laisser démoraliser par l’adversité.
+Nous avons appris à utiliser une interface Arduino et à la programmer pour qu’il interagisse avec des
+périphériques différents y compris un capteur CCD. Nous avons acquis la notion de spectroscopie de notre
+programme de Terminale S et la formule d’absorbance a désormais beaucoup plus de sens pour nous. La loi
+de Beer-Lambert n’est pas aussi accessible qu’il n’y paraît dès que l’on désire qu’un appareil de mesure la
+vérifie systématiquement. Notre parcours nous a en plus permis d’apprendre à utiliser différents logiciels,
+dont Logger Pro pour les mesures, Sketchup 3D pour créer nos pièces en 3 dimensions et Geogebra afin de
+modéliser une situation réelle dans le plan.
+Enfin, nous avons atteint notre objectif : nous avons conçu un spectrophotomètre qui a des caractéristiques
+tout à fait honorables pour une utilisation en lycée et ce, à un prix relativement bas comparé aux
+spectrophotomètres commerciaux. Evidemment, notre spectroFacile n’est pas “parfait”. C’est un modèle
+simplifié, mais cela le rend sans doute plus accessible plus maniable, plus abordable et plus configurable
+car le code sera libre de toutes modifications.
+
+19
+
+Cela a vraiment été une aventure pour nous tous et nous espérons qu’elle ne se termine pas trop vite. La
+collaboration avec TOTAL nous incite à penser que cette aventure va se prolonger. La société Dagoma
+(créateur d’imprimantes 3D http://www.dagoma.fr/) va peut-être commercialiser notre “spectroFacile”
+après sa phase de développement sous la forme d’une BOX.
+
+BIBLIOGRAPHIE
+
+
+
+
+
+
+
+
+
+
+
+Nos cours de la classe de Seconde, Première S et Terminale S.
+http://tomodori.com/wikitomo/index.php?title=PMAEL:_Spectre_de_la_lumi%C3%A8re_produite_
+par_des_LED_et_son_efficacit%C3%A9
+http://www.optometrics.com/reflection-gratings
+http://www.vernier.com/products/sensors/spectrometers/visible-range/svis-pl/
+https://fr.wikipedia.org/wiki/R%C3%A9seau_de_diffraction
+http://physique-eea.ujfgrenoble.fr/intra/Organisation/CESIRE/OPT/DocsOptique/Notices/SpectroCCD.pdf
+http://playground.arduino.cc/Main/TSL1402R
+http://forum.arduino.cc/index.php?topic=198881.0
+http://tomodori.com/wikitomo/index.php?title=PMAEL:_Spectre_de_la_lumière_produite_par_des_
+LED_et_son_efficacité
+https://media4.obspm.fr/public/FSU/pages_interference/impression.html
+
+20
+
+

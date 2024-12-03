@@ -1,0 +1,1211 @@
+31ème édition
+
+Comment gèle une bulle de savon ?
+
+Sacha MORIN
+Méline GOURDELIER
+Robin PARIS
+Joséphine BERGER
+Yenuli ALVITIGALA
+Professeur encadrant : M. Patrice MICHEL
+
+Page 1 sur 20
+
+SOMMAIRE
+I.
+
+Introduction - L’origine de notre projet
+
+II.
+
+Nos premiers dispositifs : bonnes et mauvaises surprises
+1. Comment créer une enceinte isolée thermiquement ?
+2. Comment refroidir ?
+3. Quel dispositif ?
+4. Comment mesurer ?
+
+III.
+
+Vers un dispositif optimisé
+
+IV.
+
+Comment gèle une bulle de savon ? … enfin
+
+V.
+
+Et l’aventure continue…
+
+Conclusion-Annexes
+Annexe 1 : Les « schémas de Robin »
+Annexe 2 : Une petite question « grand public » pour la « Fête de la Science »
+Annexe 3 : Surveillance de la pression de l’air dans notre hublot
+Annexe 4 : Les scripts Arduino
+
+Notre équipe dans notre ancien atelier…De gauche à droite : Méline, Joséphine, Yenuli, Sacha et Robin.
+Page 2 sur 20
+
+I.
+
+Introduction- L’origine de notre projet
+
+(Octobre 2022)
+
+Notre projet s'inscrit dans la continuité d’un projet mené par “les anciens” de l’atelier science (années
+2020-2022), projet nommé : Peut-on faire geler une bulle de savon ? [1]. Nous avons rencontré Mathilde,
+Rémi, Zoé, Djamila, Florian et Daniella avant leur départ du lycée. Nous étions alors en fin de classe de
+seconde et avions pu suivre leur projet [2]. Nos échanges nous ont beaucoup intéressés car malgré leurs
+réussites, ils nous ont confiés les limites de leurs travaux, les erreurs qu’ils ont commises et leur frustration
+de ne pas pouvoir poursuivre au-delà. Ils nous ont invités à reprendre leur projet à la base, en abordant la
+problématique sous un autre angle. C’est avec enthousiasme que nous nous sommes ainsi plongés dans
+l’aventure…
+Notre équipe s’est véritablement formée au début de notre année de première. Nous étions une
+dizaine. Nous avons rencontré très vite des difficultés pour trouver des créneaux communs de travail et
+de concertation. Aussi, rapidement, nous nous sommes retrouvés à cinq très motivés par ce projet. Nous
+y travaillons dès que nous avons un créneau disponible, seul ou à plusieurs, notamment sur les pauses
+déjeuner dans une salle au lycée que nous appelons “l’atelier” et où nous avons à disposition du matériel
+pour mener nos recherches. Nous y sommes libres d’essayer, de bricoler, d’expérimenter, souvent de rater
+et parfois…de réussir.
+Malheureusement, aux dernières vacances d’automne des travaux importants ont débuté au lycée
+et nous ont conduits à un déménagement dans un local temporaire beaucoup plus exigu. Mais malgré ces
+conditions difficiles, nous poursuivons nos travaux avec enthousiasme.
+En veillant à ne pas reproduire les mêmes erreurs que nos prédécesseurs, nous avons imaginé,
+conçu et progressivement réalisé un dispositif qui répond au mieux au cahier des charges que nous nous
+sommes fixés. Le but étant de permettre l’observation de la formation des cristaux d’eau au cours du gel
+des bulles de savon, afin d’en faire une étude physique.
+Nous avons établi progressivement le cahier des charges suivant :
+•
+•
+•
+•
+•
+•
+•
+
+Créer une enceinte peu encombrante et la plus isolée thermiquement possible.
+refroidir l’air intérieur à une température la plus basse possible
+créer différents accès pour introduire l’eau savonneuse, l’air et les surfaces supports des bulles.
+permettre la mesure de la température de l’air à l’extérieur et l’intérieur de l’enceinte.
+permettre la mesure du taux d’hygrométrie de l’air à l’intérieur de l’enceinte.
+permettre les meilleures conditions d’observation des bulles et des cristaux : observation à l'œil nu
+ou à l’aide d’un appareil photo ou caméscope.
+assurer l’éclairage de la bulle et de ses cristaux.
+
+Nous nous étions fixés 4 à 6 mois pour réaliser ce
+nouveau dispositif…mais il nous a fallu près d’un an
+pour y parvenir car de nombreuses difficultés ont
+été rencontrées…. Les « anciens » qui nous ont
+rendu visite au lycée à plusieurs reprises, puis au
+village « fête de la science » à Laval, nous ont dit que
+c’était normal !
+Voici donc notre histoire
+
+Photo 1 : Avec les « anciens » Rémi et Mathilde, à gauche,
+à la « Fête de la science »
+
+Page 3 sur 20
+
+II.
+
+Nos premiers dispositifs : bonnes et mauvaises surprises
+1. Comment créer une enceinte isolée thermiquement ?
+
+L’isolation thermique parfaite existe-t-elle ?
+Nous nous sommes posés cette question et notre tableau blanc à
+l’atelier s’est vite noirci d’idées. Au final, après avoir réfléchi sur les
+isolants existants pour le bâtiment, nous avons fini par imaginer
+l’enceinte « rêvée » (voir figure 1) :
+La conduction est un premier mode de transfert d’énergie donc
+l’absence de matière permet de ne pas avoir ce mode d’où l’idée du vide
+entre deux parois. Le rayonnement est également un mode de transfert
+d’énergie, il faudrait donc que la paroi extérieure soit totalement
+réfléchissante à tous les rayonnements (visible, mais aussi ultraviolet,
+infrarouge …).
+
+Paroi réfléchissante à tous les
+rayonnements
+vide
+
+Enceinte d’étude
+froide
+
+Figure 1 : Le dispositif idéal
+
+Comment enfin maintenir les parois entre elles et avec l’environnement extérieur ? Des attaches,
+des supports sont nécessaires pour les maintenir en place. Donc d’inévitables « ponts thermiques ».
+Evidemment, nous avons renoncé et compris que nous ne parviendrons pas à « interdire » totalement le
+transfert d’énergie intérieur/extérieur, mais nous pouvons le ralentir au maximum.
+Pour cela, quel matériau pourrait isoler le mieux l’enceinte dans laquelle nous poserons la bulle ?
+Nous avons listé certains matériaux utilisés dans l’habitat. Une grandeur physique s’est imposée à nous :
+la conductivité thermique car elle permet de mesurer la résistance du matériau au transfert thermique
+(voir figure 2). Il s’agit de l’énergie traversant une paroi du matériau sur un mètre d’épaisseur en une
+seconde et pour une différence de température entre les surfaces de 1°C.
+Matériau
+
+Bois
+
+ (en W.m-1K-1)
+
+0,15
+
+Laine de
+verre
+0,0300,046
+
+Laine de
+roche
+0,0330,044
+
+Polystyrène
+(expansé)
+0,036
+
+Air
+
+PVC
+
+Verre
+
+0,026
+
+0,17
+
+1,2
+
+Figure 2 : Quelques valeurs de conductivité thermique. D’après Internet.
+
+Finalement, en tenant compte de son prix, de sa facilité à être usiné, nous avons décidé de procéder à
+nos premiers essais avec une plaque de polystyrène expansé.
+2. Comment refroidir ?
+
+(d’octobre 2022 à juin 2023)
+
+Très vite, nous avons songé à introduire des blocs
+
+réfrigérants dans notre enceinte fermée. Mais que
+pouvons-nous en espérer ? Nous souhaitons qu’ils
+absorbent l’énergie thermique de l’air afin que sa
+température dans l’enceinte diminue suffisamment pour
+permettre l’apparition des cristaux sur les bulles de savon.
+A la première utilisation, les pains de glace que l’on met
+couramment dans les glacières ne nous ont pas paru très
+performants. En cherchant une meilleure solution, nous
+avons découvert la notion d’eutectique et le schéma cicontre (voir figure 3, d’après [3]).
+
+Figure 3 : Le diagramme eutectique eau-sel. D’après [3]
+Page 4 sur 20
+
+Pour réaliser nous-mêmes des mélanges réfrigérants performants, nous devons réaliser des solutions
+d’eau salée à 23,6% en masse. Pour un tel mélange d’eau salée appelé « eutectique », le comportement
+lors d’un changement d’état est similaire à celui d’un corps pur. Notamment la température du mélange
+reste constante lors des changements d’états de fusion et de solidification. Si nous parvenons donc à
+réaliser un tel mélange et à le solidifier en le refroidissant suffisamment dans un congélateur, sa
+température une fois sortie se maintiendra à -23°C (-21,6°C, selon une autre source confirmée par M.
+Bulou) tant que la fusion des blocs ne sera pas terminée.
+
+Introduits dans notre enceinte fermée (voir photo2), les blocs réfrigérants nous
+permettent d’espérer que la température de l’air dans l’enceinte soit maintenue
+constante, et à des températures basses et ce, pendant de longues durées.
+
+Photo 2 : mélanges « eutectique » dans l’une de nos enceintes
+
+L’idée de préparer nous-mêmes un liquide réfrigérant nous a séduit, d’autant plus que cela nous
+permettrait de remplir des récipients de notre choix. De plus, la température de l’eutectique est basse
+( -21,6°C) et le sel n’est pas couteux ! Nous avons donc réalisé des solutions d’eau salée à 236g/L, rempli
+différents récipients que nous avons déposés dans notre petit congélateur. Celui-ci est parvenu à solidifier
+nos mélanges, parfois péniblement si les récipients étaient trop grands et si la température dans notre
+atelier était trop élevée (jusqu’à 30°C, dans ce cas le congélateur ne descend pas en dessous de -19°C !).
+Nous avons atteint la limite des performances de notre congélateur, mais il est parvenu jusqu’à présent à
+solidifier tous nos mélanges.
+La dissolution du chlorure de sodium nous paraissait aisé. Cependant, nous nous sommes rendus compte
+récemment d’une erreur dans la réalisation de nos solutions. En effet, une solution de concentration en
+masse égale à 236g/L n’est pas une solution de pourcentage en masse 23,6%. A cette forte concentration
+en effet, 1 litre d’eau salée ne pèse pas 1000g, comme nous avons pu le constater par la suite !
+Nous avons décidé d’établir la relation entre la concentration en masse d’une solution salée et le
+pourcentage massique de celle-ci. Après discussions et comme nous ne souhaitions pas consommer trop
+de sel, nous avons opté pour le protocole suivant :
+Nous avons décidé de préparer une solution à 25% en masse
+de sel. Pour cela nous avons pesé 25,00 g de sel dans un
+bécher auquel nous avons ajouté de l’eau distillée pour
+atteindre 100,00 g au total. Après avoir bien homogénéisé
+la solution, nous avons prélevé à l’aide d’une pipette jaugée,
+50,0 ml de cette dernière que nous avons versé dans un
+bécher propre et sec et préalablement taré avec une
+balance électronique de précision. Nous étions ainsi certains
+d’avoir 50,0 mL d’une solution concentrée à exactement
+25% de sel. La masse totale de cet échantillon est 59,36g. Il
+contient nécessairement 0,25 × 59,36 g = 14,84 g de sel.
+
+Photo 3 : Méline, en pleine
+« mesures »
+
+Nous ajoutons à cet échantillon, de l’eau distillée à l’aide d’une burette graduée par pas de 2,0 mL (voir
+photo 3). La masse de sel reste constante mais le volume de la solution augmente de 2,0 mL à chaque pas
+et nous mesurons la masse de chacune des solutions.
+
+Page 5 sur 20
+
+Solutions
+Volume de solution Vsol
+(en mL)
+Masse de la solution msol
+(en g)
+
+S1
+50,0
+
+S2
+52,0
+
+S3
+54,0
+
+S4
+56,0
+
+S5
+58,0
+
+S6
+60,0
+
+S7
+62,0
+
+S8
+64,0
+
+S9
+66,0
+
+S10
+68,0
+
+S11
+70,0
+
+59,42
+
+61,41
+
+63 ,50
+
+65,43
+
+67,90
+
+69,40
+
+71,39
+
+73 ,37
+
+75,38
+
+77,35
+
+79,35
+
+On en déduit, par calcul le pourcentage en masse de chacune des solutions (p) et leur concentration en
+masse (t) :
+
+p(en%) =
+
+msel
+msol
+
+100 =
+
+14,84
+msol
+
+ 100
+
+t (eng.L−1) =
+
+msel
+Vsol
+
+=
+
+14,84g
+Vsol
+
+Solutions
+
+S1
+
+S2
+
+S3
+
+S4
+
+S5
+
+S6
+
+S7
+
+S8
+
+S9
+
+S10
+
+S11
+
+Pourcentage en masse p
+(en %)
+Titre en masse t
+(en g/L)
+
+24,97
+
+24,16
+
+23,37
+
+22,68
+
+21,85
+
+21,38
+
+20,78
+
+20,22
+
+19,68
+
+19,18
+
+18,70
+
+296,7
+
+285,4
+
+274,8
+
+265,0
+
+255,9
+
+247,3
+
+239,4
+
+231,9
+
+224,8
+
+218,2
+
+212,0
+
+Concentration en masse de la solution (en
+g.L-1)
+
+Pour toute cette étude, nous avons utilisé non pas du sel du commerce mais du chlorure de sodium fourni
+par une entreprise de produits chimiques. La pureté est alors assurée à 99%.
+Nous avons pu tracer la courbe suivante (voir figure 4) :
+Figure 4 : Concentration en masse en fonction du pourcentage en
+masse du chlorure de sodium
+320,0
+
+Concentration massique de la solution Cm = 13,543x p - 41,668
+
+300,0
+280,0
+260,0
+240,0
+220,0
+200,0
+16,00
+
+18,00
+
+20,00
+
+22,00
+
+24,00
+
+26,00
+
+Pourcentage p en masse de chlorure de sodium p (%)
+
+Les points étant bien alignés, nous avons pu modéliser nos mesures à l’aide d’une fonction affine.
+Nous avons tout de même eu un doute sur notre travail. En effet, nous nous attendions à une ordonnée à
+l’origine égale à 0 et donc à une fonction linéaire. En effet, pour un pourcentage de sel nul, la concentration
+en masse est forcément nulle.
+Figure 5 : Concentration en masse d’une solution de
+Nous avons cherché une erreur de notre part et
+c’est finalement sur internet (figure 5, d’après
+internet), en espérant retrouver cette courbe que
+nous pensons avoir compris. De fait sur une large
+échelle de 0 à 25% il n’y a pas de proportionnalité
+entre les deux grandeurs, mais en restreignant
+l’étude à un petit intervalle (ce que nous avons
+fait), nous pouvons assimiler la courbe à une
+portion de droite qui ne passe pas par l’origine.
+
+chlorure de sodium en fonction du pourcentage en masse
+D’après internet
+
+t en g/L
+
+Notre
+intervalle
+d’étude
+
+p en %
+Page 6 sur 20
+
+Désormais confiants, nous pouvons donc utiliser la relation t = 13,543x p - 41,668
+Nous préparons donc une solution à 13,543x 23,6 - 41,668 = 277,9g/L. Nous pesons donc 555,8g dans notre
+fiole jaugée de 2L (au lieu de 472g auparavant). Cela fait un très beau tas…et une très longue agitation
+pour le dissoudre ! (voir photo 4). Le préparateur nous a dit que pour dissoudre de grandes masses de sel,
+il était préférable de chauffer l’eau au préalable, mais comme nous procédons à la dissolution dans une
+fiole jaugée de 2L, nous n’avons pas osé la chauffer.
+Sans en être certains, car d’autres paramètres ont été modifiés durant la même période, nous pensons
+que cette petite correction a apporté une meilleure efficacité de nos blocs réfrigérants.
+
+Photo 4 : Yenuli en pleine « dissolution »
+3. Quel dispositif ?
+Le tableau blanc de notre atelier s’est très vite rempli des idées de chacun. Quelle taille ? Quels matériaux ?
+Comment voir ? comment refroidir ? Robin a fait de très nombreuses esquisses sur ses cahiers (photo 5) :
+
+Photo 5 : Des esquisses parmi bien d’autres sur l’un de nos cahiers de laboratoire
+Le premier dispositif…
+
+(octobre-novembre 2022)
+
+Nous avons réalisé un premier dispositif en confectionnant une
+petite enceinte de 30 cm de large et d’environ 20 cm de
+profondeur à l’aide d’un isolant d’épaisseur 6 cm que nous
+avons découpé avec une scie (photo 6). Le volume intérieur est
+dimensionné pour accueillir un bloc de glace et une surface
+givrée sur laquelle nous espérons faire geler les bulles. Nous
+avons aménagé une entrée avec de la laine de verre
+permettant de disposer ou d’enlever le bloc, Nous avons prévu
+une fenêtre d’observation en verre à l’avant ainsi qu’une
+ouverture d’éclairage à l’arrière de l’enceinte.
+Photo 6 : Notre premier dispositif
+Ce premier dispositif n’a jamais vu une bulle gelée !
+Page 7 sur 20
+
+En effet, nous avions sous-estimé l’effet suivant : au-dessus du pain de glace, la température de l’air
+augmente progressivement facilement de 4-5°C sur une dizaine de centimètres. Nous avons tenté de
+mettre en hauteur le pain de glace pour voir si le phénomène était de même ampleur pour l’air situé sous
+celui-ci, il n’en était rien et nous avons même été surpris de constater une bonne homogénéité de la
+température. Ce premier dispositif, très éphémère, nous aura convaincu de l'importance de disposer les
+blocs réfrigérants au-dessus de l’air que nous cherchons à refroidir. Nous avons également pris conscience
+qu’il n’est pas si évident d’obtenir une enceinte très bien isolée thermiquement. Nous avons appris à scier
+du polystyrène, utiliser un pistolet à colle, découper du verre… mais nous avons vite compris que nous
+allions devoir progresser en bricolage et réfléchir à un dispositif plus performant que ce premier dispositif
+qui a rejoint très rapidement notre “cimetière à projet” !
+Le deuxième dispositif…plus prometteur
+
+(novembre 2022-juin 2023)
+
+Pour réaliser le deuxième dispositif et simplifier notre
+travail de bricolage, nous avons adapté une boîte en
+polystyrène fournie par l’un de nos parents. Cette boîte
+dont les parois ont 40mm d’épaisseur, a une hauteur de
+55cm, une largeur de 36cm et une profondeur de 25 cm.
+Etant bien grande pour accueillir une petite bulle, nous
+avons décidé de condamner un bon tiers de la boîte à
+l’aide de mousse expansive (1).
+Nous avons découpé au cutter une fenêtre dans le
+couvercle et au fond de la boîte (2) et (4) pour y aménager
+les fenêtres d’observation et d’éclairage (voir figure 6).
+
+36 cm
+(3)
+
+(2)
+(4)
+(1)
+
+Figure 6 : Joséphine, refermant le dispositif
+
+Pour réaliser nos fenêtres nous avons utilisé dans un premier temps du plexiglas, mais celui-ci est sensible
+aux rayures et n’est pas facile à découper. Nous avons donc opté pour du verre d’épaisseur 2,0mm, assez
+facile à découper avec l’aide du préparateur du lycée adepte du travail de la faïence.
+Afin de supporter les blocs réfrigérants, nous avons disposé des barres que nous avons découpées avec
+une scie à métaux. Il nous paraissait important que le support des blocs puisse permettre autant que
+possible la circulation verticale de l’air. Nous nous sommes posé la question de la nature du matériau à
+utiliser : métal ? bois ? pvc ?
+Les supports doivent être suffisamment solides pour supporter les quelques kilogrammes des blocs et ne
+pas être trop difficile à refroidir. En effet, une fois introduit dans l’enceinte, les blocs doivent absorber en
+priorité l’énergie de l’air et les matériaux disposés dont les supports de nos blocs doivent fournir le moins
+d’énergie possible lors de leur introduction. M.Michel nous a conseillé de nous intéresser à la capacité
+thermique des matériaux et d’« écouter les unités ». La capacité thermique d’un matériau s’exprime en
+effet en J.°C-1Kg-1. Il s’agit donc de l’énergie nécessaire pour refroidir ou réchauffer de 1°C (ou 1 Kelvin) un
+Kg du matériau (voir figure7).
+Figure 7 : Quelques valeurs de capacité thermique massique pour différents matériaux, relevées sur Internet
+
+Matériau
+-1
+
+-1
+
+Cm (en J.K Kg )
+Commentaire
+
+Aluminium
+
+Fer
+
+Cuivre
+
+Zinc
+
+897
+
+444
+
+385
+
+388
+Non pur
+dans le
+commerce
+
+Oui
+mais plus
+couteux
+
+Non pur
+dans le
+commerce
+
+Trop souple
+
+Laiton
+
+PVC
+
+Bois
+
+377
+
+>1000
+
+1200-2700
+
+Oui en tube
+creux ou
+plein ou
+barres
+
+Oui en tube
+creux ou
+non ou
+barres
+
+Oui
+
+Page 8 sur 20
+
+Afin de ne dépenser que peu d’énergie pour refroidir le matériau choisi, il nous faut donc en choisir un
+possédant une capacité thermique massique la plus faible possible et minimiser la masse utilisée.
+Nous avons opté pour des tubes creux en laiton (un alliage de cuivre et zinc) avant finalement de choisir
+des barres fines en laiton, qui soutiennent mieux les blocs réfrigérants car ne roulent pas… ce qui évite de
+déstabiliser les blocs voire de provoquer leurs chutes.
+Nous avons réalisé une ouverture rectangulaire sur le côté afin d’introduire nos supports sur lesquels nous
+déposons nos bulles, ainsi qu’un trou afin d’introduire le tube contenant la solution savonneuse et
+permettant insuffler l’air des bulles. Une fois les blocs introduits, nous faisons alors les essais en fermant
+le couvercle avec du scotch ou en ajoutant de la laine de verre afin de limiter autant que possible les fuites
+d’air.
+Nous avons été rassurés de constater, balayant ainsi nos craintes, que les ouvertures latérales ne modifient
+en rien la température de l’air intérieur ! Par contre nous avons observé l’apparition de buée sur les vitres
+ce qui limite de manière évidente nos observations tout en étant certainement à l’origine de pertes
+thermiques. Malgré tout, nous avons été encouragés par un thermomètre indiquant -13°C -14°C de
+manière très durable.
+…Vers un double vitrage !
+Nous nous sommes très vite convaincus de l’importance de réfléchir à la réalisation d’un double vitrage.
+Nous avons repéré sur internet une entreprise capable de réaliser des doubles vitrages à nos dimensions,
+mais nous avons préféré les réaliser nous-même, craignant un achat couteux et finalement inutile. Ce ne
+fût pas compliqué de réaliser ce double vitrage qui a permis la diminution de l'apparition de buée mais
+sans la rendre inexistante. Nous avons beaucoup essayé d’absorber l’humidité de l’air en utilisant dans un
+premier temps de petits sachets absorbeur d’humidité. Nous avons même tenté de remplir l’intervalle
+entre les vitres d’un autre gaz tel que le gaz carbonique à priori moins conducteur thermiquement que
+l’air…
+Mais les essais ne furent pas concluants et l’apparition de buée entre les vitres est resté longtemps un
+problème majeur.
+Malgré cette difficulté, nous avons commencé à observer (et admirer) le gel des bulles en filmant et
+visionnant sur un écran d’ordinateur. C’est lors de ces multiples essais, que nous avons découvert la
+difficulté et l’importance de l’éclairage. Nous avons tenté l’éclairage naturel, l’éclairage par panneaux
+lumineux Del (même introduit à l’intérieur de l’enceinte). Nous avons essayé différents fonds etc…
+Nous gardons de ces nombreux essais et de toutes nos observations quelques certitudes :
+• Un fond noir permet un très beau contraste (cristaux blancs sur fond noir).
+• Une lumière naturelle notamment rasante, permet d’obtenir de magnifiques couleurs des cristaux.
+• Un changement d’inclinaison d’un écran ou d’une source lumineuse d’un ou de quelques degrés
+seulement influent beaucoup sur les observations.
+4. Comment mesurer ?
+
+(décembre 2022-juin 2023)
+
+La grandeur la plus importante à mesurer pour notre projet est bien sûr la température. Pour ce faire, nous
+avons préféré des thermocouples disponibles au lycée plutôt que des thermomètres à alcool. Peu
+encombrants, fins et longs, ils permettent de mesurer la température à différents endroits parfois difficile
+d’accès. Il est possible de le relier directement à des multimètres adaptés qui donnent alors des valeurs de
+Page 9 sur 20
+
+température, mais afin d’avoir l’évolution dans le temps de celles-ci nous avons préféré exploiter
+directement la tension à leurs bornes.
+Ces thermocouples sont de type K (fils d’alumel et de chromel). Leur sensibilité s, grandeur qui correspond
+à la tension à leurs bornes si une différence de température entre la « soudure chaude » et la « soudure
+froide » est égale à 1°C a pour valeur s= 42,0 V/°C.
+Nous espérons une différence de température d’une quarantaine de degrés entre l’extrémité du
+thermocouple (environ -20°C espérée dans l’enceinte) et la soudure « froide » (environ 20°C dans notre
+salle-En réalité entre 13 et 32°C !) Nous pouvons espérer une tension, notée Uth, égale à environ 4042=
+1680 V soit 1,680mV ce qui est très peu ! Il est donc important d’amplifier cette tension.
+Même si nous ne sommes pas dans une filière technique et que nous n’avons jamais appris l’électronique,
+nous avons dû travailler en autodidacte, utiliser des ressources internet et nous avons finalement appris
+quelques bases de l’électronique. Tout d’abord, nous avons travaillé avec des maquettes pédagogiques
+dont les branchements sont limités aux deux entrées, à la borne de sortie et aux bornes d’alimentation. Le
+but était de maitriser les montages simples avec un Amplificateur Opérationnel (AOP) ainsi que son
+alimentation. Ensuite, rapidement, nous avons travaillé sur les platines d’essais.
+Pour amplifier la faible tension Uth attendue aux bornes de notre thermocouple, nous avons réalisé ainsi
+un montage « amplificateur inverseur » avec des valeurs de résistances égales à R1=1k et R2=10k (voir
+figure 8). La tension est dans un premier temps amplifiée d’un facteur −
+
+R2
+R1
+
+donc ici d’un facteur -10.
+
+Nous avons voulu multiplier par -10 et non par 10 car pour notre thermocouple la « soudure chaude » (son
+extrémité) qui sera introduite dans l’enceinte sera en fait à une plus basse température que la « soudure
+froide » restée à l’extérieur. La tension Uth à amplifier est donc négative. Elle devient positive après cette
+première amplification et égale à -10 Uth
+
+Amplificateur inverseur
+
+Amplificateur non inverseur
+
+Diviseur de tension
+
+R4
+R2
+R1
+kΩ
+
+Uth
+
+-
+
+R3
+
+-
+
+R5
+
++
++
+
+R6
+
+Sortie vers
+Arduino
+
+Ufinale
+
+.
+
+Thermocouple
+Figure 8 : Schéma de notre montage électronique permettant d’afficher la température
+
+Cette amplification n’est pas suffisante. Nous amplifions donc une 2ème fois avec cette fois ci un montage
+R
+
+amplificateur non inverseur, la tension est amplifiée d’un facteur (1 + R4) (voir figure 8). Nous avons
+3
+
+choisi par exemple R3=1 k et R4=820 k et donc une amplification de 821. Notre tension Ufinale est
+désormais égale à - 8210Uth. Si nous notons A l’amplification globale de notre circuit, alors ici A=-8210.
+Page 10 sur 20
+
+Pourquoi avons-nous ajusté nos valeurs de résistance pour obtenir un tel facteur d’amplification et
+pourquoi avons-nous procédé en deux étapes ? D’une part, il est recommandé de ne pas amplifier au-delà
+d’un facteur 1000 avec un seul montage amplificateur. D’autre part avec un tel facteur nous espérons une
+tension comprise entre 0V (pas de différence de température entre l’intérieur de l’enceinte et l’extérieur)
+et -1,68mV(-8210) =13,8V (si la différence de température est environ égale à 40°C). Or cette tension est
+proche de la tension d’alimentation de nos montages (tension symétrique -15V/15V) qui ne peut être
+dépassée sinon il y a saturation. Nous devons donc nous restreindre à une tension amplifiée inférieure à
+15V.
+Une difficulté majeure que nous avons rencontrée est la compensation de l’offset. En effet, nous amplifions
+une tension initialement très faible de l’ordre du mV. Or tous les AOP présentent un petit défaut : une
+petite tension continue parasite nommée « offset ». Le facteur d’amplification étant important, l’offset est
+également amplifié. Cette tension indésirable peut être facilement évaluée. En effet, en l’absence de
+différence de température entre les 2 soudures nous nous attendons à mesurer une tension nulle. Or ici
+elle peut être égale à quelques dixièmes de Volt et varie d’un AOP à l’autre.
+En cherchant (photo 7), nous avons appris que sur certains
+AOP (les AOP81), il était possible de compenser l’offset à
+l’aide d’une résistance variable de 100k reliés à deux
+broches du circuit intégré. Nous avons essayé et cela
+marche bien ! Nous portons les deux « soudures » du
+thermocouple à la même température et en quelques
+tour de vis, nous parvenons à rendre la tension de sortie
+nulle !
+Photo 7 : Robin, en plein « essais »
+
+Au final, nous pouvons par exemple brancher une carte d’acquisition à la sortie de notre deuxième
+amplificateur. La nôtre étant limitée à des mesures de tensions comprises entre -10 et +10 V, nous devons
+adapter notre facteur d’amplification A en conséquence.
+Nous avons alors
+
+s (int − ext ) = Uth
+(int − ext ) =
+
+Ufinale
+As
+
+et Ufinale = A Uth
+𝟏
+
+et donc 𝐢𝐧𝐭 = 𝑨 𝒔  𝐔𝐟𝐢𝐧𝐚𝐥𝐞 + 𝐞𝐱𝐭
+
+La sensibilité du thermocouple (de type K) est connue soit s = 42,0V/°C. Par exemple si notre facteur
+d’amplification est égal à -8210, alors la relation reliant tension finale Ufinale et température est :
+int = ext − 2,90 Ufinale
+Parfois nous préférons mesurer la tension à l’aide d’une carte Arduino. Le problème est qu’une telle carte
+ne traite que les tensions comprises entre 0 et 5V. Dans ce cas, nous pouvons réduire le facteur
+d’amplification A ou le maintenir et réaliser un dispositif diviseur de tension à l’aide de deux résistances.
+Bien choisies (par exemple R5=220 k et R6=100 k), la tension finale peut être divisée par un facteur 3,
+puis envoyée à la carte Arduino (voir figure 8). Ufinale étant limitée à +15V (valeur de saturation), la tension
+traitée par la carte ne pourra être supérieure à +5V, ce qui nous rassure car cela « protège » celle-ci. Le
+script Arduino nous permettant la lecture directe de la température à l’écran de notre ordinateur est porté
+en annexe 4.
+Actuellement, nous avons effectué 3 montages pour trois thermocouples et nous pouvons donc suivre
+l’évolution dans le temps de la température à trois endroits différents.
+Page 11 sur 20
+
+III.
+
+Vers un dispositif optimisé
+
+(octobre-novembre 2023)
+
+Malgré nos premières satisfactions, nous avons trouvé trois défauts à notre dispositif :
+•
+•
+•
+•
+
+Le volume d’air à refroidir restant assez important, il faut un grand nombre de blocs réfrigérants et
+notre congélateur a du mal à atteindre des températures assez basses.
+La buée entre les vitres est très handicapante pour nos observations.
+Nous parvenons à atteindre des températures basses autour de -14°C mais difficilement en
+dessous.
+Les bulles qui gèlent sont éloignées d’une vingtaine de centimètres de l’objectif de nos caméscopes
+ce qui nécessite de zoomer ce qui réduit la qualité de l’image.
+
+Nous avons donc refait un dispositif plus optimisé, que nous avons testé avec succès lors de la « fête de la
+science » en octobre dernier. Le dispositif que nous avons présenté lors du concours interacadémique à
+Angers présente des parois très épaisses, un volume intérieur plus réduit afin d’utiliser moins de blocs
+eutectiques. Surtout nous avons diminué la taille des fenêtres et avons vraiment étudié le moyen d’éviter
+l’apparition de la condensation sur les vitres notamment entre les deux vitres de la fenêtre d’observation
+à l’avant du dispositif.
+Le hublot !
+Très frustrés par l’apparition de buée entre le double vitrage de la fenêtre d’observation qui souvent limite
+fortement nos observations, nous avons cherché à l’améliorer.
+Notre première idée était de réaliser un double vitrage démontable afin de pouvoir essuyer si de la
+condensation entre les vitres se forme. Notre idée a été de presser les vitres l’une sur l’autre et pour cela
+créer le vide entre les deux. Rendre l’espace entre celles-ci très hermétiques à l’air n’a pas été simple car
+de nombreuses fuites sont apparues. Il faut assurer une bonne adhésion entre les vitres et le support.
+Nous avons trouvé des supports en caoutchouc souvent trop petits…avant
+que M. Michel en trouve de diamètre intérieur de 85mm, conforme à nos
+attentes. Nous avons découpé une portion de tube en plastique gris de
+diamètre 90mm sur une largeur de 25mm, et y avons percé un trou pour
+y adapter le tube de la pompe à vide. Nous avons posé les joints, puis les
+vitres (photo 8). Nous n’avons pas osé utiliser des vitres en verre, car étant
+peu épaisses nous craignions qu’elles ne résistent pas à la différence de
+pression.
+Nous avons donc opté pour du plexiglass de quelques mm d’épaisseur.
+Celui-ci ne rompt pas mais est totalement déformé sous l’effet de la
+pression de l’air extérieur. Nous avons donc finalement choisi des plaques
+de PMMA (polyméthacrylate de méthyle) d’épaisseur 10mm. Celui-ci, très
+rigide et très transparent convient parfaitement.
+
+Photo 8 : confection d’un hublot
+
+Thermiquement, il présente l’avantage d’être plus épais que nos vitres en verre et bien moins conducteur
+(conductivité thermique  beaucoup plus faible et égale à 0,18 W.m-1.K-1 au lieu de 1,2 W.m-1.K-1).
+La pompe à vide du lycée nous permet d’aspirer l’air et d’obtenir une pression inférieure à 40hPa. La
+différence de pression est très largement suffisante pour, sans colle, faire adhérer les vitres, les joints et
+le corps du hublot. Même si actuellement, le hublot est bien en place, cela n’a pas toujours été le cas et
+des fuites sont souvent apparues désolidarisant l’ensemble. La surveillance de la pression de l’air dans le
+Page 12 sur 20
+
+hublot permet de vérifier l’absence de fuite. Notre regard n’étant pas constamment porté sur l’afficheur
+du pressiomètre, nous avons mis en place un dispositif électronique très pratique en exploitant la tension
+aux bornes du pressiomètre (voir annexe 3). Ainsi une del verte nous signale une pression inférieure par
+exemple à 100hPa et une Del jaune puis rouge nous signale une augmentation anormale de pression et
+l’urgence de procéder à un pompage d’air.
+Tout au long de notre travail, conductivité thermique et résistance thermique ont été deux grandeurs très
+présentes. Nous avons cherché à déterminer par exemple la résistance thermique de notre nouveau
+hublot, pour la comparer avec celle de la fenêtre d’observation de notre dispositif précédent. La résistance
+thermique d’une paroi est d’autant plus grande que sa surface S est faible, que la conductivité thermique
+e
+du matériau  est faible et l’épaisseur e de la paroi grande. Elle est égale à R th = S×λ et s’exprime en K.W-1
+Le diamètre intérieur du hublot est égal 8,5 cm alors que notre fenêtre initiale est un carré de 8 cm de
+côté. Également, nous avons fait l’hypothèse que la conductivité thermique de l’air diminue
+proportionnellement avec la pression de l’air. Ainsi, nous avons pu déterminer les trois grandeurs S, e et
+ pour chaque paroi pour notre ancienne fenêtre d’observation puis pour notre nouveau hublot :
+
+Surface S (en m²)
+épaisseur e (en m)
+conductivité thermique (W.m-1K-1)
+
+Notre nouveau hublot
+Vitre PMMA
+AIR (40hPa)
+-3
+5,7.10
+5,7.10-3
+-3
+10,0.10
+25,0.10-3
+0,18
+9,5.10 -4
+
+Ancien double vitrage (2ème dispositif)
+Vitre en verre
+AIR
+-4
+64,0.10
+64,0.10-4
+-3
+2,0.10
+25,0.10-3
+1,2
+0,024
+
+Nos fenêtres d’observation sont assimilables à la superposition de trois parois : paroi vitre- paroi air-paroi
+vitre. Nous pouvons estimer la résistance thermique de chacune d’entre elles et obtenir par addition la
+résistance thermique totale de notre fenêtre d’observation dans les deux cas.
+Les résultats sont rassemblés dans le tableau suivant :
+Notre nouveau hublot
+
+Notre double vitrage verre.
+
+9,7
+
+0,26
+
+4617
+9,7
+ 4630
+
+162,7
+0,26
+163
+
+Résistance thermique (en K.W-1)
+
+Résistance thermique vitre
+(PMMA ou verre)
+Résistance thermique de la
+couche d’air
+Résistance thermique vitre
+Résistance TOTALE
+
+Photo infrarouge
+
+Page 13 sur 20
+
+Notre hublot est beaucoup plus performant, à priori d’un facteur proche d’environ 28, et nous avons
+« thermiquement » bien progressé. Les premiers essais de ce nouveau dispositif ainsi équipé ont été très
+concluants, car l’air se refroidit très vite et nous avons pu obtenir une enceinte pour laquelle la
+température de l’air peut descendre jusqu’à -18°C voire -19°C, pendant de longue durée. Une caméra
+infrarouge, prêtée par un lycée voisin, nous a permis de confirmer les performances de notre hublot.
+
+IV.
+
+Comment gèle une bulle de savon ? … enfin (septembre-novembre 2023)
+
+Nous espérions commencer à répondre à cette question au mois d’avril ou mai dernier, mais nous
+n’étions alors pas assez prêts et notre dernier dispositif n’a dévoilé tout son potentiel qu’au mois d’octobre
+dernier lors de la « fête de la science ». Depuis nous avons été « chassés » de notre atelier au lycée et nous
+nous réorganisons afin de procéder à une étude plus rigoureuse. Le rêve de notre groupe tout comme
+celui qui nous a précédé est à la fois d’observer et admirer au laboratoire le gel des bulles mais également
+d’étudier la formation et la croissance des cristaux. Une seule équipe américaine a procédé à cette étude
+en parti dans une chambre froide et rédigé un article [4]. Nous avons la chance d’avoir pour partenaire
+l’un des chercheurs de cette équipe Saurabh Nath, actuellement au MIT Massachusetts Institute of
+Technologie.
+Nous avons longuement filmé et beaucoup photographié l’apparition des cristaux et leur croissance Il n’a
+pas toujours été facile de noter nos observations tant il y a de paramètres (et parfois nous étions
+déconcentrés par le spectacle) mais voici à ce jour nos certitudes :
+La proportion de glycérine dans le mélange d’eau savonneuse est prépondérante dans la vitesse de
+formation des cristaux. En l’absence de glycérine la formation des cristaux n’est pas ralentie et elle peut
+être très rapide au point que l’on semble voir des cristaux fins comme des flèches parcourir la bulle en une
+ou deux secondes.
+Il n’est pas possible d’obtenir des bulles givrées sur un support sec et propre. Celui-ci doit disposer des
+aspérités, des défauts nécessaires à initier la cristallisation. Les tests auxquels nous avons procédés, nous
+ont conduit à quelques bulles à la vie longue, mais qui ne gèle pas malgré une température de l’air bien
+en deçà de la température de solidification de l’eau savonneuse. Sous les conseils de Saurabh Nath, nous
+gelons de l’eau dans les boites de Pétri que nous introduisons ensuite dans l’enceinte. C’est sur ce support
+glacé et givré que nous réalisons nos bulles.
+Nous avons clairement repéré deux modes de formation de cristaux :
+• La formation de cristaux « dendrites » :
+C’est le mode que nous avons observé le plus facilement (photo 9).
+Des cristaux en forme de dents, croissent dans le film d’eau savonneuse à partir du support. La vitesse de
+croissance des cristaux dépend de la proportion de glycérine. L’observation est très dépendante de
+l’éclairage (lumière naturelle, fond noir incliné avec lumière naturelle ou lampe « spot »). A un degré près
+pour le système d’éclairage l’observation diffère beaucoup !
+
+Photo 9 : Croissance de dendrites à partir du support
+
+Page 14 sur 20
+
+•
+
+Emergence non locale de cristaux (l’effet « boule à neige »)
+
+Nous l’observons que depuis le mois de septembre. C’était un mode que nous espérions observer tant il
+est fascinant. Voici des instantanés des premiers films que nous avons pris du phénomène « boule à
+neige ».
+1,386 s : apparition des premiers microcristaux
+
+0,476 s : naissance de la bulle
+
+5,0mm
+
+2.077 s : croissance des cristaux délocalisés
+
+3.022 s : estimation de la taille des cristaux 0.3mm
+
+3.691 s : croissance des cristaux délocalisés
+
+8.205 s : ralentissement de la formation des cristaux
+
+Photo 10 : Des instantanés de l’un de nos tous premiers films « boule à neige ».
+Cette vidéo est disponible sur une page de notre site de l’atelier [5] De nombreuses autres
+devraient l’y rejoindre. Nous y observons facilement l’apparition hors support de nombreux microcristaux
+qui croissent par la suite. Nous avons envoyé la vidéo à Saurabh Nath, qui nous a répondu :
+
+Page 15 sur 20
+
+« I saw the video - it looks absolutely beautiful! In our work, we did see a clear Marangoni effect driving the phenomena
+of non-local emergence of crystals. Hence I am tempted to say that it is not too different for your case as well. However, I
+must say that I do not see any visible Marangoni plumes during the freezing process itself. So it is a bit ambiguous…. »
+
+Nous allons devoir améliorer notre maitrise de l’éclairage pour observer les panaches de Marangoni, qui
+peuvent être liés ici à une différence de température entre le support et l’air, et vérifier que cet effet que
+nous découvrons à cette occasion est bien à l’origine de ce surprenant effet « Boule à neige »
+
+V.
+
+Et l’aventure continue…
+
+( décembre 2023-janvier 2024)
+
+Le mercredi 6 décembre au Lycée Joachim du Bellay à Angers, nous avons eu la chance d’être
+sélectionnés pour la finale nationale du concours des olympiades de physique. Cette journée a été très
+riche en expériences pour nous, mais également en termes de rencontres et d’échanges notamment avec
+les membres du jury qui nous ont beaucoup encouragés et conseillés.
+Dès le lendemain, de retour à Laval, nous avons fait un bilan de la journée, et, comme de nombreuses
+questions étaient sans réponse, nous avons repris contact avec M. Bulou, notre partenaire à l’Université
+du Mans. Il nous a accueilli à l’Université le 15 décembre et nous avons pu lui poser de nombreuses
+questions. Lors de nos échanges, nous avons évoqué notamment l’idée d’effectuer un bilan thermique de
+l’ensemble de notre dispositif.
+Nous étions en effet très surpris par la stabilité de la température de l’air intérieur dans l’enceinte une fois
+la valeur de la température la plus basse atteinte. Le jury, lors du concours académique nous a invité à
+réfléchir à un bilan thermique de l’ensemble du dispositif.
+
+Evaluation thermique de l’ensemble de notre dispositif
+Nous avons procédé ainsi. L’enceinte est refroidie avec des blocs eutectiques pendant une heure environ,
+puis la température de l’air étant stabilisée au plus bas, nous retirons les eutectiques très rapidement et
+déclenchons l’enregistrement de la température au cours du temps à l’aide de notre thermocouple relié à
+notre dispositif électronique. L’air intérieur se réchauffe et la température augmente.
+
+
+− int
+
+Le flux d’énergie entrant dans l’enceinte est  = extR
+
+th
+
+avec ext, la température constante de l’air extérieur et int la température de l’air croissante à l’intérieur
+de l’enceinte. Par la suite, dans ce paragraphe, nous noterons la température intérieure plus simplement
+.
+Ce flux entrant permet de réchauffer l’intérieur à savoir l’air et les différents supports dont ceux des
+d
+
+eutectiques. Le flux emmagasiné est C dt
+
+avec C la somme des capacités de l’air et des supports.
+
+L’égalité des flux conduit à
+C
+
+d
+ext − int
+=
+dt
+R th
+
+puis à l’équation différentielle du premier ordre
+d
+
+ext
++
+=
+dt
+R th 𝐶 R th 𝐶
+Page 16 sur 20
+
+La solution d’une telle équation est  =Ke−t/ + ext avec la constante de temps  = Rth C
+Au moment du déclenchement de l’enregistrement, nous mesurons une température initiale i. Cette
+mesure nous permet de déterminer K. En effet, pour t=0, i = K + ext soit K =i − ext
+La solution de l’équation est donc  =(𝐢 − 𝐞𝐱𝐭 )𝐞−𝐭/ + 𝐞𝐱𝐭
+Evaluation des capacités thermiques de l’air et des supports.
+En l’absence des blocs eutectiques, le volume d’air est égal à 5 litres. La valeur de la capacité thermique
+volumique de l’air est connue soit 1,256 kJ.K-1.m-3 et nous pouvons donc évaluer la capacité de l’air à
+l’intérieur de l’enceinte soit Cair= 1,256 kJ.K-1.m-3 5.10-3 m3 6 J.K-1
+La capacité thermique massique du laiton, matériau utilisé pour nos supports est égale à 377 J.Kg -1K-1
+La masse de nos supports est proche de 15g. La capacité thermique de nos supports est donc égale à
+Csupport= 3770,015  6 J.K-1
+Une petite plaque en plexiglass blanc posée à la base de l’enceinte et destinée à recevoir les supports givrés
+a une masse proche de 30g. La valeur de la capacité thermique massique de ce matériau est proche de
+1,47 J.Kg-1K-1 d’où Cplaque =1,47× 30  44 J.K-1
+Nous estimons donc la capacité thermique globale de l’enceinte intérieure : C  56 J.K-1
+L’évolution  de la température de l’air dans l’enceinte au cours du temps est la suivante :
+
+figure 9 : Evolution de la température au cours du temps dans l’enceinte (en vert) et modélisation (en rouge)
+
+Sur l’ensemble de la courbe expérimentale (en vert), il est difficile de modéliser suivant une fonction
+exponentielle. Dans les premières minutes, le système intérieur est très perturbé par le retrait rapide des
+blocs eutectiques, aussi avons-nous considéré la courbe après seulement 15 minutes. La modélisation
+proposée par le logiciel est alors bien exponentielle et la constante de temps est proche ici de 3100 s.
+Page 17 sur 20
+
+La résistance thermique du dispositif peut être alors évaluée à 3100/C=3100/56 55 K.W-1
+Nos différents essais ont conduit en fait à des valeurs de constante de temps assez variables (entre 1000
+et 3500s). Notre estimation, selon M.Bulou est un peu élevée et nous pensons que notre protocole peut
+être amélioré. Nous devons par exemple nous assurer d’une meilleure homogénéité de l’air à l’intérieur.
+La convection doit y être en effet importante. Pour ne pas modifier notre protocole et notre bilan
+thermique, nous n’avons pas osé pour l’instant introduire un ventilateur dans l’enceinte.
+Exploitation
+En présence des eutectiques et quand le régime permanent est installé, traduit par une température de
+l’air la plus basse et stable, nous pouvons considérer que l’énergie transmise de l’extérieure vers l’intérieure
+est absorbée par les eutectiques qui permettent le maintien de cette température tant que leur fusion
+n’est pas terminée. M.Bulou a trouvé une référence [6], précisant la valeur de la chaleur massique de fusion
+pour les eutectiques eau-sel soit Lf =233kJ.Kg-1. La masse de nos blocs eutectiques meu est facilement
+mesurables. Nos blocs peuvent absorber l’énergie meuLf
+En mode permanent, l’énergie qui permet la fusion des eutectiques provient nécessairement de l’air
+extérieur de l’enceinte. Elle traverse toutes les parois de celle-ci pendant la durée t.
+
+
+ t = R
+
+Elle est telle que :
+
+
+
+On a donc l’égalité meu Lf = R
+
+th
+
+th
+
+t
+
+t
+
+Ayant évalué précédemment la résistance thermique du dispositif, nous pouvons en déduire la durée de
+fusion des eutectiques, pendant laquelle la température de l’air à l’intérieur sera stable :
+t = meu Lf
+
+R th
+
+
+Par exemple, pour meu=1,1Kg et un écart de température facilement mesurable, par exemple égal à 35°C,
+le calcul donne une valeur proche de 400 000s soit un peu plus de 4 jours !
+Bien sûr, en pratique, le maintien de la température dans l’enceinte sera forcément réduit par les cycles
+d’ouvertures et de fermetures auxquelles nous procédons pour introduire notamment les supports givrés ;
+mais notre bilan nous permet de comprendre le bon maintien de la température basse pendant des heures,
+ce qui nous permet de procéder sans craindre une chute de la température, à nos essais de gels des bulles.
+Également…
+En parallèle, nous poursuivons nos essais. Bien des pistes de travail stimulantes s’annoncent en effet :
+Nous essayons d’améliorer nos supports givrés. Très souvent les premières bulles éclatent et notre
+support contient des restes de bulles gelées, ce que nous appelons « cimetière à bulle ». Les restes de ces
+bulles précédentes influent peut-être sur l’apparition des premiers cristaux voire leur croissance.
+Malgré tout, nous avons obtenus de beaux effets « boule à neige » lors des deux jours de la « fête de la
+science » ou nous avons multiplié les essais devant le public. Cela nous amène à suggérer qu’il peut être
+intéressant de réaliser des supports non pas d’eau glacée mais de solution d’eau savonneuse.
+Page 18 sur 20
+
+Nous avons par ailleurs fait l’inventaire de tous les paramètres qui nous semblent susceptibles d’influer
+sur la formation et la croissance des cristaux :
+•
+•
+•
+•
+
+La température de l’air, de l’eau savonneuse, du support, de l’air insufflé.
+Le taux d’hygrométrie de l’air.
+La nature du support sur lequel on forme nos bulles.
+La composition de l’eau savonneuse que nous utilisons pour former les bulles.
+
+Nous nous concentrons sur trois paramètres à savoir la température de l’air, celle du support (nos
+thermocouples devraient bien nous y aider). Nous cherchons également à étudier l’influence de la
+glycérine sur la vitesse de croissance des cristaux, la formation ultrarapide des cristaux nous a en effet en
+son absence parfois beaucoup surpris. Nous espérons pouvoir montrer des gels de bulles et nos toutes
+dernières observations et interprétations du gels des bulles, lors de notre présentation à la finale à Paris.
+
+Conclusion-Remerciements
+En relisant notre présent compte-rendu, nous nous apercevons du chemin parcouru et de tout ce que nous
+avons exploré et travaillé pour parvenir à apporter un début de réponse à la question : « Comment gèle
+une bulle de savon ? ». Nous prenons conscience que plus nous travaillons sur la question, plus les
+questions se multiplient …
+Néanmoins, les nombreux travaux de recherche autour de ce projet (et les nombreuses heures passées à
+travailler), nous ont permis de découvrir de nombreuses notions scientifiques telles que l’électronique, les
+eutectiques ou encore bien d’autres phénomènes physiques et chimiques très particuliers. Cela nous a
+permis d’explorer et de comprendre l’étendue infinie du travail de recherche scientifique. En effet, celuici peut parfois être décevant, mais il est également rempli de rebondissements et nous as rendus
+émerveillés plus d’une fois.
+Ces recherches autour de notre projet nous ont également amené à travailler avec de nombreuses
+personnes très intéressantes qui nous ont beaucoup aidé et apporté en termes de conseils. Ainsi, nous
+souhaitons tout d’abord remercier Laurent BARBIER, préparateur au lycée pour ses nombreux services et
+conseils, mais également les enseignants pour leur compréhension vis-à-vis du dérangement occasionné
+au fond des salles de travaux pratiques, l’ancien « atelier » étant détruit pendant cette période de travaux.
+Nous voulons aussi remercier chaleureusement M. BULOU, chercheur émérite au CNRS du Mans, qui nous
+a éclairé sur le sujet d’eutectique, de bilan thermique etc…et a eu la gentillesse de nous accueillir sur son
+lieu de recherche pour que nous puissions lui poser de nombreuses questions. Nous remercions également
+les organisateurs du concours interacadémique des olympiades de physique à Angers, et les membres du
+jury notamment M. FORTIN-RIPOCHE rapporteur de notre projet, qui nous a donné de nombreux conseils
+pour la poursuite de notre projet et de la préparation de la finale nationale.
+Ce projet a aussi reçu l’aide de M. NATH, chercheur aux Etats Unis qui, à distance, suit notre projet et
+interprète nos vidéos.
+Enfin, on ne peut pas finir ce dossier sans remercier M. MICHEL, sans qui ce projet n’aurait jamais vu le
+jour, pour nous avoir donné des pistes mais en nous laissant chercher. Pour nous avoir montré comment
+confectionner notre dispositif et surtout nous permettre d’étudier ce sujet passionnant.
+
+Page 19 sur 20
+
+Bibliographie-Webgraphie
+
+[1] mémoire olympiades "Peut-on faire geler une bulle de savon ?" Site des olympiades de Physique
+[2] https://www.ateliersciencerousseau.fr/bullesdesavon
+[3] https://public.iutenligne.net/chimie/valls/chimie-du-solide/devoir3_correctiondetaillee2.htm
+[4] https://www.nature.com/articles/s41467-019-10021-6
+[5] https://www.ateliersciencerousseau.fr/notre-projet-actuel
+[6]https://www.researchgate.net/publication/7431357_A_quantitative_analysis_on_latent_heat_of_an
+_aqueous_binary_mixture
+[7] Hachette-Physique-Chimie Terminale spécialité.
+
+Annexes
+
+Annexe 1 : Les « schémas de Robin »
+Annexe 2 : Une petite question « grand public » pour la « Fête de la Science »
+Annexe 3 : Surveillance de la pression de l’air dans notre hublot
+Annexe 4 : Les scripts Arduino
+
+Page 20 sur 20
+
+

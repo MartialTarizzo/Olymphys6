@@ -1,0 +1,1105 @@
+Projet réalisé par :
+
+Decoodt Clément
+Houzé-Jorant Grégoire
+Encadré par : Valant Karl Maximilien
+
+TABLE DES MATIERES
+INTRODUCTION ................................................................................................................................................ 4
+PRESENTATION GLOBALE ................................................................................................................................ 4
+FONCTIONNEMENT ET SYSTEMES..................................................................................................................... 5
+TELECOMMANDE......................................................................................................................................... 5
+DÉTERMINER LA POSITION DES AXES ...................................................................................................... 5
+
+SÉRIALISATION DES SIGNAUX REÇUS ..................................................................................................... 6
+ÉMISSION ................................................................................................................................................ 7
+CODE INTERNE DE REGULATION EN BOUCLE ............................................................................................... 8
+ACQUISITION DES DONNEES | CENTRALE INERTIELLE ............................................................................. 8
+TRAITEMENT DU SIGNAL......................................................................................................................... 9
+CONTROLE DES DONNEES ...................................................................................................................... 10
+
+ELECTRONIC SPEED CONTROLER .............................................................................................................. 11
+LES HELICES .............................................................................................................................................. 12
+HELICES ............................................................................................................................................... 12
+ACTION … REACTION ! ........................................................................................................................ 12
+TRANSPORT D’UNE MASSE DE A EN B ....................................................................................................... 13
+TESTS ET PROTOTYPAGE ................................................................................................................................ 15
+PREMIER PROTOTYPE ................................................................................................................................ 16
+DEUXIEME PROTOTYPE ............................................................................................................................. 17
+TROISIEME PROTOTYPE ............................................................................................................................. 17
+CONCEPTION ........................................................................................................................................ 17
+TESTS DU TROISIEME PROTOTYPE ......................................................................................................... 18
+QUATRIEME PROTOTYPE ........................................................................................................................... 18
+CONCEPTION ........................................................................................................................................ 18
+STATION DE CONTROLE AU SOL............................................................................................................. 19
+
+CONCLUSION ................................................................................................................................................. 21
+BIBLIOGRAPHIE........................................................................................................................................ 22
+
+1
+
+Résumé
+Notre projet consiste en la création d’un drone, un aéronef sans pilote, qui a pour but de localiser la/les victime(s),
+qui est étape cruciale dans tout sauvetage, puis de leur apporter des soins. Tout au long de l’année, nous avons donc
+effectué divers prototypes qui mettaient fin à chaque fois aux problèmes rencontrés sur les prototypes précédents.
+Cela nous a ainsi permis d’améliorer constamment notre drone dans l’optique de son application. Pour commencer
+notre projet, nous avons tout d’abord pensé à l’utilisation d’un drone pour des applications de sauvetage grâce à des
+défibrillateurs. Nous avons ensuite fait le choix des divers composants nécessaires à son fonctionnement et
+répondants aux objectifs de l’application comme par exemple avec la caméra. Ces composants devaient également
+être compatible entre eux et rentrer dans notre budget. Nous nous sommes ensuite attardés à leurs fonctionnements
+puis nous avons effectué la réalisation du premier prototype. Viens ensuite une longue période où nous avons fait
+les différents réglages comme le réglage des hélices dont certains compliqués ont été réalisés selon une succession
+de tests. Différents crashs et problèmes comme la stabilité pour notre application sont alors apparues et nous avons
+procédé à d’autres prototypes présentant de nombreuses évolutions notamment au niveau de la stabilité, de la
+protection mais également dans la précision et le confort du contrôle du drone avec la fabrication d’un flightcase.
+Dans un souci d’une meilleure précision des réglages, nous avons effectué une recherche plus approfondie des
+notions physique que le drone soulève.
+
+2
+
+Préambule
+Le point de départ a été la lecture d’un article sur internet concernant les défibrillateurs
+(http://www.undefipourlavie.com/defibrillateur-automatise-externe-samaritan-pad/) où il est écrit :
+« En France, on dénombre chaque année 60 000 décès dus à un arrêt cardiaque, soit 164 décès par jour. 88 %
+de ces décès ont lieu dans des lieux publics : travail, transports publics, centres commerciaux, centres sportifs,
+gares, voies publiques…. Chaque minute perdue fait diminuer de 10% les chances de rétablissement sans
+séquelles. Idéalement la défibrillation doit être réalisée dans les 5 premières minutes suivant l’accident, afin
+d’augmenter les chances de survie. Selon l’Inserm, une intervention rapide grâce au défibrillateur et au massage
+cardiaque permettrait de sauver près de 12 000 vies chaque année. »
+Nous nous sommes alors posé la question : comment pouvoir gagner ces précieuses minutes ?
+En nous renseignant, nous avons vu qu’il existait de nombreux défibrillateurs publics, répertoriés et localisés
+(http://defibrillateurs-en-france.com/). Mais le citoyen quelconque ne sait souvent pas où ils sont. Imaginons équiper
+les défibrillateurs sur des drones pilotables à distance et gérés par les centres de secours. Le poids des nouveaux
+défibrillateurs devrait le permettre. Dès qu’un appel aux urgences est lancé, sans problèmes de feux, de sens uniques,
+d'embouteillages, toujours prêt, le drone est un moyen rapide, surtout en ville, d’accéder aux victimes! Il s'agirait de
+gagner de précieuses minutes, le drone précédant l’arrivée physique des secours et permettant aux personne non
+secouristes présentes sur les lieux de réaliser les premiers gestes vitaux. Le drone étant muni d'une caméra, d'un
+microphone, d'un haut-parleur et d’un écran LCD, il y a d’autres possibilités : en attendant les premiers secours, on
+peut envisager de filmer ce qui se passe, un secouriste en observant les images (via le web ou autre liaison), peut se
+rendre compte de la situation et donner des ordres plus précis que s'il n'y avait qu'une communication téléphonique:
+dans quelle position mettre la victime ou au contraire ne pas la déplacer, voir son état comateux ou pas, comment
+réaliser un massage cardiaque...
+Nous nous sommes aperçus que les drones existants étaient très chers et ne permettaient pas le transport d’objets ou
+alors, n’avaient pas de possibilité d’évolution pour s’adapter à notre problématique (pilotage à distance,
+éventuellement en immersion, communication etc...). Il faudrait donc tout réaliser soi-même.
+Ce projet nous est très vite apparu très ambitieux pour un TPE. Cependant, nous nous sommes lancé le défi
+d’apporter une contribution à la résolution de ce problème
+
+3
+
+INTRODUCTION
+Dans le cadre de nos TPE, nous avions décidé d’entreprendre la réalisation d’un drone, un aéronef sans
+pilote, pour mettre à l’épreuve nos compétences en matière d’électronique et d’aérodynamique, de développement et
+de gestion de projet. Ce projet dans le cadre du TPE ayant très bien fonctionné, nous avons décidé de nous consacrer
+à son amélioration dans un contexte touchant le milieu plus physique.
+Après une présentation globale de notre projet ou nous expliquerons le choix d’un quadricoptère et justifierons le
+titre d’un drone « au service de tous », nous nous intéresserons à la compréhension des différents composants
+nécessaires à la réalisation d’un quadricoptère et de certains phénomènes physiques sous-jacents ainsi qu’a l’histoire
+évolutive du drone à travers les différents prototypes que nous avons réalisés.
+
+PRESENTATION GLOBALE
+Pourquoi un quadricoptère comme drone ?
+Passionnés d’électronique et de programmation nous avons décidé
+de mêler les deux domaines en s’intéressant au domaine de la
+robotique. En effet, celui-ci mène parfaitement ces deux sujets et
+nous nous sommes donc mis d’accord pour mettre au point une
+sorte de robot automatique. Puis un ami nous a montré cette vidéo:
+http://www.youtube.com/watch?v=TI760jcFV2s
+Elle montre des quadricoptères en train de construire une tour de 6
+mètres de haut. Nous nous sommes donc demandé comment cela
+était possible et nous sommes alors intéressés à la conception d’un
+drone et plus particulièrement d’un quadricoptère. Nous avons
+alors imaginé diverses applications comme la localisation de
+victimes, la surveillance, la cartographie, etc. Remarquant les
+immenses possibilités des quadricoptères, nous avons choisi d’étendre la problématique de notre drone sur sa
+polyvalence et donc sur des diverses applications visant des usages civils, puis nous nous sommes intéressés à leur
+application de SAR (Recherche et Sauvetage en Anglais).
+Le principal avantage d’un quadricoptère dans notre cas est assez simple : Il est plus stable qu’un hélicoptère
+classique pour le même prix et le même encombrement. Il peut également porter des charges plus lourdes. Plus le
+multicoptère a de moteurs, plus il sera stable. Par exemple, un octocoptère est plus stable qu’un tricoptère ou un
+hélicoptère (deux hélices). Autre chose entre cependant en compte : le budget. Il est donc nécessaire de trouver un
+juste milieu entre budget et stabilité ; d’où le choix de quatre moteurs
+Le budget dont nous disposions nous permettait simplement de réaliser un drone pouvant fonctionner et donc voler
+sans équipements permettant une certaine application (comme le transport d’un défibrillateur). Nous avons donc
+décidé de diriger notre drone vers une application touchant la surveillance civile ou la localisation de victimes car
+ceci pour pouvait se faire avec une simple caméra.
+Nous avons orienté notre projet vers un développement open-source, c’est-à-dire un développement qui pourra être
+réutilisé librement. Ainsi, des personnes pourront réutiliser notre démarche comme nous nous pouvons réutiliser par
+exemple le code interne du logiciel de traitement des images en relation avec la caméra d’une personne l’ayant placé
+sous une licence libre de droit. Toujours dans un contexte de disponibilité pour tous, l’ensemble de notre projet sera
+
+4
+
+disponible sur internet (site http://ardufo.funpic.org), et l’ensemble des explications quant à son fonctionnement sera
+destiné à une population très large. Dans une optique de polyvalence, nous avons décidé que notre quadricoptère
+puisse être facilement modifiable dans son système interne de contrôle et de gestion. Nous avons donc décidé de
+faire l’acquisition d’une carte de vol (carte électronique qui effectue tous les calculs de répartitions entre moteurs et
+qui permet l’analyse des différentes positions vectorielles du drone) qui soit récente et surtout open-source : la carte
+VRBrain. Cette carte peut facilement être modifiable par nous-même mais aussi par des centaines de personnes. De
+plus cette carte inclut pour un même prix un autopilote, une télémétrie plus avancée que d’autres cartes comme les
+cartes KK avec l’affichage d’un horizon virtuel qui peut être fusionné à une l’affichage de la caméra, un processeur
+ARM Cortex M4 très puissant et peu consommateur d’énergie, … Nous avons alors choisi comme nom de projet
+celui qui soutient le groupe de développement de la Carte ArduPilot Mega (la carte VRBrain est un fork – projet
+dérivé – de cette carte) : le projet ArdUFO. Ainsi, notre projet s’en trouve constamment améliorable et peut alors à
+tout moment basculer vers une application différente de celle que nous proposons.
+Nous avons donc montré que le choix d’un quadricoptère était approprié pour le transport de défibrillateurs mais
+que les champs d’application sont beaucoup plus nombreux. Dès son origine, ArdUFO qui s’oriente vers une mission
+altruiste de sauvetage, a pour vocation d’être « au service de tous ». L’esprit du projet open-source renforce cette
+notion en le rendant réalisable par tous et en étant le plus polyvalent possible.
+
+FONCTIONNEMENT ET SYSTEMES
+La première étape lors de la réalisation d’un produit est de comprendre comment il fonctionne, d’un point
+de vue tant de la compréhension des phénomènes physiques que du développement du code interne.
+
+TELECOMMANDE
+La télécommande que nous avions lors des tests ne nous satisfaisant pas de par son manque de précision, nous avons
+choisi d’en réaliser une par nos propres moyens. Un problème c’est alors posé : comment reproduire le
+fonctionnement d’une télécommande ?
+
+DÉTERMINER LA POSITION DES AXES
+Le potentiomètre est indispensable dans tout joystick. Il permet en effet d’interpréter chaque position axiale du
+joystick en une tension qui sera appliqué à un signal numérique pouvant être « lu » par la carte de contrôle de notre
+drone.
+Mais comment fonctionne-t-il ?
+Un potentiomètre est constitué de trois bornes dont une est considéré comme un curseur qui va changer de position
+sur une piste résistante dont les extrémités sont les deux autres bornes. Chaque position axiale donnée par le joystick
+va correspondre à une position du curseur sur la piste. La position du curseur est ensuite interprétée en fonction de
+la tension mesurée entre lui-même et une borne.
+Figure 1 Représentation schématique d'un potentiomètre
+
+5
+
+Quatre directions sont à mesurer : la manette des gaz, le tangage, le roulis et le lacet.
+
+Figure 2 Différentes commandes pour différents axes
+
+SÉRIALISATION DES SIGNAUX REÇUS
+A présent, nous voilà avec quatre tensions variant entre 0 et 5V.
+Et après ? 4 tensions ne peuvent pas être envoyées directement ! Comment donc faire pour tout
+regrouper en un seul et unique signal à émettre ? Faire la somme des tensions ? Non, impossible de
+déterminer la position, il nous manquerait des informations …
+En vérité, nous n’allons pas sommer directement les tensions, nous allons les sérialiser. Pour cela, nous allons mettre
+des valeurs numériques « bout à bout » ! En fait le concept est simple, il s’appelle signal PPM (Pulse-Position
+Modulation). L’avantage est de réduire toutes les connections qu’il peut y avoir en … un seul fil ! Le signal se
+décompose en une trame d’impulsions dont en voici un exemple que nous allons étudier.
+
+Figure 3 Représentation d'un signal PPM
+
+6
+
+Le signal que vous pouvez voir figure 3 correspond à la représentation d’un signal ppm. Une trame de données est
+envoyée toutes les 22.5ms. Elle est normalement composée de 7 impulsions, car le signal peut envoyer jusqu’à 8
+valeurs, mais peut être réduite si besoin est. La durée entre chaque impulsion correspond (à facteur multiplicatif
+près) à la valeur de la tension qui nous est donnée par les potentiomètres. Elle peut ainsi être lue facilement et
+rafraichie toutes les 22.5ms, ce qui est très suffisant pour ce genre de commandes.
+Le signal est ensuite éventuellement retraité par l’unité d’émission pour y inclure d’autres informations comme l’état
+de la liaison, un chiffrage de la liaison, etc. Mais ce signal est totalement transparent en dehors de la liaison.
+
+ÉMISSION
+Lorsque le signal est généré, il ne reste plus qu’une étape dans la radiocommande : l’émettre.
+C’est étrange, le courant ne passe pas dans l’air non ? Comment alors envoyer un signal
+électrique ?
+En réalité le courant passe dans l’air, seulement, il n’est pas visible, il est sous la forme d’ondes électromagnétiques.
+Ce phénomène a été découvert par Faraday :
+Quand le flux du champ magnétique à travers un circuit fermé change, il apparait un courant électrique
+Loi de Faraday
+
+La réciproque est également due à la découverte de Faraday. La fréquence du signal sérialisé est de l’ordre de 50Hz
+environ. Sachant que la longueur de l’antenne est (à facteur multiplicatif près) proportionnelle à la longueur d’onde
+de l’onde émise, l’antenne devrait être de plusieurs kilomètres de longueur ! Nous allons donc utiliser pour cela une
+onde porteuse de haute fréquence.
+Une onde porteuse ? C’est une onde qui va porter le signal ?
+Exactement ! Nous allons faire de la Modulation par Déplacement de Fréquence (FSK : Frequency Shift Keying).
+Le principe est simple : utiliser une onde d’une certaine fréquence, et moduler (c’est-à-dire modifier) la fréquence
+dans certaines parties : la fréquence sera plus importante lorsque l’impulsion ppm est donnée, et moins élevée lorsque
+l’état du signal sera à 0.
+Mais… La fréquence dépend aussi de la vitesse relative entre l’émetteur et le récepteur !
+Oui, c’est l’effet Doppler. Mais ici, c’est la différence entre les deux fréquences qui permet de détecter un
+changement d’état, donc peu importe la vitesse des émetteurs/récepteurs, le signal est toujours modulé de la même
+manière, et va donc toujours donner un signal modulé, à fréquence de la porteuse près, identique. De plus, la
+fréquence de la porteuse dépassant les 433MHz (pour les plus faibles), il faudrait aller à plus de 300km.h-1 pour
+éventuellement perdre une partie du signal !
+
+ANTENNE RADIO
+Lors de l’émission, il est nécessaire de convertir le courant en une onde électromagnétique. C’est le travail de
+l’antenne radioélectrique. Elle va permettre de rayonner (ou de capter) des ondes électromagnétiques. Elle est
+constituée d’une longueur bien définie de conducteur, petite devant la longueur d’onde spatiale, dans laquelle nous
+
+7
+
+y faisons circuler le signal amplifié que nous avons généré avant. La relation liant la fréquence f du signal à émettre
+(soit la porteuse) à la longueur effective d’une antenne (type omnidirectionnel : un fil conducteur) est la suivante :
+𝜆
+
+𝑙 = car le rendement est optimal lorsque l’émission est en quart d’onde ("l" correspond à la longueur effective de
+4
+
+𝑐
+
+l’antenne, 𝜆 = la longueur d’onde). Cette équation n’est valable que lorsque l’émission est réalisée sur une antenne
+𝑓
+
+constituée d’un fil dénudé de longueur l.
+Il existe de nombreux types d’antennes caractérisées comme telles : fréquence d’utilisation, impédance de l’antenne,
+directivité, polarisation, rendement, dimensions, formes, etc.
+Généralement, à un émetteur/récepteur n’est associé que très peu
+d’antennes, la grande différence va souvent se jouer sur la directivité
+et donc la forme du diagramme d’émission des antennes.
+Voici un exemple de diagramme de rayonnement d’une antenne de
+type cardioïde. En général les antennes utilisées sont de type
+omnidirectionnel, ce qui permet d’émettre dans presque toutes les
+directions. Les diagrammes sont réalisés en chambre anéchoïde (les
+parois empêchent tout écho des ondes électromagnétiques en les absorbant).
+
+CODE INTERNE DE REGULATION EN BOUCLE
+Le signal d’ordre est à présent en possession de la carte de vol. Il faut alors récupérer les informations de son attitude
+de vol et traiter les données pour en déduire ce qu’il faut envoyer à chaque moteur.
+
+ACQUISITION DES DONNEES | CENTRALE INERT IELLE
+ACCELEROMETRES
+On en parle partout… Smartphones, tablettes, et même dans les disques durs ! Mais finalement …
+Qu’est-ce que c’est ? Pourquoi en utilise-t-on partout et pourquoi en avoir mis un ici ?
+Un accéléromètre, comme son nom l’indique, est un outil qui sert à mesurer une accélération. En réalité,
+l’accéléromètre mesure une force. Or d’après la seconde loi de Newton, 𝐹⃗ = 𝑚. 𝑎⃗ donc une force mesurée
+correspond à une accélération. A présent, réalisons une petite expérience : prenons un accéléromètre et posons-le
+sur notre bonne vieille Terre. Que pensez-vous que l’accéléromètre mesurera ?
+Qu’est-ce qu’il pourrait y avoir comme accélération ici ? Rien ! L’accéléromètre ne détecterait
+aucune accélération !
+Imaginons qu’aucune accélération n’existe sur Terre. Que se passerait-il ? Nous serions comme dans une salle sans
+pesanteur : le système qui nous permet de rester dans une certaine position est constitué d’accéléromètres. S’il ne
+détecte rien, alors nous aurons l’impression de tomber constamment. Il existe donc une accélération qui nous
+attirerait vers le plancher de la salle, nous donnant une impression de pesanteur ! L’accélération détectée par un
+accéléromètre est donc de 9.81 m.s-2 dirigée vers le haut !
+
+8
+
+Nous savons donc à présent comment mesurer les accélérations du drone grâce à trois accéléromètres (un par
+dimension), mais il nous manque une information …
+
+GYROSCOPES
+Le gyroscope utilisé dans le drone est un gyroscope de type
+piézoélectrique. Le principe de fonctionnement global est
+d’utiliser le phénomène gyroscopique pour déterminer
+l’inclinaison du gyroscope par rapport à l’azimut. Le mode de
+fonctionnement piézoélectrique utilise une masse sur des
+ressorts pour faire bouger un châssis avec des pics situés entre
+deux autres pics. Cela créé un condensateur dont la capacité
+varie. La plaque est mise en rotation pour détecter l’inclinaison
+par rapport à un référentiel (calibré à l’azimut).
+Figure 4 Schéma du circuit d'un gyroscope de type piézoélectrique.
+Ce circuit est mis en rotation autours d'un axe
+
+MAGNETOMETRE ET GPS
+Le magnétomètre est un instrument qui, comme son nom l’indique sert à mesurer l’intensité et l’orientation du champ
+magnétique dans lequel il se trouve.
+Mais à quoi peut-il bien servir dans un drone ? La connaissance du nord est-il vraiment si
+importante ? Après tout, le GPS ne suffirait-il pas ? Personnellement mon GPS fonctionne très bien
+sans magnétomètre !
+Le GPS nous donnera la position du drone (ses coordonnées) mais en aucun cas il ne nous indiquera son orientation.
+Il a besoin d’effectuer des calculs et il est nécessaire de réaliser des mouvements pour qu’il puisse le détecter. Par
+exemple : prenez un GPS et marchez en arrière. Le GPS ne saura en aucun cas si votre direction est (par rapport au
+GPS) à l’endroit ou à l’envers. L’utilisation d’un magnétomètre permet en réalité de connaitre immédiatement
+l’orientation du drone !
+
+TRAITEMENT DU SIGNAL
+A présent, nous avons tous les capteurs nécessaires pour le bon vol du drone. Comment, à partir de
+son attitude et de l’ordre que nous lui avons donné, le drone va-t-il donner un ordre à chaque
+moteur ?
+Nous allons utiliser le système de régulation PID (Proportionnelle, Intégrale, Dérivée). C’est un système de
+régulation sans fin qui permet de corriger par le biais des moteurs la différence entre un ordre donné (par exemple
+par la radiocommande) et la réalité (estimée grâce à l’IMU). Le système analyse la différence et la corrige par le
+moyen de trois méthodes (PID) :
+- P correspond au coefficient de réactivité des moteurs (si P est faible, le moteur est « mou », s’il est trop
+élevé, il sera trop réactif et oscillera).
+
+9
+
+- I est un réglage plus fin, il utilise l’intégrale de la courbe d’erreur, et agit pour réduire sa surface, il prend
+donc en compte le « passé » de la courbe. La courbe doit tendre vers la réalité, donc la surface doit être minimale
+(tendre vers 0)
+- D est un réglage encore plus fin (pas utilisé dans notre système) qui intervient sur la dérivée de la courbe
+d’erreur. Il réduit ainsi le coefficient directeur de la tangente pour qu’elle tende vers 0. Elle anticipe donc le futur.
+Le graphique que vous pouvez voir Fig. 3 nous montre ce qu’il se passe lorsque les réglages sont modifiés
+(x représente le temps et y l’ordre en u.a.). À chaque moteur va être assigné une partie des données et un système
+PID qui va lui permettre de donner l’ordre.
+
+Figure 5 Représentation des variations PID, l’axe des X représente le temps en secondes et l’axe des Y représente l’action en unités
+arbitraires
+
+CONTROLE DES DONNEES
+En imaginant que le vol soit immersif ou automatique, comment alors vérifier que l’ordre est bien
+réalisé ? Il nous faudrait un retour de contrôle …
+Effectivement, nous allons utiliser un module dit de télémétrie (« mesures à distance »). Le module de télémétrie
+ajouté au mois de janvier 2012 nous permet de posséder une liaison permanente entre le drone et l’ordinateur. Ceci
+nous a permis d’étendre les possibilités car la station au sol peut gérer de nombreuses commandes, comme le
+décollage automatique, le vol en autonomie, le RTL (Return To Launch) et bien d’autres fonctions qu’il nous sera
+alors rapidement possible d’ajouter. Nous avons utilisé diverses stations de sol : HK’s Ground Control Station,
+QGroundControl, ArduPilotMissionPlanner, etc. Après divers essais, nous avons remarqué que chaque station est
+utile dans une certaine condition, QGroundControl est plus polyvalent, ArduPilotMissionPlanner est plus efficace
+dans son horizon virtuel et pour le vol en autonomie tandis que HK est plus utile pour le contrôle des capteurs.
+
+10
+
+Puisqu’il
+est
+possible
+de
+communiquer avec de nombreuses
+stations de sol, le langage utilisé ne
+serait-il pas universel ?
+Le langage qui est utilisé pour communiquer se
+nomme MAVLink (Micro Air Vehicle Link). Créé à
+l’origine par Lorenz Meier à l’ETH de Zurich, il était
+destiné au projet PIXHAWK (un projet de
+stabilisation du drone et de création de cartes 3D
+basé uniquement par la vision). Il est à présent utilisé
+par de nombreux systèmes pour communiquer car il
+possède l’avantage d’être très léger, libre
+d’utilisation et supporte des réseaux maillés.
+Figure 6 Schématisation d'un exemple de contrôle multiple de systèmes
+automatiques contrôlés par MAVLink en liaison maillée
+
+ELECTRONIC SPEED CONTROLER
+Après la génération de la commande d’ordre à envoyer au moteur, il est nécessaire de l’envoyer via un signal appelé
+PWM (Pulse Width Modulation). Ce signal est un signal à impulsions d’une durée déterminée. Cette impulsion,
+envoyée à durée fixe va être plus ou moins longue en fonction de la vitesse à laquelle le moteur doit tourner.
+L’ESC, en recevant ce signal (d’une fréquence de 50 à 400Hz, tout dépend de la qualité de l’ESC), va ensuite devoir
+générer un signal de puissance vers le moteur qu’il contrôle.
+Mais quel est le type de signal que l’ESC envoie à ces moteurs ? Ne peut-on pas simplement envoyer
+un courant et faire varier la puissance ?
+Pour comprendre cela, utilisons un oscilloscope. Branchons sur
+celui-ci quatre entrées (il est possible d’en utiliser deux, à la
+condition qu’ils soient bien synchronisés). La première correspond
+au signal PWM envoyé à l’ESC. Les trois autres correspondent à
+chaque signal envoyé à chaque ligne d’un moteur. La masse est
+commune et correspond à la masse de l’alimentation de l’ESC. Le
+signal obtenu correspond à trois signaux trapézoïdaux toujours de
+même intensité. La vitesse va être régulée par la fréquence des
+signaux. Augmenter la fréquence fait tourner le moteur plus
+rapidement, tandis que diminuer la fréquence le fait tourner plus
+lentement. Afin de faire tourner le moteur, il est tout d’abord
+nécessaire « d’attirer » l’aimant du rotor puis de le « repousser »
+lorsqu’il est à la bonne position, tout en l’attirant de nouveau sur le
+suivant. Ainsi les signaux sont-il complémentaires. Un signal sera Figure 7 Visualisation des signaux émis au moteur
+utilisé comme masse tandis que les deux autres fourniront le courant
+à deux bobines.
+
+11
+
+LES HELICES
+HELICES
+Une hélice comporte essentiellement un moyeu et des pales ; celles-ci sont identiques et font entre elles des angles
+égaux. Certaines hélices plus perfectionnées peuvent faire varier l’angle, elles sont orientables dans toutes les
+directions. Le moyeu correspond à la partie généralement cylindrique qui se fixe à l’arbre porte-hélice. Le pas d’une
+hélice correspond à la distance réalisée dans un fluide non-compressible lors d’un tour complet de l’hélice. Elle est
+déterminée par la formule 𝐻 = 2 𝜋 𝑟 𝑡𝑔 𝜃 = 𝑐𝑜𝑛𝑠𝑡𝑎𝑛𝑡𝑒 avec r la distance de la section de l’hélice et θ la rotation
+de la pale. Ainsi nos hélices de 12x7" possèdent-elles un angle de rotation tan 𝜃 =
+
+𝐻
+2𝜋𝑟
+
+=
+
+7
+2𝜋 6
+
+= 0.18568
+
+donc 𝜃 ≈ 10.5°. Après vérification, ce résultat est vrai.
+D’après la théorie de Froude, nous avons un écoulement
+théorique comme sur le schéma présenté ici.
+Le calcul du rendement s’effectue de la manière suivante :
+𝜔=
+
+2
+𝑉
+𝑉2
+
+1+ 0
+
+Malheureusement, le rendement réel ne dépasse en
+général pas 85% du rendement théorique, ceci étant dû :
+-
+
+Au frottement des pales contre l’air
+A l’écoulement radial du fluide contre les pales
+A de nombreuses autres causes négligeables qui,
+sommées, ne donnent pas un résultat négligeable.
+
+Cependant, cette donnée datant de 1980, de nombreuses
+améliorations ont permis une différence de rendement
+théorique/pratique de seulement 96 à 97% pour les
+meilleures hélices ! Nos hélices n’étant pas parmi cellesci, le rendement pratique tendrait vers 0.85 𝜔
+Figure 8 Schéma explicatif de la théorie de Froude quant à la théorie
+unidimensionnelle des hélices
+
+ACTION … REACTION !
+Un phénomène très important dans le monde du multi rotor est le couple. Regardez le fonctionnement d’un
+hélicoptère : il est constitué d’une grande hélice … et d’une plus petite. Cette petite hélice est appelée rotor de queue
+ou rotor d’anti-couple ! Sans celui-ci, l’hélicoptère tournerait sur lui-même et ne pourrait même pas décoller sans
+s’écraser … Pourquoi me diriez-vous ? Pour cela, faisons une expérience très simple : asseyez-vous sur une chaise
+roulante. Tendez bras et jambes et tournez brusquement vos bras vers la gauche. Vos jambes ne restent pas fixes :
+elles tournent dans le sens contraire de la rotation de vos bras, ici vers la droite. C’est la loi d’action-réaction,
+également appelée troisième loi de Newton.
+« TOUT CORPS A EXERÇANT UNE FORCE SUR UN CORPS B SUBIT UNE FORCE D'INTENSITE EGALE, DE MEME DIRECTION MAIS
+DE SENS OPPOSE, EXERCEE PAR LE CORPS B. »
+TROISIEME LOI DE NEWTON.
+
+12
+
+Tout ceci se passe exactement de la même manière pour un quadricoptère. Chaque moteur va tourner dans un sens,
+si tous tournaient dans le même sens le quadricoptère tournerait dans le sens opposé. Il est donc nécessaire de mettre
+des hélices d’anti-couple, c’est-à-dire qu’elles vont tourner dans le sens inverse des aiguilles d’une montre tandis
+que les autres tournent dans le sens des aiguilles d’une montre. Ces hélices sont montées face à face et sont deux à
+deux inversées.
+Pour mieux comprendre ce phénomène, réalisons une expérience : lançons un objet assez lourd d’une barque en
+exerçant une force de valeur F sur l’objet, la barque reculera car l’objet aura réagi à cette force pour exercer une
+force de même intensité F sur vous. Il se réalise exactement le même phénomène sur le drone.
+
+TRANSPORT D’UNE MASSE DE A EN B
+Notre application visant le transport de défibrillateurs implique que notre drone devra transporter une certaine
+masse.
+Mais quelles forces agissent sur le drone sans le poids
+ajouté ?
+Le système étudié est donc le drone et nous l’étudierons dans un référentiel terrestre supposé galiléen.
+Les forces extérieures exercées sur le drone sont alors :
+-
+
+Son poids 𝑃⃗⃗ découlant de la gravité
+
+-
+
+Les frottements 𝑓⃗ exercés par l’air
+
+-
+
+La réaction de l’air 𝐹⃗ permettant au système au repos d’être pseudo-isolé
+
+Les frottements de l’air sont calculés ainsi :
+𝑓=
+
+𝐶𝑥 𝜌𝑆𝑣 2
+2
+
+Avec :
+-
+
+Cx le coefficient de résistance aérodynamique (coefficient de trainée)
+𝜌 la masse volumique de l’air
+𝑆 le maitre-couple
+𝑣 la vitesse air-système
+
+Le drone ne dépassant pas une vitesse d’environ 30km.h-1 et le coefficient Cx de résistance aérodynamique étant
+inférieur à 1, nous pouvons en déduire que les frottements de l’air au système complet sont petit.
+Ceci pose un nouveau problème. Au niveau d’un moteur,
+l’air est très rapide, quelle forme doit alors avoir la section
+des bras ? Le moteur doit-il être au-dessus ou en dessous du
+bras ?
+Plusieurs sections de bras sont disponibles : circulaire, carrée ou fuselée.
+
+13
+
+Le coefficient de trainée (Cx) des sections citées ci-dessus est respectivement de 0.47 ; 1.05 et 0.04. Notre premier
+prototype possédait des bras à section carrée, soit Cx=1.05, le troisième une section circulaire Cx=0.47 et le
+quatrième une section fuselée soit Cx=0.04
+La différence entre une section circulaire et une section fuselée est de 1.01 tandis qu’entre une section carrée et une
+section circulaire, la différence est de 0.58.
+La différence de frottements de l’air entre le premier (et le second) prototype et le troisième prototype est de 58%
+tandis qu’entre le premier et le dernier (quatrième) la différence est de 101% ! Il est donc très intéressant de modifier
+la section des bras ! De plus d’après la théorie de Froude, la vitesse au-dessus des bras est inférieure à la vitesse en
+dessous des bras, il est donc plus intéressant de mettre les bras au-dessus qu’en dessous des moteurs.
+Que se passe-t-il lorsque nous y ajoutons une masse ?
+Tout d’abord, nous avons fait un test de vol sans le nouveau poids, où l’on a testé la durée maximale à laquelle le
+drone pouvait voler. Elle s’élevait en théorie à 24.49 minutes. En pratique, le résultat était inférieur à une vingtaine
+de minutes, à cause de conditions de température et de pression différentes, et d’arrêts réguliers lors du test
+comprenant plusieurs phases de décollage/atterrissage. Pendant ce même test nous avons branché du début à la fin
+une pince ampérométrique sur notre drone. L’intensité qui devait s’élever en moyenne à 9.58 A d’après eCalc c’est
+révélé être entre 9 et 10A, soit une moyenne de 9.5A. Les résultats se sont donc révélés être très précis. Sachant que
+la batterie fonctionne avec un voltage de 11,60 V avec les composants dont nous disposons, la relation P=UxI nous
+permet de déterminer la puissance moyenne utilisée. Ainsi notre puissance moyenne s’élevait à environ 110 W pour
+un poids total du drone de 1100 g. La théorie annonçait 113W. De plus, avec son poids « standard », nous avons
+remarqué que le drone décollait au premier quart de la manette des gaz.
+Nous avons ensuite répété cette expérience avec une masse de 1500 g (n’ayant pas de défibrillateur, nous avons
+utilisé une masse quelconque) pour un poids total du drone de 2600 g et un temps de vol estimé vers 7 minutes.
+Ainsi nous trouvâmes une intensité moyenne de 30.72 A et donc une puissance de 30,72x11,60 soit environ 356 W.
+Pour le décollage, il a fallu pousser la manette des gaz à plus de la moitié. Cependant la manette se situait en dessous
+de la valeur critique de 80%, permettant tout de même une assez bonne maniabilité.
+Ainsi, pour déterminer la puissance qu’il faudra en plus, nous avons simplement fait la différence entre la puissance
+fournie avec le défibrillateur et la puissance fournie sans celui-ci. Nous trouvâmes ainsi une puissance de 356-110
+soit 246 W en plus. De même, pour ce qui est du temps de vol, le drone aurait perdu une autonomie maximale
+d’environ 15 minutes et pour ce qui est du pourcentage de la manette des gaz au décollage, il faudra compter 40%
+en plus.
+Le temps de vol en est donc très réduit…Serait-il possible
+de réduire la masse de l’ensemble drone-défibrillateur ?
+N’ayant pas à notre disposition un vrai défibrillateur (car coûtant excessivement cher !) nous avons tenté d’estimer
+la masse des piles qui sont à l’intérieur et du boitier qui protège l’ensemble. Les batteries NiCd de 650 mAh 12V
+utilisées dans la plupart des défibrillateurs ont un poids variant aux alentours de 500g. Le boitier plastique serait
+certainement d’un poids entre 200 et 700g. Il serait donc possible de réduire le poids jusqu’à environ 1.5Kg. Des
+tests de portée de cette masse nous permettent d’en déduire que la manette des gaz est d’environ 30-35% pour un
+temps de vol de près de 15 minutes à une puissance fournie de 14.00*11.60=162.4W.
+La seconde solution serait d’utiliser des défibrillateurs de poche d’une masse totale d’environ 500g (batterie et
+électrodes incluses). Cependant leur prix est presque le double de ceux d’un défibrillateur classique.
+
+14
+
+Le poids peut être réparti en dessous et au-dessus du drone. Le centre de gravité est actuellement plus bas que les
+hélices. Il doit être en théorie dans le même plan que les hélices, ceci permettant de réduire au minimum la force
+de poussée 𝐹⃗ nécessaire pour un déplacement et pour stopper l’inertie du drone.
+Le défibrillateur pourrait donc être éventuellement divisé en deux parties : la première partie serait la commande et
+les électrodes. Ayant une nécessité d’être à la disposition, elles devraient être placées au-dessus du drone. La partie
+de puissance (transformateurs par exemple) et la batterie (à la condition de l’utiliser) pourraient se situer en
+dessous, ceci permettant de recentrer le centre de gravité vers le plan des hélices.
+
+Le fonctionnement précis du drone compris, nous pouvons à présent nous centrer sur la réalisation pratique de celuici et aux différents tests qui nous ont permis de comprendre quels facteurs modifier pour optimiser les temps de vol,
+la maniabilité, et la masse du drone.
+
+TESTS ET PROTOTYPAGE
+La conception est une étape importante, qui doit permettre d’évaluer la faisabilité du projet selon nos
+capacités (connaissances, savoir-faire, finances,…) et d’identifier les différents composants nécessaires à la
+réalisation d’un projet. Souvent, lors de la réalisation puis des essais, de nouvelles questions se posent auxquelles il
+faut répondre en s’adaptant et en faisant évoluer le concept pour améliorer le projet. C’est la démarche que nous
+avons adoptée en réalisant différents prototypes.
+Une fois la carte déterminée et le fonctionnement du drone compris, nous nous sommes intéressés aux
+autres composants nécessaires à son fonctionnement. Ces autres composants devaient rentrer dans notre budget et
+être compatible avec la carte de contrôle sélectionnée. Nous avons donc fait l’acquisition de :
+- carte de vol (VRBrain)
+- moteurs sans balais (BLDC)
+- contrôleurs de vitesse (ESC)
+
+15
+
+- hélices
+- batterie (LiPo puis LiFe)
+- caméra
+- transmetteurs divers (Télémétrie à 433MHz, Radio à 2.4GHz, Audio/Vidéo à 1.2GHz)
+- matériaux divers pour la structure (Fibre d’époxy, aluminium, fibre de verre)
+Apres la réception de toutes nos pièces, nous avons procédé à la réalisation du châssis, de la structure de notre drone
+puis nous avons fait le montage des divers composants qui nous a pris 3 jours.
+
+PREMIER PROTOTYPE
+La première version de la structure était constituée de plaques en PVC de 18 cm de côté qui ont comme
+particularité d’être légères et de deux barres en aluminium solides et peu chères de 67 cm de longueur maintenues
+par ces plaques. Le reste du montage est assez simple : il faut relier l’APM au module XBee, aux ESC et relier les
+ESC aux moteurs.
+Après le montage effectué nous nous sommes attardés à différents tests que nous avons réalisés dans le gymnase de
+notre lycée pendant nos séances de TPE. Après une calibration des contrôleurs de vitesses et d’une vérification de
+compensation des moteurs et du sens de rotation de ceux-ci, nous avons pratiqué quelques tests de vols très
+instructifs. Ces premiers vols ont été révélateurs de deux problèmes : un problème de stabilité et un problème de
+poids. En effet, le drone oscille et nous nous sommes rendu compte que nous devons régler les paramètres PID.
+Pour le problème de poids (1,6 kg), nous nous en sommes rendu compte lors du décollage car les moteurs ont du
+mal à faire décoller notre quadricoptère, car en effet, pour un décollage, il a fallu mettre la manette des gaz à plus de
+80% !
+Ces problèmes ont abouti à la réalisation d’un second prototype pour sa résolution. Nous avons alors rencontré une
+succession de problèmes dans nos divers prototypes qui seront résolu dans les prototypes suivants pour un objectif
+d’amélioration au niveau de nos applications de surveillance et de localisation.
+
+16
+
+DEUXIEME PROTOTYPE
+Objectif principal : diminuer le poids
+Alors que nous pensions que 67cm d’entraxe moteurs permettait de faire un drone plus simplement car il
+s’agit d’une distance moyenne entre plusieurs châssis trouvés sur le net, nous avons remarqué que l’aluminium que
+nous utilisions pesait tout de même 1g.cm-1 et que les fils que nous avions mis à l’intérieur pesaient 3g.cm-1 – il
+s’agit de fils de cuivre de récupération donc pas prévus pour la légèreté mais très robustes car ils supportaient très
+bien les forts courants ! -. Après réflexion, nous avons donc décidé de réduire l’entraxe moteur à 40 cm, le minimum
+raisonnable pour des hélices de 10x4.5" comme les nôtres, ce qui permet également de supprimer les fils de puissance
+que nous avons utilisés pour la première version.
+Les nouveautés de ce second prototype sont donc assez limitées : il nous a fallu couper les bras des moteurs
+et changer la plaque de PVC par une d’un autre matériau. Très utilisée en électronique, la fibre d’époxy permet
+d’offrir, pour un poids quasi-identique une résistance incomparable. Nous avons donc choisi ce matériau, nous
+permettant dans un même temps de couper les barres en dessous du drone pour y placer la batterie, s’y trouvant ainsi
+coincée entre une plaque d’époxy et une autre en mécano®. Nous obtenons au final un gain de 0,5Kg
+Après une rencontre dans un forum d’aéromodélisme de plusieurs personnes, nous nous sommes aperçus
+que, bien que les hélices soient fabriquées en usine, la densité de plastique ou de carbone résultant de sa fabrication
+n’est pas uniforme. Il faut donc les équilibrer. L’équilibrage est une étape très simple qui consiste à attacher une
+hélice sur une tige filetée qui repose sur un système de maintien électromagnétique permettant de supprimer les
+frottements dus au maintien de la tige. Ce second prototype présentait les avantages d’une robustesse importante,
+mais restait toujours relativement fragile face à un crash important. Ce second prototype présente donc une nette
+amélioration, mais reste très lourd pour la puissance qu’il peut fournir, le problème semble venir de la batterie qui,
+étant très dangereuse va surement être remplacée par une autre alternative à chercher. Cette batterie devra être, si
+possible, moins dangereuse pour l’environnement, pour l’homme et le matériel. Concernant la sécurité, le prochain
+prototype devra également être capable de protéger le drone et être prémunie de tout risque de blessure humaine.
+
+TROISIEME PROTOTYPE
+Objectif : améliorer la sécurité humaine et matérielle du quadricoptère
+
+CONCEPTION
+Une réelle innovation de notre projet est
+apparue ici : après de nombreux crashs nous nous
+sommes aperçus de la réelle importance d’une
+protection. Après diverses recherches nous sommes
+arrivés sur un site qui annonçait la nouvelle version
+du drone Japonais destiné à une utilisation civile et
+militaire. L’idée de construire une structure en
+s’inspirant de la leur nous est donc venue
+immédiatement. Cependant le poids d’ArduSpider
+était déjà de 1,056 Kg nous avons donc du opter pour
+une structure plus légère en fibre de carbone. Le
+poids total du projet est à présent de 1,100Kg
+
+17
+
+Figure 9 Équilibrage d'une hélice
+
+incluant la protection. Celle-ci est pliable pour amortir les chocs lors de l’atterrissage volontaire ou pas.
+Un problème de fabrication de notre batterie LiPo a entraîné la crevaison de la poche d’une de nos cellules. En
+connaissant les dégâts qu’une seule cellule pourrait faire sur l’Homme et son environnement, nous avons recherché
+une alternative.
+Apparue début 2007, une nouvelle batterie à fait son apparition et s’est rapidement popularisée en modélisme et en
+robotique. Cette batterie appelée A123, LiFePO4, Phosphate de fer litié ou LiFe, ressemble à une batterie plus courte
+et plus large que le format AA standard. Ce nouveau type de cellules est directement issu des batteries Li-Ion déjà
+utilisées dans les ordinateurs portables et est à l’origine destiné aux voitures électriques. Leur avantage est leur
+importante densité d’énergie, presque équivalente à celles des LiPo et le fait qu’elles n’explosent pas !
+Le poids d’ArduSpider étant important, nous avons opté pour quatre cellules mais de 2300mAh, permettant un gain
+de poids de presque 300g. Le prototype n’est à présent plus dangereux
+
+TESTS DU TROISIEME PROTOTYPE
+Les tests se sont faits chez nous car nous devions absolument respecter le calendrier prévu. Le premier vol
+a été très stable, mais s’est terminé à l’envers suite à une rafale de vent qui était normalement compensable par
+l’autopilote. Nous avons donc remarqué que les réglages PID par défaut étaient trop faibles. Après quelques tests
+nous avons finalement trouvé le bon réglage, très proche des valeurs par défaut. Cependant, après quelques heures
+de vol, nous avons fini par nous améliorer dans le contrôle du drone et avons remarqué qu’un problème de stabilité
+persistait. Deux possibilités, le réglage étant déjà fait : des capteurs qui ne sont pas suffisamment performants, ou
+un problème de précision de la radiocommande. Il faudrait donc trouver un moyen de changer la carte inertielle,
+voire toute la carte de vol, afin de changer les gyroscopes/accéléromètres par une centrale inertielle 6DOF
+MPU6000. La radiocommande pourra être remplacée par un système plus performant, comme un joystick. Le sonar
+qui a été ajouté dans le second prototype a été testé, mais le drone s’est écrasé … au plafond, suite à un
+dysfonctionnement interne. Après avoir regardé la boite noire du drone, et étude du système de contrôle nous avons
+décidé d’utiliser un sonar numérique, le problème pouvant se situer dans un brouillage électromagnétique dû aux
+courants alternatifs triphasés générés par les ESC.
+
+QUATRIEME PROTOTYPE
+Objectifs : améliorer la maniabilité, la stabilité, …
+Repenser le modèle au vu de l’expérience acquise grâce aux
+prototypes précédents. Repenser l’aérodynamisme.
+
+CONCEPTION
+Quelques mois se sont écoulés. L’inscription aux
+Olympiades de Physique France nous a permis un renouveau du
+projet : un budget nous a été fourni et un partenariat a été conclu
+avec Roberto Navoni, le créateur d’une carte de vol plus
+perfectionnée. Tout ceci nous a permis de concevoir un
+quatrième prototype plus performant. Nouvelle carte de vol à
+processeur Cortex M4, centrale inertielle 6DOF (6 axes : x, y, z
+pour l’accéléromètre et il en est de même pour le gyroscope),
+nouvelle commande de pièces pour un sonar en sont quelques
+
+18
+
+Figure 10 Troisième prototype, longtemps utilisé
+pour les phases de test
+
+nouvelles caractéristiques. Après la lecture de livres sur
+la mécanique des fluides (Méthodes Comolet et
+Rebuffet), nous avons tenté une nouvelle approche de
+notre prototype : le faire le plus aérodynamique
+possible. Nous voulions optimiser le rendement, et
+pour ceci, il n’y avait que deux solutions : l’alléger ou
+réduire au minimum la force de frottements de l’air sur
+le drone, pour utiliser moins d’énergie. Ayant deux
+possibilités pour réaliser une force de frottements
+minimale, nous avons tenté les deux. La première est
+un châssis en croix, tandis que la seconde est en H. Le
+châssis en croix est un châssis très utilisé que nous
+utilisons depuis le début, et présente l’avantage d’être
+simple à construire. Le châssis en H, bien que plus
+compliqué à construire, permet d’utiliser la moitié du
+matériel des fixations et des barres, et donc un gain de poids
+assez léger. Dans un même souci aérodynamique, nous avons souhaité Figure 11 Test de vol du quatrième prototype.
+retourner les moteurs pour les mettre vers le sol. En effet, le flux d’air qui L’emplacement du vol est limité au carré en bois pour
+s’écoule des hélices a une importance plus grande après être passé dans les des raisons de sécurité
+hélices qu’avant. Nous avons également modifié le profil des bras, passant
+d’un bras carré en aluminium (qui entraine un écoulement tourbillonnaire du fluide) à un bras cylindrique en fibre
+de verre (réduisant les tourbillons, légèrement présents mais entrainant une perte négligeable).
+La nouvelle carte nous a été fournie pour 200€ les deux cartes au lieu de 570€ (prix public), mais toujours
+afin de trouver une meilleure stabilité, nous avons choisi d’isoler les ESC, gros générateurs de champs
+électromagnétiques, avec une plaque d’époxy cuivrée. Ceci permet au MPU6000 de ne pas être brouillé et donc
+d’être plus précis.
+Parmi les problèmes soulevés, le problème de poussée a été souvent négligé. Ainsi avons-nous testé une
+autre paire d’hélices en 11x4.7" au lieu de 10x4. 5". Après simulations diverses (utilisation du site xcopter calc)
+nous avons remarqué une autonomie bien supérieure par l’utilisation d’une batterie LiFe 4S2P (4 cellules en série et
+2 en parallèle), passant de 10 à 25 minutes possibles de vol (ceci reste une simulation, en considérant que la batterie
+est rodée et que la température et la pression soient exactement les mêmes que celles entrées dans le simulateur.
+Le prototype n°4 est donc une étape importante dans l’évolution de notre projet. Mais notre travail ne s’est pas
+concentré que sur la partie volante : pour améliorer le contrôle du quadricoptère, une grande modification de la
+partie commande a été apportée.
+
+STATION DE CONTROLE AU SOL
+Lors de notre TPE et des trois premiers prototypes, nous avions utilisé une boite en carton et un ordinateur portable
+dans lesquels nous avions implanté les composants, cependant, nous nous sommes très rapidement confrontés à un
+problème : l’ordinateur portable est moins puissant qu’un ordinateur fixe et donc ne permet pas, sans risque de
+plantage, d’enregistrer la vidéo et d’utiliser les logiciels de contrôle. Un second problème se posait : au fur et à
+mesure de nos vols, nous avons remarqué que la télécommande, de par ses petits joysticks, ne permettait pas un
+contrôle précis du drone, le faisant légèrement varier par rapport à ce que nous voulions. L’idéal étant bien sûr de se
+passer de joystick mais les contrôles à la voix et au geste de sont pas assez précis et fiables pour se passer totalement
+de joystick. Nous avons donc opté pour un « carton » plus conséquent et plus solide dans lequel nous aurions un
+système fiable, solide et très évolutif. Concernant la solidité, nous avons opté pour le choix d’un Flight Case (cf.
+
+19
+
+Site internet pour sa construction) plus solide et plus gros
+qu’un simple carton. Pour la fiabilité, ayant un Flight Case,
+nous pouvons y mettre un ordinateur fixe, assurant ainsi une
+meilleure fiabilité. Pour la partie évolutive, deux problèmes
+se posaient : le choix d’une ou plusieurs interfaces de
+communication et la puissance de calcul. La seconde souspartie est rapidement résolue en utilisant un second pc pour
+les calculs secondaires éventuels comme des traitements du
+son ou de l’image pour des simulations 3D, consommant
+d’avantage mais empêchant le premier pc d’une surcharge
+trop importante le faisant ralentir. Pour contrer au premier
+problème, nous avons opté pour l’utilisation d’une carte
+arduino contrôlant toute la partie radiocommande. Le reste
+n’étant qu’alimentations et cartes à interface série/FTDI. Ainsi Figure 12 Station de contrôle au sol réalisée à l'occasion du
+avons-nous pu commencer à mieux concevoir le Flight Case. quatrième prototype
+La première étape a été de réaliser les plans de construction : choix des planches, de la taille du Flight Case,
+des emplacements des composants, etc. C’est alors qu’un autre problème s’est posé : comment alimenter tous ces
+modules ? Les ordinateurs ont une alimentation à découpage séparée propriétaire, nous n’y avons donc pas touché,
+mais l’ensemble des autres modules qui ne s’alimentaient pas en USB utilisaient un transformateur 12 ou 9V continu.
+Utiliser 5 alimentations auxiliaires non stabilisées (un pont de diode ne redresse pas très bien un signal alternatif)
+consommant excessivement beaucoup pour le peu de courant qui en sortait nous paraissait totalement inenvisageable
+car cela entrainait forcément une consommation excessive et une chaleur interne de plus de 30°C. Nous avons donc
+opté pour la transformation d’une alimentation de PC en alimentation 12, 9, 5 et 3.3V. Le 12V est utilisé pour le
+récepteur Audio/Vidéo et le chargeur. Le 9V est utilisé pour l’émetteur radio et le Switch vidéo tandis que le 5V et
+le 3.3V sont utilisés en secours, car les modules utilisent en réalité des tensions similaires pour fonctionner. Une fois
+le Flight Case réalisé (une cinquantaine d’heures de travail) il nous a été possible d’y aménager l’intérieur. Les
+premiers périphériques que nous y avons mis ont été les PC et un écran. Les PC sont vissés et l’écran l’est également
+sur une plaque collée et vissée sur le plafond. Nous y avons ensuite mis les alimentations (au total 3 alimentations)
+puis les modules radio. Mais où les mettre ? Faut-il les laisser à l’intérieur ou laisser dépasser le connecteur de
+l’antenne ? Nous avons, pour l’instant, mis les modules à l’intérieur, ceci évitant le risque d’oublier d’y mettre les
+antennes et donc … de griller les amplificateurs opérationnels qui amplifient le signal avant de l’émettre. Cependant,
+plusieurs types d’antennes existent, et parfois, il est préférable de les mettre à l’extérieur du flight case. Nous
+parlerons de ceci dans le chapitre suivant. Lorsque tout est fixé, nous pouvons nous occuper de la télécommande.
+Pour ceci de nombreuses solutions ont été envisagées :
+- Utilisation d’un joystick de PC analogique (port MIDI/de jeu) : nous avions trouvé un joystick que nous avions
+récupéré. Ce joystick Microsoft avait cependant plusieurs gros problèmes : il fonctionnait à retour de force, or nous
+n’avons pas de retour de force possible, et sans ce retour, le joystick ne fonctionnait pas. Le second problème est
+que le système de positionnement ne possédait aucun potentiomètre, il s’agissait d’un capteur qui utilisait une caméra
+CMOS et quatre leds, ce qui est très difficilement récupérable.
+-Utilisation d’un joystick USB : deux possibilités de branchement
+O Sur l’ordinateur sans aucune modification : il faut donc utiliser le réseau télémétrique pour commander
+intégralement le drone, donc risque important de latences, et donc de crashs …
+O Sur l’ordinateur pour les commandes secondaires (boutons de changement de mode, etc.) et sur la carte
+arduino pour les commandes primordiales (joystick pur). N’ayant pas de joystick USB, nous avons dû en acheter
+
+20
+
+un. Les joysticks possèdent deux possibilités pour reconnaitre la position des manches : l’effet Hall et le
+potentiomètre. Le potentiomètre est la méthode la moins chère mais est moins précise et s’use plus rapidement que
+le capteur à effet hall. C’est ce que nous avons choisi pour notre joystick car il est relativement simple à utiliser.
+Le capteur à effet Hall utilise d’autres méthodes que nous ne décrirons pas ici.
+La télécommande pouvait également être intégré ou mise à part à l’aide d’un câble. Ne sachant quoi choisir, nous
+avons essayé les deux.
+
+CONCLUSION
+Ainsi ce projet nous a-t-il permis de relever un défi de conception électronique mais aussi d’apprendre de
+nouvelles notions dans ce domaine, comme dans celui des mathématiques par l’apprentissage des intégrales ou
+encore en physique et en automatique par les théories de Newton ou de Froude. Au terme de ce projet quelques
+problèmes de conception de la structure, de crashs et de réglages très compliqués nous ont fait remarquer que
+certaines connaissances très pointues devaient être acquises, connaissance d’un niveau bac+5 au moins (intégrales
+triples, lois de l’aérodynamique,…). Peut-être nos travaux seront-ils repris par d’autres, peut-être nos travaux
+apporteront-ils une modeste contribution à une application qui pourrait sauver des vies. Alors le projet « ArdUFO :
+un drone au service de tous » aura pris tout son sens. A présent, notre but est de l’améliorer et, au fur et à mesure
+que nos connaissances se développent et que le budget nous est fourni, nous améliorons le drone par des tests de
+simulation de matériaux plus précis, plus fiables et plus réalistes. Nos prochaines étapes sont un développement
+complet de l’interface du sonar permettant un démarrage et un atterrissage automatiques (moments les plus difficiles
+pour le contrôle du drone) et par l’évitement d’obstacles sur tous les côtés, puis nous pourrons encore, si le temps et
+le budget le permettent de déployer un système SLAM pour un meilleur contrôle automatique. D’autres idées sont
+également envisagées, comme la commande à la voix, au geste voire à la pensée, les tests sur les grandes distances,
+etc. Saurons-nous relever ces nouveaux défis ?
+
+21
+
+BIBLIOGRAPHIE
+
+22
+
+-
+
+DIYDrones [en ligne], DIY Drones, 2012 – [Consulté les 9, 11, 16, 19, 23, 27 et 30 décembre 2011 et les
+1, 6, 10 et 21 janvier 2012]. Disponible sur http://diydrones.com/
+
+-
+
+ArduPilot-Mega [en ligne], Google Code, 2012 – [Consulté les 9, 11, 16, 19, 23, 27 et 30 décembre 2011
+et les 1, 6, 10 et 21 janvier 2012]. Disponible sur http://code.google.com/p/ardupilot-mega/
+
+-
+
+ArduCopter [en ligne], Google Code, 2012 – [Consulté les 9, 11, 16, 19, 23, 27 et 30 décembre 2011 et les
+1, 6, 10 et 21 janvier 2012]. Disponible sur http://code.google.com/p/arducopter/
+
+-
+
+Conversations avec des aéromodélistes et fondateur des cartes de Virtualrobotix (Roberto Navoni)
+
+-
+
+Cours d’électronique et de physique divers
+
+-
+
+Mécanique expérimentale des fluides, R.COMOLET
+
+-
+
+Aérodynamique expérimentale, P.REBUFFET
+
+-
+
+Aérodynamique théorique, P.CALVET
+
+ANNEXE 1
+Schéma de fonctionnement
+global
+
+23
+
+24
+
+ANNEXE 2
+Code généré pour
+le sérialiseur
+
+25
+
+/// -*- tab-width: 2; Mode: C++; c-basic-offset: 4; indent-tabs-mode: nil -*/*
+* PPM Encoder Joystick for ArdUFO GCS Version 0.9
+* Lead author: Lichard Torman(Clement Decoodt)
+* Based on code and ideas from Ion Johnson
+*
+* This firmware is free software; you can redistribute it and/or
+* modify it under the terms of the GNU Lesser General Public
+* License as published by the Free Software Foundation; either
+* version 2.1 of the License, or (at your option) any later version.
+*
+*/
+//Pin Mapping
+int Pin_AEL = A11; // Aeleron potentiometer (tangage)
+int Pin_ELE = A10; // Elevator potentiometer (roulis)
+int Pin_THR = A2; // Throttle potentiometer (acceleration)
+int Pin_RUD = A3; // Rudder potentiometer (lacet)
+//int Pin_TIpot = 4; // Channel 4, optionnal mode changer
+int outPinPPM = A0;
+// PPM Output pin
+// Raw values
+int Raw_AEL;
+// raw - 0->1023
+int Raw_ELE;
+// raw - 0->1023
+int Raw_THR;
+// raw - 0->1023
+int Raw_RUD;
+// raw - 0->1023
+//int Raw_TIpot; // raw - 0->1023
+// For internal use
+int AEL;
+int ELE;
+int THR;
+int RUD;
+//int TIpot;
+// PPM µs vars
+int Aeleron_uS = 750;
+int Elevator_uS = 750;
+int Throttle_uS = 750;
+int Rudder_uS = 750;
+
+26
+
+// Ch.0 µS var - Aeleron
+// Ch.1 µS var - Elevator
+// Ch.2 µS var - Throttle
+// Ch.3 µS var - Rudder
+
+//int TI_uS = 750;
+
+// Ch.4 µS var - Mode
+
+// Constants for PPM making
+int Fixed_uS = 300;
+// PPM frame fixed LOW phase
+int pulseMin = 750;
+// pulse minimum width in uS
+int pulseMax = 1700; // pulse maximum width in uS
+// Constants
+float DualrateMultAel = 1.0; // Aeleron Constant
+float DualrateMultEle = 1.0; // Elevator Constant
+float DualrateMultThr = 1.5; // Throttle Constant
+float DualrateMultRud = 1.25; // Rudder Constant
+//float DualrateMultTI = 0.9; // Auxiliary pot. Constant
+// Trim
+int DualrateAdjAel = -50; // mid adjustment (useless)
+int DualrateAdjEle = -50; // mid adjustment (useless)
+int DualrateAdjThr = -200; // mid adjustment (useless)
+int DualrateAdjRud = -200; // mid adjustment (useless)
+//int DualrateAdjTI = 0; // mid adjustment (useless)
+/* Lower rates if problem
+Constants
+DualrateMultAel = 0.5;
+DualrateMultEle = 0.5;
+DualrateMultThr = 0.9;
+DualrateMultRud = 0.7;
+DualrateMultTI = 0.9;
+Trim
+DualrateAdjAel = 200;
+DualrateAdjEle = 200;
+DualrateAdjThr = 0;
+DualrateAdjRud = 100;
+DualrateAdjTI = 0;
+// Normal/high rates
+Constants
+DualrateMultAel = 0.9;
+
+27
+
+DualrateMultEle = 0.9;
+DualrateMultThr = 0.9;
+DualrateMultRud = 0.9;
+DualrateMultTI = 0.9;
+Trim
+DualrateAdjAel = 0;
+DualrateAdjEle = 0;
+DualrateAdjThr = 0;
+DualrateAdjRud = 0;
+DualrateAdjTI = 0;
+*/
+
+// 22ms loop
+ISR(TIMER1_COMPA_vect) {
+ppmoutput(); // Jump to ppmoutput subroutine
+}
+// Global Setup
+void setup() {
+//Serial.begin(9600);
+pinMode(outPinPPM, OUTPUT);
+// Giving some voltage for the potentiometers
+pinMode(A14, OUTPUT);
+digitalWrite(A14, HIGH);
+pinMode(A15, OUTPUT);
+digitalWrite(A15, HIGH);
+pinMode(A13, OUTPUT);
+digitalWrite(A13, LOW);
+pinMode(A12, OUTPUT);
+digitalWrite(A12, LOW);
+pinMode(A6, OUTPUT);
+digitalWrite(A7, HIGH);
+pinMode(A4, OUTPUT);
+digitalWrite(A4, LOW);
+
+28
+
+pinMode(A5, OUTPUT);
+digitalWrite(A5, HIGH);
+pinMode(A6, OUTPUT);
+digitalWrite(A6, LOW);
+// Setup timer (from Ian Johnson Project, but how ?)
+TCCR1A = B00110001; // Compare register B used in mode '3'
+TCCR1B = B00010010; // WGM13 and CS11 set to 1
+TCCR1C = B00000000; // All set to 0
+TIMSK1 = B00000010; // Interrupt on compare B
+TIFR1 = B00000010; // Interrupt on compare B
+OCR1A = 22000; // 22mS PPM output refresh
+OCR1B = 1000;
+}
+// PPM generation
+void ppmoutput() {
+// Channel 1 - Aeleron
+digitalWrite(outPinPPM, LOW);
+delayMicroseconds(Fixed_uS); // Hold
+digitalWrite(outPinPPM, HIGH);
+delayMicroseconds(Aeleron_uS); // Hold for Aeleron_uS microseconds
+// Channel 2 - Elevator
+digitalWrite(outPinPPM, LOW);
+delayMicroseconds(Fixed_uS); // Hold
+digitalWrite(outPinPPM, HIGH);
+delayMicroseconds(Elevator_uS); // Hold for Elevator_uS microseconds
+// Channel 3 - Throttle
+digitalWrite(outPinPPM, LOW);
+delayMicroseconds(Fixed_uS); // Hold
+digitalWrite(outPinPPM, HIGH);
+delayMicroseconds(Throttle_uS); // Hold for Throttle_uS microseconds
+// Channel 4 - Rudder
+digitalWrite(outPinPPM, LOW);
+
+29
+
+delayMicroseconds(Fixed_uS); // Hold
+digitalWrite(outPinPPM, HIGH);
+delayMicroseconds(Rudder_uS); // Hold for Rudder_uS microseconds
+/* Channel 5 - TI Switch
+digitalWrite(outPinPPM, LOW);
+delayMicroseconds(Fixed_uS); // Hold
+digitalWrite(outPinPPM, HIGH);
+delayMicroseconds(TIsw_uS); // Hold for TIsw_uS microseconds
+
+// Channel 5 - Opt. Pot
+digitalWrite(outPinPPM, LOW);
+delayMicroseconds(Fixed_uS); // Hold
+digitalWrite(outPinPPM, HIGH);
+delayMicroseconds(TI_uS);
+// Hold for TI_uS microseconds
+*/
+// Synchro pulse
+digitalWrite(outPinPPM, LOW);
+delayMicroseconds(Fixed_uS); // Hold
+digitalWrite(outPinPPM, HIGH); // Start Synchro pulse
+}
+// From reading to µs values
+void loop() { // Main loop
+// Read Pot. ports for Aeleron, Elevator, Throttle, Rudder and the Auxiliary pot.
+Raw_AEL = analogRead(Pin_AEL);
+Raw_ELE = analogRead(Pin_ELE);
+Raw_THR = analogRead(Pin_THR);
+Raw_RUD = analogRead(Pin_RUD);
+// Raw_TIpot = analogRead(Pin_TIpot);
+// Compensate for discrepancy in pot inputs including centering offset.
+// Also use this to invert inputs if necessary
+AEL = map(Raw_AEL, 0, 1023, 1200, 0) - 100; // Invert Aeleron pot and slight
+centre offset
+ELE = map(Raw_ELE, 0, 1023, 1200, 0) - 120; // Invert Elevator pot and slight
+centre offset
+
+30
+
+THR = map(Raw_THR, 0, 1023, 0, 1023) + 0; // Throttle (In case of 2nd trim
+use)
+RUD = map(Raw_RUD, 0, 1023, 0, 1023) + 0; // Rudder (In case of 2nd trim
+use)
+// TIpot = map(Raw_TIpot, 0, 1023, 1023, 0) + 0; // Auxiliary pot.
+// Tranform 0-1023 inputs to µS Rates with trim adjustment
+Aeleron_uS = (AEL * DualrateMultAel) + pulseMin + DualrateAdjAel;
+Elevator_uS = (ELE * DualrateMultEle) + pulseMin + DualrateAdjEle;
+Throttle_uS = (THR * DualrateMultThr) + pulseMin + DualrateAdjThr;
+Rudder_uS = (RUD * DualrateMultRud) + pulseMin + DualrateAdjRud;
+// TI_uS = (TIpot * DualrateMultTI) + pulseMin + DualrateAdjTI;
+// Check the limits
+if (Aeleron_uS <= 750) Aeleron_uS = 750;
+if (Aeleron_uS >= 1700) Aeleron_uS = 1700;
+if (Elevator_uS <= 750) Elevator_uS = 750;
+if (Elevator_uS >= 1700) Elevator_uS = 1700;
+if (Throttle_uS <= 750) Throttle_uS = 750;
+if (Throttle_uS >= 1700) Throttle_uS = 1700;
+if (Rudder_uS <= 750) Rudder_uS = 750;
+if (Rudder_uS >= 1700) Rudder_uS = 1700;
+// if (TI_uS <= 750) TI_uS = 750;
+// if (TI_uS >= 1700) TI_uS = 1700;
+}
+
+31
+
+32
+
+ANNEXE 3
+Détermination du PID
+Méthode Ziegler-Nichols
+
+33
+
+34
+
+35
+
+36
+
+37
+
+

@@ -1,0 +1,1324 @@
+Klara Demarle
+Nathan Semenoff
+El-Hamid Ghout
+Nicolas Berlemont
+Elèves de terminale générale du lycée Van der Meersch, Roubaix
+Encadrés par
+Sophie Gronlier, enseignante de physique-chimie
+Suivis par
+Pierre Chainais, enseignant-chercheur à l’école Centrale de Lille
+
+Table des matières
+I.
+
+Introduction ................................................................................................................................................ 2
+
+II.
+
+Conception d’un tuyau d’orgue ................................................................................................................. 2
+
+III.
+
+Récolte des données expérimentales ....................................................................................................... 3
+
+A.
+
+Dispositif expérimental ....................................................................................................................... 3
+
+B.
+
+Relation tension – vitesse du jet excitateur uj,m................................................................................... 3
+
+C.
+
+Méthodologie des mesures expérimentales ......................................................................................... 5
+
+IV.
+
+Quels sont les paramètres propices à la résonance ?............................................................................... 5
+
+A.
+
+Lieu de l’excitation et nombre de Strouhal ......................................................................................... 5
+
+D.
+
+Détermination du nombre de Strouhal optimal « moyen » de l’organettissimo ................................. 6
+
+V.
+
+Comment sélectionner la note à jouer ? ..................................................................................................... 9
+A.
+
+La gamme tempérée ............................................................................................................................ 9
+
+B.
+
+Le rôle du tuyau : le résonateur ......................................................................................................... 10
+
+C.
+
+Influence des ouvertures.................................................................................................................... 10
+
+D.
+
+Loi des tuyaux pour l’organettissimo ................................................................................................ 11
+
+E.
+
+Application sur notre modèle ............................................................................................................ 13
+
+VI.
+
+Peut-on jouer une gamme en bouchant progressivement un tuyau ? .................................................... 13
+
+A.
+
+Choix de la longueur de tuyau........................................................................................................... 13
+
+B.
+
+Evolution du spectre .......................................................................................................................... 14
+
+VII.
+
+Influence du sens d’impression ............................................................................................................. 16
+
+VIII.
+
+Conclusion......................................................................................................................................... 18
+
+ANNEXE 1 : Nomenclature ............................................................................................................................ 20
+ANNEXE 2 : Calcul de la surface d’une demi-lune et d’un croissant de lune ................................................ 21
+ANNEXE 3 : Mesures expérimentales ............................................................................................................ 22
+ANNEXE 4 : fréquences des notes de la gamme tempérée ............................................................................. 27
+ANNEXE 5 : ondes stationnaires dans un tuyau ............................................................................................. 28
+ANNEXE 6 : Paramétrages des tuyaux d’organettissimo ............................................................................... 30
+
+P a g e 1 | 31
+
+I.
+
+Introduction
+
+Nous avons abordé la musique par les sciences, mais aussi l’inverse : étudier les sciences par la musique
+dans une démarche de projet. Nous qui ne jouons d’aucun instrument, nous voulions être en mesure de jouer
+une mélodie, en particulier le thème d’Harry Potter.
+Nous avons conçu par impression 3D un premier modèle fonctionnel d’organettissimo : comprendre le plus
+petit orgue, dont le mémoire se trouve ici [1] et la présentation vidéo là [2].
+Nous avons voulu compléter l’étude de ce petit instrument de notre invention : détermination du nombre de
+Strouhal, comparaison entre tuyau résonnant et bourdon, effet du sens d’impression. Ceci est dans le but
+d’optimiser notre instrument.
+Le vocabulaire spécifique relatif aux tuyaux d’orgue se trouve à l’annexe 1.
+
+II.
+
+Conception d’un tuyau d’orgue
+
+Figure 1 : Modèlisation d'un tuyau d'organettissimo sous FreeCad
+
+Nous avons modélisé les différentes parties de notre organettissimo sous FreeCAD qui est un logiciel de
+modélisation 3D gratuit et relativement facile de prise en main.
+Nous nous sommes inspirés d’un modèle de mini-orgue [3] trouvé sur le site instructable. Cependant, ce
+modèle n’était pas modifiable et ne permettait que de jouer sur 4 notes au maximum. Nous l’avons
+intégralement recréé en modélisation par ajout de formes simples selon l’axe Oz.
+Nous avons imprimé un tuyau de 14 cm en entier : cela nous a pris environ 2h. Pour réaliser plusieurs tests
+afin d’étudier l’influence de différents paramètres, ce temps est considérable. Pour remédier à cela, nous
+avons décidé de n’imprimer que l’embout excitateur et le bouchon final ce qui ramène le temps d’impression
+à une trentaine de minutes. Le corps du tuyau d’organettissimo sera fait à partir d’un tube PVC découpé à la
+longueur voulue.
+Nos premiers tuyaux d’organettissimo ne résonnait que lorsqu’ils étaient fermés : on parle alors de bourdon
+d’organettissimo et nous les avons étudiés dans notre précédent mémoire. Cependant, au fur et à mesure de
+nos optimisations du système excitateur, certains tuyaux résonnaient en restant ouverts. Cette fois-ci nous
+étudierons les deux options.
+P a g e 2 | 31
+
+III.
+
+Récolte des données expérimentales
+A. Dispositif expérimental
+
+Afin de pouvoir comparer le son produit par nos différentes
+tuyaux d’organettissimo, il faut pouvoir maintenir un jet d’air
+constant. Nous utiliserons pour cela un ventilateur pour
+imprimante 3D surmonté d’un embout, que nous avons
+imprimé, permettant l’insertion des différents tuyaux
+d’organettissimo. Ce ventilateur est alimenté à l’aide d’une
+alimentation électrique stabilisée réglable. Il s’agit d’un moteur
+à courant continu.
+
+Figure 2 : Dispositif expérimental
+
+B. Relation tension – vitesse du jet excitateur uj,m
+Dans le cas d’un ventilateur radial, : l’air est aspiré parallèlement à l’axe de rotation et propulsé par force
+centrifuge perpendiculairement à ce même axe.
+
+Figure 3: schéma du ventilateur radial
+
+Le schéma ci-dessous représente une modélisation électrique simplifié du moteur (partie encadrée), alimenté
+par un générateur de tension U :
+
+Figure 4: schéma électrique du ventilateur radial
+
+D’après ce site [4] la vitesse de rotation à vide ω (en rad/s) est fonction linéaire de la tension d'alimentation
+U:
+𝑈 − 𝑈0
+1
+𝜔=
+×
+𝐾𝐶
+1+𝑓
+Le moteur ne démarre qu'au-delà d'une tension de seuil 𝑈0 dépendante des frottements. Le paramètre f (sans
+dimension) rend compte de l'influence des frottements visqueux.
+La vitesse de ventilation 𝑣, c’est-à-dire de propulsion de l’air, est proportionnelle à la vitesse de rotation du
+moteur. D’après ce qui précède, elle doit être une fonction linéaire de la tension d’alimentation :
+𝑣 =𝐾×𝑈+𝐶
+Ainsi, à l’aide d’un anémomètre, nous avons mesuré la vitesse de ventilation produite pour plusieurs
+P a g e 3 | 31
+
+tensions, entre 4,0 et 12,0 V.
+Lorsque l’on dispose sur ce ventilateur un de nos tuyau, l’air va pénétrer par le pied de flûte de section
+carrée 𝑆𝑐𝑎𝑟𝑟é et ressortir par la lumière, plus étroite en forme de croissant de lune 𝑆𝑐𝑟𝑜𝑖𝑠𝑠𝑎𝑛𝑡 .
+On fera l’hypothèse que l’air est un fluide incompressible, autrement nous ne pouvons déterminer la vitesse
+moyenne du jet en sortie.
+On peut dire que pour un fluide incompressible, la masse volumique reste constante car sa masse et son
+volume sont tous les deux constants. Ce n’est pas à priori le cas pour un gaz comme l’air, mais l’écoulement
+peut être considéré incompressible si la vitesse du jet reste inférieure à la vitesse du son (340 m.s-1).
+Par conservation du débit, la vitesse moyenne du jet en sortie de lumière 𝑢𝑗,𝑚 est reliée à la vitesse de
+ventilation par :
+𝑣 × 𝑆𝑐𝑎𝑟𝑟é = 𝑢𝑗,𝑚 × 𝑆𝑐𝑟𝑜𝑖𝑠𝑠𝑎𝑛𝑡
+𝑣 × 𝑆𝑐𝑎𝑟𝑟é
+𝑢𝑗,𝑚 =
+𝑆𝑐𝑟𝑜𝑖𝑠𝑠𝑎𝑛𝑡
+La détermination de la surface d’une croissant de lune est reporté à l’annexe 2.
+Le carré a une côte de 5,00 mm
+𝑆𝑐𝑎𝑟𝑟é = 5,00 × 5,00 = 25,00𝑚𝑚2
+Et avec nos mesures :
+𝑆𝑐𝑟𝑜𝑖𝑠𝑠𝑎𝑛𝑡 = 9,524𝑚𝑚2
+D’où
+𝑢𝑗,𝑚 = 2,625 × 𝑣
+On en déduit de nos mesures de la vitesse de
+ventilation en fonction de la tension U, la
+représentation de 𝑢𝑗,𝑚 à en fonction de U que
+nous pouvons modéliser par une équation
+linéaire :
+Figure 5: Vitesse du jet excitateur en fonction de la tension
+𝑢𝑗,𝑚 = 2,76 × 𝑈 − 1,6
+d'alimentation
+La vitesse maximale atteinte du jet en sortie
+de lumière avec notre dispositif expérimental est d’environ 34 m.s -1 soit 1/10ème de la vitesse du son : on
+pourra donc considérer le fluide comme incompressible.
+Attention, 𝑢𝑗,𝑚 est la vitesse moyenne du jet à différentier de 𝑈𝑗 qui est la vitesse du centre du jet pour la
+détermination du nombre de Strouhal.
+
+P a g e 4 | 31
+
+C. Méthodologie des mesures expérimentales
+Nous enregistrons le son produit par les différents tuyaux en
+utilisant un micro branché à un ordinateur et en utilisant le
+logiciel audacity.
+Nous enregistrons tout d’abord le bruit de ventilation afin de
+le soustraire sur Audacity dans le but d’isoler le son qui nous
+intéresse. Après avoir soustrait le bruit de ventilation au
+signal, nous traçons le spectre de Fourier.
+En effet les sons musicaux sont des sons complexes, ils sont
+composés de plusieurs sons purs de fréquences et
+d’amplitudes différentes.
+Tout signal périodique peut se décomposer en une somme de
+Figure 6: Un son complexe contient plusieurs sons
+sinusoïdes, d’après le théorème de Fourier. Ainsi, un son
+purs
+musical est la résultante de la superposition de plusieurs
+vibrations : la vibration fondamentale de fréquence 𝑓1 , sur laquelle s’ajoutent des vibrations harmoniques
+dont les fréquences sont des multiples de la première. La fréquence fondamentale est celle qui définit la note
+de musique.
+Le spectre de Fourier indique en abscisse la fréquence du son pur et en ordonnée le niveau sonore atteint.
+Le niveau sonore, ou niveau d’intensité sonore, noté L, permet de déterminer la « puissance » d’un son dans
+un espace. Il a pour unité le décibel (dB).
+La formule
+𝐼
+𝐿 = 10 × 𝑙𝑜𝑔 ( )
+𝐼0
+Fixe le seuil d’audibilité à L= 0 dB avec comme référence 𝐼0 = 1,00 × 10−12 W. 𝑚−2 . Le niveau sonore
+devient dangereux au-delà des 80 dB.
+Lorsque l’intensité double, le niveau d’intensité sonore augmente de 3 dB.
+Ainsi, le niveau sonore est une échelle de comparaison logarithmique qui nécessite une référence.
+Dans le cas d’un signal numérisé dans Audacity, la référence pour le niveau sonore de 0 dB est lorsque le
+son pur a une amplitude numérique A de 1,0 V. Toute amplitude inférieure donnera alors un niveau sonore
+négatif : il n’y a pas de relation avec l’audibilité du son.
+Comme 𝐼 = 𝑘𝐴2
+𝑘𝐴2
+𝐿 = 10 × 𝑙𝑜𝑔 (
+) = 20 × log(𝐴) + [10 × log(𝑘) − 10 × log⁡(𝐼0 )]
+𝐼0
+= 0 pour Audacity
+On va donc pour chaque étude d’un son, relever sur le spectre les mesures de sa fréquence fondamentale, les
+premières harmoniques ainsi que son niveau sonore. On a ensuite sur un tableau relevé les niveaux sonores
+en fonction de la fréquence pour une ouverture donnée.
+
+IV.
+
+Quels sont les paramètres propices à la résonance ?
+A. Lieu de l’excitation et nombre de Strouhal
+
+En sortie de lumière, le souffle oscille autour du biseau et interagit avec la colonne d'air dans le tuyau de la
+flûte. Les oscillations de la masse dans le tuyau d’air sont entretenues par les oscillations du souffle. C’est à
+cet endroit qu’a lieu l’excitation. Le jet issu de la lumière est perturbé par l’onde acoustique de fréquence
+fondamentale 𝑓1 issue du résonateur et suppose cette perturbation localisée au point de formation du jet : elle
+se développe alors le long du jet avant d’atteindre le biseau.
+
+P a g e 5 | 31
+
+Figure 7: Perturbation du jet d'air issu de la lumière par la surpression de l'onde acoustique
+(Schéma issu de la thèse de Rémi Blandin)
+
+La hauteur de bouche, c’est à dire la distance entre la sortie de la lumière et la pointe du biseau est noté W.
+Le tuyau a un rôle de résonateur qui a pour but de sélectionné et d’amplifié certaines ondes de fréquence
+particulière, dont le fondamental (𝑓1 ). La vitesse du milieu du jet est notée Uj.
+
+On peut se limiter à la représentation à deux dimensions ci-dessous :
+
+Figure 7: Schéma de la fenêtre d’une flûte
+(Schéma issu de la thèse de Augustin Ernoult)
+
+Ces grandeurs sont comparées dans le nombre de Strouhal.
+Le nombre de Strouhal 𝑆𝑡 est un nombre adimensionnel permettant de quantifier le temps de parcours du jet
+𝑊
+à la lèvre supérieure 𝜏 = 𝑈 à la vitesse centrale 𝑈𝑗 par rapport à la période d’oscillation dans
+𝑗
+
+1
+
+l’instrument, 𝑇 = 𝑓 :
+1
+
+𝑆𝑡 =
+1
+
+𝜏 𝑓1 𝑊
+=
+𝑇
+𝑈𝑗
+
+𝑈
+
+𝑗
+C. Ségoufin a introduit 𝜃 = 𝑆𝑡 = 𝑓 𝑊
+comme indicateur du fonctionnement des flûtes. Pour les flûtes à bec,
+1
+
+un optimum pour 𝜃 est situé dans l’encadrement :
+7 ≤ ⁡𝜃 ≤ 14
+Pour des valeurs supérieures à 14, traduisant pour des flûtes -entre autres – un souffle plus important, le
+système passe à un régime supérieur où l’on excite une harmonique, l’augmentation de la fréquence
+résultante rebascule le facteur 𝜃 dans l’encadrement.
+Ce qu’il faut retenir est que, pour une vitesse de jet Uj donné, il y a une longueur de fenêtre W optimum pour
+obtenir la note de fréquence fondamentale 𝑓1 .
+
+D. Détermination du nombre de Strouhal optimal « moyen » de l’organettissimo
+On cherche à déterminer le nombre de Stouhal optimal, ce nombre sera un paramètre fixe caractéristique de
+notre instrument. Ce dernier conditionne l'ouverture de bouche à choisir pour une fréquence (note) et un jet
+donné, c'est donc un paramètre à connaître afin de concevoir les tuyaux.
+P a g e 6 | 31
+
+Etant donné que nous ne pouvons pas avoir accès à la vitesse maximale 𝑈𝑗 au centre du jet nous allons
+devoir prendre la vitesse de jet moyenne 𝑢𝑗,𝑚 , nous aurons donc un nombre de Stouhal moyen.
+Pour 3 tensions différentes, donc 3 vitesses de jet moyen 𝑢𝑗,𝑚 différentes, nous avons enregistré le son
+produit pour différentes hauteurs de bouches W, et pour chaque hauteur de bouche nous avons fait varier la
+longueur de tuyau. Nous avons fait cela dans le cas tuyau ouvert et tuyau fermé avec un bouchon (bourdon).
+Des enregistrements, après soustraction de la contribution du bruit de ventilation, nous avons extrait la
+valeur de la fréquence fondamentale 𝑓1 et son niveau sonore dont les données sont à l’annexe 4.
+Voir les données :
+Nous nous attendons à avoir au moins deux encadrements de Strouhal, on peut le voir car les enregistements
+récupérés forment deux plages de mesures séparé par de bruit. En effet en prenant l’exemple d’une vitesse
+moyenne de jet 𝑢𝑗,𝑚 = 14,96⁡𝑚/𝑠 et une ouverture de bouche de 4,5 mm on a une première plage de mesure
+entre 1509 et 1333 Hz et une deuxième entre 806 et 443 Hz. Nous avons choisi de n’exploiter que les plages
+de mesure surlignées en bleu car nous avons bien plus de mesures sur ces plages pour chaque cas.
+Nous avons exploité les données de l’annexe 3 sur regressi de la manière suivante :
+1) Pour chaque couple vitesse moyen du jet 𝑢𝑗,𝑚 et hauteur de bouche W : on reporte le niveau sonore L
+en fonction de la fréquence fondamentale 𝑓1 . A vitesse de jet fixé, chaque longueur de fenêtre W
+semble avoir un point de fonctionnement optimal pour une fréquence imposée par la longueur du
+tuyau, c’est-à-dire avec un niveau sonore plus appréciable. Nous modélisons les données avec une
+parabole pour trouver la fréquence fmax assurant le niveau sonore maximal.
+
+Figure 8: Modélisation parabolique du comportement du niveau sonore en fonction de la fréquence imposée par la
+longueur de tuyau avec 𝑢𝑗,𝑚 = 23,24⁡𝑚/𝑠 et W=5,5 mm.
+
+A notre connaissance, il n’y a pas de modèle théorique reliant ces mesures. Par conséquent nous avons donc
+choisie comme modèle empirique une parabole car elle semble convenir à nos mesures.
+La parabole a pour équation
+𝐿 = 𝑎 + 𝑏 × 𝑓1 + 𝑐 × 𝑓1 2
+Le maximum est atteint lorsque la dérivée est nulle :
+0 = 𝑏 + 2 × 𝑐 × 𝑓𝑚𝑎𝑥
+−𝑏
+𝑓𝑚𝑎𝑥 =
+2×𝑐
+On reporte ainsi la fréquence maximale fmax atteinte pour chaque hauteur de bouche W, et ce dans les 3 cas
+P a g e 7 | 31
+
+de vitesse de jet 𝑢𝑗,𝑚 .
+2) Pour chaque vitesse moyenne de jet 𝑢𝑗,𝑚 imposée par la tension U, on a tracé la hauteur de bouche W
+en fonction du rapport 𝑢𝑗,𝑚 /fmax. On modélise les par une relation de proportionnalité dont le
+coefficient directeur est le nombre de Strouhal moyen 𝑆𝑡𝑚 .
+
+Figure 9: Modélisation linéaire de la hauteur de bouche adéquate W en fonction du rapport uj,m/fmax lorsque la
+tension de U=12,0 V impose une vitesse de jet uj,m=31,52 m/s.
+
+Nous avons regroupé les valeurs trouvées par l’ajustement linéaire dans le tableau souvent.
+
+𝑢𝑗,𝑚
+14,96⁡𝑚/𝑠
+23,24⁡𝑚/𝑠
+31,52⁡𝑚/𝑠
+
+Nombre de Strouhal moyen 𝑆𝑡𝑚
+Cas du tuyau
+Cas du bourdon
+Nombre de mesures insuffisant
+(187 ± 20) × 10−3
+(191 ± 36) × 10−3
+(164 ± 6) × 10−3
+−3
+(183 ± 14) × 10
+(202 ± 8) × 10−3
+
+Malgré la grande quantité de mesures faites, après traitement, la dernière étape où l’on modélisait la hauteur
+𝑢
+de bouche W en fonction du rapport 𝑓 𝑗,𝑚 ne concernait que peu de points et par conséquent nos résultats sur
+𝑚𝑎𝑥
+
+le nombre de Strouhal sont entachés d’une grande incertitude, plus que celle donnée par la modélisation.
+On peut néanmoins voir que dans tous les cas, l’ordre de grandeur du nombre de Strouhal pour nos tuyaux et
+nos bourdons est de 2 × 102 × 10−3 = 2 × 10−1 :il ne dépend ni de la vitesse moyenne du jet, ni de la
+condition ouvert/fermé.
+
+P a g e 8 | 31
+
+1
+
+𝑈
+
+Avec nos mesures on trouve alors un nombre moyen 𝜃𝑚 = 𝑆𝑡 = 𝑓𝑊𝑗 = 5 qui ne convient pas à l’encadrement
+donné par Ségoufin. Ceci est probablement dû au fait que nous utilisons une estimation de la vitesse
+moyenne du jet 𝑢𝑗,𝑚 au lieu de la vitesse centrale du jet 𝑈𝑗 .
+En effet la vitesse de jet est maximale au centre du tuyau puis diminue
+vers les extrémité par frottement avec les bords. Le nombre de Strouhal
+optimal correct va donc être plus grand que ce nombre de strouhal moyen
+et devrait se situer probablement dans l’encadrement donné par Ségoufin.
+
+Notre encadrement pour 𝜃𝑚 peut être estimé en prenant l’ensemble des
+valeurs obtenues sur chacune des plages (bleu) juxtant un domaine
+inaudible (bruit).
+𝑢𝑗,𝑚 (m/s)
+𝑓𝑚𝑎𝑥 (Hz)
+𝑓𝑚𝑎𝑥 ⁡(𝐻𝑧)
+W (mm)
+511
+972
+3,5
+14,96
+443
+806
+4,5
+14,96
+592
+1200
+4,5
+23,24
+463
+1020
+5,5
+23,24
+427
+867
+6,5
+23,24
+1001
+1506
+3,5
+23,24
+823
+1324
+4,5
+23,24
+1075
+1997
+3,0
+31,52
+876
+1701
+3,5
+31,52
+797
+1657
+4,0
+31,52
+691
+1527
+4,5
+31,52
+Moyenne
+Ecart type
+
+Figure 10: distribution des
+vitesses d’écoulement dans un
+tuyau
+
+𝜃𝑚,𝑚𝑖𝑛
+4,39741329
+4,1246209
+4,3037037
+4,1426025
+4,12385769
+4,40903054
+3,9006378
+5,26122517
+5,29436466
+4,75558238
+4,5870625
+
+4,48182738
+0,45895978
+
+𝜃𝑚,𝑚𝑎𝑥
+8,3645513
+7,50438927
+8,72372372
+9,12625172
+8,37326608
+6,63336663
+6,27514513
+9,77364341
+10,2804958
+9,88707654
+10,1366779
+8,64350795
+1,38096633
+
+En ordre de grandeur :
+4 < 𝜃𝑚 < 9
+Néanmoins, nous n’avons exploité que les mesures surlignées en bleu consternant un régime de
+fonctionnement, séparé d’une diagonale de bruit d’un régime de l’octave supérieure (incolore).
+D’après nos mesures, une estimation grossière des limites du nombre de Strouhal du régime à l’octave
+supérieure (zone incolore) est :
+𝑠𝑢𝑝
+1,9 ± 0,2 < 𝜃𝑚
+< 2,3 ± 0,2
+Soit la moitié pour un doublement de la fréquence.
+Nous n’avons trouvé aucun élément de littérature relatant ces faits. Nous avons donc écrit à M Fabre,
+enseignant-chercheur et directeur de Collegium Musicae, et attendons sa réponse.
+
+V.
+
+Comment sélectionner la note à jouer ?
+
+A. La gamme tempérée
+En 1691 Werckmeister a inventé la gamme tempérée et Bach fit une démonstration de son efficacité en
+écrivant Le Clavecin bien tempéré. Elle est désormais universellement utilisé pour des instruments comme
+le piano moderne, ce qui présente le grand avantage de pouvoir transposer une mélodie dans n’importe
+quelle tonalité, mais au prix de n’avoir plus aucun intervalle « juste » au sens de Pythagore.
+Une note est définie par sa hauteur ou fréquence fondamentale. La gamme tempérée est divisée en 12 demiP a g e 9 | 31
+
+12
+
+tons égaux de valeur √2 avec comme référence le La3 à 440 Hz. Pour passer d’une note à l’octave
+supérieure, il suffit de multiplier sa fréquence par 2.
+Les fréquences des différentes notes sont dans l’annexe 4.
+
+B. Le rôle du tuyau : le résonateur
+Nous avons vu que le jet en sortie de lumière interagit avec le biseau. Cette interaction crée
+une perturbation acoustique dans le résonateur. Le résonnateur sélectionne les ondes acoustiques de
+fréquence adéquate, qui viendront perturber le jet. Les ondes sélectionnées vont alors s’amplifier, c’est-àdire que Les oscillations de la masse dans le tuyau d’air sont entretenues par les oscillations du jet.
+
+Figure 11:https://www.flute-a-bec.com/acoustique.html
+L'oscillation de la lame d'air autour du biseau.
+L'interaction entre l'embouchure et la colonne d'air de la flûte à bec
+(Photos : Université d'Eindhoven, Pays Bas)
+
+La fréquence fondamentale du son produit est imposé par la longueur du tuyau.
+En effet, Lorsqu’une colonne d’air d’un tuyau sonore entre en vibration, elle est le siège d’un phénomène
+d’ondes stationnaires qui est expliqué à l’annexe 5.
+Dans tous les cas, La fréquence du mode fondamental 𝑓1 dépend de la longueur 𝑳 du tube et de la vitesse de
+propagation 𝒄 du son :
+
+𝑓1 =
+
+𝑐
+2𝐿
+
+pour les tuyau et 𝑓1 =
+
+𝑐
+4𝐿
+
+pour les bourdons.
+
+Plus le tube est court, plus la fréquence est élevée. D’après les relations précédentes, pour obtenir la note la3
+𝑐
+à l’octave 3 de fréquence f1= 440 Hz il faudrait une longueur de tube de 𝐿 = 2×𝑓 = 38,6⁡𝑐𝑚 si le tuyau est
+1
+
+𝑐
+
+ouvert, sinon 𝐿 = 4×𝑓 = 19,3⁡𝑐𝑚 cm si le tuyau est fermé.
+1
+
+C. Influence des ouvertures
+En réalité, la partie contiguë à l'embouchure modifie cette loi. Aux ouvertures du tuyau, l’onde plane
+rayonne comme une onde sphérique. Il y a alors couplage le milieu intérieur et extérieur du tuyau car
+l’onde plane intérieur doit se coupler à l’onde sphérique qui rayonne à l’extérieur.
+
+P a g e 10 | 31
+
+Figure 12: Rayonnement à l'extrémité d'une flûte, d'après une présentation de B. Favre
+
+Ce phénomène est tellement compliqué à expliquer et mesurer que Harold Levine et Julian Schwinger
+deux chercheurs en physique ont en 1948 obtenu une récompense pour leurs travaux.
+Le résultat de ce phénomène est un raccourcissement de la longueur de tuyau à considérer, par la prise en
+compte de termes correctifs de longueur :
+𝐿′ = 𝐿 − ∆𝐿𝑏𝑜𝑢𝑐ℎ𝑒 − ∆𝐿𝑡𝑢𝑦𝑎𝑢
+𝐿 est la longueur théorique du tuyau et 𝐿’ est la longueur effective, appelée également longueur
+acoustique, ∆𝐿𝑏𝑜𝑢𝑐ℎ𝑒 est le terme correctif lié à la hauteur de bouche et ∆𝐿𝑡𝑢𝑦𝑎𝑢 est le terme correctif lié
+au fait que le tuyau est ouvert et qui n’existe plus dans le cas d’un bourdon (tuyau fermé).
+Ces deux derniers termes correctifs dépendent du diamètre 𝐷 du tuyau.
+Par exemple, la règle empirique donnée par Cavaillé-Coll pour les dimensions des tuyaux d'orgue où la
+bouche est formée par un aplatissement prenant le quart environ de la circonférence :
+5
+𝑐
+5
+𝐿′ = 𝐿 − 𝐷 =
+− 𝐷
+3
+2 × 𝑓1 3
+Ce qu’il faut retenir est que la longueur à choisir pour obtenir une note risque d’être inférieure à sa
+prévision théorique. Ainsi il est préférable de déterminer les longueurs de tuyaux d’organettissimo à
+choisir en passant par une courbe d’étalonnage.
+
+D. Loi des tuyaux pour l’organettissimo
+On exploite les mesures de l’annexe 4 d’une autre façon :
+1) Pour chaque chaque vitesse de jet 𝑢𝑗,𝑚 , on représente la longueur de tuyau L’ en fonction de la
+fréquence fondamentale 𝑓1 . On sépare bien évidemment le cas du tuyau et celui du bourdon.
+2) On modélise par une droite affine.
+3) Sur certaines courbes, on voit une tendance d’inflexion (entouré en rouge) des mesures pour
+certaines hauteur de bouche W. En réalité il s’agit probablement d’écart sur la mesure de la fréquence
+du fait que pour ces points le niveau sonore est très bas et probablement affecté par le bruit. Nous
+n’en tenons pas compte pour l’ajustement linéaire.
+D’après nos prévisions théoriques, nous devons obtenir comme lois :
+𝑐
+𝐿′ = 2×𝑓 − ∆𝐿𝑏𝑜𝑢𝑐ℎ𝑒 − ∆𝐿𝑡𝑢𝑦𝑎𝑢 : loi des tuyaux
+𝑐
+
+𝐿′ = 4×𝑓 − ∆𝐿𝑏𝑜𝑢𝑐ℎ𝑒 : loi des bourdons
+Nous pouvons ainsi, par identification, déterminer la célérité du son 𝑐 et le terme de correction total
+∆𝐿𝑐𝑜𝑟𝑟𝑒𝑐𝑡𝑖𝑜𝑛 dans chaque cas.
+𝒖𝒋,𝒎 = 𝟏𝟒, 𝟗𝟔⁡𝒎/𝒔
+
+P a g e 11 | 31
+
+20
+
+TUYAU
+
+L (cm)
+
+20
+
+25
+
+L (cm)
+
+25
+
+BOURDON
+
+15
+
+w=2.5
+mm
+w=3.5
+mm
+w=4.5
+mm
+w=5.5
+mm
+
+15
+
+10
+
+10
+
+w=2.5
+mm
+w=5.5
+mm
+
+5
+0
+0
+
+0,0002
+
+0,0004
+
+0,0006
+
+0,0008
+
+5
+
+1/f (s)
+
+0,001
+
+0
+
+0,0012
+
+0
+
+0,0005
+
+0,001
+
+0,0015
+
+0,002
+
+1/f (s)
+
+0,0025
+
+0,003
+
+𝒖𝒋,𝒎 = 𝟐𝟑, 𝟐𝟒⁡𝒎/𝒔
+20
+
+TUYAU
+
+15
+
+15
+w=3.5
+mm
+w=4.5
+mm
+
+10
+5
+0
+
+10
+
+BOURDON
+
+5
+0
+
+1/f (s)
+
+0
+
+w=3.5
+mm
+w=4.5
+mm
+w=5.5
+mm
+w=2.5
+mm
+
+L (cm)
+
+20
+
+25
+
+L (cm)
+
+25
+
+0,0002 0,0004 0,0006 0,0008 0,001 0,0012 0,0014
+
+0
+
+0,0005
+
+0,001
+
+0,0015
+
+0,002
+
+1/f (s)
+
+0,0025
+
+0,003
+
+19
+17
+
+22
+20
+18
+16
+14
+12
+10
+8
+6
+4
+2
+0,0002
+
+w=3.5
+mm
+w=4.5
+mm
+w=3.0
+mm
+
+L (cm)
+
+21
+
+L (cm)
+
+𝒖𝒋,𝒎 = 𝟑𝟏, 𝟓𝟐⁡𝒎/𝒔
+TUYAU
+
+15
+13
+
+w=3.5
+mm
+
+11
+9
+7
+
+1/f (s)
+5
+0,0005 0,0006 0,0007 0,0008 0,0009 0,001 0,0011 0,0012
+
+BOURDON
+1/f (s)
+0,0007
+
+0,0012
+
+0,0017
+
+0,0022
+
+0,0027
+
+Figure 13: relation entre la longueur du tuyau et la sélection de la fréquence de résonnance
+
+uj,m (m/s)
+𝑐 (m/s)
+∆𝐿𝑐𝑜𝑟𝑟𝑒𝑐𝑡𝑖𝑜𝑛 (cm)
+
+14,96
+362 ± 22
+1,5 ± 0,9
+
+TUYAU
+23,24
+356 ± 8
+1,7 ± 0,4
+
+BOURDON
+31,52
+14,96
+23,24
+357 ± 3,4 354,4 ± 6,8 356,4 ± 10,4
+1,62 ± 0,14
+1,4 ± 0,3
+1,4 ± 0,4
+
+31,52
+365,0 ± 4
+1,43 ± 0,13
+
+On constate que la vitesse du son dans le résonnateur ne dépend pas de la vitesse du jet ni du fait que le
+tuyau soit ouvert ou fermé. Nous trouvons comme estimation globale 𝑐 ≈ 360 m/s ce qui est supérieur à la
+vitesse de référence du son dans l’air à 20°C sous 1 bar qui est de 340 m/s. Nous savons que la vitesse du
+son augmente quand l’air est humide, quand il fait plus chaud ou quand la pression est plus grande. Nous
+émettons l’hypothèse qu’il existe un échauffement interne par frottement de l’air sur les parois internes.
+Comme attendu, le terme correctif de longueur est plus important dans le cas du tuyau ouvert car il y a dans
+P a g e 12 | 31
+
+ce cas deux couplages avec l’extérieur. On en déduit une première estimation de chaque contribution
+d’ouverture :
+∆𝐿𝑏𝑜𝑢𝑐ℎ𝑒 ≈ 1,4⁡𝑐𝑚
+∆𝐿𝑡𝑢𝑦𝑎𝑢 ≈ 0,2⁡𝑐𝑚
+Ce qui est étonnant, est que la correction de bouche ∆𝐿𝑏𝑜𝑢𝑐ℎ𝑒 , est indépendante de la hauteur de bouche :
+peu importe si l’ouverture est grande ou petite. ∆𝐿𝑏𝑜𝑢𝑐ℎ𝑒 est le terme correctif dominant, il supplante de 7
+fois l’impact de la condition ouvert/fermé.
+
+E. Application sur notre modèle
+En regardant les valeurs en bleu de l’annexe, nous pouvons garantir un jeu de 390 Hz à 1700Hz environ, soit
+du sol3 au la5. On en déduit alors la longueur de tuyau à considérer pour les notes à jouer dans l’annexe 6.
+
+VI.
+
+Peut-on jouer une gamme en bouchant progressivement un tuyau ?
+A. Choix de la longueur de tuyau
+
+Pour une longueur donnée, boucher un tuyau revient à augmenter pratiquement d’une octave.
+En effet, pour une longueur de tuyau L’, la fréquence de résonnance du tuyau ft et celle du bourdon fb sont
+donnés par :
+𝑐
+𝐿′ = 2×𝑓 − ∆𝐿𝑏𝑜𝑢𝑐ℎ𝑒 − ∆𝐿𝑡𝑢𝑦𝑎𝑢 : loi des tuyaux
+𝑐
+
+𝑡
+
+𝐿′ = 4×𝑓 − ∆𝐿𝑏𝑜𝑢𝑐ℎ𝑒 : loi des bourdons
+𝑏
+
+Comme un rapport de ∆𝐿𝑡𝑢𝑦𝑎𝑢 / ∆𝐿𝑏𝑜𝑢𝑐ℎ𝑒 ≈ 14% alors 𝑓𝑡 ≅ 2 × 𝑓𝑏 .
+D’après nos mesures de l’annexe 3, pour une hauteur de bouche W, quand le tuyau résonne fortement pour le
+cas ouvert il reste muet pour le cas du bourdon et inversement !!
+Pour étudier le passage progressif de la condition ouvert à fermé à l’aide de bouchons troués, nous devons
+choisir une longueur L’ et une hauteur de bouche W qui permette d’entendre du son dans les 2 cas.
+Avec nos mesures, nous constatons que nous avons, pour uj,m= 23,24 𝑚.𝑠−1 et W=4,5 cm, la plus grande
+plage de résonnance dans le cas des tuyaux avec les sections de tubes disponibles. Nous allons comparer
+alors le niveau sonore atteint dans le cas du bourdon et du tuyau pour trouver une longueur de tuyau qui
+convienne aux deux.
+
+niveau sonore atteint en fonction de la fréquence de
+résonnance déterminée par la longueur de tuyau
+0
+0
+
+5
+
+10
+
+15
+
+20
+
+25
+
+-10
+-20
+-30
+-40
+-50
+-60
+tuyau
+
+bourdon
+
+Poly. (tuyau)
+
+Poly. (bourdon)
+
+Figure 14: niveau sonore atteinte en fonction de la longueur du tuyau
+
+P a g e 13 | 31
+
+On remarque une intersection vers environ 14 cm. Nous avons donc choisi cette longueur
+de tuyau puis nous avons ajusté la tension – donc la vitesse de jet- pour que cela résonne
+de façon satisfaisante à l’oreille quand le tuyau est ouvert et fermé. Nous avons ainsi
+sélectionné une tension de U=10,6 V correspondant à uj,m= 27,66 m.s-1
+Nous avons imprimé plusieurs bouchons, un premier complétement fermé, puis avec des
+trous de diamètres d progressifs.
+Nous avons enregistré le son produit en changeant uniquement le bouchon d’un tuyau
+d’organettissimo.
+Ce qui va importer est le taux de recouvrement du tuyau par rapport à son diamètre intérieur
+𝑑
+qui vaut ici D=1,0 cm. Ainsi nous avons exploité par la suite nos mesures en fonction de 𝐷.
+
+Figure 15:
+modèle 3D
+du bouchon
+troué
+
+B. Evolution du spectre
+En superposant les différents spectres obtenus, on remarque une évolution de celui-ci.
+
+évolution du spectre en fonction du rapport d/D
+-10
+-20 0
+
+500
+
+1000
+
+1500
+
+2000
+
+2500
+
+3000
+
+3500
+
+4000
+
+4500
+
+5000
+
+5500
+
+6000
+
+6500
+
+7000
+
+niveau sonore
+
+-30
+
+1
+
+-40
+
+2
+
+3
+
+-50
+-60
+-70
+-80
+-90
+-100
+
+f (Hz)
+0
+
+0,05
+
+0,1
+
+0,15
+
+0,2
+
+0,25
+
+0,3
+
+0,35
+
+0,4
+
+0,6
+
+0,65
+
+0,7
+
+0,75
+
+0,8
+
+0,85
+
+0,9
+
+0,95
+
+1
+
+0,5
+
+ZOOM
+
+évolution du spectre en fonction du rapport d/D
+-10
+-20
+
+500
+
+1000
+
+Pics considérés
+
+-30
+
+niveau sonore
+
+1500
+
+-40
+-50
+-60
+-70
+-80
+-90
+-100
+
+f (Hz)
+0
+
+0,05
+
+0,1
+
+0,15
+
+0,2
+
+0,7
+
+0,75
+
+Figure 16: évolution du spectre sonore à mesure que le tuyau se bouche
+
+P a g e 14 | 31
+
+Au premier abord on remarque qu’il y a une fondamentale et des harmoniques qui sont a peu près au même
+endroits.
+On va s’intéresser aux 3 premiers pics. Nous noterons 𝑓𝑛 et 𝐿𝑛 respectivement la fréquence et le niveau
+sonore du pic numéro 𝑛. Attention 𝑛 n’est pas à ce stade à mettre en relation avec l’ordre de l’harmonique.
+On remarque que, quand on bouche progressivement le tuyau, la fréquence du premier pic diminue, son
+intensité sonore légèrement dans un premier temps puis le niveau sonore chute brusquement au point que la
+résonance est inaudible. On entend à nouveau la résonance quand le tuyau est fermé.
+Pour le deuxième pic, le déplacement vers la basse fréquence semble plus progressif et son atténuation aussi.
+Pour le 3ème pic, le niveau sonore semble stable, seule la fréquence change.
+
+P a g e 15 | 31
+
+f2/f1
+
+f3/f1
+
+3,2
+
+5,5
+
+3
+
+5
+
+2,8
+
+4,5
+
+2,6
+
+4
+
+2,4
+
+3,5
+
+2,2
+
+3
+
+2
+1,8
+
+2,5
+0
+
+0,2
+
+0,4
+
+0,6
+
+0,8
+
+1
+
+0
+
+0,2
+
+0,4
+
+0,6
+
+0,8
+
+1
+
+Figure 17: étude de la fréquence et du niveau sonore des 3 premiers pics du spectre en fonction du recouvrement du
+tuyau.
+
+On constate que le premier pic, qui correspond à la fréquence fondamentale, voit sa fréquence varier
+𝑑
+doucement tant que le rapport de 𝐷 reste supérieur à 0,5 puis la diminution de la fréquence est beaucoup plus
+brusque jusqu’à la fermeture complète du tuyau. Le niveau sonore de la fréquence fondamental est quasi
+𝑑
+stable à -20 dB environ et chute brutalement lorsque le rapport 𝐷 est inférieur à 0,3. Il reste à un niveau très
+bas, -70 dB puis brusquement revient à -20 dB lorsque le tuyau est totalement fermé.
+𝑑
+
+Pour le deuxième pic, on constante que la fréquence suit une évolution linéaire avec le rapport 𝐷. En
+𝑑
+
+revanche le niveau sonore distingue deux régimes : le régime « plutôt ouvert » avec 𝐷 > 0,5 et un niveau
+𝑑
+
+sonore stable d’environ -40dB, et le régime plutôt fermé avec 𝐷 < 0,5 et un niveau sonore amoindrit et
+relativement stable à -65 dB environ.
+Pour le 3ème pic, les mesures sont davantage entachées d’incertitude. Il est probable que l’évolution de la
+fréquence soit plutôt linéaire comme le 2ème pic.
+𝑑
+
+Ce que l’on constate, est l’existence de 2 régimes distinct par le rapport = 0,5.
+𝐷
+Régime 𝑑 ⁄𝐷 > 0,5
+Tant que le rétrécissement n'a pas atteint la valeur de la moitié de la surface totale de l'extrémité, c’est-à-dire
+𝑑
+> 0,5 l'effet du trou est peu perceptible. La résonnance correspond à celle obtenue en tuyau ouvert : il y a
+𝐷
+un fondamental et les harmoniques, de rang 2, 3 etc. dont les fréquences correspondantes se décalent
+doucement vers le grave sans que le niveau sonore soit impacté.
+Régime 𝑑 ⁄𝐷 < 0,5
+𝑑
+En deçà du rapport 𝐷 < 0,5, la hauteur et le niveau sonore s’abaissent brusquement. Les partiels sont
+fausses car leur rapport à la fréquence fondamental est non entier. Lorsque le trou devient très petit, la
+fausseté s'accroît considérablement puis on passe à un autre système de référence : les partiels d'un tuyau
+bouché c’est-à-dire de niveau impair : le 2ème pic correspond au 3ème partiel et le 3ème pic correspond au 5ème
+partiel.
+A mesure que l’on découvre le bourdon sur sa moitié, le son devient légèrement aigu. Les partiels et le
+fondamental sonnent « faux »: le régime est inharmonique.
+
+VII.
+
+Influence du sens d’impression
+
+On a supposé qu’il y a un échauffement des parois par frottement. Ce qui nous amène à nous questionner sur
+le sens d’impression en couche des tuyaux. En effet l’impressions 3D laisse des stries qui augmente alors
+P a g e 16 | 31
+
+l’effet de frottement.
+
+Figure 18: possibilité d'impression d'un tuyau d'organettissimo
+
+Par sa géométrie, un tuyau d’orgue offre deux solutions d’impression :
+• A la verticale : dans ce cas, au niveau du tuyau l’impression se ferait en couches concentriques,
+laissant des stries perpendiculairement à l’axe.
+• A l’horizontale : dans ce cas, au niveau du tuyau l’impression se ferait en couches parallèles, laissant
+des stries parallèles à l’axe.
+Nous constatons, après impression, que ces deux types d’impressions ont deux impacts :
+• Sur l’état de surface intérieur du tuyau
+• Sur la finition des bordures de bouche
+Pour dissocier ces deux effets, nous avons alors adjoint à notre étude un 3ème tuyau imprimé en 2 parties :
+l’embout excitateur est imprimé à l’horizontale et un tube est imprimé à la verticale, en couches
+concentriques.
+Dans tous les 3 cas, le tuyau a la même longueur que l’on choisit à 17 cm : compris entre longueur à
+imprimer -plus le tuyau est long plus l’effet doit se faire ressentir- et temps d’impression.
+Nous avons choisi une hauteur de bouche de 4,5 mm. Même si, d’après notre étude préliminaire, les
+dimensions choisies permettent d’atteindre le maximum du niveau sonore pour une tension de 9,0 V c’est-àdire une vitesse moyenne de jet de 𝑢𝑗,𝑚 = 23,24⁡𝑚. 𝑠 −1, nous allons balayer plusieurs vitesses de jets.
+𝑢𝑗,𝑚 = 17,72⁡𝑚. 𝑠 −1
+
+𝑢𝑗,𝑚 = 20,48⁡𝑚. 𝑠 −1
+
+P a g e 17 | 31
+
+𝑢𝑗,𝑚 = 23,24⁡𝑚. 𝑠 −1
+
+𝑢𝑗,𝑚 = 26,00⁡𝑚. 𝑠 −1
+
+𝑢𝑗,𝑚 = 28,76⁡𝑚. 𝑠 −1
+
+𝑢𝑗,𝑚 = 31,52⁡𝑚. 𝑠 −1
+
+Figure 19: évolution du spectre sonore en fonction du sens d'impression et de la vitesse du jet.
+
+On remarque qu'en impression concentrique le maximum de niveau sonore n'est pas atteint pour 𝑢𝑗,𝑚 =
+23,24⁡𝑚/𝑠⁡comme on l'avait prévu avec nos tableaux de mesure de l’annexe 3. Ceci peut être expliqué par
+des défaut d'impression de l'embout en impression concentrique qui s’expriment par un affaissement la
+hauteur de bouche W.
+𝑓1 𝑊
+𝑆𝑡𝑚 =
+𝑢𝑗,𝑚
+Le nombre de Strouhal étant constant, on en conclue qu’alors si W diminue, alors 𝑢𝑗,𝑚 également.
+Lorsque l’on compare l’impression parallèle et concentrique juste au niveau des tuyaux ( embout+tuyau
+concentrique et parallèle), il semble qu’il n’y ai aucun impact sur le spectre. Ces deux méthodes
+d’impression sont donc équivalentes, mais il sera plus simple d’imprimer le tuyau en une seule fois, couché
+sur le plateau pour une meilleure finition du biseau.
+
+VIII.
+
+Conclusion
+
+Nous avons, dans notre étude, prouvé l’existence du nombre de Strouhal qui relie 3 paramètres physiques :
+la vitesse du souffle ou du jet, la hauteur de bouche W et la longueur
+de tuyau L’ (par l’intermédiaire de la fréquence f - loi des tuyau)
+nécessaires pour le design d’un tuyau, d’un bourdon ou d’une flûte.
+L’interdépendance entre ces 3 paramètres physiques dans le nombre
+de Strouhal conditionne le prototypage ou le jeu de l’instrument. Par
+exemple pour un souffle précis et une note à jouer de fréquence f1 donc une longueur de tuyau L’ - il existe une hauteur de bouche W
+permettant d’atteindre le niveau sonore le plus fort. Sans cette
+considération d’interdépendance, l’instrument peut ne pas être
+audible car le niveau sonore atteint sera en deçà de notre seuil
+Figure 20: organettissimo à bourdons
+d’audibilité.
+P a g e 18 | 31
+
+Un autre exemple, Lorsque la longueur de tuyau est fixée, et la hauteur de bouche W, il existe un seuil de
+souffle donc un jet 𝑢𝑗,𝑚 permettant à l’instrument d’être sonore : c’est tout l’enjeu de l’apprentissage des
+instruments à vent !
+Dans le cas de notre organettissimo, nous avons déjà imprimé des tuyaux dont les dimensions s’adaptent
+parfaitement à une vitesse de jet de 31,5 m/s. Mais il nécessite alors une pression tonique sur la pompe à
+pied qui alimente l’instrument.
+Il convient de redimensionner les tubes pour une vitesse de jet moindre. Nous pourrions également
+considérer l’existence de bourdons et de tuyaux pour notre instrument.
+Nous avons mesuré la vitesse du jet en sortie de socle d’organettissimo quand on appuie sur la pompe à pied.
+La vitesse de l’air en sortie de socle est d’environ 10 m/s. D’où 𝑢𝑗,𝑚 = 2,625 × 10 = 26,25⁡𝑚/𝑠.
+Chaque note est définie par sa fréquence fondamentale 𝑓1 qui va imposer la longueur de tuyau L’ à
+considérer. L’ouverture de bouche optimale va être imposée par le nombre de Strouhal moyen et la vitesse
+𝑆𝑡𝑚 𝑢
+0,200×26,25
+5,25
+du jet : 𝑊 = 𝑓 𝑗,𝑚 =
+= 𝑓 . Les valeurs des différents paramètres en fonction de la note voulue
+𝑓
+1
+
+sont à l’annexe 6.
+
+1
+
+1
+
+Par soucis d’économie de plastique, nous avons tenté de fabriquer des tuyaux en papier : ces derniers ne
+résonnaient pas. Probablement que le papier est un matériau trop souple. On pourrait alors étudier
+l’influence de la rigidité, de l’élasticité et de la densité du matériau.
+On a ainsi deux propositions d’organettissimo 2.0 next generation:
+• L’organettissimo à clavier qui utilise des bourdons et des tuyaux.
+• L’organettissimo étouffé qui utilise les tuyaux avec des bouchons troués qui ne résonnent de façon
+sonore que lorsqu’on les bouche par pression du doigt.
+Enfin, dans l’étude des tuyaux partiellement fermé, nous avons découvert la possibilité de crée un
+instrument inharmonique ! Dont les partiels ne correspondent pas à des multiples de la fréquence propre. A
+l’échelle de notre orgue de poche, le rendu est inaudible car le niveau sonore est très bas. En revanche sur un
+orgue d’église on pourrait apprécier à l’oreille la fausseté ! Nous n’avons pas eu la possibilité de le faire car
+les organistes craignent que l’on détériore leurs tuyaux.
+Sources
+[1] https://www.olymphys.fr/public/fichiers/memoires/28-eq-O-memoire-Organettissimo.pdf
+[2] https://youtu.be/cwH_dFvAI0Y
+[3] https://www.instructables.com/Four-Whistles-Version-2/
+[4] http://www.monbricabrac.ovh/TheoMot.php
+https://www.canal-u.tv/video/espci_paristech/souffler_n_est_pas_jouer.23008
+https://www.maxicours.com/se/cours/vibrations-d-une-colonne-d-air/
+https://www.youtube.com/watch?v=AO6Hsf3xeuM
+https://asso-orgue-saujon.jimdofree.com/g%C3%A9n%C3%A9ralit%C3%A9s-sur-les-orgues/lorganetto/http://fred.elie.free.fr/tuyaux_sonores.pdf
+https://organ-au-logis.pagesperso-orange.fr/Pages/Loituyau.htm
+https://orgue-bernard.blog4ever.com/
+https://www.wikiwand.com/fr/Tuyau_d%27orgue,
+http://www.cosmovisions.com/musiTuyau.htm
+
+https://tel.archives-ouvertes.fr/tel-01445568/document
+http://www.atiam.ircam.fr/Archives/Stages1213/BLANDIN_Remi.pdf
+http://www.flute-a-bec.com/acoustique.html
+https://www.youtube.com/watch?v=8P4KeQCHruM
+
+P a g e 19 | 31
+
+

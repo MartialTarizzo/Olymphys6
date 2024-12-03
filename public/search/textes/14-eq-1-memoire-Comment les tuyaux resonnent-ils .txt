@@ -1,0 +1,811 @@
+Professeurs encadrants :
+
+M. Rémi BARDUCA
+M. Sylvain GROLLAU
+
+Elèves participants : M. Florian ALLOUCHE
+M. David CORIAT
+M. Hadrien BENSE
+
+Sujet :
+
+COMMENT LES
+TUYAUX
+RESONNENT-ILS?
+
+Remerciements
+
+Pour la réalisation de notre projet, tous nos plus sincères remerciements vont :
+-
+
+A nos professeurs, qui ont su nous encadrer et nous guider dans notre travail.
+Au laboratoire de mécanique et d’acoustique du Centre National de Recherche
+Scientifique, et tout particulièrement à Philippe Guillemain pour nous avoir accueilli.
+A nos parents, qui nous ont permis de nous rendre à Marseille pour aller au Centre
+National de Recherche Scientifique.
+A tous les membres du jury, pour l’intérêt qu’ils ont porté à notre travail.
+
+Résumé de notre travail.
+Notre TPE de classe première portait sur le nombre d'or, phi, dans la musique, notre
+but dans ces Olympiades était de poursuivre ce travail. Nous avons donc cherché un projet à
+la fois intéressant et qui nous était abordable. Après plusieurs séances infructueuses, nous
+avons abandonné l'idée d'étudier le nombre d'or. Cependant, au travers de nos recherches,
+nous avions découvert le logiciel Scilab, permettant notamment de modéliser des sons, de là
+nous est venu l'idée de modéliser un instrument de musique virtuel. Nous avons évidemment
+choisis des "outils" très accessibles: des tuyaux. Pour modéliser ce son, il nous fallait
+apprendre comment résonnent les tuyaux, ce qui a été notre principal travail.
+Nous nous sommes tout d'abord renseignés sur les instruments de musique, de là nous
+avons appris que nos tuyaux étaient des résonateurs.
+La première chose que nous avons observé est que la hauteur du son semblait varier
+avec la longueur du tuyau. De la même façon, celle ci variait aussi suivant la manière de
+frapper le tuyau (en laissant ou en enlevant la main). Cela a donc été le but de notre première
+expérience: déterminer s'il existait, une relation entre la longueur du tuyau et la hauteur du
+son; et s'il existait un lien entre la façon de frapper le tuyau et la hauteur du son.
+Connaissant maintenant ces relations, on désirait savoir si les tuyaux résonnaient suivant des
+fréquences spécifiques ou non. Après avoir effectué différentes expériences, nous
+connaissions les réponses.
+Il nous restait une dernière chose à déterminer: le temps caractéristiques des
+fréquences de résonances que nous avions trouvé précédemment. Ceux ci connus, nous avions
+toutes les données nécessaires pour modéliser un son, cela a donc été la dernière partie de
+notre travail.
+Nous avons construit un programme, sur le logiciel scilab, contenant les différentes
+caractéristiques découvertes au fil de notre travail. La modélisation ressemblait beaucoup à ce
+que nous entendions en frappant sur les tuyaux.
+Puis, nous avons modifié quelques caractéristiques sur scilab, afin de voir leurs influences sur
+le son produit.
+En dernier lieu, nous avons crée un "instrument de musique virtuel", c'est à dire que
+nous avons produits différentes notes, grâce au logiciel. Puis nous les avons mises bout à bout
+afin de former une comptine. Nous avons fait cela avec chacune des modifications faites
+précédemment.
+
+Table des matières
+A) Les instruments de musique.
+1) Ondes sonores et pression acoustique.
+2) Les instruments.
+a) Les instruments a cordes.
+b) Les instruments a vents.
+c) Le résonateur.
+B) Etude détaillée d’une cavité résonnante.
+1) Relation entre la longueur du tuyau et la fréquence du fondamental.
+a) Cas ouvert fermé.
+b) Cas ouvert ouvert.
+2) Mise en évidence des modes propres (ou harmoniques, ou partiels).
+a) Régime forcé.
+b) Régime libre.
+3) Temps de relaxation des modes propres.
+a) Cas ouvert fermé.
+b) Cas ouvert ouvert.
+c) Commentaires des résultats expérimentaux.
+C) Simulation numérique du son produit par un tuyau.
+1) Modification de l’amplitude initiale des harmoniques.
+2) Modification des temps de relaxation.
+3) Modification de la fréquence du fondamental.
+D) Simulation d’un instrument de musique.
+1) Cas d’un instrument à percussion.
+2) Cas d’un instrument à cordes.
+3) Cas d’un instrument à vent.
+Annexe
+Bibliographie
+
+A) Les instruments de musique.
+1) Ondes sonores et pression acoustique.
+Le son est une onde sonore, c'est une perturbation du milieu qui se propage de proche
+en proche. Les ondes sonores se propagent dans un milieu et notamment dans l’air, qui est un
+milieu élastique, en faisant vibrer les tranches d'air. Lorsqu'une tranche d'air vibre, sa pression
+est modifiée, c'est ce que l'on nomme la pression acoustique, c'est-à-dire que chaque tranche
+d’air se met à osciller avec une certaine vitesse.
+2) Les instruments.
+Dans un instrument acoustique, le son est produit par un système mécanique vibrant; on
+distingue deux types d'instruments:
+
+a) Les instruments à corde.
+Dans ce cas, le système mécanique est une corde tendue vibrant entre deux points fixes.
+Cette vibration peut être obtenue de différentes manières par l'action du musicien, il peut
+pincer la corde avec ses doigts (guitare), la frotter avec un archet (violon) ou encore la frapper
+avec des marteaux (piano). La fréquence du son est imposée par ce système mécanique
+vibrant. Ce système se nomme excitateur.
+b) Les instruments à vent.
+Ceux-ci possèdent différents types de système mécanique vibrant:
+-Les instruments à anche simple tels que le saxophone sont pourvus d'une mince lame
+fixée à leur bec. Le son est alors produit par la lame qui vibre grâce au souffle du musicien.
+
+-Les instruments tels que l'orgue acoustique, la flûte à bec possèdent un biseau servant
+à former un jet d'air plat qui sort par un orifice, appelé lumière, et entre dans le corps de
+l'instrument.
+
+-Les instruments à percussions produisent un son qui résulte de la frappe ou d’un
+grattage d’une membrane ou d’un matériau résonnant. Par exemple, dans le cas d’un tambour,
+la frappe d'une peau tendue sur un fût, avec les mains, entraînent la vibration des tranches
+d’air, c'est-à-dire un son, qui est ensuite amplifié par une caisse de résonance.
+c) Le résonateur.
+Cependant la corde vibrante n'est pas suffisante pour produire un son audible. En effet, ses
+vibrations ne sont pas en mesure de donner une amplitude suffisante aux vibrations de l'air,
+c'est pourquoi il faut une caisse de résonance pour la guitare et le violon par exemple.
+Pour les instruments à vent c'est le corps de l'instrument qui sert de caisse de résonance, la
+colonne d'air qui se trouve à l'intérieur est mise en vibration par le système mécanique décrit
+plus haut.
+Le couplage caisse de résonance/air ambiant permet alors d'obtenir un son audible.
+Ainsi les couplages systèmes mécaniques vibrant/caisse de résonance puis caisse de
+résonance/air ambiant permettent à un instrument de musique de produire un son audible.
+Dans la suite de notre travail, nous ne nous intéresserons qu'au résonateur, à savoir, le tuyau.
+B) Etude détaillée d’une cavité résonnante.
+1) Relation entre la longueur du tuyau et la fréquence du fondamental.
+Lorsque l’on frappe sur un tuyau, on s’aperçoit que la hauteur du son dépend de la longueur
+du tuyau. Plus le tuyau est long, plus le son est grave.
+Pour un même tuyau, on s’aperçoit également que la hauteur du son dépend de la façon dont
+on frappe. Si on frappe le tuyau en laissant la main sur l’ouverture, le son produit sera plus
+grave que si on le frappe en l’enlevant immédiatement.
+Le montage expérimental est le suivant :
+
+a) Cas ouvert fermé.
+Dans le cas d’un tuyau de 1005mm, l’enregistrement est le suivant :
+
+On mesure une fréquence F= 85 Hz pour un tuyau de longueur L=1005mm.
+Les autres résultats sont portés dans le tableau suivant:
+Longueur du tuyau L en
+mm.
+
+1005
+
+627
+
+468
+
+299
+
+Fréquence F en Hz.
+
+85
+
+135,76
+
+178,66
+
+279,32
+
+La représentation de F en fonction de 1/L est une droite d’équation F = 83658*1/L. Le
+coefficient directeur de cette droite est donc 83658mm/s.
+F en fonction de 1/L
+300
+
+y = 83000x
+
+F en Hz
+
+250
+200
+
+Série1
+Linéaire (Série1)
+
+150
+100
+50
+0
+0
+
+0,001
+
+0,002
+1/L
+
+0,003
+
+0,004
+
+La théorie montre que F=v/(4L) où v est la vitesse du son et L la longueur du tuyau.
+L’unité du coefficient directeur correspond à des Hz divisés par des mm^(-1), c'est-à-dire à
+une vitesse en mm/s.
+Le coefficient directeur vaut donc : v/4=83658mm/s=83.7m/s donc v=335m/s. Or l’expression
+théorique de la vitesse est v=(1.4*R*T/M)1/2 . Et ce jour la, nous avons mesuré un température
+T=25°C=298K, la vitesse théorique est donc v=346m/s.
+L’écart relatif à la valeur théorique est de (346-335)/346=0.03.
+Dans le cas d'un tuyau ouvert/fermé, la relation liant la longueur L du tube et la longueur
+d'onde lambda de l'onde est:L=(2n+1)*λn/4 soit: L=(2n+1)v*Tn/4 avec v la vitesse de l'onde et
+Tn sa période.
+On a donc : Tn=4L/(2n+1)v= (2n+1)T1.
+Soit F la fréquence de l'onde on a: Fn= (2n+1)v/4L=F1*(2n+1) ainsi on trouve que
+Fn=(2n+1)F1
+On peut déduire de cette relation que lorsque le tuyau est fermé à une extrémité et ouvert à
+l'autre, il ne résonne que pour des harmoniques de rangs impairs.
+Et on retrouve bien l’équation de la droite linéaire ci-dessus : F=F1=v/(4L).
+b) Cas ouvert ouvert.
+Dans le cas d’un tuyau ouvert/ouvert de 1005mm, l’enregistrement est le suivant :
+
+La fréquence dans ce cas est 166Hz. Les autres résultats sont portés dans le tableau
+suivant :
+Longueur du tuyau en
+mm.
+
+1005
+
+627
+
+468
+
+299
+
+Fréquence F en Hz.
+
+166
+
+245
+
+339
+
+518
+
+La représentation de F en fonction de 1/L est la suivante :
+600
+y = 156000x
+
+500
+
+F en Hz
+
+400
+
+F en fonction de 1/L
+
+300
+
+Linéaire (F en fonction de
+1/L)
+
+200
+100
+0
+0
+
+0,001
+
+0,002
+
+0,003
+
+0,004
+
+1/L en mm^(-1)
+
+La théorie montre que F=v/(2L) où v est la vitesse du son et L la longueur du tuyau.
+L’unité du coefficient directeur correspond à des Hz divisés par des mm^(-1), c'est-à-dire à
+une vitesse en mm/s.
+Le coefficient directeur vaut donc : v/2=156221mm/s=156m/s donc v=342m/s. Or
+l’expression théorique de la vitesse est v=(1.4*R*T/M)1/2 . Or ce jour la, nous avons mesuré
+un température T=25°C=298K, la vitesse théorique est donc v=346m/s.
+L’écart relatif à la valeur théorique est de (346-342)/346=0.01.
+Lorsqu'une onde de célérité v se propage entre 2 points fixes, la longueur L entre les deux
+points fixes impose un caractère périodique de période T1= (2L/v) aux allers retours de l'onde.
+Lorsqu’une onde sinusoïdale de période T et de longueur d'onde lambda se réfléchit sur deux
+points fixes il s'établit une onde stationnaire pour laquelle les points fixes correspondent à des
+noeuds de vibration.
+De plus certaines valeurs de la fréquence et donc de la période d'excitation permettent
+d'observer des fuseaux de grande amplitude. Expliquons ce phénomène :
+D’après la relation précédente, chacun des points vibre avec une période de T1=(2L)/v. En
+chacun de ces points, 2 ondes donneront la même élongation si le retard entre elles est un
+multiple de la période T de l'onde soit: Tn.n=T1=(2L)/v
+Cette relation peut s'écrire, en utilisant la définition de la longueur d'onde λn=v.Tn
+L=n(v*T)/2 soit L=n*λn/2
+D'après le paragraphe suivant, la longueur L de la corde impose des valeurs aux fréquences Fn
+des ondes stationnaires pouvant exister entre deux points fixes.
+En effet la relation T1=2L/v=nTn peut s'écrire F1=v/2L= Fn/n. C’est cette relation que nous
+avons mis en évidence dans l’expérience précédente.
+En notant Fn=1/T on en déduit que Fn=n*F1
+Ainsi, nous voyons bien que lorsque le tuyau est ouvert, ou fermé à ses deux extrémités, celui
+ci vibre pour des harmoniques de n'importe quelle parité
+Ainsi, dans les deux cas, on se rend compte que la représentation de F en fonction de 1/L est
+une droite linéaire d’équation F= k (1/L).
+La hauteur du son dépend donc de la longueur du tuyau. Et comme nous l’avons
+précédemment dit, plus le tuyau est long, plus la fréquence est faible, donc plus le son est
+grave.
+
+Pour un même tuyau, la fréquence sera plus élevée donc le son plus aigu dans le cas
+ouvert/ouvert.
+2) Mise en évidence des modes propres (ou harmoniques, ou partiels).
+Un mode propre est une fréquence pour laquelle chaque point de la tranche d'air vibrante
+vibre sinusoïdalement; la colonne d'air à l'intérieur du tuyau résonne.
+Sachant cela, nous avons cherché à voir si l'on pouvait en effet observer ces modes
+harmoniques et si leurs place étaient bien délimitées, et si ceux ci étaient les mêmes en régime
+libre et en régime forcé.
+Sachant cela, nous avons cherché à voir si l'on pouvait en effet observer ces modes
+harmoniques et si leurs place étaient bien délimitées, et si ceux ci étaient les mêmes en régime
+libre et en régime forcé.
+a) Régime forcé
+Nous excitons sinusoïdalement l’air contenu dans un tuyau grâce à un haut parleur
+dont nous contrôlons la fréquence. A l'aide d'un micro explorateur nous sondons l'intérieur du
+tuyau et, avec un oscilloscope nous mesurons les amplitudes observées.
+Le montage expérimental est le suivant :
+
+Voici le graphique correspondant à l’évolution de l’amplitude en fonction de la
+fréquence :
+180
+160
+140
+120
+100
+Série1
+
+80
+60
+40
+20
+0
+0
+
+200
+
+400
+
+600
+
+800
+
+On observe que pour les fréquences propres du tuyau, on passe par un pic où
+l’amplitude est maximale. Ainsi, la colonne d’air résonne pour certaines fréquences
+d’excitation. Ces fréquences sont des multiples entiers de la plus petite fréquence pour
+laquelle la colonne résonne.
+Puis nous sondons le tuyau pour ses différentes fréquences propres :
+Pour cette plus petite fréquence, appelée fréquence fondamentale, le micro explorateur
+permet de détecter un ventre de pression au centre et deux nœuds de pression aux extrémités
+des tuyaux.
+Pour une fréquence égale à deux fois celle du fondamental, on observe deux ventres de
+pression et trois nœuds de pression.
+Pour une fréquence égale à n fois celle du fondamental, on observe n ventres de
+pression et n+1 nœuds de pression.
+A chacune des fréquences précédentes correspond un mode de vibration appelé aussi
+partiel.
+Dans le cas d’un tuyau ouvert/ouvert de longueur L=1005mm on trouve, pour le
+fondamental une fréquence F=166Hz et pour les harmonique de rang n, Fn=n*166Hz
+Cette étude montre que lorsqu’on excite sinusoïdalement une colonne d’air à une
+fréquence égale à la fréquence d'un de ses modes propres, alors les points vibrent
+sinusoïdalement avec une amplitude dépendant de leurs positions, ainsi lorsqu'ils sont situés
+sur un ventre de pression l'amplitude de la pression acoustique est maximale. S'ils sont situés
+sur un noeud de pression, l'amplitude de la pression acoustique est nulle. On remarque aussi la
+présence de fuseaux de longueurs égales. L'extrémité d’un fuseau est le noeud de pression, le
+milieu est un ventre de pression. Pour l'harmonique n, la longueur du fuseau est égale à L/n
+avec L la longueur de la corde.
+b) Régime libre
+En régime libre, nous frappons sur le même tuyau en enlevant rapidement la main, afin
+d’avoir encore un tuyau ouvert/ouvert. Nous avons enregistré le son obtenu, puis, à l'aide de
+synchronie nous avons étudié le spectre de quelques alternances.
+Le montage expérimental est le suivant :
+
+Pour un tuyau de 1005mm, on obtient l’enregistrement suivant :
+
+Sur le document ci-dessus, le spectre fait bien apparaître les différents modes propres
+de la colonne d’air. Dans ce cas, la fréquence du fondamental est 166Hz et celle de
+l’harmonique de rang n Fn=n*166Hz
+L’analyse de Fourier permet donc de mettre en évidence les modes propres de
+vibration en régime libre Il apparaît que les partiels en régime forcé et en régime libre dans le
+cas d'un tuyau ouvert/ouvert sont les mêmes.
+Dans le cas ouvert/fermé, nous n'avons fait que la deuxième expérience plus simple.
+D'après ce qui précède elle donne les mêmes résultats que l'expérience 1.
+Dans le cas d’un tuyau ouvert/fermé, seuls les harmoniques de rang impairs sont
+observés.
+3) Temps de relaxation des modes propres.
+Le temps de relaxation est le temps caractéristique de retourne à l'équilibre d’un système.
+Dans ce cas, c’est le temps nécessaire pour que l’amplitude de chacun des modes redevienne
+nulle.
+Connaissant maintenant l'existence de ces modes partiels, il nous fallait voir comment ils
+évoluaient au fil du temps.
+Quand on frappe sur le tuyau, le son ne dure pas plus que quelques fractions de secondes. Les
+partiels s’amortissent donc rapidement dans le temps. On se propose dans la suite de mesurer
+le temps caractéristique d’amortissement des partiels.
+On se place dans le cas particulier de longueur 1005mm que l’on excite dans les deux cas.
+
+Pour ce faire, que ce soit dans le cas ouvert/ouvert ou ouvert/fermé, nous avons procédé à une
+décomposition en série de Fourier de chaque alternance du signal, afin d’obtenir les
+fréquences de chaque mode et l’évolution temporelle de l’amplitude de chaque mode.
+
+Exemple dans le cas ouvert ouvert :
+
+a) Cas ouvert/fermé :
+Signal :
+
+Voici les résultats obtenus.
+
+Evolution temporelle de l’amplitude du premier harmonique:
+
+Fondamental ou premier harmonique
+2,50E+02
+2,00E+02
+y = 575,6e-0,013x
+A
+
+1,50E+02
+1,00E+02
+5,00E+01
+0,00E+00
+0
+
+100
+
+200
+
+300
+
+400
+
+T en ms
+Evolution temporelle de l’amplitude du deuxième harmonique:
+
+A2
+
+Deuxième harmonique
+7,00E+02
+6,00E+02
+5,00E+02
+4,00E+02
+3,00E+02
+2,00E+02
+1,00E+02
+0,00E+00
+
+y = 1663,4e-0,0142x
+
+0
+
+100
+
+200
+T en ms
+
+300
+
+400
+
+Evolution temporelle de l’amplitude du troisième harmonique :
+
+Troisième harmonique
+1,80E+02
+1,60E+02
+1,40E+02
+
+y = 396,15e-0,0158x
+
+A3
+
+1,20E+02
+1,00E+02
+8,00E+01
+6,00E+01
+4,00E+01
+2,00E+01
+0,00E+00
+0
+
+100
+
+200
+
+300
+
+400
+
+T en ms
+Ce qui nous a donc permis de tracer une courbe de chaque amplitude en fonction du temps,
+c'est-à-dire d’obtenir une exponentielle décroissante représentant l’évolution temporelle de
+chaque amplitude. Ainsi, nous avons donc pu calculer les temps de relaxation.
+
+Voici les résultats obtenus :
+
+τ (A1)= 1/0.013= 76.9ms
+τ (A2)= 1/1.0142= 70.4ms
+τ (A3)= 1/0.0158= 63.3ms
+τ (A4)= 1/0.219= 45.7ms
+b) Cas ouvert ouvert :
+Dans ce cas là, on se heurte aux problèmes liés aux premières alternances pendant laquelle la
+main est encore posée sur l’extrémité du tuyau. C’est pourquoi on commence la
+décomposition en série de Fourier à partir de la cinquième alternance.
+
+Signal :
+
+Voici les résultats obtenus.
+
+Evolution temporelle de l’amplitude du premier harmonique :
+Fondamental ou premier harmonique
+0.25
+y = 0,3931e-0,0114x
+
+0.2
+
+A1
+
+0.15
+
+0.1
+
+0.05
+
+0
+0
+
+20
+
+40
+
+60
+
+80
+t en ms
+
+100
+
+120
+
+140
+
+160
+
+Evolution temporelle de l’amplitude du deuxième harmonique :
+Deuxième harmonique
+0,5
+0,45
+0,4
+
+y = 1,152e-0,0168x
+
+0,35
+A2
+
+0,3
+0,25
+0,2
+0,15
+0,1
+0,05
+0
+0
+
+20
+
+40
+
+60
+
+80
+
+100
+
+120
+
+140
+
+160
+
+t en ms
+
+Evolution temporelle de l’amplitude du troisième harmonique :
+Troisième harmonique
+0.45
+0.4
+0.35
+y = 1,008e-0,0212x
+
+a3
+
+0.3
+0.25
+0.2
+0.15
+0.1
+0.05
+0
+0
+
+50
+
+100
+t en ms
+
+150
+
+200
+
+Ce qui nous a donc permis de tracer une courbe de chaque amplitude en fonction du temps,
+c'est-à-dire d’obtenir une exponentielle décroissante représentant l’évolution temporelle de
+chaque amplitude. Ainsi, nous avons donc pu calculer les temps de relaxation.
+Voici les résultats obtenus
+Cas ouvert/ouvert :
+
+τ (A1)= 1/0.0114= 87.8ms
+τ (A2)= 1/0.0168= 59.5ms
+τ (A3)= 1/0.0212= 47.2ms
+τ (A4)= 1/0.3= 33.3ms
+c) Commentaires des résultats expérimentaux.
+On peut donc aisément se rendre compte que les harmoniques de rangs élevés s’amortissent
+plus vite. Ce qui explique qu’à la fin du signal, le spectre ressemble fortement à une
+sinusoïde. Cela représente en fait le fondamental qui lui met donc bien plus de temps à
+s’amortir. D’autre part, le nombre se situant avant la fonction exponentielle décroissante
+correspond à l’amplitude initiale.
+
+Cependant, il faut préciser, que dans le cas ouvert ouvert, on
+retrouve tous les modes propres. Cela s’explique du fait que
+la surpression aux deux extrémités du tuyau est nulle car elle
+est imposée par la Pression Atmosphérique.
+
+Par contre, dans le cas ouvert fermé, on retrouve seulement
+les modes propres de rang impair. En effet, à l’extrémité où
+le tuyau est fermé les tranches d’air sont immobiles à cause
+de la paroi. Mais à l’extrémité où le tuyau est ouvert, on
+retrouve forcément un nœud de pression, correspondant à un
+ventre de vitesse.
+
+Pour conclure, on peut dire qu'un tuyau est une cavité résonante qui résonne suivant ses
+modes propres (dépendant des conditions aux limites ouvert/ouvert ou ouvert/fermé) et dont
+
+τ
+
+les modes propres s'amortissent en régime libre avec une constante de temps .
+
+C) Simulation numérique du son produit par un tuyau
+On simule à l’aide du logiciel Scilab le son produit lorsque l’on frappe sur un tuyau ;
+on utilise pour cela l’évolution temporelle des modes propres mis en évidence précédemment.
+Cette simulation nous permet d’étudier l'influence de divers paramètres sur le son
+produit : amplitude initiale, temps de relaxation et fréquences.
+1. Modification de l'amplitude initiale des harmoniques
+Nous modifions l'amplitude initiale des harmoniques, de différentes manières. Nous
+essayons de toutes les augmenter, ou au contraire, nous faisons en sortes qu'elles soient toutes
+égales. Dans tout les cas nous n'observons pas de modification majeure de la perception: on
+entend toujours un tuyau. On en conclut donc que les amplitudes initiales ne sont pas des
+paramètres caractéristiques du tuyau (ils dépendent de l'attaque avec la main).
+2. Modification des temps de relaxation.
+Lorsqu’on augmente le temps de relaxation, le son obtenu se rapproche de celui d’une
+corde vibrante. Ces temps caractérisent donc le son produit par un tuyau
+3. Modification de la fréquence du fondamental
+Lorsqu’on modifie la fréquence du fondamental tout ce passe comme si on prenait un
+tuyau plus long ou plus court. Ceci est évidemment lié au fait que la fréquence du
+fondamental dépend de la longueur du tuyau.
+D) Simulation d’un instrument de musique
+
+1. Cas d’un instrument « à percussion »
+Dans cette partie, notre objectif est de recréer numériquement un instrument complet
+afin d’obtenir un résultat similaire à un instrument de percussion fait de tuyaux juxtaposés.
+Tout d'abord, il faut savoir que le rapport entre la fréquence d'une note et son octave est de
+deux. (Par exemple, l'octave du La dont la fréquence est 440Hz est La2 = 2*440= 880Hz).
+Ensuite, la gamme temperée est constituée de 12 notes. Ainsi, pour que le rapport de
+fréquence entre une note et son octave soit conservé, il faut que le rapport entre la fréquence
+d'une note et celle qui "suit" soit de 2^(1/12).
+Alors, la fréquence du La étant, par convention, de 440Hz nous pouvons calculer la fréquence
+de chacune des notes de la gamme.
+Pour ce faire, nous avons modélisé à l’aide du logiciel Scilab le son produit par des tuyaux de
+fréquences 261.62Hz, 293.66Hz et 329.62Hz qui correspondent respectivement aux
+fréquences des notes Do, Ré et Mi. Ces modélisations furent ensuite juxtaposées, toujours à
+l’aide de Scilab afin de former la mélodie principale de la célèbre comptine « Au clair de la
+lune ».
+2. Cas d’un instrument « à corde »
+Rappelons maintenant qu’un son est principalement caractérisé par sa fréquence et son
+temps caractéristique tau. Nous avons donc décidé de faire varier ce temps caractéristique et
+l’avons multiplié par 5 pour chacune des notes dans l’idée de recréer la comptine. Il s’avère
+que le son ne ressemble plus à celui d’un tuyau frappé, mais a celui d’une corde pincée (telle
+une corde de guitare).
+
+3. Cas d’un instrument « à vent »
+Toujours dans l’optique de recréer la comptine en question, nous avons cette fois
+généré un bruit blanc a partir du logiciel Audacity (un bruit blanc étant un son contenant
+toutes les fréquences audibles auxquelles sont attribuées des amplitudes aléatoires).
+Le signal du bruit blanc est le suivant :
+
+Puis grâce à une Transformée de Fourier, on obtient le spectre du bruit blanc, qui est le
+suivant :
+
+Puis nous avons modélisé trois nouveaux sons, ces sons étant les réponses impulsionelles
+correspondant aux fréquences des trois notes citées auparavant (la réponse impulsionelle étant
+la réponse que fournit un tuyau lorsque l’on frappe dessus avec toutes les amplitudes des
+modes propres égales a 1).
+
+Voici le signal d’une réponse impulsionnelle :
+
+On obtient ensuite le spectre de cette réponse impulsionnelle grâce à une transformée de
+Fourier :
+
+Ensuite le logiciel Scilab nous a permis d’effectuer la multiplication entre le spectre de
+chaque réponse impulsionnelle et le spectre du bruit blanc, ce qui correspond à un produit de
+convolution entre le signal de chaque réponse impulsionnelle et le signal du bruit blanc.
+
+On obtient ainsi le spectre suivant :
+
+On remarque ici que les pics correspondant aux différents modes ont été favorisés lors de la
+multiplication puisqu’ils correspondent à des valeurs où l’amplitude est élevée.
+Puis, on a soumis ce spectre à une transformée de Fourier inverse afin d’obtenir le signal
+suivant :
+
+Le résultat obtenu correspondrait en pratique au même son que l’on obtiendrait si l’on
+soufflait dans un tuyau dont le mode fondamental correspond à la fréquence d’un Do, d’un Ré
+ou d’un Mi selon le cas. Les trois sons obtenus sont, encore une fois juxtaposés afin de
+recréer la mélodie.
+Les trois enregistrements obtenus permettent d’illustrer chacun des types d’instruments : le
+premier correspond aux percussions, le second aux instruments à cordes et le dernier aux
+instruments a vent.
+
+Annexe
+Présentons le code utilisé dans scilab pour modéliser le son produit par un tuyau :
+stacksize(10000000);
+Fech=44100;
+Tech=1/Fech;
+//construit un vecteur ligne de 0 à 3s avec un pas de Tech seconde
+t=0:Tech:7;
+//fréquence du fondamental = hauteur de la note
+F=Fréquence choisie;
+//matrice de 3 colonnes
+//chaque colonnes est une des trois composantes du signal
+//(sans tenir compte de l'amplitude des harmoniques)
+composantes=[sin(2*%pi*F*t') sin(4*%pi*F*t') sin(6*%pi*F*t') sin(8*%pi*F*t')];
+//Amplitudes des composantes du spectre
+tau1=0.0769;
+amp1=0.346 ;
+a1=amp1*exp(-t'/tau1);
+tau2=0.0704;
+amp2=1;
+a2=amp2*exp(-t'/tau2);
+tau3=0.0633;
+amp3=0.238;
+a3=amp3*exp(-t'/tau3);
+tau4=0.0457;
+amp4=0.288;
+a4=amp4*exp(-t'/tau4);
+spectre=[a1 a2 a3 a4];
+// signal comporte une colonne par composante spectrale
+signal=composantes.*spectre;
+//signalf comporte une seule colonne qui est la somme des trois précédentes
+signalf=signal*[1;1;1;1];
+//normalisation du signal dans l'intervalle [-1 1]
+norm1=max(abs(signalf));
+signalf=signalf/norm1;
+//modifier le chemin d'accès pour écrire le son et le lire avec audacity par exemple
+wavwrite(signalf',44100,’Chemin d’accès/nom du fichier.wav)
+
+Ensuite le code utilisé pour juxtaposer les sons obtenus :
+Do=wavread(‘Chemin d’accès/nom du fichier.wav’);
+re=wavread(‘Chemin d’accès/nom du fichier.wav’);
+mi=wavread(‘Chemin d’accès/nom du fichier.wav’);
+//Ecriture de la partition
+chanson=[Do Do Do re mi re Do mi re re Do];
+wavwrite(chanson,44100, ‘Chemin d’accès/nom du fichier.wav’);
+
+Puis le code utilisé pour modéliser le son dit «de flûte» :
+stacksize(40000000);
+Fech=44100;
+Tech=1/Fech;
+//construit un vecteur ligne de 0 à 3s avec un pas de Tech seconde
+t=0:Tech:1;
+//fréquence du fondamental = hauteur de la note
+F=Fréquence choisie;
+//matrice de 3 colonnes
+//chaque colonnes est une des trois composantes du signal
+//(sans tenir compte de l'amplitude des harmoniques)
+composantes=[sin(2*%pi*F*t') sin(4*%pi*F*t') sin(6*%pi*F*t') sin(8*%pi*F*t')];
+//Amplitudes des composantes du spectre
+tau1=0.0769;
+a1=exp(-t'/tau1);
+tau2=0.0704;
+a2=exp(-t'/tau2);
+tau3=0.0633;
+a3=exp(-t'/tau3);
+tau4=0.0457;
+a4=exp(-t'/tau4);
+spectre=[a1 a2 a3 a4];
+// signal comporte une colonne par composante spectrale
+signal=composantes.*spectre;
+//signaf comporte une seule colonne qui est la somme des trois précédentes
+signalf=signal*[1;1;1;1];
+//normalisation du signal dans l'intervalle [-1 1]
+norm1=max(abs(signalf));
+reponse_imp=signalf/norm1;
+//modifier le chemin d'accès pour écrire le son et le lire avec audacity par exemple
+wavwrite(reponse_imp',44100, ‘Chemin d’accès/nom du fichier.wav’)
+bruit_blanc=wavread(‘Chemin d’accès/nom du fichier.wav’);
+reponse=convol(reponse_imp,bruit_blanc);
+reponse=reponse/max(abs(reponse));
+wavwrite(reponse,44100, ‘Chemin d’accès/nom du fichier.wav’)
+
+Bibliographie
+Livre de spécialité Physique chimie collection Sirius aux éditions Nathan
+Logiciels:
+Audacity
+Synchronie
+Excel
+Word
+Scilab
+
+

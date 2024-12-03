@@ -1,0 +1,627 @@
+1
+
+Contenu
+Résumé : ..................................................................................................................................... 3
+I) Les mécanismes physiques ..................................................................................................... 4
+I.1) La convection .................................................................................................................... 4
+I.1.1) Principe ...................................................................................................................... 4
+I.1.2) Observation expérimentale de la convection............................................................ 4
+I.1.3) L’évapotranspiration .................................................................................................. 7
+I.1.4) Observation sur le terrain .......................................................................................... 7
+I.2) Le rayonnement ............................................................................................................. 10
+I.2.1) Principe .................................................................................................................... 10
+I.2.2) Comment mesurer le rayonnement ? ..................................................................... 10
+2) Modèle mathématique :....................................................................................................... 13
+2.1) Bilan des mécanismes physiques : ................................................................................. 13
+2.2) Mise en équation de ces différents mécanismes : ......................................................... 14
+2.2.1) La convection : ........................................................................................................ 14
+2.2.2) Le rayonnement: ..................................................................................................... 16
+2.2.3) Le vent: ................................................................................................................... 17
+2.2.4) L’inertie du sol: ....................................................................................................... 17
+2.2.5) Le modèle final :...................................................................................................... 18
+Conclusion : .............................................................................................................................. 20
+
+2
+
+Résumé :
+La température est une grandeur physique omniprésente dans notre quotidien, surtout en plein été
+où la canicule règne. Qui n’a jamais apprécié la fraîcheur de l’ombrage d’un arbre à l’heure de la sieste ?
+Nous nous sommes donc intéressés à l’étude de ce microclimat. Nous avons dans un premier
+temps mis en évidence les différents mécanismes physiques en jeu par de multiples expériences. Ces
+observations à l’échelle d’un arbre nous ont permis de dresser une carte isotherme pour essayer de « voir »
+ces phénomènes ; d’établir un modèle mathématique pour tendre vers une démarche prédictive. Quelle
+sera la température sous notre arbre aux heures les plus chaudes de la journée ?
+
+Introduction, remerciements :
+Pourquoi ce sujet ? Une série de conjonctions : Une chaude après-midi d’été et l’ombre salvatrice
+d’un arbre. Le réchauffement climatique et son retentissement médiatique. Une étude sur le chêne liège et
+son efficacité à fixer le dioxyde de carbone. Une belle expérience de strioscopie découverte sur le net.
+Notre professeur à l’idée de solliciter un de ses collègues passionné d’astronomie…
+Un hommage particulier à Monsieur Gérard FERRANT, professeur de Physique chimie à PortoVecchio, décédé le 14 août 2017 à l'âge de 59 ans. Sollicité par notre professeur, il nous a offert le miroir
+qu’il avait poli et nous a encouragés dans notre entreprise.
+Monsieur Tanguy Clavel, son entreprise : Technic alarm à Borgo (au sud de Bastia). Il nous a fourni
+gracieusement des câbles électriques et des connecteurs afin de réaliser notre maillage de capteurs.
+Monsieur Paul Gabrielli, enseignant-chercheur à l’université de Corse, nous a guidés pour le modèle
+mathématique et la programmation.
+Nous avons initié ce projet en 2017, nous avions sous-estimé la préparation : des mesures à réaliser
+en été, nous retrouver hors temps scolaire (pas facile de s’organiser), un dispositif complexe à
+confectionner, des mesures tributaires d’une météo sans vent (au pays du vent !) nous n’étions pas
+préparés ! Notre groupe a fondu ! Nous avons décidé de relever le défi en 2018 ! Avec les Olympiades de
+Physique !
+
+Notre problématique : Comment expliquer le bien-être ressenti sous un arbre, et prévoir la
+température sous son ombrage aux heures les plus chaudes de la journée ?
+La température est une grandeur physique omniprésente dans notre quotidien, surtout en plein été
+où la canicule règne. Un moyen de s’en protéger est de s’abriter sous un arbre, en effet, on y constate une
+sensation agréable de fraîcheur. Nous nous sommes donc intéressés à l’étude de ce microclimat.
+Tout d’abord, nous nous sommes intéressés aux mécanismes physiques pouvant expliquer ce
+microclimat, en mettant en place des expériences qualitatives permettant d’illustrer ces différents
+phénomènes.
+Ensuite, nous avons procédé à une observation à l’échelle d’un arbre avec la création d’une carte
+isotherme pour essayer de « voir » ces phénomènes. Pour finir, en considérant le volume d’air sous l’arbre
+comme un système ouvert nous avons mis au point un modèle mathématique différentiel prenant en
+compte de multiples paramètres pour modéliser l’évolution de la température en fonction du temps.
+
+3
+
+I) Les mécanismes physiques
+I.1) La convection
+I.1.1) Principe
+La convection est l’un des trois grands mécanismes de transfert de chaleur. Elle consiste en
+l’interaction de flux chauds et froids, notamment par la poussée d’Archimède. Les flux froids ayant une
+masse volumique plus importante que les flux chauds. La chaleur se déplace, dans le cas d’un fluide, par
+déplacement de matière (figure 1).
+
+Figure 1 : exemple de convection : chauffage d’une quantité d’eau
+
+I.1.2) Observation expérimentale de la convection
+Nous avons réalisé une maquette afin d’illustrer le phénomène de convection. Un fer à souder
+représente le sol chauffé par le rayonnement direct, alors qu’un bloc réfrigérant caractérise le houppier.
+Tout d’abord, nous réalisons une expérience d’ombroscopie : on se sert des variations de l’indice de
+réfraction du milieu provoquées par les changements de température. En effet, l’ombroscopie consiste,
+dans un environnement sombre à éclairer le système observé avec un puissant projecteur et à placer un
+écran blanc en arrière. Les rayons passant par l’air chaud, montant du fer à souder seront déviés, au même
+titre que ceux déviés par l’air froid descendant de notre bloc de glace. On observe sur l’écran des ombres
+qui mettent en évidence le flux de chaleur (voir figure 2 et 3).
+Figure 2 : Principe de l'ombroscopie : en jaune, le projecteur, en rouge, un objet produisant de la chaleur et l'écran
+
+4
+
+Figure 3 : Schématisation de l’ombroscopie: en rouge, le
+chemin emprunté en temps normal par les rayons
+lumineux ; en vert, le chemin emprunté par un rayon
+lumineux dévié. La tâche noire est due à l’absence de
+lumière.
+
+On constate que si le flux d’air chaud est
+relativement visible, le flux descendant d’air
+froid est imperceptible. On se dirige alors vers
+une expérience de strioscopie. (Figure 5)
+
+Figure 4 : Observation par ombroscopie
+
+Nous avons entendu parler d’une méthode plus efficace pour mettre en évidence des variations
+d’indice de l’air plus fines : l’observation par strioscopie. On éclaire avec une source ponctuelle (LED) un
+miroir concave. Lorsque l’on fait varier l’indice de l’air à proximité du miroir, la lumière est déviée et ne
+passe plus par le foyer image du miroir. En occultant le foyer seule la lumière déviée par le phénomène est
+perçue. Les détails sont d’autant plus visibles qu’ils ne sont plus noyés dans la lumière qui n’est pas déviée
+(figure 6). Les flux d’air chauds et d’air froids apparaissent clairs sur un fond sombre. Notre arbre est
+matérialisé par un bloc réfrigérant et le sol chauffé par le soleil, par un fer à souder.
+
+5
+
+Figure 5 : Schématisation du principe utilisé en
+strioscopie
+
+Nous avons rencontré des difficultés en expérimentant : il s’est avéré difficile d’occulter
+efficacement le foyer image sans pour autant masquer les rayons déviés par les perturbations. De plus,
+cette expérience est très sensible : la moindre variation peut dérégler tout notre système et rendre
+l’observation impossible. Après de nombreux essais infructueux, nous sommes parvenus à filmer le
+phénomène de convection par strioscopie. (Figure 7)
+
+Figure 6 : Observation par strioscopie du phénomène de
+convection : à droite se trouve un fer à souder et à gauche
+un bloc de glace Le phénomène de convection se distingue
+grâce à la courbure que prend le flux d’air montant du fer à
+souder.
+
+Figure 8 : photo de notre dispositif
+
+6
+
+I.1.3) L’évapotranspiration
+Les feuilles des arbres possèdent des stomates qui leur permettent de « respirer » (voir figure 9).
+La feuille est le lieu de l’évapotranspiration.
+
+Cette évapotranspiration possède un effet endothermique : lors
+de la vaporisation de l’eau au niveau des stomates, un échange de
+chaleur se produit entre l’eau liquide et son environnement : elle
+prend de l’énergie à l’air afin de briser ses liaisons de Van der
+Walls et parvenir à l’état gazeux.
+Cette prise d’énergie dans son environnement entraîne une
+déperdition de chaleur.
+Figure 9 : Observation au microscope
+électronique à balayage de stomates de
+Illustrons ce phénomène expérimentalement :
+chêne vert (grossissement x650)
+
+On plante un thermomètre dans un mouchoir imbibé d’alcool. En exposant le mouchoir à un
+sèche-cheveux, on observe que la température indiquée par le thermomètre diminue (figure 10). C’est une
+mise en évidence de l’effet endothermique : l’alcool contenu dans le coton se vaporise plus vite avec la
+chaleur, et le mécanisme endothermique énoncé plus haut fait chuter la température.
+
+Figure 10 : Les deux photos sont espacées de 27 secondes.
+(Celle de gauche étant la première)
+
+I.1.4) Observation sur le terrain
+L’évapotranspiration endothermique rafraîchit les feuilles de l’arbre…
+Bénéficie-t-on de ce refroidissement par convection ?
+Influencés par les cartes météo des journaux télévisés, nous nous décidons à confectionner un
+maillage de capteurs afin de dresser une carte isotherme rendant compte de la répartition des
+températures autour de l’arbre. La connaissance des lignes d’isothermes devrait nous permettre
+indirectement de connaître la direction des flux d’air dans le plan choisi.
+Les capteurs sont alimentés et dirigés par une carte programmable Arduino méga, qui nous permet
+également, reliée à un ordinateur, de procéder à l’acquisition des données. Le travail sur le terrain fait, il y
+aura un autre travail de traitement des données recueillies avec un logiciel de calcul matriciel (voir partie
+programmation).
+
+7
+
+Réalisation du dispositif
+Tout d’abord il nous a fallu réaliser le maillage de capteurs, il est composé de 6 lignes de 7 capteurs
+DHT11. Comme montré sur la figure 2, ce type de capteur nécessite d’être connecté à 3 câbles : un câble
+«DATA» qui va transporter l’information sur la mesure à la carte Arduino, un câble «VCC», pour
+l’alimentation et un câble «GND» pour la masse.
+Une ligne de capteurs doit donc permettre de connecter les trois broches de
+chaque capteur. Pour cela, nous avons décortiqué un câble électrique pour
+connecter chaque sous-câble à chacune de ces broches, ainsi chaque capteur
+est monté en série.
+Ensuite, il a fallu trouver un arbre adéquat à la manipulation, en effet il y a des
+contraintes : tout d’abord, il faut que l’arbre soit assez grand pour que le
+phénomène de microclimat puisse être observé, et ensuite il ne faut pas qu’il
+soit trop « épais » afin que nous puissions mettre en place notre dispositif. Nos
+Figure 7 : Capteur DHT11 recherches d’arbre idéal ont abouti à des mesures sur une pergola de vigne et
+utilisé pour l’expérience,
+un cerisier. Enfin, il nous a fallu programmer dans un premier temps la carte
+précis au degré près.
+Arduino pour acquérir les données sur ordinateur, et dans un second temps
+travailler avec le logiciel de calcul matriciel GNU Octave pour traiter les données récupérées. Afin de
+minimiser l’influence du rayonnement solaire sur nos capteurs nous plaçons sur eux des « casquettes »
+faites avec des matériaux réfléchissants. (Figure 11).
+Limites de notre système, incertitudes
+Tout d’abord, les premiers essais du système ont mis en évidence de nombreuses erreurs : nos
+capteurs n’étaient pas calibrés, ce qui nous faisait faire des erreurs de parfois de plus de 4°C, ce qui est
+inacceptable quand on tend à faire une carte isotherme. Il a donc fallu calibrer les capteurs en les mettant
+dans des conditions de températures identiques. Mais même étant calibré, la résolution de nos capteurs
+reste d’un degré, ce qui sera une source d’incertitude.
+Ensuite, il y a un temps de latence entre chaque mesure. En effet, notre programme s’exécute de
+façon linéaire, et Arduino ne pouvant exécuter qu’un seul programme à la fois, il est impossible de faire
+autrement. Ainsi, pour que les 42 capteurs envoient tous 1 mesure, cela prendra environs 11 secondes.
+Enfin, les capteurs se sont montrés parfois défaillants pendant l’expérience, câbles mal branchés ou
+coupés, court-circuit, les causes sont nombreuses. De plus, notre système de mesure n’a pas la forme
+rectangulaire souhaitée (voir figure 11), le poids des lignes de capteurs fait pendre le fil.
+
+8
+
+Résultats, interprétation
+
+Comme dit plus haut, nous avons réalisé cette expérience autour d’une treille de vigne.
+Figure 12 : réalisation de l'expérience sous
+une pergola
+
+Elle se déroula pendant plus de trois heures. Sur la figure 13, nous voyons la répartition de la
+température à 10 heures.
+
+Figure 13 : Résultats obtenus lors de l’observation d’une treille : les
+zones blanches représentant les capteurs au sol, donc inutiles. Le
+rectangle en pointillés représente la pergola.
+
+Figure 14 : tentative
+d’observation sur un cerisier
+
+L’observation de la pergola met en évidence une zone froide sous la treille. Cette observation ne nous
+permet pas de dire qu’il y a effectivement un phénomène de convection sous la treille. En revanche, on
+peut interpréter que la zone d’ombre créée par la treille a empêché le soleil de réchauffer le sol, qui est du
+carrelage, qui, chauffé par le soleil, rayonne à son tour et chauffe l’air environnant.
+9
+
+Nous avons également réalisé cette même expérience avec un cerisier (figure 14).
+Cependant, nous n’avons pas pu tirer de résultats de cette expérience, en effet les capteurs défaillants
+étaient trop nombreux, nous n’avons pas pu établir une carte isotherme de l’arbre.
+Toutefois nous avons réalisé des mesures de températures à intervalles réguliers sous un arbre et sous un
+parasol : on observe une température plus faible sous l’arbre, ce qui met en évidence l’avantage du végétal
+sur la toile du parasol. (Figure 15)
+
+températures en °C
+
+figure 15 : comparaison des températures sous
+un figuier et un parasol
+40
+35
+30
+
+figuier
+
+25
+
+parasol
+
+20
+0
+
+1
+
+2
+
+3
+
+4
+
+5
+
+6
+
+7
+
+8
+
+temps en heures
+
+L’effet endothermique peut-il expliquer à lui seul cette différence de température entre un arbre et un
+parasol ? Quelle est la part du rayonnement dans cet écart de températures ?
+
+I.2) Le rayonnement
+I.2.1) Principe
+Le rayonnement est un transfert de chaleur qui a la particularité de ne pas nécessiter de milieu
+pour se propager. En effet, c’est grâce à ce phénomène que le soleil peut nous réchauffer.
+I.2.2) Comment mesurer le rayonnement ?
+Notion d’éclairement énergétique ou irradiance
+L’irradiance est l’apport de puissance par unité de temps sur une surface donné. C’est cette
+𝑃
+
+grandeur que l’on cherche à quantifier dans nos expériences. 𝐸 = 𝑆 , avec E l’irradiance en 𝑊. 𝑚−2, P la
+puissance rayonnée en W et S la surface considérée en m².
+
+Mesure de l’irradiance
+Pour pouvoir quantifier l’irradiance nous mettons en place une expérience sur le terrain.
+Nous exposons en plein soleil une pièce de 5 centimes que nous peignons en noir, afin que celle-ci absorbe
+au mieux le rayonnement, et toutes les 30 secondes, à l’aide d’un thermomètre laser nous mesurons la
+température de la pièce. (Figure 16)
+Le but de l’expérience est de déterminer P, la puissance rayonnée. Pour cela, on se sert de la relation
+𝑄
+
+𝑃 = ∆𝑡, avec Q l’énergie emmagasinée en Joules, donnée par 𝑄 = 𝑚 × 𝑐 × ∆𝜃, m la masse de la pièce en
+Kg, c la capacité calorifique thermique de la pièce en 𝐽. 𝐾𝑔−1 . 𝐾 −1 et ∆𝜃 en °C.
+
+10
+
+
+
+
+
+Surface de la pièce : 3.55 × 10−4 𝑚2
+Masse de la pièce : 3.92 × 10−3 Kg
+Capacité thermique massique de l’acier : 435 𝐽. 𝐾𝑔−1 . 𝐾 −1
+
+Figure 16 : expérience pour mesurer
+l’irradiance.
+
+Régime permanent
+
+Régime transitoire
+
+11
+
+A partir du graphique précédent, nous constatons au niveau du régime transitoire, une élévation de
+température de 5,4°C pour une durée de 30 secondes. Ces mesures nous permettent de calculer la
+puissance rayonnée par unité de surface, soit l’irradiance : 𝐸0 = 8,8 × 102 𝑊. 𝑚−2
+Cette mesure ayant été réalisée selon une incidence normale, il nous faut tenir compte de l’angle
+d’inclinaison des rayons solaires arrivant au sol. 𝐸∝ = 𝐸0 × sin(∝). Avec ∝ = 60° on obtient 𝐸∝ = 7,6 ×
+102 𝑊. 𝑚−2. Cependant sous l’arbre seule une partie du rayonnement traverse le feuillage. Nous avons
+donc pris en compte le taux de recouvrement du feuillage et sa valeur complémentaire, que nous avons
+désignée par le terme « surface d’ouverture ». Pour cela, nous avons pris une photo du houppier vu de
+dessous, après traitement de l’image en pixels noirs et blancs (figure 18), il est possible de calculer la
+surface d’ouverture. S.O = 16,5%
+L’irradiance au sol sous l’arbre n’est donc que de 16,5 % de la
+valeur de 𝐸∝ .
+
+La valeur de 𝐸0 calculée n’a-t-elle pas été sous-estimée ?
+Comment expliquer l’écart entre notre valeur de 𝐸0 = 8,8 ×
+102 𝑊. 𝑚−2 et celle donnée par les relevés de Météo France,
+qui nous fournit un Ethéorique = 906 W.m-2.
+Figure 18 : image du houppier avant et après
+traitement.
+
+Figure 19 : Schématisation de notre dispositif
+maison.
+
+Figure 20 : spectre du rayonnement solaire
+
+https://fr.wikipedia.org/wiki/Rayonnement_solaire
+La lame de microscope en verre placée sur la pièce de
+monnaie ne limiterait-elle pas l’absorption d’une grande partie des
+infra-rouge incidents ? Nous décidons de vérifier cette hypothèse
+dans notre salle de cours. Notre dispositif est placé sous une lampe
+à incandescence avec et sans lame de microscope. La durée que
+met la pièce de monnaie pour passer de 25°C à 35°C est de 2
+
+minutes 27 secondes, pour la pièce non recouverte et de 2 minutes
+54 secondes pour la pièce protégée par une lame de microscope.
+Ainsi, cette différence de 27 secondes nous montre que la vitre prive la pièce d’une fraction nonnégligeable de l’énergie de la lampe, certainement dans le domaine des infra-rouges. En conclusion, la
+mesure que nous avons réalisée au mois d’Août minimise la valeur de l’irradiance.
+Figure 21 : Notre expérience
+
+12
+
+2) Modèle mathématique :
+Notre monde est régi par des lois physiques et mathématiques. Est-il possible de prévoir la
+température qu’il fera sous notre arbre aux heures les plus chaudes de la journée ? Un modèle
+mathématique basé sur nos mesures, nos observations, nos déductions devrait nous permettre de relever
+ce défi.
+L’utilisation d’équations différentielles devrait nous permettre d’atteindre cet objectif.
+Une équation différentielle est une équation qui met en jeu une fonction et sa dérivée. Résoudre cette
+équation revient à trouver l’expression d’une fonction du temps qui dépend des paramètres observés. Dans
+les paragraphes suivants nous exposons les idées qui nous ont permis d’établir une équation différentielle
+et de la résoudre à l’aide d’une méthode numérique, la méthode d’Euler, de vous proposer notre modèle
+mathématique.
+
+2.1) Bilan des mécanismes physiques :
+Notre arbre interagit en permanence avec son environnement. Le volume d’air qui nous intéresse,
+sous notre arbre, doit être considéré comme un système ouvert.
+Afin de modéliser l’évolution de la température de l’air sous notre arbre, il nous faut faire un bilan
+des échanges de chaleur, des mécanismes physiques agissants. À l’aide de nos recherches, nous avons pu
+identifier ces facteurs influents :
+-La convection
+-Le rayonnement
+-l’action du vent (une convection « forcée »)
+-L’inertie du sol
+(Nous considérons que le phénomène de conduction dans le sol est négligeable devant les autres
+dans cette situation.)
+On peut résumer ces échanges d’énergies sur la figure 22 :
+
+Figure 22 : schématisation des flux d’énergie autour de l’arbre
+
+13
+
+2.2) Mise en équation de ces différents mécanismes :
+Pour établir une équation différentielle, on met en équation chaque mécanisme physique
+intervenant dans le système considéré puis on les incorpore ensemble pour que l’équation rende compte
+de tous ces paramètres.
+2.2.1) La convection :
+Le phénomène de convection correspond à des échanges de chaleur au sein de fluides en
+mouvement, ici des mouvements d’air. Le phénomène de convection peut être observé en hiver lorsqu’on
+ouvre la fenêtre d’une pièce chauffée. Ainsi, nous avons réalisé des mesures de températures à intervalle
+de temps régulier dans ces conditions. Ci-dessous l’évolution observée :
+
+Figure 23 : évolution de la température dans une chambre lorsqu’une fenêtre est ouverte
+
+L’équation trouvée pour modéliser la convection est la suivante :
+
+𝑑𝑇
+𝑑𝑡
+
+= −𝑘 × (𝑇 − 𝑇𝑒)
+
+Avec, dans le cas de cette expérience :
+ T la fonction recherchée T(t), en °C
+ Te la température extérieure estimée à l’extérieur, en °C
+ k une constante représentant le coefficient d’échange thermique et permettant de conserver le
+caractère homogène de l’équation, en 𝑚𝑖𝑛−1
+Nous savons que le phénomène de convection est la cause d’une déperdition ou d’un apport de
+chaleur. Comme nous nous intéressons à la dérivée de T, nous devons faire en sorte que l’évolution de la
+température converge vers une valeur finie, afin de traduire cette convergence, le facteur devant (T-Te)
+doit forcément être négatif. C’est pour cela que nous multiplions k par -1.
+Approche de la température extérieure à partir de relevés météorologiques.
+Dans notre équation, Te sera fonction du temps. Pour la définir, nous allons faire une approche sinusoïdale
+de relevés de météo France sur la région de Bastia en plein été (disponibles en Annexe).
+
+𝜋
+2𝜋
+Nous obtenons l’équation suivante : 𝑇𝑒 (𝑡) = 5 × sin (
+× 𝑡 − ) + 25
+12
+3
+Comme nous pouvons le voir sur la figure 24, l’équation trouvée Te(t) décrit assez bien la réalité. Pour
+trouver Te(t), nous avons suivi le raisonnement suivant :
+
+14
+
+Figure 24 : Comparaison de notre courbe avec les relevés météo France
+
+Dans un premier temps, on observe une périodicité de 24 heures sur les relevés, nous avons donc
+un maximum et un minimum qui sont caractérisés par un écart de 10°C, et qui reviennent de manière
+périodique. En somme on remarque une allure sinusoïdale. De plus le minimum mesuré se situe à 2 heures
+du matin, et le maximum à 14 heures.
+La température Te oscille autour de la valeur moyenne 25°C avec une amplitude de 5°C. Le signal
+2𝜋
+est de période 24 heures, le déphasage de 3 a été calculé pour que la valeur maximale de Te soit atteinte à
+14 heures.
+Détermination de k.
+k est une constante qui prend en compte les paramètres physiques du milieu (coefficient d’échange
+thermique, chaleur spécifique, densité, …). De plus elle nous permet de rendre l’équation homogène, elle a la
+dimension de l’inverse d’un temps. On la détermine à partir des valeurs expérimentales, en essayant de faire
+coïncider notre modèle numérique à nos relevés de température dans la chambre fenêtre ouverte. Dans le
+modèle final, on pourra faire varier k entre 0 et 1. La valeur optimale trouvée pour k est 0,035 min-1 dans le cas
+de l’expérience de la figure 25. Ce qui nous permet d’obtenir un ordre de grande de k pour la modélisation de
+la température de l’air sous l’arbre.
+Comparaison de l’équation de convection avec les valeurs expérimentales.
+
+Figure 25 : Courbe obtenue avec notre équation comparée à nos valeurs expérimentales
+
+15
+
+Le choix du pas de calcul dans la méthode d’Euler est important : il doit être au moins 10 fois
+inférieur à la valeur de la constante de temps caractéristique de l’évolution du système (déterminée par
+l’intersection de la tangeante au point t=0 de la courbe avec l’axe des abscisses.
+Ci-dessous, si la valeur du pas est trop grande, on obtient des oscillations illustrant l’instabilité de la
+méthode dans ce cas.
+
+Figure 26 : Courbe obtenue avec un pas trop grand
+
+2.2.2) Le rayonnement:
+Le rayonnement apporte de la chaleur à notre système. Sa valeur sera donc positive. Pour
+implémenter à notre modèle mathématique le rayonnement, on va tout d’abord créer une fonction
+modélisant le rayonnement, en 𝑊. 𝑚−2 en fonction du temps. Ce sera la fonction R(t).
+Détermination de R(t)
+Une nouvelle fois, nous avons basé notre modélisation sur les données de Météo France. Nous
+avons approché par une fonction sinusoïdale l’évolution du rayonnement :
+
+𝜋
+𝜋
+𝑅(𝑡) = 900 × 𝑠𝑖𝑛 ( × 𝑡 − )
+14
+2
+La valeur 900 représente 900 W.m-2, le pic de rayonnement, atteint à 14 heures environ.
+La durée d’éclairage journalière est de 14 heures, nous précisons que cette fonction n’est représentative
+que pour une seule journée, qui est la durée durant laquelle nous souhaitons modéliser la température
+sous l’arbre. (figure 27)
+
+Figure 27 :
+Graphiques
+comparants la courbe
+obtenue et les valeurs
+météo France.
+16
+
+Incorporation à l’équation différentielle.
+
+Nous avons observé lors de nos recherches qu’une partie du rayonnement est bloqué par le
+feuillage, c’est pour cela que nous multiplierons R(t) par la surface d’ouverture so divisée par 100, car c’est
+un pourcentage. De plus, il est nécéssaire d’obtenir une équation homogène, c’est pourquoi nous allons
+𝑚²
+
+multiplier également R(t) par 𝛼 (tenant compte de la chaleur spécifique et la densité) exprimée en 𝑊 °𝐶 3 ℎ,
+et 𝑇4 par −𝑘1 (tenant compte de l’émissivité) qui sera exprimée en °𝐶 −3 ℎ−1. Ce qui nous donne au final :
+
+𝑑𝑇
+𝑠𝑜
+=𝛼×
+𝑅(𝑡) − 𝑘1 × 𝑇 4
+𝑑𝑡
+100
+2.2.3) Le vent:
+
+Une brise chaude apporterait de la chaleur à notre système, la variation de température devra être
+positive. Ce gain de chaleur va être fonction de la vitesse du vent et de la température extérieure.
+Une brise chaude apporterait de la chaleur à notre système, la variation de température devra être
+positive. Cette élévation de la température devrait être fonction de la température extérieure et de la
+vitesse du vent.
+La vitesse du vent est un élément complexe à modéliser car étant imprésivisible. Nous avons alors
+décidé de l’incorporer via excel, en choisissant une période ou celui-ci sera actif, et sa valeur pourra être
+choisie.
+Incorporation à l’équation différentielle.
+Ici aussi, nous devons écrire une équation dont les termes soient homogènes, d’où l’utilisation de
+𝑘2 , exprimé en 𝑘𝑚−1. De plus le vent est un fluide donc une brise agit comme un modèle convectif, c’est
+pour cela que nous multiplions par (𝑇 − 𝑇𝑒). Ce qui nous donne au final :
+
+𝑑𝑇
+= −𝑘2 × 𝑣(𝑡) × (𝑇 − 𝑇𝑒)
+𝑑𝑡
+2.2.4) L’inertie du sol:
+Pour finir, nous devons prendre en compte l’inertie du sol. Il s’agit pour l’air sous l’arbre d’une
+déperdition de chaleur. Au cours de la nuit, le sol s’est refroidit. Protégé par l’ombrage de l’arbre, il se
+réchauffe lentement en puisant de la chaleur dans l’air chaud situé au dessus. On peut alors appliquer la
+partie sur la convection que nous avons réalisée plus haut, mais cette fois en remplaçant la température de
+l’air exterieur au système, Te par la température du sol, 𝑇𝑠𝑜𝑙 , qui sera une constante que nous pourrons
+nous-même choisir. Pour incorporer cette partie à notre équation différentielle, nous devons ici aussi
+appliquer une constante d’homogénéisation, 𝑘3 qui sera exprimée en ℎ−1. Ce qui nous donne au final :
+
+𝑑𝑇
+= −𝑘3 × (𝑇 − 𝑇𝑠𝑜𝑙 )
+𝑑𝑡
+17
+
+2.2.5) Le modèle final :
+En tenant compte de la contribution de chaque phénomène à la variation de la température au
+cours du temps, on obtient :
+𝑑𝑇
+𝑠𝑜
+= −𝑘 × (𝑇 − 𝑇𝑒(𝑡)) + 𝛼 ×
+𝑅(𝑡) − 𝑘1 × 𝑇4 − 𝑘2 × 𝑣(𝑡) × (𝑇 − 𝑇𝑒(𝑡)) − 𝑘3 × (𝑇 − 𝑇𝑠𝑜𝑙 )
+𝑑𝑡
+100
+
+Convection
+
+𝑘 : Constante d’échange de chaleur par convection en ℎ−1
+
+Rayonnement
+
+𝑘1 : Constante d’homogénéisation du rayonnement en 𝑊 °𝐶 3 ℎ
+
+Vent
+
+Te : Température minimale estimée sous l’arbre en °C/h
+So : Surface d’ouverture du feuillage (sans unité)
+𝑚2
+
+𝛼 : Constante du rayonnement en °𝐶 −3 ℎ−1
+𝑅(t) : Rayonnement en 𝑊 × 𝑚−2
+𝑘2 : Constante d’homogénéisation du vent sur la température
+en ℎ−1
+
+Inertie du sol
+
+𝑣(𝑡) : Équation modélisant la vitesse du vent au cours du
+temps en km/h
+
+𝑇𝑠𝑜𝑙 : Température initiale du sol en °C
+ℎ−1
+Résolution grâce à la méthode d’Euler et comparaison avec des données réelles.
+On résoud grâce à la méthode d’Euler notre équation différentielle dans un fichier excel en
+prenant pour pas de temps 2 minutes. On superpose ensuite la courbe obtenue sur la même période de
+temps nos mesures réalisées en été sous le figuier (ci-dessous).
+
+𝑘3
+
+Le passage nuageux entre
+12h00 et 14h00 puis
+après15h25 est pris en
+compte dans le terme du
+rayonnement
+
+Les variations à la baisse de la courbe des valeurs de température réelles entre 12h00 et 14h00 puis après
+15h25 peuvent s’expliquer par des passages nuageux, pris en compte dans le modèle.
+18
+
+Utiliser notre solution numérique pour une démarche prédictive…
+Quelle sera la température sous notre figuier, à 14h, si la température de l’air extérieur est de 30°C et si la
+brise est nulle?
+
+Quelle sera la température sous notre figuier, à 14h, si la température de l’air extérieur est de 30°C et si le
+vent soufle à 50km.h-1 ?
+
+Quelle sera la température sous un arbre d’une autre essence, à 14h, si la température de l’air extérieur est
+de 30°C et si la brise est nulle?
+
+19
+
+Conclusion :
+Lors de notre étude nous avons pris en compte divers facteurs influençant la température
+de l’air sous l’arbre. Le phénomène d’évapotranspiration au niveau des feuilles de l’arbre est
+essentiel à son métabolisme. L’évapotranspiration endothermique régule-elle la température de la
+feuille comme la transpiration régule la température de notre corps ? Cette perte de chaleur au
+niveau des feuilles engendre-t-elle un refroidissement du volume d’air sous l’arbre ? Pas facile de
+le prouver. Nos observations nous laissent penser que l’inertie thermique du sol refroidi durant la
+nuit, joue un grand rôle. Le couvert végétal préserverait la fraicheur du sol pendant une bonne
+partie de la journée tempérant le volume d’air sous l’arbre si les brises d’air chaud ne soufflent pas
+trop fort. Un regret, une petite maladresse expérimentale ne nous a pas permis de mieux mettre
+en évidence l’impact de l’évapotranspiration endothermique sous l’ombrage… Il nous faudra
+attendre l’été prochain.
+Nos observations, nos mesures, nos déductions nous ont permis d’établir un modèle
+mathématique afin d’essayer d’approcher la valeur de la température de l’air sous le houppier
+d’un arbre, de tendre vers une démarche prédictive. Nous devrions nous focaliser sur les heures
+les plus chaudes de la journée (12h -15h) tant les aléas météorologiques sont nombreux sur une
+durée de 12 heures.
+La question du bien être ressenti ne se résume certainement pas à la température de l’air
+sous l’ombrage végétal…
+Le bien être ressenti dépend aussi de l’hygrométrie (ballade difficile en forêt tropicale) et
+du rayonnement solaire direct sur le corps qui a certainement plus d’impact sur notre corps et
+notre ressenti que sur l’air qui l’entoure.
+Notre étude mérite d’être encore affinée, peut-être de se porter plus encore sur la notion
+de température ressentie … Afin de souligner l’importance du végétal au sein de nos villes dans la
+tempérance de leur climat.
+
+20
+
+

@@ -1,0 +1,2628 @@
+Elodie Aubanel
+Jérémy Dargent
+Arnaud de Richecour
+
+Institut Fénélon
+
+Ou détection d’une exoplanète par la méthode des transits
+
+Professeur encadrant :
+Mr. Martin
+OLYMPIADES DE PHYSIQUES
+ANNEES 2008-2009
+
+Capter un clin d’œil cosmique
+
+Remerciements :
+Pour mener à bien ce projet, l’aide de Monsieur Martin, professeur de sciences
+physiques au lycée Fénelon, fut indispensable. Il nous a communiqué sa passion pour
+l’astronomie et nous a suivis tout au long de notre travail. Son énergie nous a motivés pour
+surmonter les difficultés posées par l’informatique et les mesures. Il nous a consacré du temps
+pour
+nous
+permettre
+d’utiliser
+son
+observatoire
+amateur
+personnel.
+.
+Monsieur Bernard Gelly, de l’observatoire Themis, à Ténérife aux Canaries, nous a
+également accordé son aide. Cependant, des conditions climatiques défavorables et ses
+obligations professionnelles ont empêché toute prise d’image. Il nous a néanmoins permis
+d’élargir nos contacts, notamment avec le club d’astronomie de Nice et des astronomes ayant
+travaillé sur le projet Corot.
+Monsieur Pascal Bordé, de l’IAS d’Orsay, nous a aussi été d’une aide précieuse. Il a
+pu nous transmettre plusieurs courbes de lumière que nous avons pu traiter par la suite. Ayant
+travaillé sur le projet Corot, il nous a été de bon conseil pour travailler sur ces courbes et
+élargir nos contacts.
+Merci aussi à Monsieur Bruce Gary pour son aide, car ayant des problèmes pour
+organiser des soirées d’observations (déplacements, conditions météorologiques…), il nous a
+fourni de réelles images de transit.
+Nous remercions également Monsieur François Laplane, grand père d’Arnaud, qui a
+grandement participé à la construction de la maquette grâce à son matériel et à son savoirfaire.
+Nous remercions enfin nos parents pour leur aide psychologique et matérielle, ainsi
+que des nombreux accompagnements qu’ils ont assurés, surtout ceux de nuit en retour
+d’observation chez M. Martin.
+Nous remercions vivement Mme Van den Moortel pour la relecture du document.
+
+Institut Fenelon
+
+Olympiades de physique 2009
+
+Page 2 sur 53
+
+Capter un clin d’œil cosmique
+
+Résumé du dossier :
+Notre travail à propos des exoplanètes s’est construit sur la base d’une démarche en
+quatre parties : réunir des connaissances approfondies sur le sujet, émettre une hypothèse, la
+plus logique possible, en fonction de ce que nous savions, tenter de vérifier notre hypothèse
+en laboratoire, à l’aide d’expériences simples, puis confirmer les résultats obtenus en
+laboratoire à l’aide de mesures faites en grandeur réelle.
+Pour commencer, nous avons donc réuni un maximum de connaissances, que nous
+avons mis en commun et dont nous avons tenté d’extraire le principal. Bien entendu, les
+éléments en rapport avec le sujet sont très nombreux, et c’est pourquoi même après avoir
+effectué notre choix, il nous a fallu relire ce que nous avions écrit afin de réduire encore notre
+dossier des éléments ayant un moindre intérêt, afin d’éviter que le dossier ne soit trop gros.
+De cette première approche du sujet, nous avons tiré une hypothèse : une planète
+alignée entre son étoile et nous fera baisser la luminosité de son étoile de manière
+proportionnelle à la surface de l’étoile masquée, comme lors d’une simple éclipse. Selon notre
+hypothèse, la luminosité de l’étoile telle que nous la voyons au cours du transit diminuera.
+Nous avons donc d’abord déterminé comment obtenir par l’observation de la courbe de
+lumière d’un transit certaines données essentielles, complétées par le calcul. Ensuite, nous
+avons calculé à quelles lois mathématiques obéissait une courbe de lumière selon notre
+hypothèse.
+Une fois notre modèle mathématique bien défini, nous avons pu effectuer des
+expériences en laboratoire. Nous avons construit une maquette afin de reproduire au mieux les
+conditions d’un transit, puis nous avons commencé les expériences, en faisant varier des
+paramètres que notre modèle désigné comme variable. En superposant les courbes théoriques
+et expérimentales, nous avons confirmé, du moins en laboratoire, notre modèle. Nous avons
+cependant du faire des améliorations. Finalement nous avons pus étudier un véritable transit
+exoplanétaire, après avoir apporté améliorations à notre modèle, afin d’y ajouter des
+caractéristiques de la grandeur réelle, telle l’assombrissement centre-bord.
+La partie de l’étude en grandeur réelle fut sans doute la plus difficile. Observer une
+exoplanète n’est pas chose facile, et nous l’avons appris à nos dépens. Après plusieurs échecs
+dans l’observation d’un transit, nous nous sommes rabattu sur l’étude d’une courbe de lumière
+fournis par Monsieur Pascal Bordé, astronome. Certes moins intéressant que si nous avions
+put obtenir nous même notre propre courbe de lumière, cette courbe de lumière suffisait en
+revanche largement pour confirmer notre modèle. Nous avons donc étudié cette courbe, et nos
+conclusions se sont montrées très proches de celle des spécialistes en la matière. Nous avons
+après cette étude cherché à obtenir notre propre courbe de lumière, à partir des images d’un
+transit obtenue à l’aide de Monsieur Bruce Gary, astronome amateur. La courbe de lumière
+obtenue nous a permis d’identifier les différentes caractéristiques de l’étoile observée.
+Nous avons donc au cours de notre travail montré comment capter ce clin d’œil
+cosmique, cette si petite variation que représente un transit exoplanétaire. Nous avons
+également montré à quel point cette baisse de lumière indiscernable à l’œil nu pouvait être
+riche en information sur les mondes lointains. Tant de précision nous permettra de mieux
+connaître notre univers, et qui sait, peut être d’identifier une planète apte à la vie.
+
+Institut Fenelon
+
+Olympiades de physique 2009
+
+Page 3 sur 53
+
+Capter un clin d’œil cosmique
+
+SOMMAIRE
+Introduction
+
+5
+
+I) Á propos des exoplanètes
+
+6
+
+1) Les exoplanètes
+2) Différentes méthodes de détection
+II) Différentes approches d’un transit : étude théorique
+
+11
+
+1) Exploitation d’une courbe de lumière
+2) Modélisation numérique d’un transit
+3) Modélisation en laboratoire
+4) Amélioration du modèle :
+a. Assombrissement centre-bord
+b. Paramètre d’impact
+III) Mesures d’un transit
+
+31
+
+Conclusions
+
+34
+
+1) Conclusion scientifique
+2) Bilan de notre travail
+Sources
+
+36
+
+Annexes
+
+37
+
+Détails des calculs et des sujets que nous avons écourtés dans le dossier.
+
+Institut Fenelon
+
+Olympiades de physique 2009
+
+Page 4 sur 53
+
+Capter un clin d’œil cosmique
+
+Introduction
+Il y a dix huit mois, M. Martin, notre professeur de physique nous proposa de participer à
+un concours national : les Olympiades de Physique. Nous nous orientâmes assez
+naturellement vers l’astronomie, sujet de prédilection de M. Martin puis, après quelques
+recherches, vers les exoplanètes.
+Une question nous a, d’emblée, passionnés : comment découvrir des exoplanètes ? En
+nous documentant, nous avons découvert différentes méthodes possibles de détection et
+notamment la méthode des transits. Le sujet était trouvé…
+Dès lors, nous nous sommes aperçus qu’une approche théorique était réalisable par
+l’informatique, bien que compliquée. L’idée d’une maquette simulant le transit d’une étoile
+s’imposa rapidement. Il ne restait qu’à compléter cette approche par une étude pratique pour
+confirmer nos hypothèses et valider notre modèle.
+Ce document retrace nos réflexions, nos avancées et nos difficultés. Parviendrons-nous à
+vérifier nos théories en grandeur nature ?
+
+Institut Fenelon
+
+Olympiades de physique 2009
+
+Page 5 sur 53
+
+Capter un clin d’œil cosmique
+
+I)
+
+Á propos des exoplanètes
+
+1) Les exoplanètes
+Depuis peu, ce sujet est d’actualité ; découvrir de nouvelles
+planètes hors du système solaire est devenu très « trendy ». Depuis
+le projet Corot, ces découvertes ne cessent de croître... Et vu le
+grand nombre de galaxies existantes et le grand nombre d'étoiles
+qu'elles contiennent, la découverte de ces exoplanètes ou planètes
+extrasolaires, n’aura pas de fin.
+Par définition, une exoplanète, ou planète extrasolaire, désigne une planète orbitant
+autour d'une étoile autre que le Soleil. Toutefois, il existe des définitions plus précises, le
+Working Group on Extrasolar Planets de l'UAI - L’Union astronomique internationale est une
+association internationale non gouvernementale dont l'objectif est de coordonner les travaux
+des astronomes à travers le monde- n'a pas encore définitivement choisi une définition. Sa
+"définition de travail" d'une exoplanète (qui date de 2003) est la suivante : il s'agit d’un objet :
+- ayant une masse en-dessous de la masse à partir de laquelle la fusion du deutérium
+commence (actuellement calculée à 13 masses de Jupiter pour des objets),
+- qui orbite autour d’une étoile ou des restes d'une étoile,
+- dont la masse et/ou la taille est supérieure à celle considérée comme limite pour une
+planète du système solaire.
+Mais depuis quand les connaissons-nous ?
+Nous savons que la découverte d’une planète en orbite autour d’un soleil lointain
+remonte à 1995 ; elle a été faite par l’observatoire de Genève. Mais l’idée de l’existence
+d’autres planètes ne date pas d’hier. La traque a commencé près de quatre cents ans plus tôt !!
+Bien qu’Epicure en parlât déjà, c’est à la fin du 16ème siècle que Giordano Bruno écrivit qu’il
+devait exister d’autres planètes tournant autour d’autres Soleils. Au 17ème siècle Huygens
+essaie la méthode directe ; mais il réalise qu’observer une planète si lointaine « les yeux dans
+les yeux » avec un si faible grossissement ne serait jamais possible, en raison de la luminosité
+de l’étoile. Depuis, la chasse aux exoplanètes a été jalonnée d’espoir, de travail, de fausses
+joies notamment lorsque le Néerlandais Piet van de Kamp croyait avoir découvert une planète
+autour de l’étoile de Barnard en 1964. C’est au début des années 1990 que la recherche et la
+détection d’exoplanètes commence à porter ses fruits, notamment grâce à l’amélioration des
+techniques (télescopes, lentilles, méthodes de détection,…)
+Aujourd’hui le nombre d’exoplanètes détectées s’élève à 334 (5 janvier 2009) mais
+l’ensemble des exoplanètes existantes est certainement innombrable... Les exoplanètes
+découvertes jusqu'à présent se trouvent pour la plupart dans le voisinage immédiat du Soleil, à
+moins de 100 parsecs (sachant qu’un parsec équivaut à 3,26 années lumières), alors que la
+Galaxie mesure 10 000 parsecs de rayon. On pense que 10 % des étoiles ont au moins une
+planète géante de période inférieure à 10 ans. Il y a à peu près 100 milliards d'étoiles dans la
+Galaxie. On pourrait donc compter plusieurs dizaines de milliards de planètes dans la Galaxie.
+
+Institut Fenelon
+
+Olympiades de physique 2009
+
+Page 6 sur 53
+
+Capter un clin d’œil cosmique
+
+Pourquoi détecter une exoplanète ?
+On pourrait se demander pourquoi un groupe de lycéens essaie de détecter une
+exoplanète. Lorsque M. Martin, professeur passionné d’astronomie, nous a proposé de réaliser
+une étude sur ce projet, nous avons accepté car c’est un sujet tourné vers l’avenir. Dans les
+prochaines années ces exoplanètes seront le centre d’intérêt des chercheurs car si aujourd’hui
+la terre est en « danger » à cause de notre pollution nous aurons peut-être besoin d’une
+nouvelle « Terre » (bien que ce projet nous paraisse quelque peu hypothétique). De plus
+l’hypothèse d’une présence de vie ailleurs est fort intéressante ; en effet, si notre projet
+s’arrête à leur détection d’exoplanète, la découverte d’exoplanètes fait espérer détecter celle –
+d’ailleurs- d’organismes voire d’êtres intelligents.
+
+2) Différentes méthodes de détection
+Si l’on sait qu’il existe des planètes extrasolaires, il faut prouver leur présence et pour
+ce, il existe différentes méthodes.
+La première idée consiste à voir directement une exoplanète. Mais la luminosité de
+l’étoile éblouit largement celle de la planète (l’étoile est un milliard de fois plus brillante que
+la planète dans le visible). La planète est donc totalement invisible. Pour contourner ce
+problème, l’interférométrie permet d’éteindre la lumière parasite de l’étoile. (Non, nous ne
+sommes pas fous !). Il suffit de deux télescopes placés en deux endroits différents. Ils
+récoltent chacun de leur côté la lumière de l’étoile ; en recombinant les deux faisceaux on
+« éteint » l’étoile. Les astronomes arrivent ensuite à accroître la luminosité de la planète et
+ainsi la planète est visible comme « les yeux dans les yeux ».
+Mais cette méthode a beaucoup de limites, en premier lieu parce qu’elle nécessite une
+précision redoutable (de l’ordre du nanomètre) lors du placement des capteurs. Elle est
+d’ailleurs encore expérimentale (projet Darwin, encore retardé).
+Avec l’imagerie directe on a quand même réussi à voir quelques exoplanètes (quatre
+observations à ce jour) dans des conditions très spécifiques. Il s'agit de planètes d'une très
+grande taille qui orbitent autour d’étoiles faibles (par ex. des naines brunes) à des grandes
+distances. Ces conditions extrêmes peuvent permettre des observations directes, mais les
+systèmes qu'on trouve sont forcément très différents de notre Système Solaire.
+
+Institut Fenelon
+
+Olympiades de physique 2009
+
+Page 7 sur 53
+
+Capter un clin d’œil cosmique
+Ensuite, il existe la méthode de vélocimétrie Doppler. Cette technique est fondée sur la
+détection des mouvements (si petits soient-ils) d’une étoile. En effet, une planète et son Soleil
+agissent l’un sur l’autre par la force de gravitation. Entraînée par sa planète, l’étoile tourne
+autour d’un point, le centre de gravité du système. Ce mouvement est détectable grâce à
+l’effet Doppler. Cet effet existe aussi sur Terre avec les ondes sonores : plus une ambulance
+en mission s’approche de vous, plus son « pin-pon » est aigu, plus elle s’éloigne, plus il est
+grave. De la même façon, les longueurs d’ondes de la lumière émises par l’étoile « se
+contractent » en s’approchant de nous et « se dilatent » en s’éloignant. La couleur de l’étoile
+change donc. Elle bleuit lorsqu’ elle s’approche et rougit lorsqu’elle s’éloigne. On déduit ainsi
+la présence d’une planète en orbite. C‘est ainsi que M. Mayor et D. Queloz ont détecté l'une
+des premières exoplanètes autour de l'étoile 51 Pégase. La grande majorité des 334 planètes
+détectées aujourd'hui (5 janvier 2009) l'a été par cette méthode qui permet en particulier de
+déduire le rayon de l'orbite de la planète et d'avoir sa masse minimale. Mais son principal
+inconvénient est qu’elle n’est actuellement pas assez sensible pour détecter les petites planètes
+comme la Terre, bien que les progrès techniques permettront peut-être un jour d’atteindre une
+résolution suffisante.
+
+DETECTION PAR VELOCIMETRIE
+
+Ensuite, vient la méthode des transits. On cherche à déceler le passage d'une planète
+devant son étoile en mesurant la petite variation d'éclat (de l’ordre de 1%) due au masquage
+partiel de la lumière de celle-ci. Cette méthode revient à détecter une éclipse. Mais la
+condition sine qua non pour détecter l’éclipse est que nous (les Terriens) soyons bien placés,
+c'est-à-dire que la Terre, l'étoile et l'exoplanète soient alignées, ce qui est assez rare ; et que
+nous fassions l'observation au moment exact, où se produit cet événement qu'on appelle
+« transit ». Cette méthode qui a l'avantage de fournir la taille de la planète, est utilisée par
+exemple par le satellite COROT. De plus, sa précision est suffisante pour détecter les planètes
+de petite taille comparables à notre planète Terre.
+Très récemment, on commence à utiliser les premières détections d'exoplanètes par la
+méthode des lentilles gravitationnelles. Cette méthode consiste à « zoomer » la planète. En
+effet, la lumière émise par une étoile vue de la terre est faible car diluée dans l’espace. Mais la
+présence d’une étoile entre l’astre lointain et la terre permet de concentrer les rayons
+lumineux (phénomène similaire au fonctionnement d’une loupe). L’étoile lointaine paraît
+alors plus brillante. Et si une planète tourne autour de l’étoile loupe, les rayons issus de
+
+Institut Fenelon
+
+Olympiades de physique 2009
+
+Page 8 sur 53
+
+Capter un clin d’œil cosmique
+l’étoile lointaine se trouvent aussi « concentrés » par l’exoplanète. L’éclat de l’étoile lointaine
+a deux pics de luminosité : lorsqu’elle passe devant l’étoile loupe et lorsqu’elle passe devant
+l’exoplanète. C’est une méthode très sensible depuis la Terre. Mais l’alignement entre l’étoile
+lointaine, l’astre loupe et l’observateur est aléatoire et imprévisible. Il faut donc être là au bon
+moment pour observer l’astre loupe.
+
+DETECTION PAR LA METHODE DES
+LENTILLES GRAVITATIONELLES
+
+Institut Fenelon
+
+Olympiades de physique 2009
+
+Page 9 sur 53
+
+Capter un clin d’œil cosmique
+Celle que nous avons choisie et pourquoi :
+
+DETECTION PAR LA METHODE DES TRANSITS
+
+Les raisons pour lesquelles nous avons choisi la méthode des transits sont les
+suivantes : cette méthode est celle qui nécessite un moindre matériel (mis à part ceux de base
+tels que le télescope, un appareil photo et un ordinateur pour traiter les images) contrairement
+à la vélocimétrie qui nécessite un spectrophotomètre de très haute résolution. La méthode des
+transits nécessite d'observer de très nombreuses étoiles : pour qu'un transit planétaire soit
+observé, il faut que le plan de l'orbite soit aligné par chance avec la direction d'observation.
+L'alignement planète-étoile ne se produit qu'une fois par période orbitale (soit une fois par an
+si l’on considère le système Terre-Soleil) ce qui oblige à observer assez longtemps pour avoir
+une chance de l'observer. Elle est assez sensible pour permettre, depuis l'espace, la détection
+de planètes semblables à la Terre. Des missions cherchant à réaliser cet objectif sont en
+préparation ou en cours (les missions CoRoT et Kepler). De plus, elle permet d'obtenir le
+rayon et, combinée avec la méthode des vitesses radiales, la masse de la planète, ce qui donne
+accès à sa densité, un paramètre important pour les modèles théoriques.
+
+Institut Fenelon
+
+Olympiades de physique 2009
+
+Page 10 sur 53
+
+Capter un clin d’œil cosmique
+
+II)
+
+Différentes approches d’un
+transit : étude théorique
+
+1) Exploitation d’une courbe de lumière
+Voici l’aspect d’une courbe de lumière, avec ce que l’on peut y mesurer. On y voit : t, T, et
+∆f. La valeur de la courbe à son sommet correspond à f.
+
+Nous prendrons comme symbole :
+R e : rayon de l’étoile
+R p : rayon de la planète
+a : demi grand axe, soit l’éloignement maximal entre la planète et le centre de gravité du
+système
+i : inclinaison du plan du système par rapport à la droite reliant le point d’observation à
+l’étoile du système observé (voir schéma page 27)
+f : flux lumineux de l’étoile
+∆f : variation de la luminosité
+P : période entre deux variations de lumière, soit la période de révolutions de l’exoplanète
+observée.
+Tout est en unité du système international
+
+Pour calculer le rayon de la planète :
+
+(
+
+∆f πRe − πRe − πR p
+=
+f
+πRe 2
+2
+
+2
+
+2
+
+) = πR
+
+2
+p
+
+πRe 2
+
+=
+
+Rp
+
+2
+
+Re
+
+2
+
+On suppose le flux de lumière uniforme, et on le traduit par la surface apparente de l’étoile.
+Résultat : la baisse de luminosité de l’étoile lors du transit sur la luminosité de cette dernière
+hors transit est proportionnelle au rayon de la planète sur le rayon de l’étoile.
+
+Institut Fenelon
+
+Olympiades de physique 2009
+
+Page 11 sur 53
+
+Capter un clin d’œil cosmique
+Pour déterminer la durée d’un transit planétaire :
+On considère que le transit commence quand la planète commence à obscurcir l’étoile.
+
+(R + R ) − (a × cos (i )) 
+
+
+2P
+
+T =
+× arcsin 
+2π
+
+
+
+2
+
+e
+
+2
+
+p
+
+
+
+
+
+a
+
+On notera que si on désire connaître le temps seulement quand la planète est entièrement
+devant l’étoile, il suffit de changer Re + R p en Re − R p . Cela donne alors :
+
+2P
+
+t=
+× arcsin
+2π
+
+
+
+(R − R ) − (a × cos(i )) 
+2
+
+e
+
+2
+
+p
+
+
+
+
+
+a
+
+On arrive donc au rapport :
+2
+
+2
+
+ Rp   a
+
+1 −
+ −  cos(i )
+2
+Re   Re
+t
+
+
+  =
+2
+2
+T 
+ Rp   a
+
+1 +
+ −  cos(i )
+Re   Re
+
+
+
+Probabilité d’observer un transit planétaire :
+
+Re + R p
+a
+
+≈
+
+Re
+a
+
+4π 2 a 3
+Troisième loi de Kepler : P =
+GM e
+2
+
+Relation stellaire rayon/masse :
+Où k est un coefficient constant pour chaque système stellaire et où x varie en fonction du
+spectre lumineux du système.
+
+Re = kM ex
+A partir des opérations précédentes, on peut obtenir ces autres calculs afin de déterminer :
+b : le coefficient auquel on multiplie R e afin de savoir sur le télescope où se situe la planète
+par rapport au milieu
+ρ e : masse volumique de l’étoile en m3.kg-1
+a : le demi grand axe
+i : l’inclinaison du système
+L’indice ⊕ indique qu’il s’agit de la mesure du système stellaire
+
+Institut Fenelon
+
+Olympiades de physique 2009
+
+Page 12 sur 53
+
+Capter un clin d’œil cosmique
+Les conversions en unités solaire des rayons et des masses.
+Ainsi :
+
+(1 − ∆f ) −  Tt  (1 + ∆f )
+2
+
+2
+
+ 
+2
+t
+1−  
+T 
+
+b=
+
+2
+
+Où b le paramètre d’impact (voir page 27)
+
+3
+
+4 ∆f
+32
+ρe =
+P
+La masse volumique aide à savoir la composition de l’étoile, ce qui
+3
+Gπ
+t2 −T 2
+permet de la classer
+
+P 2 GM e
+Donnée essentielle, il s’agit de l’éloignement de l’exoplanète à son étoile. On
+4π 2
+l’obtient à partir de la troisième loi de Kepler
+a=3
+
+ R 
+i = arcsin b e  Donnée essentielle pour la méthode des transits, une inclinaison trop
+ a 
+importante diminue d’autant plus les chances d’observations.
+1
+
+M e  3 ρ e  1−3 x
+ Rapport de masse de l’étoile et du système stellaire facilement obtenue, il
+= k
+M ⊕  ρ ⊕ 
+aide à la suite des calculs.
+x
+
+M 
+Re
+= k  e  Rapport des rayons de l’étoile et du système stellaire, obtenu à l’aide du
+R⊕
+ M⊕ 
+calcul précédant, permet la suite des calculs.
+Rp
+
+Re
+∆f Rapport des rayons de l’exoplanète et de son système stellaire, il donne le lien
+R⊕ R⊕
+entre ces deux données.
+=
+
+Institut Fenelon
+
+Olympiades de physique 2009
+
+Page 13 sur 53
+
+Capter un clin d’œil cosmique
+
+2) Modélisation numérique d’un transit
+Afin de simuler le transit d’une exoplanète devant son étoile, nous avons fait défiler un
+cercle représentant l’exoplanète devant son étoile, elle-même représentée par un autre cercle,
+plus grand, et nous avons calculé la luminosité. Pour cela, nous sommes partis de l’hypothèse
+que la luminosité est proportionnelle à la surface et que cette luminosité est uniforme sur toute
+la surface de l’étoile. Nous avons ici pris un paramètre d’impact nul.
+
+Symboles :
+R est le rayon de l’étoile.
+R’ est le rayon de la planète.
+D est la distance entre les centres A et B des deux cercles symbolisant l’étoile et la planète.
+C’est une valeur variable.
+h est la hauteur entre Y1 et Y2, soit sur le dessin le segment qui rejoint les intersections des
+deux cercles. Elle varie en fonction de D.
+S est la surface de l’étoile cachée par la planète. C’est la somme des surfaces colorées S1, S2
+et S3. Elle varie en fonction de D.
+La planète arrive sur l’étoile et la cache partiellement. Au début, cela se traduit par cette
+formule :
+
+Formule 1 :
+
+Etoile
+Planète
+R
+R’
+
+Institut Fenelon
+
+Olympiades de physique 2009
+
+Page 14 sur 53
+
+Capter un clin d’œil cosmique
+A l’aide de ce schéma, en utilisant des relations simples de géométrie, nous obtenons la
+formule suivante (voir détail des calculs en annexe) :
+
+S=
+
+
+
+h2
+h 2 
+ h  2
+ h  2
+2
+2
+
+− R −
+2 arcsin 
+ R + arcsin 
+ R'  − h R' −
+
+4
+4 
+ 2R 
+ 2 R'  
+
+
+2
+
+Cependant, au moment où le centre de la planète arrive sur la droite (Y1Y2), la formule
+change. Cela correspond au moment où h = 2R' . En utilisant Pythagore, on peut déterminer
+D:
+
+Formule 2 :
+Pour calculer la surface cachée par la planète, on découpe le calcul en trois parties : les aires
+S1, S2 et S3 représentées sur la figure.
+
+Etoile
+
+Planète
+
+De même, en utilisant la géométrie, on obtient (voir détails des calculs en annexe) :
+
+Institut Fenelon
+
+Olympiades de physique 2009
+
+Page 15 sur 53
+
+Capter un clin d’œil cosmique
+
+
+
+
+
+
+
+
+
+h
+ h  2 
+ R' 2 −hD
+2 arcsin R + π + 2ar cos
+2
+
+
+
+ 
+ 2R 
+h
+
+ 2 R 2 − − D  
+ 
+ 
+
+4
+ 
+ 
+
+S=
+2
+N’ayez pas peur, ce n’est pas compliqué, malgré les apparences.
+Par ce calcul on obtient la surface cachée par l’exoplanète à tout moment du transit, en
+fonction de R, de R’, de D et de h.
+Les valeurs variables au cours du transit sont D et h.
+Voilà ce que cela donne avec R= 50 et R’=2 (unités arbitraires)
+St
+
+7880
+
+7860
+
+7840
+
+7820
+
+7800
+-100
+
+-50
+
+0
+
+50
+
+100
+x
+
+Modèle théorique d’un transit
+Soit St la luminosité en fonction de x le nombre d’images (recentré sur le milieu du transit)
+
+3)
+
+Modélisation en laboratoire (maquette, obtention de
+courbe par Regressi)
+
+Réalisation de la maquette
+Nous souhaitions créer un montage permettant de confirmer
+nos calculs sur le logiciel Regressi. Durant les séances de travail,
+nous avions soulevé de nombreuses idées pour obtenir un transit
+d’exoplanète devant son Soleil. Il semblait assez évident que la
+«planète» tourne mais la difficulté portait surtout sur la construction
+
+Institut Fenelon
+
+Olympiades de physique 2009
+
+Page 16 sur 53
+
+Capter un clin d’œil cosmique
+du «Soleil». En effet, allumer un globe nous paraissait compliqué. Nous avions de nombreux
+projets :
+chauffer une boule métallique afin de réaliser un transit dans les infrarouges et le détecter
+avec une webcam
+placer un disque de papier dégradé de blanc au centre vers noir au bord afin de simuler
+l’assombrissement centre-bord d’une étoile, puis faire tourner.
+Finalement, nous sommes revenus à notre première idée : un globe lumineux autour duquel
+tourne une planète noire : l’idée du disque semblait un peu trop simple et celle des infrarouges
+trop compliquée à mettre en œuvre pour des raisons de chauffage.
+1) Fabrication du support
+Le support est composé de contreplaqué découpé en 3 carrés de 40 x 40 cm et en 2
+rectangles de 39 x 40 cm. Les carrés et rectangles ont ensuite été assemblés de manière à
+former un cube ouvert sur une face. Les cinq faces sont maintenues par des renforts de section
+carrée et de longueur 39 cm pour rigidifier l'ensemble. Le tout est fixé par des vis à bois.
+Le support ainsi que le reste de la maquette a été peint en noir afin de limiter les
+perturbations lumineuses lors de la prise de photos.
+2) «L'étoile»
+L'étoile est représentée par un globe du commerce dans lequel se trouve une ampoule
+de 40 ou 60 W selon les besoins des expériences. Le socle du globe et de l'ampoule est en
+bois, fixé par des chevilles pour pouvoir être démonté, et percé d'un trou pour l'alimentation
+énergétique de l'ampoule. Le fil (peint en noir) passant par ce trou est relié à un interrupteur et
+une prise.
+
+3) La «planète» et son moteur
+La planète est une boule en plastique léger, entraînée par un moteur de modélisme
+tournant à plus ou moins 10 tours/minute du fait d'une forte démultiplication. Le moteur est
+fixé au plafond par une pièce de bois percée pour laisser passer le fil électrique. Sur le moteur
+est accroché un axe métallique servant de support à la boule modélisant la planète. Cette pièce
+fut difficile à poser à cause de la très petite taille de l'axe du moteur. Comme nous ne voulions
+pas coller ou fixer l'axe directement sur le moteur pour pouvoir effectuer des modifications
+plus tard, nous avons utilisé une douille récupérée et nous l'avons limée pour que la vis
+transversale puisse bloquer l'axe du moteur. A cause du poids de la planète, un contrepoids
+
+Institut Fenelon
+
+Olympiades de physique 2009
+
+Page 17 sur 53
+
+Capter un clin d’œil cosmique
+est placé à l'opposé de la boule afin d'équilibrer l'axe et de permettre une rotation la plus
+centrée possible autour du globe.
+
+Douille
+
+Moteur
+
+Axe
+
+Voici le résultat final...
+
+On peut constater que la peinture noire est loin d'être parfaite puisqu'elle réfléchit
+beaucoup de lumière... Cependant, le côté de la planète faisant face à la caméra est quand
+même noir puisqu'il est à l'opposé de la source lumineuse.
+
+Institut Fenelon
+
+Olympiades de physique 2009
+
+Page 18 sur 53
+
+Capter un clin d’œil cosmique
+
+Obtention de la courbe expérimentale avec la maquette
+(Toutes les courbes dans la suite du rapport représentent la luminosité en fonction du nombre
+d’images ou du temps)
+Pour confirmer notre modèle
+théorique obtenu sur Regressi, nous
+avons utilisé la maquette, un appareil
+photographique et le logiciel de
+traitement d’image Iris. Nous avons pris
+un film de la planète en mouvement en
+la laissant effectuer plusieurs tours avant
+de commencer le film pour éviter les
+oscillations liées au départ brusque de la
+planète. Le film est pris dans le noir, afin
+de limiter les perturbations lumineuses.
+Une fois le film obtenu, nous l'avons
+décomposé en image successives.
+Nous avons ensuite utilisé le logiciel Iris pour traiter la suite d'images. La photométrie
+automatique permet d'enregistrer les variations lumineuses d'une zone donnée. Nous avons
+utilisé l'outil « photométrie » d'Iris, en sélectionnant le centre de l'étoile comme point de
+référence. Voici la première courbe obtenue présentant la luminosité en fonction du temps
+avec une planète de 2.5 cm de rayon:
+
+On remarque que la courbe a l'allure générale d'une courbe de transit telle que nous
+l'avons obtenue sur le modèle théorique. Mais sa brusque remontée nous intriguait. Nous
+
+Institut Fenelon
+
+Olympiades de physique 2009
+
+Page 19 sur 53
+
+Capter un clin d’œil cosmique
+avons recommencé une série de mesures dans les mêmes conditions, une semaine plus tard,
+mais en modifiant les réglages d'Iris.
+Voici le résultat (les variations brusques à la fin du transit sont dues à l'arrêt du film) :
+
+Cette fois la remontée au milieu du transit n'apparait plus. Nous avons ensuite
+superposé les courbes théorique (en rouge) et expérimentale (en bleu) :
+
+Institut Fenelon
+
+Olympiades de physique 2009
+
+Page 20 sur 53
+
+Capter un clin d’œil cosmique
+
+∆f
+Rp ²
+=
+avec ∆f la différence de
+f
+Re ²
+flux lumineux, f le flux lumineux maximum, Re le rayon de l’étoile et Rp celui de la planète.
+
+La relation permettant d’obtenir le rayon de la planète est
+
+On obtient Rp = Re
+
+∆f
+f
+
+9973 − 9323
+= 2,55cm On retrouve la valeur du rayon de
+9323
+2.55 − 2.5
+la planète. L’erreur relative est de Er =
+= 2,1%
+2 .5
+
+Application numérique : Rp = 10
+
+Le résultat est bien plus en accord avec le modèle théorique pour les mêmes rapports
+de tailles (la planète a un rayon de 2,5 cm et l'étoile de 10 cm), c'est-à-dire que le rayon de
+l'étoile est ajusté pour obtenir la même valeur que le maximum du transit et le rapport des
+rayons est calculé pour être le même que dans la réalité.
+On observe que la diminution de luminosité est sensiblement la même, ce qui
+confirme que l'approximation (la luminosité est proportionnelle à la surface) utilisée pour
+créer le modèle théorique était pratiquement juste. La différence de profondeur n'est que de
+68 unités arbitraires (le minimum du transit théorique est 9378 et celui du transit
+expérimental est en moyenne de 9310), ce qui est faible par rapport à 10 000, la valeur
+maximum du transit. L'erreur relative entre la courbe expérimentale et le modèle théorique est
+de : Erreur relative=
+
+9378− 9310
+= 7.10− 3 = 0,7%
+9378
+
+Nous avons réalisé une série de mesures avec une ampoule plus brillante (60 Watts au
+lieu de 25W) afin de vérifier le rôle de la luminosité de l'étoile. La courbe avec l'ampoule de
+25 W est en bleu et celle de avec l'ampoule de 60 W est en rouge.
+La différence de luminosité maximale et minimale entre les deux courbes est très
+faible (environ 20 unités arbitraires en transit). Cela est probablement dû à la saturation qui
+
+Institut Fenelon
+
+Olympiades de physique 2009
+
+Page 21 sur 53
+
+Capter un clin d’œil cosmique
+
+bloque la luminosité maximale de l'étoile. Par conséquent, si la valeur de la luminosité de la
+première courbe est bloquée à un certain palier, alors la différence de luminosité entre le
+passage de la planète et la luminosité ne variera pas, quelle que soit la puissance de
+l’ampoule.
+Pour étudier l'influence de la taille de la planète sur la courbe, nous avons ensuite
+remplacé la planète de 2,5 cm de rayon par une autre, plus grosse, de 3 cm de rayon :
+On remarque que la profondeur et la durée du transit augmentent, ce qui semble
+logique. D'ailleurs voici ce que donne la superposition des courbes théoriques :
+
+Institut Fenelon
+
+Olympiades de physique 2009
+
+Page 22 sur 53
+
+Capter un clin d’œil cosmique
+Le modèle théorique confirme bien les résultats donnés par la maquette.
+
+Puisque nous avions des résultats aussi précis, nous avons décidé de refaire le transit
+avec une planète de 1 cm de rayon.
+
+∆f
+, on obtient : Rp = 10 9933 − 9837 = 0 .98 cm
+f
+9837
+1 − 0,98
+Le résultat confirme la taille de l’étoile. Cette fois l’erreur relative est de : Er =
+= 2%
+1
+De plus, la taille de l’exoplanète est de l’ordre du 10ème de la taille de l’étoile, ce qui est
+beaucoup plus près de la réalité que des planètes, dont la taille est de l’ordre du quart de
+l’étoile.
+
+En appliquant la formule Rp = Re
+
+Institut Fenelon
+
+Olympiades de physique 2009
+
+Page 23 sur 53
+
+Capter un clin d’œil cosmique
+
+Les différentes planètes utilisées lors des transits.
+
+4) Amélioration du modèle
+Pour vérifier notre modèle, nous avons superposé notre modèle théorique (en bleu) avec la
+courbe de transit de HD209458b (Osiris, en rouge).
+
+Nous pouvons constater que le modèle n’est pas parfaitement adapté. En effet, la courbe de
+HD209458b est arrondie et présente une plus grande profondeur. Pour expliquer ces
+différences, plusieurs paramètres entrent en compte :
+
+a) L’assombrissement centre-bord
+Origine de l’assombrissement
+Quand on observe le Soleil, son centre paraît plus lumineux que sa périphérie. Ceci
+peut s’expliquer par le fait que la profondeur optique limite la profondeur d’observation. Par
+conséquent, on observe des couches moins profondes sur les bords de l’étoile (voir schéma cidessous gauche).Les couches les plus profondes sont les plus chaudes, en vertu de la loi de
+Stefan,
+I = σ.T4 (avec σ une constante). La luminosité dépend donc de la température. Or,
+plus on s’éloigne du centre, plus la température diminue. Donc la luminosité est plus faible
+sur les bords de l’étoile et on observe alors un assombrissement entre le centre et le bord.
+
+Institut Fenelon
+
+Olympiades de physique 2009
+
+Page 24 sur 53
+
+Capter un clin d’œil cosmique
+
+extrait de « L'atlas d'astronomie »
+
+Ici, on peut observer pour une même distance L à deux positions différentes :
+Entre le bord et le point A, proche du centre O ;
+Entre le bord et le point B, éloigné du point O.
+Les couches situées sous A(L) sont plus profondes que celle sous B(L) car A est plus proche de
+O que B (O étant le centre de l’étoile). Les couches étant plus profondes, la somme observée
+de la luminosité des couches est plus grande, et donc, l’intensité lumineuse de A(L) est
+supérieure à celle de B(L).
+
+j
+1
+
+0.8
+
+0.6
+
+0.4
+
+0.2
+
+-80
+
+-60
+
+-40
+
+-20
+
+0
+
+20
+
+40
+
+60
+
+80
+z (°)
+
+Photo du Soleil et sa courbe d’assombrissement
+Après avoir étudié les différents paramètres de l’assombrissement, nous les avons
+intégrés au modèle. Pour cela, nous avons appliqué une loi d’assombrissement définie
+expérimentalement à partir de l’assombrissement centre-bord du Soleil. Voici la loi :
+assombrissement = β × cos(ψ ) + γ × cos(ψ ) 2 + δ × cos(ψ ) 3 + ε × cos(ψ ) 4 + η × cos(ψ ) 5
+Avec: β =25.93
+
+Institut Fenelon
+
+Olympiades de physique 2009
+
+Page 25 sur 53
+
+Capter un clin d’œil cosmique
+
+γ =-84.75
+δ =136.6
+ε =-106.5
+η =32.07
+
+Et ψ l’angle d’incidence (voir schéma ci-contre) :
+
+On obtient alors cette courbe :
+Sf (10-3 )
+1000
+
+995
+
+990
+
+985
+
+980
+-2
+
+-1.5
+
+-1
+
+-0.5
+
+0
+
+0.5
+
+1
+
+1.5
+
+2
+t
+
+Expérimentation sur le phénomène d’assombrissement :
+Afin de reproduire l’assombrissement centre-bord, nous avons réalisé l’expérience
+suivante : nous avons simulé (avec le logiciel Powerpoint) le transit d’un cercle noir devant
+une photo du Soleil car c’est la seule étoile où le phénomène est visible.
+
+Institut Fenelon
+
+Olympiades de physique 2009
+
+Page 26 sur 53
+
+Capter un clin d’œil cosmique
+
+Nous avons traité le film obtenu toujours de la même manière et voici la courbe de
+transit :
+Luminosité
+10000
+
+9950
+
+9900
+
+9850
+
+9800
+
+9750
+
+9700
+
+9650
+
+20
+
+40
+
+60
+
+80
+
+100
+
+120
+
+140
+
+160
+Temps
+
+En comparant le modèle théorique précédent et la courbe expérimentale, nous constatons
+une très nette différence. Ceci est sûrement dû à la formule modélisant l’assombrissement que
+nous avons employée pour la courbe théorique.
+
+b) Le paramètre d’impact
+
+Institut Fenelon
+
+Olympiades de physique 2009
+
+Page 27 sur 53
+
+Capter un clin d’œil cosmique
+Lorsque qu’une exoplanète transite devant son étoile, elle ne passe pas forcément au
+milieu par rapport à la ligne de visée (c’est même rare). Le rapport du centre de l’exoplanète
+sur le centre de l’étoile s’appelle le paramètre d’impact (b), donné par la relation Rp=bRe avec
+b compris entre 0 et 1. Cela s’explique par le fait que le système observé peut être incliné par
+rapport à l’observateur. Ce phénomène s’appelle l’inclinaison, notée i.
+Il modifie plusieurs paramètres : le temps de transit, la profondeur de la courbe de lumière, et
+l’inclinaison de la pente de la courbe. Deux de ces paramètres n’ont réellement d’influence
+
+que sur les modèles théoriques. En effet, la pente de
+la courbe n’est sérieusement affectée par l’exoplanète
+que si celle-ci est particulièrement grosse par rapport
+à son étoile. Ce paramètre concerne donc plus les
+transits de binaires à éclipse que ceux des
+exoplanètes. De même, la profondeur n’est affectée
+que si la planète ne passe pas entièrement devant son
+étoile. Cela se produit si le trajet de l’exoplanète
+passe à la limite supérieure ou inférieure du disque
+stellaire. Ce phénomène, outre sa rareté, ne produit
+pas une variation de lumière suffisante pour être
+repérée avec les moyens actuels. Et même si elle était captée, elle ne serait sans doute pas
+identifiée comme un transit exoplanétaire. Reste le temps de transit, qui est la valeur la plus
+modifiée par le paramètre d’impact. En effet, plus le paramètre d’impact est grand, plus le
+temps de transit est petit.
+
+Ci-contre, un transit au paramètre d’impact apparent avec les correspondances sur la courbe
+de lumière.
+
+Institut Fenelon
+
+Olympiades de physique 2009
+
+Page 28 sur 53
+
+Capter un clin d’œil cosmique
+Afin de vérifier l’effet de ce paramètre d’impact, nous avons effectué des mesures avec la
+maquette en modifiant la hauteur de notre capteur, et par conséquent l’inclinaison du système.
+
+Nous avons effectué trois mesures, en changeant uniquement l’inclinaison. Nous avons pris
+les inclinaisons suivantes : 90° (en bleu), 82° (en rouge), 86° (en olive).
+mb90 (103 ) mb82 (103 ) mb86 (103 )
+10.2
+
+10
+
+9.8
+
+9.6
+
+9.4
+
+9.2
+
+9
+
+8.8
+20
+
+40
+
+60
+
+80
+
+100
+tb90
+
+Cette courbe s’est avérée en accord avec la théorie : la durée du transit est plus courte
+pour la courbe rouge que pour la courbe bleue. Si la courbe olive est de même longueur que la
+courbe bleue, c’est en raison de la grosse taille de la planète, qui a caché le centre de l’étoile
+lors de son transit.
+
+Institut Fenelon
+
+Olympiades de physique 2009
+
+Page 29 sur 53
+
+Capter un clin d’œil cosmique
+Suite à plusieurs mesures, nous avons constaté qu’à partir d’une inclinaison
+inférieure à 80°, la durée du transit s’allongeait, au lieu de diminuer, comme le voudrait notre
+loi. Pour expliquer ce phénomène, nous avons émis l’hypothèse qu’à partir d’une trop grande
+inclinaison, la trajectoire visible de l’exoplanète ne nous apparaissait non plus rectiligne, mais
+courbe, du moins sur notre maquette où la planète se trouve bien trop près de son étoile. En
+conséquence, notre modèle se révèle limité par l’inclinaison. Cependant, dans la réalité, on
+détecte très rarement des exoplanètes dont l’inclinaison du système est inférieure à 80°.
+
+Institut Fenelon
+
+Olympiades de physique 2009
+
+Page 30 sur 53
+
+Capter un clin d’œil cosmique
+
+III) Mesures d’un transit
+N’ayant pas réussi à obtenir nos propres images d’un transit exoplanétaire, nous avons
+demandé à Monsieur Bruce Gary des images d’un transit, afin de faire les traitements et
+prétraitements. En voici le résultat :
+luminosité
+
+10200
+
+10100
+
+10000
+
+9900
+
+9800
+
+9700
+
+9600
+
+9500
+10
+
+20
+
+30
+
+40
+
+50
+
+60
+
+70
+temps
+
+Bien qu’elle ne soit pas très probante, cette courbe présente une variation de
+luminosité de l’ordre de 10%. Comme cette courbe n’est pas vraiment exploitable, nous avons
+utilisé la courbe de HD 209458 pour calculer les données utiles.
+
+Exploitation de la courbe de HD 209458
+En relevant différentes caractéristiques de la courbe de lumière de HD 209458 obtenue
+grâce à Monsieur Bordé, nous pouvons déterminer certains paramètres de l’étoile HD 209458
+et de sa planète HD 209458b.
+Pour ce faire, la première donnée extraite de la courbe est ∆F où ∆F est la différence
+F
+entre la luminosité maximale et la luminosité minimale et F est la luminosité maximale.
+
+Institut Fenelon
+
+Olympiades de physique 2009
+
+Page 31 sur 53
+
+Capter un clin d’œil cosmique
+
+Ici pour HD 209458 on obtient ∆F =0.0164
+F
+Ensuite, nous relevons la durée totale du transit Tt et nous obtenons : Tt = 0.1348 jours
+
+Puis on calcule la durée de la partie plate du transit Tf. Cette durée est plus difficile à
+obtenir car la courbe est souvent arrondie à son minimum à cause de l’assombrissement
+centre-bord. C’est d’ailleurs le cas ici.
+Cela donne Tf = 0.0114 jours
+
+Institut Fenelon
+
+Olympiades de physique 2009
+
+Page 32 sur 53
+
+Capter un clin d’œil cosmique
+
+Enfin, la dernière donnée utile est la période P, qui vient directement du temps
+séparant deux transits consécutifs. Pour ce système P = 3.525 jours. Cette dernière durée
+provient d’Internet car les transits ne sont jamais consécutifs sur une seule courbe. Il est en
+effet difficile de faire des mesures pendant trois jours ou plus (parfois il s’agit de bien plus) à
+cause de l’alternance des jours et des nuits.
+Avec ces quatre données nous calculons, en utilisant cette feuille de calcul, tous les
+paramètres de l’étoile.
+
+Certains paramètres, comme le demi grand-axe, sont très proches des résultats obtenus par
+les scientifiques : 0.04707 UA contre 0.04569 pour nous. Cela donne une erreur relative de :
+Er = 0.04707−0.04569 =0.2% . Par contre, le rayon de la planète est de 1.27 Rj (Rayons
+0.4707
+Joviens) alors que le résultat officiel est de 1.32 Rj. Cette fois l’erreur relative est de 3%.
+Le résultat pourrait être amélioré en utilisant un modèle pour ajuster les valeurs calculées.
+Néanmoins les résultats sont très proches de la réalité.
+
+Institut Fenelon
+
+Olympiades de physique 2009
+
+Page 33 sur 53
+
+Capter un clin d’œil cosmique
+
+Conclusion
+1) Conclusion scientifique
+Nous sommes partis de l’hypothèse que la lumière émise par l’étoile était uniforme et
+que, par conséquent, la baisse de luminosité provoquée par le transit de l’exoplanète devant
+son étoile serait nettement définie par certains facteurs que nous avons déterminés. Ces
+facteurs sont : les rayons de l’étoile et de l’exoplanète, la distance visuelle entre les centres de
+l’étoile et de l’exoplanète, autrement dit la position de l’exoplanète par rapport à l’étoile en
+fonction de l’avancement du transit, et enfin la distance entre les intersections des deux
+cercles, c'est-à-dire la position de l’exoplanète plus ou moins sur l’étoile lors du transit. En
+partant de cette hypothèse, nous avons développé un modèle mathématique donnant la courbe
+de lumière théoriquement obtenue en fonction des facteurs précédemment cités.
+Pour appuyer et confirmer notre modèle mathématique, et donc notre hypothèse, nous
+avons commencé par reproduire un transit en laboratoire. Pour vérifier notre modèle, nous
+avons fait varier les tailles des objets transitant, ainsi que la luminosité, puis l’inclinaison. Si
+la variation de luminosité n’a pas donné de résultats satisfaisants en raison de la saturation des
+capteurs, la variation de la taille des pseudo-exoplanètes et l’inclinaison nous ont offert
+d’excellents résultats, avec très peu de marge d’erreur par rapport à notre modèle théorique.
+Cependant, notre maquette ne prend pas en compte un phénomène naturel qui influe sur la
+courbe de lumière : l’assombrissement centre-bord. Pour remédier à cela nous avons tenté
+d’intégrer à notre modèle cet assombrissement, avec un succès mitigé. Nous avons finalement
+cherché à confirmer notre modèle, cette fois en grandeur réelle.
+La prise de mesure en grandeur réelle s’est révélée bien plus compliquée que prévu.
+Même munis des dates et localisations des transits les plus simples à observer, le moindre
+détail pouvait gâcher une nuit d’observations. C’est ainsi que nous échouâmes à prendre les
+mesures depuis l’observatoire amateur de notre professeur, Monsieur Martin. Par la suite,
+nous avons tenté de prendre ces mesures depuis l’observatoire Thémis, toujours sans succès.
+Les échecs se répétant, nous nous sommes résolus à étudier une courbe de lumière créée par
+d’autres, afin de vérifier notre modèle. Nous avons donc étudié la courbe de lumière de
+l’exoplanète HD209458b. Cette étude a confirmé la justesse et les limites de notre modèle.
+
+2) Bilan de notre travail
+A l’issue de ce projet, nous avons pu nous essayer au travail d’un ingénieur. Nous
+pouvons le résumer en quelques mots : idées, expérimentations, problèmes, résolutions.
+En ce qui concerne les idées, nous en avons toujours à propos des divers phénomènes
+qui nous entourent, il nous suffit alors de sélectionner celle qui nous passionne le plus. Dans
+notre cas, nous nous sommes attachés à comprendre comment être sûrs de la présence d’une
+planète extrasolaire.
+Nous pensions au départ que l’expérimentation était la partie la plus scientifique d’un
+projet de recherche. Mais nous avons pris conscience que ce sont, en réalité, les problèmes et
+leurs résolutions qui font l’objet d’une véritable recherche expérimentale. C’est cette partie là
+qui demande le maximum d’analyse, de réflexion, et de remise en question.
+En ce qui nous concerne, l’obtention de la courbe modélisée sur Regressi a fait l’objet
+d’un long cheminement. En effet, l’idée de simuler le transit date du début de notre
+
+Institut Fenelon
+
+Olympiades de physique 2009
+
+Page 34 sur 53
+
+Capter un clin d’œil cosmique
+participation aux Olympiades de Physique. Il nous a fallu de long mois pour mettre au point
+ce modèle.
+Quand à l’acquisition des photos d’un transit, nous avons essayé d’obtenir une courbe
+de transit avec Mr. Martin et avec l’observatoire THEMIS : sans résultat. Nous avons
+également pensé utiliser un observatoire situé en Australie, libre d’accès aux amateurs via
+internet. Mais le temps nous manquait, et c’est pourquoi nous avons plutôt cherché auprès
+d’amateurs et de clubs d’astronomie.
+Ce projet était idéal pour résoudre nos questions « existentielles » telles que « que
+faire après le bac ? ». Nous avons réalisé ce qu’était qu’être un scientifique et nul doute que
+c’est ce que nous voulons devenir.
+
+Institut Fenelon
+
+Olympiades de physique 2009
+
+Page 35 sur 53
+
+Capter un clin d’œil cosmique
+
+Sources
+
+Sites internet :
+http://media4.obspm.fr/exoplanetes
+http://wikipédia.com
+http://astrosurf.com
+http://alcyone.astronomie.free.fr/pretraitement.php
+http://www.cnes.fr/
+http://207.111.201.70/transitsearch/dynamiccontent/candidates.html
+http://www.cite-sciences.fr
+http://www.astronomes.com
+http://www.as.wsp.krakow.pl
+http://cdsweb.u-strasbg.fr/afoev/
+http://www.cascaeducation.ca
+http://csep10.phys.utk.edu
+http://brucegary.net
+
+Livres et magazines :
+Science et Vie Hors-série № 239.
+Science et Vie JUNIOR, № 206.
+Mr. Petit, Les étoiles variables, Masson, 1987.
+S. Seager et G. Mallén-Ornelas, On the Unique Solution of Planet and Star Parameters from
+an Extrasolar Planet Transit Light Curve, 2003
+J. Cavoret, C. Mulet-Marquis et J. Paillet, Illustration de quelques-unes des techniques de
+détection d’exoplanètes
+Bruce L. Gary, Exoplanete Observing for Amateurs, 2007
+
+Logiciels utilisés :
+Regressi (modélisation de courbe)
+Iris (traitement des images)
+Word (traitement de texte)
+VirtualDubMod (conversion des films en images)
+
+Institut Fenelon
+
+Olympiades de physique 2009
+
+Page 36 sur 53
+
+Capter un clin d’œil cosmique
+
+Annexes
+
+Institut Fenelon
+
+Olympiades de physique 2009
+
+Page 37 sur 53
+
+Capter un clin d’œil cosmique
+
+SOMMAIRE DES ANNEXES
+
+I)
+
+Corot
+
+II)
+
+Modélisation d’un transit : calculs
+
+III) Détermination la durée d’un transit planétaire
+
+IV) Un modèle analogique : les binaires à éclipses
+V)
+
+Mesure de l’assombrissement du Soleil
+
+Institut Fenelon
+
+Olympiades de physique 2009
+
+Page 38 sur 53
+
+Capter un clin d’œil cosmique
+
+I)Corot
+Origines et missions de Corot :
+Le projet Corot fut initié en 1993 par le Séminaire de prospective scientifique de
+Saint-Malo, c'est-à-dire avant la découverte de la première exoplanète 6 octobre 1995 par
+Michel Mayor et Didier Queloz (de l'observatoire de Genève). Le projet fut financé par la
+France, l’Autriche, l’Espagne, le Brésil, l’Allemagne, la Belgique et l’ESA (L’Agence
+Spatiale Européenne). . Il tire son nom de COnvection, ROtation et Transit planétaire, soit
+COROT. Le montant global du programme s'élève à 35 millions d'euros. Alcatel Space et le
+CNES ont signé un contrat de 15 millions d’euros correspondant à la troisième et dernière
+tranche du programme Corot. Ce programme comprend le développement et la réalisation du
+satellite, véritable observatoire spatial, destiné à l’étude des étoiles et à la recherche de
+nouvelles planètes. Le satellite pèse 630 kilos. La mission complète comprendra au moins 5
+périodes d’observation sur une durée totale de 2,5 années.
+La mission d’origine de Corot ne consiste donc pas à la recherche des exoplanète, et
+encore moins grâce à la méthode des transits, qui ne fut testé avec succès qu’en 1999. En
+effet, Corot devait servir à étudier le comportement vibratoire des étoiles afin de déduire
+leur structure interne, leur âge et leur composition. Il s’agit d’un enjeu fondamental : c’est
+dans les étoiles, à différents stades de leur évolution, que se forment les éléments chimiques
+de l’Univers. Cependant, suite à l’essor croissant de la recherche des exoplanètes et au
+développement de la méthode des transits, il est apparu que Corot possédait tout les appareils
+nécessaires pour effectuer des mesures de photométrie. Il s’avéra donc que Corot était le
+premier satellite apte à rechercher des exoplanètes par la méthode des transits, et cela hors de
+l’atmosphère terrestre, principale gène à l’utilisation de cette méthode. Il y fut donc rattaché à
+l’initiative du CNES. Ce fut désormais sa deuxième mission, rechercher des exoplanète par la
+méthode des transits. Pour étudier le ciel, Corot procède par tranche de six mois. Il fixe la
+moitié du ciel pendant six mois, puis, lorsque cette zone est cachée par le Soleil, il fixe l’autre
+moitié du ciel durant les six autre mois de l’année. Cependant, il lui est nécessaire de se
+focaliser sur des zones du ciel. Durant sa première année en orbite, Corot a effectué quatre
+campagnes d’observations. Il a d’abord orienté ses instruments vers la constellation de la
+Licorne, la scrutant en continu durant 60 jours. Puis il s’est tourné vers deux zones de la
+constellation du Serpent, durant 26 jours pour l’une et 150 jours pour l’autre, ce qui constitue
+un record absolu et représente une performance impossible à réaliser sur Terre, où les
+observations sont interrompues par le jour.
+A chaque série d’observation, Corot obtient près de 12000 courbes de lumières, ces
+courbes étant produite sur des durées atteignant les 150 jours, et de manière pratiquement
+ininterrompue. Corot est capable de mesurer ces variations au millionième près. En d’autres
+termes, si Corot observait le million d’ampoule qui brille à Noël sur les Champs-Elysées, il
+pourrait s’apercevoir que l’une d’entre elles clignote. Cette précision tout à fait inédite permet
+à Corot de nous révéler que les étoiles ont un comportement d’une très grande diversité et
+nous conduira très certainement à une nouvelle classification des étoiles.
+Corot a été lancé avec succès le 27 décembre 2006 à 15 h 23 heure de Paris depuis
+Baïkonour au Kazakhstan, dans la fusée Soyouz 2-1-b. Cinquante minutes plus tard, le dernier
+étage plaçait très précisément Corot sur l’orbite prévue, à 900 km d’altitude. Il s’agissait du
+premier vol de la version de Soyouz qui fait partie du programme Soyouz au Centre Spatial
+Guyanais (la 2-1B). La première image, réalisée dans la nuit du 17 au 18 janvier et traitée au
+
+Institut Fenelon
+
+Olympiades de physique 2009
+
+Page 39 sur 53
+
+Capter un clin d’œil cosmique
+Centre de mission Corot du CNES, a provoqué l’enthousiasme des scientifiques. Depuis, le
+satellite ne cesse de démontrer ses performances exceptionnelles, notamment des
+performances de pointage exceptionnelles. Corot a atteint une précision de 0,25 seconde
+d’arc, soit deux fois plus que l’objectif initial du CNES. Pour se faire une idée de ce que
+représente cette performance, il faut savoir que 0,25 secondes d’arc, c’est à peu près le
+diamètre apparent d’un cheveu vu à 90 m de distance !
+Les résultats de Corot :
+Mai 2008, 5 planètes extrasolaires, dont 4 géantes gazeuses et un objet céleste inconnu
+était découvertes par Corot :
+L’annonce de la première découverte d’une exoplanète par Corot eu lieu le 3 mai
+2007. Elle s’appelle CoRoT-Exo-1b, mesure entre 200 et 250 000 km de diamètre, soit 1,49
+fois celui de Jupiter, et tourne autour de son étoile en 1,5 jour seulement (exactement
+1,5089557 jours).Son demi-grand axe est de 0,0254 UA. Cette nouvelle venue est ce que les
+astronomes appellent un « Jupiter chaud », une planète gazeuse surchauffée du fait de la
+proximité de son étoile. Dotée d’une masse équivalant à 1,3 fois celle de Jupiter, elle tourne
+autour d’une étoile semblable au Soleil, mais située à plus de 1 500 d’années-lumière de nous.
+Son étoile a un rayon 1,11 supérieur à celui du Soleil, mais sa masse est inférieure à notre
+Soleil à raison de 0,95 fois sa masse.
+L’annonce de la découverte de CoRoT-exo-2b a eu lieu à 1h du matin, le 20 décembre
+2007, presque un an après le lancement du satellite. Au cours de la troisième série
+d’observation, deux semaines ont suffit à repérer son transit devant son étoile. Sa découverte a
+été confirmée par le spectrographe Sophie de l’observatoire de Haute-Provence (France) et
+l’instrument Harps équipant le télescope de 3,60 m de l’Eso à La Silla (Chili). Elle se situe à
+800 années-lumière dans la constellation du Serpent. D’une densité de 1,5 gramme/cm³, elle
+est 1,465 fois plus volumineuse et 3,31 fois plus massive que Jupiter. Son demi-grand axe fait
+0,0281 UA. La courbe de lumière enregistrée en continu par Corot durant 140 jours montre 78
+transits, ce qui démontre une durée de révolution de 1,74 jour à environ 6 diamètres stellaires
+de son étoile (distant de l’étoile de 6 fois son diamètre). Il s’agit également d’un « Jupiter
+chaud ». L’étoile de CoRoT-exo-2b est comparable au Soleil. Elle est un légèrement plus
+petite et plus froide, mais elle est bien plus active que notre Soleil. Sa masse fait 0,97 fois
+celle du Soleil et son rayon 0,902 fois celui du Soleil. Sa température de surface fait 5625 K.
+Le cas de CoRoT-exo-3b étant un peu à part, nous le verront plus tard et passons de
+suite à CoRoT-exo-4b. Bien qu’il semble que sa première observation date du 6 février 2007,
+sa publication officielle s’est faite en 2008. C'est une planète géante gazeuse semblable à
+Jupiter : 0,72 fois moins massive et 1,17 fois plus grosse qu'elle. Sa période de rotation autour
+de son étoile est de 9,2 jours (exactement 9,20205 jours), ce qui en fait la seconde plus longue
+période de rotation connue pour une exoplanète découverte par transit. Son demi-grand axe
+est de 0,09 UA. A la surprise des astrophysiciens, il semble que CoRoT-exo-4b et son étoile
+hôte sont en rotation synchrone. Comme la Lune autour de la Terre, CoRoT-exo-4b présente
+donc toujours la même face à son étoile. Or, la masse de l’étoile étant de 1,13 fois celle du
+Soleil et celle de CoRoT-exo-4b de 0,72 celle de Jupiter, on comprend mal comment, vu la
+distance séparant les deux corps, elle aurait pu subir un effet de résonance gravitationnelle
+conduisant à cette synchronisation. Un doute subsiste toutefois sur ce « couplage » car les
+observations de Corot n'ont pas permis de connaître très précisément la période de rotation de
+l'étoile, évaluée entre 8,5 et 10 jours. La température de l’étoile à sa surface fait 6190 K.
+
+Institut Fenelon
+
+Olympiades de physique 2009
+
+Page 40 sur 53
+
+Capter un clin d’œil cosmique
+
+CoRoT-exo-5b, un autre « Jupiter chaud » a été annoncé en même temps que CoRoTexo-4b et CoRoT-exo-3b. Sa masse est égale à 0,86 fois celle de Jupiter et son rayon 1,2 fois
+celui de Jupiter. Il fait le tour de son étoile en 4 jours. Son étoile, de taille à peu près égale à
+celle de du Soleil à une température de surface de 6060 K. On a encore peu d’informations sur
+cette exoplanète.
+Enfin, CoRoT-exo-3b est une exquise énigme pour les scientifiques. Baptisé
+provisoirement CoRoT-exo-3b, cet objet présente des caractéristiques inédites, qui fait que
+l’on se demande s’il s’agit réellement du exoplanète (ce qui remet en cause le « exo » de son
+nom), et qui fait dire à certains scientifique qu’il s’agit du chainon manquant entre les
+planètes et étoiles. Sa taille est légèrement plus faible que celle de Jupiter (0,97 fois son
+rayon), mais d’après des observations complémentaires réalisées au sol, on estime que sa
+masse est 20 fois supérieure (21,6 fois supérieure, exactement). Ces données le situent donc
+entre une planète et une naine brune compacte, dont la densité serait de 2 fois celle du platine,
+soit 42,9 g.cm-3. L’étoile autour de laquelle gravite cet objet fait quand à elle 1, 27 fois la
+masse du Soleil et 1,305 fois son rayon, avec une température de surface de 6630 K.
+C’est presque tout pour les exoplanètes et Corot. Cependant, l’équipe Corot à fait part
+d’une Autre découverte importante : celle d’un signal équivalent au 5/10000ème de celui
+d’une étoile, qui suggère l’existence d’une toute petite planète. La précision de mesure de
+Corot est telle qu’elle rend possible la découverte de planètes telluriques nettement plus
+petites que les géantes gazeuses. Le rayon de cette planète serait de 1,7 fois celui de la Terre.
+Si ce signal était confirmé par les analyses au sol, il pourrait s’agir de la plus petite exoplanète
+découverte à ce jour.
+Cependant, le rôle de Corot ne se limite pas à la recherche d’exoplanète, mais s’étant aussi
+à la sismologie solaire et stellaire. Le satellite à fait de nombreuses découvertes, soulevant
+d’autres problèmes pour la communauté scientifique. Voici quelques exemples de résultats
+soulevant de nouvelles interrogations :
+Corot a découvert des oscillations analogues à celles déjà observées dans le Soleil, dans
+toutes les étoiles semblables au Soleil ; ce qui montre la parenté entre le Soleil et ces
+étoiles. Les niveaux des amplitudes de ces oscillations interpellent la communauté sur la
+théorie actuelle des processus de transport de l'énergie.
+Corot a mesuré les oscillations de dizaines d'étoiles géantes ; il apporte ainsi une
+confirmation éclatante à de premiers résultats obtenus par des observations au sol et ouvre
+un nouveau domaine d'investigation. Pour les étoiles les plus brillantes, Corot a été
+capable de détecter des fréquences très basses qui vont permettre de tester la structure de
+leurs couches internes.
+Dans de nombreuses étoiles, comme dans l'étoile hôte de CoRoT-exo-4b, Corot est
+capable de mesurer la période de rotation, aidant ainsi à franchir une nouvelle étape dans
+la connaissance sur leur évolution.
+A ce jour, Corot a observé plus de 50 000 étoiles. Des outils automatiques sont en cours
+d'élaboration pour pouvoir analyser un si grand nombre de courbes de lumière.
+Au moins 50% de ces étoiles ont des variations au cours du temps, une caractéristique que
+Corot a été capable de discerner, alors que jusque là seules 10 % des étoiles étaient
+détectées comme variables. Ces variations sont en cours de classification à l'aide d'un
+système d'apprentissage informatique.
+
+Institut Fenelon
+
+Olympiades de physique 2009
+
+Page 41 sur 53
+
+Capter un clin d’œil cosmique
+Bien sur, ces résultats n’ont pas été obtenu sans avoir du passer par certains problèmes,
+qui ont entravé la mission.
+
+Les problèmes rencontrés par Corot :
+Corot a connu une évolution assez calme. Au terme d’une campagne de lancement
+débutée le 15 novembre 2006 et que Thien Lam Trong, chef de projet au CNES, qualifie de «
+tranquille », Corot tient une forme olympique. Il a alors subis une batterie de tests qui n’ont
+révélé aucune anomalie. Trois semaines avant le décollage, il a fallu vérifier une suspicion de
+fuite sur le circuit de carburant de l’étage Fregat, mais celle-ci s’est révélée être une fausse
+alerte, liée à un dysfonctionnement d’un système au sol.
+Suite à sous tension intervenue le 2 janvier, Corot a entamé le programme de
+calibration de ses capteurs de lumière. L’objectif de cette procédure, qui s’est déroulée
+paradoxalement dans l’obscurité, est de vérifier pixel par pixel les matrices de détecteurs. 3
+diodes lumineuses de couleurs différentes émettent des séries d’éclairs afin de mesurer la
+réponse de chacun des pixels en fonction de la nature et de la quantité de lumière émise.
+Chaque pixel a en effet son rendement propre. En effet, pour une quantité de lumière donnée,
+un pixel ne va pas produire exactement la même quantité de courant que ses voisins. Il faut
+donc tenir compte de chacune de ces « individualités » pour savoir quelle correction il faudra
+appliquer aux données. Il s’agit également de déceler d’éventuels pixels au comportement
+anormal, présentant un rendement trop faible ou au contraire trop élevé. Le lundi 8 janvier au
+soir, les ingénieurs du centre de contrôle ont fait pivoter le satellite de 6° autour de son axe de
+roulis afin de pouvoir procéder à un essai des 4 tuyères de propulsion, qui ont parfaitement
+fonctionné. En bref, Corot n’a présenté aucun problème technique.
+Elle a cependant connu un problème de taille, le Soleil. 8 fois par jour, le satellite
+Corot plonge au beau milieu d’un nuage de protons émis par le Soleil au cours de ses
+éruptions régulières, et qui restent piégés dans le champ magnétique terrestre. Du fait d’une
+particularité du champ magnétique, ce nuage de particules s’approche le plus de la Terre dans
+une région située au large du Brésil, appelée « anomalie de l’Atlantique Sud ». Lorsque Corot
+traverse cette région de l’espace, ses capteurs CCD peuvent être abusés par les impacts des
+protons solaires, particules électriquement chargées qui induisent un signal parasite.
+Concrètement, les logiciels de traitement du signal voient arriver des électrons qui ne
+correspondent pas à l’impact d’un grain de lumière en provenance d’une lointaine étoile, mais
+d’un morceau d’atome issu de notre Soleil. Le canal de Corot dédié à la recherche
+d’exoplanètes est particulièrement sensible à ces fausses détections, car les mesures sur
+chaque cible se font pendant 32 secondes, contre 1 seconde seulement pour le canal
+d’astérosismologie. Pour résoudre ce problème, les équipes du CNES ont dût cartographier
+l’environnement radiatif terrestre dans lequel Corot doit évoluer pendant toute la durée de sa
+mission. Ainsi, grâce à ce travail de cartographie, lorsque Corot traversera l’anomalie de
+l’Atlantique Sud en phase d’exploitation, le logiciel de traitement du signal tiendra compte de
+ces perturbations périodiques. Et au-delà d’un certain seuil, il interrompra tout simplement la
+mesure.
+
+Institut Fenelon
+
+Olympiades de physique 2009
+
+Page 42 sur 53
+
+Capter un clin d’œil cosmique
+
+II) Modélisation d’un transit : calculs
+Pour simuler le transit d’une exoplanète, nous sommes parti de l’approximation que la
+luminosité est proportionnelle à la surface.
+Symboles :
+R est le rayon de l’étoile.
+R’ est le rayon de la planète.
+D est la distance entre les centres A et B des deux cercles symbolisant l’étoile et la planète.
+C’est une valeur variable.
+h est la hauteur entre Y1 et Y2, soit sur le dessin le segment qui rejoint les intersections des
+deux cercles. Elle varie en fonction de D.
+S est la surface de l’étoile caché par la planète. Elle varie en fonction de D.
+
+La planète arrive sur l’étoile et la cache partiellement. Au début, cela se traduit par cette
+formule :
+
+Formule 1 :
+
+D’abord, on calcule l’aire S1 en calculant l’arc de cercle de centre A puis en lui soustrayant
+l’aire du triangle AY1Y2 :
+αR 2
+Aire de l’arc de cercle en radian : Aarc _ 1 =
+2
+On peut déduire α grâce à la trigonométrie :
+
+Institut Fenelon
+
+Olympiades de physique 2009
+
+Page 43 sur 53
+
+Capter un clin d’œil cosmique
+h
+h
+α 
+sin   = 2 =
+ 2  R 2R
+ h 
+
+ 2R 
+
+α = 2 arcsin
+
+ h  2
+2 arcsin
+R
+2R 
+
+Ainsi, on obtient : Aarc _ 1 =
+2
+Ensuite, il faut calculer AO, grâce à Pythagore :
+
+R
+
+2
+
+= AO
+
+AO =
+
+R
+
+2
+
+2
+
+ h 
++  
+ 2 
+
+2
+
+h2
+−
+4
+
+Une fois que l’on a AO, on peut calculer l’aire du triangle AY1Y2 :
+
+Atriangle _ 1 =
+
+h × AO
+=
+2
+
+h R2 −
+
+h2
+4
+
+2
+
+On peut maintenant calculer A1 :
+
+h2
+ h  2
+ h  2
+h2
+2
+2 arcsin 
+2 arcsin 
+R
+R − h R −
+h R2 −
+4
+4 =
+ 2R  −
+ 2R 
+A1 = Aarc _ 1 − Atriangle _ 1 =
+2
+2
+2
+On fait exactement pareil avec l’autre sphère pour calculer S2 :
+Ensuite, on calcule l’aire S2 en calculant l’arc de cercle de centre B puis en lui soustrayant
+l’aire du triangle BY1Y2 :
+α ' R' 2
+Aire de l’arc de cercle en radian : Aarc _ 2 =
+2
+On peut déduire α grâce à la trigonométrie :
+h
+h
+α'
+sin   = 2 =
+ 2  R' 2 R'
+ h 
+
+ 2 R' 
+
+α ' = 2 arcsin
+
+ h  2
+2 arcsin 
+ R'
+2 R' 
+
+Ainsi, on obtient : Aarc _ 2 =
+2
+Ensuite, il faut calculer BO, grâce à Pythagore :
+
+Institut Fenelon
+
+Olympiades de physique 2009
+
+Page 44 sur 53
+
+Capter un clin d’œil cosmique
+
+h
+R' = BO +  
+2
+2
+
+2
+
+2
+
+h2
+BO = R' −
+4
+2
+
+Une fois que l’on a BO, on peut calculer l’aire du triangle BY1Y2 :
+
+h2
+h R' −
+h × BO
+4
+Atriangle _ 2 =
+=
+2
+2
+2
+
+On peut maintenant calculer S2 :
+h2
+ h  2
+ h  2
+h2
+2
+2
+R
+R
+h
+R
+2 arcsin 
+'
+2
+arcsin
+'
+−
+'
+−
+
+
+
+h R' −
+2 R' 
+2 R' 
+4
+4
+
+
+S 2 = Aarc _ 2 − Atriangle _ 2 =
+−
+=
+2
+2
+2
+La surface cachée est égale à la somme des deux aires soit :
+
+h2
+h2
+ h  2
+ h  2
+2
+2
+2 arcsin 
+2
+arcsin
+'
+'
+R
+−
+h
+R
+−
++
+R
+−
+h
+R
+−
+
+
+
+2R 
+4
+2 R' 
+4
+
+
+S = A1 + A2 =
+2
+
+h2
+h 2 
+ h  2
+ h  2  
+2
+2 arcsin 
+− R2 −
+ R + arcsin 
+ R'  − h R' −
+4
+4 
+ 2R 
+ 2 R'   
+
+S=
+2
+Cependant, au moment où le centre de la planète arrive sur la droite (Y1Y2), la formule
+change. Cela correspond au moment où h = 2R' . En utilisant Pythagore, on peut déterminer
+D:
+
+h
+R = D + 
+2
+2
+2
+R = D + R' 2
+2
+
+2
+
+2
+
+D = R 2 − R' 2
+Donc, quand D = R 2 − R ' 2 , on change de formule.
+
+Formule 2 :
+Pour calculer la surface cachée par la planète, on découpe le calcul en trois parties : les aires
+S1, S2 et S3 représentées sur la figure.
+
+Institut Fenelon
+
+Olympiades de physique 2009
+
+Page 45 sur 53
+
+Capter un clin d’œil cosmique
+
+Pour commencer, il faut déterminer la distance entre le centre A de l’étoile et le milieu O du
+segment [Y1Y2]. Nous nommerons cette distance B. Pour la calculer, nous utiliserons
+Pythagore :
+
+h
+R = B + 
+2
+2
+
+2
+
+2
+
+h2
+B= R −
+4
+2
+
+Grace à B, on peut calculer l’aire S1, de la même manière que pour la formule 1 :
+Aire de l’arc de cercle en radian : Aarc _ 1 =
+
+αR 2
+2
+
+On peut déduire α grâce à la trigonométrie :
+h
+α
+h
+ 
+sin   = 2 =
+ 2  R 2R
+ h 
+
+ 2R 
+
+α = 2 arcsin
+
+ h  2
+2 arcsin
+R
+2R 
+
+Ainsi, on obtient : Aarc _ 1 =
+2
+
+Institut Fenelon
+
+Olympiades de physique 2009
+
+Page 46 sur 53
+
+Capter un clin d’œil cosmique
+Ayant mesuré B, on peut calculer l’aire du triangle AY1Y2 :
+
+h2
+h R −
+h× B
+4
+Atriangle _ 1 =
+=
+2
+2
+2
+
+On peut maintenant calculer S1 :
+h2
+ h  2
+ h  2
+h2
+2
+2
+2 arcsin 
+2 arcsin 
+R
+R − h R −
+h R −
+2R 
+2R 
+4
+4
+
+
+A1 = Aarc _ 1 − Atriangle _ 1 =
+−
+=
+2
+2
+2
+Pour calculer S2, il faut d’abord déterminer β. Pour cela on peut utiliser la trigonométrie :
+
+BO = B − D =
+h
+cos (β ) = 2 =
+BO
+
+
+
+β = ar cos 
+ 
+ 2 
+
+ 
+
+R2 −
+
+h2
+− D
+4
+h
+
+
+2
+
+
+
+R2 −
+
+
+h2
+− D
+
+4
+
+
+
+
+
+h
+
+2
+
+
+h
+− D
+R2 −
+
+4
+
+
+Grace au théorème des angles alternes-internes, on peut reporter la valeur de l’angle β sur la
+droite parallèle à (Y1Y2). Connaissant β, on peut calculer l’aire S2, qui n’est rien d’autre qu’un
+grand arc de cercle, d’angle (en radian) π + 2β. Cela donne :
+
+
+
+
+
+
+
+
+
+
+h
+ π + 2ar cos
+  R' 2
+2
+
+ 
+ 
+h
+2
+
+− D 
+ 2 R −
+ 
+ 
+4
+ 
+(
+π + 2β )R' 2 
+ 
+S2 =
+=
+2
+2
+Enfin, il ne reste plus que le petit triangle BY1Y2 qui correspond à l’aire S3. On applique le
+calcul d’aire dans un triangle :
+
+
+h2
+h R 2 −
+− D
+
+
+4
+h( B − D )
+
+
+S3 =
+=
+2
+2
+Maintenant, il n’y a plus qu’à assembler le puzzle :
+
+Institut Fenelon
+
+Olympiades de physique 2009
+
+Page 47 sur 53
+
+Capter un clin d’œil cosmique
+
+
+
+
+
+
+
+
+
+
+h
+π + 2ar cos
+ R' 2
+2
+
+
+
+ 
+ 2 h2
+
+h
+h2 
+ R −
+
+ h  2
+2 R 2 −
+− D 
+
+2
+h
+D
+−
+2 arcsin R − h R −
+ 
+ 
+
+
+
+4
+4
+ 
+4 
+ 
+ 2R 
+
+S = S1 + S 2 + S3 =
++
++ 
+2
+2
+2
+
+
+
+
+
+
+
+
+
+2
+
+
+h2 
+h
+ h  2
+2
+
+ R' 2 +h R 2 − h − D 
+2 arcsin R − h R −
++ π + 2ar cos
+
+
+4 
+4
+ 
+ 
+ 2R 
+h2
+
+
+
+− D 
+ 2 R 2 −
+
+
+
+
+
+4
+  
+ 
+
+S=
+2
+
+
+
+
+
+
+
+
+
+h
+ h  2 
+ R' 2 −hD
+2 arcsin R + π + 2ar cos
+2
+
+2
+R
+
+
+ 
+ 
+h
+
+− D 
+ 2 R 2 −
+ 
+ 
+
+4
+ 
+ 
+
+S=
+2
+N’ayez pas peur, ce n’est pas compliqué, malgré les apparences.
+Par ce calcul on obtient la surface cachée par l’exoplanète à tout moment du transit, en
+fonction de R, de R’, de D et de h.
+
+III) Détermination la durée d’un transit planétaire
+Il faut déjà que a × cos(i ) ≤ (R p + Re ) , ce qui signifie que la planète pour être visible doit
+passer devant son étoile dans l’alignement avec nous. Si l’angle d’inclinaison du plan est trop
+grand, ce qui arrivera plus facilement si le demi grand axe est grand, nous ne pourrons donc
+pas observer de transit.
+Pour calculer la durée, on commence par calculer la distance parcouru :
+On a donc ici :
+
+1
+
+2
+3
+
+1 : cette droite représente le trajet de l’exoplanète
+devant son étoile, sur le télescope. Nous cherchons
+à calculer la portion de longueur d qui correspond à
+la distance entre l’origine de l’exoplanète au
+moment où elle arrive devant l’étoile, et le moment
+où elle la quitte.
+2 : correspond à la distance séparant l’origine du
+cercle lumineux et la droite symbolisant le trajet de
+l’exoplanète devant l’étoile. Elle correspond à la
+formule suivante : bR = a × cos(i ) .
+
+Institut Fenelon
+
+Olympiades de physique 2009
+
+Page 48 sur 53
+
+Capter un clin d’œil cosmique
+
+3 : correspond au rayon de l’étoile plus celui de l’exoplanète, soit R e+ R p.
+On utilise alors le théorème de Pythagore qui nous donne :
+2
+
+d 
+2
+2
+  = (Re + R p ) − (a × cos(i ))
+2
+d = 2 (Re + R p ) − (a × cos(i ))
+2
+
+2
+
+Une fois cela calculé, on cherche à replacer ce calcul dans l’espace :
+On a donc ici :
+
+θ : c’est l’angle dans lequel
+nous percevons la lumière.
+d : il s’agit de la distance
+précédemment calculée
+
+θ
+
+a
+
+a : c’est le demi grand axe, la
+distance maximale qu’il puisse
+y avoir entre l’exoplanète et le
+centre de gravité du système.
+
+d
+Le demi grand axe et le parcours de l’exoplanète se croisant à peu près perpendiculairement,
+on utilise la trigonométrie :
+
+d
+θ 
+sin   =
+2× a
+ 2 
+θ
+ d 
+= arcsin 
+
+2
+ 2a 
+ d 
+
+ 2a 
+
+θ = arcsin 
+
+On indique ensuite qu’un tour complet, soit 2π, équivaut à une période P, et que le temps
+recherché équivaut, lui, à l’angle θ. On fait donc un produit en croix, qui nous donne :
+
+Institut Fenelon
+
+Olympiades de physique 2009
+
+Page 49 sur 53
+
+Capter un clin d’œil cosmique
+ 2 (R + R )2 − (a × cos(i ))2 
+P ×θ
+P
+e
+p
+ d  P
+
+
+Ttransit =
+=
+× 2 × arcsin  =
+× 2 × arcsin 
+
+2π
+2π
+2a
+ 2a  2π
+
+
+
+
+
+(R + R ) − (a × cos(i )) 
+
+
+2P
+
+Ttransit =
+× arcsin 
+2π
+
+
+
+2
+
+e
+
+2
+
+p
+
+
+
+
+
+a
+
+On notera que si on désire connaître le temps seulement quand la planète est entièrement
+devant l’étoile, il suffit de changer Re + R p en Re − R p . Cela donne alors :
+
+2P
+
+t transit =
+× arcsin 
+2π
+
+
+
+(R − R ) − (a × cos(i )) 
+2
+
+e
+
+2
+
+p
+
+
+
+
+
+a
+
+On arrive donc au rapport :
+2
+
+2
+
+R 
+
+ a
+
+ 1 − p  − 
+cos (i )
+2
+Re 
+ t transit 
+ Re
+
+
+ = 
+2
+2
+Rp 
+
+ a
+
+ T transit 
+ − 
+ 1 +
+cos (i )
+R
+R
+e 
+ e
+
+
+
+IV) Un modèle analogique : les binaires à éclipses
+Afin de nous familiariser avec la méthode des transits, nous avons choisi de faire une
+approche avec les binaires à éclipses qui présentent presque les mêmes caractéristiques que le
+couple planète-étoile lors d’un transit.
+Principe des binaires à éclipses :
+Les binaires à éclipses sont des étoiles doubles particulières. Le principe est simple : si la
+ligne de visée de l’observateur se trouve sensiblement dans le plan orbital du couple d’étoiles,
+il se produit une éclipse au moment où l’un de ces astres passe devant l’autre. De cette
+occultation résulte une variation de luminosité. Nous allons nommer étoile secondaire l’étoile
+qui est en orbite autour de l’étoile primaire.
+
+Etoile
+secondaire
+
+Institut Fenelon
+
+Etoile
+Primaire
+
+Olympiades de physique 2009
+
+Page 50 sur 53
+
+Capter un clin d’œil cosmique
+
+Si l’étoile secondaire est éloignée de la primaire, un observateur terrestre reçoit la somme des
+rayonnements émis, donc en (1) et (3) la luminosité est la même. Au moment où l’étoile
+primaire est éclipsée il y a une diminution sensible de la luminosité : c’est le minimum
+principal (2). Lorsque la secondaire est éclipsée, il y a à nouveau diminution de l’éclat : c’est
+le minimum secondaire (4).
+
+Il existe de nombreux types de binaires. Les binaires à éclipses sont ordinairement classées en
+trois types principaux, selon la forme de leur courbe de lumière. Les appellations font
+référence au nom d'une étoile prototype :
+1.
+
+La classe EA (dont l’étoile type est Algol) est la plus répandue ; les deux étoiles
+« circulent à des distances plus ou moins grandes, leur minimum principal est le plus
+souvent bien marqué. Leur minimum secondaire est plutôt faible.
+
+Primary
+eclipse
+
+Algol de type EA
+
+Institut Fenelon
+
+Olympiades de physique 2009
+
+Page 51 sur 53
+
+Capter un clin d’œil cosmique
+2. La classe EB (dont l’étoile type est Lyr) est bien différente : les deux étoiles
+(généralement des géantes volumineuses et peu denses) sont très proches. Par suites de
+l’attraction qu’elles exercent mutuellement, elles adoptent une forme ovoïde, de ce fait
+la courbe de lumière est arrondie et leur minimum secondaire est important.
+
+Vv Ori de type EB
+
+3. La classe EW (dont l’étoile type est W UMa) est similaire à la précédente, seulement
+il s’agit d’étoiles naines, de dimensions et d’éclat presque égaux. Elles sont également
+très proches l’une de l’autre (quelques fois en contact). De ce fait elles sont déformées
+par leur attraction et leur courbe de lumière présente un minimum secondaire presque
+identique au principal.
+
+Institut Fenelon
+
+Olympiades de physique 2009
+
+Page 52 sur 53
+
+Capter un clin d’œil cosmique
+L’avantage des binaires est que leur transit a une profondeur bien plus marquée que
+pour une exoplanète classique, cela les rend plus facile à détecter avec un matériel amateur.
+
+V) Mesure de l’assombrissement du Soleil
+Pour mesurer l’assombrissement centre bord, nous nous sommes servi :
+- d’un télescope (dans la même position pour les flats)
+- d’un filtre astrosolar fixé sur la lentille du télescope
+- d’un appareil photo Canon EOS 900
+- des logiciels Iris et Maxim DL
+- d’une feuille de papier éclairée par le Soleil pour les Flat-Fields
+Avec ce matériel, une fois le filtre astrosolar placé sur la lentille, nous avons centré le
+télescope sur le Soleil, suite plusieurs problème mineurs avec le matériel (et le temps,
+malheureusement un peu nuageux par moment), ainsi qu’un problème de focal que nous
+avons dût régler. Ensuite nous avons voulu faire le Flat-Field, mais nous avons découvert à
+nos dépens que les nuages ne sont pas uniformément plat, et donc prendre une photo avec le
+télescope des nuages, bien qu’éclairés par le Soleil, ne permet pas d’avoir une image d’un
+blanc uniforme. Pour y remédier, nous avons pris une photo d’une feuille de papier blanche
+placé devant l’objectif du télescope de façon à être éclairé uniformément par le Soleil.
+Une fois les photos prises, nous les avons traité grâce au logiciel Maxim DL, en nous servant
+du logiciel Iris pour confirmer les résultats obtenue grâce au précédant logiciel. Malgré tout,
+nous avons eu de nombreux problèmes avec la matrice de Bayer, car les valeurs étaient très
+différentes selon le pixel concerné (selon si ce pixel est rouge, vert ou bleu). Nous avons aussi
+eu plusieurs problèmes avec les Flat-Fields, dont aucun n’était idéal.
+
+Institut Fenelon
+
+Olympiades de physique 2009
+
+Page 53 sur 53
+
+

@@ -1,0 +1,373 @@
+Lycée Masséna, 2 avenue Félix Faure, 0600 NICE
+
+LA LEÇON DE
+PIANO VIRTUEL
+
+Pettini Chiara, Gautier Jeanne, Elzoghlamigatchitch Lou, Shaham-Sinnonio Léo, Cotel
+Erwan
+Professeurs référents : M. et Mme. Brunel, Mme.
+Dombrowski
+
+Résumé du mémoire
+
+« Comment adapter au monde
+moderne l’instrument classique par
+excellence ? »
+Nous avons cherché à créer un piano virtuel, accompagné de sa boite
+à rythmes. Pour ce faire, nous avons dû associer des domaines
+physiques variés : l’optique, l’électronique, la physique des ondes…
+L’informatique a aussi occupé une place majeure dans notre projet. À
+l’aide du principe de réflexion totale dans une barre de plexiglas, nous
+avons pu recréer un clavier de piano. Nous l’avons associé à un
+système capable de détecter les doigts du pianiste. Enfin, l’information
+est traitée grâce à un code informatique contenu dans un Arduino. Par
+la suite, nous avons utilisé la physique des ondes pour créer une boite
+à rythmes. Nous avons imaginé un système permettant de détecter les
+doigts de l’utilisateur utilisant des ondes infrarouges, et nous avons
+écrit un deuxième code informatique, qui traitera les données.
+
+1
+
+Sommaire :
+Introduction
+I / Le clavier
+A/ Application du principe de réflexion totale
+B/Détection et transmission de l’information
+C/Utilisation d’un Arduino
+
+II/ La boîte à rythmes
+A/ L’utilisation d’infrarouges
+B/ Ecriture et rôle d’un second code informatique
+
+Conclusion
+Sitographie
+
+2
+
+Introduction
+La musique a toujours été un divertissement pour nous, un moyen de
+s'épanouir. Afin de mélanger nos deux passions, nous avons réfléchi à
+un moyen de l’associer à la science par le biais des olympiades de
+physique. C’est dans cet optique que nous avons cherché à créer un
+piano virtuel, accompagné de sa boite à rythmes.
+Pour ce faire, nous avons dû associer des domaines physiques variés :
+l’optique, l’électronique, la physique des ondes…
+L’informatique, comprenant l’écriture de codes dans différents
+langages, a aussi occupé une place majeure dans notre projet.
+Ainsi, nous avons mis au point un instrument à l’allure épurée et
+futuriste. À l’aide du principe de réflexion totale dans une barre de
+plexiglas, nous avons pu recréer un clavier de piano. Nous l’avons
+associé à un système capable de détecter les doigts du pianiste. Enfin,
+l’information est traitée grâce à un code informatique contenu dans
+un Arduino.
+Par la suite, nous avons utilisée la physique des ondes pour créer une
+boite à rythmes. Nous avons imaginé un système permettant de
+détecter les doigts de l’utilisateur utilisant des ondes infrarouges, et
+nous avons écrit un deuxième code informatique, qui traitera les
+données.
+
+3
+
+I / Le clavier
+A/ Application du principe de réflexion totale
+Nous avons imaginé un clavier transparent, à la fois moderne et
+esthétique. La base de ce clavier sera une barre de plexiglas.
+Elle sera traversée par un laser.
+Une situation de réflexion totale sera nécessaire pour créer les
+« touches » virtuelle de notre piano. En effet, en se réfléchissant
+totalement sur le plexiglas, le rayon du laser formera une suite
+de points qui indiqueront au pianiste où appuyer pour émettre un
+son.
+Nous avons compris que l’existence d’une situation de réflexion
+totale dépendait de l’angle d’entrée du rayon lumineux dans le
+plexiglas. En suivant la loi de Descartes, qui énonce que
+n1*sin(i) = n2*sin(r) (où n1 et n2 respectivement l’indice du
+plexiglas n1= 1,5 et l’indice de l’air n2= 1, i l’angle d’incidence
+représenté sur le schéma ci-dessous, et r l’angle réfracté), on
+peut déterminer l’angle minimum pour qu’il y ait une réflexion
+totale :
+comme 𝑠𝑖𝑛(𝑟) appartient à [-1;1],
+Si 𝑛1𝑠𝑖𝑛(𝑖) > 1, alors r n’existe pas.
+On peut alors poser:
+𝑛1𝑠𝑖𝑛(𝑖) = 𝑛2 𝑠𝑖𝑛(90) car 𝑠𝑖𝑛(90) = 1
+𝑛1𝑠𝑖𝑛(𝑖) = 𝑛2 soit 1
+𝑛2
+𝑖 = 𝑎𝑟𝑐𝑠𝑖𝑛( )
+𝑛1
+1
+𝑖 = 𝑎𝑟𝑐𝑠𝑖𝑛( )
+1,5
+𝑖 = 41,8°
+
+4
+
+Nous avons trouvé judicieux de placer le laser comme sur le
+schéma 1. Les « points-touches » sont représentés à l’endroit où
+la réflexion totale a lieu. Seul ceux du dessus seront les touches
+utilisables par le pianiste.
+En cherchant à limiter la perte d’intensité du rayon lumineux qui
+se heurtait en parti au bord du plexiglas, nous avons testé une
+deuxième position. La source était
+alors placée au-dessus de la barre
+de plexiglas. Cependant, en
+observant et en nous appuyant sur
+les lois de Descartes nous avons
+pu constater qu’une situation de
+réflexion totale était impossible
+dans ces conditions. En effet,
+comme montré sur le schéma cicontre, le rayon censé être réfléchi
+est réfracté.
+Enfin nous avons étudié
+l’action du doigt du pianiste sur
+ce système. Nous avons
+constaté qu’en le posant sur le
+une touche, de la lumière était
+diffusée comme sur le schéma
+ci-contre.
+L’intensité
+des
+« points-touches » suivant était alors diminuée. Nous avons
+déduit que le plexiglas n’étant pas parfaitement lisse, malgré la
+situation de réflexion totale, une partie de la lumière était quand
+même diffusée. En posant notre doigt, cette lumière est réfléchie.
+Nous nous sommes alors intéressés aux conditions de cette
+réflexion : existerait-elle avec un pianiste aux mains gantées ?
+avec un objet quelconque à la place d’un doigt ? Nous avons
+5
+
+alors réalisé plusieurs tests. Le premier, avec une main gantée,
+n’était pas concluant. Pourtant, en mouillant le gant, la réflexion
+avait bien lieu. Nous en avons conclu que la peau en elle-même
+n’était pas responsable de cette réflexion. Avec un mouchoir,
+nous avons été là encore face à un échec. Cependant, en le
+mouillant, le dispositif fonctionnait de nouveau. Nous avons donc
+déduit que la fine pellicule de
+gras au bout du doigt du
+pianiste était l’élément qui
+permettait de réfléchir cette
+lumière. On a pu constater
+qu’en appuyant plus fort, la
+surface d’appuie était plus
+importante, et donc l’intensité
+de la lumière diffusée aussi.
+
+B/Détection et transmission de l’information
+Afin de connaître la position du doigt du pianiste, et donc savoir
+sur quelle touche virtuelle il appuie, nous avons imaginé
+plusieurs systèmes de détection. Tous fonctionnent grâce à la
+lumière réfléchie par le doigt.
+En premier, nous avons pensé utiliser des photorésistances. En
+effet, elles possédaient une zone de sensibilité importante, et
+captaient bien le signal lumineux. En revanche, après avoir
+réalisé un montage électronique et testé notre système nous
+nous sommes rendus compte qu’elles avaient un temps de
+réponse trop lent, caractéristique connue des photorésistances.
+Nous avons donc rapidement fait le choix d’opter pour des
+phototransistors. Nous avons conçu un montage électronique
+6
+
+permettant de transmettre l’information reçue par le
+phototransistor jusqu’à un Arduino. Notre montage peut se
+décomposer en parties distinctes : le phototransistor, un suiveur,
+un soustracteur de bruit et un amplificateur. Ensuite, il est relié à
+l’Arduino. Un schéma de ce système simplifié est disponible en
+annexe.
+-Le phototransistor : il permet de convertir la lumière reçue en
+tension électrique (en Volt).
+-Le suiveur : il n’a pas un rôle primaire dans notre montage, il
+isole simplement le phototransistor et le soustracteur.
+-Le soustracteur : afin de pouvoir utiliser notre piano partout, et
+de ne pas être gêné par la lumière ambiante (qui affolerait les
+phototransistors) nous avons utilisé un soustracteur réglable. Il
+soustraira à la tension reçue une tension variable, qui dépendra
+de l’intensité de la lumière ambiante. Il en découle qu’un réglage
+manuel doit être effectué à chaque déplacement de l’instrument.
+-Enfin, nous avons un amplificateur qui amplifiera la tension. Un
+seuil de 3,3V est définit par une diode zener.
+Ainsi, grâce à ce montage, et peu importe les conditions
+expérimentales, la tension arrivant à l’Arduino sera de 3,3V. Un
+schéma du montage électrique est disponible en annexe.
+Nous avons réalisé six copies de ce montage, associées aux six
+notes que nous cherchons à produire (le nombre de notes étant
+limité par le nombre de branche d’entrée de l’Arduino).
+
+7
+
+C/Utilisation d’un Arduino
+Enfin nous avons décidé de traiter les informations du signal par
+un Arduino et nous avons écrit un code en langage Arduino
+(famille C). Nous sommes capables de déterminer sur quelle
+touche se trouve le doigt du pianiste grâce aux informations
+transmises par le montage électrique.
+Si la tension transmise par l’un des six montages est supérieure
+à un seuil de basculement égale à 1,5V et que les autres
+tensions sont inférieures à ce même seuil alors, un son de la
+fréquence correspondante à la note de musique de la touche
+sera émis.
+Dans le cas ci-contre, si la
+tension du phototransistor 1
+(US1), qui correspond à la
+touche *do*, est supérieur au
+seuil égal à 1,5 (B) et que la
+tension du second
+phototransistor (US2), liée à la deuxième touche (soit *re*), le
+programme émet un son d’une fréquence égale à 261 Hz, celle
+du DO3 d’un piano standard.
+Nous avons décidé d’utiliser l’octave 3 soit celle au centre d’un
+clavier de 88 touches. La fréquence entre deux notes de piano
+successives augmente de 21/2 tons, à l’exception du passage
+entre Mi et Fa qui n’est que d’11/2 ton. La monté d’un demi ton
+correspond à la multiplication de la fréquence de la note
+précédente par la racine douzième de deux, nous avons donc :
+𝑓1 = 𝑥
+12
+
+2
+
+𝑓2 = 𝑥 × ( √2)
+Les fréquences des notes de cette octave sont :
+DO
+262 Hz
+8
+
+RE
+294 Hz
+
+MI
+330 Hz
+
+FA
+349 Hz
+
+SOL
+392 Hz
+
+LA
+440 Hz
+
+SI
+494 Hz
+
+II/ La boîte à rythmes
+A/ L’utilisation d’infrarouges
+L'infrarouge est une onde électromagnétique qui comporte à la fois un
+champ électrique et un champ magnétique oscillant à la même
+fréquence. Leur longueur d'onde est comprise entre le domaine visible
+(≈ 0,7 μm) et le domaine des micro-ondes (≈ 0,1 mm). De plus ce type
+d’ondes est sensible à la peau, et nous permet de repérer plus
+précisément un obstacle comme un doigt.
+Afin d'avoir un point de départ, nous avons étudié la composition et le
+mode de fonctionnement d'un "clavier laser" du commerce utilisant
+les infrarouges. En le démontant, nous avons pu distinguer quatre
+composants clefs : le laser qui projetait une image de clavier,
+l’émetteur infrarouge, le récepteur et enfin la carte mère.
+Nous avons compris que ces éléments étaient nécessaires au bon
+fonctionnement du projet, nous nous sommes donc intéressés à
+l’utilité de chacun.
+-l’émetteur infrarouge : il diffuse une nappe infrarouge invisible à nos
+yeux qui superpose l’image projetée par le laser. Cette nappe est
+coupée par le doigt de l’utilisateur.
+Nous reviendrons à l’utilité des autres composants par la suite.
+Tout d’abord, nous avons décidé de conserver l’émetteur du clavier
+pour réaliser un test de surface. Nous avons testé la visibilité des
+infrarouges par un récepteur sur de multiples surfaces. Nous avons pu
+constater que sur une surface non-lisse (ex : table en bois) il y avait
+trop de parasites dans la réception (dûs à l’irrégularité de la surface).
+Une surface transparente ou laquée ne permettait pas une bonne
+réception car elle était trop réfléchissante. Enfin, nous avons constaté
+que l’infrarouge était le plus visible sur une surface plane et opaque.
+9
+
+Enfin, nous nous sommes intéressés au récepteur.
+Sur le prototype du commerce, c’est en réalité une caméra qui voit les
+grandes longueurs d’ondes (donc les
+infrarouges). Cette caméra parvient à
+percevoir le reflet des infrarouges sur
+l’ongle lorsqu’un doigt vient rompre la
+nappe.
+
+B/ Ecriture et rôle du code informatique
+Pour traiter les données reçues par la caméra (capable de percevoir
+les infrarouges), nous nous sommes tournés vers le domaine de
+l’informatique et nous avons
+écrit un programme en
+langage python capable de
+repérer la position du doigt
+de l’utilisateur. Par une suite
+de fonction, il y associe un
+son. Nous avons commencé
+par créer une image de
+référence, avec 9 carreaux
+de couleurs différentes (qui
+représentent les 9 boutons).
+
+10
+
+Le programme informatique traite l’image en regroupant les
+coordonnés de chaque pixel dans des listes en fonctions de leur
+couleur.
+
+Sur l’image reçue par la caméra lorsque le doigt
+de l’utilisateur coupe la nappe infrarouge, on
+remarque une « demi-lune illuminée ».
+L’image reçue par la caméra est transmise au
+programme par l’intermédiaire d’un ordinateur.
+
+Elle est mise en échelle de gris et est ensuite parcourue en longueur
+et en largeur. Grâce la fonction est_présent, tous les pixels audessus d’un seuil de couleur (gris) sont associés à la position du doigt
+et les coordonnées sont entrées dans une liste appelé objet :
+
+11
+
+Quand le point est trouvé, ses coordonnées sont passées à l’intérieur
+de toutes les listes des secteurs colorées jusqu’à trouver une
+concordance et émettre le son de la touche qui correspond. La
+fonction analyse effectue cette association :
+
+12
+
+Conclusion
+« Comment adapter au monde moderne l’instrument classique par
+excellence ? »
+Le piano est vu comme l’instrument classique par excellence. Grâce à
+notre projet, nous lui avons offert une seconde peau : plus futuriste, il
+est désormais accompagné d’une boite à rythmes. Ainsi, nous l’avons
+adapté aux contraintes d’un monde moderne et de plus en plus virtuel.
+Nous avons su puiser dans notre connaissance des domaines
+scientifiques variés.
+Nous avons appris à tirer profit des atouts de chaque membre de notre
+groupe. Cette expérience fut très enrichissante car nous avons réussi
+à concevoir un projet, et à laisser libre court à notre inventivité sans
+négliger les contraintes physiques et scientifiques. Nos professeurs
+nous ont appris à mener à bien une démarche scientifique.
+Nous nous demandons alors sous quelle forme plus moderne encore
+le piano pourrait-il exister, pourrait-il être entièrement dématérialiser
+et transportable dans un monde dominé par les nouvelles
+technologies ?
+
+13
+
+Sitographie :
+I / Le clavier
+A/ Application du principe de réflexion totale
+http://uel.unisciel.fr/physique/optigeo/optigeo_ch02/co/apprendr
+e_ch02_04.html
+http://phymain.unisciel.fr/le-faisceau-lumineux-captif/
+B/Détection et transmission de l’information
+http://webetab.acbordeaux.fr/Pedagogie/Physique/Physico/Electro/e04tensi.htm
+C/Utilisation d’un Arduino
+https://www.deleze.name/marcel/physique/musique/Frequences
+.pdf
+https://www.arduino.cc/
+
+II/ La boîte à rythmes
+A/ L’utilisation d’infrarouges
+https://www.universalis.fr/encyclopedie/infrarouge/
+https://prod.flir.fr/discover/why-use-infrared/
+B/ Ecriture et rôle d’un second code informatique
+
+https://www.python.org/
+
+14
+
+

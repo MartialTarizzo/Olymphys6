@@ -1,0 +1,864 @@
+OLYMPIADES DE PHYSIQUE
+2023
+
+CODER LA LUMIERE A L’HUILE D’OLIVE
+
+DERUWEZ LAURA
+DOUAY ANTOINE
+PLUMECOCQ NOE
+1
+
+SOMMAIRE
+
+I.LUMIERE POLARISEE
+I.1.Les ondes lumineuses
+I.2. Lumière polarisée
+I.3. Comment reconnaitre une lumière polarisée ? Analyse d’une lumière polarisée avec la loi
+de Malus
+II. POLARISATION ROTATOIRE
+II.1 Mise en évidence
+II.2 Définition : loi de Biot
+III. POLARISATION ROTATOIRE PROVOQUEE
+III.1. Effet Faraday
+III.2. Produire un champ magnétique uniforme dans une direction donnée
+III.3. Mesure de la constante de Verdet du Flint et celle de l’huile d’Olive
+IV. APPLICATION A LA TRANSMISSION D’UN SIGNAL
+IV.1 Premier essai : Transmission d’un signal carré avec le flint
+IV.2 Second essai : Transmission d’un signal carré avec l’huile d’olive
+
+CONCLUSION
+
+2
+
+INTRODUCTION
+
+Nous sommes trois élèves en première générale au lycée des Flandres d’Hazebrouck. Nous désirons
+poursuivre nos études dans une voie scientifique aussi nous suivons tous les trois les spécialités
+mathématiques et sciences physiques. Notre projet a démarré l’an dernier lorsque nous étions en seconde et
+que nous avons rejoins l’atelier scientifique du lycée. Nous cherchions alors un sujet incluant les effets du
+magnétisme et nous sommes tombés sur l’effet Faraday sur la lumière polarisée. Nous allons alors dû dans
+un premier temps comprendre ce qu’était la lumière polarisée et étudier la loi de Malus, ensuite travailler sur
+les phénomènes rotatoires de la lumière et la loi de Biot. Enfin nous nous sommes intéressés à l’effet d’un
+champ magnétique sur le pouvoir rotatoire, l’effet Faraday. Nous avons essayé ensuite de coder la lumière
+grâce à cet effet sur l’huile d’olive. C’est l’ensemble de nos recherches et expériences que nous présentons
+aujourd’hui dans ce dossier et bientôt en direct aux sélections académiques des olympiades de physique.
+
+3
+
+I.
+
+LUMIERE POLARISEE ET MATIERE
+
+I.1.Les ondes lumineuses
+Structure :
+Un phénomène ondulatoire correspond à la propagation d’une perturbation sans déplacement de matière.
+La lumière est une onde. Il s’agit d’une forme d’énergie créée par une source et qui peut se propager dans
+toutes les directions qu’offrent le milieu. La vitesse de propagation de l’onde est appelée célérité.
+Les ondes lumineuses sont électromagnétiques. Il s’agit de la propagation d’un champ
+électromagnétique composé d’un champ magnétique B et d’un champ électrique noté
+E . Pour décrire l’onde électromagnétique, on se contente de donner sa direction et son
+sens de propagation ainsi qu’une description du champ E . (En effet le champ
+magnétique lui est directement lié). Ce champ est toujours dans un plan perpendiculaire
+à la direction de propagation.
+https://cho-ku-rei.fr/ondes-electromagnetiques
+
+Les ondes lumineuses sont des ondes électromagnétiques appartenant au domaine du visible (perçu par
+l’œil). Ces ondes sont périodiques sinusoïdales avec une longueur d'onde comprise entre 400nm et 800nm.
+A l'extérieur de cet intervalle, se trouve la lumière non visible, en dessous de 400nm se trouvent les
+ultraviolets, au-dessus de 800nm : les infrarouges.
+
+https://fr.khanacademy.org/science/physics/lightwaves/introduction-to-light-waves/a/light-and-theelectromagnetic-spectrum
+
+La lumière la plus simple à utiliser est la lumière
+blanche. Cette dernière est qualifiée de
+polychromatique parce qu’elle est constituée de
+toutes les radiations du visible. Pour le montrer,
+nous avons réalisé l’expérience de Newton :
+Quand un faisceau de lumière blanche traverse un
+prisme, on obtient sur un écran situé derrière celuici un ensemble de 7 teintes principales : violet,
+indigo, bleu, vert, jaune, orange et rouge. C’est le
+spectre de la lumière blanche
+
+4
+
+Propagation des ondes lumineuses
+La lumière se propage rectilignement dans tous les milieux homogènes et transparents. Elle se propage
+également dans le vide.
+Sa célérité dans le vide ou dans l’air est de 299792458 km /seconde soit c=3,00.108 m.s-1. Dans les autres
+milieux elle se propage forcément avec une vitesse plus faible.
+Pour caractériser sa vitesse dans les milieux, on définit pour chacun un indice appelé indice de réfraction noté
+c
+n qui indique de combien la vitesse est plus faible dans le milieu par rapport au vide : n = où c est la célérité
+v
+de la lumière dans le vide et v sa célérité dans le milieu.
+I.2.Lumière polarisée
+Une lumière polarisée est caractérisée par un champ électrique qui vibre dans une direction particulière dans
+le plan perpendiculaire à la direction de propagation.
+A l’état naturel, dans les sources de lumière comme le Soleil, le champ électromagnétique de la lumière n’a
+pas de sens privilégié dans l’espace, il est totalement aléatoire et varie continuellement.
+Les sources de lumière ne produisent pas de lumière polarisée. En effet, quand elles produisent des ondes
+électromagnétiques, elles le font par paquet d’ondes. Chaque paquet possède une direction particulière pour
+le champ électrique et cette direction est totalement indépendante de la direction des autres paquets.
+Il est possible de donner une orientation particulière au champ
+électromagnétique pour obtenir dans ce cas, une polarisation de la
+lumière.
+Quand le champ électrique vibre toujours dans la même direction, on
+parle de polarisation rectiligne. Quand on regarde l’évolution du
+champ électrique dans un plan perpendiculaire à la direction de
+propagation de l’onde, on voit le champ vibrer suivant une droite.
+Mais il est aussi possible d’obtenir une polarisation circulaire (Le
+champ électrique vibre de la même manière dans toutes les
+directions) ou encore elliptique (Le champ vibre dans toutes les
+directions mais avec des amplitudes différentes qui suivent une
+ellipse)
+semanticscholar.org
+
+5
+
+I.3. Comment reconnaitre et analyser une lumière polarisée ?
+La lumière polarisée peut être produite de différentes façons. Le dichroïsme, la réflexion ou la diffusion
+permettent d’obtenir des polarisations rectilignes. Les cristaux biréfringents utilisés dans de bonnes
+conditions permettent d’obtenir des polarisation circulaire ou elliptique.
+Polarisation par dichroïsme :
+L’utilisation d’une feuille polarisante appelée filtre “Polaroïd” permet de
+produire de la lumière polarisée rectilignement. Cette feuille est constituée
+de longues molécules toutes orientées dans la même direction et figées
+dans un support plastique. Quand la lumière arrive sur ces molécules
+seules les ondes dont les champs électriques sont perpendiculaires aux
+molécules peuvent être transmises. Les autres sont absorbées. On parle
+alors de dichroïsme une partie de la lumière est transmise alors que l’autre
+partie est absorbée.
+Expérience :
+
+Observation : L’intensité lumineuse semble plus faible qu’en l’absence du polariseur mais on ne voit pas de
+changement
+Conclusion : L’œil n’est pas sensible à la polarisation. Il sera donc impossible de visualiser la polarisation de
+la lumière utilisée.
+Pour y parvenir on utilisera un autre polariseur type polaroïd et on regardera l’évolution de l’intensité
+lumineuse en sortie. Dans notre cas, elle passe par une extinction quand les deux directions sont croisées à
+90° ce qui prouve que le premier polariseur a polarisé la lumière rectilignement
+Sur les photos suivantes, on voit deux positions relatives des deux polaroïds
+Polariseurs parallèles
+Polariseurs croisés à 90°
+
+6
+
+Analyse d’une lumière polarisée : Lois de Malus
+Pour analyser une lumière polarisée, il nous
+faut utiliser un polaroïd. En effet, en le
+tournant quand il est traversé par une lumière
+polarisée rectilignement, on observe que
+l'éclairement varie entre un éclairement
+maximal et l'extinction totale du faisceau
+transmis. Cette extinction à lieu quand les
+directions de (P) et (A) sont croisées.
+
+Polariseurs parallèles
+
+Polariseurs croisés
+
+Etude expérimentale de la variation d’intensité lumineuse en fonction de l’angle entre la direction de
+polarisation et celle de l’analyseur (Loi de Malus)
+
+Nous avons mesuré l’intensité lumineuse en sortie de deux polariseurs, en fonction de l’angle entre les deux.
+Voici les résultats obtenus :
+Angle (degrés)
+
+Intensité (Lux)
+
+.
+15
+30
+45
+60
+75
+90
+105
+120
+135
+150
+165
+190
+205
+225
+240
+255
+270
+285
+300
+315
+330
+345
+
+231
+215
+175
+118
+62
+17
+5
+14
+56
+109
+179
+216
+225
+188
+119
+61
+19
+2
+14
+59
+119
+177
+218
+
+Intensité calculée avec la loi de Malus (Lux)
+231
+216
+173
+116
+58
+16
+0
+15
+58
+115
+173
+215
+224
+190
+116
+58
+16
+0
+15
+57
+115
+173
+215
+
+7
+
+Intensité lumineuse en fonction de l'angle entre les polariseurs
+250
+
+Intensité ( Lux)
+
+200
+
+150
+
+100
+
+50
+
+0
+0
+
+50
+
+100
+
+Intensité (Lux)
+
+150
+
+Angle 200
+(°)
+
+250
+
+300
+
+350
+
+400
+
+Intensité calculée avec le loi de Malus (Lux)
+
+La courbe obtenue est en accord avec nos observations : Les extinctions ont bien lieu quand les polariseurs
+sont croisés. La loi de Malus I = I 0  cos ² où θ est l’angle entre les polariseurs et Io l’intensité pour θ=0°
+est bien vérifiée.
+Remarque : Quand la polarisation de la lumière incidente n’est pas rectiligne, l’extinction n’est pas totale.
+En effet quand la polarisation est circulaire ou elliptique, il n’y a pas d’extinction totale. Quand elle est
+elliptique elle passe par un minimum et un maximum et quand elle est circulaire l’intensité reste constante
+II.
+
+POLARISATION ROTATOIRE
+
+II.1 Mise en évidence :
+Expérience 1 : On place une lampe devant deux
+polariseurs croisés. On observe un résultat en accord avec
+la loi de Malus, c’est dire une extinction. On place
+ensuite une cuve contenant une solution aqueuse de sucre
+(Saccharose) entre les deux polariseurs.
+Observation : De la lumière
+apparait sur l’écran. L’extinction a
+disparu.
+Conclusion : La solution a modifié
+la polarisation de la lumière qui l’a
+traversée.
+
+8
+
+Pour connaître, la polarisation en sortie, nous tournons la direction de l’analyseur. Nous arrivons à retrouver
+une extinction. La lumière qui a traversé la solution de glucose est toujours polarisée rectilignement, mais sa
+direction de polarisation a été modifiée.
+Conclusion : La solution de sucre a dévié la direction de la polarisation de la lumière qui l’a traversée.
+
+Expérience 2 : On recommence la même expérience avec de l’eau distillée.
+Observation : L’extinction reste en place quand la lumière traverse l’eau distillée.
+Conclusion : Lors de l’expérience précédente, c’est le saccharose qui dévie la lumière ;
+l’eau n’a aucun effet.
+
+Expérience 3 : On recommence la même expérience avec de
+l’huile d’Olive
+Observation : L’extinction reste en place quand la lumière
+traverse l’huile d’olive.
+Conclusion : Toutes les espèces chimiques ne possèdent pas la
+propriété du sucre, c’est-à-dire la possibilité de dévier la
+direction de polarisation de la lumière polarisée rectilignement.
+Les espèces chimiques qui possèdent cette propriété sont dites
+optiquement actives. Chacune d’entre elles est caractérisée par son pouvoir
+rotatoire (qui prend en compte le sens de la déviation et sa capacité à réaliser
+la déviation
+II.2 Loi de Biot
+L’angle de déviation de la direction de polarisation de la lumière par une substance optiquement active est
+donnée par la loi de Biot. Cette loi s'exprime de la manière suivante :  =   l  c avec
+•
+•
+
+•
+•
+
+α : pouvoir rotatoire ou angle de rotation du plan de
+polarisation (°)
+[α] : pouvoir rotatoire spécifique (°.dm-1.g-1.cm3). Ce
+pouvoir dépend de la température et de la longueur de
+la lumière.
+l : longueur de substance active traversée ou longueur
+de la cuve (dm)
+c : concentration en masse de la substance (g.cm-3)
+
+Pour vérifier qualitativement cette relation, nous avons refait notre montage avec la solution de glucose et
+nous avons fait varier les différents paramètres présents dans la loi de Biot.
+
+9
+
+-
+
+Influence de la concentration :
+Concentration (c en g/L)
+Déviation (α en°)
+
+0
+0
+
+200
+2
+
+400
+7
+
+600
+10
+
+800
+13
+
+angle de déviation (°)
+
+déviation en fonction de la concentration
+en surcre
+
+Nous observons que les points
+s’alignent avec l’origine
+
+14
+12
+10
+8
+6
+4
+2
+0
+
+α = 0,0163c
+R² = 0,9942
+0
+
+Nous choisissons donc un
+modèle linéaire
+
+200
+
+400
+
+600
+
+800
+
+1000
+
+concentration en masse (g/L)
+
+Conclusion : La déviation est bien une fonction linéaire de la concentration en espèces optiquement
+actives.
+Influence de la longueur de la cuve :
+Longueur de cuve (L en cm)
+Déviation (α en°)
+
+1
+5
+
+2.4
+10
+
+7.4
+33
+
+9.5
+41
+
+dédiation en fonction de la longueur de
+solution traversée
+
+déviation (°)
+
+-
+
+45
+40
+35
+30
+25
+20
+15
+10
+5
+0
+
+α = 4,3665L
+R² = 0,9995
+
+0
+
+2
+
+4
+
+6
+
+8
+
+10
+
+longueur traversée (cm)
+
+Conclusion : La déviation est bien une fonction linéaire de la longueur de solution traversée.
+
+10
+
+-
+
+Influence de la longueur d’onde sur le pouvoir rotatoire :
+
+On éclaire de l’eau sucrée à l’aide d’une lumière polarisée rectilignement (source de lumière blanche et
+polariseur). On observe ensuite à travers un analyseur la lumière qui traverse l’eau sucrée.
+Observation : Quand on tourne l’analyseur, on observe une série de couleur qui part du violet pour arriver au
+rouge en passant par des teintes jaunâtres.
+
+Interprétation : Les teintes obtenues sont les couleurs des composantes de la lumière qui n’ont pas connu
+l’extinction en passant par l’analyseur. Ces teintes changent car l’extinction est réalisée pour chaque
+radiation pour des angles différents. La déviation de la direction de polarisation n’est donc pas la même pour
+les différentes radiations de la lumière blanche.
+Conclusion : Le pouvoir rotatoire dépend de la longueur d’onde de l’onde incidente.
+Remarque : L’angle de déviation est proportionnel à la concentration de l’espèce chimique. Il peut être
+utilisé pour réaliser le dosage par étalonnage des substances optiquement active.
+Un appareil de mesure existe sur ce principe : Le Polarimètre de Laurent qui permet de mesurer avec
+précision l’angle de déviation pour obtenir ensuite la concentration cherchée
+
+III.
+
+POLARISATION ROTATOIRE PROVOQUEE
+
+III.1. Effet Faraday
+Comme nous l’avons vu dans la partie précédente toutes les espèces chimiques ne sont pas naturellement
+optiquement active. Cependant, elles peuvent le devenir si elles sont soumises à un champ magnétique qui
+est dirigée parallèlement à la direction de propagation de la lumière.
+Toutes les substances n’obtiennent pas le même pouvoir rotatoire.
+La déviation de la direction de polarisation est liée la longueur l de la solution traversée et à la valeur du
+champ magnétique B par la relation suivante :  =   l  B où υ est la constante de Verdet du matériau en
+rad/T/m, B le champ magnétique en T et la longueur de solution traversée en m.
+La constante de verdet υ dépend de la longueur d’onde du rayonnement incident et de la nature du matériau
+étudié.
+Plus le champ magnétique est grand plus, plus la déviation sera importante. Il est donc nécessaire de pouvoir
+contrôler la valeur du champ magnétique.
+11
+
+III.2. Produire un champ magnétique uniforme dans une direction donnée
+Il existe deux façons de produire un champ magnétique :
+- Par un aimant permanent : Ces champs sont souvent non uniformes et faibles en intensité.
+- Par un électroaimant : Ces champs sont produits par un courant électrique qui circule dans un
+conducteur. Les champs produits ainsi sont proportionnels à l’intensité du courant qui les a créés. Il
+est donc plus simple d’avoir des champs de plus grandes intensités.
+Nous avons choisi de créer notre champ à l’aide d’une bobine de 1000 spires.
+A l’intérieur de la bobine, le champ est uniforme, est dirigé suivant l’axe de la bobine dans le sens déterminé
+par la règle du tire-bouchon.
+B(mT)
+0
+1,4
+2,28
+3,42
+4,58
+5,68
+6,79
+8,03
+9,11
+10,28
+11,36
+12,52
+13,71
+14,89
+15,98
+17,12
+18,27
+
+B= f(I)
+20
+
+champ magnétique (mT)
+
+I(A)
+0
+0,1
+0,2
+0,3
+0,4
+0,5
+0,6
+0,7
+0,8
+0,9
+1
+1,1
+1,2
+1,3
+1,4
+1,5
+1,6
+
+y = 11,414x
+R² = 1
+
+18
+16
+14
+12
+10
+8
+6
+4
+2
+0
+0
+
+0,5
+
+1
+
+1,5
+
+2
+
+intensité (A)
+
+Nos mesures montrent que le champ crée à l’intérieur d’une bobine est proportionnel à l’intensité du courant
+électrique qui la traverse.
+Nous pouvons donc générer des champs magnétiques dirigés dans l’axe des bobines dans un sens qui dépend
+du sens du courant avec une intensité qui peut être ajustée par le biais de la valeur du courant électrique.
+
+12
+
+III.3. Mesure de la constante de Verdet du Flint et celui de l’huile d’Olive
+- Montage choisi :
+Pour mesurer la constante de Verdet d’un matériau, il sera nécessaire de mesurer la déviation de la direction
+de polarisation d’une lumière polarisée qui traverse ce matériau.
+Il sera donc nécessaire de travailler à l’aide de deux polariseurs en utilisant le second comme un analyseur.
+On placera alors ensuite notre échantillon entre les deux dans une cuve de 8cm de long. Pour qu’il soit
+plongé dans un champ magnétique de même direction que la direction de la lumière, l’échantillon est placé à
+l’intérieur d’une bobine qui sera alimenté par un générateur de tension continue.
+
+Source de
+lumière
+
+Echantillon
+
+Alimentation
+continue
+
+Pour faire varier le champ magnétique, nous allons changer la valeur de l’intensité du courant électrique. En
+effet grâce à la partie précédente, nous connaissons la relation mathématique entre cette intensité et la valeur
+du champ magnétique.
+Pour chaque valeur de I, nous calculons B puis nous rétablissons l’extinction avec l’analyseur pour
+déterminer la valeur de l’angle de déviation α. Nous remplirons ensuite le tableau suivant
+I(A)
+
+B(mT)
+
+α (degré)
+
+- Premier essai
+Dans un premier temps nous avons choisi de travailler le flint et un laser rouge, tout simplement parce que
+nous en avons beaucoup au lycée. Quand l’extinction est réalisée, nous augmentons progressivement le
+courant qui traverse la bobine, mais malgré la présence du champ rien de visible n’apparait à l’écran. Nous
+avons espéré voir réapparaitre une teinte colorée à l’écran. En cherchant un peu, nous avons trouvé un
+diagramme qui donnait les valeurs de la constante de Verdet en fonction de la longueur d’onde incidente.
+Nous comprenons alors que la constante est très faible en lumière rouge. Nous décidons alors de changer de
+laser et d’en prendre un vert.
+- Second essai
+Nous avons repris le même montage, en remplaçant le laser rouge par un laser vert. Cette fois pour un
+intensité égale à 1A, on voit apparaitre avec une très faible intensité une tâche verte sur l’écran : Le plan de
+polarisation a bien été dévié. Pour déterminer l’angle de polarisation, nous tournons l’analyseur jusque
+l’extinction. La déviation est de l’ordre de 1° ce qui est très faible surtout avec nos polariseurs. Quand nous
+passons à 1,5A l’angle de déviation est compris entre 1° et 2°. Nous ne pouvons pas aller au-delà avec notre
+montage. Il faut donc changer d’alimentation pour générer un courant plus grand.
+13
+
+- Dernier essai
+Nous avons changé d’alimentation, mais nous avons aussi changé la bobine
+en prenant une armature en fer de transformateur et deux bobines branchées
+en série. Nous avons déterminé dans un premier temps la relation entre la
+valeur du champ B
+I (A)
+0
+0.5
+1.1
+1.8
+et l’intensité du
+B(mT)
+0
+30.8
+67.7
+111
+courant qui circule
+α(°)
+0
+1
+3
+4
+dans les deux
+bobines.
+B = 61,5*I
+
+120
+100
+
+B (mT)
+
+80
+60
+40
+20
+0
+0
+
+0,5
+
+1
+
+I(A)
+
+1,5
+
+2
+
+Entre temps, nous avons reçu notre barreau de Flint, un verre qui
+possède peut subir une polarisation rotatoire provoquée. Nous avons
+d’abord réalisé la mesure de la constante de verdet du flint vu qu’il
+possède en théorie une constante de Verdet plus importante.
+
+Les valeurs mesurées sont très faibles. La
+précision de nos polariseurs est au mieux que de
+1°. Cependant on voit bien apparaitre la
+fonction linéaire entre La déviation et le champ
+B. L’équation de la courbe de tendance va nous
+permettre de trouver une valeur de la constante
+de Verdet du Flint. En effet, la relation entre la
+déviation et le champ magnétique est
+ =   l  B . Le coefficient directeur de notre
+courbe est donc égale au produit   l , on a
+donc
+
+déviation (°)
+
+FLINT
+4,5
+4
+3,5
+3
+2,5
+2
+1,5
+1
+0,5
+0
+0
+
+20
+
+40
+
+60
+
+y = 0,038x
+R² = 0,99
+
+80
+
+100
+
+120
+
+B(mT)
+
+1900  2
+ 33rad / T / m
+360
+Ce résultat est correct. La seule valeur trouvée sur internet pour la constante de Verdet du Flint est de
+23rad/T/m pour une radiation de longueur d’onde de 589 nm. Comme nous avons travaillé avec un laser vert
+de longueur d’onde égale à 534 nm et que la constante de Verdet augmente quand la longueur d’onde
+
+  l = 0,038 / mT = 38 / T   = 1900 / T / m =
+
+14
+
+diminue, on peut considérer que notre valeur est plutôt satisfaisante tout en étant conscient que notre
+incertitude reste importante.
+
+0
+30,8
+67,7
+111
+
+0
+1
+2
+3
+
+3,5
+3
+
+Déviation (°)
+
+B (mT)
+
+α(°) huile
+d'olive
+
+α= 0,028*B
+R² = 0,997
+
+huile d'olive
+
+Nous avons ensuite décidé de faire la même chose
+avec l’huile d’olive dans la cuve de 8cm
+d’épaisseur dans les mêmes conditions.
+
+2,5
+2
+1,5
+1
+0,5
+0
+0
+
+50
+
+100
+
+150
+
+B(mT)
+
+30  2
+ 6rad / T / m
+360
+Ce résultat est en accord avec les valeurs trouvées à 589 nm (3,5 rad/T/m). A notre longueur d’onde de
+travail, on doit bien trouver une valeur de cet ordre de grandeur.
+
+Avec la même méthode, on trouve :   l = 0,028 / mT = 28 / T   = 350 / T / m =
+
+IV.
+
+APPLICATION AU CODAGE DE LA LUMIERE
+
+IV.1. Principe
+L’huile d’olive possède une polarisation rotatoire provoquée.. En alimentant la bobine à l’aide d’un courant
+électrique dépendant du temps, le champ magnétique créé variera de la même façon et la polarisation de la
+lumière en sortie de l’huile d’olive sera rectiligne avec une direction de polarisation qui sera déviée d’un
+angle α qui varie dans le temps comme le courant d’alimentation de la bobine. Le passage dans l’analyseur
+donnera une lumière polarisée rectilignement dans sa direction avec une amplitude dépendant de l’angle
+α(t).
+
+15
+
+Comme l’intensité lumineuse est donnée par la loi de Malus, nous trouvons en sortie de l’analyseur une
+intensité lumineuse sous la forme : I = I 0  cos ²( −  (t )) car l’huile d’olive à déviée d’un angle α la
+direction de la polarisation. Dans notre expérience, nous avons choisi au départ θ=90°, on trouve alors
+
+I = I 0  cos ²(90 −  (t )) = I 0  sin ²( (t ))
+IV.2 Premier essai : Transmission d’un signal carré avec le flint
+Notre premier essai consistait à transmettre un signal rectangle par le biais d’un GBF. Pour cela nous avons
+décidé de placer le GBF aux bornes de la bobine de sorte à produire un champ magnétique possédant une
+évolution en créneau.
+
+La lumière du laser est reçue sur un écran placé perpendiculairement au trajet. Le polariseur et l’analyseur
+sont croisés avant la mise en marche du GBF. L’écran est sombre au départ.
+Dans un premier temps, nous avons été très déçus, une tache lumineuse peu intense apparait sur l’écran,
+mais pas de signe de variation dans le temps. Même en améliorant l’alignement rien ne change. Quand nous
+modifions les orientations des polariseurs, rien non plus.
+Nous avons alors décidé de baisser fortement la fréquence. Quand nous arrivons à une valeur de fréquence
+proche de 5Hz, nous commençons à percevoir les variations d’intensité lumineuse. Ces variations suivent
+bien le rythme imposé par le GBF. Donc il n’y a pas de doute, nous parvenons bien à moduler l’intensité
+lumineuse grâce à l’effet Faraday.
+Il est vrai cependant que l’intensité en sortie est très faible. Il nous faut maintenant trouver le capteur adapté
+capable de mesurer ces faibles variations. Nous avons alors tenté de récupérer le signal lumineux avec une
+photopile sur l’écran pour l’observer sur un oscilloscope en utilisant le laser bleu qui donne une constante de
+verdet pus grande et donc une polarisation rotatoire un peu plus importante. Les variations enregistrées son
+très faibles, mais nous avons quand même réussi à les distinguer en changeant la fréquence at à la suivre
+jusque 50Hz
+
+16
+
+IV.3 Second essai : Transmission d’un signal carré avec l’huile d’Olive
+Nous avons repris le même montage qu’avec le
+flint et avons placé une cuve remplie d’huile
+d’olive de 8cm de longueur à la place du morceau
+de flint.
+Cette nous n’avons pas été déçus. En effet, nous
+ne nous attendions plus à une grande variation
+d’intensité lumineuse. Et pour des fréquences
+basses, nous avons observé le même phénomène
+avec une intensité lumineuse qui varie en fonction de la fréquence du champ magnétique créé.
+Naturellement, nous avons pensé à placer le laser bleu devant la cuve, mais le problème est que l’huile
+d’olive absorbe le bleu et que nous ne retrouvons plus d’intensité lumineuse en sortie de la cuve.
+Pour obtenir une intensité plus importante, nous avons utilisé une ancienne bobine de TP de 1H que nous
+avons rempli d’huile d’olive et éclairé en lumière blanche. Dans ce cas en observant, on arrive à percevoir
+correctement que l’huile d’olive permet bien de moduler la lumière et de la coder.
+
+Conclusion
+
+Ce projet nous a permis de découvrir de très nombreuses notions autour des ondes et de leurs propagations
+dans les matériaux. L’effet Faraday est un exemple de contrôle de la structure d’une onde. Il est d’ailleurs
+dans certains domaines pour supprimer les réflexions.
+Nous avons espéré à un moment pouvoir transmettre un son à l’aide de l’huile d’olive. A ce stade nous n’y
+sommes pas encore parvenus mais espérons bien trouver un capteur capable de détecter de faibles variations
+de lumière pour y arriver. A ce stage, il serait possible par exemple d’utiliser le montage pour transmettre
+un message en morse par exemple.
+
+17
+
+

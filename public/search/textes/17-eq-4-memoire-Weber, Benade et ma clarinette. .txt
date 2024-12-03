@@ -1,0 +1,1854 @@
+OLYMPIADES DE PHYSIQUE France
+XVIe édition
+
+Année 2009-2010
+
+Weber, Benade et ma clarinette :
+Modélisation et étude d’un
+instrument de musique à vent.
+
+Elèves participants :
+
+Avec LACLAVERIE Jean-Michel
+Professeur encadrant
+Lycée Bernard Palissy- AGEN
+Académie de Bordeaux
+
+-1-
+
+Table des matières
+1 – Des modélisations prises en défaut
+1.1 Modélisations simplifiées du comportement d’une colonne d’air :
+1.1.1 Modélisations simplifiées du comportement d’une colonne d’air :
+1.1.2 Tuyau ouvert aux deux extrémités
+1.2 Tuyaux excité par un Haut-parleur
+Expérience 1 : Tuyau cylindrique ouvert aux deux extrémités et excité à une extrémité
+Expérience 2 : Tuyau cylindrique de diamètre unique ouvert à une extrémité
+Expérience3 : Etude d’une clarinette
+1.3 Excitation par un bec muni d’une anche
+Expérience 1 : bec de saxophone alto associé à des tuyaux en plastique
+Expérience 2 : Etude d’une clarinette
+1.4 Discussion des résultats
+1.5 Le schème de Weber et les résultats d’Arthur.H.Benade
+
+2- Couplage musicien-clarinette : Modes de vibration d’un conduit vocal
+3- Vers un modèle pour un instrument en situation de jeu
+3.1 Tuyau PVC sans trou
+3.2 Clarinette Selmer
+3.3 Notre prototype de clarinette en plastique
+3.4 Prototype en sureau
+
+Conclusion
+Sources documentaires
+Annexe 1 : Pour aller plus loin dans l’approche théorique
+Annexe 2 : Etude de deux colonnes d’air couplées
+Annexe 3 : Modélisation par un circuit électrique
+Annexe 4 : Notre programme en Visual basic
+RESUME
+Nous avons voulu concevoir et construire un instrument de musique à vent, à trous,
+cylindrique et à anche simple. Mais le travail fut plus compliqué que ce que nous pensions au
+
+-2-
+
+début, car la modélisation du comportement des ondes sonores dans un tuyau cylindrique
+fermé à une extrémité et excité par une anche en roseau, est plus complexe que ce que nous en
+apprend le cours de spécialité physique de Terminale S. Le but de ce travail est d’arriver à
+comprendre par l’expérience, la nature des écarts qui existent entre le modèle simplifié de
+Terminale et les résultats expérimentaux : influence de la longueur L de l’instrument, de son
+diamètre intérieur Di, de la position et de l’épaisseur des trous, de l’embouchure, du pavillon,
+du musicien…. Ces résultats sont exploités pour concevoir et construire plusieurs prototypes
+d’instrument de musique de la famille de la clarinette.
+ABSTRACT
+We wanted to design and build a wind instrument with cylinder finger holes and a simple
+reed, but the work was much complicated than we thought, because the establishment of a
+model of the behavior acoustic wave in a cylinder pipe closed at an extremity was much
+complicated that what we learnt in Physical Terminal S Speciality. The work target is to try to
+understand by experience, the nature of discrepancy that exists between the terminal model
+and the experimental results: influence of the instrument length L, it is inside diameter Di, the
+position and the thickness of the finger holes, the mouthpiece, the pavilion, the musician…
+These results are run to design and build a prototype wind instrument.
+KEY-WORDS : ACOUSTIQUE MUSICALE – WEBER - MODELISATION
+PARTENAIRES
+-
+
+L’orchestre d’harmonie la Lyre Agenaise, pour le prêt et l’essai d’instruments de
+musique.
+M Grammatica, docteur en acoustique et professeur au Lycée J-B de Baudre à Agen.
+Jonathan Ollivier, facteur d’instrument à Agen.
+INTRODUCTION :
+
+La modélisation du comportement des ondes sonores dans un tuyau cylindrique
+proposée au programme de spécialité Physique-Chimie en Terminale S ou en Mathématiques
+Spéciales est souvent prise en défaut par l’expérience. Elle ne tient compte que de la longueur
+L du tube, mais pas de son diamètre intérieur, de la nature de l’excitateur, de trous ouverts ou
+bouchés... De nombreux écarts existent entre prévisions et résultats expérimentaux lors de
+l’étude d’un véritable instrument de musique, ou même d’un simple tuyau PVC, comme nous
+l’avons constaté lors de nos mesures sur les résonances de diverses colonnes d’air. L’étude
+globale de l’ensemble musicien – anche – tuyau est nécessaire pour améliorer le modèle. Le
+système qui nous intéresse ici n'est pas l'instrument seul comme dans la plupart des études sur
+les instruments de musique, mais la clarinette couplée au conduit respiratoire du musicien, qui
+constitue un second résonateur dans lequel peuvent se propager les ondes acoustiques.
+Après avoir présenté les modélisations simplifiées du comportement d’une colonne
+d’air au programme de spécialité physique en Terminale S, nous analyserons les résultats de
+nos expériences de résonance pour des systèmes d’abord excités par un haut-parleur, puis par
+une anche et un musicien. Nous essayerons de les comprendre grâce aux résultats de deux
+acousticiens Weber et Benade.
+Une des raisons des écarts observés vient du couplage existant entre la colonne d’air
+intérieure au musicien et celle intérieure à l’instrument. Nous avons donc tenté plusieurs
+expériences sur ce couplage, dont une sur sa modélisation par des circuits électriques.
+
+-3-
+
+Puis la dernière partie de ce mémoire présente nos mesures de fréquence sur une
+clarinette et des prototypes fabriqués au lycée. Notre but est d’obtenir une modélisation
+« améliorée » permettant de prévoir la fréquence du son produit en fonction de la longueur du
+tuyau de l’instrument. Nous avons ainsi conçu, à partir de nos résultats expérimentaux, un
+modèle mathématique permettant de prévoir correctement la note jouée par un tube de
+longueur et d’épaisseur choisie.
+En annexe, nous présentons un petit programme en Visual Basic, bâti uniquement
+autour de la fonction BEEP et qui permet de prévoir et d’entendre le son que produira un
+tuyau à anche de longueur donnée.
+Ce travail présente le résultat des expériences que nous avons faites pour comprendre
+comment prévoir la hauteur du son donné par un instrument à anche simple. Nous avons
+exploré des pistes, exploité des idées, obtenu quelques réussites et quelques d’échecs aussi.
+Ce mémoire présente notre démarche.
+
+1 – Des modélisations prises en défaut:
+Trois groupes de notre lycée ont participé l’année dernière aux Olympiades de
+physique sur des sujets d’acoustique musicale. Nous avons lu leurs mémoires et remarqué
+qu’il y avait souvent des écarts entre les modèles utilisés en spécialité physique de Terminale
+S pour décrire les fréquences de résonance d’une colonne d’air et la réalité des mesures. Dans
+la plupart des cas, la colonne d’air résonnante semble plus longue que le tube. Cette
+constatation est le point de départ de notre travail. Nous voulons chercher des explications à
+ces écarts et trouver une modélisation plus efficace. Voici d’abord la présentation des modèles
+de Terminale, puis leur confrontation avec les résultats de nos expériences.
+1.1 Modélisations simplifiées du comportement d’une colonne d’air :
+1.1.1
+
+Ondes stationnaires dans un tuyau fermé à une extrémité
+
+Le son est une onde qui provient d’une vibration mécanique de l’air. Grâce à
+l’élasticité du milieu dans lequel il se déplace (l’air), le son se propage sous forme d'ondes
+longitudinales. Lorsqu’une telle onde se propage dans une colonne d’air et rencontre en son
+extrémité une fermeture ou bien au contraire une ouverture vers l’extérieur, la présence d’un
+obstacle ou alors la différence de pression entre le milieu extérieur et la colonne d’air va
+provoquer une nouvelle onde semblable à l’onde incidente en tous points excepté qu’elle aura
+un sens de propagation opposé a celui de
+l’onde incidente : c’est la formation de l’onde
+réfléchie.
+Lorsque l’onde incidente rencontre un
+obstacle le signe de l’onde réfléchie est le
+même que celui de l’onde qui l’a formé.
+Cependant l’ouverture vers le milieu extérieur
+et donc le changement de pression va modifier
+le signe de l’onde, elle passera d’une onde de
+compression à une onde de dépression
+Si une onde progressive sinusoïdale est
+entretenue, la superposition en tout point de
+l’onde incidente et réfléchie produit une onde
+stationnaire, celle-ci ne se propage pas. Pour qu'une onde stationnaire s’établisse, il faut qu'il
+y ait une synchronisation des ondes réfléchies et incidentes.
+
+-4-
+
+Lorsque la fréquence d’excitation est un multiple exact de la fréquence propre du
+tuyau, nœuds et ventres deviennent plus marqués et se stabilisent à un endroit donné. Le tuyau
+entre en résonance.
+- Certains points ne vibrent plus, leur amplitude de vibration est nulle. Ce sont des nœuds
+d'amplitude. En ces points les élongations des ondes incidente et réfléchie sont toujours
+opposés : elles sont en opposition de phase. La distance entre deux nœuds consécutifs est λ /2.
+- Certains points vibrent avec une amplitude maximale : ce sont des ventres d'amplitude. En
+ces points, les élongations des ondes incidente et réfléchie sont toujours égales (ondes en
+phase). Chaque ventre se trouve à mi distance entre deux nœuds. La distance entre deux
+ventres consécutifs est λ/2.
+Pour devenir une onde stationnaire dans le cas d'un tuyau à une extrémité fermé la
+distance parcourue correspond à 4L pour que les ondes soient synchronisées. Pour un tuyau
+fermé à une extrémité il y a un nœud de vibration à l’extrémité fermée et un ventre à
+l’extrémité ouverte. On en déduit donc que la longueur L doit être un multiple impair du quart
+de la longueur d’onde.
+L = (2k+1)
+(k un entier naturel )
+Puis en introduisant c, la célérité du son dans l’air, on a la fréquence fondamentale : f = c / 4L
+1.1.2
+
+Tuyau ouvert aux deux extrémités
+
+Dans un tuyau ouvert aux deux extrémités, la longueur L du tuyau doit être un multiple
+entier de la demi-longueur d’onde des ondes progressives, c’est à dire de la distance
+parcourue par l’onde en une période. L = k /2 avec : longueur d'onde (Entre deux noeuds
+successifs : /2)
+Lorsque que l’on souffle à l’extrémité d’un tube ouvert à ses deux extrémités (comme
+pour une flûte), ou qu’on l’excite avec un haut-parleur, on fait vibrer les molécules d’air
+présentes dans le tube, ce qui crée ventres (zone où la vibration des molécules est maximale)
+et nœuds (zone avec des vibrations minimales), s’il y a résonance.
+0.5λ
+
+V
+
+N
+
+V
+
+Comme l’indique le schéma, un nœud doit être présent au milieu du tube de longueur
+L , et deux ventres aux extrémités :
+λ = c * T = c/F or 0.5 λ = L donc L = c/(2F) ou F = c/(2L), avec F la fréquence
+fondamentale.
+1.2 Tuyaux excité par un Haut-parleur
+Voici les résultats de l’étude de plusieurs tuyaux cylindriques de longueur L et de
+diamètre intérieur Di. Nous n’indiquons ici que la première fréquence de résonance relevée.
+Elle est comparée au résultat de la modélisation vue en cours de spécialité.
+Nous connectons le GBF au haut-parleur. Le niveau doit être suffisant pour être perçu
+correctement par le micro, mais pas trop élevé pour éviter la saturation du micro. Chacun de
+nos micros répond différemment et lorsqu’il y a saturation on observe des segments de droite
+horizontaux sur l’écran.
+
+-5-
+
+Expérience 1 : Tuyau cylindrique ouvert aux deux extrémités et excité à une extrémité
+
+Schéma Zakaria Habri
+Di (cm)
+7
+7,8
+9
+
+L (cm)
+60
+54
+60
+
+F1 mes (Hz) F1cal (Hz) écart en %
+/2 (cm)
+65,3846154 260
+283,333333 8,97435897
+60,4982206 281
+314,814815 12,0337419
+66,6666667 255
+283,333333 11,1111111
+
+On constate que la colonne d’air résonante semble plus longue que le tube, cet écart
+s’accentuant lorsque la longueur du tube diminue.
+Arthur Benade, acousticien américain, suggère d’utiliser une correction qui dépend du
+diamètre du tube : F1 = c/2(L+a.Di). Nous avons trouvé des résultats et des cours de ce
+professeur renommé sur le site de l’université de Stanford et sur le site d’Eric Würbel, qui en
+présente une vulgarisation en français (voir nos sources à la dernière page de ce travail).
+Appliquons ce modèle aux trois cas précédents :
+Dans le premier cas, si a = 0,77 alors F1 = 259,98 Hz
+Dans le second cas, si a = 0,83 alors F1 = 281,11 Hz
+Dans le troisième cas, si a = 0,74 alors F1 = 255,03 Hz
+Dans chaque cas la valeur de a est différente, mais semble proche de 0,8. (C’est une grandeur
+sans unité.)
+Expérience 2 : tuyau cylindrique de diamètre unique ouvert à une extrémité
+Ordinateur
+Micro
+GBF
+
+Tuyau sonore
+(Résonateur)
+
+Schéma David Alexandre
+
+Di (cm)
+1.3
+
+L (cm) 3 /4 Haut-parleur
+(cm) F1mes (Hz)
+150 ------------586
+-6-
+
+F1cal (Hz)
+56,7
+
+écart en %
+(5,9 %)
+
+6.3
+3.4
+4.2
+7,5
+
+135
+70
+23
+22
+
+133,5
+67,5
+
+191
+378
+353
+408
+
+63
+121
+369
+386
+
+(1%)
+(3,7%)
+4,7
+5,3
+
+Nous avons remarqué au cours des nombreux essais que nous avons effectués que la
+fréquence de résonance la plus grave décelée n’est pas la fondamentale si le tuyau est long et
+avec un petit diamètre. C’est le cas pour le premier résultat du tableau. Il s’agit peut être du
+11ème harmonique qui était prévu à 623 Hz soit un écart de 5,9 %. Cette expérience, malgré
+son mauvais résultat, se justifie pour nous, car les clarinettes ont un diamètre intérieur de
+l’ordre de 1,3 cm. La première conclusion est donc que les fréquences de résonance graves ne
+sont pas toujours visibles si l’ensemble étudié est excité par un haut-parleur, et si le diamètre
+intérieur est faible. Il ne s’agit pas d’un défaut de notre matériel ou de nos mesures, mais d’un
+comportement général constaté aussi par les autres élèves de notre lycée préparant les
+Olympiades de physique sur un sujet d’acoustique.
+
+U eff =f(fréquence); L = 150 cm; Di = 1,3 cm
+0,8
+0,6
+0,4
+0,2
+0
+0
+
+500
+
+1000
+
+1500
+
+2000
+
+2500
+
+Pour le second tuyau, de longueur comparable, mais de diamètre plus important, on
+décèle le 3ème harmonique, avec un écart de 1% par rapport à la fréquence prévue (189 Hz).
+
+-7-
+
+Amplitude
+
+Ueff(V) en fonction
+de la fréquence d'excitation (Hz)
+Tuyau PVC 135 cm
+Di = 6,3 cm
+2
+1,5
+1
+0,5
+0
+0
+
+100
+
+200
+
+300
+
+400
+
+500
+
+Fréquence
+
+Pour ce tuyau, les 3ème, 5ème et 7ème harmoniques s’écartent de moins de 2% des prévisions du
+modèle :
+F calculées (Hz) F mesurées (Hz) %écart
+62,96296296
+188,8888889
+191 1,11764706
+314,8148148
+318 1,01176471
+440,7407407
+449 1,87394958
+
+Pour le troisième tuyau, le 3ème harmonique est détecté avec un écart de 3,7%. Pour les
+deux derniers tuyaux les plus courts, le fondamental peut être décelé et l’écart avec la
+modélisation est de l’ordre de 5 %. On voit bien sur les courbes la position du fondamental et
+du 3ème harmonique, mais on remarque aussi un petit pic intermédiaire, inexpliqué par notre
+modèle. Il est peut-être du à une réflexion partielle des ondes sur le haut-parleur placé très
+près de l’ouverture du tuyau.
+
+Tuyau Ouvert fermé 22 cm
+Di = 7,5cm
+4
+
+HP
+Micro
+
+3,5
+
+Ueff (V)
+
+3
+2,5
+2
+1,5
+1
+0,5
+0
+0
+
+200
+
+400
+
+600
+
+800
+
+F (Hz)
+
+-8-
+
+1000
+
+1200
+
+1400
+
+Les écarts sont moins importants que dans le cas d’un tuyau ouvert aux deux
+extrémités. Cependant, ils ne sont pas simplement dus à nos erreurs expérimentales. Les
+mesures ont été répétées avec soin, pour être sûr des résultats.
+Selon les écrits de monsieur A.Benade : F3 = 3c/4(L+a.Di) soit
+Dans le second cas, si a = -0,25 alors F3 = 191,1 Hz
+Dans le troisième cas, si a = - 0,75 alors F3 = 378 Hz
+On trouve donc une valeur de a du même ordre de grandeur que dans les expériences
+1, mais négative. Au vu de ces premiers résultats il est difficile de conclure sur le rôle du
+diamètre intérieur du tube sur la valeur de la fréquence de résonance fondamentale. Quoiqu’il
+en soit, les écarts observés ne sont pas seulement dus à des erreurs expérimentales.
+Expérience3 : Etude d’une clarinette
+Pour terminer cette première partie de notre travail, nous avons voulu comparer
+modélisation et mesures pour une véritable clarinette. Notre clarinette d’étude mesure 70 cm
+de l’extrémité de l’anche à celle du pavillon. Elle nous a été prêtée par notre partenaire, la
+Lyre agenaise. Son diamètre intérieur vaut 1,5 cm. Nous pensons donc que les fréquences de
+résonance les plus faibles ne seront pas visibles.
+
+GBF
+Embout bouché
+Haut-parleur
+Micro
+Pile nécéssaire au fonctionnement
+
+Clarinette
+
+Schéma Erwan Crestel
+Multimètre en mode voltmètre
+
+Nous pouvons donc prévoir les fréquences de résonance suivante, par application du
+modèle de Terminale:
+f17
+
+Clarinette
+L mesuré =
+f=c/4L
+f3
+f5
+f7
+f9
+f11
+f13
+f15
+
+70 cm
+121,428571 Hz
+364,285714 Hz
+607,142857 Hz
+850 Hz
+1092,85714 Hz
+1335,71429 Hz
+1578,57143 Hz
+1821,42857 Hz
+
+2064,28571 Hz
+
+Les fréquences de résonance
+effectivement mesurées sont assez
+différentes :
+Fréquences de
+résonance
+mesurées
+Fa
+
+-9-
+
+477 Hz
+
+Fb
+Fc
+
+996 Hz
+1499 Hz
+
+Fd
+
+1636 Hz
+
+Ueff (V ) en fonction de
+la fr équence d'excitation (H z)
+
+4
+3,5
+3
+2,5
+2
+1,5
+1
+0,5
+0
+0
+
+500
+
+1000
+
+1500
+
+2000
+
+2500
+
+Nous avons aussi étudié la clarinette sans pavillon.
+Nous pouvions prévoir les fréquences de résonance suivantes, pour un instrument de 59 cm :
+Les fréquences effectivement mesurées
+sont :
+Clarinette
+59 cm
+F1
+F3
+F5
+F7
+F9
+F11
+
+144,067797 Hz
+432,20339 Hz
+720,338983 Hz
+1008,47458 Hz
+1296,61017 Hz
+1584,74576 Hz
+
+F de résonance
+mesurées
+Fa
+Fb
+Fc
+Fd
+
+529 Hz
+1157 Hz
+1530 Hz
+2066 Hz
+
+Les différences sont très importantes, alors que pour l’étude d’une trompette l’accord
+entre expérience et modélisation est bien meilleur, comme l’ont montré nos camarades qui
+réalisent un prototype de trompette exceptionnelle.
+Nos résultats nous ont étonnés. Nous les avons retrouvés au cours de plusieurs
+manipulations. Ils correspondent à ceux trouvés pour la même étude, l’année dernière, par les
+élèves du groupe Tclarinette. Il n’y a pas d’interprétation simple de ces résultats. Les
+fréquences de résonance trouvées semblent proches des 4ème, 8ème, 10ème harmoniques, qui ne
+devraient pas exister dans un tel instrument. Alors que pour les tuyaux plastiques les écarts
+modèle-expérience pouvaient être interprétés en corrigeant la longueur du tube, ici, le modèle
+semble inadapté. Nous poursuivons donc notre travail en changeant d’excitateur, pour se
+retrouver dans une situation plus proche de celle d’un instrument de musique joué par un
+musicien.
+1.3 - Excitation par un bec muni d’une anche
+Expérience 1 : bec de saxophone alto associé à des tuyaux en plastique
+Nous avons associé divers tuyaux plastiques de 1,2 cm de diamètre intérieur à un bec
+de saxophone alto pour réaliser ces mesures. Un bec de clarinette doit rentrer dans le tube qui
+
+- 10 -
+
+lui est associé, tandis que le tube doit rentrer dans un bec de sax alto. La seconde situation
+crée moins de discontinuité dans la colonne d’air, c’est pour cela que nous l’avons choisie.
+Di (cm)
+
+L (cm)
+
+1,2
+1,2
+1,2
+1,2
+1,2
+Bec seul
+
+40,1
+33,3
+32,3
+29,8
+18,1
+8,7
+
+/4 (cm)
+
+Note jouée F1 mes(Hz)
+
+45,5 Fa#2 - 20 cent
+41,4 Sol#2 -20 cent
+40,7 Sol#2+10cent
+38,4
+La2+10cent
+24,8
+Fa3-35 cent
+14,8
+Ré4-40 cent
+
+182,9
+205,3
+208,9
+221,3
+342,2
+574
+
+F1cal
+(Hz)
+212
+255.3
+263,2
+285,2
+469,6
+977
+
+écart en %
+15,9
+24,3
+26
+28,9
+37,2
+70,2
+
+La note jouée est repérée par un accordeur chromatique, puis la fréquence
+correspondante est calculée sur excel. fnotejouée = fnoteréférence 2c/1200 avec c le nombre de cent de
+décalage par rapport à la note de référence.
+Comme nous l’avons déjà dit, Arthur Benade suggère d’utiliser une correction qui dépend du
+diamètre du tube : F1 = c/4(L+a.Di)
+Dans le premier cas, si a = 5,4 alors F1 = 182,5 Hz
+Dans le second cas, si a = 6,7, alors F1 = 205,6 Hz
+Dans le troisième cas, si a = 7 alors F1 = 208,8 Hz
+Dans le quatrième cas, si a = 7,2alors F1 = 221,1 Hz
+Dans le cinquième cas, si a = 5,6 alors F1 = 242,5 Hz
+Pour le dernier cas, le diamètre du bec étant irrégulier, nous ne calculerons pas a. Ces
+valeurs de a sont très différentes de celles trouvées pour un tuyau excité par un haut-parleur.
+La nature de l’excitateur semble donc jouer un grand rôle sur les fréquences de résonance
+mesurées.
+Expérience 2 : Etude d’une clarinette
+Poursuivons notre étude en excitant la clarinette par son anche.
+Fmesurée
+clarinette
+note jouée (Hz)
+bec+barillet (13 cm)
+mi4-40cent 644
+bec+barillet+1/2corps (35,5 cm)
+sib2+15cent 235
+bec + barillet+ corps 2 derniers trous ouverts (50 cm)
+mi2-20cent 163
+bec + barillet+ corps sans pavillon (61 cm)
+do#2+7cent 139
+bec + barillet+ corps avec pavillon (70 cm)
+do#2-35cent 136
+diamètre intérieur 1,5 cm. Clarinette Selmer de 1940.
+
+Fcalculée
+(Hz)
+653
+239
+170
+139
+121,4
+
+Cette fois-ci l’accord entre modèle et expérience est beaucoup plus satisfaisant que
+pour l’excitation par un haut-parleur. Il n’y a même aucun écart pour la clarinette de 61 cm
+sans pavillon. Pour l’instrument complet de 70 cm l’écart est de 11%, mais l’ensemble n’est
+pas cylindrique à cause du pavillon et des trous.
+1.4 Discussion des résultats
+Il existe plusieurs hypothèses pour interpréter l’écart entre les mesures et la
+modélisation vue en Terminale :
+
+- 11 -
+
+-
+
+-
+
+La célérité du son ne correspond pas exactement aux valeurs que nous avons
+utilisées (34000 cm/s pour l’excitation par le haut-parleur et 34500 cm/s pour
+l’excitation par un musicien car l’air est alors chaud et humide).
+Positions des Ventres incorrectes. Il est possible de vérifier la présence d’un
+nœud au milieu d’un tube, mais pas celle d’un ventre à son extrémité. En effet
+à l’extrémité ouverte la pression tend vers la pression de l’atmosphère. L’onde
+plane se transforme en onde sphérique et son amplitude diminue. La position
+du ventre de vibration (ou nœud de pression est incertaine).
+
+Transformation onde plane onde sphérique : schéma Chahat Ali
+- Le fait de remplacer le haut-parleur par un musicien soufflant sur une anche
+augmente encore les écarts avec la modélisation, jusqu’à des valeurs de 70 % !
+La modélisation n’est plus adaptée.
+Nous supposons donc que les modélisations d’une colonne d’air cylindrique du
+programme de spécialité ne sont que des approximations de modélisations plus complexes qui
+tiendraient compte:
+- du musicien.
+- du diamètre du tuyau.
+- du type d’excitateur.
+1.5 Le schème de Weber et les résultats d’Arthur.H.Benade
+
+Fréquences (Hz)
+
+Avant de poursuivre nos expériences, nous avons voulu nous appuyer sur le travail de
+deux acousticiens célèbres : Weber et Benade. Wilhelm Eduard Weber, physicien allemand né
+en 1804 a laissé son nom à une unité de flux magnétique, le weber (Wb). Il a aussi
+longuement étudié expérimentalement le comportement des tuyaux à anche. Vers 1827, il leur
+a consacré plusieurs mémoires. Cent ans plus tard, Marcel Fouché de l’université Paul
+Sabatier de Toulouse, a confirmé et complété son travail.
+Le schème de Weber est l’ensemble des lois simples reliant la fréquence du son
+produit par un tuyau à anche et la longueur du tuyau résonant. Ces lois ne décrivent qu’un
+phénomène moyen, qui n’est jamais suivi avec exactitude, mais qui sert de point de repère
+pour la suite expérimentale de
+Schème de Weber
+cette étude.
+600
+Le schème de Weber est
+500
+caractérisé par l’alternance
+régulière des sons de l’anche
+400
+sans résonateur et des partiels du
+300
+tuyau.
+200
+Il est simple de mettre en
+100
+évidence de nombreux écarts
+0
+expérimentaux par rapport au
+0
+20
+40
+60
+80
+100
+120
+schème de Weber : sons de
+L (cm)
+palier plus graves que celui de
+
+- 12 -
+
+l’anche seule, arcs d’hyperbole décalés vers la gauche, émission de sons légèrement plus
+aigus que celui de l’anche seule….
+Le schème de Weber met donc en évidence un phénomène important pour nous :
+même si la longueur du tuyau diminue beaucoup, la fréquence du son ne peut pas dépasser
+une certaine limite, le son de palier de l’anche seule. La modélisation simplifiée de Terminale
+ne tient pas compte de ce phénomène.
+Arthur H. Benade (1925-1987) était un physicien américain. La plus grande partie des
+recherches acoustiques de Benade a été consacrée aux instruments à vent. Il a été le premier
+chercheur à essayer de traiter en entier le processus de fabrication du son dans des instruments
+à vent en tenant compte de l'influence du joueur, du comportement de l’anche de l'instrument,
+de la colonne d'air, et des diagrammes de rayonnement, des réactions de la salle sur le son, et
+de la réponse de l'équipement sensoriel auditif et neurologique du joueur. Eric
+Würbel présente sur son site un résumé du travail du professeur Benade.
+La modélisation simplifiée ne marche que pour les tubes théoriques (« parfaits ») et
+donc ne fonctionne pas dans la réalité. La longueur de la colonne d’air n’est pas exactement
+celle mesurée. En fait pour la résonance, tout se passe comme si le tuyau se prolongeait audelà de son extrémité. Arthur Benade détermina empiriquement que dans certaines
+conditions : L= l + (0.6133 x d1/2) avec L longueur réelle ; l longueur mesurée ; d1 diamètre
+intérieur du tuyau.
+Examinons le problème des trous. Un trou doit interrompre prématurément le tuyau.
+Or un tuyau percé à une distance l de l’embouchure ne correspond pas à un tuyau de longueur
+l. En fait c’est comme si le tuyau se prolongeait au-delà du trou sur une certaine distance donc
+la note obtenue est plus grave. Plus le trou est grand plus le phénomène est perceptible.
+Benade introduisit donc dans sa formule des corrections à cause de la présence des trous
+ouverts ou fermés. Les calculs sont compliqués et nous n’en avons pas compris le sens
+physique. Ils sont itératifs, c’est à dire répétés un certain nombre de fois, pour tenir compte de
+l’influence des trous les uns sur les autres. (feuille de calcul de P Hoeckje)
+Nous avons retenu de ce travail que dans la modélisation, il faut remplacer la longueur
+effectivement mesurée du tuyau par une longueur plus importante, dépendant de nombreux
+facteurs (trous, diamètre intérieur…). Pour des courtes longueurs de tube le son de palier de
+l’anche modifie grandement le comportement de résonance.
+
+2- Couplage musicien-clarinette
+Les différences importantes obtenues en changeant
+d’excitateur nous font penser que l’ensemble GBF-haut-parleur,
+n’est pas équivalent à l’ensemble musicien-bec de saxophone avec
+anche.
+Le musicien ressent les vibrations musicales en lui. Il
+résonne avec l’instrument qu’il joue. Il y a donc deux résonateurs,
+l’air dans l’instrument et celui dans le musicien. Une première
+expérience simple nous a permis de nous en rendre compte. Avec
+Stéphanie Bul au
+notre partenaire la Lyre agenaise, nous avons joué d’un gros tuba
+tuba contrebasse
+avec les joues gonflées et avec les joues dégonflées. La hauteur de
+la note, évaluée à l’accordeur chromatique, a baissé de presque 1 ton quand le musicien a
+gonflé les joues. L’effet est moins important avec une clarinette, mais existe cependant (20 à
+30 cent).
+
+- 13 -
+
+Nous devons donc tenir compte du conduit
+vocal, du larynx, du conduit sublaryngeal et des
+poumons. Un système acoustique comporte
+généralement deux parties : un excitateur et un
+résonateur, qui est le volume dans lequel se propage
+l'excitation. L'excitateur délivre un signal source dont
+certaines composantes vont être affaiblies ou
+renforcées dans le résonateur, c'est sa fréquence de
+résonance. Elle varie selon le volume de la cavité et la
+surface de l'ouverture du résonateur. L'appareil vocal
+humain est ainsi constitué d'un excitateur, le complexe
+glotte-cordes vocales, et d'un ensemble de résonateurs.
+Dans nos expériences l’excitateur est l’anche.
+Lorsqu'un excitateur entre en vibration, il fournit un
+signal, dont le résonateur va amplifier certaines composantes. On obtient alors des fréquences
+de résonance ou partiels, encore appelés formants pour le conduit vocal, qui sont un facteur
+fondamental dans la caractérisation du timbre. Ils servent, justement, à « former » ce dernier.
+Les formants dépendent des caractéristiques du résonateur (volume, forme et ouverture).
+L’ensemble des différents résonateurs contenus dans notre bouche et notre gorge,
+constitue une cavité extrêmement complexe. On peut le découper en cinq parties :
+- le pharynx (ou arrière-gorge) ;
+- la cavité buccale en-deça de la langue ;
+- la cavité buccale au-delà de la langue (qui peut ne former qu'une seule cavité avec la
+précédente, selon la position de la langue) ;
+- la cavité labiale ;
+- la cavité nasale, qui fonctionne et existe en parallèle à la cavité buccale.
+Toutes les cavités communiquent entre elles par des ouvertures réglables. Grâce à
+cette musculature élaborée, le volume et l'ouverture des cavités peut varier très rapidement.
+Ces cavités, d’habitude étudiées dans le cas de la parole, sont des résonateurs dans le
+cadre du jeu d’une clarinette. L’anche excite à la fois la clarinette et l’instrumentiste. Nous
+avons voulu en savoir plus sur le rôle de ce résonateur qu’est le conduit vocal.
+Nous nous sommes demandés comment étudier ce couplage musicien-instrument.
+Nous savons, grâce aux résultats de la première partie, que le comportement des résonateurs
+n’est pas le même si ils sont excités par un haut-parleur ou par une anche. Cependant étudier
+directement l’influence du musicien sur les fréquences de résonance de l’instrument en
+situation de jeu n’est pas possible avec le matériel à notre disposition.
+Nous avons donc d’abord étudié le conduit vocal, excité avec un haut parleur placé
+contre la bouche le musicien. Un micro récupère le signal. Nous repérons rapidement chaque
+résonance pour éviter des modifications de l’ouverture de la bouche, donc des fréquences de
+résonance. Voici quelques uns de nos résultats :
+520 Romain2
+Fréquence (Hz)
+547 Ali2
+464 Ali
+872 Ali3
+507 Zakaria
+2151 Ali4
+504 Erwan
+520 Zakaria2
+1108 Romain
+
+- 14 -
+
+Ces résultats montrent la complexité du résonateur humain, car aucun résultat n’est
+reproductible. Une fréquence de résonance repérée à un instant sera différente l’instant
+suivant. Nous maîtrisons mal la configuration
+de nos cavités résonantes.
+Nous avons ensuite essayé de tracer la
+courbe représentant la tension efficace aux
+bornes du micro en fonction de la fréquence de
+l’excitateur pour un élève donné, Ali Chahat.
+La courbe obtenue n’est pas reproductible, car
+il faut du temps pour la tracer et la
+configuration du conduit vocal change.
+
+Cette courbe montre bien que notre conduit vocal est un résonateur avec de multiples
+fréquences de résonance. Lors du jeu d’une clarinette, il y a donc bien 2 colonnes d’air
+résonantes, celle intérieure au musicien et celle de l’instrument.
+En annexe 2 et 3, vous trouverez un complément à cette étude, par des mesures sur
+deux tuyaux couplés et la modélisation du couplage par un circuit électrique.
+
+3- Vers un modèle pour un instrument en situation de jeu
+3.1 Tuyau PVC sans trou
+Nous avons fait de nombreuses mesures avec une clarinette en situation de jeu pour
+essayer de dégager une modélisation utilisable. Voici d’abord les résultats obtenus avec des
+tuyaux PVC de diverses longueurs associés à un bec de saxo alto. Le son de palier,
+correspond au son donné par le bec sans tuyau. C’est une fréquence qu’il semble impossible
+de dépasser.
+L (cm)
+40,1
+33,3
+32,3
+29,8
+18,1
+8,7
+
+F1 mes(Hz) F1cal (Hz) Fpalier (Hz) F (Hz)
+lambda/4 cm écart cm
+182,9
+212
+574
+179,6875 47,1569163 7,05691635
+205,3
+255,3
+574 209,34466 42,0116902 8,71169021
+208,9
+263,2
+574 214,552239 41,2876975 8,98769746
+221,3
+285,2
+574 228,779841 38,9742431 9,17424311
+342,2
+469,6
+574 331,730769 25,2045587 7,10455874
+574
+977
+574 519,578313 15,0261324 6,3261324
+
+- 15 -
+
+F en Hz
+
+tuyau PVC + bec sax alto
+1200
+1000
+800
+600
+400
+200
+0
+
+F1 mes(Hz)
+F1cal (Hz)
+Fpalier (Hz)
+F (Hz)
+0
+
+10
+
+20
+
+30
+
+40
+
+50
+
+L en cm
+On constate que plus le tuyau est court, plus l’écart avec la modélisation simplifiée de
+Terminale est grand. Cela est du au son de palier de l’anche, que l’instrument ne peut
+dépasser.
+Voici une modélisation possible :
+F = 34500/4 (L +7.9)
+Elle peut permettre de prévoir la longueur de notre clarinette et la position des trous.
+Comme l’a fait A.H.Benade, nous avons remplacé la longueur du tube mesurée par une
+longueur plus importante, dépendant de nombreux paramètres.
+3.2 Clarinette Selmer
+Nous avons poursuivi notre étude en jouant de la clarinette, en bouchant
+progressivement tous les trous, pour augmenter la longueur de la colonne d’air. Notons que
+l’épaisseur du bois est importante pour une clarinette, de l’ordre de 1 cm au niveau des trous.
+C’est beaucoup plus important que pour les tuyaux PVC. Voici nos résultats :
+notes
+L en cm
+F(Hz)
+sol#4
+9
+ré#4
+13,5
+sol3+40cent
+17,5
+fa#3
+20,2
+fa#3-12cent
+21,4
+fa3+12cent
+22,7
+mi3
+25,5
+ré3+20cent
+26,5
+do#3+15 cent
+28,5
+do3+25 cent
+29,8
+si2+39 cent
+32,5
+sib2+43 cent
+35,5
+la2+10 cent
+36,5
+sol#2+27 cent
+38
+sol2+10 cent
+41
+fa#2+10cent
+43,5
+mi2+20 cent
+49
+
+830
+622
+401
+370
+367
+352
+330
+297
+280
+265
+253
+239
+221
+211
+197
+186
+167
+
+Fmod (Hz) Fmod2 (Hz) Lambda/4 (cm) écart (cm)
+958,333333 770,089286
+10,39156627 1,39156627
+638,888889 549,363057
+13,86655949 0,36655949
+492,857143 437,817259
+21,50872818 4,00872818
+426,980198 385,044643
+23,31081081 3,11081081
+403,037383 365,466102
+23,5013624 2,1013624
+379,955947 346,385542
+24,50284091 1,80284091
+338,235294 311,371841
+26,13636364 0,63636364
+325,471698 300,522648
+29,04040404 2,54040404
+302,631579 280,944625
+30,80357143 2,30357143
+289,42953 269,53125
+32,54716981 2,74716981
+265,384615 248,559078
+34,09090909 1,59090909
+242,957746 228,779841
+36,08786611 0,58786611
+236,30137 222,868217
+39,02714932 2,52714932
+226,973684 214,552239
+40,87677725 2,87677725
+210,365854 199,652778
+43,78172589 2,78172589
+198,275862 188,730853
+46,37096774 2,87096774
+176,020408 168,457031
+51,64670659 2,64670659
+
+- 16 -
+
+F est la fréquence correspondant à la note jouée. Fmod est la modélisation de simplifiée
+de Terminale (Fmod = c/4L). Fmod2 est une modélisation améliorée tenant compte de l’écart
+entre la longueur L mesurée du bout du bec au milieu du premier trou ouvert, et λ/4, calculé à
+partir de la fréquence du son joué. La moyenne des écarts est de 2,2 cm. Nous avons donc
+posé :
+Fmod2 = c/4(L+2,2)=34500/4(L+2,2)
+
+F en Hz
+
+clarinette: modélisations
+1200
+1000
+800
+600
+400
+200
+0
+
+F(Hz)
+Fmod (Hz)
+Fmod2 (Hz)
+
+0
+
+20
+
+40
+
+60
+
+L en cm
+
+Notre nouveau modèle correspond assez bien aux résultats expérimentaux. De plus, il
+garde un sens physique : la colonne d’air est en moyenne plus longue de 2,2 cm que le tube.
+3.3 Notre prototype de clarinette en plastique
+Nous avons créé un modèle de 47 cm de long sans pavillon. C’est un simple tuyau
+plastique de 1,4 cm de diamètre intérieur, associé avec un bec de saxophone alto. Il y a 8 trous
+principaux sur le tube, ainsi qu’un trou de quintoiement, c'est-à-dire un petit trou, placé à peu
+près au tiers supérieur de l’instrument et qui permet de « tuer » la fréquence fondamentale et
+de favoriser l’harmonique 3. Notre prototype a aussi deux trous de quintoiement, mal placés
+et bouchés avec du scotch. Un ré#4 à 622 Hz est produit par le bec seul avec son anche. Cette
+fréquence dépend du souffle du musicien, du bec et de l’anche.
+
+notes
+L (cm)
+ré#2 + 43 cent
+fa2+ 35 cent
+fa#2 + 20 cent
+sol2-4cent
+sol#2+17 cent
+
+Fmes (Hz)
+47
+41
+37,7
+35,3
+32,7
+
+- 17 -
+
+159
+178
+187
+196
+210
+
+la2+42cent
+si2-20 cent
+do3+5 cent
+do#3 + 30 cent
+si3-15 cent
+do#4 - 20 cent
+ré4
+L (cm)
+
+Fmes (Hz)
+47
+41
+37,7
+35,3
+32,7
+30
+27,5
+25,5
+24
+47
+41
+37,7
+
+159
+178
+187
+196
+210
+225
+244
+262
+282
+245
+548
+587
+
+30
+27,5
+25,5
+24
+47
+41
+37,7
+
+225
+244
+262
+282
+245
+548
+587
+
+Fmodel (Hz) Fmod2 (Hz) fanche (Hz) trous ouverts lambda/4 cm écart (cm)
+183,510638 157,390511
+622
+0 54,245283 7,24528302
+210,365854 176,741803
+622
+1 48,4550562 7,45505618
+228,779841 189,56044
+622
+2 46,1229947 8,42299465
+244,334278 200,116009
+622
+3 44,005102 8,70510204
+263,761468 212,962963
+622
+4 41,0714286 8,37142857
+287,5 228,174603
+622
+5 38,3333333 8,33333333
+313,636364 244,334278
+622
+6 35,3483607 7,84836066
+338,235294 259,009009
+622
+7 32,9198473 7,41984733
+359,375 271,226415
+622
+8 30,5851064 6,58510638
+183,510638
+622 0+quint
+210,365854
+622 1+quint
+moyenne
+228,779841
+622 2+quint
+7,82072357
+
+prototype clarinette
+
+F en Hz
+
+400
+350
+300
+Fmes (Hz)
+
+250
+200
+150
+100
+50
+0
+
+Fmodel (Hz)
+Fmod2 (Hz)
+
+20
+
+30
+
+40
+
+50
+
+L en cm
+
+Voici la modélisation obtenue :
+Fmod2 = c/4(L+2,2)=34500/4(L+7,8)
+si la célérité C du son dans l’instrument vaut 34500 cm/s. Cette modélisation est peu
+différente de la précédente obtenue pour des tuyaux sans trous.
+La présence des trous tend à abaisser le son et écarte un peu plus les points
+obtenus de la modélisation de notre cours de Terminale.
+
+- 18 -
+
+L’écart maximum obtenu avec les valeurs mesurées est de 2.7 %. Cette modélisation
+est assez satisfaisante et signifie que la colonne d’air est plus longue que le tube de 7,8 cm,
+dans les conditions de l’expérience.
+De plus notre instrument quintoie !
+3.4 Prototype en sureau
+Nous avons bâti un prototype en sureau sans trous de 58 cm de long. Il produit un si1
+soit 123 Hz. La modélisation simplifiée prévoit : f =c/4L = 149 Hz soit 21 % d’écart. Pour
+que la modélisation corresponde aux mesures, la colonne d’air doit dépasser de 12 cm dut
+tube : fmod = c/4(L+12).
+
+Le diamètre intérieur du tuyau est très fin, de l’ordre de 6 mm. L’épaisseur du bois est
+par contre importante, de l’ordre du cm. Le diamètre extérieur est proche de 3 cm, mais n’est
+pas très régulier. Il ne s’agit que d’une simple branche vidée et poncée pour éliminer l’écorce.
+Il semble donc que plus le diamètre intérieur du tuyau est petit, plus l’écart avec la
+modélisation simplifiée est grand. La colonne d’air est plus longue que le tube, d’autant plus
+que le diamètre intérieur est petit. L’anche a simplement été fixée à l’extrémité du tuyau
+coupé en biseau, sans bec.
+Perçons huit trous, là où tombent naturellement les doigts. Le son
+du tuyau, tous trous fermés devient beaucoup plus grave, si grave qu’il
+n’est pas possible de l’établir correctement pour mesurer sa hauteur.
+Avec 1 trou ouvert, soit une longueur de tube de 46 cm, nous
+obtenons un si 1, soit la même note que précédemment quand il n’y avait
+pas de trou sur le tuyau de 58 cm. Ce résultat est du à l’épaisseur des trous, qui est plus
+importante que le diamètre intérieur du sureau. Le volume d’air emprisonné sous les doigts est
+important et contribue à abaisser le son.
+note jouée
+L en cm
+F(Hz)
+sib2 + 20 cent
+22,5
+la2-35cent
+25,5
+sol2-20cent
+28,5
+fa2+20cent
+32
+ré#2+30cent
+36
+ré2+20cent
+39,5
+do#2+20cent
+42,8
+si1
+46
+
+236
+216
+194
+177
+158
+149
+140
+123
+
+Fmod (Hz) fmod2 (Hz) fmod3 (Hz) lambda/4 (cm) écart cm
+383,333333 218,35443 250,340136 36,54661017 14,0466102
+338,235294 202,941176 220,888355 39,93055556 14,4305556
+302,631579 189,56044 197,63695 44,45876289 15,9587629
+269,53125 176,020408 176,020408 48,72881356 16,7288136
+239,583333 162,735849 156,462585 54,58860759 18,5886076
+218,35443 152,654867 142,598812 57,88590604 18,385906
+201,518692 144,230769 131,604043 61,60714286 18,8071429
+187,5 136,904762 122,44898 70,12195122 24,1219512
+
+- 19 -
+
+F en Hz
+
+Clarinette sureau
+500
+400
+300
+200
+100
+0
+
+F(Hz)
+Fmod (Hz)
+fmod2 (Hz)
+fmod3 (Hz)
+20
+
+30
+
+40
+
+50
+
+L en cm
+
+L’écart entre /4 et la longueur utile du tube n’est pas constant. Il augmente avec la
+longueur du tube. Cependant sa moyenne est proche de 17 cm.
+On obtient une modélisation fmod2 = c/4(L+17). Mais cette modélisation sous-estime
+les fréquences les plus aiguës ( 7 %) et sur-estime les fréquences les plus graves (11 %).
+On peut l’améliorer un peu en écrivant fmod3 = c/4(L+17. L/32). Cette fois-ci l’écart
+ne dépasse pas 6 %.
+Conclusion
+Nos expériences nous ont permis d’accéder à une modélisation satisfaisante pour les
+prototypes que nous avons fabriqués : F = c/4(L+a)
+La valeur de a dépend du type de tuyau étudié. Elle dépend de l’épaisseur du tube, de
+son diamètre intérieur, de la présence de trous….Nous n’avons pas pu pour chaque prototype
+déterminer le rôle particulier de chacun des facteurs dans la modélisation finale. De quelle
+manière la valeur de a dépend du couplage musicien-anche-tuyau, de l’épaisseur des trous, du
+diamètre intérieur…..nous ne le savons pas. Par contre, dans une situation donnée, nous
+savons déterminer sa valeur et donc modéliser correctement le comportement en fréquence
+d’un instrument, en fonction de la longueur utile du tuyau.
+Notre résultat est modeste, mais notre modélisation fonctionne. Nous ne nous sommes
+pas aventuré dans l’application des formules empiriques d’A.Benade car le sens physique
+n’en est pas évident pour nous.
+La modélisation simplifiée a été obtenue par l’application de la seconde loi de Newton
+à une tranche d’air en mouvement. Nous avons seulement trouvé un moyen de calculer la
+véritable longueur de la colonne d’air résonante, qui n’est pas celle du tuyau qui la contient.
+Sources documentaires
+-
+
+« La clarinette et le clarinettiste : Influence du conduit vocal sur la production du son »
+par Claudia Fritz
+http://ccrma.stanford.edu/marl/Benade/BenadeBio.html
+
+- 20 -
+
+-
+
+-
+
+http://ccrma.stanford.edu/marl/Benade/writings/58to69.html
+- livre de physique de terminale S
+http://www.discip.accaen.fr/phch/lycee/terminale/COURS/4CIRCUIT_RLC/4CIRCUIT_RLC.htm
+http://wikipedia.com
+Eric WÜRBEL, « Placement des trous sur les instruments à vent », 17 janvier 2005,
+article en ligne sur le site http://www.vents-sauvages.fr/IMG/pdf/topovent.pdf
+Arthur H.BENADE http://ccrma.stanford.edu/marl/Benade/writings/58to69.html
+Peter HOEKJE : http://homepages.bw.edu/~phoekje/acoustics/mahome.html
+Marcel FOUCHE, « Etude expérimentale des tuyaux à anche. Phénomène de Weber »,
+Annales de la faculté des sciences de Toulouse, 3ème série, tome 20 (1928), p237-336.
+Mémoire en ligne sur le site de l’université de Toulouse.
+http://www.discip.accaen.fr/phch/lycee/terminale/COURS/4CIRCUIT_RLC/4CIRCUIT_
+RLC.htm
+
+Annexe 1 : Pour aller plus loin dans l’approche théorique
+Interprétation des phénomènes ondulatoires dans un tuyau fermé à une extrémité
+Les lois de la physique appliqué à un système, nous permettent d’interpréter et de
+prévoir l’évolution d’un système, pour résoudre d’autres problèmes. Mais le fait est qu’il
+existe une limite à leurs applications : les connaissances de leur applicateur.
+D’ailleurs cette limite nous pose problème dans l’étude de notre système : une partie
+de l’air dans un tuyau fermé à une extrémité. Pourquoi cela ? Tout simplement parce que les
+formules mathématiques qui nous permettrait d’étudier aisément ce système, sont beaucoup
+trop complexes pour de simples lycéens.
+Cela étant, il reste possible d’étudier le système sur une seule dimension, grâce à
+l’application de la seconde loi de Newton et quelques simples calculs mathématiques.
+On étudiera donc le système dans les conditions suivantes :
+- Le référentiel sera celui du laboratoire (donc galiléen).
+- La colonne d'air est considérée comme un milieu de propagation à 1 dimension. Elle sera
+associée à un axe.
+- Une onde acoustique peut être considérée comme la propagation d’une perturbation de
+pression. Soit la pression atmosphérique (po) et la pression relevée pendant l'expérience (pt).
+p1 sera la différence entre po et pt (p1 = Pt – po donc Pt = po+p1) et s'appellera pression
+acoustique.
+- Les ondes sonores qui se propageront, se feront dans la direction du tube et seront
+longitudinales. On les verra comme étant des perturbations de la colonne d’air du tube, le
+faisant passer de l'état de repos à celui d'excité.
+- On pose μo la masse volumique du système au repos, μ1 la différence de masse volumique
+entre μ0 et μt (μ1 = μt – μ0 donc μt=μ0+μ1). En effet, lorsque l'onde se propagera, la pression
+à certain endroit augmentera et diminuera à d’autres, il y aura donc pour le même volume plus
+de molécule : d'où μt. Cette expérience est comparable à la propagation d'une onde dans un
+ressort. Les anneaux se resserrent puis s'écartent.
+- La température sera considérée comme constante pour ne pas modifier la valeur de la
+célérité (c=340 m.s-1).
+Inventaire des forces :
+
+- 21 -
+
+On admettra qu’une seule force est non négligeable : la pression acoustique. Le son étant
+défini par la propagation d’une perturbation de pression. Elle pourra être calculée de cette
+manière :
+F = Pt x S
+-2
+avec Pt la Pression en N.m , F la force exercée en Net S la surface sur laquelle s'exerce la
+force en m- 2.
+On obtient donc : Pt =
+
+sachant que Pt = po + p1
+
+d
+
+Application de la 2nd loi de Newton :
+La somme des forces extérieures s'exerçant sur le système est égale au produit de la
+masse (mB) de la portion de la colonne d'air par l'accélération de son centre d'inertie.
+Nous avons précédemment affirmé que la seule force non négligeable dans le tube est
+une pression: il en existe en réalité deux de ce même type.
+Pour appliquer la 2nd loi de Newton, il nous faut l’expression des deux forces de
+pression s'exerçant sur la portion d’air arbitrairement choisie. Leurs valeurs sont directement
+calculables grâce à leurs sections et leurs projections sur l’axe d :
+F1 = S.(p1(x,t) + p0) et F2 = - S.(p(x+dx,t) + p0)
+F2 est négative car la force s'exerce dans le sens inverse de celui de l'axe. C’est la
+projection du vecteur force sur l’axe. Il n’existe donc qu’une seule force non négligeable.
+
+- 22 -
+
+d
+
+D’après la seconde loi de Newton :
+Σ Fext = m ag
+m = S dx est la masse de la tranche d’air avec :
+, la masse volumique de la tranche d’air
+dx l’épaisseur de la tranche d’air
+S la section intérieure du chalumeau
+²
+a=
+l’accélération du centre d’inertie de la tranche d’air suivant l’axe du repère.
+t²
+²
+S dx
+= -S[p1(x + dx, t) – p1(x,t)]
+t²
+L’exploitation de cette relation entraîne le résultat suivant :4
+1 ²
+²
+=
+c² t²
+x²
+Cette équation est l’équation de D’Alembert, pour une propagation d’ondes planes dans une
+seule direction. Cette équation a des solutions dont l’exploitation permet de retrouver les
+résultats expérimentaux de notre première partie.
+L’onde stationnaire est une des solutions possibles et cela aboutit au résultat suivant :
+(x,t) = 2A cos ((L-x)/c).sin (t-L/c).
+Expliquons les thermes de cette équation :
+
+- 23 -
+
+2A cos ((L-x)/c) correspond à l’amplitude de l’onde qui varie suivant l’abscisse x.
+Les expériences nous ont montré la présence de nœuds et de ventres de vibration (ou
+de pression). Donc l’amplitude dépend de x.
+sin (t-L/c) montre l’évolution en fonction du temps du déplacement pour une abscisse
+x donnée. La tranche d’air vibre avec une fréquence /2π .
+La relation suivante est une conséquence des propriétés de cette solution :
+L = (2n+1) λ/ 4
+On a retrouvé par l’application de la seconde loi de Newton le résultat que nous avions
+déterminé expérimentalement. La longueur de la colonne d’air résonante est un multiple de la
+demi-longueur d’onde.
+Annexe 2 : Etude de deux colonnes d’air couplées
+Nous avons associé deux tuyaux PVC de 30 cm et 70 cm de long avec un petit tube de
+liaison de 5 cm de long et 1,4 cm de diamètre intérieur. Un micro est placé à chacune des
+extrémités du montage. Le tuyau de 30 cm modélise le conduit vocal et est « presque » fermé
+aux deux extrémités. Seul le tuyau de couplage le relie à l’autre tube et à l’extérieur. Nous
+avons étudié chaque tuyau séparément, puis l’ensemble. Le haut-parleur est placé à côté de
+l’extrémité ouverte.
+GBF
+
+Haut-parleur
+
+Tube
+PVC
+30 cm
+
+Mic
+ro
+
+Tube
+PVC
+70 cm
+Micro
+
+Tuyau de liaison
+
+Voltmètre
+
+Schéma David Alexandre
+
+Voltmètre
+
+Nous avons d’abord étudié le tuyau de 70cm seul, fermé à une extrémité.
+Tuyau 1 seul
+fermé à une
+extrémité
+L=
+fcalculée =
+f3calculée =
+
+70 cm
+121,428571 Hz
+364,285714 Hz
+
+Di =
+famesurée =
+fbmesurée =
+
+- 24 -
+
+3,4 cm
+378 Hz
+581 Hz
+
+écarts %
+3,62811791
+-4,49963118
+
+f5calculée =
+f7calculée =
+
+607,142857 Hz
+850 Hz
+
+fcmesurée =
+
+810 Hz
+
+-4,9382716
+
+Pour le tuyau de 70 cm fermé à une extrémité, modélisant la clarinette, la première
+fréquence de résonance n'est pas décelée. Les harmoniques 3, 5 et 7 sont présents mais avec
+un écart de moins de 5% par rapport aux fréquences calculées (f = c/4L).
+Nous avons ensuite étudié le tuyau de 40 cm modélisant le conduit vocal.
+Tuyau 2 seul
+fermé à une
+extrémité
+L=
+fcalculée =
+f2calculée =
+f3calculée =
+f4calculée =
+f5calculée =
+f7calculée =
+
+40 cm
+212,5 Hz
+425 Hz
+637,5 Hz
+850 Hz
+1062,5 Hz
+1487,5 Hz
+
+Di =
+famesurée =
+
+3,4 cm
+197 Hz
+
+écarts %
+-7,8680203
+
+fbmesurée =
+
+522 Hz
+
+-22,1264368
+
+fcmesurée =
+
+909 Hz
+
+-16,8866887
+
+Le tuyau de 40 cm, fermé à une extrémité, modélise le conduit vocal. Le micro est
+placé sur la paroi fermée opposée au Haut-Parleur. L'ouverture du côté du Haut-parleur est
+réduite et n'a que 1,8 cm de diamètre pour permettre d'introduire le petit tube de couplage
+dans les autres expériences (pas ici). La première fréquence de résonance est décelée avec 7,9
+% d'écart. La seconde fréquence mesurée semble intermédiaire entre l'harmonique 2 et
+l'harmonique 3 prévus. En effet du côté HP, le tuyau est partiellement fermé ce qui
+expliquerait la présence de cet harmonique. La dernière fréquence de résonance décelée
+semble aussi intermédiaire entre f4 et f5.
+L’étude précédente a été reproduite en rajoutant le petit tuyau de couplage, de 5 cm de
+long.
+Tuyau 2 seul
+fermé à une
+extrémité +
+raccord 5 cm
+L=
+fcalculée =
+f2calculée =
+f3calculée =
+f4calculée =
+f5calculée =
+f7calculée =
+
+45 cm
+188,888889 Hz
+377,777778 Hz
+566,666667 Hz
+755,555556 Hz
+944,444444 Hz
+1322,22222 Hz
+
+Di =
+famesurée =
+
+3,4 cm
+140 Hz
+
+écarts %
+-34,9206349
+
+fbmesurée =
+
+456 Hz
+
+-24,2690058
+
+fcmesurée =
+
+871 Hz
+
+-8,43219798
+
+Le tuyau de 40 cm, fermé à une extrémité, modélise le conduit vocal et est associé au
+petit tuyau de couplage. Le micro est placé sur la paroi fermée opposée au Haut-Parleur.
+L'ouverture du côté du Haut-parleur est réduite et n'a que 1,8 cm de diamètre pour permettre
+d'introduire le petit tube de couplage . Les 3 fréquences décelées sont un peu plus faibles que
+les 3 partiels décelés sans le tube de couplage. Ce petit tuyau fait donc pleinement partie du
+système résonant, et les fréquences des partiels sont plus faibles à cause de lui.
+La première fréquence de résonance est décelée avec 35 % d'écart. La seconde
+fréquence mesurée semble intermédiaire entre l'harmonique 2 et l'harmonique 3 prévus. En
+effet du côté HP, le tuyau est partiellement fermé ce qui expliquerait la présence de cet
+harmonique. La dernière fréquence de résonance décelée semble aussi intermédiaire entre f4
+et f5.
+
+- 25 -
+
+Examinons enfin les résultats des tuyaux couplés :
+Oscillateurs couplés (70 + 5 +40) cm
+micro1
+
+Ueff (V)
+
+4
+3
+2
+1
+0
+0
+
+200
+
+400
+
+600
+
+800
+
+1000
+
+1200
+
+F en Hz
+(70 + 5 + 40)
+cm
+Micro1
+cm
+Di =
+Hz
+famesurée =
+Hz
+Hz
+fbmesurée =
+Hz
+Hz
+fcmesurée =
+Hz
+
+Micro2
+3,4 cm
+365 Hz
+
+Di =
+famesurée =
+
+3,4 cm
+172 Hz
+
+586 Hz
+
+fbmesurée =
+
+372 Hz
+
+826 Hz
+
+fcmesurée =
+
+597 Hz
+
+fdmesurée =
+
+839 Hz
+
+Pour les tuyaux couplés, associés à 2 micros et un haut-parleur, on obtient les résultats
+suivants:
+Les valeurs mesurées par le micro1 sont proches de celles obtenues pour le tube de 70
+cm seul. Par contre celles perçues par le micro2 sont différentes de celles obtenues pour le
+tube de 40 cm seul. Micro1 et micro2 ne perçoivent pas les mêmes résonances.
+Le couplage a principalement modifié les fréquences de résonance du tube le plus
+court, modélisant la colonne d'air intérieure du musicien. Le système ne semble pas résonner
+dans son ensemble. C'est pour cela qu'il faut deux micros d'étude.
+A partir du résultat de ces expériences, on peut donc supposer que le couplage entre la
+colonne d'air du musicien et celle de l'instrument modifiera peu les fréquences de résonance
+de l'instrument (clarinette). Seules les fréquences de résonance de la colonne d’air intérieure
+au musiciens seront modifiées de manière notable. Mais cela ne modifie par le son.
+Ce résultat semble contradictoire avec notre première expérience faite avec un tuba
+contrebasse. Cependant, dans le cas du tuba, nous avons modifié le volume du résonateur
+vocal en gonflant les joues. Dans l’expérience précédente le tuyau modélisant le conduit vocal
+n’a pas changé de volume. De plus le tuba contrebasse est un très long tuyau pour lequel les
+effets du couplage sont plus marqués que pour un tuyau court.
+Nous pouvons donc conclure de cette étude que le musicien est bien un second
+résonateur couplé à l’instrument par l’anche. Cependant l’effet du couplage reste faible dans
+les conditions normales de jeu et ne peut pas être distinguer des autres facteurs influençant la
+hauteur des notes : pression de l’air, débit de l’air, température de l’air dans l’instrument,
+forme du résonateur….
+Annexe 3 : Modélisation par un circuit électrique
+- 26 -
+
+Des modèles électriques sont utilisés dans tous les domaines de la physique car ils
+permettent d’avoir une image du comportement de systèmes complexes non étudiables
+directement au laboratoire. Nous sommes 6 élèves dans notre groupe et nous avons ainsi pu
+nous partager le travail. Deux d ‘entre nous ont voulu modéliser le couplage musicien anche
+instrument par un circuit électrique. C’est une occasion d’essayer de mieux maîtriser le cours
+d’électricité de Terminale.
+Nous avons d’abord voulu préciser nos connaissances sur la résonance d’un dipôle
+LC, qui est au programme de Terminale S. Un circuit LC est un circuit où la bobine est dite
+idéale et où la résistance du circuit est nulle. Ces oscillations électriques sont dites libres, car
+elles apparaissent spontanément, sans source de tension sinusoïdale. Grâce à la loi des mailles
+et des équations caractéristiques des deux dipôles, on peut écrire une équation différentielle
+pour la charge du condensateur :
+
+La solution est :
+uc(t)= q(t)/C = Um cos (ωt + Φ0) où Um, ω et Φ0 sont des constantes caractéristiques du circuit,
+qui dépendant des conditions initiales (à l’instant t=0)
+avec T0 = 2π LC et la fréquence propre
+
+Ce résultat va nous permettre de prévoir les fréquences de résonance des circuits que
+nous allons étudier. Ces circuits ont une résistance faible qui ne modifie par a valeur de la
+fréquence de résonance.
+Un instrument de musique à vent comporte une colonne d’air qui entre en résonance
+lors de la production d’un son et un système vibrant qui produit le son. Un circuit électrique
+excité à une fréquence proche de sa fréquence propre entrera lui aussi en résonance.
+L’excitateur est un générateur de signaux.
+Nous avons étudié un dipôle LC couplé à un autre dipôle LC par un condensateur. Chaque
+dipôle LC correspond à une colonne d’air, l’un pour celle du conduit vocal et l’autre celle de
+la clarinette, et le condensateur de couplage correspond à l’anche.
+L
+
+L
+
+Nous
+avons
+utilisé 2 bobines de
+valeur L=10,4 mH, 2
+condensateurs
+C
+C
+C
+C = 10microF et un
+v1
+v’
+v2
+condensateur
+de
+i
+couplage
+1
+C' = 15microF. Nous
+i’
+i
+2
+n’avons
+pas
+vraiment choisi les
+valeurs, mais plutôt
+e
+1
+utilisées celle qui
+étaient
+à
+notre
+disposition.
+Selon notre cours de Terminale, la fréquence de résonance d’un circuit LC est :
+F = 1/(2π(LC)0.5) = 493,5 Hz pour L=10,4 mH et C = 10microF
+- 27 -
+
+Nous repérons 2 fréquences de résonance F1 = 529 Hz et F2 = 775 Hz
+Modifions C’, c’est à dire la valeur du condensateur de couplage, modélisant l’anche.
+Pour C’ = 1µF alors F1 reste inchangée mais F2 = 3223 Hz
+Pour C’ = 2 µF alors F1 reste inchangée mais F2 = 1551 Hz
+Pour C’ = 5 µF alors F1 reste inchangée mais F2 = 1126 Hz
+Quand C' varie la première fréquence de résonance ne change pas, toujours 529 Hz, soit
+un écart de 6,7% par rapport à la valeur que nous avions calculé avec la formule du cours.
+Plus C' augmente, plus la seconde fréquence de résonance diminue.
+Il est possible de construire des circuits électriques RLC pouvant résonner comme les
+tuyaux sonores et pouvant servir de modèle au comportement d’une colonne d’air.
+Un tuyau résonant fermé-ouvert a pour fréquence de résonance ftuyau =vson/(4Ltube)
+Si ftuyau = fRLC alors Ltube = vson
+LC/2 = 34500 ( (10,4.10-3.10.10-6))/2 = 17,5 cm.
+Donc :
+Un circuit résonant LC avec L=10,4 mH et C = 10microF, a même fréquence de
+résonance qu’un tuyau cylindrique fermé à un extrémité de 17,5 cm de long.
+Un circuit LC peut donc modéliser une clarinette, l’autre l’instrumentiste et le couplage
+des deux est comparable à l’instrument en situation de jeu.
+Nous avons fait deux expériences complémentaires, ou cette fois-ci les deux circuits LC
+couplés sont différents:
+L1= 10,4/2 mH; L2=10,4 mH; C = 10microF; C'=10microF
+F1
+607 Hz
+F2
+1263 Hz
+Fréquences de résonance calculée des dipôles LC non couplés : Fcalculé = 698 Hz et 529 Hz
+L=10,4 mH; C2 = 10microF; C1 = 5 microF (côtéGBF); C'=10microF
+F1
+619 Hz
+F2
+959 Hz
+Fréquences de résonance calculée des dipôles LC non couplés : Fcalculé = 698 Hz et 529 Hz.
+Pour un système constitué de deux dipôles LC différents, les fréquences de résonance
+mesurées ne correspondent plus aux fréquences de résonance des dipôles LC seuls. Le
+couplage a modifié les fréquences de résonance.
+Ce petit essai de modélisation par un circuit électrique nous a montré que le couplage de
+deux circuits LC différents, par un condensateur modifie la valeur des fréquences de
+
+- 28 -
+
+résonance. Remarquons que la fréquence F1 = 529 Hz correspond à la fréquence de résonance
+mesurée d’une clarinette sans pavillon. Les valeurs des fréquences étudiées sont proche pour
+le système électrique et pour le système acoustique.
+Nous pouvons donc établir une comparaison. Le couplage de deux circuits LC modifie leurs
+fréquences de résonance. Le couplage musicien-instrument-anche modifie la fréquence de
+résonance fondamentale de l’instrument.
+Annexe 4 : Notre programme en Visual basic
+Zakaria Habri s’est investi dans la préparation d’un programme permettant de calculer
+la fréquence que produira un tuyau à anche simple donné et d’écouter le son. La
+programmation en VisualBasic est centré autour de la fonction BEEP qui permet d’émettre
+par le haut-parleur système de l’ordinateur un son de fréquence et de longueur choisies.
+
+- 29 -
+
+

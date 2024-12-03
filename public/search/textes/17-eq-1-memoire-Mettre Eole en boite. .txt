@@ -1,0 +1,1950 @@
+Mettre Éole
+en boîte
+Olympiades de Physique France 2010
+
+équipe du club scientifique
+du Lycée Jules Viette à Montbéliard
+
+avec le soutien du
+
+Conseil Régional de Franche-Comté,
+
+de l'ADEME, de eDF, de Météo France et de EOLE-RES
+
+Olympiades de physique France 2010
+groupe du lycée Viette – Montbéliard
+
+résumé
+
+Mettre Éole en boîte
+L'idée a été lancée, au lycée, d'implanter une éolienne de quelques kilowatts. Pour s'assurer de la
+pertinence du projet et convaincre les partenaires financiers, il faut apporter la preuve que le potentiel
+éolien est suffisant.
+Plutôt que d'acheter des appareils de mesure du vent dans le commerce, le club scientifique a décidé de
+concevoir puis fabriquer un anémomètre et une girouette en respectant le cahier des charges de MétéoFrance. Nous avons testé et sélectionné des composants, créé une roue codeuse, conçu un tambour
+crénelé, créé des cartes électroniques, un banc de test, des programmes d'acquisition de données... Après
+avoir commis et corrigé bien des erreurs, les parties électronique et acquisition de nos prototypes sont au
+point. Nous abordons maintenant la conception de la partie mécanique ! Quand les pièces seront usinées,
+nous procéderons au montage des appareils sur le mât de mesures (construit par le lycée) et leur
+connexion au système d'acquisition et de traitement des données.
+
+Florence, Pierre, Rémi, Matthieu, Thomas, Joris
+avec le soutien de Corinne et François animateurs du club scientifique
+
+Olympiades de physique France 2010
+
+page 2 / 19
+
+lycée Jules Viette Montbéliard
+
+sommaire
+1. investigations préalables..........................................................................................................................4
+1.1.la production d'une éolienne................................................................................................................4
+1.2.un potentiel éolien à priori peu favorable............................................................................................4
+1.3.mais un site bien exposé......................................................................................................................4
+1.4.et une éolienne adaptée aux « vents faibles »......................................................................................4
+2. nécessité de connaître avec précision le vent sur le site........................................................................5
+2.1.une grande variabilité mensuelle et annuelle du vent.........................................................................5
+2.2.nécessité d'établir le potentiel éolien sur une année moyenne............................................................6
+2.3.le choix d'adopter les normes de Météo France (normes OMM)........................................................6
+2.4.extrapolation verticale de la vitesse du vent........................................................................................7
+3. conception de l'anémomètre....................................................................................................................7
+3.1.le capteur et les roulements à bille......................................................................................................7
+3.2.la carte d'acquisition............................................................................................................................7
+3.3.la base de temps pilotée par un quartz horloger..................................................................................7
+3.4.le tambour crénelé à 40 trous..............................................................................................................7
+3.5.le capteur optique à fourche et la carte électronique...........................................................................8
+3.6.le programme d'acquisition (Labview)................................................................................................8
+3.7.le banc de test motorisé et le résultat des tests....................................................................................9
+4. conception de la girouette........................................................................................................................9
+4.1.le capteur.............................................................................................................................................9
+4.2.le choix de la technique de mesure de la direction..............................................................................9
+4.3.le choix des capteurs optiques...........................................................................................................10
+4.4.la conception de la roue codeuse.......................................................................................................12
+4.5.les cartes électroniques......................................................................................................................14
+4.6.le programme d'acquisition et de décodage (Labview).....................................................................14
+4.7.la conception d'un banc de test motorisé piloté par ordinateur (Labview)........................................15
+4.8.le résultat des tests.............................................................................................................................16
+4.9.le repérage, in situ, du nord géographique........................................................................................17
+5. ce qu'il nous reste à faire.......................................................................................................................18
+5.1.conception et réalisation des boîtiers et des rotors des appareils......................................................18
+5.2.conception d'une carte électronique d'isolation galvanique (protection contre la foudre)................18
+5.3.équipement et mise en place du mât de mesure................................................................................18
+5.4.début de la campagne de mesures.....................................................................................................18
+5.5.traitement statistique des données pour comparaison avec les données Météo France....................18
+5.6.détermination du potentiel éolien......................................................................................................18
+6. conclusion : une équipe passionnée aux compétences multiples........................................................19
+7. ANNEXES (non jointes dans cette version du mémoire voir mémoire complet).............................20
+7.1.diagramme labview du programme d'acquisition de la direction du vent.........................................20
+7.2.diagramme labview de la commande du moteur pas à pas...............................................................21
+7.3.diagramme complet de pilotage et d'acquisition du banc de test......................................................22
+7.4.« face avant » de l'instrument virtuel de pilotage et d'acquisition du banc de test............................23
+7.5.programme de calcul des directions moyennes avec le logiciel Python...........................................23
+Olympiades de physique France 2010
+
+page 3 / 19
+
+lycée Jules Viette Montbéliard
+
+1. investigations préalables
+1.1. la production d'une éolienne
+Le rotor d'une éolienne capte une partie de l'énergie cinétique du vent pour la transmettre à un générateur
+qui fournit de l'énergie électrique au réseau ou à une installation isolée.
+Si on appelle V la vitesse du vent et ρ sa masse volumique, l'énergie cinétique d'un m3 de vent s'écrit :
+Ec = 1/2 . ρ . V2
+Si on appelle S la surface balayée par les pales du rotor, le volume d'air traversant cette surface pendant
+une seconde est égal à S . V
+La puissance du vent traversant la surface S est donc égale à Pair = 1/2 . ρ . S . V3
+Une partie seulement de cette puissance peut être récupérée car la vitesse du vent à l'aval de l'éolienne ne
+peut être nulle (ce qui empêcherait l'air en amont d'atteindre l'éolienne).
+Albert BETZ a démontré (1919) que le maximum de puissance était récupéré si la vitesse du vent à l'aval
+de l'éolienne était égale à 1/3 de la vitesse en amont. Ce qui conduit à la « formule de BETZ » :
+Pcaptée maxi = 16/27 . Pincidente de l'air
+Dans la pratique, la puissance électrique ne dépasse pas 35% de la puissance incidente de l'air. Le
+rendement de conversion de l'énergie est optimal pour une certaine vitesse du vent et décroît pour des
+vitesses inférieures ou supérieures (voir figure 1).
+Pour quantifier l'influence de l'intermittence et des fluctuations du vent, on calcule souvent le quotient de
+la production annuelle en kWh par la puissance nominale du générateur en kW, ce qui donne une durée
+annuelle équivalente de fonctionnement à pleine puissance (entre 1000 et 3000 h/an pour des éoliennes
+terrestres).
+1.2. un potentiel éolien à priori peu favorable...
+L'atlas éolien de Franche-Comté donne, pour Montbéliard, une vitesse moyenne du vent de 2,9 m/s à 10m
+du sol et 4,4 m/s à 50m du sol.
+Or on considère généralement que pour assurer la rentabilité économique d'une éolienne il faut une
+vitesse moyenne de vent supérieure ou égale à 6m/s !
+Donc un potentiel à priori peu favorable. Mais deux facteurs nous incitent à poursuivre l'étude.
+1.3. mais un site bien exposé
+Tout d'abord, le site d'implantation pressenti est bien exposé : au sommet d'un plateau bien dégagé dans la
+direction des vents dominants (ouest/sud-ouest et est/nord-est). Or on verra (figure 3) que la topographie
+locale du site a une grande influence sur le potentiel éolien.
+1.4. et une éolienne adaptée aux « vents faibles »
+Grâce à l'étude réalisée par une étudiante en BTS, nous avons eu connaissance de l'existence de l'éolienne
+AV-7 produite en petite série par la société suisse Aventa SA. Selon son constructeur, cette éolienne a été
+spécialement conçue pour des vents faibles (vents moyens compris entre 2,5 et 4,5 m/s).
+Une étude réalisée en 2008 par le professeur Jochen Twele de la Fachhochschule für Technik und
+Wirtschaft de Berlin (université de sciences appliquées) confirme les informations du fabricant : cette
+éolienne – unique en son genre – a des performances réellement optimisées pour des vents faibles comme
+en témoignent les deux graphiques ci-après (figure 1 et 2)
+
+Olympiades de physique France 2010
+
+page 4 / 19
+
+lycée Jules Viette Montbéliard
+
+figure 1
+performances de l'AV-7 : en abscisses, la vitesse du vent,
+en ordonnées, courbe rose, la puissance mesurée en kW ;
+courbe bleue, le rendement de conversion Pélec/Pvent.
+
+figure 2
+performances de l'AV-7 comparée à d'autres éoliennes de la
+même gamme de puissance : en abscisses, la vitesse du vent ;
+en ordonnées, les rendement de conversion Pélec/Pvent.
+
+2. nécessité de connaître avec précision le vent sur le site
+2.1. une grande variabilité mensuelle et annuelle du vent
+Comme la puissance du vent varie avec le cube de sa vitesse, il est très important de connaître avec
+précision la vitesse du vent : une augmentation du vent de 10% entraîne une augmentation de la puissance
+de 33%.
+Or la vitesse du vent est très variable d'un mois à l'autre et même d'une année à l'autre. Nous avons
+récupéré les statistiques de production de 3 éoliennes AV-7 exploitées par la société Jura Énergie à une
+quarantaine de kilomètres de Montbéliard. ces statistiques montrent cette variabilité mensuelle (figure 4)
+
+production mensuelle éolienne de Cerneux-Veusil
+1600
+1400
+
+production en kWh
+
+1200
+2004
+2005
+2006
+2007
+2008
+2009
+
+1000
+800
+600
+400
+200
+0
+01
+
+figure 3
+
+Olympiades de physique France 2010
+
+02
+
+03
+
+04
+
+05
+
+06
+
+07
+
+08
+
+09
+
+10
+
+11
+
+12
+
+figure 4
+
+page 5 / 19
+
+lycée Jules Viette Montbéliard
+
+2.2. nécessité d'établir le potentiel éolien sur une année moyenne
+Même une campagne de mesures effectuée sur un an ne permettra pas une estimation précise du potentiel
+éolien car certaines années sont plus venteuses que d'autres comme le montrent les statistiques de Jura
+Énergie (figure 5).
+production mensuelle 2009
+
+production annuelle
+Cerneux-Veusil
+
+Tramelan
+
+Cerneux-Veusil
+
+La Ferrière
+
+Tramelan
+
+La Ferrière
+
+06
+
+08
+
+2500
+
+20000
+18000
+
+2000
+
+16000
+
+production en kWh
+
+production en kWh
+
+14000
+12000
+10000
+8000
+6000
+4000
+
+1500
+
+1000
+
+500
+
+2000
+0
+2005
+
+2006
+
+2007
+
+2008
+
+2009
+
+0
+01
+
+02
+
+03
+
+figure 5
+
+04
+
+05
+
+07
+
+09
+
+10
+
+11
+
+12
+
+figure 6
+
+2.3. le choix d'adopter les normes de Météo France (normes OMM)
+L'existence d'une station de Météo France à Montbéliard, à 600m du lycée, mais sur un site à priori moins
+exposé au vent, nous a convaincu de l'intérêt d'adopter les normes de Météo France pour la construction
+des appareils de mesure ainsi que pour l'acquisition et le traitement statistique des données (il s'agit des
+normes de l'Organisation Météorologique Mondiale).
+En particulier, mesures effectuées à 10m au dessus du sol, deux fois par seconde, avec une résolution de
+0,1 m/s pour la vitesse et de 10° pour la direction. Ce choix présente les intérêts suivants :
+2.3.a.
+
+détecter des dérives éventuelles dans nos mesures
+
+Météo France mettra régulièrement ses données à notre disposition afin que nous puissions les comparer
+et détecter d'éventuelles dérives dans le fonctionnement de nos appareils. Il existe, en effet, une forte
+corrélation des mesures du vent entre des sites proches (figure 6).
+2.3.b. observer l'incidence de la topographie locale sur les mesures
+Ces comparaisons nous permettront également d'observer l'incidence de la topographie locale des deux
+sites sur les mesures. La figure 5 montre que la production peut passer du simple au double entre une
+première éolienne implantée dans un vallon - pourtant très ouvert - et un plateau situé une centaine de
+mètres plus haut.
+2.3.c. établir une corrélation entre les mesures des deux sites pour calculer le potentiel
+sur une année moyenne
+Enfin, Météo France disposant, pour sa station, de mesures s'étalant sur plusieurs décennies, nous
+pourrons, à partir de nos mesures estimer le vent sur une année moyenne et en déduire le potentiel éolien
+correspondant.
+
+Olympiades de physique France 2010
+
+page 6 / 19
+
+lycée Jules Viette Montbéliard
+
+2.4. extrapolation verticale de la vitesse du vent
+Nous avons vu, au §1.2., que la vitesse du vent varie en fonction de la distance au sol. Il nous faudra
+donc, extrapoler nos mesures pour estimer la vitesse du vent à 18m au dessus du sol (ce qui correspond à
+la hauteur du moyeu du rotor de l'éolienne AV-7).
+Des recherches bibliographiques nous ont fait découvrir qu'il existe un grand nombre de modélisations de
+la vitesse du vent en fonction de la distance au sol. La validité des modèles dépend assez largement des
+zones climatiques.
+Parmi la multitude de formules d'extrapolation disponibles, nous avons, à priori, retenu la « loi de
+puissance » suivante :
+
+
+[ ]
+
+V 2 z2
+=
+dans laquelle z1 et z2 représentent deux hauteurs au dessus du sol et V1 et V2 les vitesses du
+V 1 z1
+vent correspondantes.
+α est un exposant empirique qui peut être déterminé expérimentalement en effectuant des mesures de
+vitesse à deux hauteurs différentes. À cet effet, nous avons prévu de disposer, pendant quelques mois au
+moins, un second anémomètre sur le mât de mesures à une hauteur de 6 mètres.
+Cette formule d'extrapolation a été utilisée par le bureau d'études bernois METEOTEST pour l'étude du
+potentiel éolien de la montagne de Moutier commandée par l'office fédéral de l'énergie (Suisse-1999). La
+proximité du site (45 km de Montbéliard) et sa topographie relativement comparable permettent de penser
+que la formule d'extrapolation sera adaptée (nous solliciterons l'avis de Météo France, le moment venu).
+
+3. conception de l'anémomètre
+3.1. le capteur et les roulements à bille
+Pour des raisons de robustesse et surtout d'étalonnage, nous utiliserons un moulinet à 3 coupelles conçu
+par Météo France et aimablement fournis par le fabricant, la société Girard-Massonet. Le moulinet fait x
+tours par seconde quand le vent souffle à x m/s. L'erreur est inférieure à 3% entre 1 et 60 m/s. Le seuil de
+démarrage est inférieur à 0,7 m/s à condition d'utiliser des roulements à bille spécialement conçus pour
+des appareils météo. Météo France nous a fourni gracieusement les roulements.
+3.2. la carte d'acquisition
+L'acquisition de la vitesse du vent est réalisée avec une carte d'acquisition National Instruments disposant
+d'un compteur permettant de compter des impulsions pendant une durée définie par une horloge externe.
+3.3. la base de temps pilotée par un quartz horloger
+Pour avoir une base de temps précise et surtout stable dans le temps, nous avons réalisé une horloge à
+quartz pilotée par un quartz horloger de fréquence 32 768 Hz = 215 Hz (figure 7). La précision de la
+fréquence est de ± 20 ppm (parties par million) soit ± 0,7 Hz. La variation de la fréquence en fonction de
+la température est donnée (en ppm) par la relation : Δf/f0 = -0,038 . (θ-25)² ±10%
+Pour une plage de températures entre 0 et 50° (l'horloge sera à l'intérieur des locaux) cela donne :
++20ppm (+0,7Hz) / -50ppm (-1,5Hz).
+3.4. le tambour crénelé à 40 trous
+Pour effectuer 2 mesures par seconde, le comptage des impulsions se fait pendant 1/4 de seconde. Le 1/4
+de seconde suivant permet d'acquérir le résultat de la mesure avant le comptage suivant. Pour avoir une
+résolution de 0,1 m/s, il faut mesurer l'angle de rotation, effectué en 1/4 de seconde, à 1/40ème de tour
+près.
+Olympiades de physique France 2010
+
+page 7 / 19
+
+lycée Jules Viette Montbéliard
+
+Nous avons donc conçu à l'aide du logiciel de CAO/DAO Solidworks un tambour crénelé comportant 40
+trous à sa périphérie (figure 8). Le tambour crénelé a été usiné à l'atelier du lycée.
+oscillateur à quartz + astable pour mise au point du programme mesure de la vitesse du vent
+5V
+
+5V
+
+reset
+12
+
+Q8
+
+15
+
+1
+
+2
+
+3
+
+Q14
+
+Q7
+
+13
+
+Q13
+
+14
+
+Q12
+
+6
+
+Q9
+
+4
+
+Q10
+
+5
+
+compteur binaire asynchrone à 14 étages
+avec oscillateur (74HCT4060)
+
+1
+
+&
+
+2,7kΩ
+
+1
+
+11
+
+9
+
+10
+
+4
+reset
+2
+
+3
+
+8
+Vcc
+
+timer
+(NE555)
+
+GND
+
+6
+3,3kΩ
+
+générateur
+d'impulsions
+20 Hz - 2kHz
+
+470kΩ
+
+GND
+1
+2,7kΩ
+
+Hz
+33pF
+
+seuil
+
+7
+
+contrôle 5
+tension
+
+sortie
+
+100kΩ
+
+quartz
+32 768 Hz
+
+1,0kΩ
+
+décharge
+
+trigger
+
+GND
+8
+
+10MΩ
+
+horloge à quartz
+précision 20 ppm
+
+simulation signal
+anémomètre
+
+100nF
+
+7
+
+Q6
+
+Vcc
+
+Q5
+
+16
+
+Q4
+
+fenêtre de comptage (2Hz)
+
+2,2nF
+
+100nF
+
+33pF
+
+GND
+
+GND
+
+GND
+
+GND
+
+GND
+
+GND
+
+figure 7
+
+figure 8
+
+3.5. le capteur optique à fourche et la carte électronique
+Le tambour crénelé, fixé sur l'axe du moulinet, défile entre l'émetteur et le récepteur d'un capteur optique
+à fourche. Chaque passage de trou dans la fourche crée une impulsion à la sortie du capteur.
+Des tests ont été effectués, jusqu'à 100 tours par seconde, à l'aide d'un oscilloscope. Ils nous ont permis de
+vérifier que les temps de réponse sont suffisamment brefs pour obtenir une excellente réponse du capteur.
+Le signal de sortie du capteur est mis en forme grâce à un trigger de Schmitt avant d'être envoyé sur
+l'entrée du compteur (schéma de la carte électronique, figure 9).
+3.6. le programme d'acquisition (Labview)
+
+22μF
+
++
+S
+
+0,47μF
+
+GND
+
+M
+E
++15V
+
+LM2940 (RIT 12V)
+
+R1 200Ω
+
+Capteur à fourche
+SFH 9301
+
+R2 12kΩ
+
+trigger de Schmitt
+inverseur MC14106B
+
+Le logiciel Labview utilise un langage graphique pour exécuter des tâches à partir d'une bibliothèque de
+fonctions et de commandes. Les tâches permettent de piloter le fonctionnement de la carte d'acquisition et
+de contrôle. Le diagramme (figure 10) représente le programme réalisé.
+
+figure 9
+
+Olympiades de physique France 2010
+
+figure 10
+
+page 8 / 19
+
+lycée Jules Viette Montbéliard
+
+3.7. le banc de test motorisé et le résultat des tests
+Un montage a été réalisé pour entraîner, à l'aide d'un moteur, le tambour
+crénelé devant le capteur optique à fourche (figure 11). Le signal, observé à
+l'oscilloscope, est satisfaisant. Séparément, le programme d'acquisition
+fonctionne également.
+Nous n'avons pas encore effectué de test en reliant directement le banc de
+test à la carte d'acquisition pour cause d'incompatibilité (provisoire !) de
+tensions : La sortie du trigger de Schmitt est en 0/12V alors que les tensions
+admises sur la carte sont au standard TTL (0/5V). Le problème sera réglé par
+l'interface d'isolation galvanique (opto-coupleurs) en cours de conception.
+
+4. conception de la girouette
+figure 11
+
+4.1. le capteur
+Conformément aux préconisations de Météo France, la girouette sera montée sur les mêmes roulements à
+billes que le moulinet de l'anémomètre. Les dimensions et la masse de la girouette s'inspireront d'un
+exemplaire au rebut fourni par Météo France de façon à obtenir des caractéristiques mécaniques proches :
+•
+
+seuil de vitesse à partir duquel la girouette s'oriente : 0,1 à 0,4 m/s en fonction de l'âge des
+roulements,
+
+•
+
+constante de distance (= temps de réponse x vitesse du vent) de 1 à 3m,
+
+•
+
+amortissement des oscillations comparable en cas de changement brusque de direction du vent.
+
+4.2. le choix de la technique de mesure de la direction
+Il faut que la girouette soit couplée, mécaniquement, à un système de mesure de direction absolue
+(référence fixée au nord géographique). Nous avons fait un rapide inventaire des solutions possibles :
+système
+potentiomètre rotatif
+
+robustesse
+
+résolution
+
+avantages / inconvénients
+
+fragile à cause du contact
+mobile : usure et risque
+de faux contacts si
+oxydation
+
+le signal délivré est
+analogique ; la
+résolution finale dépend
+du CAN (convertisseur
+analogique numérique)
+associé
+
+il y a nécessairement un petit
+secteur angulaire sans contact
+qui limite, de fait, la résolution ;
+risque de dégradation de
+l'information analogique si la
+conversion ne se fait pas au plus
+près du potentiomètre
+
+commutateur rotatif sur résistances
+moins fragile, mais le
+( a été utilisé par Météo France quand risque de faux contacts
+la résolution angulaire était de 20°)
+persiste
+
+dépend du nombre de
+devient complexe quand on veut
+plots du commutateur et augmenter la résolution
+de résistances associées
+
+codeur optique absolu
+voir ci-après
+
+système sans contact
+électrique mobile, donc
+plus fiable, mais sensible
+à la poussière (absorption
+du faisceau infrarouge)
+
+fixée par le nombre de
+simple et bon marché ; obtention
+bits du capteur (peut
+directe d'un code binaire (sortie
+atteindre 3' d'arc avec un parallèle)
+codeur à 13 bits)
+
+résolveur : un rotor crée un champ
+
+extrêmement robuste car
+
+les signaux délivrés sont
+analogiques ; la
+résolution finale dépend
+des CAN associés ; les
+résolveurs peuvent
+atteindre une résolution
+inférieure à 1'' d'arc
+
+magnétique sinusoïdal, temporel et spatial pas de contact mobile et
+(répartition sinusoïdale, à un instant
+insensible à la poussière
+donné, du champ magnétique dans
+(tant qu'elle n'est pas
+l'entrefer en fonction de l'angle)
+magnétique !)
+Deux bobines disposées à 90° l'une de
+l'autre sur le stator permettent, après
+démodulation, de récupérer le sinus et le
+cosinus de l'angle (le rotor est alimenté
+par un transformateur axial pour éliminer
+tout contact mobile).
+
+Olympiades de physique France 2010
+
+page 9 / 19
+
+extrêmement complexe à
+fabriquer sur le plan mécanique
+(pour obtenir la répartition
+sinusoïdale du champ
+magnétique) et sur le plan
+électrique / électronique ; donc
+très cher !
+
+lycée Jules Viette Montbéliard
+
+4.3. le choix des capteurs optiques
+Le principe du codeur optique absolu est le suivant :
+•
+
+une « roue codeuse » est montée sur l'axe de la girouette : elle porte des pistes concentriques
+comportant des secteurs réfléchissants et des secteurs absorbants.
+
+•
+
+des capteurs optiques à réflexion constitués d'une led émettant un faisceau infrarouge, et d'un
+récepteur infrarouge (phototransistor) recevant ou non le faisceau infrarouge réfléchi.
+Capteur :
+émetteurrécepteur
+
+Capteur :
+émetteurrécepteur
+
+Surface
+réfléchissante
+
+Le capteur se trouve en face d'une surface
+réfléchissante : la lumière parvient au phototransistor et on a alors un 0 en sortie.
+
+Surface
+absorbante
+
+Le capteur se trouve en face d'une surface
+absorbante : la lumière est absorbé par la
+surface et on a alors un 1 en sortie.
+
+Ce type de capteur délivre une information analogique. Nous nous sommes intéressés à la précision de ce
+type de capteur. En effet, lors du déplacement de la roue codeuse, le signal obtenu va dépendre du
+diamètre du faisceau infra rouge émis / reçu par le capteur comme le montrent les illustrations suivantes :
+faisceau
+infrarouge
+idéal (Ø nul)
+
+faisceau
+infrarouge
+Ø 1 mm
+
+cible
+capteur
+
+12
+
+10
+
+10
+
+8
+6
+4
+2
+0
+-2,5
+
+capteur
+
+capteur avec faisceau de Ø 1 mm
+
+12
+tension capteur (V)
+
+tension capteur (V)
+
+capteur idéal (faisceau de Ø nul)
+
+cible
+
+8
+6
+4
+2
+0
+
+-2
+
+-1,5
+
+-1
+
+-0,5
+
+0
+
+0,5
+
+1
+
+1,5
+
+2
+
+2,5
+
+-2,5
+
+-2
+
+-1,5
+
+-1
+
+position cible (mm)
+
+faisceau
+infrarouge
+Ø 4 mm
+
+-0,5
+
+0
+
+0,5
+
+1
+
+2,5
+
+11
+
+capteur
+
+10
+
+capteur avec faisceau de Ø 4 mm
+
+tension capteur 1
+seuil trigger 1
+montant
+seuil trigger 1
+descendant
+sortie trigger
+pour un déplact
+de gauche à
+droite
+sortie trigger
+pour un déplact
+de droite à
+gauche
+
+8
+
+12
+tension capteur (V)
+
+2
+
+tension de sortie du trigger selon le sens de déplacement
+
+cible
+
+9
+
+7
+
+10
+
+6
+
+8
+
+5
+
+6
+
+4
+
+4
+
+3
+
+2
+
+2
+
+0
+-2,5
+
+1,5
+
+position cible (mm)
+
+1
+
+-2
+
+-1,5
+
+-1 -0,5 0
+0,5
+position cible (mm)
+
+1
+
+Olympiades de physique France 2010
+
+1,5
+
+2
+
+2,5
+
+0
+-2,5
+
+-2
+
+-1,5
+
+-1
+
+-0,5
+
+0
+
+0,5
+
+1
+
+1,5
+
+2
+
+2,5
+
+position cible (mm)
+
+page 10 / 19
+
+lycée Jules Viette Montbéliard
+
+On remarque que plus le faisceau est large, plus la variation de tension se fait progressivement.
+Pour passer du signal analogique délivré par les capteurs à un signal binaire, nous utilisons des triggers de
+Schmitt inverseurs (comparateurs à deux seuils).
+Si le faisceau n'est pas ponctuel, le trigger va introduire une erreur dépendant du sens de déplacement. On
+va donc privilégier le plus petit faisceau possible.
+Nous avons sélectionné deux capteurs optiques à réflexion
+protégés de la lumière ambiante (plus pratique pour faire
+les tests !) : OPB702 et OPB705 de OPTEK. D'après ce
+fabricant, la focalisation du faisceau du second est
+meilleure.
+Nous avons testé la précision de ces capteurs et leur
+sensibilité aux variations de distance de la cible. Sur ce
+dernier point, les essais confirment la courbe du
+constructeur (figure 17). On peut admettre une fourchette
+de distance comprise entre 0,12 et 0,2 pouces soit 3 et 5
+mm.
+Pour tester la précision des capteurs, nous avons réalisé
+une glissière en aluminium striée de bandes noires de
+largeur variable (figure 18 en bas). On fait défiler cette
+glissière devant le capteur et on observe, sur
+l'oscilloscope, le signal à la sortie du capteur.
+
+figure 17
+
+Détermination expérimentale de la précision des capteurs optiques
+
+Les « creux » correspondent aux raies blanches.
+
+signal délivré par le
+capteur OPB 702
+
+10 V
+
+On distingue nettement la
+différence : l'OPB705 a
+une meilleure précision
+que l'OPB702. Nous utiliserons donc l' OPB705.
+
+0
+
+Estimation de l'incertitude
+angulaire
+due
+aux
+capteurs :
+
+signal délivré par le
+capteur OPB 705
+
+10 V
+
+0
+correspondances
+entre les rayures
+de la cible et le
+signal du capteur
+
+cible test
+déplacée
+devant les
+capteurs
+
+0,2 0,4
+
+30
+
+0,6
+
+0,8
+
+20
+
+1,2
+
+largeur
+des raies
+blanches
+(mm)
+
+1,4
+échelle
+0 en mm
+
+10
+0,5 mm
+
+Si on estime l'incertitude
+à 0,5 mm, sur la piste
+intérieure de diamètre 0,9
+pouce, cela correspondrait à une incertitude de
+2,5°. Ce qui est acceptable au regard des
+normes de l'OMM.
+La précision de la mesure
+de la direction a fait
+l'objet d'un test (§ 4.8.).
+
+Remarque : le défaut d'alignement entre les raies de la cible et les « creux » du signal
+provient de l'irrégularité de la vitesse de déplacement de la cible par l'expérimentateur
+
+figure 18
+
+Olympiades de physique France 2010
+
+page 11 / 19
+
+lycée Jules Viette Montbéliard
+
+4.4. la conception de la roue codeuse
+4.4.a.
+
+une roue codeuse à 6 bits
+
+Principe : un disque porte des pistes concentriques, c'est la « roue codeuse ». Chaque piste comporte une
+alternance de secteurs réfléchissants et absorbants. Un capteur à réflexion par piste fournit l'information
+n
+
+binaire. Une roue codeuse à n bits (n pistes) permet de distinguer jusqu'à 2 positions angulaires. Pour
+respecter les normes météo (résolution angulaire de 10°), il faut donc une roue codeuse à 6 bits (le dernier
+bit ne sera que partiellement utilisé).
+4.4.b. le code binaire naturel est cause d'erreurs de codage, il faut utiliser le code Gray
+
+0
+31
+
+340
+330
+
+350
+
+360
+
+32
+0
+
+300
+
+60
+
+2
+4
+80
+8
+
+32
+
+32
+
+260
+
+90
+
+22
+20
+18
+16
+
+100
+
+80
+
+6
+
+8
+
+90
+
+12
+10
+
+100
+
+250
+
+270
+
+14
+
+22
+20
+18
+16
+
+14
+
+260
+
+12
+10
+
+70
+
+36
+34
+
+70
+
+270
+
+280
+
+30
+28
+26
+24
+
+6
+
+60
+
+280
+
+30
+28
+26
+24
+
+290
+
+36
+34
+
+50
+
+290
+2
+
+0
+31
+
+50
+300
+
+4
+
+10
+
+20
+30
+
+40
+
+40
+
+32
+0
+
+30
+
+330
+
+340
+
+350
+
+20
+
+10
+
+360
+
+les figures ci-dessous représentent deux roues codeuses à 5 bits utilisées en travaux pratiques au lycée.
+
+250
+
+110
+
+110
+240
+
+240
+
+0
+12
+
+120
+23
+0
+
+23
+0
+
+0
+13
+0
+22
+
+14
+0
+
+0
+13
+0
+22
+
+14
+0
+
+0
+21
+
+150
+
+210
+
+150
+
+200
+
+190
+
+180
+
+170
+
+160
+
+200
+
+190
+
+180
+
+170
+
+160
+
+figure 19
+
+figure 20
+
+Sur la figure 19, la roue est codée en binaire naturel, le bit de poids fort étant à l'intérieur, la table de
+codage est la suivante :
+secteur
+
+20°
+
+40°
+
+60°
+
+80°
+
+100°
+
+120°
+
+140°
+
+160°
+
+180°
+
+200°
+
+...
+
+code bin
+
+00000
+
+00001
+
+00010
+
+00011
+
+00100
+
+00101
+
+00110
+
+00111
+
+01000
+
+01001
+
+...
+
+En réalité, pour 1 transition sur 2, deux ou plusieurs bits changent de valeur simultanément. Ce qui est
+impossible matériellement. Ceci est cause d'erreurs de codage.
+Par exemple pour passer de 80° à 100°, il peut apparaître parmi d'autres erreurs possibles :
+•
+
+soit une position pour laquelle le code est 111 ce qui serait interprété comme 160°
+
+•
+
+soit une position pour laquelle le code est 000 ce qui serait interprété comme 20°.
+
+Pour éviter ces erreurs, on utilise un codage binaire particulier dans lequel un seul bit change à chaque
+transition. Ce code s'appelle le code binaire réfléchi ou code Gray : il est appliqué sur la roue codeuse de
+la figure 20.
+Pour coder 36 directions, il faut un code à 6 bits tel que représenté figure 21.
+
+Olympiades de physique France 2010
+
+page 12 / 19
+
+lycée Jules Viette Montbéliard
+
+1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 32 33 34 35 36
+
+figure 21 (code : noir = 1)
+4.4.c.
+
+l'optimisation pour un encombrement minimal
+
+Les capteurs optiques ont une épaisseur de 5,07 mm. Si on les place les uns à côté des autres, il faut
+espacer les pistes de 5mm ce qui donne un appareil relativement encombrant.
+Il a donc été décidé d'espacer les pistes de 2,54 mm seulement et de placer les capteurs impairs à gauche
+de l'axe et les capteurs pairs à droite de l'axe.
+Il a fallu, bien entendu, faire tourner les pistes impaires de 180° comme indiqué figure 22.
+
+orientation des pistes en fonction de la position des capteurs
+
+Capteurs
+
+roue codeuse « normale »
+
+roue codeuse « décalée »
+
+N
+36
+
+N
+36
+
+21
+
+2
+
+4
+6
+E
+9
+
+O
+27
+
+O
+27
+
+E
+9
+
+6
+
+43
+5
+
+3
+1
+
+5
+
+S
+18
+
+S
+18
+
+rotation de 180° des pistes 1, 3, 5
+figure 22
+
+La roue codeuse a ensuite été reportée, par exposition aux ultra-violets, sur une feuille d'aluminium
+revêtue d'une couche noire photosensible.
+Olympiades de physique France 2010
+
+page 13 / 19
+
+lycée Jules Viette Montbéliard
+
+4.5. les cartes électroniques
+Toujours dans le souci d'avoir un appareil compact, le circuit électronique, que nous avons conçu et
+réalisé est réparti sur deux circuits imprimés circulaires de 50mm de diamètre (un troisième étage portera
+la connectique sur l'appareil terminé).
+Le circuit électronique (schéma figure 23) comporte un régulateur intégré de tension et deux sources de
+courant alimentant les émetteurs des capteurs optiques de façon que le courant reste constant malgré les
+fluctuations de température prévisibles (-20°C / +50°C).
+Il comporte également les résistances de polarisation des photo-transistors et le sextuple trigger de
+Schmitt inverseur pour la mise en forme du signal.
+club scientifique et technique du lycée Jules Viette
+
+23/05/2009
+
+schéma des cartes électroniques de la girouette
++15V
+
+E
+
+M
+
+S
+
+LM2940 (RIT 12V)
+
++
+
+BC547B
+
+10kΩ
+
+en bleu : n° du fil sur la nappe de connexion
+1
+22kΩ
+5
+
+0,47μF
+
+22μF
+
+ADIL
+e-
+
+1,0kΩ
+
+3
+
+capt. 0
+
+S
+7
+
+e+
+capt. 2
+
+LM358 (A)
+
+9
+capt. 4
+trigger de Schmitt
+inverseur MC14106B
+
+4
+130Ω
+
+vers carte d'acquisition
+
+GND
+
+référence
+de tension
+LM336BZ-2,5V
+
+capteurs OPB705
+2
+
+2
+
+1
+22kΩ
+
+BC547B
+
+6
+ADIL
+e-
+
+1,0kΩ
+
+12
+
+capt. 1
+
+S
+8
+
+e+
+capt. 3
+
+LM358 (B)
+
+10
+capt. 5
+trigger de Schmitt
+inverseur MC14106B
+
+11
+130Ω
+capteurs OPB705
+2
+circuit imprimé inférieur
+(alimentation capteurs)
+
+2
+circuit imprimé supérieur
+(capteurs)
+
+circuit imprimé inférieur
+(conditionnement signaux)
+
+figure 23
+
+4.6. le programme d'acquisition et de décodage (Labview)
+Les 6 bits issus de la roue codeuse via le trigger de Schmitt sont envoyés sur les entrées logiques d'une
+carte d'acquisition. Le programme développé sous Labview (diagramme : annexe 6.1) permet de décoder
+le code Gray pour reconstituer la position angulaire de la girouette et la visualiser sur l'écran de
+l'ordinateur.
+Olympiades de physique France 2010
+
+page 14 / 19
+
+lycée Jules Viette Montbéliard
+
+4.7. la conception d'un banc de test motorisé piloté par ordinateur (Labview)
+Vu la complexité de l'ensemble et vu que chaque membre de l'équipe avait travaillé sur une partie
+différente, il était indispensable de tester l'ensemble de l'appareil assemblé : roue codeuse, cartes
+électroniques, carte d'acquisition et programme Labview.
+Il nous est apparu très vite qu'un test manuel avec lecture visuelle des angles ne serait pas très précis.
+Nous avons donc décidé d'entraîner la roue codeuse par un moteur pas à pas piloté par un programme
+Labview, afin d'avoir une procédure de test complètement automatisée.
+Nous avons donc conçu à l'aide du logiciel de CAO / DAO Solidworks les pièces mécaniques du banc
+d'essai.
+
+Cartes électroniques de
+lecture de position
+
+Roue codeuse
+Repère de lecture
+Moteur pas à pas
+
+Acquisition des données
+
+Module NI
+PC
+
+Pilotage du moteur
+
+figure 24
+
+L'ensemble du banc de test est schématisé ci-dessus (figure 24).
+N'apparaît pas, sur le schéma, la carte électronique d'alimentation et
+de commande du moteur pas à pas.
+Les pièces que nous avons dessinées, ont été usinées au lycée par un
+professeur et des étudiants en productique.
+
+figure 25
+
+Olympiades de physique France 2010
+
+page 15 / 19
+
+lycée Jules Viette Montbéliard
+
+4.8. le résultat des tests
+Le graphe ci-dessous (figure 26) représente les données acquises par le programme de test :
+En abscisses, la position angulaire réelle de la roue codeuse, calculée en multipliant le nombre
+d'impulsions envoyées au moteur par la valeur du pas (0,9° en mode demi pas).
+En ordonnées, le secteur angulaire issu du décodage du code Gray lu sur la roue codeuse.
+4.8.a.
+
+mauvaise surprise
+
+angle issu du décodage du code Gray
+
+Test du capteur :
+500
+475
+450
+425
+400
+375
+350
+325
+300
+275
+250
+225
+200
+175
+150
+125
+100
+75
+50
+25
+0
+-25
+-50
+-75
+-100
+-125
+-150
+
+Mesu
+Théo
+
+0
+
+30
+
+60
+
+90
+
+120
+
+150
+
+180
+
+210
+
+240
+
+270
+
+300
+
+330
+
+360
+
+angle calculé à partir du nombre d'impulsions envoyées sur la carte de contrôle du moteur
+
+figure 26
+
+En bleu la courbe de test attendue (idéale)... En rouge la courbe réelle obtenue !
+4.8.b. correction
+Après deux heures de sueurs froides, on a trouvé l'origine du défaut : Initialement, Mathias, qui avait
+dessiné la roue codeuse, avait choisi comme convention noir = 1. Guillaume, qui avait réalisé les cartes
+électroniques, avait choisi l'inverse : noir = 0.
+Il avait donc été décidé d'inverser les 6 pistes de la roue
+codeuse. Et nous avons découvert que la piste 4 n'avait pas été
+inversée (figure 27).
+
+340
+
+33
+0
+
+40
+
+32
+0
+
+50
+
+60
+
+70
+80
+
+280
+260
+
+100
+
+90
+
+270
+
+110
+0
+12
+
+24
+0
+
+0
+13
+
+23
+0
+
+0
+22
+
+0
+21
+
+200
+
+190
+
+180
+
+170
+
+160
+
+15
+0
+
+14
+0
+
+page 16 / 19
+
+350
+
+250
+
+Olympiades de physique France 2010
+
+360
+
+290
+
+Ce qui fut fait très rapidement sur le programme Labview (voir
+annexe 7.1).
+
+10
+
+0
+30
+
+Nous n'avions plus d'aluminium photosensible sous la main.
+Alors, on s'est souvenus des explications données par le guide
+lors de la visite du CERN à Genève, le 8 mai 2009 : « pour
+réparer une erreur, quand on ne peut pas modifier le
+hardware, on corrige l'erreur sur le software ».
+
+20
+
+0
+31
+
+Sur la figure 27, la partie surlignée en rouge est noire au lieu
+d'être blanche et la partie surlignée en vert est blanche au lieu
+d'être noire !
+
+30
+
+figure 27
+
+lycée Jules Viette Montbéliard
+
+4.8.c.
+
+nouveaux résultats
+test automatisé du système
+mesure sens croissant
+
+mesure sens décroissant
+
+courbe théorique
+
+360
+330
+300
+
+angle issu du décodage
+
+270
+240
+210
+180
+150
+120
+90
+60
+30
+0
+
+0
+
+30
+
+60
+
+90
+
+120
+
+150
+
+180
+
+210
+
+240
+
+270
+
+300
+
+330
+
+360
+
+direction angulaire du moteur
+
+figure 28
+
+Commentaires :
+•
+
+Il est normal que les courbes commencent à 360° et pas à zéro. En météo, le code 00 est un code
+d'erreur réservé au « vent calme », c'est à dire insuffisant pour orienter la girouette.
+
+•
+
+La plus grande erreur se produit au passage entre 180° et 190° : cela correspond, comme prévu,
+(voir fin de la partie 4.3) au changement de valeur du bit de la piste intérieure. L'erreur est de 3,5°,
+nous avions estimé l'incertitude liée au capteur à 2,5°. Il est possible que s'y ajoutent d'autres
+causes d'erreurs liées au positionnement du capteur, ou au dessin de la roue codeuse, par exemple.
+
+•
+
+On observe un léger décalage, entre les deux sens de rotation du moteur, qui résulte de l'hystérésis
+des trigger de Schmitt (il est de 1,35° au maximum).
+
+•
+
+On observe parfois un effet de rebond : on effectue 800 acquisitions au total : une mesure juste
+après chaque commande du moteur (dans ce cas, le moteur, peut, par inertie, avoir légèrement
+dépassé sa position d'équilibre) et une mesure intercalaire (moteur en position d'équilibre).
+
+Conclusion : le système de mesure de la direction est validé !
+4.9. le repérage, in situ, du nord géographique
+Une telle précision angulaire ne sert à rien si on n'oriente pas précisément la référence de l'appareil en
+direction du nord géographique.
+À cet effet, un alignement, à l'aide d'une petite lunette, a été effectué entre une led fixée sur le rebord d'un
+toit de bâtiment, à 7m de hauteur et l'étoile polaire. L'écart de celle-ci avec le nord géographique est
+inférieur à 1°.
+Les repères ont été reportés sur le sol à l'aide d'un fil à plomb (en absence de vent !) et pérennisés par des
+vis chevillées dans l'enrobé. Ces repères serviront à orienter vers le nord l'articulation du mât. En tout état
+de cause l'erreur cumulée d'orientation devrait être inférieure à ± 5° conformément aux règles de Météo
+France.
+Olympiades de physique France 2010
+
+page 17 / 19
+
+lycée Jules Viette Montbéliard
+
+5. ce qu'il nous reste à faire
+5.1. conception et réalisation des boîtiers et des rotors des appareils
+Les boîtiers seront réalisés en alliage d'aluminium et les axes en acier inoxydable (pour résister à la
+corrosion). Une attention particulière sera portée à la protection des appareils contre les intempéries et à
+leur maintenabilité. Des esquisses sont déjà réalisées.
+5.2. conception d'une carte électronique d'isolation galvanique (protection contre la
+foudre)
+Le mât de mesure, le boîtier des appareils et le blindage des gaines étanches seront reliés à la terre. Une
+carte électronique en cours de conception, assurera l'isolation galvanique jusqu'à 5000V à l'entrée de la
+carte d'acquisition.
+5.3. équipement et mise en place du mât de mesure
+Le mât de mesures, fabriqué par la section de carrossiers-constructeurs du lycée professionnel, sera
+équipé (gaines, câblage, boîtiers de raccordement, embases de fixation des appareils) avant sa mise en
+place prévue au printemps.
+5.4. début de la campagne de mesures
+Prévu avant les vacances d'été.
+5.5. traitement statistique des données pour comparaison avec les données Météo France
+Le volume des données à traiter est beaucoup trop important pour utiliser un tableur. Nous avons prévu
+d'utiliser le logiciel libre Python. Deux membres du club sont en train de se familiariser avec.
+Une anecdote : nous avons découvert que le calcul des directions moyennes n'est pas aussi évident qu'il y
+paraît, à première vue :
+la moyenne entre 170° et 190° est égale à 180° (soit vent du sud)
+mais la moyenne entre 10° et 350° est aussi égale à 180° ce qui donne un vent du sud au lieu d'un vent du
+nord.
+Nous avons trouvé la solution dans une documentation de Météo France : il faut passer par les moyennes
+des sinus et cosinus ! (voir le programme correspondant développé avec le logiciel Python, annexe 7.5).
+5.6. détermination du potentiel éolien
+Le travail se poursuivra durant la prochaine année scolaire pour la détermination du potentiel éolien avec
+les conseils de Météo France et du bureau d'études de l'entreprise EOLE-RES.
+
+Olympiades de physique France 2010
+
+page 18 / 19
+
+lycée Jules Viette Montbéliard
+
+6. conclusion :
+une équipe passionnée aux compétences multiples
+Ce projet a bien progressé, même s'il n'est pas arrivé à son terme ultime : la fabrication
+des appareils de mesure ainsi que l'acquisition et le traitement des données (*).
+Cela n'a été possible que grâce à la motivation de l'équipe qui a consacré, depuis
+septembre 2008, une cinquantaine de séances de travail de 4 heures au projet
+(principalement le samedi matin et 5 pendant les vacances scolaires). Les 6 élèves de
+l'équipe se sont partagés le travail :
+Joris a travaillé sur les schémas électroniques, la conception et la fabrication des
+circuits imprimés, le montage des composants, avec le concours de Pierre.
+Pierre et Rémi ont travaillé à la conception et au dessin des pièces mécaniques à l'aide
+du logiciel Solidworks.
+Florence et Matthieu se sont plongés dans le logiciel Labview et ont réalisé les
+programmes de pilotage du moteur pas à pas et d'acquisition/décodage de la direction du
+vent.
+Matthieu et Pierre se sont chargés de partir à la découverte du logiciel Python pour
+assurer le traitement statistique des données et la détermination des moyennes.
+Rémi s'est chargé de la rédaction du mémoire et du diaporama.
+Thomas a récemment rejoint l'équipe et s'est investi rapidement. Aidé de Joris, il a
+travaillé sur les cartes électroniques et entrepris la sélection d'optocoupleurs qui
+permettront de protéger ordinateur et carte d'acquisition en cas de foudre.
+Les deux animateurs Corinne et François, ont essayé de répondre à nos questions,
+quand ils pouvaient, car ils n'en savaient pas toujours beaucoup plus que nous !!
+N'oublions pas nos « anciens » qui ont œuvré l'an dernier sur ce même projet : Mathias,
+Guillaume et Clément, aujourd'hui en filières post-bac.
+Bien entendu, chacun présentait régulièrement l'avancement de son travail à l'ensemble
+de l'équipe. D'autre part, certaines séances cruciales ont été menées collectivement :
+tests sur les capteurs, essais du moteur pas à pas et essais de l'ensemble du système à la
+fin, bien entendu !
+
+* le travail sera poursuivi par le club scientifique et technique durant l'année scolaire.
+
+Olympiades de physique France 2010
+
+page 19 / 19
+
+lycée Jules Viette Montbéliard
+
+

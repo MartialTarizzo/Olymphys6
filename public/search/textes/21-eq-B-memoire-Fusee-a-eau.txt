@@ -1,0 +1,834 @@
+OLYMPIADES DE PHYSIQUE France
+Année 2013-2014
+
+XXIe édition
+
+Fusées à eau à dispositif
+de mesure embarqué
+Accéléromètre embarqué
+
+Elèves participants :
+Célia Valette Vidal Alexandre Latappy Laure Shoonberg Louise
+Brahimi Killian
+
+Avec LACLAVERIE Jean-Michel
+Professeur encadrant
+Lycée Bernard Palissy- AGEN
+Académie de Bordeaux
+-1-
+
+Table des matières
+Résumé
+Partenaires
+
+Lycée labellisé « Espace » par
+
+Introduction
+A. Présentation historique des fusées
+B. La propulsion à réaction
+C. Fabrication d’une fusée à eau
+D. Trajectoire, vitesse, accélération de la fusée
+E. Etude de l’évolution de la pression de l’air dans la fusée
+F. Accéléromètre embarqué
+
+Conclusion
+
+Bibliographie
+Annexe : Les lignes de Code Java (Processing) pour les
+mesures d’accélération
+
+-2-
+
+Résumé
+Le but de notre travail est d’abord de faire voler une fusée à eau et d’étudier
+sa trajectoire, sa vitesse et son accélération. Nous avons fabriqué plusieurs modèles
+de fusée, d’abord avec un seul moteur, puis une fusée plus complexe, de 2 mètres
+de haut avec deux boosters supplémentaires. Cette fusée est associée à un
+parachute, qui permet de récupérer un module de mesure. Nous avons essayé
+d’embarquer un système de mesure relié au sol par liaison radio : un microcontrôleur
+Arduino associé à un accéléromètre et un émetteur radio. Puis au laboratoire, des
+modèles de fusée sous pression plus faible permettent de décrire l’évolution de la
+pression de l’air dans la fusée et de la quantité d’eau en fonction du temps.
+Partenaires
+Le 7 novembre 2013, le lycée vient d’obtenir le label « Espace » décerné par
+l’académie de Bordeaux et le CNES, grâce à notre projet et un projet mené il y a
+deux ans. Nous espérons grâce à cela pouvoir obtenir des réponses et un soutient
+pour pouvoir mieux décrire la phase d’accélération initiale et la comparer à celle d’un
+missile balistique ou d’une fusée Ariane ou Véga. Nous voulons contacter le groupe
+Herakles, qui est responsable de la fabrication d’une partie des moteurs d’Ariane.
+
+Introduction
+Après les TPE en première S, et dans le cadre d’un atelier scientifique PhysiqueMusique, nous avons cherché un sujet qui pourrait nous permettre de se lancer dans
+l’aventure des Olympiades de physique.
+Nous sommes fascinés par les fusées comme Ariane ou le lanceur européen
+Véga, capables d’envoyer dans l’espace des satellites. Pour ne pas détériorer les
+satellites, ces fusées ne dépassent jamais 5 fois l’accélération de la pesanteur 5g.
+Nous voulons essayer de faire un modélisation par une fusée à eau.
+Les fusées à eau sont des systèmes mécaniques assez faciles à réaliser. Il ne
+faut pour cela que des bouteilles plastiques, du scotch et une pompe à vélo. Le coût
+est raisonnable. Les programmes de physique au lycée abordent la mécanique:
+Principe de l’inertie et troisième loi de Newton, études des forces, des vitesses et des
+trajectoires. Les conditions nous semblaient donc réunies pour tenter l’aventure.
+Nous avons cependant rencontré de nombreuses difficultés et découvert que
+l’expérience est plus difficile à réaliser qu’il n’y paraît sur le papier. Nous avons voulu
+réaliser une fusée a plusieurs boosters et embarquant un système de mesure. Si les
+mesures au laboratoire d’accélération par exemple sont assez simples avec un
+ordinateur et un capteur, tout devient plus compliqué quand il faut embarquer le
+système dans une fusée : il doit donc être petit, léger, sans fil et transmettre les
+données au sol par radio ou les enregistrer.
+Notre travail expérimental se divise en trois parties principales :
+-Réaliser la fusée
+-Réaliser le système de mesure autonome et portable
+-Réaliser un vol avec mesures réussies.
+Nous avons lu dans un TIPE sur les fusées à eau : « L'accélération maximale est
+de l'ordre de la centaine de g (pendant une durée très courte, la phase de poussée
+
+-3-
+
+dure moins d'un dixième de seconde avec une tuyère standard). La vitesse maximale
+atteinte est de l'ordre de quelques dizaines de mètres par seconde. » (Ayoub
+Bensaïd, 2004, sur le site www.techno-challenge.org.) Nous voulions bien croire
+l’ordre de grandeur de la valeur de la vitesse maximale de la fusée, mais
+l’accélération nous semblait à priori surestimée. Il nous semblait impossible de
+fabriquer une fusée à eau accélérant plus qu’un avion de chasse. Et pourtant...
+La pression dans notre fusée atteint 8 bars. Nous avons voulu aussi préparer une
+expérience sous plus faible pression au laboratoire, pour comprendre l’écoulement
+de l’eau lors de la poussée, et pouvoir vous présenter autre chose que des vidéos de
+nos vols.
+Après une présentation de l’histoire des fusées, nous aborderons l’étude
+mécanique de notre fusée. Puis nous décrirons la fabrication et le vol de nos fusées
+en extérieur. La deuxième partie de notre travail concerne l’étude au laboratoire, la
+seule que le jury pourra voir en direct. Nous étudierons l’évolution de la pression de
+l’air dans la fusée, puis la vitesse et la trajectoire de notre système mécanique grâce
+à un fichier vidéo et au logiciel Latispro. Nous aborderons aussi l’étude de l’évolution
+de la quantité d’eau éjectée en fonction du temps.
+Puis pour finir, nous présenterons notre système de mesure embarqué, et les
+résultats de nos expériences. Nous essayerons de répondre à la question: La fusée
+atteint-elle une accélération de l’ordre de la centaine de g au démarrage? Notre
+capteur embarqué résistera-t-il à une telle accélération ?
+Dernière minute : Notre fusée bâtie sur le modèle d’Ariane 5 a explosé au
+décollage. Il n’en reste rien, sauf des photos !! Nous avons rebâti dans
+l’urgence une fusée plus simple, ressemblant à un lanceur Véga.
+A- Présentation historique des fusées
+Avant de se lancer dans l’étude des fusées à eau, nous avons voulu en savoir un
+peu plus sur les fusées en général et sur leur histoire. Toutes les
+fusées éjectent de la matière pour se propulser.
+Les premiers à avoir mis en place le principe de la fusée sont
+les chinois ; ils remplissaient d’une sorte de poudre à canon
+(mélange de soufre, de salpêtre et de charbon de bois) un
+bambou qu’il faisait ensuite brûler pour produire une explosion. Les
+chinois ont compris que le bambou pouvait se propulser de luimême grâce à la poussée des gaz éjectés.
+La physique de la fusée devient une science avec Isaac
+Newton (1642-1727). Il établit notamment le principe d’action-réaction.
+A la fin du XVIIIème siècle et au début du XIXème siècle, la
+fusée est utilisée comme arme de guerre. Elles pesaient 12 kg
+environ, et leur portée était de 1 800 m.
+La théorie d’utiliser des carburants liquides pour améliorer la
+propulsion de la fusée fut étudiée par le russe Constantin
+Tsiolkovski vers 1898. Robert Goddard ingénieur et physicien
+américain réalisa le 16 mars 1926, à Auburn le lancement d’une
+fusée propulsée par un mélange d’essence et d’oxygène liquide.
+C’est la première fois qu’une fusée à propergol liquide est lancée.
+
+-4-
+
+Le 3 octobre 1942, est la date du premier
+fusée allemande A4 (= missiles V2) qui
+km et qui atteint une altitude de 85 km.
+Puis ce qui marqua les esprits fut
+NASA en envoyant, à bord de la fusée
+astronautes sur la Lune le 21 juillet 1969.
+
+vol réussi de la
+parcouru 192
+l’exploit de la
+Saturne V, 3
+
+La fusée Européenne Ariane 5, utilise
+aujourd’hui du
+propergol solide pour deux de ses moteurs
+et
+de
+l’hydrogène pour les autres. La réaction
+d’oxydoréduction entre le puissant oxydant
+qu’est
+le
+perchlorate et l’aluminium permet de propulser les booster au propergol :
+3 KClO4 + 8 Al → 4 Al2O3 + 3 KCl
+On appelle propergol composite à perchlorate d'ammonium, ou PCPA, un
+matériau constitué d'une matrice macromoléculaire en polymère combustible comme
+liant, chargée de perchlorate d'ammonium NH4ClO4 comme oxydant, et d'aluminium
+pulvérulent comme combustible (Wikipédia)
+La conquête spatiale a été rendue possible grâce aux perfectionnements des
+fusées. Ces fusées ont fait rêver des générations d’élèves et nous font rêver aussi.
+Alors nous avons voulu nous aussi nous lancer dans l’aventure, avec des moyens à
+notre portée : les fusées à eau.
+
+B- La propulsion à réaction
+Au début de ce projet, nous étions des élèves de première S aux connaissances
+encore très limitées en physique. Mais nous avons voulu appliquer les notions de
+mécanique que nous connaissons au problème de la fusée à eau, d’abord au sol,
+puis en vol.
+Dans la documentation que nous avons consultée sur Internet principalement,
+certains sites développent des calculs utilisant des outils mathématiques compliqués.
+Nous avons voulu exploiter uniquement ce qui nous semblait à notre niveau, pas
+plus, nous n’écrire que des choses que nous pensons comprendre.
+Une fusée va avoir un poids important et va déplacer un volume d’air trop faible pour
+compenser son poids par la poussée d’Archimède. Cette dernière est négligeable car
+elle est plusieurs centaines de fois plus faible que le poids.
+Au sol :
+
+La poussée d’Archimède T
+
+La réaction R du support sol
+
+P
+
+Au sol : P=R
+Selon le principe de l’inertie, les forces se compensent dans le référentiel terrestre.
+
+-5-
+
+Au décollage, la réaction du support disparaît. Pour que la fusée s’élève elle doit être
+remplacé par une force de poussée exercé par les moteurs où l’éjection d’un fluide.
+C’est la propulsion à réaction.
+En vol :
+On considère un mouvement vertical à une dimension selon l'axe Oz, et que
+l'écoulement du fluide éjecté sera aussi dirigé selon cet axe. En pratique, il est facile
+de réaliser des tirs verticaux pourvu que la base de lancement soit bien horizontale,
+et on observe alors sur des photographies que l'écoulement est effectivement très
+directif.
+On peut séparer le mouvement en trois phases pour une fusée théorique
+portant 1,5L d’eau:
+- Ejection de l’eau à une vitesse de l’ordre de 30 m/s1, avec un débit maximal
+de l’ordre de 15 L/s et forte accélération de la fusée pendant une durée de
+l’ordre de 30 ms.
+- Ejection de l’air avec une petite accélération supplémentaire pendant une
+durée de l’ordre de 15 ms.
+- Chute de la fusée.
+Lorsque la fusée est mise sous pression, elle se dilate un peu, comme un ballon
+de baudruche. Elle emmagasine ainsi un peu d’énergie élastique qui sera restituée
+lors du décollage. Nous négligerons cela dans notre présentation théorique.
+Lorsque la fusée se déplace à une vitesse non négligeable, elle est soumise à
+une force de frottement fluide exercé par l’air qui la ralentit, de norme f et à la force
+de poussée de norme F.
+-Si F› P+f = Accélération
+-Si F= P+f = Vitesse constante
+-Si F‹ P+f = Ralentissement
+La force de frottement sera proportionnelle à la vitesse du système si elle est
+faible (de l’ordre de cm/s). Mais l’on aura f=kV² pour des grandes vitesses. C’est le
+cas au décollage.
+Nous devons renoncer à essayer d’écrire les équations du mouvement. Elles
+sont compliquées en particulier car la masse du système est variable. La seconde loi
+de Newton :
+Σ Fext = m a
+La fusée accélère car elle est poussée par l’eau, puis l’air, avec une intensité
+supérieure au poids, mais aussi parce que sa masse diminue. Il existe une période
+du mouvement où la force de poussée de l’eau est constante et pourtant
+l’accélération augmente. C’est à cause de la diminution de la masse du système.
+Selon Ayoub Bensaïd (cité plus haut) et ses collègues, l’accélération d’une fusée
+d’1,5 kg peut atteindre 165 m/s².
+Une grosse fusée est plus lourde qu’une petite. Elle peut produire une plus forte
+poussée, mais le poids qui augment avec la taille de l’engin annule presque le
+bénéfice de sa forte poussée. Elle sera d’autant plus importante que la quantité
+d’eau est importante. En effet, la troisième loi de Newton indique que l’eau éjectée
+vers le bas pousse la fusée vers le haut. Plus la pression de l’air intérieur sera forte,
+plus l’eau sera éjectée avec une grande force, car la force exercée par l’air intérieur
+sur l’eau est proportionnelle à sa pression.
+1
+
+Pour une fusée Ariane 5 la vitesse d’éjection des gaz est de l’ordre de 3000 m/s
+
+-6-
+
+Choisissons l’exemple d’une fusée à eau d’1,5L remplit pour ¼ d’eau et pour
+¾ d’air sous 5 bars.
+
+Air
+5bar
+
+¾ du volume
+
+Eau
+
+¼ du volume
+
+V=1.5L
+R=8.31SI
+T=20°C
+PV=nRT
+meau = ρV = (¼*1.5)*1 = 3/8 kg
+nair = PV/RT = (5*105*1.5*10-3)/(8.31*293) = 0.23 mol
+Mair = 29 g/mol
+m = nM = 6.67g
+Pfusée = (mplastique+meau+mair)*g = (100+375+6.67)*9.81 = 4.72N
+La valeur de la poussé d’Archimède dépend de la masse volumique de l’air qui vaut
+1.2Kg/m3.
+
+π = ρair*V*g = 1.2*1.5*10-3*9.81 = 0.018N
+P/ π = 261
+La poussé d’Archimède est négligeable car elle est 261 fois moins intense que le
+poids. La force de poussée doit donc avoir une norme supérieure à 4.7N pour que la
+fusée décolle. L’eau est éjectée en dehors de la fusée = cause de la pression
+exercée par l’air intérieur sur l’eau. Donc la force qui propulse la fusée est celle de
+l’eau éjectée sur la fusée (3eme loi de Newton). C’est la propulsion à réaction.
+Rapidement le poids de la fusée diminue car l’eau et l’air sont éjectés. Il devient
+égale à Pfusée2 = mplastique*g = 0.1*9.81 = 1N
+Lorsque la bouteille est vide, elle n’est plus soumise qu’à une seule force
+importante : La pesanteur. La trajectoire devient alors parabolique avant l’ouverture
+du parachute, si l’ont néglige les frottements de l’air.
+C- Fabrication d’une fusée à eau
+Nous avons fabriqué nos fusées à eau avec des moyens simples et peu coûteux :
+bouteilles en plastique, scotch, carton et pompe à vélo. Notre source documentaire
+principale est : http://www.mini-modele.com/fusee_a_eau.php. La pression
+d'explosion des bouteilles en PET est de l'ordre de 10 bars 2. Elles conviennent
+parfaitement pour notre expérience. Nous avons fabriqué et essayé ces fusées chez
+Alexandre, dans son jardin.
+La principale difficulté technique consiste à relâcher la fusée sous pression de
+façon instantanée, et symétriquement afin que la bouteille parte bien
+vers le haut. Ce dernier point est même capital car les fusées à eau se
+révèlent rapidement des objets dangereux. Il faut absolument maîtriser
+le mieux possible le décollage pour prévoir le point d'impact. La solution
+adoptée doit permettre l'étanchéité de la liaison fusée-système de
+gonflage pendant la phase de pressurisation. Ainsi, le simple bouchon
+de liège utilisé couramment par les enfants ne permet pas de choisir le
+2
+
+Mais la notre a explosé à 7 ou 8 bars ! il a fallu en refaire une autre
+pendant les vacances de Toussaint.
+-7-
+
+moment (et donc la pression) ou la fusée va partir.
+Tout d’abord examinons la fabrication de la fusée. Avant la réalisation, nous
+avons cherché des modèles de fusée à eau. Au final nous avons retenu le modèle de
+la fusée Ariane 5 notamment pour son aérodynamisme et la part de rêve qui
+accompagne cette fusée européenne. Avant d’entreprendre la réalisation de la fusée
+principale, nous avons essayé un premier prototype. Il pouvait voler jusqu'à 20 m
+d’altitude. C’était un premier test, que nous ne détaillerons pas ici.
+
+Fusée n°1 et sa base. On peut voir la connexion entre la bouteille et le compresseur
+réalisée avec un embout pour tuyau d’arrosage, que l’on peut déconnecter en tirant
+sur la ficelle noire. Pour fortifier le système, nous avons enroulé du scotch autour
+l'ensemble.
+Nous avons réalisé une fusée à plus grande échelle car elle mesure 1,60m
+alors que celle là ne fait que 60 cm. Notre moteur central est composé de 2 fois 2
+bouteilles de Coca-Cola (2L) coupées aux ¾ -coté culot-puis emboîtées 2 par 2. Pour
+que la jointure des deux couples de bouteilles soit étanche et hermétique nous avons
+troué les deux bouchons des bouteilles (inférieure pour la partie haute et supérieure
+pour la partie basse) -pour que l'eau puisse circuler à travers les deux parties du
+moteur puis nous avons collé les deux bouchons.
+Chaque booster est composé de 4 bouteilles de Badoit (50 cL). Chaque
+bouteille est découpée de façon différente : la 1ere découpée juste avant le culot, la
+2e et la 3 sont découpées de façon à ce qu'il ne reste que la partie centrale de la
+bouteille, la 4e est entière, elle contiendra le parachute. Les 4 bouteilles sont
+emboîtées les unes dans les autres. Le moteur supérieur est composé de 2
+bouteilles de Coca-Cola (2L). Le mécanisme de détachement permet de déclencher
+le moteur supérieur quand les booster sont vides.
+Une première série d’essais a été faite sans le mécanisme de détachement et
+la fusée a explosée. Quelle déception ! Mais nous en avons fait une seconde, plus
+simple.
+
+-8-
+
+Schéma du modèle de la
+fusée Ariane 5 du lycée
+Palissy
+
+Fusée n°2, au
+décollage,
+sans
+habillage, dans le
+jardin d’Alexandre
+pendant les
+vacances de
+Toussaint
+
+.
+Descente avec le parachute ouvert du corps de la fusée à droite de l’image. La
+tête retombée sans parachute, est déjà au sol. Le plus simple pour le parachute a
+été de le placer au dessus du moteur de la fusée, simplement recouvert d’une coiffe
+posée. Lorsque la fusée commence à s’incliner, la coiffe glisse et le parachute
+s’ouvre.
+D- Trajectoire, vitesse, accélération de la fusée
+-9-
+
+Pour étudier la trajectoire de nos fusées, ainsi que leur vitesse et accélération
+nous les avons filmées. Cependant, cela n’est pas simple, car l’instant de
+déclenchement du tir n’est pas précisément prévisible. La fusée part quand la
+pression à l’intérieur de la bouteille est suffisante (6 bars début novembre), sans que
+l’opérateur ait besoin de déclencher la libération. De plus, la vitesse initiale est très
+importante et la fusée peut sortir rapidement du champ de la caméra. Filmer une
+trajectoire complète exige de se placer loin, et donc la fusée est difficile à repérer sur
+le film. Par contre, si la caméra est plus prés, il n’est pas possible de filmer toute la
+trajectoire.
+Nous avons donc réalisé un film du démarrage et un film du mouvement dans son
+ensemble.
+Nous avons aussi pensé attacher un fil de pêche à la fusée pour déterminer son
+altitude maximale, en supposant que cela ne perturbe pas son vol. Puis nous avons
+abandonné l’idée.
+C’est d’abord la phase d’accélération, puis celle de chute libre et enfin celle de
+chute freinée que nous étudions avec l’ouverture d’un parachute.
+Voici notre première étude pour la phase initiale d’accélération. Nous n’avons que
+7 points pour les 200 premières millisecondes. Le fichier est étudié grâce au logiciel
+Latispro. La fusée est lancée le plus verticale possible. Mais la poussée n’est jamais
+verticale et la fusée a une composante horizontale à sa vitesse.
+Après étalonnage et pointage, nous obtenons les courbes suivantes :
+
+La caméra a été inclinée de 90° ce qui implique que le mouvement x est en fait le
+déplacement vertical. Nous avons tapé la feuille de calcul suivante :
+v=deriv(mouvement x)
+a=deriv(v)
+La vitesse augmente presque linéairement, mais les calculs de l’accélération donnent
+des valeurs réparties entre 125 m/s² et 210 m/s². Cela ne semble pas cohérent, car si
+la vitesse varie linéairement l’accélération devrait être constante.
+Nous choisissons alors de modéliser la vitesse. Nous obtenons la relation :
+
+- 10 -
+
+v=177,052*Temps+1,28. Il y a une bonne correspondance visuelle entre les points et
+la modélisation et le coefficient de corrélation vaut 0,996.
+
+Donc l’accélération de la fusée au démarrage vaut 177 m/s² soit 18 fois l’accélération
+de la pesanteur. La vitesse atteint 35 m/s en 200 ms, soit 126 km/h.
+Pour l’étude du fichier de la totalité du vol, nous trouvons une vitesse initiale
+de 150 m/s, pour le point n°2. Cependant ce résultat est à prendre avec réserve car
+nous avons remarqué que Latispro donnait des résultats parfois aberrants pour les
+premiers et derniers points d’une étude.
+Pour ce tir, le parachute s’ouvre très rapidement et gêne la progression
+verticale de la fusée. L’altitude maximale atteinte est simplement de 15 m, car la
+coiffe a glissé trop tôt.
+
+- 11 -
+
+La grandeur « Mouvement X » correspond à l’altitude (le film a été obtenu
+avec une caméra incliné de 90°).
+
+La valeur de la vitesse entre les instants t=1s et t=6s est proche de 2,8 m/s, soit
+presque 10 km/h. Le système chute lentement avec son parachute.
+Nous devons donc réaliser de nouveaux tirs d’essai avec une poussé plus verticale
+pour éviter que la coiffe ne tombe trop tôt. Le parachute fonctionne, mais
+l’accélération initiale risque de détériorer l’électronique embarquée. Nous allons
+protéger l’Arduino dans son compartiment et réaliser de nouveaux essais que nous
+vous présenterons lors du concours.
+E- Etude de l’évolution de la pression de l’air dans la fusée
+Après les essais en extérieur, nous avons essayé de comprendre comment
+évolue la pression dans la bouteille au cours du temps. Cependant, nous sommes
+soumis à des contraintes liées à la sécurité du matériel au laboratoire. Notre
+professeur ne nous a pas permis de gonfler nos fusées avec une pompe à vélo, mais
+seulement avec une seringue de 60 mL lorsque nous sommes au laboratoire. La
+pression dans ces conditions ne peut dépasser 1150 hPa. Ainsi le matériel
+informatique et électronique qui entoure notre expérience ne court pas de risque.
+Consigne de sécurité
+Ne pas dépasser la pression de 1150 hPa
+au laboratoire
+Lors de nos observations expérimentales de vol de fusée, nous avons
+constaté que la presque totalité de l’eau est éjectée au démarrage. La propulsion à
+réaction ne fonctionne donc que pendant la phase initiale. Le reste du vol ne se fait
+que grâce à l’énergie acquise à l’instant initial, un peu comme un ballon de basket
+lancé en parabole par un joueur. C’est donc une différence importante par rapport
+aux fusées à combustible, qui elles, sont propulsées beaucoup plus longtemps.
+Voici une photo du montage que nous avons réalisé pour essayer de
+modéliser le phénomène d’éjection de l’eau.
+
+- 12 -
+
+Tubes hermétiques
+
+Pressiomètre
+Seringue pour injecter de l’air
+
+Cure dents
+
+La bouteille est fixée sur un support et placée au fond d’un évier pour éviter
+les projections. Le fond est percé d’un petit trou bouché par une allumette. Le
+bouchon est remplacé par un bouchon de caoutchouc relié au pressionmètre et à la
+seringue. La bouteille est au trois quart remplie d’eau. Grâce à la seringue, nous
+augmentons la pression de l’air dans la bouteille. Le presionmètre est relié au
+logiciel d’acquisition Latispro pour étudier l’évolution de P en fonction du temps.
+A t=0, nous déclenchons l’acquisition informatique et nous retirons l’allumette.
+L’eau commence à s’écouler.
+Lors de la première expérience, la pression dans la bouteille à l’instant t =0 est
+de 1130 mbar ou 1130 hPa
+
+- 13 -
+
+Cependant le logiciel n’enregistre pas une pression, mais une tension, image
+de la pression. La constante de temps caractéristique de l’évolution est la même
+pour la tension et la pression qu’elle représente.
+L’eau s’arrête de couler toute seule à la fin de l’expérience, sans qu’il soit
+nécessaire de reboucher le trou.
+La première partie de l’évolution (soit les 2/3) peut être modélisée par une
+courbe utilisant la fonction exponentielle et comparable à celle de la décharge d’un
+condensateur dans une résistance.
+Le temps caractéristique est Tau = 3, 814 s. A t = Tau, la pression dans la
+bouteille ne vaut plus que 37% de la pression initiale.
+Pour la seconde expérience, la pression dans la bouteille à l’instant t =0 est de
+1100 mbar ou 1100 hPa
+
+Les résultats confirment ceux de la première expérience. L’évolution de la
+pression suit encore une loi utilisant la fonction exponentielle. La constante de temps
+est Tau = 3,985 s.
+Pour la troisième expérience, la pression dans la bouteille à l’instant t = 0 est
+de 1050 mbar ou 1050 hPa
+La constante de temps est Tau = 4,129 s. On constate que le temps
+caractéristique de la durée d’éjection de l’eau augmente si la pression initiale
+diminue.
+La pression dans les fusées en extérieur étant de plusieurs bars, il est cohérent
+avec les résultats précédents, que le temps d’éjection soit très court.
+Ces résultats sous pression peu importante au laboratoire confirment ce que nous
+avons observé en extérieur.
+Nous n’avons pas les moyens de mesurer la vitesse d’éjection de l’eau, mais
+nous pouvons déterminer, au laboratoire, le débit de l’eau au cours du temps.
+
+- 14 -
+
+L’étude est faite avec un capteur de force Eurosmart. Nous reprenons l’expérience
+précédente en mesurant le poids de l’eau éjectée au cours du temps.
+Le plateau d’une petite balance est suspendu au capteur de force. On y place
+un bécher de 100 mL. L’eau s’écoulant de la bouteille est guidée vers le bécher. Le
+logiciel indique directement l’évolution de la force mesurée par le capteur, en mN au
+cours du temps.
+
+Tubes hermétiques
+
+Tube
+Pressiomètre
+
+Seringue pour injecter de
+l’air
+
+Becher
+
+Capteur de force
+
+Nos résultats sont à l’image de ceux obtenus pour l’étude en pression.
+
+- 15 -
+
+Pour une pression initiale Po= 1050 hPa, nous avons récupéré V=20 mL d’eau
+dans le bécher. L’évolution du poids de l’eau récupérée par le bécher suit une courbe
+modélisable par une fonction de la forme (1-exponentielle). Le temps Tau
+caractéristique vaut ici 3,58 s.
+En 3,58 s, nous avons éjecté 63 % de l’eau soit 12,6 mL de masse 12,6 g,
+donc un débit massique moyen de 3,5 g/s.
+Pour une seconde expérience avec une pression initiale Po=1068 hPa, on
+trouve Tau = 4,59 s. La quantité d’eau éjectée est plus importante V = 27 mL. Il faut
+plus longtemps. Le débit massique moyen est un peu plus élevé 3,7 g/s.
+Le débit massique de l’eau augmente avec la pression de l’air dans la
+bouteille. Même si nous ne savons pas mesurer la vitesse d’éjection, nous pouvons
+penser que la force de poussée augmente avec la pression de l’air dans la bouteille.
+Les expériences en extérieur le montrent. Si le bouchon adhère suffisamment au
+goulot de la bouteille, la pression augmente davantage et la bouteille va plus haut.
+
+F- Accéléromètre embarqué
+Quel est le meilleur moyen pour mesurer les variations de l’accélération de la
+fusée lors des phases d’éjection de l’eau puis de l’air ? La durée globale de ces
+phases est inférieure à 50 ms. Lors d’un film vidéo nous avons 24 images par
+seconde le plus souvent, soit une image toute les 42 ms. Seule une caméra rapide
+permettrait d’aborder la phase initiale d’accélération. Mais nous n’en avons pas.
+Alors nous choisissons un accéléromètre dont la fréquence des mesures est réglable
+informatiquement.
+Un accéléromètre est un système qui mesure
+l’accélération. C’est un outil très commun dans les
+téléphones portables ou dans les jeux vidéos, pour
+repérer les mouvements. Ce module est relié à la
+plaque d’un microcontrôleur Arduino par l’intermédiaire
+d’une plaque de connexion Tinkerkit.
+Nous utilisons deux logiciels gratuits : Arduino et
+Processing 1.5.1. Arduino est le logiciel libre
+permettant de programmer le microcontrôleur, et Processing permet de réaliser une
+interface graphique utilisant les données de l’accéléromètre. Ces données transitent
+par une liaison série.
+
+- 16 -
+
+Avec l’exemple par défaut, nous visualisons un disque dont les coordonnées du
+centre varient en fonction de l’accélération en x et en y Les valeurs sont codées
+entre 0 et 1023, soit 28 valeurs possibles pour chaque composante de l’accélération.
+
+Pour un système horizontal immobile, la valeur des deux composantes
+nommées accx et accy dans le programme est proche de 247. Cela correspond à
+une accélération nulle. Pour un système vertical immobile, suivant X ou Y, la valeur
+passe à 297. C’est l’accélération de la pesanteur g = 9,8 m/s² qui est mesurée. Lors
+de mouvements rapides on observe des valeurs variant entre 0 et 500. Il ne peut y
+avoir de valeur négative.
+Chaque composante de l’accélération peut donc se
+calculer de la manière suivante :
+ax = 9,8(accx-247)/(297-247)
+ay = 9,8(accy-247)/(297-247)
+Nous choisissons d’enregistrer ax et ay dans un
+fichier texte, pour pouvoir ensuite traiter ces valeurs sur
+excel.
+Nous débranchons l’Arduino de l’ordinateur et nous
+l’alimentons grâce à une pile 9V. Nous assurons la liaison série entre le
+microcontrôleur et le PC grâce à une liaison sans fil XBEE, totalement invisible dans
+la programmation. Un module XBEE est relié au PC, l’autre à l’Arduino, et les
+données
+de
+l’accélération
+transitent maintenant par liaison
+radio. On peut ainsi embarquer le
+module dans une fusée et
+enregistrer les variations de
+l’accélération sur le PC. Nous
+n’avons pas encore, à l’heure de
+la rédaction de ce mémoire
+obtenu de mesures exploitables.
+L’accéléromètre ne doit pas
+bouger dans la fusée pour que
+les deux directions de mesure
+restent constantes. Il est fixé
+avec du scotch. Par ailleurs la
+forte poussée a perturbé les
+
+- 17 -
+
+liaisons radios et électriques. Nous remplaçons le module XBEE par une carte SD
+d’enregistrement des données pendant le vol. Donc plus de problème de
+transmission. Nous aurons fait nos mesures pour le mercredi 11 décembre.
+
+Conclusion
+Monsieur le recteur a dit lors de la journée de labellisation que l’espace est un
+secteur de recherche pluridisciplinaire et un vecteur formidable pour susciter l’intérêt
+de tous. C’est vrai. Nous l’avons vécu. Cette aventure a été passionnante et nous a
+permis de préparer le concours des Olympiades de physique et C.Génial. Nous
+avons fait voler des fusées à eau. Et cela procure beaucoup de plaisir ! Notre premier
+but est atteint. Faire de la physique nous a fait plaisir (Ce n’est pas évident pour tous
+nos camarades….).
+Nous sommes conscients de certaines limites de notre travail, notamment à
+cause de notre modeste niveau en sciences physiques. Cependant nous avons
+expérimenté et décrit l’accélération la vitesse et la trajectoire de nos fusées, et
+l’évolution de la pression de l’air dans le modèle de fusée de laboratoire et de la
+quantité d’eau.
+Nos fusées ont atteint une hauteur maximale de quelques dizaines de mètre.
+Certains spécialistes peuvent atteindre 600 m. Nous pourrions améliorer nos
+performances en :
+- Augmentant la masse volumique du liquide éjecté pour augmenter la poussée
+(eau salée par exemple)
+- Augmenter la fluidité en rajoutant du savon dans l’eau pour se rapprocher d’un
+fluide non visqueux.
+- Affiner notre fusée pour améliorer sa pénétration dans l’air.
+Optimiser le volume d’eau éjecté.( avec trop peu d'eau, la bouteille n'aura pas
+suffisamment de masse à expulser, et la poussée sera moindre et si le volume d'eau
+initial est trop grand, il y aura moins de gaz nécessaire à l’expulsion et la masse de la
+fusée sera plus grande)
+Nos fusées nous ont tournées vers le ciel, vers l’astronomie et ses mystères.
+Nous avons pu toucher du doigt la difficulté liée à la réalisation d’une expérience de
+sciences physiques, et le temps très long qu’il faut pour résoudre des problèmes
+techniques ( découpe du parachute, assemblage…) qui n’apparaissent même pas
+dans ce mémoire.
+L’académie de Bordeaux possède de formidables ressources pour l’espace et
+l’aéronautique, avec des entreprises comme Astrium, Herakles ou l’université de
+Bordeaux I. Si vous nous permettez de poursuivre cette aventure, nous allons
+essayer, en contactant Herakles et l’Université de Bordeaux I de mieux comprendre
+la phase d’accélération initiale d’un missile ou d’une fusée Ariane pour essayer d’en
+produire un modèle numérique et pour le mettre en œuvre dans notre fusée à eau.
+Bibliographie
+- Histoire des fusées :
+http://www.linternaute.com/histoire/motcle/2441/a/1/1/fusee.shtml
+http://fr.wikipedia.org/wiki/Saturn_V
+- Site de l’académie de Reims : la propulsion à réaction
+http://www.ac-reims.fr/datice/sc_physiques/docs/divers/fusee/fuseeeau.htm
+
+- 18 -
+
+- Mode opératoire de fabrication
+http://tpe-fusee-a-eau.webnode.fr/les-/calculs-daltitude/
+http://www.tice92-defiscycle3.ac-versailles.fr/astronomie/IMG/pdf/montage_pompe.pdf
+
+http://pagesperso-orange.fr/fusee/FABICFUS.HTM
+- Site d’un physicien passionné de fusée à eau, qui se cache sous le
+pseudonyme de Bernard de Gomars.
+http://perso.numericable.fr/fbouquetbe63/gomars/physique.htm
+- Simulations :
+http://henneser.perso.cegetel.net/fuseeH2O/simulation.htm
+- « La fusée à eau », Bulletin de I ‘Union des Physiciens, mars 1991
+Annexe
+Le code processing
+Les communautés des utilisateurs de Processing et Arduino sont très actives,
+et
+fournissent
+de
+nombreux
+exemples.
+La
+page
+http://playground.arduino.cc/interfacing/processing permet de comprendre comment
+simplifier la relation entre Processing et l’accéléromètre :
+- Rajoutons le dossier contenant la librairie Firmata dans le dossier Libraries
+d’Arduino,
+si
+elle
+n’y
+est
+pas
+déjà
+présente
+(http://arduino.cc/en/Reference/Libraries ).
+- Rajoutons
+le
+dossier
+contenant
+les
+librairies
+Serial,
+Arduino
+(http://processing.org/reference/libraries/
+)
+et
+TinketKit
+(
+http://www.tinkerkit.com/library/
+) dans le dossier libraries de Processing
+1.5.1.(Attention, la librairie Arduino ne fonctionne pas dans les versions plus
+récentes de Processing).
+- Depuis le logiciel Arduino téléversons l’exemple StandardFirmata sur la
+plaque Arduino. Ce sketch permet de gérer les informations transitant par
+liaison série vers processing. Nous n’aurons plus besoin du logiciel Arduino
+par la suite.
+- Depuis le logiciel Processing, ouvrons l’exemple accéléromètre de la librairie
+TinkerKit. Nous voyons un disque ce déplacer sur l’écran en fonction des
+mouvements du capteur.
+/* Source principale du code : Accelerometer Example by Matteo Loglio (http://matlo.me) Display a
+circle whose position is determined by the accelerometer values remember to upload standardFirmata
+on the Arduino board. */
+import processing.serial.*;
+import cc.arduino.*;
+import com.tinkerkit.*;
+Arduino arduino;
+//declare the accelerometer
+TKAccelerometer acc;
+// Tableau des valeurs de l’accélération et de la date qui seront stockées dans un fichier texte à la fin
+des mesures
+float[] accx = new float[500];
+float[] accy = new float[500];
+float[] temps = new float[500];
+
+- 19 -
+
+int i=0;
+PrintWriter output;
+void setup() {
+size(512,512);
+println(Arduino.list());
+arduino = new Arduino(this, Arduino.list()[0], 57600);
+//for every tinkerkit component we have to pass the arduino and the port
+acc = new TKAccelerometer(arduino, TK.I0, TK.I1);
+//style
+noStroke();
+fill(255);
+smooth();
+//Création d’un fichier texte qui va contenir les données
+output = createWriter("acceleration.txt");
+frameRate(100); // Nombre de mesures par seconde
+}
+void draw() {
+background(200);
+//get accelerometer values
+float x = acc.readX();
+float y = acc.readY();
+//map values on the window width and height
+x = map(x,0,1023,0,width);
+y = map(y,0,1023,0,height);
+ellipse(x,y,30,30);
+println("x: " + x + " , y: " + y);
+accx[i] = x;
+accy[i] = y;
+temps[i] = millis();
+i=i+1;
+output.println("ax = " + x + " ay = " + y + " date = " + millis());
+if (i>497){output.flush(); // Write the remaining data
+output.close(); // Finish the file
+exit();} // Stop the program
+}
+
+Code avec carte SD
+#include <SPI.h>
+#include <SD.h>
+// On the Ethernet Shield, CS is pin 4. Note that even if it's not
+// used as the CS pin, the hardware CS pin (10 on most Arduino boards,
+// 53 on the Mega) must be left as an output or the SD library
+
+- 20 -
+
+// functions will not work.
+const int chipSelect = 8;
+// include the TinkerKit library
+#include <TinkerKit.h>
+TKAccelerometer accelerometer(I0, I1); // creating the object 'accelerometer' that belongs to the
+'TKAccelerometer' class
+// and giving the values to the desired input pins
+TKLed xLed(O0), yLed(O1);
+'TKLed' class
+
+// creating the objects 'xLed' & 'yLed' that both belongs to the
+// and giving the values to the desired output pins
+
+int compteur=0;
+int xAxisValue = 0;
+int yAxisValue = 0;
+
+// a variable to store theaccelerometer's x value
+// a variable to store theaccele
+
+void setup()
+{
+// Open serial communications and wait for port to open:
+Serial.begin(9600);
+while (!Serial) {
+; // wait for serial port to connect. Needed for Leonardo only
+}
+
+Serial.print("Initializing SD card...");
+// make sure that the default chip select pin is set to
+// output, even if you don't use it:
+pinMode(8, OUTPUT);
+pinMode(10, OUTPUT);
+// see if the card is present and can be initialized:
+if (!SD.begin(chipSelect)) {
+Serial.println("Card failed, or not present");
+// don't do anything more:
+return;
+}
+Serial.println("card initialized.");
+}
+void loop()
+{
+// make a string for assembling the data to log:
+compteur = compteur +1;
+// read the both joystick axis values:
+xAxisValue = accelerometer.readX();
+yAxisValue = accelerometer.readY();
+//Serial.println("Accelerometer X = " );
+Serial.println(xAxisValue);
+//Serial.print(" Accelerometer Y = " );
+Serial.println(yAxisValue);
+String dataString = "Accelerometer X = ";
+if (compteur<1000){
+// open the file. note that only one file can be open at a time,
+// so you have to close this one before opening another.
+
+- 21 -
+
+File dataFile = SD.open("donnees.txt", FILE_WRITE);
+// if the file is available, write to it:
+if (dataFile) {
+dataFile.print("Acc X = ");
+dataFile.print(xAxisValue);
+dataFile.print(" Acc Y = ");
+dataFile.println(yAxisValue);
+dataFile.close();
+}
+// if the file isn't open, pop up an error:
+else {
+Serial.println("error opening datalog.txt");
+}
+Serial.println(compteur);
+// wait 10 milliseconds before the next loop
+//delay(500);
+}
+}
+
+- 22 -
+
+

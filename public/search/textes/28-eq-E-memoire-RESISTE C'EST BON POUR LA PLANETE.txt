@@ -1,0 +1,512 @@
+Sonde à résistance thermique
+
+LILIAN BAUDRY
+ARTHUR MATEOS MARTIN
+
+1
+
+Sonde à résistance thermique
+
+Objectif principal :
+- Créer un thermomètre électronique, avec une précision au dixième de degré près
+- Asservir 2 plaques de cuivre à 5 et 25 °C, pour générer une différence de température
+- Pouvoir calculer la résistance thermique surfacique de différents matériaux en m².K.W-1
+
+M ETRE CARRE-K ELVINS PAR W ATT
+
+Objectifs secondaires :
+- Automatiser les mesures en adaptant automatiquement l’écart entre les plaques à l’épaisseur de
+l’échantillon
+- Création d’une interface utilisateur simple et intuitif sur un écran tactile
+- Calculer d’autres valeurs comme le flux thermique ou l’inertie thermique
+
+Principe de fonctionnement général :
+Première étape
+La source chaude (Résistance de puissance) et la source froide (Plaque de Peltier) doivent être stabilisées à
+5°C et 25°C pour une différence de température de 20°C
+Seconde étape
+Quand la température est atteinte depuis au moins 5min déclencher la mesure, en calculant sur la
+puissance nécessaire pour maintenir la plaque chaude à 25°C pendant ces 10min
+
+Troisième étape
+Une fois les mesures terminées interpréter et afficher les résultats
+
+LILIAN BAUDRY
+ARTHUR MATEOS MARTIN
+
+2
+
+Sonde à résistance thermique
+Mesures & Calculs :
+Conductivité thermique : W m−1 K−1
+
+Notée λ en watt par mètre-kelvin
+
+𝝀=
+P!"
+L
+S
+ΔT
+
+𝑷𝒕𝒉 ×𝑳
+𝑺×𝜟𝑻
+
+[ La puissance nécessaire maintenir la température chaude ]
+[ La distance entre les deux plaques]
+[ La surface de la plaque chaude ]
+[ La différence de température entre les deux plaques ]
+
+Résistance thermique : m2 K.W-1
+Notée R en Mètre carré-Kelvins par Watt
+
+𝑹=
+
+𝒆
+𝝀
+
+e [ L’épaisseur de l’échantillon ]
+λ [ Coefficient de de conductivité thermique ]
+
+L’effet Peltier :
+L'effet Peltier est un effet thermoélectrique consistant
+en un phénomène physique de déplacement de chaleur en
+présence d'un courant électrique. L'effet se produit dans des
+matériaux conducteurs de natures différentes liés par des
+contacts. L'une des jonctions se refroidit alors légèrement,
+pendant que l'autre se réchauffe. Cet effet a été découvert
+en 1834 par le physicien Jean-Charles Peltier.
+
+L’effet Peltier est principalement utilisé comme technique de réfrigération. Elle est utilisée dans des
+domaines où une grande précision et fiabilité sont demandés : recherche, spatial, militaire, etc., ou dans
+des applications plus courantes comme les glacières ou dans notre cas notre sonde.
+
+LILIAN BAUDRY
+ARTHUR MATEOS MARTIN
+
+3
+
+Sonde à résistance thermique
+ELEMENT
+
+NOMBRE
+
+REFERENCE
+
+POSSESSION
+
+PRIX
+
+PLAQUE DE PELTIER
+
+1
+
+Amazon
+
+4,20
+
+VENTILATEUR
+
+1
+
+Amazon
+
+4,94
+
+DISSIPATEUR
+THERMIQUE
+
+1
+
+RESISTANCE DE
+PUISSANCE
+ARDUINO MEGA
+
+2
+
+Amazon
+
+6,98
+
+1
+
+Amazon
+
+14,00
+
+TRANSITOR
+MOSFET
+
+2
+
+Amazon
+
+5,59
+
+THERMISTANCE
+
+2
+
+PLAQUE DE CUIVRE
+
+1
+
+Amazon
+
+7,99
+
+ECRAN LCD
+
+1
+
+Amazon
+
+9.49
+
+MOTEUR PAS A PAS
+
+1
+
+Amazon
+
+14,08
+
+JAUGE DE
+CONTRAINTE
+
+1
+
+Amazon
+
+6,29
+
+INTERRUPTEUR
+
+1
+
+Amazon
+
+2,19
+
+PCB
+
+1
+
+JLCPCB
+
+7,90
+
+CAPTEUR DE FIN DE
+COURSE
+
+1
+
+Amazon
+
+3,94
+
+MODULE
+INA 219
+
+1
+
+Amazon
+
+2,45
+
+PATE THERMIQUE
+
+1
+
+Amazon
+
+5,98
+
+ALIMENTATION
+
+1
+
+RECUPERATION
+
+X
+
+TOTAL : ≈ 𝟗𝟎€
+
+LILIAN BAUDRY
+ARTHUR MATEOS MARTIN
+
+4
+
+Sonde à résistance thermique
+Compte rendu de la première partie :
+Nous avons tout d’abord commencé par nous renseigner sur les différents modèles de sonde à
+résistance thermique qui avait déjà été fabriqué auparavant, les différentes versions que nous avons
+trouvé coûtent chers avoisinant là plus part du temps les 800 €, nous avons donc décidé de fabriquer une
+sonde qui réduira le coût dû à un tel achat que ce soit pour les services scolaires, ou les pays pauvres qui
+voudrait s’abriter plus convenablement en construisant des maisons mieux isolées contre le chaud et le
+froid. Ce qui nous a mené à la problématique qui était de fabriquer une sonde à résistance thermique
+accessible au niveau du prix mais aussi de la prise en main.
+Une fois que nous avions élaboré notre problématique, nous avons décidé de fabriquer un
+thermomètre électronique à l’aide de thermistances. Nous avons donc commencé par étalonner celle-ci :
+
+Cet étalonnage nous a permis d’obtenir une formule qui en fonction de la résistance nous donne
+une température, et c’est avec ça que nous avons fabriquer notre thermomètre. Nous devions donc
+maintenant proposer des solutions techniques pour avoir une aire froide ainsi qu’une aire chaude, les deux
+solutions qui nous ont paru les plus pertinentes ont été une plaque de Peltier ainsi qu’une résistance
+chauffante. Nous avons donc étudié le fonctionnement d’une plaque de Peltier utilisant la réciproque de
+l’effet Seebeck connue sous le nom d’effet Peltier expliqué auparavant, que l’on doit obligatoirement
+refroidir.
+Première essai avec la plaque de Peltier :
+8°C sans asservissement avec une alimentation de 7.2V
+
+LILIAN BAUDRY
+ARTHUR MATEOS MARTIN
+
+5
+
+Sonde à résistance thermique
+
+Une fois que nous avons imaginé notre partie
+froide il nous fallait asservir une partie chaude vers
+les 25°C. Nous avons donc utilisé une résistance
+chauffante pilotée par un relais pour permette de
+faire circuler ou couper le courant grâce à notre
+microcontrôleur « Arduino », ce système nous a
+permis d’obtenir une valeur assez proche de la
+consigne même si cette asservissements est dit
+«instable » .
+
+Par la suite nous avons commencé à modéliser en 3D avec Inventor,
+les pièces nécessaires pour construire un prototype. Cela nous a permis de
+concevoir des pièces à mais aussi à détecter d’éventuelle erreur dû à la
+modélisation.
+
+Prototype Inventor :
+
+Après impression de ces différentes pièces, nous avons pu
+assembler notre prototype et commencer à écrire un programme
+permettant de calculer la résistance thermique du matériel placé entre
+les 2 plaques, grâce aux formules cité auparavant.
+
+LILIAN BAUDRY
+ARTHUR MATEOS MARTIN
+
+6
+
+Sonde à résistance thermique
+
+Ce programme permet tout d’abord de mesurer l’épaisseur du matériau grâce au moteur pas-a-pas
+et une jauge de contrainte, ensuite le programme lance le chauffage de la résistance et le refroidissement
+de la plaque de Peltier. Et une fois les consignes atteintes le programme déclenche pendant 10 min le
+calcul de la puissance nécessaire pour maintenir la résistance chauffante a la bonne température, une fois
+celles-ci obtenues, elle est injectée dans la formule afin de calculer la conductibilité thermique mais aussi la
+résistance thermique du matériau. Et le système affiche ces résultats sur un écran LCD et propose de
+lancer une nouvelle mesure.
+Quelques améliorations que nous souhaiterions apporter :
+- Améliorations de la qualité de l’asservissement grâce à une PID
+
+- Ajouter une un écran LCD tactile afin d’améliorer l’interface utilisateur
+- Améliorations des pièces déjà existantes
+- Isolement des plaques de cuivre pour éviter une dissipation thermique involontaire
+
+En raison du COVID-19 nous n’avons pas pu totalement concevoir notre prototype mais nous espérons
+pouvoir proposer d’ici moins d’un mois des mesures issus de cette machine.
+
+Compte rendu de la seconde partie :
+Après avoir terminé notre premier prototype, nous avons cherché à
+améliorer les erreurs qui nous ont été présentées notamment par le rapporteur.
+Nous avons modifié notre prototype en modifiant sa forme et ses
+caractéristiques, tout cela pour améliorer la partie mécanique, électrique,
+électronique et aussi thermique.
+En améliorant la forme du prototype, nous avons pu isoler
+correctement l’échantillon et ainsi réduire les pertes thermiques. Cette forme
+en triangle nous permet d’augmenter l’interface de contact avec la pièce à
+tester, ce qui a permis d’augmenter la précision des résultats. La nouvelle
+forme nous permet de pouvoir contrôler la force apportée à la pièce à tester
+sans risque que le bras ne se déforme et modifie l’épaisseur du prototype et
+garantit un contact horizontal.
+
+LILIAN BAUDRY
+ARTHUR MATEOS MARTIN
+
+7
+
+Sonde à résistance thermique
+
+La partie électrique-électronique a, elle aussi, été améliorée grâce à la réalisation d’un PCB
+permettant d’accueillir les différents capteurs présents sans pour autant risquer des erreurs de montage
+ou des faux contacts dus à des fils Dupond défectueux.
+
+Par la suite, nous avons modifié le programme du prototype. Un asservissement PID d’ordre 2 a été
+mis en place afin de mieux stabiliser la partie chaude du prototype donc ce qui nous permet de supprimer
+les multiples dépassements de la consigne lié au relais. Nous avons donc étalonné pour une tension de 12V
+les composants et tracé les courbes correspondantes et en extraire les constantes de la PID.
+
+PLAQUE DE PELTIER
+
+RESISTANCE CHAUFFANTE
+
+Nous avons aussi réétalonner la thermistance et la jauge de contrainte afin de proposer des
+mesures les plus précises. Cela a minimisé les incertitudes mais aussi appliqué une contrainte connue et
+fixe sur l’échantillon nous sera utile pour étudier correctement la résistance thermique surfacique en
+fonction de la force appliquée dessus.
+
+LILIAN BAUDRY
+ARTHUR MATEOS MARTIN
+
+8
+
+Sonde à résistance thermique
+
+JAUGE DE CONTRAINTE
+
+Après plusieurs tests et expérimentations, nous avons pu remarquer que stabiliser la température
+chaude à une température plus proche de la température extérieure nous permet de réduire et de
+quasiment annuler les pertes thermique (en plus du nouvel isolant) et là encore nous donner des résultats
+plus proches des valeurs théoriques sans avoir à appliquer un correctif sur l’énergie dissipée.
+Le programme a été réécrit afin de pouvoir facilement modifier les températures d’asservissement,
+le temps entre les mesures de puissances, la contrainte exercé et d’autres constantes nécessaire au bon
+fonctionnement de celui-ci. L’interface utilisateur nous propose maintenant différents temps de mesure 5,
+10 ou 15 minutes nous permettant d’avoir des valeurs le plus précis possible sur un temps donné. Les
+résultats sont affichés dynamiquement tout au long de la mesure. En plus du rajout de la PID, nous avons
+implanté une interruption périodique (une mesure toute les 50ms) nous permettant de mesurer très
+précisément la puissance absorbée par la résistance chauffante, via le module INA 219, sans pour autant
+avoir des conséquences sur le programme principal. Nous comptons toujours essayer de proposer 2 autres
+modes de mesure. Qui permettront d’effectuer des mesures de résistance thermique surfacique en
+fonction de la contrainte ou alors une simulation d’un cycle « Jour/Nuit ». Il nous permettrait d’analyser
+comment un échantillon réagirait dans des conditions « réels ».
+
+Cycle Jour Nuit
+Dans ce mode d’acquisition nous allons
+observer comment évolue la température
+chaude si nous faisons varier la température
+de la plaque de Peltier. Ce qui a pour but de
+simuler une chute de température liée à un
+coucher de soleil
+
+LILIAN BAUDRY
+ARTHUR MATEOS MARTIN
+
+9
+
+Sonde à résistance thermique
+Calculs d’incertitudes :
+
+-P! = P!"#$%é"
+
+- La datasheet de l’INA 219 donne pour valeurs 2×10!! W
+
+u(P! ) = u(P!"#$%é" )
+
+-U(∆T) = ∆T!U(T!)² + U(T! )² = 0,7°C
+ó
+
+!(!!)
+!!
+
+=
+
+!,!
+!"
+
+- Pour une différence de température de 13°C
+
+= 0,054
+
+-U(e) = 0,1 mm
+- Obtenu grâce à une moyenne de mesure
+-U(S) = √2
+
+!(!)
+!
+
+On peut donc en déduire :
+
+≈ 0,028 mm!
+- Avec la longueur d’un des côtés
+
+!
+
+!
+
+!
+
+!
+
+U(P! )
+U(ΔT)
+U(e)
+U(S)
+U(λ)
+= !!
+! +!
+! +!
+! +!
+!
+P!
+ΔT
+e
+S
+λ
+!(!)
+!
+
+!,! !
+
+!,!"# !
+
+!"
+
+!"##
+
+= !(2×10!! )! + (0.054)! + ! ! + !
+
+!
+
+= 6%
+
+On a alors une incertitude de 8% pour des résultats avec échantillons isolés de l’extérieur. Nous
+avons réussi à limiter cette déperdition thermique en plaçant l’échantillon dans une espace fermé. Par
+conséquent la perte liée à l’épaisseur de l’échantillon est limitée. Ces échanges ont aussi été limités en
+réduisant la température d’asservissement chaude à une valeur plus proche de la température ambiante.
+
+LILIAN BAUDRY
+ARTHUR MATEOS MARTIN
+
+10
+
+Sonde à résistance thermique
+
+Après plusieurs tests sur différents matériaux, nous avons pu obtenir différents résultats :
+
+Pour obtenir une valeur de la conductivité thermique optimal nous avons mis en place une periode
+de préchauffage avant la mesure afin de d’eliminer toutes les valeurs « Erratique » dû à la chauffe des deux
+plaques de cuivre mais aussi laisser le temps au flux thermique de se mettre en place et se stabiliser.
+Nous avons donc pu effectuer de nombreuses exeperimentation sur differents materiaux afin de valider
+notre model theorique.
+
+Nous remarquons sur ces résultats que les résultats ont un taux d’erreur avoisinant l’incertitude
+calculée auparavant. Nous pouvons donc dire que notre prototype est fiable a environ 90%
+
+LILIAN BAUDRY
+ARTHUR MATEOS MARTIN
+
+11
+
+Sonde à résistance thermique
+
+Maintenant que vous avons minimisé l’incertitude sur la puissance et celle du grandiant de
+temperature, nous pouvons reduire celle de l’epaisseur en changeant notre moteur, par un moteur pas à
+pas plus precis, meme si elle est principallement lié a une contrainte logicielle. Nous allons aussi faire faire
+une plaque de cuivre sur mesure pour là encore rendre quasiment nulle l’incertitude sur les surfaces de
+contacts.
+Nous avons maintenant une machine assez fiable et nous esperons pouvoir vous presenter durant la finale
+de ces olympidades des resultats prometeur.
+
+Merci de votre attention.
+
+LILIAN BAUDRY
+ARTHUR MATEOS MARTIN
+
+12
+
+

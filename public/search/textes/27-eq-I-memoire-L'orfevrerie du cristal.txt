@@ -1,0 +1,1167 @@
+Vendredi 31 janvier 2020
+Université Paris Diderot
+
+Léo ERNANDE, Tristan RONDEAU, Nelly TINTILLIER, Tom VARLET, Gabrielle WIDEHEN
+Présentent
+
+L’orfèvrerie du cristal
+
+Photo Lucie COURCOT ©
+
+“Le style est comme le cristal, sa pureté fait son éclat.”
+V.Hugo
+
+Encadrés par Olivier BURIDANT et Didier SORET
+1
+
+Résumé
+Les cristaux sont au programme de l’enseignement scientifique en première générale, où nous sommes élèves. Nous avons
+donc décidé de nous intéresser aux conditions de croissance de ceux-ci.
+Nous avons étudié les paramètres influant sur la croissance de ces derniers. Après de multiples échecs formateurs, nous avons
+réussi à obtenir des cristaux de masse importante, quasi parfaits. Grâce à de l’investissement et des contacts, nous avons pu
+avoir une imagerie de nos cristaux au microscope électronique à balayage, au laboratoire de Wimereux. Dans quelque temps
+nous allons également visiter à un laboratoire de Lille où les cristaux sont étudiés, nous allons alors pouvoir en apprendre
+davantage.
+Désormais nous sommes aux commandes de diverses expériences comme une étude sur l’évaporation dans un milieu cristallin
+ainsi que le perçage minutieux d’un monocristal, l’étude de la croissance d’un monocristal selon différents paramètres mesurés
+grâce aux cartes électroniques Arduino, l’étude à l’échelle microscopique des amorces ainsi que l’étude de leur création …
+Nous allons vous démontrer plus en détail comment nous avons réussi à percer le mystère du monde cristallin.
+
+Partenaires
+
+2
+
+Sommaire
+
+RESUME
+
+2
+
+PARTENAIRES
+
+2
+
+INTRODUCTION
+
+4
+
+LA SOLUBILITE
+
+5
+
+I - SUIVI DE CROISSANCE
+
+6
+
+A) LE GERME DU CRISTAL
+B) LA PERFECTION NE TIENT QU’A UN CHEVEU.
+C) LA SOLUTION
+
+6
+6
+7
+
+II) AUTOUR DES CRISTAUX
+
+8
+
+A)
+1)
+2)
+3)
+B)
+C)
+
+8
+10
+10
+11
+13
+14
+
+COMMENT SUIVRE LA CROISSANCE D’UN CRISTAL ?
+PEUT-ON SUIVRE PAR PESEE ?
+DETERMINATION DE LA MASSE VOLUMIQUE DES CRISTAUX
+SUIVI EN CONTINU DE LA CROISSANCE DES CRISTAUX
+GOUTTE A GOUTTE VERS UNE CRISTALLISATION
+DES EVAPORITES DE SYNTHESE
+
+CONCLUSION
+
+15
+
+BIBLIOGRAPHIE
+
+16
+
+ANNEXE 1 : NOTRE MONTAGE POUR MESURER LA TEMPERATURE
+
+17
+
+ANNEXE 2 : CINETIQUE DU DEBUT DE CRISTALLISATION
+
+19
+
+ANNEXE 3 : DETERMINATION DE LA MASSE VOLUMIQUE DU CRISTAL
+
+21
+
+ANNEXE 4 : PESER UN CRISTAL DANS UNE SOLUTION
+
+22
+
+REMERCIEMENTS
+
+23
+
+3
+
+Introduction
+Un cristal est un symbole de pureté et signe d'excellence, mais comment atteindre ce stade magistral ?
+C’est la question que nous nous sommes posée. Nous avons voulu percer le secret d’un cristal parfait.
+L’idée excitante d’obtenir un cristal créé par nos propres moyens a fait naître chez nous l’idée de nous
+lancer dans l’aventure. Notre projet consistait à démontrer et à trouver les caractéristiques nécessaires à
+l’élaboration d’un cristal “parfait”. A l’instar des grands explorateurs scientifiques, notre équipe a
+l’ambition de pousser ses recherches et ses études au sein d’un monde cristallin. Nous souhaitons nous
+aventurer dans les profondeurs de ce monde.
+Au commencement, notre quotidien se colore en bleu, via la préparation d’une solution concentrée de
+sulfate de cuivre. Une fraction de cette solution déposée dans un cristallisoir nous offre, après
+cristallisation partielle, de magnifiques amorces. Notre objectif est de mettre en contact notre amorce
+avec notre solution concentrée, d’en établir les conditions idéales, afin d’obtenir le cristal « parfait ». Nous
+sommes vite confrontés à la réalité de toute réalisation. « Sans perdre courage, cent fois sur le métier
+remettez votre ouvrage », enfin, l’éclat de pureté de notre cristal nous apparaît à travers le reflet bleuté
+de la solution. Nous le sortons pour l’observer au grand jour et à chaque seconde que nous passons à
+l’admirer nous prenons conscience de l’ampleur de la beauté de cette chose que nous venons de créer
+mais également du travail que nous devrons fournir pour arriver au stade ultime du cristal : sa perfection.
+Nous vous parlerons d’abord de la façon dont nous façonnons nos cristaux, en allant de la formation des
+amorces à la sortie du cristal de sa solution, mais aussi des expériences que nous avons réalisées autour
+des cristaux. Enfin nous vous exposerons ce que nos collaborations avec l’extérieur nous ont apportées.
+Nous espérons que vous êtes prêts à partir pour un voyage au centre des cristaux où vous découvrirez nos
+travaux autour de ces minéraux majestueux qui fascinent l’humanité depuis l’antiquité et où vous
+comprendrez la minutie exigée pour ces recherches dignes des plus grands artistes et des artisans les plus
+reconnus et qui justifient amplement le nom que nous avons choisi de donner à notre projet :
+« L’orfèvrerie cristal ».
+
+L’un de nos premiers essais
+4
+
+La solubilité
+La solubilité d’une espèce chimique n’est pas seulement sa capacité à se dissoudre dans un solvant, mais plus précisément la
+quantité de soluté qu’on peut dissoudre lorsqu’on fait une solution. Il est difficile de trouver des valeurs fiables de solubilité
+pour les espèces communes, internet est riche de contradictions car il y a maintes manières de l’exprimer.
+Les uns parlent en concentration massique (en g/L) d’autres en concentration molaire (mol/L), sans parler de ceux qui parlent
+en faction massique (en g pour 100g de solution). Finalement nous avons opté pour la « molalité massique » nombre de
+grammes pour 100g de solvant. On pèse d’un coté le soluté, de l’autre le solvant et on mélange sans se soucier d’ajuster au
+trait de jauge. Elle est très variable comme le montre le tableau ci-dessous.
+Espèce chimique
+
+Formule
+
+0°C
+
+10°C
+
+Chlorure d'ammonium
+
+NH4Cl
+
+29,4
+
+Nitrate d'ammonium
+
+NH4NO3
+
+Sulfate de cuivre
+
+15°C
+
+20°C
+
+30°C
+
+40°C
+
+50°C
+
+60°C
+
+70°C
+
+80°C
+
+90°
+
+100°C
+
+33,2
+
+37,2
+
+41,4
+
+45,8
+
+50,4
+
+55,3
+
+60,2
+
+65,6
+
+71,2
+
+77,3
+
+118
+
+150
+
+192
+
+242
+
+297
+
+344
+
+421
+
+499
+
+580
+
+740
+
+871
+
+CuSO4,5H2O
+
+23,1
+
+27,5
+
+32
+
+37,8
+
+44,6
+
+61,8
+
+83,8
+
+Acide oxalique
+
+H2C2O4,2H2O
+
+4,96
+
+8,51
+
+13,3
+
+19,9
+
+30,1
+
+62,1
+
+118
+
+168
+
+114
+
+Chlorure de potassium
+
+KCl
+
+28
+
+31,2
+
+34,2
+
+37,2
+
+40,1
+
+42,6
+
+45,8
+
+51,3
+
+53,9
+
+Dihydrogénophosphate
+de potassium
+
+56,3
+
+KH2PO4
+
+14,8
+
+18,3
+
+22,6
+
+28
+
+35,5
+
+41
+
+50,2
+
+70,4
+
+83,5
+
+Chlorure de sodium
+
+NaCl
+
+35,65
+
+35,72
+
+35,89
+
+36,09
+
+36,37
+
+36,69
+
+37,04
+
+37,46
+
+37,93
+
+38,47
+
+38,99
+
+Saccharose
+
+C12H22O11
+
+181,9
+
+190,6
+
+201,9
+
+216,7
+
+235,6
+
+259,6
+
+288,8
+
+323,7
+
+365,1
+
+414,9
+
+476
+
+Nous n’avons représenté sur un graphique, ci-dessous, que celle du sulfate de cuivre pentahydraté (CuSO4, 5H2O) et du
+chlorure de sodium (NaCl).
+
+Ce graphe montre la grande variation de la solubilité en fonction de la température pour le sulfate de cuivre, alors que le
+chlorure de sodium l’est très peu. Lorsqu’on travaille avec le premier il est indispensable de maitriser la température car sa
+solubilité varie de 1,14 g par °C, alors qu’elle n’est que de 0,04 g/°C pour le chlorure de sodium soit 28 fois moins.
+Nous nous sommes mis à la recherche de système de contrôle de la température.
+Dans un premier temps, nous avons envisagé de faire des mesures en continu avec Atelier Scientifique © notre système
+d’acquisition. Cependant nous nous sommes heurtés à un problème : les PC (et vidéoprojecteurs) de notre lycée s’éteignent
+tous à 18h30, pour économiser l’énergie. Nous nous sommes donc tournés vers une version plus moderne et surtout à la
+mode : Arduino. (Voir annexe 1)
+
+5
+
+I - Suivi de croissance
+A) Le germe du cristal
+Comment fabriquer une amorce ?
+Pour fabriquer un cristal parfait, tout réside sur le choix
+de l’amorce. En effet, cette dernière donnera la forme finale du
+cristal.
+Pour créer des amorces, il suffit de concevoir une
+solution saturée, d’en verser quelques millilitres à l’aide d’une
+pipette dans un verre de montre, un cristallisoir ou une boite de
+Pétri et par le biais d’une impureté venant s’y déposer se
+déclenche la cristallisation de la solution grâce à la
+surconcentration : une partie de la solution cristallise et l’autre
+s’évapore pour donner le résultat ci-contre.
+Amorce de sulfate de cuivre
+
+B) La perfection ne tient qu’à un cheveu.
+Comment attacher l’amorce pour ensuite la mettre dans la solution ?
+Cette problématique a suscité de nombreuses questions. Au départ nous avons testé différents matériaux :
+laine, corde, fil de pêche... Tous ces matériaux nous ont amené des résultats qui n’étaient pas optimaux.
+
+Amorces sur un fil
+
+Nous avons trouvé une technique permettant l’accès à une optimisation de la croissance du cristal.
+En attachant le monocristal présent dans les amorces préalablement fabriquées, à un cheveu. En effet un cheveu permet de
+garder entièrement attachée l’amorce ainsi que de réduire considérablement les impuretés. De plus, la résistance du cheveu
+est très élevée. (Il peut soulever 10 000 000 fois son poids) avec un diamètre extrêmement fin, cette solution nous a apporté
+les résultats bien plus convaincants ci-contre.
+La procédure est la suivante :
+•
+•
+•
+•
+•
+
+Attacher l’amorce au cheveu
+Rincer à l’eau distillée
+Nettoyer le cheveu et l’amorce à l’éthanol
+Plonger l’amorce dans la solution en la positionnant au centre.
+Et recouvrir la solution de parafilm pour ne laisser entrer aucune
+impureté.
+
+Cette technique nous a permis d’avoir de bons résultats jusqu’au concours
+interacadémique de Tourcoing.
+
+6
+
+Quelques cristaux obtenus par cette méthode
+
+C) La solution
+Après avoir rencontré M. FOULON, notre rapporteur, nous avons eu beaucoup de conseils que nous avons mis en pratique.
+Il nous a appris que dans les laboratoires on perce les cristaux avec un forêt. Après nous être procurés des forets de 0,1 mm
+nous avons utilisé une mini perceuse montée sur une potence. Nous avons également construit :
+• Un mini étau pour maintenir un cristal de 1 mm
+• Des pinces jetables à l’aide de touillettes
+• Et une platine montante avec un vieux microscope de récupération, pour monter le cristal et non plus descendre la
+perceuse.
+Après de nombreux essais et forets cassés : ça marche très bien.
+
+Perçage d’un cristal de sulfate de cuivre
+
+zoom sur le perçage d’un cristal de KH2PO4
+
+7
+
+Durant cette période nous avons également eu accès au microscope électronique à balayage (MEB) de la station marine de
+Wimereux, qui nous a gracieusement fait des clichés.
+Photo Lucie COURCOT ©
+
+Un cristal de dihydrogénophosphate au MEB
+
+Photo Lucie COURCOT ©
+
+un autre de la même série percée
+
+Les trous sont légèrement plus grands de l’ordre de 0,14 mm, ce qui nous permet de passer en leur centre facilement un fil de
+cuivre de 0,10 mm de diamètre. Finalement c’est beaucoup plus simple que de nouer un cheveu.
+
+II) Autour des cristaux
+A) Comment suivre la croissance d’un cristal ?
+Pour suivre la croissance du cristal, il faut pouvoir mesurer ses dimensions, le problème est d’éviter toute contamination de la
+solution. Assez rapidement nous avons décidé de mesurer les paramètres physiques de nos solutions.
+Nous avons réalisé 200 mL d’une solution très concentrée de sulfate de cuivre par dissolution à chaud. Puis une fois que sa
+température est revenue à celle de notre laboratoire :
+• Nous avons mesuré sa masse volumique à l’aide d’un appareil automatique : un densimètre électronique
+Mettler 30 PX.
+
+Utilisation du densimètre électronique (d’après « Opération Marguerite », Olympiades 2017)
+
+•
+•
+
+Puis on réalise un spectre UV-Visible avec un spectrophotomètre Prim light piloté par le logiciel Atelier Scientifique.
+Deux échantillons de 10,0 mL sont prélevés à la pipette et mis dans une boite de Pétri neuve tarée. Elle est ensuite
+placée dans une étuve à 60°C, jusqu’au lendemain. Nous avons choisi une évaporation douce car à 105°C, le sulfate
+de cuivre pentahydraté se décompose et devient anhydre. Le lendemain, la pesée nous donne la masse de soluté dans
+10,0 mL donc la concentration exacte.
+
+•
+
+Ces opérations ont consommé de la solution, elle est remplacée par de l’eau distillée de manière à avoir toujours
+environ 200 mL de solution. Nous n’avons pas cherché à faire des « dilutions scolaires » car elles sont trop longues à
+réaliser.
+
+Puis on recommence, c’est une opération longue, délicate, qui nous a demandé une après midi de concentration. Les résultats
+sont consignés dans les graphes ci-dessous :
+8
+
+Jusqu’à une concentration de 44g/L nous avons des spectres classiques avec un max à 800 nm, longueur d’onde à laquelle nous
+devrions travailler en classe, mais à partir de 67,5 g/L notre spectrophotomètre sature à cette longueur d’onde. Nous avons
+regardé ce qu’il se passe pour des longueurs d’ondes pour lesquelles tous nos spectres ne saturent pas.
+
+En recoupant nos différents spectres nous nous apercevons que l’absorbance est bien proportionnelle à la concentration. Il
+nous est donc possible de suivre l’évolution de la concentration, car il y a une très forte régression linéaire entre les résultats.
+
+9
+
+Pour la masse volumique :
+
+La mesure de la masse volumique nous permet donc aussi de mesurer la concentration de la solution dans laquelle les cristaux
+croissent.
+1) Peut-on suivre par pesée ?
+Nous avons souhaité mesurer en continue la masse de nos cristaux pendant leur croissance. La première solution était de les
+sortir, de les sécher puis les peser. Cette solution est simple mais s’avère risquée pour la formation de cristaux spontanés. Nous
+avons donc choisi de mesurer en continu les cristaux dans la solution. Nous avons des balances munies de crochets en dessous,
+elles permettent avec une précision de 0,01 de connaitre la masse. Mais nos cristaux sont dans une solution, donc la poussée
+d’Archimède intervient. Pour pouvoir connaitre son effet, il faut connaitre le volume du cristal ou sa masse volumique.
+2) Détermination de la masse volumique des cristaux
+Nous avons la chance d’être dans un lycée dans lequel on a préservé les vieux matériels, parmi eux : un pycnomètre à solide.
+Nous les avons utilisés pour déterminer la masse volumique des cristaux de sulfate de cuivre. Après avoir trouvé une solution,
+nous avons un nouveau problème : le sulfate de cuivre est soluble dans l’eau qui est normalement utilisée pour mesurer les
+masses volumiques des solides, nous avons choisi d’utiliser de l’éthanol dans lequel il n’est pas soluble.
+
+Pesée du pycnomètre vide
+
+Pesée avec les cristaux
+
+Pesée avec cristaux et éthanol
+
+Cette méthode est particulièrement longue, nous ne l’avons faite que 2 fois.
+Le calcul nous amène à une masse volumique de CuSO4 = 2,272 g.cm-3. Cette valeur est très proche de celle admise en
+référence 2,286.
+10
+
+3) Suivi en continu de la croissance des cristaux
+Pour suivre la croissance de cristaux nous avons choisi de :
+• Réaliser 3 béchers de 400 mL d’une solution de sulfate de cuivre à 183 g/ 400 mL soit 457,5 g/L, donc sursaturée à
+23 °C car c’est la solubilité à près de 40°C
+• Couvrir ces béchers de film alimentaire étirable dès l’ébullition, pour laisser refroidir sans risque de contamination.
+• Utiliser des amorces percées montées sur un fil de cuivre, suspendues à une buchette de bois.
+• Utiliser une balance munie d’un crochet en dessous posée sur un anneau de chimie montée sur une potence.
+• Mettre sur agitation magnétique en permanence.
+
+Balance à 0,01 g
+Anneau de chimie
+
+Crochet de la balance
+Fil de pêche ( = 0,30 mm)
+
+Crochet double
+Buchette légère
+Solution de sulfate de cuivre
+Amorce percée
+
+Support élévateur Boy ®
+
+Nous avons ensuite décidé de périodiquement :
+• Peser et lire la balance, la tare étant faite avec une baguette identique
+• Prélever 10 mL de solution pour analyse
+Dans la pratique, un bécher a été contaminé et nous avons eu une précipitation massive. Nous n’avons pu faire que quelques
+prélèvements.
+
+Première satisfaction, on peut suivre l’évolution du spectre.
+En récupérant les absorbances à 600 nm
+Bécher N°2
+t = 0h
+
+t = 14h
+
+t = 22h
+
+Bécher N°3
+t = 44h
+
+t = 0h
+
+t = 14h
+
+t = 19h
+
+t = 44h
+
+A à 600 nm
+
+1,963
+
+1,309
+
+1,095
+
+1,046
+
+1,948
+
+1,326
+
+1,277
+
+1,060
+
+C en g/L
+
+456,7
+
+304,6
+
+254,8
+
+243,4
+
+453,2
+
+308,6
+
+297,2
+
+246,7
+
+On peut également suivre la variation des concentrations, le t0 est très proche de la valeur attendue 457,5 g/L
+11
+
+Mais surtout on peut suivre l’évolution de la masse, après avoir calculé la masse réelle en tenant compte de la poussée
+d’Archimède
+𝑚𝑎𝑠𝑠𝑒 𝑝𝑒𝑠é𝑒
+𝑚𝑎𝑠𝑠𝑒 𝑐𝑜𝑟𝑟𝑖𝑔é𝑒 =
+𝜌
+(1 − 𝑠𝑜𝑙𝑢𝑡𝑖𝑜𝑛 )
+𝜌𝐶𝑢𝑆𝑂4
+Bécher N°2
+
+ en g.cm
+Masse
+mesurée
+Masse
+corrigée
+
+-3
+
+Bécher N°3
+
+t = 0h t = 14h
+1,3610 1,2394
+
+t = 22h
+1,1996
+
+t = 44h
+1,1904
+
+t = 0h
+1,3583
+
+t = 14h
+1,2425
+
+t = 19h
+1,2334
+
+t = 44h
+1,1930
+
+0,00
+
+34,06
+
+45,20
+
+47,75
+
+0,00
+
+32,39
+
+34,94
+
+46,24
+
+0,00
+
+60,82
+
+80,73
+
+85,30
+
+0,00
+
+57,85
+
+62,41
+
+82,59
+
+Pour le cristal 3 nous ne savons pas ce qui a pu se passer, la courbe est ce qu’elle est.
+Nous ne savons pas modéliser ces évolutions, elle ressemble à une fonction racine carrée, les terminales à une exponentielle
+croissante, nous n’en savons rien. Nous avons trop peu de points pour conjecturer. Nous pensons simplement qu’au départ la
+croissance est rapide, mais rapidement il y a un épuisement en sulfate de cuivre qui peut se déposer. Plus on s’approche de la
+limite de solubilité à la température du laboratoire moins il se dépose.
+Nous demanderons lors de notre visite du laboratoire proposée par notre rapporteur. Il s’agit de l’Institut Chevreul située dans
+l’UCCS de Lille.
+
+12
+
+B) Goutte à goutte vers une cristallisation
+La solubilité d’une espèce chimique, à une température donnée dépend du solvant utilisé.
+Par exemple pour le chlorure de sodium dans l’éthanol.
+Faction massique d’éthanol
+
+0%
+
+30%
+
+40%
+
+50%
+
+60%
+
+75%
+
+80%
+
+95,5%
+
+100%
+
+Solubilité en g pour 100 g de solvant
+
+35,9
+
+17,51
+
+13,25
+
+9,77
+
+5,96
+
+0,736
+
+1,22
+
+0,174
+
+0,065
+
+Variation de la solubilité du chlorure de sodium en fonction de la teneur en éthanol du solvant.
+
+La solubilité diminue très fortement quand la concentration en éthanol augmente. Nous avons donc décidé
+d’ajouter, goutte à goutte, de l’éthanol dans un solution saturée de chlorure de sodium. Pour éviter les mauvaises
+surprises, nous avons préparé cette solution une semaine à l’avance, pour qu’elle puisse précipiter en cas de
+sursaturation ou de présence d’impuretés.
+Nous avons choisi d’acheter un kit perfusion dans une pharmacie puis monté le tout sur une potence. Nous avons,
+après quelques essais pour régler le débit, opté pour un ajout de 1 goutte toutes les 10 minutes d’éthanol pur dans
+200 mL de solution saturée de chlorure de sodium sur agitation magnétique. L’amorce de chlorure de sodium
+percée est suspendue.
+
+Réserve d’éthanol
+
+Kit perfusion
+Tuyau souple pour
+apporter l’éthanol
+au fond
+
+Amorce suspendue
+
+Solution saturée de NaCl
+Agitateur magnétique
+Schéma de principe de notre expérience
+
+Photo de notre expérience
+
+Nous obtenons en quelques jours des cristaux qui ont une taille de l’ordre du gramme. Cette méthode est efficace,
+l’ajout de chaque goutte provoque une diminution de la solubilité, le soluté en excès peut se déposer sur l’amorce.
+Cependant le réglage du débit est délicat. Nous envisageons de ne plus travailler avec de l’éthanol pur mais avec
+des mélanges. Nous vous présenterons nos résultats lors du concours national.
+
+13
+
+C) Des évaporites de synthèse
+Les évaporites sont des roches qui se sont formées par évaporation. Au Mexique, la mine de Naica est un site
+remarquable abritant des spécimens exceptionnels.
+
+Cristaux géants de 12 m de la Cueva de los Cristales (source Internet)
+
+On peut sursaturer des solutions en les laissant s’évaporer lentement. Nous avons choisi de mesurer l’évaporation
+dans notre lycée. Pour cela nous avons rempli d’eau des récipients identiques, dans un premier temps recouverts
+de film étirable alimentaire étanche ou percé de trous de différentes tailles. Nous en avons laissé une série dans
+l’armoire classique d’une salle de cours et une autre dans un local tempéré à 16°C avec une ouverture permanente
+vers l’extérieur. Nous les avons tous ramenés à une base 100 qui est le départ (en réalité elle est de 97 à 102 g).
+
+Ces résultats sont conformes à nos attentes pour la plupart, à 14°C l’eau s’évapore moins vite qu’a 24°C. mais
+quelques résultats nous interpellent. Avec un film que nous pensions hermétique l’eau s’évapore ! et elle s’évapore
+encore plus lorsque le récipient est hors de l’armoire. Cela est dû au fait que les films étirables sont perméables à
+la vapeur d’eau. Pour les résultats hors armoire nous pensons qu’il s’agit plus de courant d’air qu’une variation de
+température puisqu’ils sont juste 40 cm plus haut.
+Nous avons repris cette expérience avec deux épaisseurs de papier aluminium de cuisine très fermement
+maintenues par un gros bracelet élastique bien tendu.
+Nous avons utilisé cette méthode pour obtenir de très belles amorces de dihydrogénophosphate (KH2PO4 et d’alun
+de potassium (KAl(SO₄)₂,12 H₂O). Mais surtout de chlorure de sodium (NaCl) : c’est pour nous la seule méthode qui
+fonctionne. Une solution, saturée à température ambiante, est recouverte d’aluminium, on fait 3 petits trous et
+une semaine plus tard, on admire les cristaux. Nous développons cette technique.
+14
+
+Conclusion
+Après six mois d'expérimentations, d’études, de tentatives, d’échecs mais surtout de réussites, après avoir exploré
+les cristaux pour lever le voile sur tous les secrets de leur élaboration, avoir noté, vu et expérimenté chaque point
+nécessaire à la fabrication de ces minéraux pleins d’éclats ; nous sommes en mesure, désormais de vous livrer les
+clefs de l’élaboration d’un cristal d’une beauté inégalée ; mais surtout les différentes techniques de réalisation en
+fonction du temps et des ressources à votre disposition.
+•
+
+La maitrise de la solubilité est une étape fondamentale, il faut la connaitre et surtout savoir comment elle
+varie. Une solution très sursaturée risque de cristalliser spontanément, alors qu’une l’est légèrement peut
+rester stable très longtemps, si elle est à l’abri de la contamination par des germes cristallins ou des
+poussières.
+
+•
+
+La température peut être un paramètre très important, surtout si la solubilité varie beaucoup en fonction
+de la température. Nous avons systématiquement contrôlé sa variation à l’aide d’un dispositif Arduino
+pour connaitre son impact sans pouvoir la maitriser.
+
+•
+
+Le choix du solvant peut être un paramètre déterminant, car les espèces chimiques n’ont pas le même
+comportement. L’ajout d’un solvant peut entrainer une cristallisation. Contrôler le débit du second solvant
+permet d’obtenir des cristaux bien formés.
+
+•
+
+L’évaporation du solvant est un paramètre fondamental à maitriser car il entraine une variation de
+concentration. Nous avons montré que le choix du système de fermeture est important : un film alimentaire
+étirable permet une évaporation alors que de papier aluminium l’évite. L’évaporation est parfois la
+technique ultime lorsqu’il est difficile de maintenir hors d’équilibre une solution. C’est notamment le cas
+du chlorure de sodium dont la solubilité varie très peu avec la température, il est très difficile de faire des
+solutions sursaturées stables. L’évaporation permet de maitriser la croissance.
+
+•
+
+Le principal paramètre est le temps, il faut laisser le temps au temps. C’est un paramètre incompressible.
+Nous avons appris l’impératif nécessité de multiplier les expériences en parallèle lorsqu’elles demandent
+beaucoup de temps d’évolution.
+
+Ce sont tous ces petits détails demandant une précision, hors pair, qui donnent à cette science des tons d’orfèvrerie.
+Nous avons également montré que lorsqu’on maitrise ces paramètres, il est possible de suivre l’évolution de la
+croissance d’un cristal. Avec beaucoup plus d’expérience que la nôtre, on doit pouvoir agir en temps réel sur cette
+croissance. C’est ce que nous comptons apprendre lors de la visite de l’institut Chevreul que nous a gentiment
+proposée notre rapporteur M. Michel FOULON, physicien, qui a dirigé ce laboratoire pendant près de vingt années.
+
+« La science est faite d’erreurs, mais d’erreurs qu’il est bon de commettre, car elles mènent peu à peu à la réussite. »
+Jules Verne
+
+15
+
+Bibliographie
+1.
+
+BARTMANN, E. (2015). Le grand livre d'Arduino. Editions Eyrolles.
+
+2.
+
+BEEVERS, C. A., & LIPSON, H. (1934). The Crystal Structure of Copper Sulphate Pentahydrate, CuSO,5H 2O. Proceedings of the Royal
+Society A: Mathematical, Physical and Engineering Sciences, 146(858), 570–582.
+
+3.
+
+BRAVAIS, A. (1848). Mémoire sur les systèmes formés par des points distribués régulièrement sur un plan ou dans l’espace. Journal
+de l’Ecole Polytechnique, 19, 1–128.
+
+4.
+
+CHERNOV, A. A. (2010). Surface phenomena and parameters of crystal growth: Simple basics. AIP Conference Proceedings, 1270, 1–
+25.
+
+5.
+
+FEREY, G. (2014). Une ( brève ) histoire de la cristallographie. 1895, 29–40.
+
+6.
+
+FORMAN, P. (1969). The discovery of the diffraction of X-rays by crystals; a critique of the myths. Archive for History of Exact
+Sciences, 6(1), 38–71.
+
+7.
+
+GAL, J. (2017). Pasteur and the art of chirality. Nature Chemistry, 9(7), 604–605.
+
+8.
+
+GARNER, W. E., & TANNER, M. G. (1930). The dehydration of copper sulphate pentahydrate. Journal of the Chemical Society
+(Resumed), 47–57.
+
+9.
+
+GEISON, G. L., & SECORD, J. A. (1988). Pasteur and the process of discovery. The case of optical isomerism. Isis; an International
+Review Devoted to the History of Science and Its Cultural Influences, 79(296), 6–36.
+
+10.
+
+GENNADIOS, A., WELLER, C. L., & GOODING, C. H. (1994). Measurement errors in water vapor permeability of highly permeable,
+hydrophilic edible films. Journal of Food Engineering, 21(4), 395–409.
+
+11.
+
+GHARIB, K. (2012). Solubility handbook Collected from wikipedia by Khaled Gharib. (May).
+
+12.
+
+GIULIETTI, M., DERENZO, S., NÝVLT, J., & ISHIDA, L. K. (1995). Crystallization of copper sulphate. Crystal Research and Technology,
+30(2), 177–183.
+
+13.
+
+GIULIETTI, M., SECKLER, M. M., DERENZO, S., SCHIAVON, L. H., VALARELLI, J. V., & NÝVLT, J. (1999). Effect of selected parameters on
+crystallization of copper sulphate pentahydrate. Crystal Research and Technology, 34(8), 959–967.
+
+14.
+
+GUYMONT, M. (2010). Structure de la matière Atomes, liaisons chimiques et cristallographie.
+
+15.
+
+HAGENMAIER, R. D., & Shaw, P. E. (2019). Gas Permeability of Fruit Coating Waxes. Journal of the American Society for Horticultural
+Science, 117(1), 105–109.
+
+16.
+
+HAYNES, W. M. (2014). CRC handbook of chemistry and physics. CRC press.
+
+17.
+
+HAÜY, R.-J. (1784). Essaie d’une Théorie sur la structure des crystaux, appliquée à plusieurs genres de substances crystallisées. Chez
+Gogué & Née de la Rochelle Libraires.
+
+18.
+
+HAÜY, R.-J. (1809). Tableau comparatif des résultats de la cristallographie et de l’analyse chimique, relativement à la classification
+des minéraux.
+
+19.
+
+HAÜY, R.-J. (1817). Traité des caractères physiques des pierres précieuses, pour servir à leur détermination, lorsqu’elles ont été
+taillées. 255.
+
+20.
+
+HELMENSTINE, A. (2017). Solubility Rules of Ionic Solids in Water. (3), 3–4.
+
+21.
+
+KOSTYANOVSKY, R. G. (2003). Louis Pasteur did it for us especially. Mendeleev Communications, 13(3), 85–90.
+
+22.
+
+LAUNOIS, P. (2014). Année Internationale de la Cristallographie. 11–12.
+
+23.
+
+LIDE, D. (2005). Aqueous Solubility of Inorganic Compounds at Various Temperatures. CRC Handbook of Chemistry and Physics, 1–6.
+
+24.
+
+LUGOL, P. (1906). Annalen der Physik. Journal de Physique Théorique et Appliquée, 5(1), 270–275.
+
+25.
+
+MANCHESTER, K. L. (1995). Louis Pasteur (1822-1895) - chance and the prepared mind. Trends in Biotechnology, 13(12), 511–515.
+
+26.
+
+Markov, I. V. (2003). Crystal growth for beginners: fundamentals of nucleation. Crystal Growth, and Epitaxy (World Sci Publ,
+Singapore).
+
+27.
+
+MATSUURA, T., & KOSHIMA, H. (2005). Introduction to chiral crystallization of achiral organic compounds: Spontaneous generation
+of chirality. Journal of Photochemistry and Photobiology C: Photochemistry Reviews, 6(1), 7–24.
+
+28.
+
+Mc HUGH, T. H., AUJARD, J. ‐F, & KROCHTA, J. M. (1994). Plasticized Whey Protein Edible Films: Water Vapor Permeability
+Properties. Journal of Food Science, 59(2), 416–419.
+
+29.
+
+NAILLON, A., DURU, P., MARCOUX, M., & PRAT, M. (2015). Evaporation with sodium chloride crystallization in a capillary tube.
+Journal of Crystal Growth, 422, 52–61.
+
+30.
+
+NUSSEY, J. Arduino pour les nuls (2014). First interactive, Paris.
+
+31.
+
+NISHINAGA, T. (2015). Handbook of Crystal Growth Fundamentals : Thermodynamics Handbook of Crystal Growth Fundamentals :
+Transport and Stability.
+
+32.
+
+PATNAIK, P., & Ph, D. (2003). Handbook of inorganic chemicals. In Choice Reviews Online (Vol. 40).
+
+33.
+
+QAZI, M. J., LIEFFERINK, R. W., SCHLEGEL, S. J., BACKUS, E. H. G., BONN, D., & SHAHIDZADEH, N. (2017). Influence of Surfactants on
+Sodium Chloride Crystallization in Confinement. Langmuir, 33(17), 4260–4268
+
+16
+
+Annexe 1 : Notre montage pour mesurer la température
+Il est composé :
+• D’une carte Arduino,
+• D’un module RTC (Real Time Clock) pour dater les mesures,
+• D’un module carte SD pour enregistrer les données en format .txt (texte) ou .cvs (Comma-Separated Values),
+• D’un LM35 pour mesurer la température,
+• D’un DHT 22.
+Implantés sur une platine d'expérimentation type mini-breadboard 170 points, reliés par des connecteurs mâle/mâle type
+Dupont.
+
+Schéma de notre montage (réalisé dans Word)
+Nous possédons trois capteurs de température :
+• Le LM 35 est monté de manière étanche sur le corps d’un stylo bille Bic Crystal ©, il est destiné à être plongé dans la
+solution afin de connaitre l’évolution de sa température.
+• Le DHT 22 est un capteur d’humidité destiné à connaitre la capacité du milieu à évaporer pour concentrer la solution,
+il incorpore également un capteur de température de l’air.
+• Notre module RTC contient aussi un capteur de température intégré.
+Des heures d’enregistrements de ces trois températures nous ont permis de calibrer notre LM 35.
+17
+
+Ce nuage contient 2544 points, notre distribution de points n’est pas parfaitement uniforme, mais la corrélation est très forte.
+Nous adoptons : T = 0,4721 x U_LM35 + 1,1074 comme équation pour calibrer notre LM35. Nous l’utiliserons pour notre
+programmation Arduino.
+Nous avons établi notre code Arduino grâce aux tutoriels d’internet et surtout avec l’aide des professeurs du lycée qui nous
+ont expliqué à maintes reprises nos erreurs. Notre code n’est pas des plus académiques, mais il fonctionne très bien. Il génère
+des fichiers .csv ou .txt que nous ouvrons pour des représentations graphiques dans Excel.
+Voici notre code :
+#include <dht11.h>
+#include <SPI.h>
+#include <SD.h>
+#include <DS3231.h>
+#include <Wire.h>
+#define DHTTYPE DHT11 //
+#define DHTPIN11 4 // broche DATA -> broche 4
+DS3231 Clock;
+dht11 DHT11;
+File monFichier;
+int donnee; // ligne à écrire dans le fichier
+int temp1; // Température RTC
+int temp2; // Température LM35
+int temp3; // Température DHT 11
+int H; //Humidité DHT11
+int U_LM35;// Tension mesurée sur le LM35
+int U;
+bool Century=false;
+bool h12;
+bool PM;
+byte ADay, AHour, AMinute, ASecond, ABits;
+bool ADy, A12h, Apm;
+void setup()
+{
+Wire.begin();
+Serial.begin(9600);
+pinMode(10, OUTPUT); //le port de sortie vers la carte SD est le 10
+SD.begin(10);
+monFichier = SD.open("donnees.txt", FILE_WRITE);
+if (monFichier)
+{
+monFichier.println("Date Heure,Température horloge,Température LM35,Température DHT11,Humidité,U_LM35");
+Serial.println("");
+Serial.println(""Date Heure , Température horloge , Température LM35 , Température DHT22 , Humidité , U_LM35");
+monFichier.close();
+}
+}
+void loop()
+{
+U_LM35 = analogRead(A0); // Lecture de la tension du LM35 sur la borne analogique A0
+DHT11.read(PIN4); // Lecture des données numériques du DHT11 sur le port 4
+float temp1 = (Clock.getTemperature());
+float temp2 = ((long)U_LM35 * 0.4721)+1.1074; //T = 0,4721 x U_LM35 + 1,1074 équation étalonnage
+float temp3 = ((long)DHT11.temperature);
+float H = ((long)DHT11.humidity);
+String
+donnee
+=
+String(Clock.getDate(),
+DEC)+"/"
++String(Clock.getMonth(Century),
+DEC)+"/20"
++
+String(Clock.getYear(),
+DEC)+"
+"+String(Clock.getHour(h12,PM),
+DEC)+":"
++
+String(Clock.getMinute(),
+DEC)+
+"."+String(Clock.getSecond(),DEC)+","+String(temp1)+","
++
+String(temp2)+ ","+String(temp3)+"," + String(H);
+monFichier = SD.open("donnees.txt", FILE_WRITE);
+if (monFichier) {
+monFichier.println(donnee);
+Serial.println(String(Clock.getDate(),
+DEC)+"/"
++String(Clock.getMonth(Century),
+DEC)+"/20"
++
+String(Clock.getYear(),
+DEC)+"
+"+String(Clock.getHour(h12, PM), DEC)+":" + String(Clock.getMinute(), DEC)+ "."+String(Clock.getSecond(),DEC)+","+String(temp1)+"," +
+String(temp2)+ ","+String(temp3)+"," + String(H)));
+}
+monFichier.close();
+delay(10000);
+}
+
+18
+
+Annexe 2 : Cinétique du début de cristallisation
+Après un premier contact avec Madame COURCOT du Laboratoire d’Océanologie et de Géosciences (LOG), nous avons décidé
+de regarder comment le cristal se développe malgré le trou et le fil.
+Nous avons décidé de travailler sur du dihydrogénophosphate de potassium (KH 2PO4) car celui-ci produit des cristaux plats
+faciles à maintenir dans un étau pour être percés. De plus il est facile d’en produire en série de manière quasi identique.
+Photo Lucie COURCOT ©
+
+Photo Lucie COURCOT ©
+
+Premier cristal
+
+Premier cristal percé
+
+Nous pouvons voir sur ce cliché que nous perçons presqu’au milieu, le trou est légèrement plus grand qu’annoncé par le
+constructeur de forêts. Nous trouvons 0,136 mm au lieu de 0,100 mm, cela peut être dû à une obliquité de la perceuse ou un
+défaut de centrage du collet.
+Pour suivre la cinétique de reconstruction autour du trou, nous avons obtenu des amorces de KH 2PO4 à partir d’une solution
+à 30 g /100 mL (saturation à 20°C : 24,2 g/100 mL).
+Nous les avons récupérées, puis plongées rapidement dans de l’eau distillée, puis enfin stockées dans de l’éthanol, où elles
+sont insolubles pour éviter les chocs secs.
+Nous les avons percées à 0,100 mm, puis suspendues chacune à un bouchon d’un pot d’échantillonnage vide. Nous les avons
+laissées en contact avec une solution à 30 g/100 mL pendant : 0h, 1h, 2h, 3,5h, 7,5h 14h et 24h (c’est notre rythme lycéen qui
+conditionne notre cadence d’échantillonnage).
+Voici quelques photographies effectuées au LOG :
+Photo Lucie COURCOT ©
+
+Photo Lucie COURCOT ©
+
+Au bout d’une heure le cristal croît, mais on n’observe aucun dépôt sur le fil, le trou n’est pas comblé.
+
+19
+
+Photo Lucie COURCOT ©
+
+Au bout de deux heures, le cristal continue sa croissance, et le fil n’est toujours pas bloqué.
+Photo Lucie COURCOT ©
+
+Au bout de 3,5 h le fil est bloqué par la croissance cristaline.
+
+Photo Lucie COURCOT ©
+
+Photo Lucie COURCOT ©
+
+7,5 h
+
+7,5 h
+
+Au bout de 7,5 h, un fil cerclant un cristal est recouvert.
+
+20
+
+

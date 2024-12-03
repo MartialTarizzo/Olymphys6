@@ -1,0 +1,2372 @@
+Flora Brunel et Samuel Franch
+Professeurs : Christian Brunel et Karine Dombrowski
+
+Lycée Massena - Nice
+
+SONAR et LIDAR
+Résumé
+Le développement des voitures autonomes nécessite la connaissance de leur environnement aﬁn de se diriger ; pour cela,
+un tel véhicule utilise des caméras, mais doit également connaître les distances qui le séparent des obstacles éventuels et
+embarque donc des systèmes LIDAR permettant de positionner précisement ces objets.
+Un système LIDAR (Light Dedection And Ranging : détection et estimation de la distance à l’aide de la lumière), est
+une technique précise de mesure de distances fondée sur la mesure du temps de vol d’un faiseau lumineux depuis l’émetteur
+jusqu’à la cible.
+Dans notre projet, nous avons exploité un système de mesure de distances à partir d’ondes sonores (SONAR) et d’un
+système LIDAR positionnés sur une voiture robot que nous avons fabriquée et nous expliquons la fabrication d’un système
+LIDAR, constitué de deux télescopes de Newton couplés à un système diode laser et photodiode, permettant de mesurer
+des longues distances.
+Nos diﬀérentes mesures nous ont permis de caractériser les diﬀérents systèmes, et en particulier nous avons pu mettre
+en évidence les avantages du système LIDAR, par rapport au SONAR.
+
+Concours 2017-2018
+
+Remerciements
+Nous tenons à remercier les personnes suivantes :
+- M. Bruno Viaris de Lesegno, Maitre de Conférence au Laboratoire Aimé Cotton qui a suivi notre projet
+depuis le début et sans qui, notre robot n’aurait pas pas été capable de cartographier la maquette. Il a été notre
+conseiller en physique, électronique et informatique.
+- l’équipe du laser lune qui nous a ouvert ses portes et nous a consacré du temps pour nous détailler et nous
+faire visiter leur expérience. Nous avons eu la chance de connaître donc, M. Rivet (chargé de recherche au CNRS)
+et M. Coudre (ingénieur CNRS).
+- l’équipe régionale des Olympiades qui nous a encouragés et donnés de nombreux conseils.
+- l’ensemble de l’équipe du laboratoire du lycée Masséna qui nous a aidés à choisir le matériel : Mme Giacobi,
+Mme Brunet et Mme Buﬀo.
+- les deux professeurs qui nous ont encadrés et soutenus pendant nos travaux : Mme Dombrowski et M. Brunel.
+
+Flora Brunel et Samuel Franch
+
+page : 1
+
+Lycée Massena - Nice
+
+Concours 2017-2018
+
+Sommaire
+I
+
+Mesures avec des ondes sonores
+1
+Caractéristiques des ondes sonores utilsées . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+2
+Méthode de détection A . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+2.a
+Schéma . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+2.b
+Choix du mode BURST . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+2.c
+Détermination de la célérité . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+3
+Détection synchrone : montage B . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+3.a
+Schéma de principe . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+3.b
+Résultats . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+
+4
+4
+5
+5
+5
+5
+10
+10
+11
+
+II Mesures avec les ondes lumineuses
+1
+Mesures de petites distances : expérience préparatoire . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+2
+Mesures de grandes distances . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+2.a
+Emploi de télescopes - Fabrication du coin de cube . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+2.b
+Mesures . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+2.c
+Conclusion . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+
+12
+12
+13
+13
+14
+17
+
+III Applications
+1
+Laser Lune . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+2
+Application à la voiture autonome . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+2.a
+Construction de la maquette : mise en place d’un sonar et d’un lidar Arduino . . . . . . . . . . . . . .
+2.b
+Résultats obtenus . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+
+17
+17
+17
+18
+19
+
+A Caractérisation des ondes sonores
+1
+Réponse en fréquence . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+2
+Réponse angulaire . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+3
+Amélioration de la résolution angulaire ? . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+4
+Réponse en distance . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+
+21
+21
+21
+23
+23
+
+B Etapes de construction de la maquette
+1
+Construction de la voiture robot . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+2
+Maquette de la « ville » . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+
+25
+25
+25
+
+C Programme Arduino utilisé pour les mesures sur la maquette
+
+26
+
+D Visite sur le site de Caussols
+
+31
+
+E Bilan : caractéristiques des ondes utlisées dans ce projet
+
+32
+
+Table des figures
+1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+
+Schéma expérimental avec le miroir. . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+Bouﬀée d’ondes sinusoïdales émises en haut, reçues en bas. . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+Méthode du temps de vol avec aller-retour . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+Mesures expérimentales de la célérité du son dans l’air avec les incertitudes pour T = 20℃ . . . . . . . . . . .
+Expérience permettant de mesurer le temps de réponse. . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+Mesure à l’oscilloscope . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+Valeur mesurée et valeurs tabulées : première série de mesures. . . . . . . . . . . . . . . . . . . . . . . . . . .
+Expérience en mode sinusoïdal. . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+Distance en fonction du nombre de longueur d’onde . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+Valeurs mesurées et valeurs tabulées : toutes nos mesures. . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+Incertitude sur la distance. . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+Modulation de fréquence de l’émetteur à un instant quelconque. . . . . . . . . . . . . . . . . . . . . . . . . . .
+Modulation de fréquence de l’émetteur, avec origine des temps au début de la mesure. . . . . . . . . . . . . .
+Graphe mesures de distances par la méthode B . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+Diode à gauche et photodiode à droite . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+Schéma expérimental avec la diode laser pulsée. . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+Graphe mesures de distances par les ondes lumineuses (1) . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+Schéma de principe de la mesure du temps de vol avec deux télescopes. . . . . . . . . . . . . . . . . . . . . .
+Tests préliminaires pour les grandes distances. . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+
+Flora Brunel et Samuel Franch
+
+page : 2
+
+5
+5
+6
+6
+7
+7
+7
+8
+8
+9
+9
+10
+11
+11
+12
+12
+13
+13
+14
+
+Lycée Massena - Nice
+
+Concours 2017-2018
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46
+47
+48
+49
+50
+51
+52
+53
+
+Face avant du télescope de petit diamètre, dédié à l’émission. . . . . . . . . . . . . . . . . . . . . . . . . . . .
+Temps de vol (mesure de grandes distances). . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+Temps de réponse (mesure de grandes distances). . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+Les deux télescopes sur leur support. . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+Tests préliminaires pour les grandes distances : phase de réglage. . . . . . . . . . . . . . . . . . . . . . . . . .
+Graphe mesures de distances par les ondes lumineuses (2) . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+Oscillogramme : mesure de temps de vol (grandes distances) . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+Mise en place des obstacles et de la platine pour repérer les angles. . . . . . . . . . . . . . . . . . . . . . . . .
+Orientation quelconque du couple émetteur/récepteur . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+Exemple de mesure de temps de vol avec obstacles . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+Voiture robot terminée ! . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+En dessous du sonar HC-SR04, ajout du lidar sur la voiture robot : on aperçoit la lumière émise par celui-ci.
+L’émission se fait dans l’infra-rouge, mais les capteurs de l’appareil photo utilisé permet de la voir. . . . . . .
+Cartographie - expérience 1 . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+Cartographie - expérience 2 . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+Réponse angulaire du lidar Arduino. . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+Protocole de mesure pour la précision angulaire du lidar Arduino. . . . . . . . . . . . . . . . . . . . . . . . . .
+Réponse fréquentielle de l’émetteur US : les positions relatives émetteur-récepteur sont ﬁxées. . . . . . . . . .
+Amplitude de l’onde US émise en fonction de l’angle d’émission : la fréquence d’émission est ﬁxée à f0 =
+40, 5 kHz, la distance émetteur-récepteur vaut d = 10 cm. . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+Diagramme de rayonnement de l’émetteur d’ondes US. Le segment correspond à l’angle θ = 45°. . . . . . . .
+Tubes que nous avons installés pour essayer de guider les ondes sonores et ainsi, d’améliorer leur directivité.
+Comparaison des amplitudes émises en fonction de l’angle d’émission avec guidage et sans. . . . . . . . . . .
+Décroissance de l’amplitude de l’onde US émise, en fonction de la distance au récepteur . . . . . . . . . . . .
+Décroissance de l’amplitude de l’onde US émise (échelle log) . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+Découpage des maisons dans du polystyrène et « habillage » de celles-ci. . . . . . . . . . . . . . . . . . . . . .
+Un peu de « verdure », pour la déco... . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+Finalisation de la maquette : étape 0 . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+Finalisation de la maquette : étape 1 . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+Finalisation de la maquette : étape 2 . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+Visite du site de Caussols (1) . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+Visite du site de Caussols (2) . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+Visite du site de Caussols (3) . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+Visite du site de Caussols (4) . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+Visite du site de Caussols (5) . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+Visite du site de Caussols (6) . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+
+14
+15
+15
+15
+15
+16
+17
+18
+18
+18
+18
+18
+19
+19
+20
+20
+21
+22
+22
+23
+23
+24
+24
+25
+25
+25
+26
+26
+31
+31
+31
+31
+32
+32
+
+Liste des tableaux
+1
+2
+3
+
+Récapitulatif des diﬀérentes méthodes de mesures . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+Caractéristiques des ondes US. . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+Caractéristiques des ondes utilisées . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+
+Flora Brunel et Samuel Franch
+
+page : 3
+
+4
+5
+32
+
+Lycée Massena - Nice
+
+Concours 2017-2018
+Nous avons été impressionnés par le développement rapide des voitures autonomes. Pour connaître leur environnement,
+elles utilisent des caméras orientables mais la vision 3D nécéssite aussi de connaître les distances. Les véhicules autonomes
+embarquent donc des systèmes LIDAR permettant de positionner précisement les objets environnnants.
+
+Un système LIDAR (Light Dedection And Ranging : détection et estimation de la distance à l’aide de la lumière), est
+une technique précise de mesure de distances fondée sur la mesure du temps de vol d’un faiseau lumineux depuis l’émetteur
+jusqu’à la cible.
+Dans notre travail, nous expliquons la fabrication d’un système de mesure de distances à partir d’ondes sonores (SONAR)
+et d’un système LIDAR longue distance.
+Ce système de mesure est basé sur une méthode « 2 ways » 1 (aller-retour entre la source et la cible). Le principe est
+simple : un émetteur envoie une impulsion à une date connue t0 , elle se réﬂéchit sur un objet distant de D et revient vers
+un récepteur qui capte cette impulsion à une date t0 + ∆t. Si on connait la célérité c de l’onde dans le milieu, on accède à la
+distance par la relation :
+2D = c ∆t
+De tels systèmes de mesure de distances sont caractérisés par trois paramètres essentiels : la nature de l’onde utilisée, le
+choix de la modulation et enﬁn le type de détection.
+Le tableau ci-dessous rassemble les expériences que nous avons réalisées :
+
+Système de mesure des distances
+
+Modulation
+d’amplitude
+
+Modulation de
+fréquence
+
+Système d’ondes
+
+Obtention de la modulation
+
+Type d’analyse
+
+Paragraphe
+concerné
+dans
+le présent rapport
+
+Ondes sonores
+
+GBF en mode BURST
+
+Oscilloscope
+
+I-2
+
+Ondes sonores
+
+Mode Burst sur Arduino
+
+Arduino
+
+I-2
+
+Ondes lumineuses
+
+GBF
+
+Oscillo
+
+II-1 et 2
+
+Ondes lumineuses
+
+Mode Burst sur Arduino
+
+Arduino
+
+II-2.a
+
+Ondes sonores
+
+Balayage sur GBF
+
+Détection synchrone
+
+I-3
+
+Table 1 – Récapitulatif des diﬀérentes méthodes de mesures
+
+I Mesures avec des ondes sonores
+✶
+
+❈❛r❛❝tér✐st✐q✉❡s ❞❡s ♦♥❞❡s s♦♥♦r❡s ✉t✐❧sé❡s
+
+Au cours de notre travail, nous avons été amenés à caractériser le mieux possible les ondes délivrées par les émetteurs
+d’ondes ultra-sonores à notre disposition au lycée. L’ensemble des résultats est présenté en annexe A de ce rapport, mais
+1. Appellation employée par les chercheurs du site de l’observatoire Nice Côte d’Azur, plateau de Caussols
+
+Flora Brunel et Samuel Franch
+
+page : 4
+
+Lycée Massena - Nice
+
+Concours 2017-2018
+nous en rappelons ici les principales caractéristiques, qui nous ont permis d’optimiser nos expériences.
+fréquence
+
+plage de fréquence
+
+étendue angulaire
+
+tension d’alimentation
+
+dépendance spatiale
+
+40, 5 kHz
+
+±1 kHz
+
+±25°
+
+amplitude [0, 15 V]
+
+décroissance en 1/r
+
+Annexe A-1
+
+Annexe A-1
+
+Annexe A-2
+
+Annexe A-4
+
+Table 2 – Caractéristiques des ondes US.
+
+✷
+
+▼ét❤♦❞❡ ❞❡ ❞ét❡❝t✐♦♥ ❆
+2.a
+
+Schéma
+
+Pour mesurer la position d’un objet avec les ondes sonores, nous avons utilisé le montage suivant : l’émetteur envoie un
+signal (à l’instant t0 ), repéré sur l’oscilloscope ; à l’instant t0 + ∆t, le récepteur reçoit le même signal qui a été réﬂéchi par
+l’obstacle.
+
+Figure 1 – Schéma expérimental avec le miroir.
+
+La mesure du temps de vol ∆t permet d’accéder à la distance D par la relation :
+r
+2
+∆t2
+2
+2
+2 ∆t
+⇒ D = c2s
+− a2
+D + a = cs
+4
+4
+
+2.b
+
+(1)
+
+Choix du mode BURST
+
+Nous avons utilisé des ondes ultrasonores pour illustrer la mesure du
+temps de vol. Nous avions à notre disposition un couple émetteur récepteur
+produisant des ondes ultrasonores à la fréquence de 40, 5 kHz. Ces ondes
+se nomment ultrasonores car leur fréquence dépasse la limite d’audition de
+l’homme qui est usuellement prise à 20 kHz.
+Nous avons utilisé un Générateur Basse Fréquence (GBF) pour exciter
+l’émetteur et produire les ondes.
+Pour la mesure du temps de vol, le signal sinusoïdal n’est pas pratique,
+en eﬀet il est diﬃcile de repérer le temps de propagation sur un signal
+sinusoïdal car toutes les arches sinusoïdales se ressemblent !
+Figure 2 – Bouﬀée d’ondes sinusoïdales émises
+L’idée est d’utiliser un signal modulé : des « burst », c’est à dire des
+en haut, reçues en bas.
+paquets d’ondes sinusoïdales, enregistrés sur la photo ci-contre. Ainsi, on
+peut facilement repérer le départ de la première série de signaux et enregistrer le signal retour aux bornes du récepteur. Dans nos expériences, les « burst » étaient composés de 10 sinusoïdes, soit
+une durée de 0, 24 ms.
+A l’aide des curseurs de l’oscilloscope numérique, on mesure le décalage temporel entre burst de départ et celui détecté
+sur le récepteur, ce qui correspond au temps de vol ∆t.
+
+2.c
+
+Détermination de la célérité
+
+Flora Brunel et Samuel Franch
+
+page : 5
+
+Lycée Massena - Nice
+
+Concours 2017-2018
+Comme le montre la relation (1), l’accès à la
+distance, par l’intermédiaire du temps de vol nécessite la connaissance de la célérité des ondes sonores dans l’air. Nous avons procédé à la mesure
+de la vitesse de propagation des ondes sonores
+dans l’air.
+On utilise la méthode A et on mesure avec
+une règle la distance D. On reporte sur la courbe
+de la ﬁgure 4 la distance D en fonction du temps
+de vol ∆t.
+
+Figure 3 – Méthode du temps de vol avec aller-retour
+
+Figure 4 – Mesures expérimentales de la célérité du son dans l’air avec les incertitudes pour T = 20℃.
+
+i
+
+Etude du temps de réponse
+
+On discute tout d’abord de l’ordonnée à l’origine donnée par cette modélisation : elle donne le temps de réponse du
+système complet émetteur-récepteur, soit τ = 27 ± 26 µs.
+On peut comparer la valeur trouvée à celle eﬀectuée dans le montage suivant :
+
+Flora Brunel et Samuel Franch
+
+page : 6
+
+Lycée Massena - Nice
+
+Concours 2017-2018
+
+Figure 5 – Expérience permettant de mesurer le temps
+de réponse.
+
+Figure 6 – Mesure à l’oscilloscope
+
+On mesure un temps de réponse (cf. ﬁgure 6)
+τr = (90 ± 10) µs
+Cette mesure semble très diﬀérente de la valeur obtenue par la modélisation, mais si on le corrige du temps de vol associé
+à la distance d0 séparant les deux cristaux piezoélectriques (qui émet et reçoit les ondes ultra-sonores), cette mesure est en
+accord avec la précédente.
+En eﬀet, d0 = 2 cm et ∆t0 = dc0 . A.N.→ ∆t0 = 59 µs ± 6 µs, d’où τr′ = τr − ∆t0 .
+A.N.→ τr′ = (31 ± 15) µs. Ce résultat est en accord avec la modélisation. Nous retiendrons ﬁnalement
+A.N.→ τ = (30 ± 25) µs
+Toujours à partir de la ﬁgure 4 où l’on a tracé la distance mesurée en fonction du temps, discutons maintenant
+du résultat donnant la célérité des ondes sonores émises.
+ii
+
+Etude de la pente
+
+L’incertitude sur D est de l’ordre de 0, 5 cm, l’incertitude sur la mesure de ∆t est liée au positionnement des curseurs
+sur le courbe. La pente de la courbe calculée par la modélisation tient compte de ces incertitudes. Ainsi, l’inverse de la pente
+donne la célérité des ondes sonores dans l’air : cs,exp = (336, 7 ± 2, 3) m.s−1 .
+On peut la comparer au modèle théorique des ondes sonores donnant pour cette vitesse de propagation dans un gaz de
+masse molaire M , à la température T (en K), l’expression :
+r
+γRT
+cs,th =
+M
+où γ est un coeﬃcient caractéristique de la nature des molécules composant le gaz (pour l’air supposé composé de molécules
+diatomiques, γ = 7/5) et R = 8, 314 J.K−1 .mol−1 , la constante des gaz parfait.
+
+Figure 7 – Valeur mesurée et valeurs tabulées : première série de mesures.
+
+Pour évaluer la qualité de nos mesures, nous avons décidé de tracer une courbe avec des valeurs tabulées (voir ﬁgure 7).
+Nous avons premièrement placé les points correspondant à la célérité des sons dans l’air en fonction de la température,
+Flora Brunel et Samuel Franch
+
+page : 7
+
+Lycée Massena - Nice
+
+Concours 2017-2018
+d’après les valeurs du Handbook[1]. Nous avons ensuite complété ces valeurs en plaçant la courbe correspondant à la formule
+qui donne la valeur théorique de la célérité du son dans l’air.
+Enﬁn, nous avons placé la valeur que nous avions trouvée suite à nos expériences et même avec les incertitudes importantes,
+nous sommes loin de la valeur tabulée.
+Nous avons exclu une dépendance en fréquence, liée au fait que les données de notre référence correspondent à des signaux
+audibles et qu’ici, nous employons des ultra-sons mais l’eﬀet est trop faible[1]. Nous avons alors envisagé que l’écart pouvait
+provenir de l’humidité de l’air, mais là encore, l’eﬀet est trop faible[1] pour expliquer la diﬀérence observée.
+Nous avons donc refait plusieurs fois l’expérience mais cet écart persistait. Nous avons donc une erreur systématique pour
+laquelle nous proposons deux explications possibles :
+✗ une réﬂexion parasite sur la table sur laquelle sont posés émetteur et récepteur ;
+✗ un eﬀet consécutif de l’utilisation du mode Burst et de la déformation du paquet d’ondes, due au caractère dispersif
+de l’air ;
+✗ la résonance du système émetteur/récepteur.
+
+Nous avons alors cherché une méthode, mettant en
+œuvre le mode sinusoïdal, plus approprié, aﬁn de trouver
+une valeur plus satisfaisante de la célérité. Nous avons
+donc refait la mesure : en faisant correspondre la distance d (en cm) mesurée à l’aide d’un maître ruban et le
+nombre N de longueurs d’onde repéré sur l’oscilloscope
+(déﬁlement de 10 extrema, par exemple, voir photo). On
+remarquera que l’émetteur étant placé sur une table en
+hauteur, il n’y avait plus d’obstacle à proximité pouvant
+provoquer des réﬂexions parasites.
+Pour être sûrs de laisser émetteur et récepteur alignés, nous nous sommes aidés d’un niveau laser d’alignement qui nous donnait en permanance les directions
+horizontale et verticale.
+
+Figure 8 – Expérience en mode sinusoïdal.
+
+Ainsi, sur la ﬁgure 9, nous avons tracé d
+en fonction de N ; on doit obtenir une droite
+dont la pente donne la longueur d’onde. Comme
+la fréquence f est connue, on peut en déduire la célérité : c = λf . Le calcul d’incertitude donne :
+s 
+ 2
+2
+∂c
+∂c
+2
+2
+(∆λ) +
+(∆f )
+∆c =
+∂λ
+∂f
+Ici, on va négliger l’incertitude sur la fréquence, de sorte que l’incertitude sur la célérité se réduise à :
+Figure 9 – Distance en fonction du nombre de longueur d’onde
+
+∆c = f ∆λ = 1, 9 m.s−1
+
+Flora Brunel et Samuel Franch
+
+soit c = (344, 43 ± 1, 9) m.s−1
+
+page : 8
+
+Lycée Massena - Nice
+
+Concours 2017-2018
+
+Figure 10 – Valeurs mesurées et valeurs tabulées : toutes nos mesures.
+
+Cette fois, les points s’alignent très bien avec la courbe tabulée.
+En conclusion, si nous eﬀectuons des mesures de distances avec des ondes ultra-sonores émises en mode « burst », nous
+utiliserons le résultat de notre mesure de célérité des ondes, qui semble erronée mais qui nous donnera des résultats corrects
+pour la distance à évaluer.
+En revanche, si nous eﬀectuons les mêmes mesures avec des ondes ultra-sonores émises en mode sinusoïdal, nous utiliserons
+la valeur « classique » de la vitesse des ondes sonores (ou celle tabulée dans le Handbook[1]).
+iii
+
+Incertitudes sur les mesures de distances
+
+Finalement pour eﬀectuer une mesure de type A, on mesure à l’oscilloscope un temps ∆t et on applique la relation
+c
+D = (∆t − τ )
+2
+conduisant à un calcul d’incertitude
+s
+2
+∆(∆t)2 + ∆τ 2 2
+(∆t − τ ) ∆c2
++
+c
+∆D =
+4
+4
+Lors des mesures de petites distances (typiquement inférieures à 1 m), l’incertitude vient essentiellement de ∆τ ; pour
+les grandes distances, c’est l’incertitude sur c qui prédomine, comme le montre le graphe de la ﬁgure 11 pour lequel on trace
+l’incertitude en fonction de la distance D.
+Nous considérerons donc que notre erreur vaut ∆D = ±2 cm pour toutes nos mesures, eﬀectuées à l’aide du sonar.
+
+Figure 11 – Incertitude sur la distance.
+
+Flora Brunel et Samuel Franch
+
+page : 9
+
+Lycée Massena - Nice
+
+Concours 2017-2018
+
+✸
+
+❉ét❡❝t✐♦♥ s②♥❝❤r♦♥❡ ✿ ♠♦♥t❛❣❡ ❇
+3.a
+
+Schéma de principe
+
+Dans l’expérience A, l’incertitude sur la mesure du temps de vol vient principalement de la détermination de la position
+du burst. Dans une seconde expérience, nous avons choisi, comme dans la plupart des LIDAR commerciaux de moduler
+linéairement la fréquence de l’émetteur et de comparer la fréquence du signal émis avec celle du signal reçu.
+Nous en présentons le principe.
+
+Figure 12 – Modulation de fréquence de l’émetteur à un instant quelconque.
+
+Le schéma 12 donne la fréquence du signal émis en fonction du temps lorsque le GBF est réglé en mode
+balayage (« sweep »). Nous allons montrer qu’en mesurant le décalage en fréquence ∆f ′ entre le signal reçu et le
+signal alors émis (au même instant), on peut trouver le temps ∆t′ qui sépare l’émission de l’onde et sa réception
+et ainsi trouver la distance d′ entre l’émetteur et le récepteur.
+En eﬀet, à la date t, l’émetteur envoie une onde de fréquence f1 = f (t), signal que l’on peut écrire sous la forme :
+s1 (t) = S0 cos (2πf1 t)
+Selon le schéma de la ﬁgure 12, on suppose que le récepteur, étant placé à la distance d′ , reçoit l’onde de fréquence f1 à la
+date t′ = t + ∆t′ . Ce signal peut alors s’écrire
+
+
+d′
+s1 (t′ ) = S0 cos (2πf1 t′ ) = S0 cos 2πf1 t + 2πf1
+c
+A cet instant, le signal émis par l’émetteur présente une fréquence f2 = f (t′ ) = f1 + ∆f ′ . Comme précédemment, on peut
+expliciter ce signal sous la forme
+s2 (t′ ) = S0 cos (2πf2 t′ )
+A l’aide d’un circuit intégré multiplieur, on réalise la multiplication de ces 2 signaux 2 et on note le résultat de la
+multiplication sm (t)
+sm (t′ ) = S0 cos (2πf1 t′ ) S0 cos (2πf2 t′ )
+On peut interpréter ce signal comme un signal modulé en amplitude, ou encore comme des battements.
+A l’aide de formules trigonométriques, on réécrit le produit
+sm (t′ ) =
+
+1 2
+S [cos (2π (f1 + f2 ) t′ ) + cos (2π (f2 − f1 ) t′ )]
+2 0
+
+soit à l’aide des notations précédentes
+sm (t′ ) =
+
+1 2
+S [cos (2π (f1 + f2 ) t′ ) + cos (2π∆f ′ t′ )]
+2 0
+
+Ecrit sous cette forme, ce signal est la somme de deux signaux sinusoïdaux : l’un à fréquence élevée (f1 + f2 ) et le second
+qui varie beaucoup plus lentement, à la fréquence diﬀérence entre les 2 fréquences émises par l’émetteur aux instants t et t′ .
+Comme nous le montrons dans ce qui suit, pour notre mesure de distance, c’est le terme en cos (2π∆f ′ t′ ) qui est intéressant
+et que nous devons conserver.
+2. Le résultat est en réalité divisé par un facteur k = 10.
+
+Flora Brunel et Samuel Franch
+
+page : 10
+
+Lycée Massena - Nice
+
+Concours 2017-2018
+
+Figure 13 – Modulation de fréquence de l’émetteur, avec origine des temps au début de la mesure.
+
+En eﬀet, en s’appuyant sur la ﬁgure 13, on peut écrire la tangente de deux manières diﬀérentes :
+tan α =
+On a donc :
+
+∆fmax
+T
+
+et
+
+tan α =
+
+∆f
+∆t
+
+∆fmax
+∆f
+∆fmax × ∆t
+=
+=⇒ ∆f =
+T
+∆t
+T
+
+d
+∆fmax × d
+∆f × cT
+.
+, on a : ∆f =
+=⇒ ∆fmax × d = ∆f × cT . Donc : d =
+c
+cT
+∆fmax
+L’angle entre l’horizontale et le segment donnant l’évolution de la fréquence étant constant, cette égalité reste vraie avec
+∆f ′ , déﬁnie à l’aide de la ﬁgure 12. Soit
+∆f ′ × cT
+(2)
+d′ =
+∆fmax
+
+Comme ∆t =
+
+Autrement dit, si nous mesurons la fréquence ∆f ′ sur le terme en cos (2π∆f ′ t′ ), nous accédons à la mesure de la distance
+recherchée.
+Dernière étape, nous avons utilisé un filtre passe-bas aﬁn d’isoler la composante basse fréquence de signal multiplié
+sm (t′ ). La fréquence de coupure fc de ce ﬁltre doit être petite devant fmax .
+En pratique, ce ﬁltre était simplement constitué d’une association RC (résistance et condensateur), dont le temps carac1
+max
+= RC
+.
+téristique s’écrit τ = RC = ω1c , avec ωc = 2πfc = 2π f100
+Pour R = 1 kΩ, nous avons utilisé C = 400 nF.
+
+3.b
+
+Résultats
+
+Figure 14 – Comparaison entre distance calculée par la formule (2) et distance mesurée directement au réglet.
+
+Flora Brunel et Samuel Franch
+
+page : 11
+
+Lycée Massena - Nice
+
+Concours 2017-2018
+Les points de mesures sont bien alignés, mais l’incertitude associée à cette mesure est très importante. Nous avons
+rencontré deux problèmes liés à la réponse aigüe du cristal piezoélectrique, servant d’émetteur ultrasonore :
+✗ d’une part, la faible plage de modulation possible, sur l’intervalle [37, 5 kHz, 42, 5 kHz] (d’après le document 36) nous
+interdit d’envisager des mesures de distance dans une gamme complète (du cm eu mètre, typiquement), ce qui est
+trop limité pour une application pertinente ;
+✗ d’autre part, pour les valeurs extrémales de cet intervalle de fréquences, le rapport d’amplitude descend jusqu’à 1%,
+ce qui est faible et rend les mesures délicates.
+
+II Mesures avec les ondes lumineuses
+✶
+
+▼❡s✉r❡s ❞❡ ♣❡t✐t❡s ❞✐st❛♥❝❡s ✿ ❡①♣ér✐❡♥❝❡ ♣ré♣❛r❛t♦✐r❡
+
+Le LIDAR dont nous proposons l’étude est basé sur la lumière laser. Nous
+avons donc refait l’expérience du temps de vol avec une diode laser.
+La diﬃculté dans cette expérience est de trouver une diode dont on peut
+moduler l’amplitude rapidement (diode pulsée) et un détecteur rapide (sensible
+au moins à la nanoseconde) pour voir des écarts de temps très faibles. En eﬀet,
+la vitesse de la lumière dans le vide c0 ≫ c est très grande devant la vitesse du
+son dans l’air, on a :
+3.108
+c0
+≃
+≃ 106
+c
+340
+Le temps de vol est donc divisé par 1 million par rapport à l’expérience avec
+les ondes sonores. Le temps de vol par unité de longueur attendu est de l’ordre
+1
+∆t
+≃ 35 ns/m
+=
+2ℓ
+c0
+Voici une photo de diode laser émettrice et du détecteur (ﬁgure 15).
+En plaçant la photodiode très proche de la diode laser, on peut négliger le
+temps de vol, le temps ∆t mesuré entre l’émission et la réception est donc simplement le temps de réponse du système diode laser / photodiode. On trouve un
+temps important, de l’ordre de
+
+Figure 15 – Diode à gauche et photodiode à droite
+
+τ = 600 ns
+Il est souvent plus important que le temps de vol lui même !
+
+Figure 16 – Schéma expérimental avec la diode laser pulsée.
+
+Outre le temps de réponse important de notre dispositif, une autre diﬃculté, liée à notre protocole est apparu : la position
+du miroir de renvoi est très critique et ce, d’autant plus que la distance D, séparant le miroir et la diode d’émission devient
+importante. En eﬀet, la taille de la photodiode de réception est assez petite (de l’ordre du mm2 ) et tout écart angulaire δα
+du miroir induit un déplacement 3 de la tache lumineuse retour δx = Dδα. Pour D = 20 m, A.N.→ δα = 0, 5.10−4 rad. Cet
+angle est très faible et peut donner une idée de la précision de réglage nécessaire pour parvenir à eﬀectuer cette mesure par
+temps de vol.
+Nous verrons dans le paragraphe 2 un moyen de s’aﬀranchir de ce problème.
+Malgré ces diﬃcultés, nous avons fait une série de mesures dont les résultats sont reportés sur le graphique de la ﬁgure 17.
+Sur ce graphe, nous avons également tracé la courbe y = x, aﬁn de comparer facilement les distances attendues.
+3. Pour ce calcul, nous faisons l’approximation des petits angles, qui permet d’écrire tan (δα) =
+
+Flora Brunel et Samuel Franch
+
+page : 12
+
+δx
+≈ δα.
+D
+
+Lycée Massena - Nice
+
+Concours 2017-2018
+
+Figure 17 – Graphe donnant la distance mesurée avec la méthode du temps de vol en fonction de la distance mesurée au
+décamètre.
+
+Il apparaît que ces mesures ne sont pas très ﬁables, et ce d’autant plus que la distance à mesurer était plus importante ;
+alors qu’on s’attendait au contraire à une meilleure ﬁabilité de notre méthode. Nous pensions en eﬀet que le temps de réponse
+important (et délicat à évaluer de façon précise) serait plus dommageable pour les faibles distances. On constate au contraire
+que la qualité de nos mesures se dégradent aux grandes distances.
+Nous pouvons néanmoins proposer une explication : le signal retour étant plus faible, nous avons été amenés à changer le
+gain de la photodiode (aﬁn de visualiser un signal suﬃsant pour la mesure de temps de vol sur l’oscilloscope). Or le temps
+de réponse du système de détection dépend de ce gain[2].
+Dans la suite, nous vériﬁerons toujours le temps de réponse associé à chaque calibre de gain utilisé.
+
+✷
+
+▼❡s✉r❡s ❞❡ ❣r❛♥❞❡s ❞✐st❛♥❝❡s
+2.a
+
+Emploi de télescopes - Fabrication du coin de cube
+
+Figure 18 – Schéma de principe de la mesure du temps de vol avec deux télescopes.
+
+Flora Brunel et Samuel Franch
+
+page : 13
+
+Lycée Massena - Nice
+
+Concours 2017-2018
+
+Figure 19 – Tests préliminaires pour les grandes distances.
+
+Aﬁn d’envisager la mesure de distances plus importantes, nous
+nous sommes rapprochés de la conﬁguration du Laser Lune 4 , comme
+sur la ﬁgure 18. Ainsi, nous utilisons un télescope pour l’émission de
+la lumière : il nous permet de mettre en forme le faisceau lumineux.
+Son diamètre vaut 115 mm.
+Nous le couplons à un second télescope dédié à la réception de la
+lumière : nous l’avons choisi de diamètre plus important (200 mm)
+aﬁn de collecter davantage de lumière réﬂéchie.
+Voici l’ensemble des 2 télescopes lors des essais préliminaires, qui
+nous ont permis de dimensionner leur support, ainsi que des réglages
+permettant de mesurer des distances allant typiquement de 5 m à
+l’inﬁni (d’un point de vue optique, en tout cas, en pratique, cela
+correspondra à la centaine de mètres).
+Sur la photo 19, on peut voir l’alimentation continue de la diode
+laser et le GBF nécessaire à sa modulation d’amplitude. L’oscilloscope est relié au GBF et à la photodiode de réception.
+
+Nous avions évoqué le problème de l’alignement lors de notre première expérience avec la lumière
+(§ II-1). Ici, la distance étant beaucoup plus grande, nous allons pallier ce problème en utilisant un
+coin de cube ou un cataphote 5 .
+Ainsi, nous avons ﬁxé sur un support en contreplaqué une vingtaine de cataphotes analogues à ceux
+trouvés à l’arrière d’une remorque par exemple (photo ci-contre). Sur cette photo, d’ailleurs, on peut
+voir son eﬃcacité : la lumière du ﬂash éclaire les cataphotes et on a l’impression que ceux-ci émettent
+à proprement parler de la lumière, alors qu’ils renvoient juste une partie de la lumière incidente (ici
+du ﬂash). Lors de son utilisation eﬀective, comme sur la photo 23, il en est de même : la tache rouge
+visible entre les deux télescopes est due à la lumière renvoyée par ce dispositif.
+Pour améliorer la quantité de lumière réﬂéchie, nous avons également fabriqué un coin de cube,
+tout simplement en collant sur un support 3 miroirs d’environ 20 × 20 cm2 . Nous verrons que son
+emploi est plus délicat (direction incidente à régler assez critique, contrairement aux cataphotes) mais
+son eﬃcacité est bien meilleure.
+
+2.b
+i
+
+Mesures
+
+Première série en ligne droite
+
+Nous avons eﬀectué les mesures en extérieur, plutôt en soirée pour ne pas éblouir
+la photodiode. Pour cela, nous avons placé le cataphote à une certaine distance des
+télescopes, comme on peut le voir sur la photo 23. On repère à l’aide de la lunette
+de visée du grand télescope l’image de celui-ci, comme sur la photo 24. En pratique,
+lors de cette première série, nous laissions ﬁxe la position du télescope de grand
+diamètre et nous positionnons soigneusement le cataphote aﬁn que son image soit
+centrée dans le champ du télescope, puis on vériﬁe sa mise au point.
+Pour cela, nous enlevons tout système optique 6 et nous plaçons un morceaux
+de scotch (dépoli, pas « cristal », sinon on ne voit rien !) sur lequel vient se former l’image donnée par la lumière réﬂéchie et focalisée par le télescope de grand
+diamètre.
+Lorsque ce réglage nous semble satisfaisant, nous enlevons le scotch et replaçons
+le support de photodiode. On commence à visualiser son signal sur l’oscilloscope,
+pour une valeur de gain donnée, que nous essaierons de maintenir durant toute
+l’expérience.
+Une fois cette étape réalisée, nous alignons le télescope émetteur à l’aide des
+réglages dans la direction horizontale à l’arrière de celui-ci (qu’on distingue sur la
+photo 23), puis dans la direction verticale à l’aide de réglage situé à l’avant (comme
+sur la photo 20 ci-contre). On optimise ce réglage éventuellement en observant le
+signal retour, capté par la photodiode et observé sur l’oscilloscope.
+
+Figure 20 – Face avant du télescope
+de petit diamètre, dédié à l’émission.
+
+4. décrit dans le paragraphe III-1 et dans l’annexe D
+5. Le catadioptre a été inventé en 1917 à Nice par Henri Chrétien pour l’armée qui désirait un dispositif de communication que l’ennemi ne
+pouvait pas intercepter. Il en dépose le brevet sous le nom de cataphote en 1923[3].
+6. En pratique, nous ne plaçons pas un oculaire mais le support de photodiode, que nous avons fabriqué à l’aide d’un tube PVC, de diamètre
+50 mm, comme on peut le voir sur la photo 23.
+
+Flora Brunel et Samuel Franch
+
+page : 14
+
+Lycée Massena - Nice
+
+Concours 2017-2018
+
+Lorsque l’amplitude est satisfaisante, nous eﬀectuons une
+moyenne du signal et mesurons le retard enregistré entre le
+signal émis et le signal reçu par rapport au GBF, qui nous
+sert de référence des temps (voie 1 de l’oscilloscope) dans ces
+expériences. Sur l’enregistrement ci-contre, à gauche, ce temps,
+noté δt, se lit parmi les mesures comme « Retard (2/1) ».
+
+Figure 21 – Exemple d’oscillogramme obtenu pour la mesure
+du temps de vol (brut) sans prendre en compte le temps de
+réponse de notre dispositif de mesure.
+
+Nous avons donc reproduit le protocole pour 5 distances
+diﬀérentes.
+
+Par ailleurs, nous enregistrons (comme dans
+les conditions décrite au paragraphe 1), le
+temps de réponse de notre système. Pour la
+valeur de gain choisie, nous avons obtenu
+l’oscillogramme de la ﬁgure 22, qui nous
+donne un temps de réponse τ = (600 ±
+15) ns.
+
+Figure 22 – Oscillogramme nous permettant de mesurer le
+temps de réponse.
+
+Figure 23 – Les deux télescopes sur leur support.
+
+Figure 24 – Tests préliminaires pour les grandes
+distances : phase de réglage.
+
+Sur le graphe de la ﬁgure 25, nous faisons correspondre les distances que nous mesurons par cette méthode du temps de
+vol : D = 2c (δt − τ ) avec les mesures eﬀectuées au décamètre (Dm,max = 50 m) et avons également tracé la droite y = x, aﬁn
+
+Flora Brunel et Samuel Franch
+
+page : 15
+
+Lycée Massena - Nice
+
+Concours 2017-2018
+de visualiser rapidement la ﬁabilité de nos mesures. Nous n’avons fait apparaître que les incertitudes liées à notre méthode
+de temps de vol, et nous pouvons conclure que cette méthode est très ﬁable.
+
+Figure 25 – Comparaison des mesures eﬀectuées au décamètre et des distances calculées par temps de vol.
+
+ii
+
+Seconde mesure en terrain accidenté
+
+Pour tester la ﬁabilité de notre système, nous
+avons voulu eﬀectuer une mesure qui ne serait pas
+possible autrement que par temps de vol. Ainsi, lorsque
+le terrain est valonné, il n’est pas possible de vériﬁer
+la mesure au décamètre, comme nous l’avons fait lors
+de la première série de mesures.
+Ci-contre, à droite, une capture d’écran du site
+GéoPortail qui permet de mesurer des distances et
+d’évaluer des proﬁls altimétriques. Celui-ci montre
+qu’il n’est eﬀectivement pas possible de vériﬁer notre
+mesure (entre les points A et B) à l’aide du décamètre.
+Au point A, nous avons placé nos deux télescopes
+sur leur support et tout le dispositif d’émission et de
+détection (comme décrit dans le paragraphe précédent). Notre professeur se situait au point B avec le
+cataphote et le coin de cube (et un téléphone pour
+communiquer !).
+Pour une position donnée du cataphote, nous avons
+réglé le télescope de réception (de plus gros diamètre)
+aﬁn qu’il vise le cataphote. Puis nous avons aligné le
+télescope d’émission aﬁn d’éclairer le cataphote et de recevoir la lumière réﬂéchie. Dans cette conﬁguration, le réglage était
+plus délicat qu’en ligne droite, car comme le montre le proﬁl altimétrique, l’orientation des télescopes a dû être modiﬁée aﬁn
+de viser le cataphote.
+
+Flora Brunel et Samuel Franch
+
+page : 16
+
+Lycée Massena - Nice
+
+Concours 2017-2018
+Après quelques dizaines de minutes de persévérence, nous avons pu obtenir un signal sur la photodiode, de même nature que lors des expériences
+précédentes, nous permettant de mesurer un retard entre le signal du GBF
+et le signal de la photodiode δt = (1, 5 ± 0, 1) µs, comme on peut le voir
+sur notre enregistrement sur l’oscilloscope, ci-contre.
+Après correction par le temps de réponse, le calcul nous donne
+Dexp = 156, 9 m ± 2, 1 m
+Cette mesure semble très satisfaisante, si on compare à celle donnée par
+le site GéoPortail, pour cette même distance soit 157, 0 m.
+
+2.c
+
+Figure 26 – Un des enregistrements obtenus
+lors de la mesure de distance en terrain accidenté. Le temps mesuré doit être corrigé par le
+temps de réponse de notre dispositif de mesure.
+
+Conclusion
+
+Cependant, notre système est encore limité par le temps de réponse de l’émetteur : la diode laser que nous utilisons ne
+peut être modulée très rapidement. Pour améliorer notre dispositif, nous envisageons d’utiliser une diode laser plus intense
+et plus rapide. Mais nous n’avons pas eu encore le temps de ﬁnaliser les tests et surtout d’avoir une monture que l’on puisse
+facilement adpater dans notre télescope d’émission.
+Mais nous y travaillons encore !
+
+III Applications
+✶
+
+▲❛s❡r ▲✉♥❡
+
+Pour mieux comprendre les mesures de grandes distances, nous nous sommes rendus sur l’un des sites l’Observatoire de
+la Côte d’Azur sur le plateau de Calern, dans l’arrière-pays grassois non loin de la ville de Caussols.
+Les chercheurs du CNRS disposent d’un télescope de diamètre a = 1, 5 m utilisé pour faire des mesures LIDAR vers des
+satellites (distance d’environ 400 km, soit ∆t = 2, 6 ms pour AR) et même sur des cataphotes que les missions Appolo XV
+ont laissé sur la lune (DT L = 380000 km, soit ∆t = 2, 56 s pour AR ).
+Ce qui surprend en arrivant devant le télescope, c’est son gigantisme (plusieurs tonnes) et la température très basse
+de la salle : on a l’impression d’être en expédition polaire. En eﬀet, pour éviter les eﬀets optiques dus aux diﬀérences de
+température (mirages) la température de la coupôle est celle de l’extérieur.
+Le laser utilisé est un Neodyme YAG doublé qui envoie avec une cadence de fcadence = 10 Hz des impulsions de durée
+τi = 100 ps à la longueur d’onde de λ = 532 nm. L’energie contenue dans chaque impulsion est de E = 0, 3 J, cela donne une
+puissance crête de Pc = τEi = 3 GW, mais la puissance moyenne est de Pm = fcadence E = 3 W. Ils utilisent donc un signal
+modulé en burst avec une fréquence caractéristique de f = τ1i = 10 GHz à comparer à notre fréquence de f = 300 kHz. Nous
+avons pu voir le laser fonctionner et étudier chacun de ses éléments, comme l’illustrent quelques photos de l’annexe D.
+Le télescope est utilisé pour l’émission et pour la détection. Son grand diamètre d’ouverture permet d’avoir une tache de
+diﬀraction de petite taille sur la lune (la taille de la tache est λDaT L ), mais en réalité c’est plutôt la turbulence qui provoque
+la diﬀraction (il est, dans la pratique inutile d’avoir un diamètre supérieur à 25 cm). Son grand diamètre est par contre très
+utile pour la réception, car cela va permettre au système de détecter des signaux très faibles. Ils doivent cependant trouver
+un système qui permette de faire basculer le laser depuis le mode émission vers le mode détection avec une cadence de 10 Hz.
+Ils utilisent pour cela un miroir tournant qui ne va réﬂéchir le laser que lorsqu’il traverse le faisceau (voir photo 50).
+La détection est assurée par une photodiode à avalanche ultrarapide et capable de détecter un seul photon, elle est
+particulièrement sensible dans le rouge et l’infrarouge. Elle est très protégée de la lumière ambiante et possède un cache qui
+ne s’ouvre que quelques nanosecondes avant et après la date prévue pour la réception du signal. De plus, un ﬁltre interférentiel
+ne laisse passer que les longueurs d’ondes qui correspondent à celle du laser émetteur (avec une tolérance de quelques nm).
+La mesure du temps de vol doit être très précise et est assurée par la présence de deux MASER à hydrogène dont les
+cavités sont stabilisés par deux horloges atomiques.
+Le rendement de détection, pour la lune n’est que de r = 35.10−18 , on ne reçoit donc en moyenne qu’un photon tous les
+100 tirs (soit 10 s).
+La précision obtenue pour les mesures est de l’ordre du centimètre et tient compte de corrections dues aux ﬂuctuation de
+l’indice de l’atmosphère. On détecte ainsi l’éloignement annuel de la lune par rapport à la Terre de l’ordre de 3 cm/an.
+
+✷
+
+❆♣♣❧✐❝❛t✐♦♥ à ❧❛ ✈♦✐t✉r❡ ❛✉t♦♥♦♠❡
+
+Notre projet étant d’étudier les voitures autonomes, nous avons alors eu l’idée de placer des obstacles sur une table aﬁn de
+simuler la présence de bâtiments, car il nous était très compliqué de simuler une voiture autonome à taille réelle. Nous avons
+eﬀectué plusieurs mesures de temps de vol avec notre couple émetteur/récepteur (ﬁgure 29) pour diverses valeurs d’angles.
+Nous voulions, grâce à ces mesures, avoir la possibilité de reconstruire l’environnement que nous avions crée.
+
+Flora Brunel et Samuel Franch
+
+page : 17
+
+Lycée Massena - Nice
+
+Concours 2017-2018
+
+Figure 28 – Orientation quelconque du couple émetteur/récepteur
+
+Figure 29 – Exemple de mesure de
+temps de vol avec obstacles
+
+Figure 27 – Mise en place des obstacles et de la platine pour repérer
+les angles.
+
+Nous nous sommes rendus compte que la nature de la surface inﬂuençait la présence ou non d’onde réﬂéchie (ou du moins
+sur son amplitude), mais nous n’avons pas étudié ces aspects dans le détail. Par ailleurs, si les objets sont trop proches les
+uns des autres, on voit plusieurs rebonds comme sur l’oscillogramme, ﬁgure 29. Cette expérience préliminaire nous a incités
+à mieux caractériser l’émetteur d’ondes US, en particulier son diagramme de rayonnement aﬁn d’avoir une indication sur la
+précision attendue quant à la cartographie de son environnement.
+
+2.a
+
+Construction de la maquette : mise en place d’un sonar et d’un lidar Arduino
+
+Aﬁn de rendre plus réaliste notre étude, nous avons acheté une voiture-robot en kit (Elegoo Smart Robot Car kit V2.0)
+qui disposait d’un sonar (capteur HC-SR04) qu’on pouvait piloter par Arduino. Dans l’annexe B, nous présentons quelques
+photos qui illustrent certaines étapes de son montage et sur la photo 30, la voiture, dans sa version initiale.
+La bibliothèque de programmes Arduino fournie avec ce kit nous a permis de nous familiariser avec ce langage et tester
+ainsi les fonctionnalités de la voiture.
+
+Figure 31 – En dessous du sonar HC-SR04, ajout du
+lidar sur la voiture robot : on aperçoit la lumière émise
+par celui-ci. L’émission se fait dans l’infra-rouge, mais
+les capteurs de l’appareil photo utilisé permet de la voir.
+Figure 30 – Voiture robot terminée !
+
+Par ailleurs, étant donné notre problématique initiale, nous avons ajouté un capteur « Module Micro LIDAR TGMINI
+Benewake (12 m) », d’autant plus qu’étant donné le diagramme de rayonnement de l’émetteur d’ondes US, la précision
+des mesures par cette méthode n’était pas très satisfaisante, comme nous l’avons souligné plus haut. Cela nous a permis de
+comparer l’eﬃcacité de ces deux méthodes. Sur la seconde photo (ﬁgure 31), on peut voir ce second capteur en fonctionnement.
+Ensuite, pour s’approcher un peu plus de la réalité, nous avons voulu construire une maquette représentatrice d’une
+ville. Grâce aux essais préalables avec notre système émetteur/récepteur, nous avons choisi les positions des diﬀérents objets
+constituant cette maquette. Finalement, plutôt qu’une ville, c’est devenu quelques maisons dont la taille a été choisie après
+notre étude sur la résolution angulaire de l’émetteur.
+
+Flora Brunel et Samuel Franch
+
+page : 18
+
+Lycée Massena - Nice
+
+Concours 2017-2018
+Ainsi, nous avons récupéré un carton de dimension 104, 5 × 192, 5 cm2 , sur lequel pourrait « circuler » notre voiture robot
+et surlequel nous avons diposé divers « obstacles » : maisons, rond-point, arbres...
+
+2.b
+
+Résultats obtenus
+
+A l’aide des acquisitions obtenues grâce au programme Arduino, nous faisons mesurer au robot pour des positions
+angulaires θk successives (par pas de 1°) les distances d(θk ) données par le lidar et le sonar. On importe 7 ces valeurs dans un
+tableur aﬁn de calculer les coordonnées xk = d cos θk , yk = d sin θk des points Mk , associés à la position des obstacles repérés
+par nos capteurs.
+Voici deux exemples obtenus selon ce protocole.
+
+Figure 32 – Résultat cartographié par le lidar et le sonar de la maquette construite qu’on aperçoit en transparence.
+
+Figure 33 – Résultat cartographié par le lidar et le sonar de la maquette construite qu’on aperçoit en transparence.
+7. copier - coller
+
+Flora Brunel et Samuel Franch
+
+page : 19
+
+Lycée Massena - Nice
+
+Concours 2017-2018
+Comme on s’y attendait, on constate que les
+résulats donnés par le lidar sont plutôt meilleurs
+que ceux issus des mesures du sonar. Cependant,
+nous avons observé une certaine dissymétrie dans
+la réponse du lidar, entraînant un léger décalage
+avec la position réelle des obstacles. Aﬁn de mieux
+étudier ce phénomène, nous avons fait une expérience complémentaire, permettant d’apprécier la
+largeur angulaire de celui-ci.
+Nous avons pour cela positionner le robot avec
+son lidar en marche, visant une maison de la maquette, située à une distance ℓ = 1 m de celui-ci :
+c’est cette mesure qu’on peut lire en ordonnée sur
+le graphe de la ﬁgure 34. Puis nous avons déplacé
+latéralement la maison, aﬁn d’évaluer à partir de
+quelle position, le lidar ne serait plus capable de
+Figure 34 – Réponse angulaire du lidar Arduino.
+la « voir ». Ainsi, l’abscisse d = 0+ correspond à
+l’arête gauche de la maison, que nous avons déplacée ensuite vers la droite, comme sur le schéma 35(b)
+
+(a)
+
+(b)
+
+Figure 35 – Protocole de mesure pour la précision angulaire du lidar Arduino.
+
+Cette première expérience permet de retrouver le comportement non symétrique de ce lidar, assez logique, puisque
+émetteur et récepteur ne sont pas superposés et que l’émission, bien que plus directionnelle qu’avec les ondes sonores,
+présente un certaine diagramme de rayonnement, non établi à ce jour.
+Ces résultats mériteraient une étude plus approfondie de cette réponse ; en particulier, nous aurions aimé tester la qualité
+de la réponse en fonction de la couleur des maisons, de leur état de surface, de la taille de l’obstacle (diamètre apparent), de
+la distance séparant le lidar et l’obstacle pour en mesurer sa limite d’action...
+
+Références
+[1] David R. LIDE. Handbook of chemistry and physics, 84th Edition. CRC PRESS, 2003-2004.
+[2] Thorlabs.
+PDA100A(-EC)
+Si
+Switchable
+Gain
+Detector
+https ://www.thorlabs.com/thorproduct.cfm ?partnumber=PDA100A-EC.
+
+-
+
+User
+
+Guide,
+
+2017.
+
+[3] Wikipedia®. Catadioptre, Février 2017. https ://fr.wikipedia.org/wiki/Catadioptre.
+
+Flora Brunel et Samuel Franch
+
+page : 20
+
+Lycée Massena - Nice
+
+Concours 2017-2018
+
+Annexes
+A Caractérisation des ondes sonores
+✶
+
+❘é♣♦♥s❡ ❡♥ ❢réq✉❡♥❝❡
+
+On aligne le détecteur et l’émetteur et on ﬁxe la distance les séparant à 10 cm. On mesure l’amplitude de la tension aux
+bornes du récepteur en fonction de la fréquence du GBF.
+On trouve la courbe suivante :
+
+Figure 36 – Réponse fréquentielle de l’émetteur US : les positions relatives émetteur-récepteur sont ﬁxées.
+
+En conclusion, la fréquence générant une amplitude optimale de l’onde US émise est de f0 = 40, 5 kHz et la bande
+passante (zone dans laquelle on peut l’utiliser, sans perdre plus de la moitié du signal, est de ±1 kHz).
+Cependant dans l’expérience du paragraphe I-3, nous l’avons utilisé avec une bande de fréquence un peu plus large, malgré
+la faiblesse de l’amplitude du signal généré.
+
+✷
+
+❘é♣♦♥s❡ ❛♥❣✉❧❛✐r❡
+
+Pour connaître la résolution angulaire de notre système, nous avons placé l’émetteur au centre d’un cercle et le détecteur
+à une distance d = 10 cm. D’après l’étude précédente, nous choisissons la fréquence d’émission à f0 = 40, 5 kHz.
+On déplace le détecteur sur le cercle , on accède à l’angle grâce au papier gradué angulairement. On a obtenu le résultat
+suivant :
+
+Flora Brunel et Samuel Franch
+
+page : 21
+
+Lycée Massena - Nice
+
+Concours 2017-2018
+
+Figure 37 – Amplitude de l’onde US émise en fonction de l’angle d’émission : la fréquence d’émission est ﬁxée à f0 = 40, 5 kHz,
+la distance émetteur-récepteur vaut d = 10 cm.
+
+On voit que l’amplitude à mi-hauteur est obtenue pour des angles de ±25° : l’émission de ces ondes US n’est donc pas
+très directive.
+On peut également le représenter en coordonnées polaires pour visualiser le diagramme de rayonnement. La droite
+correspond à un angle de 45°.
+
+Figure 38 – Diagramme de rayonnement de l’émetteur d’ondes US. Le segment correspond à l’angle θ = 45°.
+
+Flora Brunel et Samuel Franch
+
+page : 22
+
+Lycée Massena - Nice
+
+Concours 2017-2018
+
+✸
+
+❆♠é❧✐♦r❛t✐♦♥ ❞❡ ❧❛ rés♦❧✉t✐♦♥ ❛♥❣✉❧❛✐r❡ ❄
+
+Figure 39 – Tubes que nous avons installés pour essayer de guider les ondes sonores et ainsi, d’améliorer leur directivité.
+
+Pour améliorer la résolution, nous avons eu l’idée de guider les ondes à l’aide d’un petit tube en plastique. Nous avons
+donc refait l’expérience précédente : le résultat est décevant, les courbes obtenues sont quasiment identiques ! Par conséquent,
+dans toutes les expériences, nous avons utilisé l’émetteur et le récepteur sans tube.
+
+Figure 40 – Comparaison des amplitudes émises en fonction de l’angle d’émission avec guidage et sans.
+
+✹
+
+❘é♣♦♥s❡ ❡♥ ❞✐st❛♥❝❡
+
+Pour terminer la caractérisation de ces ondes US, nous avons mesuré l’amplitude des ondes émises en fonction de la
+distance d séparant émetteur et récepteur. Pour cela, nous avons ﬁxé la fréquence d’émission à f0 = 40, 5 kHz et aligné
+soigneusement le récepteur avec l’émetteur.
+
+Flora Brunel et Samuel Franch
+
+page : 23
+
+Lycée Massena - Nice
+
+Concours 2017-2018
+
+Figure 41 – Décroissance de l’amplitude de l’onde US émise, en fonction de la distance au récepteur
+
+1
+La courbe obtenue montre une décroissance de cette amplitude en , comme le montre la courbe en échelle logarithmique
+d
+suivante, qui a pu être modélisée par une droite.
+
+Figure 42 – On trace le logarithme népérien de l’amplitude mesurée en fonction du logarithme népérien de la distance.
+
+Flora Brunel et Samuel Franch
+
+page : 24
+
+Lycée Massena - Nice
+
+Concours 2017-2018
+
+B
+
+Etapes de construction de la maquette
+
+✶ ❈♦♥str✉❝t✐♦♥ ❞❡ ❧❛ ✈♦✐t✉r❡ r♦❜♦t
+
+✷ ▼❛q✉❡tt❡ ❞❡ ❧❛ ✓ ✈✐❧❧❡ ✔
+
+Figure 43 – Découpage des maisons dans du polystyrène et « habillage » de celles-ci.
+Figure 44 – Un peu de « verdure »,
+pour la déco...
+
+Figure 45 – Nous avons choisi les emplacements
+des maisons (à partir d’une première expérience).
+
+Flora Brunel et Samuel Franch
+
+page : 25
+
+Lycée Massena - Nice
+
+Concours 2017-2018
+Figure 47 – Nous avons peint en noir le carton support de
+notre maquette.
+
+Figure 46 – On retrouve les emplacements des
+maisons de la photo précédente : ce sont les cartons en surépaisseur, maintenus par des serrejoints.
+(a)
+
+C
+
+(b)
+
+Programme Arduino utilisé pour les mesures sur la maquette
+
+Pour faire fonctionner nos capteurs, reliés à la carte Arduino, nous nous sommes servis de programmes. Notre travail
+s’est limité à la juxtaposition de codes existants et fournis avec le kit voiture que nous avons acheté. Chacun d’entre eux
+permettant de commander, indépendamment, les diﬀérentes fonctions possibles du robot.
+Monsieur Viaris de Lesagno nous a aidé à résoudre les (nombreux) conﬂits entre ces diﬀérents programmes.
+Nous reproduisons ici, le code qui nous permet, entre autres, de mesurer des distances (moyennées) à l’aide du sonar
+(ligne 133) et du lidar (ligne 159), pour diﬀérents angles de visée qu’on fait varier de 0 à 180°(lignes 107 à 129). Plus
+particulièrement grâce au code de la ligne 231 à 299, les mesures sont ensuite aﬃchées dans une fenêtre d’où on peut les
+copier/coller dans un tableur, comme expliqué dans le rapport (III-2.b).
+1
+2
+3
+4
+5
+
+/* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+* D é p l a c e m e n t buggy
+* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
+
+6
+7
+
+8
+9
+10
+11
+12
+13
+14
+15
+16
+
+int MOT_AVD =6; // Chaque pin ne c o n t r l e pas un moteur , mais une paire c o n t r l e les 2 moteurs d ’ un m
+ê me c t é
+int MOT_ARD =7; // Si on met AVD =1 et ARD =0 , les roues droites tournent vers l ’ avant
+int MOT_ARG =8; // Si on met AVD =0 et ARD =1 , les roues droites tournent vers l ’ arri è re
+int MOT_AVG =9; // si on met AVD = ARD les roues droites ne tournent plus
+int VITD =5;
+// vitesse des roues droites
+int VITG =11;
+// vitesse des roues gauches
+int VitesseAvance =90; // vitesse lente pour aller droit
+int VitesseTourne =140; // vitesse lente pour tourner sur place
+int DureeAvance =500; // temps au bout duquel on arr ê te le m o u v e m e n t si pas de nouvel le command e IR
+int DureeTourne =200; // temps au bout duquel on arr ê te le m o u v e m e n t si pas de nouvel le command e IR
+
+17
+18
+
+unsigned long ProchainArret =0;
+
+19
+20
+21
+22
+23
+
+void Progr ammeArre t ( int Duree Mouvemen t )
+{
+ProchainArret = millis () + Dur eeMouvem ent ;
+}
+
+24
+25
+26
+27
+28
+29
+30
+
+void Vitesse ( int vit )
+{
+analogWrite ( VITG , vit ) ;
+if ( vit >0) vit = vit +20; // moteurs droits poussifs
+analogWrite ( VITD , vit ) ;
+}
+
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+
+void A v a n c e R o u e s D r o i t e s ()
+{
+digitalWrite ( MOT_AVD , HIGH ) ;
+digitalWrite ( MOT_ARD , LOW ) ;
+}
+void R e c u l e R o u e s D r o i t e s ()
+{
+digitalWrite ( MOT_ARD , HIGH ) ;
+digitalWrite ( MOT_AVD , LOW ) ;
+}
+
+Flora Brunel et Samuel Franch
+
+page : 26
+
+Lycée Massena - Nice
+
+Concours 2017-2018
+42
+43
+44
+45
+46
+47
+48
+49
+50
+51
+52
+53
+54
+55
+56
+57
+58
+59
+60
+61
+62
+63
+64
+65
+66
+67
+68
+69
+70
+71
+72
+73
+74
+75
+76
+77
+78
+79
+80
+81
+
+void A v a n c e R o u e s G a u c h e s ()
+{
+digitalWrite ( MOT_AVG , HIGH ) ;
+digitalWrite ( MOT_ARG , LOW ) ;
+}
+void R e c u l e R o u e s G a u c h e s ()
+{
+digitalWrite ( MOT_ARG , HIGH ) ;
+digitalWrite ( MOT_AVG , LOW ) ;
+}
+void Avance ()
+{
+A v a n c e R o u e s D r o i t e s () ;
+A v a n c e R o u e s G a u c h e s () ;
+Vitesse ( VitesseAvance ) ;
+Progr ammeArre t ( DureeAvance ) ;
+}
+void Recule ()
+{
+R e c u l e R o u e s D r o i t e s () ;
+R e c u l e R o u e s G a u c h e s () ;
+Vitesse ( VitesseAvance ) ;
+Progr ammeArre t ( DureeAvance ) ;
+}
+void Gauche ()
+{
+A v a n c e R o u e s D r o i t e s () ;
+R e c u l e R o u e s G a u c h e s () ;
+Vitesse ( VitesseTourne ) ;
+Progr ammeArre t ( DureeTourne ) ;
+}
+void Droite ()
+{
+R e c u l e R o u e s D r o i t e s () ;
+A v a n c e R o u e s G a u c h e s () ;
+Vitesse ( VitesseTourne ) ;
+Progr ammeArre t ( DureeTourne ) ;
+}
+void Stop ()
+{ Vitesse (0) ;}
+
+82
+83
+84
+85
+86
+87
+88
+89
+90
+
+void A r r e t B u g g y E v e n t u e l ()
+{
+if ( millis () > ProchainArret )
+{
+Stop () ;
+ProchainArret =0 xFFFFFFFF ;
+}
+}
+
+91
+92
+93
+94
+95
+96
+97
+98
+99
+100
+101
+
+void buggy_init ()
+{
+pinMode ( MOT_AVD , OUTPUT ) ;
+pinMode ( MOT_AVG , OUTPUT ) ;
+pinMode ( MOT_ARG , OUTPUT ) ;
+pinMode ( MOT_ARD , OUTPUT ) ;
+pinMode ( VITG , OUTPUT ) ;
+pinMode ( VITD , OUTPUT ) ;
+Stop () ;
+}
+
+102
+103
+104
+105
+106
+107
+108
+
+/* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+* Servo Tourelle
+* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
+# include < Servo .h > // servo library
+Servo myservo ; // create servo object to control servo
+
+109
+110
+111
+
+void servo_play ()
+{ myservo . attach (3 ,800 ,2500) ;}
+
+112
+113
+114
+
+void servo_pause () // utile pour pouvoir utiliser S o f t w a r e S e r i a l ( LIDAR )
+{ myservo . detach () ;}
+
+115
+116
+117
+118
+119
+
+void servo_go ( int angle =90 , int delai_ms =0) ; // Valeurs par d é faut
+void servo_go ( int angle , int delai_ms )
+{
+if ( delai_ms ==0)
+
+Flora Brunel et Samuel Franch
+
+page : 27
+
+Lycée Massena - Nice
+
+Concours 2017-2018
+120
+121
+122
+123
+124
+125
+126
+127
+128
+129
+130
+131
+132
+133
+134
+
+{
+angle = constrain ( angle ,0 ,180) ;
+int dalpha = max (1 , abs ( myservo . read () - angle ) ) ;
+delai_ms = min (500 , dalpha *4+100) ;
+}
+servo_play () ;
+myservo . write ( angle ) ;
+delay ( delai_ms ) ;
+servo_pause () ;
+}
+/* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+* SONAR
+* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
+int Echo = A4 ;
+int Trig = A5 ;
+
+135
+136
+137
+138
+139
+140
+
+void sonar_init ()
+{
+pinMode ( Echo , INPUT ) ;
+pinMode ( Trig , OUTPUT ) ;
+}
+
+141
+142
+143
+144
+145
+146
+147
+148
+149
+150
+151
+152
+153
+
+float sonar_read ()
+{
+digitalWrite ( Trig , LOW ) ;
+d e l a y M i c r o s e c o n d s (2) ;
+digitalWrite ( Trig , HIGH ) ; // Envoi burst sonar via i m p u l s i o n positive de 20 s
+d e l a y M i c r o s e c o n d s (20) ;
+digitalWrite ( Trig , LOW ) ;
+float distance = pulseIn ( Echo , HIGH ,20000) ; // temps AR en s , timeout =300 cm x 58 = 20000 s
+distance = distance /58;
+// distance en cm
+if ( distance > 300) return 0.0;
+return distance ;
+}
+
+154
+155
+156
+157
+
+/* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+* LIDAR
+* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
+
+158
+159
+
+# include < Software Serial .h >
+
+160
+161
+162
+163
+
+Softw areSeria l lidarSerial (14 , 15) ; // RX = A0 = vert , TX = A1 = blanc
+void lidar_pause () { lidarSerial . end () ;}
+void lidar_play () { lidarSerial . begin (115200) ;}
+
+164
+165
+166
+167
+168
+169
+170
+171
+172
+173
+174
+175
+176
+177
+178
+
+void lidar_init ()
+{
+lidar_play () ;
+// Set to Standard Output mode
+lidarSerial . write (( uint8_t ) 0 x42 ) ;
+lidarSerial . write (( uint8_t ) 0 x57 ) ;
+lidarSerial . write (( uint8_t ) 0 x02 ) ;
+lidarSerial . write (( uint8_t ) 0 x00 ) ;
+lidarSerial . write (( uint8_t ) 0 x00 ) ;
+lidarSerial . write (( uint8_t ) 0 x00 ) ;
+lidarSerial . write (( uint8_t ) 0 x01 ) ;
+lidarSerial . write (( uint8_t ) 0 x06 ) ;
+// l i d a r _ p a u s e () ;
+}
+
+179
+180
+181
+182
+183
+
+void lidar_clear ()
+{ // lit et jette toutes les donn é es LIDAR en stock
+while ( lidarSerial . available () ) lidarSerial . read () ;
+}
+
+184
+185
+186
+187
+188
+189
+190
+191
+192
+193
+194
+195
+196
+197
+
+int lidar_read ( int timeout_ms =0) ;
+int lidar_read ( int timeout_ms )
+{
+unsigned long fin = millis () + timeout_ms ;
+// Data Format for Benewake TFmini
+// = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = =
+// 9 bytes total per message :
+// 1) 0 x59
+// 2) 0 x59
+// 3) Dist_L ( low 8 bit )
+// 4) Dist_H ( high 8 bit )
+// 5) S t r e n g t h _ L ( low 8 bit )
+// 6) S t r e n g t h _ H ( high 8 bit )
+
+Flora Brunel et Samuel Franch
+
+page : 28
+
+Lycée Massena - Nice
+
+Concours 2017-2018
+// 7) Reserved bytes
+// 8) Original signal quality degree
+// 9) Checksum parity bit ( low 8 bit ) , Checksum = Byte1 + Byte2 +...+ Byte8 . This is only a low 8 bit
+though
+
+198
+199
+200
+
+201
+
+if ( lidarSerial . overflow () ) lidar_clear () ;
+while (( lidarSerial . available () <9) && ( millis () < fin ) ) {};
+while ( lidarSerial . available () >=9) // When at least 9 bytes of data a v a i l a b l e ( expected number of
+bytes for 1 signal ) , then read
+{
+if ((0 x59 == lidarSerial . read () ) && (0 x59 == lidarSerial . read () ) ) // byte 1 and byte 2
+{
+int liDARval ;
+unsigned int t1 = lidarSerial . read () ; // byte 3 = Dist_L
+unsigned int t2 = lidarSerial . read () ; // byte 4 = Dist_H
+unsigned int somme = 0 x59 +0 x59 + t1 + t2 ;
+t2 < <= 8;
+// d e c a l l a g e de 8 bits
+t2 += t1 ;
+// t2 et t1 sur 16 bits
+liDARval = t2 ;
+
+202
+203
+204
+
+205
+206
+207
+208
+209
+210
+211
+212
+213
+214
+215
+
+t1 = lidarSerial . read () ; // byte 5 = S t r e n g t h _ L
+t2 = lidarSerial . read () ; // byte 6 = S t r e n g t h _ H
+somme = somme + t1 + t2 ;
+t2 < <= 8;
+t2 += t1 ;
+// liDARval = t2 ;
+somme = somme + lidarSerial . read () + lidarSerial . read () ; // byte 7 , 8 , 9 are ignored
+if (( somme &0 xff ) == lidarSerial . read () ) // v e r i f i c a t i o n checksum
+// if ( liDARval <500)
+return liDARval ;
+
+216
+217
+218
+219
+220
+221
+222
+223
+224
+225
+
+}
+}
+return -1; // pas de donn é e valide dans le d é lai imparti
+
+226
+227
+228
+229
+
+}
+
+230
+231
+
+# include " Statistic . h "
+
+// without trailing s
+
+232
+233
+234
+
+Statistic sonar_stat ;
+Statistic lidar_stat ;
+
+235
+236
+237
+
+# define SCAN_LIDAR 2
+# define SCAN_SONAR 1
+
+238
+239
+240
+241
+242
+243
+244
+245
+
+void scan ( int mode ) // balaye la tourelle et envoie les donn é es SONAR et / ou LIDAR sur le port USB / s é rie
+{
+int nb_mesures =10; // nb de mesures à moyenner dans chaque d i r e c t i o n
+int modesonar =( mode & SCAN_SONAR ) ;
+int modelidar =( mode & SCAN_LIDAR ) ;
+float dista nce_sona r ;
+int dista nce_lida r ;
+
+246
+247
+248
+249
+250
+251
+252
+
+Serial . print ( " angle " ) ;
+if ( modesonar )
+Serial . print ( " , sonar " ) ;
+if ( modelidar )
+Serial . print ( " , lidar " ) ;
+Serial . println () ;
+
+253
+254
+255
+256
+257
+258
+259
+260
+261
+262
+263
+264
+265
+266
+267
+268
+269
+270
+271
+272
+273
+
+for ( int angle =0; angle <=180; angle = angle +1)
+{
+if ( modesonar ) sonar_stat . clear () ;
+if ( modelidar )
+{
+lidar_stat . clear () ;
+lidar_pause () ;
+servo_go ( angle ,200) ; // d é placement , attente 200 ms
+lidar_play () ;
+}
+else
+servo_go ( angle ) ; // pas de lidar , pas d ’ attente n é cessaire
+for ( int j =1; j <= nb_mesures ; j ++) // moyenne des mesures
+{
+if ( modesonar )
+{
+dista nce_sona r = sonar_read () ;
+if ( distance_sonar >0) sonar_stat . add ( di stance_s onar ) ;
+}
+if ( modelidar )
+
+Flora Brunel et Samuel Franch
+
+page : 29
+
+Lycée Massena - Nice
+
+Concours 2017-2018
+{
+
+274
+
+dista nce_lida r = lidar_read () ;
+if ( distance_lidar >0) lidar_stat . add ( di stance_l idar ) ;
+
+275
+276
+
+}
+}
+Serial . print ( angle ) ;
+if ( modesonar )
+{
+Serial . print ( " , " ) ;
+if ( sonar_stat . count () >0)
+Serial . print (( int ) sonar_stat . average () ) ;
+else
+Serial . print (0) ;
+}
+if ( modelidar )
+{
+Serial . print ( " , " ) ;
+if ( lidar_stat . count () >0)
+Serial . print (( int ) lidar_stat . average () ) ;
+else
+Serial . print (0) ;
+}
+Serial . println () ;
+
+277
+278
+279
+280
+281
+282
+283
+284
+285
+286
+287
+288
+289
+290
+291
+292
+293
+294
+295
+296
+297
+
+}
+
+298
+299
+
+}
+
+300
+301
+302
+303
+304
+
+void setup ()
+{
+Serial . begin (115200) ;
+
+305
+306
+307
+308
+309
+310
+311
+312
+
+//
+
+b u g g y _ i n i t () ;
+// s e r v o _ p l a y () ;
+servo_go (90 ,500) ;
+sonar_init () ;
+lidar_init () ;
+scan ( SCAN_LIDAR + SCAN_SONAR ) ;
+// myservo . detach () ;*/
+
+313
+314
+
+}
+
+315
+316
+317
+318
+319
+320
+321
+322
+323
+324
+325
+326
+327
+328
+329
+330
+331
+332
+333
+334
+
+void loop ()
+{
+if ( Serial . available () )
+{
+char Rep = Serial . read () ;
+if ( Rep >= ’A ’ && Rep <= ’Z ’) Rep = Rep +32;
+switch ( Rep ) {
+case ’8 ’: Avance () ; break ;
+case ’2 ’: Recule () ; break ;
+case ’6 ’: Droite () ; break ;
+case ’4 ’: Gauche () ; break ;
+case ’5 ’: Stop () ; break ;
+case ’s ’: scan ( SCAN_SONAR ) ; break ;
+case ’l ’: scan ( SCAN_LIDAR ) ; break ;
+case ’d ’: scan ( SCAN_SONAR + SCAN_LIDAR ) ; break ;
+default : break ;
+}
+delay (300) ;
+}
+
+335
+336
+
+//
+
+337
+338
+
+irrecv . resume () ;
+A r r e t B u g g y E v e n t u e l () ; // si buggy en marche et d é lai é coul é , arr ê t
+
+}
+
+Flora Brunel et Samuel Franch
+
+page : 30
+
+Lycée Massena - Nice
+
+Concours 2017-2018
+
+D
+
+Visite sur le site de Caussols
+
+Figure 49 – Intérieur de l’observatoire : on voit le télescope avec la coupole ouverte. Au premier plan, M. Rivet, directeur de recherche au CNRS, nous a accueilli
+sur le site de Caussols et a supervisé la visite.
+
+Figure 48 – En arrivant sur le site, on voit les coupoles
+d’observation au loin.
+
+Figure 50 – Miroir tournant, qui permet d’utiliser le
+même télescope pour l’émission et la réception.
+
+Figure 51 – Eléments de réglage du laser.
+
+Flora Brunel et Samuel Franch
+
+page : 31
+
+Lycée Massena - Nice
+
+Concours 2017-2018
+
+Figure 53 – Panorama de la vue qu’on a en montant sur
+le toit de l’observatoire ; on aperçoit le plateau dégagé et
+on imagine que la pollution lumineuse est assez réduite
+dans ce lieu.
+
+Figure 52 – La puissance du laser est telle qu’il peut
+brûler un papier placé sur son trajet.
+
+E
+
+Bilan : caractéristiques des ondes utlisées dans ce projet
+Ondes Sonores
+
+Ondes Sonores
+
+Sonar
+
+Sonar Robot
+
+Lidar Robot
+
+LIDAR Télescopes
+
+Laser Lune
+
+Fréquence onde
+
+40, 5 kHz
+
+40 kHz
+
+3, 3.1014 Hz
+
+4, 7.1014 Hz
+
+5, 6.1014 Hz
+
+Longueur d’onde
+
+8, 4 mm
+
+8, 5 mm
+
+900 nm
+
+635 nm
+
+532 nm
+
+Période
+
+24 µs
+
+24 µs
+
+Célérité
+
+344 m.s−1
+
+3.108 m.s−1
+
+Temps vol
+
+2, 91 ms/m
+
+3, 3 ns/m
+
+Ouverture angulaire
+
+50°
+
+50°
+
+5°
+
+10′
+
+1′′
+
+-
+
+100 ps
+
+Modulation en impulsion
+Durée impulsions
+
+240 µs
+
+Durée entre deux paquets
+
+10 m.s−1
+
+100 ns
+
+0.1 s
+Modulation sinusoïdale
+
+Fréquence
+
+0, 1 Hz
+
+-
+
+-
+
+300 kHz
+
+-
+
+Variation avec la distance
+Variation
+
+Linéaire
+
+linéaire
+
+-
+
+faible variation
+
+faible variaiton
+
+Précision
+
+2 cm
+
+2 cm
+
+2, 5 m
+
+1m
+
+1 cm
+
+Table 3 – Caractéristiques des ondes utilisées
+
+Flora Brunel et Samuel Franch
+
+page : 32
+
+Lycée Massena - Nice
+
+

@@ -1,0 +1,1682 @@
+Un robot pour les ralentir tous !
+Un dispositif contre les excès de vitesse
+
+ Chapitre 1 : Introduction ______________________________________________________________ 3
+ Chapitre 2 : Le « RomeoBot », notre prototype. ___________________________________________ 4
+
+
+Contraintes techniques inhérentes à notre prototype ___________________________________________ 4
+
+
+
+Description fonctionnelle du robot __________________________________________________________ 4
+
+
+
+Détail des composants importants ___________________________________________________________ 4
+
+
+
+L’évolution du robot. ______________________________________________________________________ 5
+
+ Chapitre 3 : La RFID : _________________________________________________________________ 6
+
+
+Généralités. _____________________________________________________________________________ 6
+
+
+
+Un point d’histoire. _______________________________________________________________________ 6
+
+
+
+De multiples applications.__________________________________________________________________ 6
+
+ Chapitre 4 : Le Transpondeur __________________________________________________________ 7
+
+
+Généralités______________________________________________________________________________ 7
+
+
+
+Alimentation du transpondeur ______________________________________________________________ 8
+
+
+
+Émission de l’information _________________________________________________________________ 12
+
+ Chapitre 5 : Transmission de l’information par ondes électromagnétiques ____________________ 13
+
+
+Généralités. ____________________________________________________________________________ 13
+
+
+
+La modulation d’amplitude ________________________________________________________________ 14
+
+ Chapitre 6 : L’effet transformateur ____________________________________________________ 15
+
+
+Principe physique. _______________________________________________________________________ 15
+
+
+
+Rapide historique _______________________________________________________________________ 15
+
+
+
+Généralités_____________________________________________________________________________ 15
+
+ Chapitre 7 : La démodulation _________________________________________________________ 19
+
+
+Principe global. _________________________________________________________________________ 19
+
+
+
+Supprimer la composante négative du signal. _________________________________________________ 19
+
+
+
+Retrouver l’enveloppe : le détecteur de crête. ________________________________________________ 19
+
+
+
+« Linéariser » l’enveloppe : Le comparateur. __________________________________________________ 21
+
+ Conclusion ________________________________________________________________________ 22
+
+
+De la modulation à la RFID. ________________________________________________________________ 22
+
+
+
+Application du projet. ____________________________________________________________________ 23
+
+1
+
+Remerciements
+
+Nous tenions à remercier Mme MORENO, professeure de Physique Chimie, et M. LACOMBE, professeur de
+Sciences de l’Ingénieur, qui pendant deux ans nous ont encadrés, accompagnés et nous ont permis de tenter ces
+aventures qu’auront été les concours « C Génial » et les « Olympiades de Physique ».
+Nous remercions également M. BRAHMI, professeur de Sciences Économiques et Sociales ainsi que Mme.
+DALL’ERTA, C.P.E. (Conseillère principale d’éducation) pour leur travail dans l’entreprise du projet « Lycéens
+contre la violence routière » qui a constitué la base de notre projet en nous sensibilisant aux problématiques de
+la sécurité routière.
+Nous tenons également à remercier Mme BRUYAS et M. VERRIEST, chercheurs à l’Institut Français des
+Sciences et Technologies des Transports et des Aménagements Routiers (IFFSTAR) et M. MUGNIER, directeur de
+la prévention routière de l’Ain pour leurs précieux conseils tout au long du projet.
+Nous remercions enfin l’organisme des « Olympiades de Physique » pour cette opportunité de mener à bien nos
+projets.
+
+Elèves au lycée de la Côtière, nous avons eu la possibilité l’an dernier d’inscrire
+nos Travaux Personnels Encadrés dans le cadre d’une réflexion opportune
+sur le thème de la sécurité routière.
+Comme la vitesse est un facteur déterminant dans la gravité des accidents
+sur la route, nous avons décidé de créer un système capable d’afficher en
+permanence la vitesse limite dans le véhicule voire de brider celle-ci.
+Pour cela, nous avons utilisé une technique en plein essor, la RFID, qui repose
+sur une communication par radiofréquences.
+Nous vous proposons un tour d’horizon des principes physiques qu’un tel
+système met en jeu : la modulation d’amplitude, l’induction électromagnétique,
+
+la résonnance, l’effet transformateur, etc.
+Enzo Castillo et Ambroise Poulet--Tomasicchio
+
+2
+
+Chapitre 1 : Introduction
+
+ Chapitre 1 : Introduction
+Le premier enjeu de nos travaux a été la sécurité routière, et plus particulièrement la vitesse. En effet, la
+vitesse est l’un des 3 principaux facteurs de mortalité sur nos routes. Elle a une incidence multiple sur la gravité des
+accidents.
+A mesure que le conducteur accélère, son champ de vision diminue, allant de 180° jusqu’à 30° à 130 km/h.
+De plus la distance d’arrêt du véhicule augmente, en proportion de la distance parcourue durant le temps de
+réaction. Le plus influent cependant dans la mortalité routière est l’augmentation de la violence du choc,
+proportionnelle au carré de la vitesse du véhicule, selon la formule de l’énergie cinétique ci-dessous :
+1
+
+Variation de l’énergie délivrée durant le
+choc en fonction de la vitesse.
+
+𝐸 = 𝑚 × 𝑣²
+2
+
+E : L’énergie cinétique du véhicule.
+(proportionnelle à la violence du choc).
+m : La masse du véhicule.
+v : La vitesse du véhicule.
+
+Forts de ces constats, nous nous sommes interrogés sur
+le « pourquoi ». C’est ce qui nous a menés à formuler
+notre premier objet d’étude : « comment informer le
+conducteur des limitations de vitesse ? ». En effet le
+conducteur commet souvent des dépassements de
+vitesse lorsqu’il oublie les limitations de vitesse. Mais il
+y a aussi des conducteurs pressés, ou inconscients. Des
+personnes dangereuses par leur « non-information »,
+ou même des délinquants routiers.
+C’est pour ces personnes là que nous avons fait évoluer notre projet jusqu’à énoncer la problématique suivante :
+
+« Comment réguler automatiquement la vitesse du véhicule en fonction des limitations en vigueur et en
+informer en permanence le conducteur ? »
+Pour cela nous avons conçu un système capable de reconnaître les limitations de vitesse grâce à un repérage
+sous la route, par RFID (Radio Frequency Identification).
+Nous avons modélisé la voiture par un robot fonctionnant sous Arduino, et l’avons muni d’un module de
+lecture RFID. A chaque « transpondeur » présent sous la route correspond un panneau – une donnée de vitesse,
+contenue dans un code qui lui est propre. Au passage du robot, le transpondeur lui délivre l’information de
+limitation de vitesse.
+Cela permet de créer une communication entre le « Panneau » (modélisé par les transpondeurs ) et le
+« Véhicule » (modélisé par le robot).
+Nous n’avions plus qu’à programmer le robot, pour qu’à chaque code reçu il limite sa vitesse en fonction, et
+affiche le panneau correspondant sur un écran dédié à l’information de l’utilisateur. Dans notre programme, nous
+avons récupéré chacun des codes des transpondeurs et les avons associés à une limitation de vitesse.
+Ainsi les transpondeurs modélisent bien les panneaux de limitation de vitesse, et le robot réagit en fonction de
+l’information détectée : nous avons pu atteindre nos objectifs mais… Comment ça marche ?
+
+3
+
+Chapitre 2 : Le « RoméoBot », notre prototype.
+
+ Chapitre 2 : Le « RomeoBot », notre prototype.
+ Contraintes techniques inhérentes à notre prototype
+Avant de commencer sa construction, nous nous sommes interrogés sur la façon dont nous pouvions
+contrôler le déplacement du robot modélisant notre véhicule. Nous devions être certains qu’il ne tombe pas de
+son support et qu’il rencontre tous les transpondeurs situés sur son passage.
+Pour cela nous avons créé une maquette sur lequel le robot peut se déplacer entre 2 lignes blanches
+modélisant une voie de circulation. A l’aide de capteurs infrarouges, le robot reste sur la voie sous laquelle nous
+avons enfoui les transpondeurs. Pour indiquer l’emplacement des transpondeurs nous avons fait des panneaux
+indicateurs de vitesse.
+
+ Description fonctionnelle du robot
+Afin de décrire notre prototype de manière efficace et succincte, nous avons opté pour le modèle des
+chaines d’information et d’énergie : vous pourrez trouver ces deux diagrammes en annexe 1.
+
+ Détail des composants importants
+Notre prototype se compose de deux grandes parties : le suivi de ligne, et la gestion des panneaux de
+signalisation.
+La gestion du suivi de ligne :
+Elle se fait autour de 4 principales parties : la base robotique sur laquelle nous avons
+construit notre robot ; une carte Arduino programmable qui permet la gestion des moteurs ;
+les capteurs de ligne blanche avant qui permettent le suivi du circuit ; les capteurs « antichute » arrière qui évitent au robot de tomber lorsqu’il recule.
+1. La base robotique
+Elle est composée d’une structure métallique, de deux motoréducteurs à courant continu,
+de deux roues motrices ainsi que d’une roue jockey à l’avant et d’une batterie 7,4 Volts. C’est elle qui nous servira
+de base pour placer tous nos composants.
+2. La carte Arduino Roméo.
+Nous utilisons pour gérer les motoréducteurs une carte Arduino Romeo v1.0,
+commercialisée par DFRobot. L’Arduino est un circuit imprimé libre de droits
+programmable au moyen d’une interface et d’un langage dédié, proche du C++. La carte
+Arduino la plus connue est la Uno, néanmoins nous utiliserons ici la variante Romeo
+spécialement dédiée à la robotique. Cette carte équipée d’un contrôleur ATMega 328 sera
+les « jambes » de notre robot en lui permettant de suivre le circuit, et réaliser les
+différentes actions qui lui seront demandées par la seconde carte Arduino, elle réservée à
+la gestion des panneaux.
+3. Les capteurs de ligne blanche avant.
+Ce sont des capteurs infrarouge ayant ont une longue portée (80
+centimètres), et qui, orientés vers l’extérieur, permettent au robot
+d’être très réactif aux changements de trajectoire. Ils renvoient des
+valeurs logiques : 0 pour « noir » et 1 pour « blanc ». Ainsi, lorsque le
+robot détecte « du blanc » à droite, il tourne à gauche, et
+inversement. Lorsqu’il ne détecte que « du blanc », il s’arrête.
+
+Capteurs de ligne
+Gauche et Droite
+
+4. Les capteurs « anti-chute » arrière.
+Ce sont également des capteurs infrarouges mais de portée réduite. Ils fonctionnent donc sur le même
+principe mais ne servent qu’à éviter que le robot chute lorsqu’il manœuvre.
+4
+
+Chapitre 2 : Le « RoméoBot », notre prototype.
+La gestion des panneaux de signalisation.
+Elle se fait grâce à une carte Arduino Uno qui permet de centraliser les informations liées à la détection des
+panneaux de limitation de vitesse. Elle est constituée d’un système de communication RFID (qui fera l’objet de
+notre dossier) ; d’un afficheur TFT ; le tout relié à une carte Arduino Uno.
+1. Le système de communication RFID
+Sur le robot, la communication RFID est opérée par une antenne collée sur une plaque de PVC sous la base
+robotique et un lecteur RFID. La plaque de PVC permet d’éliminer la modification de l’inductance de l’antenne
+due à la présence du métal qui l’entoure. L’antenne est connectée au lecteur qui démodule et décode les
+informations (nous expliquerons ce processus dans les sections suivantes) et les envoie à la carte Arduino grâce à
+sa liaison série.
+Nous avons brièvement envisagé de procéder à la détection
+des panneaux par caméra, mais la complexité de la tâche nous
+a orientés vers la recherche d’autres solutions techniques. En
+effet, les panneaux constituent des formes complexes, de
+plusieurs couleurs et avec des symboles bien précis. De plus, les
+caméras sont extrêmement sensibles à la luminosité et
+détectent des couleurs différentes selon la lumière ambiante.
+Traiter l’information visuelle était largement hors de nos
+compétences. Nous nous sommes alors orientés vers la RFID,
+plus robuste, simple à mettre en place et à utiliser – de plus en
+plaçant le jeton sous le bitume, nous sommes assurés que le
+véhicule le détectera bien.
+
+2. L’afficheur TFT
+La technique TFT (pour « Thin Film Transistor », Transistor à Couches Minces) est une
+variante des technologies d’affichage LCD. L’afficheur que nous utilisons, commercialisé
+par Adafruit, permet, grâce à son écran LCD, d’afficher plusieurs formes complexes : nous
+y « dessinerons » les panneaux détectés par le système RFID, à l’aide d’une série
+d’instruction dans le programme. Après avoir téléchargé la librairie d’instructions
+correspondant à l’afficheur, nous avons pu le programmer pour obtenir le résultat cicontre.
+
+ L’évolution du robot.
+Initialement, la carte Arduino Roméo centralisait les programmes de suivi de ligne et de gestion des
+panneaux. Mais nous avons remarqué une difficulté du robot à traiter les deux types d’informations
+simultanément. En effet, lorsqu’il détectait un jeton, il mettait presque une seconde à reprendre le suivi de
+ligne ce qui occasionnait des sorties de circuit.
+Nous avons alors opté pour une gestion des deux programmes indépendante, à travers deux cartes au
+lieu d’une seule. Les temps de réaction du robot en sont sensiblement réduits, et il ne déborde ainsi plus de son
+trajet.
+
+5
+
+Chapitre 3 : La RFID.
+
+
+Chapitre 3 : La RFID :
+ Généralités.
+
+La RFID (ou Radio Frequency IDentification) est une technologie de communication
+à faible distance (du contact jusqu’à quelques mètres). Elle permet l’identification d’un
+objet par un lecteur, à travers l’échange de données par ondes radio.
+Composition.
+Cette communication est faite autour de deux composants : un transpondeur,
+étiquette ou tag RFID qui contient une information, et un lecteur RFID qui va l’interroger.
+Ces deux composants peuvent prendre de multiples formes et tailles, ce qui permet un
+large panel d’applications.
+Les ondes radio.
+Une onde électromagnétique correspond à la
+propagation simultanée et perpendiculaire d’un champ
+⃗ d’une même longueur
+électrique 𝐸⃗ et d’un champ magnétique 𝐵
+𝐶
+
+d’onde  et d’une même fréquence 𝑓 =  .
+Selon cette longueur d’onde  (et donc la fréquence f),
+les types d’ondes électromagnétiques varient sensiblement.
+Elle peut varier des rayons gamma (d’une longueur
+d’onde  inférieure à 10-12m) aux ondes radio (d’une longueur d’onde  supérieure à 10²m) en passant par la lumière
+visible ( = 0,5 × 10−6 m ) et les Micro-ondes ( = 10−2 m) comme le montre le schéma ci-dessous :
+Rayon  Rayon X Ultraviolet Lumière Visible Infrarouge
+𝟏𝟎−𝟖
+𝟎, 𝟓 × 𝟏𝟎−𝟔
+𝟏𝟎−𝟓
+< 𝟏𝟎−𝟏𝟐 𝟏𝟎−𝟏𝟎
+
+Micro-ondes
+𝟏𝟎−𝟐
+
+Radio
+𝟏𝟎𝟐 mètres
+
+Les ondes radio sont donc des ondes électromagnétiques d’une longueur d’onde supérieure à 1 kilomètre, et
+leur forme ainsi que leur fréquence permettent de transmettre une information dans l’air.
+L’information.
+L’information du transpondeur est contenue dans une zone mémoire sous forme de données binaires. Elle est
+ensuite codée dans un signal qui représente la trame d’information, modulée et envoyée au lecteur, qui va la
+démoduler, puis la décoder pour enfin restituer l’information. Cela permet l’identification rapide et sécurisée (faible
+risque d’interception de l’information) d’un objet.
+
+ Un point d’histoire.
+La RFID est une technologie en plein essor, que nous retrouvons aujourd’hui dans notre quotidien. Cependant, il
+s’agit d’un concept ancien qui a suivi l’évolution de la radio et des radars, élaboré durant la 2nd Guerre Mondiale
+pour les forces britanniques. Il s’agissait du système IFF (Identify : Friend or Foe) qui permettait de faire la distinction
+entre forces alliées et ennemies dans l’espace aérien britannique. Un des pionniers de cette technologie est Harry
+Stockman ( 1905 – 1991 ), qui par ses travaux sur la rétrodiffusion des ondes a façonné le modèle de communication
+RFID que nous connaissons aujourd’hui.
+
+ De multiples applications.
+Aujourd’hui démocratisée, cette technologie est très présente dans la gestion des marchandises, et remplace
+peu à peu les codes barres, car elle permet un traitement des données plus rapide, elle a une résistance bien
+supérieure à l’usure et contient beaucoup plus d’informations.
+
+6
+
+Chapitre 3 : La RFID.
+Nous retrouvons la RFID dans tout notre quotidien, sous des formes très variées qui dépendent du format des
+transpondeurs (ce que nous détaillerons dans la section suivante). Voici un tableau non exhaustif de l’usage fait de la
+RFID selon les gammes de fréquences utilisées :
+Plage de fréquence.
+
+Applications.
+
+2,45 – 5,8 GHz
+
+Télépéages, délivrance de carburant automatiquement (station essence), usage à
+plusieurs mètres…
+Suivi de marchandises, badge d’ouverture (résidence, voiture), utilisation
+multiple à longue portée…
+Cartes à puces sans contact (Transport, banque, abonnements quelconques),
+billet de transport et suivi des bagages, téléphones, antivols …
+Identification animale, tri des déchets, suivi de marchandises…
+
+443 – 900 MHz
+13,56 MHz = NFC (Near Field
+Communication)
+≤135 kHz
+
+Afin de mieux comprendre comment fonctionne notre système RFID, nous avons décidé d’en créer un modèle
+agrandi. Celui-ci permet de le modéliser fonction par fonction, étape par étape et de se familiariser avec les
+différents phénomènes qui conduisent à la communication telle qu’utilisée sur le robot.
+Nous allons baser notre réflexion et nos démonstrations sur ce modèle dont les points clés seront
+successivement traités tout au long du dossier.
+
+ Chapitre 4 : Le Transpondeur
+Ici, nous nous intéressons globalement à la partie émettrice de l’information, à savoir
+toute la partie du montage représentée ci-contre.
+
+ Généralités
+Dans cette partie, nous nous intéresserons à la partie émettrice de l’information
+dans un circuit RFID, que l’on peut désigner sous plusieurs noms : transpondeur, tag, ou
+« jeton » dans notre système. Les tags RFID prennent les formes les plus diverses, de la
+carte de crédit à l’ampoule sous verre. Mais de manière générale, un transpondeur se
+décompose toujours comme suit :
+De gauche à droite :
+un transpondeur
+sous la ligne dans
+notre système, la vue
+interne d’un
+transpondeur puis un
+schéma le décrivant.
+
+Plusieurs paramètres varient selon les transpondeurs. Les principaux sont :
+-
+
+-
+
+La fréquence d’émission.
+La distance d’émission, aussi dépendante de la fréquence et de l’antenne utilisées.
+Le type de mémoire utilisée : de nombreux tags fonctionnent grâce au système EEPROM ou
+E2PROM (pour « ElectricallyErasable Programmable Read-Only Memory »), qui permet
+d’effacer puis de réécrire les informations du transpondeur plus de 500 000 fois.
+La manière d’alimenter le transpondeur, liée à la fréquence utilisée.
+
+7
+
+Chapitre 4 : Le transpondeur.
+
+ Alimentation du transpondeur
+Nous l’avons vu précédemment, les transpondeurs émettent sur des gammes de fréquences variées, toujours
+dans le spectre des ondes radio. La façon d’alimenter le transpondeur dépend intimement de ses fréquences : pour
+s’en convaincre, il suffit d’observer le tableau ci-dessous.
+
+Classification dans les
+fréquences
+
+Fréquence utilisée
+
+Type d’alimentation
+
+LF
+
+125 kHz
+
+Couplage inductif (tag passif)
+
+HF
+UHF
+
+13,89 MHz
+868 (Europe) et 915 MHz (USA)
+
+UHF
+
+2,4 GHz
+
+Couplage inductif (passif)
+Couplage inductif (passif) ou
+batterie embarquée (actif)
+Batterie embarquée (actif)
+
+SHF
+
+5,8 et 5,9 GHz
+
+Batterie embarquée (actif)
+
+On voit donc bien que plus la fréquence sur laquelle opère le transpondeur est grande, plus celui-ci aura
+tendance à transporter une batterie et donc à devenir actif. En effet, plus la fréquence de l’onde à émettre est
+élevée, plus on aura besoin d’énergie pour le faire. Son coût s’en ressentira alors, car produire des batteries
+ultrafines est relativement coûteux.
+Induction électromagnétique
+Comment échanger de l’énergie grâce à des ondes électromagnétiques ? Pour le savoir, nous avons fait une
+expérience très simple, qui consiste à placer deux bobines de cuivre l’une à côté de l’autre. Nous soumettons la
+première bobine à une tension constante sinusoïdale d’environ 300 Hz et enregistrons la réponse de l’autre bobine,
+comme sur la photographie ci-dessous. Vous trouverez les résultats de cette expérience dans le graphique cidessous.
+
+8
+
+Chapitre 4 : Le transpondeur.
+
+tension aux bornes de la bobine B en fonction
+de la distance A-B
+1400
+1200
+1000
+
+Tension en mV
+
+800
+600
+400
+200
+0
+0
+
+10
+
+20
+
+30
+
+40
+
+50
+
+60
+
+70
+
+80
+
+90
+
+100
+
+110
+
+120
+
+130
+
+Distance Bobine 1/Bobine 2 en cm
+
+On observe que la tension aux bornes de la bobine
+réceptrice du champ magnétique décroit en fonction de la
+distance qui les sépare. Plus la bobine B est distante de la bobine
+A, moins la tension à ses bornes est importante. Ce phénomène se
+nomme l’induction électromagnétique : lorsque la bobine
+émettrice est alimentée, elle crée une onde électromagnétique et
+donc un champ magnétique que la deuxième bobine peut
+récupérer et transformer à nouveau en tension. Celui-ci est
+proportionnel aux nombres de spires dans la bobine et au courant
+de départ.
+
+L’induction électromagnétique entre deux bobines
+(L : inductance, N : nombre de spires, I : courant,
+U : tension. Seule la bobine 1 est alimentée.
+
+En effet, le flux magnétique généré par une bobine (noté ϕ) est proportionnel au courant, suivant la formule
+suivante :
+N   L  I
+- Le nombre de spires N de la bobine : désigne le nombre de tours de fils que la bobine possède. Nous
+utiliserons dans notre modèle deux bobines de nombre de spires N1 = N2 = 95 tours.
+- L’inductance L propre à la bobine, exprimée en Henry : elle varie en fonction
+de ses caractéristiques géométriques, mais nous avons pu mesurer
+l’inductance des nôtres, et l’on trouve L1 = L2 = 1,6 mHenry.
+- Le courant électrique qui la traverse I en Ampères.
+- Le flux magnétique φ qu’elle génère, exprimé en Weber (Wb).
+On observe que N est fixé, on ne peut pas rajouter ou enlever des tours de bobine
+au gré de nos envies. L est propre à la bobine. En théorie donc, le flux magnétique, pour
+une bobine donnée, dépend du courant qui la traverse. Dans ce cas l'alimentation du
+transpondeur est dépendante du flux magnétique reçu, lui-même généré par l’antenne
+du récepteur. L'objectif est alors d'optimiser le flux magnétique généré pour permettre
+d'alimenter le transpondeur.
+Notre inductomètre.
+
+9
+
+Chapitre 4 : Le transpondeur.
+Résonnance
+Mais alors, comment réaliser cette optimisation ? Pour répondre à cette question, nous avons étudié le projet
+qu’un autre groupe a effectué dans le cadre de ses Travaux Personnels Encadrés, un chargeur de téléphone à
+distance. Celui-ci est constitué de deux bobines de cuivre, l’une reliée à travers un condensateur à un générateur, et
+une autre bobine réceptrice reliée à un circuit préparant le courant avant de l’envoyer dans le téléphone. Ce circuit
+possède une diode électroluminescente qui nous servira de témoin.
+Lorsque l’on allume le générateur et que l’on approche la bobine réceptrice de la bobine émettrice, on
+observe que la DEL s’allume : le circuit est donc alimenté, il y
+a donc bien eu transmission d’énergie entre les deux
+bobines. En réalité, la première bobine crée une onde
+électromagnétique de même fréquence et de même forme
+d’onde que le courant qui la traverse ; le champ magnétique
+de cette onde est récupéré par la seconde bobine et
+transformé à nouveau en courant électrique, de même
+fréquence et de même longueur d’onde, comme sur le
+schéma ci-contre.
+Le schéma du circuit du chargeur de téléphone :
+un condensateur et une bobine en parallèle et
+Ce chargeur de téléphone nous permet de mettre en
+une résistance série.
+évidence un phénomène annexe néanmoins fort puissant : la
+fréquence de résonnance. À une fréquence d’environ 3000
+Hz, lorsque le courant est de 7 milliampères à la sortie du générateur, le courant dans la bobine (après les
+condensateurs) est de 55 mA ! Ce phénomène s’explique par le phénomène de résonnance, très utilisé notamment
+dans les communications sans fil. Typiquement, il se produit dans un circuit LC (bobine d’inductance L /
+condensateur de capacité C) et permet d’avoir un courant en sortie du circuit supérieur à celle qu’il y avait en
+entrée ! Néanmoins, ce phénomène provoquant un gain en courant ( G 
+
+I Sortie 55
+
+ 7,86 ) ne se produit qu’à
+I Entée
+7
+
+une fréquence précise. La pulsation de résonnance est donnée par la formule :  0 
+fréquence f 0 
+
+0
+1
+.
+
+2 2 LC
+
+1
+, on en déduit donc la
+LC
+
+Cette relation se vérifie dans l’impédance du signal traversant le
+circuit : l’impédance d’un circuit parallèle est
+donnée
+par la somme des inverses des impédances de ses composants. On a donc :
+
+pose l’impédance de la bobine ZBobine  j   L et du
+condensateur
+
+ZCondensateur 
+
+1
+j   C
+
+,
+
+on
+
+j  L
+j C 
+
+j  L 
+Z Équivalent 
+
+.
+1
+ j  L    jC  1  L  C   2
+
+On a donc l’impédance équivalente du
+circuit RLC (l’impédance d’un circuit série est donnée
+par
+la
+somme
+de
+ses
+impédances)
+:
+
+L 
+Z Circuit  R  j
+.
+1 L  C  2
+
+Module Z
+
+a
+
+l’impédance équivalente
+du circuit LC parallèle :
+
+
+1
+1
+1
+
+
+. Si on
+Z Z Bobine Z Condensate ur
+
+6,00E+02
+5,00E+02
+module Z
+
+4,00E+02
+3,00E+02
+2,00E+02
+1,00E+02
+0,00E+00
+0
+
+10
+
+1000
+
+2000
+
+3000
+
+4000
+
+5000
+
+6000
+
+7000
+
+Chapitre 4 : Le transpondeur.
+Si l’on s’intéresse au module de cette impédance, on a : Z Circuit 
+
+R2 
+
+( L  L1.C ) 2
+
+s’approche de la fréquence de résonnance, on a : lim Z Circuit  lim R 
+2
+
+(1  L  C  L1.C ) 2
+
+ 0
+
+On
+
+observe
+
+que
+
+cette
+
+lim (1  L  C   2 )  1  L  C
+
+
+1
+
+fonction
+
+1
+0
+LC
+
+admet
+
+donc,
+
+pour
+
+par
+
+asymptote
+
+somme
+
+et
+
+(L  ) 2
+. Lorsque l’on
+(1  L  C   2 ) 2
+
+la
+
+produit
+
+droite
+de
+
+.
+d’équation
+
+fonctions
+
+de
+
+x=ω 0
+
+car
+
+référence,
+
+L .C
+
+lim Z Circuit   . Le module de Z est représenté sur le graphique ci-contre pour R =1 ohm, U=20V, L=0,938 mH et
+
+ 0
+
+C=3 mF (valeurs dans le chargeur de téléphone).
+Grâce à la formule U  Z  I , il est possible de calculer les intensités des courants dans le condensateur, la
+bobine, la résistance et dans le circuit complet. Les résultats se trouvent dans le graphique ci-dessous ainsi que les
+rapports entre les intensités : on observe que les meilleurs rapports se trouvent aux alentours de la fréquence de
+résonnance.
+
+Les intensités
+
+Rapport des courants
+
+I
+IC
+IL
+
+4
+3,5
+3
+2,5
+2
+1,5
+1
+0,5
+0
+
+IL/I
+
+35
+
+IC/I
+
+30
+
+IR/I
+
+25
+20
+15
+10
+5
+0
+
+2000
+
+4000
+
+6000
+
+0
+
+8000
+
+0
+
+1000
+
+2000
+
+3000
+
+4000
+
+5000
+
+6000
+
+7000
+
+Maintenant, intéressons-nous à notre propre transpondeur : peut-on lui appliquer ce phénomène de résonnance ?
+D’après sa documentation, son antenne a une inductance de 20,8 mHenry et un condensateur de 78 pF. Calculons sa
+fréquence de résonnance : f res 
+
+G
+
+1
+2 L  C
+
+
+
+1
+2 20,8  10  78  10
+3
+
+12
+
+ 1,249  105 Hz soit environ 125 kHz, ce
+qui est l’exact fréquence à
+laquelle fonctionne notre
+système ! Afin de déterminer son
+gain en courant grâce à ce
+système, nous avons simulé sous
+Proteus son fonctionnement. Voici
+les valeurs que nous avons
+trouvés : pour un courant de
+67,5microAmpères en entrée, il y
+a un courant de plus de 346
+mircroAmpères dans l’antenne !
+
+ISortie 346
+
+ 5,12
+IEntrée 67,5
+
+Modèle du transpondeur
+simulé sous le logiciel Proteus
+
+
+11
+
+Chapitre 4 : Le transpondeur.
+Résumons donc : le transpondeur est alimenté par le phénomène d’induction électromagnétique.
+Lorsqu’un courant traverse l’antenne du récepteur, elle crée un champ magnétique. Ce champ magnétique est
+récupéré par l’antenne du transpondeur pour être transformé en courant à nouveau et alimenter les circuits du tag
+afin qu’il puisse émettre son information. À une certaine fréquence, il faut prendre en compte le phénomène de
+résonnance qui permet d’avoir un gain en courant très important : on a montré que le transpondeur est prévu pour
+fonctionner à la fréquence de résonnance ainsi le gain en courant dépasse 5 fois.
+
+ Émission de l’information
+Structure interne d’un transpondeur.
+Un transpondeur, de manière générale et globale, s’organise comme sur le
+schéma ci-contre : une interface avec la bobine permettant d’envoyer/recevoir des
+informations ou de l’énergie, des circuits de logique menant à la mémoire. Mais quels
+sont ces circuits ? C’est ce que nous allons voir sur le schéma ci-dessous, extrait de la
+documentation des transpondeurs utilisés dans notre projet.
+Les données sont stockées sans être
+codées.
+
+L’horloge des données à
+laquelle fonctionne le
+récepteur doit être
+connue du transpondeur
+pour que la transmission
+se déroule bien.
+
+1
+
+2
+
+Le codage des informations (bloc numéro 1 ci-dessus)
+Toute information, pour être communiquée, doit posséder un code. Les données sont codées suivant une
+horloge précise pour être comprises par le système de base : c’est pourquoi le transpondeur recode à chaque
+émission ses données suivant l’horloge indiquée par le récepteur. Les codes utilisés en RFID diffèrent selon si la
+liaison est montante (de la station de base vers le transpondeur) ou descendante (du transpondeur vers la station de
+base). La communication dans notre système étant essentiellement descendante, passons rapidement sur la liaison
+montante, souvent codée en NRZ (No Return to Zero). On assigne
+la tension + X à la valeur binaire 1, et - X à la valeur 0. On peut
+aussi évoquer le code Miller qui fait intervenir les transitions de
+milieu de bit.
+Mais intéressons-nous au code Manchester, celui utilisé
+dans notre système. Il fait intervenir à foison les transitions de
+milieu de bit : au milieu d’un bit, le signal passe de - X à + X. Le
+codage Manchester, lui, assigne à une transition montante (de 0
+vers 1) à la valeur logique 0 et une transition descendante (de 1
+vers 0) à la valeur 1. Cela donne le schéma ci-contre. Ce type de
+codage permet de supprimer beaucoup de problèmes liés aux codages NRZ, Miller : perte de synchronisation, ligne
+coupée (à cause d’une longue série de 0), etc…
+12
+
+Chapitre 5 : La transmission de l'information par ondes électromagnétiques.
+
+ Chapitre 5 : Transmission de l’information par ondes électromagnétiques
+ Généralités.
+La modulation des ondes électromagnétiques est la solution technique apportée à un problème très simple :
+transmettre une information dans l’air sur des distances plus ou moins longues.
+Principe et intérêt
+Une fois codées, les informations dans le transpondeur passeront dans le modulateur (composant numéro 2
+sur le schéma ci-dessus). Celui-ci va les préparer à passer dans l’air. Pourquoi ?
+Notre système RFID communique par ondes électromagnétiques appartenant au domaine radio (125 kHz). On
+peut même calculer la longueur d’onde de cette onde :  
+
+c
+
+
+
+ RFID 
+
+2,998 108
+3
+.
+5  2,40 10 m
+1,25 10
+
+Rappelons brièvement qu’une onde électromagnétique correspond à la propagation couplée et de manière
+perpendiculaire d’un champ magnétique et d’un champ électrique. Or, l’air est un très mauvais conducteur
+magnétique, il ne canalise pas le champ. L’onde représentant les informations codées possède une fréquence
+ décoder les données. La fréquence de l’onde à transmettre est donc
+relativement basse, pour que le lecteur puisse
+basse et l’air mauvais conducteur magnétique : l’information a alors toutes les chances de se perdre et de ne jamais
+arriver à destination…
+C’est là que la modulation intervient : elle consiste simplement à « dissimuler »
+l’information à transmettre dans une onde de haute fréquence (c’est l’onde
+porteuse), qui elle aura plus d’énergie et pourra passer dans l’air avec moins de
+difficultés.
+
+Soldat dans les tranchées
+durant la Grande Guerre
+utilisant un poste à galène.
+
+Rapide historique de la modulation
+Le premier à avoir découvert la modulation d’amplitude des ondes
+électromagnétiques est Heinrich Hertz qui, en 1887, réalisa une expérience dans
+laquelle il arrive à transmettre de l’énergie par ondes EM d’un bout à l’autre d’une
+grande pièce.
+Très vite après, en 1890,E. Branly, physicien français, associera le dispositif de
+Hertz à un autre appareil nommé « cohéreur », qui permet de détecter les étincelles produites par le dispositif de
+Hertz de manière plus fine que la vue ou l’ouïe. Grâce à son système, Branly est capable d’émettre et de recevoir une
+information en morse par ondes électromagnétiques à plus de 15 km ! Tout le monde imagine déjà que ce sera
+bientôt la voix qui sera transmise à une telle distance.
+Pour le grand public, ce sera chose faite lors de la toute première émission radiodiffusée en 1914 en Belgique.
+Dans les années suivantes, la radio AM à modulation d’amplitude fleurira notamment grâce aux récepteurs à
+métaux, galène ou pyrite. Ces systèmes permirent la démocratisation et l’installation de la radio dans nos vies, et
+restèrent de précieux alliés durant les deux guerres mondiales jusqu’en 1950 et l’invention du transistor. Ils
+laissèrent peu à peu place à d’autres types de récepteurs plus « propres » au niveau sonore et capables de capter la
+modulation de fréquence FM.
+Quelle modulation ?
+Il existe plusieurs types de modulation. La plus simple est celle que nous décrirons ici, la modulation
+d’amplitude AM : il s’agit de faire varier les valeurs maximale et minimale du signal transmis. Néanmoins, d’autres
+modulations existent, comme la fréquence FM et la phase PM.
+
+13
+
+Chapitre 5 : La transmission de l'information par ondes électromagnétiques.
+
+ La modulation d’amplitude
+On s’intéresse ici à la toute première partie de notre montage
+expérimental, tel que représenté ci-contre.
+Notre expérience
+Afin de mieux comprendre comment fonctionne notre système RFID, nous
+avons décidé d’en créer un modèle agrandit. En effet, notre transpondeur émet
+ses informations grâce à la modulation d’amplitude ! Dans sa mémoire, les
+informations sont codées sous forme de 0 et de 1, et ce code qui sera reçu par la
+carte sera associé à un panneau. La modulation utilisée pour transmettre le signal
+est la plus basique des modulations d’amplitude, que l’on nomme OOK, pour
+On/Off Keying : lorsque le signal modulant est à 0, aucune onde n’est transmise,
+et lorsqu’il est à 1, toute l’onde est transmise (voir le schéma ci-contre).
+Pour notre expérience,
+nous avons créé grâce au
+logiciel LatisPro un signal
+modulant correspondant à un
+code à transmettre, cadencé par
+une horloge de 200 Hz (un bit
+toutes les 5 ms), la voici :
+
+1
+
+0
+
+1 1
+
+1 1
+
+0
+
+0
+
+1
+
+1
+
+0
+
+0
+
+1
+
+1
+
+0
+
+0
+
+1
+
+1
+
+0
+
+Par la suite, nous avons créé grâce à un GBF une onde sinusoïdale de fréquence environ 1000 Hz (que l’on
+appellera porteuse) :
+
+Ces deux ondes passent ensuite dans un petit composant nommé « multiplieur » qui va tout simplement les
+multiplier entre elles. Voici le résultat :
+
+Onde
+porteuse
+
+Onde
+modulante
+
+L’onde, que l’on obtient à la sortie du multiplieur, possède donc bien l’information et une haute fréquence :
+on peut la faire passer dans l’air.Ce que l’on a modélisé ici désigne ce qui se produit dans la partie « Data
+modulator » du transpondeur : la multiplication d’une onde de fréquence réduite possédant une information, avec
+une onde de haute fréquence pouvant traverser l’air.
+14
+
+Chapitre 6 : L'effet transformateur.
+
+ Chapitre 6 : L’effet transformateur
+Nous nous intéressons ici à la transmission de l’information entre les
+bobines. Maintenant que l’information a été codée et modulée par le
+transpondeur, nous devons savoir : comment est-elle transmise ?
+Nous revenons donc au principe de l’induction électromagnétique
+portée par l’effet transformateur, mais, quel est-il ?
+
+ Principe physique.
+Un transformateur électrique permet de transférer de l’énergie d’une bobine à une autre, tout en modifiant
+les valeurs de tension ou d’intensité du courant et en conservant la forme et la fréquence du signal. Il exploite pour
+cela les propriétés du champ magnétique.
+
+ Rapide historique
+Dès le VIème siècle avant Jésus-Christ, les phénomènes magnétiques sont connus, essentiellement au travers
+des propriétés des matières riches en magnétite. Si, en 1821, Ørsted montre qu’il est possible d’influencer les
+aiguilles d’une boussole avec la circulation d’un courant électrique à proximité, Michael
+Faraday sera le premier à montrer le phénomène d’induction électromagnétique, avec le
+mouvement proche d’un aimant et d’une bobine de cuivre. Néanmoins la véritable théorie
+complète des champs magnétique sera unifiée par Maxwell en 1873 avec quatre relations
+mathématiques de forme simple : c’est aussi lui qui découvrira la profonde interaction entre
+champs électrique et magnétique au sein des ondes Électromagnétiques.
+
+
+
+Généralités
+
+Outre le nombre de spires, le courant, l’inductance et le flux magnétique que nous avons
+déjà rencontrés, d’autres variables sont à prendre en compte en physique des champs magnétiques.
+-
+
+-
+
+-
+
+La perméabilité magnétique du matériau μ : désigne le caractère isolant ou conducteur magnétique d’un
+matériau. Plus μ est grand, plus le matériau est conducteur magnétique (on l’appelle ferromagnétique).
+Dans le vide, μ est petit : μAir= 4π.10 -7. On peut faire
+l’analogie avec la conductivité dans un circuit électrique.
+La force magnétomotrice, comparable à la force
+électromotrice dans un circuit électrique classique : Fmm = N x
+I.
+La réluctance R propre à un circuit, que l’on calculera pour
+notre système, comparable à la résistance d’un circuit
+électrique.
+
+Notre modèle
+Afin de mieux comprendre comment se transmet l’information
+entre les deux bobines de notre système RFID, nous avons créé un
+modèle simplifié, composé simplement de deux bobines (théoriquement) identiques. L’une des deux bobines (qui
+modélise l’antenne du récepteur, qui va alimenter le transpondeur) est branchée sur une source de tension
+sinusoïdale d’une fréquence f = 1000 Hz. L’autre n’est pas reliée, aucun courant ne peut donc s’y former : c’est un
+transformateur à vide.
+Mais avant de procéder à tout calcul, il nous faut mesurer l’inductance des bobines à la fréquence donnée, à
+savoir 1 kHz. Pour cela, on peut utiliser la formule :   L 
+
+
+
+15
+
+U Eff
+IEff
+
+L
+
+U Eff
+
+  IEff
+
+avec ω la pulsation du signal.
+
+Chapitre 6 : L'effet transformateur.
+Nous avons donc mesuré la tension et le courant efficaces pour chacune des bobines, puis calculé
+l’inductance. Les résultats sont donnés dans le tableau ci-dessous :
+Bobine
+Courant (A)
+Tension (V)
+Pulsation
+Inductance
+
+N°1
+0,92
+8,98
+
+N°2
+0,83
+8,98
+6283
+
+8,98
+ 1,55 mH
+0,92  6483
+
+8,98
+ 1,72 mH
+0,83  6483
+
+On observe que les résultats diffèrent légèrement l’un de l’autre, ce qui peut être dû à un défaut de
+réalisation des bobines. On peut donc calculer l’intensité du flux magnétique émis par la bobine numéro 1 si celle-ci
+
+
+
+L1  I 1 1,55  10 3  0,92
+
+ 1,5  10 5 Weber par spire. Le flux total vu par
+est alimentée : N1    L1  I 1   
+N1
+95
+la bobine est donc de
+
+Total  N1    95  1,5  105  1,426 mWb soit 1,4 mWb
+efficace.
+Or, l’expression de la tension liée au flux
+magnétique est : V  N 
+
+d
+. Si l’on considère que le
+dt
+
+transformateur que l’on étudie est parfait, alors il n’y a
+aucune perte : le flux transmis par la bobine 1 est égal au
+flux reçu par la bobine 2. On a donc :
+
+
+d
+d
+d
+d
+et V2  N 2  2  N 2 
+,
+V1  N1  1  N1 
+dt
+dt
+dt
+dt
+
+On peut donc conclure que dans un transformateur parfait,
+
+N1 V1
+ .
+N 2 V2
+
+On peut visualiser
+ce résultat grâce au logiciel de simulation Proteus : lorsque le couplage entre les deux bobines est
+parfait et qu’elles possèdent le même nombre de spires, les tensions V1 et V2 sont quasiment égales.
+1
+Néanmoins, lorsque nous avons mesuré la 
+tension
+Champ magnétique (T) en fonction de la
+dans les bobines 1, nous avons trouvé des valeurs 0,9
+distance entre les bobines. (mm)
+largement différentes : V1 = 8,98 volts et V2 = 3,09 0,8
+Haut de la bobine
+volts ! Il y a donc des pertes entre les deux bobines, le
+0,7
+Milieu de la bobine
+transformateur réel n’est donc pas parfait. Nous avons
+Bas de la bobine
+tenté de mesurer ces pertes, en utilisant un Teslamètre, 0,6
+Moyenne
+appareil permettant de mesurer l’intensité du champ 0,5
+magnétique B. Dans un premier temps, nous avons fait
+0,4
+l’hypothèse que le champ magnétique était uniforme
+dans les bobines émettrice et réceptrice, mais au vu des 0,3
+valeurs mesurées de manière expérimentale, nous 0,2
+avons dû nous rendre à l’évidence : notre hypothèse 0,1
+était fausse, il suffit de voir les valeurs que nous avons
+0
+trouvé (en Tesla) en fonction de la distance par rapport
+0
+20
+40
+60
+80
+100
+120
+140
+au centre des bobines (graphe ci-contre). Afin d’avoir un
+résultat plus exact dans la suite de nos calculs, nous avons décidé de prendre la moyenne des valeurs entre
+l’extrémité haute, le centre et l’extrémité basse de la bobine, puis nous avons déduit du champ magnétique mesuré
+
+et du diamètre de la bobine (11,4 cm) les valeurs de flux magnétique :   B  S  B   
+=11,4 cm.
+16
+
+D2
+avec D le diamètre
+4
+
+Chapitre 6 : L'effet transformateur.
+Flux magnétique (Wb) en fonction de la distance entre
+les bobines. (mm)
+
+1,40E-05
+
+1,20E-05
+
+Après avoir effectué ce calcul pour toutes les valeurs
+moyennes trouvées, nous avons calculé le flux
+magnétique initial généré par la bobine :
+
+N   L  I   
+
+1,00E-05
+Flux récupéré
+
+8,00E-06
+
+Flux de fuites
+
+6,00E-06
+
+Flux théorique
+4,00E-06
+2,00E-06
+0,00E+00
+0
+
+20
+
+40
+
+60
+
+80
+
+100
+
+120
+
+140
+
+L I
+N
+
+1,6 10 3  0,77
+
+ 12,9Wb
+95
+Pour visualiser nos résultats, nous avons construit le
+graphique suivant, qui montre l’évolution du flux de
+fuites et du flux susceptible d’être récupéré, à
+différentes distances par la bobine 2. On observe que
+la distance minimale entre les milieux des bobines
+étant de 40 mm, le flux de fuites sera toujours
+supérieur au flux récupéré. Notre système a donc
+beaucoup de pertes.
+
+Mais comment quantifier ces pertes ?
+La qualité du couplage est définie par l’inductance mutuelle entre les deux bobines : M  L1  L2 et le
+coefficient de couplage K : K 
+
+M
+où M’ est la mutuelle réelle et M la mutuelle parfaite entre les deux bobines. La
+M
+
+mutuelle parfaite est obtenue en multipliant les inductances des bobines : dans notre cas, la mutuelle parfaite serait
+
+
+M Parfaite  L1  L2  1,55 103  1,72 103  1,65 mHenry. Pour trouver la mutuelle réelle, il faut repartir de la
+formule de départ
+en ajoutant l’action de la bobine 1 sur 2 :
+dI
+dI
+d
+N 2    L2  I 2  M   I 1  V2  N 2 
+ L2  2  M   1 .
+dt
+dt
+dt
+
+Or, I2 étant nul (on n’a pas laissé de courant se former dans la bobine 2, le transformateur est à vide), on obtient :
+
+V2  M 
+
+dI1
+V2
+ M     I1  M  
+dt
+  I1
+
+(en régime sinusoïdal)
+
+On peut donc maintenant calculer la mutuelle réelle de notre système ainsi que son coefficient de couplage
+dans deux cas : lorsque les bobines sont adossées l’une à l’autre et lorsqu’elles sont espacées de deux centimètres.
+Pour cela, nous avons branché le circuit simulé ci-contre sous le logiciel Proteus. Les résultats de nos expériences,
+confirmés par simulation, sont regroupés dans le tableau ci-dessous.
+
+17
+
+Chapitre 6 : L'effet transformateur.
+Valeurs expérimentales
+
+Pas d’espace
+
+2 cm
+
+V2 (Volts)
+I1 (Ampères)
+Pulsation
+Mutuelle réelle M’
+
+3,09
+0,8
+
+2,0
+0,82
+
+Mutuelle idéale
+Coefficient de couplage K
+
+6283
+
+3,09
+ 6,15  10  4 Henry
+6283  0,8
+
+2,0
+ 3,88  10  4 Henry
+6283  0,82
+
+1,65.10-3 Henry
+
+6,15  10 4
+ 0,377
+1,65  10 3
+
+3,88  10 4
+ 0,238
+1,65  10 3
+
+On observe que les valeurs de coefficients de couplage trouvées sont très
+inférieures à 1, la valeur idéale, celles-ci ont même tendance à diminuer en fonction de la
+distance entre les bobines. Notre système a donc des pertes très importantes,
+principalement car il se situe dans l’air. L’air est très mauvais conducteur magnétique : la
+réluctance du circuit sera donc très importante. La réluctance d’un circuit magnétique
+désigne la résistance s’opposant à son passage, comme sur le schéma électrique
+équivalent ci-contre, grâce à la formule : 𝑁1 ∙ 𝐼1 =  ∙  associée à la relation : 𝑁1 ∙  = L1 ∙ I1 on détermine :
+
+N2
+952
+
+  Système 
+ 57575,8 . On observe qu’elle est très grande, la résistance s’opposant au
+L
+1,65  10 3
+passage du flux magnétique sera donc importante.
+Dans notre modèle, nous avons donc deux bobines couplées par air, donc le coefficient de couplage est au
+maximum de 0,377. Cela signifie qu’au maximum, lorsque les deux bobines se touchent, seul 37% du champ
+magnétique émis sera récupéré. Cela est dû aux nombreuses fuites que l’on observe car l’air ne canalise pas le
+champ magnétique.
+On peut aussi observer un autre phénomène intéressant pour notre projet. En effet, on remarque que, dans
+un transformateur parfait, si on laisse se former un courant de l’autre côté du transformateur, les deux intensités
+des courants sont proportionnelles : N1 I1 = N2 I2 (si on ignore les fuites). C’est comme ça que le transpondeur et le
+récepteur communiquent dans notre système RFID : lorsque le courant dans le transpondeur augmente (I2), le
+courant dans le récepteur aussi. C’est ce phénomène, nommé « Réflexion de charge », qu’utilise le transpondeur et
+le module pour communiquer, par exemple une variation de courant ascendante dans l’antenne du récepteur peut
+être interprétée comme un « 1 » logique et une variation descendante comme un « 0 ». Encore une fois, nous avons
+pu voir sous Proteus comment se passait ce phénomène de manière détaillée, à travers le montage suivant :
+
+Sonde de courant
+
+Switch à niveaux logiques, fermant et
+ouvrant successivement le circuit
+
+Source de Tension
+
+Émetteur
+
+Transpondeur
+18
+
+Chapitre 7 : La démodulation.
+Ce circuit permet de mettre en évidence la
+communication Lecteur/transpondeur. On visualise sur
+l’oscilloscope ci-contre la tension aux bornes de la bobine
+L1 (signal jaune) et le courant dans le lecteur (signal
+rouge), la tension dans la bobine L2 (signal bleu) et le
+courant dans le transpondeur (signal vert). On observe que
+les deux tensions ont la même forme d’onde, semblable à
+celle que l’on a vue dans le chapitre sur la modulation.
+Néanmoins, on observe que l’induction conserve
+globalement les courants, la formule N1I1 = N2I2 est
+vérifiée : lorsqu’un courant circule dans le transpondeur,
+celui-ci provoque une brusque augmentation en flux
+magnétique et ainsi du courant dans le récepteur (le
+courant circulant étant directement proportionnel au flux
+magnétique suivant la formule N x ϕ = L x I, N et L sont
+fixés). Le lecteur RFID va donc réceptionner ces variations
+de courant et les interpréter comme des « 0 » ou des « 1 » ce qui permet de récupérer l’enveloppe d’un signal en
+carré correspondant au code du transpondeur.
+
+
+
+Chapitre 7 : La démodulation
+
+Nous nous intéressons ici à la partie du
+montage chargée de retrouver le signal initial
+représentée par le schéma ci-contre.
+
+ Principe global.
+A la réception du signal par la seconde bobine, nous avons une onde modulée d’amplitude réduite. Il nous
+faut en extraire l’information codée et retrouver donc le « créneau » modulant.
+Ce travail s’effectue en deux étapes, il nous faut d’abord retrouver l’enveloppe du signal modulant à l’aide
+d’un détecteur de crête, puis retrouver la forme du créneau à l’aide d’un comparateur (Amplificateur opérationnel).
+
+ Supprimer la composante négative du signal.
+L’onde porteuse est une tension alternative, variant entre +10V
+R
+C
+et -10V. Cependant, notre onde modulante n’avait pas de composante
+Uentrée(t)
+Usortie(t)
+U(t)
+négative. Nous avons gardé uniquement la partie positive du signal à
+)
+l’aide d’un montage redresseur : Une simple diode, elle ne laisse passer le courant que dans un seul sens et bloque
+l’alternance négative.
+
+ Retrouver l’enveloppe : le détecteur de crête.
+Le montage :
+Il se compose d’un condensateur (C sur la figure ci-contre) branché en dérivation d’une résistance (R sur la
+figure), à la suite du montage redresseur.
+
+19
+
+Chapitre 7 : La démodulation.
+Détermination des valeurs et résultat.
+A la suite de ce montage nous retrouvons la courbe suivante :
+
+Signal Modulé
+Signal en sortie du
+détecteur de crête.
+Prenons le condensateur chargé à t=0 au début d’une alternance positive. Entre t=0 et t1, la tension à
+l’entrée du circuit Uentrée(t) croît. Le condensateur se charge et sa tension augmente jusqu’à une valeur maximale.
+Après t1, Uentrée(t) diminue, et le condensateur se décharge jusqu’à ce que sa tension U(t) soit égale à Uentrée(t) au
+temps t2. Après t2, Uentrée(t) croît à nouveau et le condensateur charge jusqu’à une nouvelle valeur U(t) maximale.
+Cela permet de retrouver l’enveloppe globale du signal
+modulant.
+Lorsque le condensateur se charge, la tension UC(t) s’écrit de
+t
+
+la sorte : U C (t )  (Vinitiale  V finale )e   V finale . Tout montage RC
+comme celui-ci possède une constante de temps notée τ, qui est
+calculée grâce au produit des valeurs de résistance et de
+condensateur.
+t
+
+Dans la phase de décharge U C (t )  VInitiale  e  , donc l'instant τ
+correspond à une capacité restante dans le condensateur de 37 %, à 3τ il restera 5
+%, etc… Nous retrouvons une courbe inverse à celle de la charge.
+Il s’agit donc de jouer sur la valeur de τ donc de la résistance et du
+condensateur afin que le condensateur se charge assez vite et se décharge assez
+peu pour que lorsque l’onde est à 1, il épouse les crêtes de celle-ci, mais se
+décharge assez vite pour tomber à 0 lorsqu’il n’y a plus d’onde.
+Dans notre montage, nous avons une charge très rapide car nous n’avons pas placé de résistance pour la
+ralentir, mais seulement une résistance après le condensateur pour ralentir sa décharge.
+Afin de déterminer les bonnes valeurs de la résistance R et du condensateur C, nous devons utiliser la constante de
+temps τ  = 𝑅 × 𝐶, et la comparer aux périodes Tmodulant (La période du signal modulant) et Tporteuse (La période la
+porteuse).
+1
+
+Pour notre signal nous avons Fporteuse = 1000Hz et Fmodulante= 200Hz, or 𝐹 = 𝑇 donc
+1
+
+1
+
+𝑇porteuse = 1000 = 1,0ms
+
+𝑇modulante = 200 = 5,0ms
+20
+
+Chapitre 7 : La démodulation.
+
+Idéalement, nous devrions obtenir
+
+𝑇modulante
+>  > 𝑇porteuse × 10, mais cela impliquerait que la période (donc la
+10
+
+fréquence également) de l’onde porteuse soit cent fois supérieure à la période de l’onde modulante, or ce n’est ici
+pas le cas.
+Cependant pour 𝑇modulante >  > 𝑇porteuse → 1𝑚𝑠 <  < 5𝑚𝑠.
+Nous avions à notre disposition un condensateur de 1 Farad et plusieurs résistances, allant de 1k à 200. Il nous
+fallait donc trouver la résistance la plus adaptée, s’approchant le plus de  ≅ 3𝑚𝑠.
+Valeur de R
+200k
+4,4k
+2,2k
+1k
+
+=𝑹×𝑪
+ = 200ms
+ = 4,4ms
+ = 2,2ms
+ = 1ms
+
+𝟏<<𝟓
+1 < 5 < 200
+1 < 4,4 < 5
+1 < 2,2 < 5
+5 >1 = 1
+
+Oui / Non
+Non
+Non
+Oui
+Non
+
+Ainsi nous utilisons dans notre montage une résistance de 2,2k, branchée en dérivation avec un condensateur de
+1F constituant donc notre filtre passe-bas, dont l’objectif est d’éliminer l’onde haute fréquence porteuse et
+retrouver l’enveloppe du signal.
+
+ « Linéariser » l’enveloppe : Le comparateur.
+Le montage.
+Nous avons mis en place un circuit permettant de comparer les valeurs de tension à la sortie du passe-bas : il
+s’agit d’un amplificateur opérationnel.
+Typiquement, un amplificateur opérationnel se compose de deux broches d’alimentation + Vcc et - Vcc car
+son fonctionnement impose une alimentation symétrique, de deux entrées différentielles E+ et E- ainsi que d’une
+sortie S. On définit la tension différentielle ε entre les deux entrées comme ε = E+ - E-. Le fonctionnement de
+l’amplificateur est très simple : lorsque la tension différentielle est inférieure à 0, il renvoie - Vcc (dans notre système
+- 15V) et quand elle est supérieure, il renvoie + Vcc (+15V) sur S. C’est un fonctionnement en saturation.
++15V
+
+D2
+
++
+-5V
++15V
+R1
+
+-15V
+
+U4
+
+U5
+
+Dans notre système, nous avons branché la borne + du circuit RC à l’entrée positive du comparateur, puis
+amené une tension de + 15V que nous avons ramené à +1,5 V pour réaliser une tension seuil grâce à une résistance
+variable. Son fonctionnement est relativement satisfaisant : lorsque la tension après le circuit RC est inférieure à
+1,5V, on a ε < 0 donc le comparateur renvoie -15V. Lorsque la tension après le RC est supérieure à ce seuil, on a ε > 0
+donc le comparateur renvoie + 15V.
+
+21
+
+Conclusion.
+Résultat.
+Après avoir mis une diode pour couper le signal en-dessous de 0V, nous retrouvons donc bien le créneau, et
+son message codé de l’onde modulante.
+Signal Modulant
+Signal Démodulé.
+Usortie(t)
+
+A travers donc tout notre montage (que vous pouvez visualiser en annexe 3), nous retrouvons bien le signal
+modulant transmis par la Bobine 1 à la Bobine 2 après démodulation
+
+
+Chapitre 8 : Conclusion
+ De la modulation à la RFID.
+
+Nous avons précédemment
+travaillé sur le schéma ci-contre,
+représentant la chronologie de la
+circulation de l’information dans
+un transpondeur.
+Après l’étude complète d’un
+circuit de modulation /
+démodulation d’amplitude, nous
+retrouvons une correspondance
+certaine avec notre montage.
+
+Alimentation du
+transpondeur via induction
+électromagnétique
+
+Stockage des données
+sous forme de 0 et de 1
+
+Envoi des informations par
+effet transformateur
+
+Le transpondeur
+
+Cette correspondance peut s’illustrer par
+la mise en parallèle du schéma de notre
+transpondeur (ci-contre), et de celui de
+notre montage (ci-dessous).
+
+Modulation des
+données avec une
+porteuse
+
+Modulation des
+données avec une
+porteuse
+
+La chronologie est la même, et notre montage sur la
+modulation/démodulation d’amplitude illustre de manière
+détaillée ce qu’un petit composant comme un transpondeur
+est capable de faire.
+Notre montage
+
+Ainsi, à travers ce dossier nous avons pu expliquer par
+quel moyen physique notre « Roméobot » pouvait
+communiquer avec les panneaux de signalisation de vitesse.
+
+Envoi des informations
+par effet transformateur
+
+Stockage des données
+sous forme de 0 et de 1
+
+22
+
+Conclusion.
+
+ Application du projet.
+Utilisation de la RFID :
+Le système RFID de part sa portée relativement faible nécessite l’implantation des transpondeurs sous la
+chaussée. Une portée faible, car pour subir les aléas de la route nous devrions sélectionner un transpondeur passif,
+peu influencé par les intempéries, ni sensible au métal des voitures, a une grande variabilité de support mais avec
+une portée maximale d’un mètre.
+Cependant nous retrouvons maintenant tous les jours des capteurs,
+de présence notamment aux feux tricolores, sous la chaussée et y intégrer des
+transpondeurs ne paraît pas être un réel défi.
+Influence sur la conduite :
+Pour une utilisation sécurisée de ce système, il faudrait qu’il ait une
+fiabilité de 100 %, et qu’il ne rehausse pas l’assistanat à la conduite.
+
+Pour cela nous avons pensé à étendre ce système à tous les panneaux de signalisation, et permettre
+l’affichage de ces panneaux en « réalité augmentée » à travers le pare-brise, il s’agirait d’une manière d’atteindre la
+« voiture intelligente » à laquelle les recherches des industriels de l’automobile se consacrent actuellement.
+La fiabilité de l’information serait également contrôlée par satellite, et le conducteur serait toujours stimulé
+par des informations visuelles sur la route, bien que la tâche lui soit facilitée. On supprimerait ainsi une partie du
+risque de la perte d’attention du conducteur, et renforcerions sa fiabilité.
+Mise en œuvre :
+Un tel système permettrait de faire des économies dans l’entretien des infrastructures routières. En effet, un
+panneau de signalisation a un coût élevé (plus d’une centaine d’euros en France) et est rapidement abîmé. Tandis
+qu’un transpondeur, enfoui sous le sol ne serait abîmé qu’en cas de dégradation de la route elle-même, de plus leur
+coût est faible (quelques euros) et en cas de travaux, la municipalité pourrait écrire de nouvelles informations dans
+les transpondeurs.
+
+23
+
+
