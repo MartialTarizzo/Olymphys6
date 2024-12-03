@@ -52,6 +52,12 @@ class SearchController extends AbstractController
                     'label' => 'Lance recherche ...',
                 ])
                 ->getForm();
+            $titre=null;
+            $pdfUrl=null;
+            $nbKeyWord=null;
+            $occurence=null;
+            $statResult=null;
+            $nsecmax=null;
            $form->handleRequest($request);
            if ($form->isSubmitted() && $form->isValid()) {
 
@@ -114,6 +120,7 @@ class SearchController extends AbstractController
                // on ajoute pour chaque fichier le nombre total d'occurences de tous les mots clés
                // avec "nb match" comme mot clé.
                // "nb match" ne peut pas correspondre à un mot clé utilisateur, car contenant " "
+
                foreach ($assocFileKWCount as &$assocKWCount) {
                    $nbTotMatch = 0;
                    foreach ($assocKWCount as $c) {
@@ -140,57 +147,64 @@ class SearchController extends AbstractController
 
                // fabrication du contenu html exposant le résutat de la recherche
                // en limitant le nombre de sections à nsecmax
-               echo "<span style='font-style:italic;'>" .
-                   count($assocFileKWCount) . " fichiers(s) trouvé(s) en " .
-                   number_format($temps, 3, ',') .
-                   " s</span><br>";
+               //echo "<span style='font-style:italic;'>" .
+               $statResult=    count($assocFileKWCount) . " fichiers(s) trouvé(s) en " .
+                   number_format($temps, 3, ',') .'s';
+               //    " s</span><br>";
                // $nsec = $nsecmax;
                $idxDoc = 0;
+               $i=0;
+
                foreach ($assocFileKWCount as $fichier => $kwCount) {
                    // $nsec--;
                    $idxDoc += 1;
-                   if ($idxDoc > $nsecmax) {
+                   /*if ($idxDoc > $nsecmax) {
                        echo "<hr><br>... limite de $nsecmax résultats affichés atteinte ... <br><hr>";
                        break;
-                   }
+                   }*/
 
                    // nettoyage du nom de fichier pour ne garder que le titre du rapport
-                   $titre = explode('-', $fichier, $limit = 5); // nom rapport = dernier élément
-                   $titre = substr(end($titre), 0, -4);    // retrait de ".txt"
-                   $titre = str_replace('-', ' ', $titre);  // élimination des "-"
-
-                   echo "<h3>$idxDoc -  $titre</h3><br>"; // le nom du fichier
+                   $titre[$i] = explode('-', $fichier, $limit = 5); // nom rapport = dernier élément
+                   $titre[$i] = substr(end($titre[$i]), 0, -4);    // retrait de ".txt"
+                   $titre[$i] = str_replace('-', ' ', $titre[$i]);  // élimination des "-"
+                   $titre[$i]=$idxDoc.'-'. $titre[$i];
+                   //echo "<h3>$idxDoc -  $titre</h3><br>"; // le nom du fichier
                    // Affichage de l'édition
                    [$edition, $reste] = explode('-', $fichier, $limit = 2);
-                   echo "Édition n°$edition - ";
-
+                   //echo "Édition n°$edition - ";
+                   $num=$edition;
+                   $edition ="Édition n°$edition - ";
                    //  fabrication de l'url du fichier pdf archivé
                    // encodage du nom du fichier comme portion d'url valable
                    $urlTitre = rawurlencode($fichier);
-                   $pdfUrl = "https://www.olymphys.fr/public/odpf/odpf-archives/" .
-                       $edition . "/fichiers/memoires/publie/" .
+                   $pdfUrl[$i] = "https://www.olymphys.fr/public/odpf/odpf-archives/" .
+                       $num. "/fichiers/memoires/publie/" .
                        substr($urlTitre, 0, -3) . "pdf";
 
                    // écriture de la ligne d'info sur les termes trouvés et le lien vers le pdf
-                   echo "</span>&nbsp;<a href=$pdfUrl target='_blank'>afficher le mémoire</a><br>";
-                   echo "<span style='font-style:italic;'>";
-                   echo "<b>mots-clés trouvés : <span style='background-color:yellow;'>" .
-                       count($kwCount) - 1 . "/" .  count($kwArray) .
-                       "</span></b>&nbsp;&nbsp;&nbsp;-&nbsp;&nbsp;&nbsp;";
-                   echo  $kwCount["nb match"] . " occurences : ";
+                   //echo "</span>&nbsp;<a href=$pdfUrl target='_blank'>afficher le mémoire</a><br>";
+                   //echo "<span style='font-style:italic;'>";
+                   //echo "<b>mots-clés trouvés : <span style='background-color:yellow;'>" .
+                   $nbKeyWord[$i]=    count($kwCount) - 1 . "/" .  count($kwArray);
+                   //    "</span></b>&nbsp;&nbsp;&nbsp;-&nbsp;&nbsp;&nbsp;";
+                  $occurence[$i]= $kwCount["nb match"] . " occurences : ";
                    foreach ($kwCount as $kw => $count) {
                        if ($kw == "nb match") continue;
-                       echo "$kw ($count)&nbsp;";
+                       $occurence[$i]= $edition.$occurence[$i]. "$kw ($count)";
                    }
-                   echo "</span><br>";
+                   //echo "</span><br>";
+                   $i++;
                }
+
            }
 
 
-        return $this->render('search/search.html.twig', ['form' => $form->createView()]);
-
-
- }
-
-
+        return $this->render('search/search.html.twig', ['form' => $form->createView(),
+            'titre'=>$titre,
+            'statresult'=>$statResult,
+            'pdfUrl'=>$pdfUrl,
+            'nbKeyWord'=>$nbKeyWord,
+            'occurence'=>$occurence,
+            'nsecmax'=>$nsecmax,]);
+    }
 }

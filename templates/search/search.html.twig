@@ -76,7 +76,23 @@
         </form> #}
         {{ form(form) }}
     </div>
-    <div id="result">aucune recherche effectuée...</div>
+    <div id="result">
+            {% if occurence ==null%}
+                             aucune recherche effectuée...
+            {% else%}
+        {{ statresult }}, {{ min(titre|length, nsecmax) }} affichés :
+
+
+                {% for i in 0..min(titre|length-1, nsecmax-1) %}
+                    <h5>{{ titre[i] }}</h5>
+                 &nbsp;    &nbsp;    &nbsp;    &nbsp;<a href="{{pdfUrl[i] }}" target='_blank'>Afficher le mémoire</a><br>
+                    <span style='font-style:italic;'> <b>mots-clés trouvés : <span style='background-color:yellow;'>{{ occurence[i] }}</span></b></span>
+                    <br>
+                    <br>
+                {% endfor%}
+            {% endif %}
+
+    </div>
     </div>
 
 {% endblock %}
