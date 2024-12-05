@@ -64,7 +64,7 @@ class SearchController extends AbstractController
             $equipes=null;
             $kwNotFoundByName = null;
             $kwNotFoundByIndex = null;
-            
+             $backColor = [];
            $form->handleRequest($request);
            if ($form->isSubmitted() && $form->isValid()) {
 
@@ -220,7 +220,7 @@ class SearchController extends AbstractController
                 }
             }
 
-            $backColor = [];
+
             $idx = 0;
             foreach (array_keys($assocFileKWCount) as $f) {
                 try {
