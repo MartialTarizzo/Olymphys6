@@ -225,10 +225,11 @@ class JuryCiaController extends AbstractController
     {
         $dateconcourscia=$this->requestStack->getSession()->get('edition')->getConcourscia()->format('Y-m-d');
         $datelim=new \DateTime($dateconcourscia);
-        $datelim=$datelim->modify('-1 day');
+        $datelim = $datelim->modify('-7 day');
         if (new DateTime('now') >= $datelim) {
             $user = $this->getUser();
             $jure = $this->doctrine->getRepository(JuresCia::class)->findOneBy(['iduser' => $user]);
+
             if ($jure->getCentrecia()->getVerouClassement() != true) {
                 $repositoryNotes = $this->doctrine
                     ->getManager()
@@ -313,8 +314,8 @@ class JuryCiaController extends AbstractController
 
 
                 $coefficients = $this->doctrine->getRepository(Coefficients::class)->findOneBy(['id' => 1]);
-
-                if ($request->isMethod('POST') && $form->handleRequest($request)->isValid()) {
+                $form->handleRequest($request);
+                if ($form->isSubmitted() and $form->isValid()) {
 
                     $coefficients = $this->doctrine->getRepository(Coefficients::class)->findOneBy(['id' => 1]);
                     $notes->setCoefficients($coefficients);
@@ -327,6 +328,7 @@ class JuryCiaController extends AbstractController
                             ->getQuery()->getResult();
 
                     }
+
                     $em->persist($notes);
                     $em->flush();
                     $repo = $this->doctrine->getRepository(RangsCia::class);
