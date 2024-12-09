@@ -102,11 +102,21 @@ class SecretariatjuryCiaController extends AbstractController
             ->andWhere('e.edition =:edition')
             ->andWhere('e.numero <:numero')
             ->andWhere('e.centre =:centre')
-            ->andWhere('e.inscrite !=0')
+            ->andWhere('e.inscrite = 1')
             ->setParameters(['edition' => $edition, 'numero' => 100, 'centre' => $centre])//les numéros supérieurs à 100 sont réservés aux "équipes" kurynational, ambiance du concours, remise des prix pour les photos
             ->orderBy('e.numero', 'ASC')
             ->getQuery()
             ->getResult();
+        $horaires = $this->doctrine->getRepository(HorairesSallesCia::class)->createQueryBuilder('h')
+            ->leftJoin('h.equipe', 'eq')
+            ->where('eq.centre =:centre')
+            ->andWhere('eq.edition =:edition')
+            ->andWhere('eq.inscrite = 1')
+            ->orderBy('h.horaire', 'ASC')
+            ->setParameters(['centre' => $centre, 'edition' => $this->requestStack->getSession()->get('edition')])
+            ->getQuery()->getResult();
+
+
         $lesEleves = [];
         $lycee = [];
 
@@ -121,7 +131,7 @@ class SecretariatjuryCiaController extends AbstractController
         $session = $this->requestStack->getSession();//on crèe une variable globale de session qui contient le tableau
         $session->set('tableau', $tableau);
         $content = $this->renderView('cyberjuryCia/accueil.html.twig',
-            array('centre' => $centre, 'equipes' => $listEquipes));
+            array('centre' => $centre, 'equipes' => $listEquipes, 'horaires' => $horaires));
 
         return new Response($content);
     }
@@ -189,20 +199,23 @@ class SecretariatjuryCiaController extends AbstractController
     {
 
         // affiche les équipes dans l'ordre de la note brute
-        $edition = $this->requestStack->getSession()->get('edition');
+        $editionId = $this->requestStack->getSession()->get('edition')->getId();
+        $edition = $this->doctrine->getManager()->getRepository(Edition::class)->findOneBy(['id' => $editionId]);
         $repositoryCentres = $this->doctrine->getRepository(Centrescia::class);
         $repositoryEquipes = $this->doctrine->getRepository(Equipesadmin::class);
         $repositoryRangs = $this->doctrine->getRepository(RangsCia::class);
         $centrecia = $repositoryCentres->findOneBy(['centre' => $centre]);
-        $listEquipes = $repositoryEquipes->findBy(['edition' => $edition, 'centre' => $centre]);
+        $listEquipes = $repositoryEquipes->findBy(['edition' => $edition, 'centre' => $centrecia, 'inscrite' => true]);
 
         $rangs = $repositoryRangs->createQueryBuilder('r')
             ->leftJoin('r.equipe', 'eq')
             ->where('eq.edition =:edition')
             ->andWhere('eq.centre =:centre')
-            ->setParameters(['edition' => $edition, 'centre' => $centrecia])
+            ->andWhere('eq.inscrite =:inscrite')
+            ->setParameters(['edition' => $edition, 'centre' => $centrecia, 'inscrite' => true])
             ->addOrderBy('r.rang', 'ASC')
             ->getQuery()->getResult();
+
         $content = $this->renderView('cyberjuryCia/classement.html.twig',
             array('rangs' => $rangs, 'equipes' => $listEquipes, 'centre' => $centrecia)
         );
@@ -943,6 +956,11 @@ class SecretariatjuryCiaController extends AbstractController
             $nom = $form->get('nomJure')->getData();
             $prenom = $form->get('prenomJure')->getData();
             $email = $form->get('email')->getData();
+            if ($this->doctrine->getRepository(User::class)->findOneBy(['email' => $email])) {//si oui, cela signifie qu'on utilise une adresse mail déjà existante : prévenir l'utilisateur
+                
+                $this->requestStack->getSession()->set('info', 'Cette adresse mail est déjà attribuée, impossible de changer');
+                return $this->redirectToRoute('secretariatjuryCia_gestionjures', ['centre' => $centre]);
+            }
             $userJure->setEmail($email);
             $userJure->setNom(strtoupper($nom));
             $prenomNorm = ucfirst(strtolower($prenom));

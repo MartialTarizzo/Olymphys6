@@ -92,7 +92,7 @@ class Equipesadmin
     #[ORM\ManyToOne(targetEntity: User::class)]
     private ?User $idProf2;
 
-    #[ORM\Column(nullable: true)]
+    #[ORM\Column(type: Types::BOOLEAN, nullable: true)]
     protected ?bool $inscrite = true;
 
     #[ORM\Column(type: Types::INTEGER, nullable: true)]
@@ -104,7 +104,7 @@ class Equipesadmin
     #[ORM\ManyToOne]
     private ?Edition $edition;
 
-    #[ORM\Column(nullable: true)]
+    #[ORM\Column(type: Types::BOOLEAN, nullable: true)]
     private ?bool $retiree = null;
 
     #[ORM\Column(type: Types::TEXT, nullable: true)]
