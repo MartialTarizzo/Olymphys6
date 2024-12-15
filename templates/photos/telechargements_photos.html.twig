@@ -1,0 +1,54 @@
+{% extends "base1.html.twig" %}
+{% block title %}Téléchargment des photos{% endblock %}
+
+{% block navigation %}
+    {% set centre=null %}
+    {% if is_granted('ROLE_ORGACIA') %}
+        {% set centre=app.user.centrecia %}
+    {% endif %}
+    {{ include ("cyberjuryCia/navigation.html.twig") }}
+
+{% endblock %}
+
+{% block titre3 %}
+    {% set centre=null %}
+    {% if is_granted('ROLE_ORGACIA') %}
+        {% set centre=app.user.centrecia %}
+    {% endif %}
+
+    Téléchargement des photos du centre de {{ centre.centre }}
+{% endblock %}
+
+{% block body %}
+    <div class="container">
+        {% if listePhotos!=null %}
+            {{ form_start(form) }}
+            {{ form_errors(form) }}
+            {{ form_widget(form.valider, {'label':'Télécharger'}) }} <span style="font-size: small"> Cocher les cases des photos à télécharger. Pour
+        une seule photo cliquer sur la photo puis avec un  clic droit sur la photo HD qui s'affiche choisir "enregistrer l'image sous" </span>
+
+            <div class="d-flex flex-wrap">
+                {% for photo in listePhotos %}
+                    <div class="p-2">
+                        {% for key in form.children|keys %}
+                            {% if  key == 'check'~photo.id %}
+                                {{ form_widget(form.children[key],{'label':'Eq'~  photo.equipe.numero, 'attr':{'z-index':1} }) }}
+
+                                <a href="{{ asset('odpf/odpf-archives/'~photo.edition.ed~'/photoseq/'~photo.photo) }}"
+                                   target="_blank">
+                                    <img src="{{ asset('odpf/odpf-archives/'~photo.edition.ed~'/photoseq/thumbs/'~photo.photo) }}"
+                                         class="zoom">
+                                </a>
+                            {% endif %}
+                        {% endfor %}
+                    </div>
+                {% endfor %}
+            </div>
+            {{ form_end(form) }}
+        {% else %}
+            <span style="text-align: center">Pas photo déposée pour ce centre pour le moment</span>
+        {% endif %}
+
+    </div>
+
+{% endblock %}

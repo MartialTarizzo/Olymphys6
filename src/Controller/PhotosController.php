@@ -11,6 +11,7 @@ use App\Entity\Odpf\OdpfEquipesPassees;
 use App\Entity\Photos;
 use App\Form\ConfirmType;
 use App\Form\PhotosType;
+use App\Form\TelechargementPhotosType;
 use Imagick;
 use ImagickException;
 
@@ -23,6 +24,7 @@ use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\HttpFoundation\File\Exception\FileException;
 use Symfony\Component\HttpFoundation\File\UploadedFile;
+use Symfony\Component\HttpFoundation\HeaderUtils;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\RequestStack;
 use Symfony\Component\HttpFoundation\Response;
@@ -33,6 +35,7 @@ use Symfony\Component\Validator\Constraints\File;
 use Symfony\Component\Validator\Constraints\NotBlank;
 use Symfony\Component\Validator\ConstraintViolation;
 use Symfony\Component\Validator\Validator\ValidatorInterface;
+use ZipArchive;
 
 
 class PhotosController extends AbstractController
@@ -157,12 +160,15 @@ class PhotosController extends AbstractController
                         if ($concours == 'inter') {//Un membre du comité peut vouloir déposer une photo interacadémique lors du concours national
                             $photo->setNational(FALSE);
                         }
-                        if (($equipe->getLettre() !== null) or ($concours == 'cn')) {
+                        if (($equipe->getLettre() !== null) and ($concours == 'cn')) {
 
                             $photo->setNational(TRUE);
                         }
-                        if ($equipe->getNumero() >= 100) { //ces "équipes" sont des équipes technique remise des prix, ambiance du concours, etc, ...
+                        if ($equipe->getNumero() >= 100) { //ces "équipes" sont des équipes techniques remise des prix, ambiance du concours, etc, ...
                             $photo->setNational(TRUE);
+                        }
+                        if ($equipe->getNumero() >= 200) { //ces "équipes" sont des équipes techniques des CIA, ambiance du concours, etc, ...
+                            $photo->setNational(FALSE);
                         }
                         $photo->setPhotoFile($file);//Vichuploader gère l'enregistrement dans le bon dossier, le renommage du fichier
                         $photo->setEquipe($equipe);
@@ -235,6 +241,9 @@ class PhotosController extends AbstractController
 
     }
 
+    /**
+     * @throws \DateMalformedStringException
+     */
     #[Isgranted("ROLE_PROF")]
     #[Route("/photos/gestion_photos, {infos}", name: "photos_gestion_photos")]
     public function gestion_photos(Request $request, $infos)
@@ -266,7 +275,14 @@ class PhotosController extends AbstractController
         $editionN = $repositoryEdition->find(['id' => $concourseditioncentre[1]]);
         $editionN1 = $repositoryEdition->findOneBy(['ed' => $editionN->getEd() - 1]);
         new DateTime('now') >= $this->requestStack->getSession()->get('ouverturesite') ? $edition = $editionN : $edition = $editionN1;
-        if ($concours == 'inter') {
+        $datecia = $this->requestStack->getSession()->get('edition')->getConcoursCia()->format('Y-m-d');
+        $datelimite = date_modify(new \DateTime($datecia), '+30days');
+        if (new \DateTime('now') <= $datelimite) {//Dans la période de 30 jours qui suit le CIA , les profs peuvent gérer les photos des cia
+
+            $concours = 'inter';
+        }
+        if ($concours == 'inter' and (new \DateTime('now') <= $datelimite)) {
+
             $qb = $repositoryEquipesadmin->createQueryBuilder('e')
                 ->andWhere('e.edition =:edition')
                 ->setParameter('edition', $edition)
@@ -280,6 +296,7 @@ class PhotosController extends AbstractController
                 }
             }
             if ((in_array('ROLE_ORGACIA', $roles)) or (in_array('ROLE_SUPER_ADMIN', $roles)) or (in_array('ROLE_COMITE', $roles))) {
+                $centre = $repositoryCentrescia->find(['id' => $concourseditioncentre[2]]);//pour les organisateurs cia
                 $ville = $centre->getCentre();
                 $qb->andWhere('e.centre=:centre')
                     ->setParameter('centre', $centre);
@@ -414,6 +431,7 @@ class PhotosController extends AbstractController
 
 
         }
+
 
         if ($concours == 'inter') {
             $content = $this
@@ -557,6 +575,103 @@ class PhotosController extends AbstractController
 
     }
 
+    #[IsGranted("ROLE_PROF")]
+    #[Route("/photos/telecharger_photos", name: "telecharger_photos")]
+    public function telechargerPhotos(Request $request): Response
+    {
+        $edition = $this->requestStack->getSession()->get('edition');
+        $user = $this->getUser();
+        $id_user = $user->getId();
+        $repositoryPhotos = $this->doctrine
+            ->getManager()
+            ->getRepository(Photos::class);
+        $listePhotos = null;
+
+        if (in_array('ROLE_ORGACIA', $user->getRoles())) {
+            $listePhotos = $repositoryPhotos->createQueryBuilder('p')
+                ->leftJoin('p.equipe', 'e')
+                ->where('e.centre=:centre')
+                ->andWhere('p.edition =:edition')
+                ->setParameter('centre', $user->getCentrecia())
+                ->setParameter('edition', $this->requestStack->getSession()->get('edition'))
+                ->orderBy('e.numero', 'ASC')
+                ->getQuery()->getResult();
+
+
+            $form = $this->createForm(TelechargementPhotosType::class, null, ['listePhotos' => $listePhotos]);
+            $form->handleRequest($request);
+            if ($form->isSubmitted() && $form->isValid()) {
+                $zipFile = new ZipArchive();
+                $now = new \DateTime('now');
+                $fileNameZip = $edition->getEd() . '-photos-' . $user->getCentrecia() . '-' . $now->format('d-m-Y\-Hi-s');
+                if ($zipFile->open($fileNameZip, ZipArchive::CREATE) === TRUE) {
+                    foreach ($listePhotos as $photo) {
+                        if ($form->get('check' . $photo->getId())->getData()) {
+                            $fileName = $this->getParameter('app.path.odpf_archives') . '/' . $photo->getEdition()->getEd() . '/photoseq/' . $photo->getPhoto();
+                            $zipFile->addFromString(basename($fileName), file_get_contents($fileName));
+
+                        }
+
+
+                    }
+                    $zipFile->close();
+                }
+                $response = new Response(file_get_contents($fileNameZip));//voir https://stackoverflow.com/questions/20268025/symfony2-create-and-download-zip-file
+
+                $disposition = HeaderUtils::makeDisposition(
+                    HeaderUtils::DISPOSITION_ATTACHMENT,
+                    $fileNameZip
+                );
+                $response->headers->set('Content-Type', 'application/zip');
+                $response->headers->set('Content-Disposition', $disposition);
+
+                @unlink($fileNameZip);
+                return $response;
+
+
+            }
+        }
+        if (in_array('ROLE_PROF', $user->getRoles())) {
+            $listePhotos = $repositoryPhotos->createQueryBuilder('p')
+                ->leftJoin('p.equipe', 'e')
+                ->andWhere('p.edition =:edition')
+                ->andWhere('e.idProf1=:prof1 or e.idProf2=:prof2')
+                ->setParameter('prof1', $id_user)
+                ->setParameter('prof2', $id_user)
+                ->setParameter('edition', $this->requestStack->getSession()->get('edition'))
+                ->getQuery()->getResult();
+
+            $zipFile = new ZipArchive();
+            $now = new \DateTime('now');
+            $fileNameZip = $edition->getEd() . '-photos-' . $user->getCentrecia() . '-' . $now->format('d-m-Y\-Hi-s');
+            if ($zipFile->open($fileNameZip, ZipArchive::CREATE) === TRUE) {
+                foreach ($listePhotos as $photo) {
+
+                    $fileName = $this->getParameter('app.path.odpf_archives') . '/' . $photo->getEdition()->getEd() . '/photoseq/' . $photo->getPhoto();
+                    if (file_exists($fileName)) {
+
+                        $zipFile->addFromString(basename($fileName), file_get_contents($fileName));
+                    }
+                }
+                $zipFile->close();
+            }
+            $response = new Response(file_get_contents($fileNameZip));//voir https://stackoverflow.com/questions/20268025/symfony2-create-and-download-zip-file
+
+            $disposition = HeaderUtils::makeDisposition(
+                HeaderUtils::DISPOSITION_ATTACHMENT,
+                $fileNameZip
+            );
+            $response->headers->set('Content-Type', 'application/zip');
+            $response->headers->set('Content-Disposition', $disposition);
+
+            @unlink($fileNameZip);
+            return $response;
+
+
+        }
+
+        return $this->render('photos/telechargements_photos.html.twig', ['listePhotos' => $listePhotos, 'form' => $form->createView(), 'centre' => $user->getCentrecia()]);
+    }
 
 }
 

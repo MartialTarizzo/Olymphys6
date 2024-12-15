@@ -21,30 +21,33 @@
 
 {% endblock %}
 {% block body %}
-    {% if is_granted('ROLE_PROF') == false %}
+    {% if is_granted('ROLE_COMITE')  or is_granted('ROLE_ORGACIA') %}
         {% if concours=='cia' %}
 
-            <div class="text-center"><a href="{{ path('photos_voirphotoscia',{editionchoix : edition.id~'-'~choix}) }}">Retour
-                    à la liste des centres</a></div>
+            <div class="text-center"><a href="{{ path('core_home') }}">Retour</a></div>
+            <a type="button" href="{{ path('telecharger_photos') }}" class="btn btn-primary">Télécharger des photos</a>
         {% endif %}
 
 
         {% if concours=='national' %}
-            <div class="text-center"><a href="{{ path('photos_voirphotoscn',{edition : edition.id~'-'~choix}) }}">Retour
+            <div class="text-center"><a href="{{ path('core_home') }}">Retour
                     à la liste des équipes</a></div>
         {% endif %}
-    {% endif %}
-    {% if is_granted('ROLE_PROF') %}
+    {% elseif is_granted('ROLE_PROF') %}
         <div class="text-center"><a href="{{ path('fichiers_choix_equipe',{choix:'liste_prof'}) }}">Retour</a></div>
+        <a type="button" href="{{ path('telecharger_photos') }}" class="btn btn-primary">Télécharger les photos</a>
     {% endif %}
+
+
+
     <div class="container-fluid">
-        <div class="row">
+        <div class="d-flex flex-wrap">
             {% set i=0 %}
             {% for form in formtab %}
 
                 {% form_theme form 'bootstrap_4_layout.html.twig' %}
 
-                <div class="col-3 ">
+                <div class="p-2">
 
                     {% for photo in liste_photos %}
 
@@ -60,13 +63,13 @@
                                     <div class="container-sm p-3 bg-dark text-white">
                                         <div class="d-flex h-100 align-items-center justify-content-center"><img
                                                     src="{{ asset('odpf/odpf-archives/'~photo.editionspassees.edition~'/photoseq/thumbs/'~photo.photo) }}"
-                                                    ,class="img-thumbnail"></div>
+                                                    class="img-thumbnail"></div>
                                         <div class="text-center">
                                             {% if photo.coment=='' %}
                                                 {% set titre = photo.equipe.titreProjet[0:100] %}
-                                                <font size="-2">{{ titre }} </font>
+                                                <span style="font-size: small">{{ titre }} </span>
                                             {% else %}
-                                                <font size="-2">{{ photo.coment }}</font>
+                                                <span style="font-size: small">{{ photo.coment }}</span>
                                             {% endif %}
                                         </div>
                                     </div>
@@ -76,10 +79,7 @@
                                     <div class="form-group mb-3">
                                         <div class="col">
                                             {{ form_row(form.coment,{'label': 'Saisir le commentaire  ' }) }}
-                                        </div>
-                                    </div>
-                                    <div class="form-group mb-3">
-                                        <div class="col">
+
                                             {{ form_row(form.equipe,{'label': 'Changer d\'équipe  ','data' : photo.equipe}) }}
                                         </div>
                                     </div>
@@ -108,20 +108,19 @@
 
         </div>
     </div>
-    {% if is_granted('ROLE_PROF') %}
-        <div class="text-center"><a href="{{ path('fichiers_choix_equipe',{choix:'liste_prof'}) }}">Retour</a></div>
-
-    {% else %}
-
+    {% if is_granted('ROLE_COMIE')  or is_granted('ROLE_ORGACIA') %}
         {% if concours=='cia' %}
-            <div class="text-center"><a href="{{ path('photos_voirphotoscia',{editionchoix : edition.id~'-'~choix}) }}">Retour
-                    à la liste des centres</a></div>
+
+            <div class="text-center"><a href="{{ path('core_home') }}">Retour</a></div>
         {% endif %}
+
 
         {% if concours=='national' %}
-            <div class="text-center"><a href="{{ path('photos_voirphotoscn',{editionchoix : edition.id~'-'~choix}) }}">Retour
+            <div class="text-center"><a href="{{ path('core_home') }}">Retour
                     à la liste des équipes</a></div>
         {% endif %}
+    {% elseif is_granted('ROLE_PROF') %}
+        <div class="text-center"><a href="{{ path('fichiers_choix_equipe',{choix:'liste_prof'}) }}">Retour</a></div>
     {% endif %}
     {% block javascripts %}
 
