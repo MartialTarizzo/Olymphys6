@@ -500,7 +500,7 @@ class PhotosCrudController extends AbstractCrudController
             $nom_equipe = $equipepassee->getTitreProjet();
             $nom_equipe = $slugger->slug($nom_equipe)->toString();
             if ($entityInstance->getNational() == FALSE) {
-                $newFileName = $ed . '-' . $centre . '-' . $numero_equipe . '-' . $nom_equipe . '.' . $endName;
+                $newFileName = $ed . '-' . $slugger->slug($centre)->toString() . '-' . $numero_equipe . '-' . $nom_equipe . '.' . $endName;
 
             }
             if ($entityInstance->getNational() == TRUE) {

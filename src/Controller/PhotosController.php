@@ -30,6 +30,7 @@ use Symfony\Component\HttpFoundation\RequestStack;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Attribute\Route;
 use Symfony\Component\Security\Http\Attribute\IsGranted;
+use Symfony\Component\String\Slugger\AsciiSlugger;
 use Symfony\Component\Validator\Constraints\DateTime;
 use Symfony\Component\Validator\Constraints\File;
 use Symfony\Component\Validator\Constraints\NotBlank;
@@ -497,6 +498,7 @@ class PhotosController extends AbstractController
     #[Route("/photos/voirgalerie {infos}", name: "photos_voir_galerie")]
     public function voirgalerie(Request $request, $infos)
     {
+        dd($infos);
         $repositoryPhotos = $this->doctrine
             ->getManager()
             ->getRepository(Photos::class);
@@ -580,6 +582,7 @@ class PhotosController extends AbstractController
     public function telechargerPhotos(Request $request): Response
     {
         $edition = $this->requestStack->getSession()->get('edition');
+        $slugger = new AsciiSlugger();
         $user = $this->getUser();
         $id_user = $user->getId();
         $repositoryPhotos = $this->doctrine
@@ -603,7 +606,7 @@ class PhotosController extends AbstractController
             if ($form->isSubmitted() && $form->isValid()) {
                 $zipFile = new ZipArchive();
                 $now = new \DateTime('now');
-                $fileNameZip = $edition->getEd() . '-photos-' . $user->getCentrecia() . '-' . $now->format('d-m-Y\-Hi-s');
+                $fileNameZip = $edition->getEd() . '-photos-' . $slugger->slug($user->getCentrecia())->toString() . '-' . $now->format('d-m-Y\-Hi-s') . '.zip';
                 if ($zipFile->open($fileNameZip, ZipArchive::CREATE) === TRUE) {
                     foreach ($listePhotos as $photo) {
                         if ($form->get('check' . $photo->getId())->getData()) {
@@ -643,7 +646,7 @@ class PhotosController extends AbstractController
 
             $zipFile = new ZipArchive();
             $now = new \DateTime('now');
-            $fileNameZip = $edition->getEd() . '-photos-' . $user->getCentrecia() . '-' . $now->format('d-m-Y\-Hi-s');
+            $fileNameZip = $edition->getEd() . '-photos-' . '-' . $now->format('d-m-Y\-Hi-s') . '.zip';
             if ($zipFile->open($fileNameZip, ZipArchive::CREATE) === TRUE) {
                 foreach ($listePhotos as $photo) {
 
