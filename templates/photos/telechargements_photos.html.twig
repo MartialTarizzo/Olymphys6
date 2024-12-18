@@ -26,7 +26,8 @@
             {{ form_errors(form) }}
             {{ form_widget(form.valider, {'label':'Télécharger'}) }} <span style="font-size: small"> Cocher les cases des photos à télécharger. Pour
         une seule photo cliquer sur la photo puis avec un  clic droit sur la photo HD qui s'affiche choisir "enregistrer l'image sous" </span>
-
+            <a href="{{ path('photos_gestion_photos',{'infos':'inter-'~app.session.get('edition').id~'-'~centre.id~'-'}) }}"
+               type="button" class="btn btn-secondary">Gestion des photos</a>
             <div class="d-flex flex-wrap">
                 {% for photo in listePhotos %}
                     <div class="p-2">

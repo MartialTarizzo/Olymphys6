@@ -531,7 +531,7 @@ class ElevesinterCrudController extends AbstractCrudController
         $liste_eleves = $queryBuilder->getQuery()->getResult();
         $zipFile = new ZipArchive();
         $now = new DateTime('now');
-        $fileNameZip = $edition->getEd() . '-Attestations_eleves_non_selectionnes-' . $now->format('d-m-Y\-His');
+        $fileNameZip = $edition->getEd() . '-Attestations_eleves_non_selectionnes-' . $now->format('d-m-Y\-His') . '.zip';
         if ($zipFile->open($fileNameZip, ZipArchive::CREATE) === TRUE) {
             foreach ($liste_eleves as $eleve) {
                 $phpWord = new  PhpWord();
@@ -691,7 +691,7 @@ class ElevesinterCrudController extends AbstractCrudController
         $liste_eleves = $queryBuilder->getQuery()->getResult();
         $zipFile = new ZipArchive();
         $now = new DateTime('now');
-        $fileNameZip = $edition->getEd() . '-Attestations_eleves_non_selectionnes-' . $now->format('d-m-Y\-His');
+        $fileNameZip = $edition->getEd() . '-Attestations_eleves_non_selectionnes-' . $now->format('d-m-Y\-His') . '.zip';
         if ($zipFile->open($fileNameZip, ZipArchive::CREATE) === TRUE) {
             if ($liste_eleves != null) {
                 foreach ($liste_eleves as $eleve) {
@@ -1004,7 +1004,7 @@ class ElevesinterCrudController extends AbstractCrudController
         $liste_eleves = $queryBuilder->getQuery()->getResult();
         $zipFile = new ZipArchive();
         $now = new DateTime('now');
-        $fileNameZip = $edition->getEd() . '-Attestations_eleves_non_selectionnes-' . $now->format('d-m-Y\-His');
+        $fileNameZip = $edition->getEd() . '-Attestations_eleves_non_selectionnes-' . $now->format('d-m-Y\-His') . '.zip';
         if ($zipFile->open($fileNameZip, ZipArchive::CREATE) === TRUE) {
             foreach ($liste_eleves as $eleve) {
                 $phpWord = new  PhpWord();
@@ -1160,7 +1160,7 @@ class ElevesinterCrudController extends AbstractCrudController
         $liste_eleves = $queryBuilder->getQuery()->getResult();
         $zipFile = new ZipArchive();
         $now = new DateTime('now');
-        $fileNameZip = $edition->getEd() . '-Attestations_eleves_selectionnes-' . $now->format('d-m-Y\-His');
+        $fileNameZip = $edition->getEd() . '-Attestations_eleves_selectionnes-' . $now->format('d-m-Y\-His') . '.zip';
         if ($zipFile->open($fileNameZip, ZipArchive::CREATE) === TRUE) {
             if ($liste_eleves != null) {
                 foreach ($liste_eleves as $eleve) {
@@ -1472,7 +1472,7 @@ class ElevesinterCrudController extends AbstractCrudController
         $fichierspdf=[];
         $date = $this->date_in_french($edition->getConcoursCn()->format('Y-m-d'));
         $datedeb=$this->date_in_french($edition->getConcoursCn()->modify('-1 day')->format('Y-m-d'));
-        $fileNameZip = $edition->getEd() . '-Invitationss_eleves_selectionnes-' . $now->format('d-m-Y\-His');
+        $fileNameZip = $edition->getEd() . '-Invitationss_eleves_selectionnes-' . $now->format('d-m-Y\-His') . '.zip';
         if ($zipFile->open($fileNameZip, ZipArchive::CREATE) === TRUE) {
             foreach ($listeEleves as $eleve) {
                 $this->createinvitationCnWord($eleve,null,$eleve->getEquipe(),$edition,$datedeb, $date);

@@ -249,6 +249,7 @@ class PhotosController extends AbstractController
     #[Route("/photos/gestion_photos, {infos}", name: "photos_gestion_photos")]
     public function gestion_photos(Request $request, $infos)
     {
+        $slugger = new AsciiSlugger();
         $choix = explode('-', $infos)[3];
         $roles = $this->getUser()->getRoles();
 
@@ -364,69 +365,46 @@ class PhotosController extends AbstractController
             return $this->redirectToRoute('fichiers_choix_equipe', array('choix' => 'liste_prof'));
         }
 
-        $i = 0;
-        foreach ($liste_photos as $photo) {
-            $id = $photo->getId();
-            $form[$i] = $this->createForm(FormType::class, $photo);
-//if($photo->getComent()==null){$data=$photo->getEquipe()->getTitreProjet();}
-//else {$data=$photo->getComent();}
+        if ($request->get('enregistrer')) {
+            $em = $this->doctrine->getManager();
+            $photo = $repositoryPhotos->find(['id' => $request->get('id')]);
+            $photo->setComent($request->get('coment'));
+            $nlleEquipe = $em->getRepository(Equipesadmin::class)->find($request->get('equipe'));
+            $equipe = $photo->getEquipe();
+            if ($equipe != $nlleEquipe) {
+                $editionpassee = $this->doctrine->getRepository(OdpfEditionsPassees::class)->findOneBy(['edition' => $edition->getEd()]);
+                $nllequipepassee = $this->doctrine->getRepository(OdpfEquipesPassees::class)->findOneBy(['numero' => $nlleEquipe->getNumero(), 'editionspassees' => $editionpassee]);
 
-            $form[$i]->add('equipe', EntityType::class, [
-                'class' => Equipesadmin::class,
-                'choices' => $liste_equipes,
-            ])
-                ->add('id', HiddenType::class, ['disabled' => true, 'data' => $id, 'label' => false])
-                ->add('coment', TextType::class, [
-                    'required' => false,
-                ]);
-
-            if ($concours == 'inter') {
-                $form[$i]->add('equipe', EntityType::class, [
-                    'class' => Equipesadmin::class,
-                    'query_builder' => $qb,
-
-                    'choice_label' => 'getInfoequipe',
-                    'label' => 'Choisir une équipe',
-                    'mapped' => true,
-
-                ]);
-            }
-            $form[$i]->add('sauver', SubmitType::class)
-                ->add('effacer', SubmitType::class);
-
-
-            $form[$i]->handleRequest($request);
-            $formtab[$i] = $form[$i]->createView();
-
-            if ($form[$i]->isSubmitted() && $form[$i]->isValid()) {
-                $photo = $repositoryPhotos->find(['id' => $id]);
-
-                if ($form[$i]->get('sauver')->isClicked()) {
-
-                    $em = $this->doctrine->getManager();
-                    $photo->setComent($form[$i]->get('coment')->getData());
-                    if ($concours == 'cn') {
-                        $photo->setEquipe($form[$i]->get('equipe')->getData());
-                    }
-                    $em->persist($photo);
-                    $em->flush();
-
-                    return $this->redirectToRoute('photos_gestion_photos', array('infos' => $infos));
-
-
+                $photo->setEquipe($nlleEquipe);
+                $photo->setEquipepassee($nllequipepassee);
+                $nomPhoto = $photo->getPhoto();
+                $nomdecomp = explode('-', $nomPhoto);
+                $finNom = $nomdecomp[count($nomdecomp) - 1];
+                $numero = $nlleEquipe->getNumero();
+                if ($nlleEquipe->getLettre()) {
+                    $numero = $nlleEquipe->getNumero() . '-' . $nlleEquipe->getLettre();
                 }
-                if ($form[$i]->get('effacer')->isClicked()) {
-                    return $this->redirectToRoute('photos_confirme_efface_photo', array('concours_photoid_infos' => $concours . ':' . $photo->getId() . ':' . $infos));
-
-                }
+                $nouvNom = $edition->getEd() . '-' . $slugger->slug($nlleEquipe->getCentre())->toString() . '-eq' . $numero . '-' . $slugger->slug($nlleEquipe->getTitreProjet())->toString() . '-' . $finNom;
+                $pathnouvNom = 'odpf/odpf-archives/' . $edition->getEd() . '/photoseq/' . $edition->getEd() . '-' . $slugger->slug($nlleEquipe->getCentre())->toString() . '-eq' . $numero . '-' . $slugger->slug($nlleEquipe->getTitreProjet())->toString() . '-' . $finNom;
+                $pathnouvNomThumbs = 'odpf/odpf-archives/' . $edition->getEd() . '/photoseq/thumbs/' . $edition->getEd() . '-' . $slugger->slug($nlleEquipe->getCentre())->toString() . '-eq' . $numero . '-' . $slugger->slug($nlleEquipe->getTitreProjet())->toString() . '-' . $finNom;
+                rename('odpf/odpf-archives/' . $edition->getEd() . '/photoseq/' . $photo->getPhoto(), $pathnouvNom);
+                rename('odpf/odpf-archives/' . $edition->getEd() . '/photoseq/thumbs/' . $photo->getPhoto(), $pathnouvNomThumbs);
+                $photo->setPhoto($nouvNom);
 
             }
 
 
-            $i = $i + 1;
+            $em->persist($photo);
+            $em->flush();
+            return $this->redirectToRoute('photos_gestion_photos', array('infos' => $infos));
 
         }
-        if (!isset($formtab)) {
+        if ($request->get('supprimer')) {
+            $photo = $repositoryPhotos->find(['id' => $request->get('id')]);
+
+            return $this->redirectToRoute('photos_confirme_efface_photo', array('concours_photoid_infos' => $concours . ':' . $photo->getId() . ':' . $infos));
+        }
+        if ($liste_photos == []) {
             $request->getSession()->set('info', 'Vous n\'avez pas déposé de photo pour le concours ' . $concours . ' de l\'édition ' . $edition->getEd() . ' à ce jour');
             return $this->redirectToRoute('core_home');
 
@@ -436,17 +414,17 @@ class PhotosController extends AbstractController
 
         if ($concours == 'inter') {
             $content = $this
-                ->renderView('photos/gestion_photos_cia.html.twig', array('formtab' => $formtab,
+                ->renderView('photos/gestion_photos_cia.html.twig', array(
                     'liste_photos' => $liste_photos, 'centre' => $ville, 'choix' => $choix,
-                    'edition' => $edition, 'liste_equipes' => $liste_equipes, 'concours' => 'cia'));
+                    'edition' => $edition, 'liste_equipes' => $liste_equipes, 'concours' => 'cia', 'infos' => $infos));
             return new Response($content);
         }
 
         if ($concours == 'cn') {
 
             $content = $this
-                ->renderView('photos/gestion_photos_cn.html.twig', array('formtab' => $formtab, 'liste_photos' => $liste_photos,
-                    'edition' => $edition, 'equipe' => $equipe, 'concours' => 'national', 'choix' => $choix));
+                ->renderView('photos/gestion_photos_cn.html.twig', array('liste_photos' => $liste_photos,
+                    'edition' => $edition, 'equipe' => $equipe, 'concours' => 'national', 'choix' => $choix, 'infos' => $infos));
             return new Response($content);
         }
 
@@ -498,7 +476,7 @@ class PhotosController extends AbstractController
     #[Route("/photos/voirgalerie {infos}", name: "photos_voir_galerie")]
     public function voirgalerie(Request $request, $infos)
     {
-        dd($infos);
+
         $repositoryPhotos = $this->doctrine
             ->getManager()
             ->getRepository(Photos::class);

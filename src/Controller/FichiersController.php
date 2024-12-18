@@ -968,9 +968,10 @@ class FichiersController extends AbstractController
         $equipe_choisie = $this->doctrine->getRepository(Equipesadmin::class)->findOneBy(['id' => $equipeId]);
         $repositoryFichiersequipes = $this->doctrine->getRepository(Fichiersequipes::class);
         $edition = $this->requestStack->getSession()->get('edition');
-        $zipFile = new ZipArchive();
         $fileName = $edition->getEd() . '-Fichiers-eq-' . $equipe_choisie->getNumero() . '-' . date('now');
-        if ($zipFile->open($fileName, ZipArchive::CREATE) === TRUE) {
+        $zipFile = new ZipArchive();
+        $fileNamezip = $edition->getEd() . '-Fichiers-eq-' . $equipe_choisie->getNumero() . '-' . date('now') . '.zip';
+        if ($zipFile->open($fileNamezip, ZipArchive::CREATE) === TRUE) {
             if ($concours == 'interacadémique') {
                 $liste_fichiers = $repositoryFichiersequipes->createQueryBuilder('f')
                     ->where('f.equipe =:equipe')
@@ -1005,14 +1006,14 @@ class FichiersController extends AbstractController
                 }
             }
             $zipFile->close();
-            $response = new Response(file_get_contents($fileName));//voir https://stackoverflow.com/questions/20268025/symfony2-create-and-download-zip-file
+            $response = new Response(file_get_contents($fileNamezip));//voir https://stackoverflow.com/questions/20268025/symfony2-create-and-download-zip-file
             $disposition = HeaderUtils::makeDisposition(
                 HeaderUtils::DISPOSITION_ATTACHMENT,
                 $fileName
             );
             $response->headers->set('Content-Type', 'application/zip');
             $response->headers->set('Content-Disposition', $disposition);
-            @unlink($fileName);
+            @unlink($fileNamezip);
             return $response;
 
         }
