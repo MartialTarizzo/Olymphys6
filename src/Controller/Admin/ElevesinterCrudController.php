@@ -226,6 +226,7 @@ class ElevesinterCrudController extends AbstractCrudController
             yield TextField::new('courriel')->setSortable(true),
             yield TextField::new('genre'),
             yield TextField::new('classe')->hideOnIndex()->hideOnForm(),
+            yield TextField::new('equipe')->onlyOnIndex(),
             yield AssociationField::new('equipe')->setFormTypeOptions(['choices' => $listEquipes])->setSortable(true)->hideOnIndex(),
             yield AssociationField::new('autorisationphotos')->onlyOnDetail(),
             yield AssociationField::new('autorisationphotos', 'Autorisation photos')->onlyOnIndex()
