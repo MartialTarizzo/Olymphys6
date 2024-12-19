@@ -775,7 +775,7 @@ class FichiersController extends AbstractController
         }
         $roles = $this->getUser()->getRoles();
         //$role = $roles[0];
-        if ((in_array('ROLE_COMITE', $roles)) or (in_array('ROLE_PROF', $roles)) or (in_array('ROLE_ORGACIA', $roles)) or (in_array('ROLE_SUPER_ADMIN', $roles)) or (in_array('ROLE_JURY', $roles))) {
+        if ((in_array('ROLE_COMITE', $roles)) or (in_array('ROLE_PROF', $roles)) or (in_array('ROLE_ORGACIA', $roles)) or (in_array('ROLE_SUPER_ADMIN', $roles)) or (in_array('ROLE_JURY', $roles)) or (in_array('ROLE_SECRETARIAT_JURY', $roles))) {
             $liste_fichiers = $qbComit->getQuery()->getResult();
             $autorisations = $repositoryFichiersequipes->createQueryBuilder('a')//Les autorisations photos
             ->andWhere('a.typefichier =:type')

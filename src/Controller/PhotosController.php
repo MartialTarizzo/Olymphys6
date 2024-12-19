@@ -581,13 +581,16 @@ class PhotosController extends AbstractController
 
             $form = $this->createForm(TelechargementPhotosType::class, null, ['listePhotos' => $listePhotos]);
             $form->handleRequest($request);
-            if ($form->isSubmitted() && $form->isValid()) {
+            if (($form->isSubmitted() && $form->isValid()) or ($request->get('telecharger'))) {
                 $zipFile = new ZipArchive();
                 $now = new \DateTime('now');
                 $fileNameZip = $edition->getEd() . '-photos-' . $slugger->slug($user->getCentrecia())->toString() . '-' . $now->format('d-m-Y\-Hi-s') . '.zip';
                 if ($zipFile->open($fileNameZip, ZipArchive::CREATE) === TRUE) {
                     foreach ($listePhotos as $photo) {
-                        if ($form->get('check' . $photo->getId())->getData()) {
+                        if ($request->get('telecharger')) {
+                            $fileName = $this->getParameter('app.path.odpf_archives') . '/' . $photo->getEdition()->getEd() . '/photoseq/' . $photo->getPhoto();
+                            $zipFile->addFromString(basename($fileName), file_get_contents($fileName));
+                        } elseif ($form->get('check' . $photo->getId())->getData()) {
                             $fileName = $this->getParameter('app.path.odpf_archives') . '/' . $photo->getEdition()->getEd() . '/photoseq/' . $photo->getPhoto();
                             $zipFile->addFromString(basename($fileName), file_get_contents($fileName));
 
