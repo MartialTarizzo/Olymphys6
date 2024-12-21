@@ -1,0 +1,781 @@
+Jean et Pierre
+Homsi
+
+Olympiades de physique
+Session 2022-2023
+Lycée Saint-Denis, Annonay (07)
+
+Déterminisme et imprédictibilité :
+n’importe choas !
+
+Attracteur de Lorentz
+
+Table des matières
+I - Présentation de la théorie du chaos ......................................................................................................... 4
+1. Définitions ................................................................................................................................. 4
+a. Définitions préliminaires ............................................................................................. 4
+b. Origines........................................................................................................................ 5
+2. Implications conceptuelles ........................................................................................................ 5
+3. Le Chaos à travers des Exemples ............................................................................................. 6
+a. La suite logistique ....................................................................................................... 6
+b. L’exemple fondateur : Lorenz et la météo ................................................................... 6
+II - Présentation de notre protocole expérimental...................................................................... 7
+1.
+
+Les objectifs visés à travers les expériences ..................................................... 7
+
+2.
+
+L’évolution de nos expériences et les difficultés rencontrées ........................ 7
+a. Expérience avec notre double pendule .................................................................... 7
+
+III - Présentation des résultats obtenus .................................................................................................... 9
+1.
+
+L’apparition d’un comportement chaotique ...................................................... 9
+a. Étude de divers graphiques obtenus à partir des données recueillies sur tracker ........ 9
+b. Vérification des résultats : ......................................................................................... 11
+c. Du point de Vue Angulaire : ...................................................................................... 13
+
+2.
+
+Comparaison à un modèle ......................................................................................... 15
+a. Calcul de l’énergie mécanique du système ................................................................ 15
+
+CONCLUSION ...................................................................................................................................... 20
+SOURCES.............................................................................................................................................. 20
+
+2
+
+INTRODUCTION À NOTRE PROJET EXPÉRIMENTAL DANS LE CADRE DES OLYMPIADES DE PHYSIQUE
+Nous sommes deux élèves de terminale générale du lycée Saint-Denis à Annonay. L’année dernière, un
+professeur de physique-chimie nous a présenté le concept des Olympiades de Physique lors d’un cours et
+nous avons tout de suite voulu participer au concours avec pour idée directrice de découvrir et d’approfondir
+nos connaissances dans un sujet non-traité au niveau scolaire.
+Nous avons contacté M. BELLIER, M. PHILIPPE et M. OLIVIER ainsi que M. LAFFONT, professeurs de
+physique-chimie au lycée, qui nous ont supervisés tout au long de la réalisation de notre projet. Nous nous
+sommes tout d’abord intéressés à différentes expériences en lien avec la théorie du chaos. Nous avions
+simplement une vague idée que l’on voulait approfondir. L'une d’elle a particulièrement attirée notre attention
+par sa simplicité d’approche et de mise en œuvre : c’est un système de double pendule (le système complexe
+communément abordé par la mécanique analytique pour sa simplicité). Et nous avons décidé d’en faire notre
+projet. Nous nous sommes donc renseignés sur le sujet et divers articles, vidéos et projets similaires nous ont
+guidés et aidés, notamment la vidéo de ScienceEtonnante très riche sur ce thème.
+Notre expérience consiste à simuler un comportement chaotique grâce à un pendule double constitué de deux
+pendules couplés. Notre but étant de mettre en évidence le phénomène de sensibilité aux conditions initiales
+d’un système dynamique au nombre de degrés de liberté faible, et tout cela à notre échelle et de la manière la
+plus simple possible.
+À travers cette expérience notre objectif principal est de mieux cerner la définition d’un comportement
+chaotique par l’expérience. Nous allons donc présenter, par le biais de ce mémoire, la manière avec laquelle
+se manifeste le chaos dans un système tel que le pendule double.
+Pour cela, dans un premier temps, nous vous exposerons une approche théorique et historique du chaos,
+ensuite nous expliquerons la mise en place de notre expérience et enfin nous exploiterons les données
+collectées afin de comparer notre approche empirique à celle calculatoire et théorique.
+
+Suite logistique qui bifurque vers le chaos
+
+3
+
+I - PRÉSENTATION DE LA THÉORIE DU CHAOS
+
+1. DÉFINITIONS
+Nous retranscrivons de la manière la plus claire possible des informations essentiellement tirées du site
+suivant qui est assez complet : ATE(1).pdf (free.fr)
+a. Définitions préliminaires
+Diverses notions sont nécessaires à la compréhension de ce qu’est le chaos,
+ici nous fournirons quelques définitions brèves qui nous seront utiles par la
+suite.
+Degré de liberté : un degré de liberté est une variable représentant la
+capacité qu’a un système à évoluer dans l’espace dans une direction donnée
+et en décrivant une trajectoire donnée. On se pose les questions suivantes
+pour les trouver : le système peut-il évoluer en translation selon un axe ou
+en rotation selon celui-ci ? Ainsi un cube sur une table peut effectuer deux
+mouvements de translation sur les axes x et y et un mouvement de rotation
+sur l’axe z (il ne peut pas s’enfoncer dans celle-ci). On en déduit qu’il a 3
+degrés de liberté.
+Espace des phases : L’espace des phases est un espace abstrait qui représentent tous les états possibles d’un
+système, un point représentant un état précis et distinct des autres du système étudié. La dimension de cette
+espace dépend du nombre de degrés de liberté du système et il est souvent facteur de la position et de la
+vitesse (ou de l’impulsion).
+Attracteurs : Un attracteur est un ensemble ou un espace vers lequel tout système physique qui échange de
+l’énergie ou de la matière avec son environnement converge. Parmi les principaux types d’attracteur, il existe
+:
+-
+
+le point fixe : le système converge vers un unique point (stabilité) ;
+
+-
+
+le cercle-limite : le système converge vers différents points (périodiquement) ;
+
+-
+
+attracteur étrange : attracteur découvert en corrélation avec la théorie du chaos. En effet, les systèmes
+chaotiques contrairement à ce qu’on pourrait croire, possèdent un domaine de convergence dans
+l’espace des phases.
+
+Chaos et du déterminisme
+Un système est dit déterministe si, indépendamment des conditions initiales, on arrive à prédire l’évolution
+du système. Prenons l’exemple d’un lancer de balle : il est évident qu’on peut déterminer exactement
+l’évolution de la balle (en effet la seule force s’appliquant sur celle-ci est son poids dirigé vers le centre si
+on néglige les frottements, la deuxième loi de Newton permet facilement d’obtenir l’équation différentielle :
+𝑚𝑏𝑎𝑙𝑙𝑒 ⋅ 𝑎 = 𝑔 ⋅ 𝑚𝑏𝑎𝑙𝑙𝑒
+𝑑2 𝑥
+
+1
+
+Avec 𝑎 = 𝑑𝑡 2 On obtient en intégrant 𝑥(𝑡) = 2 ⋅ 𝑔 ⋅ 𝑡 2 (en supposant que la vitesse initiale est nulle et que
+la position de départ vaut 𝑥 = 0). Un système dépend du hasard si une cause ne produit pas forcément le
+même effet. Mais le chaos n’est pas le hasard et c’est une chose importante que de les différencier. Ainsi on
+peut poser certaines conditions au chaos :
+-
+
+Il est décrit par des équations déterministes. Tout comme de nombreux autres systèmes, un système
+chaotique peut donc être modélisé par une équation régie par des lois non-probabilistes.
+
+-
+
+Il est irréversible. Si un système est chaotique, on ne peut prédire le futur et sachant cela on en déduit
+qu'en connaissant un point à un instant 𝑡 il est impossible de retrouver la trajectoire suivie. Le chaos
+est ainsi l'impossibilité de prédire l'évolution future et passée d’un système.
+4
+
+-
+
+Il peut être décrit par un attracteur étrange dans l’espace des phases. Ce n’est pas toujours le cas mais
+l’existence d’un attracteur étrange peut être une preuve d’un comportement chaotique. L’exemple le
+plus commun et le plus célèbre est l’attracteur étrange de Lorenz (cf première page).
+
+Le chaos n’est donc pas de l’aléatoire, il n’est pas non plus totalement déterministe mais est le siège
+d’équations déterministes.
+b. Origines
+Nous allons maintenant étudier la manière avec laquelle les mathématiciens du siècle dernier ont réussi à
+appréhender le chaos.
+Poincaré est l’un des premiers physiciens à avoir observé la sensibilité aux
+conditions initiales en étudiant la mécanique céleste (par exemple :
+interaction gravitationnelle). Celui-ci affirme que l’évolution à long terme,
+en l’absence de données précises sur les conditions initiales, implique
+souvent une prédiction impossible. D’autres physiciens du début du siècle
+dernier ont également été des pionniers en ce qui concerne l’étude du chaos
+comme Lyapounov et sa thèse sur la stabilité.
+
+Edward Lorenz, météorologue américain, mit en évidence la grande sensibilité aux conditions initiales des
+phénomènes météorologique à la suite de Poincaré. Cette divergence dans les résultats a été observée suite à
+un problème informatique. Lorenz avait l’habitude de faire ses calculs sur des données météorologiques très
+précises (avec 6 chiffres après la virgule). Une fois, il configura les paramètres avec moins de décimales
+(uniquement 4 chiffres après la virgule) et le résultat fut étonnant : les prévisions étaient bouleversées (le
+fameux mythe du café qui en est la cause supposée). On connait très bien cette vision du chaos par la célèbre
+formule : « Le battement d’ailes d’un papillon au Brésil provoque-t-il une tornade au Texas ? ». Lorenz
+précise bien, que si les ailes du papillon peuvent déclencher une tornade, d’innombrables autres battements
+peuvent l’en empêcher… C’est l’immensité des variables liées entre elles qui expliquent que ce phénomène
+peut se produire, étant donné la sensibilité aux conditions initiales. Chaos rime donc avec système complexe,
+avec un certain nombre de degrés de liberté. Lorenz montra que les équations de Newton et de la mécanique
+des fluides dans le cas du système météorologique, peuvent se réduire à un système à 3 degrés de libertés.
+
+2. IMPLICATIONS CONCEPTUELLES
+Le développement de la théorie de chaos a mené à une grande révision conceptuelle au sein de la physique
+ainsi la théorie du chaos vient remanier la croyance en un déterminisme et une prédictibilité radicaux et “toutpuissants”. Avec Lagrange et Hamilton, la mécanique était analytique, le but étant de trouver des solutions
+aux équations mécaniques sous formes d’expressions mathématiques calculables, et l’on ne s’intéressait
+qu’aux problèmes comportant une telle solution. On ne s’intéressait en fait qu’aux seuls cas particuliers où le
+mouvement est prédictible ! Les autres cas étaient mis de côté en attente de leur résolution par un
+mathématicien doué, alors qu’en fait, ils sont non résolvables à l’aide de fonctions mathématiques, et l’on ne
+peut que calculer numériquement à l’ordinateur des solutions approchées. La plupart des problèmes n’ont pas
+de solution au sens analytique que l’on donne habituellement à ce mot, et il faut bien s’y habituer. Ce qui ne
+veut pas dire que l’on ne peut rien en dire, loin de là. Nous le verrons dans ce mémoire.
+
+5
+
+3. LE CHAOS À TRAVERS DES EXEMPLES
+a. La suite logistique
+Cette suite logistique est définie comme la suite :
+𝑥(𝑛 + 1) = 𝑟 ⋅ 𝑥 ⋅ 𝑛(1 − 𝑥 ⋅ 𝑛)
+Définissons 𝑟 constante variant entre 0 et 4 qui représentait l’évolution de la population, et 𝑥 sur le graphique
+représente la valeur vers laquelle tend la suite au bout d’un très grand nombre d’essais. Un schéma de
+bifurcation pour les valeurs de 𝑟 inférieures à 4 permet de montrer le passage d’un attracteur fixe à du chaos
+représenté par un attracteur étrange dans l’espace des phases (avec une structure fractale). Ce système très
+simple montre bien que le chaos ne nécessite pas une quantité énorme de variables mais qu’il répond à des
+conditions spécifiques :
+
+Bifurcation obtenue par le doublement d e période de Feigenbaum (crédits google)
+b. L’exemple fondateur : Lorenz et la météo
+Lorenz modélisa un système météorologique simplifié à l’aide de seulement 3 expressions. À l’époque, les
+calculateurs n’étaient pas très puissants, Pour résoudre son système, Lorenz n’avait pu simuler que 500
+itérations. Ainsi, seules quelques boucles de trajectoire avaient pu être décrites. Grâce à ce système simplifié
+8
+modélisant la météo où 𝑃𝑟 = 10 , 𝑏 = 3 , 𝑟 = 28 fixés. Cet ensemble de systèmes différentiels contient une
+équation non-linéaire (car il y a multiplication de deux variables) ce qui rend très ardue la résolution du
+système. C’est pourquoi il faut procéder par itérations mais nous ne l’appliquerons pas ici car cela
+nécessiterait d’utiliser la méthode d’Euler qui n’est pas au programme de Terminale !
+𝑑𝑥
+= Pr(𝑦 − 𝑥)
+𝑑𝑡
+𝑑𝑦
+= 𝑟𝑥 − 𝑦 − 𝑥𝑧
+𝑑𝑡
+𝑑𝑧
+= 𝑟𝑦 − 𝑏𝑧
+𝑑𝑡
+Lorenz remarqua qu’une simple modification de 0.1% des variables aux conditions initiales (soit à x soit à y
+soit à z) donne une trajectoire totalement différente !
+
+6
+
+II - PRÉSENTATION DE NOTRE PROTOCOLE EXPÉRIMENTAL
+1. LES OBJECTIFS VISÉS À TRAVERS LES EXPÉRIENCES
+
+Nous avons donc, à travers cette expérience, tenté de reproduire le chaos. Nos objectifs étaient de :
+-
+
+voir s’il y a concordance entre expérience et théorie ;
+
+-
+
+relever le phénomène de sensibilité aux conditions initiales et l’étudier. (Bifurcation vers le chaos...) ;
+
+-
+
+analyser succinctement la stabilité du système ;
+
+-
+
+montrer que notre système n’est pas forcément chaotique : exemples des petites oscillations.
+[- Comparaison avec le pendule simple]
+
+2. L’ÉVOLUTION DE NOS EXPÉRIENCES ET LES DIFFICULTÉS RENCONTRÉES
+a. Expérience avec notre double pendule
+Nous avons débuté avec un modèle assez bancal de pendule double qui, du fait des frottements bien trop
+importants ressemblait plutôt à un pendule simple : en effet celui-ci était constitué d’une potence sur laquelle
+on avait accroché une tige métallique avec des crochets à chaque bord et sur le deuxième crochet on avait
+accroché une deuxième tige métallique qui avait d’un côté un crochet (le côté avec lequel on l’accrochait) et
+de l’autre une masse. Ensuite nous l’avons amélioré en utilisant une planche de bois sur laquelle l’on a installé
+deux pendules couplés tournant autour d’un axe grâce à un système de
+roulements à billes.
+Mais notre but était de pouvoir construire un pendule double permettant
+de percevoir un comportement chaotique. Ainsi pour que les conditions
+de nos expériences soient toujours les mêmes, Nous avons essayé
+d’apporter un maximum de précision à nos mesures ainsi qu’à
+l’expérience elle-même pour pouvoir comparer des lancers faits dans
+les conditions les plus semblables possibles.
+Nous avons par exemple par souci de stabilité et de confort décidé
+d’installer des jambes pour stabiliser et faciliter les réalisations
+d’expériences comme montré ci-dessous :
+
+I NSTALLATION DE JAMBES AFIN DE
+RENDRE LA BASE PLUS STABLE
+
+De même pour obtenir la plus grande précision pour la position initiale du double
+pendule, nous avons installé un électroaimant relié à un interrupteur accompagné
+d’une LED pour bien marquer le départ du lancer et donc de l’expérience :
+l’électroaimant allumé pousse une tige métallique qu’on positionne dans
+l’encoche derrière le bras du deuxième pendule et il nous suffit d’éteindre
+d’alimentation afin que la tige se rétracte et lâche le pendule.
+Nous avons d’abord effectué des premières tentatives en enregistrant différentes
+expériences à l’aide d’une caméra et du logiciel VirtualDub pour ensuite traiter
+les données ainsi obtenues avec le logiciel Tracker.
+Les premiers essais furent peu fructueux ...
+Nous avons rencontré certaines difficultés à pouvoir interpréter nos expériences notamment à cause de la
+qualité de la caméra qui rendait la distinction des deux points principaux bien plus ardue pour le logiciel de
+pointage nous forçant à effectuer un pointage souvent manuel ce qui prend énormément de temps. Nous avons
+effectué de durées diverses pour enfin décider de limiter le temps de capture à 30 secondes (1200-1300
+images) à la fois dans un objectif pratique et utilitaire (nombre limité de points à pointer avec le logiciel) et
+pour nous concentrer sur ce qui motivait cette expérience : la comparaison entre plusieurs expériences et le
+caractère chaotique du mouvement rendant ainsi la fin du mouvement peu intéressante en ce qui concerne
+7
+
+l’analyse. (Sauf dans un but de contre-exemple)
+De plus afin de donner à notre expérience un aspect plus visuel et de
+faciliter le pointage par le logiciel tracker nous avons installé une
+LED au bout du pendule double alimentée par des petites piles et
+reliée à un interrupteur. Malgré le fait que cela ait alourdi
+considérablement notre système, nous avons obtenu un rendu
+graphique meilleur en effectuant notre expérience dans le noir.
+Malheureusement du fait de son ajout tardif nous n’avons pas pu
+bien exploiter cette amélioration, il serait également intéressant
+d’ajouter une LED d’une autre couleur sur le premier pendule mais
+il faudra cette fois minimiser le poids de celle-ci afin de ne pas trop
+freiner le pendule.
+
+PHOTOGRAPHIE DE LA LED RELIÉE À UNE PILE À
+L’INTÉRIEUR DU DEUXIÈME BRAS
+
+Enfin nous avons vu que le deuxième bras touchait parfois le premier, ce qui
+perturbait le mouvement. Et pour résoudre ce problème nous avons ajouté un
+boulon afin d’agrandir la distance qui sépare les deux bras.
+
+Nous avons également changé le système électronique qui alimentait
+l’électroaimant afin de ne pas avoir à transporter de générateur. On a donc remplacé
+l'alimentation par une pile.
+
+PHOTOGRAPHIE DU
+SYSTÈME DE ROULEMENT
+À BILLES ET DES BOULONS
+
+PHOTOGRAPHIE DU DISPOSITIF
+FINAL (AVANT AJUSTEMENT DU
+SYSTÈME ÉLECTRONIQUE)
+
+8
+
+III - PRÉSENTATION DES RÉSULTATS OBTENUS
+
+1. L’APPARITION D’UN COMPORTEMENT CHAOTIQUE
+
+a. Étude de divers graphiques obtenus à partir des données recueillies sur tracker
+Pour chacun de nos essais nous avons débuté en positionnant le deuxième bras à un angle de 85° .Par rapport
+à la verticale traversant le point du 1er bras (cf schéma page 15). La vitesse initiale du pendule est bien sûr
+nulle.
+Nous avons tout d’abord effectué une comparaison qu’on peut qualifier de visuelle, ainsi nous avons
+superposé les 2 graphiques ci-dessous montrant le mouvement de deux essais distincts pour essayer de
+distinguer le moment de bifurcation, pour voir si au bout d’un certain temps le mouvement divergeait ou pas
+:(le début du mouvement est cerclé en rouge pour chaque graphique)
+
+Malheureusement, à cause du nombre de traits et d’informations, il est compliqué de traiter ce graphique.
+Pour contourner ce problème nous avons donc décidé d’effectuer une étude localisée en découpant en
+plusieurs parties le graphique.
+Explication du découpage :
+0-5s : Durant les 5 premières secondes,
+on remarque que le mouvement est
+similaire), les courbes suivent une
+même trajectoire sans variations
+visibles (en négligeant les erreurs
+humaines et techniques qui entrainent
+des variations légères. On doit donc
+analyser la suite pour voir si c’est
+encore le cas. (Voir ci-contre.).
+
+9
+
+5-10s : dans cet intervalle, les 2 trajectoires
+restent similaires avec 2 petits «
+décrochages/ décalages » qui ne sont pour
+l’instant pas significatifs même si on obtient
+à la fin un léger écart. (Voir ci-contre.).
+
+10-15s : On retrouve également la même
+« forme » créée par le mouvement avec
+néanmoins un écart entre les 2 courbes qui
+s’agrandit et qui se conclut par un
+mouvement différent mais qui ramène les 2
+courbes au même point. (Avec, il faut le
+remarquer, une « impulsion » vers des
+directions différentes)
+
+15-20s : La moitié du mouvement garde
+une allure proche avec cependant une
+rotation plus marquée de la courbe verte qui
+se poursuit alors que la courbe bleue
+continue tout droit ; Et après la moitié c’est
+là réellement que les trajectoires divergent !
+
+20-25s : Après la première divergence, les 2
+trajectoires ne se ressemblent plus du tout.
+Ainsi le bras représenté par la courbe verte
+continue à décrire une rotation bien ample
+alors que celui représenté par la bleue
+effectue de petites rotations.
+
+10
+
+25-30s : Les dernières secondes
+viennent corroborer nos constats : la
+trajectoire de chaque lancer n’a plus rien
+à voir avec celle de l’autre ! on est
+encore loin de la fin du mouvement mais
+les deux pendules semblent perdre de
+l’amplitude (vitesse) et se rapprocher de
+leur position de stabilité.
+
+b. Vérification des résultats :
+Nous avons répété ceci sur un plus grand nombre d’expériences pour voir si ces observations ne relevaient
+pas du hasard (nous nous sommes uniquement intéressés aux intervalles de temps qui ont montré le
+comportement chaotique pour ne pas répéter toute l’analyse).
+
+10-15 : On remarque sur ce graphique que même à cet intervalle de temps où le mouvement des 2 premiers
+n’avait pas divergé parmi les 6 expériences analysées 2 ont déjà suivi des trajectoires différentes (vert et rose)
+mais les autres finissent environ à la même place. (Les étoiles marquent ici les positions initiales)
+
+11
+
+15-20s : On observe que, dans l’intervalle 15-20s pour les 6 expériences observées, il y a encore des
+similitudes notamment de la courbe noire et jaune ainsi que les courbes en rose, en rouge et en vert finissent
+au même endroit approximativement même si le chemin suivi est différent. Mais la courbe bleue a une
+trajectoire totalement différente et vient en sens inverse des autres.
+
+20-25 s : Sur ce graphique, il est très clair que les trajectoires sont totalement différentes, étonnamment il
+reste des formes similaires à la fin mais la courbe bleue, rouge et rose ont totalement divergé : on retrouve
+ainsi, au niveau du même intervalle de temps que notre première comparaison, un comportement chaotique !
+
+12
+
+c. Du point de Vue Angulaire :
+Nous avons donc regardé ce que donnait l’évolution de l’angle
+du premier bras dans chacune des expériences : on a relevé un
+écart entre les courbes qui s’agrandit au fil du temps et on a
+supposé que cela pouvait être déduit d’une différence de
+trajectoire qui grandit très vite alors même que les conditions
+initiales sont les “mêmes”..
+Pour cela nous avons effectué un calcul d’angle du deuxième
+pendule par rapport à la verticale formée par le premier grâce à
+un calcul via python.
+Avec 𝑋𝑎𝑖 et 𝑌𝑎𝑖 les coordonnées du point A (masse 1) du lancer
+et 𝑋𝑏𝑖 ,𝑌𝑏𝑖 les coordonnées du point B du lancer i. Nous
+effectuons la différence entre le point A et B et ensuite nous
+calculons l’angle par rapport à la verticale qu’on regroupe dans
+une liste.
+Après avoir recueilli les données, nous les réutilisons dans un
+graphique python qui compare l’évolution par rapport au temps de l’angle du deuxième bras sur deux lancers !
+
+Analyse : Similairement aux graphiques vus auparavant, nous relevons une superposition lors des premiers
+instants (jusqu’à 4s) puis l’angle du 2ème lancer garde une même forme mais avec moins d’amplitude. Il faut
+attendre les 14 secondes pour voir une divergence nette apparaître et se prolonger.
+
+13
+
+De plus nous avons effectué des mesures avec des petites oscillations afin de voir si notre système gardait
+un comportement chaotique :
+
+Le mouvement décrit produit ainsi une courbe semblable à une sinusoïdale avec de légères turbulences (il y
+a même, ce qui nous a bien étonné, une sinusoïdale parfaite.
+Nous avons également représenté ici le mouvement de notre premier bras que l’on peut assimiler à celui d’un
+pendule simple. (en noir sur le graphique) et nous avons compris que le mouvement de notre pendule double
+aux petites oscillations revenait au mouvement d’un pendule simple ! C'était en effet assez intuitif de penser
+que le deuxième bras, lorsqu'il n’a pas beaucoup d’amplitude, allait “calquer” le mouvement du premier bras.
+Il aurait été également intéressant de calculer l’exposant de Lyapounov qui permet de quantifier la stabilité
+du système (et souvent le caractère chaotique) mais à cause de la complexité de ce calcul nous avons préféré
+juste l’évoquer car il est un paramètre important lorsqu’on étudie le chaos. Nous verrons dans la partie
+numérique si nous pouvons l’approcher.
+
+14
+
+2. COMPARAISON À UN MODÈLE
+Nous avons donc réalisé des calculs théoriques afin
+de voir si nos données correspondent à un modèle
+théorique ou pas.
+
+Nous avons donc pris ce modèle expérimental :
+𝐿1 , 𝐿2 sont les longueurs respectives des deux bras.
+𝜃1 𝑒𝑡 𝜃2 Représentent les angles respectifs de chaque
+barre avec la verticale. ℎ1 est l’élévation du premier
+bras par rapport à la position de repos sur l’axe y et
+ℎ2 Représente l‘élévation du deuxième bras par
+rapport à la verticale formée par le point 𝑚1 . Nous
+avons décidé de nous intéresser non pas aux centres
+de gravité mais directement aux points au bout de
+chaque bras afin de faciliter les calculs.
+a. Calcul de l’énergie mécanique du
+système
+1. CALCUL DES ÉNERGIES POTENTIELLES
+L’énergie mécanique du système s’exprime comme
+la somme de l’énergie potentielle et cinétique de
+l’ensemble des points composants le système (pour
+celui-ci les points aux masses 1 et 2, modèle choisi
+pour représenter le double pendule). D’abord
+calculons la hauteur et donc l’énergie potentielle
+gagnée par le système en prenant chaque bras séparément :
+Soient 𝐸𝑝1 L’énergie potentielle de la masse 1, 𝐸𝑝2 L’énergie potentielle de la masse 2 et ℎ1 , ℎ2 Les
+élévations respectives des masses 1 et 2 :
+cos(𝜃1 ) =
+
+(𝐿1 − ℎ1 )
+𝐿1
+
+ℎ1 = 𝐿1 (1 − cos(𝜃1 )) Par projection sur l’axe des ordonnées. Donc
+𝐸𝑝1 = 𝑚1 ⋅ 𝑔 ⋅ ℎ1 = = 𝑚1 ⋅ 𝑔 ⋅ 𝐿1 (1 − 𝑐𝑜𝑠 (𝜃1 ) )
+Pour l’énergie potentielle du deuxième point, il faut obtenir l’élévation de celui-ci par rapport à sa position
+initiale, pour cela il suffit de d’obtenir l’ordonnée du premier point selon 𝜃1 (nommée ℎ′ ) à laquelle on ajoute
+l’ordonnée du deuxième point par rapport au premier (nommée ℎ′′ ) :
+ℎ2 = ℎ′ + ℎ′′ avec ℎ′ = 𝐿1 (1 − cos(𝜃1 )) et ℎ′′ = 𝐿2 (1 − cos(𝜃2 ))
+Toujours par projection sur l’axe des ordonnées
+𝐸𝑝2 = 𝑚2 ⋅ 𝑔 ⋅ ℎ2 = 𝑚2 ⋅ 𝑔 ⋅ (𝐿1 (1 − 𝑐𝑜𝑠 (𝜃1 ) + 𝐿2 (1 − cos (𝜃2 )))
+2. CALCUL DES ÉNERGIES CINÉTIQUES
+Intéressons-nous aux énergies cinétiques de chaque masse. Pour obtenir celles-ci, nous avons besoin de
+calculer les vitesses au niveau de chacune des masses.
+Soient 𝐸𝑐1 , 𝐸𝑐2 les énergies cinétiques respectives des masses 1 et 2, 𝜃1′ et 𝜃2′ les dérivées respectives par
+rapport au temps des angles 𝜃1 et 𝜃2 . Définissons également𝑥1 , 𝑥2 et 𝑦1 , 𝑦2 Abscisses et ordonnées de chaque
+masse dans le plan (𝑂, 𝑥, 𝑦 ).
+15
+
+Afin de calculer les vitesses (𝑣1 et 𝑣2 ), nous allons d’abord définir les positions de chaque masse pour ensuite
+en déduire par dérivation les vitesses.
+-Commençons par le point de masse m1 de coordonnées (𝑥1 , 𝑦1) :
+𝑥1 = sin(𝜃1 ) ⋅ 𝐿1
+
+Par projection sur l’axe des abscisses
+
+𝑦1 = cos(𝜃1 ) ⋅ 𝐿1
+
+Par projection sur l’axe des ordonnées (précisons que celui-ci est orienté vers le bas)
+
+Notons 𝑥1′ et 𝑦1′ Les coordonnées du vecteur vitesse 𝑣1
+𝑑𝑥
+
+𝑑𝑦
+
+On sait que 𝑥1′ = 𝑑𝑡1et que 𝑦1′ = 𝑑𝑡1
+Calculons donc 𝑥1′ et 𝑦1′ :
+-𝑥1′ =
+
+𝑑 cos(𝜃1 )
+𝑑𝑡
+
+-𝑦1′ =
+
+⋅ 𝐿1
+
+𝑑 sin(𝜃1 )
+𝑑𝑡
+
+⋅ 𝐿1
+
+Et avec la composition des dérivées :
+-𝑥1′ = − sin(𝜃1 ) ⋅ 𝜃 ′ ⋅ 𝐿1
+
+-𝑦1′ = cos(𝜃1 ) ⋅ 𝜃 ′ ⋅ 𝐿1
+
+-la norme de 𝑣1 peut être obtenue par cette opération :
+.(𝑣1 )2 = (𝑥1′ )2 + (𝑦1′ )2
+.(𝑣1 )2 = (− sin(𝜃1 ) ⋅ 𝜃 ′ ⋅ 𝐿1 )2 + (cos(𝜃1 ) ⋅ 𝜃 ′ ⋅ 𝐿1 )2
+.(𝑣1 )2 = (− sin(𝜃1 ))2 ⋅ 𝜃 ′2 ⋅ (𝐿1 )2 + (cos(𝜃1 ))2 ⋅ 𝜃 ′2 ⋅ (𝐿1 )2
+On factorise ensuite par ( 𝜃 ′2 ⋅ (𝐿1 )2 ) et on obtient (𝑣1 )2 = (𝜃 ′2 ⋅ (𝐿1 )2 )((− sin(𝜃1 ))2 + (cos(𝜃1 ))2 )
+Donc en sachant que ((− sin(𝜃1 ))2 + (cos(𝜃1 ))2 ) = 1
+(𝑣1 )2 = 𝜃 ′2 ⋅ (𝐿1 )2
+D’où :
+1
+1
+⋅ 𝑚1 ⋅ (𝑣1 )2 = ⋅ 𝑚1 ⋅ (𝐿1 )2 ⋅ (𝜃1′ )2
+2
+2
+Calculons maintenant avec la même méthode 𝑣2 en prenant 𝑥2′ et 𝑦2′ les coordonnées du vecteur vitesse 𝑣2 :
+𝐸𝑐1 =
+
+Déterminons en premier lieu 𝑥2 et 𝑦2 En modélisant le fait que pour obtenir la masse 2 on peut partir des
+coordonnées de la masse 1 auxquelles on ajoute les coordonnées de la masse 2 selon la masse 1 :
+-𝑥2 = sin(𝜃1 ) ⋅ 𝐿1 + sin(𝜃2 ) ⋅ 𝐿2
+
+-𝑦2 = cos(𝜃1 ) ⋅ 𝐿1 + cos(𝜃2 ) ⋅ 𝐿2
+
+Calculons les coordonnées du vecteur vitesse :
+-𝑥2′ =
+
+𝑑 sin(𝜃1 )
+𝑑𝑡
+
+⋅ 𝐿1 +
+
+𝑑 sin(𝜃2 )
+𝑑𝑡
+
+⋅ 𝐿2
+
+-𝑦2′ =
+
+𝑑 cos(𝜃1 )
+𝑑𝑡
+
+⋅ 𝐿1 +
+
+𝑑 cos(𝜃2 )
+𝑑𝑡
+
+⋅ 𝐿2
+16
+
+Encore une fois la composition des dérivées donne :
+-𝑥2′ = cos(𝜃1 ) ⋅ 𝜃1′ ⋅ 𝐿1 + cos(𝜃2 ) ⋅ 𝜃2′ ⋅ 𝐿2
+-𝑦2′ = − sin(𝜃1 ) ⋅ 𝜃1′ ⋅ 𝐿1 − sin(𝜃2 ) ⋅ 𝜃2′ ⋅ 𝐿2
+Calculons la norme de la même manière que pour v1 :
+.(𝑣2 )2 = (cos(𝜃1 ) ⋅ 𝜃1′ ⋅ 𝐿1 + cos(𝜃2 ) ⋅ 𝜃2′ ⋅ 𝐿2 )2 + (− sin(𝜃1 ) ⋅ 𝜃1′ ⋅ 𝐿1 − sin(𝜃2 ) ⋅ 𝜃2′ ⋅ 𝐿2 )2
+Après développement et réduction / factorisation on obtient (en utilisant les propriétés des fonctions cosinus
+et sinus telles que sin2 (𝑥) + cos2 (𝑥) = 1 et cos(𝑥 − 𝑦) = cos(𝑥) ⋅ cos(𝑦) + sin(𝑥) ⋅ sin(𝑦) :
+.(𝑣2 )2 = (𝜃1′ )2 ⋅ (𝐿1 )2 + (𝜃2′ )2 ⋅ (𝐿2 )2 + 2 ⋅ 𝐿1 ⋅ 𝐿2 ⋅ 𝜃1′ ⋅ 𝜃2′ ⋅ cos(𝜃1 − 𝜃2 )
+D’où :
+𝐸𝑐2 =
+
+1
+1
+⋅ 𝑚2 ⋅ (𝑣2 )2 = ⋅ 𝑚2 ⋅ ((𝜃1′ )2 ⋅ (𝐿1 )2 + (𝜃2′ )2 ⋅ (𝐿2 )2 + 2 ⋅ 𝐿1 ⋅ 𝐿2 ⋅ 𝜃1′ ⋅ 𝜃2′ ⋅ cos(𝜃1 − 𝜃2 ))
+2
+2
+
+3. PROBLÈME AVEC L’ENERGIE MÉCANIQUE ET RECHERCHE D’UNE SOLUTION À TRAVERS LE LAGRANGIEN
+Maintenant qu’on a Ces valeurs sommons-les afin d’obtenir l’énergie cinétique totale et l’énergie potentielle
+totale notées respectivement 𝐸𝑐𝑡𝑜𝑡𝑎𝑙𝑒 et 𝐸𝑝𝑡𝑜𝑡𝑎𝑙𝑒 :
+𝐸𝑐𝑡𝑜𝑡𝑎𝑙𝑒 = 𝐸𝑐1 + 𝐸𝑐2
+𝐸𝑐𝑡𝑜𝑡𝑎𝑙𝑒 =
+
+1
+1
+⋅ 𝑚1 ⋅ (𝜃1′ )2 ⋅ (𝐿1 )2 + ⋅ 𝑚2
+2
+2
+⋅ ((𝜃1′ )2 ⋅ (𝐿1 )2 + (𝜃2′ )2 ⋅ (𝐿2 )2 + 2 ⋅ 𝐿1 ⋅ 𝐿2 ⋅ 𝜃1′ ⋅ 𝜃2′ ⋅ cos(𝜃1 − 𝜃2 ))
+𝐸𝑝𝑡𝑜𝑡𝑎𝑙𝑒 = 𝐸𝑝1 + 𝐸𝑝2
+
+𝐸𝑝𝑡𝑜𝑡𝑎𝑙𝑒 = 𝑚1 ⋅ 𝑔 ⋅ 𝐿1 ⋅ (1 − cos(𝜃1 )) + 𝑚2 ⋅ 𝑔 ⋅ (𝐿1 ⋅ (1 − cos(𝜃1 ) + 𝐿2 ⋅ (1 − cos(𝜃2 ))))
+Arrivés à cette étape on a réfléchi à une solution car le théorème de conservation de l’énergie mécanique ne
+permet pas d’obtenir les équations de ce mouvement (deux variables indépendantes) de même que le
+l’approche newtonienne qui est plutôt ardue. Après avoir effectué quelques recherches, nous avons découvert
+qu’une approche permettait d’obtenir les équations du mouvement de manière plus simple que l’approche
+newtonienne : le formalisme Lagrangien. Nous n’allons pas rentrer dans le détail mais simplement l’utiliser
+de la manière habituelle pour obtenir les équations du mouvement, on notera pour cela le lagrangien ℒ :
+ℒ = 𝐸𝑐𝑡𝑜𝑡𝑎𝑙𝑒 − 𝐸𝑝𝑡𝑜𝑡𝑎𝑙𝑒
+ℒ=
+
+1
+1
+⋅ 𝑚1 ⋅ (𝜃1′ )2 ⋅ (𝐿1 )2 + ⋅ 𝑚2 ⋅ ((𝜃1′ )2 ⋅ (𝐿1 )2 + (𝜃2′ )2 ⋅ (𝐿2 )2 + 2 ⋅ 𝐿1 ⋅ 𝐿2 ⋅ 𝜃1′ ⋅ 𝜃2′ ⋅ cos(𝜃1 − 𝜃2 ))
+2
+2
+− (𝑚1 ⋅ 𝑔 ⋅ 𝐿1 ⋅ (1 − cos(𝜃1 )) + 𝑚2 ⋅ 𝑔 ⋅ (𝐿1 ⋅ (1 − cos(𝜃1 )) + 𝐿2 ⋅ (1 − cos(𝜃2 ))))
+
+Afin d’obtenir les équations du mouvement, il faut écrire une équation de Lagrange pour chaque degré de
+liberté du système, en l’occurrence 2 (pour 𝜃1 et 𝜃2 ). Il nous faut également introduire la notation des dérivées
+partielles 𝜕 (qui représentent la dérivée d’une fonction de plusieurs variables par une seule et en ne tenant pas
+compte des autres):
+𝑑 𝜕ℒ
+𝜕ℒ
+( ′) =
+𝑑𝑡 𝜕 𝜃1
+𝜕 𝜃1
+
+𝑑 𝜕ℒ
+𝜕ℒ
+( ′) =
+𝑑𝑡 𝜕 𝜃2
+𝜕 𝜃2
+
+𝜕ℒ
+
+=> 𝜕 𝜃 = − sin(𝜃1 − 𝜃2 ) ⋅ 𝑚2 ⋅ 𝐿1 ⋅ 𝐿2 ⋅ 𝜃1′ ⋅ 𝜃2′ − sin(𝜃1 ) ⋅ 𝑔 ⋅ 𝐿1 ⋅ (𝑚1 + 𝑚2 )
+1
+
+17
+
+𝜕ℒ
+
+=>𝜕 𝜃′ = 𝑃1 = 𝑚1 ⋅ 𝜃1′ ⋅ (𝐿1 )2 + 𝑚2 ⋅ 𝜃1′ ⋅ (𝐿1 )2 + 𝑚2 ⋅ 𝐿1 ⋅ 𝐿2 ⋅ 𝜃2′ ⋅ cos(𝜃1 − 𝜃2 )
+1
+
+𝜕ℒ
+
+=>𝜕 𝜃′ = sin(𝜃1 − 𝜃2 ) ⋅ 𝑚2 ⋅ 𝐿1 ⋅ 𝐿2 ⋅ 𝜃1′ ⋅ 𝜃2′ − 𝑚2 ⋅ 𝑔 ⋅ 𝐿2 ⋅ (𝑠𝑖𝑛𝜃2 )
+1
+
+𝜕ℒ
+
+=>𝜕 𝜃′ = 𝑃2 = 𝑚2 ⋅ 𝜃2′ ⋅ (𝐿2 )2 + 𝑚2 ⋅ 𝐿1 ⋅ 𝐿2 ⋅ 𝜃1′ ⋅ cos(𝜃1 − 𝜃2 )
+2
+
+On obtient :
+𝑑𝑃1
+
+= 𝑚1 ⋅ 𝜃1′′ ⋅ (𝐿1 )2 + 𝑚2 ⋅ 𝜃1′′ ⋅ (𝐿1 )2 + 𝑚2 ⋅ 𝐿1 ⋅ 𝐿2 ⋅ 𝜃2′′ ⋅ cos(𝜃1 − 𝜃2 ) − 𝑚2 ⋅ 𝐿1 ⋅ 𝐿2 ⋅ 𝜃2′ ⋅
+sin(𝜃1 − 𝜃2 ) ⋅ (𝜃1′ − 𝜃2′ )
+𝑑𝑡
+
+𝑑𝑃2
+= 𝑚2 ⋅ 𝜃2′′ ⋅ (𝐿2 )2 + 𝑚2 ⋅ 𝐿1 ⋅ 𝐿2 ⋅ 𝜃1′′ ⋅ cos(𝜃1 − 𝜃2 ) − 𝑚2 ⋅ 𝐿1 ⋅ 𝐿2 ⋅ 𝜃1′′ ⋅ sin(𝜃1 − 𝜃2 ) ⋅ (𝜃1′ − 𝜃2′ )
+𝑑𝑡
+Et donc en équations finales on obtient :
+𝑑
+
+𝜕ℒ
+
+𝜕ℒ
+
+1
+
+1
+
+1) 𝑑𝑡 (𝜕 𝜃′ ) − 𝜕 𝜃 = 0
+𝑑
+𝜕ℒ
+(𝑃1 ) −
+=0
+𝑑𝑡
+𝜕 𝜃1
+𝑚1 ⋅ 𝜃1′′ ⋅ (𝐿1 )2 + 𝑚2 ⋅ 𝜃1′′ ⋅ (𝐿1 )2 + 𝑚2 ⋅ 𝐿1 ⋅ 𝐿2 ⋅ 𝜃2′′ ⋅ cos(𝜃1 − 𝜃2 ) − 𝑚2 ⋅ 𝐿1 ⋅ 𝐿2 ⋅ 𝜃2′
+⋅ sin(𝜃1 − 𝜃2 ) (𝜃1′ − 𝜃2′ )
+−(− sin(𝜃1 − 𝜃2 ) ⋅ 𝑚2 ⋅ 𝐿1 ⋅ 𝐿2 ⋅ 𝜃1′ ⋅ 𝜃2′ − sin(𝜃1 ) ⋅ 𝑔 ⋅ 𝐿1 ⋅ (𝑚1 + 𝑚2 )) = 0
+𝑑
+
+𝜕ℒ
+
+𝜕ℒ
+
+2
+
+2
+
+2) 𝑑𝑡 (𝜕 𝜃′ ) − 𝜕 𝜃 = 0
+𝑑
+𝜕ℒ
+(𝑃2 ) −
+=0
+𝑑𝑡
+𝜕 𝜃2
+𝑚2 ⋅ 𝜃2′′ ⋅ (𝐿2 )2 + 𝑚2 ⋅ 𝐿1 ⋅ 𝐿2 ⋅ 𝜃1′′ ⋅ cos(𝜃1 − 𝜃2 ) − 𝑚2 ⋅ 𝐿1 ⋅ 𝐿2 ⋅ 𝜃1′′ ⋅ sin(𝜃1 − 𝜃2 ) ⋅ (𝜃1′ − 𝜃2′ )
+−(sin(𝜃1 − 𝜃2 ) ⋅ 𝑚2 ⋅ 𝐿1 ⋅ 𝐿2 ⋅ 𝜃1′ ⋅ 𝜃2′ − 𝑚2 ⋅ 𝑔 ⋅ 𝐿2 ⋅ sin(𝜃2 )) = 0
+Et on obtient finalement :
+𝜃1′′ ⋅ (𝐿1 ) ⋅ (𝑚1 + 𝑚2 ) + 𝑚2 ⋅ 𝐿2 ⋅ 𝜃2′′ ⋅ cos(𝜃1 − 𝜃2 ) + 𝑚2 ⋅ 𝐿2 ⋅ (𝜃2′ )2 ⋅ sin(𝜃1 − 𝜃2 ) + sin(𝜃1 ) ⋅ 𝑔
+⋅ (𝑚1 + 𝑚2 ) = 0
+𝜃2′′ ⋅ 𝐿2 + 𝐿1 ⋅ 𝜃1′′ ⋅ cos(𝜃1 − 𝜃2 ) − 𝐿1 ⋅ (𝜃1′ )2 ⋅ sin(𝜃1 − 𝜃2 ) + 𝑔 ⋅ sin(𝜃2 ) = 0
+Maintenant qu’on a les équations du mouvement, nous pouvons voir que ce sont des équations différentielles
+du second ordre. Celles-ci n’ayant pas de solution analytique le seul moyen de la résoudre est de façon
+numérique, par le biais de la programmation. Nous avons donc écrit un code pour résoudre ce système (cf
+l’annexe) puis nous avons comparé théoriquement 2 lancers avec un écart initial d’un millième de radian et
+nous avons retrouvé la divergence relevée par la partie expérimentale qui apparait ici clairement vers 15.5
+secondes.
+18
+
+On voit donc bien que même pour une très grande précision, l’extrême sensibilité aux conditions initiales fait
+apparaitre un mouvement chaotique sans la nécessité de frottements ou de facteurs extérieurs.
+Grâce à une boucle for, nous avons essayé de représenter l’évolution du temps que met le système à diverger
+selon l’écart initial (en commençant à 1 millième de radian d’écart) :
+
+l:
+On remarque l’aspect logarithmique de la courbe tracée et on en déduit qu’il existe sûrement une relation de
+ce type qui relie le temps au bout duquel le système diverge et l’écart initial , cela rejoint bien la définition
+de la durée de lyapounov qui repose sur une expression exponentielle .
+Voici un aperçu de ce qu’on aurait pu animer (utilisation des codes de Scienceétonnante) pour un
+aspect plus visuel :
+•
+
+Double pendule
+
+•
+
+Double pendule + 2
+
+19
+
+CONCLUSION
+Au bout de cette démarche expérimentale, après avoir rencontré et surmonté maintes embûches, après avoir
+essayé, échoué, réussi à optimiser au mieux notre système et après avoir relevé, analysé, comparé une grande
+quantité de données nous avons enfin réussi à mener ce projet à l’étape où nous en sommes avec l’aide et
+l’exégèse précieuses de M. PHILIPPE, M. BELLIER, M. OLIVIER et M. LAFFONT que nous remercions
+chaleureusement ! Malgré l’acquisition de résultats peu probants mais tout de même intéressants nous
+sommes très fiers de nos démarches et de ce projet !
+Nous sommes particulièrement heureux d’avoir découvert et appris un florilège de notions et de concepts tels
+que le lagrangien, l’espace des phases (qui reste encore un peu obscur pour nous) …
+Nous avons encore d’autres idées pour enrichir ce projet et nous avons hâte de les mettre en pratique pour la
+suite des olympiades !
+Et SURTOUT : VIVE LA PHYSIQUE !!!!!
+
+SOURCES
+Outils de recherche et d’information :
+https://fr.wikipedia.org/wiki/Pendule_double
+https://fr.wikipedia.org/wiki/Th%C3%A9orie_du_chaos
+https://www.fun-mooc.fr/fr/cours/introduction-a-la-physique-quantique-partie-1/ ( Lagrangien et culture)
+https://scienceetonnante.com/2018/02/16/theorie-du-chaos-et-effet-papillon/
+http://gilbert.gastebois.pagesperso-orange.fr/java/double/theorie_pendule_double.pdf
+http://toutsurlescours.free.fr/ate/ATE%281%29.pdf
+https://www.juliensalort.org/Scolarite/ChaosPhysique/Chaos.php
+http://www.msc.univ-paris-diderot.fr/~phyexp/pmwiki.php/Bipendule/Bipendule
+https://media4.obspm.fr/public/AAM/pages_syst-lin/expo-lyap.html
+https://complexe.jimdofree.com/la-th%C3%A9orie-du-chaos/les-suites-logistiques/l-exposant-de-lyapunov/
+http://emmanuel.dauce.free.fr/these/node67.html
+Et Bien sûr un grand merci à ScienceEtonnante pour ses codes et sa vidéo !!!
+
+20
+
+

@@ -1,0 +1,388 @@
+OLYMPIADES DE PHYSIQUE
+
+Projet présenté par :
+AMBLARD Elise
+BUGIER Sarah
+COSTER Alexandra
+BENOIT Florent
+
+Lycée Charles Baudelaire
+CRAN-GEVRIER
+
+Professeur responsable :
+Monsieur Gallin-Martel Gilles
+
+1
+
+SOMMAIRE
+
+I. Historique
+1) Présentation du groupe
+2) Projet initial
+
+II. Mise au point de l’interface
+1) La source de courant
+2) L’interface
+3) Le port sériel
+
+III. Réorientation du projet
+1) Problème rencontré
+2) Nouveau projet
+
+IV. Expérience et cinétique
+1) Réaction chimique utilisée
+2) Exploitation des mesures
+V. Améliorations, bilan
+VI. Calculs d’incertitudes
+VII. Précision moyenne du chronomètre chimique
+VIII. Conclusion
+2
+
+I. Historique
+1)
+
+Présentation du groupe
+
+Notre groupe se compose de quatre élèves du lycée Charles Baudelaire situé à CranGevrier. Nous sommes actuellement en terminale scientifique et nous avons tous suivi l’option
+MPI (Mesures Physiques et Informatique) en seconde.
+En classe de première S, M.Gallin-Martel nous proposa d’intégrer l’atelier scientifique.
+Cela impliquait l’élaboration d’un projet qui portait avant tout sur la physique, mais aussi sur
+l’électronique, l’informatique et la chimie. Le tout se déroulant sur deux ans et aboutissant aux
+Olympiades de Physique. Sans tarder, nous acceptâmes ce qui nous entraîna dans de folles
+péripéties ...
+
+3
+
+2)
+
+Proje t initial
+
+Initialement notre projet portait sur le dosage du sodium dans une solution saline. Ce
+sujet nous enthousiasma car il n’existe que peu de méthodes pour réaliser un tel dosage.
+Nous sommes allés observer une de celles-ci au Lycée Louis Armand à Chambéry : la
+mesure par photométrie de flamme. Nous en avons profité pour réaliser des mesures sur
+différentes eaux minérales afin de pouvoir les comparer à nos propres mesures ultérieurement.
+Notre méthode consistait à mettre en relation la variation d e tension d’un circuit et la
+concentration en ions sodium grâce à une photorésistance. Nous précipitons les ions sodium
+avec une solution d’hexahydroxoantimonate de potassium (K+ + Sb(OH)6- ), d’après l’équation de
+réaction : Na+ + Sb(OH) 6- = Na Sb (OH)6
+Plus la concentration en ions sodium est importante, plus le précipité est dense, ce qui
+fera varier la lumière reçue par la photorésistance préalablement placée derrière la solution.
+Cette photorésistance étant intégrée dans un circuit. On s’intéresse à la tension U aux
+bornes de la photorésistance. Grâce à des solutions de concentrations connues nous aurions
+réalisé une courbe d’étalonnage de la forme C = f( U ). Cette relation nous aurait permis de
+connaître la concentration en ions sodium d’une solution de concentration inconnue. Pour cela il
+nous fallait connaître la tension, donc réaliser une interface.
+
+4
+
+II. Mise au point de l’interface
+1)
+
+La source de courant
+
+Notre tension doit dépendre uniquement de la photorésistance ( qui dépend elle-même de
+la concentration en ions sodium) . Etant donné que U=R.I, il faut pour cela que l’intensité du
+circuit soit constante. Nous avons dû construire une source de courant, montage que nous avions
+vu et réalisé en option MPI en seconde.
+
+R1 = 100 k?
+
+R 2 = 700 ?
+
+R = résistance de la LDR (photorésistance)
+
+Un problème se pose néanmoins, le domaine de validité de cette formule est limité. En
+effet ce montage nous garantit une intensité constante seulement lorsque R est compris entre 0 et
+30 k? . Après vérification sur notre montage grâce à un ohm -mètre no us avons constaté que la
+photorésistance restait inférieure à 30 k? au cours de l’expérience : l’intensité reste donc bien
+constante.
+
+2) L’interface
+Une interface est un convertisseur analogique-numérique. En effet, il permet de convertir
+les données analogiques fournies par la photorésistance en données numériques pouvant être lues
+par l’ordinateur .
+
+5
+
+Pour réaliser une interface, notre choix s’est porté sur le MIC 640 dont nous avions une
+description du montage ainsi que des informations sur son fonctionnement trouvées sur le site
+internet de Mictronics. Nous avons donc réalisé le montage. Malheureusement lorsque nous
+avons essayé de récupérer une tension grâce à une programmation en Qbasic cela n’a pas marché.
+Nous avons donc utilisé un autre composant intégré : le TLC 549, trouvé dans un livre
+d’éléctronique (“ J’exploite les interfaces de mon PC ” chez Publitronic) avec un schéma de
+montage (voir ci-dessous), ainsi que des lignes de programmation en Turbo-Pascal que notre
+professeur nous a aidé à traduire en Qbasic. Nous avons réalisé le montage.
+Une alimentation de 5V étant nécessaire au fonctionnement de l’interface, nous avons
+associé à notre source de tension (0-12 V) un régulateur intégré de tension (RIT 7805) qui assure
+une tension de 5V à sa sortie quelle que soit la tension reçue, du moment que celle-ci soit
+supérieure à 6,5V.
+
+Nous avons ensuite adapté le programme ( entrée utilisée etc...) qui marche et nous donne
+des valeurs correctes comprises entre 0 et 5V.
+
+3) le port sériel
+Le port sériel est le lien entre notre ordinateur et notre interface. Nous l’avons choisi car il
+est programmable en Qbasic, langage que nous avions étudié en classe de seconde MPI.
+Nous n’utilisons que quatre bornes sur vingt-cinq : DSR (entrée), RTS et DTR (sorties) et
+GND (masse). C’est pour cela que nous utilisons un câble de liaison DB-9 reliant l’interface à
+l’ordinateur via son port sériel.
+
+6
+
+III. Réorientation du projet
+1)
+
+Problème rencontré
+
+Tout notre projet initial reposait sur la densité du précipité obtenu. Malheureusement le
+précipité obtenu grâce à l’hexahydroxoantimonate de potassium est très peu visible même après
+avoir fabriqué notre solution “ précipitante ” en suivant scrupuleusement les indications données
+dans un livre de chimie.
+Ainsi nous n’obtenons pas de variation de tension significative entre une solution nonprécipitée et une solution saturée en sodium précipitée. De plus, le précipité, aussi petit soit-il,
+met plusieurs heures à se former. Nous ne pouvions pas non plus utiliser l’une des deux autres
+espèces chimiques permettant la précipitation des ions Na+ : l’un étant toxique, l’autre fluorescent
+( il aurait perturbé les mesures de la tension aux bornes de la LDR). Notre professeur nous a dit
+que , de plus, ces produits étaient coûteux. Dans ces conditions il nous était impossible de
+continuer à travailler sur le même sujet. Nous avons donc choisi un nouveau sujet.
+
+2)
+
+Nouveau projet
+
+Notre interface étant opérationnelle nous avons décidé de la réutiliser. Nous étions alors
+en fin de première S et nous avons opté pour la réalisation d’un chronomètre chimique qui serait
+en relation avec la vitesse de réaction chimique (début du programme de terminale S).
+Au lieu de précipiter des ions sodium, nous utilisons une réaction chimique qui entraîne
+un changement d’état ou de couleur. Ce projet ne diffère pas beaucoup de l’ancien au niveau du
+protocole, seulement l’équation de la courbe à trouver ne sera non plus C = f(U) mais t = f(U)
+(t étant le temps).
+
+IV. Expérience et cinétique
+1)
+
+Expérience chimique utilisée
+
+Nous avons commencé par utiliser la réaction des ions thiosulfate S 2O32- avec l’acide
+chlorhydrique (réaction que nous utilisions en classe), de plus une réaction chimique étant
+reproductible cela ne devrait pas poser trop de problèmes. Mais la courbe obtenue s’est révélée
+difficilement exploitable car c’ était une polynomiale de degré six avec des coefficients énormes.
+Ainsi le moindre écart de tension engendrait un écart important entre le temps chimique et le
+temps réel.
+Nous avons donc changé de réactio n et choisi celle des ions iodure I- avec les ions
+peroxodisulfate S2O82- , la transformation entraînant un changement de couleur : la solution
+initialement incolore devient peu à peu jaune, orangée.
+2 I- + S2O82- = I2 + 2 SO 42-
+
+7
+
+2)
+
+Exploitation des mesures
+
+Notre interface mesure la tension du circuit, donc pour avoir le temps, il nous faut une
+équation de la forme : t = f(U). Pour cela nous devons tracer la courbe de t = f(U).
+Pour tracer cette courbe nous avons créé un nouveau programme en Qbasic
+(s’inspirant de celui nous donnant la tension) qui nous affiche le temps d’un côté et la tension
+mesurée associée de l’autre, alors que nous lançons la réaction.
+Pour afficher le temps nous avons utilisé l’heure de l’horloge interne de l’ordinateur en la
+convertissant en secondes. Par un mécanisme de soustraction (heure au moment de la mesure heure au départ de la mesure) nous avions donc le temps écoulé depuis le début de la réaction en
+parallèle avec la tension.
+t = instant de la mesure - instant de départ de l’expérience
+En rajoutant quelques lignes de programme, nous avons envoyé ces mesures dans un
+tableur Excel (instruction OPEN) afin de pouvoir tracer la courbe t = f(U) puis en trouver
+l’équation.
+Nous avons obtenu une fonction exponentielle : t = 9 * 10^-6 exp ( 7,9 U )
+
+Temps (s)
+7,9247x
+
+y = 9E-06e
+
+450
+400
+350
+300
+250
+
+Série1
+
+200
+
+Exponentiel (Série1)
+
+150
+100
+50
+0
+0
+
+1
+
+2
+
+3
+
+Tension (V)
+
+Nous avons ensuite intégré cette équation dans notre programme initial. Après un essai
+nous avons constaté que l’écart entre temps chimique et temps réel était trop important. Cela
+venait du fait que l’exponentielle croissait trop vite. Ce qui fait qu’on observait des fluctuations
+importantes dans le temps chimique qui défilait.
+
+8
+
+V. Améliorations, bilan
+Pour éviter cela, l’idéal serait une fonction affine. Notre professeur nous confia que
+c’était possible grâce à un montage appelé convertisseur exponentiel (car la courbe U = f(t) est
+logarithmique). Ce montage fait subir une transformation à la tension, notre courbe exponentielle
+devient alors une fonction affine à conditions d’adapter les valeurs de certains composants. Nous
+avons donc intégré ce montage à la suite de l’ancien.
+
+R3 = 100 ?
+
+I =I o exp (k*U d )
+
+Dans la maille M S2 R3 E -E + M, on a :
+U2 + R3 * I = 0 , d’ où : U2 = -R3 * I0 exp (k*U d) , k étant la constante de la diode au silicium.
+Elle est égale à 21,6 V-1 , nous choisissons de placer trois diodes en série afin d’abaisser cette
+constante à 7,2 V-1
+De même, dans la maille M S1 E -E+ M , on a :
+U1 -Ud = 0 , d’ où U1 =Ud
+En remplaçant dans la première expression on obtient :
+U2 = -R3 * I0 exp (k*U1)
+U2/(-R3 * I0 ) = exp (k*U1)
+ln[ U2/(-R3 * I0 ) ] = k*U1
+
+U1 =( ln[ U2/(-R3 * I0 ) ] ) * 1/k
+On sait que :
+t = 9 * 10^-6 exp (7,9 * U1)
+Donc en remplaçant :
+t = 9 * 10^-6 exp [ (7,9/k) * ln[ U2/(-R3 * I 0 ) ] ]
+
+9
+
+Pour que notre formule soit la plus précise possible, il faut que 7,9/k = 1. D’où la
+nécessité de changer la résistance R2 de notre source de courant pour que l’exposant (7,9) soit
+égal à k, soit 7,2 V -1. Par tâtonnement nous avons trouvé que R2 doit être égale à 698 ? .
+
+3 diodes en série : ln I = f(U)
+
+Mais l’exposant de l’équation t = f(U 2) est négatif : ln [ U2/( - R3 * I0 ) ]. Cela est
+embêtant car on ne peut calculer un logarithme d’une valeur négative. Pour palier ce petit
+problème nous utilisons un montage inverseur. La tension qui en ressort est de signe contraire à
+celle qui rentre.
+
+R4 = 1 k?
+
+R5 = 2,7 k?
+
+U 3 = - R5 *U2 / R 4
+
+10
+
+Nous devons notamment faire le choix des résistances les mieux adapté es dans le cas du
+convertisseur exponentiel et celui du montage inverseur.
+La modélisation de la courbe t = f(U 3) nous donne une fonction du second degré. Cela
+vient du fait que le coefficient précédent le logarithme n’est pas tout à fait égal à 1.
+
+300
+250
+200
+Série1
+
+150
+
+Polynomial (Série1)
+
+100
+50
+0
+0
+
+1
+
+2
+
+3
+
+4
+y = 124,2x 2 - 861,57x + 1491,8
+
+Les modifications ainsi apportées nous ont permis de limiter les fluctuations du temps
+chimique.
+Malgré tout une fonction linéaire étant plus intéressante (car plus précise) à étudier, nous
+avons pensé utiliser un montage dérivateur-inverseur. Grâce à celui-ci la tension de sortie U3 est
+proportionnelle à la dérivée par rapport au temps de la tension d’entrée U2 .
+U3 = -R 4 C dU 2 / dt
+
+R4=100 k?
+
+C=10? F
+
+Après avoir supprimé le montage inverseur qui devenait inutile et l’avoir remplacé par ce
+montage nous avons effectué une nouvelle série de mesures. Malheureusem ent le calcul de la
+dérivée est lié à la différence entre deux mesures successives. Notre réaction étant lente, la
+tension ne varie que très peu voire pas du tout d’une mesure à l’autre ; la dérivée est alors nulle.
+Cela se reproduisant souvent, la courbe obtenue était discontinue et nous avions beaucoup de
+sauts de tension ce qui la rendait inexploitable. Nous avons donc dû supprimer cet étage et
+réintégrer le montage inverseur précédent.
+11
+
+Nous avons ensuite pensé à calculer la dérivée directement à partir des mesures que nous
+récupérons dans Excel mais là encore nous avons été confrontés au même problème.
+
+VI. Calculs d’incertitudes
+A chaque fois que nous avons réalisé des mesures nous nous sommes retrouvés confrontés à d ‘
+importantes fluctuations . Nous avons donc cherché à découvrir la cause de ces erreurs . Après
+de multiples recherches nous en avons conclu qu’une des causes majeures provenait du fait que
+notre interface ne possédait que huit bits . L ’incertitude de la tension ( ? u ) est due au nombre de
+bits de notre interface . En effet ? u = 5/255 (car 256 états = 2^8 ) donc ? u = 0,0196 V .
+t (u) = A exp (b * u ) et t ’(u) = dt/du = ? t/? u = A * b exp (b * u)
+? t = t’(u) * du
+Exemple : t(u1) = 9*10^ -6 * exp (7,9 * u1)
+A = 9*10^ -6
+B = 7,9
+? t = 9 * 10^-6^* 7.9 * exp(7.9 * u1) * 0,0196
+Si u1 = 1,9608 V (valeur médiane) alors ? t = 7 s
+L’ incertitude sur le temps est donc d’ environ 7 secondes et on trouve le même résultat en
+faisant le calcul sur la fonction polynomiale de degré 2.
+Ainsi l’incertitude sur le temps ? t dépend essentiellement de ? u et donc du nombre de bits.
+Si l’on disposait d’un CAN à 12 bits on aurait une incertitude ? t d’environ 0,5s. Or nous ne
+disposions pas d’une telle interface.
+
+VII. Précision du chronomètre chimique
+Nous relançons l’expérience et nous affichons à l’écran temps chimique tc et temps réel tr.
+A l’aide de l’instruction OPEN ces deux temps sont envoyés dans Excel en fin d’expérience.
+Dans Excel nous traçons la courbe de la fonction
+
+tc = f ( tr )
+
+C’est en comparant la pente de la droite obtenue à la valeur 1 (pente de la 1ere bissectrice des
+axes) que l’on calcule alors la précision.
+P = ?pente - 1?/ 1 ; elle peut être exprimée en %.
+
+VIII. Conclusion
+Le travail effectué dans le cadre du concours des Olympiades de Physique a été
+une expérience très bénéfique pour tous et bien que de nombreux obstacles se soient dressés
+devant nous cela nous a poussé à ne jamais baisser les bras et à toujours aller plus loin. Il nous
+a fallut trouver une solution à chaque problème et réussir à la mettre en œuvre. Cela parfois
+en un minimum de temps et en ne découvrant sa fiabilité qu’après l’avoir mise en place.
+12
+
+Les déceptions ayant été nombreuses il nous a fallu garder le moral et pour cela se
+soutenir les uns les autres.
+En effet durant ces deux années passées ensemble , nous avons pu nous rendre compte
+des difficultés et des avantages du travail en groupe. Cela demande de la coordination ainsi
+que beaucoup de persévérance car les imprévus sont fréquents. Il a parfois été difficile de
+s’entendre mais malgré tout nous avons su rester soudés . Chacun a pu apporter ses
+connaissances selon ses compétences.
+De plus, cette aventure nous a conforté dans l ‘idée que l’on pouvait se faire de
+la recherche tout en nous étonnant par de nombreux aspects comme la nécessité de ne jamais
+prendre quelque chose pour acquis.
+
+Vue d’ensemble du montage
+
+13
+
+

@@ -1,0 +1,924 @@
+Radiodétection de météorites
+Olympiades de la Physique, année 2003 – 2004
+Mémoire mis à jour le 14 janvier 2004
+Groupe de Pontarlier, lycée Xavier Marmier
+Les élèves :
+Viennet Laetitia,
+Lombardot Carole
+Les professeurs :
+Jussiaux Jean-Michel, Physique
+Esseiva Nicolas, Sciences de la Vie et de la Terre
+Les conseillers scientifiques :
+Obert Dominique
+Van Labeke Daniel
+Résumé :
+Les ondes électromagnétiques dont la fréquence est inférieure à la fréquence de
+coupure de l’ionosphère (située entre 10 et 30 MHz) ne peuvent se propager dans celleci ; elles sont donc réfléchies par l’ionosphère, et peuvent ainsi être reçues à de
+grandes distances. Celles dont la fréquence est supérieure traversent l’ionosphère
+(seule une toute petite partie est réfléchie), se perdent dans l’espace et, du fait de la
+rotondité de la Terre, ne portent qu’à quelques dizaines de kilomètres. Sauf si une zone
+de l’atmosphère est ionisée, par le passage d’une météorite, cette zone se comportant
+comme une antenne réémettrice.
+Un récepteur radio, réglé sur un émetteur lointain de fréquence 100 MHz (donc
+en modulation de fréquence), ne recevra que du bruit, souffle, sauf lors du passage
+d’une météorite, ou d’un avion. Pendant une durée très courte (météorite) ou plus
+longue (avion) de la musique sera reçue, ce qui permettra la détection du passage de
+météorites.
+La vérification de la pertinence de nos détections sera faite par comparaison
+avec d’autres sites de radiodétection, des calendriers de passage de météorites et des
+vérifications en direct.
+Nous ne publierons pas tous les détails techniques du montage, ceux-ci figurant
+sur des sites Internet spécialisés, dont les adresses figurent dans la bibliographie, en fin
+de mémoire.
+
+1
+
+Introduction :
+Ce sujet nous a été proposé par notre professeur de Sciences de la Vie et de la
+Terre, également responsable d’un atelier d’astronomie au lycée. Participant à cet
+atelier l’année dernière, nous nous sommes intéressées à ce sujet qui nous a tout de
+suite enthousiasmé. Mais rapidement, le comportement de l’ionosphère qui renvoie
+certaines ondes et pas d’autres nous est apparu bien mystérieux. Ne parvenant pas à
+comprendre ce phénomène, nous nous sommes adressés à notre professeur de
+physique et aux conseillers scientifiques des Olympiades de Physique.
+Nous avons entrepris la lecture d’ouvrages de Physique bien trop ardus pour des
+élèves de Terminale S. Puis nous avons réalisé des simulations expérimentales,
+illustrant (au moins de manière approchée) le comportement de l’ionosphère, masse
+suspendue à un ressort, pendules couplés, propagation d’ondes sur la cuve à ondes,
+réflexion totale, ondes évanescentes, réflexion totale frustrée.
+Nous avons réalisé un émetteur en modulation d’amplitude (porteuse à 100 kHz,
+puis 10 kHz) et un émetteur en modulation de fréquence (porteuse à 10 kHz), puis
+examiné le spectre en fréquences du signal émis. Nous avons aussi examiné les
+spectres en fréquence d’émetteurs en modulation de fréquence proches. Nous avons
+comparé ces résultats expérimentaux à des simulations réalisées sous Excel. Nous
+avons incidemment découvert que la fonction de Bessel J d’Excel semble incorrecte.
+Nous nous sommes procuré le matériel nécessaire à la radiodétection des
+météorites : Antenne Yagi, radio récepteur en modulation de fréquence numérique,
+boîtier amplificateur d’interfaçage avec l’ordinateur, câbles, logiciel de traitement des
+données spécialisé, ordinateur.
+En fait, l’antenne et le boîtier électronique ont été donnés à notre professeur de
+S.V.T. par des collègues parisiens qui avaient tenté la même manipulation, mais n’y
+étaient pas parvenus, du fait du trop grand nombre d’émetteurs proches. Le logiciel
+ColorGramme Wmeteor a été acheté par l’atelier « Imagerie scientifique » de notre
+lycée. Le récepteur radio, modulation de fréquence à syntoniseur numérique, garanti 3
+ans, a été acheté 80 euros chez ALDI, par les Olympiades de Physique. L’ordinateur
+est un PC un peu ancien, prêté par notre lycée.
+Nous avons essayé de comprendre le fonctionnement de l’antenne et mesuré sa
+directivité, en la pointant vers un émetteur proche et connu. Nous avons démonté le
+boîtier électronique, pour comprendre son fonctionnement, ainsi que celui du logiciel
+associé, car peu d’indications sont disponibles sur ce sujet. Nous avons enfin réalisé le
+montage complet de radiodétection. Il a d’abord été testé en visant un émetteur connu,
+situé à Genève.
+Nous avons observé nettement l’arrivée d’un son audible, lors du passage de
+chaque avion de ligne (Genève est un important aéroport international). Nous avons
+ensuite lancé la détection et après plusieurs essais infructueux (tempête tournant notre
+antenne, mauvaise détection ou au contraire détection trop forte du signal) nous avons,
+sur conseil de Monsieur Myotte, préparateur au laboratoire de Physique du lycée, pointé
+notre antenne vers l’Est, approximativement dans la direction de « Radio framboise »
+située à Lausanne.
+Les résultats obtenus semblaient valides, en comparaison avec des résultats
+d’autres laboratoires publiés en direct sur Internet. Notre professeur de SVT, voulant en
+avoir le cœur net a même passé plusieurs nuits (claires et glaciales) allongé dans un
+champ, à côté d’un petit observatoire amateur, guettant les météorites et les avions,
+écoutant les crachements du poste de radio et observant les détections sur l’écran de
+
+2
+
+l’ordinateur. Hormis le fait que plusieurs personnes se sont inquiétées de son état de
+santé, il lui a nettement semblé que notre montage, réglé sur un émetteur Suisse
+détecte le passage des avions et pas celui des météorites.
+Il faudrait pointer vers des émetteurs beaucoup plus lointains, pour minimiser les
+détections d’avions, ceux-ci traversant l’atmosphère à des altitudes très inférieures à
+celles des météorites. Mais compte tenu du grand nombre d’émetteurs en modulation
+de fréquence, il faudra it essayer de détecter des émetteurs de pays de l’Est, calés pour
+l’instant sur des fréquences différentes de celles en vigueur en Europe de l’Ouest, ce
+qui nécessite un récepteur spécial. Des émetteurs des pays de l’Est utilisent nos
+fréquences occidentales, mais il faut qu’ils ne soient pas sur les fréquences d’émetteurs
+plus proches. Il faut de plus que ces émetteurs soient assez puissants. De nouveaux
+essais sont en cours.
+Nous avons découvert dans la presse, Sciences et Avenir, que cette méthode de
+transmission d’information à grande distance, avec des émetteurs à haute fréquence
+est utilisée en Egypte, pour centraliser les indications du niveau du Nil données par des
+capteurs, afin de prévoir les crues.
+
+L’ionosphère
+Elle est formée par plusieurs couches d’air, aux propriétés légèrement
+différentes, contenant un grand nombre de molécules de diazote et de dioxygène
+ionisées par absorption d’un quantum de lumière ultraviolet provenant du Soleil. La
+densité d’ions positifs et d’électrons est maximale entre 200 et 400 km d’altitude et
+varie de 1012 à 1013 électrons libres par mètre cube. Aux altitudes plus élevées, elle
+décroît du fait de la raréfaction de l’air ; aux altitudes plus basses, c’est le rayonnement
+ultraviolet qui a été absorbé (ce qui est fort heureux pour la vie sur Terre).
+Montrons que le plasma, mélange d’électrons et d’ions positifs, est capable
+d’osciller et calculons sa fréquence d’oscillation.
+
+Fréquence d’oscillation de l’ionosphère
+L’ionosphère, un plasma, peuvent être le siège d’oscillations. Supposons à un
+instant, dans une région, un léger déséquilibre de charge dans le plasma globalement
+neutre : Ce déséquilibre crée un champ électrique qui accélère les électrons dans un
+sens et les ions positifs dans l’autre, comme une force de rappel créée par un ressort.
+Un peu plus tard, le déséquilibre disparaît, le champ électrique s’annule, ainsi que les
+forces électriques, mais les différentes charges ont acquis de la vitesse et dépassent le
+point d’équilibre (sauf pour les électrons qui heurteraient les ions) la force de rappel
+change de sens et une oscillation se produit. Les valeurs des forces agissant sur les
+électrons et les ions étant égales, seuls les électrons ont un mouvement notable, du
+fait de leur masse négligeable devant celle des ions.
+Supposons une région de l’espace contenant une densité de N électrons par
+unité de volume et N ions portant une charge positive, donc globalement neutre.
+Supposons que cette région a la forme d’un pavé d’épaisseur L et de surface de base
+S. En fait, no us verrons que dans les calculs, L et S disparaissent, ce qui signifie que la
+région considérée peut avoir une forme quelconque.
+
+3
+
+Supposons que l’ensemble des électrons se déplace de x dans une certaine direction.
+Nous avons vu que les ions positifs sont quasiment fixes. Cela crée une couche de
+charges négatives d’épaisseur x, de densité N électrons par mètre cube, séparée d’une
+couche de charges positives de valeur opposée, par la distance L. Ceci est
+comparable à un condensateur d’armatures de surface S, d’épaisseur L, portant les
+charges + ou – N.x.S.|e|.
+La capacité C d’un tel condensateur est C??0 S , la charge q d’une armature est donnée
+L
+par q = C U, où U est la différence de potentiel entre les 2 armatures. Enfin, le champ
+électrique E à l’intérieur d’un tel condensateur est E? U .
+L
+Nous en déduisons la valeur de la force agissant sur 1 électron, de sens opposé
+àx:
+2
+N e S x
+N e x
+U
+q
+F ? e E ? e
+?
+e
+? e
+?
+S
+L
+C.L
+?0
+?0
+L
+L
+Nous constatons que cette force ne dépend absolument pas de l’hypothèse faite
+sur la forme et les dimensions de la région de l’espace considérée ; S et L ont disparu
+des calculs.
+Nous voyons que cette force de rappel élastique peut s’écrire F = - k x, comme dans le
+2
+N e
+cas d’une masse suspendue à un ressort de raideur k, avec k ?
+?0
+
+Ressort de raideur k
+Masse suspendue m
+Force exercée par le ressort
+F=kx
+Oscillations sinusoïdales de pulsation ?
+2
+
+? =k/m
+Le cours de terminale scientifique montre que dans ce cas, des oscillations
+2
+
+sinusoïdales de pulsation ? 0 sont possibles, avec x = Xm cos (? 0 t + ? ) et ? 0 ?
+
+Ne
+.
+?0 m
+
+Dans cette relation, ? 0 est la pulsation de l’oscillation de plasma, N est la densité
+de charge (nombre d’électrons libres par mètre cube), |é| la charge élémentaire, ?0 , la
+permittivité diélectrique du vide égale à 8,89 . 10 -12 u.S.I. et m la masse de l’électron.
+Avec F? ? 0 , nous trouvons des fréquences d’oscillation du plasma de 10 à 30 MHz.
+2?
+Nous montrerons plus loin que cette fréquence est une fréquence de coupure de
+l’ionosphère, qui ne laisse pas passer des fréquences inférieures. Rappelons que les
+émissions radio en modulation d’amplitude ont des fréquences porteuses aux environs
+de 200 kHz, donc inférieures à la fréquence du plasma ; elles ne peuvent pas traverser
+
+4
+
+l’ionosphère qui les réfléchira vers la Terre. Les émissions en modulation de fréquence,
+en Europe de l’Ouest ont des fréquences de porteuse de l’ordre de 100 MHz ; elles
+traverseront l’ionosphère.
+
+Le comportement de l’ionosphère :
+Nous allons montrer que l’ionosphère se comporte comme une suite (en 3
+dimensions) d’oscillateurs couplés. Une telle suite constitue un filtre passe-haut (en fait
+passe-bande) et ne peut transmettre que les fréquences supérieures à une fréquence
+dite de coupure.
+Lorsqu’une onde électromagnétique aborde la surface séparant l’atmosphère de
+l'ionosphère, 2 possibilités se présentent :
+- Si la fréquence de l’onde est inférieure à la fréquence de coupure, elle ne
+peut se propager dans l’ionosphère. Elle est alors totalement réfléchie, vers
+la Terre donc. L’ionosphère est le siège d’ondes à décroissance
+exponentielle, ondes évanescentes, ne dissipant pas d’énergie. Selon ce que
+nous en a dit un conseiller scientifique, l’indice de l’ionosphère peut être
+considéré comme imaginaire. Et si nous avons bien compris le livre Ondes
+de Berkeley, la longueur d’onde y est infinie, ainsi que la vitesse de phase,
+mais pas la vitesse de groupe.
+- Si sa fréquence est supérieure, l’onde passe dans l’ionosphère, avec
+réfraction et elle se perd dans l’espace. Une petite partie doit cependant être
+réfléchie, comme lorsque de la lumière traverse une vitre.
+Les calculs étant compliqués pour des élèves de terminale S, comparons l’ionosphère
+à un modèle plus simple, à 1 dimension pour commencer, une suite de pendule
+couplés.
+
+Suite de pendule couplés.
+Nous avons trouvé dans la cave du lycée un tel montage qui était utilisé par les
+professeurs de physique, avant qu’ils n’achètent un ondoscope. Il s’agit de plusieurs
+pendules identiques formés d’un plomb attaché à un fil, couplés entre eux, c’est à dire
+interagissant, par un fil supplémentaire.
+
+T
+
+?
+L
+T+P
+
+L
+
+P =mg
+T
+
+P =mg
+
+Comme un électron du
+plasma, un plomb d’un pendule
+est ramené vers sa position
+d’équilibre (ici par la gravité). Il
+peut donc osciller à une fréquence
+g
+qui lui est propre, F? ? 0 ? 1
+,
+2? 2 ? L
+où L est la longueur du pendule et
+g l’accélération de la pesanteur
+terrestre. Le fil de couplage
+représente
+l’interaction
+électromagnétique des électrons :
+L’onde électromagnétique fait
+
+5
+
+vibrer les électrons et ceux-ci ré émettent une onde, car ils sont accélérés.
+Examinons ce qui se passe lorsque cette suite de pendules est excitée à une fréquence
+f inférieure, puis supérieure , à cette fréquence F.
+
+Excitation à une fréquence f inférieure à F, de la
+suite de pendule couplés :
+Pour cela, nous allongeons le premier pendule qui est l’excitateur,
+de manière à augmenter sa période.
+Nous observons que son oscillation se transmet peu aux
+autres qui oscillent tous en phase et de moins en moins, à mesure
+que l’on avance dans le milieu (décroissance exponentielle).
+L’énergie est réfléchie et le pendule excitateur est peu amorti, 38
+f
+secondes pour passer d’une amplitude de 20 à 10 cm. Le livre de
+Physique Berkeley appelle un tel milieu, milieu réactif. En 3
+T+P f
+dimensions, l’énergie réfléchie ne retourne pas à l’émetteur. Cela
+correspond aux grandes ondes qui se réfléchissent sur
+l’ionosphère, pour faire « le tour de la Terre ».
+Nous observons que tous les pendules oscillent en phase,
+dans un mouvement sinusoïdal et que les amplitudes d’oscillation
+diminuent, à mesure qu’on s’éloigne du pendule excitateur.
+L’excitation créée par le premier pendule ne pénètre pas le deuxième milieu. Il s’agit
+d’une décroissance exponentielle, d’ondes évanescentes. Elles ne transportent pas
+d’énergie dans le deuxième milieu.
+Conclusion : Les fréquences inférieures à la fréquence propre de chaque pendule ne
+pénètrent pas le deuxième milieu ; cette fréquence propre est une fréquence de
+coupure. Le milieu formé d’oscillateurs couplés est un filtre coupe-bas.
+Essayons de comprendre ce qui se passe : Pour qu’un pendule qui sous l’effet de la
+seule pesanteur oscille à la fréquence propre F, oscille à une fréquence inférieure, il faut
+que la force supplémentaire appliquée, la force de couplage f, somme des 2 tractions f 1
+et f2 , soit de sens contraire à l’action de la pesanteur, donc opposée au point
+d’équilibre. Cela se produit si la courbure du fil de liaison entre les pendules est à
+l’opposé de la position d’équilibre des pendules : Les pendules sont tous du même côté
+par rapport à leur position d’équilibre ; tous les pendules oscillent en phase ; ils passent
+tous par leur position d’équilibre en même temps ; mais ils oscillent avec des
+amplitudes décroissantes, car il faut que le fil de liaison soit de plus en plus courbé, à
+mesure qu’on se rapproche de l’excitateur.
+2
+
+1
+
+Excitation à une fréquence f supérieure à F, de la
+suite de pendule couplés :
+Pour cela, nous raccourcissons le premier pendule, excitateur.
+Si le pendule excitateur est plus court que ceux simulant le milieu de propagation,
+nous observons une onde qui se propage, l’excitateur s’amortit beaucoup plus
+rapidement (10 secondes pour passer d’une amplitude de 20 à 10 cm, au lieu de 38) ;
+l’énergie n’est pas tout à fait la même, mais en fait, elle est plus importante pour le
+
+6
+
+pendule le plus court). Les pendules représentant le milieu n’oscillent pas en phase. Le
+Berkeley appelle un tel milieu, milieu dispersif.
+Nous observons que tous les pendules oscillent dans un mouvement
+sinusoïdal qui se propage et que les amplitudes d’oscillation sont les mêmes, à mesure
+qu’on s’éloigne du pendule excitateur. L’excitation créée par le premier pendule pénètre
+le deuxième milieu.
+Conclusion : Les fréquences supérieures à la fréquence propre de chaque pendule
+pénètrent le deuxième milieu ; cette fréquence propre est une fréquence de coupure. Le
+milieu formé d’oscillateurs couplés est un filtre passe-haut – en fait passe-bande, mais
+nous ne testons pas les hautes fréquences.
+
+f
+
+2
+
+f
+
+1
+
+T+P
+
+Essayons de comprendre ce qui se passe : Pour qu’un
+pendule qui sous l’effet de la seule pesanteur oscille à la
+fréquence propre F, oscille à une fréquence supérieure, il faut
+que la force supplémentaire appliquée, somme des forces f 1
+et f2, la force due au couplage, soit de même sens que
+l’action de la pesanteur, donc vers le point d’équilibre. Pour
+cela, il faut que la courbure du fil de liaison entre les pendules
+soit toujours dirigée vers la position d’équilibre des pendules.
+Cela se produit si une onde se propage dans le deuxième
+milieu, c’est à dire si le fil réalisant le couplage coupe par
+endroits la ligne d’équilibre des pendules.
+
+Simulation sur la cuve à ondes :
+Notre cuve étant d’un modèle peu perfectionné, les expériences s’avèrent
+délicates et pas toujours convaincantes. Pour régler la puissance de notre émetteur,
+nous bouchons un trou plus ou moins avec une gomme ! La fréquence minimale est trop
+élevée. De plus, la diffraction crée des ondes partiellement circulaires qui perturbent les
+observations. Nos premières expériences ont été les meilleures, mais surestimant nos
+compétences, nous n’avons pas pris de photographies.
+Nous passons d’un milieu de faible profondeur d’eau, 1 millimètre environ, où la
+célérité de l’onde est faible, donc la longueur d’onde ? 1 petite, à un milieu de plus
+grande profondeur (1 + 10 mm) où la célérité est supérieure mais pas infinie (la
+similitude n’est donc que partielle), donc la longueur d’onde plus grande.
+
+7
+
+Pour un angle d’incidence i faible : nous observons réfraction et réflexion partielle. Ce
+cas peut illustrer le comportement de l’ionosphère, pour des ondes de fréquence
+supérieure à la fréquence de coupure. Une petite partie des ondes est réfléchie, mais
+ceci se produit sur toute la
+surface de séparation des 2
+milieux. Lorsque toutes ces
+Générateur
+d'ondes linéaires
+ondes réfléchies frappent notre
+antenne, elles ne sont pas eau
+toutes en phase et ont profonde
+tendance
+à
+s’annuler
+mutuellement. Contrairement à
+ce qui se produit pour les
+ondes réfléchies sur la traînée
+ionisée qui suit une météorite
+??1
+???
+ou un avion.
+La loi de la réfraction de
+eau peu
+Descartes, n1 sin i1 = n2 sin i2
+profonde
+ou ici n1 sin i = n2 sin r
+s’applique, avec ? 2 >? 1, i2 > i1,
+n2 < n1(ce qui signifie que la Réfraction
+i
+célérité de l’onde dans le
+Normale
+deuxième milieu est supérieure
+??? > ??1
+r
+à celle dans le premier), donc
+Directions de propagation
+perpendiculaires aux lignes d'ondes
+n1 ? ? 2 .
+n2 ? 1
+Pour un angle d’incidence i
+grand : Nous observons une
+réflexion totale. Des ondes exponentielles évanescentes sont visibles dans le deuxième
+milieu ; elles sont perpendiculaires à la ligne de séparation des 2 milieux et se
+déplacent en longeant celle-ci. Ce cas illustre le comportement de l’ionosphère pour les
+ondes de faible fréquence, mais dans le cas de l’ionosphère, toutes les ondes de faible
+fréquence
+Générateur
+subissent
+la
+d'ondes linéaires
+réflexion totale,
+eau
+quel que soit
+profonde
+leur
+angle
+d’incidence.
+Ondes
+évanescentes
+Cela
+parce
+que la célérité
+est infinie dans
+le
+deuxième
+? ?? ???
+??1
+milieu.
+La relation de
+eau peu
+Descartes, n 1
+profonde
+sin i 1 = n2 sin i2
+donne ici sin i2
+Ondes
+> 1. Il n’y a pas
+réfléchies
+de solution
+??? > ??1
+
+i
+Normale
+Directions de propagation
+
+8
+
+pour i 2 , pas d’onde transmise dans le deuxième milieu.
+Pour se faire plaisir, réflexion totale frustrée : Elle se produit si à proximité de la
+séparation entre les 2 milieux, nous plaçons 1 troisième milieu identique au premier.
+Les ondes exponentielles du deuxième milieu redonnent des ondes progressives dans
+le troisième, parallèles à celles du premier. C’est ce qui se produirait avec une
+ionosphère de faible épaisseur.
+
+Emission en modulation d’amplitude,
+démonstration, spectre en fréquence :
+Nous utilisons le montage du cours de Spécialité Physique de la classe de
+terminale Scientifique. Un circuit multiplieur multiplie une tension sinusoïdale de
+fréquence 100 kHz appelée porteuse par le signal à transmettre appelé signal
+modulant. La tension obtenue est appliquée à une antenne émettrice, un simple fil. Nous
+recevons l’onde émise sur un poste de radio en modulation d’amplitude.
+Le signal appliqué à l’antenne est observé à l’aide d’un oscilloscope numérique
+et traité par une fonction mathématique nommée FFT, transformée de Fourier Rapide.
+Si le signal modulant est sinusoïdal, de fréquence 1000 Hz, nous observons dans le
+spectre de Fourier 3 pics, 1 à 100 kHz, 1 à 100000-1000 = 99000 Hz et 1 autre à
+101000Hz.
+Ces valeurs numériques sont proches de celles employées dans la réalité,
+puisque par exemple, une longueur d’ond e de 1807 m correspond à une fréquence de
+8
+porteuse de 3.10 / 1807 = 166000Hz.
+Voici une simulation réalisée sous Excel, avec une porteuse à 10000Hz et un signal
+modulant à 1000 Hz, une tension de décalage rendant le signal modulant toujours
+positif :
+15
+Modulation d'amplitude, tension de sortie en V
+
+10
+5
+0
+0
+
+0,001
+
+0,002
+
+0,003
+
+0,004
+
+-5
+-10
+
+date en s
+
+-15
+
+9
+
+3500
+
+module
+
+3000
+2500
+2000
+1500
+1000
+500
+
+fréquence, en Hz
+
+0
+0
+
+5000
+
+10000
+
+15000
+
+20000
+
+Emission en modulation de fréquence,
+démonstration, spectre en fréquence :
+Le signal modulant, sinusoïdal de fréquence 1000 Hz, créé par un générateur
+basse fréquence, est envoyé sur l’entrée vobulation d’un deuxième générateur, réglé lui
+pour émettre un signal sinusoïdal de fréquence 100000 Hz, la porteuse. Le mode
+vobulation produit en sortie un signal modulé en fréquence, dont nous examinons la
+forme et le spectre de Fourier.
+Dans la pratique, en Europe de l’Ouest, les fréquences de porteuse utilisées sont
+proches de 100 MHz, mais notre générateur basse fréquence est incapable d’y
+parvenir.
+Nous constatons que le spectre est plus compliqué, avec des pics à 95, 96, 97,
+98, 99, 100, 101, 102, 103… kHz.
+L’encombrement en fréquence d’un signal modulé en fréquence est donc plus
+important que celui d'un signal modulé en amplitude. Par contre, la fidélité est meilleure.
+C’est pour cette raison que les émetteurs radio en FM emploient des porteuses à
+fréquence élevée, de l’ordre de 100 MHz.
+Voici une simulation réalisée sous Excel, avec une porteuse et un signal
+modulant identiques aux précédents, 10000 Hz et 1000Hz.
+4
+3
+
+Modulation de fréquence, tension de sortie en V
+
+2
+1
+0
+-1 0
+
+0,0005
+
+0,001
+
+0,0015
+
+0,002
+
+0,0025
+
+-2
+-3
+
+date en s
+
+-4
+
+10
+
+700
+
+module
+
+600
+500
+400
+300
+200
+100
+
+fréquence, en Hz
+
+0
+0
+
+5000
+
+10000
+
+15000
+
+20000
+
+25000
+
+Directivité de l’antenne :
+Introduction :
+Notre but n’est pas de calculer le fonctionnement de l’antenne Yagi, qui nous
+semble compliqué. Les éléments ont tous des longueurs différentes. Le dernier, appelé
+réflecteur, a une longueur égale à la demi longueur d’onde. Les électrons libres de
+l’aluminium doivent donc vibrer en résonance avec l’onde radio. Les autres sont de plus
+en plus courts, en allant vers l’avant, et situés à des distances bien précises. Leur
+fréquence de résonance doit être supérieure à la fréquence de l’onde reçue. Les
+électrons doivent y vibrer assez fort, à la fréquence de l’émetteur, avec un décalage de
+phase. Nous ne pouvons en dire plus.
+Nous cherchons donc à mesurer une caractéristique de l’antenne, sa la
+directivité.
+En l’absence d’antenne Yagi, nous recevons peu d’émetteurs, dans notre petite
+ville de Pontarlier, en moyenne montagne.
+Fréquence en mégahertz
+Réception mono ou stéréo
+95.8
+Mono
+Mono
+Mono
+Voici les fréquences reçues par notre récepteur radio modulation de fréquence,
+raccordé à notre antenne Yagi, avec en regard l’orientation de l’antenne (la direction
+vers laquelle elle pointe).
+Fréquence en
+mégahertz
+87.9
+89.3
+90.4
+93.3
+94.0
+95.0
+95.8
+96.5
+97.2
+98.4
+
+Réception mono ou
+stéréo
+Mono
+Mono
+Mono
+Mono
+Mono
+Mono
+Mono
+Mono
+Mono
+Mono
+
+Antenne pointée vers
+Larmont
+X
+
+Antenne pointée vers
+Besançon
+X
+X
+
+X
+X
+X
+X
+
+X
+X
+
+X
+X
+
+11
+
+98.7
+99.5
+102.8
+
+Mono
+Mono
+Mono
+
+X
+X
+
+X
+
+Nous détectons beaucoup plus d’émetteurs. Notre professeur de SVT, dans des
+endroits encore plus perdus que notre lycée, c’est à dire là où il habite et là où il
+observe les planètes et les étoiles, a même détecté des émetteurs sur toutes les
+fréquences accessibles à notre récepteur radio.
+Nous essayons de comparer la réception, l’antenne ayant ses éléments
+horizontaux ou verticaux, et ne trouvons pas de différence sensible (ce qui ne veut pas
+dire qu’il n’y en ait pas, mais le récepteur adapte son amplification à la qualité du signal
+reçu). De même, il est capable de passer de stéréo à mono, lorsqu’il reçoit mal, mais
+tous les émetteurs reçus sont indiqués comme monophoniques, donc ceci ne peut pas
+nous servir.
+Nous branchons ensuite l’antenne Yagi, directement sur l’entrée d’un
+oscilloscope numérique Tektronix (bande passante de 0 à 60 MHz). Le mode
+mathématique, FFT, avec zoom 10 x, permet d’observer des pics à :
+MHz
+2.36
+
+2.42
+
+Gros pic
+6.6
+
+9.5
+
+17.6
+
+94
+
+102
+
+Nous retrouvons 2 des émetteurs reçus sur le récepteur radio, à 94,0 et 102,8
+MHz.
+Le pic centré sur 94 MHz s’étale de 93,75 à 94,2 MHz, soit une demi largeur de
+0,2 MHz ou encore 200000 Hz. Il doit bien s’agir d’un émetteur en modulation de
+fréquence.
+Nous cherchons sur un catalogue de fournisseur d’électronique si des émetteurs
+ou récepteurs radio ont les fréquences trouvées.
+Le pic à 6,6 MHz est entre les bandes SW2 et SW3 des émetteurs en ondes
+courtes. A 9,5 MHz, il peut s’agir de la bande SW4 et à 17,6 de la bande SW7.
+2,36 et 2,42 sont aussi dans les ondes courtes.
+
+Méthode de mesure de la directivité :
+La bande passante de notre oscilloscope est donnée pour s’étendre de 0 à 60
+MHz. Nous espérons donc qu’il sera capable de détecter des signaux de fréquence
+supérieure à 60 MHz.
+Nous pointons l’antenne Yagi vers un émetteur connu, le réémetteur du Larmont
+et accordons notre récepteur FM sur une station connue. Nous débranchons ensuite
+l’antenne du poste de radio et la raccordons à un oscilloscope numérique, par un petit
+bricolage. Bien que l’oscilloscope soit vendu pour une fréquence maximale de 20 MHz,
+il détecte le signal à 100 MHz de l’émetteur sans doute en diminuant la valeur de la
+tension observée, mais cela ne devrait pas nous gêner, puisque nous allons travailler à
+fréquence constante et par comparaison.
+Comme il peut échantillonner jusqu’à 1 GHz nous ne devrons pas avoir de
+problèmes de sous échantillonnage et de repliement de spectre.
+Pour éliminer un peu les parasites à basse fréquence, nous court-circuitons la
+sortie de l’antenne par un fil formant quelques boucles.
+Nous cherchons dans le spectre de Fourier le pic correspondant à la porteuse de
+la station qui nous intéresse et nous mesurons son amplitude.
+
+12
+
+Nous faisons ensuite tourner notre antenne d’un angle connu et recommençons la
+mesure.
+La série de mesures se révèle incorrecte ; après 1 tour complet, nous ne
+retrouvons pas la valeur initiale. Nous nous apercevons que nous avons appuyé notre
+antenne sur une armoire de physique, pleine d’objets métalliques.
+Tension en
+V
+Angle en °
+V
+°
+
+4,6
+
+3,8
+
+3,2
+
+3,5
+
+2
+
+3,2
+
+4,2
+
+0
+4,9
+180
+
+15,8
+4
+195
+
+33,9
+4,8
+214
+
+62,2
+4,8
+270
+
+90
+3,2
+322
+
+127,3
+2,4
+344
+
+155
+2,2
+360
+
+Voici ce résultat, représenté en coordonnées polaires :
+6
+
+4
+
+2
+
+Vers l'émetteur
+
+0
+-6
+
+-4
+
+-2
+
+0
+-2
+
+-4
+
+-6
+
+2
+
+4
+
+6
+
+Les 2 résultats obtenus
+lorsque l’antenne pointe
+vers l’émetteur sont
+différents, mais de toute
+façon, l’antenne semble
+peu directive.
+
+Le boîtier
+électronique
+mystérieux (5
+mai 2003) :
+
+Nous avons trouvé sur le site Internet, http :// radio.meteor.free.fr/, le plan du
+montage électronique qui nous a été donné. Mais aucune explication sur son
+fonctionnement. Nous nous sommes donc transformées en détectives pour comprendre
+le circuit. Voici le résultat de notre enquête à la Sherlock Holmes. Le montage comporte
+un comparateur et un intégrateur. Il est alimenté par la prise RS232.
+Le signal électrique issu de la prise écouteur du récepteur de radio (signal aux
+fréquences « audibles comprises entre 20 et 15000 Hz) entre dans le boîtier par le fil
+blanc. Il attaque le montage « amplificateur ».
+La sortie de l’« amplificateur », fil blanc attaque la borne d’entrée CTS de la
+prise DB9, de la liaison RS 232. L’alimentation du montage est prise sur les sorties
+RTS, mise au 1 logique et délivrant 10 mA sous 12 V, et TXD, mise au 0 logique et
+délivrant 10 mA sous –12 V.
+
+13
+
+Le montage « amplificateur » comporte un double amplificateur intégré linéaire.
+Le premier est monté en comparateur. Le signal issu de la prise casque attaque
+l’entrée inverseuse. La sortie attaque la borne CTS de la prise DB9.
+L’entrée non inverseuse reçoit une tension de référence créée par le deuxième
+amplificateur, monté en intégrateur. Celui -ci reçoit en entrée le signal de sortie du
+premier AIL, l’intègre avec une constante de temps de 0,2 seconde, c’est à dire donne
+en sortie la moyenne du signal d’entrée sur une durée d’environ 0,2 s. Le signal issu de
+la prise casque est donc comparé en permanence à sa valeur moyenne.
+Lorsqu’il lui est inférieur, la sortie connectée à la borne d’entrée CTS de la prise
+DB9, de la liaison RS 232, est à +12 V, sinon, elle est à –12 V.
+Observations, en employant en entrée le signal issu d’un générateur basse
+fréquence :
+Nous constatons que des signaux sinusoïdaux, de fréquences comprises entre
+20 et 6000 Hz donnent en sortie des créneaux de même fréquence.
+Au-dessus de 6000 Hz, nous obtenons des triangles instables. Ceci est dû au
+temps de montée du premier amplificateur.
+Comment l’ordinateur interprète -t-il cela ?
+Nous raccordons l’entrée à la prise casque du récepteur de radio. De la musique
+donne des figures irrégulières, avec des plateaux assez grands, au cours du temps. Du
+bruit, souffle obtenu en réglant le récepteur sur une fréquence ne correspondant pas à
+un émetteur, donne des plateaux nettement plus courts.
+Le logiciel doit donc tester à grande vitesse l’état de l’entrée CTS de la liaison
+RS232. Il mesure le nombre de points successifs à l’état haut. Il doit afficher selon l’axe
+des ordonnées, non pas la durée des plateaux, mais la vitesse de variation de cette
+durée.
+Un passage de météorites, donnant une réception de musique pendant un temps
+très bref, correspond à une vitesse de variation maximale.
+Un avion, provoquant une arrivée en douceur de la musique, correspond à une
+vitesse de variation plus faible.
+
+Le logiciel :
+Les hypothèses sur le fonctionnement du logiciel ont été évoquées au
+paragraphe précédent.
+
+La détection de météorites :
+Résultats :
+Nous détectons moins d’impacts que Monsieur Pierre Terrier. Cela est sans
+doute dû au fait que nous écoutons un émetteur relativement proche, quoique séparé de
+nous par une montagne. Nos détections se produisent essentiellement le matin, alors
+que d’autres sites en obtiennent aussi l’après-midi.
+
+Validation des résultats :
+Nous avons déjà indiqué que notre professeur de SVT s’était proposé comme
+cobaye pour des tests en direct. Il semble que, pointant vers un émetteur relativement
+proche, nous détections essentiellement le passage des avions de ligne fréquentant
+l’aéroport de Genève.
+14
+
+Conclusion :
+La radiodétection de météorites, basée sur le fait que les ondes
+électromagnétiques de haute fréquence traversent l’ionosphère et se perdent dans
+l’espace, sauf si un trait ionisé se comporte comme une antenne réémettrice, nécessite
+pour conduire à des résultats valides, de pointer vers un émetteur assez lointain, pour
+ne pas être perturbée par le passage des avions.
+Pour que cet émetteur lointain ne soit pas perturbé par des émetteurs plus
+proches, il doit émettre dans une gamme de fréquences non employées en Europe de
+l’Ouest.
+Une autre façon de s’affranchir du passage des avions est d’effectuer des
+enregistrements en différents points, et de ne retenir que les événements corrélés.
+La radiodétection peut être employée pour transmettre à grande distance et à
+faible coût, des données numériques en faible quantité.
+
+Bibliographie, références, adresses :
+Cours de Physique de Berkeley, Ondes
+http://www.rmob.org/
+http://radio.meteor.free.fr/main.html
+
+Pierre TERRIER 14 rue Aimé Agussol
+34725 St André de Sangonis (France)
+
+15
+
+

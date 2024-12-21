@@ -1,0 +1,854 @@
+XXIIes Olympiades de Physique France
+
+Coup d’œil sur le projet
+Argus II
+2014-2015
+
+Léonie FAGOT, Elise LEPAGE, Apolline NOSAL
+Page 1 sur 23
+
+Sommaire
+Introduction
+I)
+
+Le fonctionnement de l'œil et ses les dégénérescences
+1. Fonctionnement de l’œil ……………………………………………………….. p. 4
+2. La rétinite pigmentaire …………………………………………………..……. p. 6
+
+II)
+
+Le dispositif Argus II
+
+1. Composition …………………………………………………………………….. p. 7
+2. Mécanisme …………………………………………………………………..….. p. 8
+3. Modélisation du système à échelle humaine ……………………………..……. p. 8
+
+III)
+
+Explications du montage
+
+1. Pont de Wheatstone ………………………………………………………..…… p. 11
+2. CNA …………………………………………………………………………........ p. 11
+3. Modulation/Démodulation …………………………………………….……...... p. 13
+4. CAN ……………………………………………………………………………… p. 14
+5. Conclusion ….......................................................................................................... p. 14
+
+IV)
+
+Conséquences sur la vie du patient, limites et avenir
+
+1. Effet de l’implant sur la vision du patient …………………………………...... p. 16
+2. Les points positifs ………………………………………………………………. p. 16
+3. Limites du projet ……………………………………………………………….. p. 17
+4. De belles perspectives pour l’avenir ………………………………………..…. p. 18
+
+Conclusion
+Remerciements
+Sources et lexique
+Page 2 sur 23
+
+RESUME DU PROJET
+La rétinite pigmentaire est une pathologie héréditaire, qui concerne une personne sur 4000, jusqu’à
+aujourd’hui incurable. C’est une maladie dégénérative de la rétine et qui se traduit par la destruction de
+photorécepteurs.
+Lorsqu'un individu est atteint de rétinite pigmentaire, alors le processus de vision est interrompu : le
+système visuel ne peut plus transformer la lumière en image. Le projet Argus II permet en fait de
+reconstituer ce système, et notamment par le contournement des photorécepteurs détruits, afin d'assurer
+la transmission de la lumière vers le cortex cérébral.
+Nous avons décidé de reproduire, à l’aide d’un montage électronique, le parcours de l’image d’un objet
+observé jusqu’à l’implant rétinien. Cette manipulation nous permet de comprendre le fonctionnement du
+dispositif Argus II en rendant tangibles les différents éléments, car la modélisation sera réalisée à une
+échelle bien plus importante.
+
+Introduction
+Argus est un dieu de la mythologie grecque qui possédait 100 yeux. Héra lui
+demanda de surveiller Zeus et sa maitresse. En l’apprenant, Zeus ordonna à
+Hermès de tuer Argus. Il l’endormit avec sa flûte enchantée avant de lui
+couper la tête. Héra plaça les 100 yeux d’argus sur son animal préféré, le
+paon. Argus prête aujourd’hui son nom à l’expression « avoir les yeux
+d’Argus » qui signifie être vigilant et lucide ; mais aussi à un dispositif non
+moins connu : l’Argus II.
+Il s’agit d’une avancée scientifique qui a abouti il y a plusieurs mois et qui
+se propose de rendre la vue à des personnes atteintes de maladies
+dégénératives de la rétine (principale cause de cécité dans les pays
+développés), telle que la rétinite pigmentaire.
+
+Qu’est-ce que la rétinite pigmentaire et comment agit-elle ? Comment le
+dispositif Argus ll permet-il d’améliorer la vue des personnes atteintes de
+cette maladie ? Comment modéliser le projet Argus II à notre échelle ?
+Quelles sont les conséquences et les limites de ce projet ?
+
+Page 3 sur 23
+
+I)
+
+Le fonctionnement de l'œil et ses dégénérescences
+
+Dans cette première partie, nous évoquerons le mécanisme de l’œil et nous présenterons une pathologie :
+la rétinite pigmentaire, le but de l’Argus ll étant de la contrer. Afin de ne pas rendre compte d'une
+approche trop écolière et difficile à comprendre, nous avons réalisé une maquette et quelques
+modélisations.
+Quelle est l'anatomie d'un œil sain ? Quel est son fonctionnement ?
+1. Le fonctionnement de l’œil
+a) Dans sa globalité
+
+Le fonctionnement de l’œil peut être réduit à un modèle simplifié : les principaux éléments sont un
+diaphragme, une lentille, et un écran, à l’instar d’un appareil photo (voir doc 1 : modèle de l’œil réduit).
+L’écran sur lequel se forme l’image est la rétine.
+
+1-Modèle réduit de l’œil
+
+L’iris assure le rôle du diaphragme : cette membrane contractile adapte le diamètre de la pupille, et donc
+adapte la quantité de rayons lumineux pénétrant dans l’œil, en fonction de la luminosité ambiante.
+Le cristallin est un élément prépondérant de la vision. Il peut être assimilé à une lentille biconvexe et
+permet l'accommodation : en faisant varier son rayon de courbure, le cristallin permet à l'œil de s'adapter
+à la vision à diverses distances et de générer des images nettes. Il fait converger les rayons vers un point
+précis de la rétine, la macula, ou tâche jaune, comme présenté dans la modélisation ci-dessous.
+2-Modélisation du fonctionnement du cristallin
+
+b) La rétine
+
+La rétine est le tissu composé de neurones qui tapisse le fond de l’œil. La lumière stimule les
+photorécepteurs (cellules qui assurent la transformation de quanta de lumière en influx nerveux) qui
+envoient des signaux nerveux aux neurones bipolaires puis aux neurones ganglionnaires avant de rejoindre
+le nerf optique et d’être analysée par le cerveau. Au niveau de la macula, chaque photorécepteur est
+directement relié à un neurone bipolaire puis ganglionnaire. C’est donc la zone où la précision est
+maximale.
+Page 4 sur 23
+
+3-Schéma de fonctionnement de la rétine :
+
+Nous nous sommes particulièrement intéressées au fonctionnement de la rétine. Pour ce faire nous
+avons réalisé des observations microscopiques d’une rétine humaine (photographies 4 et 5). Nous avons
+également observé le fond de l’’œil, il s’obtient par un examen médical appelé électrorétinogramme. Dans
+le cas d'un œil sain, on distingue clairement les veines, la tache jaune, le point aveugle. La rétine ne
+présente pas de marques de dégradation (photographie 6).
+
+Photographie 4 : Coupe de
+rétine au microscope (×40)
+
+Photographie 5 : détail d'une
+coupe de rétine au microscope
+(électronique ; ×100)
+
+Photographie 6 : Fond de l'œil sain : (source : http://edouard.benois.pagesperso-orange.fr/cata.htm)
+
+Page 5 sur 23
+
+2. La rétinite pigmentaire
+a) Généralités
+La rétinite pigmentaire est une pathologie héréditaire (elle concerne 45 gènes) jusqu’à aujourd’hui
+incurable. Elle concerne une personne sur 4000. C’est une maladie dégénérative de la rétine et qui se
+traduit par la destruction de photorécepteurs.
+Ceci entraine tout d’abord une perte d’acuité nocturne puis générale et un rétrécissement du champ de
+vision (effet tunnel). Elle se déclare chez les personnes entre 10 et 20 ans et conduit le plus souvent à la
+cécité totale.
+Photographie 7 : fond de l'œil s’un individu atteint de rétinite
+pigmentaire
+(Source : http://www.regardsetcontrastes.info/deficiencesvisuelles/retinite-pigmentaire/)
+
+Les tissus rétiniens ne sont pas uniformes : on peut distinguer au
+fond de l’œil des taches sombres qui tapissent clairement la
+totalité de la rétine.
+Modélisation de la vision d’une fenêtre.
+
+Vision d’un homme sain
+
+b)
+
+Vision d’un homme atteint
+de rétinite pigmentaire
+
+A terme, vision d’un homme
+atteint de rétinite pigmentaire.
+
+Importance de l'appareil
+
+Lorsqu'un individu est atteint de rétinite pigmentaire, alors le processus de vision est interrompu : le
+système visuel ne peut plus transformer la lumière en image. Le projet Argus II permet en fait de
+reconstituer ce système, et notamment par le contournement des photorécepteurs détruits, afin d'assurer
+la transmission de l’image vers le cortex cérébral.
+Seuls les patients souffrant de rétinite pigmentaire sont pour potentiellement appareillables, car il faut que
+le nerf optique soit fonctionnel ce qui n'est pas le cas pour certaines maladies (exemple : glaucome).
+Nous allons expliquer dans la suite le fonctionnement du dispositif Argus II et comment il permet de palier
+le processus de vision interrompu.
+Page 6 sur 23
+
+II)
+
+Le dispositif Argus II
+
+1. Composition
+a) composition externe
+Le dispositif comprend une paire de lunettes portant une caméra miniature placée au dessus du
+nez, ainsi qu’une bobine (1) qui assurera le lien sans fil avec l’implant sur la branche droite.
+Est relié par un câble à ces lunettes, un petit ordinateur nommé VPU (Video Processing Unit),
+pesant environ 250 g, que le patient porte à la ceinture. Le VPU permet au patient d’allumer et d’éteindre
+le dispositif, et d’adapter les réglages à son environnement. Il présente donc des boutons de contrôle
+discernables au toucher, de par leur forme (étoile, qui permet d’activer ou non le signal sonore informant
+d’une éventuelle déconnexion entre le VPU et l’implant, rond, qui permet de changer l’image perçue en
+noir sur blanc en blanc sur noir, et carré), et par des symboles en relief comme ceux utilisés pour le braille.
+Le VPU doit être rechargé chaque nuit, il ne possède en effet que 8h d’autonomie. Il permet aussi de
+contrôler ce que le patient reçoit comme informations lors de tests de vision.
+
+b) Composition interne
+L’implant placé à l’intérieur de la tête est majoritairement à l’extérieur du globe oculaire. Il est
+maintenu par la bande sclérale, qui entoure l’œil, et qui est placée sous la sclérotique, la membrane
+blanche et très résistante qui enveloppe l’œil humain. Sur cette bande sclérale est placée une bobine(2),
+ainsi qu’un petit boitier électronique. De ce boitier électronique part un câble qui pénètre dans l’œil, au
+bout duquel se trouve un faisceau de 60 électrodes, dont 55 seront fonctionnelles, et les 5 autres servent à
+suppléer une éventuelle défaillance d’une autre électrode. Ce faisceau d’électrodes est fixé à l’aide d’un
+clou rétinien sur la rétine, c'est-à-dire au contact du corps vitré. C’est donc un implant épi-rétinien, par
+opposition aux implants sub-rétiniens, placés entre la rétine et la choroïde. Plus précisément, il sera placé
+sur la macula, car c’est cette zone qui va permettre une précision maximale.
+Page 7 sur 23
+
+Source des images : http://www.2-sight.eu/fr/presentation-du-systeme
+
+2. Mécanisme
+La caméra miniature capte une image, et l’envoie par le câble au VPU. Le VPU transforme l’image
+en format digital, et la transforme en une image de 60 pixels, en blanc sur noir ou noir sur blanc.
+L’information est ensuite transmise à la bobine (1) qui va l’envoyer par ondes radio à une fréquence de
+3,156 MHz. La bobine (2) va démoduler l’information, la transmettre au boitier électronique, qui va la
+convertir en signal électrique. Chaque pixel va correspondre à un signal électrique différend : si il doit
+apparaître blanc, un signal électrique sera transmis, si il doit apparaître noir, il n’y aura pas de signal
+électrique. Chaque électrode recevant un signal électrique va donc stimuler un endroit de la rétine, c’est-àdire une zone de neurones ganglionnaires et bipolaires, et ainsi jouer le rôle des photorécepteurs
+manquant. Le signal électrique est donc naturellement transmis de ces neurones à l’aire visuelle du
+cerveau, par le biais du nerf optique. Le patient percevra donc des phosphènes, des sensations lumineuses
+qui ne sont pas directement produites pas des ondes lumineuses. (En effet, les perceptions lumineuses
+dues à l’argus II sont artificielles et provoquées.)
+Les bobines (1) et (2) permettent aussi de recharger l’implant par induction.
+Le patient verra donc l’équivalent d’une image de 6x10 pixels, en noir sur blanc ou blanc sur noir,
+sur un champ de vision de 20°, soit l’équivalent d’une règle de 30 cm tenue à bout de bras. Ces résultats
+peuvent toutefois varier d’un patient à l’autre.
+
+3. Modélisation du système à échelle humaine
+Nous avons décidé de reproduire le parcourt de l’information, de l’image de l’objet observé jusqu’à
+l’implant rétinien. Cette manipulation nous permet de comprendre le fonctionnement du dispositif Argus
+II en rendant tangibles les différents éléments, car la modélisation sera réalisée à une échelle bien plus
+importante.
+Page 8 sur 23
+
+De la caméra jusqu’à l’implant, l’information suit donc le parcours suivant :
+
+a) Montage réalisé
+Le dispositif nécessaire pour reproduire le parcourt de l’information à l’échelle humaine et pour
+l’équivalent de deux électrodes est donc constitué des parties suivantes :
+-
+
+Deux photorésistances montées dans deux ponts de Wheatstone, pour convertir l’intensité lumineuse
+en signal numérique codé en 2bits, c’est à dire un signal dont la grandeur représentative à un instant
+donné est une grandeur binaire.
+Pour obtenir ce signal numérique, il existe 4 états d’éclairement. A chaque état, on associe un nombre
+binaire, constitué d’une série de « 0 » et de « 1 »
+État 1 : les deux photorésistances sont éclairées (0/0),
+État 2 : la première est éclairée, l’autre non (0/1),
+État 3 : l’autre est éclairée, la première non (1/0),
+État 4 : aucune n’est éclairée (1/1).
+La quantité de nombres binaires possibles, ou résolution R, pour 2 bits est donc : R = 22 = 4
+
+-
+
+A l’aide d’un montage en comparateur, on arrive à obtenir un signal numérique binaire avec des
+valeurs de tension très distinctes.
+
+-
+
+Un Convertisseur Numérique/Analogique (CNA) pour pouvoir transmettre ce signal en 2bits. Le
+problème est qu’il est impossible de distinguer les 4 signaux, si l'on émet tout simultanément. Pour
+pouvoir être transmis simultanément et identifiés à la réception, ces signaux doivent être traités et on
+obtient alors 4 tensions Us fonctions de l'état éclairé ou non éclairé des photorésistances.
+
+-
+
+Un modulateur de tension et un émetteur, pour moduler en amplitude le signal analogique obtenu.
+
+-
+
+Un récepteur et un démodulateur de tension, pour retrouver le signal analogique.
+
+-
+
+Un Convertisseur Analogique/Numérique, pour convertir ce signal en deux courants électriques pour
+allumer deux DEL, symbolisant un envoi de courant électrique par l’électrode. Des diodes et une porte
+logique OU EXCLUSIF sont suffisantes et permettent de reconstituer le signal numérique d'entrée.
+Page 9 sur 23
+
+b) Chaine de traitement
+Nous avons donc abouti au circuit ci-dessous :
+
+Dans la suite de notre mémoire, nous allons expliquer ce montage.
+
+Page 10 sur 23
+
+III)
+
+Explications du montage
+
+Les deux photorésistances
+sont éclairées
+
+La première non, l’autre
+est éclairée
+
+La première est éclairée,
+l’autre non
+
+Aucune photorésistance
+n’est éclairée
+
+1. Pont de Wheatstone
+Schéma d’un pont de Wheatstone :
+
+On a recours à deux ponts de Wheatstone afin de simuler un capteur de 2
+pixels.
+Le pont se compose d’une photorésistance, dipôle dont la valeur de la
+résistance varie en fonction de la lumière incidente ; d’une résistance
+variable (0 – 50 kΩ) et de 2 résistances d’une valeur de 10 kΩ.
+Plus la photorésistance est éclairée, plus la valeur de résistance est faible.
+La résistance variable permet de régler le seuil de basculement (tension négative ou positive) de la tension
+UAB.
+En fonction de la lumière captée par la photorésistance :
+Si VA > VB, soit UAB > 0 V et Si VA < VB, soit UAB < 0 V
+
+2. CNA
+Afin de pouvoir assurer la transmission du signal lumineux initial, on doit transformer le signal numérique
+en signal analogique.
+-
+
+AOP branché en comparateur :
+
+Un amplificateur opérationnel (AOP)
+est un amplificateur
+électronique qui a pour but d’amplifier la différence de tension
+entre ses
+deux entrées. Il permet d’effectuer les opérations mathématiques
+de base,
+comme l’addition, la soustraction, etc. Un AOP branché en comparateur va nous permettre, en reliant
+l’entrée inverseuse e- au point B et l’entrée non-inverseuse e+ au point A, de comparer les potentiels au
+point A et au point B. Si VA < VB, soit si UAB < 0, en sortie de l’AOP, on a une tension minimale de -15V. Si VA
+> VB, soit si UAB > 0, l’AOP délivre une tension maximale de +15V.
+Page 11 sur 23
+
+Ainsi, si la photorésistance est éclairée :
+Cas 1 : UC théorique = +15V
+(UC1 exp = + 14,8V ;
+
+UC2 exp = 14, 8 V).
+
+Si la photorésistance n’est pas éclairée :
+Cas 2 : UC théorique = - 15V
+(UC1 exp = - 11,1V ;
+
+UC2 exp = - 11,4 V).
+
+-
+
+Diode :
+
+Une diode nous permet de ne laisser passer que les courants de tensions négatives.
+Alors :
+Cas 1 : UD théorique = 0 V (UD1 exp= 0 V ; UD2 exp = 0 V)
+Cas 2 : UD théorique = -15 V (UD1 exp= - 10,5 V ;
+UD3 exp = - 10,7 V)
+
+-
+
+AOP en additionneur-inverseur :
+
+Nous utilisons ensuite un AOP en additionneur/inverseur. Il reçoit les données des deux photorésistances
+venant des suiveurs, et renvoie une tension en sortie égale à l’inverse de la somme des tensions qui y
+entrent. Pour ce faire, on utilise l’AOP en régime linéaire, c’est-à-dire en reliant l’entrée e- à la sortie. En
+régime linéaire, ε=0, d’où U+ = U- = 0V
+D’après la loi d’Ohm,
+UE1 = R3 x I3 ; UE2 = R4 x I4.
+Or d’après la loi des nœuds :
+𝑈𝐸1
+
+𝑈𝐸2
+
+I = I3 + I4 = 𝑅3 + 𝑅4
+
+Cela donne en remplaçant :
+𝑼𝑬𝟏
+
+𝑼𝑬𝟐
+
+UF = - R5 x I = -R5 x ( 𝑹𝟑 + 𝑹𝟒 )
+On a bien une somme et une inversion des tensions UE1 et UE2.
+Cette addition des tensions nous permet de savoir, selon la tension UF, laquelle des photorésistances est
+activée. En effet, il nous est impossible sans le CNA de distinguer les quatre signaux différents qui peuvent
+être reçus. Une fois traité, chaque signal a une tension qui lui est propre, on obtient donc 4 tensions
+différentes et on peut être sur de l’état éclairé ou non-éclairé de chacune des photorésistances.
+Nous réalisons ensuite une table de vérité pour déterminer les valeurs possiblement prises par Us en
+fonction de l’état des photorésistances.
+Si LDR éclairée :
+UAB > 0,
+Si LDR non éclairée : UAB < 0,
+
+UC = + 15V,
+UC = - 15V,
+
+UD= 0V,
+UD= - 15V,
+
+UE1= UE2 = 0V
+UE1= - 1V et UE2= - 2V
+
+Page 12 sur 23
+
+D’où le tableau avec les valeurs prises par UF :
+LDR1
+
+LDR2
+
+Éclairé 0
+
+Éclairé 0
+
+UF (V) théorique //
+mesurée
+0 // 0,10
+
+Éclairé 0
+
+Non éclairé 1
+
+2 // 1,94
+
+Non éclairé 1
+
+Éclairé 0
+
+1 // 1,07
+
+Non éclairé 1 Non éclairé 1
+
+3 // 2,91
+
+Le CNA permet donc un premier traitement du signal en un signal binaire qui sera ensuite transporté par
+une antenne émettrice
+3. Modulation/ Démodulation
+
+Le signal analogique obtenu à la sortie du CNA a une fréquence trop basse pour être transmis par une
+antenne. Il doit donc être modulé.
+Ainsi, le signal à transmettre, appelé signal modulant, va être transmis entre deux antennes par
+modulation d'amplitude à l'aide d'une onde porteuse, tension sinusoïdale de haute fréquence (125 kHz
+dans notre cas).
+En multipliant le signal modulant avec l'onde porteuse de haute fréquence, on obtient un signal modulé,
+dont l’amplitude (l’enveloppe) suit les variations du signal modulant. Une antenne émettrice permet la
+transmission du signal modulé par ondes hertziennes. Une antenne réceptrice capte l’onde
+électromagnétique et restitue le signal électrique modulé.
+La démodulation permet alors d’extraire le signal modulant d’origine du signal modulé.
+L’étape modulation/démodulation permet donc le transfert de données par les biais d’une antenne. Après
+démodulation, on retrouve la tension UF que l’on avait en sortant du CNA. Il faut donc à nouveau traiter
+cette tension pour retrouver un signal numérique.
+Page 13 sur 23
+
+4. CAN
+Il s’agit maintenant de décoder le signal analogique créneaux en signal numérique. Pour cela, nous avons
+utilisé un pont diviseur de tension composé de trois résistances et d’une résistance variable montées en
+série. Ce pont nous permet d’obtenir trois tensions UM1, UM2 et UM3 qui nous servent de référence pour
+comparer notre tension UF ≈ US (il peut y avoir atténuation après la transmission du signal), qui peut
+prendre 4 valeurs : 0V ; 1V ; 2V et 3V.
+
+Trois amplificateurs opérationnels, montés en comparateur, suivis d’une diode nous permettent d’obtenir
+des tensions aux points P, Q et R de valeurs de 0V ou + 15V pour chacune des tensions de référence.
+Les trois signaux sont alors traités grâce à des diodes et une porte logique « OU exclusif », pour
+reconstituer le signal lumineux, ici affiché par l’emploi de deux diodes électroluminescentes. Dans le projet
+Argus II, les diodes sont remplacées par des électrodes implantées dans la rétine du patient.
+Note : La porte OU EXCLUSIF, ou XOR de symbole IEC =1 a pour
+symbole opératoire ⊕
+En logique booléenne, le résultat R est vrai si et seulement si une des
+deux entrées A ou B est à 1.
+D’où le tableau de vérité qui suit :
+
+Table de vérité de XOR
+A
+B R=A⊕B
+0
+0
+0
+0
+1
+1
+1
+0
+1
+1
+1
+0
+
+Us (V)
+
+UR
+
+UQ
+
+UP
+
+UR ⊕ UQ
+
+DEL1
+
+DEL2
+
+0 < Us < UM1
+UM1 < Us < UM2
+UM2 < Us < UM3
+UM3 < Us
+
+0
+1
+1
+1
+
+0
+0
+1
+1
+
+0
+0
+0
+1
+
+0
+1
+0
+0
+
+0
+1
+0
+1
+
+0
+0
+1
+1
+
+L’état des DEL correspond bien à l’état des photorésistances.
+5. Conclusion
+Voici le schéma récapitulatif permettant de reprendre la chaîne de traitement expliquant le
+fonctionnement de l’Argus 2.
+Page 14 sur 23
+
+Notre projet
+Convertisseur Numérique Analogique
+Pont de Wheatstone
+
+AOP en comparateur avec diode
+
+AOP en additionneur - inverseur
+
+Modulation
+
+Onde électromagnétique
+
+Démodulateur
+
+Multiplication de la basse tension
+(modulante) par la tension haute
+fréquence (porteuse).
+
+Ondes hertziennes transmises
+par l'air
+
+L'onde électromagnétique est
+reçue par l'antenne.
+
+Un filtre passe-bas élimine la
+haute fréquence : il reste la basse
+fréquence : la tension modulante.
+
+Le signal (onde électromagnétique) est
+émis par l'antenne émettrice.
+
+Convertisseur Analogique Numérique
+Trois AOP en comparateur permettent de
+générer un signal pour chacun des différents
+seuils de la tension modulante.
+
+Des diodes et une porte logique
+OU EXCLUSIF sont suffisantes et
+permettent de reconstituer le
+signal numérique d'entrée.
+
+On fixe Utraitement de manière à obtenir la
+bonne tension de basculement des AOP.
+Les trois résistances en série fournissent pour
+chacun des AOP une tension différente,
+proportionnelle à Utraitement.
+
+Dans le projet ARGUS
+Chaque photorésistance
+représente un pixel de la
+caméra.
+
+Le signal est traité en contraste, luminosité et ceci pour chaque couleur (RVB) ainsi qu'en noir et
+blanc.
+
+Le signal électrique est transformé en
+onde.
+
+C'est une partie de programmation informatique : le programme doit générer en noir et blanc une
+porte rouge clair sur fond rouge foncé, tout comme il doit faire apparaître du gris clair sur un
+fond blanc, ou du gris foncé sur fond noir.
+
+Pas besoin d'une portée
+exceptionnelle : le WiFi, ou le
+Bluetooth suffit car le récepteur est
+situé dans l’œil juste à côté des lunettes
+ARGUS.
+
+Ce traitement est automatisé par le programme informatique.
+
+Dans notre cas, nous avons utilisé des résistances variables dans le pont de Wheatstone pour
+régler le seuil à laquelle la tension U AB change de signe.
+
+Le signal passe à travers la peau,
+la chair,...
+
+Dans l’œil, une antenne reçoit
+l'onde et la démodule.
+
+Cette onde est transcrite en signaux électriques : à chaque pixel de la caméra
+correspond une électrode implantée sur la rétine du patient (il suffit de remplacer les
+DEL par des électrodes).
+
+Toute l'électronique implanté dans l’œil du patient est alimenté par une petite
+batterie rechargeable par le phénomène d'induction (sans fil !) : Ceci permet de
+s'affranchir du risque accru d'infection que présente une recharge de batterie par
+voie filaire.
+
+Page 15 sur 23
+
+Le dispositif Argus II est donc une version miniaturisée d’un système électrique qui repose sur de
+nombreuses étapes de traitement de l’image. Ses apports pour la médecine sont considérables.
+Cependant, les années à venir permettront très certainement de nombreuses améliorations du projet.
+
+IV)
+
+Conséquences sur la vie du patient, limites et avenir du projet
+
+1. Effet de l’implant sur la vision du patient
+Dans l’œil, l’antenne réceptrice de l’implant rétinien reçoit l'onde et la démodule. L’onde reçue est
+transcrite en signaux électriques : à chaque pixel blanc ou noir de la caméra correspond une électrode
+implantée sur la rétine du patient.
+Au niveau de l’implant rétinien, les électrodes correspondant à un pixel
+sensé apparaître blanc vont transmettre une impulsion électrique aux
+neurones ganglionnaires avec lesquels elles sont en contact. L’excitation
+des neurones ganglionnaires étant reproduite artificiellement, le message
+est ensuite acheminé vers le cortex visuel comme le serait un message
+visuel normal, par les axones de ces neurones, qui forment le nerf
+optique. Grâce à la plasticité cérébrale, le cerveau est capable d’analyser
+ces sensations visuelles d’un genre nouveau pour les interpréter en une
+image significative. Ainsi, on peut modéliser comme ci-contre la vision
+d’un patient appareillé de la fenêtre de notre exemple, qu’il ne pouvait
+plus voir du tout.
+
+2. Les points positifs
+En 2012, des tests ont été réalisés sur 30 patients dont 29 atteints de rétinite pigmentaire. Afin d’observer
+une évolution même négative, aucun d’entre eux n’était aveugle. Ils possédaient une acuité visuelle
+supérieure à 2,9 logMAR.
+Sur leur demande, 15 patients ont reçu l’Argus de première génération et 15 ont reçu le second.
+Selon les médecins, le succès est total, car la vue d’aucun patient ne s’est détériorée. Selon les appareillés,
+les avis sont plus partagés :
+-
+
+9 sont très satisfaits,
+7 sont moyennement satisfaits,
+4 ont constaté les effets du dispositif plusieurs semaines après leur appareillage,
+5 ne constatent aucune amélioration de leur vue.
+
+10 patients ont souffert de complications suite à l’opération telles que des hypotonies ou des décollements
+de la rétine. Pour 16 patients, le dispositif ne fonctionne pas de façon optimale et des données sont
+manquantes. 4 personnes appareillées ont été capables de lire des mots de 4 lettres en gros caractères.
+
+Page 16 sur 23
+
+Cependant, une forte variabilité des résultats est observée, elle s’explique par un état de conservation
+globale des tissus rétiniens différent selon les patients.
+Ces tests ont permis de déterminer des critères plus fins pour être appareillés dans les meilleures
+conditions.
+De manière générale, le dispositif permet des actions simples et banales comme suivre une ligne blanche,
+un trottoir ou repérer des obstacles mais elles représentent un vrai retour à l’autonomie pour des patients
+qui allaient perdre complètement la vue.
+
+3. Limites du projet
+Point de vue financier
+Cette technologie récente et l’opération chirurgicale qu’elle requiert rendent le projet assez couteux. La
+France affiche un prix de 73000 euros et le montant est de 150000 euros pour les Etats Unis.
+un développement réduit
+La rétinite pigmentaire compte 40 000 malades en France pour seulement une trentaine d’appareillages.
+Capacités réduites du dispositif
+Le dispositif ne propose une vision que de 6x10 pixels. Comme le représente le document ci-dessous, la
+vision du patient est limitée en ce qui concerne les détails.
+
+http://www.infohightech.com/la-bio-retina-entrera-en-essais-cliniques-en-2013/
+Page 17 sur 23
+
+La batterie du VPU n’a une autonomie que de 4 à 8 heures selon le modèle choisi. De plus, le dispositif est
+très fatigant. Il est en effet impossible pour le patient de choisir de « fermer les yeux », son cerveau est en
+permanence sollicité.
+
+4. De belles perspectives pour l’avenir
+-
+
+Point de vue financier
+
+Depuis le 4 aout 2014, la sécurité sociale rembourse intégralement l’opération chirurgicale et l’appareillage
+en France. C’est également le cas dans d’autres pays d’Europe tels que l’Italie ou l’Allemagne.
+
+-
+
+Point de vue matériel
+
+Les années à venir s’annoncent prometteuses pour le dispositif, les chercheurs espèrent pouvoir réduire la
+taille de l’implant qui réduira les risques lors de l’intervention chirurgicale. Ils envisagent également
+d’utiliser plusieurs caméras à la fois qui permettront d’améliorer la précision de l’image, de suivre les
+mouvements de l’œil ou de calculer des distances.
+Des recherches sont également en cours pour tenter de prévenir les personnes appareillées des dangers de
+manière acoustique.
+Enfin, le dispositif pourrait être, dans les années qui viennent, relié au réseau GSM ou Wifi sous réserve
+que les informations captées par la caméra soient en phase avec Google World.
+
+-
+
+Le développement international
+
+Depuis le 18 mars 2014, le projet Argus ll bénéficie du forfait innovation. Il accélère le processus de mise à
+disposition des nouvelles technologies innovantes pour les patients.
+On compte aujourd’hui 90 patients appareillés dans le monde dont plusieurs patients sont appareillés
+depuis plus de 7 ans.
+
+Page 18 sur 23
+
+Conclusion
+
+Le dispositif Argus II vise donc des non voyants ou peu voyants atteints de la
+rétinite pigmentaire. Il est composé d’un boitier, de lunettes mais aussi d'un
+circuit interne que nous avons reproduit à l’échelle humaine, afin de mieux
+comprendre le fonctionnement de cet appareil. Malheureusement, il n'est pas
+destiné aux non voyants en général
+
+et son coût reste élevé, et donc la
+
+sélection des bénéficiaires restreinte. Cependant, à la vue des résultats très
+positifs, nous ne pouvons espérer que sa démocratisation et une évolution
+pour un projet encore plus innovant.
+D’autres recherches sont en cours pour améliorer les conditions des patients
+atteints de rétinite pigmentaire. En Israël, la bio rétina proposerait une
+image 24x24.
+Des chercheurs américains travaillent à la mise en place de cellules souches
+capables de remplacer les bâtonnets défectueux au niveau de la rétine.
+
+Page 19 sur 23
+
+Problèmes rencontrés
+Concernant le montage, nous avons rencontré beaucoup de problèmes liés aux composants électroniques.
+Par exemple, un jour nous avons passé deux heures sur un souci et lorsque nous avons vérifié point par
+point avec un voltmètre les mesures de tensions de chaque dipôle, il s’est avéré que c’était un fil qui était
+défectueux !
+La semaine dernière, le condensateur de l’antenne de réception a éclaté et n’ayant pas de condensateur
+de rechange, nous avons eu du mal à retrouver une autre antenne qui en plus fonctionne moins bien.
+Encore merci aux laborantins qui étaient là pour nous trouver le matériel.
+Notre montage ne fonctionne pas à chaque fois : il existe beaucoup d’interférences que nous n’arrivons
+pas toujours à expliquer à cause des différents éléments.
+Avec l’oscilloscope, nous devrions obtenir des tensions continues de 0 V, 1 V, 2V et 3V. Or, on a un signal
+créneau qui apparaît. Cela vient-il de l’oscilloscope ? Ou encore un autre parasite venant des Aop ? Nous
+cherchons encore l’origine de ce signal.
+Le signal à la réception après démodulation s’affaiblit énormément à cause des pertes, nous avons donc
+placé un amplificateur. Par ailleurs, nous n’arrivons pas à réceptionné correctement un des signaux, alors
+qu’il est bien là à l’émission. N’arrivant pas à résoudre le problème, nous avons dû séparer le montage et
+faire la suite en recréant à nouveau le signal électrique.
+
+En tout cas, ce fut une expérience unique avec plein de rebondissements. C’était dur de toujours bien
+s’entendre et de toujours bien communiquer. Il a fallu faire des concessions et travailler en équipe,
+d’autant plus qu’on ne vient pas de la même classe. Quelques fois lorsque le montage ne marchait pas,
+nous désespérions, et nos professeurs étaient toujours là pour trouver une solution ou pour nous aiguiller
+de manière à ce que nous avancions. Nous avons découvert de nouveaux composants, systèmes, une
+nouvelle manière de travailler qui nous ont permis d’approfondir nos connaissances et d’acquérir une
+certaine autonomie.
+
+Page 20 sur 23
+
+Lexique
+Cellules photo-réceptrices ou photorécepteurs : cellules composites de la rétine connectée aux cellules
+nerveuses. Il en existe deux types : les cônes qui permettent la vision en couleur et les bâtonnets qui
+permettent une vision nocturne.
+Convertisseur Analogique-Numérique (CAN) : il s'agit d'un montage permettant de traduire une
+information analogique tel qu'une tension ou un courant en une information numérique (binaire).
+Convertisseur Numérique - Analogique (CNA) : montage électronique traduisant une grandeur numérique
+en une valeur analogique (codée sur plusieurs bits), proportionnelle à la grandeur numérique codée. Le
+plus souvent, elle sera codée en tension.
+Épithélium pigmentaire : la couche externe pigmentée de la rétine, formée d’une couche monocellulaire,
+les franges de l’épithélium enveloppent les articles externes des photorécepteurs.
+Maladie dégénérative de la rétine : Une maladie dégénérative, par exemple la rétinite pigmentaire, est une
+maladie au cours de laquelle la fonction ou la structure des tissus ou de l'organe touché se détériore
+progressivement au fil du temps. Seul cas où l'intervention chirurgicale et la pose de la prothèse est
+permise.
+Nerf optique : Un faisceau de plus d'un million de fibres nerveuses qui transportent des messages visuels
+de la rétine au cerveau. On note une condition pour laquelle la prothèse peut être posée : le nerf optique
+doit être indemne.
+Prothèse épirétinienne : Un implant qui est placé en haut de la rétine par opposition à une prothèse « subrétinienne » qui est positionnée sous la rétine, au contact des photorécepteurs.
+Photorésistance : Conducteur électrique dont la résistance varie avec l'éclairement.
+Rétine : couche interne de l'œil constituée de cellules photo-réceptrices et de cellules nerveuses.
+Rétinite pigmentaire : pathologie génétique jusqu'à aujourd'hui incurable, qui concerne une personne sur
+4000. Elle se manifeste d'abord par une perte de la vision nocturne (due à la destruction des bâtonnets)
+suivie d'un rétrécissement du champ visuel (destruction des cônes), et donc une destruction des cellules
+photo-réceptrices et de l'épithélium pigmentaire. La perte de la vision centrale est tardive. L'argus II est
+destiné à des patients atteints d'une maladie dégénérative de la rétine comme cette pathologie.
+
+Page 21 sur 23
+
+Sources
+Bibliographie :
+Ça m'intéresse n°306
+Sciences et vie junior
+
+Sitographie :
+Le site des Générations des Nouvelles Technologies :
+http://www.generation-nt.com/argus-ii-prothese-oculaire-bionique-finalement-autorisee-usa-actualite1694472.html
+le site officiel du projet Argus II « secondsight » :
+http://2-sight.eu/fr/
+Brevet : http://www.uspto.gov/news/8000000_Visual_Prosthesis.pdf
+Brochure: http://2-sight.eu/images/stories/2-sight/pdf/product-info-brochure-fr.pdf
+Témoignages : http://2-sight.eu/fr/patients-testimonies-pf-fr
+Videos : http://2-sight.eu/fr/comment-largus-ii-permet-t-il-la-vision
+Magazine en ligne avec vidéos : http://www.futura-sciences.com/magazines/sante/infos/actu/d/medecine-argus-iiimplant-retinien-autorise-etats-unis-44733/
+Site permettant de donner un coût au projet et des informations plus diverses:
+http://www.bfmtv.com/economie/systeme-prothese-retinienne-argus-ii-obtient-un-financement-l-and-8217-etataux-etats-unis-europe-585964.html
+Site retraçant l'évolution du projet depuis 1900 : http://www.uspto.gov/news/Millions_of_Patents.jsp
+
+Contacts :
+Patients et familles - patients@2-sight.com
+Médecins - physicians@2-sight.com
+Médias - publicrelations@2-sight.com
+Investisseurs potentiels - investors@2-sight.com
+Service clientèle - service@2-sight.com
+
+Page 22 sur 23
+
+Clins d’œil
+(Remerciements)
+
+Nous remercions…
+
+ Nos enseignants de 1èreS pour nous avoir aidées à construire notre TPE.
+ Plus spécialement les professeurs de Physique Mr et Mme Bablon qui nous ont
+aidées tout au long de notre projet.
+ Les aides de laboratoire qui nous ont aidées à trouver le matériel nécessaire pour
+notre montage.
+ Les professeurs d’électrotechnique du lycée Margueritte pour leurs conseils
+bienveillants en électronique portant sur le fonctionnement des portes logiques.
+ Le lycée Margueritte de Verdun, qui nous a permis de réaliser ce projet avec la
+modélisation et prêté du matériel.
+ Les professeurs José Alain Sahel et Mohan Saïd, du service ophtalmologique du
+centre hospitalier des quinze vingt à Paris pour les précisions apportées concernant
+le projet Argus II.
+
+Page 23 sur 23
+
+

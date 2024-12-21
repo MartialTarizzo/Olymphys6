@@ -1,0 +1,1119 @@
+Compte rendu Olympiades de
+physique 2023/2024
+“Vert la maison d’Hélios”
+
+Figure 1 : photographie de l’héliodome d’Eric Wasser
+
+BLACHE Lucie, GRILLET Tiphaine, PIERRE Phoebe
+LYCÉE ARISTIDE BRIAND, GAP (HAUTES-ALPES)
+
+1/20
+
+SOMMAIRE :
+I.
+
+Avant de commencer :
+A. Présentation
+B. Introduction
+C. Point de départ
+
+II.
+
+Capteurs de température et arduino
+A. Principe / But
+B. Montage, étalonnage et incertitudes
+C. Le programme pour les expériences
+
+III.
+
+Le travail sur les vitres :
+A. Inclinaison des vitres
+1. Le concept
+2. Le diagramme solaire :
+a. Analyse
+b. Déductions
+3. Explications supplémentaires
+a. La latitude : un paramètre clé
+b. Les différentes manières de construire un diagramme solaire
+c. Conclusion
+4. Notre expérience : mesure de la température des caisses en fonction de leur
+inclinaison
+5. Interprétations et conclusions
+B. Orientation des vitres
+C. Notre maquette
+
+IV.
+
+L’isolation de la maison
+A. Choix des isolants : la théorie
+B. Expériences : refroidissement des plaques d’acier en fonction des isolants
+1. Mise en place des isolants
+2. Relevés de température dans les caisses
+3. Estimation de la résistance thermique
+4. Comparaison avec les mesures de résistance thermique
+C. Conclusion
+
+V.
+
+Conclusion
+
+VI.
+
+Remerciements
+
+2/20
+
+I.
+
+Avant de commencer :
+A. PRÉSENTATION :
+
+Nous sommes trois élèves de terminale au lycée Aristide Briand de Gap, dans les Hautes-Alpes. Présentant
+toutes les trois un fort intérêt pour les sciences, et plus particulièrement pour la physique-chimie, nous
+n'avons pas hésité longuement quand les Olympiades de physique nous ont été présentées. Après quelques
+idées sans succès, et grâce à un reportage, nous avons entendu parler des maisons du futur, et plus
+précisément d'un certain "heliodome". Nous sentant très concernées par toutes les problématiques
+écologiques et environnementales, nous avons décidé d'y concentrer notre intérêt et de voir, à travers tout
+un protocole expérimental, si nous pouvions le reproduire à petite échelle, et avec un impact écologique
+moindre.
+
+B. INTRODUCTION :
+L'héliodome (Figure 1) est un habitat pensé et conçu par Eric Wasser, à partir de la position du Soleil
+dans le ciel, en fonction des coordonnées géographiques du lieu, de la saison et de l’heure. L'objectif est de
+laisser entrer le Soleil à des moments-clé de la journée ou de l’année, par le biais de grandes vitres inclinées.
+Cela permettrait de réaliser de grandes économies, tant sur le plan énergétique qu’économique. En effet,
+dans ce type d’habitat il n'y a presque plus besoin de chauffage en hiver et surtout, plus besoin d’un
+quelconque système de refroidissement en été, tous très polluants et énergivores. Ainsi, ce modèle de
+construction, additionné à un bon système d'isolation thermique pourrait révolutionner notre façon de
+concevoir et penser l'habitat. Effectivement, à large échelle, d'immenses économies d'énergies pourraient
+être réalisées et cette perspective est plus que réjouissante face à l'urgence climatique dans laquelle nous
+demeurons. D’autant plus que chacun de nous pourrait y trouver un intérêt individuel, au point de vue
+économique notamment, ce qui est également loin d’être inutile dans un contexte d’inflation permanente.
+Nous avons alors entrepris de créer un heliodome, (tout du moins sa maquette) ; en calculant d’une
+part, quelle inclinaison et orientation donner aux vitres et d'autre part, en comparant différents isolants
+pour trouver le meilleur compromis entre conservation de la chaleur, - ou de la fraîcheur - économies
+budgétaires et valeurs écologiques.
+Pour nos mesures, nous avons retenu plus particulièrement quatre isolants (le polystyrène, la paille,
+la laine de bois et la fibre de bois) que nous avons comparés dans diverses situations à l’aide de relevés de
+température. Ces derniers ont été réalisés à l’aide de capteurs thermiques reliés à une carte arduino.
+Enfin, ce projet nous tient à cœur puisqu'il nous pousse à reconsidérer notre façon de voir et de
+penser l'habitat à une époque où notre planète brûle. Il nous incite également à être polyvalentes puisqu'il
+mêle les lois de la physique aux mathématiques et à l'informatique. C'est également un projet qui se
+rapproche des TIPE que l'on peut rencontrer en prépa, et constitue donc un bon entraînement ainsi qu’une
+aide précieuse pour notre orientation post-bac.
+
+C. POINT DE DÉPART :
+Lorsqu’on nous a présenté le concours des Olympiades de physique, nous avons directement saisi
+l’opportunité, mais durant quelques semaines, les idées nous manquaient. En effet, nous avancions très
+difficilement (voire pas du tout) dans notre quête pour ce projet, jusqu’au jour où, en regardant le journal
+régional, nous avons découvert une maison aux vertus singulières, mais plus qu’intéressantes :
+l'héliodome… Nous avons alors approfondi nos recherches, glané des renseignements, avant de nous lancer
+
+3/20
+
+pleinement dans ce projet. Nous avons, entre autres, contacté M. WASSER, avec qui nous avons eu la chance
+d’échanger et d’en apprendre plus sur les causes et spécificités de son projet. Ces conversations
+passionnantes nous ont donc permis de modifier nos choix et priorités afin d’aboutir à la conception d’un
+heliodome, unique et adapté à notre département, les Hautes-Alpes. Ainsi, nous sommes particulièrement
+heureuses de vous présenter, lors de cette 31ème édition des Olympiades de physique, notre démarche
+scientifique pour la conception de “la maison d'Hélios”, réalisée au cours de ces douze derniers mois.
+
+II.
+
+Capteurs de température et Arduino :
+A) PRINCIPE / BUT :
+
+Pour effectuer nos mesures, nous avons décidé d’utiliser Arduino afin
+qu’elles soient faites simultanément et précisément. Comme nos
+expériences sont basées sur des mesures de températures il nous fallait
+des capteurs de température. Nous avons donc décidé de prendre des
+capteurs de températures DS18B20. Ces capteurs peuvent mesurer une
+température comprise entre -55°C à +125°C avec une précision de ±0.5°C.
+De plus, ce sont les capteurs que nous possédons au lycée et qui
+répondent très bien à l’utilisation qu’on souhaitait en faire : mesurer des
+températures qui varient entre -15°C et 80°C. Ce sont des thermistances,
+c’est-à-dire des résistances qui varient en fonction de la température.
+Puisque ce sont des capteurs CTN (Coefficient de Température Négatif),
+leurs résistances diminuent lorsque la tension augmente. Par
+conséquent, on a décidé de réaliser le montage de la Figure 2 afin que la
+tension augmente lorsque la température augmente, ce qu’on trouvait
+plus instinctif.
+Figure 2 : schéma du montage arduino
+
+B) MONTAGE, ETALONNAGE ET INCERTITUDES :
+Avant toute chose, nous avons dû étalonner les sondes pour faire correspondre les valeurs données par la
+carte Arduino et les températures.
+En effet, comme nos capteurs sont en réalité des résistances qui dépendent de
+la température (des thermistances), ils mesurent, dans un premier temps, une
+tension. De plus, la carte Arduino est traversée par un courant variant de 0 à
+5V et est codée sur 10 bits. Cela signifie qu’il y a 1024 combinaisons possibles
+5
+variant de 0 à 1023. L’incertitude de la tension est donc égale à 1023 soit 0.005V.
+Ainsi, la carte, qui associe une valeur numérique aux grandeurs qu’elle mesure,
+nous donne une valeur comprise entre 0 et 1023.
+Pour retrouver notre tension, nous pouvons faire ce calcul :
+
+5×𝐸𝐴0
+1023
+
+Avec : EA0, l’entrée analogique qui interprète ce qui est envoyé par la sonde et
+renvoie la valeur numérique qu’elle a associée à la tension.
+Néanmoins, comme nos caisses sont volumineuses, nous avons dû allonger les
+fils
+
+4/20
+
+des capteurs de 1 ± 0,01 m. Pour cela, on a réalisé des soudures par étain (Figure 3).
+Ensuite, nous avons associé température et tension : nous avons donc branché le capteur sur l’entrée
+analogique EA0 de la carte arduino avec une résistance de 10kΩ.
+Nous avons ensuite rédigé le programme arduino (cf. Figure 1 en annexes) qui nous donne les tensions, ici
+toutes les 0.5 secondes, du capteur relié à un fil de 1 m.
+Enfin, nous avons procédé à la partie pratique de l’étalonnage :
+Comme on peut l’observer sur la Figure 4, nous nous sommes muni du
+matériel nécessaire à l’étalonnage. En effet, nous avons commencé par
+faire chauffer un erlenmeyer, au bain marie dans un cristallisoire, dans
+lequel nous avions placé la sonde à étalonner et un thermomètre, en
+évitant qu’ils se touchent entre eux ou frottent avec la paroi de
+l’erlenmeyer. Pour homogénéiser la température de l’eau à l’intérieur de
+l’erlenmeyer, nous y avons placé un barreau aimanté, en lien avec
+l’agitateur magnétique chauffant présent sous le cristallisoire.
+Une fois ce montage fait, nous avons seulement relevé les températures
+indiquées par le thermomètre, au cours du refroidissement, afin de les
+associer aux tensions annoncées, au même moment, par la sonde.
+
+Figure 4 : Photographie de l’étalonnage
+des CTN
+
+Ce processus d’association d’une température (mesurée
+au dixième de degré près) à une tension, s’est fait par le
+biais du logiciel Regressi grâce auquel il a été possible
+de tracer le graphique de la Figure 5, qui exprime la
+température (en degré celsius, °C) en fonction de la
+tension (en volt, V).
+On obtient alors l'équation de la droite, qui associe une
+température (en °C) à une tension. Ici, pour notre carte
+Arduino l’équation est : 𝑇 = 27, 2 × 𝑈 − 48. 6 .
+Figure 5 : Courbe sur Regressi de la température en fonction de la tension
+
+L’étalonnage est donc terminé.
+
+C) LE PROGRAMME POUR LES EXPERIENCES
+Grâce à cette équation, la carte arduino est en mesure de nous donner directement les températures que
+l’on souhaite mesurer. Nous avons donc écrit ce programme pour les cinq sondes qui seront branchées sur
+les entrées analogiques EA0; EA1; EA2; EA3; EA4 (Figure 2 en annexes).
+C’est cet unique programme que nous avons utilisé pour tous nos relevés de températures, en changeant
+simplement les noms d’une expérience à l’autre.
+
+5/20
+
+III.
+
+LE TRAVAIL SUR LES VITRES
+A. INCLINAISON DES VITRES :
+1. LE CONCEPT
+
+L'Heliodome, tel qu’il a été inventé par Eric Wasser, détient sa forme (pour le moins particulière), du
+mouvement du Soleil au fil de l’année. En effet, les vitres de cette structure sont inclinées de manière à
+laisser entrer les rayons du Soleil en hiver, lorsque ce dernier est bas dans le ciel et que l’on a besoin de leur
+chaleur. A l’inverse, en été, lorsque le Soleil est haut dans le ciel et que sa chaleur dérange, ses rayons
+frappent contre le toit de l’héliodome et non plus dans les vitres, devenues trop inclinées pour les laisser
+entrer.
+De ce fait, ce concept ingénieux permet de diminuer les consommations d’énergie de plus de 70%, par
+rapport à une maison dite “standard”, du même volume. De plus, il offre la possibilité de profiter de grandes
+baies vitrées, exposées plein sud, sans pour autant que leur présence ne transforme la maison en une
+fournaise intenable l’été.
+Par conséquent, la première chose que nous avons voulu calculer a été l’angle d’inclinaison des vitres de
+notre futur heliodome, par rapport au sol, avec pour objectif de ne pas avoir besoin de climatisation l’été et
+de peu de chauffage l’hiver. Pour cela, nous avons eu besoin de connaître la position du Soleil au cours de
+l’année, suivant les mois et les heures de la journée. On s’est donc servie d’un “diagramme solaire” qui
+regroupe toutes ces informations (Figure 6).
+
+2. LE DIAGRAMME SOLAIRE :
+a. ANALYSE
+En effet, cet outil très pratique est utilisé dans plusieurs domaines (comme le BTP, l’astronomie..). Il indique
+la position du soleil à une latitude donnée, en fonction
+de deux grandeurs : l’azimut (en abscisses) et la
+hauteur angulaire (en ordonnées).
+L’azimut correspond à l’angle entre une direction de
+référence, dans notre cas, le point cardinal nord et la
+projection de la direction du Soleil sur le plan
+horizontal (Figure 7). Il peut donc prendre des valeurs
+comprises entre 0° et 360°.
+La hauteur est, quant à elle, mesurée sur le plan
+vertical. Elle correspond à l’angle entre le plan
+horizontal et l’objet visé (Figure 7). Dans notre
+diagramme, elle est donc l’angle entre le sol et les
+rayons du Soleil. Par conséquent, cette dernière est
+essentielle pour connaître l’ensoleillement de notre
+future heliodome d’où découle l’angle d’inclinaison
+des futures vitres qui composeront notre heliodome.
+
+Figure 7 : Schéma représentant l’azimut et la hauteur du soleil
+
+Effectivement, si nos vitres sont inclinées par rapport au sol d’un angle H, cela implique que dès que le
+soleil a une hauteur H’ supérieure ou égale à H, ses rayons ne peuvent plus traverser les vitres de notre
+heliodome et ne réchauffent donc plus notre maison. Ainsi, notre objectif est de déterminer la période, les
+
+6/20
+
+heures durant lesquelles nous ne souhaitons pas que les rayons du soleil pénètrent dans notre maison afin
+d’y associer les hauteurs du soleil à ces moments-là et donc d’en déduire l’angle d’inclinaison de nos vitres.
+
+N.B : toutes les heures exprimées dans ce compte rendu sont des heures solaires. Pour obtenir l’heure
+française, il faut leur ajouter deux heures lorsque la France est à l’heure d’été et une heure lorsque la France
+est à l’heure d’hiver.
+
+b. DÉDUCTIONS
+En connaissance du climat de notre département, nous avons décidé que le soleil ne devait pas entrer dans
+les vitres seulement aux heures les plus chaudes en été. En effet, dans les Hautes-Alpes il fait encore
+suffisamment frais pour réaliser ces choix-là.
+En sachant que, sur notre diagramme, les courbes en cloches bleues marines correspondent aux chemins
+suivis par le Soleil à différentes dates de l’année par rapport aux heures de la journée, elles-mêmes
+indiquées par les lignes horaires roses. On observe qu’aux mois de mai et juillet entre environ 11h30 et
+12h30, le soleil a une hauteur angulaire supérieure à 64°. Au mois de juin c’est plutôt entre 10h45 et 13h15
+
+7/20
+
+que le soleil a une telle hauteur. On en déduit donc que si l’on incline les vitres avec un angle de 64° par
+rapport au sol, le soleil ne pénètrera pas dans la maison pendant les périodes indiquées ci-dessus.
+
+3. EXPLICATIONS SUPPLÉMENTAIRES
+a. LA LATITUDE : UN PARAMÈTRE CLÉ
+Comme mentionné plus tôt, le diagramme solaire est spécifique à un lieu puisqu'il dépend de sa latitude,
+c’est-à-dire la coordonnée géographique qui renseigne sur la position de ce lieu par rapport à l’équateur.
+Par exemple, nous savons que plus la latitude diminue, plus le Soleil est haut dans le ciel, et plus l’azimut à
+l’horizon est resserré autour des points est et ouest.
+Cela vient du fait que la Terre a un axe de rotation incliné : aujourd’hui de 23,45° par rapport à l’axe du
+plan écliptique. Cette obliquité (qui est la cause des saisons), est donc par la même occasion la cause des
+différences entre la course du Soleil d’un lieu par rapport à un autre. On le comprend d’ailleurs grâce au
+schéma suivant (Figure 8), réalisé sans soucis d’échelle :
+
+Figure 8 : Schéma témoignant de l’importance de la latitude dans la course du soleil
+
+b. LES DIFFÉRENTES MANIÈRES DE CONSTRUIRE UN DIAGRAMME SOLAIRE
+En effet, il existe plusieurs façons de construire un diagramme solaire.
+Il est possible de la faire à la main, via des observations de la position du soleil tout au long de l’année.
+
+On peut également calculer les valeurs de l’azimut et de la hauteur du soleil à un moment t grâces aux
+formules suivantes :
+Relation donnant l’azimut 𝑎 d’un corps :
+
+𝑐𝑜𝑠(𝑎) =
+
+8/20
+
+𝑠𝑖𝑛 (𝐿𝐴𝑇) × 𝑐𝑜𝑠 (δ) × 𝑐𝑜𝑠 (𝐴𝐻) − 𝑐𝑜𝑠 (𝐿𝐴𝑇) × 𝑠𝑖𝑛 (δ)
+𝑐𝑜𝑠 (ℎ)
+
+Avec :
+●
+●
+●
+
+LAT : la latitude en degrés du corps étudié
+AH : l’angle horaire (égal à 0° à midi et 180° à minuit),
+δ : la déclinaison du soleil qui varie en fonction du mois de l’année.
+
+En sachant que :
+●
+●
+
+Si a est positif alors que AH est négatif, il faut soustraire 180° à a.
+Si a est négatif alors que AH est positif, il faut ajouter 180° à a.
+
+De la même manière, on peut calculer la hauteur angulaire h :
+
+sin (ℎ) = 𝑠𝑖𝑛 (𝐿𝐴𝑇) × sin (δ) + 𝑐𝑜𝑠 (𝐿𝐴𝑇) × 𝑐𝑜𝑠 (δ) × 𝑐𝑜𝑠 (𝐴𝐻)
+Avec :
+●
+●
+●
+
+LAT : la latitude en degrés du corps étudié
+AH : l’angle horaire (égal à 0° à midi et 180° à minuit),
+δ : la déclinaison du soleil qui varie en fonction du mois de l’année.
+
+Pour plus d’informations relatives à ses formules consulter le II des annexes de notre compte-rendu.
+Néanmoins, il n’existe aucune relation entre l’azimut du soleil et sa hauteur. Par conséquent, pour créer un
+diagramme solaire il faut utiliser de la programmation afin de relier les deux grandeurs.
+Pour des raisons de praticité, de rapidité et de fiabilité, nous avons utilisé un diagramme solaire trouvé sur
+Internet. Toutefois, nous avons compris comment il avait été créé, ce qui nous a facilité sa compréhension et
+analyse.
+
+c. CONCLUSION
+Le diagramme solaire nous a permis de déterminer théoriquement l’angle d’inclinaison de nos vitres mais
+aussi d’autres éléments lors de la construction de notre maquette (cf. C. Notre maquette). Toutefois, nous
+savons que le diagramme solaire a des limites. En effet, il reste assez généraliste étant donné qu’il ne prend
+pas en compte tout ce qui pourrait faire de l’ombre à un lieu (comme un arbre, un bâtiment, etc.)
+contrairement au masque solaire. Néanmoins, comme nous ne savions pas encore où nous installerions
+notre heliodome, nous avons donc préféré rester dans le “cas général”, en considérant que l’on se situe dans
+une plaine sans aucun corps pour nous faire de l’ombre.
+Ainsi, une fois cette partie théorique terminée nous avons décidé de faire une expérience afin de vérifier
+que l’angle choisi pour l’inclinaison de nos vitres, soit bien optimal et en accord avec nos attentes.
+
+4. NOTRE EXPÉRIENCE : MESURE DE LA TEMPÉRATURE DES CAISSES EN FONCTION DE LEUR
+INCLINAISON
+Nous avons donc décidé de tester cet angle grâce aux boîtes que l’on a confectionnées (cf. IV en annexe) sur
+lesquelles nous avons placé des vitres. Les deux boîtes sont vides et orientées toutes les deux plein sud, avec
+l’une inclinée à 64° et l’autre placée classiquement, à 90° (cf. (Figure 9).. Nous avons ensuite mesuré la
+
+9/20
+
+température dans les caisses en fonction du temps grâce au programme Arduino (cf. I en annexe). Nous
+avons alors obtenu un graphique (Figure 6, V/ en annexes), où l’on observe la température des caisses et de
+l’air en fonction du temps.
+Malgré les imprécisions dues à la météo capricieuse, on voit que la vitre à 90° chauffe plus que celle qui est
+inclinée lorsqu’il y a du soleil.
+Nous avons effectué la même expérience un jour sans nuages pour avoir des valeurs plus exploitables
+(Figure 10) :
+
+Figure 9 : photographie de l’expérience sur
+l’influence de l’angle d’inclinaison des
+
+5. INTERPRÉTATIONS ET CONCLUSION
+Sur ce dernier graphique, nous pouvons voir concrètement qu’une partie de notre hypothèse était juste. En
+effet, plus on incline la vitre avec un angle aigu par rapport au sol, moins les rayons du soleil passent à
+travers cette dernière et réchauffent la maison. Ainsi, on voit bien qu’en présence du soleil, la température
+dans la caisse avec la vitre perpendiculaire au sol augmente plus rapidement que la température de celle
+avec la vitre inclinée. En effet, on en a l’illustration concrète avec les pentes des tangentes : celle de la caisse
+avec la vitre perpendiculaire au sol est pratiquement 1,4 fois plus grande que celle de la caisse avec la vitre
+inclinée à 64° par rapport au sol. La température de la caisse droite augmente donc bel et bien plus
+rapidement que celle dans la caisse inclinée.
+Ici, la vitre inclinée a reçu les rayons du soleil étant donné que les tests ont été faits en octobre où le soleil a
+une hauteur angulaire plus basse (inférieure à 35°). Effectivement, à cette période de l’année la chaleur du
+soleil commence à devenir plus désirable que désagréable. On peut alors supposer que le coefficient
+directeur de la tangente associée à la température de la caisse ayant la vitre perpendiculaire au sol, aurait
+été encore plus élevé en été (les rayons du soleil étant plus puissants à cette saison). A l’inverse, la pente de
+la tangente associée à la température de la caisse à la vitre inclinée aurait été, quant à elle, moins élevée
+puisque les rayons du soleil (trop hauts dans le ciel) ne pénètreraient pas dans la caisse. Ainsi, le rapport
+entre les deux pentes des tangentes (initialement associées à la température des deux caisses), serait
+supérieur à 1,4. Ainsi, les baies vitrées perpendiculaires au sol auraient un effet de four alors que celles
+inclinées garderaient davantage la fraîcheur dans la maison.
+Nous regrettons de ne pas avoir pu tenter cette expérience en été par manque de temps. Néanmoins, grâce à
+
+10/20
+
+notre maquette nous avons pu réaliser un certain nombre de tests en schématisant les rayons du Soleil par
+ceux d’une lampe. Par ailleurs, nous comptons refaire cette expérience cet été afin de pouvoir réellement
+valider ou non notre hypothèse. En attendant nous supposerons qu’elle l’est, quelque soit la saison.
+Ainsi, nous sommes en mesure de conclure que, même si notre hypothèse n’a pu être que partiellement
+vérifiée, incliner les vitres à 64° semble cohérent par rapport à nos objectifs et au climat Haut-Alpin.
+
+B. ORIENTATION DES VITRES :
+Pour que l’utilisation de nos vitres soit optimale, la façade vitrée de notre heliodome doit être orientée plein
+sud. En effet, nos vitres ont pour but de s’adapter à la course du soleil au fil des saisons, mais aussi à sa
+trajectoire au cours de la journée. C’est la raison pour laquelle nos vitres forment un semblant d’arc de
+cercle, reliant le côté Est de notre “maison” à son côté Ouest. Cette architecture particulière pouvant
+rappeler la forme d’un oloïde, permet de capter les premiers rayons du soleil à l’est (le matin) et les derniers
+à l’ouest (en fin de journée). Cela peut ainsi créer une réelle différence entre un habitat standard c’est-à-dire ayant seulement des vitres sur une façade - et l’héliodome ; par exemple, lors d’une journée
+ensoleillée seulement en début de matinée et en fin d’après-midi, une maison standard avec une baie vitrée
+exposée plein sud n'absorberait aucune chaleur, tandis que notre heliodome capterait, lui, tous les rayons
+du soleil ; ce qui s’avèrerait très utile lors des périodes froides. Par ailleurs, il serait également possible
+d’ajouter des panneaux solaires qui serviraient de compléments énergétiques, pour être serein toute
+l’année.
+
+C. NOTRE MAQUETTE :
+Étant passionnées par les maths, la géométrie, et appréciant travailler sur des choses concrètes, nous avons
+entrepris de créer une maquette. Cette dernière nous a également permis d’illustrer certaines notions, de
+réaliser des tests et de concrétiser nos conclusions.
+Grâce à tous nos calculs décrits précédemment, nous avions déjà quelques bases : l’inclinaison de nos vitres
+par rapport au sol, et l’orientation plein sud de notre heliodome.
+Cependant, cela n’a pas été aussi simple que nous le pensions étant donné que passer d’une image en 2D à
+une construction en 3D n’est pas toujours évident, d'autant plus que nous n’avions jamais fait de géométrie
+dans l’espace à ce moment de l’année.
+Ainsi, de nouvelles problématiques et enjeux se sont posées à nous :
+●
+
+Comment construire le toit ?
+
+Il doit faire contrepoids avec la masse des vitres, sous peine de voir notre maquette s’effondrer. Mais il doit
+aussi être fait de telle sorte à ce que sa géométrie permette de limiter au maximum les frottements avec le
+vent, afin qu’il y ait un faible transfert de chaleur entre la fraîcheur du vent (venant du nord), et la
+température intérieure de notre heliodome. L’idéal aurait donc été de faire un toit incliné tel que l’a fait Eric
+Wasser pour son heliodome. Néanmoins, la taille de notre maquette (assez petite comparé à un vrai habitat)
+et les contraintes techniques (courber des planches en bois) nous ont limitées dans nos ambitions.
+●
+
+Quelle taille donner aux vitres pour qu’elles puissent être à la fois inclinées à 64° et former un arc de
+cercle ? Quel diamètre donner à cet arc de cercle ? Comment respecter toutes les particularités de
+l’heliodome dans un format réduit ?
+
+Pour répondre à ces questions, nous avons procédé par étape :
+1. Tout d’abord, nous avons choisi l’angle entre le sol et la diagonale qui
+
+11/20
+
+partirait du fond de notre maquette jusqu’au sommet de cette dernière (cf. droite rouge sur la Figure
+10, VI en annexe). À partir du diagramme solaire, nous avons choisi un angle à 45° par rapport au sol.
+Cela implique que lorsque la hauteur angulaire du Soleil dépasse les 45°, ses rayons ne traversent
+plus l’intégralité de notre maquette, et ne réchauffent donc plus toutes les pièces de cette dernière.
+Ainsi, notre maquette reçoit un ensoleillement total durant la période qui sépare le solstice
+d’automne (le 21 septembre) de celui du printemps (le 21 mars), c’est-à-dire les saisons où le froid se
+fait sentir dans nos montagnes.
+2. Nous avons ensuite continué le travail de modélisation 3D sur le logiciel SketchUp. Cela nous a
+permis de faire de nombreux essais gratuitement, en faisant varier à chaque fois un seul paramètre
+afin d’observer ses effets sur l'architecture de notre maquette. Ces multiples essais nous ont permis
+de développer une méthode de construction où nous avons alterné entre nos objectifs initiaux, basés
+sur des calculs théoriques et la mise en pratique, avec les difficultés
+qu’elle implique.
+Par exemple, voici quelques explications de nos choix concernant la
+maquette :
+En théorie, nous aurions aimé avoir un grand nombre de vitres
+afin qu’elles soient au maximum orthogonales aux rayons du
+soleil au cours de la journée. Néanmoins, sur le plan pratique,
+couper des vitres en triangles et les assembler est loin d’être
+évident ; c’est pourquoi nous avons choisi de travailler avec
+seulement cinq vitres.
+De même pour la construction du toit (comme mentionnée
+précédemment), notre but était de réduire au maximum les
+frottements avec le vent. Cependant, afin de garder une certaine
+stabilité nous n’avons pas eu d’autres choix que de faire un mur
+perpendiculaire au sol, bien qu’il reste relativement bas (cf.
+Figure 7, VI en annexe et la Figure 13 ci-dessous)
+Ainsi, nous avons peu à peu abouti à ce qui nous semblait être
+la meilleure modélisation de notre future maquette (Figures 7 à
+9, VI en annexe). Par la suite, ces modèles 3D nous ont permis
+d’obtenir facilement les dimensions et volumes des différentes
+pièces qui composent notre modèle, ainsi que les angles qui les
+relient entre elles. Nous avons alors pu commencer la construction de notre maquette dans la réalité.
+3. Nous nous sommes donc servi des informations récupérées sur le logiciel de modélisation pour créer
+un premier patron de nos vitres, à l’aide de contreplaqués que nous avions chez nous et qui
+n’avaient pas de valeur particulière (Figures 11 et 12). Cela nous a permis de vérifier que l’angle
+d’inclinaison des futures vitres était bien de 64° par rapport au sol, mais également d’ajuster et de
+préciser une dernière fois l’architecture de notre maquette. Enfin, nous avons conçu notre maquette
+telle que l’on peut la voir aujourd’hui avec des vitres, des panneaux OSB3, de la colle et des vis (cf.
+Figures 13 à 15).
+
+12/20
+
+Figure 15 : photographie de notre maquette, vue depuis le devant
+
+Figure 14 : photographie de notre maquette finie, vue de profil.
+
+Figure 14 : photographie de notre maquette, vue de derrière.
+
+IV. L’ISOLATION DE LA MAISON
+A. CHOIX DES ISOLANTS (La théorie)
+Toutefois, même avec des vitres bien inclinées et un toit bien pensé, l’importance d’un système d’isolation
+efficace est non négligeable. En effet, quel intérêt de concevoir un modèle de construction innovant si c’est
+une passoire/bouilloire thermique ? Nous avons donc cherché différents isolants, afin de les comparer selon
+différents critères : leur résistance thermique (et donc leur conductivité thermique), leur résistance au feu
+et leur respect de l’environnement (ce serait plutôt paradoxal d’isoler notre maison avec des matériaux peu
+vertueux de la planète). Nous avons donc établi la sélection suivante, présentée par le tableau ci-dessous :
+
+NOM DE L’ISOLANT
+
+CONDUCTIVITÉ
+THERMIQUE λ
+(W/m.K)
+
+RÉSISTANCE
+THERMIQUE Rth.
+(K/W)
+
+RÉSISTANCE AU FEU
+(CLASSEMENT
+EUROCLASS)
+
+RESPECT DE
+L’ENVIRONNEMENT
+
+Paille**
+
+entre 0,050 et
+0,075
+
+entre 4,3 et 2,9
+
+B
+
+Oui
+
+Polyuréthane
+
+0,018
+
+12,1
+
+E
+
+Non
+
+Laine de bois
+
+0,030
+
+7,2
+
+A2
+
+Oui
+
+Fibre de bois
+
+0,035
+
+6,2
+
+C
+
+Oui
+
+13/20
+
+*pour une épaisseur de 0,10m et une surface S de 4,6.10-1 m².
+**Ici la paille n’est pas compacte donc les incertitudes, concernant la valeur de sa conductivité/résistance thermique théorique, sont assez élevées.
+
+Nous avons calculé les valeurs théoriques de la résistance thermique avec le calcul :
+
+𝑅𝑡ℎ. =
+
+𝑒
+λ·𝑆
+
+Avec :
+●
+
+R : Résistance thermique (K/W)
+
+●
+●
+●
+
+S : Surface (𝑚 )
+e : Épaisseur (m)
+λ : Conductivité thermique (W/m.K)
+
+2
+
+B. EXPÉRIENCES : REFROIDISSEMENT DES PLAQUES D’ACIER EN FONCTION DES ISOLANTS
+1. Mise en place des isolants
+Il a d’abord fallu se procurer ces fameux isolants. Pour ce qui est de la paille, l’une d’entre nous vivant dans
+une ferme, il n’a pas été compliqué de s’en munir. Idem pour la fibre de bois qui nous a été donnée par une
+entreprise. Enfin, la laine de bois et le polyuréthane (c’est-à-dire des bombes de mousse expansée) ont été
+achetées en magasin de bricolage.
+Nous avons ensuite coupé la laine et la fibre de bois en panneaux de 0,1 ± 0,001m d’épaisseur et dans les
+dimensions de l’intérieur de nos caisses (Figure 17). Pour ce qui est de la paille, nous avons utilisé des “flocs”
+de paille, c’est-à-dire des “morceaux” de botte de paille, qui mesurent 0,1 ± 0,01 m) d’épaisseur (Figure 19).
+Ces derniers sont, à peu près, tous compressés de la même manière étant donné que c’est un matériel
+agricole qui le fait (presse agricole).
+Nous avons ensuite entrepris de pulvériser de la mousse expansée dans nos caisses mais cela a été
+malheureusement un échec (Figure 16). D’abord, nous n’avions pas les quantités nécessaires, mais le
+principal problème a été la régularité de l’isolation, ou plus exactement, son irrégularité. Des sortes de
+poches d’air se sont créées par endroit, et rendaient donc notre isolation inexploitable. Nous avons alors
+retiré le polyuréthane de la caisse et avons décidé d’utiliser, à la place, des panneaux de polystyrène qui
+nous ont été donnés (Figure 18). En effet, bien que le polystyrène ne soit pas notre choix initial, ses
+caractéristiques restent assez proches de celles du polyuréthane (une très bonne isolation thermique mais
+un impact environnemental négatif).
+
+Figure 16
+
+14/20
+
+Figure 17
+
+Figure 18
+
+Figure 19
+
+16) Rendu insatisfaisant du polyuréthane
+17) Coupe de la laine de bois
+18) Coupe du polystyrène
+19) Pose de la paille dans les caisses
+
+Nous avons ensuite calculé les dimensions de la cavité afin de pouvoir calculer la surface des parois. Il s’agit
+d’un cube de 27,6 cm de côté (50 - 2×1,2 - 2×10 = 27,6 cm). On en déduit alors l’aire de la surface des parois,
+c’est-à-dire S = 0,276 × 0,276 × 6 = 0,46 m²
+Nous avons donc “mis à jour” notre tableau pour les isolants, puisque le polyuréthane n’a plus lieu d’y
+figurer.
+NOM DE L’ISOLANT
+
+CONDUCTIVITÉ
+THERMIQUE (W/mK)
+
+RÉSISTANCE
+THERMIQUE* (K/W)
+
+RÉSISTANCE AU FEU
+
+RESPECT DE
+L’ENVIRONNEMENT
+
+Paille**
+
+entre 0,050 et
+0,075
+
+entre 4,3 et 2,9
+
+B
+
+Oui
+
+Polystyrène
+
+0,023
+
+9,5
+
+E
+
+Non
+
+Laine de bois
+
+0,030
+
+7,2
+
+A2
+
+Oui
+
+Fibre de bois
+
+0,035
+
+6,2
+
+C
+
+Oui
+
+*pour une épaisseur de 0,10m
+**Ici la paille n’est pas compacte donc les incertitudes concernant la valeur de sa conductivité/résistance thermique théorique sont assez élevées.
+
+Pour ce qui est du critère “Respect de l’environnement”, nous avons cherché s’il existait des valeurs
+chiffrées de l’emprunt de carbone pour 1 kilogramme de chacun de nos matériaux, mais nous n’avons rien
+trouvé . Nous n’avons donc malheureusement pas de valeurs chiffrées pour appuyer nos dires, mais on peut
+envisager plus facilement que les isolants d’origine végétale soient vertueux de l’environnement
+contrairement aux isolants d’origine synthétique (bien entendu il faut faire des conjectures, les forêts
+desquelles est issu le bois sont gérées de manière responsable etc.).
+
+2. Relevés de température dans les caisses :
+Pour ce faire, nous avons acheminé - non sans difficultés - nos caisses jusqu’au lycée où nous les avons
+entreposées en attendant des conditions propices à la réalisation de notre expérience. Nous avons ensuite
+disposé nos 4 caisses face au Soleil, de façon à ce qu’elles reçoivent toutes le Soleil de manière identique afin
+de ne pas faire varier plus d’un paramètre à la fois. Le matin, notre professeur encadrant avait déposé 5
+plaques d’aluminium et 5 plaques d’acier dans l’étuve du laboratoire de sciences-physique. Nous avons
+alors fait deux relevés différents : un avec les plaques en acier puis un avec les plaques en aluminium. Pour
+ce faire, on a donc déposé dans chaque caisse une plaque de métal chauffée, dans laquelle se trouvait un
+capteur thermique relié à la carte arduino. Par conséquent, nous avons pu comparer la vitesse de
+refroidissement des différents isolants.
+
+15/20
+
+Figure 20
+
+Figure 21
+
+Figure 22
+
+Figure 23
+
+Figure 24
+
+20) Disposition de nos caisses dans la cour du lycée avec les sondes reliées à la carte Arduino.
+21) Plaque de métal placée au centre de la caisse contenant le polystyrène.
+22) Plaque de métal placée au centre de la caisse contenant la fibre de bois.
+23) Plaque de métal placée au centre de la caisse contenant la paille (avec l’acheminement de la caisse, la paille s’est légèrement
+désolidarisée mais son épaisseur reste identique aux autres isolants).
+24) Plaque de métal placée au centre de la caisse contenant la laine de bois.
+
+Modèle des courbes :
+
+T(x) = 𝐴 × 𝑒
+
+−𝑡/τ
+
++ Θ 𝑒𝑥𝑡
+
+Figure 25 : température en fonction du temps et des isolants
+
+𝛕 est donné par régressi :
+𝛕𝑝𝑜𝑙𝑦𝑠𝑡𝑦𝑟è𝑛𝑒 = 1320 s
+
+𝛕𝑝𝑎𝑖𝑙𝑙𝑒 = 1220 s
+
+𝛕𝑙𝑎𝑖𝑛𝑒 𝑑𝑒 𝑏𝑜𝑖𝑠 =1110 s
+
+𝛕𝑓𝑖𝑏𝑟𝑒 𝑑𝑒 𝑏𝑜𝑖𝑠 = 718 s
+
+Néanmoins, la cavité d’air présente dans nos caisses fait que la loi de Fourier ne peut pas réellement être
+appliquée à nos résultats d’expérience puisqu'il n'y a pas de conduction thermique. Nous avons donc décidé
+de corriger nos erreurs en réalisant une nouvelle expérience, avec cette fois-ci les plaques posées
+directement au contact des matériaux isolants, expérience que nous présenterons lors de l’oral.
+
+3. Estimation de la résistance thermique :
+Système : Une plaque d’acier à la température θ(𝑡), entourée d’un isolant homogène d’épaisseur e, placée
+dans un thermostat (température θ𝑒𝑥𝑡 considérée constante).
+
+16/20
+
+Acier : θ(𝑡)
+
+Φ
+Air : θ
+
+𝑒𝑥𝑡
+
+Le métal est chauffé à une température initiale θ(𝑡 = 0𝑠) > θ
+
+𝑒𝑥𝑡
+
+, puis se refroidit en cédant de l’énergie au
+
+milieu extérieur. On suppose que le transfert se fait principalement par conduction thermique étant donné
+que le .
+La chaleur cédée par le métal au milieu extérieur s’exprime par la relation suivante :
+
+𝑄𝑚é𝑡𝑎𝑙 = 𝑚𝑚é𝑡𝑎𝑙 × 𝑐𝑚é𝑡𝑎𝑙 × (θ(𝑡) − θ(𝑡 = 0𝑠)) (1)
+𝑄𝑚é𝑡𝑎𝑙 : Chaleur en J < 0 car le métal perds de l’énergie
+Avec
+
+𝑚𝑚é𝑡𝑎𝑙 : Masse en kg
+
+𝑐𝑚é𝑡𝑎𝑙 : Capacité thermique massique de l’acier 470 J.kg-1.K-1
+θ(𝑡) : Température du métal en K
+Par définition, un flux thermique s’exprime par la relation : Φ =
+
+𝑑𝑄
+(2),
+𝑑𝑡
+
+avec Φ : Flux thermique en W représentant la chaleur (J) qui passe à travers l’isolant par seconde.
+En réinjectant l’équation 1 dans l’équation 2 on a cette relation : Φ =
+Sachant que 𝑚𝑚é𝑡𝑎𝑙 ; 𝑐
+
+𝑚é𝑡𝑎𝑙
+
+(
+
+)
+
+𝑑 𝑚𝑚é𝑡𝑎𝑙 × 𝑐𝑚é𝑡𝑎𝑙 × (θ(𝑡)−θ(𝑡=0𝑠))
+𝑑𝑡
+
+; θ(𝑡 = 0𝑠) sont des constantes, on obtient l’équation :
+
+Φ = 𝑚𝑚é𝑡𝑎𝑙 × 𝑐𝑚é𝑡𝑎𝑙
+
+𝑑θ(𝑡)
+𝑑𝑡
+
+(3)
+
+Remarque : on a Φ < 0 car le métal se refroidit ; θ(𝑡) est une fonction décroissante du temps.
+Loi de Fourier sur la conduction thermique : Φ =
+
+𝑆.(θ𝑒𝑥𝑡−θ(𝑡))
+𝑅𝑡ℎ
+
+●
+
+Φ en W et < 0 car θ𝑒𝑥𝑡 < θ(𝑡)
+
+●
+●
+
+S en m²
+𝑅𝑡ℎ : Résistance thermique (tient compte de la surface) en K.w-1
+
+17/20
+
+(4)
+
+En égalant l’équation 3 avec l’équation 4, on obtient l’équation suivante : 𝑚𝑚é𝑡𝑎𝑙 × 𝑐𝑚é𝑡𝑎𝑙
+
+𝑑θ(𝑡)
+𝑑𝑡
+
+= 𝑆.
+
+θ𝑒𝑥𝑡−θ(𝑡)
+𝑅𝑡ℎ
+
+(5)
+
+C’est donc une équation différentielle d’ordre 1 :
+
+⇔
+⇔
+𝑆
+×
+𝑐
+×𝑅𝑡ℎ
+𝑚é𝑡𝑎𝑙
+𝑚é𝑡𝑎𝑙
+
+On pose alors : 𝑎 = 𝑚
+
+𝑒𝑡 𝑏 =
+
+𝑑θ(𝑡)
+𝑑𝑡
+
+= 𝑆. 𝑚
+
+𝑑θ(𝑡)
+𝑑𝑡
+
++ 𝑆. 𝑚
+
+θ𝑒𝑥𝑡−θ(𝑡)
+× 𝑐𝑚é𝑡𝑎𝑙×𝑅𝑡ℎ
+
+𝑚é𝑡𝑎𝑙
+
+θ(𝑡)
+×
+𝑐𝑚é𝑡𝑎𝑙×𝑅𝑡ℎ
+𝑚é𝑡𝑎𝑙
+
+θ𝑒𝑥𝑡
+
+= 𝑆. 𝑚
+
+𝑚é𝑡𝑎𝑙
+
+× 𝑐𝑚é𝑡𝑎𝑙×𝑅𝑡ℎ
+
+𝑆.θ𝑒𝑥𝑡
+𝑚𝑚é𝑡𝑎𝑙 × 𝑐𝑚é𝑡𝑎𝑙×𝑅𝑡ℎ
+𝑑θ(𝑡)
+𝑑𝑡
+
+On se retrouve avec cette relation :
+
++ 𝑎×θ(𝑡) = 𝑏
+
+(c’est-à-dire une équation différentielle du 1° ordre, avec second membre, à coefficients constants).
+
+Modélisation de la courbe (donnée par le logiciel Regressi, Figure ):
+−𝑡/τ
+
+La solution est de la forme θ(𝑡) = 𝐴 × 𝑒
+𝐴
+
+−𝑡/τ
+
+- τ ×𝑒
+
+−𝑡/τ
+
++ 𝑎 (𝐴 × 𝑒
+
++ 𝐵 avec τ = temps (en s) où θ𝑎𝑐𝑖𝑒𝑟 = θ𝑒𝑥𝑡
+
++ 𝐵) = 𝑏
+
+Quand on a 𝑡 → + ∞ :
+𝐴
+
+−𝑡/τ
+
+Àt=0s:
+−𝑡/τ
+
+- τ ×𝑒
+
++ 𝑎 (𝐴 × 𝑒
+
+→0
+
+→0
+
+0
+−𝐴
+×1 + 𝑎𝐴 ×1 + 𝑏 = 𝑏 car 𝑒 = 1
+τ
+
++ 𝐵) = 𝑏
+
+⟺
+
+−𝐴
+×1 + 𝑎𝐴 ×1 = 0
+τ
+
+Donc quand 𝑡→ + ∞ on a :
+
+⟹ 𝑎𝐴 =
+
+𝑎𝐵 = 𝑏
+
+⟺𝑎 =
+
+𝐴
+τ
+1
+τ
+
+𝑆.θ𝑒𝑥𝑡
+
+⟺𝐵 =
+
+𝑏
+𝑎
+
+=
+
+𝑚𝑚é𝑡𝑎𝑙 × 𝑐𝑚é𝑡𝑎𝑙×𝑅𝑡ℎ
+𝑆
+𝑚𝑚é𝑡𝑎𝑙 × 𝑐𝑚é𝑡𝑎𝑙×𝑅𝑡ℎ
+
+= θ𝑒𝑥𝑡
+
+A partir des mesures, on trouve : 𝑎 =
+
+1
+τ
+
+𝑆
+×
+𝑐
+×𝑅𝑡ℎ
+𝑚é𝑡𝑎𝑙
+𝑚é𝑡𝑎𝑙
+
+𝑒𝑡 𝑎 = 𝑚
+
+𝑆
+×
+𝑐
+×𝑅𝑡ℎ
+𝑚é𝑡𝑎𝑙
+𝑚é𝑡𝑎𝑙
+
+⟺ 𝑚
+
+⟺ 𝑅𝑡ℎ =
+
+18/20
+
+=
+
+𝑆.τ
+𝑚𝑚é𝑡𝑎𝑙 × 𝑐𝑚é𝑡𝑎𝑙
+
+1
+τ
+
+Il n’y a donc plus qu’à calculer 𝑅𝑡ℎ puisque que l’on connaît 𝑚𝑚é𝑡𝑎𝑙 = 0, 120 𝑘𝑔, 𝑐𝑚é𝑡𝑎𝑙 = 470 𝐽.kg-1.K-1 et
+S = 0,460 m².
+
+0,46×1220
+
+𝑅𝑡ℎ. 𝑝𝑎𝑖𝑙𝑙𝑒 = 0,120 × 470 = 9,9
+𝑅𝑡ℎ. 𝑙𝑎𝑖𝑛𝑒 𝑑𝑒 𝑏𝑜𝑖𝑠 =
+
+Finalement 𝑅
+
+0,46×1110
+0,120 × 470
+
+𝑡ℎ. 𝑝𝑜𝑙𝑦𝑠𝑡𝑦𝑟è𝑛𝑒
+
+=
+
+K/W
+9,0
+
+K/W
+
+𝑅𝑡ℎ. 𝑝𝑜𝑙𝑦𝑠𝑡𝑦𝑟è𝑛𝑒 =
+
+0,46×1320
+0,120 × 470
+
+= 10,7 K/W
+
+𝑅𝑡ℎ. 𝑓𝑖𝑏𝑟𝑒 𝑑𝑒 𝑏𝑜𝑖𝑠 =
+
+0,46×718
+0,120 × 470
+
+= 5,86 K/W
+
+> 𝑅𝑡ℎ. 𝑝𝑎𝑖𝑙𝑙𝑒 > 𝑅𝑡ℎ. 𝑙𝑎𝑖𝑛𝑒 𝑑𝑒 𝑏𝑜𝑖𝑠 > 𝑅𝑡ℎ. 𝑓𝑖𝑏𝑟𝑒 𝑑𝑒 𝑏𝑜𝑖𝑠 , ce qui correspond en partie à nos
+
+attentes, excepté pour la paille qui semble être un meilleur isolant que la laine de bois.
+Remarques :
+●
+
+La résistance thermique mesurée tient compte de l’isolant mais aussi du panneau d’OSB3 constituant
+la boîte.
+
+●
+
+Nous n’avons pas tenu compte dans notre modèle de l’air dans la boîte qui s’est réchauffée au contact
+de la plaque en acier.
+
+4. Comparaison avec les mesures de résistance thermique
+Nous avons voulu confirmer les valeurs que nous avons obtenues de la résistance
+thermique de nos matériaux grâce à un appareil dédié (Figure 26).
+Principe de fonctionnement : au cœur de l’appareil se trouvent deux plaques en aluminium
+de 60 mm de diamètre. Chacune d’entre elles est en contact avec un élément PELTIER :
+– la plaque supérieure est en contact avec la face chaude du premier élément PELTIER ;
+– la plaque inférieure est en contact avec la face froide du second élément PELTIER
+Nous avons utilisé pour cela des échantillons de 60 mm de diamètre et d’un centimètre
+d’épaisseur. Malheureusement, par manque de praticité, nous n’avons pas pu mesurer la
+résistance thermique de la paille.
+Ayant obtenu des valeurs incohérentes (Rth laine de bois = 70.1 K/W par exemple…), nous
+avons conclu qu’il y avait un problème. Nous avons testé l’appareil avec les matériaux étalons et nous avons
+obtenu les résultats théoriques attendus : le problème ne venait donc pas de l’appareil. Nous avons donc
+essayé de modifier l’épaisseur de nos matériaux et en effet, nous avons obtenu des valeurs nettement plus
+cohérentes et exploitables. Néanmoins, par manque de temps nous n’avons pas pu tester tous les matériaux
+voulus avant la date de remise du compte-rendu. De plus, nous nous sommes aperçu que comparer la
+résistance thermique donnée par l'appareil et celles que nous avons calculées grâce aux expériences est
+incohérent, puisque les paramètres d'expérimentation ne sont pas les mêmes (surface et épaisseur
+différentes). Ainsi, il vaudrait mieux comparer les conductivités thermiques propres à chaque matériau.
+
+19/20
+
+C. Conclusion, notre choix de l’isolant :
+L’isolant thermique le plus efficace est sans grande surprise le polystyrène. Cependant, son utilisation à
+l’échelle d’une maison va à l’encontre des valeurs écologiques portées par le projet. Nous avons alors décidé
+de choisir la laine de bois, puisqu’elle est écologique, économique, assez résistante au feu et reste surtout
+une option intéressante pour sa résistance thermique : son intervalle de confiance se rapproche bien de la
+valeur de la résistance thermique du polystyrène.
+
+V. CONCLUSION
+En définitive, nous sommes heureuses de vous présenter un projet ambitieux mais passionnant, qui nous a
+beaucoup appris. Bien que cette aventure touche à sa fin, nous souhaitons la poursuivre de notre côté pour
+la perfectionner : avec les cours à côté, le baccalauréat à préparer, et nos activités extra-scolaires, nous
+n’avons pas pu réaliser tout ce que nous voulions. En effet, nous avions, par exemple, pour projet de
+réaliser une peinture isolante. Néanmoins, ce projet concerne plus le domaine de la Chimie qui nous
+passionne également. On aimerait également travailler l’optimisation des volumes de notre maquette, et
+par extension de notre future maison, afin de permettre, entre autres, une isolation plus intelligente. Cette
+entreprise était aussi l’occasion de se rendre compte de ce qu’est l’autonomie (telle qu’elle sera attendue
+dans le supérieur), ainsi que le travail de groupe : déléguer et se faire mutuellement confiance n’a pas été
+simple, mais a permis de considérables gains de temps. En effet, ces heures de travail supplémentaires ont
+demandé des efforts/de l'organisation et ont nécessité des choix, mais n’étaient pas perçus comme une
+contrainte pour autant : il a fallu trouver du temps au détriment d’autres loisirs, mais au vu de tout ce que
+nous avons appris, nous n’avons aucun regret. Nous sommes donc très chanceuses d’avoir pu faire germer
+ce projet, réalisé entre amies, et traitant d’un sujet qui nous passionne autant toutes les trois. Enfin, c'est
+une belle occasion de montrer que les femmes ont tout autant leurs chances et leurs places dans les
+sciences, qu’elles sont tout aussi capables que leurs homologues masculins, et que la passion de la physique
+dépend de bien plus qu’une paire de chromosomes.
+
+VI. REMERCIEMENTS
+Nous tenons à remercier chaudement M. FORT qui a encadré ce projet sur plus d’un an et dont l’aide nous a
+été très précieuse. Un grand merci aux laborantins du Lycée Aristide Briand également, pour leur aide
+quant à l’acheminement et à la préparation du matériel. Merci à Alain et Bernard BLACHE pour les dons de
+matériaux et pour leur aide lors de la confection des différentes pièces du projet. Merci à M. WASSER qui a
+pris le temps de répondre à nos questions et qui nous a fourni de nombreuses pistes de réflexion. Merci aux
+entreprises qui ont soutenu notre projet, en nous donnant des invendus par exemple. Merci aux
+professeurs de physique-chimie de notre lycée qui ont pris le temps de nous écouter, de nous guider dans
+notre réflexion et qui nous ont offert la chance de nous entraîner devant un public à plusieurs reprises. Un
+grand merci à nos camarades de classe (tronc commun comme spécialité), qui nous ont soutenues et
+encouragées tout au long de notre démarche. Nous tenions également à remercier l’équipe encadrante des
+Olympiades de physique de Marseille (le personnel de Saint-Jérôme comme le jury), pour la journée
+enrichissante passée à leur côté, ainsi que pour nous avoir offert la chance de prolonger encore un peu cette
+aventure. Et enfin, merci à vous qui avez pris le temps de lire notre compte-rendu et d’en apprendre un peu
+plus sur notre projet.
+Lucie BLACHE, Tiphaine GRILLET, Phoebe PIERRE, élèves de Terminale au Lycée Aristide Briand de Gap.
+
+20/20
+
+

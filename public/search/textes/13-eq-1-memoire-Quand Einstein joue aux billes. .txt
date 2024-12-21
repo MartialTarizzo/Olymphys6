@@ -1,0 +1,1195 @@
+Clément Gasull
+
+Lycée René Char
+
+Quentin Rodriguez
+
+Avignon
+
+Quand Einstein joue aux billes...
+
+Trajet aléatoire d'une particule brownienne
+
+Olympiades de physique 2005-2006
+
+1/21
+
+Introduction :
+Suite à nos TPE de Première nous nous sommes intéressés au phénomène de
+diffusion. Nous allons donc mettre en évidence dans une première partie ce
+phénomène. Ceci nous amènera à observer ce dont il s’agit plus en détails à l’échelle
+microscopique. Puis nous tenterons de reproduire nos observations à travers une série
+de modélisations. Pour finir, nous passerons à une étude quantitative de ce phénomène
+microscopique, appelé mouvement brownien, à travers la détermination de la constante
+entrant dans la formule d’Einstein caractérisant ce mouvement.
+
+I) Le phénomène de diffusion
+Notre étude débute par l'observation d'un phénomène classique, le phénomène de
+diffusion. On a déposé délicatement une goutte de lait au milieu d'une boite de Petri
+contenant une couche d'eau à température ambiante. On a réalisé des photos à
+différents instants afin de visualiser l'évolution de la tache de lait. Dans le tableau
+suivant sont regroupées les données recueillies (date, photo et diamètre de la tache de
+lait):
+
+t(min)
+
+0
+
+1
+
+3
+
+8
+
+13
+
+photo
+
+.
+
+.
+
+.
+
+diamètre d
+±10% (cm)
+
+1,9
+
+2,0
+
+t(min)
+
+28
+
+58
+
+.
+
+2,1
+
+.
+
+2,2
+
+2,35
+
+photo
+
+.
+
+diamètre d
+±10% (cm)
+
+.
+
+2,5
+
+2,8
+
+En traçant d2 en fonction de t, on obtient des points relativement bien alignés, ce qui
+nous suggérerait une loi d'évolution de d en  t .
+
+2/21
+
+.
+Evolution du carré du diamètre de la tache en fonction du temps.
+
+II) Observation du lait au microscope
+Regardons d'un peu plus près ce qui pourrait
+être responsable de l'étalement du lait dans l'eau.
+1. Dispositif expérimental
+Nous avons utilisé un microscope du
+laboratoire de Biologie de notre lycée. Sur une
+lame de microscope, on a déposé une goutte de lait
+dilué. Nous avons alors remarqué visuellement
+l’agitation incessante des micelles de lait dans la
+préparation.
+Afin d'étudier plus en détail le mouvement des
+micelles, nous avons utilisé une caméra CCD
+adaptable au microscope et effectué l'acquisition
+de séquences vidéo.
+La figure 1 ci-contre représente le dispositif
+expérimental.
+
+Figure 1: dispositif expérimental
+
+3/21
+
+La figure 2 ci-contre est une image de ce
+que nous avons observé avec un
+grossissement de 600×.
+Le lait est constitué d'environ 88% d'eau,
+4% de globules graisseux, 5% de lactose
+et 3% de protéines dont 2% sous forme
+de micelles de caséine.
+Lors de l'utilisation du grossissement
+600×, seuls les globules graisseux sont
+visibles (cercle rouge).
+Figure 2: globules graisseux du lait dont nous avons suivi la
+trajectoire.
+
+2. Suivi des globules
+On a suivi un globule afin de connaître sa
+trajectoire (Figure 3). Chaque point
+correspond à la position du globule à un
+instant donné. Entre deux points
+successifs, on a une durée de 10s. Les
+points successifs ont été reliés par un
+segment afin d'avoir une idée de la
+trajectoire. On constate un mouvement
+apparemment aléatoire.
+
+Figure 3: aperçu de la trajectoire d'un globule.
+
+On s'est ensuite posé la question de savoir si ce mouvement était passager ou lié à la
+fabrication de la lame. Seulement, même en laissant reposer la lame durant plusieurs
+dizaines de minutes, le mouvement des globules est toujours observable avec des
+amplitudes comparables.
+On a cherché ensuite à travailler sur des modèles nous permettant de relier l'agitation
+incessante observée au phénomène de diffusion.
+
+III)Modélisations
+Nous nous sommes tout d'abord intéressé à la modélisation du mouvement aléatoire
+des globules. Ayant constaté un mouvement aléatoire au microscope, nous avons essayé
+de nous faire une meilleure idée du phénomène avec une marche au hasard de billes
+macroscopiques.
+
+4/21
+
+1) Planche de Galton
+La Planche de Galton est un outil permettant de réaliser une « marche au
+hasard » avec des billes.
+Pour cela, on plante en quinconce des clous sur un plan incliné, de sorte qu’ils
+soient régulièrement espacés, en les disposant sur des lignes horizontales parallèles. A
+la base du plan incliné, on place des compartiments identiques, séparés par des cloisons
+qui prolongent les clous situés à la base.
+On lâche tout d'abord au sommet de la Planche une bille dont le diamètre est
+sensiblement égal à la distance entre deux clous voisins. Depuis cette position initiale,
+la bille va descendre en passant à gauche ou à droite de chaque clou rencontré avec la
+probabilité ½, jusqu’à ce qu’elle tombe dans l’un des compartiments à la base du
+quinconce (figure 4a). Lorsqu’on répète un grand nombre de fois cette expérience, les
+billes accumulées dans les différents compartiments tendent à former une courbe en
+cloche symétrique.
+
+Figure 4a: bille lâchée du haut.
+
+Figure 4b: bille lâchée du milieu.
+
+Dans un second temps, nous avons lâché la bille du milieu (4ème rangée). On a constaté
+que les billes étaient toujours centrées mais moins « étalées » (figure 4b).
+Aurait-on ici un lien entre l'étalement de la tache de lait et l'agitation incessante
+constatée précédemment? Des approfondissements sur la marche au hasard
+s'imposent.
+5/21
+
+2) Marche au hasard: théorie
+La démarche consiste à chercher la probabilité pour qu'une personne marchant sur
+une route infinie symbolisée par un axe orienté se retrouve en un point d'abscisse x.
+La probabilité d’aller à droite est notée P+ et celle d’aller à gauche notée POn a évidemment:
+P+ + P- =1
+La probabilité d'aller à droite ou à gauche est supposée indépendante du pas précédent (ce
+qui est difficile à croire dans le cas réel d'une personne titubant dans la rue).
+La probabilité d'être en x dépend des probabilités d'être en x+1 et en x-1 par la formule :
+P(X) = P(x-1).P+ + P(x+1).POn est tombé sur une impasse pour relier cette probabilité à la condition initiale : la
+personne est en x=0 au départ.
+Raisonnons différemment : cherchons tous les chemins menant au bout de N pas à x. On
+doit avoir la condition :
+x = n+ - n- = n+ - (N-n+) = 2n+ - N
+n+ est le nombre de pas à droite
+n- est le nombre de pas à gauche
+(On suppose que la longueur du pas est constante et égale à 1)
+Pour se retrouver en x, le marcheur doit donc effectuer n+ pas parmi N pas. La recherche de
+la solution revient à chercher comment on peut placer n+ pas parmi N.
+Ceci est une question de combinatoire.
+Les mathématiques ont établi depuis longtemps une formule permettant de connaître le
+n+
+nombre de combinaisons de n+ valeurs parmi N. Elle se note C N , et elle vaut :
+N!
+n
+C N=
+n + !  N −n+ !
+Elle correspond dans notre exemple au nombre de façons d’arriver en x après N pas (dont
+n+ pas vers la droite) avec n+ = (x+N)/2 (puisque x = n+ - n- et N = n+ + n-, x+N = 2n+, d’où n+ =
+(x+N)/2).
+On connaît maintenant le nombre de façon d’arriver en x mais pas sa probabilité.
+La probabilité de chaque chemin comportant n+ pas et n- pas est donnée par :
+P = (P+)n+ . (P-)ncar n+ pas ont la probabilité P+ et n- pas la probabilité P-.
+On en déduit la probabilité totale qu’a la personne (ou la particule brownienne dans notre
+cas) de se retrouver en x : c’est la probabilité d’un chemin arrivant en x multiplié par le
+nombre de façons d’y arriver.
+P  N , x=C nN+ × P + n + × P - n +
+
+P  N , x=
+
+N!
+
+N x
+
+N−x
+
+× P +  2 × P-  2
+
+N x
+N x
+!N −
+!
+2
+2
+Donc, si on donne la probabilité P+ et le nombre de pas N, la loi de probabilité est
+entièrement déterminée.
+
+6/21
+
+On démontre que la valeur moyenne est donnée par :
+x = N  P + −P - 
+De même l’écart type est donné par :
+ s= 4NP + P-
+
+Imaginons qu'un grand nombre de
+« marcheurs » (particules) partent
+ensemble de la même origine et prenons le
+cas particulier où P+=P-=½.
+Après N pas, les marcheurs se distribuent
+le long de l’axe de façon symétrique par
+rapport à leur point de départ, puisque la
+valeur moyenne de leur abscisse est nulle
+(voir figure 5).
+Mais chacun des marcheurs tend à
+s'éloigner de l'origine : l'écart type n'est Figure 5: un exemple de courbe en cloche (courbe de
+pas nul, il croît comme la racine carrée du Gauss)
+nombre N de pas effectués. Comme on suppose que le marcheur effectue un pas
+régulièrement, le nombre de pas N est proportionnel au temps. On constate donc que
+la distance à l’origine, ou « étalement » sur l’axe est proportionnel à la racine carrée
+du temps (le nombre de pas ici).
+Nous y voyons plus clair: les globules contenus dans le lait sont en agitation
+incessante (observation au microscope); la tache de lait contenant les globules
+reste centrée sur son point de dépôt; la tache s'étale de plus en plus avec le
+temps.
+Pour confirmer ceci, nous avons réalisé une modélisation informatique à deux
+dimensions de la marche au hasard.
+
+3) Modélisation informatique
+
+Nous avons réalisé une marche au hasard en deux dimensions avec un pas aléatoire (et
+non pas fixe, comme dans le modèle mathématique à une dimension) à l'aide du tableaur
+Excel. Nous avons d’abord inscrit dans les deux premières colonnes les différentes
+valeurs des pas (en unité arbitraire) à chaque mouvement de la particule théorique
+(une colonne pour la valeur du pas en abscisse, une colonne pour sa valeur en ordonnée)
+grâce à la fonction ALEA() d’Excel, qui renvoie des chiffres aléatoires compris entre 0
+et 1 (nous avons soustrait 0,5 à cette valeur aléatoire pour obtenir des pas négatifs ou
+positifs compris entre -0,5 et +0,5, afin que la particule théorique puisse évoluer dans
+toutes les directions). Ensuite, nous avons assigné aux deux colonnes suivantes le rôle
+de calculer les coordonnées (en abscisse pour l’une, et en ordonnée pour l’autre
+colonne) de la particule à un moment donné, en ajoutant toutes les valeurs de pas
+précédentes. Il ne nous restait alors plus qu’à fabriquer un graphique sur lequel
+positionner toutes ces coordonnées successives pour voir apparaître le trajet
+7/21
+
+théorique d’une particule en deux dimensions (Nous avons réalisé trois graphiques
+successifs pour permettre une plus grande lisibilité du déplacement de la particule : le
+premier montre les 25 premières itérations du modèle, le second les 50 premières, et
+le dernier en figure les 100).
+
+0
+-0,5
+-1
+-1,5
+-2
+-2,5
+-3
+-3,5
+-4
+0
+
+5
+
+Figure 6a: modélisation informatique; 25 itérations.
+0
+-0,5
+-1
+-1,5
+-2
+-2,5
+-3
+-3,5
+-4
+-4,5
+-5
+-5,5
+-6
+-6,5
+0
+
+5
+
+Figure 6b: modélisation informatique; 50 itérations.
+0
+-0,5
+-1
+-1,5
+-2
+-2,5
+-3
+-3,5
+-4
+-4,5
+-5
+-5,5
+-6
+-6,5
+-1
+
+0
+
+1
+
+2
+
+3
+
+Figure 6c: modélisation informatique; 100 itérations.
+
+8/21
+
+Nous avons ensuite tracé le déplacement total d de la particule en fonction du temps.
+Nous avons créé pour cela un deuxième fichier Excel dans lequel nous avons repris le
+modèle précédent en y ajoutant une colonne destinée au calcul de la distance de la
+particule par rapport à l’origine (d) en chaque point (qui équivaut à la racine carrée de
+la somme des carrés des coordonnées du point).
+Après avoir créé le graphique d²=f(t), nous avons constaté que la distance à l'origine
+au carré n'était pas proportionnelle au temps comme attendu d'après la modélisation
+de la marche au hasard.
+Nous en avons déduit que le problème venait du fait que les calculs de d étaient fait
+sur une seule modélisation d’expérience, alors que l'étude n'est valable que si on
+travaille avec un nombre important d’expériences identiques.
+Après cette constatation, nous avons multiplié par 10 le nombre d’ « expériences » du
+modèle, et avons rassemblé tous les résultats de ces 10 simulations dans un colonne
+faisant la moyenne de d pour chaque point.
+Dans ces conditions, la modélisation fonctionne correctement et on distingue aisément
+sur le graphique <d²>=f(t) une fonction linéaire sur le graphique qui confirme bien une
+évolution linéaire.
+d=f(t)
+4,25
+4
+3,75
+3,5
+3,25
+3
+2,75
+2,5
+d
+
+2,25
+2
+1,75
+1,5
+1,25
+1
+0,75
+0,5
+0,25
+0
+temps
+
+d²=f(t)
+18
+17
+16
+15
+
+d²
+
+14
+13
+12
+11
+10
+9
+8
+7
+6
+5
+4
+3
+2
+1
+0
+temps
+
+9/21
+
+On a bien confirmation sur ce modèle informatique du lien entre l'évolution de la
+diffusion en  t avec l'agitation aléatoire moléculaire.
+Des recherches documentaires nous ont permis de découvrir les secrets de ce
+mouvement macroscopique.
+
+IV) Description et historique du mouvement brownien
+Ce mouvement microscopique incessant a été découverte en 1821 par le botaniste
+anglais R. Brown. On l'appelle depuis le mouvement Brownien.
+Observant au microscope des grains de pollen en suspension dans l'eau, Brown constata
+que les grains étaient animés d'un mouvement désordonné incessant comme s'ils
+étaient vivants...
+Il écrivit à l'époque:
+« Ayant trouvé du mouvement à toutes particules de pollen (en suspension dans l'eau)
+de toutes les plantes que j'avais examinées, je fus ensuite conduit à chercher si cette
+propriété continuait après la mort de la plante, et pendant combien de temps. [...] Des
+spécimens de plantes conservées dans un herbier pendant plus de vingt ans contenaient
+encore de telles particules sphériques, ou molécules comme je les appellerai, en grand
+nombre et manifestement en mouvement, en même temps que quelques unes des plus
+grandes et cylindriques, dont les mouvements étaient beaucoup moins manifestes, et
+dans certains cas, pas observables. [...] De cela j'en vins à l'idée que ces molécules
+n'étaient (peut-être) pas limitées aux corps organiques, ni même à leurs produits. »
+Einstein, en 1905, émit l'hypothèse que ces mouvements résultaient des chocs des
+molécules en perpétuelle agitation au sein du liquide. Les molécules sont inobservables
+directement, mais Jean Perrin, en observant le mouvement en suspension de particules
+au microscope, montra en 1911 que l'hypothèse d'Einstein était exacte. Du même coup
+il démontrait de façon irréfutable que la matière est constituée d'atomes et de
+molécules.
+La théorie d'Einstein de 1905 concernait le mouvement de billes sphériques de rayon a
+dans un liquide à la température T. La formule reliant la diffusion (étalement) des
+billes aux différents paramètres expérimentaux est la suivante:
+4kT
+< R2 >=
+t=4Dt
+6  a
+<R2>: écart quadratique moyen au carré (étalement des billes dans le liquide)
+T: température(K)
+η: viscosité du liquide (kg/m.s)
+a: rayon des billes (m)
+2 -1
+D: coefficient de diffusion (m .s )
+t: temps (s)
+La constante k intervenant dans la formule est appelée constante de Boltzmann. La
+détermination de la valeur de cette constante constituera la dernière partie de notre
+projet. Cette partie nous a demandé beaucoup d'attention et de temps afin de
+minimiser au maximum les erreurs de mesures.
+
+10/21
+
+V) Une approche quantitative du mouvement Brownien
+
+1) Méthode expérimentale
+Nous avons abandonné le lait car les globules graisseux observés ne sont pas calibrés
+et ne nous permettraient pas d'avoir une valeur de rayon a précise.
+On s'est donc procuré des billes de polystyrène de 1m ±3% auprès de Polysciences
+Europe. Ces billes sont déjà diluées dans l'eau et traitées pour être solubles.
+1.1)Dilution
+La première opération a été de diluer ces billes. Nous sommes arrivés au compromis
+d'une dilution par 2000 car il faut concilier deux facteurs:
+•
+si les billes sont trop concentrées, elles se collent entre elles, et on ne peut plus
+les observer individuellement;
+•
+si les billes sont trop diluées, on n'en observe pas suffisamment au microscope.
+1.2)Réalisation des lames
+Afin d'éviter tout mouvement convectif, une goutte de solution des billes a été
+déposée au milieu d'un anneau de renfort de classeur collé sur la lame. Une couche de
+vernis transparent est ensuite appliquée sur l'anneau. La lamelle est enfin déposée
+délicatement et bien horizontalement sur l'anneau.
+Après quelques observation, nous avons constaté que la présence de microbulles
+introduisait des mouvements d'ensemble des billes. Le nombre de lames réalisé a donc
+dû être très important pour ne retenir que quelques candidats à l'observation.
+Anneau de renfort
+Lame
+Solution contenant les
+billes
+
+Vernis
+
+Enfin, ces lames ont été préparées suffisamment à l'avance pour qu'elles soient à la
+température de la pièce.
+
+Lamelle
+Lame
+Solution contenant les
+billes
+
+Anneau de
+renfort
+
+11/21
+
+1.3)Observation
+Lors de l'observation des lames, on s'est trouvé confronté à de nouveaux problèmes.
+•
+L'éclairage du microscope chauffe trop les lames. Elles se dessèchent sur le
+bord de l'anneau et induisent un mouvement d'ensemble du centre vers le bord.
+La solution a été d'utiliser un éclairage « maison » à base de diodes blanches.
+•
+Les premières acquisitions ont été faites sans diffuseur, ce qui nous provoquait
+des anneaux de diffraction. On a alors utilisé le diffuseur du microscope.
+•
+La dernière difficulté ne fut pas des moindre car la source des difficultés
+n'était pas évidente. Cette difficulté est la présence de vibrations. Les
+microscopes sont déjà équipés de patins qui amortissent les vibrations.
+Seulement, on devait observer des déplacements très petits, ce qui ne nous
+laissait pas la place pour les moindres vibrations. On a donc d'abord fait
+attention de ne pas marcher, de ne pas s'appuyer sur la table, de ne pas utiliser
+la souris sur la table. Les résultats ont été grandement améliorés mais
+insuffisamment. Une autre source de vibration polluait nos résultats. C'était
+certainement les voitures de la route toute proche. On a alors placé le
+microscope sur des tapis de souris en mousse et nos problèmes furent résolus.
+
+Nos acquisitions vidéo sont de 10s environ.
+
+12/21
+
+1.4)Extraction vidéo
+Notre vidéo étant au format avi, il nous a fallu extraire toutes les images à l'aide du
+logiciel libre VirtualDub. Ce fichier nous produit 25 images par seconde à partir de la
+vidéo, soit environ 250 images.
+
+Nous avons un instant pensé suivre « à la main » un certain nombre de ces particules
+mais l'ampleur de la tâche nous en a dissuadé.
+On a donc effectué des recherches auprès des laboratoires travaillant sur le
+mouvement Brownien pour savoir s'ils n'utilisaient pas un logiciel de traitement de
+données.
+Notre recherche nous a conduits au laboratoire de microscopie mésoscopique et
+quantique de l'université Wesleyan dans l'illinois aux Etats-Unis. Le professeur Ryan
+Smith a développé une solution basée sur le logiciel IDL Virtual Machine.
+Cette version du logiciel IDL est téléchargeable et utilisable gratuitement.
+1.5Rytrack
+
+13/21
+
+Rytrack lit une à une toutes les images jpeg créées à partir de la vidéo grâce à
+VirtualDub. Il détecte les particules, leur affecte un numéro et les suit lors de la
+lecture des différentes images. Tout ceci serait d'une simplicité enfantine si la
+détection n'était pas aussi sensible aux différents paramètres de l'image. Il nous a
+donc fallu chercher les paramètres optimum pour nos images.
+Les différents paramètres et leurs fonctions sont les suivants:
+
+•
+
+Image Processing
+•
+•
+•
+•
+
+•
+
+Particle identification:
+•
+•
+•
+•
+•
+
+•
+
+bandpass 1/2: applique un filtre à l'image. On règle en 1 la limite inférieure et en 2 la limite
+supérieure.
+Sobel smooth: fonction permettant de mettre en relief les bords des particules.
+Threshold: niveau de seuil de l'image.
+Invert image: inverse les couleurs.
+Particle radius: estime le rayon des particules en pixels.
+Particle spacing: estime la distance entre particules (au moins rayon+1 pixel).
+Mass cut: ce paramètre est censé donner une limite à la masse des particules mais on ne
+s'est pas servi de ce paramètre.
+Eccentricity: définit l'excenticité des particules (0% particule circulaire, 100% particule
+très allongée).
+Radius of gyration: on ne s'est pas servi non plus de ce paramètre.
+
+Tracking parameters:
+•
+•
+•
+•
+
+Maximum displacement: nombre maximum de pixels séparant deux images contiguës.
+Good enough: nombre minimum d'images dans lesquelles se trouvent les particules pour être
+validées.
+Steps memory: nombre d'images contiguës au cours desquelles la particule peut ne plus être
+détectée.
+Overlay: on marque sur les images les particules détectées à l'aide d'une croix rouge.
+
+Le logiciel génère un fichier « trackplusvels.dat » structuré comme suit:
+
+14/21
+
+X
+
+Y
+
+intensité
+
+Rgyration2
+
+excentricité
+
+numéro
+image
+
+numéro
+particule
+
+VX
+
+Vy
+
+nombre
+images
+sautées
+
+On a utilisé seulement les résultats suivants:
+•
+X: abscisse de la particule.
+•
+Y: ordonnée de la particule.
+•
+Numéro image: numéro de l'image générée par VirtualDub. Cela nous renseigne
+sur le temps car chaque image est séparée de 40ms.
+•
+Numéro particule: numérotation effectuée par Rytrack.
+Exemple de résultats partiels:
+X
+
+Y
+
+intensité
+
+Rgyration2
+
+excentricité
+
+numéro
+image
+
+numéro
+particule
+
+VX
+
+Vy
+
+nombre
+images
+sautées
+
+274.560
+272.679
+271.755
+273.345
+273.076
+274.678
+
+21.1833
+22.9471
+18.2753
+17.6820
+17.8272
+18.1177
+
+3177.09
+2900.71
+2669.57
+3469.79
+4317.19
+1822.26
+
+13.4615
+12.2240
+11.7894
+13.5299
+14.3227
+8.95303
+
+0.0593163
+0.0525266
+0.0619035
+0.0564745
+0.0241083
+0.0981259
+
+0.00000
+1.00000
+2.00000
+3.00000
+4.00000
+6.00000
+
+0.000000
+0.000000
+0.000000
+0.000000
+0.000000
+0.000000
+
+-1.88135
+-0.92340
+1.58960
+-0.268982
+0.800995
+0.804138
+
+1.76373
+-4.6717
+-0.5933
+0.14521
+0.14521
+-1.4548
+
+1.00000
+1.00000
+1.00000
+1.00000
+2.00000
+1.00000
+
+On peut visualiser sur le graphique ci-dessous les positions successives des particules.
+
+Trajectoire des particules détectées.
+
+15/21
+
+1.6Dépouillement des données
+Après avoir récolté toutes les données avec Rytrack, il nous a fallu traiter ces données
+pour pouvoir tracer <R2> en fonction du temps.
+Le tableur utilisé précédemment étant insuffisant, on a écrit un programme nous
+permettant de traiter ces données. Ce programme se trouve en annexe mais on a
+schématisé son principe ci-dessous:
+Déclaration variables
+numéro particule: np
+numéro image: ni
+x
+y
+Origine en (0,0)
+x(np,ni)=x(np,ni)­x(np,nimin)
+y(np,ni)=y(np,ni)­y(np,nimin)
+
+Lecture fichier
+trackplusvels.dat
+x(np,ni)
+y(np,ni)
+
+Origine en t=0
+ni=ni­nimin
+
+Moyenne
+<x2(np,ni)>
+<y2(np,ni)>
+
+Fréquence pas
+pasx(np,ni)=x(np,ni+1)­x(np,ni)
+pasy(np,ni)=y(np,ni+1)­y(np,ni)
+
+On
+
+donne ci-dessous un exemple de fichier résultat:
+0.0000000 0.0000000E+00 0.0000000E+00
+23
+3.9999999E-02 4.1259374E-02 0.1480765
+23
+7.9999998E-02 5.0310045E-02 0.2176409
+23
+0.1200000
+9.5846348E-02 0.2438745
+23
+0.1600000
+0.1218897
+0.3091497
+23
+0.2000000
+0.1402311
+0.3645335
+23
+0.2400000
+0.1167020
+0.3329209
+23
+0.2800000
+0.1437904
+0.3571266
+23
+0.3200000
+0.2059990
+0.3950484
+22
+0.3600000
+0.2054171
+0.4074155
+23
+0.4000000
+0.2110287
+0.4722677
+22
+0.4400000
+0.2527131
+0.4886871
+21
+0.4800000
+0.2502733
+0.5697902
+22
+0.5200000
+0.2970507
+0.5592035
+23
+0.5600000
+0.2785857
+0.5977014
+23
+0.6000000
+0.3281651
+0.7597092
+21
+0.6400000
+0.3789302
+0.6862180
+23
+0.6800000
+0.4340362
+0.8622663
+23
+0.7200000
+0.3470249
+0.9457545
+22
+0.7600000
+0.5835276
+1.076326
+23
+0.8000000
+0.6526538
+1.033578
+23
+0.8400000
+0.7267198
+0.9773878
+23
+0.8800000
+0.7257103
+0.9088517
+23
+0.9200000
+0.6479348
+0.9869829
+21
+0.9600000
+0.7436449
+1.068183
+21
+1.000000
+0.8057364
+1.175783
+22
+
+1.040000
+1.080000
+1.120000
+1.160000
+1.200000
+1.240000
+1.280000
+1.320000
+1.360000
+1.400000
+1.440000
+1.480000
+1.520000
+1.560000
+1.600000
+1.640000
+1.680000
+1.720000
+1.760000
+1.800000
+1.840000
+1.880000
+1.920000
+1.960000
+2.000000
+2.040000
+2.080000
+
+0.8137870
+0.9044662
+0.8177044
+0.7533365
+0.7534571
+0.7418059
+0.8967742
+0.9789959
+1.054496
+1.112568
+1.283088
+1.083718
+1.085487
+1.299190
+1.316156
+1.387210
+1.476854
+1.455581
+1.389434
+1.480533
+1.549188
+1.647671
+1.794362
+1.962496
+2.220692
+1.699526
+1.667390
+
+1.315651
+1.471938
+1.382910
+1.406678
+1.470087
+1.503274
+1.543182
+1.632815
+1.926120
+2.083985
+2.195992
+2.481853
+2.284874
+2.447887
+2.534556
+2.526037
+2.808641
+2.689413
+2.827413
+2.969901
+2.778915
+2.715011
+3.008959
+3.003544
+2.997638
+3.159570
+3.314990
+
+23
+21
+23
+23
+22
+22
+22
+22
+22
+21
+23
+21
+22
+21
+23
+23
+22
+22
+22
+23
+23
+23
+23
+23
+23
+22
+21
+
+16/21
+
+Dans la première colonne se trouve le temps en seconde, dans la deuxième <x2> en m2,
+dans la troisième <y2> en m2, dans la quatrième le nombre de données disponibles pour
+le calcul des moyennes <x2> et <y2>.
+•
+Le temps a été déduit du numéro ni de l'image car deux
+images successives sont séparées de 40ms.
+•
+
+•
+
+<x2> et <y2> ont été convertis de pixels en m grâce à la
+mire ci-contre.
+704 pixels pour 123m soit 1pixel=0,175m
+La dernière colonne est importante car les moyennes
+n'ont un sens que si ce nombre est grand. Les dernières
+valeurs ont été souvent éliminées car peu de particules
+étaient suivies longtemps.
+Mire pour le calibrage.
+
+2) Nos résultats
+De nombreuses vidéos ont été réalisées afin d'éliminer toutes celles ne donnant pas
+satisfaction (peu de particules suivies, écoulements, oscillations).
+
+Observation d'un courant.
+
+Résultats inexploitables.
+
+Début exploitable mais trop de dispersion en fin.
+
+17/21
+
+On a représenté ci-dessous un exemple d'acquisition satisfaisant nous permettant de
+calculer la pente à l'aide du logiciel gratuit gnuplot. Celui-ci permet de trouver la
+droite passant au milieu des points et nous donne la valeur de la pente avec une
+incertitude.
+Dans le cas ci-dessous, on trouve:
+pente = 1,95 ± 0,02 m2.s-1
+On déduit de la relation d'Einstein que:
+4D = pente = 1,95
+kT
+D = 4,87.10-13 m2.s-1 =
+6  a
+Les données de cette acquisition ont été les suivants:
+T = 296,2±0,5K
+On en déduit k:
+
+η=936.10-6±15.10-6 kg/m.s
+
+a=0,50m ± 3%
+
+k = (1,45±0,09).10-23 J.K-1
+<R2>
+(m2)
+
+t(s)
+La moyenne effectuée sur l'ensemble des pentes des vidéos utilisables nous donne le
+résultat suivant:
+k = (1,42±0,09).10-23 J.K-1
+Cette valeur encadre parfaitement la valeur réelle de 1,38.10-23J.K-1.
+
+18/21
+
+Conclusion:
+Lors de notre découverte du phénomène aléatoire qu’est le mouvement brownien, nous
+pensions nous trouver face à un problème anodin. Au fur et à mesure de l’évolution de
+nos recherches, nous avons pris conscience de la complexité de ce phénomène physique
+qui valu le prix Nobel à Jean Perrin.
+Partis d’un phénomène totalement aléatoire, nous avons repris l’évolution historique de
+l’étude du mouvement brownien : de la simple constatation comme le fit Robert Brown
+en 1821 aux lois statistiques déterministes amenées par Einstein (le mouvement
+brownien perdant au fur et à mesure de son caractère imprévisible). La démarche
+expérimentale fut par ailleurs particulièrement formatrice dans l’attention incessante
+aux erreurs pouvant interférer dans les expériences de détermination de la constante
+entrant dans la formule d’Einstein.
+Finalement, nous avons pu constater à quel point un phénomène physique anecdotique
+peut mener à une véritable théorie, comme Einstein le fit en 1905, il y a maintenant un
+siècle, amenant la preuve irréfutable de l’existence de l’atome.
+
+19/21
+
+ANNEXE
+
+PROGRAM brownian
+implicit none
+! Declare variables
+INTEGER::ni,np,i,ios,nptemp,npmax,ni2,ni2max,nim,step,comptz,h,compttot
+real,dimension(1000,1000)::x,y,pasx,pasy,pas
+integer,dimension(100000)::nimax,nimin,nitot,comptn,comptp,compt
+integer,dimension(1000,1000)::test
+real,dimension(1000)::somme_x,somme_y
+real::xtemp,ytemp,a,b,c,pix,Dt
+open (unit=1, file="C:\trackplusvels.dat",FORM='formatted',ACCESS='sequential',status='old',ACTION='read')
+open (unit=2, file="C:\results.txt",FORM='formatted',ACCESS='sequential',status='replace')
+open (unit=3, file="C:\pas1.txt",FORM='formatted',ACCESS='sequential',status='replace')
+i=0
+nptemp=0
+npmax=0
+pix=0.179
+Dt=0.04
+! Lecture fichier .dat
+do while (ios==0)
+i=i+1
+read(1,*,iostat=ios) xtemp,ytemp,a,a,a,ni,np,a,a
+if (ios==0) then
+np=np+1
+ni=ni+1
+x(np,ni)=xtemp
+y(np,ni)=ytemp
+test(np,ni)=1
+if (np.eq.nptemp) then
+nimax(np)=max(ni,nimax(np))
+nitot(np)=nitot(np)+1
+else
+nimin(np)=ni
+nimax(np)=ni
+nitot(np)=1
+endif
+nptemp=np
+npmax=max(np,npmax)
+endif
+enddo
+! frequence des pas
+compttot=0
+do np=1,npmax
+nim=nimax(np)-1
+do ni=nimin(np),nim
+if ((x(np,ni).NE.0).AND.(x(np,ni+1).NE.0)) then
+pasx(np,ni)=x(np,ni+1)-x(np,ni)
+pasy(np,ni)=y(np,ni+1)-y(np,ni)
+pas(np,ni)=pasx(np,ni)
+step=anint(pas(np,ni)*10)
+if (step.GE.1) then
+comptp(step)=comptp(step)+1
+compttot=compttot+1
+elseif ((step.LT.0.5).AND.(step.GT.-0.5)) then
+comptz=comptz+1
+compttot=compttot+1
+elseif (step.LE.-1) then
+
+20/21
+
+h=-step
+comptn(h)=comptn(h)+1
+compttot=compttot+1
+endif
+enddo
+
+endif
+
+enddo
+do i=99,1,-1
+write(3,*) -i*Dt,comptn(i)/compttot
+enddo
+write(3,*) 0,comptz/compttot
+do i=1,99
+write(3,*) i*Dt,comptp(i)/compttot
+enddo
+
+! Origine en (0,0)
+ok
+do np=1,npmax
+if (nimin(np).NE.0) then
+b=x(np,nimin(np))
+c=y(np,nimin(np))
+do ni=nimin(np),nimax(np)
+if (test(np,ni)==1) then
+x(np,ni)=x(np,ni)-b
+y(np,ni)=y(np,ni)-c
+ni2=ni-nimin(np)+1
+ni2max=max(ni2,ni2max)
+if (ni2<ni) then
+x(np,ni2)=x(np,ni)
+x(np,ni)=0
+y(np,ni2)=y(np,ni)
+y(np,ni)=0
+test(np,ni2)=test(np,ni)
+test(np,ni)=0
+endif
+endif
+enddo
+endif
+enddo
+! Moyenne
+do ni2=1,ni2max
+somme_x(ni2)=0
+somme_y(ni2)=0
+compt(ni2)=0
+do np=1,100
+if (test(np,ni2).EQ.1) then
+somme_x(ni2)=x(np,ni2)*x(np,ni2)+somme_x(ni2)
+somme_y(ni2)=y(np,ni2)*y(np,ni2)+somme_y(ni2)
+compt(ni2)=compt(ni2)+1
+endif
+enddo
+if (compt(ni2).NE.0) then
+write(2,*) (ni2-1)*Dt,somme_x(ni2)/compt(ni2)*pix**2,somme_y(ni2)/compt(ni2)*pix**2,compt(ni2)
+endif
+enddo
+END program
+
+21/21
+
+

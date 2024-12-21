@@ -1,0 +1,1090 @@
+Le soleil ligne par ligne
+imager le soleil
+avec un spectrohéliographe
+imprimé en 3D.
+
+Janvier 2023
+—-------------------------------
+
+Alexandre ADOSHVILI, Mathis GAUDILLAT
+Lycée Lalande, Bourg-en-Bresse
+encadrés par JB BUTET
+
+OLYMPIADES DE PHYSIQUE 2022-2023
+
+A. ADOSHVILI, M. GAUDILLAT
+
+Sommaire
+Introduction
+
+2
+
+1. L’idée du projet et le financement
+
+2
+
+2. Les réglages au laboratoire du Sol’Ex
+
+3
+
+3. Imager le soleil avec une lunette
+Pourquoi des raies existent-elles dans la lumière solaire ?
+Expérience : mise en évidence de la raie d’absorption du sodium grâce au Sol’Ex
+Choisir la longueur d’onde de travail
+Faire la mise au point sur la lunette
+
+4
+4
+5
+5
+6
+
+4. Reconstruction de l’image du soleil
+
+7
+
+5. Les problèmes rencontrés
+
+8
+
+6. Utilisation à des fins scientifiques
+Mesure de l'échantillonnage du Sol’Ex
+Participation au programme de collaboration Pro-Am Solar Orbiter
+Mesure des tailles des protubérances et tâches solaires
+Tableau des résultats des calculs de la taille des 3 taches solaires
+Mesure de la vitesse de rotation du soleil par imagerie directe
+Mesure de la vitesse de rotation du soleil par effet Doppler-Fizeau
+
+9
+9
+10
+10
+12
+12
+16
+
+Nos images
+
+18
+
+Conclusion
+
+19
+
+Le soleil ligne par Ligne. Lycée Lalande
+
+1/20
+
+OLYMPIADES DE PHYSIQUE 2022-2023
+
+A. ADOSHVILI, M. GAUDILLAT
+
+Introduction
+En septembre 2020, Christian BUIL, figure très connue dans le monde de l’astronomie
+amateur -mise à disposition de la première CCD pour amateur, l’AUDINE, mise au point de
+divers spectroscope (LISA, ALPY, UVEX, LHIRES … ) et créateur de logiciels divers : IRIS,
+ISIS… - a lancé le projet Sol’Ex (Solar Explorer) qui consiste à monter un
+spectrohéliographe avec un carénage imprimé en 3D.
+Grâce à la mise à disposition de toute une documentation très fournie, M. BUTET a proposé
+aux élèves du club astro de créer ce Sol’Ex. En Novembre 2020, une campagne de dons a
+été lancée pour acheter ce que nous ne pouvions imprimer, l’optique et la caméra. En avril,
+nous avions de quoi le finaliser.
+Heureusement pour nous, nous avions déjà du matériel prêté par Sciences à L’école
+(dotation astro à l’école, 2013), notamment une lunette de 600mm de focale et 80 mm
+d’ouverture ainsi qu’une monture motorisée.
+Sur les heures du club (1h30 par semaine) nous avons tout d’abord monté le
+spectrohéliographe, puis tenté de le régler. Cela a pris plusieurs semaines, voire plusieurs
+mois. -une histoire de réseau monté à l’envers…-.
+Depuis, dès qu’il fait beau, nous sortons la lunette et le Sol’Ex pour prendre des images du
+soleil.
+
+1.L’idée du projet et le financement
+Le club astro a toujours lieu en journée, et il est très difficile d’organiser des soirées
+d’observations astronomiques. Les lycéens habitent souvent loin et il faut attendre que le
+soleil soit assez bas pour observer la nuit pour qu’il fasse assez noir.
+L’idée de départ était donc de construire de quoi regarder le soleil. Nous avons à disposition
+un filtre en verre pour monter sur la lunette mais à part suivre des tâches solaires, on est
+très vite limités.
+Nous avons donc eu en prêt quelques fois une petite lunette qui permet de regarder le soleil
+dans une certaine longueur d’onde (le H-alpha -653 nm-) : un “PST Coronado” .
+Nous -les élèves du club astro- profitaient alors des moments de beau temps pour observer
+le soleil. Cependant, il ne nous a été prêté que très peu de temps.
+Quand M. BUIL a lancé ce projet, les élèves de l’époque ont donc monté un financement en
+2020 et ont réuni de quoi acheter :
+● une caméra CMOS très sensible et rapide (ASI 178mm) 3896x 2080 pixels ~450 €
+● le kit optique1 composé de :
+○ 1 doublet de 80 mm
+○ 1 doublet de 125 mm
+○ un réseau de traits (2400 traitst/mm)2
+○ une fente de 17 µm de large et 4,5mm de haut
+
+1
+2
+
+https://www.shelyak.com/produit/es0027-kit-optique-solex-et-starex/
+Voir Annexe 1 : les réseaux
+
+Le soleil ligne par Ligne. Lycée Lalande
+
+2/20
+
+OLYMPIADES DE PHYSIQUE 2022-2023
+
+A. ADOSHVILI, M. GAUDILLAT
+
+Entre-temps, le carénage et les divers outils de réglages ont été imprimés par l’imprimante
+3D du lycée en PETG, un plastique plus opaque aux IR que le PLA (plastique couramment
+utilisé en impression 3D).
+
+2.Les réglages au laboratoire du Sol’Ex
+Le Sol’Ex est donc composé d’une première partie optique, qui projette l’image de la fente
+sur le réseau et d’une deuxième qui projette l’image renvoyée par le réseau sur la caméra.
+Il faut donc régler le parallélisme et la focalisation de tous ces éléments.
+Nous devons alors suivre une procédure qui consiste à les régler dans l’ordre inverse du
+trajet de la lumière :
+-
+
+on règle d’abord la focalisation du
+doublet de 80mm et de la caméra
+en la réglant à l’infini
+
+photo de paysage N&B
+-
+
+puis, en positionnant le réseau à
+l’ordre 0, on règle la focalisation de
+
+la fente (critique ! et pas encore
+très bien obtenu à cause
+d’imperfections dans l’impressions
+qu’il faudrait refaire)
+
+-
+
+Une fois ceci fait, on tourne la
+caméra pour orienter les axes de
+dispersion et de la fente.
+
+Ceci a l’air facile à faire, mais c’est extrêmement délicat. Heureusement, cela peut se faire
+sur une table, au laboratoire.
+Reste le moment où on doit choisir la longueur d’onde à étudier. Le réseau est très dispersif
+(2400 tt/mm) et combiné avec les éléments optiques, on obtient un très grand étalement du
+spectre : donc on peut passer très longtemps à chercher la partie que l’on cherche.
+Par exemple, le doublet du sodium comporte deux radiations, situées à 5 895,924 Å et
+5889,95 Å soit 5,974 Å d’écart.
+Ce doublet est souvent utilisé pour comparer les performances spectrales or ici, il s’étalera
+sur une centaine de pixels, ce qui fait qu’on peut passer à côté si on tourne trop vite le
+réseau. Tout le spectre visible passe devant la caméra en le faisant tourner de 20° environ.
+Tout mouvement doit être fait avec délicatesse.
+
+Le soleil ligne par Ligne. Lycée Lalande
+
+3/20
+
+OLYMPIADES DE PHYSIQUE 2022-2023
+
+A. ADOSHVILI, M. GAUDILLAT
+
+Spectre solaire à faible résolution
+Nous avons imagé en HAlpha mais aussi dans la raie K du calcium.
+
+Schéma optique du Sol’Ex
+
+3.Imager le soleil avec une lunette
+Le spectrohéliographe est en fait un spectroscope. Mais, utilisé en spectrohéliographe, il
+permet de récupérer les informations dans les raies d'absorption du spectre pour recréer des
+images du soleil.
+
+Pourquoi des raies existent-elles dans la lumière solaire ?
+La photosphère solaire peut être considérée comme un corps noir, c’est à dire que son
+spectre d’amission est continu et la répartition des longueurs d’ondes ne dépend que de la
+température. On s’attend à obtenir un spectre continu qui compte tenu de la température du
+soleil -5780 K- possède un maximum vers 500 nm. C’est ce que l’on voit quand il y a un arc
+en ciel.
+Cependant, entre la lumière émise par la photosphère et l’observateur, il y a des gaz froids
+et sous faible pression qui vont absorber les longueurs d’ondes qui leur sont propres.
+
+Le soleil ligne par Ligne. Lycée Lalande
+
+4/20
+
+OLYMPIADES DE PHYSIQUE 2022-2023
+
+A. ADOSHVILI, M. GAUDILLAT
+
+Avec un spectroscope assez résolvant, on détecte alors une multitude de raies absorbées.
+Historiquement au début du XIXe siècle, Fraunhofer en détecte 83, qu’il nomme A, B, … H +
+deux supplémentaires a et b. Puis, il en dénombre 574 !!!
+Depuis le début du XXe siècle, on a mis en rapport les longueurs d’onde et l’énergie des
+niveaux énergétiques de l’atome (ou des molécules). Ainsi, pour l’hydrogène (composant
+majoritaire de l’atmosphère solaire) existe dans le visible la série de Balmer4, qui correspond
+physiquement aux transitions des niveaux supérieurs vers le niveau 2 de l’hydrogène.
+Correspondance entre les raies de Fraunhofer et les raies de la série de Balmer.
+Raies de Fraunhofer
+
+Raies de l'Hydrogène
+
+Longueurs d'onde (Å)
+
+Couleur
+
+C
+
+Hα
+
+6562,10
+
+rouge
+
+F
+
+Hβ
+
+4860,74
+
+bleu
+
+f
+
+Hγ
+
+4340,10
+
+bleu
+
+h
+
+Hδ
+
+4101,20
+
+violet
+
+Expérience : mise en évidence de la raie d’absorption du
+sodium grâce au Sol’Ex
+Objectif : observer les deux raies d’absorption du doublet du sodium
+Protocole :
+- régler le Sol’Ex sur la longueur d’onde du doublet du sodium à l’aide de l’observation
+d’une lampe à sodium
+- Régler le Sol’Ex pour observer le spectre d’une lampe à filament
+- Interposer un gaz de Sodium, en vaporisant une solution de NaCl dans une flamme.
+- observer les modifications de spectre
+vidéo de l’expérience :
+https://drive.google.com/file/d/12jRzakdFcq5q0NKnFLUF0sx-rqwZED6v/view?usp=share_link
+
+Choisir la longueur d’onde de travail
+Une fois le Sol’Ex réglé optiquement -collimaté-, nous devons choisir la raie que nous
+voulons imager. Beaucoup de possibilités existent :
+- la raie H-Alpha de l’hydrogène5
+- la raie de l’Hélium
+- la raie K du calcium
+- la raie du magnésium
+- des raies du fer (pour certaines mesures de magnétisme)
+- des raies du fer fortement ionisé (pour voir la chromosphère)
+3
+
+https://fr.wikipedia.org/wiki/Raies_de_Fraunhofer
+https://fr.wikipedia.org/wiki/Série_de_Balmer
+5
+Spectre de l’hydrogène et spectre solaire
+4
+
+Le soleil ligne par Ligne. Lycée Lalande
+
+5/20
+
+OLYMPIADES DE PHYSIQUE 2022-2023
+
+-
+
+A. ADOSHVILI, M. GAUDILLAT
+
+et sinon presque toutes les raies d’absorption… donneront une image contenant des
+informations, toutes différentes
+
+Les raies de hautes longueurs d’onde sont “froides” et donneront des images de la haute
+photosphère. Les raies plus bleues, voire UV, donneront des informations sur les
+profondeurs de la photosphère.
+Comparer une photo H-alpha (rouge) et calcium (UV) peut être très intéressant : on compare
+alors les structures en surface et en profondeur.
+
+Image du 2 novembre, H-alpha 656,2 nm
+
+Image du 2 novembre, UV, Ca II 396,8 nm
+
+Faire la mise au point sur la lunette
+Une fois choisie la longueur d’onde de travail, une des difficultés techniques consiste ici à
+faire la mise au point de la lunette, c'est-à-dire de faire l’image du soleil sur la fente. Il s’agit
+là aussi d’un réglage assez fin et délicat, très sensible aux turbulences atmosphériques.
+Une fois tous ces réglages effectués, il faut viser le limbe -le bord- solaire et commencer à
+balayer le disque et enregistrer le film du spectre.
+
+Le soleil ligne par Ligne. Lycée Lalande
+
+6/20
+
+OLYMPIADES DE PHYSIQUE 2022-2023
+
+A. ADOSHVILI, M. GAUDILLAT
+
+4.Reconstruction de l’image du soleil
+Le Sol’Ex est maintenant réglé, il faut maintenant prendre un film autour de la raie choisie.
+La caméra fait 3096 pixels de large. Nous observons souvent en binning X2 (c’est à dire que
+les pixels sont regroupés par 4 pour n’en faire qu’un) car nos conditions de prises de vue
+sont rarement assez bonnes pour prendre autant de données, ce qui fait qu’une image fait
+1548 (3096/2) pixels en hauteur.
+Il a fallu trouver la bonne cadence de prise de vue, afin de ne pas avoir trop de données, de
+ne pas sur-échantillonner ni sous-échantillonner, c'est-à dire de trouver la bonne cadence
+pour qu’il n’y ait pas trop d’informations -ce qui prendrait de la place pour rien ou pas assez-.
+Il faut donc environ 1500 images (en binning x2) par balayage, chaque image donnant une
+colonne de pixels.)
+Nous avons fait beaucoup d’essais et nous avons trouvé des réglages qui vont bien avec
+notre matériel :
+- 6,5 ms de temps de pose (soit 150 images/s environ)
+- la monture réglée sur une vitesse de suivi X3.
+Avec ces réglages, on balaye la surface du disque en 13 secondes.
+Film du spectre autour de la raie Halpha obtenu le 2/22/22 à 15h24.
+https://drive.google.com/file/d/1a0BkrpLzomJLF_4McmW-OAGamIBx0pa2/view?usp=share_
+link
+
+On obtient alors un film du spectre de 700 Mio (4 Gio si bining x1) qu’il faut traiter à l’aide
+d’un logiciel qui procède ainsi :
+- calcul de l’image moyenne, détermination du centre de la raie, modélisation sous la
+forme d’un polynôme du second degré de la forme de la fente.
+- Pour chaque image, extraction des valeurs au centre de la raie (on peut aussi
+demander de le faire avec un décalage de pixels) sur la largeur de la raie.
+- accolement de ces valeurs -formant une colonne de pixels- à la raie précédente
+Ceci reconstruit l’image du soleil, ligne par ligne.
+Ensuite, un traitement cosmétique (suppression du transversalium, c’est à dire du bruit
+transversal) est appliqué pour enlever quelques artefacts et rendre plus jolie l’image.
+
+Le soleil ligne par Ligne. Lycée Lalande
+
+7/20
+
+OLYMPIADES DE PHYSIQUE 2022-2023
+
+A. ADOSHVILI, M. GAUDILLAT
+
+Reconstruction du disque solaire à partir des valeurs des pixels du centre de la raie H-Alpha.
+
+5.Les problèmes rencontrés
+●
+
+L’un des principaux problèmes fut la difficulté du réglage du Sol’ex, il y a
+plusieurs réglages de netteté à faire et qui sont sensibles. Cela veut dire que
+si un réglage est modifié il faut tout refaire. Pour avoir la meilleure netteté
+possible il faut donc avoir du temps à consacrer à cette partie de l’imagerie
+du soleil.
+
+●
+
+La structure du Sol’ex étant imprimée en un plastique peu résistant à la température,
+et les observations étant réalisées en plein soleil, il nous a fallu protéger le Sol’ex
+avec du papier aluminium réfléchissant.
+
+●
+
+Les observations sont donc dépendantes des conditions météo et du temps
+disponible pour les effectuer.
+
+●
+
+En outre, la structure imprimée en 3d n’est pas d’une grande précision et nécessite
+quelques ajustements, notamment au niveau de l’alignement du réseau, qui
+demandait de placer une cale sous la bague de réglage. A d’autres endroits, il a été
+nécessaire d’élargir certains trous et donc de placer des rondelles pour que les vis
+puissent quand même être utiles
+
+●
+
+Fragilité du matériel, le réseau est très fragile et la fente aussi (il y a une trace d’un
+coup de tournevis sur cette dernière…)
+
+●
+
+Espace de stockage pris par les images réalisées (700 Mio par film… toutes les 20
+secondes… )
+
+Le soleil ligne par Ligne. Lycée Lalande
+
+8/20
+
+OLYMPIADES DE PHYSIQUE 2022-2023
+
+A. ADOSHVILI, M. GAUDILLAT
+
+●
+
+Adaptation des lunettes à la monture : Pour avoir une bonne image avec le soleil
+visible en entier il faut avoir une focale adaptée. Nous avons utilisé une lunette ayant
+une focale de 600mm ce qui était trop grand pour obtenir le soleil en entier. Nous
+avons obtenu en octobre une nouvelle lunette de 400 mm de focale en octobre et
+avons dû modifier la platine.
+
+●
+
+Les nuages et la météo
+
+Toutes ces difficultés font qu’utiliser le Sol’Ex sur 1h30 peut-être des fois un peu difficile.
+Mais nous avons persévéré !
+
+6.Utilisation à des fins scientifiques
+Le Sol’Ex ouvre un champ des possibles très important sur le temps scolaire. Nous avons
+pu l’utiliser pour faire des études du soleil :
+
+Mesure de l'échantillonnage du Sol’Ex
+Nous avons eu besoin de connaître le pouvoir séparateur du Sol’Ex. Pour cela, nous avons
+pris le doublet du sodium et mesuré le nombre moyen de pixel qui les séparait.
+
+Image du Sol’Ex qui a pour source une lampe à sodium
+Donc, l’échantillonnage du Sol’Ex est de
+(5895,924-5889,950)/90 = 5,974/90 = 6,6.10-2 Å/px
+Il est assez rare d’avoir dans un lycée un spectroscope qui permette de séparer le doublet,
+ce résultat est assez important : le Sol’Ex est un spectroscope très efficace.
+
+Pour pouvoir séparer deux raies d’absorption, il faut au moins 2 pixels d’écart.
+Ceci signifie que le Sol’Ex a une résolution spectrale proche de :
+R = λ/Δλ = 5892 / 6,6.10⁻² /2 = 44000
+Pour comparaison, le spectroscope ELODIE (1ère exoplanète en 1995 par MAYOR et
+QUELOZ) à un R=42000
+
+Le soleil ligne par Ligne. Lycée Lalande
+
+9/20
+
+OLYMPIADES DE PHYSIQUE 2022-2023
+
+A. ADOSHVILI, M. GAUDILLAT
+
+Participation au programme de collaboration Pro-Am Solar
+Orbiter
+Ce programme scientifique a été lancé pour étudier la météo solaire sous toutes ses formes
+à partir de plusieurs sources : satellitaires, amateurs.
+Nous avons fourni à ce programme de collaboration entre amateurs et professionnels une
+image en Halpha en date du 2 novembre 2022 prise à 15h35.
+Elle a été transférée le 3/11 à 16h40.
+Notre code de participant était le 10048LA -LA comme LalandeCe programme de collaboration entre astronomes professionnels et amateurs devait
+permettre de suivre tout un groupe de structures solaires pendant quelques semaines.
+Il y a eu beaucoup de données transmises de tous les astronomes amateurs.
+Il n’y a pas encore eu de publication, mais peut-être verrons-nous notre nom cité…
+page Pro-Am Orbiter :
+https://issues.cosmos.esa.int/solarorbiterwiki/display/SOSP/Long+Term+Active+Region+SO
+OP+-+target+evolution
+
+Mesure des tailles des protubérances et tâches solaires
+Nous avons décidé de mesurer la taille de ce que nous arrivions à voir sur le soleil : les
+taches et les filaments.
+Il nous faut partir d’une donnée importante déjà existante : le diamètre du disque solaire
+estimé à 696 342 km6.
+Grâce à nos images, nous avons pu mesurer les tailles de filaments solaires, de
+protubérances et de tâches et les comparer à celle de la Terre.
+
+Image du soleil prise dans la raie H alpha
+
+Image détaillée de la zone des deux
+protubérances mesurées
+
+Nous avons calculé les dimensions de 2 des plus grandes protubérances de l’image
+ci-dessous appelées protubérance 1 et protubérance 2. Pour cela nous nous sommes servis
+des dimensions réelles du soleil et des dimensions que l’on a mesuré sur les images prises.
+
+6
+
+https://fr.wikipedia.org/wiki/Soleil
+
+Le soleil ligne par Ligne. Lycée Lalande
+
+10/20
+
+OLYMPIADES DE PHYSIQUE 2022-2023
+
+A. ADOSHVILI, M. GAUDILLAT
+
+Diamètre du
+soleil
+
+Hauteur
+protubérance
+1
+
+Largeur
+protubérance
+1
+
+Hauteur
+Largeur
+protubérance protubérance
+2
+2
+
+Image (px)
+
+2660
+
+100
+
+62
+
+40
+
+48
+
+Dimension
+(km)
+
+1392684
+
+52357
+
+32461
+
+20943
+
+25131
+
+incertitude
+(px)
+
+10
+
+2
+
+5
+
+2
+
+3
+
+incertitude
+(km)
+
+5,2.10³
+
+1,0.103
+
+2,6.103
+
+1,0.103
+
+1,6.103
+
+Résultat
+(km)
+
+1,393 ±
+0,0052.106
+
+5,2 ± 0,10.104 3,2 ± 0,3.104
+
+2,1 ± 0,1.104
+
+2,5 ± 0,2.104
+
+Diamètres
+terrestres
+
+109
+
+1,6
+
+2
+
+4
+
+2,5
+
+Tableau des résultats des calculs de la dimension des 2 protubérances
+
+Diamètre
+soleil
+
+Diamètre
+tache 1
+complète
+
+Diamètre
+tache 1
+centre
+
+Diamètre
+tache 2
+complète
+
+Diamètre
+tache 2 centre
+
+Diamètre tache
+3 complète
+
+Diamètre tache 3
+centre
+
+Dimensions
+(km)
+
+1 392
+684
+
+31 652
+
+12 660
+
+16 882
+
+8 968
+
+17 936
+
+8 968
+
+Dimensions
+(px)
+
+2640
+
+60
+
+24
+
+32
+
+17
+
+34
+
+17
+
+Incertitude
+(km)
+
+2.10³
+
+2.10³
+
+10.10²
+
+10.10²
+
+6.10²
+
+16.10²
+
+16.10²
+
+Le soleil ligne par Ligne. Lycée Lalande
+
+11/20
+
+OLYMPIADES DE PHYSIQUE 2022-2023
+
+Incertitude (px)
+
+A. ADOSHVILI, M. GAUDILLAT
+
+4
+
+5
+
+2
+
+2
+
+1
+
+3
+
+3
+
+1,39±
+0,01
+.106 km
+
+3,1±
+0,4 .10⁴
+km
+
+1,2
+± 0,1
+.104 km
+
+1,6± 0,1
+.104 km
+
+9,0± 0,6
+.10³ km
+
+1,8± 0,2 .104
+km
+
+9,0 ± 2 .10³
+km
+
+Tableau des résultats des calculs de la taille des 3 taches solaires
+On se rend compte que le moindre détail visible sur le soleil est tout de suite beaucoup plus
+grand que la Terre. C’est très impressionnant.
+
+Mesure de la vitesse de rotation du soleil par imagerie directe
+On peut mesurer la vitesse de rotation du soleil par observation entre deux temps. En
+mesurant un déplacement des taches solaires entre deux instants (quelques heures,
+quelques jours) nous pourrions déterminer la vitesse de rotation du soleil.
+Diamètre soleil
+
+Décalage tache 3
+
+Décalage tache 2
+
+Décalage tache 1
+
+Dimensions (px)
+
+2550
+
+502
+
+540
+
+520
+
+Dimensions (km)
+
+1392684
+
+274168
+
+294922
+
+283998
+
+Incertitude (px)
+
+4
+
+15
+
+15
+
+20
+
+Incertitude (km)
+
+2 184
+
+8 192
+
+8 192
+
+10 924
+
+Image à la date T1 (31/10/2022
+à 10 h 9 min 21 sec)
+
+Le soleil ligne par Ligne. Lycée Lalande
+
+Image à la date T2 (02/11/2022
+à 15 h 27 min 59 sec)
+
+12/20
+
+OLYMPIADES DE PHYSIQUE 2022-2023
+
+A. ADOSHVILI, M. GAUDILLAT
+
+Image après superposition
+On peut voir les taches des deux images, et donc leur déplacement entre les deux instants
+sur une seule image.
+Les deux instants sont séparés de 2j5h18’38” soit 191918 secondes.
+On mesure la vitesse tangentielle des taches en comparant donc les deux instants :
+déplacement
+tache 3131 (1)
+
+déplacement
+tache 3135 (2)
+
+déplacement
+tache 3135 (3)
+
+distance
+tangentielle
+tache 2
+/équateur
+
+dimension (px)
+
+520
+
+540
+
+502
+
+465
+
+incertitude (px)
+
+20
+
+15
+
+15
+
+7
+
+vitesse
+tangentielle
+moyenne (px/s)
+
+2,71.10-3
+
+2,81.10-3
+
+2,62.10-3
+
+incertitude de
+vitesse (px/s)
+
+7,26.10-5
+
+5,47.10-5
+
+5,47.10-5
+
+Δt (s)
+
+191918 ±120
+
+191918 ±120
+
+191918 ± 120
+
+Sachant que les vitesses mesurées ne correspondent pas aux vitesses des taches à la
+surface mais à leur vitesse tangentielle, les vitesses mesurées sont moindre si les
+déplacements des taches se sont mesurés à l’ouest ou à l'est du méridien central.
+On perd donc une partie de l’information de vitesse.
+
+Le soleil ligne par Ligne. Lycée Lalande
+
+13/20
+
+OLYMPIADES DE PHYSIQUE 2022-2023
+
+A. ADOSHVILI, M. GAUDILLAT
+
+Pour compenser cela, on prend la tache dont le déplacement s’est effectué le plus proche
+du méridien central, c’est-à-dire celle ayant la plus grande vitesse tangentielle : la tache 2
+On trouve : V2 = 1,54 ± 0,06 km/s
+Cependant, la tache ne se situe pas à l’équateur du soleil, on effectue donc une correction
+géométrique pour trouver la vitesse de la surface du soleil à l’équateur.
+Hypothèse : la période est la même partout sur un méridien
+Pour cela, il faut déterminer la circonférence du méridien sur lequel se trouvent les taches.
+On suppose que tous les points à la surface du soleil sont synchrone, par conséquent, la
+période de rotation autour du soleil peut s’écrire T=2π.R / Vpoint et donc T/2π = R / Vpoint
+
+Schéma représentant le calcul du rayon du parallèle solaire (R)
+passant par la tache nommée 2.
+On trouve R = 1187 ± 10px et α = sin-1(465/1275)=21°
+On connaît le rayon du parallèle des taches R = 1187 px
+En utilisant l’hypothèse que les périodes sont égales sur un méridien, on trouve :
+T/2π = R/V = R☉/V2
+soit :
+
+V2= V*R☉/R
+
+Convertie en km/s : V2= 1,65 km.s-1 et
+ΔV = 1,43x(4/2550+7,93.10-5/3,02.10-3 + 0,06) = 0,12 km.s-1
+On trouve avec la prise en compte de la géométrie : V2 = 1,65 ± 0,2 km/s
+Comparaisons avec les données bibliographiées:
+La surface du soleil à l’équateur tourne en 25 jours, sa vitesse est donc de 2π.R☉/T
+1 392 684.π/(25x24x60x60) = 2,03 km.s-1
+
+Le soleil ligne par Ligne. Lycée Lalande
+
+14/20
+
+OLYMPIADES DE PHYSIQUE 2022-2023
+
+A. ADOSHVILI, M. GAUDILLAT
+
+On constate donc l’écart assez important entre la valeur calculée et la valeur réelle, qui est
+de 0,38 km.s-1 environ soit 19 % d’erreur relative.
+Tout d’abord, on peut expliquer cette erreur par l’incertitude des mesures, car il est difficile
+de déterminer avec précision le centre d’une tache qui n’en a pas vraiment. Nous avons pris
+en compte cela avec les calculs d’incertitude mais la valeur réelle ne rentre pas dans
+celle-ci, cela signifie que notre méthode n’est peut-être pas adaptée. On peut noter
+cependant que notre résultat est dans l’ordre de grandeur.
+Nous avons décidé d’aller un peu plus loin dans notre raisonnement :
+Nous avions tout d’abord émis l’hypothèse que la latitude n'intervient pas dans la période de
+rotation d’un point à la surface du soleil or la vitesse de rotation de la surface du soleil est
+différentielle et dépend donc de la latitude à laquelle on se trouve.
+La surface du soleil a une période de rotation plus faible aux alentours des pôles et plus
+forte à l’équateur.
+Ci-dessous un tableau détaillant rapidement les différentes périodes de rotation de la
+surface en fonction de la latitude7.
+latitude 0°
+
+24 j
+
+- latitude 30°
+
+28 j
+
+- latitude 60°
+
+30,5 j
+
+- latitude 75°
+
+31,5 j
+
+Nous avons donc décidé de comparer les valeurs à celles-ci directement, pour cela, nous
+avons tracé un graphique à partir des données de wikipedia et extrapolé les mesures.
+
+Période de rotation en fonction de la latitude
+Les taches dont on a mesuré le déplacement ne se situent pas à l’équateur, mais à une
+latitude de 21° environ.
+On cherche donc à connaître le facteur que l’on doit utiliser pour retrouver la vitesse à
+l’équateur, pour prendre en considération la vitesse de rotation différentielle.
+Ce facteur vaut 27/24=1,125
+7
+
+https://fr.wikipedia.org/wiki/Soleil
+
+Le soleil ligne par Ligne. Lycée Lalande
+
+15/20
+
+OLYMPIADES DE PHYSIQUE 2022-2023
+
+A. ADOSHVILI, M. GAUDILLAT
+
+On multiplie donc la vitesse obtenue par 1,125 : on trouve une vitesse de
+1,54*1,125=1,73km.s-1 , qui se rapproche plus de la vitesse de 2,03km.s-1 mais qui en reste
+éloignée. l’erreur relative est alors de 14%
+Dans les causes d’écart possible, il y a un angle difficilement mesurable, celui entre
+l’équateur et la vitesse de déplacement. Quelques degrés peuvent amener encore une
+correction dans le bon sens.
+
+Mesure de la vitesse de rotation du soleil par effet
+Doppler-Fizeau
+Cette mesure est plus délicate. L’effet Doppler-Fizeau modifie la fréquence (et donc la
+longueur d’onde) des radiations lumineuses si leur vitesse radiale (orientée vers nous) n’est
+pas nulle.
+Si la partie imagée s’éloigne, la raie est décalée vers le rouge. Cet effet sert à mesurer de
+grandes distances, on s’exprime alors en "décalage vers le rouge”, le redshift.
+Si la partie imagée se rapproche, la raie est décalée vers le bleu.
+Dans notre cas, il faut imager le spectre du soleil et le comparer à un spectre non affecté par
+l’effet Doppler-Fizeau (par exemple celui du ciel).
+Nous avons pris un film avec la fente orientée perpendiculaire à l’axe de rotation puis trouvé
+la modélisation du centre de la raie :
+
+modélisation du centre de la raie
+Les deux axes étant à 90° l’un de l’autre, une des images moyenne de la fente prend en
+compte l’effet doppler et pas l’autre : si on est à 90° de l'équateur, la moyenne des images
+de raies, sera la moyenne à vitesse nulle. Alors que si on est parallèle à l’équateur, la
+parabole moyenne prendra en compte l’effet Doppler et il y aura un décalage.
+
+Courbes modélisant le centre de la raie.
+
+Le soleil ligne par Ligne. Lycée Lalande
+
+16/20
+
+OLYMPIADES DE PHYSIQUE 2022-2023
+
+A. ADOSHVILI, M. GAUDILLAT
+
+Le programme python utilisé est pour tracer les courbes issues de la modélisation est en
+annexe.
+Nous avons essayé aussi de mettre les courbes l’une sur l’autre… aucune différence
+notable entre les deux.
+Finalement, nous avons fait le calcul inverse : pour une vitesse de l’ordre de 2 km/s, quelle
+variation de longueur d’onde est attendue ?
+D’après l’effet Doppler-Fizeau, la vitesse v est liée à la variation de longueur d’onde Δλ :
+On a v = c.Δλ/λ c’est à dire Δλ = λ.v/c
+numériquement, on trouve pour HAlpha (656,3 nm)
+Δλ = λ.v/c = 6563x2/3.108 = 0,040 Angströms
+Après avoir mesuré le pouvoir séparateur du Sol’Ex grâce au doublet du sodium, nous
+avons trouvé que le Sol’Ex avait une résolution de 0,06 Å/px… plus petit que la valeur de
+l’effet Doppler sur la longueur d’onde.
+Conclusion1 : nous ne pouvons pas le mesurer avec le Sol’Ex
+Conclusion2 : nous aurions pu faire ce calcul avant pour nous éviter pas mal de
+travail.
+Cependant, nous pouvons tout de même visualiser de manière non scientifique l’effet
+Doppler-Fizeau et retrouver le sens de rotation du soleil (et son orientation ).
+Pour cela, on prend une image décalée de quelques pixels dans la raie puis une autre
+image décalée du même nombre de pixels mais de l’autre côté : -3px et +3 px par exemple.
+Ensuite, on fait la différence entre les deux et on remarque un côté beaucoup plus clair que
+l’autre. Un côté vient vers nous (+3px) et donc est plus lumineux dans la première image et
+moins dans celle qui est soustraite, donc le côté qui vient vers nous sera plus lumineux.
+Le côté qui s’éloigne, aura une plus grand intensité et donc sera plus noir.
+
+On remarque une certaine corrélation, mais une différence qu’il est difficile à expliquer.
+L’orientation de la fente peut jouer sur le calcul et il est assez difficile de mettre la fente dans
+le sens de rotation du soleil.
+
+Le soleil ligne par Ligne. Lycée Lalande
+
+17/20
+
+OLYMPIADES DE PHYSIQUE 2022-2023
+
+A. ADOSHVILI, M. GAUDILLAT
+
+Nos images
+Pour des raisons de restriction sur la taille du mémoire, nos mauvaises images sont dans un
+fichier annexe.
+
+Le 2 novembre, une journée exceptionnelle
+La météo, la lunette, le ciel est limpide, les réglages sont peaufinés et les images sont alors
+incroyables.
+
+On en a profité pour faire un gif animé, qui plonge dans les couches de la raie halpha ce jour
+là :
+lien :
+15_21_20.gif
+https://drive.google.com/file/d/1xpkEWh9LJ3n5gI_E1n9m4DUPJOgF1zp7/view?usp=sharing
+
+Pour cela, on demande au logiciel de faire une image entre -30 et +30 pixels autour de la
+raie halpha et on met les 60 images dans un logiciel pour faire des GIF (The Gimp par
+exemple).
+
+Le soleil ligne par Ligne. Lycée Lalande
+
+18/20
+
+OLYMPIADES DE PHYSIQUE 2022-2023
+
+A. ADOSHVILI, M. GAUDILLAT
+
+La raie du calcium
+Sur la fin de journée, nous avons même décidé de tout dérégler pour prendre des images
+non plus dans la raie de HAlpha de l’hydrogène mais dans une des raies du calcium, la raie
+K.
+Il a fallu tourner le réseau pour passer du rouge profond (656 nm) à l’Ultra violet proche
+( 393 nm), puis refaire la focalisation.
+il a fallu faire très vite car le soleil tombait derrière une maison du voisinage et l’apparition de
+l’image du soleil en calcium fut réellement un moment assez intense.
+
+Les structures ne sont pas les mêmes. Quand on regarde dans l’ultraviolet ainsi, on voit les
+structures plus chaudes, plus profondes qu’en H-alpha.
+
+Conclusion
+Nous avons décidé de nous inscrire au dernier moment, le soir du 22 octobre 2022, 1 heure
+avant la fin. Beaucoup d’interrogations encore. Cependant il aurait été dommage de ne pas
+utiliser notre expérience sur le Sol’Ex.
+Nous avons pris du plaisir à participer au projet des olympiades auquel on a consacré une
+bonne partie de notre temps libre.
+Nous n’avons en revanche pas participé à la construction du Sol’Ex, mais nous avons
+contribué aux réglages, ce projet ayant démarré en avril 2020.
+Les Olympiades nous ont apporté beaucoup comme une certaine aisance mathématique ou
+encore des nouveaux termes scientifiques et des connaissances.
+Nous avons également beaucoup aimé faire des mesures par nous même comme par
+exemple pour la mesure de la taille des taches que l’on obtient habituellement avec une
+recherche internet.
+Nous avons aimé faire ces mesures sur des images que l’on a également prises nous même
+et pas sur internet.
+
+Le soleil ligne par Ligne. Lycée Lalande
+
+19/20
+
+

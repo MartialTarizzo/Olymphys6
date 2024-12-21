@@ -1,0 +1,1576 @@
+Édition 2018 - 2019
+Les élèves du lycée général Charles de Gaulle de Caen, avec le soutien de la société ORANGE
+et du GREYC (Laboratoire de recherche en Sciences du numérique), présentent le projet :
+
+I.B.C. : Intra Body Communication
+
+« Peut-on transmettre de l’information binaire grâce au corps humain et
+l’utiliser pour développer une application, utile notamment pour les
+personnes en situations de handicap ? »
+
+Elèves
+ Lory AUDRAIN
+ Valentin SINEL
+ Gweltaz POUSSIN
+Encadrés par M. Levionnais, enseignant en
+Sciences-Physiques
+
+Lycée Charles de Gaulle, CAEN – 2018-2019
+
+1
+
+Résumé
+Imaginez une journée ordinaire : vous ouvrez la porte de votre maison/appartement avec
+votre clé puis celle de votre voiture avec une autre clé ; au travail vous ouvrez la barrière du
+parking avec une carte puis la porte de votre bureau avec une autre clé puis une session
+d’ordinateur avec vos identifiants ; dans votre entreprise vous accédez aux zones autorisées
+avec une carte sans contact et au photocopieur avec un code. Vous retirez de l’argent avec
+votre carte bleue ; vous payez vos achats avec votre téléphone ; vous prenez le
+bus/métro/tram avec un ticket ; vous récupérez vos médicaments en donnant votre carte
+vitale ; vous accédez au hall de votre immeuble avec une carte sans contact. En vacances,
+vous ouvrez la porte de votre location avec une carte magnétique ; à la montagne (avec vos
+gants) vous validez votre forfait également avec une carte magnétique...
+ 1) Pourrait-on simplifier toutes ces manipulations de clés et de cartes ?
+Imaginez maintenant cette même journée pour une personne en situation de handicap, par
+exemple pour une personne paralysée, amputée ou née sans bras.
+ 2) Pourrait-on inventer un dispositif utile à tous, et qui faciliterait une partie du
+quotidien des personnes en situation de handicap ? (Voir l’annexe A, entretien avec
+Cynthia, élève du lycée atteinte de la maladie de Charcot-Marie-Tooth).
+C’est ce que nous nous sommes fixés comme objectif, en utilisant une partie du corps
+humain comme vecteur de transmission de l’information (d’où le terme de Intra Body
+Communication), sans placer de puce électronique dans le corps et sans recourir à des
+méthodes biométriques (pas de fichage).
+Voici le schéma du projet final réalisé que nous avons imaginé après plus d’un an de travail
+(à lire dans l’ordre des numéros). Pour l’explication détaillée voir la page 4 du mémoire.
+Action volontaire :
+approcher une partie du
+corps de l’antenne 1
+
+Circuit
+
+Circuit
+
+4
+Borne
+(service)
+
+2
+
+Modulation
+
+Antenne 2
+
+Antenne 1
+
+Démodulation
+
+5
+
+3
+Information
+
+Information
+
+Envoi d’un
+identifiant de service
+
+Ordinateur 2
+
+1
+
+7
+Ordinateur 1
+
+8
+
+Vérification du code d’identification : si
+valide : commande d’une action
+mécanique (ouverture porte, validation
+titre transport) ou autre service
+
+Envoi d’un identifiant
+de connexion par
+liaison Bluetooth
+
+Lycée Charles de Gaulle, CAEN – 2018-2019
+
+6
+
+Tél. portable de
+l’utilisateur
+
+2
+
+SOMMAIRE
+INTRODUCTION
+I.
+
+Transmettre une information à travers le corps humain (p5)
+1.
+2.
+3.
+4.
+
+II.
+
+La chaîne de transmission réalisée et les problèmes rencontrés (p11)
+1.
+2.
+3.
+4.
+
+III.
+
+Dangers liés au passage du courant : influence de l’intensité
+Premières tentatives de conduction par le corps : influence de la personne
+Modélisation du corps humain et influence de la fréquence des signaux qui le
+traversent (critère n° 1 pour choisir la porteuse)
+Transmission par câble série RS232 : influence du baud
+
+Expérience de modulation : influence de la fréquence de la porteuse (critère de choix
+n° 2)
+Démodulation : influence du temps de décharge du condensateur
+Influence de la fréquence du signal modulant
+Influence du corps humain : chute de tension observée et solution trouvée
+Conception d’antennes résonantes et caractéristiques (p15)
+
+1. Principe de la résonance d’un circuit RLC série
+2. Influence du nombre de spires sur l’inductance
+3. Influence du phénomène d’induction sur la résonance
+4. Comparaison avec la bande passante nécessaire pour transmettre les données
+binaires
+IV.
+
+Etude du rayonnement des antennes et du corps humain (p19)
+1. Influence de la distance entre les deux antennes (les deux bobines étant parallèles et
+posées à plat sur la table)
+2. Influence de la distance entre les deux antennes (les deux bobines étant parallèles et
+posées perpendiculairement à la table)
+3. Cartographie du rayonnement du corps humain
+
+CONCLUSION
+
+ANNEXES
+A : entretien avec Cynthia, élève du lycée atteinte de la maladie de Charcot-Marie-Tooth
+B : le SAR (ou DAS) et les questions éthiques soulevées par notre projet
+C : gain en fonction de la fréquence : influence de la nature de l’isolant et de la personne, et
+modélisation du dispositif {Cuivre-isolant-Homme-isolant-Cuivre}
+D : circuit de démodulation d’amplitude et aspects théoriques
+E : principe physique de la résonance
+F : modèle utilisé par Orange pour la conception d’antennes
+G : rayonnement du corps humain : incertitude de mesure et influence de la personne
+H : les programmes Python (Emission et réception)
+I : les sources
+
+Lycée Charles de Gaulle, CAEN – 2018-2019
+
+3
+
+INTRODUCTION
+Explication du dispositif présenté dans le résumé page 2 : prenons l’exemple de la
+validation d’un titre de transport grâce au téléphone portable.
+1) L’ordinateur 1 envoie une information constituée d’un identifiant de service (ici le
+service est « validation d’un titre de transport »)
+2) Cette information va passer par le circuit de modulation
+3) Puis par l’antenne 1 (antenne émettrice). Tout ceci constitue la borne de
+validation du titre de transport (mais cela peut être n’importe quel autre service).
+4) Action volontaire : la personne va approcher (pas de contact direct) sa main de
+l’antenne 1 (ou toute autre partie de son corps, par exemple un bras pour une
+personne amputée de la main). Le téléphone reste dans la poche ou le sac, il n’est
+pas nécessaire de le sortir (limitant ainsi les risques de vols dans les transports en
+commun). L’information va passer par le corps humain.
+5/6) L’information passe ensuite dans le téléphone constitué de l’antenne 2, du
+circuit de démodulation et de l’ordinateur 2.
+7) Le second ordinateur envoie alors un identifiant de connexion par liaison
+Bluetooth
+8) L’identifiant de connexion est réceptionné et vérifié par le premier ordinateur : si
+l’identifiant est valide (c’est-à-dire si l’utilisateur est bien autorisé), alors le titre de transport
+est validé.
+Le point de départ de notre projet fut la découverte du caractère
+rayonnant du corps humain lorsqu’il reçoit une onde
+électromagnétique (Fig. 1, illustration de la thèse de Kibret
+(2016) « The Human Body Antenna : Characteristics and its
+Application » où l’homme est modélisé par une antenne droite.
+On savait déjà que le corps pouvait « faire antenne », sousentendu « antenne réceptrice », mais ici le corps est assimilé à
+une antenne émettrice. Nous avons alors imaginé des Fig. 1
+applications qui utiliseraient le corps humain pour transmettre
+de l’information en utilisant son caractère conducteur ou rayonnant. Le caractère rayonnant
+du corps humain est le premier point que nous avons souhaité mesurer, cependant cela n’a
+finalement été possible qu’après avoir trouvé la fréquence de porteuse à utiliser, la création
+d’une antenne résonante, et le prêt par Orange d’un analyseur de spectre, c’est pourquoi ce
+n’est présenté qu’en partie IV et en annexe, dans la logique de notre démarche.
+Pour parvenir à réaliser ce projet, nous avons constitué une équipe qui a travaillé l’année
+scolaire 2017/2018 chaque mercredi après-midi (environ 4h) ainsi que pendant les vacances
+scolaires. Nous avons repris ce rythme de travail cette année 2018/2019 afin d’aboutir à la
+version finale présentée dans ce mémoire.
+Remerciements
+Nous souhaitons remercier tous ceux qui nous ont aidé à mener ce projet : M. Levionnais qui
+nous a encadré et conseillé, Jean-Luc Launay le préparateur qui nous a été d’une grande
+aide, M. Payeur l’ingénieur ORANGE qui a suivi nos recherches pendant 1 an et demi et qui
+nous a accueilli à la fête de la science, dans son bureau chez Orange, et nous a permis de
+réaliser les mesures de rayonnement du corps. Merci également à M. Routoure du GREYC
+qui nous aide depuis cette année et qui nous a prêté du matériel électronique, et merci à
+tous les élèves cobayes de nos expérimentations (Violette, Paul, Aymeric, Hugo, Mathis, et
+tout particulièrement Caroline et Cynthia). Et enfin merci aux organisateurs des Olympiades
+nationales de Physique pour nous permettre de présenter nos résultats.
+Lycée Charles de Gaulle, CAEN – 2018-2019
+
+4
+
+I.
+
+Transmettre une information à travers le corps humain
+1. Dangers liés au passage du courant : influence de l’intensité
+
+Nous avons tout d'abord identifié les éventuels risques de mise en place de nos expériences.
+Voici les données trouvées : 0 à 0,5 mA : aucune sensation ; 3 à 10 mA : sensation douloureuse.
+L'intensité à laquelle nous allons être exposée ne doit donc pas excéder 3 mA. (En annexe B
+vous trouverez les résultats de notre étude sur le SAR : Specific Absorption Rate, et les
+questions éthiques soulevées par notre projet).
+2. Premières tentatives de conduction par le corps : influence de la personne
+a. Résistance du corps humain
+Expérience : l'effet du corps humain sur un circuit électrique peut s'apparenter en 1ère
+approximation à celui d'une résistance. Nous
+Fig. 2
+l’avons mesurée plusieurs fois avec un ohmmètre
+(câbles électriques tenus entre le pouce et l’index
+de chaque main) pour faire une étude statistique
+sur différents élèves à partir de séries de 20
+mesures.
+Résultats (Fig. 2) : avec une incertitude relative <
+7% nous avons pu mesurer une résistance
+moyenne de l’ordre du MΩ pour Violette et Paul
+et de l’ordre de 100 kΩ pour Hugo « mains
+sèches » et en faisant des mesures de main à
+main. Les résultats dépendent beaucoup de la
+personne puisqu’il y a un facteur 10 entre la
+résistance d’Hugo et celle de Violette ou Paul.
+b. Peut-on allumer une DEL en passant par le corps humain ?
+Expérience (Fig. 3) : tout d’abord nous avons déterminé l'intensité nécessaire pour atteindre
+le seuil de visibilité de la DEL allumée en faisant varier la résistance variable. La résistance de
+100 Ω sert de protection.
+5V
+Résultats : la valeur de l'intensité minimale pour voir la
+Fig. 3
+100 Ω
+lumière de la DEL dans la pénombre est de 67 µA obtenue
+avec une résistance R = 35 kΩ.
+Peut-on réaliser cette expérience en remplaçant la résistance
+du circuit ci-dessus par le corps humain (Fig. 4) ?
+
+R : 0 à 100 kΩ
+
+ La résistance du corps humain étant bien plus grande que 35 kΩ,
+l’intensité sera plus faible et la DEL ne s’allumera pas.
+Résultat : en testant avec Hugo comme corps l’intensité mesurée est de
+14 µA, ce qui est inférieur d’un facteur 5 à l’intensité minimale pour
+allumer la DEL (67 µA / 14 µA = 4,8).
+
+5V
+
+Corps
+
+ Pour résoudre ce problème nous avons augmenté la tension du
+générateur d’un facteur 5 : 25 à 30 V au lieu de 5 V.
+Résultats : la DEL s’est allumée avec présence du corps. Nous y voyons une première façon
+sommaire de transmettre des données binaires à travers le corps humain : une diode
+allumée pourrait correspondre à un « 1 » (générateur allumé : 5 V) et une diode éteinte à un
+« 0 » (générateur éteint : 0 V).
+Lycée Charles de Gaulle, CAEN – 2018-2019
+
+5
+
+Fig. 4
+
+c. Problèmes et solutions soulevés par ces expériences
+Ces premières expériences ont été une réussite pour montrer qu’un courant assez faible
+pour ne pas être dangereux mais suffisamment important pour transmettre une information
+pouvait passer à travers le corps humain, mais elles ont aussi fait apparaître des limites :
+
+
+
+
+Ces expériences ont été réalisées par contact direct entre les fils électriques A
+et les mains, or si on intercale un isolant (pour simuler un vêtement) alors
+le courant continu ne passe plus et le courant variable de basse fréquence
+passe très mal (comme nous le détaillerons en I.3.c. page 8-9).
+Un autre problème est que tous les circuits électriques réalisés utilisent une
+boucle de courant (circuit série refermé par un câble électrique) : nous ne
+pouvons donc pas envoyer une information en passant exclusivement par le corps
+humain, nous avons besoin d'un fil supplémentaire (Fig. 5), or nous souhaitons qu’il
+n’y ait que le corps humain pour transmettre l’information d’un point A à un point B.
+
+ L’ingénieur d’Orange nous a guidés vers deux solutions complémentaires :
+
+Deux conditions
+sont nécessaires
+pour que le projet
+fonctionne. La 2ème
+condition
+correspond à un
+usage classique du
+sans contact, elle
+est étudiée en
+partie IV.
+
+o D’abord
+l’utilisation
+d’ondes
+électromagnétiques
+par
+l’intermédiaire d’une porteuse de fréquence élevée qui passera
+facilement à travers la matière, ceci nécessitant de moduler en
+amplitude le signal que l’on voudra transmettre. En effet les ondes
+peuvent se propager entre deux points sans qu’il n’y ait de boucle
+de courant (comme par exemple d’une antenne vers un téléphone
+portable, Fig. 6). Avec une contrainte cependant pour notre application :
+l’onde doit se propager suffisamment bien dans le corps humain mais très
+peu dans l’air (sur une très courte distance) pour que la transmission se fasse
+uniquement sous deux conditions : (1) si le corps humain est présent ou (2)
+si la distance entre l’émetteur et le récepteur est faible (< 10 cm).
+o D’autre part même sans ondes nous pouvons faire nos expériences en
+bouclant grâce aux prises de terres présentes partout (Fig. 7).
+3. Modélisation du corps humain et influence de la fréquence des
+signaux qui le traversent (critère n° 1 pour choisir la porteuse)
+
+Fig. 8
+
+Antenne
+
+Résultats (Fig. 8) : la résistance de Paul est beaucoup
+plus faible : 64 ± 3 kΩ avec les plaques alors qu’elle était
+de 2,5 ± 0,1 MΩ auparavant. L’augmentation de la
+surface de contact entre le corps et les connexions
+électriques permet donc de diminuer la résistance utile.
+
+Lycée Charles de Gaulle, CAEN – 2018-2019
+
+Fig. 5
+
+Fig. 6
+
+Fig. 7
+
+Prise de terre
+
+a. Modélisation du corps par une résistance : influence des plaques de
+cuivre utilisées comme antennes
+Expérience : nous avons utilisé des plaques de cuivre
+qui jouent le rôle d’antennes émettrices et réceptrices
+à courte portée. Les mains sont alors posées sur les
+plaques. Une série de 20 mesures est de nouveau
+effectuée avec Paul.
+
+B
+
+6
+
+A ce stade nous pouvons assimiler Paul à une résistance de 64 kΩ, mais nous avons besoin
+d’aller plus loin dans l’étude car pour le moment l’étude est faite en courant continu, or par
+la suite ce sont des signaux variables qui vont transiter par le corps.
+b. Comparaison de Paul et de la résistance : influence de la fréquence sur le gain
+Expérience (Fig. 10) : pour savoir si nous pouvons modéliser Paul par une simple résistance
+nous avons souhaité connaître la réponse du corps de Paul quand on lui envoie des signaux
+sinusoïdaux en faisant varier la fréquence de 100 à 10 MHz (correspondant aux limites
+techniques de notre générateur initial). Pour cela on va déterminer la fonction de transfert
+de Paul (Fig. 9), qui est le rapport entre la tension de sortie et la tension d'entrée tel que H =
+Vs/Ve. Cette grandeur va nous permettre de tracer le diagramme de Bode correspondant au
+gain en décibel en fonction de la fréquence tel que GdB = 20 × log(H) puis on va tracer
+GdB(f) (gain en fonction de la fréquence, en échelle logarithmique).
+Fig. 9
+
+Fig. 10
+
+Cuivre-Paul-Cuivre
+Vs
+
+Ve (GBF)
+
+Masse à la terre
+
+Masse à la terre
+
+Ve est obtenue avec un GBF et les amplitudes sont mesurées avec des oscilloscopes pour
+différentes fréquences. Les plaques sont situées à 50 cm l’une de l’autre.
+Résultats (Fig. 11) : lorsque Gdb =
+0 dB cela signifie que le signal
+passe bien (puisque Vs/Ve = 1). On
+remarque que le courant passe
+bien jusqu'à 1MHz puis le gain en
+décibel décroît brutalement.
+De plus on remarque une
+particularité vers 8 MHz. Nous
+avons alors réalisé plus de
+mesures dans cette zone afin
+d'étudier celle-ci de plus près (Fig.
+12). Nous pensions qu’elle était
+peut-être
+caractéristique
+de
+Paul alors
+nous
+avons
+recommencé avec Aymeric mais la
+courbe avait la même allure. Cette
+particularité doit être liée au
+matériel et dispositif utilisé, et ne
+dépend pas de la personne.
+
+Influence de la fréquence sur le gain
+du dispositif « Cuivre-Paul-Cuivre »
+
+Fig. 11
+
+Fig. 12
+
+Lycée Charles de Gaulle, CAEN – 2018-2019
+
+7
+
+Expérience (Fig. 13 et 14) : nous avons ensuite déterminé la
+fonction de transfert de la résistance de 64 kΩ puis tracé le gain
+en dB en fonction de la fréquence pour comparer le résultat aux
+courbes précédentes. Dispositif :
+Fig. 13
+
+Résultats (Fig. 15) : la courbe est sensiblement
+différente comparée à celle avec le corps
+humain : la décroissance brutale a lieu pour des
+fréquences plus basses : à partir de 40 kHz. On
+observe toujours une particularité mais vers 3
+MHz. La fin de la courbe est très différente avec
+une brusque remontée du gain de 8 à 10 MHz.
+
+Fig. 14
+
+Influence de la
+fréquence sur le gain
+du dispositif « CuivreRésistance-Cuivre »
+Fig. 15
+
+Bilan : on peut donc en déduire que la modélisation du corps par une simple résistance n’est
+pas satisfaisante du point de vue de la réponse en fréquence. Lors de nos expériences
+futures, pour des raisons pratiques on pourra remplacer le corps par une résistance de 64 kΩ
+mais il faudra toujours tester ensuite avec un vrai corps humain pour valider nos résultats
+car beaucoup de facteurs physiologiques viennent certainement perturber le passage du
+signal dans le corps.
+c. Gain en fonction de la fréquence : influence de la présence d’un isolant
+Expériences (Fig. 16) : nous connaissons l’évolution du gain en
+fonction de la fréquence pour le dispositif « Cuivre-Paul-Cuivre »,
+cependant le but final de notre projet est de transmettre une
+information via le corps mais le signal doit passer malgré la présence
+d'un isolant entre le corps et les plaques, ceci afin de simuler un
+pantalon ou un sac qui pourrait séparer le corps du téléphone par
+exemple. Nous avons donc réitéré les études en plaçant des couches
+Fig. 16
+de feuilles de papier (de 1 à 10 feuilles pour ajuster l’épaisseur) entre
+les plaques et la main pour voir si le signal passait. Nous avons pu automatiser les mesures
+grâce au matériel prêté par le GREYC complété par une étude à l’analyseur de réseau de
+Orange.
+Résultats (Fig. 17) : Tracé du gain en fonction de la fréquence avec présence des feuilles de
+papier isolantes
+On note d’abord que les fréquences basses jusqu’à 400 kHz environ sont très atténuées
+contrairement à ce qu’il se passait sans les feuilles (comparaison avec la Fig. 11 page 7). Ceci
+confirme l’importance d’utiliser une porteuse de fréquence élevée pour transmettre
+l’information. Certaines zones où le gain chute brutalement comme 1,5 MHz ou 3,3 MHz
+n’apparaissent pas sur l’analyseur de réseau d’Orange (annexe C, Fig. C3), nous n’en
+tiendrons pas compte (elles sont sûrement dues au matériel utilisé). Entre 400 kHz et 4 MHz
+le gain est élevé, ainsi on pourra utiliser une de ces fréquences comme porteuse pour la
+transmission d’information (cependant nous sommes limités à 1 MHz par la bande passante
+des composants électroniques que nous utiliserons par la suite : l’AO TL081 et le multiplieur
+AD 633). On note également que le gain diminue quand l’épaisseur augmente, il faudra qu’il
+reste assez grand pour que le dispositif final fonctionne malgré la présence des vêtements.
+Lycée Charles de Gaulle, CAEN – 2018-2019
+
+8
+
+Influence de l'épaisseur de l'isolant sur le gain (de 0 à 10 feuilles)
+0
+
+0
+
+500000
+
+1000000
+
+1500000
+
+2000000
+
+2500000
+
+3000000
+
+3500000
+
+4000000
+
+Fig. 17
+4500000
+
+-10
+-20
+-30
+-40
+-50
+-60
+
+0 feuille
+
+1 feuille
+
+2 feuilles
+
+3 feuilles
+
+4 feuilles
+
+-70
+
+6 feuilles
+
+7 feuilles
+
+8 feuilles
+
+9 feuilles
+
+10 feuilles
+
+5 feuilles
+
+-80
+-90
+-100
+
+Voir l’annexe C pour les résultats complets de l’étude : influence de la nature de l’isolant et de
+la personne, et modélisation du dispositif {Cuivre-isolant-Homme-isolant-Cuivre}.
+Bilan : le critère n°1 pour choisir la porteuse sera d’utiliser une fréquence comprise entre
+400 kHz et 1 MHz.
+Fig. 18
+
+4. Transmission par câble série RS232 : influence du baud
+a. Description du câble
+Pour répondre à notre objectif nous avions besoin d’un moyen pour envoyer des
+informations à partir d’un ordinateur. Nous avons utilisé le port série RS232 et la
+bibliothèque Python serial. Mais comme les ordinateurs du lycée n’ont pas de port
+série il a fallu utiliser un adaptateur USB-série (Fig. 18).
+La première expérience fut d'utiliser un câble série pour relier
+deux ordinateurs entre eux. À l'aide de deux programmes en
+langage Python (Fig. 19), nous avons transmis des caractères,
+un ‘1’ ou un ‘0’ ou n’importe quelle lettre. Ci contre les
+programmes pour envoyer et recevoir le caractère ‘0’ en
+continu. La variable baud permet de régler la vitesse de
+transmission (voir ci-contre Fig. 19). Le câble série se compose
+de 10 broches, néanmoins nous avons découvert que deux
+seulement sont utiles pour transmettre un signal dans un
+sens : la broche de transmission (fil marron) et la masse (Fig.
+19). Après les avoir repérés grâce à un oscilloscope, nous
+avons déterminé les caractéristiques des signaux qui
+transitent par ces câbles grâce à une carte d’acquisition.
+
+Fig. 19
+
+b. Caractéristiques des signaux
+Les bits sont envoyés en série, c’est à dire les uns à la suite des
+autres. Ci-contre (Fig. 20) l’oscillogramme de la transmission du
+caractère ‘K’ (01001011), avec un bit de départ et un bit d'arrêt,
+donc 1 octet + 2 bits, soit 10 bits en tout.
+Fig. 20
+
+Lycée Charles de Gaulle, CAEN – 2018-2019
+
+9
+
+Expérience : acquisition du signal envoyé par le port RS232 avec une interface d’acquisition
+Résultat (Fig. 21) : acquisition du ‘1’ envoyé à 300 bauds
+
+T
+
+Tutile
+Fig. 21
+
+Les ‘1’ sont envoyés en
+continu, le signal est donc
+périodique. On obtient T = 34
+ms donc F = 1/T = 29 Hz, Umax =
+7,0 V et Umin = - 6,4 V.
+
+Point important : pour la suite
+de notre projet et en
+particulier pour la partie
+modulation, pour moduler
+correctement ce signal, ce
+qu’il est important de connaître n’est pas la période T du signal dans sa globalité mais la
+période minimale d’alternance des 0 et 1 binaires, ce que nous appellerons la « période utile
+pour la modulation : Tutile » (voir Fig. 21) à partir de laquelle on peut calculer la fréquence
+utile pour la modulation : Futile = 1/Tutile. La période T correspond quant à elle à la durée
+d’envoi d’un caractère.
+Expériences : pour connaître l’influence du baud sur la fréquence nous avons renouvelé les
+acquisitions en faisant varier le baud avec toutes les valeurs possibles et mesuré à chaque
+fois T et Tutile puis calculé F et Futile. Les résultats sont récapitulés dans le tableau ci-dessous
+et sous forme graphique :
+34
+17
+8,3
+4,3
+2,1
+1,1
+1,0
+1,0
+1,0
+1,0
+
+F=1/T (Hz)
+
+On constate qu’à partir
+de 14400 bauds la
+fréquence reste fixe à
+1000 Hz (Fig. 22 et 23),
+cela nous a surpris car
+cela signifie qu’il est
+inutile d’aller au dessus de ce débit, les caractères ne
+seront pas transmis plus rapidement. Pourquoi d’autres
+débits sont-ils alors proposés ? Après de nombreux essais
+nous avons compris que c’était le temps de traitement
+des instructions Python qui limitait la fréquence. La
+fréquence utile, elle, continue bien d’augmenter, de façon
+linéaire avec le débit (Fig. 24).
+Bilan : d’après ces résultats notre objectif sera de
+transmettre un caractère avec un débit compris entre 300
+et 14400 bauds, ce qui nécessitera dans un premier temps
+d’arriver à moduler et démoduler une tension carrée de 7 V
+d’amplitude environ avec une fréquence comprise entre
+140 Hz et 6,7 kHz. On constate également que le débit en
+baud correspond à Futile×2, ce qui est cohérent puisque la
+durée de 1 bit correspond à Tutile/2 (1 baud = 1 bit/s).
+
+29
+59
+120
+233
+476
+909
+1000
+1000
+1000
+1000
+
+Fig. 22
+
+Temps « utile » (ms)
+
+Fréquence « utile » (Hz)
+7,0
+143
+3,6
+278
+1,8
+556
+0,94
+1066
+0,46
+2174
+0,23
+4444
+0,15
+6667
+0,12
+8333
+0,08
+12500
+0,06
+16667
+
+1200
+1000
+
+F ré q u e n c e (H z)
+
+300
+600
+1200
+2400
+4800
+9600
+14400
+19200
+28800
+38400
+
+T (ms)
+
+800
+600
+400
+200
+0
+
+Fig. 23
+0
+
+5000
+
+10000
+
+15000
+
+20000
+
+25000
+
+30000
+
+35000
+
+40000
+
+45000
+
+Baud
+
+18000
+16000
+14000
+Fré q u e n ce "u tile " (H z)
+
+Résultats (Fig. 22) :
+
+Baud
+
+12000
+10000
+8000
+6000
+4000
+
+Fig. 24
+
+2000
+0
+
+0
+
+5000
+
+10000
+
+15000
+
+20000
+
+25000
+
+30000
+
+baud
+
+Lycée Charles de Gaulle, CAEN – 2018-2019
+
+10
+
+35000
+
+40000
+
+45000
+
+II.
+
+La chaîne de transmission réalisée et les problèmes rencontrés
+1. Expérience de modulation : influence de la fréquence de la porteuse (critère
+de choix n° 2)
+
+a. Circuit de modulation d’amplitude
+Expérience : pour découvrir la modulation d’amplitude nous avons réalisé une expérience de
+transmission d’un son (signal analogique) vers un poste radio :
+GBF 1 (signal à
+transmettre) U
+Générateur de
+tension
+continue U0
+
+Additionneur :
+Amplificateur
+opérationnel
+TL081
+Us = - (U + U0)
+
+Antenne
+émettrice
+
+GBF 2 (porteuse) Up
+
+
+
+
+
+Antenne
+réceptrice
+
+Multiplieur :
+Tension
+modulée
+Um = Us×Up/k
+
+Poste radio AM
+réglé sur 220 kHz
+
+GBF 1 : tension modulante sinusoïdale U (signal à transmettre) :
+basse fréquence fs = 440 Hz (La3) ou 20 Hz-20 kHz (domaine audible), amplitude 2,0 V
+Générateur de tension continue : tension de décalage U0 = 4,0 V
+GBF 2 : tension porteuse sinusoïdale Up, fréquence fp = 220 kHz, amplitude 10,0 V
+
+Fig. 25
+
+Enveloppe
+supérieure
+(en bleu)
+
+Grâce à des animations et sites internet nous avons compris
+le principe de la modulation d’amplitude : la tension de
+décalage qui est additionnée permet de ne pas avoir de
+surmodulation, pour cela on doit avoir U0 > amplitude de U.
+Ainsi l’enveloppe supérieure (positive) (Fig. 25) du signal
+modulé Um est l’image du signal modulant U, c’est donc elle
+qu’il faudra récupérer quand on démodulera Um.
+
+ Bilan : le choix de moduler en amplitude nous a été conseillé par Orange pour notre
+projet puisque que c’est ce type de modulation qui est utilisé dans les bornes de
+paiement NFC.
+b. Application à la modulation d’un signal carré et choix de la fréquence de la porteuse
+Expériences (Fig. 26) : pour commencer nos
+tests nous avons choisi un signal modulant
+carré de fréquence 400 Hz, nous ne voulions
+pas partir sur une fréquence trop élevée dès le
+départ.
+Ce signal est envoyé dans un montage
+additionneur. C'est un montage composé d'un
+amplificateur opérationnel appelé AO TL081
+qui permet d’additionner une tension
+constante pour éviter la surmodulation qui
+provoquerait une distorsion du signal lors de la
+démodulation.
+
+3 résistances
+de 10 kΩ
+
+Fig. 26
+
+-15V 0V +15V
+
+U
+Sortie vers
+multiplieur : -(U+U0)
+
+U0
+
+Lycée Charles de Gaulle, CAEN – 2018-2019
+
+AO
+Ligne de masse
+
+11
+
+Ensuite le signal entre dans le montage
+multiplieur AD633 (Fig. 27) où il sera multiplié
+avec la tension porteuse. On modifie la
+fréquence de la porteuse et on observe
+l’influence sur l’allure du signal modulé.
+
+Entrée signal
+modulant
+
+Résultats : visualisation à l’oscilloscope de Um
+
+Entrée
+porteuse
+
+Signal modulant à 400 Hz
+
+Fig. 28
+
++15V 0V -15V
+
+Fig. 27
+
+Multiplieur
+
+Sortie vers corps
+humain : Um
+
+Fig. 29
+Masse reliée
+à la terre
+
+Pour que l’enveloppe supérieure de la
+tension modulée soit la plus proche
+possible du signal à modulant il faut que la
+Signal modulé avec une
+Signal modulé avec une
+fréquence de la porteuse fp soit bien plus
+porteuse à 4 kHz
+porteuse à 220 kHz
+élevée que fs (Fig. 28 et 29). Il n’existe pas
+de critère officiel pour choisir fp en fonction de fs, nous avons donc décidé de nous baser sur
+nos expériences : pour que l’enveloppe soit l’image du signal modulant, la porteuse doit
+avoir une fréquence au minimum 10 fois plus grande que la fréquence du signal modulant
+(ce sera notre critère n°2 pour choisir la porteuse).
+Bilan :
+ Critère n°1 : 400 kHz < fp < 1 MHz et critère n°2 : fp > 10 × 6,7 kHz = 67 kHz
+ Au cours de l’année, l’ingénieur d’Orange nous a conseillé d’utiliser la fréquence 455
+kHz. Raison évoquée : cette fréquence n’est utilisée par aucune application (aucune
+radio par exemple). Ceci nous convient car cette fréquence est compatible avec les
+critères n°1 et 2, c’est donc celle que nous utiliserons.
+ Autres choix : amplitude de la porteuse fixée à 2,0 V et U0 fixée à 12 V > 7 V pour
+éviter la surmodulation.
+2. Démodulation : influence du temps de décharge du condensateur
+a. Circuit de démodulation d’amplitude
+Pour un signal modulant sinusoïdal nous avons trouvé qu’on pouvait
+démoduler en utilisant un montage détecteur d’enveloppe suivi d’un filtre
+passe-haut. Les charges et décharges successives du condensateur C1 du
+détecteur d’enveloppe (voir l’annexe D pour le schéma du montage)
+permettent de ne conserver que l’enveloppe positive de la tension modulée.
+Puis le filtre passe-haut élimine la composante continue pour centrer le signal
+sur l’axe des abscisses et ainsi retrouver le signal modulant d’origine.
+
+Fig. 30
+Trop lente
+
+Trop rapide
+
+b. Comment choisir les composants ?
+Pour choisir correctement les composants du détecteur d’enveloppe la
+décharge de C1 caractérisée par sa constante de temps τ = R1C1 ne doit être ni
+trop rapide ni trop lente Fig. 30 (voir l’annexe D pour l’aspect théorique et
+résolution de l’équation différentielle). Le critère est ainsi : TS > τ >> Tp soit TS >
+R1C1 >> Tp ou en fréquence : fs < 1/R1C1 << fp. fs est la fréquence « utile » à
+14400 bauds soit 6,7 kHz et fp = 455 kHz, donc on a :
+
+Idéale
+
+6,7 kHz < 1/R1C1 << 455 kHz
+Lycée Charles de Gaulle, CAEN – 2018-2019
+
+12
+
+Expériences : il y a une énorme marge de manœuvre entre 6,7 kHz et 455 kHz. Nous avons
+donc fixé R1 à 1 kΩ et fait varier C1 pour observer l’allure du signal démodulé.
+Résultats : la meilleure démodulation est obtenue pour C1 = 0,1 µF soit 1/R1C1 =
+1/(1.103×0,1.10-6) = 10 kHz. Pour le filtre passe-haut nous avons choisi R2 = 1 MΩ et C2 = 1
+µF ce qui donne une fréquence de coupure à – 3 dB fc = 1 / (2πR2C2) = 1 / (2π×1.106×1.10-6) =
+0,2 Hz : toutes les fréquences supérieures à cette valeur passeront avec peu d’atténuation
+alors que la composante continue à 0 Hz sera coupée.
+c. Application à la démodulation d’un signal carré et problèmes rencontrés
+Expérience (Fig. 31) (sans corps humain dans un
+1er temps) : le signal modulé arrive au niveau de
+la diode (au début nous avions utilisé une diode
+classique mais les résultats n’étaient pas bons
+donc nous avons changé pour une diode au
+germanium avec un seuil de 0,3 V au lieu de 0,6 V
+pour la précédente).
+Résultats (Fig. 32) : visualisation à l’oscilloscope
+de la tension démodulée (porteuse à 455 kHz) :
+Fig. 32
+
+Fig. 31
+Diode au
+germanium
+
+Sortie : signal
+démodulé
+
+Entrée signal
+modulé Um
+Masse reliée à
+la terre
+
+Problème : le signal démodulé n’est pas assez carré pour
+ressembler au signal de départ (signal binaire Fig. 28 et 29), et il n’a
+pas la bonne amplitude (Fig. 21). La démodulation d’un signal carré
+est plus compliquée que celle d’un signal sinusoïdal car la tension
+modulante décroit très brutalement (Fig. 34). Il faudrait que le
+condensateur C1 se décharge plus rapidement pour suivre
+l’évolution mais dans ce cas les zones de tensions constantes sont
+mal démodulées (voir expérience ci-dessous).
+Expérience : on diminue la valeur du
+condensateur C1 pour obtenir une
+décharge plus rapide.
+
+Fig. 33
+
+Résultats (Fig. 33) : le signal obtenu
+n’est pas l’image du signal
+modulant, la démodulation n’est
+toujours pas satisfaisante.
+
+Fig. 34
+
+d. Solution trouvée : utilisation d’un montage comparateur
+Expérience (Fig. 35) : nous revenons sur notre choix initial de C1 = 0,1 µF
+et nous ajoutons un montage comparateur à la suite du circuit de
+démodulation. Le comparateur à AO TL081 permet de sortir un signal
+carré, le principe du montage est le suivant : on choisit une tension de
+comparaison (bascule) qui est ici la masse soit 0 V et dans l'entrée + de
+l'amplificateur on fait arriver le signal démodulé. Lorsque la tension
+d’entrée est inférieure à la tension de bascule 0 V, la sortie renvoie -15 V
+et quand elle est au dessus de la tension de bascule, la sortie renvoie
++15 V, ce qui donne en sortie un signal très propre qui varie entre -15 V
+et +15 V.
+Lycée Charles de Gaulle, CAEN – 2018-2019
+
+-15V 0V +15V
+
+Comparaison à
+0V
+Sortie
+
+AO
+
+Entrée du signal
+démodulé
+
+Fig. 35
+
+13
+
+Résultats (Fig. 36) : on obtient une tension carrée de fréquence égale à la
+fréquence du signal modulant initial. Calibre 5V/div et 0,5 ms/div donc T =
+5 × 0,5 = 2,5 ms soit F = 400 Hz mais nous notons une dissymétrie : la
+durée du front bas (-15V) est légèrement plus petite que la durée du front
+haut (+15V), cela peut à priori être gênant pour reconnaître les bits si la
+dissymétrie est trop grande.
+
+Fig. 36
+
+Par ailleurs la tension est trop élevée, en effet nous avions mesuré que la
+tension délivrée par un câble RS232 a environ une amplitude de 7 V et
+non de 15 V, nous allons donc utiliser un diviseur de tension.
+
+Entrée
+
+Expérience (Fig. 37) : le pont diviseur de tension est constitué de deux
+résistances connectées entre elles, l'une est reliée à la masse et l'autre à la
+tension d'entrée. La sortie se trouve entre les deux résistances et dans
+notre cas il divise la tension par 2,2 (R1 / (R1+R2) = 10 /
+22,2 = 1/2,2).
+
+12,2 kΩ
+
+Sortie
+
+Résultat (Fig. 38) : 15 V / 2,2 = 6,8 V (calibre 5V/div)
+Fig. 38
+
+3. Influence de la fréquence du signal modulant
+
+10 kΩ
+
+Expérience : pour atteindre le débit maximal de 14400 bauds il faut
+parvenir à moduler et démoduler un signal carré de fréquence 6,7 kHz.
+Pour tester le comportement de notre chaîne nous avons progressivement
+augmenté la fréquence du GBF 1 tout en gardant la porteuse à 455 kHz.
+Résultats (Fig. 38) : Ce n’est que vers 10 kHz
+que nous avons constaté des distorsions
+notables comme le montrent les captures
+ci-contre. Le signal final n’est plus carré et la
+dissymétrie entre la durée du front haut et
+du front bas s’est accentuée.
+
+Sortie du filtre passe haut
+pour fS = 10 kHz
+
+Bilan : la lecture des bits à 14400 devrait
+être correcte puisque 6,7 kHz < 10 kHz.
+
+Masse
+
+Fig. 37
+
+Sortie du diviseur de tension
+pour fS = 10 kHz
+
+Fig. 38
+
+4. Influence du corps humain : chute de tension observée et solution trouvée
+Expérience (Fig. 39) : lorsque nous avons remplacé le câble électrique
+par le corps humain pour passer du circuit de modulation au circuit de
+démodulation nous avons constaté une chute de tension avant le
+détecteur d’enveloppe empêchant la démodulation. Pour résoudre ce
+problème nous avons utilisé un montage suiveur à base d’AO TL081.
+Dans ce montage l’entrée est reliée à l’entrée + de l’AO et l’entrée – est
+reliée à la sortie. Ainsi on a Us = Ue : la tension n’est pas modifiée mais
+l’impédance d’entrée très importante de l’AO fait que la chute de
+tension disparait. Un autre montage suiveur est également nécessaire
+après le diviseur de tension, avant d’envoyer le signal vers l’ordinateur
+n°2, pour les mêmes raisons.
+
+Fig. 39
+
+-15V 0V +15V
+
+AO
+Sortie
+Entrée
+
+Masse
+
+De plus un problème est apparu avec l’utilisation d’ordinateurs portables ou des microordinateurs Raspberry Pi : leur masse est flottante, il faut donc penser à la relier à la masse
+du montage.
+Lycée Charles de Gaulle, CAEN – 2018-2019
+
+14
+
+III.
+
+Conception d’antennes résonantes et caractéristiques
+
+Objectif : le but est de concevoir des antennes boucles résonantes (à 455 kHz) comme on en
+trouve dans les bornes NFC et les téléphones portables (à 13,56 MHz) pour remplacer les
+plaques de cuivre qui servent d’antennes droites, notamment au niveau de l’antenne
+réceptrice afin de constituer un filtre et d’éliminer toutes les porteuses autres que 455 kHz.
+1. Principe de la résonance d’un circuit RLC série
+Fig. 40
+Expérience : en mécanique quand on soumet un
+système oscillant (exemple : ressort + masse) à des
+oscillations forcées alors on constate que l’amplitude
+des oscillations est maximale pour une certaine
+fréquence.
+Expérience (Fig. 40) : en électricité le principe est le
+même : le GBF en entrée délivre une tension
+sinusoïdale Ue de fréquence f variable et d’amplitude
+constante (2,0 V). On fait varier la fréquence.
+Résultat : on constate que la tension de sortie US a
+une amplitude maximale pour une certaine valeur de la fréquence (6,0 kHz ici) appelée
+fréquence de résonance notée fr.
+
+Bilan : nous devons concevoir des antennes avec fr = 455 kHz, deux propriétés seront
+nécessaires :
+Propriété 1 : fr = 1 / 2π*(LC)1/2 (voir l’annexe E pour le principe physique)
+Propriété 2 : à la résonance Ue et Us sont en phase (Us = R × i)
+De plus on définit la fonction de transfert H du montage par la relation H = Us
+/ Ue et le gain en décibel par la relation GdB = 20*log(H).
+2. Influence du nombre de spires sur l’inductance
+Principe : nous utilisons la propriété 2 ci-dessus pour concevoir une antenne
+résonante à la fréquence de la porteuse soit 455 kHz en bobinant un nombre
+de spires noté n autour d’un cylindre en carton de diamètre D (Fig. 41 et 42).
+
+Fig. 41 : bobinage
+autour du cylindre
+en carton
+
+Expérience 1a : confection d’une bobine résonante à 455 kHz avec la
+méthode du déphasage nul
+Données : D = 6,3 cm ; C = 2,2 nF ; Fil diamètre d = 0,6 mm ; Résistance R = 10
+Ω ; Nombre de spires n = ? (C’est la valeur recherchée)
+Expérience : on enroule le fil de cuivre autour du cylindre jusqu’à ce que Us
+et Ue soient en phase.
+Résultat : on trouve qu’il faut n = 23 ± 1 spires
+Expérience 1b : tracé du diagramme de Bode du gain en fonction de la
+fréquence pour vérifier la fréquence de résonance et mesurer la bande
+passante et le facteur de qualité
+Expérience : au départ les mesures de Ue et Us étaient
+effectuées manuellement puis nous avons décidé de
+les automatiser en utilisant un générateur de signaux
+sinusoïdaux muni de deux entrées CH1 et CH2 reliées à
+Ue et Us. Les données sont ensuite transférées vers le
+logiciel Regressi qui nous permet de tracer la courbe
+souhaitée.
+Lycée Charles de Gaulle, CAEN – 2018-2019
+
+Fig. 42 : méthode
+du déphasage nul
+pour repérer la
+résonance
+(observation de Us
+et de Ue en phase)
+
+Fig. 43 : gain en fonction
+de la fréquence
+
+15
+
+Résultats (Fig. 43) : fr = 440 ± 10 kHz
+Bande passante à -3 dB : Δf = 160 ± 10 kHz (f1 = 362 kHz et f2 = 522 kHz)
+Facteur de qualité : Qexp = fr / Δf = 440 / 160 = 2,8 ± 0,2
+Comparaison avec les valeurs théoriques :
+Lth = 1 / (2πfr)2*C = 1 / (2π*455.103)2*2,2.10-9 = 5,6.10-5 H = 56 µH
+Rtotale = R + Rgénérateur + Rbobine avec R = 10 Ω, Rgénérateur = 50 Ω et Rbobine < 1 Ω donc négligeable
+par rapport à 60 Ω.
+Qth = (1/Rtotale) * (L/C)1/2 = (1/60) * (56.10-6 / 2,2.10-9)1/2 = 2,7
+Δfth = fr / Q = 455 / 2,7 = 17.101 Hz
+Bilan : Les valeurs théoriques sont en accord avec les valeurs expérimentales. Cependant la
+fréquence de résonance obtenue expérimentalement est un peu en dessous de 455 kHz.
+Nous avons donc décidé de procéder autrement pour plus de précision ; c’est ce que nous
+détaillons dans l’expérience 2.
+Expérience 2 : recherche de la fréquence de résonance en fonction du nombre de spires
+Données : tube cylindrique en carton de diamètre D = 6,3 cm ; R = 100 Ω (on a augmenté R
+pour que la tension Us soit plus grande) ; C = 2,2 nF ; Fil diamètre d = 0,6 mm
+Expérience : on est parti d’une bobine de 100 spires, on a mesuré la fréquence de résonance
+par la méthode du déphasage nul puis nous avons diminué le nombre de spires de 5 en 5
+puis de 1 en 1 jusqu’à 0 pour enfin tracer fr en fonction de n (Fig. 44) ainsi que L en fonction
+de n (Fig. 45).
+Tracé de fr(n) :
+Incertitude sur la fréquence de résonance : ±
+10 kHz
+
+Tracé de L(n) et modélisation pour comparer
+avec les modèles théoriques :
+L = 1 / (2πfr)2*C
+Premier modèle : on assimile notre bobine
+expérimentale à un solénoïde : L = µ0*S*n2 / l
+avec µ0 une constante appelée permittivité du
+vide ; S la surface d’une section ; n le nombre
+de spires ; l la longueur du solénoïde. Dans ce
+modèle, L(n) est une fonction du second degré
+de type L = a*n2
+Résultat (Fig. 46) : écart expérience-modèle :
+5,6 %. Le modèle n’est pas validé (écart > 5%)
+Nous allons tenter de trouver un modèle plus
+adapté ; le modèle du solénoïde n’est pas le
+mieux adapté pour modéliser notre bobine.
+
+Fig. 44 : influence du nombre de
+spires sur la fréquence de
+résonance
+
+Fig. 45 : influence du nombre de
+spires sur l’inductance de la
+bobine
+
+Fig. 46 : Modélisation de
+L(n) par une fonction en n²
+Ecart exp-modèle 5,6%
+
+Lycée Charles de Gaulle, CAEN – 2018-2019
+
+16
+
+Deuxième modèle : L(n) est une fonction puissance du type L = a*nb
+Fig. 47 : modélisation de
+L(n) par une fonction en nb
+Ecart exp-modèle 4,3%
+
+Résultats (Fig. 47) : écart expérience-modèle : 4,3
+%. Ce modèle est plus pertinent que le précédent.
+Valeurs des paramètres de modélisation :
+a = (17 ± 4).10-8 H et b = 1,84 ± 0,06 (intervalle de
+confiance à 95 %)
+
+D’après Orange pour une antenne réalisée en fil
+bobiné, le paramètre p doit être compris entre 1,8
+et 1,9 (voir annexe F : modèle utilisé par Orange pour la conception d’antennes) ; ce qui est
+bien notre cas puisque nous avons trouvé 1,84 ± 0,06.
+Conclusion : en utilisant ce modèle, on obtient n = (L/a)1/b = (56.10-6/17.10-8)1/1,84 = 23,3
+spires. Pour construire nos bobines résonantes à 455 kHz il ne faudra pas un nombre entier
+de spires.
+Expérience 3 : confection de deux nouvelles bobines : B2 et B3
+Expérience : nous avons réalisé deux nouvelles bobines en nous approchant le
+plus possible de 23,3 spires puis nous avons tracé le diagramme de Bode pour
+vérifier leur fréquence de résonance.
+Données : D = 6,3 cm ; C = 2,2 nF ; Fil diamètre d =
+0,6 mm ; Résistance R = 10 Ω
+Bobine B2 :
+Résultats (Fig. 48) : fr = 455 ± 10 kHz
+Bande passante à -3 dB : f1= 384 kHz f2= 549 kHz
+Δf = 165 ± 10 kHz
+Facteur de qualité :
+Qexp = fr / Δf = 460/165 = 2,8 ± 0,2
+
+Fig. 48
+
+Fig. 49
+
+Bobine B3 :
+Résultats (Fig. 49) : fr = 455 ± 10 kHz
+Bande passante à -3 dB : Δf = 160 ± 10 kHz
+Facteur de qualité :
+Qexp = fr / Δf = 455 / 160 = 2,8 ± 0,2
+3. Influence du phénomène d’induction sur la résonance
+Expérience 1 : nous souhaitons transmettre de l’énergie de la bobine B2
+vers la bobine B3 par induction, en travaillant à la fréquence de résonance
+de 455 kHz. Pour cela la 1ère bobine est intégrée dans un circuit RLC série
+(circuit 1) et la 2ème bobine est mise en parallèle avec un condensateur et
+une DEL (circuit 2). Puis les deux bobines sont approchées l’une de l’autre
+(Fig. 50 et 51).
+
+Fig. 50
+
+Données :
+Montage 1 : R = 0 Ω ; C = 2,2 nF ; bobine B3 (L = 56 µH)
+Montage 2 : DEL ; C = 2,2 nF ; bobine B2 (L = 56 µH)
+
+Fig. 51
+
+Résultat : la DEL s’allume.
+Lycée Charles de Gaulle, CAEN – 2018-2019
+
+17
+
+Expérience 2 : tracé du diagramme de Bode du gain en fonction de la fréquence de
+l’ensemble circuit 1 / circuit 2 (sans la DEL)
+Ue : entrée du circuit 1
+Us : en parallèle sur la bobine du circuit 2
+Résultat (Fig. 52) : on constate que la courbe
+est déformée ; fr = 460 ± 30 kHz (410 à 470)
+Bande passante à -3 dB :
+f1= 404 kHz f2= 480 kHz Δf = 76 ± 10 kHz
+Facteur de qualité : Qexp = fr / Δf = 460 / 76 = 6,1
+± 0,2
+
+Fig. 52 : gain en fonction de la fréquence
+pour l’ensemble bobine 2 + bobine 3
+
+Bilan : nous pouvons transmettre de l’énergie entre les deux bobines sans qu’elles ne se
+touchent. La fréquence de résonance est un peu modifiée, nous devons donc vérifier que la
+bande passante est suffisante pour transmettre le signal modulé (voir ci-dessous).
+4. Comparaison avec la bande passante nécessaire pour transmettre les
+données binaires
+Expérience :
+Le spectre du signal de la
+Fig. 53 est obtenu grâce à
+la fonction Fourier du
+logiciel Regressi (ci-contre
+l’exemple
+de
+la
+transmission du caractère
+‘1’ à 600 bauds)
+
+Fig. 53 : évolution temporelle du signal
+Fig. 54 :
+amplitude des
+harmoniques en
+fonction de leur
+fréquence
+
+Résultat (Fig. 54) : des harmoniques d’amplitudes importantes sont présentes jusqu’à 0,5
+voire 1 kHz environ. Elles ne seront pas coupées lors de la transmission puisque la bande
+passante mesurée est de 76 kHz (voir expérience 2 ci-dessus et Fig. 52). D’une façon
+générale d’après Orange il faut prévoir une bande passante environ 10 fois plus grande que
+la fréquence utile à transmettre. A 14400 bauds, la fréquence utile est de 6,7 kHz (voir Fig.
+22 p10), la largeur de la bande passante doit donc être d’environ 67 kHz, ce qui correspond à
+un facteur de qualité de 6,5.
+Conclusion : le dispositif mis en place est adapté puisque sa bande passante est de 76 kHz,
+donc supérieure aux 67 kHz nécessaires. Ainsi les antennes bobinées vont jouer le rôle de
+filtre passe bande, notamment l’antenne réceptrice : les signaux modulés à 455 kHz seront
+reçus et transmis au circuit de démodulation avec le gain maximum tandis que ceux qui
+utilisent une autre porteuse seront transmis avec un gain beaucoup plus faible (ils sont
+coupés). Nous avons ainsi intégré dans notre montage final l’antenne bobinée B3 en tant
+qu’antenne réceptrice.
+
+Lycée Charles de Gaulle, CAEN – 2018-2019
+
+18
+
+IV.
+
+Etude du rayonnement des antennes et du corps humain
+
+Rappel important : la communication entre l’antenne émettrice et réceptrice doit se faire
+uniquement dans deux cas :
+ Soit en champ proche : distance inférieure à 10 cm entre les deux antennes
+ Soit lorsque le corps humain est présent entre les deux antennes
+Le but de cette partie est donc d’étudier le rayonnement reçu par l’antenne réceptrice
+lorsque l’antenne émettrice est alimentée par un signal à 455 kHz afin de déterminer sa
+« distance d’action ».
+1. Influence de la distance entre les deux antennes (les deux bobines étant parallèles
+et posées à plat sur la table)
+Expérience (Fig. 55) : les 2 bobines sont espacées d’une distance d (centre à centre). La
+bobine B2 (émettrice) reste fixe et on mesure la tension UB3 au niveau de la bobine B3
+(réceptrice). B2 est intégrée dans un circuit RLC (R = 10 Ω ; C = 2,2 nF) et B3 est en parallèle
+avec un condensateur (C=2,2 nF) pour obtenir la résonance à 455 kHz. La tension aux bornes
+de B2 est maintenue constante à UB2 = 2,0 V (amplitude). On trace ensuite le rapport r =
+UB3/2,0 (en %) en fonction de d (mesures chaque cm)
+Résultats (Fig. 56) :
+ Nous avons tenté de modéliser
+les points expérimentaux par une
+fonction exponentielle
+décroissante r(d)=a*exp(-d/d0)
+mais l’écart expérience-modèle
+est très important (9,2% > 5%) et
+aucun autre modèle ne convient
+mieux.
+ Pour d = 10 cm bord à bord (d =
+10 + 7 = 17 cm) on mesure r = 3%
+
+Fig. 55
+
+Fig. 56 : tracé du rapport de la
+tension aux bornes de B3 par la
+tension aux bornes de B2, en fonction
+de la distance séparant les bobines.
+
+2. Influence de la distance entre les deux antennes (les deux bobines étant parallèles
+et posées perpendiculairement à la table)
+
+Fig. 57
+
+Expérience (Fig. 57) : on renouvelle l’expérience précédente en changeant
+l’orientation des bobines.
+Résultats (Fig. 58) :
+ On observe une augmentation
+puis une diminution de UB3 quand
+d augmente
+ Pour d = 10 cm bord à bord (d = 10
++2,5 = 12,5 cm) on mesure r = 18%
+
+Fig. 58 : tracé du rapport de la
+tension aux bornes de B3 par
+la tension aux bornes de B2,
+en fonction de la distance
+séparant les bobines.
+
+Bilan des expériences (Fig. 56 et 58) : pour que le dispositif ne se déclenche pas lorsque d >
+10 cm et sans la présence du corps humain entre les 2 antennes, il faut que le circuit de
+réception ne « réponde pas » (voir étape 7 page 2) si l’antenne réceptrice génère une
+tension inférieure à 18% de la tension émettrice. Pour notre projet nous avons ajusté ce
+seuil de fonctionnement en modifiant l’amplitude de la porteuse que nous avons fixée à
+3,0V.
+Lycée Charles de Gaulle, CAEN – 2018-2019
+
+19
+
+3. Cartographie du rayonnement du corps humain
+En plus de servir dans la conception même de notre projet, les
+antennes nous ont permis d’étudier le rayonnement émis par le corps
+humain et d’en dresser une cartographie. L’ingénieur d’Orange (Fig.
+59) nous a accompagné dans cette étude en mettant à notre
+disposition un analyseur de spectre portable et autonome, donc
+déconnecté de la prise de terre afin que seul le rayonnement soit pris
+en compte (et non les phénomènes de conduction).
+
+Fig. 59
+
+Expérience : une main est posée sur la plaque de cuivre qui joue le rôle d’antenne émettrice
+reliée à la phase du générateur (Fig. 60). Les vêtements (tee-shirt et pantalon) ont été
+quadrillés (8x8 cm²) et numérotés et l’antenne réceptrice est posée dans chaque zone (Fig.
+61 et 63). L’analyseur de spectre fait apparaître un pic autour de 455 kHz dont on mesure
+l’amplitude (Fig. 62). L’étude est réalisée d’abord avec notre antenne B3 (Fig. 61) puis avec
+une antenne résonnante à 455 kHz fabriquée par l’ingénieur lui-même (Fig. 64).
+Fig. 60
+
+Fig. 61
+
+Fig. 62
+
+Résultat (Fig. 65 et 66) : nous avons d’abord normalisé les valeurs
+obtenues en divisant toutes les tensions mesurées par la tension la
+plus faible. Les zones de valeur 1,0 (± 10%) sont donc celles qui
+émettent le moins (en bleu), et celles de valeur 2,0 ou 3,0 (± 10%)
+émettent deux ou trois fois plus (en rouge). Nous constatons que
+certaines zones ont tendances à moins rayonner : le bas du ventre, le
+bassin et le bas des jambes. (Voir l’annexe G pour les résultats
+complets de l’étude : rayonnement du corps humain : incertitude de
+mesure et influence de la personne).
+Bilan : étant donné que le téléphone se trouve le plus souvent dans
+une poche du pantalon, donc dans les zones qui rayonnent le moins, il
+était nécessaire que notre dispositif fonctionne dans ces zones-là, ainsi
+il fonctionne partout, ce qui est confirmé expérimentalement.
+
+Fig. 64
+
+Fig. 63
+
+Fig. 65 : Lory tee-shirt devant
+(antenne Orange)
+2,5
+2,6
+
+2,6
+
+2,4
+
+2,3
+
+3,6
+
+2,8
+
+4,0
+
+4,4
+
+3,0
+
+2,3
+
+2,0
+
+1,7
+
+3,0
+
+3,0
+
+1,8
+
+3,2
+
+3,2
+
+2,1
+
+2,7
+
+2,8
+
+1,3
+
+1,3
+
+1,8
+
+2,8
+
+2,0
+
+1,8
+
+1,3
+
+1,6
+
+2,0
+
+1,8
+
+2,0
+
+1,3
+
+1,4
+
+1,3
+
+1,2
+
+1,5
+
+1,6
+
+Fig. 66 : Lory pantalon devant
+(antenne Orange)
+
+CONCLUSION
+Notre travail nous a permis d’aboutir à un dispositif fonctionnel
+utilisant le corps humain pour transmettre de l’information sans
+danger. Pour parvenir à ce résultat nous avons dû acquérir des
+connaissances et expérimenter sur de nombreux sujets dont nous
+n’avions pas de connaissances initiales comme la programmation
+Python, la communication par port-série RS232 et Bluetooth, la
+modulation et la démodulation de signaux, les fonctions de transfert
+et diagrammes de Bode, la résonance, la bande passante de circuits RLC et d’antennes
+boucles rayonnantes, les micro-ordinateurs Raspberry pi, le fonctionnement de composants
+électriques et bien sûr le rayonnement du corps humain et son comportement en fonction
+de la fréquence. Les problèmes rencontrés ont été très nombreux mais ils ont tous été
+surmontés, notre dispositif est fonctionnel avec chaque humain testé et pourrait constituer
+une aide importante dans le quotidien des personnes en situation de handicap comme nous
+l’a confirmé Cynthia. Nous vous remercions pour toute l’attention portée à notre sujet.
+Lycée Charles de Gaulle, CAEN – 2018-2019
+
+20
+
+4,0
+
+

@@ -1,0 +1,688 @@
+Olympiades de physique concours 2007
+L’aspiration au vélo. Quel bénéfice ?
+
+Lycée Charles Baudelaire
+Cran-Gevrier (74)
+BRUN Elodie
+CASTERA Ambre
+COHEN Guillaume
+MASFARAUD Steven
+MORISSET Thomas
+POIRIER Steven
+Professeur responsable M BOTTOS
+
+Page 1
+
+SOMMAIRE
+INTRODUCTION (p3)
+PROBLÉMATIQUE (p3)
+I. Démarches théoriques (p4)
+II. Mise en œuvre des différents capteurs (p5)
+II-1 Le capteur de vitesse
+a) Notre première étude : Le tachymètre
+b) Montage avec le NE555
+c) Le capteur de vitesse optique (le choix final)
+II-2 Le capteur de force
+a) Montage à jauges de contraintes
+b) Le capteur de force (le montage final)
+III. Mesures et interprétations (p17)
+III.1 Nos premières mesures
+III.2 Essais en extérieur:
+a) problèmes rencontrés
+b) Protocole de mesures
+c) Résultats et interprétations
+IV. Autres possibilités (p21)
+CONCLUSION (p23)
+REMERCIEMENTS (p24)
+BIBLIOGRAPHIE (p25)
+
+Page 2
+
+INTRODUCTION
+Actuellement en Terminale Scientifique au lycée Charles Baudelaire à Cran-Gevrier
+(Hte Savoie), nous sommes un groupe de six élèves sollicités par M Bottos afin de
+mener à terme un projet d’Olympiades sur deux ans. C’est à l’issue de l’option de
+MPI (Mesures Physiques et Informatiques) que l’on nous a convié à participer à
+l’atelier scientifique pour la session 2007. L’idée d’un travail en groupe nous a
+intéressé.
+En ce qui concerne le sujet de notre projet, notre choix s’est porté sur « L’Étude du
+Phénomène d’Aspiration », en vélo qui nous permet d’étudier les forces et les
+vitesses. Mais nous nous sommes heurtés à de nombreuses difficultés, que ce soit
+au niveau de l’électronique ou des connaissances requises pour notre étude.
+Néanmoins, nous pensons avoir réussi à étudier une grande partie du champ qui
+s’offrait à nous. Nous retracerons dans ce mémoire les principales étapes de notre
+réflexion.
+La finalité de ce projet.
+Tout le monde un jour ou l’autre a regardé une course de vélo et a observé les
+images assez spectaculaires des vélos se suivant les uns derrière les autres.
+D’ailleurs, les cyclistes savent bien que lorsque l’on est derrière un autre vélo, on
+est « à l’abri ».
+Ce qui motive donc cette étude, c’est de savoir quel pourcentage d’effort en moins
+gagne un cycliste en se mettant à l’abri derrière un autre. N’est-ce qu’une
+sensation ?
+
+PROBLÉMATIQUE
+Le phénomène d’aspiration consiste en un déplacement de fluide (ici l’air) qui créé
+une perturbation augmentant la résistance de ce fluide. Ainsi, si l’on place deux
+cyclistes en file indienne, l’un d’entre eux subira les effets négatifs de cette
+perturbation, c’est à dire qu’il devra lutter contre la résistance de l’air alors que l’autre
+sera « aspiré » n’ayant pas à lutter autant contre la perturbation, c’est à dire qu’il
+fournira moins d’effort.
+Afin de démontrer la véracité de notre hypothèse de travail, nous avons mis au
+point deux modèles de capteurs de vitesse ainsi qu’un capteur de force qui nous
+permettront d’une part de mesurer la force exercée sur les pédales, d’autre part de
+conserver une vitesse constante tout au long de la mesure. Les capteurs seront
+couplés à un vélo et mis en relation avec une interface qui nous permettra de traiter
+informatiquement les données.
+On se demandera quel pourcentage d’effort sera fourni en moins par le cycliste
+subissant le phénomène d’aspiration sous différentes conditions.
+Page 3
+
+I. Démarches théoriques
+Afin de mettre en évidence le phénomène d’aspiration, nous cherchons à quantifier
+l’effort du cycliste. Nos expériences se feront dans des conditions analogues (à une
+vitesse constante et identique ainsi qu’avec des conditions climatiques similaires)
+dans deux cas : tout d’abord lorsqu’il ne subit pas l’aspiration, puis lorsqu’il la subit.
+Notre hypothèse est que le phénomène d’aspiration réduit l’effort à fournir.
+Précisons que ce dernier s’applique à un objet en mouvement placé derrière un
+autre. L’objet de tête crée une perturbation dans l’air en se déplaçant et l’objet qui
+suit subit une « aspiration »
+Nous utiliserons un système prenant en compte des mesures physiques
+permettant de quantifier l’effort.
+Tout d’abord, nous nous servirons de jauges d’extensiométrie, permettant ici de
+mesurer des contraintes mécaniques. On pourra alors les appeler jauges de
+contraintes. Il s’agit de capteurs dont la résistance varie sous l’effet d’une
+déformation mécanique produite par un effort, une pression ou une vibration. Ainsi,
+nous pourrons obtenir une courbe représentative de la force appliquée par le cycliste
+sur les pédales.
+Ensuite, nous nous servirons d’un tachymètre acheté dans le commerce. Il nous
+permettra de maintenir une vitesse constante tout au long de l’expérience. Pour
+comprendre son fonctionnement, nous avons fabriqué nous même un autre
+tachymètre. Ainsi, nous avons appris que les composants principaux de ce capteur
+sont un aimant et un ILS (Interrupteur à Lame Souple).
+Nous pensions placer les jauges de contraintes sur l’axe de la roue. Ceci posait un
+problème pour faire ressortir les fils électriques. En effet ceux-ci seraient solidaires
+avec la roue et tourneraient avec elle car nous relierions un élément fixe à un
+élément en mouvement. Puis nous avons voulu utiliser une prise jack pour empêcher
+les fils de tourner et de s’enrouler autour de la roue mais cette idée n’a pas
+fonctionné.
+Notre dernière idée est de placer les jauges de contrainte sur les pédales, ou
+plutôt sur une plaque solidaire à celles-ci.
+Nous pensions de plus utiliser les ondes radio pour remplacer les fils. On placerait
+donc un émetteur qui transmettrait l’information à un récepteur, détaché du vélo et
+raccordé à l’ordinateur par une interface permettant d’obtenir des courbes.
+Cependant, faute de moyens, nous n’avons pu mettre cette idée en application et
+conserverons donc les fils.
+En ce qui concerne le tachymètre, l’ILS se situe sur la fourche du vélo. Ce dernier
+est immobile alors que l’aimant (en mouvement) est placé sur un rayon au même
+niveau que l’interrupteur. Lorsque l’aimant passe devant, l’interrupteur se ferme et
+une impulsion est émise observable grâce à une mise en forme. Le signal est
+récupéré par système de tachymétrie qui convertit la fréquence du signal en tension.
+Celui-ci est relié à une interface associée à l’ordinateur. Le logiciel Logger Pro
+convertit ensuite cette tension en une courbe représentant la vitesse.
+Nous avons de plus décidé de créer notre propre capteur de vitesse en nous
+servant, cette fois ci, de principes optiques à l’aide d’un laser et d’un photorécepteur.
+Avec ces instruments, en comparant les efforts des cyclistes dans les deux
+situations exposées, et en contrôlant la constance de la vitesse, nous pourrons
+réfuter ou conforter notre hypothèse.
+
+Page 4
+
+Schéma fonctionnel
+Fig 21
+
+Vélo
+
+Mesure de la vitesse
+
+Mesure de l’effort
+mécanique
+
+Vitesse constante
+Fig 1
+II. Mise en œuvre des différents capteurs
+II-1 Le capteur de vitesse
+a) Notre première étude : Le tachymètre
+Après avoir étudié le fonctionnement d’un tachymètre acheté en grande surface, nous nous
+sommes rendus compte que celui-ci fonctionnait grâce à deux éléments essentiels : un
+aimant et un ILS (interrupteur à lames souples). Ce dernier comporte deux broches
+métalliques séparées qui, à l’approche d’un aimant, se mettent en contact et émettent un
+signal observable sur le logiciel Logger Pro.
+ILS
+
+fig 2
+C’est à partir de l’étude de ce tachymètre que nous avons envisagé de fabriquer notre
+propre capteur de vitesse. Pour cela, nous avons cherché un composant qui pouvait
+convertir la fréquence en tension.
+Nous avons trouvé un convertisseur avec peu de composants qui répondait à nos critères :
+le capteur LM2907, composant réalisant directement la conversion fréquence tension.
+
+Page 5
+
+Tachymètre
+Circuit spécialisé
+LM2907
+Caractéristique de
+conversion de la
+fréquence en tension
+
+Tension d’entrée issue du
+montage capteur
+
+Tension de sortie vers l’interface
+
+fig 3
+Afin de réaliser une maquette du circuit de notre capteur de vitesse nous avons utilisé une
+plaque test sur laquelle nous voulions placer l’ILS (associé une résistance) relié au montage
+du capteur LM2907, qui est lui même raccordé à une interface jointe à l’ordinateur dans
+lequel le logiciel Logger Pro convertit la tension en vitesse.
+Schéma fonctionnel de notre capteur de vitesse
+
+Capteur ILS
+
+LM2907 :
+Convertisseur de
+fréquence en
+tension
+Fig 4
+Schéma global
+
+Fig 5
+
+Page 6
+
+Interface
+
+Le composant LM2907 n’était pas une bonne option car celui-ci, de conception ancienne,
+n’existait plus que dans de rare négoce et à des prix prohibitifs. Sans pouvoir tester le
+montage nous avons donc changé d’option.
+b) Montage avec le NE555
+Nous avons alors remplacé le LM2907 par un monostable à NE555 avec une conception
+différente.
+ILS
+
+Monostable à
+NE555
+
+moyenneur
+
+Vers l’interface
+
+Fig 6
+Avant de procéder à notre montage, nous avons dû réaliser une évaluation du tour
+de la roue, donnée essentielle pour le calcul de la vitesse avec le logiciel Logger Pro.
+Ceci nous a permis de calculer le nombre de tours de roue par seconde pour un
+cycliste roulant à 5 et à 30 km/h, ce qui nous donne la fréquence. Cette dernière
+nous permet d’obtenir la période d’un tour de roue dans chacun des cas. À partir de
+cela et à l’aide de la formule T=1,1RC nous avons pu déterminer les valeurs les plus
+convenables des condensateurs à utiliser afin qu’ils ne saturent pas. Nous avons
+utilisés un condensateur de 220µF associé à deux autres condensateurs de 47µF.
+Par ailleurs, suite à l’élaboration de notre schéma global nous avons procédé à la
+réalisation de notre montage sur une plaque test en remplaçant l’ILS par un GBF
+dans le but de tester le montage du monostable. Au début le GBF fournissait des
+impulsions positives. Cela ne donnait pas lieu à des valeurs exploitables. En effet, le
+signal en sortie était négatif. Nous avons donc du modifier les impulsions émises par
+le GBF pour que celles-ci soient négatives et que le signal en sortie soit positif.
+Une fois les essais avec le GBF concluants nous avons remplacé ce générateur par
+l’ILS. Le circuit ayant fonctionné lors des tests avec l’ILS, nous avons décidé de
+réaliser le circuit définitif.
+Circuit définitif
+
+fig 7
+
+fig 8
+
+Nous avons effectué des tests statiques (en laboratoire) et nous nous sommes
+rendus compte que les condensateurs se chargeaient et se déchargeaient trop
+Page 7
+
+lentement, cela entraînant un temps de réponse excessivement lent. De ce fait nous
+ne pouvions pas lire la vitesse en instantané.
+C’est à la suite de ce constat que nous avons eu l’idée d’utiliser un autre type de
+capteur de vitesse : un capteur laser. Cependant, afin de vérifier la fiabilité des
+valeurs mesurées à l’aide de ce capteur, nous avons également décidé de placer sur
+le vélo un tachymètre commercial, cela permettant en plus de visualiser la vitesse en
+temps réel, afin de la maintenir constante.
+c) Le capteur de vitesse optique (le choix final)
+Pour obtenir la vitesse l’option choisie finalement s’est orientée vers un système
+numérique. On utilise un capteur existant du lycée : une fourche optique. Cette
+fourche optique pouvant à la fois fonctionner à l’intérieur, de manière autonome, et à
+l’extérieur à l’aide d’un laser.
+Ce système est utilisé normalement pour détecter le passage d’objet volumineux.
+
+Fig 9
+Ce système est placé sur la roue arrière, d’un côté un laser est fixé et de l’autre la
+fourche optique.
+
+Pointeur
+laser
+
+Entrée
+externe de
+la fourche
+optique
+
+Fig 10
+Au début, nous comptions détecter les passages des rayons. Mais ceux-ci n’étant
+pas espacés régulièrement, cela nous donnait une allure de vitesse avec des fortes
+discontinuités, puisque le pas n’était pas constant.
+
+Page 8
+
+Vitesse (m/s)
+
+Pic de
+discontinuité
+Évolution
+moyenne de la
+vitesse
+Ici le vélo est
+en phase
+d’accélération
+
+Temps (s)
+
+.
+fig 11
+
+Pour résoudre le problème des rayons, il a fallu s’affranchir ce ceux-ci. Pour cela
+nous avons placé un ruban adhésif tout autour de la roue, ne laissant que deux
+encoches, puis finalement plus qu’une seule. En ne prenant qu’une seule ouverture
+nous ne perdons pas de précision dans les mesures de la vitesse et nous nous
+affranchissons du problème de symétrie des ouvertures. Les résultats nous
+donnèrent une entière satisfaction.
+Un autre problème se posa avec la fréquence d’échantillonnage. La détection ne
+s’effectue pas lorsque celle-ci est trop élevée. Nous avons remarqué ce problème
+lorsque nous avons pris un nombre d’échantillons trop grands, en effet lors des tests
+la distance parcourue et la vitesse ne s’affichaient plus au bout d’un moment. La
+durée de l’échantillonnage doit donc être supérieure à la durée de détection.
+Nous avons dû trouver un compromis entre un échantillonnage élevé avec une nondétection de la porte et un échantillonnage faible donnant une faible précision.
+Nous avons fixé son niveau à 180 échantillons par minutes. Ce qui donne des
+résultats pleinement satisfaisants.
+
+Ouverture
+
+Fig 12
+L’avantage de cette méthode est son traitement informatique, directement exploitable
+dans le logiciel dédié. Le calcul de la distance s’effectue dans le logiciel Logger Pro.
+
+Page 9
+
+Renvoie une valeur
+distance dans le
+tableau de mesure à
+chaque passage
+devant le photo
+capteur
+
+fig 13
+Une fois la distance déterminée la vitesse en est déduite en effectuant sa dérivée.
+II-2 Le capteur de force
+a) Montage à jauges de contraintes
+Il s’agit des jauges d’extensiométrie, ici utilisées en tant que capteur de contraintes.
+Les jauges sont des résistances variables qui subissent des déformations (étirement
+ou compression) ce qui fait varier leur résistance, dont la valeur au repos est de 120
+Ω. Suivant la contrainte, c‘est à dire l’augmentation ou la diminution de la longueur
+du capteur, cette valeur peut changer positivement (étirement) ou négativement
+(compression).
+Remarquons que seule la variation
+de la longueur utile (cf schéma)
+influence la résistance de la jauge. La
+longueur du support, bien que variable,
+n’entre pas en considération.
+Le support est composé d’un
+matériau isolant et les jauges, elles
+mêmes,
+sont
+composées
+de
+conducteur ou de semi conducteur
+déposé en couche fine. La colle qui
+sert à les fixer sera l’isolant.
+Fig 14
+
+Page 10
+
+fig 15 Schéma expliquant les variations des valeurs des jauges de contraintes
+Elles seront fixées sur un support métallique souple, solidaire à la pédale. Ce
+dernier subira les mêmes courbures que la pédale sur laquelle il est fixé. Collées de
+manière à être sur des faces opposées du support, elles subiront des contraintes
+opposées. Lorsque l’une sera étirée, l’autre sera comprimée et vice et versa.
+
+fig 16
+Schéma mettant en évidence le placement des jauges et la variation de leur valeur
+relative à cet emplacement
+
+•
+
+Le pont de Wheatstone
+
+« Du nom de son inventeur, le physicien anglais Charles Wheatstone (1802 1875), ce montage permet de mesurer des résistances avec une grande précision. »
+Le pont de Wheatstone est composé de deux lignes de deux résistances placées
+en parallèle et alimentées par un courant continu. Sachant la valeur de trois de ces
+résistances, ce montage permet de déterminer avec une grande précision la valeur
+de la quatrième.
+Lorsque le Voltmètre V indique 0
+⇒ UCD = 0 et i = 0
+⇒ R1.ia = R2.ib (1)
+⇒ Rx.ia = R3.ib (2)
+En divisant (2) par (1) :
+Rx R3
+R1.R3
+=
+! Rx =
+R1 R 2
+R2
+Il s’agit de la relation basique. Malgré le fait que nous ayons deux inconnues, nous
+pourrons nous servir des propriétés du pont de Wheatstone pour déterminer la valeur
+de la tension différentielle.
+Page 11
+
+En sachant la valeur de nos
+résistances et des jauges de contraintes
+au repos, on est en mesure de
+déterminer une relation entre la tension
+délivrée par le générateur et la valeur
+des jauges de contraintes qui nous
+permettra de déterminer la tension
+différentielle.
+
+•
+
+Le montage suiveur
+Un montage suiveur
+caractéristiques suivantes :
+
+possède
+
+les
+
+Sa résistance d’entrée est infinie (de
+l’ordre de 1012Ω).
+Sa résistance de sortie : faible (quelques
+Ω).
+On a : UE=US
+
+Fig 17
+On souhaite récupérer la tension différentielle. Pour ne pas charger cette tension
+on utilise des montages suiveurs branchés comme ci après :
+
+fig 18
+Page 12
+
+La tension différentielle étant très petite, il nous faut aussi l’amplifier. Nous utilisons
+pour cela trois étages d’amplification qui multiplient chacun par 10 la force du signal.
+
+fig 19
+•
+
+Le montage
+
+Il sera relié à une interface qui nous facilitera l’interprétation des données avec un
+traçage de courbes sur Logger pro en prenant en compte la formule déterminée avec
+le pont de Wheatstone.
+b) Le capteur de force
+Les jauges de contraintes n’étant pas
+prêtes, nous nous servons d’un capteur
+de pression placé sur une pédale
+modifiée, aménagée pour recevoir le
+capteur. Un découpage de la pédale a
+été nécessaire ainsi que la fabrication
+d’une armature de métal servant autant
+à le tenir qu’à le protéger. Le capteur
+sature à 50N (soit 5kg), nous avons donc
+du placer un amortisseur, ici un morceau
+d’isolant thermique dont on se sert pour
+isoler les maisons.
+Fig 20
+On admet qu’un coureur cycliste fourni un effort symétrique
+sur chacune des pédales ainsi on ne mesurera sa force que
+sur une pédale.
+Un étalonnage du capteur a été nécessaire. Pour cela, nous
+avons placé différentes masses connues dessus. Nous avons
+utilisé la relation P=m.g pour déterminer la force appliquée sur
+pédale. Nous avons effectué cet étalonnage plusieurs fois
+pour différentes épaisseurs.
+
+Fig 21
+Page 13
+
+Fig 22
+Un des résultats obtenu, donné ci-dessous, avec un morceau d’isolant de 1 cm.
+
+fig 23 Graphe de la force en fonction de la masse marquée
+Nous pouvons observer pour des valeurs faibles de masse que le morceau d’isolant
+joue bien son rôle d’atténuateur. Pour des valeurs supérieures son rôle est moindre.
+Probablement parce que l’isolant est compressé plus fortement et le contact avec la
+jauge se fait mieux.
+Après des tests en extérieur, nous avons été obligé d’augmenter l’épaisseur de
+l’isolant et nos résultats furent très positifs. En effet, en mettant un isolant de 2cm
+nous avons pu observer que celui-ci nous donnait une réponse linéaire, comme le
+montre les graphes figures 24-25.
+
+fig 24
+Page 14
+
+Nous pouvons observer une réponse linéaire du capteur en fonction des masses
+marquées comme l’indique le coefficient de corrélation.
+La force est négative car le capteur travaille en compression.
+Ce graphe nous permet d’en déduire un second qui donne la force réelle appliquée
+sur la pédale en fonction de la force mesurée par le capteur.
+
+fig 25
+Cela nous permet d’en déduire une relation :
+Fpédale=-2,6105.Fmesurée par capteur +9,535
+Cette relation nous permet d’en déduire la force a tout instant sur la pédale.
+
+Malgré nos résultats intéressants obtenus, le capteur de force posait plusieurs
+problèmes dont certains avaient été soulignés par le jury des éliminatoires.
+-problèmes de compression et de retour de compressions dus à la nature du patin
+utilisé pour atténuer.
+-saturation du capteur au-delà de 150 N.
+-usure rapide du patin, ce qui obligeait à chaque fois à un réétalonnage.
+Une nouvelle conception de ce capteur a vue le jour après de multiples réflexions et
+recherches :
+- tout d’abord mettre de deux points de contact solide, ici en bois très dur, afin
+de diviser la force appliquée sur la jauge.
+- fixation d’une vis permettant l’étirement de la jauge, on peut régler sa valeur à
+l’étirement entre 50N et 0N.
+Ce qui permet de doubler la plage de mesure du capteur directement, en effet si l’on
+fixe la valeur à 50N et que l’on fait le zéro pour cette valeur. Le capteur pourra varier
+de 0 à -100N en compression au lieu de -50N à +50N. On peut rappeler qu’une
+compression donne une composante négative.
+
+Page 15
+
+Vis permettant
+l’étirement de la
+jauge
+
+Jauge de contrainte
+
+Fig 26 représentation de face et photo correspondante
+Etude de l’étalonnage :
+
+L’étalonnage montre que la relation obtenue est linéaire. La nouvelle relation s’écrit
+alors :
+Fpédale=-11,46.Fmesurée par capteur +6,254
+On remarque ainsi que le coefficient directeur est plus élevé, ainsi on peut appliquer
+sur la pédale une force plus importante. Ainsi on risque moins de saturer le capteur.
+
+Page 16
+
+III. Mesures et interprétations
+Ce dernier système a été très récemment élaboré, c’est pour cela que les mesures
+suivantes ont été effectuées avec le premier système d’atténuateur (patin) de notre
+capteur.
+III.1 Nos premières mesures
+Lors de la mise au point de notre « vélo capteur », nos premiers essais se sont fait
+en intérieur avec un support de vélo. Celui-ci nous a permis de découvrir différents
+problèmes pratiques.
+L’allure observée de la force sur la pédale est très caractéristique. Nous avons pu
+mettre en évidence d’après celui-ci deux grandeurs. La première est celle de
+l’intensité, plus le cycliste appuie sur la pédale plus la déviation verticale est
+importante. La seconde information est la fréquence de pédalage du cycliste
+représenté par la période du signal (figure 26).
+L’exploitation s’effectue sur la valeur moyenne de la force durant la période de
+mesure.
+Force appliquée sur
+la pédale
+La pédale est en
+bas
+
+Temps (s)
+
+La pédale est en
+haut
+
+Fig27
+
+Mesures obtenues en salle :
+Le premier essai concluant en salle a été réalisé avec le matériel dans un sac à dos.
+Nous y avons placé l’interface et le portable relié aux différents capteurs.
+Les résultats sont présentés sous la forme suivante (figure 27) où l’on voit distance
+parcourue, la vitesse et la force appliquée sur la pédale.
+
+Page 17
+
+fig 28
+La vitesse apparaît constante et la
+vitesse moyenne est 7,652 m.s-1
+
+La force moyenne est de 29,33N
+pendant la durée des mesures.
+
+Pour évaluer l’effort sur une distance parcourue, on détermine en phase de vitesse
+constante la force moyenne appliquée sur la pédale.
+III.2 Essais en extérieur
+a) Problèmes rencontrés
+Une fois notre montage totalement fiabilisé, nous avons commencé nos mesures en
+extérieur. Et nous avons été très surpris par les difficultés rencontrées. En effet nous
+pensions avoir réglé tous les problèmes techniques, c’était sans compter sur le soleil
+qui perturbait de manière intermittente le capteur optique, donnant une allure de la
+vitesse chaotique.
+Nous avons réglé le problème en entourant le capteur par un cache noir sous la
+forme ruban adhésif. Nous avons aussi utilisé un prolongateur pour protéger l’entrée
+du capteur diminuant ainsi le phénomène de réflexion du soleil sur le ruban.
+Saturation du capteur de force :
+Nous nous sommes aperçus que le capteur de force saturait pendant les mesures
+faites à l’extérieur, tandis qu’il ne saturait pas l’intérieur. Nous avons probablement
+sous-évalué les frottements solides durant nos tests à l’intérieur.
+
+Page 18
+
+La solution fut d’augmenter l’épaisseur de l’isolant. Ce qui régla le problème pour la
+phase de vitesse constante.
+Durant l’accélération, le capteur se sature toujours, ce qui est normal puisque le
+cycliste fournit un effort important pour accélérer. Il met tout son poids sur la pédale.
+Cette saturation est mise en évidence dans le graphe ci-dessous.
+
+Saturation du
+capteur de force
+Phase
+d’accélération
+
+fig 29
+Nos mesures traitent la force moyenne durant une phase de régime à vitesse
+constante donc le fait que capteur sature en phase d’accélération n’est pas
+préjudiciable pour la suite de nos mesures.
+b) Protocole de mesures
+Le protocole de nos mesures consiste à garder une vitesse constante durant 4
+tours de piste de stade dont la longueur de celui-ci est de 250m.
+La première série étant effectuée seule et la seconde série avec un cycliste en
+permanence devant et un écart entre les deux de 1m.
+Ces mesures sont répétées pour différentes vitesses.
+
+Page 19
+
+c) Résultats
+Pour une vitesse de 7m/s ( 25km/h) :
+Voici un exemple de résultats comparé.
+
+Avec cycliste devant
+
+fig 30
+
+sans cycliste devant
+
+Nous pouvons effectuer un calcul d’écart relatif entre ces deux valeurs de forces
+45,99 " 55,52
+moyennes tel que l’écart =
+= "17,2% .
+55,52
+À travers de nombreux essais à cette vitesse, on trouve que la moyenne s’établit
+autour de 17%. Ainsi un cycliste fournit 17 % d’effort en moins lorsque celui-ci est
+derrière un autre vélo à 25 km/h.
+!
+
+Page 20
+
+Cette valeur augmente avec la vitesse, cette affirmation est vérifiée avec les mesures
+suivantes à une vitesse de 30km/h.
+
+Avec cycliste devant
+
+fig 31
+
+sans cycliste devant
+
+On s’aperçoit d’après ces graphiques que le cycliste a de grande difficulté à garder
+une vitesse constante à 30km/h lorsqu’il est seul ce qui correspond effectivement à
+ses sensations lors des mesures.
+Nous pouvons néanmoins estimer pour une vitesse moyenne identique que
+l’économie de l’effort à fournir est de l’ordre de 18,5 % en moyenne.
+IV Autres possibilités
+Nous avons été pris par le temps et les dernières mesures sont venues tardivement
+pour couronner avec succès cette étude.
+Néanmoins nous avons découvert que nous avions plein de champ d’application
+pour notre vélo.
+Premièrement, nous devrions compléter cette étude pour d’autres vitesses.
+D’autres part, il serait bien de quantifier cet effort dans différentes configurations
+météo, avec notamment l’influence du vent. On pense que cela peut augmenter cette
+valeur de manière très significative.
+Vérifier l’importance de la distance entre les vélos.
+
+Page 21
+
+Mesurer l’influence de plusieurs vélos, ce que l’on peut appeler « l’effet peloton ».
+Le phénomène d’aspiration n’est pas seul qui peut être mis en évidence à travers
+cette étude. On peut utiliser notre vélo pour mettre évidence l’influence de différent
+facteur mécanique, comme le gonflement des pneus.
+Nous avons pu d’ailleurs mettre en évidence ce phénomène « par accident »
+lorsque nous avons effectué nos séries de mesures. La force moyenne étant
+supérieure lorsque le pneu est dégonflé.
+
+Page 22
+
+CONCLUSION
+Nous avons réussi par notre étude à quantifier l’effort gagné par un cycliste lorsqu’il
+est derrière un autre dans certaines situations. Quoique cette étude reste à
+compléter, ce qui pourra peut-être fait si nous sommes qualifié pour le national, celleci c’est avéré très riche. Conception de capteur, conception du matériel embarqué,
+réglage du logiciel logger pro, mesures et interprétations.
+Ce projet sur plein de domaines nous a permis d’apprendre un peu le métier de la
+conception.
+
+Page 23
+
+REMERCIEMENTS
+Nous remercions Christiane Contat et Richard Wielenta, aide de laboratoire du
+Lycée Baudelaire, pour toute l’aide qu’ils nous ont fournie, leur patience infinie et leur
+gentillesse.
+Nicolas pour le prêt de matériel utilisé pour les tests en salle.
+Marie, Marine, Pierre-Jean et Bastien d’avoir égayé nos séances d’Olympiades
+durant la première année.
+Mr Bottos, professeur responsable des Olympiades au Lycée Baudelaire.
+Les organisateurs et sponsors du concours des Olympiades pour nous avoir permis
+de participer à cette expérience enrichissante.
+
+Page 24
+
+BIBLIOGRAPHIE
+Technologie d’électronique – Terminales F2, de J.Mornand, édition Dunod (p158 et
+241)
+Memothec électronique, circuit et composants, de J.C. Chauveau, G. Chevalier et
+B. Chevalier, édition Educalivre (p 3.111)
+
+Page 25
+
+

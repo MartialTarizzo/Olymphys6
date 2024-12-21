@@ -1,0 +1,1078 @@
+maison-tournesol@laposte.net
+
+Dasty Anne, Chaverot Yannaël, Degrandi Vincent
+1
+
+Présentation Générale : .............................................................................................................................................. 3
+I Présentation ............................................................................................................................................................. 4
+I 1 Problématique : ............................................................................................................................................... 4
+I 2 Le système d’exploitation : ............................................................................................................................... 4
+I 3 Cahier des charges :.......................................................................................................................................... 4
+I 3 1 Les contraintes : ........................................................................................................................................ 4
+I 3 3 La pieuvre : .............................................................................................................................................. 4
+I 4 Détails du fonctionnement de la maison : .......................................................................................................... 5
+I 5 Les calculs de l’angle de lever et de coucher du soleil : ..................................................................................... 5
+Le relayage classique : ............................................................................................................................................... 6
+II 1 La conception ................................................................................................................................................. 6
+II 1 1 Le schéma de fonctionnement : ................................................................................................................ 6
+III Etude physique...................................................................................................................................................... 6
+III 1 Détermination de l’angle entre le soleil et l’horizon à tout moment de l’année. ............................................... 6
+III 1 1 Posons le problème :............................................................................................................................... 6
+III 1 2 1 le vecteur unitaire
+
+.......................................................................................................................... 7
+
+III 1 2 2 le vecteur unitaire
+
+.......................................................................................................................... 7
+
+III 1 3 Résolution du problème, partie 2 : détermination de l’angle par rapport à l’horizontal............................. 8
+III 1 3 1 Détermination de l’angle  entre les vecteurs unitaires
+
+et
+
+.......................................................... 8
+
+III 1 3 2 Détermination de l’angle  entre l’horizontal et le Soleil : .................................................................... 9
+III 2Puissance surfacique récupérable par le panneau photovoltaïque :.................................................................... 9
+III 2 1 Puissance surfacique reçue par le panneau, prise en compte de l’incidence du Soleil sur le panneau : ....... 9
+III 2 2 . Puissance surfacique reçue par le panneau, prise en compte de l’épaisseur d’atmosphère traversé par la
+lumière : ......................................................................................................................................................... 10
+III 3 Comparaison entre la solution standard et la maison tournante : .................................................................... 12
+III 3 1 La maison choisie et position du problème : .......................................................................................... 12
+III 3 2 Maison standard : ................................................................................................................................. 13
+III 3 3 Maison tournante :................................................................................................................................ 14
+III 3 4 Comparaison des deux maisons : .......................................................................................................... 16
+III 3 5 Comparaison des deux maisons, pour le 21 juin : .................................................................................. 17
+IV) Mesures et Calculs du rendement du panneau photovoltaïque lorsque la maison est fixe ou mobile. .................... 18
+V Conclusion ........................................................................................................................................................... 21
+VI Références .......................................................................................................................................................... 21
+VII Remerciements .................................................................................................................................................. 21
+Annexe n°1 : Programme du Picbasic ....................................................................................................................... 22
+Annexe n°2 : Programme Scilab ( programme de simulation) ................................................................................... 28
+Annexe n°3 : Le relayage classique : ........................................................................................................................ 30
+Annexe n°4 : Expériences : ...................................................................................................................................... 33
+
+maison-tournesol@laposte.net
+
+Dasty Anne, Chaverot Yannaël, Degrandi Vincent
+2
+
+Présentation Générale :
+- Etablissement : Lycée René Cassin, à Tarare (69)
+- Élève du groupe : Dasty Anne, Chaverot Yannaël, Degrandi Vincent. Elèves en terminale
+scientifique, option sciences de l’ingénieur.
+- Professeur coordinateur : Mustapha ERRAMI
+- Professeur collaborateur : Fabien BRUNO
+- Partenaires : - Rectorat de l’académie de Lyon
+- Conseil Régional de Rhône-Alpes
+- Université Claude Bernard de Lyon, M. Roger DUFFAIT
+
+Une maison qui tourne permet non seulement de profiter de paysages différents au cour de la
+journée, et d’exposer les pièces à vivre (salon…) au soleil, mais aussi de récupérer plus d’énergie
+solaire en comparaison avec une maison fixe.
+C’est pourquoi nous avons baptisé notre projet “Maison tournesol” par analogie avec la plante
+tournesol qui s’oriente naturellement vers le soleil pour capter au mieux de l’énergie.
+
+maison-tournesol@laposte.net
+
+Dasty Anne, Chaverot Yannaël, Degrandi Vincent
+3
+
+I Présentation
+I 1 Problématique :
+Comment réaliser la conception matérielle et le fonctionnement électrique et informatique de la maison, qui
+doit être en phase avec le soleil, selon l'heure et la date, sans oublier le facteur sécurité ?
+Nous avons aussi tenu compte du facteur rentabilité du projet.
+
+I 2 Le système d’exploitation :
+Tout d’abord, nous avons recherché les différents fonctionnements d’une maison tournante. Nous avons décidé
+de travailler sur une approche concrète : l’utilisation d’un composant d’aspect simple et complet, le pic basic.
+
+I 3 Cahier des charges :
+I 3 1 Les contraintes :
+Nous nous sommes intéressés aux contraintes suivantes:
+-Le mode manuel (bien être et sécurité du propriétaire) est prioritaire par rapport au mode
+automatique.
+-Une rotation avec un mouvement régulier et une vitesse faible.
+-Un minimum d’entretien.
+
+I 3 3 La pieuvre :
+FP1 : Orienter la maison par rapport à la position du soleil ;
+FC1 : Utilisation de l’énergie électrique EDF si la maison n'est pas autonome ;
+FC2 : Avoir un mouvement régulé à vitesse faible ;
+FC3 : Etre énergiquement autonome ;
+FC4 : Avoir peu d’entretien ;
+FC5 : Faciliter la maintenance ;
+FC6 : Avoir une utilisation automatique/ manuelle.
+
+maison-tournesol@laposte.net
+
+Dasty Anne, Chaverot Yannaël, Degrandi Vincent
+4
+
+I 4 Détails du fonctionnement de la maison :
+Au lever du soleil, la maison est déjà en position pour démarrer son cycle quotidien, selon la date ainsi que la
+saison.
+Tout au long de la journée, celle-ci suit la position du soleil grâce à un programme et à un codeur, nous signalant
+la position de la maison.
+Au coucher du soleil, l’automatisme de la maison la repositionne à sa place initiale.
+
+I 5 Les calculs de l’angle de lever et de coucher du soleil :
+L’expression de la vitesse angulaire est :
+
+ω=
+
+La vitesse angulaire du « soleil » est donc :
+ω= 2π rad/jour
+ω=
+
+rad/h
+
+ω=
+
+rad/s
+
+Le solstice d'été est le 21juin
+L’heure du lever du soleil à Lyon est : 5h50
+L’heure du coucher à Lyon est : 21h33
+La durée de la journée est donc :
+21h33 – 5h50 = 15h43
+
+Soit 15 +
+
+heures
+
+L’angle du solstice d'été (entre le lever et le coucher du soleil) est :
+
+x (15 +
+
+) = 4.11 rad = 235°
+
+Le solstice d'hiver est le 21 décembre
+L’heure du lever du soleil à Lyon est : 8h18
+L’heure du coucher à Lyon est: 16h58
+La durée de la journée est donc :
+16h58-8h18 = 8h40
+
+soit 8+
+
+heures
+
+L’angle du solstice d’hiver est :
+
+x
+
+= 2.27 rad = 130°
+
+Pour les équinoxes de printemps et d'automne, la durée de la journée est de 12h00
+L’angle équinoxe =
+
+= π rad = 180°
+
+maison-tournesol@laposte.net
+
+Dasty Anne, Chaverot Yannaël, Degrandi Vincent
+5
+
+Le relayage classique :
+II 1 La conception
+II 1 1 Le schéma de fonctionnement :
+
+(Voir les explications et les calculs dans l’Annexe n°3)
+
+-
+
+Choix du transistor et calcul de la résistance :
+
+Nous prendrons donc une résistance de 1kΩ (série E24).
+
+-
+
+Calcul des résistances de protection des LED :
+
+Nous allons donc prendre une résistance de 330Ω, de ¼ W. Son repérage étant : orange orange marron
+
+-
+
+Calcul mécanique :
+
+Le grand axe fait 5,5 x 10ˉ² tour pendant que le petit en fait un, mais pour plus de clarté, nous pouvons dire
+que le petit axe fait 18 tours pendant que le grand en fait un.
+Le couple minimum que doit exercer le moteur pour faire tourner le grand axe est égal à
+Cm = 2,943.10ˉ² Nm
+
+III Etude physique
+III 1 Détermination de l’angle entre le soleil et l’horizon { tout moment de l’année.
+III 1 1 Posons le problème :
+Le but de cette étude est de déterminer, l’angle entre l’horizon et le Soleil à n’importe quel moment de l’année.
+Ceci nous permettra de connaître:
+- les instants du lever et du coucher du Soleil,
+-
+
+les positions du Soleil au moment du lever et du coucher,
+
+-
+
+la puissance récupérable idéale (par temps découvert) à tout moment de l’année (nous verrons cette
+étude plus tard).
+
+Pour cela, nous avons tout d’abord déterminé l’angle entre la verticale et le Soleil à tout moment de l’année.
+La raison de ce choix est la suivante :
+Si on introduit :
+: le vecteur unitaire correspondant à la verticale, au point d’observation (M)
+: le vecteur unitaire correspondant à la direction dans laquelle se trouve le Soleil
+ : l’angle entre la verticale et le Soleil à un moment donné
+
+maison-tournesol@laposte.net
+
+Dasty Anne, Chaverot Yannaël, Degrandi Vincent
+6
+
+Dans ce cas, il vient immédiatement que le produit scalaire :
+Soit, comme
+
+sont des vecteurs unitaires :
+
+D’où
+
+III 1 2Résolution du problème, partie 1 : détermination des deux vecteurs unitaires
+Introduction des deux repères utilisés :
+Nous utilisons ici deux repères géocentriques, c'est-à-dire,
+dont les axes ont des directions fixes dans l’espace.
+Le repère {O ; X ; Y ; Z} : ce repère géocentrique est choisi
+pour que le Soleil appartienne au plan OXY.
+Le repère {O ; X’ ; Y’ ; Z’} : ce repère géocentrique est choisi
+pour que l’axe Nord-Sud correspond à l’axe OX’.
+
+III 1 2 1 le vecteur unitaire
+Ainsi, en appelant
+
+la vitesse angulaire du Soleil par rapport à la Terre, on peut aisément exprimer le
+
+vecteur unitaire
+: vecteur unitaire dirigé selon la droite passant par le centre de la Terre e du Soleil, dans
+le repère {O ; X ; Y ; Z} :
+En effet, vue de dessus :
+
+III 1 2 2 le vecteur unitaire
+De plus, en appelant
+
+la vitesse angulaire de rotation propre de la Terre, on peut aisément exprimer le
+
+vecteur unitaire
+: vecteur unitaire dirigé selon la droite passant par le centre de la Terre e et par le point
+M d’observation, dans le repère {O ; X’ ; Y’ ; Z’} :
+Eneffet,
+vue deà profil
+:
+correspond
+la latitude
+du point
+d’observation M.
+Sur le schéma, on voit bien que, en
+norme (la norme d’un vecteur unitaire :
+):
+
+maison-tournesol@laposte.net
+
+Dasty Anne, Chaverot Yannaël, Degrandi Vincent
+7
+
+De plus, vue de dessus :
+
+On voit donc que :
+Ainsi
+Reste à savoir exprimer les vecteurs unitaires du repère {O ; X’ ; Y’ ; Z’}, dans le repère {O ; X ; Y ; Z}:
+
+Sur le premier schéma, en ajoutant les vecteurs unitaires
+
+On peut donc exprimer
+
+;
+
+et
+
+on voit immédiatement que :
+
+dans le repère {O ; X ; Y ; Z} :
+
+En développant :
+
+En regroupant :
+
+III 1 3 Résolution du problème, partie 2 : détermination de l’angle par rapport {
+l’horizontal
+III 1 3 1 Détermination de l’angle  entre les vecteurs unitaires
+
+et
+
+Comme indiqué dans le III.1.1.
+. = cos( )
+Or dans le repère {O ; X ; Y ; Z} :
+
+maison-tournesol@laposte.net
+
+Dasty Anne, Chaverot Yannaël, Degrandi Vincent
+8
+
+On en déduit que :
+cos() = .
+D’où
+Soit, en développant :
+
+Ainsi
+
+III 1 3 2 Détermination de l’angle  entre l’horizontal et le Soleil :
+On introduit :  = 90 - 
+
+III 2Puissance surfacique récupérable par le panneau photovoltaïque :
+III 2 1 Puissance surfacique reçue par le panneau, prise en compte de l’incidence du
+Soleil sur le panneau :
+Le calcul de la puissance surfacique récupérable par le panneau photovoltaïque nécessite de connaître la
+puissance reçue par le panneau.
+De manière idéale, la puissance du rayonnement solaire reçue au niveau de la Terre est de :
+Psurf = 1000 W/m²
+Cette puissance ne correspond pas à la puissance surfacique, reçue par le panneau photovoltaïque.
+En effet, comme nous allons le démontrer ci-dessous, cette puissance reçue pas le panneau dépend de l’angle
+entre la perpendiculaire au panneau et la direction du rayonnement solaire :
+
+En notant Psurf = 1000 W/m², la puissance du rayonnement solaire reçue au niveau de la Terre ;
+La puissance qui passe par la surface S est PS = Psurf.S
+En notant PS’ la puissance reçue par la surface S’, il est clair que PS = PS’ car tous les rayons passant par S passe
+par S’.
+Reste à déterminer S’ :
+
+maison-tournesol@laposte.net
+
+Dasty Anne, Chaverot Yannaël, Degrandi Vincent
+9
+
+Surface
+S’
+Surface S = 1
+m²
+
+L’ 
+panneau
+
+panneau
+L
+
+En appelant L la largeur de S et L’ la largeur de S’, d’après le schéma (et la définition de la fonction cosinus) :
+Il vient immédiatement, en appelant H l’autre dimension de S et S’ :
+S = L.H et S’ = L’.H
+D’où
+
+Soit enfin
+Ainsi en reprenant ce qui a été écrit précédemment :
+PS = PS’
+PS’ = Psurf.S
+En appelant Psurf’ la puissance surfacique reçue par le panneau photovoltaïque :
+Psurf’ = PS’ / S’ = PS / S’
+Ainsi
+Psurf’ = Psurf.S/S’
+D’où
+Psurf’ = Psurf.cos(
+)
+Ainsi la puissance surfacique reçue par le panneau dépend (dans le cas idéal) uniquement de l’angle
+
+.
+
+III 2 2 . Puissance surfacique reçue par le panneau, prise en compte de
+l’épaisseur d’atmosphère traversé par la lumière :
+III.2.2.1. La loi de Beer Lambert
+Lorsque la lumière traverse un milieu absorbant, sa puissance surfacique suit la loi de Beer Lambert :
+Avec :
+
+P0 : la puissance surfacique initiale (avant d’avoir traversée le milieu absorbant)
+L : la taille caractéristique de l’évolution de cette décroissance.
+En ce qui nous concerne, nous savons que la puissance surfacique qui arrive sur l’atmosphère est égale à P 0 =
+1350 W/m² ; tandis que l’on récupère, au maximum, une puissance surfacique P = 1000 W/m² au sol.
+Cette puissance surfacique maximale correspond au cas où la lumière arrive exactement perpendiculairement
+au sol ( = 0°), et où l’épaisseur d’atmosphère traversée par la lumière correspond justement à l’épaisseur
+d’atmosphère (que nous noterons X0 = 80 km)
+
+maison-tournesol@laposte.net
+
+Dasty Anne, Chaverot Yannaël, Degrandi Vincent
+10
+
+On peut alors déterminer le facteur L de la loi de Beer Lambert :
+Ainsi
+Soit
+D’où
+
+A.N.
+
+III.2.2.2. Détermination de l’épaisseur d’atmosphère traversée par la lumière du Soleil :
+En appelant
+X0 = MI1
+X = MI2
+
+l’épaisseur de l’atmosphère
+l’épaisseur d’atmosphère traversée par la lumière (cf. figure)
+
+On peut trouver X en fonction de RT et , en utilisant le théorème de Kashi dans le triangle OMI2 :
+OI22 = MI22 + OM2 – 2. MI2. OM.cos(c)
+Or OM = RT ; OI2 = RT + X0 et MI2 = X
+De plus c = -  et cos( - ) = - cos()
+Ainsi
+(RT + X0)2 = X2 + RT 2 + 2.X.RT. cos()
+Soit
+0 = X2 + 2.X.RT. cos() + RT 2 - (RT + X0)2
+C’est un trinôme dont on peut connaître aisément ses solutions en calculant son discriminant :
+ = 4.RT2. cos2() – 4. [RT 2 - (RT + X0)2]
+ = 4.[RT 2.(cos2() -1) + (RT + X0)2]
+ = 4.[ (RT + X0)2 - RT 2. sin2() ]
+D’où,  étant positif,
+cette solution négative ne nous intéresse pas.
+
+maison-tournesol@laposte.net
+
+Dasty Anne, Chaverot Yannaël, Degrandi Vincent
+11
+
+cette solution est la solution recherchée.
+Ainsi
+
+III.2.2.3. Discussion du résultat :
+Bien entendu ces résultats ne prennent pas en compte la météo à l’instant choisi. On peut bien entendu
+s’attendre à ce que par temps nuageux, la puissance reçue par le panneau soit plus faible.
+Ainsi, en négligeant cet effet (qui n’est pas négligeable), la puissance reçue par le panneau dépend uniquement
+de l’angle entre les rayons lumineux du Soleil et la perpendiculaire au panneau.
+
+III.2.2.4. Puissance récupérée :
+Bien entendu (ou bien malheureusement) seul une partie de l’énergie reçue sera transformée en énergie
+électrique. Ce constat provient du fait que les cellules du panneau photovoltaïque ne sont pas sensibles à tous
+les rayonnements, mais seulement à une partie du rayonnement.
+Le reste de l’énergie reçue étant transformée en énergie thermique.
+Les données du constructeur nous offrent un rendement de l’ordre de 18 % pour un panneau « classique ». C’est
+le rendement que nous adopterons pour la suite.
+
+III 3 Comparaison entre la solution standard et la maison tournante :
+III 3 1 La maison choisie et position du problème :
+La maison choisie pour cette étude est une maison comportant un panneau photovoltaïque sur un toit en un pan,
+dont l’angle entre le toit et l’horizontal est égal à  = 22,5 °
+Le choix de cet angle n’est pas anodin. C’est un angle qui va
+privilégier l’énergie reçue en été (l’angle entre le Soleil et la
+verticale au panneau étant presque nul). C’est d’ailleurs le moment
+de l’année où l’énergie récupérable est la plus grande (en raison de la
+durée du jour).
+Cet angle correspond donc à l’angle pour lequel l’énergie récupérée,
+sur une année complète, sera la plus grande. L’idée étant de
+revendre (à EDF) le surplus de puissance électrique (non
+consommée) fabriquée à un instant donné.
+
+
+
+Notons enfin que dans le cas d’un panneau Solaire, l’angle choisi aurait été plus grand pour privilégier la plus
+grande récupération d’énergie (thermique cette fois-ci) en hiver. Cette saison correspondant à la saison où les
+besoins en énergie thermique sont les plus grands.
+Comme vu précédemment, pour connaître la puissance instantanée reçue par le panneau, il faut connaître l’angle
+ entre la direction du Soleil et la perpendiculaire au panneau.
+Pour comparer les deux solutions, nous allons calculer l’énergie totale reçue par le panneau photovoltaïque au
+cours d’une journée, que nous choisissons, pour la maison standard et la maison tournante. La journée choisie
+est la journée du 28 janvier 2011.
+La surface du panneau photovoltaïque choisi est S’ = 21 m² (surface des panneaux « standards » vendu dans le
+commerce).
+On considèrera une journée totalement ensoleillée.
+Enfin, nous avons calculé les puissances produites par le panneau, dans les deux configurations, en utilisant le
+rendement évoqué précédemment ( = 18 %).
+
+maison-tournesol@laposte.net
+
+Dasty Anne, Chaverot Yannaël, Degrandi Vincent
+12
+
+III 3 2 Maison standard :
+La maison standard est une maison immobile, dont le pan de toit est dirigé vers le Sud (dans l’hémisphère
+Nord).
+La méthode la plus simple pour trouver l’angle entre la verticale du toit et la direction du Soleil est de
+reprendre l’étude faite pour trouver l’angle entre l’horizontale et le Soleil, en remplaçant dans cette étude le
+vecteur unitaire
+
+par un vecteur unitaire
+
+correspondant à la verticale du panneau :
+
+Dans cette résolution :
+Tout revient à remplacer dans la résolution l’angle β par (β - ).
+
+Ainsi l’angle noté
+, à un moment donnée, entre la
+normale au panneau ( ) et le Soleil ( ) se trouve en utilisant
+le résultat obtenu dans la résolution de (cf. III.1.) en
+remplaçant l’angle β par (β - ) :
+
+On rappelle que dans cette solution :
+ correspond à la latitude de notre maison ;
+ correspond à l’angle entre l’axe de rotation de la
+Terre et la perpendiculaire au plan de l’écliptique (plan
+contenant la trajectoire de la Terre) ;
+
+la vitesse angulaire du Soleil par rapport à la Terre ;
+la vitesse angulaire de rotation propre de la Terre.
+Ainsi, on peut donner la puissance reçue par le panneau photovoltaïque, à un instant donné est :
+
+avec
+
+Et la puissance électrique fournie par le panneau :
+
+maison-tournesol@laposte.net
+
+Dasty Anne, Chaverot Yannaël, Degrandi Vincent
+13
+
+Ce qui nous donne au cours de la journée du 28 janvier 2011 :
+
+Ces courbes et calculs ont été trouvés utilisant le programme développé sous le logiciel Scilab que nous
+présenterons plus tard.
+
+Reste à trouver l’énergie électrique produite par le panneau au cours de la journée du 28 janvier 2011. Pour
+cela, on doit ajouter toutes les contributions au cours du temps, c'est-à-dire réaliser l’intégrale :
+
+Que l’on peut approcher en calculant (à l’aide de notre programme) :
+
+Avec
+
+7
+
+.
+
+On obtient le résultat suivant : E = 3,88.10 J
+
+III 3 3 Maison tournante :
+La maison tournante (comme son nom l’indique) tourne avec le Soleil, pour être continuellement en face du
+Soleil. En utilisant l’étude faite pour trouver l’angle entre l’horizontale et le Soleil on peut trouver facilement
+l’angle entre la perpendiculaire au panneau et le Soleil.
+En effet, dans la résolution, nous étions arrivé au résultat intermédiaire suivant :
+On rappelle que dans cette solution :
+ correspond à l’angle entre la verticale et le Soleil
+ correspond à la latitude de notre maison ;
+ correspond à l’angle entre l’axe de rotation de la Terre et la perpendiculaire au plan de l’écliptique
+(plan contenant la trajectoire de la Terre) ;
+la vitesse angulaire du Soleil par rapport à la Terre ;
+la vitesse angulaire de rotation propre de la Terre.
+Comme la maison tourne avec le Soleil, on peut montrer sur un schéma (vu de profil) :
+
+maison-tournesol@laposte.net
+
+Dasty Anne, Chaverot Yannaël, Degrandi Vincent
+14
+
+
+
+panne
+
+ au
+Si on appelle panneau l’angle entre la
+La perpendiculaire
+perpendiculaire au panneau et le Soleil, on
+au panneau
+montre que :
+panneau =  - 
+Ainsi, en on peut donner la puissance reçue par
+le panneau photovoltaïque, à un instant donné
+est :
+
+Le rayonnement
+solaire
+
+
+
+La verticale
+
+Et la puissance électrique fournie par le panneau :
+
+Ce qui nous donne au cours de la journée du 28 Janvier :
+
+Ces courbes et calculs ont été trouvés utilisant le programme développé sous le logiciel Scilab que nous
+présenterons plus tard.
+
+Reste à trouver l’énergie électrique produite par le panneau au cours de la journée du 28 janvier2011. Pour
+cela, on doit ajouter toutes les contributions au cours du temps, c'est-à-dire réaliser l’intégrale :
+
+Que l’on peut approcher en calculant (à l’aide de notre programme) :
+
+Avec
+On obtient le résultat suivant : E = 4,20.107 J
+
+maison-tournesol@laposte.net
+
+Dasty Anne, Chaverot Yannaël, Degrandi Vincent
+15
+
+III 3 4 Comparaison des deux maisons :
+Si on regroupe les deux graphiques :
+
+On voit que dans le cas de la maison tournante, on récupère davantage d’énergie.
+On peut quantifier cette différence :
+
+Sur une journée le panneau de la maison tournante produit 12 % d’énergie en plus que le panneau de la maison
+standard.
+Si on calcule la puissance moyenne (sur 24h) correspondant à ce surplus d’énergie :
+
+Pour être certain que l’utilisation d’un montage pour faire tourner la maison est rentable, il faudrait comparer
+l’énergie consommée par le moteur sur une journée avec ce surplus d’énergie. Sachant que pour cette
+comparaison, on ferait les calculs d’énergie produite non plus pour un panneau de surface 21 m², mais pour des
+panneaux couvrant la quasi-totalité du toit.
+Et ce pour une journée en hiver, durant un minimum de temps.
+
+maison-tournesol@laposte.net
+
+Dasty Anne, Chaverot Yannaël, Degrandi Vincent
+16
+
+III 3 5 Comparaison des deux maisons, pour le 21 juin :
+Si on refait la même étude pour la journée du 21 juin, on obtient les deux graphiques suivant:
+
+Cette fois-ci la différence est beaucoup plus grande.
+En calculant, pour les deux maisons l’énergie électrique produite par le panneau :
+E(standard) = 1,02.108 J
+E(tournante) = 1,33.108 J
+On peut quantifier cette différence :
+
+Sur une journée le panneau de la maison tournante produit 30 % d’énergie en plus que le panneau de la maison
+standard.
+Si on calcule la puissance moyenne (sur 24h) correspondant à ce surplus d’énergie :
+
+On imagine que le surplus d’énergie produit sur une année peut-être très important.
+
+maison-tournesol@laposte.net
+
+Dasty Anne, Chaverot Yannaël, Degrandi Vincent
+17
+
+IV) Mesures et Calculs du rendement du panneau photovoltaïque lorsque la
+maison est fixe ou mobile.
+Notre réalisation étant une maison qui tourne en fonction de la position du soleil, nous avons voulu étudier
+quelle est la différence de puissance acquise, entre une maison fixe et une maison mobile ? Nous avons donc
+fait les expériences suivantes : (voir schémas électrique, ainsi que toutes les informations et explications dans
+l’annexe n°4)
+1ère expérience :
+Pour cette première expérience nous avons utilisé un spot pour simuler le soleil, données récupérées
+manuellement :
+
+Ainsi nous obtenons ces deux courbes :
+
+maison-tournesol@laposte.net
+
+Dasty Anne, Chaverot Yannaël, Degrandi Vincent
+18
+
+Nous avons modélisé ces courbes à celles qui suivent, définies sur [0; 200] s.
+
+Grâce à ces deux courbes, nous pouvons calculer l'intégrale et obtenir le gain, quand la maison tourne.
+Donc sur [0;200] f(x)=-0,073x² + 14,6x + 270 (courbe bleue)
+F(x)=
+
++ 7,3
+
++ 270x (primitive)
+
+u,a=
+(intégrale de la courbe bleue)
+y1 = F(200) – F(0) = 15,3 u,a (unité d’aire)
+y2 = 1000 x 200 = 200 000 (intégrale de la courbe rouge)
+-
+
+= 200000 – 153000
+= 47000 mW
+= 47 W (représenté par l’aire colorée en rouge)
+Donc dans notre expérience nous trouvons un gain de production de 47 Watts.
+2ème expérience :
+Ensuite, nous avons simulé une maison mobile avec un spot en tant que soleil Les données ont été récupérées à
+l’aide d’ une carte d’acquisition. (Picosope).
+
+Heure
+S
+
+intensité
+A
+
+tension
+V
+
+Puissance
+W
+
+0
+10
+20
+30
+40
+50
+60
+70
+80
+90
+96
+
+0,01733
+0,03802
+0,04232
+0,0446
+0,04498
+0,04371
+0,04163
+0,0382
+0,03397
+0,03203
+0,03112
+
+0,0036
+1,0399
+1,2018
+1,294
+1,2988
+1,2206
+1,0876
+0,9272
+0,7628
+0,641
+0,6226
+
+0,0001
+0,0395
+0,0509
+0,0577
+0,0584
+0,0534
+0,0453
+0,0354
+0,0259
+0,0205
+0,0194
+
+maison-tournesol@laposte.net
+
+Dasty Anne, Chaverot Yannaël, Degrandi Vincent
+19
+
+3ème expérience :
+Pour finir, nous avons fait une expérience, avec le rayonnement solaire sur une journée, avec une maison mobile.
+Les données ont été ici relevées avec un logiciel d’acquisition. Voici la courbe :
+
+maison-tournesol@laposte.net
+
+Dasty Anne, Chaverot Yannaël, Degrandi Vincent
+20
+
+V Conclusion
+L’étude physique théorique, nous a montré que la maison tournesol est capable de récupérer davantage
+d’énergie qu’une maison classique. Cependant les expériences réalisées jusqu’à présent ne nous ont pas permis
+de confirmer ce gain d’énergie.
+Ceci est dû probablement aux facteurs suivants :
+-
+
+Nous n’avons pas pu finir le comparatif entre les deux maisons avec le rayonnement solaire,
+
+-
+
+Il est possible que le moteur ne soit pas bien dimensionné par rapport à notre maquette,
+
+-
+
+Nous n’avons pas eu le temps d’améliorer la transmition mécanique, pour réduire les frottements,
+
+-
+
+Le seul comparatif réalisé entièrement, a été réalisée avec un spot de 1000W,
+
+-
+
+Les frottements auraient pu être encore plus réduits.
+
+Pour conclure, nous pouvons dire que ce travail, nous a mis en relation avec plusieurs axes d’étude :
+physique, géophysique, mécanique, électrique et informatique.
+Ce projet nous a permis d’apprendre à travailler en groupe pour surmonter les difficultés rencontrées. Il nous
+a permis aussi de gérer notre stress et le temps.
+De plus, toutes les expériences que nous avons réalisées, nous ont servi à mettre en pratique les
+connaissances acquises lors de notre scolarité.
+Même si plusieurs problèmes sont survenus sur le chemin de la conception de notre projet, nous avons
+réussi à les maitriser et à les régler (ex : les calculs sur les primitives et les intégrales, où Mr Gilgenkrantz
+nous a beaucoup aidé).
+En résumé ce projet nous a beaucoup apporté du point de vue humain et technique.
+
+VI Références
+Nos sources utilisées sont :
+- http://planet-terre.ens-lyon.fr/planetterre/XML/db/planetterre/metadata/LOM-maquette-rotationterre.xml
+-
+
+http://audience.cerma.archi.fr/cerma/pageweb/theorie/solaire/rayont_solaire.html
+
+-
+
+http://www.etapenergie.com/panneau_solaire.html
+
+VII Remerciements
+Nous voudrions sincèrement remercier toutes les personnes qui nous ont aidé et soutenu tout au long de ce
+projet en ce début d’année pour pouvoir ainsi présenter notre projet aux Olympiades de la Physique.
+Notamment :
+-M. Duffait, qui nous a particulièrement aidé en nous expliquant le fonctionnement des panneaux
+photovoltaïques.
+- Les professeurs de la cité scolaire de La plata dont M. Bruno : professeur de physique chimie, M.
+Gilgenkrantz : professeur de mathématiques, M. Pinault et M. Vallon, professeurs d'électricité et de
+mécanique.
+- Nous remercions aussi Mr Errami, le professeur coordonateur du projet.
+-Puis toutes les personnes extérieures qui nous ont aidées pour la fabrication de la maquette .
+
+maison-tournesol@laposte.net
+
+Dasty Anne, Chaverot Yannaël, Degrandi Vincent
+21
+
+Annexe n°1 : Programme du Picbasic
+
+maison-tournesol@laposte.net
+
+Dasty Anne, Chaverot Yannaël, Degrandi Vincent
+22
+
+maison-tournesol@laposte.net
+
+Dasty Anne, Chaverot Yannaël, Degrandi Vincent
+23
+
+maison-tournesol@laposte.net
+
+Dasty Anne, Chaverot Yannaël, Degrandi Vincent
+24
+
+maison-tournesol@laposte.net
+
+Dasty Anne, Chaverot Yannaël, Degrandi Vincent
+25
+
+maison-tournesol@laposte.net
+
+Dasty Anne, Chaverot Yannaël, Degrandi Vincent
+26
+
+maison-tournesol@laposte.net
+
+Dasty Anne, Chaverot Yannaël, Degrandi Vincent
+27
+
+Annexe n°2 : Programme Scilab ( programme de simulation)
+
+maison-tournesol@laposte.net
+
+Dasty Anne, Chaverot Yannaël, Degrandi Vincent
+28
+
+maison-tournesol@laposte.net
+
+Dasty Anne, Chaverot Yannaël, Degrandi Vincent
+29
+
+Annexe n°3 : Le relayage classique :
+II 1 La conception :
+II 1 1 Le schéma de fonctionnement :
+Pour réaliser l’interfaçage d’entrée-sortie nous avons besoin de :
+-En entrée : le codeur, le fin de course et le commutateur.
+-En sortie : Les commandes des relais et de la signalisation.
+
+Calcul des composants :
+Courbes caractéristiques du transistor
+Droite de charge :
+Vcc = Vce + R Ic
+Donc Ic =
+Nous avons deux points caractéristiques :
+Vce = 0
+Ic =
+Ic = 0
+
+Vce = Vcc
+
+Nous pouvons tracer la droite de charge.
+
+maison-tournesol@laposte.net
+
+Dasty Anne, Chaverot Yannaël, Degrandi Vincent
+30
+
+-
+
+Calcul du transistor et de sa résistance :
+
+Les caractéristiques du pic nous donne un courant de sortie de 10 mA.
+Nous avons mesurer à l'ohmmètre la résistance de la bobine du relais : 121Ω .
+Nous pouvons calculer le courant qui traverse le transistor en commutation : Vce = 0V
+Ic =
+
+=
+
+= 41 mA
+
+Nous avons cherché un transistor capable de piloter le relais, nous avons choisi le BFX85.
+Celui-ci a un gain Hfe : 10 en commutation.
+Imax = 1A et P = 0.8W
+Ici :
+Ic = 41 mA donc Ib = 4.1 mA
+Donc,
+R1 =
+=
+= 1075 Ω
+Nous prendrons donc une résistance de 1kΩ (série E24).
+
+-
+
+Calcul des résistances des LED :
+
+-
+
+Pour les LED de signalisation du sens de rotation, elles sont alimentées en 5 V. Elles nécessitent un
+courant de polarisation de 10 mA pour une tension aux bornes de 2V.
+
+5V
+2V
+
+I = 10 mA
+
+R=
+
+= 300Ω
+
+Nous allons donc prendre une résistance de 330Ω.
+Puissance de la résistance: P = UI = 3×10×10ˉ³ ≈ 0,03 W
+Nous prendrons donc une résistance ¼ W
+Repérage : orange orange marron
+
+maison-tournesol@laposte.net
+
+Dasty Anne, Chaverot Yannaël, Degrandi Vincent
+31
+
+-
+
+Calcul mécanique :
+
+Nous allons calculer le rapport entre l’axe moteur et l’axe de la maison, pour savoir combien de tour fait le
+grand axe (maison) quand le petit axe (moteur) en fait un :
+=
+
+= 5,5 x 10ˉ²
+
+Donc le grand axe fait 5,5 x 10ˉ² tour pendant que le petit en fait un.
+Ou on peut calculer combien de tour fait le petit axe pendant que le grand en fait un :
+=
+
+= 18
+
+Donc pour plus de clarté le petit axe fait 18 tours pendant que le grand en fait un.
+
+Maintenant, nous allons calculer le couple minimum que doit exercer le moteur, pour faire tourner le grand axe:
+Il faut exercer une masse de 0,06 kg à une distance d=14,5 cm pour le faire tourner l'axe.
+Donc T = tension
+= masse x g
+= 0,06 x 9,81
+= 5,886 x 10ˉ1 N
+Donc le couple minimum que doit exercer le moteur pour faire tourner le grand axe est égal à Cm =
+2,943.10ˉ² Nm
+
+maison-tournesol@laposte.net
+
+Dasty Anne, Chaverot Yannaël, Degrandi Vincent
+32
+
+Annexe n°4 : Expériences :
+Mesures et Calculs du rendement du panneau photovoltaïque lorsque la maison est fixe ou
+mobile.
+Notre projet étant une maison qui tourne en fonction du soleil, nous avons voulu savoir quelle est la
+différence de puissance énergétique acquise entre une maison fixe et une maison mobile. Nous avons donc fait
+les expériences suivantes :
+Schémas électrique :
+
+1ère expérience :
+Tout d’abord nous avons décidé (pour de meilleures précisions de mesure), de simuler une maison fixe en
+choisissant de faire bouger la maison à vitesse constante en fonction du temps, le « soleil » restant fixe (pour
+nous le spot) car celui-ci serait plus difficile à manipuler.
+Pour cette première expérience nous avons utilisé un spot pour simuler le soleil, données récupérées
+manuellement :
+
+maison-tournesol@laposte.net
+
+Dasty Anne, Chaverot Yannaël, Degrandi Vincent
+33
+
+Ensuite, nous avons estimé, toujours pour de meilleures précisions de mesure, de simuler une maison (mobile)
+en la laissant fixe tout comme le " soleil ", (pour nous le spot) en fonction du temps. Cela veut dire que le soleil
+et la maison, sont toujours parfaitement en face.
+
+Ainsi nous obtenons ces deux courbes :
+
+maison-tournesol@laposte.net
+
+Dasty Anne, Chaverot Yannaël, Degrandi Vincent
+34
+
+Sans tenir compte des imprécisions de mesures, nous pouvons assimiler ces courbes à celles-ci, définies sur
+[0; 200] s
+
+Grâce à ces deux courbes, nous pouvons calculer l'intégrale et obtenir le gain, quand la maison tourne.
+Donc sur [0;200] f(x)=-0,073x² + 14,6x + 270 (courbe bleue)
+F(x)=
+
++ 7,3
+
++ 270x (primitive)
+
+u,a=
+(intégrale de la courbe bleue)
+y1 = F(200) – F(0) = 15,3 u,a (unité d’aire)
+y2 = 1000 x 200 = 200 000 (intégrale de la courbe rouge)
+-
+
+= 200000 – 153000
+= 47000 mW
+= 47 W (représenté par l’aire colorée en rouge)
+Donc dans notre expérience nous trouvons un gain de production de 47 Watts.
+
+maison-tournesol@laposte.net
+
+Dasty Anne, Chaverot Yannaël, Degrandi Vincent
+35
+
+Conclusion de l’expérience 1 :
+Nous avons un moteur alimenté en 5V avec un courant de 0.5A
+Alors, la puissance du moteur est de 2.5W, ainsi l’énergie dépensée par le moteur est de 525
+J.
+Le gain que nous obtenons lors de notre expérience est de 47 J.
+Donc nous avons une perte de 478 J pour la Maison Tournesol.
+Ainsi la Maison Tournesol est désavantageuse de ce point de vue, donc la maison fixe est plus
+avantageuse au niveau de l’énergie.
+Ceci est dû à l’utilisation de la maquette pour l’expérience, pour avoir de bonne mesures, qui
+correspondent à la réalité, il faudrait effectuer des mesures avec les rayons du Soleil.
+
+maison-tournesol@laposte.net
+
+Dasty Anne, Chaverot Yannaël, Degrandi Vincent
+36
+
+2ème expérience :
+Ensuite, nous avons simuler une maison mobile avec un spot en tant que soleil. Ici les données ont été
+récupérées par une carte d’acquisition. (Picoscope).
+
+maison-tournesol@laposte.net
+
+Dasty Anne, Chaverot Yannaël, Degrandi Vincent
+37
+
+Voici la courbe :
+
+3ème expérience :
+Pour finir, nous avons fait une expérience, avec les rayons du soleil sur une journées, avec une maison mobile.
+Les données ont été ici relevées avec un logiciel d’acquisition (logipic). Voici la courbe :
+
+Là où nous pouvons voir des baisses de puissance, correspond au passage d’un nuage.
+
+Pour de plus ample informations envoyer nous un mail à l’adresse suivante :
+
+maison-tournesol@laposte.net
+maison-tournesol@laposte.net
+Dasty Anne, Chaverot Yannaël, Degrandi Vincent
+38
+
+

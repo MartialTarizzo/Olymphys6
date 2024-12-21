@@ -1,0 +1,1108 @@
+1
+
+Résumé
+« Hand Spinner » est un projet au cours duquel nous avons voulu étudier en détail la rotation
+de cet objet. Même si certains processus sont rapidement identifiables, il n’est pas forcément
+évident d’arriver à les quantifier, aussi bien sur un plan expérimental que théorique. C’est
+pourtant ce que nous avons tenté de faire. Et c’est ainsi en entrant dans le vif du sujet que
+nous avons pu dépasser les quelques notions perceptibles en premier abord.
+En cherchant à déceler les secrets du Hand Spinner, nous avons même été confronté à des
+phénomènes dont nous ne savons pas encore si notre interprétation est bonne à l’heure où
+nous rédigeons ce document. Cet objet est finalement plus qu’un simple jouet… ou un vrai
+jouet puisqu’il nous a permis de nous amuser tout en faisant des sciences de façon plus
+poussée qu’on ne l’aurait imaginé.
+
+Sommaire
+I – De quels paramètres dépend la durée de rotation du hand spinner ?
+II - Quelles sont les contributions des frottements fluide et solide dans la durée de rotation du hand
+spinner ?
+III – Quels autres phénomènes peuvent affecter la vitesse de rotation du hand spinner ?
+IV – Comment augmenter la limite de vitesse de rotation du roulement à bille ?
+V – Un phénomène amusant avec le hand spinner
+VI – Conclusion
+
+Introduction
+Le Hand spinner connaît son heure de gloire. Le choix d’acquérir un hand spinner plutôt qu’un
+autre peut se faire selon différents critères, comme son esthétique ou bien ses performances.
+Mais justement, de quoi dépendent les performances d’un hand spinner ?
+C’est ce que nous avons voulu savoir et que nous racontons dans ce mémoire.
+Nous commencerons par observer la rotation du hand spinner pour en tirer des
+renseignements généraux sur les facteurs les plus évidents qui interviennent dans l’évolution
+de la vitesse de rotation du hand spinner. Puis nous nous intéresserons à des points plus
+subtils, voire parfois même surprenants. Nous finirons enfin par jouer, même si en réalité,
+c’est un peu ce que l’on a fait tout au long de notre projet.
+
+2
+
+I – De quels paramètres dépend la durée de rotation du Hand Spinner ?
+1 ) Description du Hand Spinner
+Nous avons fait l’acquisition de plusieurs hand spinner identiques qui ont la particularité de pouvoir être démontés
+entièrement, ce qui va être très pratique pour mener à bien ce projet (figure 1).
+
+Figure 1 : présentation des différents éléments du hand spinner
+
+Comme on le voit sur les images ci-dessus, le hand spinner contient 6 branches qui se vissent sur la couronne extérieure
+(1) du hand spinner. A l’intérieur du hand spinner se trouvent les 7 billes du roulement, ainsi qu’un anneau central (2)
+fixe. Pour maintenir les billes dans leurs positions respectives, celles-ci sont disposées dans une structure en plastique (3).
+Nous avons eu besoin, au cours de notre projet, de connaître avec précision certaines dimensions de ces différents
+éléments. Nous avons réalisé ces mesures avec un pied à coulisse particulièrement précis, car donnant des longueurs
+avec une précision au centième de millimètre. Voici quelques mesures obtenues :
+•
+•
+•
+
+Rayon interne de l’anneau externe en enlevant la profondeur du sillon dans lequel roule la bille : RE = 9,42 mm
+Rayon de l’anneau central en enlevant la profondeur du sillon dans lequel roule la bille : Ri = 5,64 mm
+Rayon de la bille : Rb = 3,78/2 mm
+
+2 ) Influence de la masse sur la durée de rotation du Hand Spinner
+Le hand spinner dont nous disposons contient 6 branches démontables. Nous pouvons alors enlever des branches, tout
+en faisant en sorte que le centre d’inertie du hand spinner reste toujours au même endroit, et mesurer alors, pour une
+vitesse de rotation initiale identique, la durée de rotation du hand spinner. Comme nous ne pouvons pas lancer le Hand
+spinner toujours à la même vitesse, nous avons choisi de mesurer la durée de la rotation à partir d’une date temps t = 0
+de sorte qu’elle corresponde à une vitesse identique du hand spinner pour les 4 lancés. Comme il nous fallait alors
+connaître la vitesse du hand spinner au cours du temps, nous avons filmé la rotation du hand spinner avec une caméra
+à 240 images par seconde. Nous avons alors exploité les vidéos avec le logiciel Latis Pro.
+Les mesures donnent alors les résultats suivants (figure 2) :
+Hand spinner 6
+branches
+
+Hand spinner 4
+branches
+
+Hand spinner 3
+branches
+
+Hand spinner 2
+branches
+
+23s
+
+22s
+
+17s
+
+13s
+
+Hand Spinner
+
+Durée de la rotation
+
+Figure 2 : Durée de rotation en fonction de la masse du hand spinner
+
+3
+
+Plus la masse est importante, pour une vitesse initiale identique, et plus la rotation durera longtemps. Mais en réalité,
+ce n’est pas si simple que cela. En effet, il est possible de disposer les branches du hand spinner plus éloignées de 2
+millimètres du centre d’inertie en jouant sur le pas de vis.
+En faisant cela, on ne change pas la masse du hand spinner. Et pourtant, nos mesures montrent alors que la rotation
+dure plus longtemps. Il est alors clair que la masse mais aussi la façon dont elle se répartie dans le système, a une
+importance dans la rotation du hand spinner. Ceci montre l’importance d’une caractéristique du hand spinner : son
+moment d’inertie, que nous noterons 𝐼∆ .
+Nous avons alors dû, lors de ce projet, nous familiariser avec de nouvelles notions :
+1
+
+-
+
+Le moment d’inertie 𝐼∆ = ∑𝑖 2 𝑚𝑖 × 𝑟𝑖2 d’un système, qui dépend de la masse du système, et de la façon dont cette
+
+-
+
+masse (mi) se répartie (distance ri) par rapport à l’axe de rotation du système.
+Le moment cinétique 𝐿∆ = 𝐼∆ 𝜃̇ d’un système
+1
+1
+L’énergie cinétique d’un système en rotation par rapport à son axe de rotation : 𝐸𝐶 = ∑𝑖 2 𝑚𝑖 × 𝑣𝑖2 = 2 𝐼∆ × 𝜃̇ 2
+
+-
+
+Que faut-il alors pour que le hand spinner puisse tourner le plus longtemps possible ?
+Puisque le hand spinner fini par s’arrêter, c’est qu’il est soumis à des frottements, qui sont des forces non conservatives.
+Pour qu’il tourne le plus longtemps possible, on peut bien sûr lui donner une énergie cinétique la plus forte possible.
+1
+Compte tenu de l’expression de l’énergie cinétique, 𝐸𝐶 = 𝐼∆ × 𝜃̇ 2, il faut donc
+2
+
+-
+
+Une grande vitesse radiale 𝜃̇ au départ, mais celle-ci est limitée par la vitesse avec laquelle on est capable de
+bouger le doigt pour mettre en mouvement le hand spinner.
+Un fort moment d’inertie
+
+Mais surtout, si on veut que le Hand spinner ne s’arrête jamais de tourner, il faudrait supprimer les frottements. Même
+si cela est impossible, on peut les limiter en ayant des profils d’hand spinner particulièrement aérodynamiques. Mais les
+frottements peuvent également être de nature solide et pas uniquement fluide. Peut-on quantifier la contribution des
+frottements fluides et solides au cours de la rotation du hand spinner ?
+
+II – Quelles sont les contributions des frottements fluide et solide dans la durée de rotation du
+hand spinner ?
+1 ) Approche acoustique qualitative :
+En faisant tourner le hand spinner, on constate que cela produit un son. Ce son étant issu de frottements, nous
+avons voulu savoir s’il était possible d’exploiter ce son pour en déduire des renseignements sur les frottements.
+Nous avons alors enregistré le son produit par la rotation du hand spinner au cours du temps, puis nous avons
+réalisé une analyse spectrale de la bande son afin de l’analyser. Voici les résultats obtenus en plaçant le micro à 1
+mm d’une branche du hand spinner, et en traçant le spectrogramme avec le logiciel Audacity (figure 3):
+Fréquence
+
+Fréquence
+
+temps
+
+temps
+Figure 3 : Spectrogramme du son enregistré lors de la rotation du hand spinner – à droite : zoom
+
+4
+
+Cela dit, le phénomène est encore plus visible lorsqu’on l’observe avec l’application « FFT Spectrum Analyser ».
+Nous avons filmé l’expérience réalisée avec cette application, et la vidéo est alors visible en suivant le lien :
+https://youtu.be/yZ5xWJOWxO8. Les résultats obtenus montrent clairement qu’il y a au moins 2 phénomènes qui
+interviennent lors de la rotation du hand spinner. En effet, on remarque qu’un son de faible fréquence, compris
+entre environ 300 et 0 Hz est produit, et que ce son a une fréquence qui diminue au cours du temps, c’est-à-dire
+en même temps que le hand spinner ralentit.
+D’autre part, on remarque qu’un son est aussi produit à une fréquence centrée sur 1000 Hz, ainsi qu’autour
+d’environ 1700 Hz et 2100 Hz, et que ces fréquences restent constantes durant la rotation du hand spinner.
+On peut en déduire que le son de faible fréquence est lié à la vitesse de rotation du hand spinner, contrairement
+au son représenté par les fréquences plus élevées, qui restent constantes quelle que soit la vitesse du hand spinner,
+et qui seraient alors quant à elles dues aux frottements solides.
+Nous aurions voulu tracer l’évolution de la fréquence au cours du temps pour en tirer des conclusions, mais les
+mesures n’étant pas assez précises, nous n’avons pu nous contenter que d’un aspect qualitatif.
+Nous avons alors tenté de quantifier séparément les frottement solides et fluides en mesurant l’évolution de la
+vitesse du hand spinner au cours du temps.
+
+2 ) Mesure expérimentale de l’évolution de la vitesse de rotation du Hand Spinner au cours du temps :
+Pour étudier les frottements, nous avons voulu connaître précisément l’évolution de la vitesse de rotation du hand
+spinner au cours du temps. Mais comme les exploitations des vidéos, telles que celles que nous avons faites dans
+le I- 2) nécessitent un temps considérable, nous avons procédé autrement :
+a – Dispositif expérimental :
+Nous avons utilisé un faisceau laser et une
+photorésistance, comme l’indique la figure 4.
+Quand le Hand Spinner tourne, les branches de
+celui-ci coupent tour à tour le faisceau Laser.
+Lorsque le faisceau Laser est obturé par une
+branche du Hand Spinner, cela provoque une
+augmentation de la résistance de la
+photorésistance, donc une diminution de
+l’intensité du courant, et par suite, une
+diminution de la tension aux bornes de la résistance.
+
+Figure 4
+
+Figure 4
+
+b - Résultats expérimentaux :
+Pendant la rotation du hand spinner, nous avons le temps de réaliser un grand nombre d’acquisitions à différents
+moments, que l’on peut superposer dans une même fenêtre. Sur la figure 5 ci-dessous, nous avons par exemple 3
+acquisitions à 3 dates différentes. Pour en déduire les vitesses de rotation à ces trois dates, nous avons profité
+d’avoir un signal périodique pour réaliser des analyses de Fourrier.
+Amplitude du signal (V)
+
+Temps (s)
+
+Fréquence (Hz)
+Figure 5 – mesures de la fréquence d’obturation du laser à trois instants durant la rotation du hand spinner
+
+5
+
+En divisant ces fréquences F par 6, du fait de la présence des 6 branches, nous pouvons alors en déduire la vitesse de
+rotation du hand spinner, en faisant l’opération suivante :
+𝜔 = 2𝜋
+
+𝐹
+6
+
+ω Vitesse angulaire (rad/s (s)
+
+Nous pouvons ainsi réaliser plus de 20
+acquisitions, toutes les 4 secondes, durant la
+rotation du hand spinner avant qu’il ne s’arrête.
+Cela nous a permis de mesurer l’évolution de la
+vitesse angulaire du hand spinner, et de tracer le
+graphique suivant (figure 6) :
+Cette courbe est-elle cohérente avec l’approche
+acoustique ? Pour le savoir, essayons de
+modéliser les frottements de façon à trouver une
+fonction en adéquation avec les valeurs
+expérimentales obtenues.
+
+Temps (s)
+
+Figure 6 : Evolution de la vitesse angulaire du hand spinner en fonction du temps
+
+3 – Exploitation quantitative des résultats obtenus.
+a - Mise en équation :
+Nous considérons ici que le système étudié est la couronne extérieure du hand spinner, avec les 6 branches. Le
+système est alors soumis à son propre poids, aux frottements avec l’air, et aux frottements solide avec les billes,
+lorsqu’il y a roulement avec glissement.
+Faisons alors quelques hypothèses :
+Nous allons supposer dans un premier temps que les forces de frottement solide engendrent un couple résistant
+Γ𝑆 indépendant de la vitesse de rotation de la couronne extérieure. D’autre part, nous faisons l’hypothèse que les
+forces de frottement fluide sont le siège d’un couple résistant Γ𝑓 proportionnelle à la vitesse angulaire.
+Ces couples conduisent à une diminution du moment cinétique du système, conformément au théorème du moment
+cinétique :
+𝑑𝐿∆
+= ∑ ℳ∆
+𝑑𝑡
+𝑑𝐿∆
+= ∑ ℳ∆ = −Γ𝑆 − Γ𝑓
+𝑑𝑡
+
+𝐼Δ 𝜃̈ = −Γ𝑆 − Γ𝑓 = −Γ𝑆 − 𝐶𝜃̇
+𝜃̈ +
+
+𝐶
+Γ𝑆
+𝜃̇ = −
+𝐼Δ
+𝐼Δ
+−𝐶
+
+𝑡
+
+Γ
+
+La solution de cette équation différentielle est donc de la forme : 𝜃̇ (𝑡) = 𝐴𝑒 𝐼Δ − 𝐶𝑆
+Γ
+𝐶
+
+Ainsi, en appelant 𝜃̇0 la vitesse angulaire à l’instant t0 de l’acquisition, on obtient : 𝜃̇ (𝑡 = 0) = 𝜃̇0 = 𝐴 − 𝑆
+−𝐶
+
+Donc
+
+𝑡
+Γ
+Γ
+𝜃̇ (𝑡) = (𝜃̇0 + 𝐶𝑆) 𝑒 𝐼Δ − 𝐶𝑆
+
+6
+
+Voyons alors ce que donne une modélisation de nos résultats expérimentaux par cette fonction (figure 7) :
+
+Figure 7 : Modélisation de l’évolution de la vitesse de rotation au cours du temps
+
+−𝑡
+
+𝜃̇(𝑡) = 66,7 × 𝑒 74,6 − 14,9
+
+Le modèle est donc plutôt cohérent avec les valeurs expérimentales, ce qui nous conforte dans les hypothèses que
+nous avons formulées : Le système est bien soumis à 2 forces de frottement, solide et fluide, dont les expressions
+semblent être celles que nous avons proposées.
+
+Nous pouvons exploiter davantage la modélisation en estimant les couples résistants. En effet,
+
+Γ
+𝜃̇0 + 𝑆 = 66,7
+
+Nous en déduisons que :
+{
+
+𝐶
+𝐶
+1
+=
+𝐼Δ
+74,6
+Γ𝑆
+= 14,9
+𝐶
+
+𝜃̇0 S’obtient sur la courbe : on lit 51,9 rad/s
+
+Mais pour autant, ces équations ne suffisent pas. Si on veut déterminer les couples résistants solide et fluide, il nous
+faut connaître le moment d’inertie 𝐼Δ du système.
+7
+
+b – Moment d’inertie du hand spinner :
+(Nous rappelons ici que le système dont nous voulons le moment d’inertie est la couronne extérieure du hand spinner,
+munie de ses 6 branches.)
+Pour cela, nous avons vu qu’une méthode consiste à déduire le moment d’inertie du système par la mesure de la
+période des oscillations de celui-ci lorsqu’on le fait penduler de la façon suivante (figure 8) : on accroche 2 fils
+identiques de masse négligeable sur l’axe de rotation du pendule. Ces 2 fils sont ensuite accrochés à une potence, et
+on fait alors osciller le Hand Spinner. D’un point de vue énergétique, comme au cours de cette oscillation, l’orientation
+du hand spinner dans un plan perpendiculaire à son axe de rotation varie avec le même angle que celui du pendule
+ainsi constitué, l’énergie cinétique à chaque instant est la somme de l’énergie cinétique du centre de gravité du hand
+spinner plus l’énergie cinétique de rotation du hand spinner. Et c’est à l’aide de cela qu’il est possible d’aboutir à la
+relation que nous ferons qu’utiliser à défaut de savoir démontrer :
+𝜔2 =
+
+𝑚𝑔ℓ
+2𝜋 2
+=
+(
+)
+𝑚ℓ2 + 𝐼∆
+𝑇
+
+Donc
+𝑇 2 ℓ
+𝐼∆ = 𝑚𝑔ℓ [( ) − ]
+2𝜋
+𝑔
+
+Figure 8 : mesure du moment d’inertie du hand spinner par une méthode d’oscillation de pendule
+
+8
+
+Mais pour des raisons expérimentales, il faut que nous procédions en 2 étapes, car pour
+maintenir le hand spinner au niveau de son axe de rotation, alors qu’on lui a enlevé son
+roulement à billes, il faut disposer de la matière dans le trou se trouvant au milieu du hand
+spinner. C’est ce que nous avons fait : en fait, nous avons gardé l’anneau extérieur du
+roulement à billes, tandis que nous avons enlevé les billes et l’anneau intérieur. Nous avons
+alors rempli l’anneau extérieur de mousse très dense. Ainsi, nous avons pu percer cette
+mousse avec un pic qui traverse la mousse de part et d’autre (figure 9 ) , ce qui nous a permis
+de maintenir le hand spinner de sorte que son axe de rotation, confondu avec le pic, soit
+Figure 9
+parfaitement horizontal. Ce faisant, le moment d’inertie mesuré sera alors celui du hand
+spinner, plus celui de la matière que nous venons de disposer à l’intérieur du hand spinner. Pour avoir le moment
+d’inertie du hand spinner seul, il suffit alors de mesurer avec la même méthode le moment d’inertie de la matière
+disposée dans le hand spinner, puis de le soustraire au moment d’inertie de l’ensemble.
+•
+•
+•
+•
+
+Pour la partie expérimentale, la longueur du fil mesure 70,9 cm
+La masse totale du hand spinner muni de son dispositif disposé à l’intérieur est m = 89,10 g
+La masse du dispositif seul placé au centre du hand spinner est m’ = 3,20 g
+La période des oscillations a été mesurée de façon très précise, en filmant 30 oscillations, et en analysant la vidéo
+avec Latis Pro, dans un premier temps avec le hand spinner muni du dispositif central (T = 1,70 s) puis dans un
+deuxième temps avec le dispositif central uniquement (T = 1,69 s).
+
+Avec de telles valeurs, nous avons évalué le moment d’inertie du hand spinner à 𝐼∆ =5,76.10-4 kg/m²
+On en déduit, ci-dessous, le couple résistant des frottements solide, et le coefficient du couple résistant des frottement
+fluides.
+c – Valeurs du couple résistant solide et du coefficient du couple résistant fluide :
+Résultats des mesures :
+Γ𝑆
+𝜃̇0 + = 66,7
+𝐶
+𝐶
+1
+𝐼Δ
+=
+→𝐶=
+= 7,71. 10−6 𝑘𝑔. 𝑚2 /𝑠
+𝐼Δ 74,6
+74,6
+Γ𝑆
+−4
+{ 𝐶 = 14,9 → Γ𝑆 = 𝐶 × 14,9 = 1,15. 10 𝑁. 𝑚
+Commentaire :
+Nous avons choisi un modèle de couple de frottement proportionnel à la vitesse radiale. Mais en réalité, il se
+peut que ce ne soit pas le cas, ou que ce soit le cas sur une partie uniquement pour certaines vitesses de rotation. Cela
+dit, la concordance entre le modèle choisi pour représenter les frottements, et les mesures expérimentales, ne nous a
+pas poussé à explorer d’autres pistes aux vitesses où nous avons fait tourner le hand spinner.
+5 – Peut-on mesurer les frottements solides sans se soucier des frottements fluides ?
+Ce serait une autre façon d’étudier le hand spinner, sans se soucier du milieu dans lequel il tourne. On aurait donc une
+étude qui ferait intervenir uniquement des paramètres intrinsèques du hand spinner !
+Du coup, pourquoi ne pas se débarrasser tout simplement de l’air ?
+a – Prévision du résultat :
+Sans air, pas de frottement fluide. Nous nous attendons ici à trouver une évolution linéaire de la vitesse de rotation du
+hand spinner au cours du temps. En effet,
+𝑑𝐿∆
+= ∑ ℳ∆
+𝑑𝑡
+𝑑𝐿∆
+= ∑ ℳ∆ = −Γ𝑆
+𝑑𝑡
+
+9
+
+𝐼Δ 𝜃̈ = −Γ𝑆
+̇
+Γ𝑆
+Γ𝑆
+𝜃̈ = − ⟺ 𝜃̇ (𝑡) = 𝜃̇0 − 𝑡
+𝐼Δ
+𝐼Δ
+b – Etude expérimentale :
+Pour éliminer les frottements fluides, nous avons mesuré l’évolution de la vitesse de rotation du Hand Spinner dans une
+cloche à vide. Nous avons toutefois voulu vérifier que le vide était de bonne qualité en mesurant la pression et la
+température.
+En assimilant l’air à un gaz parfait, nous savons que :
+𝑃𝑉 = 𝑛𝑅𝑇
+Ainsi, alors que la température de la salle est égale à 23°C au moment de l’expérience, et que la pression est égale à
+1011 hPa, cela donne une densité molaire dans la salle égale à :
+𝑛
+𝑃
+101100
+=
+=
+= 41 𝑚𝑜𝑙/𝑚3
+𝑉 𝑅𝑇 8,314 × (273 + 23)
+
+Après avoir fait le vide dans la cloche, la température vaut 19°C et la pression vaut 15 hPa. Cela donne alors une densité
+molaire de 0,62 𝑚𝑜𝑙/𝑚3 . Même si on est loin du vide, la diminution de cette densité particulaire nous semble
+suffisamment significative pour aller jusqu’au bout de notre expérience.
+La difficulté a été de trouver un moyen de déclencher la rotation du hand spinner une fois le vide réalisé dans la cloche.
+Après plusieurs essais de protocoles peu productifs, nous avons fini par trouver un moyen très efficace. La vidéo de
+l’expérience est visible en suivant le lien : https://youtu.be/L_cr_VyhAeI
+L’idée est de maintenir le hand spinner
+immobile, à l’aide de 2 élastiques tendus
+(figure 10). Un des élastiques est fixé en haut,
+tandis que l’autre est fixé en bas. Grâce à une
+corde de guitare, il est alors possible de tirer
+sur l’élastique du bas. Le hand spinner n’étant
+plus retenu vers le bas ; l’élastique du haut le
+tire violement vers le haut, provoquant la
+rotation rapide du hand spinner. Tout ceci se
+passe sous la cloche à vide, et la corde de
+guitare permettant de tirer sur l’élastique
+peut passer sous la cloche à vide sans gêner
+l’étanchéité de la cloche.
+Figure 10 : A gauche : hand spinner maintenu par 2 élastiques tendus / A droite : Hand spinner libéré de ses élastiques
+
+Nous avons alors filmé la rotation du hand spinner, à 240 images par seconde, pour pouvoir
+mesurer sa vitesse de rotation au cours du temps. L’exploitation a été réalisée à l’aide du logiciel
+Latis pro : à partir de la vidéo réalisée, nous avons mesuré la vitesse de rotation du hand spinner
+à 9 dates différentes durant sa rotation. Pour mesurer cette vitesse à chacune des dates en
+question, nous avons défini un repère et nous avons noté les coordonnées spatiales d’une des
+branches au cours du temps. On peut par exemple tracer l’évolution x d’une de ces coordonnées
+pendant des durées courtes prises à différentes dates.
+Figure 11 : Analyse de la vidéo sous latis pro : les points verts correspondent aux positions successives d’une des branches du hand spinner
+
+10
+
+Date 8
+
+Date 7
+
+Date 6
+
+Date 5
+
+Date 4
+
+Date 3
+
+Date 2
+
+Date 1
+
+Date 9
+
+Amplitude du signal (V)
+
+Temps (s)
+
+Figure 12 : Evolution d’une coordonnée cartésienne de l’extrémité d’une branche au cours du temps
+
+On peut alors en déduire la période puis la
+fréquence (figure 12) de rotation du hand
+spinner (en tenant compte du fait que l’étude de
+la vidéo a été réalisée sur la vidéo ralentie 10
+fois. En multipliant ensuite la fréquence par 2 pi,
+on aboutit à la vitesse angulaire du hand spinner
+à certaines dates. Nous avons alors tracé
+l’évolution de cette vitesse sur Regressi et nous
+obtenons le graphique ci-contre :
+On obtient bien une droite, comme nous
+l’espérions. Les résultats obtenus sont alors
+cohérents avec un modèle de force de
+frottement solide indépendant de la vitesse de
+rotation du hand spinner.
+
+ω (t)=-2,11*t+57,9
+ωb=-1,17*t+51,3
+b
+
+Figure 13 : Evolution de la vitesse de rotation du hand spinner sous vide
+Γ
+
+Avec de tels résultats, on obtient un couple de frottement solide 𝐼 𝑆 = 1,17 ⇒ Γ𝑆 = 6,64. 10−4 𝑁𝑚 au lieu des
+Δ
+
+1,15. 10−4 𝑁𝑚 obtenus précédemment.
+A ce stade du projet, nous pensions que le moment d’inertie du hand spinner n’avait pas été mesuré avec une précision
+suffisamment grande. En réalité, nous avons compris par la suite que lorsque nous avons utilisé le hand spinner pour
+mesurer l’évolution de la vitesse de rotation, et lorsque nous l’avons utilisé pour déterminer son moment d’inertie,
+nous avons modifié un paramètre auquel nous ne pensions pas jusqu’à présent. Nous en parlerons dans le paragraphe
+III – 3).
+Avant d’en arriver là, nous nous sommes posés la question de savoir où se situaient ces frottements. Il doit s’agir de
+frottement entre les billes, et la couronne en plastique qui maintient les billes, car les frottements entre les billes et la
+couronne extérieure n’est pas une force qui retient la couronne extérieure, mais une force qui fait rouler la couronne
+sur les billes. On peut toutefois se demander si à grande vitesse, les billes arrivent à tourner aussi rapidement que la
+couronne extérieure, ou alors, est ce qu’il n’y aurait pas un glissement d’une partie sur une autre ?
+
+III – Quels autres phénomènes peuvent affecter la vitesse de rotation du hand spinner ?
+1 ) Est-ce que l’axe de rotation de la bille reste le même au cours de la rotation du Hand Spinner ?
+Pour répondre à cette question, nous avons fait un point sur toutes les billes du roulement
+(figure 14), et nous avons voulu savoir si ces points restaient visibles au cours de la rotation du
+hand spinner. L’expérience est visible en suivant le lien :
+
+Figure 14
+
+Comme le montre la vidéo, il semblerait que l’axe de rotation des billes ne soit pas
+perpendiculaire au plan du hand spinner puisque tous les points disparaissent après quelques
+rotations. Cela paraît étrange que cela soit à ce point observable, car une rotation aussi
+désordonnée des billes doit conduire à des frottements non négligeables et une usure rapide du roulement… Nous
+essayerons d’améliorer notre expérience pour étudier plus précisément la rotation des billes sur elles-mêmes, car d’une
+certaine manière, l’étude qui suit contredit le roulement désordonné des billes…
+
+11
+
+2 ) Y a-t-il un roulement avec glissement, ou bien le roulement est parfait ?
+a ) Par quel moyen va-t-on pouvoir mesurer un éventuel glissement ?
+Pour avoir accès à un éventuel glissement, nous avons voulu comparer la vitesse de rotation
+du centre d’inertie d’une bille par rapport à celle d’une branche du Hand Spinner, pour
+ensuite déterminer si la bille ne fait que rouler ou si elle glisse également. Pour cela, nous
+avons cette fois-ci travaillé avec 2 faisceaux Laser (figure 15). Le premier, en étant occulté
+périodiquement par les branches du hand spinner, permet de mesurer l’angle de rotation
+des branches, alors que le deuxième passe dans le roulement lui-même et est alors occulté
+à chaque fois qu’une bille passe sur son trajet.
+Voici alors comment se présente une mesure :
+Ci-dessous (figure 16), nous présentons le résultat d’une acquisition de 0,5s durant la
+rotation du hand spinner. La courbe bleue représente le signal lié à l’occultation par les
+branches du hand spinner, alors que le signal en rouge représente le signal lié par
+l’occultation par les billes.
+Figure 15 : Dispositif expérimental permettant
+le mesurer la vitesse du hand spinner et des billes
+
+Amplitude du signal (V)
+
+En reprenant alors la méthode
+précédente pour en déduire la vitesse de
+rotation, nous obtenons :
+Temps (s)
+
+Pour la couronne extérieure (6 branches) :
+𝐹
+
+𝜔𝐶 = 2𝜋 6 = 71,7 rad/s
+Fréquence (Hz)
+
+Pour les billes (7 billes) :
+𝐹
+
+𝜔𝐵 = 2𝜋 7 = 45,1 rad/s
+Figure 16 : Signaux reçus par les photorésistances, et fréquence d’obturation des 2 faisceaux laser
+
+Le fait que les deux vitesses de rotation soient différentes n’est pas dû à un phénomène de glissement. Pour nous en
+convaincre, nous avons pris une planche que nous avons posé sur un cylindre (figure 17). Nous avons alors déplacé la
+planche en la faisant rouler sur le cylindre, ce qui provoquait alors le déplacement par roulement du cylindre par
+rapport à la table. On constate bien alors que la planche se déplace plus que l’axe de rotation du cylindre par rapport
+à la table. On visualise également bien le fait que s’il n’y a pas de glissement d’une partie sur une autre dans cette
+expérience : la planche se déplace de la même quantité par rapport à la verticale passant par le centre d’inertie du
+cylindre, que le point de contact entre le cylindre et la table par rapport à la table.
+Du coup, pour le hand spinner, pour savoir si les vitesses angulaires mesurées témoignent d’un roulement avec
+ou sans glissement, nous devons
+trouver la relation entre la vitesse
+angulaire des branches et la vitesse
+angulaire du centre de gravité des
+billes dans l’hypothèse qu’il y a
+roulement sans glissement. On voit
+alors aisément que dans ce cas de
+figure, la planche se déplace 2 fois plus
+vite que le centre d’inertie de la bille.
+Figure 17 : Roulement d’une planche sur un cylindre
+et comparaison des distances parcourues par ces
+deux éléments
+
+12
+
+b ) Quelle est la relation théorique entre les vitesses de rotation des branches et des centres de gravité des billes ?
+
+J
+O
+J’
+I
+
+O’
+I’
+
+
+
+
+
+J’’
+
+Si on raisonne de la même manière que précédemment, on peut affirmer que lorsque la couronne extérieure tourne,
+elle fait rouler la bille sur le cercle intérieur. On se place dans le cas où il n’y a pas de glissements d’une surface sur une
+autre. Lorsque le centre d’inertie de la bille passe de O à O’, le point de contact entre la bille et le disque intérieur
+passe de I à I’. Le point de contact a alors parcouru une distance
+ℓ = 𝑅𝑖 × 𝜃
+Pendant ce déplacement de la bille, le point de contact J entre la bille et la couronne extérieure s’est alors déplacé de
+la même distance par rapport à la bille. Autrement dit, l’arc de cercle entre J’ et J’’ mesure également ℓ = 𝑅𝑖 × 𝜃.
+Finalement, lorsque le centre d’inertie de la bille passe de O a O’, il tourne d’un angle , et pendant ce même
+déplacement, la couronne extérieure tourne d’un angle 𝛼 =
+Donc 𝛼 =
+
+𝑅𝑖 ×𝜃
+𝑅𝐸
+
+ℓ
+𝑅𝐸
+
++
+𝑅
+
++ 𝜃 = 𝜃 ( 𝑖 + 1)
+𝑅𝑒
+
+Comme ces déplacements se font durant le même laps de temps, les vitesses angulaires 𝛼̇ et 𝜃̇ correspondantes sont
+reliées par la relation suivante :
+13
+
+𝛼̇ = 𝜃̇ (
+
+𝑅𝑖
++ 1)
+𝑅𝑒
+
+Comme nous connaissons Ri et Re, nous pouvons réaliser ce calcul.
+En notant alors 𝛼̇ = 𝜔𝑐 = 𝑣𝑖𝑡𝑒𝑠𝑠𝑒 𝑎𝑛𝑔𝑢𝑙𝑎𝑖𝑟𝑒 𝑑𝑒𝑠 𝑏𝑟𝑎𝑛𝑐ℎ𝑒𝑠 𝑑𝑢 ℎ𝑎𝑛𝑑 𝑠𝑝𝑖𝑛𝑛𝑒𝑟
+
+𝜃̇ = 𝜔𝑏 = 𝑣𝑖𝑡𝑒𝑠𝑠𝑒 𝑎𝑛𝑔𝑢𝑙𝑎𝑖𝑟𝑒 𝑑𝑒𝑠 𝑐𝑒𝑛𝑡𝑟𝑒𝑠 𝑑𝑒 𝑔𝑟𝑎𝑣𝑖𝑡é 𝑑𝑒𝑠 𝑏𝑖𝑙𝑙𝑒𝑠
+𝜔𝑐
+𝑅𝑖
+=
++ 1 = 1,60
+𝜔𝑏
+𝑅𝑒
+La question est alors de savoir si la valeur de ce rapport, obtenue simplement de façon théorique en tenant compte des
+géométries des éléments concernés, peut être confirmée expérimentalement. Et une autre question est de savoir si la
+valeur du rapport de ces vitesses mesurées expérimentalement est constante quelle que soit la vitesse de rotation de la
+couronne.
+Répondons maintenant à ces questions de façon expérimentale :
+c ) Mesures expérimentales :
+Nous pouvons déjà répondre à la première question, à savoir si la valeur du rapport des vitesses angulaires calculé
+théoriquement est cohérente avec la mesure expérimentale réalisée au 1) :
+Nous avions trouvé 𝜔𝑐 = 71,7 𝑟𝑎𝑑/𝑠 et 𝜔𝑏 = 45,1 𝑟𝑎𝑑/𝑠
+Le rapport donne alors :
+
+𝜔𝑐
+= 1,59
+𝜔𝑏
+Lorsque nous comparons cette valeur à la valeur théorique (1,60) obtenue dans l’hypothèse d’absence de glissement,
+notre premier réflexe est d’affirmer que cette hypothèse est confirmée. Cela dit, cette affirmation est critiquable à ce
+stade. La différence de 0,01 peut peut-être être significative, et nous devons pour discuter objectivement, établir
+l’incertitude absolue liée à ces deux valeurs. Avant de passer un peu de temps sur ce point là, nous avons voulu voir si
+ce rapport pouvait dépendre de la vitesse de rotation du hand spinner.
+Nous avons alors fait tourner à la main le hand spinner, aussi vite que nous le pouvions. Durant sa rotation, nous avons
+réalisé des acquisitions de 1s, toutes les 5 secondes.
+Voici les résultats obtenus (figure 19):
+Amplitude du signal (V)
+
+Figure 19 : Acquisitions toutes les 5 secondes des faisceaux laser occultés par les branches et les bille du hand spinner
+
+… un ensemble de paires de signaux (ceux issus du faisceau obturé par les branches, et ceux issus du faisceau obturé par
+les billes) qui nous ont permis de déterminer les vitesses angulaires (figure 20) :
+
+14
+
+Vitesse angulaire des branches ωC (rad/s)
+Vitesse angulaire des billes ωB (rad/s)
+Rapport des vitesses angulaire ωC/ ωB
+
+Vitesse angulaire des branches ωC (rad/s)
+Figure 20 – Comparaison des vitesses angulaires des branches et des billes du hand spinner.
+
+Les résultats montrent en bleu, la vitesse de rotation des branches, en rouge, celle des centres d’inertie des billes, et
+la courbe verte montre le rapport respectif de ces 2 vitesses. On constate alors que ce rapport reste globalement
+constant quelle que soit la vitesse de rotation du hand spinner et confirme la valeur que nous avons obtenue dans le
+paragraphe précédent. Pour les 2 premières valeurs (1,57) de ce rapport, cela peut être dû au fait que ces deux mesures
+étaient particulièrement moins précises, puisqu’établies à partir d’un très faible nombre de périodes affichées.
+Il nous a paru tout de même étrange que ce rapport ne dépende pas du tout de la vitesse de rotation. Nous avons alors
+voulu savoir si cela restait toujours le cas en augmentant la vitesse de rotation du hand spinner. Pour cela, au lieu de
+faire tourner le hand spinner à la main, nous avons soufflé de l’air comprimé dessus. L’avantage de cette méthode est
+que, en choisissant un débit d’air, on fixe une vitesse de rotation constante du hand spinner, ce qui rend alors plus
+juste la mesure des vitesses de rotation. Grâce au compresseur, nous avons pu faire tourner le hand spinner jusqu’à
+une vitesse de 1340 rad/s ! Soit environ 213 tours par seconde ! Voici alors les résultats obtenus : figure 21
+
+Figure 21 : Décrochage de la vitesse de rotation des billes
+
+On voit nettement que pour une vitesse de 800 rad/s, la vitesse de rotation des billes suit celle des branches du hand
+spinner. Ce décrochage est vraiment spectaculaire. Et plus on augmente alors la vitesse des branches, plus le rapport
+tend vers 1, ce qui signifie que le centre d’inertie des billes tourne alors pratiquement avec la même vitesse de rotation
+que celle des branches. Autrement dit, les bille ne semblent plus rouler, mais glisser !
+
+15
+
+Comment expliquer cela ? Car même si nous nous attendions à ce qu’il y ait un glissement à un moment donné, on ne
+pensait pas qu’il serait aussi brutal. Là, au lieu d’avoir un phénomène progressif, il semble y avoir une limite très nette
+au-delà de laquelle quelque chose de particulier se passe. Mais quel est ce phénomène ?
+Vu les résultats expérimentaux, on pourrait dire que si les billes tournent à la même vitesse de rotation que celle des
+branches, c’est qu’elles ne sont pratiquement plus en contact avec l’anneau central du roulement à bille. Et les billes
+seraient alors pratiquement collées à la couronne extérieure du hand spinner. Comment cela est possible ? Est-il possible
+que la température s’élève dans le roulement, et que la dilatation des matériaux soit à l’origine de la modification des
+contacts entre les billes et les différentes parties du hand spinner ? Et concernant le fait que les billes restent collées à
+la couronne extérieure du hand spinner, se peut-il que ce soit dû à un effet centrifuge ? Ou alors y a-t-il des phénomènes
+liés à la pression ? Dans le paragraphe IV – 1, nous allons essayer de répondre à ces questions, et en même temps, de
+voir ou de comprendre les solutions qui permettent de repousser les limites de la vitesse du roulement à billes. En effet,
+c’est en cherchant à repousser cette limite que des hypothèses pour expliquer son origine nous sont venues. Mais avant
+cela, voyons un 3ième point qui affecte la vitesse de rotation du hand spinner :
+3 ) Effet de la charge
+Dans ce paragraphe, nous avons été confrontés à quelque chose qui affecte le roulement du hand spinner, alors que
+nous cherchions à faire totalement autre chose. En effet, quand nous avons vu qu’il était possible de faire tourner le
+hand spinner dans la cloche à vide, nous avons eu l’idée de profiter de l’absence des frottements fluides pour mesurer
+le moment d’inertie par une autre méthode que celle présentée dans ce mémoire.
+L’idée est la suivante : Le moment d’inertie peut être vu comme la somme du moment d’inertie J1 de chacune des
+branches du hand spinner, ajouté à celui J0 de la couronne du hand spinner. Le moment d’inertie total du hand spinner
+est : 𝐼∆ = 𝐽0 + 6𝐽1
+Γ
+̇
+𝜃̇(𝑡) = 𝜃̇0 − 𝐼 𝑆 𝑡
+Δ
+Γ𝑆
+Γ𝑆
+Cela correspond à une droite de coefficient directeur (en valeur absolue) 𝑝 =
+= 𝐽 +6𝐽
+𝐼Δ
+0
+1
+
+Comme nous l’avons vu, nous savons que dans la cloche à vide,
+
+Si on réalise la même étude, en enlevant 3 branches du hand spinner, on devrait obtenir une droite de coefficient
+Γ
+directeur (toujours en valeur absolue)
+𝑝′ = 𝑆
+𝐽0 +3𝐽1
+
+Γ𝑆 = 𝑝(𝐽0 + 6𝐽1 ) = 𝑝′(𝐽0 + 3𝐽1 )
+𝐽0 (𝑝 − 𝑝′ ) = 𝐽1 (3𝑝′ − 6𝑝)
+
+On en déduirait alors que
+Ainsi,
+
+𝐽0 (𝑝 − 𝑝′ )
+(3𝑝′ − 6𝑝)
+Les pentes p et p’ sont déterminées expérimentalement, alors que le moment d’inertie 𝐽0 peut se calculer facilement
+car la partie centrale du hand spinner peut être décomposée en formes simples (un cylindre creux et un disque creux),
+pour lesquelles des formules existent :
+𝐽1 =
+
+𝑟4
+) dans laquelle R est le rayon externe du cylindre creux, r son
+𝑅2
+rayon interne, h son hauteur, et 𝜌 la masse volumique de l’acier. On trouve alors 𝐽0 = 5,86. 10−6 𝑘𝑔. 𝑚²
+1
+2
+
+Par exemple pour le cylindre creux : J= 𝜌ℎ𝜋𝑅²(𝑅 2 −
+
+Mesures :
+Faisons alors tourner le hand spinner avec uniquement 3 branches dans la 50
+cloche à vide, et traçons l’évolution de sa vitesse de rotation au cours du
+40
+temps :
+
+ω (rad/s)
+w = -1,0384t +
+39,407
+
+30
+
+Figure 22 – a ; Avec 3 branches, on obtient l’équation
+𝜔(𝑡) = −1,0384 × 𝑡 + 39,407 donc p’ = 1,0384rad/s²
+Figure 22 – b : Avec 6 branches, on obtient l’équation
+𝜔(𝑡) = −1,7165 × 𝑡 + 54,98
+donc p = 1,7165 rad/s² …
+Comme ces résultats allaient à l’encontre de ce qui était prévu, nous avons
+refait les mesures… et nous avons obtenu à nouveau les mêmes valeurs…
+
+20
+
+ω (rad/s)
+
+60
+
+w = -1,7165t + 54,98
+
+40
+20
+
+10
+
+Temps (s)
+
+0
+0
+
+20
+
+Figure 22 – a
+
+temps (s)
+
+40
+
+0
+0
+
+20
+
+Figure 22 - b
+
+16
+
+40
+
+Et c’est là que le problème arrive ! Compte tenu du fait que la pente de la droite est inversement proportionnelle au
+Γ𝑆
+moment d’inertie (𝑝 = ), on devrait avoir p’ > p. Or ce n’est pas le cas. Cela ne peut s’expliquer que si en réalité,
+𝐼Δ
+le couple de force de frottement solide 𝜞𝑺 dépend lui aussi du nombre de branches. Cela paraît finalement très
+probable, puisque le hand spinner pèse sur le roulement, et cette force qui se répartie sur le roulement modifie les
+contraintes selon la masse du hand spinner. Pour vérifier cette hypothèse, nous avons réalisé les mêmes mesures,
+mais en disposant cette fois ci le hand spinner de sorte qu’il tourne autour d’un axe vertical et non plus horizontal.
+Nous obtenons alors les nouvelles pentes : p’ = 1,03 et p = 1,14. On voit bien alors que, puisque les pentes changent
+par rapport aux mesures précédentes alors que les moments d’inertie non, c’est que Γ𝑆 est là encore modifié, car la
+force de pesanteur engendre des contraintes différentes dans cette nouvelle disposition du hand spinner par rapport
+à la situation précédente. On voit par ailleurs que la pente obtenue pour 6 branches est là encore plus élevée que celle
+obtenue pour 3 branches.
+On en conclut ici que bien qu’une masse importante puisse s’avérer intéressante pour que le hand spinner tourne
+rapidement, cette masse va engendrer des frottements solides plus importants, freinant alors davantage le hand
+spinner. Cela constitue donc un élément important de cet instrument. Nous avons effectué quelques recherches suite
+à cette réflexion, et il s’avère effectivement que la performance d’un roulement à bille dépendra de la « charge » que
+ce roulement aura à supporter, et de la façon dont cette charge se répartira sur le roulement.
+Revenons alors à la fin du paragraphe II – 5 ). Nous pensions que le moment d’inertie n’avait pas été mesuré avec
+une précision suffisante. Mais en réalité, lorsque nous avons réalisé la mesure de l’évolution de la vitesse du hand
+spinner dans l’air, le hand spinner tournait dans un plan horizontal, alors qu’il tournait dans un plan vertical dans la
+cloche à vide. Le couple de frottement solide n’étant pas le même, il était alors tout à fait normal que nous ne
+trouvions pas des résultats similaires.
+
+IV – Comment augmenter la limite de vitesse de rotation du roulement à billes ?
+1 ) En changeant de matériaux dans le roulement ?
+Nous avons pu voir, au cours de notre
+travail,
+qu’il
+existe
+différents
+roulements à billes, avec différents
+matériaux. Par exemple, on trouve des
+roulements en céramique, qui sont en
+général
+qualifiés
+de
+haute
+performance. Nous avons alors voulu le
+constater en cherchant la vitesse limite
+atteinte par le Hand spinner dans
+Figure 23 : Acquisition très haute vitesse
+lequel on a remplacé le roulement avec les billes en acier par celui avec des billes en céramique.
+Nous avons alors fait tourner le hand spinner à des vitesses vraiment très grandes, comme en témoigne l’acquisition
+ci-contre : figure 23
+La courbe bleue représente la rotation des branches, tandis que la courbe rouge celle des billes. Sur cette courbe rouge,
+il ne faut pas tenir compte de la composante de la fréquence faible, qui correspond à une légère précession de l’axe de
+rotation du hand spinner probablement engendrée par le souffle intense de l’air comprimé. Une lecture des fréquences
+de ces deux signaux conduit alors à un rapport des vitesses de rotation encore égal à 1,59 !
+Nous avons donc pu faire tourner le hand spinner jusqu’à 225 tours par seconde sans jamais atteindre une limite !
+La céramique permet donc effectivement d’atteindre des performances bien plus importantes que celles obtenues avec
+des billes en acier.
+Comment alors expliquer le décrochage avec les billes en acier, et que ce décrochage ne soit pas observé, ou qu’il
+existe peut-être pour des vitesses plus vertigineuses ?
+•
+
+Hypothèse d’une élévation de température : Plusieurs idées nous sont venues. La première a été de faire l’hypothèse
+que lorsque le hand spinner tourne à de telles vitesses, il doit s’échauffer et que les matériaux doivent alors se dilater.
+17
+
+Peut-être alors que cette dilatation provoque le fait que les billes ne se trouvent plus en contact avec l’anneau central
+du roulement à bille. Et du fait de l’effet centrifuge, les billes se retrouvent alors plaquées sur l’anneau externe du
+roulement, ce qui les fait tourner pratiquement à la même vitesse de rotation que celle des branches ?
+Pour savoir si une dilatation est alors à l’origine du décrochage observé avec les billes en acier, nous avons fait chauffer
+le hand spinner à une température de 50°C. Nous l’avons ensuite fait tourner à différentes vitesses, mais le décrochage
+observé se fait toujours autour de 800 rad/s. La dilatation ne semble donc pas intervenir dans ce phénomène de
+décrochage. Nous pouvons d’autant plus l’affirmer qu’en chauffant le hand spinner à 50°C, sa température est bien plus
+importante que celle à laquelle il se trouve même après une rotation à très grande vitesse. Un autre argument qui
+semble témoigné dans le fait que la dilatation n’est pas le coupable recherché se trouve dans la céramique : il se trouve
+que le coefficient d’expansion thermique de l’acier est 76% fois plus important que celui de la céramique, comme en
+témoigne le tableau ci-dessous. Donc même s’il y avait une dilatation, la céramique, en gardant ses dimensions, serait
+encore moins en contact avec l’anneau interne du roulement que ne le sont les billes en acier.
+
+•
+
+Hypothèse d’une déformation des matériaux à cause de contraintes mécaniques. En observant ce tableau, on
+remarque aussi que les billes en céramique sont 68% plus rigides que les billes en acier. Peut-être alors que, du fait de
+la très grande vitesse de rotation, il y a une déformation des matériaux : les billes en acier perdraient alors leur sphéricité,
+et ne seraient alors plus en contact avec l’anneau central, contrairement aux billes en céramique. Connaissant le module
+d’élasticité de l’acier, nous avons voulu évaluer l’ordre de grandeur de la déformation de la bille compte tenu de la
+contrainte subie par la bille lors de sa rotation.
+Connaissant la masse des billes, leur vitesse de rotation et le rayon de leur trajectoire, on peut évaluer la force centrifuge
+qu’elles subissent : 𝐹 = 𝑚𝜔2 𝑅 = 1N pour les billes en acier. On peut alors dire que les billes sont plaquées contre la
+couronne extérieure, et subissent de la part de celle-ci une force de 1N.
+D’après la loi de Hook, on peut alors estimer (en supposant que la bille ne se déforme que sur une seule direction) la
+variation du diamètre de la bille ΔL en fonction de la surface de contact entre la bille et la couronne extérieur :
+
+𝜎=
+
+𝐹
+𝑆
+
+=𝐸
+
+∆𝐿
+𝐿0
+
+𝐿 𝐹
+
+1.5,10−14
+
+𝐸𝑆
+
+𝑆
+
+→ ∆𝐿= 0 =
+
+On ne peut pas connaître avec précision la surface de contact S, mais cette surface est dans tous les cas très faible,
+répartie sur une ou deux lignes selon les géométries de la bille et du sillon extérieur. Il n’est pas impossible que cette
+surface soit de l’ordre de 10-9 m², ce qui diminuerait alors le diamètre de la bille d’environ 10 µm, diminuant alors le
+contact entre la bille et la couronne interne. Ce qui rejoint la troisième hypothèse dont nous parlons ensuite…
+•
+
+Hypothèse de la variation des forces de frottement :
+D’après les lois de Coulomb pour les frottements, nous savons que les forces de frottements exercées par la couronne
+intérieur sur les billes sont d’autant plus grandes que la force avec laquelle la bille appuie sur cette couronne intérieure
+est grande. Il en est de même avec les forces de frottements entre la bille et la couronne extérieur. Ces forces de
+frottements permettent, rappelons-le, le roulement de la bille. Or, plus la bille tourne vite, et moins la bille appuie sur
+la couronne intérieure, alors que la bille appuie davantage sur la couronne extérieure. De ce fait, la force de frottement
+devient faible sur la couronne intérieure, et il peut alors exister une limite à sa valeur en dessous de laquelle les
+frottements ne sont plus suffisants. La bille ne peut alors plus rouler : elle glisse.
+2 ) En lubrifiant le roulement ?
+Comme nous l’avons souligné précédemment, les frottements à éliminer pour que le hand spinner tourne plus
+longtemps sont ceux entre les billes et la couronne en plastique qui les maintient. Les frottements des billes avec les
+parties métalliques sont quant à eux ceux qui permettent au hand spinner de tourner.
+Nous pouvons diminuer les frottements solides en rajoutant un peu d’huile au niveau du roulement. Pour constater de
+façon objective l’intérêt de lubrifier le roulement à billes, nous avons alors comparé l’évolution de la vitesse en fonction
+18
+
+du temps, pour le même hand spinner placé sous la cloche à vide, sans huile pour commencer, puis avec une goutte
+d’huile. Voici les résultats obtenus : (Figure 24 – A gauche : Rotation sans lubrifiant – A droite : avec lubrifiant)
+ω(rad/s)
+
+ω(rad/s)
+
+Temps (s)
+
+Temps (s)
+
+Contrairement à ce que à quoi nous nous attendions, nous constatons que le hand spinner s’arrête de tourner beaucoup
+plus rapidement en présence d’huile : il tourne deux fois plus longtemps sans huile qu’avec de l’huile, pour une vitesse
+initiale quasiment identique.
+La décroissance non linéaire de la vitesse de rotation au cours du temps en présence d’huile témoigne du fait qu’en
+réalité, la présence d’huile a engendré des frottements fluides importants au sein même du roulement.
+Pour aller plus loin, nous pouvons tout de même dire que les frottements solides ont bel et bien diminué. En effet,
+compte tenu que l’expérience se passe dans la cloche à vide, nous avons vu que
+̇
+Γ𝑆
+𝜃̇ (𝑡) = 𝜃̇0 − 𝑡
+𝐼Δ
+Par ailleurs, comme la courbe de droite, obtenue avec l’huile, peut-être modélisée par une fonction du type
+−𝐶
+
+𝑡
+
+𝑡
+Γ
+Γ
+𝜃̇ (𝑡) = 𝑎𝑒 𝜏 − 𝑏, c’est-à-dire de la même forme que celle établie au paragraphe I -3) : 𝜃̇ (𝑡) = (𝜃̇0 + 𝑆) 𝑒 𝐼Δ − 𝑆
+𝐶
+𝐶
+On peut supposer que l’huile est responsable d’un couple de force de frottement proportionnel à la vitesse.
+Or les modélisations des deux courbes sont les suivantes :
+Γ
+Pour la rotation du hand spinner sans huile : 𝜃̇ (𝑡) = −1,17̇ × 𝑡 + 51,3 donc 𝑆 = 1,17
+
+Pour la rotation du hand spinner avec huile : 𝜃̇ (𝑡) = 56,4𝑒
+
+−𝑡
+7,54
+
+𝐼Δ
+𝐼Δ
+Γ
+Γ
+5,60
+− 5,60 donc 𝐶 = 7,54 et 𝐶𝑆 = 5,60 donc 𝐼 𝑆 = 7,54 = 0,74
+Δ
+
+Comme 𝐼Δ est une valeur qui ne change pas par ajout de l’huile, c’est donc bien que le couple de force de frottement
+solide a diminué en ajoutant de l’huile. Et donc, parallèlement à cela, les frottements fluides ont augmenté, sans pouvoir
+être compensés par la diminution des frottements solides.
+
+V – Un autre phénomène amusant avec le hand spinner :
+Nous nous sommes amusés à fixer un hand spinner au bout d’une tige rigide que nous avons fixé à son extrémité haute
+avec un système qui permet à la tige d’osciller dans n’importe quel plan vertical. Le hand spinner se trouvant à l’extrémité
+basse de la tige, nous l’avons fait tourner, puis nous avons écarté le pendule ainsi constitué de sa position d’équilibre
+avant de le lâcher afin qu’il oscille. La vidéo de l’expérience se trouve en suivant le lien : https://youtu.be/WvHqRJWvhDc
+On constate que le fait que le hand spinner tourne sur lui-même fait tourner le plan d’oscillation du pendule autour d’un
+axe vertical (l’axe du pendule dans sa position d’équilibre). Lorsque le hand spinner tourne dans le sens des aiguilles d’une
+montre sur la vidéo, le plan d’oscillation tourne également dans le sens des aiguilles d’une montre. Et inversement.
+Nous avons voulu mesurer quantitativement cela, et essayer de trouver une relation entre la vitesse de rotation du hand
+spinner et la vitesse de rotation du plan d’oscillation du pendule.
+Pour cela, grâce à la vidéo, toutes les 5 périodes d’oscillation du pendule, on a représenté ci-dessous le plan dans lequel
+oscille le hand spinner (figure 26). Nous avons mesuré la vitesse de rotation du hand spinner également toutes les 5
+périodes (figure 25) (en analysant toujours la vidéo avec Latis pro), et nous avons noté les valeurs sur le schéma. On
+remarque alors que plus la vitesse de rotation du hand spinner est faible, et moins le plan dans lequel oscille le hand
+spinner tourne. Il finit d’ailleurs par rester identique quand le hand spinner arrête de tourner.
+Ci-après, à l’aide de la vidéo, on a tracé le plan d’oscillation du pendule, toutes les 5 oscillations, et l’angle θ représente
+la variation de l’angle entre chacun de ces tracés par rapport au premier plan d’oscillation. Les hand spinner colorés
+que nous avons positionnés sur les 2 schémas permettent de faire le lien entre eux.
+19
+
+Date 7
+
+Date 1
+Date 1
+
+Date 2
+
+Date 3
+
+Date 4
+
+Date 5
+
+Date 6
+
+Date 7
+
+Date 8
+
+Date 2
+Date 3
+
+Date 4
+
+Figure 25 : Mesure de la vitesse de rotation du hand spinner à différentes dates – Figure 26 : Rotation du plan dans lequel oscille le pendule aux mêmes dates
+
+Nous avons tracé l’évolution de θ au cours du temps (figure 27 – a), que nous avons ensuite modélisé pour pouvoir
+calculer la dérivée de cet angle. Autrement dit, nous avons l’évolution de la vitesse 𝜃̇ de la rotation du plan d’oscillation
+du pendule au cours du temps. Comme par ailleurs, nous connaissons la vitesse ω de rotation du hand spinner à des
+dates précises, nous pouvons tracer l’évolution de 𝜃̇ en fonction de ω (figure 27 – b). Un zoom (figure 27 – c) sur cette
+dernière courbe nous permet de voir que pour que le hand spinner oscille dans le même plan par rapport au référentiel
+terrestre, il doit « annuler » la rotation de la Terre qui se fait à 0,0042 °/s, et donc tourner à une vitesse d’environ 0,062
+°/s, soit 3,6 rad/s.
+
+Figure 27 - b
+
+Figure 27 - a
+temps (s)
+
+Figure 27 - c
+ω (rad/s)
+
+ω (rad/s)
+
+Le phénomène physique qui est mis en évidence au cours de cette expérience dont les résultats restent très
+approximatifs repose sur la conservation du moment cinétique. Le fait que l’axe de rotation du hand spinner change de
+direction au cours de l’oscillation du pendule, l’axe subit un couple de force qui va provoquer la rotation du plan
+d’oscillation du pendule.
+Comme cet effet doit dépendre du moment d’inertie du hand spinner, nous pensons qu’il y a ici un moyen, par le biais
+de cette expérience, de remonter au moment d’inertie du hand spinner. Mais ce ne sera pas pour tout de suite…
+
+V – Conclusion
+Pour choisir un hand spinner, il faut faire des compromis, car ce que l’on gagne d’un côté, on peut le perdre de l’autre.
+Une plus grande masse peut par exemple permettre d’avoir un moment cinétique plus important, mais conduira à une
+charge, donc à des frottements plus importants également. Pour éviter les frottements fluides, la forme du hand spinner
+ne peut pas être élaborée uniquement à partir de considérations esthétiques.
+De façon plus générale, l’étude du hand spinner nous a finalement amené à comprendre le roulement à billes. Nous
+avons dû pour cela faire de nombreuses expériences, nous amenant souvent vers d’autres hypothèses… Il y a encore
+sûrement beaucoup à dire sur le sujet, mais nous avons déjà eu beaucoup de plaisir à réaliser tout ce travail, et au
+départ, nous étions loin d’imaginer que nous ferions toutes ces investigations. Le fait enfin d’avoir mélanger les
+matériaux, en utilisant par exemple la céramique nous pousse à étudier la particularité de certains contacts, comme
+ceux entre l’acier et la céramique, souvent utilisés dans les prothèses. Mais ce sera pour un autre projet.
+20
+
+

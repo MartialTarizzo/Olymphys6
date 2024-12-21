@@ -1,0 +1,505 @@
+Finale des olympiades de Physique : janvier 2016
+
+Jean-Baptiste HUBER,
+Aimé MARCANT,
+Julien SPANNEUT,
+
+présentent :
+
+Peut-on rendre un vélo autonome
+en énergie ?
+
+1
+
+Résumé
+Notre projet est de produire un courant électrique suffisant pour recharger la batterie d’un smart phone à l’aide de
+piezo collés sur la jante d’une roue de vélo. Nous avons tout d’abord étudié comment le piezo crée de l’électricité
+sous l’action d’une pression. Ensuite, pour voir si le projet était viable, nous avons réalisé une route sur laquelle des
+piezo en dérivation permettent de produire de l’électricité au passage d’une roue et nous avons cherché à savoir si la
+tension produite devait être redressée puis lissée. Enfin nous avons réalisé un prototype de roue et fait un essai non
+concluant ce qui nous a conduit à revoir notre projet à la baisse, c'est-à-dire que nous cherchons actuellement à
+alimenter l’éclairage LED du vélo. Par ailleurs, nous cherchons aussi à améliorer notre système.
+
+2
+
+Introduction
+
+Aujourd’hui, le besoin d’être connecté se fait sentir jusque lors de promenades à vélo : utilisation
+d’un GPS ou d’un Smartphone. Comme pour tout le monde, au moment de partir, on s’aperçoit que
+l’appareil n’a pas pou plus d’autonomie rendant l’appareil inutilisable.
+Partant de ce constat, notre problématique est « Comment rendre un vélo autonome en énergie ? »
+La solution existe déjà depuis longtemps avec l’utilisation d’un alternateur couramment appelé
+dynamo, mais son utilisation nécessite que le cycliste produise un effort physique supplémentaire
+puisque celui-ci convertit l’énergie mécanique en énergie électrique et qu’il y a beaucoup de pertes
+par frottements.
+On pourrait imaginer d’embarquer des batteries, mais cela ne diffère que le problème puisqu’il faut
+alors penser à recharger les batteries…
+Après avoir vu le travail d’un groupe des olympiades du lycée sur l’utilisation de piézo pour
+fabriquer une dalle lumineuse, nous avons eu l’idée d’utiliser la piézoélectricité pour répondre à
+notre problématique.
+
+3
+
+I) Piézoélectricité principe
+1) Définition et historique :
+La piézoélectricité est la propriété possédée par certains corps qui se polarisent électriquement sous l’action d’une
+contrainte mécanique.
+La première démonstration de l’effet piézoélectrique direct a été réalisée en 1880 par les frères Pierre et Jacques
+Curie. Ils prédisent et vérifièrent l’existence de la piézoélectricité sur des cristaux de quartz, de tourmaline, de
+topaze…
+
+En 1881, Wilhelm Hankel suggère un mot à cet effet: la piézoélectricité s’inspirant de l’étymologie grecque :
+«piézein» , presser, appuyer.
+La piézoélectricité resta une curiosité de laboratoire pendant une trentaine d’année, jusqu’à son utilisation dans le
+sonar développé par Paul Langevin pendant la première guerre mondiale.
+Cette application n’a pu voir le jour qu’avec l’apparition des transducteurs piézoélectriques utilisant aussi l’effet
+inverse, c’est à dire la déformation d’un cristal sous l’action d’un champ électrique.
+Après la seconde guerre mondiale, le domaine de la piézoélectricité s’est fortement développé avec la fabrication de
+cristaux synthétiques; de nouvelles céramiques dites ferroélectriques présentant ensuite un effet piézoélectrique
+intense ; puis en 1954 , les zircono titanates de plomb (PZT) et des polymères piézoélectriques dont le premier, le
+polyvinylidène difluoré (PVDF)en 1969.
+
+Actuellement, l’utilisation des matériaux piézoélectriques ne se limite plus aux transducteurs piézoélectriques
+utilisés essentiellement pour les ultrasons (émetteur/récepteur, la détection d'obstacle (sonar, voiture),
+échographies….). On en trouve un peu partout : capteurs de pressions (automobile, pneu ; aéronautique pression
+des gaz dans les tuyères…, mesures de niveaux) ; capteurs d’accélération (Smartphone, manettes de jeux Wii …)
+moteurs et actionneurs (autofocus de l’appareil photo, vitres électriques….
+
+Elément piézo utilisé pour
+toutes nos expériences
+
+4
+
+2) Que se passe-t-il quand on presse un piézo ?
+Effet direct : L’effet direct de la piézoélectricité est dû à une force exercé sur le piézo qui engendre une déformation
+et qui produit une tension.
+
+Au niveau microscopique, si on prend comme exemple le titanate de plomb comme sur le schéma ci-dessous, la
+pression exercée sur le cristal provoque le déplacement de l’ion titane dans la maille. Ceci induit une répartition
+irrégulière des charges (ici davantage de charges positives en haut qu’en bas) d’où une tension électrique apparait
+entre le haut et le bas.
+
+Vérification : nous pressons notre piézo et enregistrons la tension obtenue grâce à une interface d’acquisition
+
+Observation : nous obtenons une tension relativement élevée (jusqu’à 30V), variable et de courte durée (environ
+200ms par pression)
+Interprétation : la déformation du piézo entraine la production d’une tension variable de courte durée.
+
+5
+
+3) Que se passe-t-il si on soumet le piézo à une différence de tension ?
+La tension appliquée va créer un champ électrique aux bornes du cristal, les cations de titane de notre exemple vont
+migrer vers la borne négative entrainant la déformation du cristal, c’est l’effet inverse de la piézoélectricité ou effet
+indirect.
+Vérification : Nous avons branché un générateur de tension alternative, à notre matériau piézoélectrique.
+
+Observation : Le son produit possède la même fréquence que la tension d’alimentation.
+Interprétation : Sous l’effet d’une tension, un matériau piézoélectrique se déforme
+
+6
+
+4) Relation entre tension et pression exercée
+Théorie : Antoine Becquerel au début du XIXème siècle a montré la proportionnalité entre la tension produite et la
+pression exercée sous la forme U = k.P
+(U tension en volt ; P pression en pascal ; k une constante dépendant des caractéristiques du piézo utilisé).
+Vérification : Dans un premier temps, nous avons voulu vérifier cette relation.
+Pour ce faire, il nous fallait pouvoir mesurer précisément la pression exercée…comment ?
+En seconde, nous avions vu que la pression dépendait de la force pressante et de la surface pressée avec la relation :
+P = F/S
+(P pression en pascal ; F force pressante en newton et S surface en m²)
+Donc, nous avons imaginé mettre des masses de plus en plus élevées sur une pastille piézo, enregistrer la tension
+obtenu et par calcul retrouver le coefficient de proportionnalité ensuite nous aurions pu comparer notre valeur avec
+la valeur théorique.
+Système permettant
+de transmettre la
+Masse marquée
+force et de la répartir
+Force = poids = mg
+sur toute la surface
+piézo
+Problème : rien ne se passe….on n’observe aucune tension, à peine un soubresaut quand on pose la masse.
+Si on veut observer quelque chose, il faut que la pression soit forte et brève.
+Idée : nous allons lâcher les masses d’une hauteur quelconque constante et mesurer le pic maximum de tension.
+Masse en g pour
+une hauteur de 45
+cm
+
+50
+20
+10
+5
+
+1
+
+2
+
+3
+
+4
+
+5
+
+10,67 13,33 24,58 24,37 22,04
+10,99 9,717 16,94 17,79 9,08
+4,477 8,23 17,58 6,319 5,575
+3,133 4,088 3,664 3,239 4,407
+
+6
+12,16
+12,58
+12,48
+3,027
+
+7
+
+8
+
+13,33 12,21
+20,44 21,4
+8,442 10,4
+3,451 3,027
+
+9
+
+10
+
+Moyenne
+
+12,81
+11,2
+14,6
+1,646
+
+22,35
+18
+8,761
+3,133
+
+16,8
+14,8
+9,7
+3,3
+
+Observation : on s’aperçoit que les valeurs sur 10 mesures sont très aléatoires à cause de la manière selon laquelle la
+masse tombe sur le piezo. Néanmoins la moyenne des valeurs donne une tendance qui confirme que la tension
+produite dépend de la force pressante et donc de la pression exercée.
+
+La courbe est loin d’une fonction linéaire qui montrerait une proportionnalité entre force et tension mais en réalité,
+la masse transmet son énergie cinétique au point d’impact.
+7
+
+Idée : nous allons lâcher la même masse de différentes hauteurs et mesurer le pic maximum de tension.
+Hauteur en
+cm pour une
+masse de 50g
+5
+15
+25
+35
+45
+75
+100
+
+1
+
+2
+
+3
+
+4
+
+5
+
+6
+
+7
+
+8
+
+9
+
+10
+
+Moyenne
+
+5,15
+16,41
+22,78
+15,52
+10,67
+27,07
+30
+
+14,18
+15,45
+25,75
+7,155
+13,33
+7,845
+20,17
+
+17,15
+7,274
+7,69
+10,69
+24,58
+11,21
+14,05
+
+7,912
+14,39
+15,88
+14,57
+24,37
+30
+30
+
+15,45
+6,319
+7,487
+30
+22,04
+13,1
+22,41
+
+8,973
+27,24
+8,655
+25,52
+12,16
+30
+30
+
+3,876
+7,381
+14,39
+19,22
+13,33
+30
+19,05
+
+10,67
+18,42
+16,41
+8,276
+12,21
+25,78
+30
+
+8,23
+9,823
+20
+10,86
+12,81
+11,38
+20,09
+
+10,04
+7,168
+13,28
+14,77
+22,35
+26,47
+30
+
+10,2
+13.0
+14,5
+15,7
+16,8
+21,3
+24,6
+
+Observation : on s’attendait à obtenir une fonction linéaire car à une hauteur nulle, il n’y a pas de tension.
+C’est peut être du à l’objet posé sur le piezo qui a une masse non nulle et qui « amplifie » la pression sur celui-ci.
+
+Conclusion de la partie I:
+Les piézo permettent de générer des tensions relativement élevées mais de très courte durée.
+Plus la pression appliquée est grande plus la tension aux bornes du matériau piézoélectrique est grande mais ce qui
+compte c’est l’impulsion qu’on donne sur la surface.
+Nous pourrons utiliser ce phénomène pour rendre notre vélo autonome en énergie : il suffira de coller des piézo
+contre la jante de la roue sous la chambre à air, ainsi en roulant les piézo vont être soumis tour à tour à une pression
+et créeront de l’électricité au fur et à mesure de l’avancement. Nous aurons ainsi une source continue d’électricité
+(et pas une source d’électricité continue comme nous allons le voir par la suite).
+
+8
+
+II)
+
+Piézoélectricité et électricité
+
+1) Tension aux bornes d’un piézo sur EXAO
+Expérience : On exerce une pression forte et répétée sur un piézo et on enregistre la tension obtenue grâce à une
+console d’acquisition.
+
+Observation : On voit que la tension obtenue est complexe, variable et très courte…, d’où la nécessité pour l’étudier
+de multiplier le nombre de piézo.
+Remarque :
+La partie négative de la courbe sera un handicap vers l’obtention d’une tension continue.
+Décision :
+Nous allons insérer un pont de diodes après le piézo pour redresser la tension et n’obtenir qu’une composante
+positive
+
+2) Tension obtenue après le pont de diode
+
+Cette fois nous n’avons plus de composante négative mais pas de tension continue et toujours des signaux très
+brefs.
+9
+
+Idée :
+Pour pouvoir étudier la faisabilité de notre projet, nous avons eu l’idée d’inverser l’étude, c'est-à-dire au lieu de
+placer les piézo dans la roue, nous allons d’abord les placer sur une route et y faire avancer la roue de vélo, ainsi
+nous pourrons étudier l’électricité produite.
+Nous décidons de mettre tous les piézo en dérivation les uns par rapport aux autres et récupérer la tension en bout
+de chaîne.
+
+Photo route
+
+3) Tension obtenue sur la route piézo
+
+Ci-dessus 2 enregistrements effectués en faisant rouler la roue sur la route pendant 1s.
+On observe que la tension produite est très inférieure aux 30V obtenus à chaque impulsion directe, mais cette
+tension devrait être suffisante pour charger une batterie de 3,5V…
+Il faut encore redresser la tension pour cela nous allons placer le pont de diodes à la fin de la route en dérivation
+avec les piézo.
+
+10
+
+Photo avec pont de diodes
+
+4) Tension obtenue sur la route piézo après le pont de diodes
+
+Observation :
+L’enregistrement de gauche et obtenue en faisant rouler la roue sur la route. On observe bien une tension variable
+toujours positive, la valeur est un peu inférieure à 3V mais on peut espérer que dans notre expérience finale la
+pression exercée soit supérieure et donc la tension plus élevée.
+Vérification :
+Pour vérifier notre hypothèse, nous faisons l’essai avec le pont de diode et des impulsions fortes à intervalles de
+temps régulier sur un seul piézo, on observe courbes de droites que les pics sont supérieurs à 5V (saturation) et qu’à
+la sortie du pont de diodes(courbe bleue), il n’y a pas de chute de tension par rapport à l’entrée (courbe verte).
+Question : doit-on lisser la courbe pour avoir une tension qui ressemble davantage à une tension continue ?
+
+Le lissage s’effectue avec un condensateur qu’on place en
+dérivation après le pont de diode
+Le condensateur a la capacité de stocker de l’énergie électrique puis
+de la restituer au circuit. Ainsi, il se chargera quand la tension sera
+croissante et se déchargera quand elle sera décroissante
+permettant un lissage de la tension.
+
+11
+
+5) Tension redressée et lissée
+Courbes obtenues pour différents condensateurs « en essayant de rouler toujours de la même façon ».
+
+Nous avons fait des essais en prenant un condensateur de capacité variable si la capacité est trop petite, courbes
+rouge (1nF) et bleue (10nF), alors le lissage n’est pas efficace donc dans ce cas le condensateur ne sert à rien.
+Si la capacité est trop grande, on obtient une tension continue mais faible, courbes magenta (10μF) et bleue claire
+(1μF) , dans ce cas il est peu probable qu’on atteigne les 3,5V nécessaires.
+Ici, la capacités la plus adaptée correspond à la courbe verte (100nF), avec un plus de pression sur les piézo, on
+pourrait espérer atteindre les 3,5V.
+Problèmes :
+1. On observe une chute de tension qui n’est pas souhaitable puisqu’on cherche à avoir au minimum 3,5V.
+2. La capacité du condensateur doit être adaptée à l’intervalle de temps entre 2 maximum de la courbe, c’est
+relativement facile à réaliser pour notre roue qui roule sur la piste piézo car on avance toujours à la même
+vitesse, qu’en sera-t-il lorsque les piézo seront dans la roue qui n’avancera pas toujours à la même vitesse et
+toujours beaucoup plus vite que dans notre simulation.
+Recherche d’une réponse sur internet :
+A l’adresse, http://nononux.free.fr/index.php?page=elec-brico-outils#!elec-brico-outil-lissage-tension, on trouve la
+relation suivante pour un lissage :
+La formule :
+On sait que i=C×dUc/dt (Uc la tension aux bornes du condensateur)
+Si on suppose i constant, on a donc I×Δt=C×Δu,
+avec Δt la durée entre deux oscillations et Δu la variation de tension aux bornes du condensateur (ou ondulation
+admissible).
+la durée entre deux oscillations va dépendre de la fréquence de rotation de la roue.
+Cela confirme bien qu’il faut adapter la capacité du condensateur à la fréquence d’oscillation de la tension et
+donc à la vitesse de rotation de la roue.
+
+Réaction :
+Nous décidons donc de ne plus lisser notre courbe d’autant que si la roue tourne plus vite, les pics de tension
+devraient être beaucoup plus proche les uns des autres et on devrait naturellement se rapprocher d’une tension
+quasi continue ou tout au moins qui ne descende plus trop en valeur.
+6) Intensité obtenue
+Si nous voulons charger une batterie de téléphone, outre le fait qu’il faille une tension suffisante, il que le système
+débite suffisante pour une batterie de 2000mAh.
+Donc avec notre route, nous avons essayé de mesurer l’intensité débitée lorsqu’on roule. Le résultat a été très
+décevant.
+
+12
+
+Conclusion de la partie II:
+Nous sommes maintenant en mesure de réaliser une roue qui devrait nous permettre de créer une tension
+suffisamment élevée pour charger une batterie de Smartphone, mais avec trop peu d’intensité.
+Nous décidons d’abandonner l’idée de charger une batterie et d’utiliser le courant pour allumer des DEL qui servirait
+à l’éclairage du vélo ; les DEL nécessitant peu d’intensité..
+
+III) Le vélo autonome en électricité
+Idée :
+Nous allons coller les piezo à l’intérieur de la jante du vélo et les relier en dérivation par le fil rouge qu’on isolera, le
+retour s’effectuant par la masse, car la jante est en métal, les rayons aussi, le cadre du vélo aussi donc à priori, on
+pourra récupérer la masse à n’importe quel endroit métallique décapé du vélo.
+
+Modélisation
+Pour transmettre le courant du fil rouge à notre chargeur, il faut prévoir un système qui tourne en même temps que
+la roue sous forme d’un balai collecteur.
+
+13
+
+Le balai collecteur doit être isolé de la masse du vélo
+
+Problème :
+1. Les piézo ont du mal à tenir, les soudures lâchent. Il faudrait des piézo souples…il y en a sur internet aux
+états unis, c’est cher, compliqué de comprendre s’ils sont suffisamment puissants, s’ils correspondent à ce
+qu’on veut faire…nous abandonnons cette idée..
+2. La jante relie bien toutes les masses des piézo mais les rayons ne transmettent par le courant jusqu’à l’axe.
+
+14
+
+Réaction :
+On ajoute un fil pour relier la jante à l’axe de rotation de la roue.
+Observation :
+Le contact est établi à l’aide d’une soudure mais est-ce que l’axe va transmettre le courant au cadre ?
+
+Décision :
+On va mettre en place un second balai collecteur qui frottera sur la jante , ainsi on récupérera 2 fils qu’on relira à
+notre pont redresseur sur lequel on pourra normalement charger une batterie
+
+Reste maintenant à replacer le pneu et la chambre sans arracher les soudures, nous sommes allés voir un
+professionnel qui possède une machine capable de faire le travail.
+
+15
+
+IV)Essai et conclusion:
+Premier essai :
+Installer les piézo sur la jante a pris beaucoup plus de temps que prévu.
+Il a fallu trouver une machine pour remettre le pneu sur la jante sans abîmer les piézo en place.
+Problèmes de contacts.
+Système de balai collecteur difficile à mettre en place.
+Le premier essai a été réalisé en direct lors des sélections académiques, il s’est soldé par un échec : nous avons eu
+une très faible tension en insistant.
+Nous avons donc redémonté la roue et ressoudé les piézo. Nous réservons le prochain essai au direct….
+
+Amélioration en vue:
+En parallèle à notre roue, création d’une nouvelle piste piézo avec une diode branchée en série de chaque piézo
+pour éviter que les composantes négatives crées à chaque impulsion viennent abaisser l’impulsion positive suivante,
+cela permet de ne garder qu’une valeur positive et supprime le redressement avant charge de la batterie.
+
+16
+
+Courbe obtenue avec la route à piézo munis de diodes
+
+On observe bien une tension positive, en augmentant la vitesse de déplacement sur la route, on devrait avoir des
+pics plus rapprochés, cela devrait permettre de charge une batterie 3,5 V.
+
+Conclusion :
+Notre projet s’inscrit dans une recherche d’optimisation des dépenses énergétiques et du développement des
+énergies alternatives. Même s’il n’est pas encore about, les résultats sont encourageants : nous avons une tension
+suffisante pour charger une batterie de téléphone et pouvons d’or et déjà allumer des DEL.
+La recherche dans le domaine des piezo permettra sans aucun doute de fabriquer des piezo souple plus puissant
+rendant notre projet de départ réalisable.
+Dans l’avenir, on pourrait rêver d’une roue qui produirait de l’électricité pour recharger la batterie du vélo électrique
+sur lequel on roulerait….ainsi la boucle serait bouclée !
+
+17
+
+

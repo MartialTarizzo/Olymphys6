@@ -1,0 +1,1129 @@
+Hélices au pays des
+merveilles
+Nicolas OHLMANN et François SAUER
+Professeurs : M. Lohner & M. Baert
+Gymnase Jean Sturm - STRASBOURG
+Nous avons étudié les paramètres influençant la force de
+traction des hélices d’avion et à l’aide de cette étude,
+souhaitons développer notre propre prototype d’hélice.
+
+14/01/2011
+1
+
+PLAN DU DOSSIER
+
+1. INTRODUCTION
+
+2. GENERALITES SUR LES HELICES
+2.1.
+
+Principes théoriques
+
+2.1.1. La théorie du flux d’air, ou théorie tourbillonnaire
+2.1.2. La théorie de l’élément de pale
+2.2.
+
+Formules et paramètres
+
+2.2.1. Le diamètre
+2.2.2. La vitesse de rotation ou vitesse angulaire
+2.2.3. Le pas
+2.2.4. La traction
+2.2.5. Le rendement
+2.2.6. Le profil de la section de pale
+
+3. ELABORATION DU BANC DE TESTS
+3.1.
+
+Priorité à la sécurité
+
+3.2.
+
+Le banc d’essai
+
+3.3.
+
+Mesure de la traction
+
+3.4.
+
+Mesure de la vitesse de rotation
+
+3.5.
+
+Mesure de la vitesse de l’air expulsé
+
+4. MESURES
+4.1.
+
+Traction en fonction de la vitesse de rotation
+
+4.2.
+
+Vitesse d’expulsion en fonction de la vitesse de rotation
+
+2
+
+4.3.
+
+Incidence radiale des pales
+
+4.4.
+
+Vitesse d’écoulement selon la distance à l’axe
+
+4.5.
+
+Notre hélice de tests
+
+4.5.1. Premier prototype
+4.5.2. Second prototype
+
+5. LE MEILLEUR POUR LA FIN
+5.1.
+
+Etude de l’influence de l’angle d’incidence
+
+5.2.
+
+Etude de l’influence de la corde
+
+5.3.
+
+Etude des rendements
+
+6. CONCLUSION
+
+7. BIBLIOGRAPHIE
+
+8. REMERCIEMENTS
+
+3
+
+« C’est l’hélice, la sainte hélice ! [...] qui va nous emporter dans l’air, comme la vrille entre
+dans le bois. »
+Nadar, 1853
+
+1. INTRODUCTION
+Le principe de l’hélice a été découvert par Archimède, au IIIe siècle avant J-C, avec sa vis
+sans fin servant à élever l’eau. Les chinois inventèrent de petits jouets pour les enfants
+comportant une hélice, qui furent, dès le Moyen-âge, commercialisés en Europe. On
+souhaita alors utiliser une hélice pour d’éventuelles machines volantes. D’ailleurs, une des
+esquisses de Léonard de Vinci (1452-1519) représente des hélices comme moyen d’envol
+pour ses machines.
+L’importance de la géométrie de l’hélice fut démontrée au début du XXe siècle par divers
+savants. En 1916, l’ingénieur en aéronautique Marcel Bloch, (futur Marcel Dassault) constata
+le médiocre rendement des hélices de l’époque, ce qui le poussa à en dessiner une nouvelle,
+« l’Eclair ». Elle sera très vite approuvée et commandée en grand nombre par l’armée. Ainsi
+Dassault rentra-t-il dans la légende de l’aviation française.
+De nos jours, le principe de l’hélice trouve de nombreuses applications dans différents
+domaines, comme la marine (qui d’ailleurs l’employa avant l’aviation), l’éolien ou le
+nucléaire (le principe de la turbine étant dérivé de l’hélice). Mais c’est en aéronautique
+qu’elle est le plus présente, sous différentes formes : hélices classiques, turbopropulseurs ou
+turboréacteurs (composés d’une série de compresseurs et de turbines, dérivés des hélices).
+Ayant eu pour sujet de TPE l’impact de l’aviation sur la société moderne, nous
+souhaitions approfondir l’aspect physique de notre travail, pour s’intéresser en particulier à
+l’aérodynamique. Etant des mordus d’aéronautique et voulant nous lancer dans
+l’aéromodélisme, nous avons été impressionnés par la variété des hélices dans les magasins
+spécialisés. Par curiosité scientifique et pour la performance de nos futurs modèles, nous
+avons donc décidé de nous pencher sur l’étude de l’hélice et de ses caractéristiques. Notre
+but
+
+est
+
+de
+
+déterminer
+
+l’influence
+
+de
+
+ces
+
+paramètres
+
+4
+
+sur les performances de l’hélice, donc de l’avion. Nous avons construit un banc d’essai
+capable de mesurer différentes grandeurs ; nous essayerons d’établir les relations
+mathématiques qui régissent ces grandeurs afin de mieux les comprendre.
+
+2. GENERALITES SUR LES HELICES
+2.1.
+
+Principes théoriques
+
+Il existe deux théories, deux approches de l’hélice. Elles considèrent toutes les deux
+le même processus, mais de points de vue totalement différents. Ces deux théories n’ont
+donné des résultats divergents que très rarement au cours de l’histoire, et par principe les
+scientifiques et ingénieurs n’ont admis que les faits et les formules à propos desquelles les
+deux méthodes concordaient.
+
+2.1.1. Approche selon l’étude du flux d’air, ou théorie tourbillonnaire
+Cette théorie envisage l’hélice comme un dispositif qui accélère une certaine masse
+d’air par unité de temps, sans s’intéresser aux interactions locales entre l’hélice et les
+particules d’air. On applique donc au fonctionnement de l’hélice le principe de réaction,
+déduit du principe de conservation de la quantité de mouvement. Tous les calculs sont
+fondés sur les lois fondamentales de la mécanique, en considérant un flux d’air dans lequel
+se meut un solide. Les paramètres étudiés sont donc la variation de vitesse, de pression ou
+de diamètre du flux d’air en amont et en aval de l’hélice.
+
+2.1.2. Approche selon la théorie de l’élément de pale
+Ce point de vue considère l’hélice dans l’air comme une aile rotative. On fractionne
+une
+
+hélice
+
+en
+
+une
+
+multitude
+
+de
+
+sections
+
+qui
+
+fonctionnent
+
+5
+
+toutes comme des portions d’ailes, en se plaçant dans le plan normal à l’axe de rotation de
+l’hélice. Au final, la somme des portances générées par ces profils forme la traction totale, et
+la somme des moments des forces de traînée forment le couple nécessaire à la rotation de
+l’hélice.
+
+2.2.
+
+Formules et paramètres
+
+Dans l’étude de l’hélice et plus largement en aérodynamique, on explique les
+phénomènes observés expérimentalement à l’aide de modèles mathématiques. Il en résulte
+une multitude de formules, dont les variables sont fonction des caractéristiques des hélices
+étudiées.
+
+2.2.1. Le diamètre
+C’est le plus évident de ces paramètres, et un des plus importants ; en effet, le
+diamètre d’une hélice définit la surface que les pales d’une hélice balayent au cours de sa
+rotation, donc le débit d’air brassé. On le notera d.
+
+2.2.2. La vitesse de rotation, ou vitesse angulaire
+La vitesse angulaire ω représente le nombre de rotations qu’effectue l’hélice par
+unité de temps. On la détermine par :
+α : angle parcouru en rad
+
+t
+
+Δt : intervalle de temps
+étudié en s
+
+2.2.3. Le pas
+Il définit la distance que parcourt l’hélice en une révolution. Concrètement, quand on
+se place dans le plan de rotation de l’hélice, c’est l’angle d’incidence de chaque section de
+pale formé entre la corde du profil et la direction du vent relatif. Cet angle dépend de la
+distance par rapport au moyeu puisqu’il est fonction de la vitesse de translation locale, qui
+elle-même varie en fonction de cette distance. C’est pourquoi les pales d’hélices
+
+6
+
+sont vrillées (avec un grand pas vers l’intérieur et un petit pas vers l’extérieur), et il est ainsi
+plus commode de parler de distance d’avancement de l’hélice par rotation.
+
+2.2.4. La traction
+C’est la force que l’hélice exerce sur l’air pour faire avancer l’avion. Elle se note T et
+s’exprime en Newtons. On peut la déterminer d’après la vitesse d’éjection des particules
+derrière l’hélice, du diamètre du cylindre formé par celles-ci (à ne pas confondre avec le
+diamètre de l’hélice).
+
+2.2.5. Le rendement
+C’est l’efficacité de l’hélice à transformer l’énergie mécanique du moteur en traction.
+On le note η et on le détermine en effectuant le quotient de la puissance effective et de la
+puissance fournie par le moteur.
+
+2.2.6. Le profil de la section de pale
+Le profil de la section de pale est la forme de la pale selon une section tangentielle à
+l’axe de rotation de l’hélice. Ce profil est similaire à un profil d’aile ; il présente en général un
+extrados (la face orientée vers l’avant) convexe et un intrados (face orientée vers l’arrière de
+l’hélice) plat ou concave. Ainsi, d’après le théorème de Bernoulli, il se crée une dépression
+devant l’hélice et une surpression derrière, à condition que l’hélice tourne suffisamment
+vite.
+
+3. ELABORATION DU BANC DE TESTS
+3.1.
+
+Priorité à la sécurité
+
+Pour pouvoir faire nos mesures, nous souhaitions utiliser un moteur assez puissant
+pour faire tourner l’hélice. On s’est donc tourné vers le matériel d’aéromodélisme. L’idée
+d’utiliser
+
+un
+
+moteur
+
+thermique
+
+a
+
+tout
+
+de
+
+suite
+
+été
+
+7
+
+écartée car toutes nos mesures allaient être faites en intérieur, puisqu’il est très bruyant,
+trop gros, et provoque énormément de vibrations. En aéromodélisme, le carburant utilisé
+dans un moteur thermique est le méthanol (de formule CH3OH). Lorsque l’appareil est en
+fonctionnement, il y a un risque de projection de cet alcool nocif, qui peut provoquer une
+cécité totale.
+Dans le domaine du modélisme, l’utilisation du moteur électrique est de plus en plus
+courante. En effet, ce type de moteur offre un bien meilleur rendement que les moteurs
+thermiques. Cependant, un autre problème de sécurité se pose : le moteur que l’on s’est
+procuré (PROTRONIK 2205) présente un régime élevé pour l’hélice que nous avons acheté,
+une GWS 9x4,3 (voir tableau constructeur ci-dessus) ; un détachement de l’hélice pourrait
+s’avérer très dangereux. Pour palier ce problème, nous avons utilisé une télécommande, qui
+va ainsi nous permettre de se mettre à distance du rayon de projection de l’hélice.
+
+3.2.
+
+Le banc d’essai
+
+Nous avons voulu fabriquer un banc d’essai polyvalent, capable de supporter
+différents dispositifs de mesure tels que les instruments de mesure de la traction, de la
+vitesse de rotation de l’hélice, et d’air expulsé. Pour ce faire, nous avons construit une
+carcasse en MDF (un panneau de fibres de bois) en forme de C.
+
+8
+
+Balance électronique
+Hélice
+Tube de Pitot
+Photodiode
+Laser et générateur
+Télécommande
+
+Notre banc d’essai
+
+3.3.
+
+Mesure de la traction
+
+Notre banc d’essai est capable de mesurer la traction produite par l’hélice. Pour ce
+nous
+
+avions
+
+besoin
+
+d’un
+
+dynamomètre
+
+assez
+
+précis
+
+car
+
+balance
+
+moteur
+
+faire,
+
+Bilan des forces lorsque le moteur est à l’arrêt. La traction sur le fil est négligeable.
+
+9
+
+les hélices de modélisme que nous utilisons ne produisent pas de très grandes tractions.
+Nous avons donc choisi une balance électronique couramment utilisée en chimie, qui de plus
+est dotée d’un crochet en dessous pour mesurer la masse d’objets suspendus. Il a ensuite
+fallu trouver un moyen de renvoyer la traction à ce crochet ; c’est une solution de fil et de
+poulie qui a été retenue. Toute l’électronique (moteur, batterie, récepteur, contrôleur) est
+regroupée et fixée sur un socle qui est libre de se balancer d’avant en arrière grâce à 4 bras
+en plastique. Le fil relié à la balance est accroché à l’arrière de ce socle ; quand l’hélice
+tourne, elle tire sur le fil et on relève sur la balance la « masse ». Il nous suffit alors de
+multiplier par la constante d’accélération de la pesanteur, soit environ 9,8 m.s -2 : c’est la
+traction. On peut considérer que les bras restent toujours verticaux car le crochet de la
+balance ne descend pas quand on tire dessus. Ainsi c’est bien la traction que l’on relève et
+non pas sa résultante horizontale.
+
+3.4.
+
+Mesure de la vitesse de rotation
+
+Nous mesurons la vitesse de rotation à l’aide d’une
+photodiode BPW 34 (voir photo ci-contre). Cette diode est conçue
+pour travailler dans l’infrarouge car sa sensibilité maximum
+apparaît pour une longueur d’onde de 925 nm environ. Elle est
+également sensible dans le spectre visible. Dans le spectre visible,
+la caractéristique montre que la diode est d’autant plus sensible que la radiation incidente a
+une longueur d’onde se situant vers le rouge. C’est pour cela que nous avons choisi d’utiliser
+comme système éclairant un boîtier LASER de TP dont la diode LASER émet à une longueur
+d’onde λ = 650 nm. La sensibilité est alors de 60% de la sensibilité maximum, ce qui est
+nettement suffisant pour l’usage de détection que nous voulons en faire.
+
+10
+
+Graphiques du fabricant : tension en fonction de la luminosité et sensibilité en fonction de la
+longueur d’onde.
+
+Plan du montage :
+
+R
+
++
+E G
+-
+
+I
+
+UR
+Diode laser
+
+La photodiode est placée dans le circuit en sens bloquant. Ce circuit est alimenté en
+continu par un générateur de tension E = 3,0 V.
+L’oscilloscope mesure la tension UR aux bornes du conducteur ohmique de résistance R.
+11
+
+Fonctionnement du circuit :
+Deux cas à envisager :
+Photodiode éclairée par le laser :
+Dans ce cas : I ≠ 0 et en première approximation, le schéma équivalent
+de la diode se résume en un court-circuit.
+On a donc l’équation : UR = E
+Photodiode non éclairée par le laser :
+Dans ce cas : I = 0 ; la diode peut être remplacée par un interrupteur
+ouvert.
+On a donc l’équation : UR = 0
+Schématiquement, l’écran de l’oscilloscope ressemblera à ceci :
+
+T
+
+La durée T = div x cal entre deux pics représente la durée d’un demi-tour. La durée t
+représente le temps de passage de la pale d’hélice devant la photodiode.
+On obtient donc la vitesse de rotation en tr/min par l’expression :
+=
+
+60
+div × c al 2
+×
+
+12
+
+3.5.
+
+Mesure de la vitesse de l’air expulsé
+
+Le système de mesure d’un mouvement de fluides le plus répandu est le tube de
+Pitot. Cela consiste à placer au sein du flux à étudier deux tubes. Le premier est dirigé
+parallèlement à la direction du fluide, et le deuxième perpendiculairement au mouvement.
+Ces deux tubes sont reliés aux autres extrémités, de façon à former un U. Il s’agit de mesurer
+la différence de pression régnant entre les deux tubes et d’en déduire la vitesse. En effet,
+dans le premier tube la pression totale est égale à la somme de la pression atmosphérique et
+de la pression dynamique (la densité volumique d’énergie cinétique des particules de fluide),
+tandis que dans le second, la pression totale est égale à la pression atmosphérique. Ainsi, la
+différence de pression est égale à la pression dynamique, qui dépend directement de la
+vitesse.
+Pour notre banc d’essai, nous avons choisi d’utiliser un système de colonne de
+liquide : quand le vent au niveau du tube de Pitot est non nul, on observe une différence de
+hauteur de liquide de chaque côté du U. La racine carrée de cette différence est
+proportionnelle à la vitesse. Nous avons testé le tube avec de l’eau mais cette molécule
+étant trop polaire, elle restait collée aux parois du tube et faussait la mesure. C’est pourquoi
+nous l’avons remplacée par de l’éthanol, qui est beaucoup moins attiré par les parois du
+tube. La théorie de Bernoulli permet d’établir un lien entre la vitesse du fluide et la
+différence de hauteur du liquide
+V
+
+2 liquide g h
+air
+
+Le liquide est de l’éthanol à 99% : ρ éthanol =0,82 g/cm3
+Le fluide en mouvement étant de l’air : ρ air =1,2.10-3 g/cm3 (supposé à 20°C)
+On aura donc en fait : V
+Soit : V
+
+11,6
+
+116
+
+hm
+
+avec Δh en m
+
+h cm avec Δh en cm.
+
+13
+
+Colonnes de liquide du tube de Pitot
+
+Circuit de la photodiode
+
+4. MESURES
+
+Nous disposons de quelques hélices de diamètre et pas différents :
+- 9x4.7 (22.86x11.94)
+- 9x7 (22.86x17.78)
+- 10x4.7 (25.4x11.94)
+- 11x4.7 (27.94x11.94)
+Remarque : les caractéristiques sont données en pouce (cm). La première représente le
+diamètre, et la seconde le pas en avancement théorique par rotation.
+
+14
+
+4.1.
+
+Traction en fonction de la vitesse de rotation
+
+Nous avons fait varier la commande des gaz de notre télécommande, et à chaque
+cran avons relevé sur l’oscilloscope le temps T entre deux passages de pales de l’hélice, ainsi
+que la masse m indiquée sur la balance
+
+15
+
+16
+
+On observe que la traction, à régime égal, est plus importante pour l’hélice de
+diamètre 10 pouces.
+
+4.2.
+
+Vitesse d’expulsion en fonction de la vitesse de rotation
+
+La mesure suivante a été celle de la vitesse d’expulsion de l’air en aval de l’hélice.
+Nous avons testé notre tube de Pitot, mais pour les faibles vitesses de rotation, la vitesse
+d’expulsion n’étant pas assez grande, la différence de hauteur d’éthanol coloré n’était pas
+assez grande pour que la lecture ait une précision satisfaisante. Nous avons donc eu l’idée
+d’incliner la zone de lecture, afin que le liquide parcoure une plus grande distance dans le
+tube pour une même différence d’altitude. Nous avons ainsi incliné la zone de lecture de 75
+degrés par rapport à la verticale. Calculons le gain de précision gagné : pour une hauteur de
+1cm, le liquide parcourt 1 cm /cos(75) = 3.86 cm. Au final, on multiplie quasiment notre
+précision de lecture par 4.
+
+Avec la même méthode que pour la traction, nous avons obtenu le graphique suivant :
+
+Hélice 9 x 4,7
+17
+
+Hélice 10 x 4,7
+
+18
+
+En rassemblant ces 3 graphiques (barres d’erreur en moins pour ne pas surcharger les
+tracés), on obtient :
+
+Nous n’avons observé de différences de niveau d’éthanol notables qu’à partir de
+2000 tr/min. Interprétations : la petite hélice semble, à régime égal, produire un flux de
+vitesse légèrement plus importante que la grande, Mais, quand on se penche sur les
+graphiques de la traction en fonction de la vitesse de rotation, on voit qu’un plus grand
+diamètre d’hélice compense facilement la différence de vitesse d’expulsion observée ici,
+puisque l’hélice de 10inch de diamètre produit une traction plus grande que sa petite sœur.
+
+Lien avec la théorie
+Supposons un profil d’aile décrit par sa corde et son incidence. Les hélices que nous avons
+utilisées montrent que la corde et l’incidence d’un élément de pale dépend de la distance de
+cet élément à l’axe de rotation.
+On peut montrer que la force de traction de l’hélice Fr est égale au produit entre le débit
+massique m d’air et la variation de vitesse de l’air entre l’amont et l’aval de l’hélice
+(V1 V0 ) :
+Fr = m(V1
+
+V0 )
+
+19
+
+(r)
+
+V(r)
+c(r)
+
+L’élément de masse « soufflé » pendant une seconde par l’élément de pale se situant à une
+distance entre r et r+dr du centre de rotation est :
+dm(r) = c(r) × sin (r) × v(r) × (r) × dr
+
+Or v(r) =
+
+×r
+
+Donc : dm(r) = c(r) × sin (r) × × r × (r) × dr
+Ainsi : m =
+
+∫c(r) x sin
+
+r) x r x (r) x dr
+
+Il faudrait connaître le comportement de c,
+
+et
+
+en fonction de r pour intégrer.
+c(r ) = c 0
+
+Faisons les hypothèses simplificatrices suivantes : (r ) =
+
+0
+
+(r ) =
+
+0
+
+Dans le cadre de ces hypothèses : m =
+Soit, après intégration entre 0 et R
+
+x c0 x sin
+
+: m=
+
+× c 0 × sin
+
+x 0
+
+∫r x dr
+
+0 ×
+
+R2
+0
+2
+
+Mais puisque A = R 2 représente la surface décrite par l’hélice en rotation, on
+obtient :
+
+20
+
+m = c 0 × sin
+
+0
+
+×
+
+0
+
+A×
+2
+
+Or la force de traction est proportionnelle à m: Fr = m × (V1
+
+On obtient donc : Fr = c 0 × sin
+
+0
+
+×
+
+On retiendra que Fr = k × × (V1
+
+4.3.
+
+A×
+2
+
+× (V1
+
+V0 )
+
+V0 ) où k est une constante.
+
+On a montré expérimentalement que
+On devrait donc avoir : Fr = k’ x
+
+0
+
+V0 ) ,
+
+2
+
+est proportionnelle à (V1 V0)
+
+, ce qui a été effectivement observé.
+
+Influence du pas moyen de l’hélice
+
+Un autre facteur nous semble important, à savoir le pas de l’hélice. Notre but est de
+mesurer la traction en fonction du pas théorique des hélices.
+
+21
+
+4.4.
+
+Incidence radiale des pales
+
+Une fois les tests de traction effectués dans leur intégralité, nous avons « sacrifié »
+une hélice afin de mesurer l’angle d’incidence des pales en fonction de la distance au centre.
+Nous en avons découpé une petit à petit, par pas de 5mm. Nous avons relevé à chaque fois
+la corde locale et l’angle d’incidence local. Nous n’avons malheureusement pas pu étudier
+l’hélice dans toute sa longueur, car nous avons été limités par l’appareil de découpe : on ne
+pouvait plus couper sans la casser.
+On observe qualitativement que la corde décline régulièrement en s’éloignant de
+l’axe tout comme semble le faire l’angle d’incidence. Cependant, sa mesure reste
+approximative.
+
+Grâce aux mesures précédentes, on a pu calculer le débit localement généré par
+l’élément de pale. On peut voir que le constucteur a tenté de maintenir régulier le débit afin
+22
+
+de limiter les variations d’effort sur la pale. En effet si la pale se déformait, ses performances
+seraient modifiées. On observe également qu’au bout de la pale, le débit chute rapidement :
+l’angle d’incidence y est très faible, et c’est l’interface entre l’air au repos et l’air dans le
+flux ; des interactions entraineraient de trop fortes turbulences donc un débit presque nul.
+
+débit loc al
+
+(m m 3 /s )
+
+Hélic e 11 x 4,7
+6000
+5000
+4000
+3000
+2000
+1000
+0
+0
+
+20
+
+40
+
+60
+
+80
+
+Dista nc e a u c e ntre
+
+4.5.
+
+100
+
+120
+
+140
+
+160
+
+(m m )
+
+Vitesse d’écoulement selon la distance à l’axe
+
+Pour des raisons techniques, nous n’avons pas pu réaliser l’étude de l’écoulement à
+l’aide de fumée que nous avions projeté ; créer et canaliser une fumée suffisamment dense
+s’est avéré trop complexe par rapport au temps imparti. A titre de substitution, nous avons
+décidé d’étudier de quelle manière variait la vitesse d’écoulement en fonction de la distance
+à l’axe de l’hélice. Cela nous permettrait d’avoir une idée de la forme de l’écoulement et de
+déterminer la limite entre l’air au repos et le flux d’air en mouvement.
+Nous avons donc mis au point un système permettant de placer notre tube de Pitot
+juste derrière l’hélice et de modifier facilement la distance (verticale) à l’axe de l’hélice ainsi
+que la distance (horizontale) séparant le tube de Pitot de l’hélice.
+Nous avons d’abord placé le tube 6cm derrière l’hélice et à 5 cm de l’axe, et l’avons
+fait progressivement remonter en relevant la vitesse d’écoulement (à 3000 tr/min) jusqu’à
+ce que la vitesse mesurée soit nulle, c’est-à-dire qu’on se trouve hors du flux expulsé par
+l’hélice. Ceci fait, nous avons décalé horizontalement le tube de Pitot (à 3, 8, et 10 cm) et
+répété le même protocole. Nous avons obtenu les courbes ci-dessous.
+
+23
+
+Vitesse d'écoulement en fonction de la distance au centre de
+l'hélice 10x4,7 (3 cm de l'hélice, en rotation à 3000 tr/min)
+18
+
+14
+
+Fluide au repos
+
+Vitesse d'écoulement (en m/s)
+
+16
+
+12
+10
+8
+
+Zone
+
+6
+
+Zone laminaire
+turbulente
+
+4
+2
+0
+0
+
+2
+
+4
+
+6
+
+8
+
+10
+
+12
+
+Distance au centre (en cm)
+
+Vitesse d'écoulement en fonction de la distance à l'axe de
+l'hélice 10 x 4,7 (6 cm derrière l'hélice, en rotation à 3000 tr/min)
+18
+
+14
+
+Fluide au repos
+
+Vitesse d'écoulement (en m/s)
+
+16
+
+12
+10
+8
+
+Zone laminaire
+
+6
+
+Zone
+
+4
+
+turbulente
+
+2
+0
+0
+
+2
+
+4
+
+6
+
+8
+
+10
+
+12
+
+14
+
+Distance au centre (en cm)
+
+24
+
+Vitesse d'écoulement en fonction de la distance au centre de
+l'hélice 10x4,7 (8 cm de l'hélice, en rotation à 3000 tr/min)
+18
+
+14
+12
+10
+8
+6
+
+Zone
+Zone laminaire
+
+4
+
+Fluide au repos
+
+Vitesse d'écoulement (en m/s)
+
+16
+
+turbulente
+
+2
+0
+0
+
+2
+
+4
+
+6
+
+8
+
+10
+
+12
+
+Distance au centre (en cm)
+
+Vitesse d'écoulement en fonction de la distance au centre de
+l'hélice 10x4,7 (10 cm de l'hélice, en rotation à 3000 tr/min)
+20
+
+16
+14
+
+Zone
+
+12
+10
+
+turbulente
+
+Zone laminaire
+
+8
+6
+
+Fluide au repos
+
+Vitesse d'écoulement (en m/s)
+
+18
+
+4
+2
+0
+0
+
+2
+
+4
+
+6
+
+8
+
+10
+
+12
+
+Distance au centre (en cm)
+
+Pendant les mesures, nous avons observé qu’à partir d’un certain point les colonnes
+de liquide de notre tube de Pitot ne se stabilisaient pas vraiment et oscillaient. Elles ne se
+
+25
+
+stabilisaient que quand le tube était placé dans le fluide au repos. Nous avons donc
+différencié 3 zones :
+-
+
+la zone de flux laminaire : les particules d’air s’y déplacent parallèlement et à vitesse
+constante.
+
+-
+
+La zone de flux turbulent : les particules d’air forment des tourbillons car elles se
+trouvent à l’interface de la zone laminaire et de l’air au repos, qui ne peuvent pas
+glisser l’une sur l’autre comme deux solides. Cette zone est relativement étroite.
+
+-
+
+La zone de fluide au repos.
+
+En étudiant la place de la zone turbulente en fonction de la distance à l’hélice, on
+remarque que celle-ci est à peu près constante, et qu’elle forme un tube de rayon (11cm)
+inférieur à celui de l’hélice (12,7cm, soit une réduction de 1.7cm). Ce phénomène s’explique
+par le théorème de Bernoulli : la vitesse de l’air augmente, donc sa pression diminue. Le fait
+que cette zone reste à distance constante de l’axe signifie que l’air a déjà atteint sa vitesse
+maximale 3cm derrière l’hélice.
+En ce qui concerne le flux avant 5cm de distance à l’axe, nous n’avons pas pu mesurer sa
+vitesse d’écoulement, mais nous pouvons émettre une hypothèse quant à son allure. On
+remarque que les 4 premiers points de nos courbes sont grossièrement alignés, de plus, ils
+pointent vers l’origine. Comme on sait qu’au centre de l’hélice, la vitesse est nulle, on peut
+conjecturer que celle-ci est linéaire, tant qu’on se trouve assez loin de la zone turbulente. Ce
+qui est logique car la vitesse locale d’un élément de pale est proportionnelle à son
+éloignement au centre.
+
+Nous avons jusqu’à présent étudié tous les paramètres que les hélices du commerce
+nous permettaient. Cependant, certains d’entre eux, comme la corde ou encore l’angle
+d’incidence, seraient intéressants à étudier. Pour cela, nous avons décidé de concevoir nos
+propres prototypes d’hélice. Bien entendu, nous ne cherchons pas à concurrencer les hélices
+du marché, mais à faciliter la variation des paramètres qui nous intéressent afin de
+déterminer leur influence.
+
+26
+
+4.6.
+
+Notre hélice de test
+
+4.6.1. Notre premier prototype
+
+Section de profil d’aile en balsa
+Capuchon de feutre
+Tige filetée
+
+Nous avons d’abord décidé d’utiliser une tige filetée de faible diamètre, dont nous
+pourrons négliger la traînée, qui forme l’armature de l’hélice et porte une section de profil
+d’aile en balsa de chaque côté, fixée à l’aide d’écrous et de rondelles. La pièce bleue qui fait
+le lien entre l’axe moteur et la tige filetée est un capuchon de feutre usiné et percé pour
+transmettre la puissance de façon rigide.
+
+Sur cette hélice, nous pouvons faire varier le diamètre et l’angle d’incidence (donc le pas) de
+chaque pale. Nous pourront donc mesurer leur influence sur la traction, la vitesse de l’air et
+les différents rendements. Nous pourrons aussi éventuellement tester de nouveaux profils,
+comme des profils plats ou concaves.
+
+27
+
+Phase d’essai
+
+Elle s’est révélée non concluante ; on ne pouvait pas régler correctement l’angle
+d’incidence car la tige filetée n’était pas bloquée en rotation. La vitesse de rotation était trop
+élevée (en bout de pale la vitesse est de 250 km/h), ce qui a entraîné un décalage de l’angle
+d’incidence. De plus, le fait que la tige ne porte pas les pales en leur centre de gravite a
+provoqué un déséquilibre, et même la rupture de quelques pales.
+
+4.6.2. Second prototype
+Notre professeur de technologie, ayant fait l’acquisition d’une fraiseuse à commande
+numérique (Chraly-Robot), nous a proposé d’usiner d’une pièce les hélices en plastique
+d’après un dessin fait à l’ordinateur. Cela nous permet d’en produire à besoin et de modifier
+facilement chaque paramètre. De plus, pour l’étude que nous voulons faire, un profil plat
+s’est avéré plus commode sur le plan mathématique. Nous nous sommes donc lancés sur
+deux axes d’étude :
+-
+
+l’influence de l’angle d’incidence de la pale, qu’on a formé à l’aide d’une
+thermoplieuse, la fraiseuse n’usinant qu’en 2D et pas en 3D.
+
+-
+
+l’influence de la corde des pales.
+
+5. LE MEILLEUR POUR LA FIN
+
+5.1 Etude de l’influence de l’incidence
+
+Nous avons pu usiner plusieurs hélices,
+plates et identiques, grâce à la fraiseuse à
+commande
+
+numérique
+
+de
+
+la
+
+salle
+
+de
+
+technologie. A l’aide d’une thermoplieuse,
+nous avons formé des angles d’incidence
+différents pour chacune, de 5 à 45 degrés,
+
+28
+
+avec un pas de 5 degrés. Faute de temps, nous n’avons pas effectué de mesures, aussi cellesci seront faites pour la fin janvier.
+
+5.2 Etude de l’influence de la corde
+
+La corde, c’est-à-dire la largeur de la pale, est un paramètre que l’on peut
+difficilement étudier avec des hélices du commerce. C’est une fois de plus la fameuse
+fraiseuse qui nous a usiné une série de prototypes, avec des codes allant de 10mm à 25mm.
+Pour effectuer les mesures, nous comptons nous appuyer sur les résultats précédents,
+concernant l’influence de l’angle d’incidence : nous sélectionnerons l’angle qui offre la
+meilleure poussée à une vitesse de rotation donnée et le fixerons sur tous les prototypes.
+
+5.3 Etude des rendements
+
+Dans le contexte actuel de sensibilisation à l’écologie et aux économies d’énergie,
+nous avons pensé à nous pencher sur l’usage efficace de l’énergie dans l’ensemble du
+système que nous étudions, c'est-à-dire une batterie qui alimente un moteur « brushless »
+via un contrôleur, une hélice étant fixée au moteur. De l’énergie se perd sous forme de
+chaleur en différents points de ce système, et nous trouvons intéressant de déterminer le
+rendement total du système, c'est-à-dire le rapport de la puissance de la traction et de la
+puissance électrique fournie au départ par la batterie. Ce rendement total est le produit de
+tous les rendements intermédiaires ; ceux-ci sont les suivants (en admettant que toute la
+puissance électrique fournie par la batterie est consommée par le moteur, c'est-à-dire en
+négligeant la consommation du contrôleur et du récepteur) :
+-Le rendement du moteur : il nous est fourni par le fabricant et vaut, pour notre moteur,
+78%.
+29
+
+-Le rendement de l’hélice : c’est l’efficacité de l’hélice à accélérer l’air. Il se détermine en
+retranchant à 1 la puissance de la traînée des pales.
+-Le rendement aérodynamique : c’est le rendement du phénomène de réaction. L’air ne
+renvoie pas à l’hélice toute l’énergie que celle-ci lui a donnée, et s’échauffe par la
+création de tourbillons (vortex) dans le tube d’expulsion ; en tourbillonnant les particules
+se frottent entre elles et absorbent ainsi de l’énergie. Il se calcule d’après le débit d’air et
+sa vitesse.
+Ces calculs de rendements posent toutefois quelques problèmes techniques ;
+d’abord, la mesure de la puissance électrique fournie par le moteur implique de multiplier
+les valeurs de la tension et de l’intensité aux bornes de la batterie. Mesurer la tension est
+facile, car cela se fait en dérivation. En revanche un problème se pose pour mesurer
+l’intensité ; cela se fait en série, et comme le courant délivré par la batterie est très élevé
+(jusqu’à environ 10A), cela nécessite de trouver des câbles qui tiendront le choc, et surtout
+un ampèremètre suffisamment costaud. Au niveau du rendement aérodynamique, il faudra
+calculer le débit d’air total s’échappant derrière l’hélice. Pour ce faire nous auront besoin de
+mesurer le rayon du tube d’air expulsé (en effet ce diamètre est plus petit que celui de
+l’hélice car, le flux d’air allant plus vite, d’après Bernoulli sa pression diminue, il se rétracte
+donc) ; nous avons pensé à une sorte de peigne composé de filaments légers que nous
+placerons à la limite du tube. Puis nous mesurerons le rayon (entre l’axe de rotation de
+l’hélice et le filament « flottant » le plus éloignée. Ainsi pourrons-nous calculer le débit
+volumique. Il sera intéressant d’observer quelle est la « gourmandise » en énergie de chaque
+étape.
+
+6. CONCLUSION
+
+Nous avons étudié les caractéristiques des hélices et ainsi, avons pu identifier la
+nature des paramètres influençant la traction d’une hélice.
+Malgré une mise en œuvre difficile, comme par exemple notre moteur qui refusait de
+fonctionner, notre efficacité s’est vue augmenter en efficacité afin de mener à bout chacune
+de nos expériences prévues. En effet, pour chaque expérience, il nous a fallu apporter une
+amélioration à notre banc d’essai, pour qu’elle soit plus intéressante à étudier.
+30
+
+Les Olympiades de Physique nous ont permis, dans la continuité de notre TPE, de
+mettre en évidence expérimentalement nos connaissances théoriques des principes
+s’appliquant à l’hélice. En outre, nous avons découvert tout ce que peut englober une
+démarche scientifique en « laboratoire » : trouver un sujet demandant un certain nombre
+d’expériences, trouver un point de départ pour ensuite progresser vers notre objectif, savoir
+répartir les tâches pour être le plus efficace possible, savoir persévérer quels que soient les
+résultats, donc ne pas baisser les bras et savoir se motiver les uns, les autres. En effet, sans
+partir dans un cadre philosophique, il est important, lorsqu’on se lance dans un projet à
+plusieurs, de créer une ambiance favorable au travail, de partager nos connaissances et nos
+impressions, et se serrer les coudes car la cohésion ne peut qu’être favorable à une plus
+grande efficacité. En conclusion, ce projet a su forger en nous un véritable esprit scientifique.
+
+7. BIBLIOGRAPHIE
+Constructions aéronautiques (aviation), F.-R PETIT, Bibliothèque professionnelle, 1921
+Aerodynamics: selected topics in the light of their historical development, Theodore von
+Karman, Dover, 1954
+Physique générale tome 1, Alonso et Finn, Editions du renouveau pédagogique, 1970
+Webographie :
+http://inter.action.free.fr/
+
+8. REMERCIEMENTS
+A Monsieur PERRIN, Proviseur du Gymnase Jean Sturm : vous nous avez fait l’honneur de
+nous soutenir et de nous encourager dans notre projet.
+
+A Monsieur NASI, Professeur au lycée Jean Jaurès à Argenteuil, détaché pour une thèse,
+pour avoir fait part de son intérêt pour notre travail.
+
+31
+
+A l’UdPPC, l’Union des Professeurs de Physique-Chimie, de nous fournir gîte et couverts.
+
+A Monsieur BAERT, Professeur de Technologie au Gymnase Jean Sturm : vous avez accepté
+de rejoindre notre aventure en cours de route, et votre aide nous fût très précieuse.
+
+A Monsieur LOHNER, Professeur de Physique-Chimie au Gymnase Jean Sturm : sans vous,
+nous nous serions arrêtés à la fin de notre oral de TPE. En effet, vous nous avez fait découvrir
+les Olympiades de Physique, et vous êtes spontanément proposé en tant que professeur
+pour encadrer notre projet. Cette aventure ne fût pas uniquement scientifique, mais aussi
+humaine car vous avez vécu chaque moment difficile de notre projet (le moteur qui ne
+démarre pas, …) et chaque moment de joie (les sélections à régionales à Sceaux sous la
+neige, l’hélice qui tourne enfin, …). En résumé, votre présence de tous les moments et votre
+aide nous ont été très précieuses.
+
+32
+
+33
+
+

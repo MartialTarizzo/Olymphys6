@@ -1,0 +1,1107 @@
+La vision artificielle et ses applications
+industrielles
+Jonathan BONNET
+Cora DONCHE
+Lucie MOREL
+Damien VIGNON
+
+Terminale STL Physique de Laboratoire et des
+Procédés Industriels
+Option Mesures Physiques
+
+Lycée Technique des Catalins
+Montélimar
+
+1
+
+INTRODUCTION
+Nous avons réalisé un objet lumineux animé d’un mouvement de rotation, commandé par un
+moteur. Cet objet peut prendre une infinité de positions.
+Nous avons construit un appareil photo numérique très simple, permettant de mémoriser des
+positions particulières de cet objet.
+Cette photographie est ensuite utilisée pour contrôler la position de l’objet : lorsque la position de
+l’objet correspond à la position photographiée, le moteur s’arrête (asservissement de position).
+Dans un premier temps, toute l’application est réalisée avec des fonctions électroniques simples.
+Grâce à un système d’acquisition de données, les données constituant la photo numérique peuvent
+être transmises à un ordinateur. Le système peut alors être simplifié : certaines cartes
+« électroniques » peuvent être supprimées. Les fonctions correspondantes sont réalisées par un
+programme que nous avons écrit (langage : Agilent VEE).
+L’instrument étant très simple, il est peu précis : nous avons évalué l’incertitude sur le repérage de
+la position de l’objet et compris comment l’on pouvait améliorer les performances de l’ensemble.
+
+L’objet lumineux animé :
+
+Moteur
+
+LED
+
+Le moteur entraîne l’émetteur constitué d’une LED alimentée par des piles.
+Lorsque le moteur tourne, la LED décrit un cercle et constitue un objet lumineux animé.
+Notre objectif est d’obtenir une photographie numérique de la position de l’objet à une date t.
+
+Pour simplifier la mise au point de notre projet, nous avons été amenés à réaliser un émetteur
+constitué de huit LEDS. Ces LEDS s’éclairent successivement et simulent, sur huit positions , la
+LED entraînée par le moteur (infinité de positions).
+Dans un premier temps nous utiliserons ce simulateur pour expliquer comment est construit
+l’appareil photo numérique.
+En conclusion, nous reviendrons à l’émetteur entraîné par le moteur pour évaluer les limites de
+notre instrument.
+
+2
+
+Première partie : la photo numérique
+I L’objet lumineux :
+Cet objet se compose de 8 LEDS en cercle simulant un moteur en rotation : une parmi les huit
+LEDS est allumée.
+Pour pouvoir les reconnaître, on a mis en place un codage, en les numérotant de L0 à L7.
+Schéma du dispositif des LEDS :
+L0
+L1
+
+L7
+
+L2
+
+L6
+L3
+
+Dans le schéma ci-contre, nous voyons que
+la LED L7 est allumée, les 7 autres éteintes.
+Les LEDS s’allument successivement dans
+le sens des aiguilles d’une montre. (LEDS
+vues de face)
+
+L5
+L4
+
+Pour l’instant, nous n’avons qu’une image visuelle de l’état des LEDS.
+Pour représenter simplement l’état des LEDS, nous avons mis en place un codage :
+-Si la LED L0 est allumée, son état est 1 et L0 = 1.
+-Si la LED L0 est éteinte, son état est 0 et L0 = 0.
+Il en est de même pour les autres LEDS. L’état d’une LED (allumée ou éteinte) est donc représenté
+par 1 bit (0 ou 1).
+Au lieu de décrire l’état de chacune des LEDS, (ce qui est long), on va mettre au point un autre
+code réunissant l’état de chaque LED. Nous avons appelé ce codage un MOT formé de huit bits, car
+il réunit les huit états des LEDS. La donnée MOT = L7 L6 …L0.
+Dans l’exemple précédent, seule la LED L7 est allumée donc, MOT s’écrira : MOT = 10000000 =
+128.
+La donnée MOT est une information " optique" : on ne peut la lire qu’avec nos yeux.
+A l’aide de MOT, nous aurons donc la possibilité de représenter l’état de chaque LED, donc l’état
+de l’objet. Les huit LEDS réunies vont donc simuler, en quelque sorte, le moteur en rotation.
+Lorsque l’objet est animé, la donnée MOT change au cours du temps. La donnée MOT ne peut
+prendre que 8 valeurs : on ne peut repérer que 8 positions de l’objet. L’objet que nous voulons
+photographier pouvant prendre une infinité de positions, beaucoup d’informations sont perdues. Par
+contre, cette simplification nous a rendu service lors de la mise au point du matériel et du logiciel.
+
+Pour photographier l’objet il faut mémoriser l’état MOT de l’objet à une date t.
+
+3
+
+II- Mémoriser un état « MOT » de l’objet :
+1- Utilisation d’une maquette « mémoire »
+La mémorisation de notre objet est capitale, mais elle est contraignante :
+ENTREE
+SORTIE
+La maquette doit être alimentée par une tension
++5V
+E7
+
+S7
+
+VE7
+
+S0
+
+E0
+VE0
+5V
+
+E
+
+VS0
+
+VE
+VE
+
+VS7
+
+de +5V.
+Sur la maquette, il y a 8 bornes d’entrée (E0 à
+E7) et 8 bornes de sorties (S0 à S7). A chaque
+borne d’entrée correspond une tension VEi.
+Une tension VEi correspond à un état logique Ei
+0 < VEi < 0,8V à Ei = 0
+3,5< VEi < 5 V à Ei = 1
+Les tensions d’entrée VEi DOIVENT
+correspondre à l’état logique 0 ou 1.
+A chaque borne de sortie correspond une tension
+VSi, codée de la même façon que VEi.
+L’écriture se fait à partir de l’entrée d’écriture E.
+A l’instant t, choisi pour prendre la photo, on fait
+basculer la tension VE de 5 V à 0V en
+manoeuvrant l’interrupteur. Les tensions
+d’entrée sont alors recopiées à la sortie, donc
+VEi = VSi .
+Lorsque l’on fait remonter la tension VE à 5 V,
+les tensions VEi et VSi deviennent indépendantes
+les unes des autres.
+Donc si VEi change, VSi ne change pas : à t, les
+tensions VEi ont été mémorisées.
+
+Codages :
+A chaque tension d’entrée VEi, on associe un état logique Ei (0 ou1).
+A l’entrée de la mémoire, ces 8 codes forment un mot binaire de 8 bit : MOT1 =E7E6….E0
+De même, on associe à chaque tension de sortie VSi un état logique Si (0 ou 1).
+Les 8 états de sortie forment de la même façon un MOT binaire : MOT2 = S7S6…….S0
+On présente la donnée MOT1 à l’entrée de la mémoire.
+A une date t on déclenche le signal d’écriture.
+La mémoire recopie MOT2 = (MOT1 à t) et conserve cette information jusqu’à
+l’écriture suivante.
+Les données MOT1 et MOT2 sont des informations de nature «électrique» (8 tensions)
+Telles qu’elles sont codées, les informations MOT1 et MOT2 peuvent être
+représentées par un nombre fini de nombres entiers constitués de 0 et de 1 : ce sont
+des informations numériques.
+L'afficheur : la donnée MOT2 mémorisée est constituée de 8 tensions (0 ou +5V). Ces tensions
+permettent de commander un afficheur constitué de LEDS vertes.
+S0
+MOT1
+MOT2
+Cet afficheur affiche la donnée
+S1
+MOT2=S7…S0 avec le code
+M
+suivant : Si=0àLED éteinte
+Commande
+Si=1àLED allumé
+des LEDS
+
+4
+
+2- La conversion lumière à tension
+Nous avons vu, auparavant, que MOT est commandé par l’état des LEDS. MOT n’est donc qu’une
+information optique.
+Pour que cette information puisse être enregistrée par la mémoire il faut la transformer en une
+donnée MOT1 de nature électrique (8 tensions Ve).
+Conception d’une voie :
+Codage : on veut obtenir le fonctionnement suivant
+LED Li allumée (Li = 1) à 3,5 < VEi < 5 V à Ei = Li = 1
+LED Li éteinte (Li = 0) à 0 < VEi < 0,8 V à Ei = Li = 0
+Première étape : la conversion lumière àRésistance.
+Pour transformer cette lumière en résistance nous avons utilisé des photo-résistances (CdS). On
+utilise une lentille pour que chaque capteur Ci soit éclairé par la LED (Li). La résistance du capteur
+diminue lorsqu’il est de plus en plus éclairé.
+R
+
+La réponse du capteur n’est pas linéaire, nous
+verrons plus loin que cela ne pose pas de problème
+pour réaliser notre projet.
+
+Eclairement du capteur
+Deuxième étape : la conversion résistanceàtension
+Pour transformer la résistance du capteur en tension nous avons réalisé le diviseur de tension
+suivant :
+Voie i :
+Lorsque le capteur Ci n’est pas éclairé, il se comporte
+Li
+comme une résistance infinie donc comme un
+Ci
+interrupteur ouvert. Ce qui force un courant nul dans
++5 V
+le circuit donc URi = Ri = 0 V
+Rc
+
+R
+
+URi
+
+Lorsque Ci est fortement éclairé, il se comporte
+comme une résistance presque nulle donc comme un
+interrupteur fermé.
+Rc = 0à URi = 5V
+
+Nous avons constaté, lors des essais, que les tensions de sortie URi n’étaient pas forcément
+comprises entre les marges 0 Và 0,8 V et 3,5 Và 5 V. Pour ne pas sortir des intervalles autorisés
+nous avons utilisé un comparateur à la sortie du diviseur de tension. Ce comparateur commande une
+LED qui est dans le même état que la LED Li. Ce modèle est valable pour chaque voie.
++ 5V
+LED
+
++ 5V
+s
+
+ET
+
++
+K
+URi
+
+V1i
+
+V2i
+
+Vseuil
++ 2,5 V
+
+5
+
+Si Li =1 à URi # +5V > 2,5Và K fermé à LED alluméeà V1i = 0 V
+Si Li = 0à URi # 0V < 2,5Và K ouvert à LED éteinte à V1i = + 5V
+Problème ! LED allumée àV1i = 0V et LED éteinte àV1i = +5V alors que nous voulions
+l’inverse. C’est pour cela que nous avons utilisé une porte NON-ET montée en inverseur. Grâce à
+cet inverseur, nous pouvons rétablir la logique : LED alluméeàV2i = 5V et LED éteinteà V2i=0V
+Choix de la valeur de R du diviseur de tension et du seuil du comparateur : (voir ANNEXE)
+L’influence de la lumière ambiante a été évaluée en mesurant la résistance des capteurs. Cela nous a
+conduits a protéger les capteurs avec un capot.
+La résistance de chaque capteur Ci a été mesurée (capteur éclairé ou non).
+Le fonctionnement du diviseur de tension a été simulé avec un tableur. On a recherché la valeur de
+R permettant d’obtenir la plus grande variation possible de URi lorsqu’un capteur est éclairé ou non
+éclairé. On a retenu R = 1,8 kΩ. Les essais ont continué en mesurant URi dans tous les cas de figure
+: dans quelques cas cette tension sortait des fenêtres imposées par le fonctionnement de la mémoire.
+On a donc été contraints d’utiliser un comparateur. Le seuil a été ajusté expérimentalement à 2,5 V.
+Finalement toutes les tensions V2i sont au voisinage de 0 V ou de 5 V.
+Nous pouvons donc dire que chaque voie fonctionne de la façon suivante :
+Li = 0àCiàV2i = 0 V
+Li =1àCiàV2i = 5 V
+La tension uRi, à la sortie du diviseur de tension peut prendre une infinité de valeurs entre 0 et 5 V :
+c’est une tension analogique.
+La tension V2i, à la sortie du comparateur, ne peut prendre que les valeurs 0 V ou +5 V (nombre
+fini de valeurs) et elle peut être codée par deux états logiques 0 ou 1 : c’est une grandeur
+numérique.
+Les comparateurs réalisent une Conversion Analogique-Numérique (CAN sur 1 bit).
+
+3 - Synthèse
+
+Plan image
+C4
+
+Capteurs
+C6
+
+Plan objet
+L0
+
+C0
+
+Lentille +20
+dioptries
+
+L6
+
+L4
+
+LEDS
+
+Le montage est réglé pour que
+l’image de l’objet se forme sur
+les capteurs. L’image de L0 se
+forme sur C0 et etc..
+Chaque capteur représente un
+"pixel" (picture élément)
+
+Le plan « image » est donc découpé en 8 éléments (il est discrétisé) et chaque élément est occupé
+par un capteur. La « matrice » de capteurs correspond à 8 pixels (picture élément). L’optique est
+réglée pour que l’image d’une LED couvre la surface d’un capteur.
+6
+
+Le système est constitué de 8 voies identiques :
+Les tensions V2i (au format 0 V ou 5 V) sont reliées aux entrées Ei de la mémoire
+
+Optique
+
+LED
+Li
+
+Capteur
+Ci
+
+Diviseur
+de
+tension
+
+mise en forme
+(comparateur)
+V2i
+
+Mémoire
+Entrée Ei
+
+Li = 0 (éteinte)
+
+V2i= 0 V
+
+Ei = 0 = Li
+
+Li = 1 (allumée)
+
+V2i = 5V
+
+Ei = 1 = Li
+
+Les 8 données binaires Ei sont regroupées pour former la donnée MOT1=E7, E6………, E0
+Nous avions MOT (une information optique qui représente la position de l’objet), nous l’avons
+convertie en MOT1 qui est une information électrique.
+Ces codages nous conduisent à MOT1 = MOT : MOT1 est l’image de MOT donc une image de la
+position de l’objet.
+MOT1 pouvant être représenté par un nombre fini de valeurs (nombres entiers), MOT1 est
+une image numérique de l’état de l’objet.
+Sur la maquette “comparateurs”, 8 LEDS rouges visualisent l’état de MOT1 et constituent un
+afficheur.
+E1
+
+E0
+Code :
+Ei = 0 à LED de l'afficheur éteinte
+Ei = 1 à LED de l'afficheur allumée
+
+Il ne s’agit pas encore d’une photographie de l’objet : lorsque l’objet change de position,
+MOT1 = MOT varie.
+
+4- LA PHOTOGRAPHIE NUMERIQUE
+La position de l’objet (8 positions) a été transformée en son image MOT1(numérique).
+Les 8 tensions (0 V ou 5 V) qui constituent MOT1 peuvent être présentées à l'entrée de la
+mémoire et être mémorisées lorsqu'on active le signal d'écriture.
+A l'instant t, on active le signal d'écriture de la mémoire.
+On mémorise MOT1, on obtient MOT2 = (MOT1 à l’instant t) = (MOT à l'instant t).
+MOT2 est donc l'image de MOT1 à l'instant t qui est lui- même une image de MOT à l’instant t.
+Donc si l’état de l’objet change, MOT change, MOT1 change mais MOT2 ne change pas.
+On peut donc dire que MOT2 est la photographie numérique de l’objet à l'instant t.
+
+7
+
+Deuxième partie : l’asservissement de position
+Notre second objectif est d'utiliser la photographie numérique pour contrôler l'animation de l'objet.
+L'animation de l'objet doit être bloquée dès que la position de l'objet correspond à celle qui a été
+photographiée.
+
+I – LA COMMANDE DES LEDS
+Les LEDS sont commandées par un boîtier de commande des LEDS.
+Celui-ci comporte une porte ET.
+La porte ET :
+Schéma
+
++ 5V
+
+E1 est relié a une horloge qui oscille
+entre 0 V (E1 = 1 ) et +5V (E1 = 0).
+
+E2
+
+&
+
+E1
+VE2
+VE1
+
+S
+
+Si E2 = 0 (VE2 = 0 V) alors S = 0 quel
+que soit E1
+La porte est bloquée.
+
+VS
+
+Si E2 = 1 (VE2 = +5 V) alors S = E1
+La porte est "transparente" et l‘on
+retrouve le signal d‘horloge à la sortie S
+de la porte ET.
+
+Horloge
+
+0V
+
+Schéma complet de la commande des LEDS :
+E2
+
+Commande
+des LEDS
+
+ET
+
+E1
+0V
+
+Les LEDS sont commandées par le signal d’horloge.
+Si la porte est ouverte (E2 = 1), la commande des LEDS reçoit le signal d’horloge et les LEDS
+s'allument dans le sens des aiguilles d'une montre. Si la porte est bloquée (E2 = 0), la commande des
+LEDS ne reçoit plus de signal d’horloge et l'objet lumineux reste dans l'état où il était. L’animation
+des LEDS est arrêtée.
+L’entrée E2 (VE2 = 0 ou 5 V) de la porte ET nous permet donc de contrôler la position de l’objet
+(entrée « asservissement »).
+4- Le comparateur de MOTS
+Nous souhaitons contrôler la position de l'objet lumineux. Nous pouvons photographier l’objet dans
+une position particulière : la valeur correspondante de MOT2 est mémorisée.
+Lorsque l’objet est animé, la donnée MOT1, à la sortie des comparateurs varie et représente la
+position de l’objet.
+On veut que l'objet soit animé si la position de l’objet est différente de celle qui correspond à la
+photographie : MOT1 ≠ MOT2 è E2 = 1
+8
+
+On veut que l'animation soit bloquée si la position de l'objet correspond à la photographie :
+MOT1 = MOT2 è E2 = 0
+Il faut donc réaliser la fonction suivante :
+MOT1 ≠ MOT2 è E2 = 1
+MOT1 = MOT2 è E2 = 0
+
+Cette fonction est réalisée par un circuit intégré comparateur de MOTS :
++5V
+
+MOT1
+Comparateur
+de
+MOTS
+
+S2=E2
+
+MOT2
+
+0V
+
+La sortie S2 du comparateur de MOTS est reliée à l'entrée E2 de la porte ET.
+
+9
+
+II- SCHEMA GLOBAL
+L0
+
+Si E2=0 à S1=0
+à animation bloquée
+Si E2 = 1 à S1 = 1
+àanimation
+
+Position
+de l'objet
+
+S1
+E2 = S2
+
+&
+
+Horloge
+
+E0
+
+E1
+
+L1
+
+Commande
+des LEDS
+
+8
+capteurs
+
+lentille
+
+S1
+
+Afficheur
+de MOT1
+
+Diviseurs de
+tension
++
+mise en
+forme
+des
+signaux
+(CAN)
+
+S0
+
+Afficheur
+de MOT2
+
+Mémorisation de
+MOT1 à t
+
+MOT1
+
+photo de
+l’objet à t
+
+position de
+l’objet
+E
+
+Ecriture
+àt
+
+MOT1
+
+MOT2
+
+Comparateur de MOTS
+MOT2
+S2 = E2
+Si MOT1=MOT2 ==> S2=0
+Sinon S2= 1
+
+10
+
+Troisième partie : l’utilisation de l’ordinateur
+Pour l'instant toutes les fonctions utilisées ont été réalisées avec des composants électroniques.
+Nous allons voir comment certaines maquettes peuvent être supprimées, les fonctions
+correspondantes étant réalisées par un programme informatique et un interface de communication.
+L'utilisation d'un interface de communication avec un ordinateur et le programme de
+photographie numérique.
+I- L'interface de communication avec un ordinateur :
+Système
+MOT1
+
+Interface d'acquisition de
+données
+
+Ordinateur
+MOT1
+
+Entrées logiques
+
+SL
+
+Interface de
+communication
++
+programme
+
+Sorties logiques
+
+Interface de
+communication
++
+programme
+Câble
+de
+liaison
+
+MOT2
+
+SL
+
+L'interface de communication est équipé de deux mémoires de 8 bits. Ces mémoires fonctionnent
+avec les règles qui ont été définies plus haut : les grandeurs d'entrée ou de sortie sont 8 tensions
+"0 V ou + 5 V", c'est à dire des signaux "logiques" pouvant être représentés par les états 0 ou 1. La
+donnée mémorisée peut donc être représentée par un MOT de 8 bits.
+Ces deux mémoires communiquent avec l'ordinateur grâce à une interface (RS232) et à un
+programme de communication.
+Les "entrées logiques" fonctionnent de la façon suivante :
+A leur entrée on présente la donnée MOT1 (8 tensions (0 V ou + 5 V)à 8 bits). Lorsque le
+programme utilisé par l'ordinateur exécute l'instruction "EL", la donnée MOT1 est écrite dans les
+entrées logiques puis transmise à l'ordinateur. Celui-ci écrit alors la donnée MOT1 dans sa
+mémoire.
+Les sorties logiques fonctionnent de la façon suivante :
+Une donnée de 8 bits est écrite, par le programme, dans une ligne de mémoire de l'ordinateur.
+Lorsque le programme exécute l'instruction "SL", cette donnée est transmise à l'interface et écrite
+dans les "sorties logiques". Les 8 tensions "0 V ou + 5 V" correspondantes peuvent être utilisées par
+le système.
+Le programme et l'interface, permettent d'échanger des informations "numériques" entre le
+système physique et l'ordinateur.
+
+11
+
+2- Le programme de photographie numérique
+Dans l'application précédente, on peut supprimer la carte "mémoire" et la carte comparateur de MOTS. L'interface et le programme de communication
+réaliseront ces fonctions.
+L0
+
+Si E2=0 à S1=0
+à animation bloquée
+Si E2 = 1 à S1 = 1
+àanimation
+
+L1
+
+Position
+de l'objet
+Interface
+
+S1
+
+E2 = SL0
+
+MOT
+
+&
+
+Horloge
+
+Commande
+des LEDS
+
+8
+capteurs
+
+lentille
+
+Diviseurs de
+tension
++
+mise en
+forme
+des
+signaux
+(CAN)
+
+Entrées logiques
+
+Interface
+
+Ordinateur
+MOT
+Interface
+MOT
+
+MOT1
+Sorties logiques
+
+SL
+
+SL0
+
+La donnée MOT1, à la sortie de la carte “comparateurs”, est constituée de 8 tensions “0 ou + 5 V”: elle peut donc être transmise aux entrées logiques.
+La sortie SL0 des sorties logiques est une tension « 0 ou + 5 V » (état logique de SL0 : 0 ou 1) : elle est reliée à l’entrée E2 de la porte ET. Le
+programme exécute l’instruction « SL » et écrit SL0 = 1 (SL = 1) : l’objet est donc animé.
+Le programme répète ensuite en permanence l’exécution de l’instruction « EL » : la donnée MOT1 est transmise à l’ordinateur et le programme la
+décode pour afficher une image identique à l’état de l’objet. En « cliquant » sur un bouton, l’utilisateur du programme peut commander la
+mémorisation de MOT1 à une date t (donnée MOT2). La donnée MOT2 est écrite dans une autre ligne de mémoire de l’ordinateur, elle est ensuite
+décodée et l’état de l’objet correspondant est affiché. Le programme compare alors les données MOT1 et MOT2 : si MOT1 = MOT2, alors il exécute
+l’instruction « SL » et écrit SL0 = 0, l’animation de l’objet est bloquée, sinon il écrit SL0 = 1 et l’objet est animé.
+12
+
+Quatrième partie : la précision du repérage de la position de l’objet
+Le système a été mis au point avec le simulateur. On utilise maintenant l’objet (une LED) animé par
+un moteur. Celui-ci peut prendre une infinité de positions et nous ne disposons que de huit capteurs.
+On peut donc repérer 8 positions de l’objet. En fait, on constate que, quelquefo is, deux bits de
+MOT1 sont à 1 : cela est du au fait que deux capteurs sont éclairés en même temps et que deux
+tensions sont, simultanément, supérieures au seuil de 2,5 V des comparateurs. On a enregistré la
+variation de la tension à la sortie de deux diviseurs de tension. Elles correspondent aux capteurs C0
+et C1 qui « se touchent ».
+VA(V) VB(V) SEUIL (V)
+
+On a reconstitué les
+signaux « logiques »
+à la sortie des
+comparateurs. Deux
+tensions sont à 5 V
+(2 bits à 1) lorsque la
+LED éclaire deux
+capteurs.
+
+4
+
+3.5
+3
+
+C1
+
+Seuil
+
+2.5
+2
+1.5
+
+C0
+
+1
+0.5
+
+0
+
+0.2
+
+0.4
+
+Bits C1C0
+
+01
+
+0.6
+
+11
+
+0.8
+
+1
+
+t (s)
+
+10
+
+On récupère donc des informations supplémentaires qui permettent de mieux définir la position de
+l’objet à partir de sa photo.
+2 capteurs
+éclairés
+
+α=0
+α
+Moteur
+
+α =(45 +/- 11,25)°
+
+Lorsqu’un seul capteur est éclairé, 1 bit de MOT1 est
+à 1, les autres à 0 : on repère 8 positions de la LED.
+Le pas entre deux positions est de 360/8 = 45 °.
+Lorsque 2 capteurs sont éclairés, 2 bits de MOT1 sont
+à 1, les autres à 0. On repère ainsi 8 positions
+supplémentaires de la LED, on peut donc repérer 16
+positions avec un pas de 360/16 = 22,5°.
+La position de l’axe du moteur peut être repérée par la
+valeur de l’angle α. Cette grandeur peut prendre une
+infinité de valeurs : c’est une grandeur analogique.
+Nous ne pouvons repérer que 16 valeurs de α avec un
+pas de 22,5° : beaucoup d’informations ont été
+perdues.
+α°
+
+0
+
+22,5
+
+Pour chaque valeur de MOT1, on peut calculer la valeur de la position α. Cette position est définie
+avec une incertitude absolue de 11,25°.
+13
+
+La donnée MOT1 (image de la position de l’objet) est transmise périodiquement à l’ordinateur.
+Nous avons modifié le programme pour qu’il affiche la valeur de α en fonction du temps.
+On obtient une courbe ayant l’allure suivante :
+α°
+pas de 22.5°
+t (s)
+La valeur de α peut être représentée par α = q * (nombre entier), ce nombre entier variant de 0 à 15
+(sans unité). La grandeur α est quantifiée, elle ne peut prendre qu’un nombre fini de valeurs (16).
+q =22,5 ° est le pas de la quantification (le quantum) : ce nombre permet de convertir le nombre
+entier sans unité en une grandeur physique α (en degrés).
+Le système effectue une mesure de α tous les ∆t (période d’échantillonnage) : α est une grandeur
+échantillonnée.
+α étant une grandeur quantifiée et échantillonnée, c’est une grandeur numérique .
+Notre instrument permet de repérer la position du moteur à 11,25° près : sa résolution est médiocre.
+Cela est du au faible nombre de capteurs utilisé. Si, sur un tour, on utilisait 16 capteurs, on aurait
+une résolution d’environ 6°.
+Pour augmenter la résolution de notre instrument, il faudrait diminuer le pas ∆α entre deux
+capteurs, c’est à dire augmenter le nombre de capteurs sur un tour, donc augmenter le nombre de
+pixels. Chaque pixel étant représenté par 1 bit dans la mémoire, il faudra aussi augmenter le nombre
+de comparateurs et la capacité de la mémoire.
+Comment marchent les « vrais » appareils photo numériques ?
+L’écran sur lequel se forme l’image est constitué d’une matrice de
+capteurs (pixels). Dans les appareils actuels il y a au moins N =4 Mpixels.
+
+Les capteurs utilisés sont des photodiodes qui débitent un courant proportionnel à la puissance
+lumineuse reçue par le capteur (capteurs linéaires).
+Ces N courants sont convertis en N tensions. Chaque tension est ensuite convertie en un MOT
+binaire de 8 bits (1 octet) à l’aide d’un Convertisseur Analogique Numérique (CAN). Chaque
+donnée MOT permet de coder l’éclairement d’un capteur sur 256 niveaux de gris. Lorsque l’on
+prend une photo, les N données MOT sont écrites dans la mémoire. Avec 4 Mpixels, il faut une
+mémoire de 4 Moctets.
+Si on veut une photo en couleur chaque pixel est constitué de 3 capteurs équipés d’un filtre optique
+(rouge, vert, bleu). On prend donc 3 photos correspondant à ces couleurs. En superposant ces
+images on reconstitue l’état de l’objet en couleur. Avec 4 Mpixels, il faudra une mémoire de 12
+Moctets. On comprend pourquoi les données numériques sont « comprimées » par des algorithmes.
+Les appareils photos numériques sont « bourrés » d’informatique.
+
+14
+
+ANNEXE
+I- OBTENTION DE L'IMAGE D'UNE LED SUR UN CAPTEUR
+Pour former l'image des LEDS sur les capteurs nous disposions d'une lentille de 20 dioptries et de
+son support. Les LEDS, soudées sur un circuit imprimé, forment un cercle de diamètre 1,7 cm
+(dimension de l'objet).
+Les capteurs (photorésistances) soudés sur un circuit imprimé, forment un cercle de diamètre 3,6 cm
+(c'est la dimension de l'image, puisque la lumière émise par la LED Li doit converger sur le capteur
+Ci).
+Le grandissement du système est donc γ = |p'| / |p| = image/objet = 3,6/1,7 = 2,1.
+D'autre part 1/|p| + 1/|p'| = 1 / |f| = 20 m-1
+La résolution de ces deux équations conduit à |p'| = 15,5 cm et |p| = 7,4 cm.
+On réalise alors un "banc optique" en bois sur lequel sont fixés tous les éléments (les positions de
+l'objet et de l'image sont réglables).
+Finalement, les positions sont réglées pour que l'image de chaque LED se forme sur le capteur
+correspondant.
+II - INFLUENCE DE LA LUMIERE AMBIANTE SUR LA RESISTANCE DES
+CAPTEURS.
+Chaque LED éclaire un capteur. Il faut transformer l'état (allumée, éteinte) d'une LED en une valeur
+de la résistance RC du capteur. Afin de distinguer clairement l'état de la LED, la différence (RcmaxRcmin) doit être aussi grande que possible. Au départ les capteurs ne sont pas protégés de la
+lumière ambiante.
+
+3
+4
+5
+6
+7
+
+383
+290
+393
+356
+546
+
+R en ohms
+
+Lumière ambiante normale
+Capteurs non protégés
+de la lumière ambiante
+RC en ohms RC en ohms
+n° capteur
+Led Li
+Led Li éteinte
+allumée
+0
+470
+933
+1
+448
+963
+2
+388
+923
+
+1200
+1000
+800
+600
+400
+200
+0
+
+Led allumée
+Led éteinte
+
+0
+
+1119
+895
+885
+1020
+1098
+
+5
+
+10
+
+n° de capteur
+
+La différence (Rcmax-Rcmin) pour les leds allumées ou éteintes est de l’ordre de 500 ohms.
+Nous recommençons nos mesures après la confection d’un capot qui isole les capteurs de la lumière
+ambiante.
+Avec capot
+
+0
+1
+2
+3
+4
+5
+6
+7
+
+RC en ohms RC en ohms
+Leds
+Li Leds
+Li
+allumées
+éteintes
+665
+18200
+626
+10170
+473
+13890
+443
+14640
+341
+16710
+517
+20830
+436
+20050
+748
+16590
+
+Capot
+
+R en ohms
+
+n° capteur
+
+25000
+20000
+15000
+10000
+5000
+0
+0
+
+2
+
+4
+
+6
+
+8
+
+10
+
+n° de capteur
+
+15
+
+Avec le capot la différence entre les valeurs maximales et minimales de Rc est de l’ordre de 15000
+ohms. L’utilisation d’un capot permet de gagner un facteur 30 sur la différence (Rcmax –Rcmin).
+Les expériences continueront donc avec le capot de protection.
+III - CHOIX DE LA VALEUR DE R DU DIVISEUR DE TENSION
++5V
+RCi
+
+R
+0V
+
+UR
+i
+
+On veut que, selon que le capteur est éclairé (RCi faible) ou non
+(RCi forte), la différence entre URi max et URi min soit la plus
+grande possible.
+D’après les mesures, on sait que RCi varie en moyenne de RCmin
+= 500ohms à Rcmax = 15000ohms.
+Une valeur de R convenable est déterminée en effectuant une
+simulation avec un tableur.
+On fera les calculs de la tension URi avec RCmin = 500ohms et
+RCmax=15000ohms.
+Calculs :
+URi=(R*5)/(R+RCi )=[(R*5)/R]/[(R+RCi )/R]=5/[1+(RCi/R)]
+Donc URi max =5/[1+(RCmin /R)] et URi min =5/[1+(RCmax/R)]
+
+On trace URi max = f(R)
+
+URi min = f (R) et (URi max – URi min) = f(R)
+
+URi (R)
+
+URimax
+
+URimax - URimin
+
+URimin
+
+R en ohms
+16
+
+Conclusion :
+La différence (URi max – URi min) est maximum lorsque R est aux environs de 2000 Ω.
+Après les essais sur plusieurs maquettes, on retient une valeur de R = 1,8 kΩ.
+Contrôle du fonctionneme nt du diviseur de tension :
+URi
+
+Les tensions URi doivent être mémorisées. Pour cela elles
+doivent appartenir aux intervalles définis sur le schéma.
+
++5V
+
+1
++3.5
+V
+
+0
++0.8
+V
+On éclaire successivement chaque capteur et l'on mesure les 8 tensions URi afin de vérifier si les
+tensions appartiennent aux intervalles imposés.
+
+N° C UR0 en V UR1 en V UR2 en V UR3 en V UR4 en V UR5 en V UR6 en V UR7 en V
+éclair
+é
+c0
+3,68
+0,66
+0,19
+0,16
+0,25
+0,33
+0,4
+0,4
+c1
+0,34
+3,75
+0,55
+0,23
+0,3
+0,34
+0,12
+0,13
+c2
+0,08
+0,62
+4,02
+0,57
+0,35
+0,22
+0,13
+0,13
+c3
+0,07
+0,16
+1,27
+4,04
+0,5
+0,2
+0,14
+0,13
+c4
+0,07
+0,14
+0,17
+1,9
+4,23
+0,5
+0,24
+0,15
+c5
+0,08
+0,16
+0,14
+0,25
+1,44
+3,9
+0,47
+0,16
+c6
+0,09
+0,17
+0,11
+0,21
+0,2
+0,87
+4,06
+0,4
+c7
+0,32
+0,18
+0,13
+0,18
+0,16
+0,22
+0,7
+3,53
+Suite à notre tableau de mesure, nous observons que 4 valeurs sortent des intervalles imposés.
+Nous avons donc été contraints d'utiliser un comparateur qui nous permettra de séparer clairement
+URi min de URi max.
+Nous faisons un essai des 8 comparateurs avec un seuil de 2,5V.
+On mesure les tensions V2i à la sortie des inverseurs :
+Dans tous les cas LED Li allumée à V2i # + 5 V et LED Li éteinte à V2i # 0 V
+Le seuil des comparateurs sera donc fixé à 2,5V.
+Les tensions V2i peuvent donc être appliquées à l'entrée de la mémoire.
+Dans ces conditions Li = 0 (LED éteinte) à Ei = 0 et Li = 1 (LED allumée) à Ei = 1.
+
+17
+
+REMERCIEMENTS
+
+Nous tenons à remercier Monsieur François WENDLING, Directeur Général de
+l’ARATEM de VALENCE (Agence Rhône Alpes pour la maîtrise des TEchnologies
+de Mesure ) qui nous a mis en contact avec la société Alliance Vision (Montélimar)
+spécialisée dans les applications industrielles de la vision artificielle.
+Nous remercions aussi très chaleureusement Monsieur Eric AZIBI, de la société
+Alliance Vision.
+Il nous a reçus dans son entreprise pour nous expliquer comment sont conçues les
+applications industrielles de la vision artificielle et nous a donné de précieux conseils.
+
+18
+
+

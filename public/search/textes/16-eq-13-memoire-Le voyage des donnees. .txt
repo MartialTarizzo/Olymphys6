@@ -1,0 +1,808 @@
+Olympiades de physique 2008-2009
+
+Le Voyage des données
+
+Julien Bourgeois
+Timothée Scherrer
+Quentin Allender
+
+-1-
+
+Sommaire
+
+I - Introduction
+II - Les tests
+a. Le câble téléphonique
+b. L’ordinateur
+c. Hypothèse
+
+III - Modélisation virtuelle d'un circuit et formules
+a. Convertisseur Numérique-Analogique
+b. Convertisseur Analogique-Numérique
+
+IV - Le montage dans la réalité
+a. Réalisation du montage
+b. Critique des résultats
+
+V – Conclusion sur le modem
+VI - Chaîne d’acquisition
+VII – Conclusion sur la chaîne d’acquisition
+VIII - Bibliographie & remerciements
+IX - Annexe
+
+-2-
+
+I. Introduction
+Depuis longtemps, nous sommes passionnés par les ordinateurs et l’Internet. Aujourd’hui, en tant que développeurs
+néophytes, nous nous rappelons avec nostalgie l’époque où la connexion était coupée lorsque maman parlait au
+téléphone (voir annexe : Un peu d’histoire). Cet inconvénient venait du modem branché à la prise téléphonique : ce petit
+appareil qui est vendu par les fournisseurs d’accès Internet et qui ne permettait pas de communiquer simultanément par
+Internet et par le téléphone. Dans le langage courant, le modem désigne donc un appareil qui connecte l’ordinateur à
+Internet (visualisation de pages web grâce au navigateur, téléchargements, communications…)
+L’avancée technique fait que l’on peut maintenant téléphoner et « surfer » en même temps depuis chez soi. Aujourd’hui,
+seuls les modems ADSL sont présents sur le marché. Mais une question subsiste :
+
+En quoi le modem classique était-il indispensable à la communication entre un ordinateur et
+Internet ?
+
+II. Les tests
+
+a. Câble téléphonique
+Le but de cette manipulation est de rechercher le type de données qui passent par le câble téléphonique.
+
+Schéma de la fiche téléphonique. Les fils gris et blanc qu’on voit en démontant le téléphone indiquent l’entrée et la sortie
+du courant.
+Nous tentons de mesurer la tension dans la prise téléphonique.
+Nous utilisons un oscilloscope pour tester le signal.
+Nous relions les fils dans la prise téléphonique afin d’avoir un meilleur contact : après l’avoir démontée, nous coinçons
+chaque fil sous les vis 1 et 3 du schéma vu ci-dessus.
+
+-3-
+
+On branche ce système à l’oscilloscope (à l’aide de pinces crocos pour un meilleur contact):
+• Combiné raccroché : L’appareil nous indique une droite avec des parasites très minimes mais fréquents (très
+rapprochés). On reconnaît ici une tension continue.
+
+•
+
+Combiné décroché : La droite devient une sinusoïde, la tension est donc alternative.
+
+•
+
+Combiné décroché + paroles : La sinusoïde se déforme « aléatoirement » dans le temps.
+
+Ces observations montrent que la tension mesurée varie dans le temps quand on parle dans le téléphone.
+
+-4-
+
+Signal analogique : Grandeur physique (ex : tension) qui peut se mesurer et varier dans le temps via des valeurs
+intermédiaires. Une telle courbe (ci-dessous) est par exemple une représentation d’un signal analogique :
+
+Courbe du signal analogique
+Conclusion : Le test montre la présence d’un signal analogique dans le réseau téléphonique.
+
+b. Ordinateur
+Afin de savoir avec quel type de données l’ordinateur travaille, on réalise un test sur celui-ci :
+On sait que lorsque l’on utilise une imprimante avec un ordinateur, il est nécessaire que celle-ci communique à
+l’ordinateur pour lui indiquer son état et s’il n’y a pas d’anomalies. Par exemple, généralement quand il n’y a plus de
+papier, un message s’affiche sur l’écran pour vous avertir. Cela est du au fait que l’imprimante a envoyé un message à
+l’ordinateur pour lui dire « il n’y a plus de papier ».
+Les données qui sont transmises par l’imprimante sont reçues telles quelles par l’ordinateur par le port parallèle. Après
+quelques recherches, on a déterminé que les données arrivaient par le port 379h de l’ordinateur (ce port correspondant à
+une adresse mémoire). Ces données sont donc directement interprétables par l’ordinateur. En lisant ces données avec
+un logiciel, on peut en déterminer le type. Nous avons donc réalisé ce logiciel et nous avons testé lorsque l’imprimante
+était dans des états différents. Voici ce que nous avons obtenu :
+
+Quand on lit avec le logiciel l’adresse mémoire 379h, on obtient un nombre binaire, ce nombre varie en fonction de l’état
+de l’imprimante. Chaque bit (0 ou 1) du nombre binaire porte un message. Par exemple, le bit n°4 en partant de la droite
+est à 0 quand l’imprimante est éteinte et à 1 quand celle-ci est allumée.
+
+-5-
+
+Un Signal numérique est une grandeur physique (ex : tension) dont les valeurs sont des nombres discrets, c’est à dire
+qu’elle prend une valeur précise à un moment donné sans transition avec la valeur précédente. La variation de ces
+nombres est donc discontinue et la représentation d’un signal numérique présente des angles droits :
+
+Courbe du signal numérique
+On constate donc, que les données que l’ordinateur reçoit de l’imprimante sont bien des nombres discrets, la courbe du
+signal numérique correspond parfaitement aux données que l’ordinateur reçoit de l’imprimante, on en déduit donc que
+l’ordinateur fonctionne avec des données numériques.
+Résumons donc la situation : D’un côté on a constaté que le signal passant par le câble téléphonique est analogique. De
+l’autre, l’ordinateur ne travaille qu’avec des signaux numériques. Entre les deux ; le modem.
+
+c. Hypothèse
+
+Nous savons maintenant que les données qui passent dans le câble téléphonique sont de type analogiques et que
+l’ordinateur fonctionne en traitant des données numériques. On a aussi remarqué que le modem est toujours situé entre
+le câble téléphonique et l’ordinateur. A partir de toutes ces informations, une hypothèse nous parait évidente quand à la
+fonction du modem classique :
+
+Celui-ci aurait pour fonction de convertir les données analogiques du câble téléphonique en
+données numériques compréhensibles par l’ordinateur. Dans un même temps, il convertit les
+données numériques en données analogiques qui vont être transmises par l’ordinateur par le
+câble téléphonique.
+
+-6-
+
+III. Modélisation théorique d'un circuit et formules
+Notre but : Réaliser un convertisseur numérique-analogique (CNA) qui sera suivi d’un convertisseur analogiquenumérique (CAN) et qui nous permettra de déterminer si il est possible ou non de convertir des données numériques en
+données analogiques et inversement.
+a. Le convertisseur numérique-analogique (CNA)
+Le principe du convertisseur numérique-analogique est de convertir une valeur numérique (dans notre cas un nombre
+binaire) en une valeur analogique (dans notre cas une tension).
+Définitions:
+Le poids d’un bit dépend de la position du bit en partant de la droite. A la manière des dizaines, des centaines et des
+milliers pour un nombre décimal, ce poids croît d'une puissance de deux en allant de la droite vers la gauche comme le
+montre le tableau suivant :
+Nombre binaire
+
+1
+
+Poids
+
+27
+26 25 24 23 22 21 20
+=
+= = = = = = =
+128 64 32 16 8 4 2 1
+
+1
+
+1
+
+1
+
+1
+
+1
+
+1
+
+1
+
+Voici le schéma du montage que l’on veut réaliser. Dans le cas présent, le nombre binaire converti est 111, c’est
+la valeur numérique. La valeur analogique correspondante vaut 1.75 V, on peut la lire sur le second voltmètre.
+
+Convertisseur numérique analogique
+L’idée de base de notre montage repose sur le fait qu’un interrupteur représente un bit du nombre binaire. Lorsque cet
+interrupteur est fermé, il représente la valeur 1. Lorsqu’il est ouvert, il représente le 0.
+Prenons l’exemple du montage ci dessus. Tous les interrupteurs sont fermés : nous voulons transcrire le nombre binaire
+111 en une tension proportionnelle à récupérer à la sortie du Convertisseur Numérique Analogique.
+
+-7-
+
+Pour notre exemple (le nombre binaire 111), cela fait :
+Nombre binaire
+1
+Poids du bit
+4(=2²)
+Valeur de la résistance 1/4
+correspondante
+
+1
+2(=21)
+2/4
+
+1
+1 (=20)
+4/4
+
+1/x
+
+Nous voyons dans ce tableau que la proportionnalité inverse est respectée. Mais pour obtenir des valeurs de résistances
+courantes, il faut multiplier ce coefficient par 4. On garde ainsi la proportionnalité et on obtient :
+
+Nombre binaire
+1
+Poids du bit (= x)
+4(=2²)
+Valeur de la résistance 1
+correspondante kΩ.
+
+1
+2(=21)
+2
+
+1
+1 (=20)
+4
+
+4/x
+
+En utilisant le montage amplificateur opérationnel inverseur suivant, on fait varier une tension Us en fonction d’une autre
+tension Uref et du rapport entre 2 résistances.
+
+Montage Amplificateur
+Opérationnel Inverseur
+
+La tension de sortie est négative, pour la rendre positive, on rajoute un deuxième montage amplificateur inverseur avec 2
+résistances identiques.
+Voici les valeurs qu’on obtient alors pour notre exemple :
+Nombre binaire
+Poids du bit (= x)
+Valeur de la résistance
+correspondante kΩ.
+Résistance équivalente
+
+Tension de sortie après le
+1er ampli op
+Tension de sortie après le
+2ème ampli op
+
+1
+4(=2²)
+1
+
+1
+2(=21)
+2
+
+1
+1 (=20)
+4
+
+1/R = 1/R1 + 1/R2 + 1/R3
+1/R = 7/4
+R = 4/7 kΩ
+Us = -Uref*R’/R = -1*1/(4/7)= -7/4 = -1.75 V
+Us = -Uref*R’/R = -(-1.75)*1/1= 1.75 V
+
+En plaçant des résistances pondérées inversement proportionnelles au poids du bit correspondant, on obtient bien une
+valeur pour la résistance équivalente R qui est inversement proportionnelle à la conversion en décimal du nombre
+binaire.
+En effet : Dans notre cas, le nombre binaire est 111 ce qui fait 7 en décimal (1*20+1*21+1*22), la résistance équivalente
+est 4/7, elle est bien inversement proportionnelle à 7.
+De plus, avec le montage amplificateur opérationnel inverseur, on obtient une tension égale à 7/4 (après inversion) qui
+est inversement proportionnelle à la résistance équivalente qui vaut 4/7.
+La conversion en décimal de notre nombre binaire d’exemple vaut 7 et la tension de sortie vaut 7/4. On a bien un rapport
+de proportionnalité de ¼ entre ces 2 nombres.
+
+-8-
+
+Généralisation :
+Nous avons fait varier une tension proportionnellement au nombre binaire converti en décimal.
+Pour ce faire, on a procédé en deux étapes :
+• Premièrement, on a fait varier une résistance équivalente inversement proportionnelle à notre nombre binaire
+converti en décimal.
+• Puis on a fait varier une tension inversement proportionnelle à cette résistance. De cette manière, la tension varie
+proportionnellement au nombre binaire converti en décimal.
+
+On peut établir le tableau suivant pour notre montage qui est le récapitulatif des valeurs qu’on obtient pour les différents
+nombres binaires possibles :
+
+Nombre binaire
+
+Conversion en
+décimal
+
+Valeur de la résistance
+équivalente R en kΩ
+
+Tension de sortie en Volt
+
+000
+
+0
+
+0
+
+0
+
+001
+
+1
+
+4
+
+¼ = 0.25
+
+010
+
+2
+
+2
+
+½ = 0.5
+
+011
+
+3
+
+4/3
+
+¾ = 0.75
+
+100
+
+4
+
+1
+
+1
+
+101
+
+5
+
+4/5
+
+5/4 = 1.25
+
+110
+
+6
+
+4/6
+
+6/4 = 1.5
+
+111
+
+7
+
+4/7
+
+7/4 = 1.75
+
+Inversement
+proportionnel
+
+Inversement
+proportionnel
+
+Proportionnel
+
+Conclusion :
+Pour déterminer la tension de sortie de ce montage, on a donc la formule suivante :
+Us = x/4
+
+x étant la conversion en décimal du nombre binaire
+
+Us varie proportionnellement au nombre binaire (ou sa conversion en décimal), ce qui est important pour la suite de
+l’expérience. En effet, si on veut retranscrire le nombre binaire entré grâce aux interrupteurs par la suite, il faut que la
+tension varie de manière proportionnelle.
+
+-9-
+
+b. Le convertisseur analogique-numérique (CAN)
+
+Le principe du convertisseur analogique-numérique est de générer à partir d'une valeur analogique, une valeur
+numérique (ici un nombre binaire codé sur 3 bits), proportionnelle à la valeur analogique entrée (pour nous une tension).
+Voici le montage à réaliser :
+
+La conversion analogique-numérique comporte deux étapes: la quantification et le codage.
+
+•
+
+La quantification : convertir un signal analogique continu en une suite finie d’états discrets. On associe donc un
+état à un intervalle de valeurs de largeur Q, appelé pas de quantification.
+
+On va commencer par quantifier notre tension analogique. Pour cela, il faut une échelle de valeurs que l’on va définir en
+divisant une tension qui est égale à la plus grande valeur à convertir (pour nous, 1.75V). Chaque valeur analogique
+(tension) sera comparée à chaque valeur de l’échelle de tension pour déterminer dans quel encadrement elle se trouve.
+Pour obtenir cette échelle, on va utiliser un pont diviseur de tension dont voici la formule :
+
+- 10 -
+
+Pour la tension en un point :
+R1 correspond à la somme des résistances placée au dessus du point.
+R2 correspond à la somme des résistances placée en dessous du point.
+
+UAB = 1,75* (7*10) / (8*10) = 1.53125 V
+UBC = 1.75* (6*10) / (8*10) = 1.3125 V
+UCD = 1.75* (5*10) / (8*10) = 1.09375 V
+UDE = 1.75* (4*10) / (8*10) = 0.875 V
+UEF = 1.75* (3*10) / (8*10) = 0.65625 V
+UFG = 1.75* (2*10) / (8*10) = 0.4375 V
+Uref =
+UGH = 1.75* (1*10) / (8*10) = 0.21875 V
+UHI = 1.75* (0*10) / (8*10) = 0 V
+
+De cette manière, on obtient les encadrements suivants :
+0V
+0.21875 V
+0.4375 V
+0.65625 V
+0.875 V
+1.09375 V
+1.3125 V
+1.53125 V
+
+≤ U ≤ 0.21875 V
+≤ U ≤ 0.4375 V
+≤ U ≤ 0.65625 V
+≤ U ≤ 0.875 V
+≤ U ≤ 1.09375 V
+≤ U ≤ 1.3125 V
+≤ U ≤ 1.53125 V
+≤ U ≤ 1.75
+
+En prenant notre exemple (111), la tension reçue du CNA vaut 1.75V. Dans ce cas, cette tension se situe dans le dernier
+encadrement (rouge). On sait donc qu’il s’agit du plus grand nombre binaire.
+Si on prend un autre exemple, 010, la tension reçue du CNA vaut 0.5V Dans ce cas, la tension se situe dans
+l’encadrement bleu.
+Pour déterminer dans quel encadrement se trouve la tension envoyée, il faut la comparer avec notre échelle de tension.
+Pour cela, on utilise le montage amplificateur opérationnel comparateur :
+
+- 11 -
+
+Ce montage compare les deux tensions qui lui sont envoyées dans les bornes d’entrée E+ et E-.On observe que :
+• Quand la tension à la borne E- est supérieure à la tension à la borne E+, l’ampli op génère une tension négative
+qui vaut dans le cas suivant environ -7V.
+• Quand la tension à la borne E- est inférieure à la tension à la borne E+, l’ampli op génère une tension positive qui
+vaut dans le cas suivant environ +7V.
+• Quand la tension à la borne E- est égale à la tension à la borne E+, l’ampli op ne génère aucune tension (0V).
+Si on relie la tension divisée provenant
+du pont diviseur à la borne E- de
+l’ampli op, et qu’on relie la tension de
+sortie du CNA à la borne E+, on
+compare ainsi notre tension analogique
+à une tension qui limite un
+encadrement, on peut ainsi situer dans
+quel encadrement se situe la tension
+analogique.
+Ensuite on rajoute des diodes pour
+rendre visible le résultat de la
+comparaison, si la diode s’allume c’est
+que la tension de sortie de l’ampli op
+est positive, donc que la tension à la
+borne E- est inférieure à la tension à la
+borne E+, de ce fait la tension qui
+provient du CNA est plus grande que la
+tension divisée par le pont diviseur.
+
+A ce stade du montage, nous avons réalisé la quantification du signal analogique. Le nombre de diodes allumées
+correspond à la quantification. L’étape suivante correspond au codage de cette quantification.
+•
+
+Le codage : associer un nombre binaire à chaque état.
+
+Pour réaliser ce codage, il nous faut utiliser les portes logiques.
+Les portes logiques ont un fonctionnement simple, elles reçoivent en entrée 2 tensions de 6V maximum. Si la tension
+d’entrée est comprise entre 0V et 2,5V exclu, elle sera interprétée comme la valeur logique 0 et comme la valeur
+logique 1 si elle est comprise entre 2,5V et 6V. La tension de sortie est soit 0V pour représenter la valeur logique 0
+soit 5V pour représenter la valeur logique 1. On peut représenter le comportement des portes logiques par des
+tableaux appelés tables de vérité.
+Nous représentons ci-dessus la table de vérité de la porte logique OU :
+Entrée 1
+Entrée 2
+Sortie
+0
+0
+0
+0
+1
+1
+1
+0
+1
+1
+1
+1
+
+- 12 -
+
+Nous représentons ci-dessus la table de vérité de la porte logique OU exclusif :
+Entrée 1
+Entrée 2
+Sortie
+0
+0
+0
+0
+1
+1
+1
+0
+1
+1
+1
+0
+
+Il existe d’autre type de portes logiques mais nous nous contenterons de ces deux là car elles suffisent pour réaliser
+notre codage.
+Avant de placer les portes logiques, il convient d’adapter la tension pour les portes logiques. On rajoute donc une
+résistance après la diode et on prend la tension divisée entre les deux. Si on prend des résistances de 1kΩ, la
+tension rentre bien dans les valeurs acceptées par les portes logiques.
+
+Le montage est donc prêt à accueillir les portes logiques.
+A la suite des portes logiques, on place des diodes qui vont symboliser le nombre binaire, ainsi quand une diode est
+allumée, elle représente un bit égal à 1, et quand elle est éteinte, elle représente un bit égal à 0.
+Pour déterminer les portes logiques, nous n’avons pas utilisé de méthode purement mathématique, mais plutôt
+expérimentale. Nous avons résonné avec des conditions, c'est-à-dire que nous avons relié le CNA au CAN en cours
+d’élaboration et nous avons regardé quelles diodes (celles situées juste après les amplis op) s’allumaient avec tel ou
+tel nombre binaire (représenté par les interrupteurs dans le CNA) et nous avons ainsi pu déterminer des conditions
+avec les diodes pour savoir quand les bits du nombre binaire sont égaux à 1 ou 0.
+Avec notre exemple, 111 :
+Toutes les tensions aux bornes des amplis op sont interprétées comme les valeurs logiques 1 donc au final, on a 3
+tensions de 5V qui vont allumer les 3 diodes symbolisant les 3 bits : 111.
+On ajoute une résistance pour réduire l’intensité à un niveau supportable par la diode et la porte logique.
+
+- 13 -
+
+On obtient finalement le montage suivant :
+
+Pour tester notre CAN, on le relie au CNA précédemment réalisé et on vérifie la correspondance entre le nombre
+binaire représenté par les 3 interrupteurs dans le CNA et le nombre binaire représenté par les 3 diodes dans le CAN :
+
+Conclusion :
+La correspondance est bonne, notre CAN est fonctionnel en simulation, comme pour le CNA et pour prouver que la
+conversion analogique numérique est bien possible, il nous reste à réaliser le montage en réalité.
+
+- 14 -
+
+IV. Le montage dans la réalité
+a. Réalisation du montage
+Lors de la réalisation du montage avec de vrais composants, nous nous sommes heurtés à un problème majeur : Nous
+n’arrivons pas à obtenir une tension de référence pour le CAN assez précise avec un générateur. Nous avons alors
+réalisé que si nous avions choisi une tension de 1V pour le CNA, c’est pour que l’ampli op ne sature pas, or nous avions
+prévu en simulation d’utiliser des amplis op alimentés en +9 et -9V. Mais maintenant, nous utilisons des amplis op
+alimentés en +15 et -15V donc on peut se permettre d’augmenter la tension sans que l’ampli op ne sature. Avec les
+générateurs que nous disposons, on peut obtenir au minimum 3V en continu, on teste donc si l’ampli op sature avec une
+tension de départ de 3V. Et surprise on constate que non, il ne sature pas. On décide donc d’utiliser une tension de 3V.
+Maintenant, on réfléchit à comment obtenir la tension de référence du CAN.
+On sait que celle-ci correspond à la plus grande tension de sortie du CNA (voir partie sur la réalisation du CAN). Il nous
+vient alors une idée, si on reproduit le CNA dans sa configuration où il génère la plus grande tension, c'est-à-dire quand
+les trois interrupteurs sont fermés, on obtient la tension de référence qu’il nous faut !
+Pour que cette tension soit bien la même que le véritable CNA, on utilise une seule alimentation pour les deux montages
+(le vrai CNA et celui qui génère la tension de référence du CAN), ainsi, si le générateur ne génère pas précisément du
+3V, ce n’est pas grave puisque la différence de tension se répercute sur les deux montages.
+On réalise donc ce montage :
+
+Montage final
+
+- 15 -
+
+Le convertisseur numérique-analogique
+
+Le convertisseur analogique-numérique
+Notre idée est bonne, le CNA et le CAN fonctionnent dans la réalité et non plus seulement en simulation !
+
+- 16 -
+
+b. Critique des résultats
+Notre montage est fonctionnel, la conversion numérique-analogique et analogique-numérique a bien fonctionné.
+Néanmoins notre montage ne reste qu’un modèle expérimental et à défaut de matériel, de place et de miniaturisation des
+composants disponibles, nous avons été obligés de choisir un nombre binaire de 3 bits. Certes nous avons pu prouver
+que les 2 conversions citées plus haut sont faisables, mais à petite échelle… En est-il vraiment de même à plus grande
+échelle, quand le nombre de bits augmente ? Est-ce que le type de convertisseur que nous avons réalisé pour une
+conversion 3 bits pourrait être utilisé à plus grande échelle ? Ces questions sont intéressantes, mais notre but était bien
+de prouver la faisabilité de cette conversion, ce que nous avons réussi. Pour l’instant, nous ne disposons pas d’assez de
+temps pour approfondir notre étude, nous allons donc pour l’instant nous contenter de nos résultats actuels.
+De plus, la solution que nous avons décrite dans la partie réalisation du montage n’est pas parfaite car pour qu’elle
+fonctionne, il faut que les amplis op utilisés amplifient de la même manière que ceux présents dans le CNA, ce qui est
+plutôt difficile à obtenir du fait de l’imprécision des amplis op.
+
+V. Conclusion sur le modem
+
+Nous somme partis d’une constatation : Le modem était présent dans le system Arpanet et Internet. Cela nous a intrigué,
+nous avons donc posé la problématique suivante :
+En quoi le modem classique était-il indispensable à la communication entre un ordinateur et Internet ?
+Nous avons commencé par chercher quel type de données passe par le câble téléphonique. Après avoir fait une
+expérience sur la nature de ces données, nous avons découvert qu’elles étaient analogiques. Ensuite nous avons
+cherché à savoir quel type de données l’ordinateur est capable de comprendre. D’après nos connaissances, nous avons
+réussi à déduire que l’ordinateur fonctionnait en binaire, il n’est donc capable de comprendre que les données
+numériques.
+A partir de ces observations, nous avons émis une hypothèse quant à la fonction du modem classique :
+Si de chaque cotés du modem le type de données est différent, c’est que le modem joue le rôle de convertisseur.
+Après avoir réalisé en simulation un montage capable de convertir les données numériques en données analogiques et
+les données analogiques en données numériques, nous sommes passés à la réalisation de ce montage dans la réalité.
+Nous avons rencontré des difficultés auxquelles nous avons remédié. Nous avons réussi à faire fonctionner ce montage,
+et cela prouve une chose, la conversion analogique-numérique et numérique analogique est effectivement réalisable.
+Puisque cette conversion est bien possible, c’est que le modem classique est bel et bien un convertisseur, sinon
+l’ordinateur et internet seraient totalement incapables de communiquer entre eux.
+Notre hypothèse est donc validée. Le modem classique était indispensable à la communication entre un ordinateur et
+internet car il servait de convertisseur analogique-numérique pour que l’ordinateur puisse comprendre les données
+provenant du câble téléphonique et de convertisseur numérique-analogique pour transmettre les données émises par
+l’ordinateur sous forme analogique dans le câble téléphonique.
+De nos jours, le modem classique n’est plus indispensable. Et pour cause, la technologie a progressé. Il est maintenant
+possible d’envoyer des données numériques par le câble téléphonique et ce grâce à la nouvelle génération de modem
+appelés « box ». Il est même possible de recevoir la télévision en même temps que l’internet et le téléphone grâce à ces
+petits boitiers révolutionnaires. Et la science n’est pas prête de s’arrêter là car la recherche des débits les plus rapides
+amène une constante évolution des technologies en matière de transports de données…
+
+- 17 -
+
+VI - Chaîne d’acquisition
+Le modem est donc un convertisseur analogique-numérique et numérique-analogique. Dans ce cas, le modem ne
+pourrait-il pas être utilisé dans un autre domaine qu’internet ?
+Il est vrai que dans le langage courant, le modem désigne un appareil qui connecte l’ordinateur à Internet. Et c’est
+d’ailleurs la première réponse qui vient à l’esprit quand on demande à quoi sert un modem.
+Nous allons donc tenter d’utiliser le modem dans une chaîne d’acquisition. Nous utiliserons notre CAN pour convertir une
+donnée analogique en numérique pour pouvoir envoyer l’information sur un ordinateur.
+La grandeur à mesurer que nous avons choisie est un volume d’eau de pluie de récupération par exemple.
+Pour pouvoir utiliser notre modem, il faut que la grandeur analogique soit une tension. Nous réalisons donc le calcul du
+volume par conductimètrie.
+Nous prenons 2 sondes en aluminium, une éprouvette de 1L et de l’eau de pluie, et un générateur de tension alternative
+pour éviter le phénomène d’électrolyse au niveau des électrodes.
+
+∼
+
+Ainsi nous faisons varier une intensité électrique en fonction de la quantité
+d’eau. En effet, plus il y a d’eau plus le courant peut passer. Pour obtenir
+une tension, il nous suffit de placer une résistance dans le montage. Avec
+la loi d’Ohm, U=R.I, notre résistance ne variant pas, la tension aux bornes
+de la résistance est donc proportionnelle à l’intensité dans le circuit.
+
+V
+
+A l’aide d’un GBF, nous générons une tension de 4.5V.
+Nous utilisons une résistance équivalente de 66 Ohms car elle nous
+permet d’obtenir des tensions adéquates pour notre CAN.
+
+Ensuite nous mesurons la tension tous les 100mL
+Volume (mL)
+000
+100
+200
+300
+400
+500
+600
+700
+800
+900
+1000
+
+Tension (V)
+0.00
+0.36
+0.64
+0.91
+1.15
+1.33
+1.50
+1.61
+1.75
+1.88
+2.00
+
+Nous constatons avec grand étonnement que les tensions obtenues forment une exponentielle croissante (courbe jaune)
+Nous pensions obtenir une droite car nous avons cru que la tension serait proportionnelle au volume d’eau, pensant qu’il
+n’y avait qu’un seul facteur qui varierait : la surface des sondes immergées.
+Or nous constatons que ce n’est pas proportionnel. Certainement du fait d’un facteur que nous n’avons pas pris en
+compte.
+Mais cela ne nous dérange pas, même si la détermination du volume sera un peu moins précise.
+
+- 18 -
+
+Nous définissons notre pas de quantification pour le CAN :
+Q = Umax / nombre_encadrements = 2/8 = 0.25V
+Puis on détermine les nombres binaires qu’on obtient en fonction du volume :
+Volume (mL)
+000
+100
+200
+300
+400
+500
+600
+700
+800
+900
+1000
+
+Nombre binaire
+000
+001
+010
+011
+100
+101
+101-110
+110
+110-111
+111
+111
+
+On remarque que pour 600 et 800mL le nombre binaire peut être double du fait que la tension obtenue est égale à une
+des tensions qui délimite un encadrement et que par conséquent et à cause des imprécisions de la conductimétrie, on
+ne sait pas lequel de ces 2 nombres binaires va correspondre au volume.
+Avec les nombres binaires qu’on obtient, on peut déterminer le volume comme étant dans l’un des encadrements
+suivants :
+100mL < Volume < 200mL
+200mL < Volume < 300mL
+300mL < Volume < 400mL
+400mL < Volume < 500mL
+500mL < Volume < 700mL
+600mL < Volume < 900mL
+Volume > 800mL
+Pour que notre chaîne d’acquisition soit complète, on tente d’envoyer le nombre binaire à l’ordinateur par l’intermédiaire
+d’une petite carte d’acquisition de 3 bits et d’un petit logiciel maison en console dont voici une capture d’écran en
+fonctionnement :
+
+- 19 -
+
+VII. Conclusion sur la chaîne d’acquisition
+
+Nous avons réussi à mesurer un volume d’eau (grandeur physique), par conductimètrie nous avons ensuite utilisé notre
+modem pour convertir la tension analogique obtenue en nombre binaire qu’on a envoyé à l’ordinateur pour pouvoir
+déterminer le volume d’eau. La chaîne d’acquisition est complète. Notre but était de montrer la diversité d’utilisation du
+modem, ce que nous avons réussi en montrant que le modem était aussi présent dans d’autres domaines que l’internet.
+Ainsi le modem est de nos jours fort utilisé pour la traçabilité des données. En effet, il est plus avantageux de stocker les
+données sur des supports numériques qui sont aujourd’hui fortement répandus. Le modem permet alors de passer de
+l’analogique au numérique et ensuite de traiter ou stocker numériquement les données sur ordinateur…
+
+VIII. Bibliographie
+Cours de MPI de Seconde
+Encyclopédie Universalis
+Encarta 99
+Science et Vie Junior n°201 Juin 2006 T01409
+Sites web:
+Wikipédia: http://fr.wikipedia.org/wiki/Pagina_principale
+http://www.stielec.ac-aix-marseille.fr
+http://www.techno-science.net/?onglet=glossaire&definition=10886
+http://www.commentcamarche.net/contents/base/binaire.php3
+http://ylescop.free.fr/stien/CNA_principes.pdf
+http://www.commentcamarche.net/contents/base/binaire.php3
+http://pagesperso-orange.fr/michel.hubin/physique/elec/chap_can1.htm
+http://pagesperso-orange.fr/michel.hubin/index.htm
+http://eduscol.education.fr/D0030/c0tp13of.htm
+http://digidownload.libero.it/marthinet/0607/Se%CC%81ance%2018/correction18.pdf
+http://site.voila.fr/FASTOCHE/AmplificateurOperationnel/amplificateuroperationnel.htm
+http://www.stielec.ac-aix-marseille.fr/electrotech/cours.htm
+http://ylescop.free.fr/stien/CNA_principes.pdf
+http://www.commentcamarche.net/contents/format/analog.php3
+http://www.ac-grenoble.fr/webcurie/pedagogie/physique/mpi/seance10/mestens.htm
+http://nte-serveur.univ-lyon1.fr/tribollet/SiteAmpliOp/C9-AmpliReel.html
+http://alexsoft.chez-alice.fr/cours/cm12.htm#_Toc452175350
+http://fr.wikipedia.org/wiki/Quantification_(signal)
+http://eduscol.education.fr/D0030/c017bf.htm
+http://balderacchi.info/3/red.pdf
+http://webetab.ac-bordeaux.fr/Pedagogie/Physique/Physico/Electro/e06trans.htm
+
+Remerciements
+Nous tenons à remercier M. Thibaut qui a consacré beaucoup de son temps, sans qui nous n’aurions pas eu l’opportunité
+de participer aux olympiades de physique et avec qui nous avons eu la chance d’être soutenus, ainsi que M. Rousseau
+pour ses explications et ses informations précieuses. Nous remercions aussi toutes les personnes qui ont contribué plus
+ou moins fortement à la bonne réalisation de notre projet…
+Nous tenons à remercier par ailleurs nos parents respectifs qui nous ont supportés avec patience, nous ont déplacés en
+voiture à chaque séance de travail et qui se sont levés à des heures indues pendant les vacances…
+
+- 20 -
+
+IX. Annexe
+Un peu d’histoire…
+L’émergence d’un réseau entre plusieurs postes informatiques provient de l’ancêtre d’Internet : Arpanet. Ce réseau de
+communication créé par le ministère de la défense Américain en 1969 est un acronyme de Advanced Research Projects
+Agency Network. Il relie plusieurs bases militaires en Californie et dans l’Utah. Outre les militaires, Arpanet est utilisé
+par les chercheurs. Plus tard en 1970, il s’étend aux universités et aux entreprises. Les données étaient transmises
+par un circuit dédié activé lors d’une communication. Chaque poste disposait d’un modem qui reliait ce circuit dédié à
+l’ordinateur. (Voir schéma ci-dessous)
+
+Arpanet
+On voit sur ce schéma que chaque poste est connecté à un modem lui même relié directement à celui d’un autre poste.
+Ainsi, à cette époque, un modem était indispensable pour se connecter à un réseau (au début Arpanet). Les premiers
+modems étaient utilisés dans les années 50 pour le réseau du système de défense aérien SAGE au Etats-Unis.
+Rapidement, de nouveaux raccordements furent bientôt ajoutés au réseau et le nombre de machines connectées devint
+très vite conséquent :
+-En 1974, le protocole TCP/IP (Transmission Control Protocol et Internet Protocol) est créé pour uniformiser le réseau. Il
+permet d'attribuer une adresse à chaque ordinateur et instaure un certain nombre de règles pour la transmission des
+données comme le fractionnement des messages en paquets et l'acheminement des données par routage. Ce système
+est toujours celui utilisé de nos jours.
+-En 1980, Arpanet se divise en deux réseaux distincts, l'un militaire (DDN) et l'autre, universitaire (NSFnet), que les
+militaires abandonnèrent au monde civil.
+-En 1984, DDN et NSFnet comptaient déjà près de 1 000 ordinateurs à travers le monde. Cette même année, le CERN
+adopte ce réseau pour ses échanges internes. Puis un informaticien du CERN mit en ligne sur le site un ensemble de
+documents scientifiques rattachés les uns aux autres afin de faciliter les recherches; L'Internet est née.
+Internet est simplement une mise au point de l’interface appelée World Wide Web qui permet à n’importe quel utilisateur
+de visualiser plus simplement des pages via un navigateur.
+Cette ouverture d’un réseau au grand public a par conséquent grandement répandu le modem dans le monde. Ainsi,
+pour pouvoir se connecter à Internet, un utilisateur devait posséder un modem.
+Ce système nécessite un serveur central. Ce serveur est relié au réseau téléphonique : l’utilisateur branche son modem
+à la prise téléphonique, et relie celui-ci à son ordinateur. (Voir schéma ci-dessous)
+
+- 21 -
+
+Internet
+Le procédé de se brancher au réseau via la ligne téléphonique avait toutefois quelques défauts : premièrement, il ne
+permet pas de se connecter et de téléphoner en même temps, deuxièmement, la connexion était plutôt lente.
+L’ADSL (Asymetric Digital Subscriber Line) était alors utilisé pour recevoir la télévision par le câble téléphonique. Mais le
+développement d’Internet lui a donné une autre fonction. Grâce à cette technologie, un utilisateur peut alors se connecter
+au réseau Internet sans occuper une ligne téléphonique et sa vitesse de connexion est améliorée. Les modems
+classiques ont par conséquent disparus du marché au profit des modems ADSL. Ces nouveaux modems présentent des
+fonctionnalités différentes des anciens, on les appelle « Box ».
+
+- 22 -
+
+

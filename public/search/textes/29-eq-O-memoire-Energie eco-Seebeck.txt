@@ -1,0 +1,654 @@
+XXIXème édition
+des Olympiades de Physique
+- Edition 2021-2022 Equipe O du Lycée Blomet
+Novembre 2021 - Janvier 2022
+Mémoire : Une énergie Eco-Seebeck
+
+Membres du projet
+Marie Valenciennes
+Timothée Serin
+Chloé Segond
+Pierre Quintart
+Tobias Libreros
+Inès Deparis
+
+Professeur encadrant
+Nadia Djebbar
+
+1
+
+Sommaire
+
+Introduction
+
+3
+
+PARTIE 1 : Théorie de l’effet Seebeck
+
+5
+
+1.A - L’effet Seebeck : à l’échelle macroscopique
+1.B - L’effet Seebeck : à l’échelle de l’atome
+1.C - Module Peltier
+
+PARTIE 2 : Choix du thermocouple et de son utilisation
+2.A - Choix du thermocouple
+2.B - Nombre de jonctions et température
+2.C - Facteurs de rendement
+
+5
+6
+8
+
+9
+9
+11
+12
+
+PARTIE 3 : Conception, réalisation et résultats du four
+
+15
+
+3.A - Réalisation du four
+3.B - Dispositif de lecture des résultats
+3.C - Interprétation des résultats et applications possibles
+
+15
+
+En conclusion
+
+17
+19
+
+20
+
+2
+
+Introduction
+
+Tandis que 90% de la population congolaise n’a pas accès à une source d’électricité de manière
+quotidienne, le gaspillage énergétique électroménager s’élève à plus de 13% dans un ménage
+européen moyen. Ces fortes disparités énergétiques nous interrogent sur les moyens d’utiliser nos
+énergies, dans un souci d’économie et de partage des ressources disponibles.
+Pas besoin de chercher bien loin pour trouver des pertes énergétiques dans notre vie de tous les
+jours : l’important dégagement de chaleur à l’ouverture d’un four, en ﬁn de cuisson, nous rappelle
+que notre consommation énergétique du quotidien n’est pas exempte de gaspillage. Nous avons
+donc cherché à mettre en place un dispositif qui convertirait une partie de cette énergie
+thermique gaspillée en une énergie électrique réutilisable.
+Pour ce faire, l’effet Seebeck nous vient en aide. Phénomène physique découvert par le physicien
+allemand Thomas Johann Seebeck en 1821, il fait qu’une différence de température entre deux
+conducteurs électriques ou semi-conducteurs électriques différents génère une différence de
+potentiel électrique entre les deux matériaux. Ainsi, si la température entre ces corps conducteurs
+est différente, une tension sera produite.
+Le système que nous proposons poursuit donc l’objectif de convertir l’énergie thermique gaspillée
+du four en énergie électrique, une énergie Eco-Seebeck. Pour récupérer cette énergie gaspillée,
+nous nous proposons de construire des modules Seebeck, sur la base de modules Peltier, capables,
+à notre échelle, de convertir cette énergie thermique en énergie électrique.
+Ainsi, notre étude poursuit un double objectif : sensibiliser à l’enjeu énergétique, au gaspillage de
+l’énergie et aux solutions pour le limiter, tout en appliquant de manière pratique l’effet Seebeck. Au
+programme : physique, thermodynamique, électricité, mathématiques et informatique…
+
+3
+
+PARTIE 1 : Théorie de l’effet Seebeck
+1.A - L’effet Seebeck : à l’échelle macroscopique
+Notre projet éco-Seebeck repose avant tout sur l’effet du même nom. Découvert en 1821 par le
+physicien allemand Thomas Johann Seebeck, l’effet Seebeck s’inscrit dans le domaine de la
+thermoélectricité.
+Assez simplement, cet effet revient à l’apparition d'un différentiel de potentiel dû à un différentiel
+de température. Lorsqu’un conducteur est chauffé à l’une de ses extrémités, les électrons libres s’y
+déplacent vers l'extrémité la plus froide (→ Figure 1).
+Cependant, deux métaux différents possèdent des conductivités thermiques et électriques
+également différentes. En créant deux jonctions entre deux métaux différents (thermocouple), en
+chauffant l'une et en refroidissant l’autre, une différence de potentiel va apparaître entre les deux
+extrémités (→ Figure 2). En cas de fermeture du circuit, un courant électrique continu circule.
+
+Figure 1 - Densité des porteurs de charges au niveau de l'extrémité chaude et de l'extrémité froide.
+
+Figure 2 - Jonctions et di érence de potentiel entre les points Y et Z.
+
+4
+
+La différence de potentiel qui apparaît est proportionnelle à la différence de température entre les
+deux jonctions. La constante de proportionnalité est appelée coefﬁcient Seebeck1 (s'exprimant en
+V.K-1) et se calcule par la relation suivante :
+Avec :
+SAB le coe cient Seebeck du couple de matériaux AB
+∆𝑉 la di érence de potentiel mesurée
+∆𝑇 la di érence de température entre les jonctions
+
+1.B - L’effet Seebeck : à l’échelle de l’atome
+Pour mieux comprendre le comportement des matériaux, évoquer la théorie des bandes
+semble nécessaire (→ Figure 3).
+La conductivité des matériaux est déterminée par les électrons de la bande de valence et ceux de
+la bande de conduction. Les électrons qui se trouvent dans la bande de valence n'ont pas assez
+d'énergie pour se détacher du noyau, mais peuvent commencer à circuler autour de deux noyaux
+rapprochés, créant ainsi des liaisons covalentes. Les électrons qui se trouvent dans la zone de
+conduction possèdent une assez grande énergie, ce qui leur permet de se détacher de leur noyau ;
+on les appelle électrons libres.
+Matériaux conducteurs
+La bande de valence et la bande de conduction se chevauchent. Une simple agitation thermique
+permet aux électrons de “passer” d’une bande à l’autre. Les électrons libres circulent ainsi dans tout
+le corps d’une manière aléatoire. Leur mouvement s’ordonne en présence d’un champ électrique ;
+on obtient un courant électrique.
+Matériaux isolants
+La bande de valence est complètement occupée, tandis que la bande de conduction reste vide.
+Une large bande dite interdite crée un gap important à franchir ; sous des conditions normales,
+rares sont les électrons de valence recevant assez d’énergie pour passer d’une bande à l’autre2. En
+conséquence, la conductivité électrique des isolants est très faible.
+Matériaux semi-conducteurs
+La largeur de la bande interdite est faible. Le gap peut être franchi par certains électrons à la suite
+d’un faible apport d’énergie. Une fois dans la bande de conduction, les électrons deviennent
+mobiles, à l’image d’un conducteur. Couplés aux “trous” de charge positive qu’ils laissent en
+quittant la bande de valence, ces électrons assurent la conduction dans les corps
+semi-conducteurs.
+1
+
+Seul peut être calculé le coefﬁcient Seebeck d’un couple de matériaux. Dans le cas d’un matériau
+seul, l’utilisation d’un coefﬁcient Seebeck de référence Sréf s’impose. Ce dernier s’obtient grâce aux
+matériaux supraconducteurs, dont le coefﬁcient Seebeck est nul à 0K. Le coefﬁcient Seebeck du
+matériau est ainsi calculé par la relation suivante : Smatériau = Sréf - Scouple
+2
+
+Pour permettre le passage des électrons de valence, il faudrait alors porter le matériau à très forte
+température (de l’ordre de plusieurs centaines de degrés, ou le soumettre à des photons très
+énergétiques - de type UV par exemple).
+
+5
+
+Figure 3 - Illustration imagée de la théorie des bandes.
+
+Complément : deux types de dopage
+La pratique du dopage consiste à implanter des atomes nommés “impuretés” au sein d’un
+semi-conducteur intrinsèque (non dopé et ayant peu d’impuretés). L'introduction de plusieurs
+impuretés va conduire à l'apparition de nouveaux états d'énergie accessibles à l’intérieur des
+bandes interdites, rendant le gap plus facile à franchir.
+
+Dopage de type N : Pour doper un semi-conducteur intrinsèque, on introduit des atomes
+pentavalents, comme le phosphore P, possédant 5 électrons de valence. Quatre électrons vont
+former des liaisons covalentes avec les atomes voisins et le cinquième électron va se retrouver
+libre dans la bande de conduction, et peut participer ainsi à la conduction électrique dans le
+matériau. Un matériau dopé de type N présente donc des électrons libres et des charges
+positives ﬁxes (ions) en nombre identique.
+Dopage de type P : On injecte, dans le semi-conducteur intrinsèque, des impuretés trivalentes
+comme le bore B, auxquelles il manque un électron pour former les quatre liaisons covalentes.
+Un électron appartenant à un atome de ce semi-conducteur vient combler la place vacante,
+rendant l'atome trivalent stable et chargé négativement. Un matériau dopé de type P présente
+donc des lacunes, ou trous libres, et des charges négatives ﬁxes en nombre identique.
+
+6
+
+Figure 4 - Exemple du silicium dopé : à gauche, un dopage de type N avec un atome de phosphore, à
+droite, un dopage de type P avec un atome de bore.
+
+1.C - Module Peltier
+Après avoir vu le principe de l’effet Seebeck, évoquons rapidement son application pratique. On
+retrouve l’effet dans un dispositif de type module Peltier (→ Figure 5), du nom de l’effet réciproque
+du principe Seebeck : l’effet Peltier. En effet, en distribuant une tension au dispositif, il génère un
+différentiel de température. On peut cependant l’utiliser dans le sens de l’effet Seebeck : en
+appliquant un différentiel de température sur ses deux faces, on génère une tension électrique.
+Notre déﬁ va donc être de recréer un module Peltier capable de récupérer l’énergie thermique
+gaspillée par le four.
+
+Figure 5 - Schéma du fonctionnement d’un module Peltier.
+
+7
+
+[Conclusion de la partie 1]
+Dans cette première partie, nous avons détaillé la théorie sur laquelle notre projet repose. A
+l’échelle macroscopique et de l’atome, l’effet Seebeck présente un fort potentiel pour produire de
+l’énergie à partir d’un différentiel de chaleur. Ce mécanisme est d’autant plus probant que des
+applications pratiques, telles que le module Peltier, existent déjà. Cependant, aﬁn de mener
+complètement notre démarche scientiﬁque, nous avons décidé de créer nos propres modules
+Seebeck. Ces derniers, fautes de moyens, ne seront pas composés de semi-conducteurs mais de
+simples conducteurs. Nous nous proposons d’exposer et d’expliquer le choix du bon thermocouple
+et de son utilisation dans notre deuxième partie.
+
+PARTIE 2 : Choix du thermocouple et de son utilisation
+2.A - Choix du thermocouple
+Maintenant que le principe de l’effet Seebeck ainsi que son explication physique sont connus, il
+faut déterminer quel thermocouple utiliser pour la réalisation des expériences suivantes et pour
+notre four Eco-Seebeck.
+Plusieurs critères entrent en jeu pour déterminer le thermocouple le plus avantageux : le
+rendement, aﬁn d’obtenir la meilleure puissance électrique possible, le prix, déterminant pour la
+faisabilité du projet, ainsi que la maniabilité, c’est-à-dire la facilité d’utilisation et d’adaptation du
+matériau, indispensable en pratique pour monter notre dispositif.
+Nous l’avons vu, il est déjà nécessaire de faire un choix entre matériaux conducteurs et
+semi-conducteurs. Une grande gamme de conducteurs nous est plus ou moins accessible,
+notamment sous forme ﬁlaire, la plus facile d’utilisation. À l’inverse, le choix pour les
+semi-conducteurs est plus que restreint : le plus accessible est le tellurure de bismuth (de formule
+Bi2Te3), et il n’est disponible qu’en grandes quantités (un kilogramme minimum), dépassant
+largement le budget alloué. Sa forme est de plus peu pratique, cubique, avec une taille ne
+dépassant pas les deux millimètres de diamètre. Ainsi, nous retenons les conducteurs comme
+thermocouples pour notre dispositif Eco-Seebeck.
+Pour tester différents couples de conducteurs, nous nous sommes procurés sous forme ﬁlaire
+divers matériaux aux coefﬁcients Seebeck variés :
+Métaux purs
+Cuivre (∅0,32 mm et ∅0,8 mm)
+Nickel (∅0,8 mm)
+Fer (∅0,8 mm)
+Alliages
+Constantan (CuNi - 44% de Nickel) (∅0,32 mm et ∅0,8 mm)
+Nichrome (NiCr - 80% de Nickel) (∅0,32 mm et ∅0,8 mm)
+
+Il vient donc
+suivante:
+
+= 10 couples à tester. Pour chacun de ces couples, nous réalisons l’expérience
+
+8
+
+En série, nous branchons un voltmètre, sur la borne V, un ﬁl de métal b, relié à un ﬁl de métal a,
+lui-même relié à un autre ﬁl de métal b, lui-même relié à la borne COM du voltmètre. L’une des
+jonctions entre les ﬁls de métal a et b est immergée dans de l’eau liquide à 0,3°C, tandis que l’autre
+est chauffée par conduction à 200°C à l’aide d’un banc Koﬂer3 (schéma et photographie
+ci-dessous).
+
+Figure 6 - Schéma du montage de test
+
+Figure 7 - Photographie du montage
+
+3
+
+Initialement, ces expériences étaient réalisées en chauffant la jonction avec une bougie, la température
+de la ﬂamme étant mesurée par un thermomètre ; mais face à la ﬂuctuance de la température,
+l’utilisation d’un banc Koﬂer étalonné est apparue comme plus précise.
+
+9
+
+Après réalisation de l’expérience, on obtient le tableau de valeurs suivant4 :
+Couple de métaux
+
+Tension obtenue (en mV)
+
+constantan / cuivre
+
+7,1
+
+constantan / nickel
+
+2,0
+
+constantan / fer
+
+6,9
+
+constantan / nichrome
+
+0,4
+
+cuivre / nickel
+
+4,7
+
+cuivre / fer
+
+1,2
+
+cuivre / nichrome
+
+0,6
+
+nickel / fer
+
+5,4
+
+nickel / nichrome
+
+5,3
+
+fer / nichrome
+
+0,5
+
+À la lumière de ces résultats, le couple constantan / cuivre apparaît comme le plus prometteur,
+avec une tension obtenue de 7,1 mV pour un différentiel de température de 473K (200°C).
+(→ annexe, partie I - choix du thermocouple)
+Cette valeur expérimentale peut se vériﬁer par la théorie. Nous en avons donné une approximation
+ci-dessus, avec la relation entre le coefﬁcient Seebeck, la différence de température et la différence
+de potentiel. Ainsi, par une règle de trois :
+
+∆𝑉 = 𝑆 × ∆𝑇 = (𝑆(𝑏) − 𝑆(𝑎)) × ∆𝑇
+Dans le cas du couple constantan / cuivre :
+A.N:
+
+∆𝑉 = |(− 48, 5 − 2, 9)| × 10
+
+−6
+
+−2
+
+× (200 − 0, 3) = 1, 0 × 10
+
+𝑉
+
+Or cette application n’est en réalité qu’une approximation de la tension produite grâce à l’effet
+Seebeck. Au cours de nos recherches, nous avons découvert cette formule :
+
+4
+
+Le voltmètre a une résolution de 0,1 mV. Les tensions relevées étant elles aussi de l’ordre du millivolt, des
+séries de 5 mesures ont été réalisées pour chaque expérience. Les résultats indiqués sont les moyennes
+de ces mesures (le tableau de mesure complet peut être trouvé en annexe).
+
+10
+
+Un problème se posait néanmoins. Nous n’avions aucune méthode mathématique aﬁn de
+déterminer l’expression des fonctions décrivant l’évolution du coefﬁcient Seebeck, qui dépend du
+matériau et donc de la température, comme indiqué. Aﬁn d’y remédier, nous avons choisi comme
+solution une intégration par parties.
+En effet, il est possible de rechercher des graphiques décrivant ces évolutions manquantes, puis d’y
+lire les valeurs des coefﬁcients Seebeck (voir ci-dessous) aﬁn de modéliser ﬁnalement ces fonctions
+comme un certain nombre (correspondant au nombre choisi de parties) de fonctions afﬁnes.
+
+Une fois ces équations de fonctions déterminées, il sufﬁt de calculer une intégrale pour chaque
+plage de température, et d’additionner le tout.
+Ex : ici, l’étendue de températures 0-200°C a été découpée en 10 plages de 20°C.
+Calculer l’intégrale de la 1ère partie revient à effectuer le calcul suivant :
+20
+
+∫ ((0, 0115𝑥 + 1, 72) − (− 0, 15 𝑥 − 34))𝑑𝑋, ce qui équivaut à 746,7.
+0
+
+On obtient alors les résultats suivants, pour une intégration en 10 et en 5 parties :
+
+11
+
+−1
+
+Les coefﬁcients Seebeck utilisés étant en µ𝑉/𝐾 , multiplier ces valeurs ﬁnales par 10-3 permet de
+déterminer un résultat théorique en mV.
+Dans le cas des 10 parties, ce résultat vaut 8,55 mV, contre 8,58 mV pour 5 parties intégrées. Ceci
+tend à montrer que, plus le nombre de parties intégrées est important, plus le résultat s’afﬁne et
+diminue. D’une manière plus générale, cette formule apparaît donc comme bien plus précise que
+la 1ère et, de surcroît, en cohérence avec nos résultats expérimentaux.
+
+2.B - Nombre de jonctions et température
+2.B.1 - Nombre de jonctions
+Tout d’abord, il faut noter que, avec un seul couple de métaux, la tension générée est de l’ordre de
+quelques millivolts. Pour tenter d’obtenir une différentiel de potentiel exploitable, il faut recourir à
+la loi d’additivité des tensions, stipulant que la tension aux bornes d'un ensemble de dipôles
+récepteurs associés en série est égale à la somme des tensions aux bornes de chacun des dipôles.
+Autrement dit, plus il y a de jonctions associées en série, plus la tension produite sera grande. Pour
+vériﬁer cette loi, on réalise l’expérience suivante :
+On assemble plusieurs séries de ﬁls alternés constantan / cuivre. Pour chaque série, on augmente
+de deux le nombre total de ﬁls. Ainsi, la première série ne possède que 2 jonctions, la deuxième 4,
+et ce jusqu’à 16 jonctions. Alternativement, la première jonction est immergée dans de l’eau à 0,3°C,
+tandis que la suivante est à nouveau chauffée par conduction à 200°C à l’aide d’un banc Koﬂer
+étalonné5.
+(→ annexe, partie 2.1 - Impact du nombre de jonctions sur la tension produite)
+
+2.B.2 - Inﬂuence de la température
+On peut ensuite se demander quelle est l’inﬂuence de la température pour une production de
+tension. Pour cela, on réalise un étalonnage en fonction de la température : On assemble une série
+de ﬁls constantan / cuivre, avec, alternativement, un ﬁl de cuivre, un ﬁl de constantan et un ﬁl de
+cuivre. On a donc deux jonctions : l’une est immergée dans de l’eau à 0,3°C, l’autre est chauffée par
+conduction à 200°C à l’aide d’un banc Koﬂer étalonné.
+(→ annexe, partie 2.2 - Mesure de la tension en fonction de la température pour les 5 meilleurs
+thermocouples)
+
+2.C - Facteurs de rendement
+L’expérience précédente a permis de déterminer quel thermocouple utiliser, et comment. Pour
+réaliser notre dispositif Eco-Seebeck, il reste encore une multitude de facteurs à étudier pour
+déterminer ceux qui inﬂuent sur le différentiel de potentiel généré par les thermocouples.
+
+5
+Le montage étant en série, isoler chaque ﬁl les uns des autres se révèle rapidement complexe : puisque les
+ﬁls sont dépourvus de gaine, ils doivent chacun être orientés de façon à ce qu’ils ne se touche pas, alors même
+qu’ils partagent la même source de chaleur : la borne 200°C du banc Koﬂer. De même, toutes les jonctions qui
+arrivent sur ce point doivent aussi être isolées de la plaque du banc Koﬂer, ce qui est fait en insérant entre les
+jonctions et la plaque une ﬁne couche de papier. Enﬁn, pour l’autre moitié des jonctions, chacune est
+immergée dans de l’eau à 0,3°C.
+
+12
+
+(→ annexe, partie III - Écarter les facteurs de confusion)
+
+2.C.1 - Longueur des ﬁls
+Il faut tout d’abord déterminer si la longueur des ﬁls inﬂue sur le rendement du dispositif. Pour cela,
+on réalise donc l’expérience suivante :
+On assemble 4 séries de ﬁls constantan / cuivre, avec, alternativement, un ﬁl de cuivre, un ﬁl de
+constantan et un ﬁl de cuivre. On a donc deux jonctions : l’une est immergée dans de l’eau à 0,3°C,
+l’autre est chauffée par conduction à 200°C à l’aide d’un banc Koﬂer étalonné. Pour chacune de ces
+4 séries, la longueur des ﬁls qui les composent prend une valeur différente : les ﬁls de la première
+série ont une longueur de 10 cm, ceux de la deuxième 20 cm, 40 cm pour la troisième et 80 cm
+pour la quatrième.
+Après avoir réalisé l’expérience, on obtient les valeurs suivantes :
+Longueur des ﬁls (en cm)
+
+Tension produite (en mV)
+
+40
+
+7,5
+
+80
+
+7,4
+
+On peut donc en conclure que la longueur des ﬁls n’inﬂue pas, ou très peu, sur le rendement des
+thermocouples.
+(→ annexe, partie 3.2 - Longueur des ﬁls)
+
+2.C.2 - Longueur de la jonction
+On peut également se demander si la longueur de la jonction a une quelconque inﬂuence. Pour le
+déterminer, on réalise l’expérience suivante :
+On assemble 4 séries de ﬁls constantan / cuivre, avec, alternativement, un ﬁl de cuivre, un ﬁl de
+constantan et un ﬁl de cuivre. On a donc deux jonctions : l’une est immergée dans de l’eau à 0,3°C,
+l’autre est chauffée par conduction à 200°C à l’aide d’un banc Koﬂer étalonné. Pour chacune de ces
+4 séries, la longueur des jonctions prend une valeur différente : 2,0 cm, 1,0 cm, 0,5 cm, 0,2 cm6.
+Après avoir réalisé l’expérience, on obtient les valeurs suivantes :
+Longueur de la jonction (en cm)
+
+Tension mesurée (en mV)
+
+2,0
+
+5,7
+
+1,0
+
+6,6
+
+0,5
+
+7,6
+
+0,2
+
+7,6
+
+6
+
+Chacune des séries de ﬁls est testée 5 fois. Les résultats afﬁchés sont les moyennes de chaque série de
+mesures (les résultats complets sont trouvables en annexe).
+
+13
+
+On peut donc en conclure que plus la longueur de la jonction est courte, plus la tension mesurée
+est élevée. Cependant, il n’est techniquement pas possible d’avoir des jonctions de 0,1 ou 0,2 cm.
+On choisit donc de réaliser des jonctions d’une longueur de 0,5 cm.
+(→ annexe, partie 3.3.2 - Longueur de la jonction)
+
+2.C.3 - Epaisseur des ﬁls
+Enﬁn, il reste à déterminer si l’épaisseur des ﬁls à un impact. Pour cela, on réalise encore une fois
+deux séries de ﬁl constantan / cuivre / constantan. On a donc deux jonctions : l’une est immergée
+dans de l’eau à 0,3°C, l’autre est chauffée par conduction à 200°C à l’aide d’un banc Koﬂer étalonné.
+Les ﬁls de la première série ont une épaisseur de 0,3 mm, tandis que ceux de la deuxième série en
+ont une de 0,8 mm7.
+Après avoir réalisé l’expérience, on obtient les valeurs suivantes :
+
+Figure 8 - Tension produite en fonction de l’épaisseur des thermocouples.
+On remarque que les valeurs sont globalement cohérentes. Les différences s'expliquent
+probablement par le fait qu’il est plus difﬁcile de chauffer uniformément la jonction quand le
+thermocouple est constitué de ﬁls épais. On peut donc conclure que l’épaisseur des ﬁls utilisés
+n’inﬂue pas sur la tension produite8. Dans un souci de praticité, on utilisera des ﬁls ﬁns pour la suite
+du projet.
+
+7
+
+Chacune des séries de ﬁls est testée 5 fois. Les résultats afﬁchés sont les moyennes de chaque série
+de mesures (les résultats complets sont trouvables en annexe).
+8
+
+Si l’épaisseur des ﬁls n’inﬂue pas sur la tension, on peut en revanche conjecturer qu’il n’en est pas
+de même pour l’intensité. En effet, on rappelle que I = Ne / Δt, avec Ne le nombre d’électrons
+traversant la tranche du matériau parcouru par le courant électrique, et Δt la durée pendant laquelle
+on mesure ce ﬂux d’électrons. Par conséquent, à tension égale, si le diamètre de cette tranche
+augmente, alors le nombre d’électrons parcouru augmente aussi.
+
+14
+
+(→ annexe, partie 1.4 - Tension obtenue en fonction du thermocouple testé)
+[Conclusion de la partie 2]
+Dans cette deuxième partie, nous avons cherché à déterminer avec le plus de précision possible
+lequel des thermocouples nous permettrait de mener à bien notre entreprise. Il s’est avéré que le
+thermocouple cuivre/constantan présente les caractéristiques les plus avantageuses. Il s’agit alors
+de traduire cette étude par son application pratique, c’est-à-dire la conception du four et
+l’afﬁchage des résultats, à l’aide d’une carte Arduino et de graphiques dynamiques Python.
+
+PARTIE 3 : Conception, réalisation et résultats du four
+3.A - Réalisation du four
+En première partie, nous avons exploré la théorie de l’effet Seebeck. Après expérience, nous avons
+choisi comme thermocouple le couple constantan / cuivre. Il a de plus été déterminé que la
+longueur d’une jonction devait être la plus petite possible. D’un point de vue pratique, une
+longueur de jonction de 5 mm semble la plus adaptée : elle est techniquement réalisable, tout en
+étant très courte. Reste maintenant à mettre en place notre four Eco-Seebeck.
+Au fur et à mesure de notre projet, la forme à donner à notre module Peltier modiﬁé a largement
+évolué. Initialement, nous comptions réaliser une sorte de module Peltier cylindrique, placé
+directement à l’intérieur du four, avec, en son sein, un dispositif de refroidissement. Devant la
+complexité presque superﬂue du dispositif, nous avons ensuite imaginé retirer la porte du four, et
+la remplacer par un module Peltier de grande taille. Cependant, face à la difﬁculté de réalisation,
+notamment au niveau de l’isolation, l’idée a rapidement été abandonnée.
+Finalement, l’idée est venue de faire passer nos thermocouples non pas à travers la porte du four,
+mais autour. La technique présente l’avantage d’être relativement facile à mettre en œuvre, sans
+intervention directe sur le four en lui-même. Cependant, il reste compliqué et peu modulable de
+ﬁxer directement des ﬁls sur la porte du four : puisque le circuit est en série, il faut non seulement
+isoler les ﬁls les uns des autres, mais aussi du reste de la porte, composée en partie de métal. De
+plus, l’inconvénient majeur d’un circuit en série réside dans sa difﬁculté de modulation : si un faux
+contact se fait à n’importe quel endroit du circuit, l’ensemble du dispositif est dysfonctionnel.
+
+15
+
+Figure 9 - Schéma du dispositif initialement prévu.
+Pour parer au problème, nous avons décidé de réaliser des petits modules, chacun composés de
+dix couples de ﬁls thermocouples, isolés entre eux et de l’extérieur, que nous relions par la suite
+entre eux. Ces modules doivent répondre aux exigences suivantes : être relativement faciles à
+produire, ﬂexibles, isolants et résistants à une chaleur de 200°C. Plusieurs techniques ont été mises
+au point : d’abord, après avoir “tressé” les couples, les envelopper dans un scotch type électricien,
+puis réaliser des “rails” de silicone, comme celui utilisé pour les moules de cuisson, et y encastrer les
+ﬁls. La deuxième méthode, plus longue mais plus sûre, a été retenue pour la réalisation du four.
+
+Figure 10 - Di érents prototypes réalisés.
+
+16
+
+Reste enﬁn un problème : comment stocker l’énergie ? Il faut en effet reconnaître que la tension
+délivrée est assez ﬂuctuante, puisque la température à l’intérieur du four peut elle aussi varier de
+quelques degrés. Il faut donc intégrer à notre montage un dispositif permettant d’assurer à la fois
+un stockage temporaire de l’énergie et une libération d’énergie constante. Pour cela, nous nous
+tournons vers des condensateurs. Ces composants électroniques ont la particularité de pouvoir
+stocker une partie de l’énergie électrique produite par notre dispositif, et de pouvoir la libérer dans
+le circuit lorsque la puissance délivrée par notre four est insufﬁsante.
+
+3.B - Dispositif de lecture des résultats
+Nous avons souhaité mettre en place un suivi dynamique de l’évolution de la tension et de la
+température. Pour cela, nous avons utilisé deux modules Arduino. La température et la tension sont
+respectivement mesurées par un microcontrôleur chacun. (Nous utilisons deux ordinateurs aﬁn
+d’éviter d’éventuelles interférences).
+Pour mesurer la température à l’intérieur du four, un thermocouple de type k est utilisé. Ce
+thermocouple permet de générer une tension qui varie en fonction de la température du milieu
+dans lequel il se trouve. Ainsi, plus la température du milieu sera importante, plus la tension
+produite sera élevée. Cependant, ces tensions produites restent faibles : elles sont donc
+augmentées par un ampliﬁcateur avant d’être transmises au microcontrôleur. Un calcul sera alors
+réalisé par l’ordinateur aﬁn de retrouver la valeur de la température à partir de la tension reçue.
+Pour mesurer la tension générée par le système, le microcontrôleur est directement utilisé. Les
+données sont récupérées par l’ordinateur.
+Dans les deux cas, le logiciel Arduino installé sur l’ordinateur permet de contrôler le
+microcontrôleur et d’extraire les données. Mais dans un souci de lecture plus précise des résultats,
+nous avons souhaité les afﬁcher sous forme de graphiques s’actualisant en temps réel. Celle-ci
+permet, lorsqu’elle est installée, de faire le lien entre l’éditeur Python et la carte Arduino. Il est ainsi
+possible de contrôler la carte Arduino avec un programme Python. L’évolution de la tension et de la
+température est ensuite afﬁchée sous forme de graphique à l’aide d’une autre librairie, nommée
+MatPlotLib.
+
+Figure 11 - Extrait du programme Python.
+
+17
+
+Figure 12 - Schéma du montage ﬁnal du dispositif.
+
+3.C - Interprétation des résultats et applications possibles
+Avec une fabrication de 24 modules, chacun composés de 10 couples de matériaux, on obtient une
+tension de l’ordre de 1,5 V qui, avec l’intensité produite, est sufﬁsante pour allumer une DEL.
+Si, avec les techniques rudimentaires et les matériaux accessibles dont nous disposons, nous avons
+pu obtenir ce rendement d’1,5 V, on peut imaginer, en industrialisant le processus, obtenir des
+rendements bien supérieurs, notamment avec les semi-conducteurs que nous avons évoqué en
+première partie.
+Les applications du procédé sont nombreuses. Dans les différentes centrales, notamment
+nucléaires, ces dispositifs fonctionneraient comme des convertisseurs d'appoint, récupérant
+l’énergie thermique trop faible pour être utilisée par l’alternateur conventionnel.
+
+[Conclusion de la partie 3]
+Dans cette dernière partie, nous avons montré le processus amenant à l’élaboration de notre
+dispositif de récupération de l’énergie thermique. A l’aide de librairies et codes Python, couplés à
+un module Arduino et à un ampliﬁcateur de tension, nous avons pu développer un système de
+représentation graphique des résultats.
+
+18
+
+En conclusion
+En déﬁnitive, rappelons l’objectif du projet. Il s’agissait d’abord, dans un monde où énergie
+rime avec économie, d’en proposer une alternative simple tant sur le plan de la construction que
+de l’utilisation. Pour se faire, nous avons donc cherché dans nos vies quotidiennes quelles énergies
+pouvaient être (ré)utilisées aﬁn de mener à bien ce projet. Assez naturellement, les appareils
+électroménagers ont attiré notre attention : nous avons remarqué qu’un four électrique gaspillait
+de l’énergie thermique en ﬁn de cuisson, et avons donc cherché à récupérer cette chaleur perdue,
+nous conduisant au projet que nous avons ici détaillé.
+En premier lieu, nous avons présenté les principes théoriques de l’effet Seebeck et de ces
+dérivés que nous pourrions utiliser. Ce faisant, nous avons ensuite entamé une phase plus pratique,
+consistant en une série de tests, et poursuivant l'objectif de déterminer expérimentalement les
+meilleurs thermocouples – et la manière de les utiliser dans notre expérimentations. Cela fait, nous
+avons procédé au montage du four, en mettant en valeur par un programme Python - Arduino les
+résultats obtenus.
+Il reste nécessaire de garder un regard critique sur ces rendements : certes probante, la
+quantité d’énergie électrique générée reste largement perfectible. Ce succès relatif s’explique par
+la nature de nos thermocouples ; car comme détaillé dans ce mémoire, les matériaux que nous
+avons utilisés demeurent d’entrée de gamme : ils sont relativement faciles d’accès et abordables
+ﬁnancièrement. A l’instar des semi-conducteurs que nous avons évoqués, et que nous retrouvons
+par exemple dans les modules Peltiers avec le Tellurure de bismuth, il se pourrait que ces
+techniques de productions énergétiques deviennent viables pour des populations ayant des
+problèmes d’accès à l’électricité. En d’autres termes, cela nous amène à penser que, in ﬁne, si des
+matériaux de qualité industrielle sont utilisés pour mettre en œuvre ce projet, alors la rentabilité du
+dispositif sera grandement exacerbée – remplissant alors notre objectif de départ : remédier au
+gaspillage énergétique de la vie de tous les jours, en faisant de l’énergie thermique inutilisée une
+énergie Éco-Seebeck.
+
+19
+
+Bibliographie
+Development of stove-powered thermoelectric generators: A review
+https://www.sciencedirect.com/science/article/abs/pii/S1359431115012685
+
+Low cost stove-top thermoelectric generator for regions with unreliable electricity supply
+Low cost stove-top thermoelectric generator for regions with unreliable electricity supply ScienceDirect
+Study of a Thermoelectric Generator incorporated in a multifunction wood stove
+https://hal.archives-ouvertes.fr/hal-00727162/document
+
+Development and testing of a domestic woodstove thermoelectric generator with natural
+convection cooling
+https://www.sciencedirect.com/science/article/abs/pii/S0196890404001931
+
+Experimental study of a mesoscale combustor-powered thermoelectric generator
+https://www.sciencedirect.com/science/article/pii/S235248471930767X
+Une pompe à chaleur : le module Peltier
+http://ww2.retronik.fr/Documentation-Thematique/Theorie/Une_pompe_a_chaleur_-_Le_module_
+Peltier_%5BEA18_1981_5p%5D.pdf
+Les thermocouples
+https://aviatechno.net/ﬁles/thermocouples.pdf
+Coefﬁcients seebeck
+https://www.linseis.com/fr/grandeurs-mesurees/coefﬁcient-seebeck/
+
+20
+
+

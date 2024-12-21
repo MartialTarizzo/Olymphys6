@@ -1,0 +1,766 @@
+2022 - 2023
+
+Olympiades de Physique 2022-2023
+
+Mémoire
+La micronatation des nanorobots
+
+Présenté par :
+
+Lycée Polyvalent du Parc
+des Loges
+
+Mohammed Mokrane
+Rochan Ramassamy
+Mallaury Hernandez
+Antoine Korczak
+Marine Courier
+Flore De Thy-Saraiva
+
+La micronatation des microrobots
+
+Sommaire
+Introduction …………………………………………………………………………………………………………………………2
+L’équipe et son organisation ………………………………………………………………………………………………..2
+1. Notions de physique utiles …………………………………………………………………………………………….…3
+1.1. Viscosité dynamique…………………………………………………………………………………………..3
+1.2. Equation de Navier-Stokes……………………………………………………………………………….…3
+1.3. Nombre de Reynolds…………………………………………………………………………………………..4
+1.4. Régime de Stokes……………………………………………………………………………………………....5
+2. Natation en régime de Stokes ……………………………………………………………………………..……..…….6
+2.1. Le nageur à palettes de Purcell …………………………………………………………………………..6
+2.2 Natation des microorganismes (micronatation)…………………………………………….…… 6
+2.3. Quelques types de nageurs artificiels envisagés…………………………………………………8
+2.3.1. Nageur à tête oscillante (testé)……………………………………………..……………..8
+2.3.2. Nageur à queue oscillante (testé)……………………………………………………….10
+2.3.3. Nageur à hélice…………………………………………………………………………………..10
+2.3.4 Modèle de nageur proposé par Najafi et Golestanian………………………...11
+3. Simulation numérique et réalisation concrète d’un nageur de Najafi et Golestanian……...12
+3.1. Définition du prototype et du milieu ……………………………………………………..………...12
+3.2. Conception mécanique et électrique …………………………………………………………….….13
+3.3. Programmation……………………………………………………………………………………………..….15
+3.4. Simulation numérique………………………………………………………………………………………16
+Conclusion et perspectives……………………………………………………………………………………………….…19
+Annexe
+Bibliographie
+Annexe A - Adimensionnement de l’équation de Navier Stokes – Nombre de Reynolds
+Annexe B - Mesure de la viscosité de la glycérine par chute de bille
+Annexe C – Programmation de la simulation du mouvement du NGS
+Annexe D – Quelques vues SolidWorks du prototype NGS
+Annexe E – programmation des moteurs
+1
+
+La micronatation des microrobots
+
+Introduction
+
+Au départ, lorsqu’il nous a été proposé de participer aux Olympiades, nos professeurs nous ont demandé de
+trouver nous-mêmes le thème du projet, afin que l’équipe soit motivée. Une idée qui plaisait à plusieurs
+d’entre nous était de réaliser une “ boîte antigravité “ où un objet serait en apesanteur. Après réflexion cela
+nous a paru complexe à réaliser, de plus les applications étaient un peu floues et nos enseignants nous ont
+incité à réfléchir à des thèmes aux applications plus concrètes. C’est alors que l’un d’entre nous a proposé
+de s’intéresser à un objet en apesanteur apparente : un nanorobot évoluant dans le sang.
+L’idée de départ était d’étudier comment on pourrait contrôler ses mouvements. Par la suite, dès les
+premiers contacts avec des experts, il est apparu que la propulsion d’un tel objet était un problème beaucoup
+plus complexe que celui du pilotage.
+En effet, nager suppose en gros que l’on pousse du fluide au repos, qui s’évacue ailleurs ; puis on
+recommence. Or pour un nanorobot, le sang est extrêmement visqueux et les forces d’inerties étant
+inexistantes, tous les modes de natation par mouvements périodiques (battements par exemple) est
+impossible ; et d’autres modes (hélice par exemple) posent des problèmes pratiques.
+D’où notre problématique : Quelle micro natation pour les nanorobots ?
+
+L’équipe et son organisation
+
+2
+
+La micronatation des microrobots
+
+1. Notions de physique utiles
+1.1. Viscosité dynamique
+Pour comprendre cette notion, supposons que vous
+mettiez un fin film d’huile sur la surface de votre
+main.
+Appelons F la norme de la force de frottement subie
+par votre main si vous la déplacez à la vitesse v, cette
+force de frottement est proportionnelle à v et à la
+surface de votre main, et inversement
+proportionnelle à l’épaisseur du film.
+𝑆 𝑑𝑉
+
+Plus précisément, F = μ
+où dV est la différence
+𝑒 𝑑𝑍
+de vitesse entre les deux faces du fluide d’épaisseur dZ .
+𝑑𝑉
+est une dérivée spatiale de V (« gradient de vitesse »).
+𝑑𝑍
+
+Le coefficient de proportionnalité μ est nommé « viscosité dynamique » du fluide. Si vous recommencez
+l’expérience avec du miel, le force de frottement sera bien supérieure, et la viscosité aussi.
+Son unité standard est le N.m-2.s-1 = Pa. s-1
+La viscosité dynamique permet entre autres de caractériser la résistance d’un fluide lors d’un écoulement
+laminaire. (cf. annexe B : mesure de la viscosité de la glycérine par chute de bille).
+1.2. Equation de Navier-Stokes
+George Gabriel Stokes né en 1819 en Irlande et mort en 1903 est un mathématicien et physicien britannique
+reconnu mondialement notamment pour ses recherches sur le comportement des fluides visqueux. Il a entre
+autres réalisé la découverte de l’équation de Navier-Stokes qui est l'équation qui domine la mécanique des
+fluides.
+L’équation de Navier-Stokes est l’équation centrale de la Mécanique des Fluides.
+Elle n’a à ce jour pas de solution générale ; mais tout problème d’hydrodynamique a ses conditions
+particulières qui permettent de faire des hypothèses simplificatrices ; on peut alors la résoudre.
+
+⃗⃗⃗
+𝜕𝑉
+⃗⃗ + µ ∆𝑉
+⃗⃗
+⃗⃗⃗ 𝛻⃗ )𝑉
+⃗ ) = - 𝛻𝑃
+ρ ( + (𝑉.
+
+Equation de Navier Stokes
+
+𝜕𝑡
+
+•
+
+ρ masse volumique du fluide
+
+•
+
+⃗ = [𝑉𝑥 𝑉𝑦 𝑉𝑧 ]
+Vitesse du fluide 𝑉
+
+•
+
+⃗⃗⃗ 𝛻⃗ =
+𝑉.
+
+•
+
+𝑑 𝑑 𝑑
+𝛻⃗ = 𝑑𝑥 𝑑𝑥 𝑑𝑥
+
+•
+
+µ viscosité dynamique du fluide
+
+•
+
+⃗ =
+∆
+
+𝑉𝑥
+
+𝑑
+𝑑𝑥
+
++ 𝑉𝑦
+
+𝑑
+𝑑𝑥
+
++ 𝑉𝑧
+
+𝑑
+𝑑𝑥
+
+⃗
+opérateur appliqué ici à chacune des coordonnées de 𝑉
+
+opérateur nabla appliqué à la grandeur scalaire P (gradient de P)
+
+𝑑2
+𝑑2
+𝑑2
+⃗ )
++ 2 + 2 opérateur Laplacien vectoriel (ici appliqué à chaque coordonnée de 𝑉
+2
+𝑑 𝑥
+𝑑 𝑦
+𝑑 𝑧
+
+3
+
+La micronatation des microrobots
+1.3. Nombre de Reynolds
+Le nombre de Reynolds a été introduit par George Gabriel Stokes en 1851, mais il a été nommé d'après
+Osborne Reynolds. Le nombre de Reynolds est en hydrologie un nombre sans dimension qui exprime le
+rapport des forces d’inertie (forces apparentes liées au fait qu’un fluide en mouvement poursuit ce
+mouvement naturellement ; dépendant du temps) aux forces de viscosité (forces de frottements fluides)
+Ce nombre sans dimension apparaît en adimensionnant les équations de Navier-Stokes (annexe A)
+Ceci veut dire concrètement que la solution de l’équation de Navier Stokes dépend pour l’essentiel de ce
+nombre. Deux écoulements similaires et de même nombre de Reynolds auront donc la même solution.
+On le définit de la manière suivante :
+
+𝑅𝑒 =
+
+𝑉 × 𝐿𝑐
+µ
+
+
+
+•
+•
+•
+•
+
+V : vitesse caractéristique du fluide (m s−1) (vitesse à distance de la paroi),
+Lc dimension caractéristique de l'écoulement (m) (longueur de la plaque, diamètre intérieur du tube,
+diamètre extérieur du cylindre, etc.),
+μ : viscosité dynamique du fluide (Pa.s)
+ρ : masse volumique du fluide (kg m−3)
+
+En mécanique des fluides, le nombre de Reynolds
+permet notamment de caractériser le mouvement
+d’un fluide. Sa valeur permet en effet d’indiquer si
+l’écoulement s’écoulera en régime laminaire ou
+turbulent.
+
+Comme tout nombre sans dimension, c'est un quotient, une comparaison. Dans ce cas, c'est la relation entre
+les termes convectifs et les termes visqueux des équations de Navier-Stokes qui régissent le mouvement des
+fluides.
+Le nombre de Reynolds intervient par ailleurs dans ce que l’on appelle la « similitude des écoulements » : on
+peut par exemple modéliser les écoulements autour d’un avion ou d’un sous-marin en utilisant des
+maquettes de dimensions réduites, du moment que le nombre de Reynolds dans les deux situations est
+identique. C’est ainsi que nous verrons (3.3) qu’il est possible de modéliser le comportement d’un nanorobot
+(taille caractéristique 10µm) dans le sang par une maquette de longueur caractéristique de plusieurs
+centimètres, en remplaçant le sang par un liquide très visqueux comme du détergent liquide ou de la
+glycérine.
+
+4
+
+La micronatation des microrobots
+1.4. Régime de Stokes
+Le régime de Stokes se caractérise par l’écoulement lent d’un fluide visqueux dans un milieu étroit ou autour
+d’un petit objet. Dans ces conditions , le nombre de Reynolds étant très inférieur à 1 , le terme d’inertie
+⃗⃗⃗
+𝜕𝑉
+
+.
+
+⃗
+𝑑𝑉
+
+⃗⃗⃗ 𝛻⃗)𝑉
+⃗ ) équivalent à
+ρ ( 𝜕𝑡 + (𝑉.
+est nul car les effets d’inertie sont inexistants Les effets visqueux du
+𝑑𝑡
+fluide en question dominent les effets de l’inertie.
+⃗⃗
+L’équation de Navier-Stokes devient l’équation de Stokes tout court : 𝛻⃗⃗𝑃 = ∆𝑉
+Lors d’un écoulement de Stokes les fluides visqueux acquièrent la capacité d’être réversibles : c’est à dire
+qu’un mouvement réciproque, c’est-à-dire exercé dans un sens puis dans l’autre, ramène à la situation
+initiale.
+Ce phénomène de réversibilité des fluides est
+particulièrement spectaculaire dans l’expérience ci-contre
+(que nous montrerons au jury) : dans un fluide visqueux (ici
+un gel lavant pour les mains), on injecte sous la surface une
+goutte de liquide vaisselle colorée au bleu de méthylène.
+Par la suite, on met en mouvement le socle dans un sens (2
+ou 3 tours) puis on effectue la même action dans son sens
+opposé. Le résultat de cette manipulation est que la tache
+se reconstitue parfaitement !
+
+Les mouvements du fluide sont donc réversibles. Ceci est possible car
+•
+•
+
+Il n’y a pas de diffusion possible du colorant sur une durée brève .
+Les effets d’inertie sont négligeables : lorsque la cause des mouvements du fluide s’arrête, le fluide
+s’arrête immédiatement.
+
+On peut alors se demander quelles seront les conséquences de la réversibilité des phénomènes sur la
+natation d’objets dans les conditions de Stokes ?
+Nous avons vérifié cela avec un poisson mécanique à queue rigide
+(que l’on remonte en tirant sur le ver) .
+•
+•
+
+Dans un cristallisoir d’eau, le poisson avance.
+Dans un cristallisoir identique rempli de gel, il n’avance pas
+
+Comme on pouvait s’y attendre , en régime de Stokes , certains
+modes de natation basés sur des mouvements alternés ne
+fonctionnent plus.
+
+5
+
+La micronatation des microrobots
+( Remarque : on pourrait supposer que ce sont les frottements qui l’empêchent d’avancer. Mais l’ajout d’une
+lame flexible sur la queue lui permet d’avancer dans le gel ; ceci sera interprété en 2.2.1 )
+
+2. Natation en régime de Stokes
+2.1. Le nageur à palettes de Purcell ( 1976)
+Edward Mills Purcell (Prix Nobel de physique en 1952) publie en juin 1976 un article fondateur nommé « La
+vie à bas nombre de Reynolds » où pour la première fois il suggère qu’il faut pour nager en régime de Stokes
+utiliser des modes de natation non-temporellement réversibles , c’est-à-dire dont la chronologie des
+mouvements n’est PAS identique à leur chronologie inversée ; il propose un exemple d’un tel mode et
+construit un prototype qui donne satisfaction.
+
+Comme illustré sur le schéma de droite , la séquence des mouvements n’est pas la même suivant que l’on
+visionne à l’endroit ou à l’envers le mouvement de l’objet.
+Ayant pris connaissance de cette publication, nous avons alors compris que recherches du groupe devaient
+s’orienter vers les modes de natation non réversibles.
+Cependant nous n’avons pas souhaité réaliser ce nageur à la propulsion laborieuse , d’autres modèles nous
+paraissant plus intéressants , performants et faciles à construire.
+2.2 Natation des microorganismes (micronatation)
+Nous nous sommes demandé quels étaient les différents moyens de locomotion en régime de Stokes. Pour
+cela, sur le conseil de Mr Alouges nous avons porté notre attention sur la nature où depuis déjà plusieurs
+millénaires, des types de micro-organismes réussissent l’exploit de se mouvoir à une échelle infiniment
+petite. On les appelle les micro-organismes. Il s’agit de tout être-vivant possédant une taille entre la
+centaine de micromètre et le micromètre noté µm comme les cellules.
+Pour être sûr que les micro-organismes naviguent bien dans des conditions de Stokes, nous avons réalisé
+(détail page suivante)à un calcul de nombre de Reynolds pour une bactérie dans l’eau : Le résultat est bien
+très inférieur à 1 . A l’échelle d’un microorganisme , les écoulements sont similaires à ceux d’un objet
+centimétrique se déplaçant dans un liquide aussi visqueux que le miel liquide par exemple !
+
+6
+
+La micronatation des microrobots
+
+Deux organismes en particulier ont retenu notre attention :
+Le spermatozoïde
+Découvert en 1677 par le scientifique néerlandais Antoni Van Leeuwenhoek, le spermatozoïde a fasciné
+pendant plusieurs siècles les chercheurs, notamment grâce à sa faculté de se déplacer comparativement vite
+à l’échelle microscopique. En effet, de nombreuses recherches ont été menées et elles ont mis en évidence
+différentes propriétés de ces cellules haploïdes.
+Les spermatozoïdes sont de petites cellules (4 µm de large et 60 µm de long) assez mobiles. Leur mouvement
+global est dicté par un filament mobile composé de protéine qui joue le rôle d’organe locomoteur, appelé
+flagelle.
+Les mouvements du flagelle sont ondulatoires et génèrent des ondes qui permettent au spermatozoïde
+d’avancer. D’autres types de bactéries utilisent des flagelles mis en rotation grâce à un micromoteur et qui
+ont des mouvements hélicoïdaux, un peu comme s’ils possédaient une hélice.
+
+La bactérie Euglena
+Hormis le cas des cellules propres aux espèces animales comme
+le spermatozoïde pour l’homme, d’autres cellules végétales
+réussissent à se déplacer dans des milieux aqueux et visqueux en
+utilisant d’autres techniques de déplacement.
+Parmi elles, nous retrouvons Euglena viridis qui est une espèce
+d'algues fréquentes dans les eaux polluées et découverte en
+1830 par Christian Gottfried Ehrenberg. D’après les experts, elle
+date d’environ -1 000 ans avant J.-C.
+Elle est aussi connue pour sa manière de se déplacer qui est liée
+à la contraction et à l’extension de la cellule sur elle-même ce qui,
+par un effet dynamique encore mal compris, fait avancer la
+cellule de manière rectiligne propre à un mouvement de
+pression-décompression.
+7
+
+La micronatation des microrobots
+
+Ainsi, Euglena est l’un des rares micro-organismes à se déplacer sans flagelle grâce à une déformation locale
+de sa structure externe, qui est beaucoup plus efficace du point de vue énergétique.
+2.3. Quelques types de nageurs artificiels envisagés
+Nous voyons donc que plusieurs micro-organismes réussissent l’exploit de se déplacer efficacement en
+conditions de Stokes grâce à différentes techniques . Notamment, l’utilisation quasi systématique d’un ou
+plusieurs flagelles dans un milieu aqueux prouve l’efficacité de ce moyen de locomotion sur les autres modes
+de locomotion inventés par la nature à cette échelle. Ainsi, l’existence et l’efficience d’êtres vivants mobiles
+à l’échelle microscopique nous conforte dans l’idée que l’être humain pourra, un jour, créer des robots
+capables d’imiter le fonctionnement de ces cellules pour avancer.
+2.3.1. Nageur passif à tête oscillante (testé)
+Avant de rencontrer Mr Alouges nous avions commencé à travailler sur différentes façons de contrôler le
+mouvement d’un nageur passif. Nos professeurs avaient suggéré de nous intéresser à des dipôles
+magnétiques contrôlés par des champs magnétiques externes (alternatifs ou tournants ) .
+Suite à l’exposé de Mr Alouges , nous avons décidé pour commencer de réaliser un nageur passif s’inspirant
+du mode de locomotion du spermatozoide humain : la base du flagelle est animée par un moteur moléculaire
+de battements générant des ondes progressives faisant onduler le flagelle. Il s’agit dans les faits d’un
+mouvement temporellement non réversible:
+
+Ce prototype de nageur est composé d’une bande de plastique souple qui
+sert de queue avec deux aimants placés sur l’une des extrémités qui servent
+de tête. Il est placé dans une boîte de Pétri remplie de glycérine.
+Pour la queue nous avons essayé différents types de plastique :
+transparents, pochettes plastiques … Les meilleurs résultats ont été obtenus
+avec un plastique épais que nous avons trouvé sur la pointe d’un Brie de
+Meaux pour l’empêcher de couler …
+8
+
+La micronatation des microrobots
+
+Plus sérieusement il s’agissait en effet de trouver un compromis : en effet un plastique trop rigide donnerait
+un mouvement quasi-réversible. Mais sur un plastique trop souple dans un fluide visqueux l’onde ne se
+propage pas.
+
+Le principe de ce montage, concu par l’équipe sur une proposition de Mr Bourjade, était de disposer d’un
+champ magnétique basculant ( +/- 45° environ) généré à partir d’un champ fixe ⃗⃗⃗⃗⃗⃗
+𝐵1 et d’un champ ⃗⃗⃗⃗⃗⃗
+𝐵2
+dont on peut manuellement inverser le sens . (nous n’avons pas souhaité automatiser cette inversion, par ex
+avec un Générateur de signaux amplifié + relais , car intuitivement nous pensions que des fréquences de
+quelques Hertz suffiraient) .
+
+Afin d’éviter les gradients de champ nous avons utilisé pour ⃗⃗⃗⃗⃗⃗
+𝐵1 et ⃗⃗⃗⃗⃗⃗
+𝐵2 le principe des bobines de Helmholtz
+(2 bobines de rayon R distantes de ce même R) .
+
+Les premières manipulations ont eu lieu avec deux paires de bobines
+identiques , mais l’autre paire ne pouvait pas être dans la même
+configuration car toutes les bobines avaient le même rayon.
+Il y a eu alors des problèmes de gradients de champ magnétique qui
+attiraient le nageur vers la bobine alimentée la plus proche .
+
+9
+
+La micronatation des microrobots
+
+Nous avons donc décidé de fabriquer nous-même une
+paire de grandes bobines de Helmholtz de 20 cm de
+diamètre, pour que les plus larges puissent englober les
+plus petites .
+Nous avons acheté deux bobines de 60 m de fil de cuivre
+de diamètre 0,8mm (comme els précédentes) et les
+avons bobinées sur un cristallisoir placé sur un plateau
+tournant.
+Et dans cette configuration, les résultats sont
+satisfaisants, le nageur avance ! C’est ce montage qui
+sera présenté au jury.
+
+2.3.2. Nageur à queue oscillante (testé)
+Nous
+avons
+repris
+le
+montage
+précédent, mais
+cette fois avec
+un nageur formé
+d’une
+tête
+passive (petite
+masse) et d’une
+queue souple oscillante (grâce à un aimant à son
+extrémité).
+Le dispositif fonctionne avec une seule paire de
+bobines dont on inverse le champ, ce qui
+provoque les battements de la queue.
+Ce nageur fonctionne moins bien que le
+précédent.
+2.3.3. Nageur à hélice
+
+Il s’agit d’un modèle à priori intéressant car c’est un moyen simple et « évident » de natation non symétrique.
+Cependant
+
+•
+
+les bactéries qui ont des moteurs moléculaires utilisent des longs flagelles et pas des hélices malgré le
+coût énergétique plus important pour les fabriquer ; ceci laisse penser que les hélices sont moins
+efficaces.
+
+10
+
+La micronatation des microrobots
+•
+
+Si ce robot a pour vocation de voyager dans les veines et les artères des patients à des fins médicales, les
+hélices pourraient se révéler dangereuses dans le corps car elles peuvent détruire des vaisseaux sanguins
+facilement et donc créer des hémorragies internes.
+
+•
+
+A la différence de notre « spermatozoïde magnétique » il faudrait pour faire tourner le nageur disposer
+de champs tournants comme ceux que l’on trouve dans certains moteurs électriques , ce qui est assez
+complexe.
+
+•
+
+Enfin d’un point de vue pratique, si le robot est autonome, cela demande de placer plusieurs moteurs
+différents dans un objet de très petite taille, et s'il ne l'est pas il faudrait (si on y insère des dipôles
+magnétiques) créer des champs tournants ce qui paraît complexe. Nous n'avons donc pas poussé plus en
+avant sur ce mode de propulsion.
+
+2.3.4 : Modèle de nageur proposé par Najafi et Golestanian
+Toujours grâce à Mr Alouges nous avons découvert un modèle innovant de nageur à bas nombre de Reynolds
+dans un article publié par les scientifiques Ali Najafi et Ramin Golestanian dans le « Physical Review » du 16
+Juin 2004.
+Cet article détaille le comportement d’un modèle hypothétique de robot nageur à trois sphères se déplaçant
+dans un fluide en régime de Stokes .
+Najafi et Golestanian évoquent eux aussi le problème de la réversibilité à bas nombre de Reynolds et
+proposent un modèle nouveau de nageur en théorie supérieur au modèle à palettes de Purcell.
+Leur modèle est constitué de trois sphères connectées
+par des tiges dont la longueur peut varier au cours du
+temps.
+Pour créer un mouvement global non réversible ils proposent un mouvement en 4 phases :
+
+Ces quatre phases créent un mouvement non réversible, ce qui permet de faire avancer le robot dans un
+milieu dominé par la viscosité. Cependant, le mouvement n’est pas uniforme, en fonction des phases il se se
+11
+
+La micronatation des microrobots
+déplace en avant ou en arrière et ce n’est donc qu’au bout des 4 phases que l’on peut savoir s’il s’est
+globalement déplacé.
+Ce nageur qui comme Euglena se déplace par déformation de sa structure nous a semblé idéal pour une
+seconde partie de projet plus ambitieuse : développer un modèle de nanorobot actif .
+De plus
+• Le modèle du Najafi Golestanian Swimmer (NGS) nous intéresse particulièrement car il utilise
+uniquement des translations, ce qui simplifie l’étude hydrodynamique et la conception mécanique
+•
+
+C’est un modèle qui a été théorisé mais jamais réalisé à notre connaissance, ce qui fait entrer notre
+projet dans une nouvelle dimension : l’éventualité de réellement contribuer à la recherche scientifique.
+(pour Mr Alouges il est évident que d’ores et déjà nous devons écrire un article sur cette réalisation)
+
+•
+
+D’autre part, nous avons dans l’équipe d’élèves les compétences pour comprendre les aspects
+mathématiques et réaliser la programmation nécessaire pour simuler son fonctionnement.
+
+•
+
+Enfin, avec ce robot programmable nous pourrons non seulement valider les travaux de Najafi et
+Golestanian mais aussi imaginer et tester réellement de nouveaux modes de déplacement du NGS, en
+les comparant par simulation puis par l’expérience, ce qui est le fondement d’une démarche
+scientifique.
+
+3. Simulation numérique et réalisation concrète d’un nageur de Najafi-Golestanian
+3.1. Le prototype et son milieu
+Le nageur de Najafi-Golestanian que nous
+avons réalisé sous Solid Works, est
+composé d’une sphère sur chaque côté, et
+d’un cylindre au centre reliés par des tiges
+mobiles.
+Annexe D : quelques vues préliminaires
+Notre prototype est très grand (50 cm de
+long !), et les deux sphères ont donc un
+diamètre important également. Nous avons
+choisi ces grands diamètres car les sphères
+vont pouvoir être remplies, par du sable par
+exemple, afin d’alourdir le robot et ainsi
+l’empêcher de flotter.
+A cause de l'espace nécessaire pour les moteurs et de la course des crémaillères, la sphère centrale du
+modèle de Najafi-Golestanian a été remplacée par un cylindre, ce qui devrait n'avoir qu'un effet négligeable
+sur l'expérience d’après M. Alouges.
+Pour le milieu, nous avons décidé de plonger notre robot dans du détergent liquide de viscosité proche de
+celle de la glycérine car cela correspondait bien à ce que l’on cherchait, c’est-à-dire un liquide assez visqueux,
+transparent et surtout économique ! Car nous aurons besoin d’en utiliser de grandes quantités (30L au
+moins).
+12
+
+La micronatation des microrobots
+
+3.2. Conception mécanique et électrique
+Pour la conception du robot, nous avons deux problèmes ; celui de l’étanchéité, et celui de l’encombrement.
+En effet il faut que le robot soit suffisamment gros pour pouvoir y intégrer les moteurs, la mécanique ,
+l’électronique et les piles ; mais pas trop gros pour que l’impression 3D reste raisonnable en coût et en durée.
+Les tiges : Les deux tiges du robot, qui lui permettront d’avancer ou de reculer, peuvent sortir et rentrer de
+différentes manières, plusieurs solutions étaient possibles ; pour des raisons d’encombrement minimum
+
+13
+
+La micronatation des microrobots
+nous avons alors décidé d’utiliser un système de pignon et
+crémaillère ; il transforme le mouvement de rotation du pignon
+en un mouvement de translation de la crémaillère.
+
+La crémaillère est intégrée à la tige afin de permettre à celle-ci
+de coulisser à l'intérieur du cylindre central et entrer en contact
+avec le pignon :
+
+Le moteur quant à lui est fixé au cylindre central, de façon que son axe de rotation soit perpendiculaire à
+l'axe de translation de la tige, à l’appui un schéma en perspective d’une moitié du robot coupé en deux.
+
+Le robot est symétrique, pour sa conception nous avons utilisé
+SolidWorks et modélisé une moitié du robot que nous avons
+ensuite copiée puis assemblée virtuellement afin de gagner en
+précision et réduire les éventuelles erreurs de conception :
+
+Nous voyons ici chaque pièce symétrique en double servant au
+montage du robot sur SolidWorks.
+
+14
+
+La micronatation des microrobots
+Choix du moteur :
+Les tiges du robot sont actionnées par deux moteurs, car les mouvements des deux boules doivent être
+indépendants et pas au même moment. Lorsque la tige de droite est en train de sortir, celle de gauche ne
+doit pas le faire en même temps, car ce sont deux phases différentes et distinctes dans le mouvement.
+La première solution était d’utiliser des moteurs électriques à courant continu (MCC) avec des capteurs.
+Mais nous avons choisi les moteurs pas à pas. Ce sont des moteurs faits pour avoir une grande précision et
+non une grande vitesse. Ils ont plusieurs bobines à l’intérieur, ce
+qui fait que nous devons faire des combinaisons d’activation et de
+désactivation des bobines à l’intérieur pour contrôler la position
+imposée à l’axe.
+A droite, le diagramme d’activation et de désactivation des
+enroulements. On remarque un décalage en 4 phases, donc on a 4
+possibilités. Au début on part à 0°, après une combinaison, on
+retombe à 90°, la suivante on retrouve 180°, celle d’après 270°, et
+la 4 phase on revient à 0°.
+e
+
+On peut ainsi contrôler le prototype grâce à un microcontrôleur,
+une carte Arduino, qui nous permet d’implémenter l’activation ou
+la désactivation de ces enroulements afin de faire avancer le robot (annexe E).
+
+3.3. Programmation
+On peut ainsi contrôler le prototype
+grâce à un microcontrôleur, une carte
+Arduino,
+qui
+nous
+permet
+d’implémenter l’activation ou la
+désactivation de ces enroulements afin
+de faire avancer le robot (voir annexe
+D).
+On programme les deux moteurs
+exactement de la même manière, mais
+en définissant les entrées sur différents
+ports de la carte Arduino. Etant donné
+qu’il s’agit d’un moteur pas à pas, la
+façon la plus optimale de le faire
+avancer est à l’aide de 4 phases durant lesquelles différentes branches sont allumées et éteintes.
+La façon la moins consommatrice d’espace est de définir une matrice comportant quelles broches sont
+allumées (1) ou éteintes (0) durant quelles phases. On configure ensuite les broches en sortie et le capteur
+en entrée. Ce capteur nous permet de savoir à quel moment arrêter l’extension des bras. Ensuite on
+programme la boucle tournant jusqu’à ce que le capteur soit activé, comportant les 4 phases et l’ordre dans
+lequel elles doivent se dérouler.
+Il est important de noter ici que les 4 phases du moteur ne sont pas les 4 phases du robot, durant lesquelles
+il doit déployer et replier ses bras : il s’agit des phases nécessaires pour tourner le moteur dans 1 sens. Ici le
+moteur met 512 itérations de la boucle à effectuer 1 cycle, mais on ne sait pas exactement combien de cycles
+
+15
+
+La micronatation des microrobots
+il doit effectuer pour ouvrir le bras, d’où le capteur. Pour la marche du moteur arrière on a juste à effectuer
+les phases dans l’ordre décroissant.
+
+3.4. Simulation numérique
+
+Pour modéliser les mouvements des sphères, nous utilisons deux formules : celle des frottements du fluide
+sur une sphère dans un écoulement uniforme et l’effet du mouvement d’une sphère sur une autre qui a été
+simplifié par l’équation de Stokeslet.
+Nous disposons de deux formules :
+●
+
+La formule des frottements du fluide sur une sphère dans un écoulement uniforme :
+𝐹 = −6𝜋𝜇𝑟𝑣 ⇔ 𝑣 = −
+
+●
+
+1
+𝐹
+6𝜋𝜇𝑟
+
+La formule de la contribution à la vitesse d’une sphère induite par le déplacement d’une autre
+(Stokeslet) :
+1
+𝑣=
+4𝜋𝜇𝐿
+(avec v la vitesse et L la longueur entre le centre des deux sphères)
+
+Nous nous permettons d’utiliser ces formules et non de la dynamique des fluides plus poussée, car le fait que
+l’on se place dans un système à bas Reynolds nous permet de négliger les termes d’inertie qu’il y aurait
+autrement eu sur le fluide. Cependant cette modélisation est loin d’être exacte, puisqu’elle utilise des
+formules qui sont elles-mêmes des approximations dans la façon dont elles ont été calculées.
+
+16
+
+La micronatation des microrobots
+
+Schéma de notre version du modèle de Najafi et Golestanian
+(NGS)
+
+Le schéma ci-dessus illustre l’apparence de notre modèle du NGS, nous pouvons voir qu’il présente des
+différences de modélisation par rapport au cas classique du nageur Najafi-Golestanian (voir schéma page 11).
+En effet, à la place d’une sphère centrale, nous avons opté pour un cylindre à cause du mécanisme intérieur,
+plus volumineux à cause de l’espace occupé par les moteurs ou la longueur des bras. Ce changement de
+forme ne changera que peu la situation de départ avec les 3 sphères, c’est que nous a assuré notre conseiller
+scientifique M. Alouges.
+
+On dispose donc du système d’équations suivantes :
+
+Avec v1 la vitesse de la sphère 1, v2 la vitesse du cylindre et v3 la vitesse de la sphère 3.
+1
+), ainsi qu’une force s’opposant à son mouvement à cause
+6𝜋𝜇𝑎1
+1
+du mouvement du fluide provoqué par la sphère 2 à une distance de L1 : (4𝜋𝜇𝐿1), et une troisième force
+
+En effet la sphère 1 subit des frottements (−
+
+s’opposant à son mouvement provoqué par les mouvements du fluide autour de la sphère 3 à une distance
+1
+
+de L1+L2 : (4𝜋𝜇𝐿1+𝐿2). Les trois forces s’opposent au mouvement vers l’avant de la sphère d’où le moins les
+précédents. On raisonne de manière analogue pour les deux autres sphères.
+Dans la 2ème égalité, les termes concernant les frottements dus aux mouvements du fluide causées par les
+deux autres sphères ont L1 et L2 à leurs dénominateurs respectifs, puisque le centre de la sphère 2 (ou du
+cylindre) est à distance L1 de la sphère 1, et à distance L2 de la sphère 3.
+Dans la 3ème égalité, les termes dus aux frottements du fluide sur la sphère 3 causés par les mouvements du
+fluide à cause des sphères 1 et 2 sont encore présents, bien que les sphères 1 et 2 ne soient pas devant la
+sphère 3, puisqu’elles provoquent toujours des mouvements du fluide lorsqu’elles bougent. Ces équations
+nous ont été présentées par M. Alouges.
+Il nous faut ajouter 3 nouvelles équations pour pouvoir résoudre notre système à 6 inconnues
+(v1,v2,v3,F1,F2,F3) qui correspondent au fait que le terme d’inertie est négligeable et à la géométrie de notre
+nageur :
+
+17
+
+La micronatation des microrobots
+Le système est alors :
+
+On a introduit tous les termes nuls dans la deuxième partie du système pour pouvoir le transformer en
+matrice, que l’on va par la suite pouvoir résoudre numériquement :
+
+Nous avons ensuite créé un programme résolvant ce problème pour chaque nouvelle position successive et
+stockant la position du cylindre central dans un tableau. Il se déroule sur un certain nombre de cycles durant
+lesquels le robot déploie et replie ses bras selon les 4 phases de l’article de Najafi et Golestanian.
+La modélisation en langage python que nous avons réalisée (voir annexe C), avec les dimensions de notre
+nageur, et la mesure de viscosité du liquide vaisselle que nous avons effectué, pour une vitesse d’ouverture
+des bras de 2 cm par seconde, nous renvoie cette courbe :
+
+4 phases
+En théorie le robot pourrait donc
+avancer de 4,2 cm en 80 secondes.
+
+18
+
+La micronatation des microrobots
+
+Conclusion et perspectives
+Les hasards du calendrier ont fait que ce mémoire vous sera communiqué précisément la veille de l’essai réel
+de notre robot, qui a nécessité une longue mise au point , sans parler des délais de la poste (une semaine
+pour l’interrupteur étanche…) . Mais nous vous tiendrons informé par mail + vidéo du résultat de ce test, qui
+en toute logique, devrait être positif.
+Pour résumer :
+Au cours de ce projet, nous avons considéré et expérimenté différentes solutions afin de faire naviguer un
+robot dans un fluide visqueux.
+C’était un projet surprenant car le problème principal n’était pas celui auquel nous pensions (le contrôle)
+mais le mode de déplacement lui-même.
+Dès le départ, nous avons eu beaucoup de chance d’avoir deux soutiens de poids :
+•
+•
+
+un interlocuteur expert idéal en la personne de M. Alouges
+l’adhésion immédiate de M. Grosvalet ( professeur en Sciences de l’Ingénieur) qui sur nos
+spécifications a fourni un énorme travail de conception et a mis son matériel d’impression 3D au
+service du projet. Sans lui jamais notre robot NGS n’aurait pu voir le jour aussi vite.
+
+Dans une première partie nous nous sommes familiarisés avec des dispositifs magnétiques et réalisé un
+nageur magnétique passif .
+Pour étoffer notre étude avec une seconde partie plus ambitieuse , nous avons choisi d’étudier de manière
+quantitative, à la fois par la simulation numérique et par l’expérience, le modèle de nageur actif à 3 boules
+proposé par Najafi et Golestanian.
+Ceci a propulsé notre projet dans une autre dimension , celle de la vraie recherche , car la réalisation d’un
+NGS et la comparaison de son comportement avec la simulation sera une première ; et parce que cela va
+permettre de tester aussi d’autres modes de déplacement et comparer l’expérience aux prédictions de la
+simulation. Par exemple, M. Alouges a proposé un mode de déplacement en théorie plus efficace durant
+lequel les bras bougent de manière simultanée plutôt que séquentielle. Avec notre prototype, nous
+pourrions comparer expérimentalement ces deux modes et ainsi offrir une validation expérimentale.
+Nous avons aussi pas mal bricolé : bobines de Helmholtz , manipulations diverses ; nous avons même
+construit nous-mêmes un grand aquarium en plexiglass ! Ces bricolages nous ont changé les idées , et ont
+contribué à l’aspect pluridisciplinaire de ce projet.
+En somme, nous sommes actuellement engagés dans un projet passionnant et enrichissant, avec une équipe
+d’élèves aux compétences très complémentaires et une équipe d’enseignants exceptionnelle qui nous ont
+aidés et conseillés tout au long de ce projet pour lui permettre d’avancer.
+Il nous a permis de découvrir de nouvelles notions et concepts que nous n’avions jamais abordés auparavant
+et ce fut une expérience très instructive pour nous.
+Evry, le 17 janvier 2022,
+
+Antoine, Flore, Mallaury, Marine, Mohammed, Rochan
+
+19
+
+

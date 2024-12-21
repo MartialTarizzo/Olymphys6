@@ -1,0 +1,1620 @@
+XIIIèmes OLYMPIADES DE PHYSIQUE
+
+LYCEE « SUD DES LANDES »
+SAINT -VINCENT DE TYROSSE
+
+Edition 2005/2006
+Atelier scientifique
+
+Finale du concours - Palais de la Découverte
+
+« ET POUR QUELQUES DEGRES DE PLUS.... »
+
+ETUDE D'UN MOTEUR STIRLING SOLAIRE
+
+Elèves:
+Eléonore HARDY
+
+(1°S1 )
+
+Fiona CORRALES (TS3)
+Audrey MAGNE
+
+(TS1)
+
+Marion PEYREZABES (TS3 )
+Marion SAINT PICQ
+
+(TS2 )
+
+Professeur de Physique Chimie encadrant l'atelier:
+Christian CABALLERO
+
+1
+
+Résumé :
+Ce travail porte sur l’étude et la mise au point d’un petit moteur à basse différence de température,
+fonctionnant si possible grâce à l’énergie solaire.
+L'objectif est d'évaluer l'efficacité de ce type de moteur, en comparant son rendement au rendement
+thermodynamique idéal, mais aussi d'apprendre à le réaliser par nous-mêmes, de comparer ses
+performances avec un moteur commercial, et si possible, de comprendre comment les améliorer.
+Pour cela, nous réalisons l’acquisition simultanée de la pression du gaz renfermé, et du déplacement
+du piston moteur de manière à tracer le diagramme P-V caractéristique du moteur. On en déduit alors la
+puissance fournie par le moteur.
+Nous déterminons aussi sa puissance utile en lui imposant un couple résistant.
+Dans le cas de l’adaptation solaire, cette puissance est comparée à la puissance lumineuse reçue, déduite
+d’une mesure de flux lumineux, on a ainsi le rendement global.
+
+Sommaire :
+
+N° Page
+
+Introduction
+
+3
+
+I. Description et principe de fonctionnement
+1.Historique
+2.Les quatre phases élémentaires
+3.Le diagramme caractéristique
+4.Rendements, efficacité, puissance fournie
+5.Nos moteurs LTD
+
+3
+3
+4
+6
+8
+9
+
+II. Dispositif expérimental et méthode de travail
+1.Maintient d'un écart de température
+2.Mesure de pression
+3.Mesure du déplacement
+4.Adaptation solaire
+5.Puissance disponible
+
+12
+12
+13
+14
+17
+19
+
+III.Résultats
+
+20
+
+1.Réalisation pratique du moteur
+2.Diagramme PV
+3.Puissance utile
+4.Efficacité du contact thermique
+5.Courbes obtenues à partir des mesures d'aires du cycle P-V
+En guise de conclusion...
+Sources, contacts , collaborations
+
+20
+22
+23
+23
+24
+28
+29
+
+Annexes
+I.Quelques utilisations actuelles et futures des moteurs Stirling solaires
+II.Incertitudes de mesure
+III.Equilibrage du moteur, énergie du moteur
+IV.Evaluation de l'aire des cycles PV ; feuille de calcul
+
+2
+
+30
+31
+32
+33
+34
+
+Introduction
+Une petite présentation s’impose tout d’abord :
+ Nous venons du Lycée Sud des Landes de Saint Vincent de Tyrosse qui se situe comme son nom
+l’indique, au milieu de la campagne landaise, dans le Sud-Ouest de la France, au bord de l’océan.
+ Notre groupe est constitué de cinq élèves filles; quatre de terminale : Fiona CORRALES, Audrey
+MAGNE, Marion PEYREZABES, et Marion SAINT-PICQ et d’une élève de première, Eléonore
+HARDY. Heureusement notre groupe est dirigé par un homme, M.CABALLERO, professeur de
+Physique Chimie au lycée, qui a déjà eu la chance de participer aux Olympiades de Physique
+2004-2005.
+Le principe de fonctionnement du moteur puis le choix et la description du modèle choisi, vous
+seront tout d’abord expliqués. Les différentes méthodes d’exploitation et de mesures possibles, obtenues
+grâce au moteur Stirling vous seront ensuite présentées .
+Pourquoi le moteur Stirling ?
+Avec ce sujet, nous restons dans la continuité du thème travaillé l'an dernier à l'atelier (« vagues et
+énergie » ou « comment convertir l'énergie de la houle en énergie électrique » ).
+Le moteur Stirling, s’il était exploité, pourrait apporter en effet sa contribution au Problème Energétique
+à venir en rapport avec l'épuisement des sources d'énergie fossiles, pollution et émission de gaz à effet de
+serre. Ce moteur fonctionnant juste à partir d’une source de chaleur externe, il peut exploiter une source
+d'énergie renouvelable : l'énergie solaire !
+Il devrait donc pouvoir être mis au service du « développement durable ».
+De plus, la thermodynamique n’étant pas au programme du lycée, le moteur Stirling nous faisait
+découvrir un milieu inconnu !
+Ce moteur a également de nombreux autres avantages. D'une simplicité remarquable, il était
+réalisable par nous-mêmes; il était aussi accessible à des mesures diverses et variées.
+Nous nous sommes ainsi retrouvées cinq filles à faire de la mécanique, ce qui n'est certes pas banal !
+
+I. Principe de fonctionnement.
+1. Historique des moteurs Stirling .
+Le moteur Stirling est un moteur développant sa puissance mécanique à partir de la détente d’un
+gaz confiné à plus ou moins haute température. Le brevet, déposé en 1816 par le pasteur écossais Robert
+Stirling, a été utilisé comme source motrice d’appoint dans de nombreuses entreprises au cours du XIXe
+siècle et au début du XXe siècle. Il a fallu attendre 1938 pour que la société Philips investisse dans le
+moteur à air chaud, désormais appelé "moteur Stirling". Certains postes de radio pendant la dernière
+guerre étaient fournis avec un moteur de ce type pour lui fournir de l'électricité en cas de coupure.
+Actuellement, un sous-marin d'attaque suédois évolue grâce à ce mode de propulsion. Son silence de
+fonctionnement est un atout majeur dans cette application. La marine australienne l'a aussi adopté pour
+un sous-marin de 3 000 tonnes de déplacement.
+De plus, toujours dans le domaine militaire, des bâtiments de surface militaires utilisent également cette
+technologie pour la propulsion de corvettes ou de bateaux de détection de mines ou de surveillance
+acoustique.
+Le moteur Stirling connait également diverses applications spatiales (NASA: moteur à piston libre utilisé
+en générateur) ou encore certains satellites qui se procurent de l'énergie grâce à un moteur Stirling. Le
+rendement est particulièrement élevé vu les grandes différences de température disponibles.
+3
+
+Enfin, la réversibilité du moteur Stirling est utilisée afin de produire du froid de façon industrielle. Son
+rendement est alors excellent. De petites installations ont été développées afin de fonctionner en
+cogénération : fourniture d'électricité et chauffage d'habitations. On utilise le combustible de son choix
+pour faire sa propre électricité et chauffer sa maison.
+Puis, un moteur d'automobile de plus de 200 ch, avec un rendement supérieur à 30% vit le jour.
+Malheureusement, pour des raisons de compétitivité, cette application ne rencontra pas le succès
+escompté. Le besoin en moteurs automobiles à faibles émissions de gaz polluants a suscité récemment
+un regain d’intérêt pour ce moteur.
+Actuellement, certains croient beaucoup en l'avenir de la 'Quasiturbine', de fonctionnement voisin du
+Stirling. De technologie novatrice,elle unifie deux turbines en une seule (turbine de puissance et turbine
+de compression ) , elle réduit les temps morts et accroit le rendement et pourrait remplacer demain les
+moteurs à explosion. Un projet est déjà lancé, utilisant la géothermie comme source d'énergie ( 'Sunstar '
+en Guadeloupe )
+Ce type de moteur exploite en réalité l'expansion d'un gaz par dilatation lorsqu'il se trouve
+chauffé (donc en contact avec une source dite « chaude »).
+Dans sa description la plus simple, le moteur Stirling est constitué d'un cylindre renfermant du gaz et d'un
+piston récupérant l'énergie mécanique.
+On se rend vite compte qu'il ne serait pas commode de dilater indéfiniment un gaz emprisonné dans un
+cylindre fermé par un piston (très long...) pour récupérer de l'energie mécanique à partir d'énergie
+calorifique ...
+d'où la nécessité de faire accomplir à ce gaz un cycle : dilatation, contraction, dilatation, etc...
+➢
+
+A première vue, le gaz utilisé est enfermé et c'est toujours le même qui est mis à contribution. On
+remarque également que l'énergie provient de l'extérieur du cylindre, d'où les appellations "moteur à air
+chaud" ou "moteur à combustion externe" que l'on peut lire parfois.
+
+4
+
+2.Les quatre phases élémentaires :
+Il existe différents types de moteur Stirling mais le schéma de fonctionnement reste sensiblement le
+même:
+Le cycle thermodynamique du moteur Stirling est dans son principe très simple : il comprend quatre
+phases pendant lesquelles le gaz utilisé subit les transformations suivantes :
+Imaginons un moteur contenant un fluide mis successivement en contact avec une source chaude puis
+une source froide, à nouveau une source chaude puis une source froide... etc... (thermostats de
+température invariable, mais qui cèdent ou prennent de la chaleur au fluide du moteur).
+Les numéros de 1 à 4 renvoient aux différents états du gaz; voir schémas et cycle ci-dessous.
+Ce gaz subit:
+•
+
+Un chauffage isochore (à volume constant) : la source chaude cède de l'énergie thermique. On s'imagine
+aisément que la pression et la température du gaz augmentent durant cette phase. [étape 1-2]
+
+•
+
+Une détente isotherme (à température constante) : le volume s'accroît alors que la pression diminue.
+C'est pendant cette transformation que l'énergie motrice est produite. [étape 2-3]
+
+•
+
+Un refroidissement isochore : la source froide récupère de l'énergie thermique. La température et la
+pression diminuent pendant cette phase. [étape 3-4]
+
+•
+
+Une compression isotherme : la pression du gaz augmente au fur et à mesure que son volume diminue.
+On doit fournir de l'énergie mécanique au gaz pendant cette période. [étape 4-1]
+La réalisation d'un moteur tel que celui décrit ci-dessus poserait des difficultés : approcher la source
+chaude (ou allumer un brûleur pour chauffer le gaz), l'éloigner ( ou éteindre le brûleur ) , asperger puis
+arrêter le refroidissement, chocs thermiques successifs....
+C'est pourquoi on va introduire un artifice apportant des solutions à ces problèmes : le déplaceur.
+Ce dernier ne modifie ni la pression ni le volume du gaz, mais l'oblige à se situer soit vers la source
+chaude, soit vers la source froide.
+Voici le schéma du moteur que nous étudierons plus particulièrement (dit 'LTD' pour 'Low Temperature
+Difference' ) :
+
+5
+
+Pour ce moteur , voici la succession des étapes, la source chaude se trouvant ici au-dessus (rayonnement),
+le volant d'inertie n'est pas
+figuré:
+x
+xD 0
+
+0
+Piston moteur: position x
+Piston déplaceur: position xD
+
+–
+
+Le mouvement des deux pistons est déphasé de 90 ° : ici, c'est le piston moteur qui est en avance
+d'un quart de période (car il est du côté « chaud ») .
+
+Représentons les graphes de x et xD au cours du temps :
+x
+xD
+t
+1
+
+2
+
+3
+
+4
+
+1
+
+2
+
+états
+
+Les différentes phases ont même durée. Ce schéma représente le déplacement idéalisé des deux pistons.
+En réalité, comme les bielles raccordées aux pistons sont accrochées à l'axe du volant animé d'un
+mouvement circulaire uniforme, x et xD suivent une loi pratiquement sinusoïdale, ce qui constitue une
+approximation par rapport au mouvement trapézoïdal théorique du diagramme présenté.
+-Le volant d'inertie
+Le volant d'inertie donne l'élan nécessaire pour que le système continue à décrire le cycle jusqu'à l 'état 1
+même si seule l'étape 2-3 est motrice, comme on va le voir. Autrement dit, le volant d'inertie vainc la
+« compression » lors de l'étape 4-1 ( compression perceptible d'ailleurs sur certains moteurs, plus
+puissants, quand on les fait tourner à la main , même en l'absence de chauffage ou refroidissement.)
+Finalement, ce moteur ne possède qu'un « temps » moteur sur les quatre : la détente. Il est donc
+nécessaire de lui fournir l'énergie mécanique pour assurer la compression 4-1, mais aussi pour mettre le
+
+6
+
+piston déplaceur en mouvement. Comme dans tout moteur (sauf le Stirling' à pistons libres'), c'est le
+volant qui emmagasine cette énergie sous forme d'énergie cinétique lors de la détente,
+Pour ce volant,
+
+EcV= ½ J.ω2
+
+avec J, moment d'inertie du volant .
+
+2. Le diagramme caractéristique ou cycle P-V
+Soit TM la température de la source chaude , Tm la température de la source froide (en degrés Kelvin)
+Sur ce diagramme, on voit aisément les quatre phases détaillées plus haut, en n'oubliant pas que détente
+et compression se font à températures constantes ( TM et Tm).
+Le cycle est décrit dans le sens indiqué, et forme indéfiniment une boucle.
+
+En supposant le gaz parfait, 2-3 et 3-4 sont donc des portions d'hyperboles.
+
+Avec n, le nombre de moles gazeuses d'air renfermées, les quantités de chaleur Q et les travaux W étant
+évalués en choisissant comme système « le fluide contenu dans le moteur », on montre que, pour chaque
+étape, on a :
+A un instant donné, la force qui s'exerce sur le piston est F = S .P où S est la surface du piston et P la
+pression instantanée.
+Le travail élémentaire reçu par le gaz (de signe opposé à celui fourni à l'extérieur) au cours d'un laps de
+temps court "dt" est égal, en valeur absolue, à la force instantanée multipliée par le déplacement "dx" du
+piston au cours de ce laps de temps "dt".
+d'où ici, dW =- F .dx = -S . P . dx
+comme S .dx = dV , variation de volume lors de cette translation du piston,.
+dW = -P .dV
+Sur le diagramme(P,V) cette dernière expression n'est rien d'autre que la surface élémentaire située sous
+chaque courbe.
+
+7
+
+Pour les différentes étapes du cycle , on peut établir,
+1-2: chauffage isochore
+Q12= Qchauf=m.Cv.(TM-Tm)
+où Cv est la chaleur massique de l'air à volume constant.
+
+W12=0
+
+2-3: détente isotherme à TM
+
+Q23=Qdet=n.R.TM.ln(VM/Vm) >0
+et W23= - Q23 car W23 +Q23 =ΔU23
+où U est l'energie interne du gaz qui ne dépend que de T (U proportionnelle à T pour un gaz parfait )
+donc sur une isotherme, ΔU=0
+donc W23<0 , c'est le temps' moteur' du cycle
+Si le gaz était isolé thermiquement, il se refroidirait, or la température reste constante égale à TM , le gaz
+prélève bien de la chaleur à l'extérieur, d'où le signe positif de Q23 , et il cède du travail.
+3- 4 : refroidissement isochore
+on remarque que Q34 = - Q12
+
+Q34 = - Q refroid = m.Cv. (Tm-TM)
+
+W34 = 0
+4-1 : compression isotherme à Tm Q41 = - Q comp= n.R.Tm.ln(Vm/VM) <0
+W41 = - Q41 là encore car la transformation est isotherme,
+donc W41 > 0 , c'est un temps 'résistant '.
+Ici au contraire de la phase 2-3, le gaz céde la chaleur à l'environnement et reçoit du travail.
+Soit W=W23+ W41 , le travail total reçu par le fluide ; Globalement, W<0 : le gaz céde du travail à
+l'extérieur, il s'agit bien d'un moteur.
+Pour un travail élémentaire dW correspondant à un dV élémentaire,
+le travail est négatif sous la courbe de détente car dV>0,( c'est l'aire en vert ,
+qui doit être comptée négativement). Le travail est positif sous la courbe de
+compression car dV<0 (aire bleue, comptée positivement)
+Le travail résultant au cours d'un cycle est donc représenté par la surface sous
+la courbe de détente diminuée de la surface sous la courbe de compression.
+C'est donc la surface comprise entre les courbes. C'est donc │W│= - W.
+W<0.
+4.Rendements, efficacité, puissance fournie :
+Définition générale du rendement
+r = recette / dépense
+En général, on définit ainsi le rendement d'une machine ditherme,
+r= travail globalement recueilli / quantité de chaleur consommée
+qui devient ,
+r= -W/ Q23 = - (W23+W41 )/Q23 = -W / ( -W23 )
+... ceci en supposant que l'énergie utile au réchauffage ( Q12 ) est entièrement récupérée au cours du
+refroidissement (possible car Q12 = - Q34 , voir grande boucle rouge dans le schéma du cycle) .
+Cela peut se faire grâce à un élément dans le déplaceur capable de capter des calories pour les restituer
+par la suite ( on l' appelle « régénérateur », c'est un échangeur de chaleur).
+8
+
+On trouve alors pour le rendement théorique ou rendement thermodynamique maximal que l'on puisse
+atteindre fixé par le fameux 'second principe ' de la thermodynamique (c'est aussi le rendement 'de
+Carnot') :
+r Th= 1- Tm/TM
+r Th =ΔT/( Tm + ΔT )
+
+avec ΔT =TM - Tm
+
+donc plus l'écart de température entre les sources est grand,(avec Tm fixé par exemple ) , plus à priori le
+rendement thermodynamique est élevé.
+Sinon (sans régénérateur), le rendement est défini par :
+rTh= - W / ( Q12 + Q23 )
+Nous pouvons donc déterminer le rendement r du moteur de deux façons:
+* Si l'on remarque que Q23 est proportionnelle à TM alors
+r= -W/ Q23 proportionnel à :-W / TM
+*ou bien, par le seule détermination d'aires dans le diagramme P-V,
+r= (aire cycle)/(aire sous la courbe supérieure)
+W = -W / ( -W23 )
+P
+
+-W
+-W23
+
+0
+0
+
+v
+
+on en déduit l'efficacité e du moteur
+e = r / r Th
+
+ou ' efficacité second principe '
+
+qui donne l'écart au rendement théorique.
+
+Quant à la puissance fournie,
+Pf =│W│/T
+
+où T est la durée d'un cycle donc d'un tour.
+
+5. Nos moteurs LTD .
+Nous avions d'abord pensé à un moteur 'alpha', puisque c'est le premier que nous avons vu fonctionner,
+un faisceau de lumière concentrée remplaçant alors la chaleur produite par la classique lampe à alcool.
+
+9
+
+A gauche, moteur alpha prêté par le lycée
+Borda de Dax , à droite , un moteur LTD.
+Effectivement, cela a réussi ( avec un miroir
+concave de 10cm, et plus facilement à la fin
+de l'été quand le soleil n'était pas encore trop
+bas sur l'horizon...)
+mais notre ambition était à l'époque de tout
+réaliser nous- mêmes, et nous n'avons pas cru
+pouvoir fabriquer un tel moteur (nous avons
+appris par la suite que même le moteur 'alpha'
+était réalisable).
+
+Les moteurs à faible différence de température (LTD, Low Delta T engine ou encore, par référence à leur
+configuration géométrique, flat plate engine) ont été inventés en 1984 par le professeur Ivo Kolin, de
+l'Université de Zagreb. Cette machine peut utiliser la chaleur dégagée par la paume de la main comme
+source chaude. Une telle machine a pu fonctionner avec une différence de température de seulement
+0,5°C entre les réservoirs chaud et froid !
+Les surfaces d' échanges entre le moteur et les sources étant de dimension relativement importante, il
+nous paru bien adapté pour capter le rayonnement solaire.
+Nous nous sommes lancés dans la construction d'une telle machine, à partir de plans publiés sur internet
+, la réalisation et surtout la mise au point ont été plus longues que prévu!
+Heureusement, nous avions prévu d'acquérir un modèle commercial, fonctionnant de manière beaucoup
+plus sensible, plus résistant, et avec un piston moteur rigide. C'est ce modèle qui sera utilisé pour «
+l'adaptation solaire »,dans un premier temps.
+Voici le moteur que nous avons acquis: Le « LTD BLUE Stirling »
+
+A quoi sert ce moteur?
+En fait, disons que c'est un jouet curieux et sympathique .On
+l'acquiert... pour le simple plaisir de le voir tourner.
+Mais pour les physiciens( physiciennes ) que nous sommes, il est
+beaucoup plus que cela!
+
+10
+
+Concernant notre propre réalisation,
+en fait , il y en a eu plusieurs car des améliorations ont été apportées progressivement.
+Les voici dans l'ordre chronologique de fabrication:
+
+Ici , à côté sur la droite, le moteur commercial
+
+Ci-dessus,
+le dernier modèle sur un bol d'eau chaude
+A droite, le piston ' tube beaume -hydratant pour lèvres':
+
+Caractéristiques de l'un des moteurs que nous avons réalisés:
+-diamètre cylindre déplaceur :115mm, plateaux en aluminium épaisseur : 2 mm
+-diamètre du déplaceur : 110 mm, en polystyrène + balsa, épaisseur 9 mm ; pour l'instant , nous
+n'utilisons -pas de 'puits régénérateurs 'en mousse ; cela fonctionne bien sans.
+11
+
+-diamètre cylindre moteur : 26mm, emballage plastique translucide de pellicule photo
+-course déplaceur : 6 mm
+-course membrane moteur : 7 mm, la membrane faisant office de piston est en vinyle (taillée dans gant
+de laboratoire) rigidifié par une rondelle de plastique de 10 mm ou bien 'thermoformé' pour éviter les
+plis.
+Nous avons testé aussi un tube de beaume hydratant pour lèvres pour l'ensemble (cylindre +piston
+moteur )
+-les deux plateaux sont séparés par une bande de matière plastique (Rhodoid ou plexiglass ou PVC...),
+-les bielles sont en corde à piano de 0,8 mm ; les roulements constitués de perles de verre s'enfilant dans
+la corde à piano.
+-Le volant d'inertie est un CD Rom; il est équilibré correctement par des masselottes (rondelles)
+scotchées au disque et diamétralement opposées aux palliers supportant chaque bielle.
+Le choix des matériaux est capital dans la réalisation de ce moteur : il s'agit en effet de placer un
+très bon isolant (plastique ici) entre les deux plateaux, eux-même devant être de bons
+conducteurs de la chaleur. En effet, les deux plateaux doivent se mettre à la température de la
+source qui l'alimente, mais en aucun cas il ne doit se produire un échange de chaleur entre les
+différents plateaux!
+De même notre déplaceur est isolant (empêche l'égalisation des températures du gaz de par et
+d'autre de celui-ci)et très léger (pour ne pas prélever trop d'énergie sur l'énergie_cinétique_ du
+moteur)
+L'étanchéité au niveau du coulisseau de la bielle déplaceur est assurée par un manchon d'huile (une
+goutte suffit) , qui joue en plus le rôle de lubrifiant.
+
+II . Dispositif expérimental et méthode de travail.
+Dans un premier temps, le cycle PV est tracé, moteur «alimenté» par une source calorifique ordinaire.
+1. Maintient d’un écart de température.
+Le moteur est posé d'abord directement sur une plaque chauffante de température variable , le
+plateau inférieur est donc en contact avec la source chaude ; le plateau supérieur en contact avec
+l'air ambiant (source froide) .
+Pour pouvoir ajuster plus finement la
+température du plateau et qu'elle soit aussi
+mieux répartie (uniforme ) , nous avons ensuite
+intercalé entre la plaque chauffante et le moteur
+un récipient contenant un materiau ou fluide de
+grande inertie thermique (capacité calorifique
+élevée): le choix s'est porté sur un chauffage
+par vapeur d'eau.
+La température est mesurée par capteur à
+thermorésistance.
+Avec la vapeur d'eau
+
+12
+
+Dans ce cas par exemple, le capteur prend la mesure de la température de la vapeur qui est assez voisine
+de celle du plateau (bien que tout de même supérieure...)
+Nous avons ensuite acquis un thermomètre à infra -rouge qui peut mesurer la température d'un objet
+solide par le rayonnement IR qu'il émet-idéal pour les plateaux -mais il faut que le plateau reste
+accessible à la visée; là, nous nous sommes rendus compte que T n'était pas uniforme (plus chaud au
+centre, pour le plateau chaud, avec ΔT de l'ordre de 5°C pour T=55°C )
+Ici, le capteur à IR est à gauche:
+
+L'estimation de la température moyenne du gaz , par le biais de celle du plateau du côté duquel il se
+trouve restera un souci constant.
+De la même façon, pour améliorer l'échange, donc le contact thermique avec la source froide, nous avons
+songé à poser sur le plateau supérieur un récipient bon conducteur (métal) contenant une quantité d'eau,
+la plus importante possible ; elle même en contact thermique avec l'air de la pièce .Nous avons songés
+aussi à fixer un radiateur metallique...
+Si la plaque inférieure n'est pas chauffée, il faut refroidir la plaque supérieure (mélange réfrigérant dans
+un ou deux béchers ).Cela est moins commode .
+Pour accroître l'écart de température, on peut aussi combiner les deux effets.
+Si les deux sources de chaleurs sont permutées (froid dessous, chaud dessus), le moteur tourne dans
+l'autre sens.
+Il faut toujours lancer le moteur(dans le bon sens) ; après quoi, on attend qu'il continue de tourner de luimême...
+2.Mesure de pression
+Un orifice a été percé dans le plateau supérieur, et une petite buse a été
+collée, reliée au capteur de pression (Eurosmart) via un tuyau plastique
+le plus court possible .
+Résolution du capteur: 2 mBar .Ce sera donc notre incertitude de
+mesure ΔP.
+Comme on le verra, c'est ce qui pose problème ;
+c'est une résolution assez faible car celà correspondrait à une différence
+de niveau de 2 cm dans un simple manomètre à eau !
+Nous nous procurons actuellement un meilleur capteur pour refaire les
+acquisitions.
+Temps de réponse : 1,5 ms, cela est suffisant pour nous (durée minimum d'un cycle:200 ms ; nombre de
+points de mesure maximum:50 , ce qui donne 5s entre 2 mesures successives)
+13
+
+Le capteur est branché à l'interface d' acquisition de l'ordinateur;
+Les données sont traitées par le logiciel Synchronie 2003.
+3.Mesure du déplacement du piston moteur par LASER+ photorésistance (dans le cas d'un moteur
+à piston rigide); volume de fluide contenu dans le moteur.;cycleP-V.
+Afin de minimiser le freinage du moteur, le choix s'est porté sur une méthode par capteur optique.
+On utilise un faisceau Laser élargi par un petit objectif en matière plastique situé contre le trou de sortie
+du rayon.
+On éclaire le bord d'un rectangle de scotch aluminisé ( donc rigide ) qui est fixé à la bielle moteur.
+L'ombre portée se déplace sur la surface d'une photorésistance (ou LDR) lors du mouvement de
+translation de la bielle.Cette LDR est alimentée sous tension fixe de 12 V, en série avec une résistance
+ajustable( 2,2 kΩ maxi ) .Plus sa surface éclairée est grande, plus la tension à ses bornes est faible.
+La tension U aux bornes de la LDR varie dans le même sens que l'abscisse x du piston quand l'ombre
+balaie la LDR de bas en haut ; cette tension est acheminée elle aussi vers l'ordinateur.
+
+L'ensemble du dispositif :
+
+Etalonnage:
+Pour chaque valeur du déplacement x mesuré , on note la valeur de la tension U (ici voie EA5 ) ; la
+réponse n'est à priori pas linéaire,
+14
+
+on a
+
+U= (RLDR / RLDR + R) .E
+
+Voici la première courbe d'étalonnage obtenue, x étant mesuré à Δx=0,5mm prés (régle graduée )
+
+remarque: l'origine des x est décalée car à l'époque , nous l'avions choisie au point bas du piston.
+La forme en S est due à ce que la LDR est en forme de disque alors que l'ombre se déplaçant devant elle
+est droite ( voir schéma ) ; nous avons remédié à ce problème en nous procurant une LDR à bords droits!
+LDR
+
+Première situation
+
+Ombre portée
+
+Nouvelle situation
+On l'aperçoit sur la photo fixée sur le boitier ; notez au passage le scotch en alu fixé à la bielle moteur.
+.
+
+15
+
+Etalonnage plus précis:
+Il est bien plus précis de déduire x d'une mesure de position du volant (repéré par l'angle α );
+Le disque comportant 5 rayons que nous avons divisés eux mêmes en 8 secteurs , il est aisé de repérer
+α pour avoir 20 points de mesure sur une montée du piston(1/2 tour ) .
+
+La relation entre l'angle α repérant la position du volant et x est:
+x = - r .cos α - (l2- r2 .sin2 α )1/2 + (l2- r2 )1/2
+pour le LTD commercial, r = 3,5mm
+l= 14,8 cm
+bien sûr r/l ≈ 0 , alors
+
+A
+r
+α
+
+(l2- r2 .sin2 α )1/2 ≈ (l2- r2 )1/2 ≈ l .(1-r2 /2l2)
+≈ l . ( 1 – 6 .10-4)
+
+x
+
+H
+
+M
+
+donc à 0,06 % prés , on pourra considérer
+que x ≈ - r .cos α .
+l
+xmax
+
+O
+-xmax
+
+On a alors la nouvelle courbe d'étalonnage, déduite des mesures de α , puis du calcul de x :
+
+16
+
+Cette fois , l'incertitude sur la mesure de x lors de l'étalonnage vaut au maximum càd quand α
+=90°(manivelle horizontale ) et Δx ≈ r. Δ α ( α en rad ) , soit avec un Δ α ≈ 2° ,
+Δx ≈ 0,1mm
+La précision sur la tension mesurée U est par ailleurs de ΔU≈ 1 mV
+En fait , nous avons là , si l'expérimentateur a assez de doigté , une méthode tout de même vraiment fine
+pour la détermination de la position du piston .
+Nous pouvons évaluer en définitive l'incertitude sur cette détermination à Δx ≈ 0,25mm environ (voir
+annexe )
+soit à 3 % prés environ de l'intervalle mesuré.
+La courbe n'est toujours pas linéaire,cela est lié à la nature du capteur.
+Elle est ajustée par une loi qui peut s'exprimer ainsi:
+x = - 800 (±10) + 24.(±4).U -2,42(±0,5).U2 + 8,50.10-2(±0,02) .U3
+
+(x en mm et Uen V)
+
+Pour le LTD commercial, un calcul de volumes simple établit le lien entre x et V , volume d'air
+emprisonné dans le moteur, donc subissant le cycle thermodynamique:
+On a V (cm3) = 50,2 + 0,0636.x
+(x en mm, avec origine à la position moyenne du piston)
+pour le LTD commercial.
+On a finalement la relation permettant de passer de U mesurée à V.
+Ceci nous permet de tracer les courbes : V en fonction du temps
+P en fonction du temps
+enfin le diagramme caractéristique P en fonction de V
+4.Adaptation solaire
+.
+Essais en exterieur : (avec concentration par miroir parabolique des rayonnements solaires) :
+On remplace la source de chaleur, par les rayonnements solaires qui frappent une partie du cylindre
+déplaceur du moteur Stirling. Dans l’optique de cette utilisation solaire, le dessus du moteur est peint en
+noir mat de façon à absorber en plus grande quantité le rayonnement.
+
+On place un miroir concave (de10cm de diamètre ) dans une zone éclairée par le soleil de façon à
+concentrer les rayonnements. Le moteur Stirling ne pouvant pas être penché, vu qu’il n’est pas conçu
+17
+
+pour (accroît les frottements), on place un miroir plan qui sert à orienter les rayonnements le plus
+verticalement possible et de façon à ce que la concentration des rayons se fasse sur le moteur Stirling. La
+partie supérieure est alors chauffée et le moteur peut tourner.
+Pour le moteur de notre fabrication , il faut plus de puissance, nous utilisons une parabole réfléchissante
+(parabole TV recouverte de papier aluminium) :
+
+Avec une lampe à la place du soleil :
+
+La lentille convergente a une distance focale de 20 cm. Le plateau inférieur reste à température ambiante;
+en fait pas tout à fait mais ceci est contrôlé par notre thermomètre à IR qui mesure facilement les
+températures des deux plateaux donc TM et Tm.
+
+Autre disposition en éclairage direct (calcul de la
+puissance recue plus simple), avec tous les
+capteurs.
+
+18
+
+Le principe est exactement le même qu’avec les rayons solaires, mais cette fois ci, c’est une lampe qui
+crée le rayonnement. On fait varier l’intensité lumineuse en éloignant plus ou moins la lampe, par
+exemple.
+Une précaution : il faut éteindre la lampe pendant les quelques secondes que durent l'acquisition, sinon ,
+le capteur est 'ébloui': l'étalonnage de la position du piston moteur x est de mauvaise qualité.
+Voici le flux-mètre utilisé:
+
+Alors qu'il est peu commode de mesurer la puissance calorifique reçue par le système chauffé de
+manière classique c.à.d. en contact avec une source chaude (comment en effet mesurer le refroidissement
+de la source de chaleur ?...) , il en va autrement si la chaleur est apportée par rayonnement, l'énergie
+acheminée devient alors facilement mesurable...on peut déterminer alors le rendement global de
+l'opération .
+Le flux mesuré Ф, en Lux, est converti en W .m-2 (1Lux = 1Lm / m-2 = 1/683 W .m-2 )
+puis en puissance lumineuse reçue : Plum
+Plum= Ф. S
+
+où S est la surface de la tache lumineuse éclairant le plateau (et
+supposée uniforme) en m2
+Cette puissance reçue (par rayonnement) est comparée à celle fournie par le moteur : Pf
+Pf =│W│/T où T est la durée d'un cycle donc d'un tour
+d'où le rendement global :
+rG= Pf /Plum
+On peut mesurer aussi la vitesse de rotation ω en fonction du flux .On peut tracer rG en fonction du
+flux...
+5.Puissance disponible (ou 'utile')
+On peut essayer également de mesurer le couple C u disponible quand le moteur est 'en charge ' ,en
+l'occurence en le freinant, tout simplement (2 tampons de feutre ou coton-tiges disposés de part et d'autre
+du volant à une distance OM de l'axe ) :
+On obtient ainsi la puissance disponible , ou 'utile ' que peut fournir le moteur (càd en plus de celle
+inévitable et irrécupérable qui ne sert qu'à vaincre les frottements internes à la machine ):
+Soit f la force de frottement exercée sur le moteur au point M;
+Cu=f . OM
+et
+Pu=Cu.ω.
+avec ω = vitesse angulaire (rad.s-1)
+Mais comment déterminer f ?
+Nous pourrions utiliser un système avec fléau; les masses marquées de poids Pm équilibrent la force f exercée sur le bras de levier. La somme des moments des forces par rapport à l'axe (en marron sur le
+schéma page suivante ) est nulle quand l'horizontalité du bras est rétablie (à gauche ).
+Nous avons préférer utiliser le dispositif de droite plus simple à mettre en oeuvre.
+
+19
+
+f
+0
+
+f
+M
+O
+
+M
+
+-f
+
+R
+
+Pm
+
+Balance electronique
+
+P
+Soient :
+
+P le poids du moteur
+
+R la réaction de la balance
+P + f +
+à l'équilibre 
+d'où f = P-R
+
+(masse affichée x g )
+
+
+R =
+
+
+0
+
+Voici donc le montage:
+
+III .Résultats
+1 La réalisation pratique d'un moteur LTD et les difficultés rencontrées .
+Il y a eu trois moteurs LTD réalisés .Les problèmes ont étés les suivants:
+•
+Problèmes d'étanchéité du moteur ; les fuites d'air réduisent énormément son efficacité.Cela nous
+a fait perdre beaucoup de temps.
+Nous avons trouvé un moyen simple d' évaluer leur importance, tout en sachant qu'il en restera
+toujours...(pour les détecter, c'est une autre affaire...) :
+La membrane faisant office de piston (ou le piston rigide ) étant désolidarisée de l'axe de rotation, on
+l'enfonce lentement à l'aide d'un doigt (cela est plus pratique si on la remplace par une autre membrane
+20
+
+élastique comme un gant de latex légèrement tendu , bien fixé au cylindre par un élastique serré ); l'air
+est chassé doucement (par le trou de fuite ) , puis on enlève brusquement le doigt ;cela produit une
+brutale dépression, on observe alors le temps qu'il faut à la membrane pour revenir à sa position
+d'équilibre ( en l'absence de fuite , elle devrait rester enfoncée càd bombée vers l'intérieur du fait de
+l'action de la pression atmosphérique )
+Plus commode encore , les plateaux de nos moteurs ayant une certaine souplesse on peut agir dessus en
+pressant avec les deux pouces, cette légère surpression suffit à bomber la membane moteur [rapport
+(surface cylindre déplaceur) /(surface cylindre moteur) important , ≈ 80 ]; on observe alors son
+relâchement.
+(nous nous sommes aperçus d'ailleurs qu'en synchronisant correctement cette pression des pouces avec le
+mouvement du volant , on réussit à le faire tourner... )
+On peut aussi tracer P en fonction du temps dans ce cas:, voici l'exemple avec l'un de nos moteurs :
+
+Le test d'étanchéité
+Temps (s)
+La fuite est acceptable si le temps caractéristique τ de retour de P à l'équilibre est plus grand que la
+période de rotation du moteur (1 ou 2 s au maximum ) ce qui est juste vérifié ici (τ ≈1,5 s).
+Problèmes pour minimiser au maximum les frottements (nous envisageons d'ailleurs des
+roulements à billes sur un moteur de plus grande dimension)
+Pour ces deux raisons, notre moteur ne fonctionnait au début qu'avec un écart de température Δ T
+important (environ 80°C ) ,d'où la nécessité de placer un bécher rempli de glace+sel sur le plateau
+supérieur, l'inférieur étant chauffé classiquement.
+•
+
+Nous avons constaté aussi une déformation (soulèvement – abaissement ) des plateaux lors du
+fonctionnement ( surtout quand le Δ T était important ) venant 'concurrencer' le déplacement du piston
+moteur ; il a fallu rigidifier l'ensemble.
+En améliorant la partie mécanique du moteur: équerrage du volant
+sur l'axe, soin maximum apporté à chaque étape de la réalisation ,
+utilisation de corde à piano droite ! (difficile de s'en procurer)
+,utilisation d'une membrane-piston préformée présentant moins de
+plis donc moins sujette à frottements...
+...et en diminuant les fuites , le moteur est bien plus sensible: il
+fonctionne posé seulement sur un bol d'eau moyennement chaude
+soit avec un ΔT ≈30°C !
+Vue de la membrane du piston moteur
+21
+
+Avec, le piston 'beaume pour lèvres', cela fonctionne aussi mais il faut alors prévoir une manivelle
+plus longue pour la bielle moteur car dans ce cas , la course de cette bielle est plus grande (elle monte
+plus haut puisque le piston est plus étroit ) .
+
+2.Diagramme spécifique du moteur (cycle P-V )
+Voici sur un exemple le volume V et la Pression au cours du temps:
+
+La courbe du volume est en retard sur celle de la pression de pratiquement un quart de période (ce qui
+correspond bien à un cycle P-V décrit dans le sens inverse trigonométrique).
+Explication: la pression augmente, puis c'est au tour du volume d'augmenter (détente) etc...
+Voici un cycle P-V maintenant, obtenu avec le moteur de notre fabrication, avec:
+Pression en mBar
+Volume en cm3
+
+22
+
+La mesure de l'aire du cycle permet de calculer ici -W=1,6.10-4 J (moyenne sur plusieurs cycles)
+Cette mesure peut se faire en comptant le nombre de cellules rectangulaires qu'il contient (précis si les
+cellules sont petites mais laborieux!), par méthode des trapèzes (choisie ici ) ou par méthode des
+triangles.
+Nous admettrons que l'incertitude sur W est au pire de10 % , même en prenant une moyenne statistique
+sur une dizaine de tours.
+D'où la puissance fournie ici Pf= -W/T=0,25mW
+à 10 % près ...
+
+(avec une période T=0,64s )
+
+3. Puissance utile ou disponible Pu
+Pu=Cu.ω.
+Pour deux acquisitions faites à ΔT=25°C, avec OM=1,0 mm
+m lue à la balance vaut 0,35 g et ω vaut alors 15 rad.s-1 , on trouve Pu =5,1 .10-4 W , on trouve par
+ailleurs Pf( totale fournie) ≈ 6. 10-4 W (à 10 ou 20 % prés )
+la différence correspond à la puissance PFR des forces de frottements internes au moteur.
+On peut arriver à afficher jusqu'à m=1,0 g sans bloquer le moteur , alors ω ≈ 6 rad.s-1 , ce qui donne
+en fait pratiquement la même valeur pour Pu .
+4.Efficacité du contact thermique avec les sources
+Pour Tm=20° C et TM=100°C par exemple ( moteur de notre fabrication ) ,
+cas de l'acquisition pour les graphes présentés plus haut ,
+Si l'on veut comparer le cycle obtenu au cycle théorique, on peut essayer d'évaluer le rapport
+T'M/T'm ,
+ces deux températures T'M et T'm étant les températures moyennes extrêmes effectivement atteintes par le
+gaz quand il est respectivement en contact avec la source chaude ou froide ; il suffit de calculer le
+produit P.V sur chaque isotherme, puis d'utiliser 'PV= nRT' .
+Dans le cas du cycle présenté (en vert)
+on trouve T'M/T'm = (P.V)'M/ (P.V)'m = 1,009 ( en fait (1,004Bar ± 0,002).47,05cm3/ (0,995Bar
+±0,002).47,05 cm3 ce qui donne ± 0,004 sur ce résultat )
+alors que TM/Tm = 1,051 > T'M/T'm , même en tenant compte des incertitudes de mesure.
+On voit bien que l'écart des températures réél est bien plus faible que celui des sources , ce qui montre
+que l'efficacité du contact thermique avec les sources n'est pas optimale (surtout quand il tourne vite ) .
+23
+
+D'autre part , une partie de la chaleur de l'air réchauffé doit diffuser vers le compartiment plus froid ( à
+travers le déplaceur et aussi par son pourtour?) ce qui réduit encore le Δ T initial ...
+
+5.Courbes obtenues à partir des mesures d'aire du cycle P-V
+* Résultats obtenus avec un mode de chauffage classique:
+
+uvitesse tr/s
+
+vitesse ωfonction de ΔT
+7,75
+7,5
+7,25
+7
+6,75
+6,5
+6,25
+6
+5,75
+5,5
+5,25
+5
+4,75
+4,5
+4,25
+4
+
+La vitesse de rotation ω augmente avec ΔT bien que
+l'on n'atteigne pas le pallier ici,
+
+0
+
+5
+
+10
+
+15
+
+20
+
+25
+
+30
+
+35
+
+40
+
+45
+
+50
+
+ΔT
+
+P unitée arbitraire
+
+P fonction de ΔT
+80
+75
+70
+65
+60
+55
+50
+45
+40
+35
+30
+25
+20
+15
+10
+
+Pf, puissance fournie augmente aussi
+
+20
+
+25
+
+30
+
+35
+
+40
+
+45
+
+50
+
+ΔT
+
+Voici les rendements théorique (de Carnot rTH en jaune ) et effectif r (en brun)
+
+0,14
+0,13
+0,12
+0,11
+0,1
+0,09
+0,08
+0,07
+0,06
+0,05
+0,04
+0,03
+0,02
+0,01
+0
+
+Efficacité fonction deTM-Tm
+
+Efficacité e
+
+Rendements
+
+rendements fonction de ΔT
+
+20
+
+25
+
+30
+
+35
+
+40
+
+45
+
+50
+
+0,8
+0,75
+0,7
+0,65
+0,6
+0,55
+0,5
+0,45
+0,4
+0,35
+0,3
+0,25
+0,2
+0,15
+0,1
+20
+
+ΔT
+
+25
+
+30
+
+35
+
+TM-Tm
+
+l'efficacité e du moteur augmente avec ΔT .
+
+24
+
+40
+
+45
+
+50
+
+*Résultats obtenus par mode de chauffage classique, le moteur étant freiné volontairement (à la main
+ou par tampons de feutre) .
+
+W
+
+W fonction de vitesse de rotation
+27
+26
+25
+24
+23
+22
+21
+20
+19
+18
+17
+16
+15
+14
+13
+12
+
+W diminue avec ω.
+
+0,75
+
+1
+
+1,25
+
+1,5
+
+1,75
+
+2
+
+vitesse
+
+Plus ω est faible et plus le contact avec les sources est prolongé, W augmente quand le moteur est
+soumis à de forts frottements (freinage) et donc ralenti ; puisqu'alors les transferts de chaleur ont
+plus de temps pour se faire donc sont plus efficaces.
+Là encore, la puissance développée (plus importante) ne sert qu'à vaincre celle des frottements ( plus
+importants);
+(Une autre façon d'obtenir un W important est de laisser accélerer le moteur aprés l'avoir freiné pour
+qu'il reprenne sa vitesse , avec un ΔT assez important...)
+Non freiné, donc lancé à pleine vitesse, le moteur (surtout le LTD commercial... ) développe finalement
+peu de travail mais a accumulé beaucoup d'énergie cinétique.
+La température moyenne du gaz dans ce cas s'écarte de plus en plus de celle des sources ,le cycle P-V
+« s'appplatit »,W est faible.
+
+Couple
+
+Couple fonction de vitesse de rotation
+27
+26
+25
+24
+23
+22
+21
+20
+19
+18
+17
+16
+15
+14
+13
+12
+
+le couple C= Pf / ω diminue aussi avec ω.
+Il varie biensûr en parallèle avec Cu (ou Cf), le couple
+imposé par la force de frottement extérieure, et
+responsable de la diminution de ω.
+0,8
+
+1
+
+1,2
+
+1,4
+
+1,6
+
+1,8
+
+2
+
+vitesse
+
+*Adaptation solaire
+Exemple de calcul:
+Avec une surface éclairant le disque de 2,2cm de rayon par exemple (rayon focalisé par une lentille) , et
+un flux lumineux mesuré
+Ф = 1,3.104 Lux , on en déduit Plum = 28 mW
+A ce moment, la puissance fournie valant Pf=0,7 mW , toujours évaluée selon la même méthode,
+et ΔT =25 °C
+on a donc le rendement global rG = 2,5 % ; or rTH = 8 % ; rG /rTH ≈ 31 %
+
+25
+
+Origine des pertes:
+* Une partie de la lumière est diffusée vers l'extérieur
+* Une partie de la chaleur captée par le plateau chauffe l'air ambiant situé au dessus de lui (par
+conduction)
+* Une partie du rayonnement capté seulement se transforme en chaleur.
+En faisant varie le flux reçu, on obtient:
+
+vitesse de rotation fonction du flux
+5
+4,5
+
+3,5
+3
+2,5
+2
+
+La vitesse de rotation ω augmente avec le flux
+lumineux mais le pallier est non atteint ici.
+
+1,5
+1
+5000
+
+10000
+
+15000
+
+20000
+
+25000
+
+30000
+
+35000
+
+flux
+
+W fonction du flux
+
+7
+6,5
+6
+5,5
+5
+
+W
+
+Le travail W et la puissance Pf augmentent également avec
+le flux lumineux.
+
+4,5
+4
+
+Pf fonction du flux
+
+3,5
+
+35
+
+3
+
+32,5
+30
+
+5000
+
+10000
+
+15000
+
+20000
+
+27,5
+25
+22,5
+
+P
+
+25000
+
+flux
+
+20
+17,5
+15
+12,5
+10
+7,5
+5
+2,5
+5000
+
+10000
+
+15000
+
+20000
+
+25000
+
+30000
+
+35000
+
+flux
+35
+
+Voici la puissance Pf fonction de ω :
+
+puissance fonction de vitesse rotation
+
+32,5
+30
+27,5
+25
+
+puissance
+
+vitesse
+
+4
+
+22,5
+20
+17,5
+15
+12,5
+10
+7,5
+5
+2,5
+1
+
+1,5
+
+2
+
+2,5
+
+3
+
+3,5
+
+vitesse angulaire
+
+26
+
+4
+
+4,5
+
+5
+
+30000
+
+35000
+
+Au vu de ce graphe, il est légitime de s'interroger si la puissance Pf fournie est parabolique avec la vitesse
+angulaire ω?
+En mouvement uniforme, le système n'accélère pas donc la puissance recue compense exactement
+celle des forces de frottement. │ Pf│ = │PFR│ (frottements internes) ,or
+│ PFR│=CFR . ω
+avec CFR: couple associé aux forces de frottement (internes)
+Si Pf est linéaire avec ω, cela suggère CFRconstant. Si elle est parabolique, cela suggère ( mais attention,
+Pf connue à 10% prés...) des frottements de nature visqueuse ( CFR augmentant avec ω )
+Autrement dit, ω atteindrait un pallier quand la puissance développée Pf augmente.
+
+Couple fonction de vitesse de rotation
+7
+6,5
+6
+
+Le couple CFR= │ PFR│/ ω
+
+5
+
+augmente bien avec ω.
+
+4,5
+4
+3,5
+3
+1
+
+1,5
+
+2
+
+2,5
+
+3
+
+3,5
+
+4
+
+4,5
+
+5
+
+vitesse
+
+Rendement fonction du flux
+
+Voici le rendement global rG = Pf / Plum
+
+000,045
+000,043
+000,040
+000,038
+
+rendement
+
+Couple
+
+5,5
+
+000,035
+000,033
+000,030
+
+Colonne G
+
+000,028
+000,025
+000,023
+000,020
+000,018
+5000 1000 1500 2000 2500 3000 3500
+0
+0
+0
+0
+0
+0
+
+flux
+
+Il atteint un pallier en fonction du flux et donc de la vitesse angulaire.
+
+27
+
+Commentaire général sur ces résultats:
+L'incertitude sur toutes les grandeurs déduites de l'évaluation de W est d'environ 10%
+Nous pensons qu'avec...
+– un pressiomètre de plus fine résolution
+– un traitement mathématique plus poussé des fichiers P-V (prise en compte statistique d'un grand
+nombre de cycles tracés au cours d'une même acquisition) ,
+– peut-être l'utilisation de la méthode des triangles qui est plus compliquée mais paraît mieux adaptée à
+la forme des cycles,
+...on peut biensûr améliorer encore la qualité de ces courbes et donc des interprétations qui en
+découlent.
+
+En guise de Conclusion
+Ce projet nous a permis de découvrir ce type de moteur peu commun et de mieux comprendre diverses
+facettes de son fonctionnement par le biais de nos mesures.
+Ce moteur a été pour nous une bonne manière d'aborder les problèmes énergétiques, la
+thermodynamique, ainsi que la mécanique liée au mouvement de rotation , peu enseignées au lycée . Il
+faut avouer que cela fut assez ardu pour nous, mais l'enthousiasme de notre professeur nous a permis de
+surmonter pas mal de difficultés .Nous avons par ailleurs bénéficié des compétences d' un chercheur
+enseignant, spécialiste de ces questions, de professeurs de mathématiques et de construction mécanique
+Ces rencontres furent très enrichissantes et stimulantes.
+A l'évidence, le moteur Stirling solaire doit pouvoir continuer à se développer pour certaines
+applications en tout cas ( notament le pompage solaire de l'eau -avec ou sans concentrateur- en pays
+aride, et donc ensoleillé... ) aidant ainsi au développement durable des pays en difficultés.
+Ces moteurs ne peuvent pas rivaliser en puissance avec le moteur à explosion ou même la machine à
+vapeur car ces derniers extraient l'energie de chaleurs de réaction ou de chaleurs latentes qui sont
+toujours élevées, mais ils possèdent d'autres qualités : rendement pouvant être élevé - tout dépend de
+l'écart de température des sources - et même si cet écart est faible, leur efficacité est remarquable.
+Concernant les mesures, elles sont assez délicates car on travaille sur de petits engins avec en plus ici des
+écarts à mesurer faibles! Ce fut l'occasion pour nous de nous interroger sur les incertitudes de mesure et
+leur origine.
+Quant à la fabrication, il a fallu faire preuve de beaucoup de persévérance, mais c'est une réelle
+satisfaction de voir enfin son premier moteur Stirling tourner!
+
+28
+
+Sources bibliographiques:
+-Physique Première S/E Hebert &Dirand 1982
+-article du Bulletin de l'Union Des Physiciens n°864 p663 ( A.Caillate )
+et sur le Web...
+-pour les généralités , plans ou conseils de construction:
+www.moteurstirling.com
+-www.photologie.net
+macstirling.free.fr/
+-pour les rudiments de thermodynamique indispensables:
+www.sciences.univ-nantes.fr/physique/perso/blanquet/thermo2005/10_machines
+www. ac-nancy-metz.fr/enseign/physique/PHYS/Bts-Main/thermo1.htm
+-pour les différentes applications solaires avec ou sans concentration:
+http://resosol.org/SolPass/Stirling/Stirling04.html
+http://solstice.crest.org/renewables/dish-stirling/chapter1/intro.html
+www.grc.nasa.gov/WWW/tmsb/stirling.html
+-sur les quasiturbines
+http://www.quasiturbine.com/FQTEfficaciteComparative.html
+
+Contacts:
+-M Stouffs (IUT de Pau, département Energétique et Thermique ) qui nous accueille dans son laboratoire.
+- les professeurs de physique de première année de l'Université de Pau et des Pays de l'Adour à Anglet
+-professeurs de STI du lycée Borda de DAX: M Laffarge ,et des élèves de sa classe de première STI.
+autres collaborations:
+Un grand merci à
+–
+M. Royant , professeur de mécanique (assurant les cours d'ISI dans notre lycée ainsi qu'au lycée
+Borda de Dax ) , pour ses conseils et le rôle majeur qu'il a joué dans la liaison entre notre lycée et les
+compétences du lycée de Borda ; nous avons avons pu ainsi nous faire prêter du materiel(dont deux
+moteurs Stirling alpha et divers capteurs ou outillages que nous n'avions pas)
+–
+M. Rinaldi, professeur de Mathémathiques du lycée Sud des Landes qui s'est investi et nous a
+apporté une aide précieuse dans la réalisation d'une feuille de calcul bien spécifique sous Excel pour
+le calcul de l'aire du cycle PV.
+
+29
+
+ANNEXES
+ANNEXE I. Quelques utilisations actuelles et futures
+des moteurs Stirling SOLAIRES:
+Moteur alpha sur lequel est adapté une parabole
+
+Certains satellites se procurent de l'énergie grâce à un moteur Stirling.
+On utilise une parabole réfléchissante qui concentre les rayons du soleil en un seul point : le foyer de la
+parabole où on installe le moteur Stirling.
+Aux Etats-Unis, on a installé dans le désert de grandes paraboles munies en leur foyer de moteur Stirling
+afin de produire de l'électricité sans acheter de combustible !
+(NB : les panneaux photovoltaïques ont un médiocre rendement, environ 15%. Par conséquent, à
+puissance égale, leur surface est plus grande que celle des réflecteurs d'un moteur Stirling )
+La figure ci -dessous présente un système de conversion thermodynamique de l’énergie solaire en
+énergie électrique , utilisant la technologie dite Solar Dish/Stirling.
+Il s’agit d’une réalisation de McDonnell Douglas/Southern California Edison, produisant une puissance
+électrique de 25 kW. Cette installation, réalisée dans les années 1984-1988, associe un concentrateur
+d’un diamètre équivalent de 10,57 m à une cavité réceptrice de 0,2 m de diamètre d’ouverture. Le moteur
+Stirling utilisé est le moteur cinématique 4-95 MkII construit par United Stirling AB (USAB). Ce moteur
+a un rendement de 38-42 % pour une température maximale de l’hydrogène utilisé comme fluide de
+travail de 720 °C. L’ensemble de cette installation conduit à un rendement global de conversion de
+l’énergie solaire en énergie électrique de 29-30 %. Ce chiffre est environ le double de celui du rendement
+de conversion par cellules photovoltaïques, mais l’infrastructure correspondante est évidemment plus
+lourde…
+Plus prés de nous, une centrale électrique solaire miniature existe dans les Pyrénées à ODEILLO : Une
+parabole-miroir de huit mètres de diamètre associée à un moteur transformant la chaleur en énergie
+mécanique: un mini-générateur électrique solaire inédit de 1O kW est soumis depuis fin juin 04 à l'oeil
+
+30
+
+critique des chercheurs du laboratoire du CNRS d'Odeillo.
+Les moteurs utilisés ici sont plus proches du moteur 'alpha'.
+La parabole-Stirling
+Pour ce qui est des moteurs proches du' LTD',
+
+Technologie 'Bohming Solar':
+Ici , la lumière n'est pas concentrée , ce n'est
+pas une parabole que l'on voit sur cette photo
+Ces moteurs sont encore qualifés à basse
+température ;le gaz est chauffé à 100°C par
+effet de serre; le ΔT est de 70°c et l'efficacité de
+70% ;voilà le type de moteur pouvant être
+utilisés pour du pompage;
+
+modèle de puissance 300W
+Ces modèles sont de technologie simple mais
+optimisée, fiables , ne necessitant que très peu
+d'entretien.
+
+Et voici enfin le concentrateur gonflable(!) de la NASA
+pour son générateur Stirling 'à pistons libres '(envisagé pour
+alimenter des stations spatiales en orbite terrestre ou pour les
+missions plus lointaines, par exemple vers Mars, où
+il serait plus interessant que les classiques panneaux
+photovoltaïques.)
+
+31
+
+ANNEXE II. Incertitudes de mesure
+Incertitude sur la détermination de la position x du piston moteur
+La LDR est placée prés de la bielle car notre faisceau LASER étant conique (et non parallele), si on
+l'éloigne trop, le bord de l'ombre, par projection conique , peut déborder du capteur , car celui-ci n'a pas
+une très grande surface, d'où l'impossibilité du repérage de position .Mais à priori, plus le capteur est
+éloigné, plus le déplacement de l'ombre est grand donc plus la méthode est sensible;
+Rappelons que le rapport ( variation de U )/(variation de x) doit être maximal pour un repérage sensible
+de x.
+ici ΔU ≈ 1mV donne,au vu de la courbe d'étalonnage(de pente moyenne ≈ 7mm/2,5 V):
+Δx ≈ 1 mV.7mm/2,5mV ≈ 2,8.10-3 mm !
+On voit que l'on est en deça de la précision de la détermination de x elle même lors de l'étalonnage , donc
+c'est cette dernière qui limite la précision de la méthode .
+Donc Δx ≈ 0,1 mm
+en réalité, il fois l'étalonnage realisé, il n'est valable que si on ne déplace plus les éléments les uns par
+rapport aux autres, que l'on évite de faire trembler la table....
+Donc , on peut penser raisonnablement que Δx est superieur;Le déplacement du laser en horizontale ou
+verticale n'a que peu d'incidence puisqu'il est éloigné de l'ensemble bielle+capteur; le plus gênant semble
+être un déplacement du moteur ou du capteur
+on peut garder Δx ≈ 0,25mm peut-être (¼ mm)
+Incertitude sur W
+On a donc ΔV≈ 0,06*0,25≈ 1,5.10-3 cm3
+
+; par ailleurs Vmax-Vmin≈ 0,15cm3
+
+On a aussi ΔP≈2mBar
+Si Pmax-Pmin ≈ 12mBar par exemple dans les cas parmi les plus défavorables (moteur non freiné-par
+lui même ou par action extérieure- ou bien ΔT trop faible)
+Ce qui donne pour l'incertitude de la mesure de l'aire du cycle (travail W):
+W est de l'ordre de (Pmax-Pmin ).(Vmax-Vmin )
+donc ΔW/W ≈ ΔP/(Pmax-Pmin ) + ΔV /(Vmax-Vmin ) ≈ 1/6 +1/100
+≈ 1/6 soit 16% !
+Mais parfois on peut avoir une excursion en Pression encore plus faible ΔW/W≈ 50%, le calcul de W
+est impossible sauf si on recourt à un traitement statistique des mesures:
+Si on reproduit n fois la même mesure du cycle, l'incertitude sur la valeur moyenne de W décroît avec n !
+( c'est σ /  n ...)
+Néanmoins, on voit que c'est l'incertitude due à notre capteur de Pression qui limite énormément la
+précision de mesure de W.
+
+32
+
+ANNEXE III :Equilibrage et moment d'inertie
+L'équilibrage du moteur:
+Si le moteur s'arrête toujours dans la même position (ce qui prouve déjà qu'il y a peu de
+frottements...donc cela peut être un signe encourageant!), c'est qu'il n'est pas équilibré: il y a du
+« balourd »,
+et
+cela
+peut
+nuire
+à
+ses
+performances.
+On peut alors peser les éléments accrochés à chaque manivelle (côté déplaceur et côté piston moteur),
+puis compenser par des massesd'équilibrage pour que, au repos, la somme des moments des forces sur
+l'axe soit nulle;pour les masses , nous avons utilisé des rondelles maintenues sur le volant par du scotch
+double face;
+En fait,nous avons utilisé une méthode plus rapide, qu'autorise le déphasage à 90°, et aussi efficace: c'est
+d'équilibrer séparément, et par tâtonnement, les deux équipages mobiles : en plaçant le piston moteur en
+haut ou en bas, la tête de bielle du déplaceur se trouve sur un axe horizontal passant par l'axe du volant et
+l'entraîne vers le bas - il suffit alors de placer à l'opposé une petite masse qui l'équilibre dans cette
+position - et on recommence la manipulation pour la bielle moteur...cela est d'autant plus facile que les
+frottements solides sont peu présents.
+Moment d'inertie du volant:
+Pour le CDRom de nos moteurs (15,5 g , à peu prés un disque de rayon 6,0 cm )
+J≈1/2 .m.r2 ≈ 2,8 .10-5 kg.m2
+Soit , s'il tourne à 1 tr.s-1, une énergie cinétique EC ≈5,5 mJ à comparer aux 0,16 mJ pour W mesuré lors
+d'une acquisition (voir plus haut III.2. , cycle P-V en vert )
+Pour le 'Blue Stirling 'du commerce, le calcul de J est plus compliqué , on obtient J≈5,5.10-5 kg.m2
+donc environ le double et de même pour l'energie cinétique stockée.
+
+ANNEXE IV : Evaluation de l'aire du cycle P-V
+
+.
+
+Voici un exemple d'acquisition d'une dizaine de tours dans un cas où W est relativement faible (ΔT faible
+et /ou moteur non freiné ) ; on constate que les mesures ne sont pas parfaitement reproductibles d'un
+cycle au suivant : il y a une dispersion des valeurs (qui concerne P essentiellement ) .Seule une méthode
+numérique portant sur plusieurs tours permet d'obtenir commodément un résultat significatif.
+
+33
+
+Calcul de l’aire du cycle par la méthode des trapèzes
+Méthode : Soit M0, M1 … Mi…Mn les points de la courbe
+Appelons x0, x1, xi les abscisses des points et y0, y1 …. Yi les ordonnées des points.
+Pour calculer l’aire d’un cycle :
+On calcule l’aire située sous la partie supérieure de la courbe, et on retranche l’aire située sous la partie
+inférieure de la courbe.
+En plaçant la courbe dans le premier quadrant, c’est à dire avec x et y toujours positifs, lorsque les
+abscisses diminuent (xi < x i-1) on est sur la partie supérieure le la boucle, et lorsque les abscisses
+augmentent (xi > x i-1) on se trouve sur la partie inférieure de la boucle
+Pour calculer l’aire d’un trapèze élémentaire :
+On multiplie l’écart entre les abscisses dx = x i-1 - x i de deux points par la moyenne des ordonnées des
+deux points ( yi + y i-1)/2.
+Comme dx peut être négatif, les aires seront comptées positives lorsque dx > 0 et négatives lorsque dx<0.
+Nombre de tours :
+On compte le nombre de demi tours, et on divise par deux ensuite. On change de demi tour, lorsque la
+variation des écarts des x change de sens, donc en fait lorsque le dx change de signe.
+Pour savoir si le dx a changé de signe, on examine le produit de deux dx consécutifs. Si ce produit est
+positif, les deux dx sont de même signe, on attribue la valeur 0 à la cellule. Si le produit de deux dx
+consécutifs est négatif, il y a un demi tour supplémentaire, on attribue 1 à la cellule. En sommant la
+colonne, on obtient le nombre de demi- tours.
+Il faudra veiller à terminer le calcul à la fin d’un demi-tour.
+34
+
+Aire moyenne d’un cycle :
+On somme la colonne des aires, et on divise par le nombre de tours.
+Dans la figure après, les aires en jaune sont positives et celles en bleu sont négatives
+
+1
+1
+
+x8 x9
+
+x10
+
+x3
+
+x2
+
+x1
+
+dx
+Le dx est positf
+
+Le dx est négatif
+
+35
+
+Exemple d'une feuille de calcul faite avec un tableur -grapheur:
+
+(Haut de feuille).....
+
+......(Bas de feuille)
+
+36
+
+

@@ -1,0 +1,1289 @@
+XXIe Olympiades de Physique
+
+Mesure de la Terre
+
+Jules Bazin
+Florent Bonzon
+Habibatou Diallo
+Solenn Sarton
+Lycée Jean Monnet – Annemasse
+1
+
+Table des matières
+INTRODUCTION.....................................................................................3
+I. COMMENT MESURER LA TERRE ?.........................................................3
+1. La méthode d'Ératosthène..................................................................................3
+2. Comment mesurer une différence de latitude ?................................................4
+a) Détermination de la latitude d'un lieu....................................................................................4
+b) Utilisation du sextant..............................................................................................................5
+
+3. Comment mesurer une grande longueur à la surface de la Terre ?................7
+a) Une relation de trigonométrie................................................................................................7
+b) Méthode de la triangulation...................................................................................................8
+c) Utilisation du théodolite.........................................................................................................9
+
+II. MESURES ET CALCULS........................................................................10
+1. Les observations de latitude aux extrémités de la triangulation...................10
+2. La triangulation.................................................................................................12
+a) Longueur de la base.............................................................................................................12
+b) Premier triangle Andilly A – Andilly M – Salève.................................................................14
+c) Orientation du côté Andilly A – Salève.................................................................................15
+d) La chaîne de triangles jusqu'à la Croix du Nivolet..............................................................15
+
+3. Calcul du rayon de la Terre..............................................................................21
+
+III. PRÉCISION DE NOTRE RÉSULTAT......................................................21
+1. Les différentes erreurs de mesure....................................................................21
+a) Une erreur sur la différence de latitude...............................................................................21
+b) Une erreur sur la mesure de la base....................................................................................23
+c) Une erreur sur les mesures des angles du premier triangle.................................................23
+d) Un erreur sur l'orientation de la chaîne...............................................................................23
+e) Une erreur sur tous les angles de la triangulation...............................................................23
+
+2. Récapitulatif et possibilités d'amélioration.....................................................24
+
+CONCLUSION.......................................................................................24
+
+2
+
+INTRODUCTION
+Pendant notre année de seconde, un groupe d'élèves qui participait aux Olympiades 2012/13
+est venu faire une répétition de la présentation orale de son projet dans notre classe. Leur but était
+de déterminer la durée des saisons en utilisant un sextant. Nous n'avons pas tout compris mais cela
+nous a donné envie, à nous aussi, d'y participer et de nous engager dans un projet. Pendant cette
+même année de seconde, nous avons étudié la mesure du rayon terrestre par Ératosthène, un savant
+du IIIe siècle avant notre ère de l'Ecole d'Alexandrie en Egypte. Serions nous capables, nous aussi
+de mesurer la Terre ? C'est le défi que nous nous sommes donné. Le professeur qui a bien voulu
+nous encadrer, nous a fourni une règle de 2m (ou plus précisément une mire de géométre), un
+sextant et un théodolite en nous disant : « avec cela, vous devriez y arriver ! » Le défi s'est corsé :
+mesurer la Terre avec une règle de 2m, cela semblait impossible !
+Dans notre travail, nous allons commencer par exposer les différentes mesures à effectuer :
+mesures de latitudes et mesures de distances. Nous allons ensuite montrer comment se servir du
+sextant (en nous aidant du travail effectué par nos camarades de l'année dernière) et du théodolite.
+Nous verrons en quoi consiste une triangulation géodésique : comment la mesure d'une grande
+distance peut être remplacée par la mesure d'une petite distance et d'une multitude d'angles. Nous
+entrerons ensuite dans le vif du sujet : réaliser la triangulation sur une distance de 50 km ! Trouver
+les points à viser, aller de l'un à l'autre, effectuer l'ensemble des mesures, puis construire la chaîne
+de triangles en utilisant le logiciel GeoGebra. Dans la dernière partie, nous chercherons à
+déterminer la précision de notre mesure et nous réfléchirons à ce qu'il aurait fallu faire pour
+l'améliorer.
+Nous remercions chaleureusement Philippe Merlin, astronome à l'Observatoire de Lyon, qui
+a accepté de nous conseiller et de relire notre mémoire. Il nous a aidé à maîtriser notre sujet et à
+corriger toutes les erreurs et ambiguïtés disséminées dans notre texte. S'il reste des erreurs ou des
+imprécisions, ce n'est certes pas de sa faute !
+
+I. COMMENT MESURER LA TERRE ?
+1. La méthode d'Ératosthène
+Axe de
+rotation
+
+rayons parallèles du
+Soleil
+
+α
+
+Alexandrie
+Syène
+α
+
+équateur
+
+Terre
+
+Figure 1 : La mesure de la Terre selon Ératosthène
+Ératosthène est un savant du III e siècle avant J.-C., vivant à Alexandrie en Égypte. Il est
+connu pour avoir donné la première estimation précise du rayon de la Terre. Il sait qu'à Syène
+(aujourd'hui Assouan en Égypte), les puits sont éclairés jusqu'au fond sans ombre le jour du solstice
+3
+
+d'été à midi (cela se produit sur une bande de latitudes de 300 stades de large, centrée sur Syène).
+Le Soleil y passe donc exactement à la verticale du lieu. Au même moment à Alexandrie, ville
+située à peu près sur le même méridien mais plus au nord, l'ombre d'un objet vertical indique que le
+Soleil n'est déjà plus au zénith. La longueur de l'ombre permet de calculer l'angle α que fait la
+direction du Soleil avec la verticale à Alexandrie. Ératosthène trouve 1/50e de cercle. En raison des
+angles alternes-internes (Figure 1), l'angle calculé est également l'angle que font les rayons
+rejoignant les deux villes au centre de la Terre.
+La distance Alexandrie-Syène est estimée à 5 000 stades à partir du temps de marche des
+caravanes ralliant les deux villes. La circonférence de la Terre étant 50 fois plus grande, Ératosthène
+obtient la valeur de 250 000 stades. Le résultat est ensuite augmenté à 252 000 stades, pour
+permettre une division facile par 60 (Ératosthène utilise en effet une division du cercle en
+soixantième, les degrés et l'écriture décimale n'ayant pas encore été inventés). La valeur du stade
+égyptien généralement adoptée est : 1 stade = 157,50m. La circonférence mesurée par Ératosthène
+est donc de 39 690 km (valeur actuelle 40 000 km). Pour avoir le rayon, il suffit de diviser par 2π,
+soit 6317 km (valeur actuelle 6371 km). Malgré la méthode rudimentaire, le résultat est donc très
+proche de la valeur moderne.
+Conclusion : pour calculer le rayon de la Terre, il faut effectuer deux sortes de mesures très
+différentes :
+• Mesure de l'angle entre les rayons rejoignant les deux villes au centre de la Terre. Cet angle
+correspond à leur différence de latitude.
+• Mesure de la distance séparant les deux villes.
+
+2. Comment mesurer une différence de latitude ?
+Il existe de nombreuses méthodes pour déterminer la latitude d'un lieu, utilisant soit le
+Soleil, soit les étoiles. Puisque nous disposons d'un sextant, nous exposons une méthode utilisant la
+hauteur du Soleil lorsqu'il culmine (passage au méridien, lors du midi solaire).
+
+ve
+rti
+ca
+l
+
+Axe de rotation
+ho
+riz
+on
+
+e
+
+a) Détermination de la latitude d'un lieu
+
+φ-δ
+
+A h
+φ
+
+équateur
+
+Rayons solaires
+
+δ
+
+O
+
+Figure 2 : Relation entre la hauteur h du Soleil, sa déclinaison δ et la latitude φ du lieu
+d'observation A.
+La latitude φ d'un lieu terrestre est l'angle entre la verticale du lieu et le plan de l'équateur.
+Lorsque le Soleil passe au sud dans l'hémisphère nord (lorsqu'il culmine), sa position dans le ciel
+peut être repérée par deux angles différents :
+4
+
+Sa hauteur h au-dessus de l'horizon : angle entre la direction du Soleil et le plan horizontal.
+Si on tend un bras vers l'horizon et le deuxième vers le Soleil, la hauteur h du Soleil est
+donnée par l'angle formé par les deux bras.
+La hauteur h du Soleil vaut 0° lorsque le Soleil est à l'horizon (au moment de son lever et de
+son coucher) et croît jusqu'au passage au méridien. Elle vaut 90° si le Soleil passe au zénith
+du lieu (ce qui n'arrive jamais sous nos latitudes).
+• Sa déclinaison δ au-dessus de l'équateur céleste : angle entre la direction du Soleil et le plan
+de l'équateur. δ varie de -23,43° (solstice d'hiver) à +23,43° (solstice d'été). Les astronomes
+peuvent calculer sa valeur pour n'importe quel moment de l'année.
+Ces angles h et δ varient selon des échelles de temps différentes. La hauteur h varie au cours
+de la journée, en fonction de la rotation journalière de la Terre. La déclinaison δ varie au cours de
+l'année, en fonction de la révolution de la Terre autour du Soleil.
+•
+
+Sur la figure 2, on voit que : 90=ϕ−δ+h et donc : ϕ=90+δ−h .
+Si on mesure h et si on connaît la déclinaison δ, alors on peut calculer la latitude φ.
+b) Utilisation du sextant
+Avant le GPS, le sextant était l'instrument utilisé par les marins pour mesurer des angles afin
+de faire le point en mer (détermination de leur position, en particulier la latitude). Il est
+spécialement adapté pour mesurer la hauteur du Soleil. Il permet aussi de mesurer des angles entre
+deux étoiles ou entre deux repères près d'une côte.
+
+Lunette
+Grand
+miroir
+
+Petit
+miroir
+
+Alidade
+
+Filtres
+colorés
+
+Limbe
+
+Vis micrométrique
+Figure 3 : Les différentes parties d'un sextant
+En mer, pour une mesure de hauteur, le marin tient le sextant verticalement à la main et
+dirige la lunette vers l'horizon (surface de l'océan ou loin). C'est la vision directe. Il règle l'alidade
+pour incliner plus ou moins le grand miroir afin d'amener le Soleil vu au moyen du grand miroir
+dans la lunette. L'alidade est bien positionnée lorsque les rayons du soleil se reflètent tout d'abord
+sur le grand miroir, puis sur le petit et enfin entrent dans la lunette parallèlement à l'horizon. Une vis
+micrométrique permet de faire des réglages fins. Si le Soleil a une hauteur h, l'observateur a tourné
+5
+
+l'alidade d'un angle égal à h/2 (Figure 4). Pour éviter de devoir faire la multiplication par deux,
+l'échelle de la graduation du limbe est déjà doublée (les degrés gravés sur le limbe sont en réalité
+des demi-degrés). C'est pourquoi le limbe est gradué de 0 à 120° bien qu'il ne fasse qu'un sixième
+de cercle (60°).
+Soleil
+
+Soleil
+
+h
+
+horizon
+
+h
+
+horizon
+
+M
+
+M
+
+h/2
+lunette
+
+m
+
+horizon
+
+limbe avec graduation
+
+alidade
+
+C
+
+B
+
+A
+
+B
+
+A
+
+lunette
+
+m
+
+horizon
+
+limbe
+
+C
+
+alidade
+
+L'alidade est bien positionnée
+
+L'alidade est mal positionnée
+
+Figure 4 : Fonctionnement d'un sextant. Le petit miroir m et la lunette sont fixes. Le grand miroir M
+tourne au moyen de l'alidade.
+A Annemasse, nous ne disposons pas de l'océan ! La méthode consiste à utiliser le reflet du
+Soleil sur la surface de l'eau contenue dans un petit récipient et qui donne une référence horizontale.
+A travers la lunette, on observe le reflet du Soleil dans l'eau. Puis on ajuste l'alidade pour aussi
+observer le Soleil direct. La mesure est effectuée lorsqu'on superpose les deux images du Soleil. De
+cette manière, on trouve le double de la hauteur du soleil. Il suffit alors de diviser l'angle obtenu par
+deux pour trouver la valeur cherchée.
+
+So
+le
+
+So
+lei
+ld
+il r
+efl
+été
+d
+
+an
+s
+
+l'ea
+u
+
+ire
+ct
+
+2h
+
+Figure 5 : Mesure du double de la hauteur du Soleil grâce au reflet des rayons dans un récipient
+rempli d'eau.
+6
+
+Soleil
+
+M
+
+2h
+
+horizon
+
+tte
+ne
+u
+l
+
+h
+
+Soleil
+
+limbe
+
+m
+alidade
+
+horizon
+
+h
+
+h
+
+Figure 6 : En pointant la lunette du sextant vers le Soleil reflété dans le récipient rempli d'eau, on
+mesure un angle égal à 2h.
+
+Image du Soleil réfléchi
+par les deux miroirs du
+sextant.
+Image du Soleil reflété
+dans le récipient rempli
+d'eau
+
+Figure 7 : Ce que l'on voit dans un sextant. Grâce à la vis micrométrique, on arrive à superposer
+parfaitement les deux images.
+
+3. Comment mesurer une grande longueur à la surface de la Terre ?
+Mesurer une grande distance à la surface de la Terre n'est pas une technique facile. On utilise
+la méthode dite de la « triangulation ». Elle consiste à remplacer la mesure directe d'une grande
+distance par la mesure d'une petite distance et par la mesure d'une série d'angles, permettant de
+construire des triangles où toutes les quantités peuvent être connues. Ces mesures sont aisément
+réalisables avec un théodolite.
+a) Une relation de trigonométrie
+Toute la triangulation repose sur le principe suivant : si l'on connaît la longueur d'un des
+côtés du triangle et deux angles, alors les longueurs des deux autres côtés peuvent être calculées.
+
+7
+
+a
+
+γ
+
+β
+
+b
+
+α
+
+c
+
+Figure 8 : Le principe de la triangulation. En rouge, les quantités connues. En noir, les quantités
+que l'on peut calculer.
+Dans le triangle ci-dessus, on suppose que l'on connaît la longueur c et les angles α et β.
+Dans les triangles quelconques, la relation suivante est toujours vérifiée :
+a
+b
+c
+=
+=
+sin α sin β sin γ
+On a donc :
+Or
+
+a=
+
+c×sin α
+sin γ
+
+et b=
+
+c×sin β
+sin γ
+
+γ=180−( α+ β) puisque la somme des trois angles d'un triangle fait 180°.
+
+De plus : sin(180−(α+ β))=sin( α+ β)
+Finalement :
+
+a=
+
+c×sin β
+c×sin α
+et b=
+.
+sin(α+ β)
+sin (α+ β)
+
+Si on connaît c, α et β, alors on peut calculer les longueurs a et b.
+b) Méthode de la triangulation
+La triangulation consiste à appliquer sur une grande échelle la propriété que l'on vient
+d'établir. C'est la technique qui a été employée au XVII e et au XVIIIe siècles pour la mesure des
+degrés du méridien terrestre. Plusieurs mesures se succèdent :
+• On commence par la mesure de la longueur de la base de départ. Sur la figure suivante, la
+base est AC.
+• On construit de proche en proche une chaîne de triangles pour relier le point de départ A au
+point d'arrivée B. Sur le terrain, les sommets des triangles doivent être des repères bien
+marqués et repérables (antennes, arbre, croix, etc.). Ils doivent être visibles entre eux, pour
+permettre la mesure des trois angles des triangles.
+• La chaîne de triangles doit être orientée par rapport au méridien. On mesure l'azimut Az du
+premier côté.
+La mesure de la base de départ et de tous les angles permet, grâce à la trigonométrie, de
+calculer de proche en proche la longueur de tous les côtés des triangles. On peut aussi se servir, plus
+facilement, d'un logiciel de construction géométrique GeoGebra. Grâce à l'orientation du réseau de
+triangles, on peut alors connaître la distance AB le long du méridien.
+
+8
+
+A
+Az
+
+base
+C
+
+D
+
+E
+F
+
+B
+
+G
+
+Figure 9 : La chaîne de triangles.
+c) Utilisation du théodolite
+Nous utilisons un théodolite optique des années 1970, acheté par notre professeur à un
+géomètre à la retraite.
+Réglage de la hauteur
+
+Cadran des mesures
+Réglage de
+la netteté
+Lunette
+
+Réglage fin de
+la hauteur
+Réglage du zéro
+de l'azimut
+
+Réglage
+de l'azimut
+
+9
+
+Lunette
+
+Miroir réfléchissant
+pour éclairer le cadran
+des mesures
+
+Niveau à bulle
+
+Réglage fin
+de l'azimut
+Réglage du niveau
+Figure 10 : Les différentes parties d'un théodolite.
+Pour réaliser une mesure angulaire à l'aide d'un théodolite, plusieurs opérations sont nécessaires :
+• Premièrement, la mise en station. On place le théodolite au point à partir duquel on veut
+faire la mesure. On règle les trois pieds du théodolite pour avoir une horizontalité
+approximative, puis on utilise le niveau à bulle. Trois vis permettent un réglage fin. On
+parfait l'horizontalité en plaçant successivement le niveau à bulle dans deux directions
+perpendiculaires.
+• Deuxièmement, le réglage du 0 des azimuts sur le point origine de nos mesures. Dans le
+viseur, on cherche d'abord le 0 des azimuts, la lunette pointe alors un point quelconque de
+l'horizon. On «déverrouille» le théodolite, ce qui lui permet de tourner tout en restant sur la
+position 0 et on vise un des sommets du triangle. En verrouillant à nouveau le théodolite,
+celui-ci est prêt pour les mesures.
+• Troisièmement, la mesure proprement dite. On vise un deuxième sommet du triangle, en
+tournant vers la droite (sens horaire en regardant le théodolite par au-dessus), pour avoir des
+angles qui varient de 0 à 400 grad.
+• Quatrièmement, la lecture de la mesure, qui se fait dans un petit viseur éclairé par la lumière
+naturelle.
+
+II. MESURES ET CALCULS
+1. Les observations de latitude aux extrémités de la triangulation
+Nous avons mesuré la hauteur du Soleil au midi solaire (passage au méridien) aux deux
+extrémités de la triangulation : à Andilly A, le mercredi 4 septembre à 11h35min TU (temps
+universel : temps de la montre moins 2 heures en été et 1 heure en hiver), et à la Croix du Nivolet, le
+samedi 14 septembre à 11h32min TU. Les horaires précis des passages au méridien nous ont été
+10
+
+donné par le site de l'IMCCE (Institut de Mécanique Céleste et de Calcul des Ephémérides.
+Pour en déduire la latitude des deux lieux, nous devons connaître la déclinaison du Soleil
+aux instants des mesures. Le site de l'IMCCE a mis en ligne sur son site internet un générateur
+d'éphémérides appelé « Ephémérides générales de position des corps du système solaire » qui
+calcule la déclinaison du Soleil pour toute date :
+http://www.imcce.fr/fr/ephemerides/formulaire/form_ephepos.php.
+La procédure est la suivante :
+•
+
+Choix du corps :
+
+•
+
+Choix du type d'éphémérides : La déclinaison du Soleil dépend de nombreux phénomènes
+perturbateurs. Le type « moyenne de la date » donne la déclinaison moyenne du Soleil au
+moment de la date, sans tenir compte de très faibles perturbations.
+
+•
+
+Époque des calculs : il faut indiquer la date et l'heure TU.
+
+11
+
+On obtient dans une autre fenêtre, parmi d'autres grandeurs, la valeur de la déclinaison du
+Soleil au moment demandé.
+
+Valeur de la déclinaison du
+Soleil
+
+•
+•
+
+Aux deux instants des mesures au sextant, nous trouvons :
+Andilly A : 4 septembre à 11h 35min (TU) : δA = 7° 1' 13'' = 7,020°
+Croix du Nivolet : 14 septembre à 11h 32min (TU) : δN = 3° 14' 42'' = 3,245
+
+Dans le tableau suivant, nous résumons l'ensemble des mesures et des calculs. La hauteur du
+Soleil au-dessus de l'horizon correspond à la moitié de la valeur mesurée au sextant. La latitude est
+calculée par la formule : ϕ=90−h+δ .
+Lieux
+
+Mesure sextant
+
+Hauteur du Soleil h
+
+Déclinaison du Soleil δ
+
+Latitude φ
+
+°
+
+'
+
+°
+
+°
+
+°
+
+Andilly
+
+101
+
+49
+
+50,908
+
+7,02
+
+46,112
+
+Nivolet
+
+95
+
+13
+
+47,608
+
+3,245
+
+45,637
+
+Différence de latitude (°)
+
+0,475
+
+La différence de latitude entre Andilly A et la Croix du Nivolet est donc égale à : 0,475°.
+Notre triangulation s'étend donc sur 1/2° environ de méridien.
+
+2. La triangulation
+Dans son principe, la méthode de la triangulation est assez simple. En pratique, elle est plus
+délicate. Il faut trouver un terrain horizontal pour la mesure de la base, puis trouver des repères
+visibles entre eux de proche en proche pour former les différents triangles.
+a) Longueur de la base
+La première opération consiste à déterminer la longueur de la base de départ entre un point
+A (Andilly A) et un point M (Andilly M). Le point M est situé sur un petit monticule (réservoir
+d'eau), ce qui nous permet de nous positionner pour que la ligne AM soit pratiquement horizontale.
+Le théodolite est placé au point A et une mire de géomètre de 2,5 m de haut au point M. La règle
+possède un niveau à bulle pour qu'elle soit positionnée bien verticalement. Nous effectuons deux
+mesures (Figure 12) :
+12
+
+•
+•
+
+L'angle β1 entre la verticale et le point M : β1=100,06 grad
+L'angle β2 entre la verticale et le point N, situé 1,90 m au-dessus du point M :
+β2=99,50 grad . La distance MN est la première distance connue. C'est celle qui va nous
+permettre de déterminer toutes les autres. Pour qu'elle soit la plus grande possible, N est
+choisi le plus haut possible.
+La mire vue à travers la lunette du théodolite
+
+Second point visé (N)
+
+Premier point visé (M)
+
+M
+
+Figure 11 : Positionnement de la règle au point Andilly M.
+
+1,90 m
+
+mire verticale
+
+N
+
+=
+
+β1
+
+α = 0,56 grd
+
+10
+
+6g
+0 ,0
+
+rd
+
+=
+β2
+
+9
+
+0g
+9 ,5
+
+rd
+
+A
+
+M
+Base de départ : Andilly A – Andilly M
+
+Figure 12 : Mesure de la distance de la base de départ. Le point A est Andilly A et le point M,
+Andilly M. Le point N, un point de la mire, situé à 1,90 m au-dessus de M.
+Grâce à nos deux mesures, nous pouvons connaître l'angle α :
+α=β1−β2=100,06−99,50=0,56 grad
+
+13
+
+soit α=0,56×
+
+180
+=0,504 °
+200
+
+En utilisant la trigonométrie, on peut calculer la distance AM :
+tan α=
+
+MN
+AM
+
+donc
+
+AM =
+
+MN
+1,90
+=
+=216 m
+tan α tan 0,504
+
+b) Premier triangle Andilly A – Andilly M – Salève
+A partir de la base Andilly A – Andilly M, nous mesurons et construisons un premier triangle
+en visant le Salève, qui possède un petit monticule servant de point de repère. Les points A (Andilly
+A) et M (Andilly M) ont été choisis à côté de repères restant à demeure : un piquet indiquant un
+terrain d'aéromodélisme pour le point A et un panneau photovoltaïque pour le point M. Ils peuvent
+être visés depuis le Salève sans avoir besoin de laisser l'un d'entre nous pour tenir lieu de point de
+repère.
+
+Figure 13 : Visée du Salève depuis Andilly A. Le panneau nous servira ensuite de repère pour la
+visée depuis le Salève.
+Andilly A
+c = 216 m
+
+b
+
+α = 137,64°
+β = 41,03°
+
+Andilly M
+
+γ = 1,305°
+
+a
+Figure 14 : Premier triangle
+Nos mesures des trois angles du triangles sont les suivantes :
+
+14
+
+Salève
+
+Mesure effectuée depuis
+
+Angle (en grad)
+
+Angle (en °)
+
+Andilly A
+
+152,935
+
+137,642
+
+Andilly M
+
+45,59
+
+41,031
+
+Salève
+
+1,45
+
+1,305
+
+En additionnant les trois angles du triangles, nous obtenons 179,978°. Comme la somme
+devrait être égale à 180°, nous avons commis une erreur de 0,022°. Nous discuterons des
+imprécisions de mesure et de leurs conséquences dans la troisième partie.
+Pour construire le premier triangle, nous savons que la distance Andilly A – Andilly M est de
+216 m et nous calculons la longueur du côté Andilly A – Salève :
+b=
+
+c×sin β 216×sin 41,03
+=
+=6226 m=6,226 km
+sin (γ)
+sin 1,305
+
+c) Orientation du côté Andilly A – Salève
+Orienter la chaîne de triangles consiste à orienter l'un des côtés par rapport au sud. Nous
+orientons le côté Andilly A – Salève. Pour trouver la direction du sud, nous nous servons du Soleil.
+Sur le site de l'IMCCE, nous trouvons que pour notre lieu de mesure, le Soleil passe au sud à 11h 34
+min 47s le 4 septembre 2013 (l'horaire ne tient pas compte des deux heures d'été).
+Pour avoir un horaire précis, nous avons réglé notre montre sur le site de l'horloge parlante.
+Le 0 des azimuts étant sur le Salève, nous avons visé le Soleil à l'heure dite, bien sûr sans regarder
+dans la lunette. Pour nous assurer de la bonne position de la lunette, nous avons fait l'image du
+Soleil sur une feuille de papier.
+Nous avons trouvé que l'angle entre la direction Andilly A – Salève et la direction du sud est
+de 98,05 grad = 88,3°.
+
+Figure 15 : Image du Soleil sur une feuille de papier.
+d) La chaîne de triangles jusqu'à la Croix du Nivolet
+•
+
+La chaîne
+
+15
+
+A partir de Andilly A et du Salève, nous construisons une chaîne de triangles qui nous amène
+jusqu'à la Croix du Nivolet.
+
+Figure 16 : La chaîne de triangles. La carte et le tracé ont été effectués sur le site géoportail :
+http://www.geoportail.gouv.fr/accueil
+•
+
+Exemples de points visés
+
+Les points visés doivent avoir des repères bien marqués : antenne (Chaumont), pilonne de
+télésiège (Semnoz), table d'orientation (Clergeon), croix (Croix du Nivolet). La lunette du
+théodolite, qui a une agrandissement de 30, permet de faire des visées précises.
+
+16
+
+Antenne de Chaumont
+
+Croix du Nivolet
+
+Croix du Nivolet vue à
+travers la lunette du
+théodolite
+
+Figure 17 : Exemples de points de repère visés.
+•
+
+Les mesures :
+
+Il s'agit de mesurer tous les angles des triangles. Depuis un lieu de mesure (par exemple le
+Salève), nous réglons le 0 des azimuts sur un des points à viser (le Semnoz). Puis nous mesurons les
+angles en tournant vers la droite et en visant successivement les différents points (Chaumont et
+Andilly A). Pour obtenir les angles des différents triangles, il suffit de faire la soustraction des
+valeurs obtenues.
+L'antenne de Chaumont constitue un point qui peut être facilement visé. Malheureusement,
+elle émerge d'une forêt. Depuis Chaumont, il n'a donc pas été possible de viser les autres sommets
+des triangles (il aurait fallu avoir l'autorisation de grimper sur l'échelle de l'antenne et caler le
+théodolite). Nous l'avons quand même conservée comme repère car nous n'avons pas trouvé un
+autre point qui aurait pu la remplacer avantageusement.
+
+17
+
+Lieu de mesure
+Andilly A
+
+Salève
+
+Semnoz
+
+Clergeon
+
+Croix du Nivolet
+
+Repère visé
+
+Azimut (grd)
+
+Azimut (°)
+
+Salève
+
+0
+
+0
+
+Chaumont
+
+144,725
+
+130,253
+
+Semnoz
+
+0
+
+0
+
+Chaumont
+
+65,78
+
+59,202
+
+Andilly A
+
+98,56
+
+88,704
+
+Croix du Nivolet
+
+0
+
+0
+
+Clergeon
+
+90,59
+
+81,531
+
+Chaumont
+
+143,16
+
+128,844
+
+Salève
+
+172,33
+
+155,097
+
+Chaumont
+
+0
+
+0
+
+Semnoz
+
+99,16
+
+89,244
+
+Croix Nivolet
+
+161,94
+
+145,7462
+
+Clergeon
+
+0
+
+0
+
+Semnoz
+
+46,61
+
+41,949
+Az = 88,3°
+
+Andilly A
+
+La figure ci-contre (qui n'est pas à
+l'échelle) montre les différents
+angles des triangles déduits de nos
+mesures.
+Nous n'avons pas pu effectuer de
+mesures
+depuis
+Chaumont
+(Antenne).
+
+29,502°
+
+Salève
+
+130,253°
+59,202°
+Chaumont
+
+89,244°
+
+26,253°
+
+Clergeon
+
+47,313°
+56,502°
+81,531°
+
+41,949°
+Croix du Nivolet
+
+18
+
+B
+
+Semnoz
+
+•
+
+Calcul de la distance
+
+Pour calculer la longueur de tous les côtés des triangles, nous n'avons pas utilisé la
+trigonométrie mais le logiciel Géogebra, qui permet de faire des constructions géométriques
+exactes. Nous avons procédé en plusieurs étapes :
+Étape 1 : Nous avons commencé par tracer la droite qui correspond à la direction nord-sud. Partant
+d'un point de cet axe, nous avons orienté le coté Andilly A – Salève grâce à la valeur de l'azimut
+(88,3°). Puis nous avons donné à ce côté la valeur arbitraire de 1. La distance Andilly A – Salève
+fixe donc l'échelle de la figure.
+
+On trace la droite nord-sud et on oriente le côté Andilly A - Salève,
+en lui attribuant la valeur arbitraire de 1.
+
+Étape 2 : On construit le premier triangle Andilly – Salève – Chaumont avec les angles mesurés
+depuis Andilly et depuis le Salève. On trouve la position de Chaumont.
+
+19
+
+Étape 3 : Pour le deuxième triangle Salève – Chaumont – Semnoz, nous connaissons les angles
+mesurés depuis le Salève et depuis le Semnoz. Nous en déduisons le troisième, en utilisant le fait
+que la somme des trois angles égale 180°. Avec les angles depuis Chaumont et depuis le Salève,
+nous pouvons trouver la position du Semnoz.
+
+Nos deux mesures sont les angles δ et ζ.
+Grâce à ceux-ci, on peut calculer l'angle ε.
+C'est grâce à ε et δ qu'on peut alors
+construire le triangle Salève, Chaumont,
+Semnoz dans Geogebra.
+
+Étape 4 : Nous construisons de proche
+en proche la chaîne de triangulation complète.
+Le logiciel permet de connaître la longueur du
+segment Andilly A – Point B.
+
+20
+
+Andilly A et la Croix du Nivolet ne sont pas exactement situés sur le même méridien. La
+croix du Nivolet est un peu à l'ouest d'Andilly A. Nous projetons la Croix du Nivolet sur la ligne
+nord-sud (l'axe des ordonnées). Le point B obtenu a la même latitude que la Croix du Nivolet (il est
+situé sur le même parallèle). C'est la distance Andilly A – point B que nous déterminons.
+Nous trouvons que la distance Andilly A – Point B est 8,24 fois la distance Andilly A –
+Salève. Puisque cette dernière est de 6,226 km, la distance entre les points extrêmes de la
+triangulation est :
+Andilly A−Point B=8,24×6,226=51,30 km .
+
+3. Calcul du rayon de la Terre
+•
+•
+
+Récapitulons l'ensemble de nos résultats :
+Différence de latitude entre Andilly A et la croix du Nivolet : Δ ϕ=0,475 ° .
+Distance Andilly A – Point B : 51,30 km.
+Pour avoir le périmètre p de la Terre, il suffit d'effectuer un produit en croix :
+360×51,30
+p=
+=38880km
+0,475
+Nous obtenons le rayon R de la Terre en divisant le périmètre par 2π :
+p 38880
+R=
+=
+=6190km
+2π
+2π
+
+Actuellement, la valeur du rayon terrestre communément admise est de 6370 km. Nous
+sommes à moins de 200 km de celle-ci.
+
+III. PRÉCISION DE NOTRE RÉSULTAT
+Nous voulons maintenant connaître la précision de notre résultat en fonction de nos
+imprécisions de mesures. Nous allons d'abord nous interroger sur nos différentes mesures et estimer
+à chaque fois les marges d'erreurs. Puis chercher quelles en sont les répercussions sur le résultat
+final.
+
+1. Les différentes erreurs de mesure
+a) Une erreur sur la différence de latitude
+Quelle est la précision d'une mesure au sextant ? Il est difficile de répondre d'emblée.
+Lorsque le Soleil culmine au méridien, sa trajectoire dans le Ciel est pratiquement horizontale
+pendant quelques instants. Entre le moment où il finit de monter et le moment où il commence à
+descendre, il se passe dix bonnes minutes sans que sa hauteur varie. Cela laisse le temps à chacun
+d'entre nous de faire une mesure de hauteur et de comparer les résultats. Lors de nos premiers
+essais, nos mesures étaient très divergentes. Puis, au fur et à mesure de notre entraînement, nous
+sommes devenus capables de faire les mesures beaucoup plus rapidement et en obtenant des valeurs
+très proches : la différence étant de 1 à 2' au plus. Cette légère différence est inévitable. Elle
+provient de la difficulté de bien superposer les deux images du Soleil dans la lunette du sextant.
+Lors de nos essais au lycée, nous avons effectué 5 mesures de hauteur du Soleil toujours
+depuis le même endroit. Ces mesures permettent de calculer 5 fois la latitude du lycée. Le site de
+21
+
+l'IGN donne la valeur exacte de la latitude de ce point (φlycée = 46,182°). Nous pouvons donc
+comparer nos différentes mesures à la réalité.
+Jour
+
+Mesure sextant
+
+Hauteur h
+
+Déclinaison δ
+
+Latitude φ
+
+Erreur
+
+°
+
+'
+
+°
+
+°
+
+°
+
+°
+
+6 sep.
+
+100
+
+8
+
+50,067
+
+6,277
+
+46,210
+
+0,028
+
+13 sep.
+25 sep.
+27 sep.
+2 oc.
+
+94
+85
+
+51
+33
+
+47,425
+42,775
+
+3,628
+-1,018
+
+46,203
+46,207
+
+0,021
+0,025
+
+84
+80
+
+0
+5
+
+42,000
+40,042
+
+-1,797
+-3,738
+
+46,203
+46,220
+
+0,021
+0,038
+
+On observe que les erreurs sont toujours positives et comprises entre 0,02 et 0,04°. Comme
+elles sont toujours positives, elles contiennent une composante systématique, qui peut provenir de
+notre manière de procéder, d'une phénomène non pris en compte (par exemple la réfraction
+atmosphérique qui dévie les rayons lumineux) ou d'un mauvais étalonnage de notre sextant. Cette
+erreur systématique n'est pas gênante pour nous. En effet, dans notre calcul du rayon terrestre, nous
+utilisons une différence de latitude. Si chaque mesure a une légère erreur systématique, cette erreur
+est éliminée par la soustraction. Il ne reste plus que l'erreur due à l'observateur, que l'on peut estimer
+à ± 0,02°, soit ± 1,2'. On retrouve bien notre estimation de l'erreur à 1 ou 2'.
+Les cartes de l'IGN permettent également de connaître la latitude précise des deux
+extrémités de la triangulation. La latitude d'Andilly est 46°04'45'' = 46,0792°. La latitude de la
+Croix du Nivolet est 45°36'49'' = 45,6136°. La différence de latitude est donc de 0,4656° alors que
+nous avons trouvé 0,475°, ce qui fait une différence de 0,01°. L'écart entre la différence de latitude
+mesurée et la différence de latitude vraie est concordante avec l'estimation de notre erreur.
+Pour voir les conséquences de cette erreur de 0,01° sur le résultat, on effectue l'ensemble de
+nos calculs dans un tableur. On voit que lorsqu'on modifie la différence de latitude d'une minute
+d'arc (1'=0,017°), alors la valeur du rayon terrestre est changé de 210 km (ce qui représente 3% du
+résultat) ! C'est assez important ! Et malheureusement, avec le sextant, nous n'avons aucun moyen
+de réduire cette erreur de 1' sur la mesure de la différence de latitude.
+Mesures
+
+Erreur estimé
+
+Longueur sur la règle (m)
+
+1,9
+
+0
+
+Longueur de la base AM (m)
+
+216,0
+
+Angle β du 1er triangle (°)
+Angle γ du 1er triangle (°)
+
+41,03
+1,305
+
+0
+0
+
+Longueur Andilly -Salève (km)
+
+6,226
+
+Facteur multiplicatif chaîne
+
+8,24
+
+Longueur Andilly – Point B (km)
+
+51,30
+
+Différence de latitudes (°)
+
+0,475
+
+0,017
+
+Rayon de la Terre (km)
+Calcul sans erreur mesures
+6188
+Calcul avec erreurs mesures
+5978
+Variation
+210
+Tableau qui nous permet de tester l'influence de chaque grandeur sur la précision du résultat final.
+Les nombres en bleu correspondent à nos mesures, les nombres en vert aux erreurs estimées et les
+nombres en violet aux calculs intermédiaires.
+
+22
+
+b) Une erreur sur la mesure de la base
+Pour mesurer la longueur de la base Andilly A – Andilly M, nous avons visé une longueur de
+1,90 m sur la règle. Quelle erreur sur cette mesure ? Grâce à la lunette du théodolite, nous voyions
+très distinctement la règle. Nous avons placé le viseur séparant une plage blanche d'une plage noire,
+chacune des plages mesurant 10 cm. Pour chaque visée, nous estimons notre erreur à 1 ou 2 cm, ce
+qui fait que la longueur visée était de 1,90 m ± 2 ou 4 cm. Nous considérons une erreur de 3 cm.
+Celle-ci modifie notre résultat final sur le rayon terrestre de 100 km (1,5% du résultat). C'est encore
+très grand !
+c) Une erreur sur les mesures des angles du premier triangle
+Pour le premier triangle, nous avons pu mesurer les trois angles du triangle et voir que la
+somme était de 179,978°. L'erreur est donc de 0,022° pour la somme des 3 angles, ou environ 0,01°
+par angle. Que représente cette erreur pour la visée ? Pour répondre, nous utilisons le triangle
+suivant :
+d=?
+
+0,01°
+
+6 km
+Nous obtenons : d =6000×tan 0,01=1 m . L'erreur de 0,01° dans l'angle implique que
+nous ayons visé 1 m à côté de la cible. C'est tout-à-fait cohérent avec ce que nous voyions dans la
+lunette du théodolite.
+La répercussion dans notre résultat final est étonnante : si on change la valeur de l'angle β de
+0,01°, la valeur du rayon terrestre est modifiée de 1 km. C'est entièrement négligeable. En revanche,
+si on change la valeur de l'angle γ de 0,01°, cette fois la valeur du rayon terrestre est modifiée de 47
+km.
+d) Un erreur sur l'orientation de la chaîne
+L'orientation de la chaîne provient de la mesure de l'azimut du côté Andilly A – Salève. Cet
+azimut a été mesuré grâce au passage du Soleil au méridien. Nous faisions l'image du Soleil sur une
+feuille de papier. Le Soleil n'était donc peut-être pas exactement bien centré dans la lunette du
+théodolite mais l'erreur commise reste faible, maximum un demi degré. Dans GéoGebra, nous
+changeons donc la valeur de l'angle correspondant et nous voyons que le coefficient multiplicatif de
+la chaîne passe de 8,24 à 8,25 et que le résultat final sur le rayon terrestre est changé de 15 km. Par
+rapport aux erreurs précédentes, c'est tout à fait négligeable.
+e) Une erreur sur tous les angles de la triangulation
+Nous avons déjà dit que sur le premier triangle, l'erreur des angles était d'environ 0,01°.
+Dans le dernier triangle, Clergeon-Semnoz-Nivolet, nous avons aussi mesuré les trois angles. Leur
+somme est égale à 41,949 + 81,531 + 56,502 = 179,982°. Là encore, l'erreur sur la somme des trois
+angles est de 0,02° donc toujours à peu près 0,01° par angle.
+Pour voir quelle est la répercussion sur le calcul final, nous décidons d'augmenter la valeur
+de tous les angles qui apparaissent dans la chaîne de triangulation de 0,01° de telle sorte que la
+chaîne soit la plus longue possible (cela correspond au cas le plus défavorable, où les erreurs ne
+23
+
+s'annulent pas l'une l'autre mais ont un effet cumulatif). Le coefficient multiplicatif de la chaîne
+passe de 8,24 à 8,26, ce qui occasionne un changement dans la valeur du rayon terrestre de 30 km.
+C'est encore négligeable par rapport aux erreurs précédentes.
+
+2. Récapitulatif et possibilités d'amélioration
+Notre résultat final est plus sensible à certaines mesures qu'à d'autres. Trois mesures sont
+très importantes :
+• La différence de latitude : une erreur de 1' = 0,017° occasionne une erreur sur le rayon de
+200 km.
+• La longueur de la base : une erreur de 3 cm sur la règle occasionne une erreur sur le rayon
+de 100 km.
+• L'angle γ du premier triangle : une erreur de 0,01° occasionne une erreur sur le rayon de 50
+km.
+Notre résultat est donc précis à 400 km près. Il s'écrit :
+
+RTerre =6200±400 km .
+
+Que pourrions nous faire pour améliorer notre détermination du rayon de la Terre ? La
+mesure de la différence de latitude est la plus délicate car c'est elle qui occasionne la plus grande
+erreur. Or, nous sommes déjà très précis ! Notre mesure est à 0,02° près. Il est impossible de
+l'améliorer avec le sextant. Avec le théodolite, nous aurions pu mesurer la hauteur méridienne
+d'étoiles, qui sont plus facile à viser. Et surtout, nous aurions pu en viser plusieurs et en faisant la
+moyenne des différents résultats, nous aurions pu diminuer nos erreurs d'observation. Nous aurions
+pu aussi augmenter la longueur de la chaîne, en la prolongeant vers le Jura par exemple. Notre
+erreur de 0,02° aurait alors eu moins de conséquence.
+La deuxième mesure délicate est celle de la longueur de la base. Il existe aujourd'hui des
+méthodes plus précises, disponibles sur les théodolites modernes : mesure du temps de parcours
+d'une onde infra-rouge. Nous aurions pu aussi chercher à mesurer une base plus longue.
+
+CONCLUSION
+Mesurer le rayon de la Terre n'est pas une mince affaire ! Malgré toutes les difficultés
+rencontrées, nous avons beaucoup apprécié mener ce projet du début à la fin, un projet que nous
+avions choisi. Rien à voir avec la routine des cours ! Avec l'aide du professeur, nous avons dû
+avancer peu à peu, trouver les méthodes pour déterminer nos deux grandeurs : la distance entre les
+deux lieux du méridien et la différence de leur latitude. Pour cela, apprendre à se servir du sextant et
+du théodolite était particulièrement intéressant. Au début, nos mesures étaient très imprécises. Alors
+que nous mesurions la même chose, nous obtenions des valeurs assez différentes. C'était frustrant.
+Puis nos mesures se sont harmonisées et nous étions capables, en plus, de les faire de plus en plus
+rapidement. Faire une mesure précise s'apprend ! En anecdote, lorsque nous faisons nos mesures de
+la hauteur du Soleil avec le sextant à la Croix du Nivolet, un couple de randonneurs s'est intéressé à
+ce que nous faisions. Nous leur avons proposé de regarder à travers le sextant pour réaliser eux
+aussi une mesure. En voyant les difficultés qu'ils avaient pour faire coïncider les deux images du
+Soleil, nous avons réalisé que nous avions fait de grands progrès !
+Un grand avantage de notre projet est qu'il nous emmenait à l'extérieur. Réaliser des mesures
+sur le terrain, même quand il a fallu porter les instruments et marcher pendant une heure pour
+rejoindre un point de mesure, même quand il a fallu se lever tôt un samedi matin, était une belle
+expérience qui nous a permis de faire de la science en dehors de l'école. La réflexion sur la
+précision de notre résultat nous a aussi beaucoup appris : celle-ci est tout aussi importante que le
+24
+
+résultat lui-même. Et parmi toutes les mesures réalisées pour arriver au résultat, toutes n'ont pas la
+même importance. Certaines sont plus cruciales que d'autres et pour améliorer la précision, c'est sur
+celles-ci qu'il faut porter son attention.
+
+25
+
+

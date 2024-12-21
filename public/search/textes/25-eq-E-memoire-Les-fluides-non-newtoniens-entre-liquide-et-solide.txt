@@ -1,0 +1,1028 @@
+Olympiades de Physique France
+Lycée Français de Berlin
+2017-2018
+
+Les fluides non-newtoniens :
+entre liquide et solide
+
+Wim Poignon 12S1
+Agnès Totschnig 12S2
+
+Professeur encadrant :
+M. Sordelet
+
+Table des matières
+Introduction
+
+2
+
+1 Étude de la viscosité d’un fluide
+2
+1.1 Introduction à la mécanique des ﬂuides . . . . . . . . . . . . . . . . . . . . . . . . . 2
+1.1.1 Déﬁnition de la viscosité . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 2
+1.1.2 Comportement rhéologique des ﬂuides newtonien et non-newtonien . . . . . 3
+1.2 Un exemple de ﬂuide rhéoépaississant : le mélange eau maïzena . . . . . . . . . . . 5
+1.2.1 Expérience illustrative du phénomène rhéoépaississant . . . . . . . . . . . . 5
+1.2.2 Explication du phénomène . . . . . . . . . . . . . . . . . . . . . . . . . . . . 6
+1.3 Inﬂuence de la concentration de maïzena . . . . . . . . . . . . . . . . . . . . . . . . 7
+1.4 Mesure de viscosité . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 8
+1.4.1 Principe du viscosimètre à chute de bille . . . . . . . . . . . . . . . . . . . . 8
+1.4.2 Fonctionnement d’un capteur à eﬀet Hall . . . . . . . . . . . . . . . . . . . . 9
+1.4.3 Mesure de la viscosité du mélange eau-maïzena . . . . . . . . . . . . . . . . 10
+2 Amortissement d’un choc par absorption d’énergie
+11
+2.1 Mesure de la dissipation d’énergie par le rebond d’une bille . . . . . . . . . . . . . . 11
+2.2 Mesure de l’impact avec un capteur piézoélectrique . . . . . . . . . . . . . . . . . . 13
+2.2.1 L’eﬀet piézoélectrique . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 13
+2.2.2 Mesure de la déformation liée au choc . . . . . . . . . . . . . . . . . . . . . . 13
+3 Élaboration d’un prototype de bonnet protecteur
+14
+3.1 Modélisation et construction du prototype . . . . . . . . . . . . . . . . . . . . . . . 14
+3.2 Durabilité du mélange eau-maïzena . . . . . . . . . . . . . . . . . . . . . . . . . . . 15
+3.2.1 Problème de fermentation . . . . . . . . . . . . . . . . . . . . . . . . . . . . 15
+3.2.2 Solution au problème . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 15
+3.3 Inﬂuence de la température sur la viscosité . . . . . . . . . . . . . . . . . . . . . . . 16
+3.4 Empêcher l’écoulement avec un ﬂuide de Bingham . . . . . . . . . . . . . . . . . . . 16
+3.5 Sédimentation . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 17
+Conclusion
+
+18
+
+Remerciements
+
+19
+
+Références
+
+19
+
+1
+
+Introduction
+Dans la vie quotidienne, nous observons que les ﬂuides qui nous entourent ont des comportements très divers et étonnants. Le dentifrice, par exemple, ne veut pas sortir de son tube tant
+qu’on ne le soumet pas à une pression suﬃsante. Il en est de même pour le ketchup, qui devient
+tout d’un coup très liquide et jaillit de la bouteille. Ou peut-être connaissez vous le slime, qui est
+devenu une réelle célébrité du web grâce à ses propriétés physiques hors du commun ?
+Dans ce projet, nous étudierons les propriétés rhéologiques du mélange de l’eau avec de la fécule
+de maïs, habituellement utilisée en cuisine pour épaissir les sauces, et sa capacité à amortir un
+choc. Puis nous utiliserons ces connaissances pour réaliser un bonnet liquide qui durcit sous l’eﬀet
+d’un impact pour protéger la tête.
+
+1
+
+Étude de la viscosité d’un fluide
+
+1.1
+
+Introduction à la mécanique des fluides
+
+1.1.1
+
+Définition de la viscosité
+
+Par opposition à un solide, on déﬁnit un ﬂuide comme étant une matière déformable. Cette
+déﬁnition regroupe les liquides, les gaz et les plasmas. La rhéologie, qui vient du grec rheo couler
+et logos l’étude, constitue la branche de la mécanique des ﬂuides qui étudie la déformation et
+l’écoulement des ﬂuides lorsqu’ils sont soumis à une force.
+Aﬁn de caractériser le comportement d’un ﬂuide sous cisaillement, on place une couche du ﬂuide
+entre deux plaques parallèles, d’aire A et espacées d’une distance h, formant ainsi une cellule de
+cisaillement. On applique une force F à la plaque supérieure, qui se déplace alors à la vitesse V :
+
+Crédit: Etienne Lemaire, Université Bordeaux I
+
+Figure 1 – Cellule de cisaillement plan-plan
+On peut modéliser le ﬂuide comme un empilement de couches qui glissent les une par rapport aux
+autres, ce qui exerce une contrainte au niveau de la surface de séparation entre les couches. Cette
+contrainte de cisaillement τ , exprimée en pascals (Pa), est le rapport entre la force F appliquée
+et l’aire A de la surface. Comme on peut le remarquer sur la ﬁgure de gauche, la répartition des
+vitesses suit une loi linéaire. On déﬁnit alors le gradient de vitesse, également nommé taux de
+cisaillement γ̇, exprimé en s−1 , comme étant le quotient de la vitesse V de la plaque supérieure
+par la distance inter-plaques h. La viscosité η, exprimée en Pa · s ou en poiseuille (Pl), relie alors
+la contrainte au taux de cisaillement :
+τ
+η=
+γ̇
+Ainsi la viscosité est une grandeur permettant de quantiﬁer la résistance à l’écoulement d’un ﬂuide.
+2
+
+Pour étudier l’écoulement de ﬂuides aux viscosités diﬀérentes, nous avons réalisé l’expérience du
+plan incliné (ﬁg. 2) : nous déposons quelques gouttes d’eau, colorée en bleu pour plus de visibilité,
+(à gauche) et d’huile (à droite) sur une plaque de verre inclinée à 45◦ .
+On observe que la goutte d’eau s’écoule très rapidement, alors que
+la goutte d’huile glisse doucement. Cette diﬀérence s’explique par le
+fait que l’huile, bien que moins dense, est plus visqueuse que l’eau et
+adhère donc plus à la paroi en verre.
+On remarque également une diﬀérence dans la forme de la goutte
+(ﬁg. 3) : la goutte d’eau est plus aplatie que la goutte d’huile plus
+pointue.
+
+Figure 2 – Plan incliné
+
+Figure 3 – Gouttes d’eau (a) et d’huile (b)
+
+Cette diﬀérence de forme s’explique par le régime d’écoulement des deux ﬂuides :
+— Pour la goutte d’huile, les forces de frottement liées à la viscosité sont assez importantes
+pour assurer la cohésion des couches parallèles : l’écoulement est laminaire (ﬁg. 4.a).
+— Pour la goutte d’eau, cependant, les forces de frottement ne suﬃsent pas et les lignes d’écoulement deviennent chaotiques : l’écoulement est turbulent (ﬁg. 4.b).
+
+Crédit: fr. wikipedia. org/ wiki/ Écoulement_ laminaire
+
+Figure 4 – Modèle d’écoulements laminaire (a) et turbulent (b)
+Nous pouvons donc dire que la viscosité caractérise la vitesse et le régime d’écoulement d’un ﬂuide.
+1.1.2
+
+Comportement rhéologique des fluides newtonien et non-newtonien
+
+Nous nous intéresserons uniquement aux ﬂuides dont la viscosité est indépendante du temps.
+Parmi ceux-ci nous distinguons deux types : les ﬂuides newtoniens et non-newtoniens.
+Pour les ﬂuides newtoniens, la contrainte est proportionnelle au taux de cisaillement. Leur
+viscosité est donc constante. La plupart des ﬂuides usuels, tels que l’eau et l’huile, sont des ﬂuides
+newtoniens.
+Pour les ﬂuides non-newtoniens, la contrainte n’est pas proportionnelle au taux de cisaillement.
+Leur viscosité, que l’on qualiﬁe alors de viscosité apparente, n’est donc pas constante, mais dépend
+du taux de cisaillement. Lorsqu’elle diminue quand le taux de cisaillement augmente, on parle de
+ﬂuide rhéoﬂuidiﬁant. Inversement, lorsqu’elle augmente quand le taux de cisaillement augmente,
+on parle de ﬂuide rhéoépaississant. Pour certains ﬂuides, dits ﬂuides à seuil, le taux de cisaillement
+reste nul tant que la contrainte n’atteint pas une certaine valeur.
+3
+
+Les courbes d’écoulement (ﬁg. 5), qui donnent la contrainte de cisaillement (à gauche), ou de
+façon équivalente la viscosité (à droite), en fonction du taux de cisaillement, résument ces diﬀérents
+comportements :
+
+Crédit: http ://culturesciencesphysique.ens-lyon.fr
+
+Figure 5 – Rhéogrammes des ﬂuides (a) rhéo-ﬂuidiﬁant, (b) newtonien, (c) rhéo-épaississants et
+(d) à seuil
+Pour étudier ces comportements de façon expérimentale, nous avons choisi le sirop à la menthe
+comme ﬂuide newtonien, le ketchup comme ﬂuide rhéoﬂuidiﬁant et le mélange eau-maïzena comme
+ﬂuide rhéoépaississant.
+On place un entonnoir, ﬁxé par une potence, au-dessus d’un
+bécher posé sur une balance. On met 100g du ﬂuide, à température ambiante, dans l’entonnoir, puis on ﬁlme la vitesse
+à laquelle s’écoule le ﬂuide.
+
+À partir de ces données, nous traçons la courbe qui donne l’évolution de la masse écoulée, i.e.
+qui se trouve déjà dans l’entonnoir, en fonction du temps. La dérivée par rapport au temps nous
+donne alors le débit massique. Dans le cadre de notre expérience la contrainte provient du poids
+du ﬂuide qui se trouve encore dans l’entonnoir. Elle diminue donc au cours de l’écoulement.
+Pour notre ﬂuide newtonien (ﬁg. 6), le sirop de menthe, on observe que le débit diminue avec le
+temps. Le taux de cisaillement reste donc proportionnel à la contrainte qui diminue au fur et à
+mesure que l’entonnoir se vide, c’est-à-dire que la viscosité reste constante.
+
+Figure 6 – Courbes d’écoulement du sirop
+4
+
+Le débit de notre ﬂuide rhéoﬂuidiﬁant (ﬁg. 7), le ketchup, diminue beaucoup au cours du temps,
+c’est-à-dire que son écoulement devient de plus en plus lent. C’est également la raison pour laquelle
+nous n’avons pas pu continuer les mesures jusqu’à la ﬁn. On en conclut que le ketchup devient de
+plus en plus visqueux, i.e. qu’il est le moins visqueux au début lorsque la force appliquée est la
+plus grande.
+
+Figure 7 – Courbes d’écoulement du ketchup
+Le débit de notre ﬂuide rhéoépaississant (ﬁg. 8), le mélange eau-maïzena, reste constant au cours
+de l’écoulement, c’est-à-dire que la vitesse d’écoulement ne varie pas, alors que la force appliquée
+diminue. On en conclut que le ﬂuide devient de moins en moins visqueux, i.e. qu’il est le plus
+visqueux au début lorsque la force appliquée est la plus grande.
+
+Figure 8 – Courbes d’écoulement du mélange eau-maïzena
+Nos expériences nous ont donc bien permis de retrouver les comportements des diﬀérents types
+de ﬂuides décrits par la théorie. Par la suite nous allons nous intéresser plus précisément au ﬂuide
+rhéoépaississant que constitue le mélange de maïzena avec de l’eau.
+
+1.2
+
+Un exemple de fluide rhéoépaississant : le mélange eau maïzena
+
+1.2.1
+
+Expérience illustrative du phénomène rhéoépaississant
+
+Nous venons de voir que le mélange eau-maïzena est un ﬂuide rhéoépaississant, c’est-à-dire que
+sa viscosité augmente lorsque la force qui lui est appliquée augmente.
+Une expérience très visuelle qui met en évidence ce phénomène consiste à faire tomber une bille
+sur le ﬂuide depuis une certaine hauteur ainsi que de la poser doucement dessus.
+5
+
+Dans le premier cas, la bille atteint le ﬂuide avec une vitesse élevée (photo 1). Sous l’eﬀet de cette
+contrainte, le ﬂuide se « solidiﬁe », i.e. sa viscosité augmente drastiquement, et fait rebondir la
+bille (photo 2). Cependant, dans le deuxième cas, la bille atteint le ﬂuide avec une vitesse nulle
+(photo 3). Le ﬂuide se comporte alors comme un liquide et laisse s’enfoncer la bille (photo 4).
+1.2.2
+
+Explication du phénomène
+
+Pour expliquer ce phénomène rhéoépaississant, nous avons observé le mélange eau-maïzena au
+microscope (ﬁg. 9).
+Nous remarquons que des agrégats de maïzena d’une
+taille entre 5 et 15 µm se sont formés. Ces grains ne
+sont pas solubles dans l’eau, on dit qu’ils sont hydrophobes. On ne peut donc pas parler de solution, mais
+de suspension colloïdale. Au repos, l’eau circule librement entre les grains, mais, lorsqu’une force est exercée, l’eau est expulsée et les grains se rapprochent, ce
+qui explique l’aspect solide du ﬂuide.
+
+10 µm
+
+Figure 9 – Maïzena au microscope
+Par abus de langage, nous utilisons le nom de Maïzena, qui est en fait celui d’une marque, pour désigner l’amidon de maïs. Ce glucide complexe est constitué de deux polymères composés d’unités D-glucose :
+l’amylose et l’amylopectine. Cette dernière molécule,
+qui représente environ 75 % de l’amidon de maïs, a
+une structure très ramiﬁée (ﬁg. 10), ce qui nous laisse
+supposer que l’eau ne peut pas bien pénétrer dans la
+Crédit: www.curieusecuisine.wordpress.com
+molécule pour la dissoudre. Cela expliquerait pourquoi
+Figure 10 – Structure de l’amylopectine
+des agrégats hydrophobes se forment.
+OH
+
+O
+O
+
+HO
+
+OH
+
+Figure 11 – Unité de D-glucose
+
+Cependant en regardant plus précisément les unités de Dglucose (ﬁg. 11), dont ces molécules sont composées, nous remarquons que des liaisons hydrogène peuvent se former avec
+l’eau, grâce aux nombreux groupes hydroxyles. Nous émettons donc la conjecture que les molécules d’eau sont reliées à
+l’amidon par des liaisons hydrogène aux bords des agrégats,
+formant ainsi une enveloppe qui permet plus de ﬂuidité. Alors
+lorsqu’une force est appliquée, l’énergie apportée est utilisée
+pour briser ces liaisons, d’environ 15 kJ · mol−1 . Cette capacité d’absorption d’énergie fait du mélange eau-maïzena un
+bon amortisseur, ce que nous étudierons dans la partie 2.
+6
+
+1.3
+
+Influence de la concentration de maïzena
+
+Dans la partie 1.1.2, nous avons vu que le débit du mélange eau-maïzena reste constant au
+cours de l’écoulement. Cependant, le débit varie en fonction de la concentration de maïzena. Nous
+cherchons donc à savoir quelle est la concentration optimale en maïzena, c’est-à-dire un mélange
+au débit faible mais tout de même liquide. Nous avons réalisé la même expérience (ﬁg. 12) que
+dans la partie 1.1.2 pour diﬀérentes concentrations en maïzena.
+En général, nous constatons qu’en eﬀet le débit ne varie pas en
+fonction du temps. Cependant à partir d’une concentration
+trop élevée (ﬁg. 13), environ 1,4 kg de maïzena pour 1 L
+d’eau, l’écoulement est trop lent et la décantation du mélange
+entraîne une forte diminution du débit.
+
+Temps (en s)
+
+0.2
+0.15
+0.1
+
+5 · 10−2
+0
+
+Figure 12 – Montage de l’écoulement du mélange eau-maïzena
+
+0
+
+50
+
+100
+
+150 200 250 300
+Débit (en g/s)
+
+350
+
+400
+
+Figure 13 – Courbe d’écoulement à forte concentration de
+maïzena
+
+Débit moyen (en g/s)
+
+Nous avons fait 7 mesures pour des concentrations allant de 0,7 kg à 1,3 kg de maïzena par litre
+d’eau, avec un pas de 0,1 kg · L−1 . En traçant à chaque fois la courbe d’écoulement nous avons
+calculé le débit moyen, qui est le coeﬃcient directeur de la droite de régression linéaire de nos
+valeurs. Nous résumons cela par la courbe donnant le débit moyen en fonction de la concentration :
+15
+
+10
+
+5
+
+0
+0.6
+
+0.7 0.8 0.9
+1
+1.1 1.2 1.3
+Masse de maïzena (en kg) par litre d’eau
+Nous en concluons que le débit moyen diminue fortement, c’est-à-dire que la viscosité augmente,
+lorsque la concentration de maïzena augmente, jusqu’à ce qu’elle dépasse environ 1,1 kg · L−1 .
+Au delà, le débit tend lentement vers zéro. Nous choisissons la concentration de 1,3 kg · L−1 , car
+au repos le ﬂuide a un comportement liquide et peut s’écouler, mais sous contrainte il devient
+entièrement solide. Puis nous avons calculé la concentration massique de ce mélange (voir annexe).
+7
+
+1.4
+
+Mesure de viscosité
+
+1.4.1
+
+Principe du viscosimètre à chute de bille
+
+On remplit une éprouvette graduée avec le ﬂuide dont on veut déterminer la viscosité, puis on
+lâche une bille sans vitesse initiale dans le ﬂuide. L’étude de l’évolution de la vitesse de la bille au
+cours de sa chute permet de calculer la viscosité du ﬂuide. À titre d’exemple, nous commencerons
+par mesurer la viscosité de l’huile de colza.
+
+ρbille ≈ 2, 62 · 103 kg · m−3
+Nous la lâchons dans une éprouvette
+graduée remplie d’huile, dont la masse
+volumique vaut :
+ρfluide = 920 kg · m−3
+
+Vitesse (en m·s−1 )
+
+Nous utilisons une bille de rayon R = 8
+mm et de masse volumique :
+0.5
+0.4
+0.3
+0.2
+
+L’évolution de sa vitesse est donnée par
+le graphique ci-contre (ﬁg. 14).
+
+0
+
+0.1
+
+0.2
+
+0.3
+0.4
+Temps (en s)
+
+0.5
+
+0.6
+
+Figure 14 – Chute d’une bille dans l’huile
+
+Nous remarquons que la vitesse tend asymptotiquement vers une valeur d’environ 0,54 m· s−1 ,
+que nous nommons vitesse limite (voir annexe). Lorsque la bille atteint cette vitesse limite, son
+accélération est nulle. D’après la deuxième loi de Newton, nous pouvons alors dire que les forces
+qui lui sont appliquées se compensent. Mais quelles sont ces forces ?
+g~
+
+−
+→
+Ff
+
+−
+→
+FA
+
+−
+→
+Fp
+
+v~
+
+Figure 15 – Les trois forces
+s’exerçant sur la bille
+
+La bille est soumise à trois forces (ﬁg. 15) dont la direction est
+verticale et dont le point d’application est le centre de la bille :
+−
+→
+— son propre poids : Fp = ρbille V g~
+— la poussée d’Archimède exercée par le ﬂuide sur la bille :
+−
+→
+FA = −ρfluide V g~
+— la force de frottements, donnée par la loi de Stokes :
+−
+→
+Ff = −6πηR~v
+Le fait que cette dernière force, qui ralentit la chute, soit proportionnelle à la vitesse de la bille, explique pourquoi les forces
+ne se compensent qu’à partir d’une certaine vitesse.
+
+Puisque l’accélération est nulle lorsque la bille atteint la vitesse limite, on a :
+Fp + FA + Ff = 0 ⇔ ρbille V g − ρfluide V g − 6πηRvlim = 0 ⇔ η =
+
+2R2
+(ρbille − ρfluide )g
+9vlim
+
+Pour notre huile, nous obtenons donc une viscosité de :
+2
+
+η=
+
+2 × (8 · 10−3 )
+· (2, 62 · 103 − 920) · 9, 81 ≈ 0, 44 Pa · s
+9 · 0, 54
+
+Ce résultat est environ 5 fois plus grand que la valeur attendue de la viscosité de l’huile. En eﬀet,
+l’éprouvette n’est pas assez large et ralentit la chute de la bille.
+8
+
+1.4.2
+
+Fonctionnement d’un capteur à effet Hall
+
+Pour notre mélange eau-maïzena se pose à nous le problème de l’opacité du ﬂuide, qui nous
+empêche de voir la bille. Dans un premier temps, nous avons essayé de localiser la bille avec des
+émissions dans d’autres domaines du spectre électro-magnétique, comme par exemple l’infrarouge.
+Cependant les ondes furent réﬂéchies par la surface du mélange. Nous avons donc cherché un champ
+qui puisse traverser notre ﬂuide. Le champs magnétique, par exemple, satisfait cette exigence.
+En 1879, le physicien américain Edwin Hall découvre que :
+« un courant électrique traversant un matériau baignant dans
+un champ magnétique, engendre une tension perpendiculaire à
+ce dernier ». Cet eﬀet, qui porte depuis son nom, nous permet
+de mesurer le champs magnétique. Nous utiliserons donc un
+aimant permanent de forme sphérique et des capteurs à eﬀet Hall
+(ﬁg. 16), dont la tension aux bornes varie en fonction du champ
+magnétique, c’est-à-dire en fonction de sa norme et de sa direction.
+Crédit: pubs.sciepub.com
+
+Figure 16 – Fonctionnement d’un capteur à eﬀet Hall
+Pour tester notre capteur à eﬀet Hall, un Honeywell SS495A (ﬁg. 18), nous avons mesuré, avec
+un Arduino, la tension aux bornes du capteur en fonction de la distance à l’aimant (ﬁg. 17).
+Tension (en mV)
+
+1,000
+800
+600
+
+0
+
+0.5
+1
+1.5
+2
+2.5
+3
+Distance entre le capteur et la bille (en cm)
+
+Figure 17 – Mesure du champ magnétique
+
+Figure 18 – Capteur à eﬀet
+Hall et bille magnétique
+
+Nous remarquons tout d’abord que les variations du champ magnétique, mesurées par notre capteur, nous permettent de localiser la bille. Cependant notre capteur mesure une variation du champ
+magnétique seulement lorsque la bille est à moins de 2 cm et sature lorsqu’elle s’approche de moins
+de 0,5 cm. Cela ne suﬃt pas pour mesurer la position de notre bille dans une éprouvette de 20 cm.
+De plus, nous avons observé que la rotation de la bille inﬂue beaucoup sur la tension aux bornes du
+capteur. Nous placerons donc plusieurs capteurs à eﬀet Hall au bord de l’éprouvette, pour savoir
+à quel moment elle passe à un endroit donné. La ﬁgure 19 donne la variation de la tension lorsque
+l’on passe la bille magnétique devant un capteur.
+
+Figure 19 – Variation de tension engendrée par le passage de la bille
+9
+
+1.4.3
+
+Mesure de la viscosité du mélange eau-maïzena
+
+Nous plaçons 8 capteurs à eﬀet Hall, espacés de 2 cm, sur une
+platine de montage de composants électroniques (ﬁg. 20), que
+nous ﬁxerons verticalement au bord de l’éprouvette (ﬁg. 21),
+remplie de notre mélange eau-maïzena, de masse volumique
+ρfluide ≈ 1, 20 · 103 kg · m−3 .
+
+Figure 20 – Schéma des 8 capteurs avec un Arduino R
+
+Figure 21
+l’éprouvette
+
+–
+
+Montage
+
+avec
+
+La bille magnétique, de rayon R = 5 mm et de masse volumique ρbille ≈ 7, 44 · 103 kg · m−3 , est
+lâchée dans l’éprouvette et nous observons les variations du champs magnétique mesurées par les
+capteurs à eﬀet Hall (ﬁg. 22).
+
+Tension (en mV)
+
+550
+capteur 1
+capteur 2
+capteur 3
+capteur 4
+capteur 5
+capteur 6
+capteur 7
+capteur 8
+
+500
+450
+400
+350
+300
+250
+
+0
+
+1
+
+2
+
+3
+
+4
+5
+Temps (en s)
+
+6
+
+7
+
+Figure 22 – Variation du champ magnétique au cours de la chute de la bille
+En calculant la diﬀérence de temps entre les extremums de tension, nous remarquons que ceux-ci
+sont bien réguliers et que donc la bille a bien atteint sa vitesse limite. On remarque quelques petites
+irrégularités, qui peuvent s’expliquer par :
+— la concentration de maïzena est tellement élevée que, lorsqu’on essaye de mélanger le ﬂuide,
+il se "durcit" et rend donc diﬃcile d’avoir un mélange bien homogène ;
+— la bille se tourne un peu, ou s’approche légèrement de la paroi, lors de sa chute, comme
+l’indique le fait que tous les capteurs n’ont pas la même tension minimale ;
+— il existe une diﬀérence de viscosité entre le haut et le bas du tube, puisque notre ﬂuide est
+rhéoépaississant et qu’il est soumis à son propre poids. Nous aurions aimé mesurer cette dif10
+
+férence, qui est relativement petite, mais la précision de notre matériel ne nous le permet pas.
+Pour plus de précision, nous avons fait l’expérience 8 fois et calculé la moyenne de la diﬀérence de
+temps entre le 1er et le 8e capteur et l’écart-type expérimental. Ainsi nous obtenons l’incertitude
+de type élargie en le multipliant par le facteur d’élargissement et en le divisant par la racine carrée
+du nombre d’expériences. Cela nous donne le mesurage suivant :
+∆t = (5, 5 ± 0, 2) s
+L’écart-type est d’autant plus grand que les mesures sont espacées dans le temps, car nous remarquons qu’un phénomène de sédimentation, auquel nous nous intéresserons de façon plus approfondie
+dans la partie 3.5, a lieu : avec le temps la concentration de maïzena augmente au fond de l’éprouvette.
+Nous en déduisons la vitesse limite vlim ≈ 2, 5·10−2 m·s−1 . Finalement, en appliquant la formule
+vue dans la partie 1.4.1, nous obtenons la viscosité de notre mélange eau-maïzena :
+2 × (5, 0 · 10−3 )2
+· (7, 44 · 103 − 1, 20 · 10−3 ) · 9, 81 ≈ 14 Pa · s
+−2
+9 × 2.5 · 10
+La viscosité de notre mélange eau-maïzena est donc comparable à celle du miel. Notons cependant,
+que ce n’est qu’une viscosité apparente, puisque la viscosité de notre ﬂuide varie en fonction de la
+contrainte.
+η=
+
+2
+
+Amortissement d’un choc par absorption d’énergie
+
+La présence de liaisons hydrogène, mise en évidence dans la partie 1.2.2, nous fait émettre
+l’hypothèse que le mélange eau-maïzena absorbe de l’énergie lors d’un impact où ces liaisons
+hydrogène se brisent. Dans cette partie, nous voulons vériﬁer cette capacité d’amortissement.
+
+2.1
+
+Mesure de la dissipation d’énergie par le rebond d’une bille
+
+Nous avons vu dans la partie 1.2.1, qu’une bille peut rebondir sur le mélange eau-maïzena.
+Pour calculer la capacité d’absorption d’énergie de notre ﬂuide, nous avons donc observé la hauteur h2 du rebond d’une bille de masse m, lâchée à une hauteur h1 (ﬁg. 23). Nous lâchons
+la bille sur le mélange eau-maïzena stocké dans un contenant de forme rectangulaire (ﬁg. 24).
+
+Figure 23 – Schéma d’un rebond
+
+Figure 24 – Chute de la bille à 30 cm
+11
+
+Nous mesurons alors la hauteur h2 du rebond pour diﬀérentes valeurs de h1 , entre 30 et 100 cm,
+car en dessous de 30 cm le rebond est trop faible pour en déterminer la hauteur :
+7
+
+essai 1
+essai 2
+essai 3
+
+6
+
+h2 (en cm)
+
+5
+4
+3
+2
+1
+0
+
+30
+
+40
+
+50
+
+60
+70
+h1 (en cm)
+
+80
+
+90
+
+100
+
+Figure 25 – Hauteur du rebond en fonction de la hauteur de chute
+La bille est en chute libre et nous négligeons les frottements avec l’air, donc il y a conservation
+de l’énergie mécanique de la bille au cours de sa chute, puis au cours de son rebond. En faisant la
+diﬀérence entre l’énergie avant l’impact et après le rebond, qui correspondent donc aux énergies
+potentielles de pesanteur liées à h1 et h2 , nous obtenons l’énergie absorbée par notre ﬂuide :
+∆Epp = mg(h1 − h2 )
+En faisant ce calcul pour les valeurs du rebond obtenues ci-dessus (ﬁg. 25), nous pouvons tracer
+la courbe montrant l’énergie absorbée par le mélange eau-maïzena en fonction de la hauteur à
+laquelle la bille est lâchée :
+0.5
+
+∆Epp (en J)
+
+0.4
+0.3
+0.2
+0.1
+0
+
+0
+
+20
+
+40
+60
+h1 (en cm)
+
+80
+
+100
+
+Nous remarquons que l’énergie absorbée
+est proportionnelle à la hauteur du lâché,
+c’est-à-dire à l’énergie de la bille au moment juste avant l’impact. En eﬀet nous
+calculons que notre ﬂuide absorbe environ
+94 % de l’énergie (ﬁg. 26). Cependant, il
+est diﬃcile de généraliser ces mesures à des
+impacts de la vie quotidienne, car l’énergie
+de notre bille reste assez faible.
+
+Figure 26 – Énergie absorbée
+Nous avons refait les mesures avec une épaisseur de 2 cm, au lieu de 1 cm, de notre mélange
+dans le contenant rectangulaire. Nous observons que la bille rebondit moins haut (voir annexe),
+c’est-à-dire que le ﬂuide absorbe plus d’énergie.
+12
+
+2.2
+
+Mesure de l’impact avec un capteur piézoélectrique
+
+Nous venons de voir que notre ﬂuide absorbe de l’énergie lors d’un choc. Ainsi nous voudrions
+savoir, s’il permet concrètement de réduire la magnitude des déformations.
+2.2.1
+
+L’effet piézoélectrique
+
+La piézoélectricité (ﬁg. 27), du grec piézein presser, fut
+découverte en 1880 par les frères Curie à Paris. Ils mirent en
+évidence que certains types de cristaux, tels que le quartz,
+se polarisent électriquement sous l’eﬀet d’une contrainte
+mécanique. Ainsi nous utiliserons un capteur piézoélectrique (ﬁg. 28) pour mesurer la déformation engendrée par
+un impact.
+2.2.2
+
+Figure 27 – L’eﬀet piézoélectrique
+
+Mesure de la déformation liée au choc
+
+Nous laissons tomber une bille d’une hauteur h sur un sachet rempli de notre ﬂuide, et sur un
+sachet d’eau comme témoin, sous lequel nous avons placé un capteur piézoélectrique, dont nous
+mesurons la tension (ﬁg. 29).
+bille
+h
+sachet
+
+Figure 28 – Capteur piézo
+
+capteur piezo
+
+Figure 29 – Montage expérimental
+
+Tension (en mV)
+
+La ﬁgure 30 donne la tension mesurée aux bornes du capteur piézo pour diﬀérentes hauteurs
+de chute. Nous remarquons que l’eau (en bleu) n’empêche pas la déformation, bien qu’elle ne la
+propage pas totalement : elle reste proportionnelle à h. Cependant, notre ﬂuide (en rouge) semble
+protéger le capteur piézo : la pression exercée sur le capteur est déjà assez élevée pour de petites
+chutes, mais n’augmente pas beaucoup lorsque h augmente.
+300
+
+eau
+maïzena
+
+200
+100
+0
+
+5
+10
+15
+20
+Hauteur de chute (en cm)
+
+Nous en concluons, qu’en devenant « solide »,
+notre ﬂuide forme une sorte de bouclier pour
+le capteur. Nous avons, en eﬀet, pu vériﬁer
+pour des hauteurs de chute plus élevées, que la
+déformation n’augmente presque plus.
+Cette méthode n’est cependant pas très précise,
+car la réponse du capteur piézo dépend fortement
+de l’endroit précis où s’exerce la pression.
+
+Figure 30 – Pression exercée par la bille
+13
+
+3
+
+Élaboration d’un prototype de bonnet protecteur
+
+Nous voulons nous servir de ce comportement à la fois liquide et solide et de cette capacité à
+amortir un choc. Nous avons pensé à faire un bonnet liquide qui se durcit lors d’un impact et agit
+comme un casque qui protège la tête. Cela présente comme grand avantage que, le bonnet étant
+liquide au repos, il peut s’adapter facilement à la taille et à la forme de la tête.
+
+3.1
+
+Modélisation et construction du prototype
+Pour commencer nous devons trouver un moyen de stocker le
+mélange eau-maïzena dans notre bonnet. Pour cela nous découpons le bonnet le long du bord aﬁn de pouvoir placer des sachets
+plastiques alimentaires, que l’on peut souder, à l’intérieur. Mais
+quelle doit alors être la forme des sachets pour qu’ils recouvrent
+notre bonnet en 3D ?
+
+Nous modélisons notre bonnet par une demi-sphère que
+nous découpons en 8 parts égales, qui resemblent à des triangles isocèles lorsque l’on les aplanis. Le problème avec des
+sachets de cette forme est que le ﬂuide va s’écouler vers le
+bas, laissant le haut de la tête sans protection. Nous rajoutons donc 4 traits de séparation horizontaux à nos sachets.
+
+Nous rassemblons nos 8 sachets, remplis avec le
+mélange eau-maïzena, deux à deux, et ajoutons
+des bandes velcro pour ﬁxer les sachets dans le
+bonnet.
+
+Nous obtenons alors un bonnet très ﬂexible, mais robuste, qui pèse environ 450 g.
+
+Figure 31 – Bonnet protecteur de l’extérieur (gauche) et de l’intérieur (droite)
+
+14
+
+3.2
+
+Durabilité du mélange eau-maïzena
+
+3.2.1
+
+Problème de fermentation
+
+Nous ne voudrions pas devoir refaire un bonnet tous les jours, ainsi nous nous sommes demandés
+combien de temps se conserve notre ﬂuide, que ce soit à l’air libre ou fermé hermétiquement. Pour
+répondre à cela, nous avons mis du mélange eau-maïzena dans deux tubes à essais, dont un fermé
+avec un bouchon. Nous avons laissé les tubes à essais pendant une semaine (ﬁg. 32).
+
+Figure 32 – Évolution de la fermentation du mélange eau-maïzena (a) au jour zéro, (b) après
+.......................................................cinq jours et (c) après une semaine
+Dans le tube à essais à l’air libre, celui de droite, on aperçoit qu’après 5 jours le mélange eaumaïzena augmente en volume, c’est-à-dire qu’un gaz s’est formé : on parle alors de fermentation.
+Dans le tube à essai fermé, celui de gauche, on constate uniquement une décantation du ﬂuide
+(voir 3.5). Ce n’est qu’après une semaine qu’on remarque également de petites bulles, signe de
+fermentation, dans le tube fermé. Le ﬂuide exposé à l’air libre commence alors à sécher car l’eau
+du mélange s’évapore.
+Lors du processus de fermentation, l’amylose et l’amylopectine se décomposent par des moyens
+chimiques en sucres simples, comme le glucose, car l’amidon n’est pas directement fermentable. Le
+contact à l’air accentue ce processus, mais un bouchon ne suﬃt pas pour conserver longuement
+notre ﬂuide. Comment augmenter la longévité du mélange eau-maïzena ?
+3.2.2
+
+Solution au problème
+
+Il existe diﬀérents conservateurs, comme par exemple l’acide benzoïque ou l’eau de javel, qui
+permettent de ralentir, voire même d’empêcher complètement la fermentation. Nous avons opté
+pour l’acide benzoïque, qui acidiﬁe le milieu et tue les bactéries. Nous réalisons la même expérience
+que ci-dessus en ajoutant de l’acide benzoïque avec une concentration de 0,02 mol.L-1 :
+
+Figure 33 – Évolution de la fermentation du mélange eau-maïzena avec de l’acide benzoïque (a)
+.........................................au jour zéro, (b) après cinq jours et (c) après une semaine
+Nous remarquons que sur les trois ﬁgures il n’y a pas de changement, mis à part la décantation qu’on
+aperçoit sur les ﬁgures (b) et (c). L’acide a donc bien empêché la fermentation du mélange eaumaïzena . Ainsi, l’ajout de l’acide benzoïque permet de conserver notre ﬂuide et donc d’augmenter
+la durabilité de notre bonnet.
+15
+
+3.3
+
+Influence de la température sur la viscosité
+
+Viscosité (en Pa.s)
+
+Lorsqu’on porte le bonnet, il peut être réchauﬀé par l’énergie thermique libérée par notre corps.
+De même, l’hiver il peut être soumis à des températures très basses. Ainsi il nous paraît intéressant
+d’étudier l’évolution du comportement de notre ﬂuide en fonction de la température.
+La température ne doit en aucun cas dépasser 60 ◦C, car au dessus l’amidon de
+maïs entame un processus de gélatinisation irréversible. Des températures trop
+extrêmes diminuent considérablement la
+propriété rhéoépaissante de notre ﬂuide :
+en dessous de 10 ◦C il est trop visqueux
+et au dessus de 40 ◦C il devient trop liquide. Nous avons donc mesuré la viscosité de notre ﬂuide avec le viscosimètre
+à chute de bille pour diﬀérentes températures entre 10 et 40 ◦C (ﬁg. 34).
+
+30
+20
+10
+0
+
+15
+
+20
+25
+30
+35
+◦
+Température (en C)
+
+40
+
+Figure 34 – Inﬂuence de la température
+En eﬀet, nous remarquons, que la viscosité de notre ﬂuide diminue fortement lorsque la température
+augmente. Ce phénomène s’explique par la mobilité des molécules dans le mélange : l’augmentation
+de l’énergie thermique s’accompagne d’une augmentation de l’énergie cinétique des molécules, qui
+a pour eﬀet que les forces cohésives ne suﬃsent plus pour tenir les molécules, qui sont donc plus
+libres. Ainsi le ﬂuide peut s’écouler plus facilement.
+
+3.4
+
+Empêcher l’écoulement avec un fluide de Bingham
+
+Nous avons vu dans la partie 1.3 que, lorsqu’il y a un trou, notre ﬂuide s’écoule lentement. Un
+autre type de ﬂuide non-newtonien permet d’empêcher l’écoulement, sans réduire la ﬂexibilité de
+notre bonnet : ce sont les ﬂuides de Bingham. Ces ﬂuides, également appelés ﬂuides à seuil, ont
+un comportement viscoplastique, c’est-à-dire qu’ils se comportent comme un solide sous de faibles
+contraintes, mais comme un liquide visqueux au-dessus d’une contrainte-seuil.
+À titre d’exemple, nous avons mesuré expérimentalement la contrainte-seuil d’un ﬂuide de la
+vie courante : le dentifrice. En eﬀet, on observe que le dentifrice ne sort du tube qu’à partir du
+moment où l’on exerce une certaine force.
+Nous ﬁxons une seringue en plastique à une potence,
+puis posons des masses dessus (ﬁg. 35). Dans un premier temps, nous mesurons la résistance de la seringue en plastique vide : elle résiste jusqu’à 560 g,
+au-dessus le piston commence à s’enfoncer dans le
+tube. Dans un second temps, nous remplissons la
+seringue de 10 mL de dentifrice et mesurons à nouveau le seuil de résistance : le piston commence à
+s’enfoncer à partir de 1980 g. Ainsi la résistance du
+dentifrice seul correspond à une masse de 1420 g.
+Figure 35 – Mesure de la contrainte-seuil
+16
+
+La force exercée par les masses sur le dentifrice, c’est-à-dire leur poids, vaut donc Fp = mg =
+1, 420 · 9, 807 ≈ 13, 93 N. Le dentifrice s’écoule par une ouverture de forme circulaire de rayon
+r = 1 mm, dont la surface vaut donc S = πr2 = 10−6 π m2 . Ainsi la pression au niveau de
+l’ouverture vaut :
+Fp
+13, 93
+P =
+= −6 ≈ 4, 43 · 106 Pa
+S
+10 π
+Ce seuil nous paraît trop grand, ce qui montre bien que les frottements avec les parois ne sont
+pas négligeables dans le cas de cette expérience. Ce qui nous intéresse, néanmoins, c’est l’existence
+d’un seuil. Cela s’explique par les interactions entre les molécules : les liaisons hydrogène entre le
+glycérol et le sorbitol, composants principaux du dentifrice, assurent la « cohésion » du ﬂuide, qui
+n’est plus réalisée lorsque l’apport d’énergie est suﬃsant pour rompre les liaisons hydrogène. En
+eﬀet, une fois celles-ci rompues, il n’y a plus que des interactions « visqueuses » entre les molécules,
+d’où le comportement newtonien du ﬂuide au delà du seuil d’écoulement.
+Ainsi, s’il y avait un trou dans un sachet rempli d’une couche de dentifrice, il n’y aurait pas
+d’écoulement tant qu’on exerce pas de pression trop importante. Cela peut être très pratique, par
+exemple, pour un gilet par-balles rempli de ﬂuide rhéoépaississant : si une balle perfore la surface
+extérieure, le ﬂuide de Bingham peut empêcher l’écoulement. Nous aurions bien aimé ajouter cela
+à notre prototype, mais malheureusement notre soude-sac ne nous permet pas de souder trois
+couches de plastique.
+
+3.5
+
+Sédimentation
+
+Nous avons désormais un bonnet durable, mais nous ne savons pas si l’eﬀet rhéoépaississant
+ne s’amenuise pas au cours du temps ? En eﬀet nous avons déjà remarqué un léger phénomène de
+décantation dans nos expériences antérieures.
+Nous avons rempli une éprouvette de 100 mL, d’une hauteur de 21 cm, de mélange eau-maïzena
+et attendu 3 heures. Nous remarquons une très légère décantation d’environ 3 mm, que nous
+expliquons par la remontée des molécules d’eau qui se trouvaient entre les colloïdes d’amidon
+de maïs. Cependant la plupart des molécules d’eau sont liées par des liaisons hydrogène aux
+agrégats d’amidon, comme nous l’avons vu dans la partie 1.2.2. Aﬁn de visualiser la sédimentation
+à l’intérieur de notre ﬂuide, nous avons fait une mesure avec notre viscosimètre (ﬁg 36).
+
+Tension (en mV)
+
+800
+capteur 1
+capteur 2
+capteur 3
+capteur 4
+capteur 5
+capteur 6
+capteur 7
+capteur 8
+
+700
+600
+500
+400
+0
+
+5
+
+10
+15
+Temps (en s)
+
+20
+
+25
+
+Figure 36 – Tension aux bornes des capteurs à eﬀet Hall
+17
+
+Nous observons, en eﬀet, que les pics sont de plus en plus espacés. En calculant la diﬀérence de
+temps divisée par la distance entre les capteurs, qui est de 2 cm, nous obtenons l’évolution de la
+vitesse de la bille au cours de sa chute (ﬁg. 37).
+
+Vitesse (en m·s−1 )
+
+·10−2
+
+1
+
+0.8
+
+0.6
+
+0.4
+
+0
+
+2
+
+4
+
+6
+8
+10
+Distance (en cm)
+
+12
+
+14
+
+Figure 37 – Vitesse de chute d’une bille dans le ﬂuide après 3 heures
+Nous remarquons que la vitesse diminue, c’est-à-dire que la viscosité augmente, lorsque la bille
+s’approche du bas. La concentration d’amidon de maïs est donc plus élevée au fond de l’éprouvette.
+En eﬀet, les colloïdes de maïzena sont plus denses que l’eau et sont attirés vers le bas sous l’eﬀet
+de leur propre poids. Cependant, la loi de Fick nous indique que les particules ont tendance à se
+diﬀuser, ce qui explique pourquoi la vitesse de la bille diminue asymptotiquement et qu’on n’a pas
+deux phases séparées, mais un gradient de concentration continu :
+Jj = −ρfluide Dij ∇cj
+où Jj est le ﬂux massique (en kg·m−2 · s−1 ), Dij le coeﬃcient de diﬀusion binaire (en m2 · s−1 ) et
+∇cj le gradient de concentration massique (en m−1 ). Malheureusement nous ne connaissons pas le
+coeﬃcient de diﬀusion binaire de l’amidon de maïs.
+En outre, la dernière valeur, qui est nettement inférieure, marque une rupture avec les autres
+valeurs. Pourtant, en refaisant plusieurs fois l’expérience, nous la retrouvons à chaque fois. Nous
+en déduisons qu’un dépôt d’amidon, très concentré, a dû se former au fond de l’éprouvette.
+Pour notre bonnet, la question de la sédimentation du mélange eau-maïzena ne s’avère ﬁnalement pas être un grand problème, car les sachets sont suﬃsamment petits.
+
+Conclusion
+À travers ce projet, nous avons découvert la multitude et la complexité des comportements
+que pouvaient avoir les ﬂuides non-newtoniens. Nous avons alors pris plaisir à leur chercher des
+applications pratiques et innovantes.
+
+18
+
+Remerciements
+Nous souhaitons particulièrement remercier notre professeur encadrant M. Sordelet pour nous
+avoir soutenus et encouragés tout au long de notre projet.
+Nous tenons également à remercier notre professeur de sciences physiques et chimiques M. Rolin
+pour ses précieux conseils.
+
+Références
+Shear-Thickening Fluid, Duncan Price, Physics Department, The College of Wooster, 2012
+Complex Fluids in Energy Dissipating Systems, Francisco J. Galindo-Rosales, Centro de Estudos
+de Fenómenos de Transporte, Faculdade de Engenharia da Universidade do Porto, 2012
+Characterization of shear-thickening fluid-filled foam systems for use in energy absorption
+devices, Jose Guadalupe, Massachusetts Institute of Technology, 2004
+Contribution au développement de microcapteurs intégrés de viscoélasticité de fluides, Etienne
+Lemaire, Université Bordeaux I, 2013
+Caractérisation rhéologique des fluides à seuil, G. Ovarlez, Université Paris Est, 2011
+L’effet piézoélectrique et ses applications, HBM, Darmstadt
+Position Measurement with Hall Effect Sensors, Jezný, Jaromír, and Miloslav Čurilla, American
+Journal of Mechanical Engineering, 2013
+http://culturesciencesphysique.ens-lyon.fr/ressource/comment-coulent-lesfluides.xml
+http://hyperphysics.phy-astr.gsu.edu/hbase/pfric.html
+http://www1.lsbu.ac.uk/water/starch.html
+https://en.wikipedia.org/wiki/Viscosity
+https://physique.ensc-rennes.fr/pdf/2annee/tp-visco.pdf
+
+19
+
+

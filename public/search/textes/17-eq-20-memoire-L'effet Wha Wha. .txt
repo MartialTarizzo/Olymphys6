@@ -1,0 +1,892 @@
+L'effet wah wah :
+- influence directe sur l'onde sonore par une sourdine
+-filtrage d'un signal analogique par un filtre passe-bande
+
+La wah wah décryptée d'un point de vue mécanique et électronique
+Pédale wah wah pour guitare électrique
+
+Sourdine wah wah pour trompette
+
+Dossier réalisé par :
+Franck Kamenga
+Alexandre Beurton
+Théo Le Bret
+(Lycée Louis-le-Grand, Paris)
+
+Introduction
+
+La wah wah est probablement un des effets pour instrument les plus utilisés par les musiciens de
+tous les styles : classiques contemporains, jazzmen, rockers, musiciens de funk ou de metal ont
+presque tous expérimenté les possibilités quasi infinie de cet effet. Mais d'abord, rappelons ce que
+« fait » une wah wah : « la wah wah est un effet modifiant la qualité voyelle d'une note ».
+Autrement dit, elle transforme un son « o » en « a » et inversement, produisant cet effet quasiment
+vocal : l'instrument semble tour à tour parler, bailler, couiner, crier, pleurer, gémir, aboyer, rugir
+même selon l'utilisation que l'on fait de l'effet.
+Les premiers à avoir entrevu le potentiel de cet effet sont les trompettistes de jazz, comme Louis
+Armstrong, qui plaçaient devant le pavillon de leur instrument un déboucheur d'évier dont ils
+modifiaient l'angle d'ouverture.
+Par la suite, ce sont des ingénieurs en techniques sonores qui ont découvert (plus ou moins par
+hasard) que cet effet pouvait s'obtenir en faisant varier la fréquence centrale d'un filtre passebande, ce qui a donné naissance aux premières pédales wah wah dans les années soixante. Puis,
+popularisé par des musiciens comme Jimi Hendrix, cet effet a largement dépassé en succès celui de
+la sourdine wah wah, certains trompettistes allant même maintenant jusqu'à utiliser des pédales
+wah wah plutôt que des sourdines, moins pratiques et expressives (ainsi Miles Davis a utilisé assez
+fréquemment une telle pédale, branchée au micro de sa trompette pendant sa période « jazz-rock »
+des années soixante-dix).
+Nous allons donc dans ce dossier, dans un premier temps, étudier le fonctionnement de la sourdine
+wah wah, puis son homologue électronique analogique (il existe aussi des wahs numériques, mais
+nous ne nous y intéresserons pas). Enfin nous établirons tout au long du dossier la comparaison
+entre ces deux techniques d'obtention de l'effet wah wah.
+
+I.Protocole expérimental visant à déterminer
+le fonctionnement de la wah wah « mécanique »
+1.Principe de fonctionnement
+Historiquement, la wah est une invention des trompettistes de jazz qui, cherchant à donner plus
+d'expressivité à leur instrument, plaçaient devant le pavillon de leur trompette une ventouse de
+déboucheur d'évier, et constataient qu'en faisant varier le degré d'ouverture de la ventouse, ils
+modifiaient le son de leur instrument, créant l'illusion que leur trompette pleurait, couinait ou bien
+criait selon les cas.
+Partant de ce constat assez rudimentaire, à savoir que le degré d'ouverture de le ventouse modifie le
+« son » de l'instrument, nous chercherons à déterminer le principe de fonctionnement de cette wah
+wah « mécanique » (dont nous comparerons plus tard l'effet avec celui de la wah wah
+« électronique »).
+Tout d'abord, rappelons brièvement de quoi est constitué un « son » musical (nous nous limiterons
+aux données rudimentaires, la composition du son musical étant en fait infiniment compliquée) : on
+distaingue trois composantes principales d'un son, à savoir la fréquence fondamentale (qui
+détermine le nom de la note jouée), le timbre (constitué des différentes harmoniques de la note, sur
+lesquelles nous reviendrons plus en détail) et le volume.
+
+2.La wah wah influe-t-elle sur la fréquence fondamentale du son ?
+Cette expérience préliminaire est d'un fonctionnement très simple : on jouera, sur la guitare, une
+note dont on mesurera la fréquence fondamentale, d'abord sans wah wah, puis avec wah wah.
+Voici l'enregistrement obtenu grâce au logiciel Visual Analyser, sans wah wah (la note jouée est un
+sol) : ( N.B :on visualise ici une tension en fonction du temps, car le logiciel est une simulation
+d'oscilloscope).
+
+On a ici une fonction périodique (ou à plus strictement parler, pseudo-périodique, car l'amplitude
+des oscillation décroît avec le temps), dont nous allons déterminer la période, puis la fréquence.
+L'échelle est : 30ms => 16,6 cm
+Or on trouve, graphiquement, qu'une période correspond à 2,8 cm, d'où :
+T = (30*2,8)/16,6 = 5,1 ms
+Et : f = 1/T = 196 Hz. Ceci est cohérent puisque par ailleurs on sait que la note jouée sur la guitare
+était un Sol 200Hz. On peut même en déduire que la guitare est légèrement désaccordée (accordage
+un peu trop bas puisque 196<200).
+Maintenant, refaisons l'expérience avec la ventouse placée sur le haut parleur, le haut-parleur étant
+assimilable à un pavillon de trompette.
+Voici l'enregistrement obtenu grâce au logiciel Visual Analyser, avec wah wah (la note jouée est un
+sol) :
+
+On retrouve une fonction pseudo-périodique, mais d'apparence très différente de celle obtenue sans
+wah wah : la présence de la ventouse (ici, on l'a placée de telle sorte que son angle d'ouverture soit
+nul, et donc que son influence sur le son soit maximale) a bien modifié le son. Toutefois, lorsqu'on
+mesure graphiquement la période, on obtient la même valeur pour la période : sur le graphique, la
+période correspond à 2,8 cm, et comme l'échelle est la même, on retrouve T = 5,1ms et par
+conséquent f = 196 Hz).
+On remarquera toutefois que ce résultat aurait pu se retrouver empiriquement : lorsqu'on joue sol
+sur la guitare, on entend toujours sol à la sortie du haut-parleur, que la ventouse soit en place ou
+non.
+En conclusion, l'effet wah wah, s'il influe très clairement sur le son, n'affecte pas la fréquence
+fondamentale de ce son. Par conséquent, cet effet va affecter le timbre et/ou le volume de ce son, la
+question étant maintenant de déterminer comment.
+
+3.Approche qualitative de la notion de modification du timbre du son par la wah
+wah (ventouse de déboucheur d'évier).
+Enregistrement de l'amplitude (en décibel) en fonction de la fréquence du son, aussi appelé spectre
+fréquentiel, sans wah wah : (la note jouée est un sol 200Hz)
+
+Sur cet enregistrement apparaissent très clairement des pics dans le spectre fréquentiel : on
+remarque tout d'abord que la fréquence fondamentale du son se situe bien à 200Hz, mais il apparaît
+aussi que le son est également composé d'autres fréquences, appelées fréquences harmoniques ; ceci
+explique d'ailleurs qu'un son musical ne soit jamais représenté par une fonction sinusoïde, mais par
+une fonction périodique qui peut être considérée comme la somme de plusieurs signaux sinusoïdaux
+de même fréquence et d'amplitudes différentes (selon que ces harmoniques s'entendent plus ou
+moins) : on appelle la somme de ces signaux harmoniques série de Fourier.
+(Remarque : il est possible de déterminer mathématiquement la série de Fourier correspondant à
+un signal périodique complexe, mais cela nécessiterait des connaissances en calcul intégral qui
+dépassent nos capacités. Par conséquent, nous déterminerons expérimentalement cette série par
+l'observation du spectre fréquentiel fourni par le logiciel Visual Analyser.)
+On remarque également que les pics dans le spectre fréquentiel du son ne sont pas situés au hasard :
+le premier pic est situé à la fréquence fodamentale f = 200Hz, le second à la fréquence 2f = 400Hz,
+soit à l'octave, le troisième à la fréquence 3f = 600Hz, soit à la quinte, le quatrième à la fréquence f
+= 4Hz, soit à la deuxième octave et ainsi de suite, apparaissent dans le spectre fréquentiel des
+fréquences harmoniques correspondant aux différents intervalles musicaux.
+
+Observons maintenant le spectre fréquentiel de la même note jouée (sol 200Hz) avec la wah wah :
+
+La différence est évidente : le premier pic est toujours situé à 200Hz, donc la note a toujours pour
+fréquence fondamentale 200Hz (Sol), mais le spectre fréquentiel a été transformé par la présence de
+la ventouse, qui a presque intégralement étouffé toutes les harmoniques de fréquences situées audelà ou en-deçà de 800Hz, l'harmonique 4f (deuxième octave) qui est appelée fréquence de
+résonance propre de la ventouse : la ventouse, comme tout objet, « vibre » en effet avec une certaine
+fréquence qui lui est propre, et si elle reçoit une excitation de même fréquence, il se produit un
+phénomène de résonance.
+Ici, les harmoniques de fréquence égale à la fréquence propre de la ventouse vont donc entrer en
+résonance avec elle, alors que les autre harmoniques seront atténuées, puisqu'elles exciteront la
+ventouse avec une fréquence différente de sa fréquence propre : il se produit le même phénomène
+que lorsqu'on pousse une balançoire : si on la pousse avec une fréquence différente de la fréquence
+d'oscillation de cette balançoire, elle ralentit et s'arrête, alors que si on la pousse avec la même
+fréquence que sa fréquence propre, elle accélère. L'onde sonore peut être assimilée à la balançoire,
+et la ventouse à celui qui la pousse.
+
+Remarque : Pour déterminer cette fréquence de résonance, il a fallu enregistrer les spectres
+fréquentiels de plusieurs notes différentes, puisque chaque note ne présente des pics dans son
+spectre fréquentiel qu'à des fréquences précises, qui ne correspondent pas forcément à la résonance
+propre de la Wah Wah. Cette fréquence propre f0 est repérable sur le spectre fréquentiel par la
+symétrie qu'elle établit entre les pics situés de part et d'autre. On a ici :
+amplitude (f0 + 200) = amplitude (f0 -200)
+
+Maintenant nous allons mener une approche plus quantitative du problème, et le logiciel Visual
+Analyser s'est avéré trop limité, c'est pourquoi nous avons à partir de maintenant utilisé un logiciel
+plus efficace, Audacity (permettant notamment de diminuer le bruit, d'analyser les spectres plus
+finement et d'obtenir des enregistrements plus longs et précis, donc permettant des résultats plus
+significatifs).
+
+Remarque : le haut-parleur utilisé s'est en fait avéré être de trop faible puissance pour pouvoir
+recevoir un signal de guitare amplifié, ce qui a provoqué une saturation du son de la guitare, a
+priori non désirable mais qui a été conservée car elle correspond à peu près à une distorsion de
+type « fuzz », un effet couramment utilisé en série avec la wah wah. Nous nous contenterons de dire
+que cette distorsion a tendance à favoriser les harmoniques plus aiguës, ce qui provoque ce son un
+peu strident caractéristique des enregistrements de guitare-fuzz (très utilisée dans les années
+soixantes, notamment).
+
+4.Approche quantitative de l'effet de la sourdine sur l'onde sonore.
+En utilisant le dispositif présenté plus haut, relié à l'ampli, nous avons effectué deux enregistrements
+pour plusieurs notes de la gamme sur la guitare : l'un avec sourdine, l'autre avec sourdine. Ces
+enregistrements effectués, nous avons obtenu leur spectres fréquentiels respectifs, que nous avons
+exporté vers un tableur afin de traiter les données fournies par l'enregistrement : en soustrayant pour
+chaque fréquence le gain en dB sans effet à celui avec effet, on a obtenu un diagramme présentant le
+gain (G) en dB lié à la présence de la sourdine en fonction de la fréquence (en échelle
+logarithmique). Nous obtenons ainsi des « diagrammes de Bode » décrivant l'effet de la sourdine sur
+l'onde sonore :
+Pour la note de Mi (grave) :
+G (dB)
+
+Bande
+passante
+
+Gmax-3dB
+
+0
+
+-5
+
+-10
+
+Gmax atteint pour
+f=785Hz
+
+-15
+
+-20
+
+-25
+
+-30
+200
+
+300
+
+400
+
+500
+
+600
+
+700
+
+800
+
+1000
+Fréquence (Hz)
+
+Rq : On définit la bande passante comme l'ensemble des fréquences subissant une perte de moins de
+3 dB par rapport à Gmax
+
+On a déterminé à l'aide de la fonction réticule la fréquence pour laquelle le gain était maximal,
+autrement dit celle pour laquelle la sourdine atténue le moins les oscillations, et qui correspond à la
+fréquence de résonance de la sourdine. Du point de vue de l'onde sonore (ici une note de mi grave),
+cela signifie que les harmoniques du Mi grave de fréquence proche de la fréquence de résonance
+seront moins atténuées que celles qui en sont éloignées. On observera par la suite de légères
+variations de la fréquence de résonance obtenue pour différentes notes, mais on peut principalement
+attribué cela à deux choses : le peu de précision des valeurs expérimentales (une valeur tous les 50
+Hz environ) et le fait que les fréquences harmoniques d'une note ont des valeurs discrètes sur le
+spectre fréquentiel. Autrement dit, il n'existe pas forcément d'harmonique telle que sa fréquence soit
+très proche de la fréquence de résonance, ce qui fait varier quelque peu la détermination de cettedernière suivant la note (correspondant à la fréquence fondamentale de l'onde sonore, dont dépend
+la valeur des fréquences harmoniques) étudiée.
+
+Ces « diagrammes de Bode » sont très semblables à ceux utilisés pour modéliser les fonctions de
+transfert des filtres passe-bande, et nous verrons plus tard en quoi la comparaison est justifiée.
+
+Bande passante
+Pour la note de La (grave) :
+G (dB)
+
+12
+
+10
+
+Gmax atteint pour
+f=760Hz
+
+8
+
+6
+
+4
+
+2
+
+0
+
+-2
+200
+
+300
+
+400
+
+500
+
+600
+
+700
+
+800
+
+1000
+Fréquence (Hz)
+
+Pour la note de Ré :
+G (dB)
+
+Gmax atteint
+pour f =610Hz
+
+20
+
+15
+
+10
+
+5
+
+0
+
+100
+
+200
+
+300
+
+400
+
+500
+
+600
+
+800
+1000
+Fréquence (Hz)
+
+Pour la note de Sol :
+G (dB)
+8
+6
+
+Gmax atteint
+pour f=905Hz
+
+4
+2
+0
+-2
+-4
+-6
+-8
+-10
+100
+
+200
+
+300
+
+400
+
+500
+
+600
+
+800
+
+1000
+Fréquence (Hz)
+
+On fait la moyenne des gains maximaux obtenus, et on obtient une fréquence de résonance de 765
+Hz, ce qui est relativement proche de la fréquence de résonance observée qualitativement. On
+remarque également, de manière qualitative, que les diagrammes de Bode présentent des « pics »
+assez prononcés, donc que la bande-passante est assez étroite. On obtient, en moyenne, une bande
+passante de 175 Hz, ce qui correspond comme on le verra plus tard à un filtre de bonne qualité.
+On a ainsi trouvé que l'effet wah wah obtenu avec une sourdine était modélisable par un filtre passebande dont la bande-passante serait assez étroite, et de fréquence de résonance proche de la
+fréquence propre de la sourdine. En effet, pour obtenir l'effet wah wah, il suffit maintenant de jouer
+sur le degré d'ouverture de la sourdine, ce qui changera la fréquence de résonance du système.
+On remarquera également que le choix d'un déboucheur d'évier comme sourdine n'est pas
+indifférent, car le caoutchouc amortit fortement l'onde sonore, ce qui explique l'acuité de la bandepassante : on aurait pas ou presque pas obtenu d'effet avec une sourdine en bois ou en métal, par
+exemple. Ces deux expériences (variation de la fréquence de résonance en fonction du degré
+d'ouverture et en fonction du matériau) n'ont pas encore pu être réalisées de manière satisfaisante,
+mais nous espérons encore y parvenir d'ici notre présentation orale.
+Nous allons donc garder en tête ces différentes caractéristiques du filtrage du signal sonore par la
+sourdine, et les comparer avec celles du filtrage d'un signal analogique par un circuit RLC.
+
+II.PRODUCTION DE L’EFFET WAH-WAH ELECTRIQUEMENT
+II.1.Introduction
+Nous n’allons pas faire l’étude d’un système wah-wah commercial, celle-ci est une pédale
+wah-wah une pédale reliée à un potentiomètre inclus dans un circuit électronique. Nous avons
+également réalisé un circuit analogue :
+
+Ces circuits sont des résonateurs, nous détaillerons leurs propriétés. Ainsi nous nous
+ramenons à l’étude d’un circuit RLC, le cas générique, le plus aisé et le plus efficace.
+
+II.2.Rappels préliminaires
+II.2.1. Présentation des signaux
+Les acquisitions sonores ont été effectuées à l’aide d’un microphone. Il permet de convertir
+un signal sonore de fréquence ƒ en un signal électrique de même fréquence ƒ. Cette conversion
+s’effectue grâce au phénomène d’induction. Son rôle est l'inverse de celui d'un haut- parleur. La
+valeur de la tension induite est dépendante des caractéristiques du microphone, mais généralement
+on considère que sa valeur maximale est proportionnelle à l’amplitude.
+La guitare électrique fonctionne aussi grâce au phénomène d’induction. Ainsi à la sortie
+reliée à une prise jack se présente une tension électrique périodique. Le système wah-wah influera
+sur ce signal électrique.
+
+Il est rare comme le présente l’enregistrement ci-dessus d’une note à la guitare que la tension
+obtenue soit sinusoïdale. Ce n’est pas une défaillance du micro. Ainsi la forme du signal est liée au
+timbre de la note. Les signaux périodiques peuvent être considérés comme une somme de signaux
+sinusoïdaux. L’analyse mathématique de Fourrier des signaux périodiques complexes permet de
+définir cette somme de signaux simples. Le diagramme ci-dessous est un spectre fréquentiel
+
+II.2.2.Introduction au filtrage passe bande : le circuit RLC série
+Sur notre circuit se développe un régime
+d’oscillations forcées. L’équation différentielle
+régissant l’évolution de Vs, la tension de sortie au
+cours du temps est :
+On ne peut la résoudre aisément, on sait uniquement qu’une solution particulière de
+l’équation globale est de la même forme que le second membre, Ve tension d'entrée
+soit : Vs= A cos (ωt+φs). Les constantes réelles A et ω se Vs tension de sortie
+déterminent par l’outil des complexes.
+Note mathématique : ω = 2πf, où f fréquence du signal, et j imaginaire tel que j²=-1 et 1/j
+=-j.
+Un filtre est un quadripôle qui élimine une partie des signaux du spectre fréquentiel. Un
+
+filtre passe-bande sélectionne les signaux situés dans une bande de fréquence.
+Les filtres utilisent des composants, comme les bobines et les condensateurs qui sont
+caractérisés par rapport aux variations de courant ou de tension durant le temps. Notre but étant de
+connaître l'influence du quadripôle sur le signal en fonction de sa fréquence, nous devons travailler
+non plus dans le monde temporel mais dans le monde fréquentiel. Ainsi les composants sont
+caractérisés par leur impédance complexe permettant ainsi de faire apparaître ω, la pulsation du
+signal. L'impédance complexe permet une généralisation de la loi d'ohm, donc Z, impédance
+complexe d'un dipôle s'exprime en ohm.
+Conducteur ohmique de résistance R :
+Bobine d’inductance L :
+Condensateur de capacité C :
+II.2.3. Définition et propriétés du filtre passe bande
+II.2.3.1. Fonction de transfert
+La fonction de transfert ou transmitance d'un filtre H (jω) est un complexe que nous
+assimilerons à l'amplification en tension.
+On sait qu’une tension sinusoïdale U d’expression U= Um.cos(ωt+φ) a une représentation
+complexe notée U=Um.exp(j(ωt+φ)). Ainsi la tension de sortie Vs et la tension d’entrée Ve peuvent
+s’exprimer :
+Par conséquent :
+Donc :
+et
+Le module de H est le rapport entre l’amplitude maximale en sortie et l’amplitude maximale
+à l’entrée, nous permet de connaître le gain du quadripôle. L’argument de H nous renseigne sur
+l’avance en phase du signal de sortie par rapport à celui à l’entrée, on le note φ. Cependant les
+études que nous ferons se limiteront à celle du gain. On définit le gain du filtre G(ω) en décibel.
+G(ω)=20log|H(jω)|, on le représente à l’aide d’un diagramme de Bode. Les fréquences ou
+pulsations sont présentés en abscisse à l’aide d’une échelle logarithmique.
+
+II.2.3.2. Fréquence de coupure du filtre
+
+Diagrammes de Bode
+La représentation du gain en fonction de la pulsation du signal montre qu’il existe une
+fréquence pour laquelle le gain est maximal (de valeur 1 en général) ce qui correspond à 0dB.
+Les calculs sur le circuit permettent de déterminer la fonction de transfert spécifique du filtre
+et de l’identifier. Un filtre passe bande possède une fonction de transfert spécifique de la forme :
+
+Ainsi pour déterminer les valeurs de f0 et de Q, grandeurs que nous définirons par la suite,
+on utilise la fonction de transfert canonique des filtres passe-bande afin d’identifier les termes de la
+fonction de transfert avec ceux de la fonction de transfert spécifique :
+
+, où x = f/f0 = ω/ω0.
+II.2.3.3.Bande passante
+Il s’agit de l’intervalle de
+fréquences (ou de pulsations) pour qui
+correspond aux pulsations telles que le
+soit au plus à 3 décibels en dessous du
+maximum (c'est-à-dire 0,7 fois le gain
+maximal).
+La bande passante correspond à
+f2]. Sa taille ∆f est telle que : ∆f= f2-f1.
+II.2.3.4. Détermination des constantes
+Nous avons alors une équation différentielle de la forme :
+
+Il suffit d’identifier cette forme de l’équation avec l’équation trouvée.
+
+gain
+gain
+[f1;
+
+II. Expérience sur le circuit
+II.3.1. Dispositif expérimental
+
+Les observations sont vues à l’aide du logiciel Audacity relié au dispositif d’acquisition.
+II.3.2. Observations qualitatives
+L’effet wah-wah ne s’obtient qu’en modifiant la valeur de l’inductance de la bobine ou la
+capacité du condensateur. Remarquons que l’effet est complet lorsque c’est la capacité du
+condensateur que l’on modifie.
+Plus la résistance est faible plus l’effet semble distinct, cependant le son entendu en sortie
+est peu intense.
+II. Observations quantitatives
+II.3.3.1.La fréquence propre
+Nos observations ont été effectuées ici à l’aide d’une simulation sur Excel® appelée
+simulation wah-wah.xls qui est en annexe.
+Lorsqu’on obtient l’effet wah-wah, c'est-à-dire qu’on modifie dans ce cas la valeur de
+l’inductance on remarque que la fréquence pour laquelle le gain est maximal, que nous notons fm
+change au cours du temps : R=200Ω et C=200nF
+Gain
+Gain
+
+1,2
+1,2
+
+1
+
+1
+0,8
+G
+
+0,6
+0,4
+
+0,6
+0,4
+
+0,2
+
+0,2
+
+0
+
+50
+0
+70
+0
+90
+0
+11
+10
+13
+20
+15
+30
+17
+50
+19
+80
+23
+00
+26
+00
+29
+00
+32
+00
+35
+20
+
+50
+30
+0
+50
+0
+70
+0
+90
+0
+11
+10
+13
+20
+15
+30
+17
+50
+19
+80
+23
+00
+26
+00
+29
+00
+32
+00
+35
+20
+
+0
+50
+30
+0
+
+G
+
+0,8
+
+Fré que nce
+
+Pour L=0,10 H
+
+Fré que nce
+
+Pour L=0,30 H
+
+Gain
+1
+0,9
+0,8
+
+G
+
+0,7
+0,6
+0,5
+0,4
+0,3
+0,2
+0,1
+
+50
+0
+70
+0
+90
+0
+11
+10
+13
+20
+15
+30
+17
+50
+19
+80
+23
+00
+26
+00
+29
+00
+32
+00
+35
+20
+
+50
+30
+0
+
+0
+
+Fré que nce
+
+Pour L=0,60 H
+Nous effectuons une détermination de
+cette fréquence maximale, en faisant
+varier L.
+Résultats de la modélisation sur
+Regressi
+fm(L) = aLb
+Ecart relatif fm(L)= 1.9 %
+a=356
+b= -0.498
+
+Maintenant en faisant
+varier C, avec L=0,10H et
+R=200Ω on obtient :
+Résultats de la modélisation
+sur Regressi :
+fm(C) = aCb
+Ecart relatif fm(C)= 1.9 %
+a=501
+b= -0.503
+
+Cette fréquence fm définie, correspond presque à la fréquence de coupure fc du filtre passebande réalisé, les mesures réalisées corroborent l’expression déterminée à la suite d’un calcul à
+l’aide des impédances complexes:
+Cette fréquence de coupure correspond à la fréquence à laquelle le système entre en
+
+oscillations libres, celle-ci est indépendante des paramètres extérieurs au circuit : on parle alors de
+fréquence propre du circuit RLC ou fréquence de résonance quand on s’intéresse aux oscillations
+forcées.
+I.3.3.2.Le facteur de qualité
+L’effet est d’autant plus net que le gain pour les fréquences autour de la fréquence de
+coupure est faible. On dit que le filtre est de meilleure qualité vu qu’il est plus sélectif. Ainsi on
+introduit une grandeur sans dimension appelée facteur de qualité, notée Q dont la valeur sera
+d’autant plus élevée que le filtre sera sélectif.
+Gain
+
+Gain
+
+1,2
+
+1,2
+
+1
+
+1
+
+0,8
+0,6
+0,4
+
+0,2
+
+0,2
+
+0
+
+0
+
+Fré quence
+
+Filtre de qualité moyenne
+
+50
+30
+0
+
+0,4
+
+50
+0
+70
+0
+90
+0
+11
+10
+13
+20
+15
+30
+17
+50
+19
+80
+23
+00
+26
+00
+29
+00
+32
+00
+35
+20
+
+G
+
+0,6
+
+50
+30
+0
+50
+0
+70
+0
+90
+0
+11
+10
+13
+20
+15
+30
+17
+50
+19
+80
+23
+00
+26
+00
+29
+00
+32
+00
+35
+20
+
+G
+
+0,8
+
+Fré que nce
+
+Filtre de mauvaise qualité
+
+Gain
+1,2
+1
+
+G
+
+0,8
+0,6
+0,4
+0,2
+
+50
+0
+70
+0
+90
+0
+11
+10
+13
+20
+15
+30
+17
+50
+19
+80
+23
+00
+26
+00
+29
+00
+32
+00
+35
+20
+
+50
+30
+0
+
+0
+
+Fré que nce
+
+Filtre de très bonne qualité
+Plus la taille de la bande passante est grande, moins le filtre est sélectif, donc le facteur de qualité
+est faible. On peut tout simplement dire que le facteur de qualité est inversement proportionnel à la
+taille de la bande passante. Ce facteur est relatif à la fréquence de coupure, on a par définition:
+
+On remarque que la bande passante est d’autant plus grande que la valeur de la résistance est élevée,
+de même on remarque que lorsque la valeur de L est faible la bande passante est plus étroite, d’où
+l’expression :
+, donc :
+
+Ce qui confirme le fait que c’est principalement la valeur de la résistance du conducteur ohmique
+qui influe sur la qualité du filtre.
+
+III Mise en relation des deux expériences
+1) Intérêt du rapprochement et points communs
+a) Influence
+Nous avons vu que l'effet WAH-WAH peut s'obtenir tout d'abord en influant directement sur
+les propriétés de résonance d'un système acoustique (on fait varier le degré d'ouverture d'une
+sourdine), puis en faisant varier la fréquence propre d'un filtre passe-bande que traverse le signal
+électrique induit par l'onde sonore au niveau des micros de la guitare.
+Ainsi la mise en relation de ces deux expériences nous permet de mieux comprendre les
+correspondances entre les paramètres de l'onde sonore variant lors de l'effet WAH WAH et les
+influences des composants électriques sur la tension issue du filtre passe bande.
+Cela nous est permis à partir du moment où une tension sinusoïdale a les mêmes propriétés
+mathématiques que les ondulations d'un son, et dès lors nous pouvons établir la correspondance
+entre paramètres et variables des deux applications :
+Paramètres de l'application mécanique :
+
+Paramètres de l'application électrique sur :
+
+fréquence (hauteur) fondamentale du son
+
+fréquence fondamentale de la tension alternative
+
+volume sonore
+
+tension maximale
+
+Fréquence propre du matériau de la ventouse
+
+fréquence centrale du filtre passe bande
+
+Amortissement de l'onde sonore par la ventouse
+
+Résistance du circuit RLC
+
+Correspondance entre les paramètres des deux applications
+
+L'effet WAH-WAH, ayant même impact en sortie (haut parleur) sur l'onde sonore, influe
+donc sur des paramètres correspondants dans les deux systèmes physiques.
+b) Fonctionnement
+D'après les expériences effectuées, le paramètre variable jouant un rôle lors de l'effet WAHWAH est :
+Variable du système mécanique :
+
+Variable du système électrique :
+
+résonance propre
+
+fréquence centrale du filtre passe bande
+
+.
+
+Ainsi sur le spectre fréquentiel des ondes obtenu lors des deux expériences on observe un
+"déplacement" (augmentation) continu de la fréquence de résonance des systèmes physiques :
+Dans le système mécanique :
+
+Dans le système électrique
+
+avec l'augmentation de l'angle d'ouverture (α) de la
+sourdine
+
+Avec l'augmentation de la capacitance ou de
+l'inductance
+
+Composante de la résonance propre des deux systèmes
+
+2) Divergences
+a) Influence
+Ÿ
+La divergence la plus évidente est la différence d'application de l'effet wah-wah dans les
+
+deux systèmes :
+Ÿ Dans le premier cas (mécanique), l’effet s’obtient en influant directement sur l’onde sortante, on
+pourrait donc qualifier ce processus d’application post-amplification du signal.
+Ÿ Dans le deuxième cas (électriquement), le système influe sur une « transposition électrique »
+(signal) de l’onde sonore, captée par des micros électromagnétiques à partir des vibrations de la
+corde métallique, avant que l’onde sonore ne soit amplifiée et transmise au haut-parleur,on peut
+donc qualifier ce processus d’application pré-amplification du signal.
+b) Fonctionnement
+De cette différence, il résulte que l'effet wah wah est plus prononcé quand on utilise une
+pédale que quand on utilise une sourdine. De plus, la sourdine possède le défaut de ne pas permettre
+de faire varier de manière précise la fréquence centrale de la bande-passante, parce que cettedernière ne varie pas linéairement en fonction du degré d'ouverture de la sourdine.
+
+Conclusion
+Au travers de ce dossier, nous avons cherché à mieux comprendre et expliquer l'analogie entre
+systèmes mécaniques et électroniques, en prenant l'exemple de la wah wah, qui constitue un défi
+d'autant plus grand à l'imagination que cet effet est déjà la transposition de certaines
+caractéristiques du langage humain (nous modulons le timbre de nos voyelles en modifiant
+l'ouverture de notre bouche) dans le domaine mécanique : la sourdine fait en effet office de
+“bouche” dont l'ouverture varie. Puis cet effet mécanique est à nouveau transposé dans le langage
+électronique, par le biais du traitement des signaux périodiques : le son, signal périodique, est
+transposé en tension, elle aussi une fonction ondulatoire périodique, et ce signal est traité non plus
+selon la fréquence de résonance d'un matériau, mais celle d'un circuit de type “filtre passe-bande”.
+C'est avant tout ces correspondances entre musique, mécanique et électronique que nous avons
+cherché à souligner.
+Enfin, l'émotion musicale étant encore un phénomène largement incompris, il nous a donc paru
+intéressant de voir comment du domaine de l'art on passe à celui de la physique, et dans la
+physique elle-même, d'un domaine à l'autre.
+
+

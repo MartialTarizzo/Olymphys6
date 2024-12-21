@@ -1,0 +1,765 @@
+Lycée Pilote Innovant
+International
+du Futuroscope
+
+Alice Tahir –Arthur Julien - Valentin Luksza –Clara Tahir
+1
+
+Résumé :
+Il suffit juste de tendre l’oreille, il suffit juste d’un peu de cuivre… et entendre
+devient possible. Jupiter ne fait pas que se montrer : il est d’ailleurs vraiment loin
+de se taire. Mais pour apprendre à le connaître, il faut faire quelques efforts : se
+lever la nuit pour l’entendre se quereller avec Io, qui lui crache un torrent d’ions,
+ce qui déclenche en Jupiter une colère qui retentit jusque sur Terre.
+Nous avons réalisé une antenne capable de recevoir le signal radio émit par le
+couple Io Jupiter. A travers ce projet, nous nous sommes alors intéressés à
+différentes notions physiques indispensables pour concevoir correctement cette
+antenne.
+
+Sommaire :
+Page 3 – Introduction
+Page 5 – Le duo Io-Jupiter
+Page 7 – L’effet MASER cyclotron
+Page 10 – Comment recevoir une onde électromagnétique hertzienne ?
+Page 13 – Réalisation de l’antenne
+Page 19 – Les rendez-vous avec Jupiter
+Page 21 - Conclusion
+
+2
+
+I - Introduction :
+Jupiter est une planète voisine de la Terre à l’échelle astronomique. Cinquième planète en partant du
+Soleil, elle fait partie du groupe des planètes gazeuses et est la plus grosse planète du système solaire.
+
+Jupiter
+
+Sa taille et sa proximité en font une planète très visible à l’œil nu, d’autant plus de nos jours où elle
+est particulièrement proche de la Terre… Profitons-en.
+Jupiter possède 4 satellites bien connus, Io, Europe, Ganymède et Callisto. Io a la réputation de
+posséder les plus gros volcans du système solaire.
+
+3
+
+De même que de nombreux astres, Jupiter émet des ondes radio. Ces ondes sont particulièrement
+intéressantes pour nous car de même que les ondes électromagnétiques du domaine visible, elles se
+trouvent dans un domaine de fréquence telle que l’atmosphère est transparente à leur égard. Il est
+alors possible de les capter sur Terre, contrairement aux autres domaines de fréquence pour lesquels
+on a recourt à des observations par l’intermédiaire de sondes envoyées dans l’espace.
+
+Le schéma ci-dessus montre à quelle altitude 50% du
+rayonnement est absorbé en ordonnée, en fonction de la
+longueur d’onde dans le vide de ce rayonnement en abscisse.
+C’est en 1955 que les radiotélescopes découvrirent que Jupiter
+est une source très puissante d’ondes radio ayant pour origine
+un champ magnétique qui trouve naissance dans son noyau
+rocheux constitué de fer et de silicates.
+Pour détecter ces ondes radio, différents équipements existent,
+sophistiqués, comme ceux de Nançay, ou plus simples, tels que
+des fils d’antenne.
+Notre projet consiste à assembler une antenne de façon à recevoir le signal radio émis par
+l’interaction entre Io et Jupiter.
+Sous cet aspect conception de ce projet se cachent des notions physiques que nous avons dû aborder
+de façon plus théorique pour comprendre et prendre des choix au fur et à mesure des étapes de
+fabrication de l’antenne. C’est cet ensemble que nous présentons ici.
+Ce projet a vu le jour lors de notre rencontre avec Jean-Charles Le Tarnec, président du club
+d’Astronomie de Saint-Benoît, qui nous accompagne dans ce projet, avec Armand Thomas, président
+du radio club ville de Poitiers. Jean-Eudes Arlot, Directeur de recherche au CNRS, Observatoire de
+Paris est notre parrain dans cette aventure. Mais une avancée phénoménale a vu également le jour
+lors de nos échanges avec Philippe Louarn, directeur de recherche CNRS, Université de Toulouse III
+Paul Sabatier (Observatoire Midi-Pyrénées).
+4
+
+II – Le duo Io Jupiter – Quelle est l’origine des ondes radio :
+Le champ magnétique de Jupiter est un champ
+dipolaire, comme celui de la Terre mais dix
+fois plus intense. Comme dans le cas de la
+terre, il se représente avec des lignes de
+champ partant des pôles. L’image ci-contre
+représentant ce champ magnétique montre
+qu’en réalité, il subit l’action du vent solaire,
+à savoir des particules électriques expulsées
+par le soleil et interagissant avec la
+magnétosphère de Jupiter. D’où la forme de la
+magnétosphère de Jupiter…
+Cette magnétosphère constitue un bouclier pour les particules
+électriques. En effet, comme le montre l’expérience que nous avons
+réalisée ci-contre, dans laquelle des électrons sont accélérés puis
+plongés dans un champ magnétique, ce dernier engendre une force de
+Lorentz sur les électrons. Cette force est à la fois perpendiculaire aux
+lignes de champ magnétique et vecteur vitesse des électrons. Les
+particules chargées arrivant dans le champ magnétique de Jupiter vont
+alors tourner de la sorte autour des lignes de champ magnétique de
+Jupiter.
+(Mouvement circulaire des électrons dans un champ magnétique uniforme : le champ magnétique est
+perpendiculaire au plan de la feuille, orienté vers vous. Les électrons sont émis vers la droite.)
+A la différence près que le champ magnétique dans
+cette
+expérience
+est
+relativement
+uniforme,
+contrairement à celui créé par Jupiter. On peut simuler
+ce champ non uniforme en disposant un aimant
+perpendiculairement aux bobines de Helmholtz. On
+peut voir sur les images ci-contre que les électrons
+tournent non seulement autour du champ magnétique,
+mais subissent également un déplacement parallèle à
+celui-ci.
+L’image de gauche montre la trajectoire depuis une direction presque parallèle à l’axe de symétrie
+du champ magnétique. La photo de droite montre quant à elle le comportement des électrons, vu de
+dessus, c'est-à-dire à 90° de cet axe.
+Ainsi, dans le cas de Jupiter, les électrons vont tourner autour du champ magnétique, en se dirigeant
+vers les champs forts, le rayon de courbure se réduit au niveau des champs forts. Conformément à
+
+5
+
+l’expression du travail d’une force, il est intéressant de noter que la force de Lorentz F  qv B ne
+travaille pas, car elle est en tout point perpendiculaire à la trajectoire des électrons.
+Or, dans les champs forts, la vitesse des électrons perpendiculaire au champ magnétique va
+augmenter. On en déduit que la vitesse parallèle aux lignes de champ magnétique va diminuer, de
+sorte que l’énergie cinétique au final se conserve. La plus grande majorité des particules chargées
+rebroussent alors chemin lorsque le champ magnétique devient intense, se dirigent vers l’autre pôle
+magnétique de Jupiter, rebroussent à nouveau chemin, si bien qu’elles se retrouvent coincées dans un
+tore de plasma positionné approximativement sur le plan équatorial de Jupiter.
+
+En réalité, le bouclier magnétique de la Terre n’est pas imperméable au vent solaire, ce qui conduit à
+des aurores polaires. Il en est de même concernant le champ magnétique de Jupiter : les particules
+électriques en provenance du soleil pénètrent à toute vitesse dans l’atmosphère de Jupiter au niveau
+des pôles. L’accélération de ces particules électriques au niveau des pôles génère une onde
+électromagnétique. Un phénomène très intense, appelé « maser-cyclotron », peut voir alors le jour et
+conduire à une onde extrêmement intense dans le domaine radio.
+Le soleil n’est pas le seul à envoyer ses particules électriques pour générer cette onde
+électromagnétique.
+Io a sa part de responsabilité car ses volcans crachent des particules en très grand nombre, qui bien
+que neutres au début, s’ionisent sous l’action des UV provenant du soleil. Ces particules, laissées
+dans le sillage de Io, ne suivent pas le satellite car elles sont piégées dans un premier temps dans la
+magnétosphère créée par Jupiter. Cela génère alors un « tore » de particules électriques chargées,
+appelé « plasma », qui tourne avec la même vitesse de rotation que le noyau de Jupiter.
+Or, si la magnétosphère, liée au noyau de Jupiter, tourne à la même vitesse que celle du noyau, Io
+quant à lui se déplace plus lentement autour de Jupiter, puisqu’il fait le tour de Jupiter en 42,5 heures
+alors que Jupiter tourne sur elle-même avec une période d’environ 10 heures.
+Tout se passe alors comme si Io
+représentait un obstacle pour la
+circulation du plasma. Il s’ensuit
+une onde de choc, (comme par
+exemple le sillage laissé par un
+rocher au milieu d’une rivière), qui
+propulse (en bleu sur le schéma cicontre), les particules chargées vers
+les pôles de Jupiter.
+
+Io
+
+Trajectoire de Io
+
+Tore de plasma
+
+Rajoutons enfin que Jupiter possède
+une atmosphère dont une des
+couches, la ionosphère, comporte
+6
+
+comme son nom l’indique des particules chargées qui peuvent être captées par la magnétosphère, et
+subir ainsi l’onde de choc généré par le déplacement de Io dans son tore de plasma.
+Lorsque l’effet maser-cyclotron est enclenché, il y a émission d’une onde radio pouvant aller de
+quelque kHz, à 40 MHz. Ces ondes radios durent un temps variable et se font à des fréquences
+variables qui dépendent notamment de la position de Io sur son orbite par rapport à la forme du tore
+de plasma : le plan sur lequel Io se déplace n’est pas dans le plan du tore de plasma, et à vrai dire, le
+tore de plasma n’est pas vraiment centré sur un plan car sa frome est liée à la magnétosphère de
+Jupiter, qui elle-même a une forme dépendant du vent solaire.
+Les émissions d’onde radio auront alors des caractéristiques qui dépendront de cela et peuvent être
+alors prédites par des calculs, aussi bien en termes de fréquence qu’en termes d’horaire ce qui sera
+appréciable pour la suite.
+Un autre facteur est toutefois à prendre
+en compte pour écouter le couple IoJupiter. L’onde électromagnétique est
+émise dans un cône creux. Pour recevoir
+l’onde radio sur Terre, il faut alors que la
+Terre soit située sur la périphérie de ce
+cône. A l’extérieur, on ne captera rien, et
+à l’intérieur, on sera comme dans l’ « œil du cyclone ».
+Comme nous venons de le voir, nous sommes en présence d’un couple très particulier, Io Jupiter,
+responsable d’émissions électromagnétiques très intenses. Il nous reste à nous intéresser plus
+précisément au phénomène responsable de cette émission électromagnétique : l’effet MASER –
+cyclotron.
+
+III L’effet MASER - cyclotron
+Lorsque nous avons commencé à réfléchir au phénomène responsable de l’émission des ondes radio
+par le couple Io Jupiter, nous pensions que l’explication résidait uniquement dans le mouvement des
+électrons autour du champ magnétique de Jupiter.
+Cela dit, l’appellation « MASER-cyclotron » du phénomène, rencontré lors de nos lectures, nous a
+poussé à en savoir davantage.
+
+L’observation des ondes radio montre que ces ondes sont émises à des fréquences correspondant à la
+gyrofréquence des électrons, c'est-à-dire la fréquence de rotation des électrons autour du champ
+eB
+magnétique : f 
+avec B la valeur du champ magnétique, et m la masse de l’électron. Il s’agit
+2m
+7
+
+d’une forme d’émissions radio que l’on sait maintenant émises par toutes les planètes magnétisées du
+système solaire.
+On pourrait penser que les ondes émises le sont par un simple effet de rayonnement synchrotron,
+mais en réalité, c’est plus compliqué que cela. En effet, le rayonnement synchrotron classique est de
+type incohérent. Cela signifie qu’il résulte de la sommation du rayonnement de chaque électron
+considéré individuellement. Ces émissions incohérentes sont généralement peu polarisées et, surtout,
+leur flux est directement lié à la température du plasma (plus exactement des électrons) responsable
+de l’émission. Or les ondes radio émises par Jupiter sont très fortement polarisées, ce qui témoigne
+d’une certaine « organisation » du processus à l’origine de l’émission de l’onde. D’autre part,
+l’intensité de ces ondes radio émises (on parle de température de brillance) est supérieure à celle que
+l’on aurait par simple rayonnement synchrotron. Si on voulait utiliser un rayonnement de type
+incohérent pour les expliquer, il faudrait imaginer des populations d’électrons ayant des températures
+de plus de 1020 Kelvin, ce qui est totalement impossible. Ceci témoigne d’un processus d’émission
+cohérent au cours duquel un grand nombre d’électrons évoluent en phase. Contrairement aux
+rayonnements incohérents, ils agissent collectivement pour amplifier les ondes électromagnétiques.
+L’exemple type de ces rayonnements sont les lasers (dans le domaine optique) et les maser (dans le
+domaine radio fréquences). La brillance de l’émission n’a alors rien à voir avec la température du
+milieu.
+Un processus de type « maser » a donc été imaginé pour expliquer ces émissions. Ce processus a été
+étudié d’un point de vue théorique, et a été nommé l’effet « MASER-Cyclotron ». D’après ce
+modèle, nous avons pu lire que les ondes électromagnétiques qui nous intéressent, émises par Jupiter,
+sont effectivement telles que leur champ électrique est perpendiculaire au champ magnétique de
+Jupiter, et que celui tourne dans le même sens que celui des électrons autour du champ magnétique.
+
+Cette observation a été confirmée lors de l’étude
+du rayonnement radio terrestre par la sonde
+Vinking. D’après l’étude théorique, présentée par
+Philippe
+Louarn
+seule
+cette
+onde
+électromagnétique, dont la polarisation (voir
+annexe 1) selon un mode appelé « mode X » des
+ondes peut être générée et sortir du plasma.
+D’autres polarisations peuvent être générées, mais
+seraient absorbées par le plasma. Par ailleurs, il ne
+faut
+pas
+s’étonner
+que
+ces
+ondes
+électromagnétiques soient polarisées, dans le sens ou le milieu dans lequel elles sont générées est
+anisotrope : le champ magnétique impose en effet une certaine configuration du plasma.
+
+8
+
+Le fait que le champ électrique de l’onde tourne autour du champ magnétique comme le font
+également les électrons a permis d’imaginer un phénomène d’interaction entre cette rotation des
+électrons et l’onde émise particulièrement efficace.
+Si le phénomène est aussi comparable à un effet MASER,
+c’est parce qu’il résulte de la formation d’une cavité, dans
+laquelle seront amplifiées les ondes électromagnétiques
+émises (notées AKR dans le cas de la Terre – voir figure cicontre). Dans cette cavité, dont les parois sont parallèles aux
+lignes de champ magnétique, étendues de quelques milliers
+de kilomètres en direction verticale et quelques dizaines de
+kilomètres perpendiculairement, peut se créer un champ
+électrique accélérateur parallèle au champ magnétique, de
+grande échelle, du fait d’un déficit d’électrons au niveau des
+pôles. En effet, les électrons dont la vitesse est grande
+parallèlement au champ magnétique vont aller jusqu’au pôle
+où ils seront absorbés par l’atmosphère de Jupiter (ce qui
+formera d’ailleurs des aurores polaires), tandis que ceux de
+faible vitesse parallèle vont en quelque sorte rebondir à des
+altitudes plus hautes, laissant une zone raréfiée en électrons.
+Comme il y a plus d’électrons en haut de la cavité qu’en bas,
+tout se passe comme le bas était une armature positive d’un
+condensateur, et le haut, une armature négative. D’où le
+champ électrique dirigé vers le haut, parallèlement au champ
+magnétique.
+Le champ électrique dans cette cavité a pour effet d’accélérer les électrons vers le pôle. Mais les
+électrons remontent ensuite sous l’influence du champ magnétique, avant d’être à nouveau accélérés
+vers le bas, et ainsi de suite, tout en tournant autour du champ magnétique. Petit à petit, les électrons
+vont se retrouver piégés, dans cette cavité, autour d’une certaine altitude, tout en tournant autour du
+champ magnétique, à la gyrofréquence des électrons. Par ce piégeage autour d’une certaine altitude,
+les électrons vont pouvoir interagir plus longuement avec une onde donnée (rappelons que les ondes
+se propagent perpendiculairement au champ magnétique statique), ce qui va optimiser leur échange
+d’énergie avec les ondes. Ces électrons, d’après le modèle théorique, vont ainsi évoluer en phase et
+émettre un rayonnement qui sera cohérent. La sonde Viking a pu montrer la présence de ces cavités
+dans le cas de la Terre, et a pu également montrer que les rayonnements radiométriques cohérents
+émis par la Terre sont issus de ces cavités amplificatrices.
+Si depuis la Terre on n’observe pas toujours une onde polarisée circulairement venant de Jupiter,
+mais partiellement circulaire ou elliptique, c’est parce qu’elle subit des modifications de par le
+plasma anisotrope qu’elle traverse avant de venir à nous.
+
+9
+
+Maintenant que nous comprenons davantage le phénomène à l’origine de l’émission des ondes radio
+par les planètes, voyons comment il nous a été possible
+de détecter celles provenant de Jupiter. Pour cela,
+rappelons qu’une onde électrique est composée d’un
+champ électrique et d’un champ magnétique
+orthogonaux entre eux et orthogonaux à la direction de
+propagation de l’onde :
+La variation de l’amplitude du champ électrique dans
+le temps est périodique de période T, et du fait de la
+célérité de l’onde, il en découle une périodicité dans
+l’espace, appelée longueur d’onde et notée λ.
+Les ondes hertziennes sont des ondes électromagnétiques se propageant dans le vide, dans l’air…
+Connaissant la structure d’une onde électromagnétique, comment capter une onde
+électromagnétique hertzienne ?
+
+III – Comment recevoir une onde électromagnétique hertzienne ? Les
+antennes
+Bien évidemment en utilisant une antenne. Cela dit, y a-t-il des conditions particulières à respecter ?
+Et quel est le mécanisme qui permet à l’antenne réceptrice de récupérer le signal électromagnétique ?
+1 ) Communication par voie hertzienne :
+Sachant qu’une antenne peut se résumer dans certains cas à un simple fil électrique, que ce soit une
+antenne émettrice ou réceptrice, on peut produire et recevoir une onde hertzienne en connectant
+simplement un fil conducteur au générateur de fréquence, et un autre fil conducteur à un oscilloscope.
+
+Générateur de
+fréquence
+
+Oscilloscope
+
+En faisant cette expérience, nous avons alors pu observer à l’oscilloscope un signal de même
+fréquence que le signal généré par le générateur. En modifiant la fréquence du signal au niveau du
+générateur, le signal montré par l’oscilloscope change également pour rester identique à celle du
+générateur. Un signal passe donc du générateur au récepteur modélisé ici par l’oscilloscope, en
+passant par les antennes, puis par l’air.
+
+10
+
+L’origine physique de la réception de l’onde électromagnétique par une antenne a un point commun
+avec l’émission radio de Jupiter : De même qu’une onde électromagnétique est générée par
+l’accélération de particules électriques chargées, des particules électriques peuvent être mises en
+mouvement par une onde électromagnétique.
+L’antenne réceptrice récupère alors un signal électrique de même fréquence que celle de l’onde
+hertzienne.
+Nous en avons conclu que l’antenne émettrice a pour but de transformer l’onde électrique en signal
+hertzien (qui sont tous deux des signaux électromagnétiques), et que réciproquement, l’antenne
+réceptrice a pour but de transformer le signal hertzien en signal électrique. C’est bien l’antenne qui
+réalise cette conversion car si on enlève l’antenne, ce phénomène n’est plus observé. D’autre part,
+l’expérience montre également que l’orientation des antennes l’une par rapport à l’autre a son
+importance : le signal est plus fort si les deux antennes sont disposées parallèlement entre elles.
+Enfin, l’expérience montre que le signal diminue rapidement en amplitude lorsqu’on éloigne
+l’antenne émettrice de l’antenne réceptrice. Pour nous qui désirons mesurer le signal issu de Jupiter,
+nous ne pouvons pas nous contenter d’un fil.
+Comme notre but était de détecter des ondes radio, nous avons ensuite refait cette expérience en
+utilisant un générateur capable de délivrer des signaux jusqu’à 12 MHz. Le signal récupéré à
+l’oscilloscope était alors extrêmement faible, même avec une orientation favorable de l’antenne
+émettrice par rapport à la réceptrice. Cela confirme que ce n’est donc pas un simple fil qui nous
+permettra de capter le signal de 20,1 MHz issu de Jupiter. Par contre, en rajoutant un fil puis un autre
+aux extrémités des deux premiers, l’amplitude du signal vu sur l’oscilloscope augmentait. L’antenne
+capte alors un signal dont l’amplitude varie avec la taille de l’antenne. Y a-t-il une taille particulière
+adaptée à la réception d’un signal de fréquence donnée ?
+Donc nous disposons d’un système permettant de recevoir une onde électromagnétique, mais il reste
+à l’adapter.
+
+2 ) Que faire pour que l’amplitude du signal capté par l’antenne soit mesurable et utilisable ?
+
+Pour réaliser l’antenne, Jean-Charles le Tarnec nous a orientés vers un document disponible sur le
+site de la NASA sur lequel on pouvait trouver le plan d’une antenne adaptée à la détection des
+signaux issus de Jupiter. Et c’est à la lecture de ce document que se sont posées certaines questions…
+La première d’entre elle concernait la taille du fil d’antenne. Cette taille doit en effet être adaptée à la
+fréquence de l’onde que l’on veut détecter. On pouvait lire en particulier que la longueur de l’antenne
+devait être égale à une demi-longueur d’onde de l’onde que l’on désire détectée de fréquence 20,1
+MHz.
+
+11
+
+Connaissant la relation entre la célérité d’une onde, sa longueur d’onde et sa fréquence, nous en
+déduisons que : v    F   
+
+v
+v
+3,00.108
+ 2L  L 
+
+ 7,46m
+F
+2 F 2  20,1.10 6
+
+Nous voulions réaliser l’expérience précédente avec un générateur capable de délivrer un signal à une
+telle fréquence, et voir si l’amplitude du signal dans l’antenne réceptrice est maximale à cette
+fréquence, mais nous n’en possédons pas au lycée. Alors nous avons raisonné à l’envers, sachant que
+le générateur dont nous disposons permet de générer des ondes allant jusqu’à 12 MHz, cela
+reviendrait à utiliser un fil d’antenne de longueur
+
+v
+v
+3.108
+v    F     2L  L 
+
+ 12,5m
+F
+2 F 2  12.10 6
+Nous avons constaté alors en augmentant la fréquence du signal délivré par le générateur, que
+l’amplitude du signal reçu par l’oscilloscope augmentait.
+Nous voulions savoir si cela se produisait pour des fréquences supérieures à celle liée à la longueur L
+par la relation précédente. Mais là encore nous étions limités par le matériel. Nous avons alors
+contourné le problème en augmentant la taille des fils électriques. Nous avons ainsi pris 2 fils de
+longueur L = 17 m. La fréquence liée à cette longueur calculée avec la formule précédente, est :
+
+F
+
+v
+3.10 8
+
+ 8,8MHz
+2 L 2  17
+
+Avec ces fils de longueur 17 m, l’amplitude du signal lu sur l’oscilloscope augmente bien en
+augmentant la fréquence jusqu’à environ 9 MHz, puis diminue pour des fréquences supérieures.
+Le fait de prendre une antenne de longueur égale à la demi-longueur d’onde du signal à détecter
+permet donc de disposer d’un signal de plus forte amplitude dans l’antenne. Et c’est bien ce que nous
+recherchions. Que se passe-t-il dans l’antenne de si particulier lorsque cette condition remplie ?
+3 ) Que se passe-t-il dans une antenne si L 
+
+
+2
+
+?
+
+Pour le comprendre, on peut raisonner avec les ondes mécaniques :
+Prenons une corde tendues et excitons la périodiquement à une de ses extrémités tandis que l’autre
+reste fixe. Si la fréquence de la perturbation est telle que la perturbation parcourt un aller-retour dans
+la corde pendant une période, alors les perturbations suivantes générées par le vibreur à l’extrémité
+de la corde vont se superposer à celles déjà produites, ce qui va conduire à une amplification du
+signal. Il s’agit d’un phénomène de résonance.
+Ceci est aussi vrai pour toutes les fréquences multiples de la première fréquence pour laquelle ce
+phénomène est visible. Un régime d’ondes stationnaires s’installe alors sur la corde, faisant apparaître
+des ventres et des nœuds de vibration. Nous avons réalisé l’expérience avec un vibreur perturbant
+périodiquement une corde tendue par des poids pour confirmer cette affirmation :
+12
+
+Sur la photo ci-dessus, on peut observer 5 fuseaux, résultant de la résonance entre l’excitateur et la
+corde. Entre les fuseaux, la corde est immobile. Les points où la corde est immobile sont appelé
+nœud de vitesse. Entre les nœuds de vitesse se trouvent les ventres de vitesse.
+Nous pouvons alors montrer que L  2,5    2,5
+
+v
+5 v
+ v 
+ F    5     5F1
+F
+2 L
+ 2L 
+
+Où F1 est la première fréquence (de plus faible valeur) conduisant à ce phénomène de résonance.
+Ainsi, pour F = F1 , F = F2, F = F3, F = F4, ….. on observera des résonances qui conduiront
+respectivement à 1, 2, 3, 4, fuseaux ….. Ces fréquences représentent, comme on le soulignait plus
+haut, les modes propres de vibration de la corde.
+Revenons dans le domaine des ondes électromagnétiques : A-t-on également présence de modes
+propres de vibration ? Pour répondre à cette question, nous avons voulu rechercher les ventres de
+vibration d’une onde stationnaire présente dans un fil d’antenne réceptrice.
+
+4 ) Mais qu’est ce qui vibre dans un fil d’antenne ?
+
+L’antenne est le siège d’un courant alternatif et un courant est dû à un déplacement d’électrons dans
+les métaux, ce sont eux qui vibrent. A l’endroit du câble ou les électrons vibreront le plus, on aura
+alors un maximum d’intensité. Et à l’endroit où ils vibrent le moins, il y aura un minimum d’intensité
+et par conséquent, un maximum de tension.
+Donc, à un ventre d’intensité correspond un nœud de tension, et à un nœud d’intensité doit
+correspondre un ventre de tension.
+Nous avons voulu vérifier cela en réalisant une expérience similaire à celle réalisée avec la corde,
+mais cette fois ci dans le domaine électromagnétique : analysons, dans un fil électrique de longueur
+17 m, le signal reçu par une antenne réceptrice de même longueur qu’une antenne émettrice reliée à
+un générateur de fréquence. Cherchons en particulier la position des nœuds et des ventres de tension
+du premier mode de vibration. Comme le nœud de tension doit être au centre du fil, nous dénudons le
+fil à cet endroit afin de relié ce point du fil à la fiche BNC de l’oscilloscope. Nous faisons de même
+aux extrémités du fil électrique de l’antenne réceptrice.
+Voici le résultat obtenu :
+13
+
+Extrémité gauche
+
+Au centre, pas de tension : nœud de tension
+
+Extrémité droite
+
+L’expérience est donc concluante…A cela de près, que l’on s’attendait à ce que cette observation se
+passe à une fréquence de 9 MHz plutôt que 5,88 MHz !!
+Nous cherchons l’explication à cette différence.
+Tous ces questionnements que nous nous posions étaient essentiels pour comprendre le
+fonctionnement d’une antenne, mais le temps passait et nous avions des rendez-vous avec Jupiter que
+nous ne voulions pas rater. Nous avons alors décidé de commencer à construire l’antenne, et de
+mener de front sa réalisation ainsi que son étude.
+Jean-Charles Le Tarnec et Armand Thomas nous ont beaucoup conseillé lors du montage de
+l’antenne, car nous avions parfois besoin de confirmations et de savoir-faire. Sans leur aide, la
+conception de l’antenne aurait pris beaucoup plus de temps.
+
+IV - Réalisation de l’antenne :
+Nous avons d'abord cherché des informations sur les antennes semblables ayant déjà été construites,
+nous avons trouvé plusieurs plans qui différaient majoritairement sur les matériaux. Finalement, c'est
+le modèle de « Joveproject » de la NASA qui a été retenu pour base.
+Après avoir étudié et traduits les plans, ainsi que fait l'inventaire puis acheté les matériaux
+nécessaires nous avons pu passer à la réalisation.
+1 ) Orientation et Support de l’antenne :
+L’antenne comporte deux ensembles de deux
+piquets comme le montre le plan ci-dessous entre
+lesquels est attaché le fil d’antenne (Antenna
+Wire sur le plan). Les 4 piquets doivent ainsi
+former un rectangle, comme le montre le schéma
+de l’antenne ci-contre :
+
+14
+
+Sur ce dernier plan, nous pouvons voir l’orientation à respecter pour positionner l’antenne. C’est en
+la disposant ainsi que l’on pourra capter le maximum d’information. En effet, Jupiter se lève à l’est et
+se couche à l’ouest. Or l’efficacité de l’antenne est plus faible dans une direction correspondant à
+l’axe des fils d’antenne.
+On peut se rendre compte de l’intérêt de disposer l’antenne
+selon la direction EW en visualisant le diagramme de
+rayonnement de l’antenne disposé sur une figure
+représentant en quelque sorte la sphère des étoiles. Pour
+mieux visualiser ce schéma, il faut imaginer qu’on le tien
+au-dessus de sa tête, et qu’on le regarde en l’orientant en
+respectant les directions nord sud est ouest indiquées.
+Si la trajectoire d’un astre (en jaune sur le schéma)
+intercepte le faisceau vert, alors l’antenne pourra détecter
+le signal émis par l’astre avec un signal de grande
+amplitude. On dit que le gain de l’antenne est alors élevé.
+Concernant notre antenne à deux fils, elle nous permet d’avoir un gain plus élevé, mais la
+contrepartie est qu’elle a un diagramme de rayonnement plus étroit que l’antenne simple fil.
+Une fois compris comment et pourquoi orienter l’antenne, allons sur le terrain !
+Première étape : planter 4 piquets en fer dans le sol qui serviront d’âme à 4 tubes de PVC de 3 mètres
+de hauteur qui seront les supports de l’antenne. Comme nous l’avons précisé, le choix de
+l’emplacement devait être fait en fonction du mouvement de Jupiter. De plus, il ne faut pas d’obstacle
+entre l’antenne et Jupiter. Nous avons la chance d’être dans un lycée isolé de la ville et placé sur un
+grand terrain. Pour éviter des ondes parasites, nous nous sommes mis à une cinquantaine de mètre du
+lycée.
+Avant de planter des piquets, il faut dessiner un rectangle au sol, en respectant les côtes qui sont
+rappelons le, liées à une bonne résonance de l’antenne. Boussole, Pythagore, compas géant ont été
+nos outils qui nous ont permis de venir à bout de ce rectangle qui avait bien du mal à trouver ses
+angles droits dans les premiers instants.
+Comme il faudra haubaner les piquets en PVC, nous les avons percés avant de les placer à leurs
+positions définitives et les haubaner.
+
+15
+
+Le support de l’antenne est alors réalisé et attend son hôte…
+2 - Antenne :
+
+Ce schéma de l’antenne ci-dessus représente une vue de dessus du dispositif. On peut y voir les deux
+fils d’antenne (dipôle nord et dipôle sud) attachés chacun à 2 piquets.
+Intéressons-nous tout d’abord à ces deux dipôles. Nous avons vu que le dipôle sera résonant pour une
+onde de 20,1 MHz si sa longueur mesure 7,46 m.
+Or, lorsque nous regardons le schéma de l’antenne, nous constatons qu’il faut en réalité qu’il mesure
+7,09 m. Cette information nous a perturbé et nous avons cherché à en savoir davantage. Par chance,
+de nombreux radioamateurs donnent des informations sur internet. Parmi eux, F5AD a montré
+expérimentalement que des effets particuliers peuvent modifier les caractéristiques du câble, induits
+par exemple par le type d’attache que l’on fait aux extrémités, le choix de l’isolateur électrique… Au
+final, pour que le dipôle résonne à la bonne fréquence, il faut faire le calcul en rajoutant un terme
+correctif que l’on ne connaît pas. Nous avons alors décidé de couper le fil d’antenne à une longueur
+légèrement plus grande que celle indiquée sur le schéma, et de modifier ensuite soit l’attache, soit la
+longueur si au moment des tests l’antenne ne montre pas une bonne résonance à 20,1 MHz.
+Comme on le voit sur le schéma ci-dessus, chaque dipôle est en réalité composé de deux morceaux
+de câbles reliés entre eux par un isolateur électrique. Au niveau de cet isolateur, un des fils est relié à
+l’âme d’un câble coaxial, et l’autre fil est relié à sa tresse. On récupérera ainsi une différence de
+potentiel entre ces deux brins de l’antenne au niveau du câble coaxial.
+L’intérêt de positionner le câble coaxial entre les deux brins du dipôle vient du fait qu’à cet endroit se
+trouve un nœud de tension, donc un ventre d’intensité et donc une faible résistance si on considère la
+loi d’Ohm. Cette résistance est appelée impédance de façon générale. Or nous avons pu lire dans
+16
+
+différents documents que lorsqu’un signal se propage d’un milieu à un autre milieu, il faut que leur
+impédance soit adaptée sans quoi seulement une partie du signal passe d’un milieu à l’autre. Il y a
+adaptation d’impédance lorsque les deux milieux ont des impédances égales. Or, toujours en lisant
+certains documents, il semble que l’impédance au milieu de l’antenne dipolaire demi onde soit égale
+à 73 Ω. Partout ailleurs, elle sera supérieure. En récupérant alors le signal issu des deux brins, par un
+câble coaxial d’impédance 75 Ω, on pourra considérer que les impédances sont adaptées.
+Ainsi, pour relier le dipôle au récepteur qui enregistrera le signal, on dispose un câble coaxial de 75
+Ω, et de longueur correspondant à une demi-longueur d’onde du signal que l’on veut capter avec
+l’antenne toujours pour être dans des conditions de résonance et de récupérer un signal avec la plus
+grande amplitude possible. Et c’est là que nous avons eu un moment de doute. En effet, nous
+voulions le couper pour avoir une longueur de 7,46m, correspondant à 1 demi-longueur d’onde, alors
+que le document que nous avions en notre possession demandait de couper une longueur de câble
+coaxial égale à 4,92 m. En réalité, dans le câble coaxial, le signal ne se propage pas à la célérité de la
+lumière, mais à seulement 66% de cette célérité. De ce fait, la longueur d’onde étant la distance
+parcourue par l’onde durant une période T sera plus faible dans le câble coaxial qu’elle ne l’est dans
+le vide. Elle sera exactement 66% plus courte, ce qui donne bien 4,92m.
+Nous avons équipés toutes les extrémités de câble coaxiaux par des fiches de connexion (F sur le
+schéma).
+
+Atelier fiche et coaxial
+
+En réalité, sur le dipôle sud, conformément au schéma de l’antenne, nous avons la possibilité de
+rajouter une pièce permettant d’inverser le signal dans le coaxial : cette pièce relie l’âme à la tresse et
+inversement. Comme nous ne possédions pas cet élément, nous avons profité du savoir-faire
+d’Armand Thomas qui nous l’a confectionné. Son utilisation s’accompagne alors d’un rajout d’un
+morceau de coaxial dont le but est de créer un déphasage entre les signaux issus des deux dipôles afin
+d’éviter un déphasage de pi. L’utilisation de cet « inverseur » et de ce rajout de câble permet alors de
+modifier le diagramme de rayonnement de l’antenne, de façon à l’adapter au phénomène que l’on
+veut observer de Jupiter.
+Il ne reste plus alors qu’à rajouter le coupleur permettant d’additionner les deux signaux, de couper à
+nouveau un morceau de câble coaxial d’une demi longueur-d’onde, et de le raccorder au récepteur.
+17
+
+3 - Test de l’antenne :
+Avant cela, il fallait tester la résonance de l’antenne. Pour cela, il existe
+des boitiers permettant d’envoyer un signal de fréquence variable dans le
+dipôle, via le câble coaxial associé à chaque dipôle, et capable de lire le
+signal retour s’il y en a un. Si le signal retour est de même amplitude que
+le signal envoyé, cela signifie que l’adaptation d’impédance est mauvaise
+car le signal ne se propage alors pas du câble coaxial vers le dipôle. Cela
+signifie alors que l’antenne a mal été réalisée, qu’elle comporte un
+défaut, une erreur de fabrication…
+Tester l’antenne revient alors à chercher pour quelle fréquence le taux d’onde réfléchie à l’extrémité
+du coaxial est le moins grand. Cette fréquence sera alors la fréquence de résonance de l’antenne.
+Le test de la première antenne a permis de voir….aucune résonance… le
+moment est dur, un dipôle est à vérifier. Passons alors à l’autre
+dipôle…aucune résonance non plus…Là, cela devient catastrophique. Nous
+vérifions qu’il n’y a pas de court-circuit au niveau des soudures que nous
+avons réalisées entre l’âme, la tresse, et les brins des dipôles. Tout va bien
+de ce côté-là. Par contre, pour tester l’antenne, il a fallu réaliser un raccord
+particulier avec un embout qui s’adaptait sur le boitier. Nous avons trouvé
+un court-circuit sur ce cordon-là : l’âme et la tresse étaient reliées entre
+elles !
+Passé ce moment de panique, nous avons alors pu faire les tests. Le premier dipôle résonne à19,7
+MHz, et le deuxième dipôle également. D’après l’expérience d’Armand Thomas, ces valeurs
+obtenues sont suffisamment proches de la fréquence visée de 20,1 MHz pour que l’antenne soit
+qualifiée de bonne qualité.
+
+Très bien. Alors place à l’observation. Mais nous
+avions dit que les phénomènes observables ne sont
+pas présents tous les jours, et encore moins toutes
+les heures… Alors quand est ce que Jupiter et Io
+nous donnent rendez-vous ?
+
+18
+
+V - Les rendez-vous avec Jupiter
+Voici ci-dessous les premiers rendez-vous, durant le mois de décembre, auxquels il nous était possible de nous rendre.
+
+Ce tableau permet au final de voir en vert les évènements observables résultat du couple Io-Jupiter. Les calculs ont été réalisés de sorte que seules
+les séances d’observation supérieures à 30 minutes soient indiquées.
+A gauche, Io A, B C représentent les trois évènements différents observables. Les coordonnées horaires de ces évènements ont été obtenues en
+utilisant un logiciel dont l’algorithme a été établi à partir de données statistiques issues de l’observation du couple Io Jupiter. Elles ne reposent
+pas sur un modèle physique particulier. Les horaires et dates de ces évènements sont données en temps universels TU et jours juliens JJ. Ceci est
+nécessaire. Les colonnes HL correspondent aux heures locales.
+Mais tous ces évènements ne sont pas observables sur à Poitiers. Cela dépend également de la position du soleil et de celle de Jupiter dans le
+ciel : le soleil doit être couché pour ne pas occulter le signal émis par Jupiter. D’un autre côté, Jupiter doit être suffisamment haut au-dessus de
+l’horizon pour être visible par l’antenne sans que ses ondes soient interceptées par un obstacle. La connaissance de l’azimut est intéressante car
+elle permet d’adapter le diagramme de rayonnement de l’antenne à la position de Jupiter.
+19
+
+La première observation a été réalisée le jeudi 29 novembre, sachant que l’antenne a été
+achevée le mercredi 28 novembre.
+Ce jeudi était particulièrement intéressant car il n’y avait aucun signal de prévu…Nous
+pouvions dons avoir une idée du bruit de fond pour ensuite pouvoir différencier le signal
+attendu du couple Io-Jupiter.
+Nous avons alors refait une observation Mardi 4 décembre, de 5H58 à 6H28, qui ne rentre pas
+dans les données du tableau car il s’agissait d’un créneau relativement cours. Mais comment
+rater un rendez-vous avec Jupiter ?
+Renseigner les champs du tableau précédent est un travail fastidieux, mais depuis, nous avons
+appris qu’il existait également un logiciel qui réalise l’ensemble des démarches que nous
+avons suivies pour connaître les rendez-vous avec Jupiter (
+Ci-dessous se trouve un diagramme, issu de ce logiciel, dans lequel apparaît les trois
+évènements Io A, Io B et Io C. Ces trois tâches découlent de la bonne phase de Jupiter,
+repérée par son CML III, c'est-à-dire un méridien lié à son champ magnétique, ainsi que de la
+phase de Io par rapport à Jupiter.
+En ordonnée est indiquée la phase de Io par rapport à
+Jupiter, alors qu’en abscisse se lit la phase du CML III.
+
+En superposant la trajectoire
+de Jupiter à ce diagramme, il
+est possible de voire à quelle
+heure les phénomènes sont
+observables à une date
+donnée.
+
+IoB, le mardi 4 décembre
+
+Nous avons alors refait une observation Mardi 4 décembre, de 5H58 à 6H28, qui ne rentre pas
+dans les données du tableau car il s’agissait d’un créneau relativement cours. Mais comment
+rater un rendez-vous avec Jupiter ?
+D’autant plus que ce rendez-vous permettait d’écouter le signal très caractéristique appelé Io
+B. Caractéristique car il s’agit d’un bruit de vague, d’où le nom de notre projet :
+Surfer sur Jupiter.
+Cet instant a été magique. Nous avons écouté, enregistré le son, mais pas pu enregistrer le
+signal électromagnétique directement car nous avons rencontré un souci avec le récepteur.
+
+20
+
+Heureusement, d’autres radio amateurs ont également détecté le signal et l’on partagé sur
+internet. Le voici ci-dessous :
+
+Nous avons eu un autre rendez-vous, le 14 décembre, auquel a participé le club d’astronomie
+de Saint Benoît qui s’est déplacé avec des télescopes. Nous avons alors de lier l’écoute à la
+vision.
+Depuis, nous avons réalisé un bon nombre d’observations (mentionnées en annexe 2) et
+d’écoutes, de phénomènes IoA, B ou C. Ces concerts naturels sont à chaque fois des moments
+inoubliables, qui respectent le couvre-feu indiqué par le logiciel qui prévoit leur
+retentissement sur Terre. Ceci nous conforte dans notre certitude d’écouter effectivement le
+couple Jupiter.
+Les prochaines écoutes devraient être d’une meilleure qualité, et nous permettre d’enregistrer
+le signal sous forme de graphique car nous allons recevoir très prochainement un nouveau
+récepteur muni d’un filtre particulièrement adapté au cas qui nous intéresse. Nous vous en
+ferons part au Palais de la découverte.
+
+VI - Conclusion :
+Quand Jean-Charles le Tarnec nous a présenté le genre d’expériences qu’il faisait, sur
+l’ionosphère, ou les projets qu’il avait en tête, nous avons tout de suite été enthousiastes à
+l’idée de réaliser un outil capable d’explorer une planète et son satellite, Jupiter et Io. Ce
+travail nous a non seulement permis de nous évader dans l’espace, mais également d’aborder
+des notions scientifiques que nous ne connaissions pas, mais que nous nous sommes
+maintenant appropriés, tel que l’effet maser cyclotron, grâce à l’aide précieuse de Philippe
+Louarn. Nous allons maintenant poursuivre l’exploitation de cette antenne, car nous avons vu
+que des études peuvent être menées, telles que la mesure de la période de révolution de
+Jupiter. Nous avons déjà beaucoup appris, mais il semble qu’il y ait encore beaucoup à
+apprendre de cette antenne.
+
+21
+
+Annexes 1
+
+La polarisation de ces ondes a été un des éléments déterminant pour comprendre le
+phénomène qui est à l’origine de leur émission, nous allons donc vous expliquer en quoi elle
+consiste :
+Tout d'abord, expliquons ce qu'est la
+polarisation d'une onde électromagnétique.
+Nous
+savons
+qu'une
+onde
+électromagnétique est composée d'un
+champ électrique et d'un champ
+magnétique, orthogonaux entre eux et à la
+direction de propagation de l'onde. Nous
+allons nous intéresser au champ électrique,
+de toutes façons nous pouvons dire que le
+champ magnétique en découle, et
+inversement, grâce aux équations de
+Maxwell.
+Il existe 3 types de polarisation : rectiligne, circulaire et elliptique.
+Une polarisation rectiligne est simple,
+elle est observée lorsque le champ
+électrique est sur un seul plan, autrement
+dit, si on se place face à la source, on
+observe une « ligne » qui vient de la
+variation alternativement positive puis
+négative du champ électrique. C'est le
+genre de polarisation que l'on imagine
+lorsqu'on pense à une onde en général et
+qui a lieu avec une onde mécanique
+comme avec une corde par exemple.
+Mais dans le domaine des ondes électromagnétiques, plusieurs raisons font qu’en général, les
+ondes ne sont pas polarisées rectilignement :
+
+En effet, comme le montre le schéma ci-dessus, une onde résulte d’une succession de trains
+d’ondes incohérents les uns avec les autres en terme de polarisation, qui durent chacun en
+22
+
+moyenne 10-10s. Ceci est dû au fait qu’un train d’onde est émis par exemple par un atome,
+entre deux chocs qu’il subira. Le choc modifie la direction de la vibration, et donc la
+polarisation du train d’onde.
+D’autre part, les ondes électromagnétiques résultent en général non pas de la vibration d’un
+unique atome ou molécule, mais d’un grand ensemble de ceux-ci. Et chacun des constituants
+de cet ensemble vibre avec des polarisations aléatoires. La somme de toutes ces polarisations
+forme une onde non polarisée.
+Polarisation circulaire :
+
+Si, comme sur le schéma ci-dessus, l’extrémité du champ électrique décrit un cercle dans un
+plan perpendiculaire à la direction de propagation de l’onde, pour un observateur voyant
+l’onde venir vers lui, alors on dit que l’onde a une polarisation circulaire gauche si elle tourne
+dans le sens inverse des aiguilles d’une montre, et droite dans le cas contraire.
+
+23
+
+Annexes 2
+
+24
+
+

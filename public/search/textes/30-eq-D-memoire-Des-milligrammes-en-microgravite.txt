@@ -1,0 +1,732 @@
+Milligrammes en
+Microgravité
+
+Peser une masse sans gravité
+LEOPOLD Antoine
+
+GIAPRAKIS Irina
+
+MANZ Zoé
+
+CROS Ernestine
+
+DE ROSA Enrico
+
+SCHINAS Nicolas
+
+SALEH Joachim
+
+JURQUET Florian
+
+Ecole Européenne de Bruxelles IV
+
+Milligrammes en Microgravité
+
+Remerciements
+Nous tenons à remercier Monsieur Clémence et Monsieur Vandenborre, qui
+nous ont enseignés, guidés, et conseillés tout au long de la conception de notre
+projet, et sans qui celui-ci n’aurait pu aboutir.
+Nous remercions également Charles Schiettecatte, laborantin de notre école,
+pour sa contribution technique. Nous souhaitons remercier Monsieur Jimenez
+pour son aide apportée à la programmation et sa participation aux formations.
+Enfin, nous apprécions l’aide et le soutien apportés par nos partenaires de
+l’Université Libre de Bruxelles, Monsieur Nardone et Madame Swaelens, et de
+l’Université de Liège, Monsieur Kerschen, sans oublier Monsieur Polis de l’Euro
+Space Center.
+
+Qui sommes-nous ?
+Nous sommes 8 élèves en Première à l’École Européenne de Bruxelles IV, en
+Belgique. Tous passionnés par les sciences et la recherche, nous avons mis en
+commun nos compétences individuelles et avons acquis ensemble d’autres
+capacités nécessaires au développement de ce projet.
+
+Le Club Scientifique
+Notre professeur de physique nous a réunis dans ce nouveau club avec pour
+objectif de développer ensemble un projet : la création d’une balance capable de
+peser une masse en zéro-gravité.
+Ce club composé de multiples projets innovants restera toujours ouvert à
+d’autres propositions de partenariats pour faciliter les débouchés et la visibilité
+médiatique au sein du secteur scientifique.
+Grâce au matériel fourni par les laborantins des différents départements
+scientifiques de notre école, nous avons pu expérimenter sans relâche dans ce
+domaine.
+La rédaction du mémoire a rendu possible pour certains membres de notre
+groupe d’acquérir et de développer leurs compétences dans des logiciels tels
+que Microsoft Word et Microsoft Excel, mais surtout, le monde de l’étude de la
+gravité nous a permis de solidifier nos connaissances et d’inaugurer une
+nouvelle passion commune.
+
+18/01/2023
+
+Ecole Européenne de Bruxelles IV
+
+2
+
+Milligrammes en Microgravité
+
+Sommaire
+I – INTRODUCTION........................................................................................................................ 4
+Origines ........................................................................................................................................ 4
+Problématique............................................................................................................................... 4
+Objectifs ........................................................................................................................................ 4
+Objectif Primaire ....................................................................................................................... 4
+Objectifs Secondaires ................................................................................................................ 5
+II – LAME DE SCIE .......................................................................................................................... 6
+Naissance de l’Idée ....................................................................................................................... 6
+Structure ....................................................................................................................................... 6
+Protocole Manuel .......................................................................................................................... 6
+Résultats........................................................................................................................................ 7
+III – GENERATEUR DE VIBRATIONS ............................................................................................ 8
+Automatisation ............................................................................................................................. 8
+Fonctionnement ............................................................................................................................ 8
+Résultats........................................................................................................................................ 9
+IV – VERS UN DISPOSITIF FONCTIONNEL................................................................................ 10
+Fonctionnement Général ............................................................................................................ 10
+Fonctionnement du Capteur....................................................................................................... 11
+Signal Sinusoïdal ........................................................................................................................ 13
+Résultats...................................................................................................................................... 13
+Structure ..................................................................................................................................... 14
+Affichage..................................................................................................................................... 14
+Modèle ........................................................................................................................................ 15
+Budget......................................................................................................................................... 15
+Source d’Imprécision .................................................................................................................. 15
+V - CONCLUSION ......................................................................................................................... 16
+Perspective .................................................................................................................................. 16
+Optimisation ........................................................................................................................... 16
+Mise en Orbite ......................................................................................................................... 17
+Et après ?..................................................................................................................................... 17
+Domaine Spatial ...................................................................................................................... 17
+Sur Terre.................................................................................................................................. 17
+
+18/01/2023
+
+Ecole Européenne de Bruxelles IV
+
+3
+
+Milligrammes en Microgravité
+
+I – INTRODUCTION
+Comment réaliser la pesée de corps lorsque la gravité est négligeable, c’est la
+question qui nous a permis de débuter cette aventure. Au sein de l’ISS, les
+astronautes réalisent des expériences nécessitant la pesée précise de masses. Le
+système utilisé a les capacités pour mesure le poids des astronautes, or il ne
+possède pas la précision nécessaire pour peser des corps plus légers, de l’ordre
+des milligrammes. L’objectif est de créer un tel système à un prix raisonnable.
+
+Origines
+L’annonce d’une compétition scientifique inter-écoles européennes en octobre
+2021 a suscité notre curiosité et nous a motivé à entamer la réalisation d’un
+projet destiné à ce concours. Après le visionnage de plusieurs documentaires
+scientifiques provenant d’une saga conseillée par notre professeur de physique
+Olivier Clémence, nous avons décidé d’étudier ensemble la possibilité de
+mesurer de masses dans un environnement dépourvu de gravité.
+
+Problématique
+La pesée de masses est une tâche journalière qui doit être exécutée de la manière
+la plus précise possible, en toutes circonstances. Ceci est facilement réalisable
+sur Terre où la gravité existe, mais comment serait-il possible de faire de même
+dans l’espace où celle-ci est nulle ?
+
+« Comment peser des masses sans gravité ? »
+En outre, notre récente qualification au concours CANSAT BELGIUM nous
+oblige également à faire tenir le dispositif dans une cannette.
+
+Objectifs
+Objectif Primaire
+L’objectif primaire de notre projet est de réaliser une balance ayant la
+capacité de peser des masses avec une précision de 10−4 grammes, dans
+des environnements en microgravité.
+
+18/01/2023
+
+Ecole Européenne de Bruxelles IV
+
+4
+
+Milligrammes en Microgravité
+
+Objectifs Secondaires
+1. Réaliser une balance partageant les mêmes dimensions que celle
+d’une canette de soda de 330ml.
+2. Automatiser le déclenchement du système de pesée, ainsi que le
+système de collecte d’informations.
+
+POINT MÉTHODE
+CRITÈRES D’UNE BALANCE
+Lors de la conception d’une balance, il est primordial de remplir trois critères
+afin que celle-ci soit performante :
+- Sensibilité : réagit avec de petites masses, possède un large degré de
+précision (plusieurs décimales après la virgule)
+- Justesse : les résultats qu’elle nous fournit reflètent la réalité
+- Fidélité : si l’on fait plusieurs fois la même mesure, le résultat restera
+identique
+
+18/01/2023
+
+Ecole Européenne de Bruxelles IV
+
+5
+
+Milligrammes en Microgravité
+
+II – LAME DE SCIE
+Naissance de l’Idée
+La première idée fut de mettre en évidence un lien entre la masse et la
+fréquence. C’est ainsi que le concept d’oscillation est apparu dans nos esprits.
+
+Structure
+En suivant cette piste, nous avons développé ce premier prototype, composé
+d’une lame de scie tenue par un serre-joint, d’un cylindre vide servant de
+contenant scotché à une certaine distance du point d’attache, ainsi qu’un
+capteur de lumière relevant la fréquence de l’oscillation.
+LabQuest (lecteur de données)
+
+Serre-joint
+
+Capteur de lumière
+
+Lame de scie
+
+Réceptacle
+
+Protocole Manuel
+Peser une masse et la
+placer sur le bout du ruban
+adhésif, positionner ensuite
+le ruban dans le réceptacle
+
+Tenir la lame de scie dur le
+capteur de lumière, lancer la
+collecte de données sur le
+LabQuest, finalment, lâcher
+la lame et la laisser osciller
+
+Utiliser les fonctionnalités du
+LabQuest pour trouver la
+fréquence à laquelle
+l’amplitude d’oscillation de la
+lame est la plus grande
+
+Le LabQuest étant un logiciel disposant d’un écran tactile, qui permet aux membres
+de l’équipe d’interpréter ces résultats.
+
+18/01/2023
+
+Ecole Européenne de Bruxelles IV
+
+6
+
+Milligrammes en Microgravité
+
+Résultats
+Masse (kg) Fréquence (Hz) Période (s)
+0
+104,4
+0,010
+0,003
+84,4
+0,012
+0,006
+70,5
+0,014
+0,01
+57,5
+0,017
+0,015
+47,8
+0,021
+0,031
+36,9
+0,027
+0,035
+32,8
+0,030
+0,049
+28,2
+0,035
+
+Courbe de la fréquence en fonction de la masse | Courbe de la période en fonction de la masse
+
+Les graphiques dressés à partir des diverses données expérimentales que nous avons
+relevées démontrent bel et bien l’existence d’une relation entre la masse et la fréquence.
+
+Après la découverte de cette relation, nous avons voulu l’affiner en automatisant le
+protocole, réduisant ainsi son imprecision.
+
+18/01/2023
+
+Ecole Européenne de Bruxelles IV
+
+7
+
+Milligrammes en Microgravité
+
+III – GENERATEUR DE
+VIBRATIONS
+Automatisation
+La génération manuelle des vibrations faisait d’elles des vibrations libres qui
+sont devenues forcées par l’automat=isation, qui découle de l’implémentation
+du générateur de vibrations comme paramètre de l’expérience.
+La fréquence de résonance est définie comme celle à laquelle l’amplitude de
+l’oscillation est la plus grande.
+Peser une masse de pâte à
+fixe, et l’attacher correctement
+sur la corde de guitare
+
+Allumer le générateur de vibrations et changer
+la fréquence jusqu’à trouver la fréquence de
+résonance
+
+Fonctionnement
+Le générateur de fréquences crée un courant électrique alternatif, faisant vibrer
+la corde de guitare sur laquelle est fixée la masse qui rentre alors en oscillation.
+A l’aide de la molette sur le générateur de fréquence, nous ajustions ce
+paramètre afin d’identifier la fréquence de résonance, atteinte lorsque
+l’amplitude de l’oscillation est la plus élevée.
+Corde de guitare
+
+Masse
+
+Générateur de
+fréquence
+
+18/01/2023
+
+Ecole Européenne de Bruxelles IV
+
+8
+
+Milligrammes en Microgravité
+
+Masse en mouvement :
+
+Résultats
+Masse
+(g)
+
+Fréquence
+(Hz)
+
+Période
+(s)
+
+0,003
+
+266
+
+0,0038
+
+0,007
+
+195
+
+0,0051
+
+0,009
+
+205
+
+0,0049
+
+0,01
+
+174
+
+0,0057
+
+0,011
+
+177
+
+0,0056
+
+0,012
+
+165
+
+0,0061
+
+0,017
+
+138
+
+0,0072
+
+0,019
+
+132
+
+0,0076
+
+0,031
+
+92
+
+0,0109
+
+0,034
+
+89
+
+0,0112
+
+0,054
+
+79
+
+0,0127
+
+0,06
+
+88,3
+
+0,0113
+
+Courbe
+de la
+fréquence
+en
+fonction
+de la
+masse
+_______
+Courbe
+du carré
+de la
+période
+en
+fonction
+de la
+masse
+
+En analysant ces graphiques, nous observons qu’il existe véritablement une
+relation entre la fréquence et la masse ainsi qu’entre la période et la masse.
+
+A l’aide de ce dernier prototype, nous avons détaillé l’existence de cette relation en
+automatisant le protocole. Néanmoins, la fréquence de résonance étant relevée à l’œil
+nu, elle induisait une haute imprécision sur sa valeur.
+
+18/01/2023
+
+Ecole Européenne de Bruxelles IV
+
+9
+
+Milligrammes en Microgravité
+
+IV – VERS UN DISPOSITIF
+FONCTIONNEL
+Pour pouvoir automatiser la prise de mesure nous avons décidé d’utiliser une
+carte Arduino. Le modèle choisi est Nano pour sa petite taille afin de parvenir
+à notre objectif de faire tenir le module dans une cannette de 33cL.
+
+GRANDEURS PHYSIQUES
+-
+
+Lux : Généré par la lumière LED, et relevé par le capteur de
+lumière
+Fréquence : Déduite par les variations des valeurs de lux, qui
+influencent le taux aux bornes du capteur
+Masse : Pesée par la balance
+→Relation Masse/Fréquence
+
+Fonctionnement Général
+L’objectif de ce prototype est de faire vibrer la
+masse, produit par l’excitation d’un haut-parleur
+engendré par un signal provenant de la carte mère
+Arduino. Nous utilisons ensuite un capteur optique
+pour relever cette oscillation.
+Arduino produit un signal carré (signal binaire) que
+nous pensions pouvoir transformer via un filtre
+passe-bas, or cela se révéla un échec.
+Nous avons donc opté pour un oscillateur, faisant essentiellement la même
+chose mais fonctionnant bien mieux que notre filtre passe-bas. L’oscillateur
+produisant une vibration de trop faible amplitude, nous avons du le combiner
+avec un amplificateur.
+
+18/01/2023
+
+Ecole Européenne de Bruxelles IV
+
+10
+
+Milligrammes en Microgravité
+
+Choisir un
+échantillon à peser
+et l’insérer dans le
+tube
+
+Attacher le tube
+correctement au
+dispositif
+
+Détacher le tube et le
+vider, le dispositif est
+tout de suite prêt pour
+la prochaine mesure
+
+Le programme va traiter
+les données reçues par
+le dispositif et afficher la
+masse de l’échantillon
+
+Vérifier que le tube est
+bien positioné devant le
+capteur sans le recouvrir
+complètement
+
+Lancer le programme sur
+l’ordinateur et attendre quelques
+secondes pour que le dispositif
+prenne les mesures nécessaires
+
+Fonctionnement du Capteur
+Une source de lumière LED sera
+placée au bout du prototype, qui sera
+ombragée de manière maximale au
+pic de l’oscillation, et qui sera la plus
+lumineuse lorsque la masse sera au
+creux de cette même oscillation.
+Lorsque le récipient vibre, il viendra
+occulter
+le
+capteur
+et
+nous
+collecterons sur la carte Arduino les
+variations de tension occasionnées.
+Un capteur de lumière, situé en face de cette lumière, relèvera ses données et
+permettra de reconstituer un graphique de la fréquence en fonction de la masse.
+
+18/01/2023
+
+Ecole Européenne de Bruxelles IV
+
+11
+
+Milligrammes en Microgravité
+
+Lumière LED
+Tube contenant
+la masse à peser
+
+Capteur de lumière
+
+Haut-parleur
+
+Oscillateur
+Amplificateur
+
+Capteur de
+Lumière
+
+Arduino
+Oscillateur
+
+18/01/2023
+
+Carte Arduino
+
+Amplificateur
+
+Ecole Européenne de Bruxelles IV
+
+Haut-parleur
+
+12
+
+Milligrammes en Microgravité
+
+Signal Sinusoïdal
+Le code Arduino balaye les fréquences par
+valeurs croissantes et reconstitue l’amplitude
+de l’oscillation associée selon ce graphique.
+Nous observons une multitude d’harmoniques
+qui représentent la fréquence de résonance du
+système. En réalité, l’amplificateur, étant de
+mauvaise qualité, produisait un signal
+périodique
+non-sinusoïdal.
+Ces
+pics
+représenteraient alors les différentes fréquences de résonance des différents
+signaux le composant.
+Nous avons donc opté pour un amplificateur de
+meilleure qualité afin d’obtenir un signal
+sinusoïdal parfait, attesté par le graphique cicontre :
+Le pic visible dans ces graphiques représente la
+fréquence de résonance, qui sera ensuite utilisée
+pour retrouver la masse pesée, par l’utilisation d’une formule mathématique.
+
+Résultats
+Grâce à ce dispostif nous avons pu obtenir le graphique suivant, illustrant une
+courbe d’étalonnage permettant au programme de calculer la masse contenue
+dans le tube après en avoir déterminé la fréquence de résonance.
+
+18/01/2023
+
+Ecole Européenne de Bruxelles IV
+
+13
+
+Milligrammes en Microgravité
+
+Structure
+Le corps à peser est positionné dans le tube
+au bout de la corde métallique de guitare,
+résultat d’une impression 3D. Le hautparleur, situé juste en-dessous, et lié à la carte
+Arduino, initie un signal sinusoïdal par le
+procédé mentionné précédemment. Une
+lumière est située au bout du prototype avec
+un capteur de lumière en face.
+
+Affichage
+L’ajout d’un écran qui affiche la masse directement
+nous permet de utiliser le dispositif sans passer par
+un ordinateur.
+
+18/01/2023
+
+Ecole Européenne de Bruxelles IV
+
+14
+
+Milligrammes en Microgravité
+
+Modèle
+Notre modèle est directement obtenu en pesant des masses et en mesurant la
+fréquence de résonance obtenue par notre système/protocole, le logiciel
+d’analyse de données LoggerPro dessine alors la meilleure courbe, passant au
+plus proche de tous les points et détermine aussi les coefficients de celle-ci. La
+sensibilité de notre système est directement reliée à notre modèle. En effet, plus
+la dérivée est proche de 0, plus la variation de la masse est petite, pour de petits
+incréments en fréquences, permettant de déceler de faibles variations de la
+masse.
+LoggerPro est utilisé pour calculer et optimiser une fonction du second degré
+de la forme 𝑓(𝑓𝑟) = 𝑎𝑓𝑟 2 + 𝑏𝑓𝑟 + 𝑐 = 𝑚 , ainsi reflétant la relation entre la
+3508
+
+3854
+
+masse du corps pesé et son oscillation. Notre équation: 1000 𝑓 2 − 100 𝑓 + 1049 = 𝑚
+où f est la fréquence de résonance.
+
+Budget
+Arduino Nano
+
+15€
+
+Haut-parleur 5cm de diamètre
+
+7€
+
+Lumière LED
+
+1€
+
+Capteur de lumière
+
+7€
+
+Corde de guitare électrique
+
+5€
+
+Dispositif imprimé en 3D
+
+1€
+
+Oscillateur
+
+1€
+
+Amplificateur
+
+10€
+
+Total
+
+47€
+
+Source d’Imprécision
+Les sources d’imprécision lors de la mesure sont multiples. Tout d’abord, la
+hauteur de notre cylindre par rapport au capteur peut influencer nos mesures.
+En outre, le modèle est imparfait : le manque de précision de notre capteur et
+oscillateur affectent aussi la précision.
+18/01/2023
+
+Ecole Européenne de Bruxelles IV
+
+15
+
+Milligrammes en Microgravité
+
+V - CONCLUSION
+La conception d’un tel projet nous a donc permis de non seulement approfondir
+nos connaissances en physique hors du cursus scolaire, mais également de
+développer nos capacités de réflexion. De plus, nous avons pu nous familiariser
+avec le travail extrêmement méticuleux des chercheurs professionnels de la
+relève de données ainsi que de leurs interprétations. Ce dernier point n’a pu
+être réalisable que par le biais d’une mise en commun et d’un partage
+d’hypothèses entre les participants du club, et nous a guidés jusqu’à nos
+trouvailles finales.
+En somme, ce projet est le résultat d’un travail d’équipe assidu rendu par
+l’implication sérieuse des membres de l’équipe, mais aussi par le
+professionnalisme et l’aide théorique fournis par nos professeurs encadrants.
+
+Perspective
+Reprenant les 3 caractéristiques primordiales d’une balance, la fidélité et la justesse
+sont nos points forts. La sensibilité pourrait être améliorée pour atteindre notre objectif
+d’une balance précise à 0,1mg.
+
+Optimisation
+Nous cherchons à réduire cette imprécision de 1,13mg en travaillant avec
+des matériaux plus légers ou une différente corde. Un plus grand
+nombre de données à fournir à notre modèle pourra également
+augmenter la précision. De même, notre sensibilité peut être améliorée,
+en particulier pour de grandes masses. Plusieurs possibilités s’offrent à
+nous : nous pouvons tenter de diminuer la masse linéique du fil ou
+augmenter la longueur de celui-ci, ce qui permettrait de faire la
+différence entre deux objets de masses similaires et permettrait d’obtenir
+une fréquence de résonance plus précise. L’amélioration de la sensibilité
+augmentera également celle de la justesse. Un balayage d’un plus grand
+nombre de fréquences augmenterait sans doute la précision.
+
+18/01/2023
+
+Ecole Européenne de Bruxelles IV
+
+16
+
+Milligrammes en Microgravité
+
+Mise en Orbite
+Si nous sommes sélectionnés pour la finale du concours CanSat Belgium,
+nous aurons l’opportunité d’envoyer notre balance à bord d’un satellite
+simplifié créé par nos soins. Il faudra alors évaluer l’impact d’une
+variation de température et de pression sur notre modèle préexistant.
+
+Et après ?
+En dehors du cadre de notre expérience, notre balance peut être utilisée dans
+différents domaines.
+
+Domaine Spatial
+Une telle balance pourrait être utilisée au sein de satellites tels que l’ISS
+afin de permettre aux astronautes de peser des corps légers et donc
+réaliser certaines expériences scientifiques demandant une telle
+précision.
+
+Sur Terre
+Ce prototype néglige la gravité, offrant ainsi une polyvalence dans ses
+domaines d’utilisation. En effet, cette balance peut être utilisée de la
+même manière sur Terre.
+
+18/01/2023
+
+Ecole Européenne de Bruxelles IV
+
+17
+
+

@@ -1,0 +1,1877 @@
+Résumé
+Après avoir défini ce qu’est un ballon stratosphérique ouvert et décrit les différentes couches de
+l’atmosphère dans lesquelles il est amené à évoluer, nous nous penchons sur la mécanique du vol de ce
+ballon.
+Nous détaillons principalement le rôle de la poussée d’Archimède, moteur du ballon, et l’évolution de
+celle-ci au cours des différentes étapes du vol du ballon.
+Nous en déduisons alors l’évolution de la vitesse ascensionnelle du ballon.
+Chaque étape du vol est modélisée soit par une expérience, soit par un modèle numérique.
+Enfin, un véritable ballon stratosphérique ouvert a été « lâché » (mais tenu par une ficelle, à cause de
+problèmes d’autorisation de vol).
+
+Problématiques du sujet
+-
+
+Qu’est ce qu’un ballon stratosphérique ouvert ?
+
+-
+
+Pourquoi et comment vole t-il ?
+
+-
+
+Comment son utilisation peut-elle permettre à des lycéens de mieux comprendre quelques
+caractéristiques de l’atmosphère terrestre ?
+
+Sommaire
+Introduction.............................................................................................................................................1
+I.
+
+Conception d’un ballon stratosphérique ouvert ..........................................................................3
+I.1.
+Choix du matériau ..................................................................................................................3
+I.2.
+Réalisation de maquettes ........................................................................................................3
+I.3.
+Remarques ...............................................................................................................................4
+
+II.
+Le vol théorique d’un ballon stratosphérique ouvert ..............................................................5
+II.1. Présentation globale du vol ....................................................................................................5
+II.2. La poussée d’Archimède : moteur du ballon........................................................................5
+II.2.1. Définition..........................................................................................................................5
+II.2.2. Conditions d’envol du ballon .........................................................................................5
+II.2.3.1.
+Description de l’expérience ....................................................................................6
+II.2.3.2.
+Interprétation ..........................................................................................................7
+II.2.3.2.a. Mesure de la masse volumique de l’huile .........................................................7
+II.2.3.2.b. Caractéristiques du flacon .................................................................................7
+II.2.3.2.c. Masse volumique du flacon rempli....................................................................7
+II.2.3.2.d. Mesure des volumes d’eau et d’huile nécessaires au décollage ......................7
+II.2.3.2.e. Comparaison du poids du flacon et poussée d’Archimède..............................7
+II.3. L’ascension du ballon .............................................................................................................7
+II.3.1. Vitesse ascensionnelle dans la troposphère...................................................................9
+II.3.2. Vitesse ascensionnelle dans la stratosphère ..................................................................9
+II.4. Le vol au plafond et la descente du ballon ............................................................................9
+III.
+Modélisations.............................................................................................................................10
+III.1.
+Hypothèses .........................................................................................................................10
+III.1.1. Influence de g.................................................................................................................10
+III.1.2. Frottements de l’air ......................................................................................................10
+III.2.
+Caractéristiques de notre ballon stratosphérique ouvert..............................................10
+III.2.1. Caractéristiques géométriques.........................................................................................10
+III.2.2. Mesure du coefficient de traînée Cx du ballon...............................................................11
+III.3.
+Modélisation numérique de l’ascension de notre ballon ...............................................11
+III.3.1. Modélisation de l’atmosphère concernée durant le vol .............................................11
+III.3.1.1. Température de l’air dans la troposphère et dans la stratosphère ..................11
+III.3.1.2. Pression de l’air.....................................................................................................12
+III.3.1.3. Masse volumique de l’air......................................................................................14
+III.3.2. Etude du mouvement vertical du ballon .....................................................................14
+III.3.2.1. Masse volumique du ballon..................................................................................14
+III.3.2.2. Calcul de la quantité de matière ..........................................................................14
+III.3.2.3. Vitesse ascensionnelle du ballon ..........................................................................14
+III.4.
+Modélisation du vol selon une maquette .........................................................................15
+III.4.1. Cahier des charges et fabrication ................................................................................15
+III.4.2. Expérience......................................................................................................................15
+III.4.3. Interprétation de l’expérience......................................................................................16
+III.4.4. Améliorations de l’expérience précédente ..................................................................16
+III.5.
+Vol du ballon......................................................................................................................17
+Conclusion générale et perspectives ....................................................................................................18
+Bibliographie et netographie................................................................................................................19
+Annexe 1 : Feuille de calculs pour la modélisation ............................................................................20
+Annexe 2 : Photos de la fabrication de la première colonne .............................................................21
+Annexe 3 : Photos de la fabrication de la deuxième colonne ............................................................22
+
+Introduction
+Un ballon stratosphérique ouvert est un ballon à gaz, c'est-à-dire que sa sustentation est due aux
+caractéristiques des gaz dont il est rempli. Le ballon à gaz est un aérostat créé par le physicien Jacques Charles
+avec l’aide des frères Robert et dont le premier vol avec passagers a été effectué le 27août 1783, 6 mois après
+qu’une montgolfière ait emmené des personnes pour la première fois dans les airs. Plus tard, les ballons à gaz
+eurent surtout la fonction d’élévation d’hommes dans les airs comme pendant la première guerre mondiale pour
+surveiller les tranchées adverses. Aujourd’hui ils servent comme aérostat pour l’aviation de loisirs mais
+d’autres sortes de ballons servent à des missions scientifiques. En effet, ces ballons sont des moyens peu
+coûteux de mener des expérimentations spatiales et atmosphériques et ainsi valider les mesures des satellites.
+Trois types de ballons aux caractéristiques et objectifs différents sont lâchés pour ces missions.
+
+Type de ballon
+
+Volume
+
+Altitude
+
+Ballon dilatable
+
+Inférieur à 10
+m3
+
+Environ
+40 km
+
+Ballon pressurisé
+
+Inférieur à
+500 m3
+
+Inférieur à
+20 km
+
+Ballon
+stratosphérique
+ouvert
+
+De 3000 m3 à
+1 200 000 m3
+
+15 à 40
+km
+
+Masse
+embarquée
+Inférieure à 3
+kg
+
+Durée de vol
+
+Utilisation
+
+2 à 3 heures
+
+Sondages météorologiques
+
+Environ 5 kg
+
+Quelques
+jours à trois
+mois
+
+50 à 2500 kg
+
+De 7 à 24
+heures
+
+Etude de l’atmosphère et
+du mouvement des masses
+d’air
+- Etude de la chimie et la
+physique de la stratosphère
+- Astronomie
+
+Intéressons nous particulièrement aux ballons
+stratosphériques ouverts.
+Les ballons stratosphériques ouverts ont commencé
+à être utilisés aux Etats-Unis en 1947 et en France, les
+premiers lâchés ont été effectués en 1962.
+Le ballon stratosphérique est une enveloppe de
+polyéthylène contenant de l’hélium ou du dihydrogène.
+Le ballon est dit ouvert quand sa partie inférieure
+communique avec l’extérieur, nous verrons pourquoi
+dans la partie suivante. Ces ballons sont de grandes
+tailles puisqu’ils ont un volume qui varie de 3000 à
+350 000 m3 (soit un diamètre de 20 m et une surface de
+toile utilisée d’environ 2,5 hectares.
+Leur altitude de vol varie de 11 à 50 km et leur
+grand avantage est qu’ils permettent d’embarquer des
+charges de matériel scientifique très importantes
+pouvant aller jusqu’à 2500 kg. Cependant, leur durée de
+vol est limitée puisqu’ils ne peuvent voler plus de 24
+heures (sauf de nouveaux ballons qui peuvent atteindre
+quelques jours de vol mais guère plus).
+Intéressons nous désormais à la couche d’atmosphère concernée par le vol de tels ballons
+
+1
+
+La couche d’atmosphère concernée par le vol
+
+Durant son vol, le ballon stratosphérique ouvert traverse deux couches principales de l’atmosphère. Il décolle
+dans la troposphère, et, à 11 km d’altitude, il entre dans la stratosphère. Il convient donc d’expliquer les
+caractéristiques de ces couches, dont les caractéristiques sont des facteurs qui influent sur le vol des ballons.
+Tout d’abord intéressons nous à la troposphère. C’est une couche variant de 8 km (aux pôles) à 15 km (à
+l’équateur) d’altitude. Dans cette couche, la température varie proportionnellement avec l’altitude. En effet, elle
+perd environ 6,4 °C tous les 1000 m jusqu’à atteindre des températures inférieures à -50 °C. Cette température
+varie aussi avec la pression. La pression diminue fortement avec l’altitude, passant d’environ 1013 à 200 hPa :
+on note que 75% de la masse de l’air de toute l’atmosphère se trouve dans la troposphère. Enfin, c’est dans cette
+couche que se situent les nuages ainsi que tous les grands mouvements atmosphériques et les turbulences liées
+au relief et au climat.
+Quand il arrive à environ 11 km d’altitude, le ballon franchit la tropopause, limite de la troposphère et
+de la stratosphère. La caractéristique principale de la stratosphère est qu’elle est dynamiquement stable. Au
+niveau de la tropopause, il se produit un changement : la température remonte. En effet la stratosphère est
+réchauffée par le rayonnement ultraviolet du soleil. La couche d’ozone, couche stoppant une grande partie des
+rayons ultraviolets provenant du soleil (préservant ainsi la troposphère de ces rayons) est située dans la
+stratosphère, de 12 à 30 km d’altitude environ, et n’empêche pas ou peu le réchauffement dans cette couche.
+Ceci explique en partie, avec des échanges complexes de chaleur avec les autres couches, la température
+presque constante dans les basses altitudes de la stratosphère (de 11 à 35 km) ainsi que le réchauffement régulier
+et croissant avec l’altitude au dessus de 35 km (plus l’altitude est élevée, moins les rayons ont traversé d’ozone).
+Concernant la pression dans la stratosphère, elle diminue aussi avec l’altitude jusqu’à atteindre des chiffres de
+1hPa dans ses plus hautes couches vers 50 km.
+Ces baisses de pression et de température entraînent que la masse volumique de l’air diminue avec
+l’altitude. En effet elle passe d’environ 1 kg/m3 au sol à presque 0,001 kg/m3 aux plus hautes altitudes de la
+stratosphère.
+Maintenant que nous savons ce qu’est un ballon stratosphérique ouvert et que nous connaissons les
+caractéristiques de son milieu d’évolution, tentons de comprendre pourquoi et comment le ballon vole.
+Tout commence par la conception d’un ballon stratosphérique ouvert. Nous nous intéressons ensuite à la
+poussée d’Archimède et à son rôle dans les différentes phases du vol du ballon. Enfin, n’ayant pas pu réaliser un
+véritable vol, nous avons modélisé numériquement le vol du ballon que nous avons construit et nous avons
+confronté nos résultats à ceux obtenu lors des expériences réalisées avec une maquette.
+
+2
+
+I. Conception d’un ballon stratosphérique ouvert
+Notre objectif initial était de réaliser un lâcher de ballon stratosphérique ouvert, ballon que nous avons
+réalisé nous-mêmes. Pour ce faire, il nous a déjà fallu utiliser le matériau adéquat et se le procurer.
+
+I.1. Choix du matériau
+Le matériau constituant le ballon stratosphérique ouvert doit répondre aux exigences suivantes :
+- être léger,
+- être imperméable à l’hélium,
+- être résistant aux variations de pression, de volume et de températures.
+Après étude bibliographique, le matériau adéquat est du polyéthylène.
+Un contact avec Melle Sophie Peyraud, ingénieur au CNES, nous a permis d’obtenir un échantillon de toile de
+polyéthylène basse densité.
+
+I.2. Réalisation de maquettes
+Pour des raisons pratiques le ballon que nous avons choisi de construire est une pyramide à base carrée sur
+laquelle viennent se greffer deux manchons d’évacuation. Les différentes parties du patron sont soudées avec
+un fer à lisser.
+Passons maintenant à la fabrication de notre propre ballon stratosphérique ouvert :
+
+Tout d’abord dépliage de la
+toile. Nous sommes parvenus, en
+contactant le Centre National
+d’Etudes Spatiales (CNES), à
+obtenir
+de la
+toile de
+polyéthylène
+basse
+densité
+qu’utilisent les ballonniers pour
+créer les véritables ballons.
+
+Découpage
+des
+différentes
+parties de la pyramide (carré et
+triangles)
+
+Création
+des
+d’évacuation
+
+manches
+
+3
+
+Assemblage des différences faces
+en fondant le plastique
+
+Assemblage des différents côtés
+
+On obtient un patron de
+pyramide et on rassemble
+ensuite chaque coté des triangles
+entre eux
+
+On obtient notre ballon auquel
+on va greffer les manches
+d’évacuation
+
+I.3. Remarques
+Notre projet s’est confronté d’emblée au problème de l’autorisation de vol, délivrée uniquement pour des
+projets scientifiques bien définis avec mesures, ce qui n’est pas notre cas puisque nous n’avons pas pu
+embarquer de nacelle.
+
+4
+
+II. Le vol théorique d’un ballon stratosphérique ouvert
+II.1.Présentation globale du vol
+Nous allons maintenant expliquer le vol du ballon. Dans cette partie nous considèrerons que le ballon
+n’est soumis à aucune perturbation atmosphérique particulière.
+D’abord pourquoi le ballon vole t-il ? S’il décolle c’est qu’il est soumis à une résultante des forces
+verticale vers le haut. Le bilan de forces sur le système {ballon + nacelle} est simple : le système est soumis à
+son propre poids, aux forces de frottements avec l’air ainsi qu’à la poussée d’Archimède exercée par l’air. Le
+poids étant une force dont la direction est verticale et son sens vers le « bas », il ne peut être la force
+responsable du décollage du ballon. Les forces de frottements avec l’air sont par définition non responsables de
+l’ascension du ballon. Par déduction le phénomène responsable du vol de l’aérostat est donc la poussée
+d’Archimède.
+Nous allons donc expliquer ce phénomène avant de passer à l’ascension propre du ballon.
+Dans la partie traitant de l’ascension nous expliquerons les différentes phases d’ascension et nous étudierons les
+variations de la vitesse du ballon. A une certaine altitude souvent comprise entre 30 et 50 km d’altitude, le
+ballon ne monte plus mais ne descend pas pour autant. On dit alors que le ballon plafonne. Nous traiterons dans
+cette partie les raisons de ce vol au plafond et les phénomènes physiques auxquels est soumis le ballon à cette
+altitude. Par la suite, nous expliquerons comment on trouve l’altitude de plafond d’un ballon. Enfin, le ballon
+redescend. Nous expliquerons donc pour finir, les raisons et le déroulement de la descente de l’aérostat.
+
+II.2.
+
+La poussée d’Archimède : moteur du ballon
+
+II.2.1. Définition
+Avertissement : Les grandeurs vectorielles sont notées en gras.
+Soit un solide S de volume V totalement immergé dans un fluide homogène de masse volumique ρ et
+soumis à des actions mécaniques de la part de ce fluide. Ces actions sont modélisées par une force Pa appelée :
+Poussée d’Archimède.
+Caractéristiques de cette force :
+Origine : centre de poussée G (confondu généralement avec le centre de gravité de la partie immergée).
+Direction : verticale
+Sens : vers le haut
+Intensité : Pa = ρ fluide .V. g avec g l’accélération de la pesanteur sur la Terre (environ 9,81 m/s² au sol).
+C’est donc la poussée d’Archimède qui fait qu'un objet coule ou flotte dans l'eau, mais cette force existe
+également dans l'air. En effet il s'exerce même sur nous une force qui nous pousse vers le haut et qui est due à
+la pression de l'air. Seulement, nous sommes beaucoup plus denses que l'air : cette force, comparée à notre
+poids, est donc négligeable (ce qui n’est pas le cas dans l’eau puisque nous flottons). On peut donc utiliser cette
+poussée d'Archimède dans l'air pour voler, le tout étant seulement de devenir moins dense que l'air. Comment
+faire ? Il faut savoir que certains gaz sont moins denses que l'air, comme par exemple l'hydrogène (cependant
+dangereux puisque il peut exploser et brûler dans l'air), mais aussi l'hélium, nettement plus intéressant. En effet,
+dans des conditions normales de température et de pression, l’hélium est un gaz incolore, inodore,
+ininflammable et chimiquement inerte. De plus, sa masse volumique est de 0,176 kg.m-3 (sa densité est de
+0,139), équivaut seulement au septième de celle de l’air. On peut donc gonfler un ballon avec de l'hélium pour
+le faire décoller, en veillant à respecter certaines conditions.
+
+II.2.2. Conditions d’envol du ballon
+
+En l’absence de vent, au moment de l’envol, le ballon est soumis à deux
+forces :
+• Son poids, P, dirigé vers le sol, incluant :
+□ le poids de l’enveloppe du ballon
+□ Le poids de l’hélium que contient l’enveloppe
+□ Le poids de la nacelle (avec parachute et appareils de mesures)
+□ Les trompes
+□ La chaîne de vol
+• La poussée d’Archimède, Pa, dirigée vers le ciel.
+
+5
+
+Ainsi, pour que le ballon s’élève il faut que la poussée d’Archimède soit supérieure au poids de la
+chaîne de vol (on néglige ici les forces de frottement) : Pa > P
+ Le poids total du ballon s’exprime par :
+P = M totale du ballon . g
+P = ( Menveloppe + Mtrompes + Mchaîne + Mnacelle + Mhélium) . g
+Remarques : la masse d’hélium dépend du volume V du ballon donc du gonflage. Cependant, on connaît la
+masse volumique ρhélium de l’hélium. C’est la masse, en kg, d’un volume d’1 m3 d’hélium. Ainsi on peut que
+dire que la masse d’hélium dans l’enveloppe du ballon vaut : Mhélium= ρhélium.V
+Ainsi, le poids total P s’exprime par : P = (Menveloppe + Mtrompes + Mchaîne+ Mnacelle+ ρhélium .V).g
+ La poussée d’Archimède Pa :
+La poussée d’Archimède est égale au poids Pair du volume d’air déplacé par le ballon. Or le volume d’air
+déplacé par le ballon est son propre volume V.
+La poussée d’Archimède Pa est donc le poids d’un volume V d’air. Comme pour l’hélium on utilise la masse
+volumique ρair de l’air. Ainsi, Pa = Pair = ρair.V.g
+La condition de décollage du ballon étant Pa > P il est maintenant facile de déterminer le volume que doit
+posséder le ballon pour s’envoler :
+ρair.V.g > (Menveloppe + Mtrompes + Mchaîne + Mnacelle + ρhélium .V).g
+ρair.V > Menveloppe + Mtrompes + Mchaîne + Mnacelle + ρhélium .V
+
+V>
+
+M enveloppe + M trompes + M chaîne + M nacelle
+
+ρ air − ρ helium
+
+Après cette justification théorique, nous nous proposons de réaliser une expérience pour illustrer cette
+condition.
+II.2.3. Expérience et interprétation
+II.2.3.1. Description de l’expérience
+Nous avons vu que la poussée d’Archimède se produisait dans n’importe quel fluide. L’expérience
+suivante sera une analogie du vol d’un ballon à gaz, où l’air sera représenté par l’eau dans un cristallisoir,
+l’hélium par de l’huile et le ballon par un flacon lesté. Durant l’expérience, on injecte dans un flacon lesté au
+fond d’un cristallisoir rempli d’eau, de l’huile. On remarque qu’à partir d’une certaine quantité d’huile injectée,
+le flacon s’élève.
+
+6
+
+II.2.3.2. Interprétation
+II.2.3.2.a. Mesure de la masse volumique de l’huile
+Grâce à une balance on mesure la masse mh1 d’un volume Vh1 = 25,0 mL d’huile, préalablement
+déterminé grâce à une éprouvette graduée. On obtient mh1 = 22,0 g.
+Donc la masse volumique de l’huile est : ρ h =
+
+mh1 22,0
+=
+= 0,880 g.mL−1 .
+Vh1 25,0
+
+Ainsi, la densité de l’huile par rapport à l’eau est dh = 0,880.
+
+II.2.3.2.b. Caractéristiques du flacon
+Soit mfv la masse du flacon lesté vide. En mesurant avec une balance, on obtient mfv = 25,7 g.
+Soit mfe la masse du flacon rempli d’eau à ras bord et me la masse d’eau contenue dans le flacon.
+D’après la balance, mfe = 159,4 g donc me = mfe - mfv = 159,4 – 25,7 = 132,7g ce qui correspond à un volume
+d’eau de 132,7 mL. C’est aussi le volume de contenance du flacon Vf. Donc Vf = 132,7 mL.
+On remplit le flacon d’eau et on le met dans un verre à pied rempli d’eau à ras bord de masse mx = 400,0 g :
+l’eau dans le verre à pied déborde. On retire le flacon du verre à pied et on mesure la nouvelle masse du verre à
+pied my = 241,3 g. La masse d’eau évacuée par débordement est med = mx - my.= 400,0 – 241,3 = 158,7 g. Le
+volume d’eau évacuée par débordement est donc Ved = 158,7 mL. C’est aussi le volume total du flacon VF =
+158,7 mL.
+
+II.2.3.2.c. Masse volumique du flacon rempli
+Soit ρFe la masse volumique du flacon rempli d’eau : ρ Fe =
+
+m fe
+VF
+
+=
+
+159,4
+= 1,004 g .mL−1 , ce qui est
+158,7
+
+supérieur à la masse volumique de l’eau : le flacon rempli d’eau devrait logiquement couler. C’est ce que
+confirme l’expérience.
+Soit
+ρFh
+la
+masse
+volumique
+du
+flacon
+rempli
+d’huile :
+
+ρ Fh =
+
+m fv + ρ h × V f
+VF
+
+=
+
+25,7 + 0,880 × 132,7
+= 0,898 g .mL−1 , ce qui est inférieur à la masse volumique de
+158,7
+
+l’eau. Dans ces conditions, le flacon devrait alors flotter. C’est ce que confirme l’expérience.
+II.2.3.2.d. Mesure des volumes d’eau et d’huile nécessaires au décollage
+
+Dès qu’on a injecté assez d’huile pour que
+le flacon s’élève, on attend que le flacon arrive à
+la surface de l’eau et on récupère le mélange
+huile/eau à l’intérieur. Avec une ampoule à
+décanter on sépare l’huile et l’eau et on mesure
+ainsi grâce à une éprouvette graduée le volume
+d’eau récupérée VE = 54 mL et le volume d’huile
+récupérée VH = 71mL.
+
+II.2.3.2.e. Comparaison du poids du flacon et poussée d’Archimède
+On rappelle que poids et poussée d’Archimède ont même direction et sens opposés. Donc pour
+savoir quelle est la force qui agit le plus sur le flacon, il suffit de comparer les normes.
+Soit P la norme du poids du flacon à la fin de l’expérience : P = mF g où g = 9,81N.kg-1 et où mF est la masse du
+flacon (avec l’huile et l’eau à l’intérieur) à la fin de l’expérience : mF = 145,2*10-3 kg (mesurée à la balance).
+P = 145.2*10-3*9,81 = 1,42 N
+Soit Pa la norme de la poussée d’Archimède exercée par l’eau sur le flacon :
+Pa = ρe*g*VF =1*9,81*158,7*10-3= 1,56 N
+Ainsi, on a Pa > P donc le flacon s’élève.
+
+II.3.
+
+L’ascension du ballon
+
+Le décollage du ballon et son ascension sont dus, comme expliqué précédemment, à la poussée
+d’Archimède. Il faut savoir qu’au décollage, on ne rempli pas totalement le ballon d’hélium (ou de
+dihydrogène), mais avec un certain volume lui permettant de monter. Cette marge d’expansion n’est pas un
+
+7
+
+hasard. Nous avons vu que plus le ballon s’élève, plus les pressions qu’il rencontre sont faibles. Ainsi, l’hélium
+à l’intérieur du ballon est soumis à moins de pression et donc pour équilibrer la sienne avec la pression
+extérieure, son volume augmente.
+Observons le phénomène de dilatation de
+l’hélium à l’intérieur du ballon par une expérience sous
+une cloche à vide.
+De l’air est emprisonné dans un ballon de
+baudruche hermétiquement fermé. Nous travaillons ainsi
+à quantité de matière constante. Une sonde de
+température permet de mesurer la température du gaz
+dans le ballon de baudruche et un pressiomètre mesure la
+pression extérieure au ballon qui règne sous la cloche.
+
+Avant de mettre la pompe à vide en marche, la pression sous la cloche est de 997 hPa et la température est de
+20,2 °C.
+
+Après avoir fait un vide partiel sous la cloche (la pression a chuté à 23 hPa), on observe que le volume
+du ballon de baudruche (et donc du gaz à l’intérieur) a augmenté. On peut également noter que la température
+du gaz à l’intérieur du ballon a diminué (18,6 °C).
+Donc plus le ballon monte, plus le gaz à l’intérieur de celui-ci a un volume important et plus sa température
+diminue. On retrouve ces résultats à partir de la loi des gaz parfaits : l’hélium se comporte comme un gaz parfait
+donc il obéit à la loi des gaz parfaits :
+PV = nRT ⇔
+
+V nR
+=
+T
+P
+
+Avec
+
+P : la pression du gaz en Pa
+V : le volume de l’hélium en m3
+n : la quantité de matière d’hélium en mol
+R : la constante des gaz parfaits. R = 8,32 J.K-1.mol-1
+T : la température absolue de l’hélium en K
+n est une constante puisque le volume d’hélium à l’intérieur du ballon ne change pas durant une bonne partie de
+l’ascension et R est également une constante. Plus le ballon monte, plus la pression diminue, donc le rapport
+(nR)/P augmente et donc V/T augmente. Ainsi quelque soit la température, plus l’aérostat monte, plus le volume
+occupé par l’hélium croît.
+
+8
+
+II.3.1. Vitesse ascensionnelle dans la troposphère
+La vitesse du ballon dépend de la différence de densité entre le gaz à l’intérieur du ballon et l’air
+extérieur. On rappelle que la densité d’un gaz dépend de la pression et de la température. L’hélium a une densité
+inférieure à celle de l’air. Ceci permet à la poussée d’Archimède d’élever le ballon.
+La masse volumique de l’air diminue avec l’altitude donc la poussée d’Archimède diminue avec l’altitude
+puisque le volume du ballon reste sensiblement constant.
+Dans le même temps, l’hélium à l’intérieur du ballon se refroidit, premièrement par conduction avec l’air
+ambiant, mais aussi par dilatation (voir expérience précédente avec la cloche à vide). Ce refroidissement du gaz
+combiné à sa baisse de pression a pour effet de diminuer sa densité (voir modélisation numérique). Ainsi, le
+poids du ballon diminue.
+Tant que la différence entre la poussée d’Archimède et le poids du ballon reste constante ou positive, la vitesse
+ascensionnelle du ballon reste constante ou augmente. Les calculs de la modélisation montrent que dans la
+troposphère on est bien dans ce cas.
+
+II.3.2. Vitesse ascensionnelle dans la stratosphère
+Passons maintenant à la phase ou le ballon passe approximativement les 11km d’altitude soit quand il
+entre dans la stratosphère.
+A ce passage, le gaz à l’intérieur du ballon continue de se refroidir en raison de sa dilatation due à la baisse de
+pression avec l’altitude, tandis que la température extérieure reste constante, voire augmente. De ce fait, la
+différence de densité devient plus importante. Ainsi comme le ballon est dans un milieu de moins en moins
+dense par rapport à lui, la poussée d’Archimède devient moins importante. Le ballon ralentit alors. Comme la
+vitesse ascensionnelle est moins élevée, le taux de détente du gaz devient moins important ainsi le gaz est
+davantage soumis à la conduction de l’air ambiant et donc se réchauffe. En conséquence, le ballon retrouve une
+vitesse constante jusqu’au moment où le volume occupé par le gaz devient si important que ce dernier s’évacue
+par les manches d’évacuation.
+
+II.4.
+
+Le vol au plafond et la descente du ballon
+
+Quand le ballon atteint une certaine altitude comprise entre 15 et 50 km, la pression extérieure devient
+tellement faible que le volume du gaz à l’intérieur de l’enveloppe ne peut être plus important et le gaz s’évacue
+alors par les manches prévues à cet effet. Cette évacuation permet au ballon de ne pas exploser et donc d’avoir
+un temps de vol plus long. Le ballon monte encore légèrement, le gaz s’évacue progressivement, puisque la
+pression continue de descendre avec l’altitude, jusqu’au moment où l’enveloppe contiendra une certaine
+quantité de gaz juste nécessaire à maintenir le ballon en équilibre : à ce stade, le poids et la poussée
+d’Archimède se compensent. Le ballon ne grimpe plus, il reste à une altitude stable et maximum que l’on
+appelle plafond. L’altitude du plafond est définie par le scientifique selon son projet d’étude et sera dépendante
+de la quantité de gaz introduite, du volume du ballon et du poids de l’ensemble de vol (ballon + gaz + nacelle).
+Cependant, les scientifiques sont limités par la hauteur du plafond : en effet, on ne peut pas faire monter des
+ballons à des altitudes plus élevées que 50 km environ car à ces altitudes la masse volumique de l’air est si
+faible que la poussée d’Archimède est presque inexistante.
+Il serait inexact de dire qu’il existe une altitude précise de plafond. En effet quand le ballon atteint ce
+plafond, le rayonnement solaire réchauffe le gaz qui se dilate, provocant une perte de gaz par les manches. Cette
+dilatation entraîne une diminution du volume du ballon et donc une diminution de la poussée d’Archimède, ce
+qui entraîne une légère perte d’altitude du ballon. Le ballon redescend alors vers une couche plus froide et plus
+dense. La poussée d’Archimède ré-augmente et le ballon remonte. Le phénomène se produit jusqu’à la tombée
+de la nuit produisant une oscillation du ballon liée à une variation de pression estimée de 0,2 à 0,3 hPa.
+A la tombée de la nuit, l’absence de rayonnement solaire entraîne une baisse de la température du gaz à
+l’intérieur du ballon. La poussée d’Archimède n’est plus suffisante et le ballon descend de manière irréversible
+s’il n’y a pas de largage de lest par intervention extérieure. Ceci explique la durée limitée du vol des ballons
+stratosphériques ouverts. Le ballon atterrit et les instruments de mesures sont récupérés par les équipes
+scientifiques.
+
+9
+
+III. Modélisations
+III.1.
+Hypothèses
+III.1.1. Influence de g
+En première approximation, le poids d’un corps s’identifie à la force gravitationnelle qu’exerce la Terre
+sur ce corps. On a donc avec :
+MT = 5,9723.1024 kg la masse de la Terre
+RT = 6371,0.103 m le rayon de la Terre
+G = 6,6742867.10-11 m3.kg-1.s-2 la constante universelle de gravitation
+h : altitude du corps de masse m.
+
+mg = G
+
+MT m
+( RT + h) 2
+
+donc
+
+g=
+
+GM T
+( RT + h) 2
+
+Si h = 0 m alors, g(0) = 9,8205 m.s-2.
+Si h = 50 000 m alors g(50000) = 9,6681 m.s-2.
+L’écart relatif entre les deux valeurs est g (0) − g (50000)
+
+g ( 0)
+
+= 1,55 %
+
+En conclusion, on négligera la variation de g avec l’altitude devant les variations des grandeurs
+thermodynamiques.
+
+III.1.2. Frottements de l’air
+L’expression du calcul de la force des frottements de l’air dépend de la nature de l’écoulement :
+laminaire ou turbulent. La turbulence apparaît lorsque le nombre de Reynolds Re (sans dimensions) dépasse
+une valeur de quelques milliers.
+ρLv où ρ est la masse volumique du fluide en écoulement, L est le diamètre de l’obstacle, v est la
+
+Re =
+
+η
+
+vitesse du fluide et η sa viscosité.
+Pour l’air : ρ = 1,161 kg.m-3 à 300 K et 1 bar
+-6
+η= 18,6.10 Pa.s à 300 K
+Pour une vitesse ascensionnelle du ballon de l’ordre de v = 5 m.s-1 et un diamètre du ballon L = 1,5 m alors,
+Re = 5.105.
+L’écoulement de l’air autour du ballon est donc turbulent.
+Dans ce cas le modèle de force de traînée retenu est F = 0,5 ρ C S v 2 où Cx est un facteur de forme à
+x
+
+déterminer.
+
+III.2.
+
+Caractéristiques de notre ballon stratosphérique ouvert
+
+III.2.1. Caractéristiques géométriques
+Pour comprendre le vol d’un ballon stratosphérique ouvert, rien de tel que de fabriquer soi-même un
+ballon ! Nous avons pensé donner à notre ballon une forme pyramidale. Nous savions que pour la conception,
+nous ne pouvions disposer que d’une quantité d’hélium d’un mètre cube (en raison du prix) et d’une surface de
+toile de 60 m2. Commençons par présenter les calculs nécessaires à la fabrication.
+Après réflexion et plusieurs essais de calculs, nous avons décidé de faire une pyramide de hauteur h = 2 m et de
+base un carré de côté a = 1,50 m.
+Calcul du volume de la pyramide :
+V= (a*h)/3 = (1,5²*2)/3 = 1,5 m3
+On peut donc introduire une bonne quantité d’hélium.
+Calcul de la surface de toile utilisée :
+A= c²+4*(b*h/2) = 1,5²+4*(1,5*2/2) = 8,25 m2.
+Calcul du volume de toile de polyéthylène (matière de la toile) utilisée :
+On sait que l’épaisseur de la toile est de e = 25 µm = 25.10-6 m.
+V1= A*e = 8,25 * (25*10-6) = 2,06.10-4 m3
+Masse de polyéthylène utilisée (on négligera la masse du polyéthylène utilisée pour les manches d’évacuation):
+Masse volumique du polyéthylène basse densité : ρ = 930 kg/m3
+M1=V1* ρ = (2,06*10-4) * 930 = 0,190 kg
+
+10
+
+Masse d’hélium utilisé :
+Prenons un volume d’hélium V2 = 0,5 m3.
+Masse volumique de l’hélium : ρ He = 0,179kg/m3
+M2= V2* ρ He = 0,5*0,179 = 0,0895 kg.
+Masse totale du ballon :
+M = M1+M2 = 0,190 + 0,0895 = 0,280 kg
+Calcul du poids du ballon :
+P = M*g
+P = 0,280*9,81
+P = 2,7 N
+
+Calcul de la poussée d’Archimède exercée sur le ballon :
+Pa = ρair*V2*g
+Pa = 1,292*0,5*9,81
+Pa = 6,3 N
+
+La poussée d’Archimède est supérieure au poids, nos calculs nous permettent de construire notre maquette : si la
+fabrication est bonne notre ballon volera.
+
+III.2.2. Mesure du coefficient de traînée Cx du ballon
+La valeur du Cx étant un facteur de forme, nous avons travaillé avec une maquette dont la géométrie est
+identique à celle du ballon (pyramide à base carrée de côté 2,5 cm et de hauteur 3,5 cm). Pour avoir une force de
+traînée suffisante, la maquette a été immergée dans l’eau plutôt que dans l’air. Nous avons laissé tomber cette
+pyramide dans une éprouvette pleine d’eau, la base de la pyramide dirigée vers le bas pour que l’écoulement de
+l’eau autour de la pyramide soit identique à l’écoulement de l’air autour du ballon. L’acquisition vidéo de cette
+expérience et le traitement par le logiciel Généris 5+ nous ont permis de caractériser le mouvement de la
+pyramide dans l’eau.
+La pyramide a un mouvement rectiligne uniforme de vitesse v = 0,38 m.s-1. Par conséquent, d’après le principe
+d’inertie, les forces qui s’exercent sur la pyramide se compensent.
+Le bilan des forces comporte :
+- le poids de la pyramide de masse m = 13,7 g :
+direction : verticale, sens : vers le bas, intensité : P = mg = 13,7.10-3*9,81 = 1,34.10-1 N
+- la poussée d’Archimède :
+direction : verticale, sens : vers le haut, intensité: Pa = ρeauVpyramide g =1000*7,29.10-6*9,81 = 7,15.10-2 N
+- la force de traînée F de direction verticale et de sens vers le haut.
+On a la relation vectorielle suivante : P + Pa + F = 0 donc F = P – Pa = 6,25.10-2 N.
+Vérifions que l’écoulement de l’eau autour de la pyramide est turbulent, comme c’était le cas pour l’air
+s’écoulant autour du ballon. Pour cela, calculons le nombre de Reynolds :
+ρLv où ρ est la masse volumique de l’eau (ρ = 1000 kg.m-3), L est le côté de la base de la pyramide
+
+Re =
+
+η
+
+(0,025 m), v est la vitesse de la pyramide (v = 0,38 m.s-1) et η la viscosité de l’eau (η = 8,9.10-4 Pa.s). Alors, on
+obtient Re = 104. L’écoulement de l’eau autour de la pyramide est donc turbulent.
+La force de traînée F peut donc s’exprimer par F = 0,5 ρ C S v 2 .
+x
+
+On en déduit alors Cx = 0,36.
+
+III.3.
+
+Modélisation numérique de l’ascension de notre ballon
+
+Pour pouvoir faire une étude numérique de l’ascension du ballon, cherchons tout d’abord des relations
+mathématiques concernant des caractéristiques de l’atmosphère, qui seront utiles pour trouver les différentes
+vitesses d’ascension. La feuille de calculs Excel est jointe en annexe 1.
+
+III.3.1. Modélisation de l’atmosphère concernée durant le vol
+III.3.1.1. Température de l’air dans la troposphère et dans la stratosphère
+Nous savons que dans la basse stratosphère (de 11 à 35 km d’altitude environ), la température est
+constante et a pour valeur :
+Tair = - 50 °C = 223 K
+Nous savons également que dans la troposphère, la température de l’air varie linéairement avec l’altitude.
+On
+peut donc dire que dans la troposphère à une altitude z : Tair(z)= A*z+B.
+On cherche les valeurs de A et de B avec les conditions aux limites :
+A l’altitude z1=0 km la température moyenne est T1 = 10 °C = 283 K
+
+11
+
+A l’altitude z2=11 km la température est T2 = -50 °C = 223 K.
+On en déduit la valeur de A :
+
+A=
+
+T2 − T1 223 − 283
+=
+= −5,45 K .km −1 = −5,45.10 −3 K .m −1
+z 2 − z1
+11 − 0
+
+La valeur de B est simple à trouver : il s’agit de l’ordonnée à l’origine de la droite soit de la température à
+l’altitude 0 km c'est-à-dire B = 283 K.
+Ainsi, dans la troposphère, Tair (z) = - 5,45.10-3 z + 283
+
+III.3.1.2. Pression de l’air
+On considère une colonne d’air d’épaisseur dz, comprise entre des altitudes z et z+dz, et dont les
+disques ont une surface S.
+Les vecteurs sont notés en gras.
+
+F1 :
+
+norme
+de
+la
+force
+exercée
+par
+l’air
+sous
+la tranche de fluide.
+F2 :
+norme
+de
+la
+force
+exercée par l’air sur la
+tranche de fluide.
+P:
+norme
+du
+poids
+de
+la
+tranche de fluide
+Vecteur Uz : un vecteur unitaire vertical dont
+le sens est vers le haut.
+
+A l’équilibre on a : F1 + F2 + P = 0.
+Alors, Pair(z).S.UZ – Pair (z+dz).S.UZ - ρair.S.dz.g.UZ = 0
+En projetant selon le vecteur Uz et en simplifiant par S, on obtient :
+
+Pair ( z ) − Pair ( z + dz ) − ρ air × dz × g = 0 ⇔
+
+ P ( z + dz ) − Pair ( z ) 
+lim  air
+ = − ρ air × g
+dz
+
+
+
+dz →0
+
+Pair ( z + dz ) − Pair ( z )
+= − ρ air × g
+dz
+⇔
+
+P ' air ( z ) = − ρ air × g
+
+On sait que la masse volumique de l’air dépend de l’altitude z.
+En effet par le calcul, si on considère l’air comme un gaz parfait, on a Pair Vair = nRTair .
+Or, Vair =
+
+mair
+
+ρ air
+
+donc Pair
+
+mair
+
+ρ air
+
+= nRTair et donc ρ air =
+
+Pair mair mair
+P
+M P
+=
+× air = air air avec Mair qui est
+nRTair
+n
+RTair
+RTair
+
+la masse molaire de l’air.
+On obtient au final : P ' air ( z ) = −
+
+M air g Pair ( z )
+×
+R
+Tair ( z )
+
+Tentons maintenant de résoudre cette équation différentielle, en donnant une expression de la pression
+spécifique à chaque couche de l’atmosphère concernée :
+1er cas : dans la troposphère
+On sait que dans cette couche, Tair(z) = -5,45.10-3 z +283 K
+Pour simplifier les calculs, on supposera que g ne dépend pas de l’altitude z.
+On peut vérifier que l’expression suivante est bien solution de l’équation différentielle précédente :
+
+12
+
+−3
+
+ − 5,45.10 z + 283 
+
+Pair ( z ) = Pair (0) × 
+283
+
+
+
+(
+
+M air g
+1
+×
+)
+R
+5, 45.10 − 3
+
+Si on considère que l’air est constitué à 80% de diazote
+et à 20% de dioxygène, alors
+Mair = 0,80 Mdiazote + 0,20 Mdioxygène
+= 0,80*(14,0 + 14,0) + 0,20*(16,0 + 16,0) = 28,8 g/mol = 28,8.10-3 kg/mol.
+Avec g = 9,81m.s-2 et R = 8,32 J.mol-1.K-1, on a :
+
+ − 5,45.10 −3 z + 283 
+
+Pair ( z ) = Pair (0) × 
+283
+
+
+
+6 , 23
+
+pour 0 m ≤ z ≤ 11 000 m.
+
+2ème cas : dans la stratosphère
+On sait que dans cette couche (du moins dans la basse stratosphère, on ne traitera pas ici le vol dans la
+haute stratosphère qui concerne assez peu de ballons),
+Tair(z) = 223K. Alors dans la relation
+
+M air g Pair ( z )
+×
+, Tair(z) est indépendante de z dans ce cas.
+R
+Tair ( z )
+M g
+On peut écrire P ' air ( z ) = − air × Pair ( z ) pour z ≥ 11 000 m.
+RTair
+
+P' air ( z ) = −
+
+On peut vérifier que l’expression suivante de Pair (z) est bien solution de l’équation différentielle :
+
+Pair ( z ) = Pair (11000) × e
+
+M air g
+( z −11000)
+RTair
+
+avec Pair(11000) la pression de l’air à 11000 mètres, valeur calculée par continuité entre la troposphère et la
+stratosphère. On calcule Pair(11000) = 0,2299.105 Pa
+
+Pair ( z ) = 0,2299.10 × e
+5
+
+M air g
+( z −11000 )
+RTair
+
+Pour 11 000 m ≤ z ≤ 35 000 m
+
+120000
+
+250
+
+100000
+
+200
+
+80000
+Tair en K
+Pair en Pa
+
+39
+00
+0
+41
+00
+0
+
+35
+00
+0
+37
+00
+0
+
+31
+00
+0
+33
+00
+0
+
+27
+00
+0
+29
+00
+0
+
+23
+00
+0
+25
+00
+0
+
+19
+00
+0
+21
+00
+0
+
+en
+
+15
+00
+0
+17
+00
+0
+
+0
+
+11
+00
+0
+13
+00
+0
+
+0
+
+90
+00
+
+20000
+
+70
+00
+
+50
+
+50
+00
+
+40000
+
+30
+00
+
+100
+
+m
+
+60000
+
+10
+00
+
+150
+
+Pression de l'air (Pa)
+
+300
+
+z
+
+Température de l'air (K)
+
+Evolutions de T et P de l'air en fonction de l'altitude
+
+altitude (m)
+
+13
+
+III.3.1.3. Masse volumique de l’air
+M P ( z)
+On sait déjà que ρ air ( z ) = air air
+RTair ( z )
+III.3.2. Etude du mouvement vertical du ballon
+III.3.2.1. Masse volumique du ballon
+D’une part, on a égalité entre la pression de l’hélium et la pression de l’air extérieur : Pair = PHe
+On considère qu’on a toujours la température de l’hélium égale à celle de l’air extérieur (soit par conduction
+thermique soit par dilatation de l’hélium). Alors Tair = THe
+
+ρ He =
+
+M He PHe M He Pair
+=
+RTHe
+RTair
+
+Evolution des masse volumiques de l'air, de l'hélium et du ballon
+1,4
+
+1,2
+
+masse volumique (kg/m3)
+
+1
+
+ro air en kg/m3
+0,8
+ro He en kg/m3
+0,6
+
+ro ballon en kg/m3
+
+0,4
+
+0,2
+
+0
+0
+
+5000
+
+10000
+
+15000
+
+20000
+
+25000
+
+30000
+
+35000
+
+altitude (en m)
+
+On calcule la quantité de matière d’hélium introduite à partir du volume d’hélium introduit.
+Ceci nous conduit au calcul de VHe , volume occupé par l’hélium : V He =
+
+nRTHe nRTair
+=
+.
+PHe
+Pair
+
+Dès que la valeur atteint Vmax = 1,5 m3, la valeur maximale atteignable VHe = Vmax.
+On peut alors calculer la masse volumique du ballon :
+
+ρ ballon =
+
+menveloppe + ρ HeV He + ρ air (Vmax − V He )
+Vmax
+
+où menveloppe = 0,190 kg.
+
+III.3.2.2. Calcul de la quantité de matière
+
+n He =
+
+m He
+ρ V
+= He He avec MHe = 4 g/mol = 0,004 g/mol.
+M He
+M He
+
+On remarque que la quantité de matière d’hélium est constante tant que le volume occupé par l’hélium est
+inférieur au volume maximal du ballon (1,5 m3) puis lorsque cette valeur est atteinte, l’hélium s’échappe par les
+manches du ballon et nHe diminue.
+
+III.3.2.3. Vitesse ascensionnelle du ballon
+Le calcul avec une force de frottement fluide nulle (Cx = 0) conduit à des résultats absurdes.
+On applique le principe fondamental de la dynamique : mballon
+
+r
+r
+dv r r
+= P + Pa + Ft
+dt
+
+14
+
+où P est le poids du ballon, Pa la poussée d’Archimède et Ft la force de traînée avec
+
+1
+Ft = − × ρ air × S × C x × v 2
+2
+dv
+1
+mballon
+= − ρ ballonVballon g + ρ air Vballon g − ρ air C x Sv 2
+dt
+2
+En considérant que la vitesse du ballon s’adapte infiniment vite à la variation des paramètres extérieurs on peut
+alors écrire que
+
+2 × g × Vballon × ( ρ air − ρ ballon )
+ρ air × C x × S
+
+dv
+= 0 . Les calculs nous conduisent à v =
+dt
+
+vitesse ascensionnelle du ballon pour Cx = 0,36
+5
+4,5
+4
+3,5
+
+vitesse en m/s
+
+3
+2,5
+2
+1,5
+1
+0,5
+0
+0
+
+5000
+
+10000
+
+15000
+
+20000
+
+25000
+
+30000
+
+35000
+
+-0,5
+altitude (en m)
+
+Avec toutes ces données, sans nacelle, notre ballon peut donc théoriquement monter à 17000m d’altitude.
+
+III.4.
+
+Modélisation du vol selon une maquette
+
+III.4.1. Cahier des charges et fabrication
+Pour rendre plus concrètes les explications sur l’ascension du vol, nous avons décidé de concevoir une
+colonne pour modéliser l’atmosphère, et de faire évoluer un ballon à l’intérieur. Nous avons fabriqué une
+colonne en forme de parallélépipède ouvert sur le haut et le bas. Nous avons fixé un tuyau réfrigérant en
+plastique devant assurer le refroidissement de l’air dans la partie haute de la colonne. Les photos de la
+fabrication de la maquette sont présentées en annexe 2.
+Au départ, on voulait introduire dans la colonne un mini ballon
+fabriqué comme « le plus gros » vu dans les paragraphes précédents.
+Cependant, avec cette méthode de fabrication, le ballon ainsi fabriqué
+n’était pas parfaitement étanche : c’est pour cela que l’on a du se
+résigner à prendre un ballon de baudruche gonflé à l’hélium.
+
+III.4.2. Expérience
+
+On fait décoller le ballon de baudruche rempli d’hélium dans le
+bas de la colonne. Le ballon monte et on observe un léger ralentissement
+de sa vitesse au niveau du système de refroidissement et des glaçons
+comme le ballon devrait le faire au niveau de la tropopause.
+
+15
+
+III.4.3.
+
+Interprétation de l’expérience
+
+Nous avons réalisé une acquisition vidéo du mouvement du ballon dans la colonne d’air. Des marques
+nous ont permis de réaliser l’étalonnage nécessaire au traitement des données. Le logiciel Généris 5+ nous a
+permis de pointer les positions occupées par le ballon toutes les 5 images. En dérivant les altitudes du ballon,
+nous avons pu étudier l’évolution de la vitesse ascensionnelle du ballon modèle dans la colonne.
+
+0,35
+0,3
+
+Vitesse (m/s)
+
+0,25
+0,2
+0,15
+0,1
+0,05
+0
+-0,05
+
+0
+
+0,2
+
+0,4
+
+0,6
+
+0,8
+
+1
+
+Altitude (m)
+
+Allure de la vitesse issue du pointage
+
+III.4.4. Améliorations de l’expérience précédente
+L’expérience a montré que plusieurs points posaient problème :
+la colonne d’air n’est pas assez haute,
+le tuyau de refroidissement en plastique n’est pas assez conducteur pour refroidir efficacement l’air dans le
+haut de la colonne,
+- l’introduction du ballon par le haut de la colonne provoque des mouvements d’air dans la colonne.
+Nous avons donc construit une seconde colonne, plus haute (voir annexe 3) avec un tuyau en cuivre pour
+refroidir l’air du haut de la colonne et une trappe pour introduire le ballon en minimisant les mouvements d’air.
+
+-
+
+16
+
+III.5.
+
+Vol du ballon
+
+Pour clore ce dossier, découvrons quelques photos du vol de notre propre ballon stratosphérique ouvert.
+Nous n’avons pas pu procéder au lâcher du ballon en raison de la Convention relative à l’aviation civile
+internationale qui oblige une procédure de demande d’autorisation nécessaire, difficile à obtenir s’il n’y a pas
+d’objectif scientifique (en fait si nous n’accrochons pas de nacelle au ballon). Néanmoins, avec la longueur des
+fils qui reliaient le ballon au sol, nous pouvons estimer la hauteur de vol à presque 200 mètres.
+
+Gonflage du ballon avec de l’hélium.
+
+Et envol du ballon.
+
+17
+
+Conclusion générale et perspectives
+Notre dossier est à présent terminé. Nous avons donc répondu à notre problématique :
+- Qu’est ce qu’un ballon stratosphérique ouvert ?
+- Pourquoi et comment vole t-il ?
+- Comment son utilisation peut permettre à des lycéens de mieux comprendre quelques caractéristiques de
+l’atmosphère terrestre ?
+Nous avons ainsi pu définir véritablement ce qu’est un ballon stratosphérique :
+Un ballon stratosphérique est donc un ballon gonflé à l'hélium, comportant de fines manches
+d’évacuations, caractérisé d’ouvert par sa partie basse qui communique avec l’air extérieur. Grâce à des
+volumes variant de quelques dizaines de milliers à plus d'un million de mètres cube, celui-ci peut emporter des
+charges allant de quelques centaines de kg à quelques tonnes à des altitudes de 20 à 40 km. Des matériaux
+spéciaux sont nécessaires à sa fabrication. En effet, l'enveloppe doit être aussi légère que possible. A cet effet,
+on utilise donc du polyéthylène de 10 à 25 micromètres d'épaisseur. Celui-ci doit être fabriqué avec des résines
+sélectionnées de manière qu'il garde ses propriétés plastiques aux très basses températures (- 75°C) rencontrées
+pendant les vols.
+Nous avons également pu étudier précisément le plan de vol de notre ballon :
+Le vol du ballon dû à la poussée d’Archimède, se caractérise ainsi, par une phase de montée où le
+volume d’hélium croit linéairement avec l’altitude. Lors de son vol, le ballon garde une vitesse constante durant
+son évolution dans la troposphère, avant de connaître un fort ralentissement au niveau de la tropopause et
+retrouver par la suite une vitesse de nouveau constante. La deuxième partie du vol est le vol au plafond et la
+descente.
+Ce dossier nous a également permis de comprendre l’utilité des ballons stratosphériques ouverts. Ceux-ci
+apparaissent complémentaires des satellites ou laboratoires spatiaux qui sont malgré tout rares et de toute façon
+plus onéreux. Nous avons donc constaté qu’à l'heure actuelle, une recherche spatiale dynamique ne peut être
+conçue sans utiliser des ballons, dont les performances doivent être adaptées aux besoins de la communauté
+scientifique qui rassemble, en particulier, des météorologistes, des aéronomes, des biologistes, des astronomes.
+Cette évolution technologique, en particulier pendant les vingt dernières années, est due au fait que le ballon est
+un véhicule possédant des propriétés tout à fait intéressantes que ni les fusées ni les véhicules orbitaux ne
+détiennent. Ces caractéristiques spécifiques sont essentiellement : la faculté de circuler pendant de nombreuses
+heures dans l'atmosphère terrestre entre quelques mètres et quelques 40 kilomètres d'altitude, et la possibilité
+d'utiliser les ballons comme traceurs, car leur déplacement est déterminé par les vents.
+Enfin, si ce projet nous a permis d’acquérir d’importantes connaissances sur les ballons ainsi que des notions de
+bases concernant la thermodynamique et la mécanique des fluides. Ce projet nous a appris à prendre des
+contacts avec un organisme scientifique tel que le CNES. Enfin, ajoutons que ce projet fut très enrichissant sur
+le plan humain, puisque sa réalisation fut un véritable plaisir, qui s’est notamment accompagné de très bons
+moments, lors par exemple de la construction de notre maquette, ainsi que celle de notre ballon.
+Il restera cependant un bémol : malgré l’étalonnage d’une thermistance et d’une photo-résistance, la conception
+d’une nacelle a été impossible par manque de moyens financiers. En effet, le système de suivi du ballon par
+GPS ou radio était très cher et dépassait notre budget. Ce projet d’ajouter une nacelle avec des instruments de
+mesure embarqués pourra faire l’objet d’un second projet pour une autre édition des Olympiades de Physique.
+Pour clore définitivement ce dossier, il est indispensable de remercier toutes les personnes qui nous ont aidés à
+mener à bien notre projet :
+-
+
+Melle Sophie Peyraud, ingénieur au CNES, pour sa gentillesse et sa générosité,
+
+- Mr Stéphane Rochefeuille, pour nous avoir soufflé cette merveilleuse idée de participation aux
+olympiades et sa gentillesse, ainsi que pour son soutien qui nous a été très précieux.
+- Melle Anne Peyre, pour la patience qu’elle a su nous accorder lors des explications de phénomènes
+physiques complexes, pour sa gentillesse, et pour sa présence tout au long de la conception du dossier.
+-
+
+Mr Henri et Roland VIGNON, qui furent d’une grande aide lors de la conception des colonnes.
+
+18
+
+Bibliographie et netographie
+[1.] GUYON E., HULIN J.-P. ET PETIT L. Ce que disent les fluides. Bibliothèque scientifique, Belin. Pour
+la science, 2005. 160 p.
+
+[2.] LIDE D.R. (Dir). CRC Handbook of chemistry and Physics. 88ème édition. Boca Raton: CRC Press,
+2008. 2688 p.
+
+[3.] PENOT J.-P.(Dir) , Des ballons pour la science, livre du cnes, édition pemf, collection bt espace
+[4.] PICCA R., Une application du théorème d’Archimède à l’étude de la stabilité verticale de
+l’atmosphère. Bulletin de l’Union des Physiciens, 1987, 695, p 777-786
+
+[5.] PLAYS Y., DU PUY DE GOYNE T., LEPOURRY P. ET BESSE J. Initiation à l’aéronautique. 5ème édition.
+Toulouse : Cépaduès éditions, 2008. 218 p.
+
+[6.] SOUBRIER A., L’aérostation scientifique. Bulletin de l’Union des Physiciens, 1980, 626, p 13271343
+
+[7.] Manuels de sciences physiques 1ère S et Tle S, Microméga Hatier
+[8.] Le site du CNES : http://www.cnes.fr/
+[9.] http://sads.cnes.fr:8120/ballon.html
+[10.]
+
+L’encyclopédie Universalis :
+http://www.universalis.fr/encyclopedie/C930691/BALLONS.htm
+
+[11.]
+
+http://planet-terre.ens-lyon.fr/planetterre/XML/db/planetterre/metadata/LOM-circulation-
+
+stratosphere.xml#id2456387
+
+[12.]
+
+http://cnrs.fr/cw/dossiers/dosclim/questcli/suite/AtmosRep.htm
+
+[13.]
+
+L’encyclopédie de l’environnement atmosphérique :
+http://www.ace.mmu.ac.uk/eae/french/french.html
+
+19
+
+Annexe 1 : Feuille de calculs pour la modélisation
+z en m
+0
+1000
+2000
+3000
+4000
+5000
+6000
+7000
+8000
+9000
+10000
+11000
+12000
+13000
+14000
+15000
+16000
+17000
+18000
+19000
+20000
+21000
+22000
+23000
+24000
+25000
+26000
+27000
+28000
+29000
+30000
+31000
+32000
+33000
+34000
+35000
+36000
+37000
+38000
+39000
+40000
+
+Tair en K
+283
+277,55
+272,1
+266,65
+261,2
+255,75
+250,3
+244,85
+239,4
+233,95
+228,5
+223,05
+223
+223
+223
+223
+223
+223
+223
+223
+223
+223
+223
+223
+223
+223
+223
+223
+223
+223
+223
+223
+223
+223
+223
+223
+224
+225
+226
+227
+228
+
+Pair en Pa
+101300
+89724,56744
+79280,83004
+69877,5383
+61429,17528
+53855,70261
+47082,3129
+41039,18843
+35661,26619
+30888,00911
+26663,1836
+22934,64318
+19700,58973
+16922,5757
+14536,29421
+12486,50637
+10725,76264
+9213,30441
+7914,120515
+6798,136775
+5839,51982
+5016,079091
+4308,753154
+3701,168464
+3179,260336
+2730,94737
+2345,851786
+2015,059193
+1730,912231
+1486,833322
+1277,172399
+1097,076123
+942,3755328
+809,4895387
+695,3420271
+597,2906524
+513,0656706
+440,7173983
+378,5710803
+325,1881214
+279,3327853
+
+ro air en kg/m3
+1,239059527
+1,119023748
+1,008576415
+0,907120894
+0,814086726
+0,728928977
+0,651127595
+0,580186764
+0,515634271
+0,457020866
+0,40391963
+0,355925351
+0,305804256
+0,262682272
+0,225640993
+0,193822969
+0,166491659
+0,143014384
+0,12284768
+0,105524717
+0,090644495
+0,077862559
+0,066883026
+0,057451735
+0,049350367
+0,042391387
+0,036413705
+0,031278946
+0,026868248
+0,02307951
+0,019825029
+0,017029467
+0,014628113
+0,012565377
+0,010793512
+0,0092715
+0,007928556
+0,006780268
+0,0057984
+0,004958816
+0,004240882
+
+ro He en kg/m3
+0,172091601
+0,155419965
+0,140080058
+0,125989013
+0,113067601
+0,101240136
+0,090434388
+0,080581495
+0,071615871
+0,06347512
+0,056099949
+0,049434076
+0,042472813
+0,036483649
+0,031339027
+0,026919857
+0,023123841
+0,019863109
+0,017062178
+0,014656211
+0,012589513
+0,010814244
+0,009289309
+0,007979408
+0,006854218
+0,005887693
+0,005057459
+0,004344298
+0,003731701
+0,003205487
+0,002753476
+0,002365204
+0,002031682
+0,001745191
+0,001499099
+0,001287708
+0,001101188
+0,000941704
+0,000805333
+0,000688724
+0,000589011
+
+V He en m3
+0,520071866
+0,575859093
+0,638920354
+0,710379404
+0,791561856
+0,884036744
+0,989667778
+1,110676837
+1,249722984
+1,410001268
+1,5
+1,5
+1,5
+1,5
+1,5
+1,5
+1,5
+1,5
+1,5
+1,5
+1,5
+1,5
+1,5
+1,5
+1,5
+1,5
+1,5
+1,5
+1,5
+1,5
+1,5
+1,5
+1,5
+1,5
+1,5
+1,5
+1,5
+1,5
+1,5
+1,5
+1,5
+
+ro ballon en kg/m3
+0,99579286
+0,875757081
+0,765309748
+0,663854227
+0,57082006
+0,485662311
+0,407860928
+0,336920097
+0,272367604
+0,213754199
+0,182766615
+0,176100743
+0,16913948
+0,163150316
+0,158005694
+0,153586523
+0,149790508
+0,146529776
+0,143728844
+0,141322877
+0,13925618
+0,137480911
+0,135955976
+0,134646074
+0,133520884
+0,132554359
+0,131724126
+0,131010965
+0,130398368
+0,129872154
+0,129420143
+0,12903187
+0,128698349
+0,128411858
+0,128165766
+0,127954375
+0,127767855
+0,127608371
+0,127472
+0,127355391
+0,127255678
+
+n He en mol
+22,375
+22,375
+22,375
+22,375
+22,375
+22,375
+22,375
+22,375
+22,375
+22,375
+21,03748075
+18,53777868
+15,927305
+13,68136834
+11,75213506
+10,09494629
+8,671440561
+7,448665819
+6,398316646
+5,496079015
+4,721067464
+4,055341624
+3,48349093
+2,992277885
+2,570331636
+2,207884753
+1,896547128
+1,629111757
+1,399387907
+1,202057812
+1,032553574
+0,886951419
+0,761880874
+0,654446742
+0,562162082
+0,48289064
+0,412945627
+0,353138941
+0,30199999
+0,258271657
+0,22087929
+
+V pour Cx=0 en m/s
+0
+99,16490768
+147,7196457
+190,7680786
+232,5264291
+274,7388386
+318,4345908
+364,3701362
+413,1918718
+465,5120247
+487,2451212
+469,4505048
+436,1600921
+394,4650126
+342,8971383
+277,6696287
+187,085678
+#NOMBRE!
+#NOMBRE!
+#NOMBRE!
+#NOMBRE!
+#NOMBRE!
+#NOMBRE!
+#NOMBRE!
+#NOMBRE!
+#NOMBRE!
+#NOMBRE!
+#NOMBRE!
+#NOMBRE!
+#NOMBRE!
+#NOMBRE!
+#NOMBRE!
+#NOMBRE!
+#NOMBRE!
+#NOMBRE!
+#NOMBRE!
+#NOMBRE!
+#NOMBRE!
+#NOMBRE!
+#NOMBRE!
+#NOMBRE!
+
+V pour Cx en m/s
+2,670839793
+2,810439704
+2,960325865
+3,12148562
+3,295024036
+3,482180796
+3,684349943
+3,903103028
+4,140216354
+4,397703138
+4,460171659
+4,284476069
+4,029574187
+3,710381023
+3,300124541
+2,746374793
+1,909103957
+#NOMBRE!
+#NOMBRE!
+#NOMBRE!
+#NOMBRE!
+#NOMBRE!
+#NOMBRE!
+#NOMBRE!
+#NOMBRE!
+#NOMBRE!
+#NOMBRE!
+#NOMBRE!
+#NOMBRE!
+#NOMBRE!
+#NOMBRE!
+#NOMBRE!
+#NOMBRE!
+#NOMBRE!
+#NOMBRE!
+#NOMBRE!
+#NOMBRE!
+#NOMBRE!
+#NOMBRE!
+#NOMBRE!
+#NOMBRE!
+
+m enveloppe
+n
+Vmax
+S
+mHe
+Cx
+
+0,19
+22,375
+1,5
+2,25
+0,0895
+0,36
+
+kg
+mol
+m3
+m2
+kg
+
+20
+
+Annexe 2 : Photos de la fabrication de la première colonne
+
+Trois faces sont faites de contreplaqué en bois et la
+quatrième face est une plaque de plastique transparent
+(voir ci-dessous)
+
+Nous avons vu que le ballon évoluait dans deux couches
+de l’atmosphère aux caractéristiques différentes. Pour
+avoir une « troposphère artificielle » avec une
+température qui décroit avec l’altitude, nous placerons un
+chauffe ballon dans le bas de la colonne. Pour avoir une
+basse stratosphère artificielle à la température constante
+selon l’altitude, nous placerons un refroidissement à eau
+sur la face arrière ainsi que des glaçons dans la partie
+haute de la colonne
+
+Pour l’étanchéité de la colonne, on place un mastic sur les
+angles à l’extérieur et un joint de colle à l’intérieur. La
+colonne est prête pour accueillir le ballon !
+
+21
+
+Annexe 3 : Photos de la fabrication de la deuxième colonne
+
+Mise en forme du plastique.
+
+Mise en forme du tuyau de refroidissement
+en cuivre.
+
+Fixation du tuyau de refroidissement et
+découpage de la trappe.
+
+22
+
+Pose du joint d’étanchéité.
+
+Pose de la face transparente de la colonne.
+
+Fixation du raccord au robinet.
+
+23
+
+Ann
+
+24
+
+

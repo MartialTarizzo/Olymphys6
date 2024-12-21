@@ -1,0 +1,715 @@
+Mémoire final :
+Peut-on vraiment briser un verre
+en chantant ?
+________________________________________________________________________
+LYCÉE PARC DES LOGES – 91000ÉVRY
+ANNÉE SCOLAIRE : 2019/2020
+__________________________________________________________________________
+
+Marion JUMELLE (TS-SVT)
+Adel BELGROUN (TS-SI)
+Timothée BACCHI (TS-SI)
+Edouard BREMONT (TS-SI)
+Eric DURAND (Professeur référent )
+
+Résumé
+Le but de ce projet est de vérifier si l’on peut vraiment briser un verre , à la voix ou au son d’un instrument de musique.
+Le projet est articulé en deux phases :
+
+
+
+
+Une première partie où nous nous sommes intéressés à la mise en résonance d’un objet de référence approvisionnable en
+quantité (verre Hederlig Ikea) et modélisable informatiquement, avec un système d’excitation dont nous contrôlons un
+maximum de paramètres. Cette première phase a permis de bien cerner les point cruciaux pour la suite de l’étude.
+Une seconde phase d’essais et de tests où nous avons cherché à briser un verre avec la voix.
+
+1
+
+Sommaire
+
+1 - Problématique .........................................................................................................................................................3
+2- Le projet : répartition des rôles , réseau scientifique, jalons ..................................................................................3
+3 – Partie théorique .....................................................................................................................................................4
+Qu’est ce que le verre ? ............................................................................................................................................4
+Le phénomène de résonance : oscillateur en régime libre et forcé .........................................................................6
+Ondes stationnaires ..................................................................................................................................................7
+4 – Les outils .................................................................................................................................................................8
+Choix du verre...........................................................................................................................................................8
+Le montage ...............................................................................................................................................................8
+5 -partie expérimentale (phase 1 / excitation par GBF) ...............................................................................................9
+Un verre se comporte-t-il comme un oscillateur amorti en régime sinusoidal ? ....................................................9
+Etude des déplacements du bord- Orientation des verres – Autre mesure du facteur de qualité ......................10
+Comparaison des verres par mesure du facteur de qualité .................................................................................12
+Mesures et tests sur un échantillon de 22 verres ..................................................................................................14
+6– Partie expérimentale / phase 2 (excitation par voix humaine) .............................................................................15
+7 - Conclusion .............................................................................................................................................................17
+8- Bibliographie...........................................................................................................................................................17
+
+Annexe 1 : Outils d’analyse spectrale
+Annexe 2 : Annexe 2 Audiogrammes et spectrogrammes des 22 verres étudiés
+Annexe 3 : L’oscillateur harmonique en régime libre et forcé
+Annexe 4 : Ondes stationnaires transversales (Corde de Melde)
+Annexe 5 : Le son et ses grandeurs
+Annexe 6 : Carte mentale (préparatoire) du projet
+Annexe 7 – Simulations informatiques
+
+2
+
+’ Le monde est rempli de résonances. Il constitue un cosmos d’êtres exerçant une action spirituelle.
+La matière morte est un esprit vivant ‘’
+Vassily Kandinsky (1866- 1944), peintre, graveur, théoricien
+
+1 - Problématique
+Au moment de nous inscrire aux Olympiades de Physique , nous avions plusieurs idées mais savoir si oui, ou non, on peut briser
+des objets en chantant présentait l’avantage d’une problématique très claire. De plus le projet s’annonçait spectaculaire ; en
+même temps réalisable avec les moyens du bord ; et enfin passionnant d’un point de vue physique puisqu’il allait exiger de nous
+d’étudier de près les phénomènes de résonance.
+Notre projet s’est articulé en deux phases :
+
+
+
+
+Une première partie où nous nous sommes intéressés à la mise en résonance d’un objet-modèle déterminé (verre Hederlig
+Ikea) avec un système dont nous contrôlions tous les paramètres, avec pour objectif de développer nos connaissances et notre
+savoir faire . Cette partie a été présentée lors des sélections inter-académiques du concours.
+Une seconde phase d’essais et de tests consacrés à l’excitation des verres par la voix humaine.
+
+2- Le projet : répartition des rôles , réseau scientifique, jalons
+L’ensemble de l’équipe a travaillé ensemble la plupart du temps , chacun présentant des affinités particulières . Tout le monde a
+participé aux manipulations. Edouard et Timothée ont étudié de plus près les parties théoriques, Adel a fortement contribué à la
+rédaction du mémoire et Marion a joué le rôle de coordinatrice de l’équipe, avec une vue d’ensemble sur tous les aspects du
+projet.
+Nous avons également au fil du temps développé un réseau de collaborateurs réguliers qui nous ont guidé au fil du déroulement
+du projet par leurs conseils et leur soutien technique .
+
+3
+
+3 – Partie théorique
+
+Qu’est ce que le verre ?
+Les verres fabriqués par l’homme sont principalement faits à base de silice (SiO 2) . Mais la silice n’est pas incontournable ; un très
+grand nombre de matériaux , y compris des alliages métalliques (ex : verres blindés) et des substances organiques (molécules de
+carbone + hydrogène) peuvent donner du verre. On ne peut donc pas définir un verre par sa nature chimique.
+Les verres sont traditionnellement fabriqués par refroidissement d’un mélange en fusion ; mais là aussi ce n’est pas un procédé
+exclusif , car certains verres peuvent être fabriqués par dépôt de couches minces, par procédés « sol-gel » , par irradiation de
+matériaux cristallins…
+Alors, comment définir un « verre » ? Tous les verres ont en commun deux caractéristiques :
+
+
+
+Aucun verre ne présente de périodicité dans l’ organisation de ses atomes
+Tous les verres présentent un phénomène de « transition vitreuse »
+
+Pour comprendre cette notion , revenons sur une expérience faite en seconde lors de l’étude des transformations physiques de
+l’eau . (ci-dessous)
+On place un tube à essai agité à la baguette) est, placé dans un mélange réfrigérant) , la température descend, ce qui montre que
+le contenu du tube perd de l’énergie ; mais on observe au moment de la solidification un palier de température , signe que de
+l’énergie est cédée uniquement pour que l’eau dans le tube passe de l’état liquide à l’état solide. La quantité nécessaire ( 333
+Joules par gramme) est « l’enthalpie de solidification de l’eau ».
+
+En Terminale, nous apprenons que l’énergie interne d’un matériau est la somme de toutes les
+énergies cinétiques et potentielles de ses atomes.
+L’existence d’une libération d’énergie au moment de la solidification montre qu’il existe une
+différence importante d’énergie interne entre un échantillon liquide et le même échantillon
+solide à la même température.
+Si l’on veut faire fondre l’échantillon , il faudra cette fois apporter de l’énergie et on
+comprend que celle-ci correspond à l’énergie nécessaire pour briser les liaisons intermoléculaires.
+
+4
+
+Le phénomène de transition vitreuse
+Par ailleurs au cours de la même expérience , si on n’agite
+pas l’eau, on peut observer un phénomène de « surfusion » :
+l’eau reste liquide bien en dessous de 0°C, jusqu’au moment
+ou une perturbation (vibration, choc) va déclencher une
+solidification immédiate. Cette eau surfondue est un
+« liquide super-froid ».
+Sur la figure de droite, en gras nous voyons l’évolution de
+l’énergie interne ( « l’enthalpie », mais à notre niveau nous
+ne ferons pas la distinction entre ces deux grandeurs) d’un
+matériau refroidi.
+La plupart des matériaux suivent à partir du point A le
+segment en gras : à une température Tm , l’énergie interne
+chute brutalement quand l’échantillon passe de l’état liquide
+à l’état solide, avec organisation d’un cristal (structure
+atomique régulière) et libération de chaleur.
+La différence d’énergie H(A) – H(B) est cédée au milieu
+extérieur ; c’est l’enthalpie de solidification.
+Mais pour les verres , à l’image de l’eau surfondue , la
+cristallisation ne commence pas au point A et on n’observe
+pas d’enthalpie de changement d’état ; par contre la
+viscosité du mélange augmente, ce qui finit par bloquer
+toute possibilité de cristallisation ultérieure.
+C’est cela que l’on appelle « transition vitreuse » (« glass
+transformation range » sur la figure).
+
+Il se forme bien des liaisons covalentes entre les atomes ,
+comme dans les solides mais il n’existe aucune organisation
+régulière assimilable à un cristal. C’est cela que l’on appelle
+un « verre » . (à droite)
+
+Que se passe-t-il quand le verre casse ?
+Si l’on prend l’exemple du quartz de silice (cristal de silice) , il est clair qu’il est beaucoup moins cassant que le verre, même si
+comme tous les cristaux il peut en revanche se cliver suivant certains plans.
+Les liaisons covalentes sont des liaisons de haute énergie. Ce qui rend le verre plus fragile ce n’est pas son manque d’organisation
+mais surtout la présence de défauts (par exemple des liaisons Si-Si ou des liaisons peroxyde O-O , ou encore la présence
+d’impuretés).
+Lorsque le verre est soumis à une contrainte ces défauts agissent comme des points de concentration de contraintes, et le verre se
+déchire ( ou s’ouvre comme une fermeture-éclair ) en passant par une suite de défauts.
+C’est ainsi que nous avons obtenu lors des tests de rupture des cassures très diverses , allant du simple bout de bord qui saute à la
+destruction complète du récipient, en passant par des verres fendus en deux dans le sens de la hauteur , ou encore dont seulement
+le fond s’est brisé .
+
+5
+
+Le phénomène de résonance : oscillateur en régime libre et forcé
+Un enfant sur une balançoire voit son mouvement s’amplifier à chaque nouvelle poussée . Si celle-ci est effectuée au bon moment
+l’enfant conserve l’énergie qui lui a été donné.
+Ce principe d’un apport d’énergie en phase avec les oscillations d’un système, avec pour conséquence une accumulation de cette
+énergie s’appelle « résonance ». Aucun objet n’y échappe : une voiture sur ses suspensions, un pont, un verre, un avion et même
+nos organes . Soumis à une excitation de fréquence adaptée , un système va être le siège d’oscillations de plus en plus
+importantes jusqu’à éventuellement la rupture (et c’est bien sûr ce que nous chercherons à faire).
+Considérons un oscillateur très simple peu amorti, par exemple une masse suspendue à un
+ressort. Livré à lui-même (« régime libre ») , le système oscille à une fréquence précise, sa
+« fréquence propre » .
+Si maintenant le système (via son point d’attache par exemple) est soumis à une excitation
+sinusoidale externe (« régime forcé ») , nous observerons typiquement la réponse suivante :
+
+Observations :
+
+
+
+
+
+Il existe une fréquence précise pour laquelle le mouvement de l’oscillateur s’amplifie , souvent bien au-delà de l’amplitude
+de l’excitation elle-même . C’est la « fréquence de résonance » . Elle est souvent proche de la fréquence propre mais
+n’est égale à celle-ci que dans les cas d’amortissements extrêmement faibles.
+Pour des fréquences inférieures à la fréquence de résonance, en gros l’oscillateur suit l’excitation.
+Pour des fréquences très supérieures à la fréquence de résonance, l’oscillateur n’arrive plus à suivre l’excitation et son
+amplitude se réduit jusqu’à être nulle à hautes fréquences.
+
+Le fait qu’à la résonance l’amplitude de l’oscillateur soit très supérieure à celle de l’excitation s’explique en faisant l’hypothèse que
+le système accumule de l’énergie. Pour cela il faut que l’excitateur apporte de l’énergie « au bon moment » à une fréquence
+particulière ; et bien sûr il faut que l’énergie dissipée par frottements pendant chaque cycle soit inférieure à l’énergie reçue à
+chaque impulsion.
+C’est ce que nous chercherons à faire avec nos verres : parvenir à leur fournir de l’énergie à une fréquence telle que leur énergie
+mécanique augmente , se traduisant par des oscillations d’amplitude de plus en plus grande jusqu’à la rupture.
+
+L’oscillateur amorti en régime libre et forcé
+( Les démonstrations, classiques, ont été déplacées en annexe 3 ; leurs résultats seront
+repris dans l’étude expérimentale)
+Pour nous familiariser avec les oscillateurs et la résonance , leurs équations et leurs
+paramètres notre professeur nous a proposé de commencer par une expérience très
+simple : une masse suspendue à un ressort oscillant sans frottements en régime libre et
+forcé (fig5)
+La masse valait 200g +/-5g , et provoquait (système au repos) un allongement L du ressort
+de 60 +/-4 mm.
+La raideur du ressort k = =
+
+=
+
+= 33 N.m-1
+
+Cette situation est comparable à celle d’un objet placé sur un plan horizontal. Le poids étant
+constant, l’allongement initial dû à son poids ne fait que fixer la position d’équilibre. La
+seule force variable est bien la force de rappel.
+On prédit ainsi que la fréquence des oscillations , en situation de frottements très faibles,
+sera telle que
+2f =
+
+soit f =
+
+
+
+6
+
+Nous avions estimé k avec la même masse donc en fait f =
+
+
+
+d’où f  2,0 Hz et
+
+= 0,5 x
+
+soit u(f) 0,07 Hz.
+
+Donc f = 2,0 Hz +/- 0,1 Hz , et nous avons mesuré effectivement une fréquence propre de 2,1 Hz, et en régime forcé une forte
+résonance a été observée pour la même fréquence (la masse se décrochait régulièrement ).
+et c’est bien ce que nous avons observé. Ensuite en régime forcé (oscillations entretenues) nous avons effectivement observé une
+amplification du mouvement pour une fréquence également proche de 2Hz.
+
+Ondes stationnaires
+Lorsqu’un verre entre en résonance nous observons au stroboscope
+essentiellement les mouvements de bord ci-contre.
+Celui de gauche peut s’interpréter qualitativement de deux manières :
+ En régime forcé le haut parleur impose des « ventres » de vibration », qui
+eux-mêmes induisent la présence de « nœuds » . Le bord du verre se
+comporte un peu comme une corde tendue refermée sur elle même. C’est
+pourquoi le professeur a jugé utile de nous familiariser avec le problème de
+la « Corde de Melde ».
+ La seconde façon de se représenter les choses est de considérer qu’une onde
+périodique progressive se propage dans le bord du verre. Dans le mode que
+nous avons baptisé « compression-dilatation » une onde se propage dans le
+bord et sa longueur d’ondes (liée à la célérité de l’onde et la fréquence
+d’excitation) est telle que l’onde peut interférer constructivement avec ellemême ; en « mouvement tournant » cette condition n’est pas remplie.
+Dans l’article de Rossing cité en bibliographie (figure de droite) , on constate
+d’ailleurs que les modes de résonance sont nommés d’après le nombre de
+longueurs d’ondes qui prennent place sur un périmètre.
+
+Pour nous familiariser avec les ondes stationnaires, nous avons donc réalisé
+l’expérience classique de la Corde de Melde dont les calculs (sauf le départ avec la
+seconde loi de Newton) nous sont accessibles .
+( Les démonstrations, classiques, ont été déplacées en annexe 4 ; leurs résultats
+seront repris dans l’étude expérimentale)
+La masse de la corde était de 8 g pour une longueur totale L = 1,3m.
+La longueur de la corde soumise aux vibrations était de L’= 1m. Le contrepoids avait une masse de 400g.
+Dans ces conditions d’après le modèle , les fréquences des modes de résonance devaient être en théorie de
+F = nc/2L’
+
+avec c =
+
+soit ici
+
+= 25 m/s
+
+Nous devions donc observer des fréquences multiples de 12,5 Hz , et cela a bien été le cas.
+
+7
+
+4 – Les outils
+Choix du verre
+Afin de pouvoir effectuer des expériences comparatives , notre choix s’est porté sur un verre du commerce, facile à acheter en
+grandes quantités, le verre Hederlig de Ikea.
+Intuitivement , compte tenu du fait que l’épaisseur de verre est pratiquement la même quelle que soit la taille du modèle, nous
+avons en effet cherché un verre des plus grandes dimensions possibles (hauteur-diamètre) afin d’obtenir de grandes déformations.
+Sur les 30 verres achetés nous en avons brisé 24, donc notre choix était relativement pertinent. Mais en réalité le verre Hederlig
+est assez solide et nous aurions pu obtenir des casses beaucoup plus tôt avec d’autres modèles plus fragiles .
+Il demeure que du coup , nous avons dû optimiser notre système au maximum pour atteindre nos objectifs, ce qui a permis d’élargir
+nos connaissances et notre savoir-faire.
+Cependant pour la seconde phase (excitation par la voix) nous sommes passés à des modèles de forme similaire mais beaucoup
+moins résistants, et avons même approvisionné quatre verres en « cristal » (verre au plomb) faits à la main et ultra-légers.
+
+Le montage
+L’étude préliminaire des spectres des verres étudiés est réalisée avec un ordinateur muni d’un micro intégré et du logiciel Audacity.
+Pour une recherche rapide des fréquences propres nous utilisons aussi l’appli « spectroïd » sous Android, très pratique .
+Pour les manipulations et les tests de rupture , ci dessous un schéma de la configuration employée . Les parois du verre sont
+situées à quelques cm des haut-parleurs, et ceux-ci son positionnés de façon à être centrés sur le diamètre maximal du verre.
+
+Méthodes d’analyse spectrale : voir Annexe 1
+
+8
+
+5 -partie expérimentale (phase 1 / excitation par GBF)
+Dans cette partie, nous avons mis en œuvre les outils décrits pour répondre à des questions particulières et surtout faire évoluer
+nos connaissances et notre savoir-faire.
+
+Un verre se comporte-t-il comme un oscillateur amorti en régime sinusoidal ?
+(expérience a été inspirée par le sujet Centrale-Supelec cité en référence).
+Pour confirmer qu’un verre obéit à des lois proches de celles d’un oscillateur en régime sinusoïdal (libre et forcé) , nous avons
+cherché à savoir si l’amplitude de vibration du verre est en régime libre une exponentielle décroissante , ce qui permettrait au
+passage d’évaluer son facteur de qualité.
+Graphe obtenu (audacity)
+
+Avec la fonction réticule de regressi nous avons à l’estime déterminé
+quelques points de l’enveloppe du graphe précédent (en faisant abstraction des battements) , puis nous avons cherché à modéliser
+cette enveloppe par une fonction exponentielle décroissante de type s(t) = A e-Bt .
+
+Exploitation et commentaires :
+L’allure de l’enveloppe est proche d’une exponentielle décroissante
+mais le coefficient de corrélation n’est pas très bon ; le verre ne
+peut pas être considéré comme un oscillateur aussi simple qu’un
+système masse-ressort même s’il n’en est pas très éloigné . Ceci se
+comprend notamment en observant le spectre : la fréquence de
+résonance n’est pas unique. Confirmé par la présence d’un léger
+battement sur le signal) . En utilisant tout de même le modèle de
+
+9
+
+l’oscillateur amorti en régime libre (annexe 3 ) en première approximation
+L’amplitude A(t) des oscillations en régime libre contient un facteur exponentiel
+
+
+Donc
+
+=
+
+donc
+
+Q=
+
+
+
+En faisant l’hypothèse que le facteur de qualité est grand, la fréquence propre en régime libre amorti (620Hz) est très proche de la
+fréquence propre en régime libre non amorti .
+Or d’après le graphe précédent , au bout de 0,6s (soit 0,6 620 périodes) l’amplitude relative du signal chute de 1 à 0,1 .
+
+Par conséquent Q =
+ 500 ce qui est un ordre de grandeur compatible avec nos autres estimations.
+
+Etude des déplacements du bord- Orientation des verres – Autre mesure du facteur
+de qualité
+Orienter correctement le verre : un paramètre crucial
+Au départ nous pensions que seuls certains verres étaient capables, pour une
+raison inconnue, de vibrer correctement en mode « compression-dilatation »
+(2 , 0) . Nous partions du principe que les verres étaient nécessairement de
+révolution.
+Nous plaçions donc plusieurs verres différents sans orientation particulière
+jusqu’à observer au stroboscope un mode satisfaisant, et ensuite nous
+optimisions la fréquence d’excitation.
+Même si rétrospectivement cela peut paraître étrange, nous nous sommes
+longtemps demandé comment faire pour favoriser le mode (2,0) ; il nous a fallu
+beaucoup de temps (et le hasard, comme cela arrive souvent en sciences ) pour
+réaliser que l’on pouvait facilement « forcer » un mode ou l’autre en pivotant
+le verre sur lui-même.
+Au départ, le professeur Hilico nous a suggéré de visualiser les
+déformations du bord du verre en utilisant un laser . Par ailleurs le
+professeur Cavatore nous a communiqué le sujet du concours des
+Mines cité dans la bibliographie,
+où la déformation du bord de
+verre est également mesurée à l’aide d’un laser , mais par une
+méthode interférométrique .
+La méthode du P . Hilico était beaucoup plus simple ; nous avons alors
+modifié le montage comme décrit à droite .
+Il fat noter que si le bord du verre ne se déplaçait que parallèlement à
+lui-même (comme c’est le cas au niveau du diamètre maximal) nous
+n’aurions sur la feuille qu’un débattement faible puisque au niveau
+des bords d’après nos observations en stroboscopie, le débattement
+n’excède pas 10mm environ (ce qui est suffisant pour provoquer la
+rupture) .
+En venant frapper typiquement 10 mm sous le bord du verre, nous
+amplifions les débattement du spot laser , car lors de la compressiondilatation, le bord s’incline ou se relève. Nous arrivons ainsi à des
+débattements du spot laser sur la feuille de papier pouvant aller
+jusqu’à presque 10 cm !
+
+En utilisant le laser nous avons très
+rapidement observé, au départ par hasard,
+que lors de la mise en place l’orientation
+des verres changeait la trajectoire du
+spot, directement liée aux mouvements
+du bord .
+
+10
+
+En effet lorsque le verre est en mode de compression-dilatation (2,0) et que le laser intercepte le bord (par le haut) comme en A, le
+spot laser oscille sur un axe passant par le centre du pied. Si l’orientation n’est pas parfaite, sa trajectoire est légèrement ovale.
+Lorsque le laser intercepte le bord comme en B (figure précédente) , idéalement le spot laser se déplace comme en 2 puisque la
+tangente au bord pivote sous l’effet de la vibration. Dans les faits, le laser ne touche pas exactement les mêmes points du verre et
+on voit le plus souvent les motifs 3 ( un peu ovales si l’orientation n’est pas parfaite.)
+Enfin dans le cas où le verre est en « mode tournant » , on observe le motif 4 .
+Nous avons alors commencé à délaisser le stroboscope , mais à systématiquement utiliser le laser pour rechercher une trajectoire
+rectiligne du spot , dirigée vers le verre , typique d’un mode de compression-dilatation correct .
+En parlant de ceci aux professeurs Hilico et Cavatore tous deux ont suggéré l’existence de deux modes de compression-dilatation à
+45° l’un de l’autre et nous ont transmis l’article de Pour la Science cité en bibliographie, qui parle de ce phénomène pour des
+objets présentant un plan de symétrie. .
+Du coup nous avons excité en changeant son orientation un verre présentant typiquement ce phénomène (et voici ce que nous
+avons observé pour l’une des fréquences de résonance (643,2 Hz) en régime forcé du verre (le verre se trouve à gauche )
+
+On voit que pour le positions 0, /2 etc… le mouvement du bord est plus faible. Mais il pouvait
+potentiellement être plus important en optimisant l’excitation avec une résolution de 0,1 Hz. .
+En ajustant l’orientation du verre de façon très fine , et en optimisant la fréquence de
+résonance chaque fois que la trajectoire était horizontale nous avons alors eu la confirmation
+expérimentale que le plupart des verres présentaient effectivement deux orientations
+préférentielles à 45° , l’une étant le plus souvent plus « favorable » que l’autre en termes de
+débattement . D’ailleurs le verre utilisé ci-dessus a cassé lors de la recherche de la fréquence
+optimale du second mode propre.
+
+Evidemment nous avons été très intrigués
+par ce comportement. Dans l’article de Pour la Science c’est l’anse de la tasse
+de café qui est cause que l’objet présente un plan de symétrie .
+Dans notre cas ce sont probablement les défauts de révolution du verre luimême (que l’on peut en définitive voir à l’œil nu , lorsque l’on pivote le verre
+en appui contre des cales).
+La raison trouve probablement son origine dans le procédé de fabrication.
+Dans sa phase finale de moulage, le verre est enserré dans deux demi-moules.
+En principe ils sont parfaits mais au moment du démoulage le verre n’est pas
+encore parfaitement rigide. Peut être qu’il est légèrement étiré au moment où
+les moules s’ouvrent.
+
+11
+
+Ceci naturellement est à rapprocher du fait que nous
+avions dès l’origine remarqué que sur les signaux et les
+spectres apparaissaient deux fréquences propres . (à
+droite)
+
+En conclusion
+
+
+
+
+
+L’orientation joue un rôle essentiel dans la mise en
+résonance du verre , et c’est pour cette raison que
+nous avions fait tant d’essais infructueux (verre
+présenté de façon aléatoire)
+Somme toute , nous avons deux « chances » par
+verre.(ou plutôt : si le verre ne casse pas à une
+fréquence, il faut impérativement essayer l’autre)
+
+Comparaison des verres par mesure du facteur de qualité
+Très rapidement nous avons compris que nous tenions désormais une méthode de mesure quantitative des réponses en
+fréquence des verres au voisinage de la résonance.
+
+On constate qu’il est essentiel pour trouver la résonance maximale d’ajuster la fréquence de l’excitation avec une résolution de
+l’ordre de 0,1 Hz.
+
+12
+
+Estimation du facteur de qualité (méthode «
+
+
+
+» cf annexe 3 )
+
+D’après le graphe, le pic de résonance se trouve entre 633Hz et 633,2 Hz. La résolution de notre GBF étant de 0,1 Hz, nous
+estimerons l’incertitude sur la mesure de la fréquence de résonance à 0,2 Hz.
+En supposant (faiblement probable au vu de nos observations) que le vrai maximum (en amplitude relative ) soit aux
+alentours de 1,1 alors F1-F2, correspondant à l’amplitude relative
+
+vaudrait 0,6 Hz.
+
+L’incertitude sur F1-F2 est donc de 0,1 Hz (c’est donc cela qui dégrade nos calculs)
+
+
+Comme Q =
+
+, alors
+
+Application numérique
+
+=
+=
+
+= 0,14  0.2
+
+Le quotient Q =
+par conséquent u(Q) vaut 200 environ
+Conclusion : le facteur de qualité de notre verre est donc estimé à Q =
+900 +/- 200 .
+Pour cette valeur (voir annexe 3) la ou les fréquences de résonance
+seront égales aux fréquences propres.
+Avec cette méthode on dispose d’un moyen de comparer des verres
+identiques, comme par exemple ci-dessous où 4 verres ont été étudiés
+strictement dans les mêmes conditions:
+
+A noter que
+-
+
+Le verre « 1 » est le verre 15 de la série de 22 verres étudiée plus loin, verre que nous n’avons jamais réussi à casser
+Le verre « 2 » était le verre 11 de la série , qui a cassé
+Le verre « 3 » est le verre 5 de la série, que nous n’avons pas réussi à casser
+Le verre « 4 » a été cassé quasi-immédiatement .
+-
+
+Cette méthode a également permis de valider le fait qu’il était préférable
+(vu la faible puissance de notre système d’excitation) d’exciter le verre
+simultanément avec deux hauts-parleurs en vis en vis, émettant en phase :
+
+13
+
+Mesures et tests sur un échantillon de 22 verres
+Ayant déjà brisé une dizaine de verres lors des essais précédents, nous avons décidé d’entreprendre des tests systématiques sur
+l’intégralité des verres disponibles, soit un échantillon de 22 verres.
+L’objectif de cette campagne de tests était d’établir une corrélation entre les données (audiogrammes et spectrogrammes ANNEXE
+2) , nos observations , et les résultats obtenus, afin d’être si possibles capables d’identifier les meilleurs candidats à la rupture
+par une méthode non destructive.
+A la lumière de ce qui précède, nous avions compris qu’il fallait avant tout conserver un maximum d’informations sur les verres
+avant de les soumettre aux tests . C’est pourquoi pour chaque verre nous avons réalisé un audiogramme où le verre est frappé de
+la même façon au niveau du bord, et ce en plusieurs endroits différents. (au moins 8)
+Protocole suivi : L’amplificateur étant réglé sur volume 3 ( volume raisonnable pour lequel les ruptures sont régulièrement
+observées : niveau sonore 110dB au niveau du verre, volume 3 au niveau de l’amplificateur ) , le verre calé au niveau de la table
+de façon à pouvoir le pivoter (en principe) autour de son axe de révolution, nous avons présenté les verres un par un et cherché à
+optimiser la résonance , le cas échéant pour les deux fréquences en mode compression-dilatation.
+Sur les 22 verres, 13 ont cassé , ce qui fait que nous avons au total brisé 23 verres Hederlig sur 32 ( 2 sur 3)
+En effectuant les manipulations et en étudiant les audiogrammes nous avons fait les observations suivantes :
+a)
+b)
+
+c)
+
+d)
+
+L’existence de deux fréquences distinctes d’au moins 4Hz) semble favoriser la casse
+Trajectoire du spot laser pendant l’excitation forcée : tous les verres qui ont résisté au test présentent des « trajectoires
+ovales ou rondes » souvent très marquées, et demandent à être orientés très précisément pour que l’on arrive à obtenir le
+motif « droit » d’un mode susceptible (avec difficulté) de provoquer la rupture . Une explication possible (voir plus loin) est un
+phénomène de « couplage de modes » .
+Facteur de qualité : nous avons clairement remarqué que les verres qui résistent aux tests de rupture présentent des
+amplitudes de vibration à la fois beaucoup plus faibles que les autres et moins sensibles à la fréquence.
+(On rappelle que pour un oscillateur amorti en régime forcé , l’amplitude maximale du mouvement est à la résonance égale à
+Q fois l’amplitude de l’excitateur. Un faible débattement du spot laser à la fréquence de résonance est donc lié à un faible
+facteur de qualité. )
+
+Décroissance du signal (audiogramme ou
+spectrogramme) : non concluant entre verres
+similaires , mais critère très valable (peut être
+même le plus fiable et aisé ) pour comparer deux
+types de verres différents :
+(ci contre en haut un verre Hederlig, en bas un
+verre en cristal de très haute qualité qui n’a fait
+aucune difficulté à se briser ).
+
+Pourquoi certains verres cassent-ils et d’autres non ?
+Avant de répondre à cette question , voici deux expériences complémentaires que nous avons effectuées sur des verres
+« récalcitrants » (réponse en fréquence des verres N°9 et verre N°8)
+
+Rappel
+
+14
+
+Observation : le verre 9 présente deux fréquences de résonance (605,8 et 607,2 Hz environ) . Mais les deux pics se recouvrent. Il
+est donc possible et très probable qu’un mode excite l’autre (« couplages de modes ») ce qui évidemment empêche le bord du
+verre d’avoir une amplitude importante car on a addition de deux ondes de fréquence différente.
+De fait le verre 9 présente des trajectoires laser ovales ou rondes ; il faut vraiment une orientation extrêmement précise pour
+arriver à isoler un mode (2,0) (comme cela a été fait pour effectuer cette mesure).
+Cependant de nombreux verres brisés de notre campagne présentaient aussi deux fréquences proches. Donc plus précisément ce
+qui est en cause est le couplage de modes résultant de l’existence de deux fréquences très proches , associée à un faible facteur
+de qualité .
+( par la méthode Q =
+
+où f1 et f2 sont les fréquences pour lesquelles l’amplitude du mouvement =
+
+Q est de l’ordre de
+
+= 400 pour chaque pic soit deux fois moins qu’un verre « sensible » (voir plus haut).
+
+Autre mesure, avec le verre 8 :
+Commentaire : Ce verre présente deux
+fréquences de résonance assez
+éloignées (632 et 638 Hz environ) . Le
+couplage de modes n’est pas possible
+(« l’éloignement » des fréquences est
+donc un facteur favorable) . Mais de
+même c’est le faible facteur de
+qualité qui est en cause . En effet par
+la méthode Q =
+visiblement de l’ordre de
+
+Q est
+= 300 .
+
+En conclusion, nos hypothèses pour expliquer pourquoi certains verres cassent et pas d’autres sont:
+Un faible facteur de qualité (trop de matière ou pas assez de défauts !)
+Des conditions autorisant le couplage de modes
+Et sûrement aussi, un verre « sans défauts » (en contenant très peu) .
+
+6– Partie expérimentale / phase 2 (excitation par voix humaine)
+Pour briser un verre avec du son il faut en résumé
+ Une fréquence d’excitation proche d’environ 0,1 Hz de la fréquence propre d’un mode de compression-dilatation
+favorisant la rupture
+ Pas de couplage entre modes
+ Un niveau sonore suffisant
+ Un verre de facteur de qualité élevé (peu de matière)
+ Un verre riche en défauts de structure
+ Et enfin, puisque un très grand nombre de verres présentent une à deux orientations préférentielles pour l’excitation,
+un verre correctement orienté (et/ou une source sonore très directionnelle).
+On comprend dans ces conditions qu’il doit être parfaitement possible de briser un verre à la voix, mais que le nombre de
+conditions requises simultanément rendent cet événement très peu probable.
+Nous avons donc en conséquence et pour commencer approvisionné (enfin…) des verres beaucoup plus fragiles. (verres ballons
+vendus en grande distribution de 55 à 58 cl) .
+Quant à l’excitation vocale, nous avons essayé deux méthodes différentes :
+
+15
+
+Méthode 1 : après estimation de la ou les fréquences propres du verre , nous enregistrons un échantillon sonore où le chanteur
+chante dans un intervalle de fréquence très restreint contenant les fréquences propres (demande pas mal d’oreille…)
+Méthode 2 : après estimation de la ou les fréquences propres du verre , nous enregistrons un échantillon sonore où le chanteur
+chante une note de fréquence constante (à la limite, quelconque) . Le fichier est ensuite converti en .wav et joué avec le logiciel
+Transcribe, logiciel d’écoute et d’analyse de fichiers musicaux avec lequel il est possible en temps réel (pendant la lecture)
+d’ajuster la tonalité au centième de dièse près ( soit 0,06% de la fréquence , un dièse correspondant à un passage d’une hauteur F
+à une hauteur F x 2 1/12 soit F x 1,05946. )
+Résultats de la méthode 1 :
+(Marion + professeur ; test non enregistré en vidéo )
+Verre Carrefour –Arques tulipe 58cL , fréquence propre 507 Hz .
+ Le professeur (qui a une bonne oreille) a réalisé un échantillon sonore de 3
+secondes en changeant progressivement (très légèrement) la tonalité .
+l’analyse avec Audacity a indiqué un spectre présentant un maximum
+d’émission compris entre 501Hz et 508 Hz.
+ En excitant le verre avec l’échantillon joué en boucle le verre résonnait de
+multiples façons , si l’on en juge par les modes de déplacement du spot
+laser extrêmement divers . Toutefois une portion de l’échantillon sonore
+(+ verre correctement orienté) était favorable . Sans sélectionner cette
+partie mais en montant un peu le volume le verre a cassé au moment du
+passage correspondant à la bonne fréquence.
+C’était la première voix que nous cassions un verre avec une voix. Il semble toutefois que nous avons eu beaucoup de chance car
+nous n’avons plus par la suite été capables de renouveler l’expérience .
+
+Méthode 2 : (Edouard + Marion + Tim ; test enregistré en vidéo )
+ Verre de grande distribution tulipe 58cL Les fréquences propres du verre ont été évaluées rapidement avec Spectroïd à 480
+et 486 Hz.
+ Nous avons utilisé un échantillon sonore où Edouard maintenait pendant 2 secondes une fréquence de 475 Hz.
+Cet échantillon a été converti en fichier Wav , puis joué avec Transcribe.
+ Pendant le test Tim ajustait/optimisait l’orientation du verre en interaction avec Edouard qui ajustait la fréquence avec l’outil
+de modification de tonalité.
+ Une configuration {orientation-fréquence d’excitation} a été repérée pour une modification de tonalité de +19.
+En montant un peu le volume le verre a cassé.
+A 475 Hz, un centième de dièse correspond à une modification de fréquence de ( 475 x 1,05945 – 475)/100 = 0,282 Hz
+La fréquence d’excitation était donc de 475 + 19 0.282 = 480,(3) Hz ce qui est parfaitement cohérent.
+Ce type de test de rupture a été réalisé deux autres fois , et chaque fois avec succès . Nous espérons donc être en mesure d’en
+faire la démonstration au jury .
+
+16
+
+7 - Conclusion
+Peut-on briser un verre avec une voix humaine ? Certainement, même si le nombre de conditions requises simultanément rendent
+cet événement très peu probable . Mais nous avons montré que c’était possible. Pour y parvenir avec une voix nue il faudra
+disposer d’un verre en cristal de haut facteur de qualité , dont les axes préférentiels d’excitation auront été convenablement
+repérés, à une fréquence pas plus éloignée que 0,2 Hz de la fréquence de résonance , et suffisamment près pour garantir une
+excitation directive et un apport d’énergie par cycle supérieur aux dissipations internes. Mais nous essayons…
+Sinon, ce projet a été pour nous une expérience d’un grand intérêt. D’abord pour son côté scientifique : nous avons étudié des
+notions pas ou peu abordées à notre niveau et découvert des phénomènes dont nous n’imaginions pas l’existence. Voir un verre
+se contorsionner selon notre volonté est très impressionnant, bien que nous nous y sommes habitués après plus d’un an ! Réussir à
+briser un verre grâce à du son généré et amplifié dans notre montage, puis arriver à répéter le processus a notre guise est assez
+époustouflant pour nous !
+Ces réussites successives nous ont permis de prendre confiance en notre projet, et de tenter d’améliorer au mieux notre démarche.
+Certaines découvertes tardives ont aussi permis de nous motiver à continuer nos expériences et à mieux les comprendre. Le
+passage du son généré à un enregistrement vocal était crucial dans notre projet, étant son objectif principal.
+Ce projet a aussi été source d’un enrichissement personnel pour chacun d’entre nous. Il nous a permis d’effectuer un travail de
+groupe en adoptant une démarche scientifique. Nous avons pu effleurer et nous intéresser au domaine de la recherche scientifique.
+Partager notre projet au sein de notre établissement, ainsi qu’avec les autres équipes participantes notamment lors des
+qualifications fut très formateur, et nous a introduit aux nombreux domaines que la recherche et l’étude scientifique peuvent
+aborder.
+Bien que les Olympiades de Physique restent un concours, nous considérons avoir déjà gagné de nombreuses choses, autant sous
+l’aspect des connaissances et de l’expérience de vie en menant à bout notre projet.
+Nous sommes extrêmement fiers d’avoir été invités à la phase finale. Merci de tout cœur aux organisateurs de ce bel événement et
+à tous ceux qui le rendent possible.
+
+Adel, Edouard, Marion, Tim
+
+8- Bibliographie
+Articles scientifiques
+
+
+
+Introduction to Glass Science and Technology / James E. Shelby, RSC Paperbacks 1997
+Concours Centrale-Supelec TSI 2018 (énoncé et corrigé) : analyse expérimentale des vibrations du verre
+
+
+
+« Quand les verres chantent » (JM Courty et E Kierlik) Pour la Science, décembre 2018
+
+
+
+T. D. Rossing, Wine glasses, bell modes, and Lord Rayleigh, The Physics Teacher, vol. 28(9), pp. 582-585, 1990.
+
+Physique générale
+
+
+
+
+https://www.physique.unicaen.fr › : l’oscillateur harmonique en régime libre et forcé
+Michel Soutif Vibrations-Propagation-Diffusion (Dunod Université)
+Mathieu-Kastler-Fleury Dictionnaire de Physique Eyrolles
+
+Documents vidéo
+
+
+
+
+Briser du verre avec du son https://www.youtube.com/watch?v=ZDy8PWkMLnU
+Olivier Robin et Jean-Philippe Regnard , Groupe d’acoustique de l’Université de Sherbrooke
+« Peut on casser un verre avec la voix » https://www.youtube.com/watch?v=DP4wQmOGy5w
+
+17
+
+

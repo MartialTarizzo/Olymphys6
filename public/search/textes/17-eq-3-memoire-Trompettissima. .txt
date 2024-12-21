@@ -1,0 +1,1532 @@
+OLYMPIADES DE PHYSIQUE France
+XVIIe édition
+
+Année 2009-2010
+
+Trompettissima.
+
+Elèves participants :
+
+Avec LACLAVERIE Jean-Michel
+Professeur encadrant
+Lycée Bernard Palissy- AGEN
+Académie de Bordeaux
+
+-0-
+
+Table des matières
+RESUME
+ABSTRACT
+RESUME (EN POLONAIS)
+PARTENAIRES
+KEY-WORDS
+INTRODUCTION
+1 - Points de repère historiques et ethnomusicologiques
+1.1 Éléments historiques et archéologiques
+1.2 Vers une nouvelle trompette
+2 - Modélisation simplifiée du comportement d’une colonne d’air : Ondes stationnaires
+dans quelques instruments à anches lippales de l’orchestre.
+2.1 Modes de vibration d’un tuyau conique fermé à une extrémité : Interprétation
+Ondulatoire
+2.2 Trompette si b, instrument cylindroconique.
+2.2.1 Excitation par un haut-parleur
+2.2.2 Excitation par anches doubles lippales
+2.2.2.1 Les notes de l’instrument
+2.2.2.2 Analyse de Fourier
+2.3 Tuba si b : instrument cylindroconique.
+2.3.1 Excitation par un haut-parleur
+2.3.2 Excitation par anches doubles lippales
+2.4 Cor naturel: Instrument cylindroconique
+2.4.1 Excitation par un haut-parleur
+2.4.2 Excitation par anches doubles lippales
+3- Etude des ondes stationnaires dans des prototypes d’instruments à anches lippales :
+3.1 Modes de vibration d’un tuyau cylindrique (fermé à une extrémité ou ouvert aux
+deux extrémités): Interprétation ondulatoire
+3.2 Long tuyau cylindrique de longueur constante excité à une extrémité :
+3.2.1 Excitation par un haut-parleur :
+3.2.2 Excitation par anches doubles lippales
+3.3 Tuyau cylindrique de longueur constante excité en son milieu : la T-trompette
+Conclusion
+Annexes
+Annexe1 : Complément historique
+1.1 Le cor
+1.2 Ethnomusicologie: le « Hejnal Mariacki »
+1.3 Trompette et cor aujourd’hui
+Annexe 2 : Etude en pression
+
+-1-
+
+2.1 Trompette si b, instrument cylindroconique
+2.2 Trompette « Tuyau d’arrossage » de 10,80 m
+Annexe3 : Un instrument en escalier : instrument non harmonique
+Annexe 4 : Courbes d’analyse du son de notre trompette en T
+Annexe5 : Notre programme en Visual Basic
+RESUME
+Les instruments de l’orchestre ont très peu évolué au cours du siècle dernier alors que le
+monde a fait un grand bond technologique en avant. N’est-il pas possible aujourd’hui de
+fabriquer des instruments innovants et performants ? C’est pour répondre à cette question que
+nous avons bâti ce projet. Nous avons choisi des instruments de la famille de la trompette
+comme point de référence et nous avons cherché des voies pour les faire évoluer. Nous avons
+fabriqué deux prototypes originaux. Le premier comporte un long tuyaux enroulé excité par
+les lèvres de l’instrumentiste : c’est une trompette de 5 ou 10 m de long! Le second utilise
+deux tuyaux reliés par un T et également excités par les lèvres de l’instrumentiste : c’est une
+trompette à deux pavillons par lesquels le son sort simultanément. Des mesures acoustiques
+ont permis de caractériser le comportement de nos réalisations et de le comparer à celui d’une
+trompette, d’un cor ou d’un tuba. Un musicien confirmé a effectué les essais, en jouant une
+sonnerie célèbre polonaise : le « Hejnal Mariacki », qui nous a servi de « test qualité » !
+ABSTRACT
+Our project is based on the study of an old wind instrument that we've transformed. To
+obtain landmarks, we first studied several instruments from the trumpet and horn’s family.
+Then we made two original prototypes. The first one is composed of a long rolled tube excited
+by the lips of the instrumentalist: it is a trumpet which measures 5 or 10 m! The second one
+uses two rolled tubes jointed by a T and excited by the lips of the instrumentalist as well : It
+is a trumpet in two detached bells, through which the sound goes out simultaneously .
+Acoustic measures have enabled us to define how our creaturs work. Moreover, each of our
+instruments can enable anyone to play a famous Polish song : The « Hejnal Mariacki », and
+lots of other melodies!
+RESUME (EN POLONAIS)
+Nasz projekt polega na obserwowaniu dawnego instrumentu dętego ktOry
+przeistoczylismy. Aby otrzymać punkt odnoşmy, najpierw obserwowalişmy kilka
+instrumentOw z rodziny trompki i rogu myşliwskiego, nastepni skonstruowalişmy dwa
+prototypy oryginalne, Pierwsky sklada się z długiej rury trzymanej ustami muzyka kt Ory
+wniego dmucha : to jest trombka pięcio lub dziesięcio metrowa ! Drugi składa się z dwęch rur
+połączonych przez t i rOwnoczeşnie dmuchane ustami muzyka : to jest trabka z dwoma
+lejkami przez ktOOre dzwięk wydobywa się jednoczeşnie. Pomiary akusyczne pozwoliły
+sharakteryzowac zować zachowania naszych doswiadczen. Na dodtek kazde z aszych
+instrumentow pozwolą zagrac slynne polskie dzwoneinie «Hejnał Mariacki » i oczywiscie
+inne melodie !
+
+PARTENAIRES
+
+-2-
+
+-
+
+L’orchestre d’harmonie la Lyre Agenaise, pour le prêt et l’essai d’instruments de
+musique.
+Le LEP Jean Monnet et Jonathan Ollivier, facteur d’instrument de musique à vent
+pour la fabrication d’instruments en métal.
+B Gramatica, professeur au Lycée JB de Baudre à Agen et docteur en acoustique.
+Jean-Claude Fondriest, professeur de trompette.
+
+KEY-WORDS
+
+Trompette – Acoustique musicale - Anches doubles lippales
+
+INTRODUCTION
+Dans le cadre des olympiades de physique de 2009-2010, nous avons décidé avec l'aide de
+notre professeur de concevoir et de fabriquer des prototypes d’instruments de la famille de la
+trompette, mais différents des standards d’aujourd’hui. Les trompettes actuelles, avec leurs
+systèmes de palettes ou de pistons, produisent toutes les notes de la gamme tempérée entre le
+Fa#2 et le Do4. En appuyant sur les pistons, le musicien modifie la longueur de l’instrument,
+et donc la note fondamentale et les harmoniques qu’il est possible de produire. Les 8
+combinaisons possibles des 3 pistons donnent 8 notes fondamentales différentes et plusieurs
+harmoniques pour chaque combinaison, suivant les capacités de l’instrumentiste. Les
+longueurs de chacune des coulisses associées à chaque piston ont été choisies par les
+constructeurs pour permettre au musicien de produire toutes les notes de la gamme sur les 2
+octaves et demi de la trompette. Lorsque tous les pistons sont appuyés, la longueur utile de
+l’instrument est de l’ordre de 2 m.
+Les pistons sont des systèmes complexes et délicats sur lesquels nous ne pouvons pas
+expérimenter. Nous avons donc décidé de réfléchir à un instrument, qui sans modification de
+la longueur de tuyau, produirait cependant beaucoup de notes. Et nous avons créé la plus
+grande trompette du monde (10 mètres) ! Ce n’est en fait qu’un simple tuyau plastique associé
+à un entonnoir et une embouchure, mais cela suffit pour produire de nombreuses notes.
+L’exemple de la trompette baroque nous a servi de point de repère.
+La trompette baroque est un instrument de musique naturel, c’est à dire sans clef ni piston.
+Elle est constituée d’un long tube de cuivre muni d’un pavillon et d’une embouchure. Elle
+produit de nombreuses notes, beaucoup plus qu’un clairon ou qu’une trompette de cavalerie
+actuelle, qui eux non plus n’ont pas de piston. Pourquoi ? Parce qu’elle est plus longue. Ses
+partiels accessibles au musicien, sont plus rapprochés. Il y a donc plus de notes. De plus son
+embouchure est conçue pour permettre aux lèvres du musicien de vibrer correctement pour
+des notes graves comme celles du trombone, ou aiguës comme celle de la trompette à pistons.
+L’étude de cette « super trompette baroque » a été menée en parallèle avec la conception
+d’un instrument à deux pavillons. En effet si l’augmentation de la longueur du tuyau permet
+d’obtenir davantage de notes, il existe cependant une autre voie qui amène un résultat
+semblable. Il faut changer de modélisation ! Un tuyau cylindrique de longueur L, ouvert à une
+extrémité produit un son fondamental de fréquence f = c/4L avec ses harmoniques impairs ( c
+célérité du son dans la colonne d’air). S’il est ouvert aux deux extrémités, la modélisation
+devient f = c/2L avec les harmoniques pairs et impairs. Donc pour une même longueur de
+tuyau, la fréquence fondamentale est deux fois plus élevée et il y a davantage d’harmoniques.
+Cette idée a été exploitée par 4 élèves de notre lycée, lors des XVIème Olympiades de
+physique. Elles ont créé la Tclarinette, qui est un instrument à anche en roseau et à deux
+tuyaux par lesquels le son sort simultanément. Elle est bâtie autour d’un T. Avec ses huit trous
+et ses 20 cm de long, elle peut produire 25 notes, car la colonne d’air est ouverte à ses deux
+extrémités sur l’atmosphère. Ce qui est possible avec un bec de saxophone et une anche en
+
+-3-
+
+roseau, l’est-il aussi avec une embouchure de trompette et les lèvres du musicien utilisées
+comme anche ? Les tuyaux doivent être beaucoup plus long et sans trous, mais cela
+fonctionne, comme cette étude le montre. Et le timbre est unique !
+Nous n’avons pas exploité la piste des tuyaux coniques, car ils sont beaucoup plus
+difficiles à trouver que les tuyaux cylindriques, et nous ne pouvions pas en fabriquer
+simplement.
+Nous nous sommes appuyés sur de nombreux documents historiques pour concevoir nos
+instruments, ainsi que sur des comparaisons ethnomusicologiques. Nous avons voulu
+connaître ce qui existe et ce qui avait existé avant de faire un instrument nouveau. L'étude
+expérimentale nous a permis d'analyser les propriétés acoustiques des instruments (recherche
+des fréquences de résonances, timbre…).
+Nous ne sommes pas des musiciens, et nous avons eu recours à l’aide d’un trompettiste
+pour tester nos prototypes. Ce trompettiste étant notre professeur de physique, l’organisation
+des expériences en a été facilitée. Nous avons essayé d’apprendre à produire un son avec une
+embouchure de trompette entre le mois de mars 2009 où a débuté notre projet et aujourd’hui.
+Puis nous avons décidé de nous appuyé sur le talent de deux trompettiste de 1ère L pour l’oral.
+Merci à eux d’avoir accepté de nous seconder. Nous espérons que le jury appréciera les
+qualités de nos prototypes, qui, avec un bon musicien…, peuvent jouer le « Hejnal
+Mariacki ». C’est la mélodie qui a servi de « test qualité » pour chaque instrument.
+Notre plan s’organise en trois parties : tout d’abord une recherche historique sur les
+caractéristiques des trompettes et des cors au cours du temps. Puis l’étude acoustique
+d’instruments de l’orchestre d’aujourd’hui. Enfin la conception et l’étude de nos prototypes.
+1 - Points de repère historiques et ethnomusicologiques
+Les hommes découvrirent comment faire des cors ou des trompettes et comment en
+jouer bien avant que les physiciens soient capables d’expliquer leur mode de fonctionnement.
+Des artisans chevronnés ont su déceler les défauts des instruments et imaginer des solutions
+pour les améliorer, sans avoir recours aux théories complexes de l’acoustique sur les formes
+des résonateurs.
+Même s’ils n’ont pas toujours été fabriqués en métal, les trompettes et les cors
+appartiennent à la même famille d’instruments à vent : les cuivres. La trompette appartient,
+selon Arthur Benade, acousticien américain, a la catégorie des instruments à long tube
+cylindrique muni d’un pavillon évasé. L’autre catégorie de cuivre comprend des instruments
+coniques comme le tuba ou le bugle. Beaucoup de cor ont une partie conique associé à une
+partie cylindrique et un pavillon. Ils peuvent être placé dans l’une ou l’autre des catégories
+suivant l’importance de la partie conique. Le cor, dans la plus part des cas, a un pavillon plus
+large que celui d’une trompette, et utilise une embouchure plus fine. Il a un son plus sourd,
+moins brillant que celui de la trompette. Son timbre est moins riche en harmonique élevés.
+Nous présentons successivement un petit aperçu de l’histoire de la trompette, puis du
+cor, car ces deux instruments sont très proches, et constituent autant de points de repères pour
+nos prototypes.
+1.1 Éléments historiques et archéologiques
+L’histoire de la trompette remonte loin dans le temps. Elle révèle un usage musical et
+un usage guerrier de l’instrument dans diverses civilisations.
+A Babylone, au 1er millénaire avant J.C., des trompettes courtes sont représentées sur
+des bas-reliefs en pierre. En Egypte, les archéologues trouvent dans la tombe de
+Toutankhamon 2 trompettes appelées Chnoue, de 50 cm de long, avec un tube assez étroit et
+
+-4-
+
+un pavillon finement ciselé (On peut prévoir la note la plus grave f = c1/2L = 34500/2/50 =
+345 Hz soit une note comprise entre le mi3 et le fa3, donc un peu plus grave que le la du
+téléphone2) . Selon les auteurs grecs, le son de cet instrument était comparable au braiment
+d’un âne en furie… Mais ce point de vue mérite d’être nuancé. Un bon instrumentiste peut
+sortir un son harmonieux de la plupart des instruments, même s’il s’agit d’un simple tuyau de
+facture quelconque. Tous nos essais nous l’ont montré. Cet instrument court devait produire
+très peu de notes, seulement 3 ou 4, (soit à peu près mi3, mi4, si4, mi5) car les notes
+supérieures au do5, sont très difficiles à produire avec les lèves, quelque soient les qualités de
+l’embouchure.
+Chez les Grecs, la trompette était conique, avec une perce très étroite, donc
+modélisable comme un tuyau cylindrique ouvert aux deux extrémités. Mais est-ce vraiment
+une trompette ? Sa forme conique la rapproche des cors, mais sa fine perce (diamètre intérieur
+du tuyau) devait lui donner un son brillant, riche en harmoniques élevés, comme les
+trompettes. Nos expériences nous ont montré que les harmoniques élevés résonnaient plus
+facilement que les graves dans les tuyaux fins. C’est pour cela que dans l’étude de certains
+tuyaux fins, la première fréquence de résonance détectée est en fait un harmonique supérieur.
+(le 33ème pour un tuyau de 5 m excité par un haut-parleur !)
+On retrouve cet instrument appelé Salpinx dans l’oeuvre d’Homère ( l’Illiade ), où
+dans celle d’Eschyle (Les Perses ), lorsqu’il décrit la bataille de Salamine. Xénophon nous
+apprend que les Athéniens faisaient leurs exercices au son du Salpinx. Homère en décrit le
+son comme aussi terrible que le cri d’Achille… On utilise le Salpinx dans les défilés, dans les
+cérémonies liturgiques fastueuses.
+A l’âge de bronze, on voit chez nos voisins irlandais une trompette dont le pavillon est
+orné de pointes aiguës, et dont les hommes se servaient à la fois comme instrument acoustique
+et comme arme. La trompette fut un instrument guerrier. Nos expériences nous ont montré
+que le son pouvait être très puissant, beaucoup plus que celui d’une flûte ou d’un instrument à
+anche en roseau.
+Diverses représentations de la trompette datant de l’âge du fer ont été retrouvées, dont
+une remarquable sur un relief de vase d’argent (2ème ou 1er siècle av. JC) montrant des
+guerriers celtes sonnant la charge lors de combats dans de grandes trompes verticales au
+pavillon en forme de serpent.
+Mais déjà dans l’Ancien Testament, Dieu avait ordonné à Moïse de fabriquer 2
+trompettes d’argent, au cas où il aurait à faire des campagnes militaires ; on voit une
+représentation de cette trompette hébraïque, le haçocereth, sur l’Arc Triomphal de Titus, à
+Rome (vers 100).
+En argent ou en cuivre, deux trompettes de même forme produisent le même son.
+Malgré les publicités de certains fabricants d’instrument, les acousticiens affirment que le
+matériau de l’instrument n’influe par sur le son produit.
+Diodore de Sicile nous dit que les Etrusques utilisaient une trompette guerrière, dite
+trompette tyrrhénienne. De plus, sur la fresque d’un tombeau de Chiusi en Italie, on voit un
+musicien jouant d’un instrument à l’extrémité recourbée, avec sur la courbure une ouverture
+servant à faire égoutter la salive. Les trompettes actuelles possèdent elles aussi une telle
+ouverture, appelée clef d’eau. La forme de cette trompette rappelle celle d’une autre trompette
+romaine, le lituus, dont un exemplaire a été retrouvé sur le site de l’antique Caere et
+1
+
+La célérité c est proche de 34500 cm/s pour le son dans l’air chaud et humide d’une trompette et proche de
+34000 cm/s pour le son dans l’air froid du laboratoire.
+2
+Notre livre de spécialité indique que le La 3 est la note de référence de fréquence 440 Hz. Par contre
+l’accordeur chromatique SEIKO que nous utilisons pour repérer la hauteur d’un son, et les publications
+d’acoustiques que nous avons vu, indiquent A4 soit La4 pour 440 Hz. Prudemment, nous nous tiendrons aux
+normes en usage en Terminale et nous considérons le La 3 à 440 Hz. Nous enlèverons donc toujours une unité à
+l’indication du numéro d’octave de l’accordeur.
+
+-5-
+
+aujourd’hui conservé au musée romain Museo Etrusco Gregoriano. Cet instrument mesure
+une longueur L = 1,60 m, et est accordé en sol, selon sa fiche archéologique. (Comme nous
+l’expliquerons plus loin, le calcul de la fréquence de résonance fondamentale à partir de sa
+longueur permet de prévoir f = c/2L = 34500/2/160 = 108 Hz soit une note comprise entre le
+sol #1 et le la1. La colonne d’air semble donc un peu plus longue que l’instrument, comme
+dans la plupart des cas que nous avons étudiés.) Comme le montre la photographie ci-dessous,
+cet instrument est conique (et donc modélisable par un tuyau cylindrique ouvert aux 2
+extrémités sur l’atmosphère), mais avec fine perce et un pavillon peu important. C’est pour
+cela qu’il se rattache à la famille des trompettes.
+
+Lituus
+Une nouvelle évolution des cuivres fut amorcée lorsque l'on fit appel à la technique du
+coudage du tuyau et à l'emploi de la coulisse. C'est d'ailleurs une ancienne trompette à
+coulisse, la saqueboute, qui fut à l'origine de l'idée du trombone à coulisse. On voit cette
+saqueboute sur un triptyque de Hans Hemling (1433/1494): le sonneur tient l'instrument d'une
+main juste au dessus de l'embouchure et se sert de l'autre pour actionner la coulisse.
+La trompette baroque s'est développée en Europe et Amérique du Nord au XVIIIème
+siècle. Cette trompette est dépourvue de mécanismes tels que les pistons, clés, ou encore
+trous, ce qui lui permettait d'émettre une gamme complète. Il s'agissait tout simplement d'un
+long tube métallique replié ou enroulé. La longueur de la colonne d'air était donc invariable.
+Pour former une gamme, il fallait pour cela un tube de près de 2,5 m de long. C’est cet
+instrument qui sera notre premier modèle.
+C'est Anton Weidinger, trompettiste de l' Opéra de la Cour de Vienne, qui mit au point
+une trompette Mi b à clés au 18ème siècle. La note la plus grave que produisait cet
+instrument, tous trous fermés, était un Mi b. Cet instrument à clés était un précurseur de ce qui
+allait devenir la trompette moderne, et Weidinger l'améliora en 1801 en le dotant de clés
+supplémentaires, qui couvraient des ouvertures sur le côté; il transplantait ainsi le principe des
+bois sur un instrument en cuivre à forme principalement conique. Nos expériences sur des
+tuyaux à trous, nous ont montré que le son était moins musical lorsqu’il sortait par un trou
+ouvert que lorsqu’il sortait par le pavillon. Il est plus « criard », donc plus riche en fréquences
+élevées.
+
+Trompette à clefs (1775)
+Les expériences de Weidinger, entreprises comme bien d'autres du même genre (Köbel
+à St Petersbourg, Woeggel à Augsburg), avaient pour but de donner à la trompette une
+tessiture plus large, c’est à dire davantage de notes. Mais ces expériences furent n’eurent pas
+de suite car en 1813, fut inventée par M.Bluehmel, la trompette à pistons, qui offrait ainsi à
+l'instrument la gamme chromatique complète. Avec les pistons, le son sort toujours par un
+unique pavillon. Le timbre de l’instrument est plus homogène que pour une trompette à clefs.
+Dans un tel instrument, le son sort soit par le pavillon, soit par divers trous qui peuvent être
+obturés par des clefs. Suivant les caractéristiques des trous, le timbre change.
+
+-6-
+
+1.2 Vers une nouvelle trompette
+Il n’est pas possible pour les élèves de lycée que nous sommes d’espérer mettre au
+point un nouvel instrument à piston, à palette ou à coulisse. Des siècles d’évolution ont amené
+aux instruments d’aujourd’hui, grâce au savoir-faire des facteurs d’instruments. Mais il est
+possible pour nous de réfléchir à des instruments naturels originaux, sans clefs, ni pistons,
+mais pourtant aux larges possibilités. Trompette ou cor, la différence n’est pas grande. Notre
+oreille et l’analyse de Fourier du son nous permettra de conclure. Cependant nous ne
+travaillerons que sur des tuyaux cylindriques associés à un pavillon, donc plus près de la
+définition de la trompette que de celle du cor.
+Un instrument naturel de grande longueur peut donner de très nombreuses notes et
+couvrir à la fois le registre du tuba et de la trompette actuelle. C’est une des pistes que nous
+explorerons. Par ailleurs toutes les trompettes n’ont qu’un unique pavillon. En nous inspirant
+du travail des élèves de notre lycée qui ont créé et étudié la Tclarinette (3ème prix aux XVIème
+Olympiades de physique), nous avons créé des instruments à deux pavillons aux riches
+possibilités.
+2 - Modélisation simplifiée du comportement d’une colonne d’air : Ondes stationnaires
+dans quelques instruments à anches lippales de l’orchestre.
+Avant d’aborder l’étude des vibrations de la colonne d’air à l’intérieur d’un
+instrument, il est nécessaire de préciser quel excitateur sera mis en jeu. Une partie des
+expériences sera réalisée grâce à un Haut-Parleur, relié à un générateur de signaux, qui
+excitera l’air dans l’instrument. Mais nous utiliserons aussi nos anches doubles lippales, c’est
+à dire nos lèvres (et celles de musiciens plus expérimentés que nous).
+Il existe plusieurs types d'instruments à vents, et plusieurs procédés pour faire vibrer la
+colonne d'air de l'instrument: certains utilisent une anche en roseau, simple ou double, comme
+la clarinette ou le hautbois. Le trompettiste utilise directement ses lèvres pour faire vibrer la
+colonne d'air présente dans l'instrument. Cette vibration de la colonne d'air est ensuite
+transmise à l'air intérieur à l’instrument par l'intermédiaire de l’embouchure, dont les
+caractéristiques dépendent en partie de la morphologie et de l’expérience du musicien.
+Seulement cette anche double, faite des
+lèvres du musicien est bien spécifique puisqu'elle
+dépend de l'instrumentiste et non du simple
+alliage de deux fines lamelles de roseau ou de
+plastique liés sur un tube. Plus les lèvres vibrent
+vite, plus le son sera aigu. C'est à cause de la
+vibration restreinte des lèvres que la trompette se
+limite à deux octaves et demie.
+Le schéma ci-contre aide bien à comprendre les
+mécanismes des lèvres d'un musicien :
+L'air est expulsé des poumons et crée une
+pression dans la bouche. Les lèvres vibrent sous
+l'effet de cette pression. Les muscles réagissent
+comme des ressorts qui font revenir les lèvres à
+leur place initiale. La pression à l'intérieur de la
+bouche a légèrement baissé, les lèvres se
+resserrent. La pression augmente de nouveau et ainsi de suite. La fréquence de vibration et la
+position de la langue permettent de faire varier les notes.
+
+-7-
+
+Cependant, un autre facteur rentre en jeu dans cette anche lippale. La langue a aussi un
+rôle particulier : en étant arquée vers le haut, elle immobilise la lèvre inférieure, ce qui facilite
+l'accès aux notes aiguës. C'est donc l'alliance de la vibration plus ou moins rapide et de la
+position particulière de la langue qui caractérise une anche double lippale.
+Beaucoup de facteurs rentrent en compte lorsque un trompettiste utilise son anche
+comme la position de l'embouchure par rapport à ses lèvres, la position de sa mâchoire qui
+dépend donc de la morphologie du musicien, le plaquage de sa langue contre son palais,
+l'expérience du musicien, la colonne d'air intérieure du musicien (qui vibre au même titre que
+l'instrument), l'ouverture du larynx, la pression de l'embouchure contre les lèvres (plus ou
+moins appuyée) ...
+2.1 Modes de vibration d’un tuyau conique fermé à une extrémité : Interprétation
+ondulatoire
+Avant de nous lancer dans les expériences, nous avons voulu en savoir un peu plus sur
+les ondes stationnaires dans un tuyau d’instrument à vent en étudiant un cours de spécialité de
+Terminale S.
+Le mécanisme de création du son pour un instrument à corde nous semble plus simple
+que celui d’un instrument à vent. On peut voir la corde vibrer. On peut voir les nœuds et les
+ventres. Ce n’est pas aussi simple pour de l’air en mouvement dans un tuyau. Cependant un
+micro permet de mettre en évidence la présence de nœuds et de ventres de pression. Un ventre
+de pression correspond à un nœud de vibration des molécules d’air.
+Le tuyau cylindro-conique de la trompette se comporte en première approximation
+comme un tuyau conique de même longueur L, qui a les mêmes fréquences de résonance
+qu’un tube cylindrique ouvert aux deux extrémités sur l’atmosphère.
+Une onde sonore est une onde longitudinale qui peut se propager dans tous les
+milieux, dans la mesure où de la matière est présente. L’onde, lorsqu’elle rencontre un
+obstacle, tel que l’extrémité d’un tuyau, va se réfléchir. Ce phénomène peut être
+quotidiennement expérimenté puisque c’est ce phénomène qui provoque l’écho. L’onde qui
+est réfléchie est de même signe que l’onde incidente. De plus, ces deux ondes ont la même
+fréquence. Si la source de l’onde sonore est continue, on a alors une multitude d’ondes qui se
+déplacent dans la colonne d’air concernée. La résultante de toutes ces ondes est appelée onde
+stationnaire. Si les ondes sont en phases, son amplitude est maximale alors que si les ondes ne
+sont pas en phase l’amplitude est moins importante et peut même être nulle si les ondes sont
+en phase mais de signe opposé.
+Cette onde stationnaire a la particularité d’être, comme son nom l’indique,
+stationnaire, c'est-à-dire qu’elle ne se propage pas dans la colonne d’air. On distingue alors 2
+points particuliers de cette onde : les ventres de pression, où l’amplitude est minimale, et le
+nœuds de pression, où l’amplitude est maximale. Dans un tuyau ouvert aux deux extrémités f,
+on observe un ventre de pression au niveau de chaque extrémité. Ainsi, pour que l’onde
+stationnaire puisse se créer, il faut que la longueur du tuyau soit un multiple de la demilongueur d’onde λ/2.
+Comme : λ = et L = k.λ/2, on obtient que la fréquence fondamentale du tuyau est :
+f = c/2L et les harmoniques f = kc/2L avec k entier positif et c la célérité du son dans le
+milieu considéré
+2.2 Trompette si b, instrument cylindro-conique.
+2.2.1 Excitation par un haut-parleur
+
+-8-
+
+Nous choisissons de commencer notre étude en excitant la colonne d’air contenue dans
+l’instrument avec un haut-parleur relié à un générateur de signaux, pour simplifier la situation.
+En effet il est assez simple de souffler dans un bec de saxophone et de produire un son en
+faisant vibrer l’anche en roseau. Nos camarades d’un autre groupe y sont arrivés en quelques
+minutes. Par contre maîtriser l’émission du son avec une embouchure de trompette est
+autrement plus difficile et nécessite plusieurs mois d’initiation. Ne pouvant utiliser notre
+professeur de physique et trompettiste comme nous le souhaitons, nous sommes obligés dans
+un premier temps de travailler avec un haut-parleur. Cette situation a l’avantage de réduire le
+nombre de paramètres de notre expérience, et d’éliminer ceux liés aux caractéristiques du
+musicien.
+La trompette est bouchée avec
+du scotch au niveau de l’embouchure,
+car l’instrument n’est ouvert sur
+l’atmosphère qu’au niveau du pavillon
+lorsqu’il est en situation de jeu.
+Lorsque l’instrument est joué
+par un musicien, il y a deux colonnes
+d’air qui entrent en résonance
+ensemble : celle de l’instrument et
+celle à l’intérieur du musicien. Elles
+sont couplées. Dans notre première
+expérience, seule la colonne d’air de l’instrument résonne. Nous pouvons ainsi mieux
+maîtriser les paramètres de l’expérience. La trompette est un instrument cylindroconique se
+comportant comme un tube cylindrique ouvert aux deux extrémités, selon les écrits de
+l’acousticien Arthur Benade. La longueur de l’instrument (mesurée de l’extrémité de
+l’embouchure à l’extrémité du pavillon) : 1,42m. Nous pouvons donc prévoir une fréquence
+fondamentale de f = c/2/L= 119,7 Hz. Toutes nos mesures sont faites avec la coulisse
+d’accord complètement enfoncée, pour avoir une longueur totale de tuyau facile à retrouver
+d’une expérience à l’autre.
+F en Hz
+442
+838
+962
+1105
+1202
+1333
+1468
+1578
+1728
+
+F en Hz
+1829
+1945
+2081
+2207
+2334
+2447
+2575
+2685
+2951
+
+Fn-Fn-1(Hz)
+396
+124
+143
+97
+131
+135
+110
+150
+
+Fn-Fn-1(Hz)
+101
+116
+136
+126
+127
+113
+128
+110
+266
+
+On repère 18 fréquences de résonance. La moyenne des écarts vaut :
+Fn-Fn-1 = 123,1 Hz (en excluant la première et la dernière valeur) ce qui correspond à
+une longueur effective de la colonne d’air: Leff = 34000/2/123,1 = 138,1 cm soit 2,8 %
+d’écart avec la valeur mesurée précédemment.
+
+-9-
+
+Ueff (mV )= f(fréquence)
+T rompette sib
+200
+150
+100
+50
+0
+0
+
+500
+
+1000
+
+1500
+
+2000
+
+2500
+
+3000
+
+3500
+
+Baisse du niveau sonore
+
+Le premier résultat nous confirme que le modèle envisagé est adapté à l’étude d’une
+trompette.
+2.2.2 Excitation par anches doubles lippales
+2.2.2.1 Les notes de l’instrument
+La trompette est maintenant jouée
+sans que le musicien appuie sur les pistons.
+
+de celle obtenue en excitant le tuyau avec
+un haut-parleur. L’instrument est bien en si
+b, c’est à dire que sa note fondamentale est
+un si b 1. Cette note peut être accordée
+grâce à la modification de la longueur
+d’une coulisse d’accord. Dans notre
+expérience, la coulisse d’accord est
+complètement enfoncée, ce qui explique
+que la note la plus grave obtenue soit trop
+haute de 35 cent. En orchestre, la coulisse
+d’accord est toujours tirée de quelques
+centimètres pour jouer juste. Il est possible
+d’atteindre le si b 1 lorsque l’instrument est
+joué avec une plus grosse embouchure,
+comme une embouchure de trombone ou
+de tuba par exemple, pour permettre aux
+lèvres de vibrer avec une plus grande
+amplitude.
+
+Trompette
+sib2+35cent
+fa3+20cent
+sib3+44cent
+ré4+25cent
+fa#4-15cent
+si4-25cent
+
+Elle se comporte comme un
+instrument naturel et peut résonner sur les
+partiels du tuyau. La fréquence la plus
+basse obtenue par le musicien (238 Hz)
+n’est pas la fondamentale mais le second
+harmonique.
+Donc
+la
+fréquence
+fondamentale en situation de jeu est proche
+de 238/2 = 119 Hz, soit une valeur proche
+
+Remarque : Nous utilisons un accordeur chromatique pour identifier les notes jouées, et le
+décalage en cent par rapport à une note de référence. Pour connaître une valeur précise de la
+fréquence jouée, on utilise la formule suivante:
+c=1200*log2 (fjouée/fréférence) <=> fjouée=fréférence*2c/1200
+Mais attention à la numérotation des octaves. Notre livre donne le la3 à 440 Hz, mais
+pour l’accordeur le la4 est à 440 Hz. Nous enlèverons donc toujours 1 à l’indication du
+numéro d’octave donné par l’appareil, commenous l’avons dit dans une note précédente.
+
+- 10 -
+
+Pour résumer, pour avoir la fréquence d'un son, il faut connaître:
+-La note de référence
+-Le nombre de cent de décalage par rapport à la note de référence
+- Enlever 1 au numéro d’octave
+Nos résultats nous semblent donc cohérents. Poursuivons cette étude par une étude de
+pression.
+2.2.2.2 Analyse de Fourier
+Pour compléter les résultats précédents, analysons le son de l’instrument grâce à la
+décomposition du signal du micro en série de Fourier, grâce au logiciel Latispro.
+
+L’analyse de Fourier montre que le son est riche des harmoniques pairs et impairs,
+comme prévu par la modélisation. Le timbre est clair, beaucoup plus que celui d’un cor. Il est
+comparable au timbre habituel d’une trompette jouant une sonnerie militaire. On constate que
+l’harmonique 3 a une amplitude plus importante que le fondamental. Le fondamental et quatre
+harmoniques constituent principalement le timbre. Cependant le son est vivant, et la part des
+différents harmoniques varie au cours du temps entre la naissance du son et son extinction.
+2.3 Tuba si b : instrument cylindroconique.
+2.3.1 Excitation par un hautparleur
+Remplaçons la trompette par le tuba. Nous
+obtenons la courbe suivante :
+
+- 11 -
+
+Ueff(V ) = f(F (H z))
+4
+3
+2
+1
+0
+200
+
+250
+
+300
+
+350
+
+400
+
+450
+
+500
+
+550
+
+600
+
+650
+
+F1 = 332 Hz ; F2 = 387 Hz ; F3 = 421 Hz ; F4 = 500 Hz ; F5 = 575 Hz et F2-F1= 55 Hz
+Comme dans les cas précédents, la fréquence fondamentale est inaccessible par cette
+méthode. Néanmoins en constatant les écarts entre les deux premiers pics nous pouvons
+supposer qu’elle est proche de 55 Hz. L’instrument fait à peu près 3 m de long. Nous
+attendions un fondamental à 34000/2/300 = 57 Hz, soit un écart de 3,6%. Donc la première
+valeur de fréquence de résonance que nous avons détectée est le sixième harmonique. Cet
+instrument est harmonique, comme nous l’a confirmé le musicien qui en joue. Mais en
+situation de jeu, le musicien ne dépasse pas le septième harmonique soit F2 ici. Les autres
+fréquences ne semblent pas harmoniques, mais elles ne correspondent pas à des notes émises
+par le musicien. Elles sont trop aiguës.
+2.3.2 Excitation par anches doubles lippales
+Tuba
+Sib1-40cent
+Fa2-30cent
+Sib2-10cent
+Ré3-20cent
+Fa3-10cent
+Sib3-5cent
+
+fondamentale, mais l’harmonique 2, à 114
+Hz. La note fondamentale est donc proche
+de 57 Hz soit un sib0 – 30 cent. Ce résultat
+est cohérent avec les mesures au hautparleur. Cet instrument est bien en sib,
+mais il est un peu grave car il n’a pas été
+préalablement chauffé comme le font les
+musiciens, et il est joué par un trompettiste,
+pas un tubiste.
+
+Comme pour la trompette, la note la
+plus grave obtenue n’est pas la fréquence
+
+- 12 -
+
+L’analyse de Fourier montre un son moins riche en harmoniques supérieurs que la trompette.
+C’est un sib, un peu trop grave, à 115 Hz. Le fondamental domine ici. Le tube plus large que
+celui d’une trompette permet aux fréquences graves de bien résonner. On observe un petit pic
+à 57 Hz, ce qui pourrait être un sous-harmonique. Certains sous-harmoniques existent dans le
+son du trombone selon Arthur Benade.
+2.4 Cor naturel: Instrument cylindroconique
+2.4.1 Excitation par un haut-parleur
+Nous allons maintenant étudier le comportement d’un autre instrument de musique : le
+cor en fa. Le cor mesure 1,94 m de long. Ces informations nous servirons d’appui pour faire
+aboutir notre projet, c’est à dire créer une trompette naturelle exceptionnelle !
+On obtient les résultats suivants :
+
+Ueff = f(fréquenc e)
+V
+Hz
+1
+0,8
+0,6
+0,4
+0,2
+0
+0
+
+200
+
+400
+
+600
+
+800
+
+1000
+
+1200
+
+Tout d’abord, observons la courbe. Entre environ 150 Hz et 350 Hz, il n’y a aucun pic
+de tension. Comme dans les expériences précédentes, les résonances de fréquences inférieures
+à 350 Hz ne sont pas visibles lorsque le diamètre intérieur du tuyau est faible. Après 350 Hz,
+les pics de tensions se succèdent, à des intervalles réguliers, avec des tensions de moins en
+moins importantes, jusqu'à atteindre 1000Hz. Il y a 8 pics de tensions visibles.
+Chaque pic de tension permet de déterminer une fréquence de résonance, c'est-à-dire
+une situation où l’air vibre à l’intérieur du cor avec une amplitude importante. On relève ces 8
+tensions et on calcule la différence entre deux fréquences consécutives :
+
+- 13 -
+
+F résonance
+en Hz
+DeltaF en Hz
+F1 = 375
+F2 = 454
+79
+F3 = 524
+70
+F4 = 627
+103
+F5 = 709
+82
+F6 = 772
+63
+F7 = 871
+99
+F8 = 962
+91
+Moyenne
+83,8571429
+
+On peut remarquer que les valeurs de Delta F sont peu
+dispersées. La fréquence fondamentale doit donc être proche
+de 83.8 Hz soit une colonne d’air résonante de longueur
+effective : Leff = c/2f = 34000/2/83.8 = 202,9 cm
+L’écart avec la longueur mesurée de l’instrument est de 4,6%.
+
+2.4.2 Excitation par anches doubles lippales
+La fréquence la plus basse obtenue
+par le musicien (175 Hz) n’est pas la
+fondamentale mais le second harmonique.
+Donc la fréquence fondamentale en
+situation de jeu est proche de 175/2 = 87,5
+Hz, soit une valeur proche de celle obtenue
+en excitant le tuyau avec un haut-parleur.
+Nos résultats nous semblent donc ici aussi
+cohérents.
+
+Lorsque l’instrument est joué par un
+musicien, on obtient les notes suivantes :
+fa2
+si2-30cent
+fa3-30cent
+sol#3+43 cent
+do4-16 cent
+fa4-10cent
+
+L’analyse de Fourier montre ici aussi un son moins riche en harmoniques supérieurs
+que la trompette, ce qui correspond bien à la sensation auditive de son plus doux, plus sourd.
+A la différence du tuba, le fondamental ne domine pas ici, mais c’est le second harmonique.
+Pour la trompette, c’est le 3ème ce qui donne un son plus clair que le cor.
+
+- 14 -
+
+Dans ce cas, la première partie du tuyau est fine, mais le pavillon très évasé. C’est ce
+qui explique l’absence d’harmoniques supérieurs d’amplitude importante.
+En conclusion de cette partie, il semble que modélisations et résultats expérimentaux
+correspondent correctement pour nos expériences, beaucoup mieux que dans le cas de tuyaux
+excités par un bec de saxophone, comme le font nos camarades d’un autre groupe. Donc les
+modélisations à notre disposition doivent permettre de prévoir correctement la note
+fondamentale produite par un instrument de longueur choisie. L’analyse de Fourier nous a
+permis de caractériser le timbre des 3 instruments étudiés. Ils serviront de référence pour
+caractériser le timbre de nos créations.
+3- Etude des ondes stationnaires dans des prototypes d’instruments à anches lippales :
+3.1 Modes de vibration d’un tuyau cylindrique (fermé à une extrémité ou ouvert aux
+deux extrémités): Interprétation ondulatoire
+Quelle modélisation correspondra à nos prototypes ? Nos trompettes de 5 m ou 10 m
+sont constituées de cylindres associés à un pavillon, c’est à dire un simple entonnoir dans la
+plupart des expériences. Ce ne sont pas des systèmes cylindro-coniques comme les
+instruments précédemment étudiés, mais simplement cylindrique avec un petit pavillon. Nous
+pensions à priori qu’ils pouvaient être modélisés par un tuyau cylindrique de longueur L
+fermé à une extrémité. Dans un tuyau avec une extrémité fermée, on observe un ventre de
+pression au niveau de l’extrémité fermée et un nœud de pression au niveau de l’extrémité
+ouverte. Ainsi, pour que l’onde stationnaire puisse se créer, il faut que la longueur du tuyau
+soit un multiple impair du quart de la longueur d’onde λ.
+Donc f = c/4L est la fréquence du fondamental et nous n’attendons que les
+harmoniques impairs.
+Pour la trompette en T, la modélisation attendue est la même que pour les instruments
+cylindro-coniques étudiés précédemment. En effet notre instrument est un cylindre ouvert aux
+deux extrémités, muni d’une embouchure en son milieu et de deux petits pavillons.
+3.2 Long tuyau cylindrique de longueur constante excité à une extrémité :
+3.2.1 Excitation par un haut-parleur :
+Nous cherchons tout d’abord à déterminer les fréquences de
+résonance d’un simple tuyau de grande longueur. Nous utilisons un tuyau en
+cuivre de 1,4 cm de diamètre intérieur, 5m de long ,avec un entonnoir en
+plastique transparent fixé sur l’une des extrémités du tuyau, et une
+embouchure de trompette sur l’autre extrémité. Elle est obturée avec du
+scotch. La longueur totale de l’ensemble est 5,15 m. Le système est fermé
+au niveau de l'embouchure et excité par le Haut-Parleur au niveau de
+l'entonnoir. Un micro est placé prés du pavillon pour percevoir l’amplitude
+de la réponse de l’instrument à l’excitation en fréquence venue du Haut-Parleur.
+La fréquence fondamentale prévisible par calcul est f= c/4L = 16,5 Hz (infrason). Les
+harmoniques attendus sont donc des multiples impairs de cette première fréquence. La
+première fréquence de résonance mesurée ne correspond qu’au 33ème harmonique à peu près.
+
+- 15 -
+
+Ueff en V
+
+Ueff
+1,2
+1
+0,8
+0,6
+0,4
+0,2
+0
+
+Ueff
+
+0
+
+200
+
+400
+
+600
+
+800
+
+1000
+
+1200
+
+1400
+
+F en Hz
+
+Le résultat est décevant et ne correspond pas aux nombreuses fréquences de résonance
+que nous attendions. Exciter un long tuyau fin par un haut-parleur ne permet pas de visualiser
+correctement les fréquences de résonance. Nous avons ensuite essayé avec une embouchure et
+un musicien.
+3.2.2 Excitation par anches doubles lippales
+Tuyau de 5m avec embouchure + entonnoir
+Embouchure de trompette
+Note de ref
+
+Cent
+
+F jouée (Hz)
+
+delta F (Hz)
+
+B2
+
+30
+
+251,26
+
+F#3
+
+30
+
+376,46
+
+125,2
+
+G#3
+
+30
+
+422,56
+
+46,1
+
+A3
+
+30
+
+447,69
+
+25,13
+
+B3
+
+493,88
+
+46,19
+
+C4#
+
+554,37
+
+60,49
+
+D4
+
+587,33
+
+32,96
+
+D#3
+
+35
+
+634,96
+
+47,63
+
+E4
+
+-22
+
+650,93
+
+15,97
+
+F4
+
+-13
+
+693,23
+
+42,3
+
+783,99
+
+90,76
+
+G4
+Embouchure de tuba
+A#0
+
+-20
+
+57,6
+
+E1
+
+82,41
+
+24,81
+
+A#1
+
+116,54
+
+34,13
+
+D2
+
+35
+
+149,83
+
+33,29
+
+F#2
+
+-12
+
+183,72
+
+33,89
+
+220
+
+36,28
+
+255,6
+
+35,6
+
+A2
+C3
+
+-40
+
+Les résultats obtenus avec l’embouchure de tuba sont cohérents avec ce que nous
+espérions. L’intervalle entre les notes jouées est proche de 33 Hz, soit 2f =2. 16,5 Hz. La note
+la plus grave produite est vraisemblablement le 3ème harmonique, attendu à 49,5 Hz et obtenu
+à 57,6 Hz soit 14 % d’écart. Cependant cette note est difficile à jouer et l’aiguille varie
+beaucoup sur l’accordeur. L’embouchure de trompette permet d’accéder à des harmoniques
+supérieurs, qui semblent moins harmoniques que ceux obtenus avec l’embouchure de tuba.
+
+- 16 -
+
+Cet instrument permet d’obtenir 19 notes différentes, et pourtant ce n’est qu’un simple
+tube de cuivre et un entonnoir ! De plus ces notes sont ajustables « à la bouche », et la
+fréquence d’une note peut varier de plusieurs dizaines de cent selon la volonté et l’art du
+musicien. Les notes ne sont pas plus difficiles à produire qu’avec une trompette à piston.
+Cependant il plus difficile de sauter d’une note à une autre si elles ne sont pas consécutives
+dans l’échelle des partiels. L’embouchure de Tuba permet de jouer le « Hejnal Mariacki » et
+d’autres mélodies.
+On peut cependant se demander si la modélisation par tuyau ouvert à une extrémité est
+adaptée. Pour un tuyau Ouvert-Ouvert ou Ouvert-Fermé de 5,15 m de long l’écart entre deux
+harmoniques consécutifs est de 34,5 Hz. Donc cet écart n’est pas un critère pour déterminer la
+modélisation adaptée. Cependant les fréquence de résonance obtenue avec embouchure de
+tuba se rapprochent de celles calculées pour un tuyau Ouvert-Fermé.
+
+Modélisation L (m)
+Tuyau OO
+Tuyau OF
+
+Fréquences (Hz)
+Fondamental
+harmoniques
+5,15 33,4951456 66,9902913 100,485437 133,980583
+5,15 16,7475728 50,2427184 83,7378641 117,23301
+
+3.4 Tuyau cylindrique de longueur constante excité prés de son milieu : la T-trompette
+Nous abordons maintenant la partie la plus originale de notre travail, un instrument en
+T de longueur de tuyau utile 308 cm. On attend une fréquence de résonance fondamentale
+proche de 34000/2/308 = 55 Hz. On espère obtenir des harmoniques pairs et des harmoniques
+impairs, car le tuyau est ouvert aux deux extrémités sur l’atmosphère. Seule la longueur du
+tuyau allant d’un pavillon à l’autre entre en résonance. La longueur du petit tube reliant le T
+au musicien a peu d’importance car elle n’entre pas en jeu dans la résonance. L’instrument
+n’est pas symétrique.
+Le T portant l’embouchure n’est pas placé exactement au milieu du tube. En effet le
+souffle du musicien
+impose un ventre de
+pression au niveau du
+T, ce qui favorise les
+harmoniques impairs.
+Les
+harmoniques
+pairs
+doivent
+présenter un nœud de
+pression au milieu du
+tube.
+Nous avons
+tracé sur un fichier
+Excel
+les
+harmoniques pairs et
+impairs
+d’un
+fondamental : Amplitude = f(longueur du tube). La longueur du tube est exprimée en % de la
+longueur totale. L’amplitude est sans unité ici. Pour l’harmonique de rang n, on a :
+Amplitude = valeur absolue (sin (n*angle))
+La zone favorable à l’implantation de l’embouchure est à 45 % de la longueur totale de
+l’instrument. Aucune de 8 premières fréquences de résonance ne présente de nœud de
+pression à cet endroit.
+
+- 17 -
+
+Voltmètre
+Générateur
+basse
+fréquence
+
+Ueff= f(F) Tube en T 3,38 m
+
+Ueff (V)
+
+0,1
+Micro 0,05
+
+0
+300
+
+Haut-parleur
+
+500
+
+700
+
+900
+
+1100
+
+F (Hz)
+Tuyau avec embouchure
+de trompette
+
+Voici les fréquences de résonance
+décelées :
+F(Hz)
+
+Ttrompette
+Embouchure trompette
+Note Cent Fréquence jouée (Hz) delta F (Hz)
+
+delta F(Hz)
+470
+543
+675
+806
+900
+1008
+1155
+
+E2
+C3
+
+73
+132
+131
+94
+108
+147
+
+164,81
+-6
+
+F#3
+
+260,72
+
+95,91
+
+370
+
+109,28
+
+A#3
+
+34
+
+475,41
+
+105,41
+
+C#4
+
+38
+
+566,67
+
+91,26
+
+A4
+
+-5
+
+877,46
+
+310,79
+
+A#4
+
+40
+
+954,12
+
+76,66
+
+Voici l’enregistrement d’un Fa#3 sur
+Audacity, logiciel que nous avons
+découvert après
+l’épreuve
+régionale :
+
+Et les notes jouées par un musicien :
+
+L’analyse de Fourier donne un spectre : Niveau sonore L = f(Fréquence)
+
+- 18 -
+
+1300
+
+Un curseur permet de déterminer les fréquences de Fourier, qui correspondent aux
+crêtes du graphe ci-dessus. En exportant ce spectre sur Excel, il est en suite possible d’obtenir
+un spectre donnant l’amplitude en fonction de la fréquence, et présentant le même aspect que
+ceux vus en cours de spécialité. Ces spectres sont plus simples à interpréter. Le niveau sonore
+d’Audacity est L = 10 log(A/Ao) soit l’amplitude A = Ao . 10L/10
+Fréquence Niveau (dB) Amplitude
+(Hz)
+=PUISSANCE(10;(B2/10))
+86,132813 -8,945815 0,12747309
+172,265625 -55,078995 3,1053E-06
+Niveau (dB)
+0
+-10 0
+
+2000
+
+4000
+
+6000
+
+8000
+
+-20
+-30
+-40
+-50
+-60
+-70
+-80
+
+Harmonique 2
+atténué
+
+-90
+Fréquence en Hz
+
+Fondamental
+516 Hz
+
+Harmoniques 3,4,5
+dominants
+
+- 19 -
+
+10000
+
+12000
+
+Pour cette note, notre Ttrompette possède donc un son principalement constitué de 4
+Fréquences : le fondamental et les harmoniques 3,4 et 5. Malgré le décalage de l’embouchure
+par rapport au milieu du tube, l’harmonique 2 reste défavorisé, car la présence de
+l’embouchure impose un ventre de pression. Ce spectre rappelle celui d’une clarinette.
+Notre Ttrompette a un timbre riche, et l’instrument peut jouer le « Hejnal » ! Voici
+l’enregistrement sur le logiciel gratuit Audacity de cette mélodie :
+
+Voici un zoom sur une partie de la courbe correspondant au corps d’une note :
+
+Voici un zoom sur une partie de la courbe correspondant à l’attaque d’une autre note :
+
+Le timbre du son, comme pour tous les instruments à vent, varie au cours du temps. La
+part des diverses harmoniques change entre l’établissement du son et son extinction.
+Considérons que si un partiel a un niveau sonore inférieur de 20 dB à celui du partiel
+dominant , il est négligeable. Cela correspond à une intensité sonore 100 fois plus faible. On
+constate que le timbre s’appauvrit quand les notes deviennent plus aiguës. Lors d’une série
+d’enregistrements, on a trouvé :
+- 11 partiels pour C4
+- 7 partiels pour F#4
+- 6 partiels pour A#4
+- 5 partiels pour C#5
+- 4 partiels pour F#5
+Pour C4 et Fa#4 l’harmonique 2 est atténuée, alors qu’il ne l’est pas pour une
+trompette classique. Ce n’est plus le cas pour les notes plus élevée. Le timbre dépend
+fortement de la hauteur de la note. Le son est vivant et lorsque le musicien rejoue
+différemment la même note, l’analyse de Fourier change.
+
+- 20 -
+
+Conclusion
+Ce travail a été réalisé en grande partie
+pendant la fin de notre année de première S, pendant
+les heures laissées libres par les TPE. Nous avons
+choisi de travailler à 4 élèves, pour que la charge de
+travail de chacun ne soit pas trop grande. Nous
+avons collaboré avec deux trompettistes de première
+L pour qu’ils jouent nos prototypes et nous
+accompagnent à Paris. Merci à eux. Ci-contre :
+Notre dernier prototype de Ttrompette dans l’atelier
+de Jonathan Ollivier, facteur d’instrument à Agen
+Nous avons créé des instruments nouveaux,
+qui fonctionnent. Le son sort en même temps par les
+deux pavillons de notre T trompette. Son timbre est différent de celui d’une trompette, d’un
+cor ou d’un tuba. C’est un instrument unique et performant!
+Notre prototype de longue trompette permet de jouer de nombreuses notes de la
+gamme et donc des mélodies, car les partiels de résonance du tuyau sont très proches les uns
+des autres. De plus le musicien peut ajuster la note avec ses lèvres. L’instrument reste
+cependant très délicat à jouer.
+Nous nous sommes aussi investis en Visualbasic pour créer un programme autour de
+la fonction BEEP, permettant de prévoir les fréquences de résonance d’un instrument à
+embouchure en fonction de sa longueur. Le haut-parleur du système permet d’émettre les
+différents partiels. Nous avons aimé ce travail, j’espère que vous aussi. Merci à monsieur
+Mondini et à ses élèves du LEP de construction métallique pour la réalisation des pavillons et
+à Jonathan Ollivier pour l’assemblage et la finition de la Ttrompette.
+Sources documentaires :
+- Article d’Arthur Benade, « chapitre 8, Les cuivres, » dans un livre conseillé par notre
+partenaire Luc Forest : Les instruments de musique, Editions pour la Science/Belin,
+1985
+- Livres d’enseignement de spécialité en Terminale S
+- Stéphane OLIVIER, Hubert GIE, Jean-Pierre SARMANT, Physique Spé, PC*, PC,
+Cours et exercices d’application, Editions Tec&Doc, 2000, p 688.
+- Document ressource acoustique de notre professeur
+- Exemples de représentation de trompette et de cor au Moyen-Âge :
+http://www.enluminures.culture.fr/public/mistral/enlumine_fr
+- L’acoustique de la trompette
+(http://la.trompette.free.fr/Benade/Trompette73/Trompette73.htm)
+- Sur le Hejnal :http://abel.hive.no/trumpet/articles/hejnal/
+
+- 21 -
+
+Annexes :
+Annexe 1 : Complément historique
+1.1 Le cor
+Le son de cet instrument est tantôt majestueux et triomphant, tantôt doux et légèrement
+mélancolique. Il est moins brillant que celui de la trompette. Le cor à pistons est présent dans
+les orchestres symphoniques, de nombreux ensembles de musique de chambre et dans les
+orchestres d'harmonie Les premiers cors datent de la préhistoire. Ils sont fabriqués tout
+d’abord avec des os, puis en cuivre.
+
+Cor scandinave
+Cor en os
+Carnyx celte
+Olifant
+A l’époque romaine, le cornu était un instrument en forme de G et dont le pavillon
+figurait souvent une tête d'animal monstrueux. Il en était de même pour le Carnyx des Celtes
+et le Keren hébreux. Dans ses Odes, Horace parle du "bruit" menaçant de ces instruments.
+Au Moyen-Âge, la corne ou l'olifant ne pouvait donner que quelques sons.
+Les cors des Alpes sont encore de longs tuyaux en bois qui peuvent produire plusieurs sons.
+Durant la première moitié du 17° siècle, les instruments s'allongent, se recourbent puis
+s'enroulent pour prendre la forme définitive, celle qui persiste dans notre actuel cor de chasse
+naturel. Jusqu'au XVIIIe siècle, le cor est dit naturel car il n'a pas de piston. Pour changer de
+note, il faut changer soit la position des lèvres, soit la position de la main dans le pavillon
+Le tube de ces instruments pouvait avoir 4,5 m de long mais malgré ses 3 octaves ne
+donnait qu'une échelle discontinue des sons .
+
+Cor de chasse court (Huet)
+1.2 Ethnomusicologie: le « Hejnal Mariacki »
+
+- 22 -
+
+Cor à long tuyau
+
+Peu importe la saison ou le temps qu'il fait, on peut entendre sur la plus grande place
+de Cracovie, à chaque heure de la journée et de la nuit une sonnerie inachevée de trompette: le
+Hejnal. Ce symbole de Cracovie est devenu aussi le symbole de la Pologne car depuis
+novembre 1927 il est retransmis par la Radio Polonaise à midi. Il est joué de la plus haute tour
+de l'Église vers les 4 points cardinaux successivement. Il est mentionné depuis 1392. A cette
+époque, un guetteur a été tué par une flèche avant d’avoir fini la sonnerie destinée à avertir les
+habitants de la ville d’une attaque ennemie. C’est ce symbole que nous avons choisi pour
+tester la qualité de nos instruments. Le trompettiste n’aurait pas besoin de jouer 4 fois son
+morceau dans les 4 directions s’il utilisait notre trompette double. En dirigeant les pavillons à
+180° l’un de l’autre 2 sonneries suffiraient !
+1.3 Trompette et cor aujourd’hui
+Actuellement on distingue différents types de trompettes La plus courante est la
+trompette à 3 pistons en si bémol qui est utilisée dans la plupart des pays.
+On distingue aussi la trompette à valves rotatives (appelée aussi « trompette à palettes »)
+beaucoup utilisé en Allemagne et dans certains pays de l'est. La course des palettes est plus
+courte que celle des pistons, ceux qui peut rendre plus facile l’enchaînement rapide des notes.
+Mais les palettes sont plus fragiles que les pistons. Il existe aussi des trompettes en ut (son
+plus « dur »), en mib, en ré, et en fa. Le registre courant d'une trompette est sur deux octaves
+et demie: du fa# grave au do aigu.
+
+Trompette sib actuelle
+Trompette Piccolo
+Les différentes trompettes actuelles :sont dorées ou argentées, mais il n'y a aucune
+différence de son ou de manière de jouer. Le son de l’instrument ne dépend pas du matériau
+qui le constitue, selon notre partenaire, Luc Forest, professeur d’acoustique et directeur des
+études de seconde année à l’IUT mesures physiques de Bordeaux I.
+On trouve aussi la trompette piccolo (= de petite taille en italien). Elle est surtout
+utilisée pour jouer des œuvres baroques dans lesquelles le registre aigu est beaucoup utilisé.
+La trompette piccolo ne monte pas plus haut qu'une trompette en si bémol mais il est plus
+facile d'y jouer les aigus. Elle est comporte 4 pistons dont le quatrième permet d'atteindre les
+notes les plus graves de la trompette, ou de rendre plus justes certaines notes.
+Deux découvertes importantes ont marqué l'évolution du cor.
+Tout d'abord on vit apparaître un instrument qui depuis l'embouchure
+jusqu'au pavillon avait une forme tronc-conique, puis y furent ajouter
+des pistons, et dans les années 1960, ils furent remplacés par des
+palettes, petits plateaux sur lesquels on appuie avec le bout des doigts.
+Le son n'est pas seulement déterminé par les vibrations du
+volume d'air limité par les vibrations du volume d'air limité par les
+
+- 23 -
+
+Cor Jupiter
+lèvres du joueur et l'extrémité évasée de l'instrument. Au contraire, les
+vibrations des lèvres déclenchent aussi des régimes d'oscillation de la cavité buccale de
+l'instrumentiste.
+De plus une embouchure large ou plus étroite influe beaucoup sur la note jouée. Selon les
+musiciens que nous avons rencontrés, il est plus difficile de poser correctement les notes sur
+le cor que sur la trompette. Certains même, dans les orchestres d’harmonie, l’appellent la
+« boîte à canard », un canard étant une fausse note, ou une note mal jouée.
+Annexe 2 : Etude en pression
+2.1- Trompette si b, instrument cylindroconique :
+Le but de cette expérience complémentaire est d’étudier l’évolution de la pression
+dans la bouche du musicien ainsi qu’au niveau du pavillon de la trompette. Nous n’ulisons
+plus des micros, mais des pressionmètres. Nous avons tenté de mesurer également la pression
+au niveau de la clef d’eau, comme indiqué sur le schéma ci-dessous, mais les résultats ne
+furent pas concluants, à cause de la petitesse de l’ouverture.
+
+Matériel utilisé : une trompette, ainsi que deux appareils de mesure de pression et le logiciel
+latis pro afin d’étudier l’évolution de la pression. Un pressionmètre est utilisé pour étudier la
+pression dans la bouche. Pour cela on place le tube en plastique fin dans la bouche, lorsque
+l’on souffle dans la trompette. Le musicien produit des notes de la gamme par vibration des
+lèvres sur l'embouchure. Un autre pressionmètre est simplement placé dans le pavillon de la
+trompette
+Ces appareils de mesures sont reliés à l’aide du boîtier SYSAM-SP5 au logiciel Latis
+pro. On enregistre ainsi des tensions, image de l’évolution de la pression au cours du temps.
+Tout d’abord, on observe que les périodes de la variation de la pression sont les
+mêmes en tout point de la colonne d’air, que ce soit au niveau de la bouche du musicien, ou
+du pavillon. Pour vérifier cela le tuyau du pressionmètre est enfoncé plus ou moins
+profondément dans le pavillon.
+La fréquence de la variation de la pression est de 492 Hz et la note joué est un B3 +
+25cent selon l’accordeur chromatique. Or un Si3 +25 cent correspond à un son de fréquence
+501Hz. On peut donc conclure que la fréquence de variation de pression est égale à celle de la
+fréquence du son perçu, aux erreurs expérimentales près. Lors de la mesure à l’accordeur
+chromatique, l’aiguille n’est jamais stable car le son est « vivant », et la valeur change
+pendant la durée d’émission du son. Il suffit que l’enregistrement sur Latispro ne soit pas fait
+exactement au même instant que celui sur l’accordeur pour qu’il y ait une petite différence
+(1,8 %).
+- 24 -
+
+En effet, le son est un mouvement vibratoire qui naît d’une variation localisée de la
+pression, ce pourquoi la fréquence de variation de la pression est la même que celle de la note
+jouée car c’est cette variation de pression qui va donner naissance au son.
+D’autre part, on constate que la pression n’est pas la même dans la bouche et dans la
+colonne d’air de la trompette. En effet, pour la bouche la pression oscille autour d’une
+pression largement supérieure à celle de la pression atmosphérique alors qu’au niveau de la
+clé d’eau et du pavillon, la pression oscille autour de la pression atmosphérique.
+Dans la bouche, la tension issue du pressionmètre oscillait autour de 100mV soit 40
+mbar. Dans la bouche, la pression était donc, environ, supérieure de 40 hPa à la pression
+atmosphérique. De plus, plus cette différence de pression sera importante, plus le volume
+sonore de la note jouée sera important. Cette pression permet d’apporter l’énergie suffisante à
+la vibration des lèvres.
+La note jouée est le 4ème partiel du tuyau. On observe un léger décalage par rapport à la
+fréquence théorique de résonance du tuyau (479 Hz) ce qui a déjà été commenté. Rajoutons
+cependant que cela peut être du aux erreurs expérimentales et au fait que la colonne d’air du
+musicien vient s’ajouter à celle de la trompette. Par ailleurs nous avons constaté qu’il est
+facile pour un trompettiste de modifier la hauteur d’une note avec les lèvres, ce qui montre
+que la fréquence de résonance de l’ensemble trompette-trompettiste n’est pas simplement
+déterminée par la longueur de l’instrument.
+2.2- Trompette « tuyau d’arrossage » de 10,80 m :
+On dispose d’un tuyau d’arrosage de 10,80m avec comme embouchure une
+embouchure de trompette et comme pavillon un entonnoir. On cherche à étudier l’évolution
+de la pression dans le tuyau. Nous avons choisi un tuyau plus long pour que les variations
+soient plus visibles. C’est l’instrument le plus long que nous ayons étudié au laboratoire. Mais
+des essais « à la maison » ont montré que des tuyaux d’arrosage de 30 m de long permettaient
+de produire de nombreuses notes assez facilement. Cependant les fréquences des partiels sont
+tellement proches dans la zone utilisable avec l’embouchure de trompette, que l’on a
+l’impression de pouvoir passer continument d’une note grave à une note aigue, comme sur un
+trombone faisant un « glissando » en faisant glisser sa coulisse. On peut se demander si le
+tuyau réagit vraiment et si ce n’est pas simplement les lèvres qui produisent le son comme si
+le tuyau n’était pas là.
+Pour cette étude on utilise un
+capteur de pression et on relève la valeur
+de la pression à différents points : dans la
+bouche, à 0,1 m de l’embouchure, et au
+niveau du pavillon en prenant soin que la
+longueur du tuyau reste la même (les trous
+crées pour le capteur de pression doivent
+rester bouchés).
+On étudie ensuite la variation de
+pression dans une trompette, au niveau de
+l’embouchure, de la clé d’eau et du
+pavillon.
+Longueur
+du
+tuyau :
+10 ,80
+m
+
+- 25 -
+
+Ces mesures montrent que, comme pour la trompette, la pression est plus faible au
+niveau du pavillon qu’au niveau du tuyau à proximité de l’embouchure. Nos expériences
+semblent montrer que la pression diminue davantage pour les notes graves que pour les notes
+aiguës. Au niveau du pavillon, la pression est plus faible que pour une trompette. Donc, plus
+l’instrument est long, moins le son sera puissant pour une manière de souffler donnée.
+Cependant un tel tuyau produit des notes assez facilement. Mais elles sont très rapprochées et
+difficiles à isoler pour le musicien. Ce simple tuyau constitue donc pour nous, la plus grande
+trompette du monde !
+Annexe3 : Instrument en escalier : instrument non harmonique.
+Cet instrument a été conçu pour être joué avec un bec de saxophone par un groupe de
+4 élèves du lycée ayant participé au concours des XVIème Olympiades de physique. Nous
+avons voulu l’étudier avec une embouchure de trompette à la place du bec. La longueur totale
+de l’instrument est 90cm, ce qui permet de prévoir une fréquence fondamentale de :
+f = c/2/L = 189 Hz
+
+Voici le résultat des mesures lorsque l’instrument est excité par un Haut-Parleur :
+F (Hz)
+
+477
+
+Fn-Fn-1 (Hz)
+
+- 26 -
+
+694
+872
+1106
+1295
+1510
+1712
+F (Hz)
+
+217
+178
+234
+189
+215
+202
+
+1856
+2004
+2344
+2547
+2734
+2889
+3080
+
+144
+148
+340
+203
+187
+155
+191
+
+Fn-Fn-1 (Hz)
+
+La moyenne des écarts Fn-Fn-1 = 200,2 Hz ce qui correspond à une longueur
+effective : Leff = 34000/2/200,2 = 84,9 cm soit 5,7 % d’écart avec nos prévisions. La valeur
+Fn-Fn-1 n’est pas constante ce qui montre que cet instrument est moins harmonique que la
+trompette. Ce n’est qu’un prototype pour lequel la fréquence de résonance la plus grave a
+l’amplitude la plus importante. Cela s’explique car le tuyau est large, plus large que celui de
+nos autres prototypes de trompette.
+
+Ueff =f(frequence)
+Saxophone en escalier avec embouchure
+600
+400
+200
+0
+0
+
+500
+
+1000
+
+1500
+
+2000
+
+2500
+
+3000
+
+Cet instrument ne permet pas de jouer notre sonnerie car il n’est pas harmonique. Les
+fréquences de résonance ne sont pas multiples de la fréquence fondamentale. L’anharmonicité
+n’empêche pas d’utiliser l’instrument dont le jeu est facile, mais il ne fonctionne pas comme
+une trompette naturelle dont les fréquences de résonance sont multiples du fondamental.
+Annexe 4 : Courbes d’analyse du son de la trompette en T
+
+C4
+
+HARMONIQUE 2 ATTÉNUÉE
+
+- 27 -
+
+Fa#4
+
+3500
+
+A#4
+
+C#5
+
+Annexe5 : Notre programme en Visual Basic
+
+- 28 -
+
+

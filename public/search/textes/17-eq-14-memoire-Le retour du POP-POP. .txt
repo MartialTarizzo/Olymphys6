@@ -1,0 +1,1707 @@
+Lycée René Cassin
+75, route de Saint-Clément
+69173 Tarare
+
+Olympiades de
+Physique 2010
+
+Thibaut Besacier
+Morgan Fouillat
+Vincent Joyet
+poppoptarare@free.fr
+
+Le retour du
+Pop-Pop
+
+Le retour du pop-pop
+2009
+2010
+
+Sommaire
+
+Présentation ................................................................................................................................ Page -3Résumé du projet ........................................................................................................................ Page -4I/ Observation............................................................................................................................... Page -51. Historique................................................................................................................... Page -52. Expérience préliminaire ............................................................................................. Page -6II/ Modélisation ........................................................................................................................... Page -81. Explication du phénomène ......................................................................................... Page -8a- Les différentes phases ..................................................................................................... Page -8b- Explication de la propulsion ........................................................................................... Page -10c- Expérience de la canette................................................................................................. Page -152. Simulation informatique............................................................................................ Page -173. Mise en équation d’un modèle simplifié .................................................................... Page-21III/ Application ........................................................................................................................... Page -24IV/ Optimisation ........................................................................................................................ Page -271. Mesure et calcul du pouvoir calorifique de l’éthanol ............................................... Page -27a- Valeur théorique............................................................................................................. Page -27b- Valeur expérimentale ..................................................................................................... Page -28c- Analyse des résultats ...................................................................................................... Page -302. Mesure de la vitesse du bateau................................................................................. Page -313. Mesure de la force de poussée du bateau ................................................................ Page -334. Rendement du moteur .............................................................................................. Page -365. Fréquence du moteur ................................................................................................ Page -37a- Mesure de la fréquence................................................................................................. Page -37b- Paramètres influant sur la fréquence ............................................................................. Page -38c- Confrontation des résultats avec la simulation et le modèle simplifié .......................... Page -39V/ Conclusion ............................................................................................................................ Page -40VI/ Glossaire .............................................................................................................................. Page -41VII/ Remerciements.................................................................................................................... Page -41Annexe n°1 : Thermocouple ....................................................................................................... Page -42Annexe n°2 : Programme ........................................................................................................... Page -45Annexe n°3 : Forum .................................................................................................................... Page -50-
+
+2
+©Thibaut Besacier, Morgan Fouillat, Vincent Joyet – poppoptarare@free.fr
+
+Le retour du pop-pop
+2009
+2010
+
+ Présentation
+
+- Etablissement :
+
+Lycée René Cassin, à Tarare (69)
+
+- Elèves du groupe :
+
+Thibaut BESACIER, Morgan FOUILLAT, Vincent JOYET, élèves en
+terminale scientifique, option sciences de l’ingénieur
+
+- Professeur coordinateur :
+
+Mustapha ERRAMI
+
+- Professeur collaborateur :
+
+Fabien BRUNO
+
+- Partenaires :
+
+Rectorat de l’académie de Lyon
+Conseil Régional de Rhône-Alpes
+Université Claude Bernard de Lyon, M. Roger DUFFAIT
+ENS de Lyon, M. Ludovic JAUBERT
+Ecole Centrale de Lyon, M. Florent JOYET
+
+De gauche à droite : M. Fabien BRUNO, Thibaut BESACIER, Morgan FOUILLAT, Vincent JOYET et M. Mustapha ERRAMI
+
+©Thibaut Besacier, Morgan Fouillat, Vincent Joyet – poppoptarare@free.fr
+
+3
+
+Le retour du pop-pop
+2009
+2010
+
+ Résumé du projet
+Non… Ce n’est pas un voyage en musique que l’on vous propose, mais en bateau !
+Il y a quelques mois, le grand-père d’un des membres du groupe découvre dans une vieille malle
+un de ses jouets d’antan : un bateau de fer blanc émettant un bruit singulier lors de son
+fonctionnement. Intrigués par le mode de propulsion utilisé, nous décidons de nous intéresser de
+plus près à cet étrange mécanisme.
+Immédiatement, nous identifions la technologie qu’il convient d’appeler « pop-pop » en référence
+au son émis, rappelant celui d’un moteur diesel marin. Il semblerait que ce système complexe repose
+sur des cycles de vaporisation-condensation de l’eau, et qu’il permette de propulser un bateau avec
+une simple source de chaleur, qui peut utiliser une énergie renouvelable (bioéthanol par exemple),
+sans aucune pièce mécanique en mouvement.
+Nous avons alors défini la problématique qui nous a guidés tout au long du projet :
+« Sur quels phénomènes physiques repose le fonctionnement d’un tel moteur, et quelles
+peuvent être ses applications pratiques ? »
+Notre projet a alors consisté en plusieurs phases. Tout d’abord, il nous est apparu essentiel de
+comprendre les phénomènes physiques mis en jeu. Pour ce faire, nous avons imaginé une expérience
+nous permettant de visualiser le phénomène grâce à des tubes transparents. Dans la foulée, et dans
+l’optique de faciliter l’explication du phénomène à nos différents interlocuteurs que nous sommes
+amenés à rencontrer au cours du projet, nous avons décidé de simuler informatiquement le
+phénomène. Ensuite, nous avons mis en pratique nos observations et avons réalisé notre propre
+moteur pop-pop, que nous avons installé sur un bateau dont nous avons réalisé le téléguidage. Enfin,
+l’ultime phase du projet, a consisté à étudier l’influence de différents paramètres du moteur grâce à
+plusieurs mesures, et les applications possibles d’une telle technologie.
+Soulignons pour finir que nous nous sommes attachés à respecter une démarche scientifique
+rigoureuse et que nous avons délibérément accordé une place importante à l’expérimentation dans
+notre approche des phénomènes mis en jeu. En effet, il semblerait prétentieux de prétendre à un
+développement théorique complet sur la question, dans la mesure où les connaissances nécessaires
+en thermodynamique notamment ne nous sont pas enseignées au lycée. Ainsi, nous avons préféré
+valider certaines suppositions par l’expérience plutôt que par la théorie dans le cas où les pré-requis
+nécessaires étaient hors de notre portée.
+
+Bateau jouet propulsé par un moteur pop-pop
+
+4
+©Thibaut Besacier, Morgan Fouillat, Vincent Joyet – poppoptarare@free.fr
+
+Le retour du pop-pop
+2009
+2010
+
+ I/ Observations
+1. Historique
+100 ans avant J.-C., Héron d'Alexandrie (mathématicien grec) conçut une sphère remplie d'eau qui
+était munie de 2 tubes coudés sortant de manière opposée, et cette sphère tournait sur un axe audessus d'un feu à cause de la sortie de vapeur. Cette trouvaille, dénommée l’éolipyle devait
+ressembler à cela :
+
+Éolipyle
+
+Le fonctionnement du moteur pop-pop repose en fait sur le même principe, à ceci près que
+l’échappement intervient dans l’eau.
+En 1891, l’Anglais Désiré Thomas Piot déposa une demande de brevet portant sur des
+générateurs de vapeur, déclarant lors de sa demande : « mon invention est spécialement utile dans le
+cas de bateaux jouets où la propulsion est produite par l’action directe de la vapeur d’eau ». Son
+brevet fut alors exploité jusque vers les années 1920 par divers constructeurs de jouets en GrandeBretagne, aux USA et en Allemagne. Cependant il ne s’agit pas là du véritable moteur pop-pop, car le
+système imaginé par Piot était silencieux. Son moteur était constitué d’un serpentin contenant de
+l’eau, chauffée par une source de chaleur. Les deux extrémités du serpentin sortaient à l’arrière du
+bateau sous la ligne de flottaison.
+En 1924, l’Américain C. J. Mc Hugh apporta une modification au procédé de Piot : il ajouta une
+membrane sur le moteur, vibrant grâce à des différences de pression, ce qui permettait de recréer le
+bruit de moteur marin. Désormais, tous les bateaux jouets utilisant ce système de propulsion étaient
+du type Piot-Mc Hugh et faisaient du bruit, le moteur « pop-pop » était né !
+Alors qu’ils ont peu à peu disparu en Europe, les moteurs pop-pop connaissent un grand succès
+en Inde, Chine, Japon, Indonésie, et Pakistan où ils font encore aujourd’hui l’objet de production en
+grande série. Remarquons de plus que de tels engins suscitent toujours l’intérêt : en effet, le
+réalisateur japonais Hayao Miyazaki accorde une place importante au moteur pop-pop dans son film
+Ponyo sur la falaise, sorti en 2009.
+
+©Thibaut Besacier, Morgan Fouillat, Vincent Joyet – poppoptarare@free.fr
+
+5
+
+Le retour du pop-pop
+2009
+2010
+
+2. Expérience préliminaire
+Dans un premier temps, il nous est apparu essentiel de comprendre les phénomènes physiques
+mis en jeu, car le fonctionnement de l’engin nous paraissait mystérieux au premier abord. Pour cela,
+nous avons imaginé une simple expérience recréant le phénomène. Nous avons utilisé un tube à
+essai que nous avons coupé afin d’obtenir une longueur d’environ 5 cm, puis avons obstrué sa sortie
+avec un bouchon dans lequel nous avons inséré un tuyau de 4 mm. Une fois ce montage rempli
+d’eau, et l’extrémité du petit tuyau plongée dans de l’eau, nous l’avons chauffé. Précisons que
+l’ensemble des supports et des matériels nécessaires pour cette expérience a été confectionné par
+nos soins.
+Dispositif expérimental :
+
+support
+
+bioéthanol
+support du brûleur
+brûleur
+
+tube à essai découpé
+
+bouchon
+
+tuyau (ø 4mm)
+
+Voici le déroulement de l’expérience :
+
+Début du chauffage
+
+6
+©Thibaut Besacier, Morgan Fouillat, Vincent Joyet – poppoptarare@free.fr
+
+Le retour du pop-pop
+2009
+2010
+
+Quelques minutes après que nous
+ayons allumé la bougie, nous avons
+observé la vaporisation d’une partie
+de l’eau contenue dans le tube (à
+savoir sous la bougie, donc en haut
+du tube à essais)…
+
+… puis un mouvement d’eau continu
+se produit dans le tube en verre de 4
+mm (un aller et retour sur environ 2
+ou 3 cm). Le phénomène a duré
+jusqu'à ce qu’il n’y ait plus de
+bioéthanol dans le brûleur.
+
+Nous avons ainsi pu observer deux phases, vaporisation puis liquéfaction, créant des allers et
+retours d’eau, déjà présents sur le bateau jouet, lui permettant d’avancer. Nous allons revenir plus
+en détail sur ces points dans la partie suivante, mais retenons simplement que cette expérience
+astucieuse nous a permis de nous familiariser avec ce phénomène, qui est à première vue très
+surprenant.
+
+©Thibaut Besacier, Morgan Fouillat, Vincent Joyet – poppoptarare@free.fr
+
+7
+
+Le retour du pop-pop
+2009
+2010
+
+ II/ Modélisation
+1. Explication du phénomène
+a- Les différentes phases
+Grâce à nos observations effectuées lors de l’expérience décrite dans la première partie, nous
+avons pu décomposer le phénomène pop-pop en plusieurs phases qui, en réalité, se succèdent très
+rapidement, formant ainsi un cycle continu et ininterrompu.
+
+Le tube à essai est rempli d’eau en
+totalité et l’extrémité du petit tube
+en verre est plongée dans l’eau. Une
+source de chaleur est placée sous la
+partie supérieure du tube à essais.
+
+Après plusieurs secondes de chauffage (environ
+30 secondes), la température de l’eau présente
+dans la partie supérieure du tube augmente
+jusqu’à ce qu’elle parvienne à sa température de
+vaporisation. Ainsi, une partie de l’eau se
+vaporise et de la vapeur dite saturée se forme. Il
+s’agit d’un mélange de gaz et de
+microgouttelettes d’eau liquide. La vapeur
+formée repousse l'eau vers le bas du tube car, à
+la pression atmosphérique et à 100°C, la masse
+volumique de l’eau est de 958kg/m3, tandis que
+celle de la vapeur est de 0,59kg/m3. Une goutte
+d’eau liquide qui se vaporise occupe donc
+environ 1623 fois plus de place à l’état gazeux
+(ce mouvement d’eau est symbolisé par les
+flèches bleues sur le schéma).
+
+8
+©Thibaut Besacier, Morgan Fouillat, Vincent Joyet – poppoptarare@free.fr
+
+Le retour du pop-pop
+2009
+2010
+
+La production de vapeur saturée est désormais
+stoppée. Cependant, il y a formation d’une
+autre vapeur appelée vapeur surchauffée,
+produite, comme son nom l’indique lorsque l’on
+surchauffe de la vapeur saturée. Ainsi suivant
+l’équation des gaz parfaits (PV=nRT), étant
+donné que la température du gaz augmente,
+son volume augmente aussi, ce qui explique
+que l’eau progresse toujours vers le bas du
+tube. Puis le phénomène arrive à un état
+d’équilibre pendant lequel l’expansion de la
+vapeur est stoppée, stabilisant ainsi la
+progression de l’eau.
+
+Suite à cet état d’équilibre, étant donné
+que la vapeur se rapproche du bas du
+tube, où la température est moins
+élevée (zone éloignée de la flamme et
+proche de l’eau « froide » dans laquelle
+baigne le bas du tube), elle se liquéfie.
+Cette liquéfaction est brutale et crée
+ainsi une dépression à l’origine de
+l’aspiration de l’eau (voir « c- Expérience
+de la canette »). L’eau liquide arrive
+donc dans le haut du tube où la
+température avoisine les 100°C, d’où sa
+vaporisation : le cycle recommence…
+
+©Thibaut Besacier, Morgan Fouillat, Vincent Joyet – poppoptarare@free.fr
+
+9
+
+Le retour du pop-pop
+2009
+2010
+
+b- Explication de la propulsion du bateau
+L’explication de la propulsion du bateau s’appuie sur l’utilisation du théorème de la résultante
+cinétique, généralisation de la deuxième loi de Newton vue en terminale S.
+1. Le théorème de la résultante cinétique :
+Ce théorème fait intervenir la quantité de mouvement ou résultante cinétique d’un système :
+pour un solide unique de masse m
+pour un système constitué d’un ensemble d’objets de masse mi
+D’après le théorème de la résultante cinétique, la variation de la résultante cinétique d’un système
+est égale à la résultante des forces extérieures appliquées au système :
+
+On remarque que dans le cas d’un solide unique de masse m constante, on retrouve la deuxième loi
+de Newton :
+
+implique, comme
+
+et
+
+est constante :
+
+Dans notre cas, pour privilégier la compréhension à l’exactitude, nous allons considérer un système
+soumis à des forces qui se compensent.
+Le théorème de la résultante cinétique s’écrit alors :
+
+Dans ce cas, la résultante cinétique du système est égale à un vecteur constant.
+Passons maintenant à l’étude des deux phases de propulsion du moteur pop-pop.
+2. Première phase : l’expulsion de l’eau par le moteur pop-pop
+Dans la première phase de la propulsion, l’eau présente dans le tube est expulsée :
+
+10
+©Thibaut Besacier, Morgan Fouillat, Vincent Joyet – poppoptarare@free.fr
+
+Le retour du pop-pop
+2009
+2010
+
+Du fait de la forme du tube et du déplacement de l’eau dans le tube, on peut faire l’hypothèse que le
+liquide est expulsé en grande partie dans la direction du tube.
+Appliquons alors le théorème de la résultante cinétique à la tranche d’eau contenue dans le tube
+entre deux instants représentés ci-dessous :
+Avant expulsion d’une quantité d’eau :
+
+Après l’expulsion d’une quantité d’eau :
+
+D’après le théorème, la résultante cinétique est conservée (on considère que les forces qui
+s’appliquent sur le système se compensent à tout instant), ainsi :
+D’où
+Entre les deux instants considérés, l’accroissement de la résultante cinétique du système est donc
+égale à
+
+. L’eau sortant par l’arrière du bateau, le bateau est donc accéléré vers l’avant.
+
+3. Deuxième phase : l’aspiration d’une quantité d’eau par le moteur pop-pop
+Dans la deuxième phase de la propulsion, de l’eau présente dans le milieu entourant le bateau est
+aspirée :
+
+©Thibaut Besacier, Morgan Fouillat, Vincent Joyet – poppoptarare@free.fr
+
+11
+
+Le retour du pop-pop
+2009
+2010
+
+Contrairement à la première phase, le liquide aspiré n’est guidé par aucun tube ou autre
+dispositif. Cette eau aspirée viendra donc de toutes les directions possibles. Cette différence est
+fondamentale pour comprendre la suite.
+
+En effet, supposons que le tube ne perturbe pas l’écoulement produit par la dépression du tube
+du moteur pop-pop. Alors l’écoulement de l’eau pourra alors être qualifié d’isotrope (l’écoulement
+se fait de la même manière dans toutes les directions).
+Ainsi la résultante cinétique de l’eau entrant dans le tube sera nulle :
+
+Si on applique à présent notre théorème de la résultante cinétique à une tranche de fluide entre
+deux instants représentés ci-dessous :
+Avant l’aspiration d’une quantité d’eau (bien entendu, la présence du tube perturbe l’entrée de
+l’eau, ce que nous négligeons pour cette explication) :
+
+12
+©Thibaut Besacier, Morgan Fouillat, Vincent Joyet – poppoptarare@free.fr
+
+Le retour du pop-pop
+2009
+2010
+
+Après l’aspiration d’une quantité d’eau :
+
+Le théorème dit, de nouveau, que la résultante cinétique est conservée (on considère que les forces
+qui s’appliquent sur le système se compensent à tout instant), ainsi :
+Or
+D’où
+Entre les deux instants considérés, si l’entrée d’eau est parfaitement isotrope, l’accroissement de
+la résultante cinétique du système est nul. Dans ce cas, le bateau n’est ni accéléré, ni ralenti.
+4. Conclusion :
+La propulsion du moteur pop-pop est une suite d’expulsion d’eau accélérant le bateau et
+d’aspiration d’eau n’ayant aucune influence sur le bateau. On comprend alors que cette succession
+de deux phases permet la poussée du bateau par le moteur pop-pop.
+5. Illustration expérimentale :
+Nous avons réalisé une expérience pour illustrer les explications ci-dessus.
+Dispositif expérimental :
+
+voiture
+ballon
+
+épingle
+
+©Thibaut Besacier, Morgan Fouillat, Vincent Joyet – poppoptarare@free.fr
+
+13
+
+Le retour du pop-pop
+2009
+2010
+
+Expérience 1 : simulation de la phase d’expulsion
+
+Avant de lâcher le ballon
+
+Après avoir lâché le ballon
+
+Lorsque nous lâchons simplement le ballon, la voiture avance dans le sens inverse de celui dans
+lequel l’air s’évacue.
+
+Expérience 2 : simulation de la phase d’aspiration
+
+Avant de percer le ballon
+
+Après avoir percé le ballon
+
+Lorsque nous perçons le ballon à l’aide d’une épingle, l’air s’échappe dans toutes les directions et
+la voiture ne bouge pas.
+Conclusion :
+Dans les deux expériences, la même quantité d’air est expulsée, mais on observe une poussée
+uniquement dans le premier cas, cas dans lequel le fluide se voit imposer une direction d’écoulement
+privilégiée.
+
+14
+©Thibaut Besacier, Morgan Fouillat, Vincent Joyet – poppoptarare@free.fr
+
+Le retour du pop-pop
+2009
+2010
+
+c- Expérience de la canette
+Afin de mettre en évidence expérimentalement le fait que la liquéfaction brutale engendre une
+dépression permettant le retour de l’eau dans le moteur, nous avons réalisé une simple expérience
+avec une canette de soda.
+Dispositif expérimental :
+
+potence
+
+bec Bunsen
+
+canette de soda
+gant ignifugé
+cristallisoir
+
+Après avoir versé un fond d’eau
+dans la canette, nous l’avons
+chauffée à l’aide d’un bec Bunsen
+jusqu’à ébullition.
+
+©Thibaut Besacier, Morgan Fouillat, Vincent Joyet – poppoptarare@free.fr
+
+15
+
+Le retour du pop-pop
+2009
+2010
+
+Nous laissons l’eau à ébullition
+quelques instants puis plongeons la
+canette à l’aide d’un gant ignifugé
+dans un cristallisoir rempli d’eau
+froide.
+
+La contrainte de température est
+telle que la
+condensation est
+brutale, créant ainsi une forte
+dépression.
+Le résultat est impressionnant !
+
+16
+©Thibaut Besacier, Morgan Fouillat, Vincent Joyet – poppoptarare@free.fr
+
+Le retour du pop-pop
+2009
+2010
+
+2. Simulation informatique
+Après avoir amélioré nos connaissances sur le phénomène, et après l’avoir décomposé en
+plusieurs phases dans la partie précédente, nous avons décidé de le modéliser grâce à l’aide
+précieuse de M. Fabien Bruno, à l’aide du logiciel Scilab®. Pour cela, nous nous sommes appuyés sur
+la décomposition en plusieurs phases du phénomène, et avons séparé le tube en plusieurs tronçons.
+
+Schéma du modèle utilisé (vue de dessus):
+
+x
+0
+eau
+
+gaz
+
+eau
+
+température en °C
+
+La température du tube est fixée par la courbe suivante, obtenue grâce au thermocouple (voir
+Annexe n°1). On en déduit deux droites :
+- pour x ≤ 2,24cm T(x) = -37777,778.x + 1200,8
+- pour x > 2,24cm T(x) = -351,8.x + 362
+
+900
+800
+700
+600
+500
+400
+300
+200
+100
+0
+
+mesures
+modèle
+
+0
+
+0,05
+
+0,1
+
+0,15
+
+0,2
+
+position en cm (à partir du haut du tube)
+
+Modélisation :
+Afin de réaliser le programme, nous avons d’abord réalisé un "diagramme" décomposant le
+phénomène en plusieurs étapes. Nous avons réalisé cette simulation en utilisant la méthode d’Euler,
+méthode abordée en cours de physique en Terminale.
+
+©Thibaut Besacier, Morgan Fouillat, Vincent Joyet – poppoptarare@free.fr
+
+17
+
+Le retour du pop-pop
+2009
+2010
+
+0/ Hypothèses :
+ La température du tube obéit aux équations associées aux droites ci-dessus.
+ A l’instant t=0, la première tranche d’eau est à 80°C et la dernière à 20°C.
+1/ 2ème loi de Newton
+ me.a = S x (Pgaz – Patm), avec a accélération du cylindre en m.s-2, S surface de l’interface en m²,
+Pgaz la pression du gaz en Pa et Patm la pression atmosphérique (à la sortie du tube) en Pa, me
+la masse de l’eau qui se déplace en kg
+ On en déduit v(t) et x(t). En effet d’après leurs définitions et l’utilisation de la méthode
+d’Euler :
+implique dans la méthode d’Euler
+implique dans la méthode d’Euler
+2/ Echange de chaleur des tranches d’eau
+Plusieurs échanges sont à prendre en compte :
+ Echange avec le tube
+ Echange avec les autres tranches d’eau
+ Echange avec le gaz (1ère tranche d’eau)
+La loi physique utilisée pour ces échanges est la loi de Fourier :
+avec j le flux surfacique d’énergie thermique,
+
+le coefficient de diffusion
+
+thermique du milieu, T (en K) la différence de température sur l’intervalle x (en m).
+ Si la température d’une tranche, ainsi obtenue, est supérieure à 100°C, un
+changement d’état intervient : une partie de l’eau liquide est vaporisée (le surplus de
+chaleur pour chauffer la tranche dont la température est supérieure à 100°C sert à
+vaporiser de l’eau). La température de la tranche est donc ramenée à 100 °C
+3/ Echange de chaleur du gaz
+Plusieurs échanges sont à prendre en compte :
+ Echange avec le tube
+ Echange avec l’eau
+ Si la température du gaz, ainsi obtenue, est inférieure à 100°, un changement d’état
+intervient : une partie de l’eau gazeuse est liquéfiée (la chaleur nécessaire à
+maintenir le gaz à 100°C vient de la liquéfaction de la vapeur d’eau). La température
+du gaz est donc ramenée à 100 °C.
+4/ A partir de Tgaz obtenue, ngaz et x(t)
+ A l’aide de l’équation des gaz parfaits pV = nRT, on obtient Pgaz.
+=> Retour au 1/.
+On obtient ainsi le programme joint en Annexe n°2.
+Ce programme nous a permis d’obtenir différentes courbes, afin de comparer la simulation au
+phénomène réel.
+
+18
+©Thibaut Besacier, Morgan Fouillat, Vincent Joyet – poppoptarare@free.fr
+
+Le retour du pop-pop
+2009
+2010
+
+Position de l’interface en fonction du temps
+
+Suite à des mesures sur le tube en verre, la courbe obtenue ci-dessus correspond bien au
+phénomène réel car l’interface se situe en moyenne à 4 cm du bout du petit tube dans les deux cas.
+
+Température du gaz en fonction du temps
+
+Ce graphique correspond bien à la réalité, car à l’aide du thermocouple (voir Annexe n°1), nous
+avons établi que la température moyenne du gaz était bien de 300°C.
+
+©Thibaut Besacier, Morgan Fouillat, Vincent Joyet – poppoptarare@free.fr
+
+19
+
+Le retour du pop-pop
+2009
+2010
+Variation de pression en fonction du temps
+
+Ce graphique permet d’expliquer les allers et retours d’eau par les variations de la pression à
+l’intérieur du tube.
+Quantité de matière de gaz en fonction du temps
+
+La courbe permet de montrer que la quantité de matière de gaz formé tend vers une valeur finie,
+ce qui montre bien que l’aller et retour est dû à un gaz surchauffé qui se dilate et se comprime sous
+l’effet de la chaleur et non à une suite de cycles vaporisation-condensation.
+
+20
+©Thibaut Besacier, Morgan Fouillat, Vincent Joyet – poppoptarare@free.fr
+
+Le retour du pop-pop
+2009
+2010
+
+Conclusion :
+Cette simulation nous a donc permis d’approfondir nos connaissances sur le phénomène,
+notamment en le décomposant très précisément. De plus, en comparant avec le phénomène réel,
+nous avons vu que la simulation correspond bien, et nous avons ainsi découvert grâce aux résultats
+de nouvelles précisions concernant le phénomène : il commence par des cycles de vaporisationcondensation, comme nous l’avons trouvé dans la littérature, mais la quantité de matière de gaz se
+stabilise au cours du temps. Une fois les oscillations stabilisées, les allers et retours d’eau sont dûs à
+une suite de dilatations-compressions du gaz.
+
+3. Mise en équation d’un modèle simplifié :
+Nous avons, en plus de la simulation, réalisé une mise en équation d’un modèle simplifié, inspirée
+de la mise en équation du résonateur de Helmholtz.
+On représente le modèle simplifié de la manière suivante :
+
+Petit tube
+P, T,
+
+Evaporateur
+
+,S
+
+P0
+
+0
+
+x
+
+1/ Hypothèses :
+ Dans l’évaporateur, la température est uniforme et constante (hypothèse erronée au regard
+de la simulation).
+ L’eau sous forme liquide et vapeur se déplace (en « bloque ») de la même manière (x) par
+rapport à une position initiale d’équilibre (0) dans le petit tube. La pression est uniforme
+dans le petit tube.
+ On néglige tout phénomène de friction.
+2/ Mise en équation du petit tube :
+D’après la deuxième loi de Newton :
+
+Soit
+Avec m : la masse de l’eau déplacée et V le volume vapeur d’eau contenue dans le petit tube. La
+masse d’eau déplacée étant très grande devant la masse de vapeur d’eau contenue dans le petit
+tube, on a
+d’où
+(E1)
+
+©Thibaut Besacier, Morgan Fouillat, Vincent Joyet – poppoptarare@free.fr
+
+21
+
+Le retour du pop-pop
+2009
+2010
+
+Ou
+
+(E1)
+
+Avec
+
+: la vitesse de l’eau déplacée dans le petit tube
+
+3/ Mise en équation de l’évaporateur :
+La conservation de la masse de vapeur à l’intérieur de l’évaporateur (notée
+
+) nous donne :
+
+Cette équation dit que « la variation de la masse de vapeur présent à l’intérieur de l’évaporateur,
+est égale à la masse de vapeur sortant de l’évaporateur ».
+En appelant Vév le volume, constant, de l’évaporateur :
+On obtient :
+(E2)
+Avec
+
+: la vitesse de l’eau déplacée dans le petit tube
+
+Or en considérant que T et Vév sont constants :
+D’après l’équation des gaz parfaits :
+
+Or la masse volumique de la vapeur d’eau (supposée régir comme un gaz parfait)
+
+Ainsi
+En dérivant par rapport au temps :
+Si on injecte cette relation dans l’équation (E2), on obtient :
+
+Ou encore
+
+(E3)
+
+Reprenons l’équation (E1) et dérivons-la par rapport au temps, on obtient (P0 est constante) :
+
+D’où
+En remplaçant le
+
+obtenu ici, par le
+
+obtenu dans l’équation (E3), on obtient :
+
+22
+©Thibaut Besacier, Morgan Fouillat, Vincent Joyet – poppoptarare@free.fr
+
+Le retour du pop-pop
+2009
+2010
+
+On a vu que
+
+d’où
+
+Soit
+
+D’où
+
+Enfin
+On reconnait l’équation caractéristique d’un oscillateur harmonique, dont la pulsation est :
+
+D’où une fréquence d’oscillations :
+
+4/ Conclusion :
+Ce modèle simplifié permet de tirer les constatations suivantes :
+
+
+
+
+
+Première constatation : la fréquence des oscillations diminue si le volume de l’évaporateur
+augmente. Cette constatation n’a pu être vérifiée avec la simulation numérique à l’heure où
+nous écrivons ce rapport.
+Deuxième constatation : la fréquence des oscillations diminue si la section du petit tube
+diminue. Cette constatation a été vérifiée par la simulation numérique.
+Troisième constatation : la fréquence des oscillations diminue si la masse d’eau déplacée
+augmente (tout en maintenant la section du petit tube). Cette constatation a été vérifiée par
+la simulation numérique.
+
+©Thibaut Besacier, Morgan Fouillat, Vincent Joyet – poppoptarare@free.fr
+
+23
+
+Le retour du pop-pop
+2009
+2010
+
+ III/ Application
+Réalisation du bateau
+Après avoir compris le phénomène pop-pop, nous avons décidé de construire notre propre
+moteur pour propulser une maquette de bateau.
+
+Adaptation du gouvernail
+sur la coque du bateau
+
+Réalisation de cloisons
+permettant d’isoler de la
+chaleur le reste du bateau
+
+Adaptation du moteur pop-pop sur le
+bateau (perçage de la coque) et
+réalisation d’un support pour la partie
+électrique
+
+24
+©Thibaut Besacier, Morgan Fouillat, Vincent Joyet – poppoptarare@free.fr
+
+Le retour du pop-pop
+2009
+2010
+
+Adaptation des cloisons
+isolantes sur le bateau
+
+Partie électrique permettant le
+pilotage à distance du bateau
+(servomoteur, radiocommande,
+accumulateur et récepteur).
+
+Peinture du bateau…
+
+©Thibaut Besacier, Morgan Fouillat, Vincent Joyet – poppoptarare@free.fr
+
+25
+
+Le retour du pop-pop
+2009
+2010
+
+… en bleu, orange et blanc.
+
+Afin de protéger la partie électrique
+d’éléments extérieurs pouvant nuire
+à son fonctionnement, nous avons
+réalisé une cloison en plexiglas
+
+Voilà le bateau prêt à
+naviguer, baptisé PoP en
+référence au moteur
+Pop-Pop, mais aussi pour
+Projet des
+Olympiades de
+Physique
+
+26
+©Thibaut Besacier, Morgan Fouillat, Vincent Joyet – poppoptarare@free.fr
+
+Le retour du pop-pop
+2009
+2010
+
+ IV/ Optimisation
+Afin de calculer le rendement du moteur pop-pop, nous avons cherché à déterminer le rapport
+entre la puissance utile et celle fournie. Pour cela il faut calculer la vitesse du bateau et la force de
+poussée du moteur qui permettent d’accéder à la puissance utile ainsi que la puissance de chauffe du
+brûleur qui constitue la puissance fournie.
+
+1. Mesure et calcul du pouvoir calorifique de l’éthanol
+a- Valeur théorique
+Nous avons commencé par déterminer la valeur théorique de l’énergie de la réaction de
+combustion du bioéthanol. Cette valeur est valable pour une même température du système à l’état
+initial et à l’état final.
+La réaction mise en jeu lors de la combustion du bioéthanol contenu dans notre brûleur est :
+
+C2H6O(l) + 3O2(g) → 2CO2(g) + 3H2O(l)
+Les formules développées des molécules mises en jeu lors de la réaction sont :
+
+Données :
+Liaisons
+C=O
+O-H
+C-C
+C-H
+C-O
+O=O
+
+Valeurs des énergies de liaison à
+25°C en kJ/mol
+795
+460
+348
+410
+356
+494
+
+©Thibaut Besacier, Morgan Fouillat, Vincent Joyet – poppoptarare@free.fr
+
+27
+
+Le retour du pop-pop
+2009
+2010
+
+Ainsi, l’énergie de réaction correspond à la différence entre l’énergie dégagée lors de la création
+des liaisons des produits, et celle qui est apportée pour rompre les liaisons des réactifs :
+Qr = 4.DC=O + 6.DO-H – [ DC-C + 5.DC-H + DC-O + DO-H + 3.DO=O ]
+Qr = 4×795 + 6×460 – [ 348 + 5×410 + 356 + 460 +3×494 ]
+Qr = 1,24.103 kJ/mol
+L’énergie de réaction massique est ainsi:
+Qr m =
+
+=
+
+Qr m = 2,70.104 kJ/kg
+
+b- Valeur expérimentale
+Nous avons ensuite mesuré expérimentalement le pouvoir calorifique de l’éthanol grâce à
+l’expérience suivante :
+
+Dispositif expérimental :
+
+boîte permettant
+d’isoler le dispositif
+
+brûleur
+bioéthanol
+
+agitateur
+chronomètre
+
+boîte de conserve
+
+sonde de
+température
+balance
+
+Tout d’abord, nous avons mesuré la masse du brûleur et de la boîte de conserve en fer avec et
+sans eau. Ensuite nous avons fait chauffer la boîte remplie d’eau grâce au brûleur tout en relevant la
+température toutes les minutes jusqu’à atteindre 45 °C (température à partir de laquelle les pertes de
+chaleur sont trop importantes).
+
+28
+©Thibaut Besacier, Morgan Fouillat, Vincent Joyet – poppoptarare@free.fr
+
+Le retour du pop-pop
+2009
+2010
+
+Masse du brûleur initiale :
+mi = 65,04g
+Masse du brûleur finale :
+mf = 61,18g
+Masse de la boîte en fer :
+mfer = 79,04g
+Masse de la boîte en fer + eau : m = 680 g
+Masse de l’eau :
+meau = m-mfer = 601 g
+
+Nous avons obtenu les résultats suivants :
+
+Θ0
+Θ1
+Θ2
+Θ3
+Θ4
+Θ5
+Θ6
+Θ7
+Θ8
+
+Température θ (°C)
+11,3
+15,7
+20,2
+23,6
+27,2
+30,8
+34,7
+38,3
+41,6
+
+Temps (min)
+0
+1
+2
+3
+4
+5
+6
+7
+8
+
+Température de l'eau en fonction du temps
+45
+40
+
+Température (°C)
+
+35
+
+y = 3,753x + 12,03
+
+30
+25
+20
+15
+10
+5
+0
+0
+
+1
+
+2
+
+3
+
+4
+5
+Temps (min)
+
+©Thibaut Besacier, Morgan Fouillat, Vincent Joyet – poppoptarare@free.fr
+
+6
+
+7
+
+8
+
+9
+
+29
+
+Le retour du pop-pop
+2009
+2010
+
+Ces mesures nous ont permis de calculer la chaleur apportée totale, afin d’en déduire la valeur
+expérimentale du pouvoir calorifique du brûleur.
+Données :
+- Capacité calorifique de l’eau à 300 K : Ceau = 4186 J.kg-1.K-1
+- Capacité calorifique du fer à 300 K : Cfer = 444 J.kg-1.K-1
+Qapportée(eau) = meau.Ceau.(θ8 – 0)
+Qapportée(eau) = 601.10-3 × 4186 × (41,6 – 11,3)
+Qapportée(eau) = 7,62.104 J
+Qapportée(fer) = mfer.Cfer.( 8 – 0)
+Qapportée(fer) = 79,04.10-3 × 444 × (41,6 – 11,3)
+Qapportée(fer) = 1,06.103 J
+On en déduit :
+Qapportée totale = Qapportée(eau) + Qapportée(fer)
+Qapportée totale = 7,62.104 + 1,06.103
+Qapportée totale = 773.102 J
+Il vient donc que le pouvoir calorifique expérimental PCexp est :
+PCexp =
+
+=
+
+–
+
+4
+
+PCexp = 2,00.10 kJ/kg
+
+c- Analyse des résultats
+Donnée :
+- pouvoir calorifique de l’éthanol (trouvé sur Internet) : 2,97.104kJ/kg
+L’énergie de réaction massique calculée est voisine du pouvoir calorifique de l’éthanol trouvé
+dans la littérature. La faible différence peut s’expliquer par les arrondis et la précision des valeurs.
+De plus, le pouvoir calorifique expérimental est inférieur à celui trouvé sur internet. Cela est dû
+aux imprécisions de mesure de température et, malgré l’isolation de la boîte de conserve et de la
+flamme, aux quelques pertes de chaleur (le système n’est pas parfaitement isolé thermiquement).
+Remarque :
+La puissance de chauffe peut se déduire simplement de la chaleur apportée totale :
+Papportée totale =
+Papportée totale = 161 W.
+
+30
+©Thibaut Besacier, Morgan Fouillat, Vincent Joyet – poppoptarare@free.fr
+
+Le retour du pop-pop
+2009
+2010
+
+2. Mesure de la vitesse du bateau
+Afin de mesurer la vitesse du bateau, nous avons réalisé l’expérience ci-dessous pour filmer le
+déplacement du bateau et exploiter informatiquement la vidéo.
+Dispositif expérimental :
+
+voile blanc
+
+bateau
+
+mètre
+
+bassin
+
+pied de la
+caméra
+
+Acquisition et traitement des données :
+Nous avons ensuite utilisé le logiciel Aviméca® pour exploiter la vidéo.
+
+©Thibaut Besacier, Morgan Fouillat, Vincent Joyet – poppoptarare@free.fr
+
+31
+
+Le retour du pop-pop
+2009
+2010
+
+Ce logiciel permet de pointer, image après image, un même point sur le bateau, nous donnant
+ainsi l’évolution de ses coordonnées en fonction du temps. Nous pouvons ainsi calculer la vitesse
+instantanée pour chaque point avec la formule :
+, avec v en m.s-1, d en m et t en s.
+v(n) = =
+
+Nous obtenons ainsi la courbe suivante :
+
+Vitesse en fonction du temps
+Vitesse (m/s)
+
+0,25
+y = -0,001x + 0,197
+
+0,20
+0,15
+0,10
+0,05
+0,00
+0,00
+
+1,00
+
+2,00
+
+3,00
+
+4,00
+
+5,00
+
+6,00
+
+7,00
+
+8,00
+
+Temps (s)
+
+On peut alors en déduire la vitesse moyenne : vmoy = 0,19 m.s-1 = 0,68 km.h-1, une vitesse pouvant
+être considérée comme constante au cours du temps, comme le montre le coefficient directeur de
+0,001 de la droite de tendance.
+De plus, sachant qu’un nœud est égal à 1,852 km.h-1, la vitesse moyenne du bateau est égale à
+nœud, alors qu’un bateau "normal" navigue à une vitesse d’environ 10/15 nœuds.
+
+32
+©Thibaut Besacier, Morgan Fouillat, Vincent Joyet – poppoptarare@free.fr
+
+Le retour du pop-pop
+2009
+2010
+
+3. Mesure de la force de poussée du bateau
+Dans le but de mesurer la force de poussée du bateau, nous avons réalisé l’expérience suivante :
+
+Dispositif expérimental :
+
+Résultat :
+
+©Thibaut Besacier, Morgan Fouillat, Vincent Joyet – poppoptarare@free.fr
+
+33
+
+Le retour du pop-pop
+2009
+2010
+
+Schématisation de l’expérience :
+
+T
+F
+
+P
+
+Isolement des forces :
+
+θ
+L
+T
+l
+
+F
+
+P
+
+j
+
+O
+
+i
+
+34
+©Thibaut Besacier, Morgan Fouillat, Vincent Joyet – poppoptarare@free.fr
+
+Le retour du pop-pop
+2009
+2010
+
+On projette les forces sur les axes du repère :
+
+Etant donné que le système est à l’équilibre, la somme des forces extérieures est nulle. On a donc
+
+Selon l’axe
+
+:
+
+(1)
+
+Selon l’axe
+
+:
+(2)
+(d’après (1))
+
+(Car
+
+)
+
+avec m la masse tirée par le bateau et g la constante universelle de
+gravitation
+Ici :
+
+Et on prend :
+
+l = 3,0 cm = 3,0.10-2 m
+L = 58 cm = 5,8.10-1 m
+m = 50 g = 5,0.10-2 kg
+g = 9,81 m.s-2
+
+ Donc F =
+
+. 5,0.10-2. 9,81 = 25 mN
+
+La force de poussée du moteur est donc de 25 mN.
+
+©Thibaut Besacier, Morgan Fouillat, Vincent Joyet – poppoptarare@free.fr
+
+35
+
+Le retour du pop-pop
+2009
+2010
+
+4. Rendement du moteur
+Ces trois dernières valeurs permettent de calculer le rendement global du moteur pop-pop. On
+peut, en effet, calculer la puissance mécanique délivrée par le moteur, en calculant la puissance
+correspondant au travail mécanique de la force F :
+
+étant le vecteur vitesse moyenne entre A et B.
+Ici la vitesse du bateau est quasiment constante (c.f. ci-dessus). De plus, le déplacement du bateau
+est rectiligne, et donc
+, a la même direction et le même sens que .
+On en déduit que la puissance mécanique délivrée par le moteur a pour expression :
+
+Ainsi, le rendement global du moteur pop-pop est égal au rapport entre la puissance mécanique
+délivrée par le moteur et la puissance de chauffe du brûleur (notée Papportée totale).
+η=
+D’où
+η=
+
+Et donc
+
+η=
+η = 3,0.10-3 %
+
+Le rendement est lamentable ! Ceci est dû aux importantes pertes de chaleur, et à la très faible
+force de poussée du moteur (de l’ordre du millinewton) ce qui provoque une très faible vitesse.
+A comparer aux 35% d’une propulsion classique, aux 50% pour le moteur à essence et aux 70% pour
+l’hélice, cela reste très faible et justifie qu’il n’y ait jamais eu de débouchés industriels du moteur
+pop-pop.
+En effet, afin de propulser un bateau à taille réelle, il faudrait que le moteur délivre une force de
+poussée très importante. Or, la force maximale d’un tel moteur connue est de l’ordre de 200mN, ce
+qui est négligeable (c’est environ 1000 fois moins que ce que peut développer un rameur). De plus, il
+faudrait une quantité énorme de combustible à cause du rendement très faible dû en partie aux
+pertes de chaleurs. De surcroît, pour obtenir un cycle de dilatation-compression, l’eau doit être de
+bonne qualité, or la plupart des eaux sont polluées et l’eau salée entraînerait la formation d’un dépôt
+de sel à l’intérieur du moteur et empêcherait son bon fonctionnement.
+C’est pourquoi le moteur pop-pop est destiné à rester uniquement à l’état de simple jouet.
+
+36
+©Thibaut Besacier, Morgan Fouillat, Vincent Joyet – poppoptarare@free.fr
+
+Le retour du pop-pop
+2009
+2010
+
+5. Fréquence du moteur
+a- Mesure de la fréquence
+L’expérience suivante permet de mesurer la fréquence du moteur, en extrayant le son d’une
+vidéo du dispositif suivant, et en traitant le son ainsi obtenu grâce au logiciel Audacity®.
+Dispositif expérimental :
+
+Allure temporelle du son obtenu :
+
+Résultat :
+On compte 59 coups en 10 secondes, soit une fréquence de 5,9 Hz.
+
+©Thibaut Besacier, Morgan Fouillat, Vincent Joyet – poppoptarare@free.fr
+
+37
+
+Le retour du pop-pop
+2009
+2010
+
+b- Paramètres influant sur la fréquence
+
+Nous nous sommes ensuite interrogés sur les paramètres qui pouvaient influer sur la fréquence.
+Pour cela nous avons réalisé diverses expériences :
+ tout d’abord, nous avons fait varier la longueur de l’évaporateur et donc le volume d’eau, tout
+en conservant le même diamètre et la même longueur pour le petit tube.
+
+Fréquence du moteur en fonction de la longueur
+de l'évaporateur
+
+Fréquence (Hz)
+
+10,00
+9,00
+8,00
+7,00
+6,00
+5,00
+4,00
+3,00
+2,00
+1,00
+0,00
+
+y = 32,70x-0,37
+
+0
+
+20
+
+40
+
+60
+
+80
+
+100
+
+120
+
+Longueur de l'évaporateur (mm)
+
+ On observe que plus l’évaporateur est grand, plus la fréquence diminue.
+ ensuite, nous avons fait varier le diamètre du petit tube, tout en conservant le même
+évaporateur et la même longueur pour le petit tube.
+
+Fréquence (Hz)
+
+Fréquence du moteur en fonction de la largeur du
+petit tube
+9,00
+8,00
+7,00
+6,00
+5,00
+4,00
+3,00
+2,00
+1,00
+0,00
+
+y = -0,387x + 9,266
+
+0
+
+2
+
+4
+
+6
+
+8
+
+10
+
+Diamètre du petit tube (mm)
+
+ On observe que plus le diamètre du petit tube est grand, plus la fréquence diminue.
+
+38
+©Thibaut Besacier, Morgan Fouillat, Vincent Joyet – poppoptarare@free.fr
+
+Le retour du pop-pop
+2009
+2010
+
+ enfin, nous avons fait varier la densité du fluide en ajoutant plus ou moins de sel.
+
+Fréquence du moteur en fonction de la densité
+du fluide
+8,00
+7,80
+Fréquence (Hz)
+
+7,60
+7,40
+
+y = 10,68x - 4,284
+
+7,20
+7,00
+6,80
+6,60
+6,40
+1
+
+1,05
+
+1,1
+
+1,15
+
+Densité du fluide
+
+ On observe que plus la densité du fluide est importante, plus la fréquence est élevée.
+Bilan :
+Nous déduisons de ces trois expériences que la fréquence semble dépendre notamment de la masse
+d’eau, du volume de gaz formé, ainsi que de la densité du fluide.
+
+c- Confrontation des résultats avec la simulation et le modèle
+simplifié
+- Première constatation : en accord avec le modèle simplifié. Nous avons montré expérimentalement
+que la fréquence d’oscillation diminue lorsque le volume de l’évaporateur augmente. Plus
+particulièrement les résultats expérimentaux semblent donner une relation du type :
+Tandis que le modèle simplifié
+- Deuxième constatation : en désaccord avec le modèle simplifié et la simulation numérique. Nous
+avons montré expérimentalement que la fréquence d’oscillation diminue lorsque la section du petit
+tube augmente. Nous n’avons, à l’heure où nous écrivons ce rapport, pas trouvé d’explications claires
+pour expliquer ce désaccord. Une des pistes pour l’expliquer serait l’influence de la tension
+superficielle.
+- Troisième constatation : en désaccord avec le modèle simplifié et la simulation numérique. Nous
+avons montré expérimentalement que la fréquence d’oscillation diminue lorsque la salinité de l’eau
+diminue, c'est-à-dire lorsque la masse d’eau déplacée diminue (tout en conservant la section du petit
+tube constante). Nous n’avons, à l’heure où nous écrivons ce rapport, pas trouvé d’explications
+claires pour expliquer ce désaccord. Une des pistes pour l’expliquer serait l’influence de la tension
+superficielle, qui dépend de la salinité de l’eau.
+
+©Thibaut Besacier, Morgan Fouillat, Vincent Joyet – poppoptarare@free.fr
+
+39
+
+Le retour du pop-pop
+2009
+2010
+
+ V/ Conclusion
+Pour conclure, nous pensons avoir atteint nos objectifs initiaux, à savoir comprendre le
+phénomène, l’étudier et en dégager l’intérêt.
+Tout d’abord, nos recherches sur le phénomène pop-pop ont constitué une première approche
+nécessaire afin d’appréhender le fonctionnement global du système. Cela nous a également servi
+pour pouvoir simuler informatiquement le phénomène. Cette simulation nous a beaucoup aidés car
+elle nous a permis de comprendre tous les paramètres influant sur le phénomène, mais aussi de
+mieux nous l’approprier grâce à la précision et à la clarté de ses résultats, qui ont non seulement
+confirmé nos recherches précédemment effectuées, mais aussi apporté de nouvelles informations
+sur le phénomène.
+Ensuite, la conception de la maquette, malgré les nombreuses difficultés rencontrées (adaptation
+de la partie électrique ainsi que des éléments permettant la direction du gouvernail, …), a été très
+enrichissante. En effet, elle nous a permis de mettre en pratique toute la partie théorique, et ainsi
+d’éprouver, à force de persévérance, une certaine fierté en voyant le bateau naviguer dans notre
+bassin !
+En outre, toutes les expériences effectuées ont été l’occasion de mettre en pratique les
+connaissances acquises notamment en physique, en chimie, mais également en informatique. Elles
+ont surtout été nécessaires afin d’aboutir à la conclusion fondamentale que ce principe ne peut
+malheureusement pas être appliqué sur de vrais bateaux, mais simplement sur des bateaux jouets.
+En effet, à cause de son faible rendement, entraîné par les pertes de chaleur conséquentes, et de sa
+vitesse, qui est seulement de 0,37 nœud alors qu’un bateau "normal" navigue à 10/15 nœuds de
+moyenne, il est totalement inenvisageable d’adapter ce système à des bateaux à taille humaine.
+De plus, l’étude de ce phénomène nous a fourni l’opportunité de nous familiariser avec des
+notions qui n’ont pas encore été étudiées en cours comme la méthode d’Euler, la thermodynamique,
+et la thermochimie.
+Enfin, ce projet a constitué une formidable opportunité pour apprendre à travailler en groupe.
+Durant un an, et au prix d’un fort investissement personnel de chacun, nous avons en effet constaté
+que le travail en groupe permet la synergie des compétences, et que cela peut s’avérer fort agréable
+de travailler avec des camarades, surtout lorsqu’ils font preuve d’une grande motivation. Il nous a
+également fait apparaître les difficultés d’une démarche expérimentale ainsi que l’exigence de la
+rigueur et de la précision. Nous avons également pu rencontrer dans l’élaboration du projet des
+personnes à la fois passionnées et passionnantes que nous remercions dès à présent.
+
+40
+©Thibaut Besacier, Morgan Fouillat, Vincent Joyet – poppoptarare@free.fr
+
+Le retour du pop-pop
+2009
+2010
+
+ VI/ Glossaire
+Sources:
+- Manuel de physique/chimie de Première et Terminale S, éditions Hachette Éducation,
+collection Durandeau
+- Encyclopédie libre en ligne Wikipédia (http://fr.wikipedia.org)
+- http://www.eclecticspace.net
+- http://www.bateau-popop.com
+- http://www.jp-perroud.com/poppop.htm
+- http://www.pop-pop.fr/
+- http://www.chez.com/llegoff/poppop/
+- http://famg.club.fr/Index.html
+- http://www.sredmond.com/smf/index.php
+
+ VII/ Remerciements
+Nous adressons de sincères remerciements à nos professeurs :
+M. Mustapha ERRAMI, notre professeur coordinateur, pour sa disponibilité et son enthousiasme à
+encadrer des projets,
+M. Fabien BRUNO, professeur agrégé de physique-chimie, pour son aide précieuse, et le temps passé
+avec nous,
+M. François PINAULT et M. Christian VALLON, professeurs des sciences de l’ingénieur, pour leurs
+conseils avisés.
+Nous réservons également un lot de remerciements aux passionnés du « pop-pop », qui n’ont
+jamais été avares de suggestions, de conseils et d’encouragements :
+M. René ROBEIN, ancien professeur à la retraite et passionné de modélisme, pour nous avoir fait
+découvrir le phénomène, pour ses multiples réalisations, ses précieux conseils et pour son
+encadrement continu du groupe,
+M. Yacine BAKACHE, pour ses connaissances en modélisation 3D,
+M. Jean-Yves RENAUD, créateur du site eclecticspace.com, pour ses précieuses explications,
+Tous les membres du forum privé http://www.sredmond.com/smf/index.php (voir Annexe n°3).
+Enfin, nous remercions chaleureusement tous nos partenaires, le Rectorat de l’académie de Lyon,
+le Conseil Régional de Rhône-Alpes, M. Roger DUFFAIT de l’Université Claude Bernard de Lyon, M.
+Ludovic JAUBERT de l’ENS de Lyon, et M. Florent JOYET de l’Ecole Centrale de Lyon.
+
+©Thibaut Besacier, Morgan Fouillat, Vincent Joyet – poppoptarare@free.fr
+
+41
+
+Le retour du pop-pop
+2009
+2010
+
+ Annexe n°1 : le thermocouple
+Les thermocouples sont utilisés essentiellement en physique pour mesurer des températures. Ils
+sont bon marché et permettent la mesure dans une grande gamme de températures. Leur principal
+défaut est leur précision : ils sont précis à 0,1 °C près.
+Principes de la mesure :
+
+Schéma de principe d'un thermocouple
+
+Un thermocouple est composé de deux métaux a et b, de natures différentes, qui sont reliés par
+deux jonctions possédant respectivement une température T1 et T2. Par effet Seebeck, effet
+thermoélectrique découvert en 1821 par le physicien allemand Thomas Johann, le thermocouple
+génère une différence de potentiel qui dépend de la différence de température entre les jonctions,
+T1-T2. Les thermocouples ne mesurent donc pas une température, mais une différence de
+température. Pour mesurer une température inconnue, l'une des deux jonctions doit être maintenue
+à une température connue, par exemple celle de la glace fondante (0 °C). Il est également possible
+que cette température de référence soit mesurée par un capteur (température ambiante, par
+exemple). La mesure de température est donc une mesure indirecte, puisque les thermocouples
+mesurent en fait une différence de potentiel électrique. Il est donc nécessaire de connaître la
+réponse du thermocouple utilisé en fonction de la température pour pouvoir relier la différence de
+potentiel électrique à la différence de température. De plus, la mesure passant par la détermination
+d'une différence de potentiel, sa précision dépend fortement du voltmètre utilisé.
+Il existe plusieurs types de thermocouples différents. Tous sont utilisés pour une gamme précise
+de température, de quelques degrés à quelques milliers de degrés. Notons néanmoins que les
+signaux électriques de ces sondes sont non linéaires. En revanche les thermocouples présentent
+l'avantage d’être fiables, de faible encombrement et faciles à mettre en œuvre. Celui que nous avons
+utilisé (voir photo page suivante) est de type K ; voici ses caractéristiques :
+Composition :
+- Chromel (alliage nickel + chrome)
+- Alumel (alliage nickel + aluminium (5%) + silicium)
+Thermocouple standard. Il permet une mesure dans une gamme de température large :
+-250 °C à 1 372 °C. Il est également bon marché, mais ne permet pas une mesure à 0°C.
+
+(d’après Wikipédia).
+
+42
+©Thibaut Besacier, Morgan Fouillat, Vincent Joyet – poppoptarare@free.fr
+
+Le retour du pop-pop
+2009
+2010
+
+Afin de déterminer la température le long du tube à essai pour la simulation informatique, ainsi
+que celle du gaz formé à l‘intérieur de ce dernier, nous avons réalisé l’expérience suivante :
+
+Dispositif expérimental :
+
+support tube à essai
+bioéthanol
+brûleur
+
+support du brûleur
+thermocouple
+
+règle
+tube à essai
+
+voltmètre
+
+marqueur
+
+Après avoir inscrit avec le marqueur une série de points sur le tube à essai espacés les uns des
+autres de 1 cm, nous avons relevé la température à l’aide du thermocouple.
+
+©Thibaut Besacier, Morgan Fouillat, Vincent Joyet – poppoptarare@free.fr
+
+43
+
+Le retour du pop-pop
+2009
+2010
+
+Nous avons ainsi obtenu la courbe suivante :
+
+600
+
+Température en °C
+
+500
+400
+300
+200
+100
+0
+1
+
+3
+
+5
+
+7
+
+9
+
+11 13 15 17 19
+
+Position du point en cm (à partir du bas du tube)
+
+Donnée :
+
+Courbe d'étalonnage Thermocouple
+3
+y = 0,040x - 0,872
+R² = 0,999
+
+2,5
+DeltaU (mV)
+
+2
+1,5
+1
+0,5
+0
+-0,5 0
+
+20
+
+40
+
+60
+
+80
+
+100
+
+T (°C)
+
+44
+©Thibaut Besacier, Morgan Fouillat, Vincent Joyet – poppoptarare@free.fr
+
+Le retour du pop-pop
+2009
+2010
+
+ Annexe n°2 : programme
+
+©Thibaut Besacier, Morgan Fouillat, Vincent Joyet – poppoptarare@free.fr
+
+45
+
+Le retour du pop-pop
+2009
+2010
+
+46
+©Thibaut Besacier, Morgan Fouillat, Vincent Joyet – poppoptarare@free.fr
+
+Le retour du pop-pop
+2009
+2010
+
+©Thibaut Besacier, Morgan Fouillat, Vincent Joyet – poppoptarare@free.fr
+
+47
+
+Le retour du pop-pop
+2009
+2010
+
+48
+©Thibaut Besacier, Morgan Fouillat, Vincent Joyet – poppoptarare@free.fr
+
+Le retour du pop-pop
+2009
+2010
+
+©Thibaut Besacier, Morgan Fouillat, Vincent Joyet – poppoptarare@free.fr
+
+49
+
+Le retour du pop-pop
+2009
+2010
+
+ Annexe n°3 : le forum dont nous sommes membres
+
+Nous nous sommes inscrits sur le forum : http://www.sredmond.com/smf/index.php qui est géré
+par un américain. Ce forum regroupe une quinzaine de personnes originaires de différents pays (un
+canadien, un allemand, 3 néerlandais, un sud-africain, 3 français, 2 américains…), toutes expertes du
+phénomène pop-pop. On retrouve par exemple Eljoh Sneep et Jorn Goldenbeld, deux néerlandais qui
+travaillent sur un bateau pop-pop solaire,et Jean-Yves Renaud ingénieur français à la retraite qui est
+le modérateur du site www.eclectispace.net et qui nous a permis d’entrer en contact avec le
+créateur du forum, Stephen Redmond, ingénieur américain.
+
+Extrait des membres du forum
+
+50
+©Thibaut Besacier, Morgan Fouillat, Vincent Joyet – poppoptarare@free.fr
+
+Le retour du pop-pop
+2009
+2010
+
+Page d'accueil du forum
+
+©Thibaut Besacier, Morgan Fouillat, Vincent Joyet – poppoptarare@free.fr
+
+51
+
+Le retour du pop-pop
+2009
+2010
+
+Différents sujets concernant le pop-pop
+
+Ce forum nous a offert la possibilité d’en apprendre davantage sur le phénomène et de trouver de
+nouvelles expériences pour mettre en évidence certaines de ses particularités. De plus, il nous a
+permis de perfectionner notre anglais et d’apprendre du vocabulaire technique. Les membres nous
+ont donc été d’une très grande utilité grâce à leurs échanges instructifs et intéressants. Nous
+remercions donc tous les membres ainsi que le créateur du forum pour leurs conseils avisés.
+
+52
+©Thibaut Besacier, Morgan Fouillat, Vincent Joyet – poppoptarare@free.fr
+
+

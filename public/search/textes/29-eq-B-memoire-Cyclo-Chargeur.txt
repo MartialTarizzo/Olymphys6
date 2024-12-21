@@ -1,0 +1,573 @@
+BOSBATY Emma, DEPARDAY Baptiste, FRAENKEL Paul, LOISEAU Roméo,
+MAGLIANO Juliette, POISEAU Hippolyte
+Professeur et intervenant extérieur :
+Mme. PRADEAU, J. BRUNET, P. ROSNET
+
+Cyclo Chargeur
+
+Session 2021-2022
+1
+
+SOMMAIRE :
+Résumé……………………………………………………………………………………………………………………………………..………………….. 3
+Introduction…………………………………………………………………………………………………………………………….........................3
+Partie 1/ Etude du théorique du phénomène d’induction électromagnétique…………..…………………………………..4
+I.
+
+Mise en évidence du phénomène d’induction
+
+1) Etude expérimentale du phénomène
+2) Origine du courant induit
+II.
+
+La loi de Lenz
+
+1) Déplacement d’un aimant ou d’une bobine
+2) Conséquence
+III.
+
+Force électromotrice et énergie électromagnétique
+
+IV.
+
+Applications du phénomène d’induction
+
+Partie 2/ Etude expérimentale………………………………………………………………………………………………………………………8
+I.
+
+Le champ magnétique créé/ Mesure de Romaric
+1) Mise en évidence des lignes de champ
+2) Mesure du champ magnétique
+
+II.
+
+Les bobines de « Paul »
+1) Différents enroulements
+2) Mesure de l’inductance ; circuit RL et auto-induction.
+
+III.
+
+Le vélo d’Hippolyte
+1) Mesure de la vitesse de rotation de la roue reliée à une mesure de courant de sortie
+2) D’où la nécessité d’une amplification de courant
+3) Retour sur la miniaturisation du projet – 12 Janvier 2022
+
+Conclusion……………………………………………………………………………………………………………………………………..…..…….…15
+Remerciements……………………………………………………………………………………………………………………………………..…….15
+Bibliographie/sitographie …………………………………………………………………………………………..…………………….… ……..16
+2
+
+Résumé
+Le « cyclo chargeur » est un projet mené par une dizaine d’élèves de terminale du lycée Massillon, qui
+consiste à utiliser un vélo et de lui adapter un alternateur pour recharger la batterie d’un téléphone portable.
+Pour commencer, nous avons cherché à réaliser des expériences afin de mieux connaître tous les processus
+mis en jeu pour comprendre le fonctionnement d’un moteur. Ainsi, nous avons commencé par étudier le
+moteur d’un ventilateur, dans l’espoir de pouvoir adapter son fonctionnement au chargeur de téléphone
+embarqué sur le vélo, puis un moteur pas à pas et finalement, notre idée a été de créer notre propre
+alternateur.
+Afin de réaliser ce projet, nous nous sommes inspirés des vélos disponibles par exemple dans les gares,
+aéroports, etc… ou même des célèbres « Vélib’ » qui promettent de recharger le téléphone lorsque vous
+roulez.
+
+Introduction
+Dans un monde où les enjeux écologiques sont de plus en plus importants, les nouvelles technologies
+se doivent d’être le plus écoresponsable possible. Aujourd’hui pour charger la batterie d’un téléphone,
+l’énergie électrique utilisée provient essentiellement d’énergie nucléaire, ou thermique. Si elle ne dégage pas
+de dioxyde de carbone pour la première, l’énergie produite à partir de gaz ou de charbon en dégage. Dans le
+contexte actuel, où la priorité devient la non production de dioxyde de carbone à cause de son implication
+dans l’effet de serre, remplacer l’alimentation électrique de la batterie d’un téléphone par une énergie
+produite mécaniquement nous semble intéressante.
+Notons qu’il existe déjà des vélos électriques, permettant de recharger la batterie d’un smartphone. Mais
+généralement, les batteries de ces vélos électriques sont des batteries lithium-on rechargeable sur une prise
+du secteur. (électrons « gris »)
+Il faut noter quand même, que même si nous rechargeons la batterie de façon plus écologique, la fabrication
+des batteries lithium-on, elles-mêmes, nécessite des terres rares et des métaux tels que du cobalt, du nickel
+ou encore du lithium ; et l’extraction de ces éléments, énergivore et consommant beaucoup d’eau, entraîne
+de nombreux problèmes, que nous ne résolvons pas. (des problèmes éthiques apparaissent aussi)
+Déjà en 1891, Nikola Tesla, dans son discours devant ses confrères ingénieurs-physiciens de l'American
+Institut of Electrical Engineers de New-York, alertait sur la situation critique que connaissait la planète quand
+il disait : « Et pourtant malgré toutes les promesses des scientifiques, le monde dans lequel nous vivons est
+au bord de la rupture. Il se dirige à toute vitesse vers une catastrophe. » Et plus loin, en faisant référence à la
+production d’énergie par combustion du charbon, il disait encore : « […] cette technologie n’est plus
+appropriée pour garantir le bien-être et la paix de la population du globe. L’énergie est donc l’un des enjeux
+majeurs de notre époque et de notre avenir. »
+Malheureusement, ses avertissements n’ont pas été réellement pris en compte : en effet, le monde est
+aujourd’hui, 130 ans après le début de la production d’électricité à grande échelle, face à une catastrophe
+climatique et écologique.
+De nos jours, le vélo est un moyen de transport urbain qui se développe : en effet, la population réalise qu’en
+ville, les petites comme les plus grandes, le vélo est un transport efficace et les distances parcourues peuvent
+être grandes en un temps comparable (voire inférieur) à celui proposé par les transports en commun comme
+les bus. Le smartphone est, quant à lui, devenu un outil indispensable à notre quotidien. Toutefois, les
+téléphones se déchargent rapidement au fil de la journée.
+Afin de contribuer au respect de l’environnement, nous avons décidé d’intégrer tous ces facteurs dans la
+conception de notre « cyclo chargeur », pour qu’un cycliste puisse recharger son smartphone en même temps
+qu’il réalise ses déplacements. Nous sommes cependant lucides sur la portée de notre action : les composants
+électroniques que nous utilisons, les aimants au néodyme que nous avons achetés, les produits chimiques
+utilisés au laboratoire lors de la miniaturisation, augmentent l’empreinte carbone de notre dispositif.
+3
+
+Partie 1 /Etude théorique
+I.
+
+Mise en évidence du phénomène d’induction
+Nous avions tous connaissance de l’existence d’objets techniques adaptés sur les bicyclettes pour alimenter
+les phares. Abusivement appelés « dynamos », nous avons examiné de plus près leur constitution : il s’agit
+d’un aimant en rotation au centre d’un enroulement de cuivre (bobine). L’aimant constituant le rotor et la
+bobine, le stator. Lorsque la roue de vélo tourne, elle actionne une molette entraînant l’aimant qui se met
+à tourner sur lui-même, au centre de la bobine. La bobine étant reliée à une ampoule, un courant électrique
+circule et l’ampoule éclaire !
+Si nous avions observé les différents constituants de cet alternateur, nous ne connaissions pas encore la
+« cause » de la naissance du courant électrique. Ni les caractéristiques de ce courant. (continu ou
+alternatif ?)
+
+Photo d’une dynamo transparente disponible au laboratoire.
+Mesure de la tension induite par rotation de la molette.
+
+1) Etude expérimentale du phénomène
+On réalise un circuit fermé contenant une bobine et une résistance. On relie les bornes de la résistance à une
+interface d’acquisition (LatisPro) et on déplace un aimant devant la bobine fixe. Une tension apparaît aux
+bornes de la résistance pendant le déplacement de l’aimant.
+Le phénomène réapparaît si l’aimant est fixe et que l’on approche la bobine.
+En revanche si les deux sont immobiles, aucune tension n’existe.
+
+Le signe de la tension dépend du sens de déplacement de l’aimant par rapport à la bobine ou de la bobine par
+rapport à l’aimant. La valeur de la tension est aussi d’autant plus importante que le déplacement est rapide.
+La tension détectée aux bornes de la résistance montre qu’un courant apparaît dans le circuit de la bobine. Ce
+courant est appelé courant induit, la bobine est l’induit et l’aimant est l’inducteur. Le sens du courant dépend
+du sens de déplacement, son intensité est d’autant plus grande que le déplacement est rapide.
+On peut conclure que le déplacement relatif d’une bobine et d’un aimant fait apparaître un courant induit
+dans le circuit de la bobine. C’est ce qui semble mis en pratique dans la « dynamo » du vélo.
+
+4
+
+2) Origine du courant induit
+
+L’aimant crée dans son environnement un champ magnétique inducteur. La bobine est située dans
+ce champ.
+Lorsque l’aimant est proche, le champ magnétique inducteur dans la bobine a une valeur
+importante ; en l’éloignant de l’aimant, la valeur de ce champ diminue.
+Lors du déplacement relatif de l’aimant et de la bobine, la bobine « voit » un champ magnétique
+variant au cours du temps.
+
+C’est donc la variation de la valeur du champ magnétique inducteur au voisinage de la bobine qui est
+à l’origine du courant induit dans le circuit contenant la bobine et la résistance.
+Remarque : On peut aussi trouver dans les livres, que l’on peut faire varier le champ magnétique inducteur,
+non par le déplacement d’un aimant mais par la circulation d’un courant variable dans un solénoïde(bobine).
+
+II.
+
+La loi de Lenz
+
+1) Déplacement d’un aimant ou d’une bobine
+En reprenant les expériences du I.1), on peut déterminer le signe de l’intensité et donc le sens du courant dans
+la résistance.
+Connaissant le sens de l’enroulement, approchons le pôle nord de l’aimant : la tension uBA est positive. Le
+courant circule donc dans la résistance de B vers A, et de A vers B dans la bobine.
+Connaissant le sens de l’enroulement et grâce à la règle de la main droite, on en déduit que le champ crée
+dans la bobine est selon l’axe de la bobine et vers la droite. (pôle sud à gauche et Nord à droite, comme sur le
+doc 6))
+
+5
+
+Cette face « nord » de la bobine s’oppose donc au rapprochement du pôle Nord de l’aimant.
+Si on reproduit l’expérience en éloignant le pôle Nord, la tension uBA change de signe, elle devient négative !
+Le courant circule dans la résistance de A vers B et de B vers A dans la bobine. Le champ magnétique dans la
+bobine est selon son axe, mais vers la gauche, le Nord à gauche et le sud à droite. Cette face « sud » qui attire
+le pôle nord de l’aimant s’oppose donc au fait qu’on l’éloigne. (doc 7)
+2) Conséquence
+
+Le physicien Heinrich Lenz (1804-1865) a bien interprété ces observations : par ses effets, le courant
+induit s’oppose aux causes qui lui ont donné naissance.
+(on peut comprendre aussi que les variations du champ magnétique induit tend à s’opposer aux
+variations du champ magnétique inducteur)
+D’autre part, on remarque que l’intensité du courant induit est d’autant plus importante que les
+variations du champ magnétique inducteur sont rapides.
+
+III.
+
+Force électromotrice et énergie électromagnétique
+
+On peut voir que pendant le phénomène d’induction, l’induit se comporte comme un générateur ; la
+force électromotrice de ce générateur est appelée fem induite et s’exprime
+en Volts.
+C’est comme si l’ensemble bobine, résistance et aimant mobile à leur
+voisinage était une source de tension, une alimentation. (Doc 9 b))
+Le générateur - équivalent serait :
+-
+
+Une alimentation de fem e (fléchée en vert)
+Associé à une résistance égale à la résistance interne de la bobine : r
+
+La tension uBA= e – r x i
+algébriques)
+
+ou uAB = r i – e (uBA, i et e sont des grandeurs
+
+La fem, à l’origine du courant induit, est due à la variation de la valeur du
+champ magnétique inducteur dans la bobine, on retrouve le résultat de la loi
+de Lenz.
+La loi de Lenz est la suivante :
+Avec
+: le flux du champ magnétique à travers la surface fermé S
+
+IV.
+
+Applications du phénomène d’induction
+
+Parmi les principales applications du phénomène d’induction électromagnétique, on trouve :
+-
+
+Les courants de Foucault : utilisés pour le freinage des camions. Un disque conducteur est placé dans l’entrefer
+d’un électro-aimant ; du point de vue du disque tournant, le champ magnétique est variable, il y a donc
+
+6
+
+création de courants induits appelés « courants de Foucault » dans la masse du disque et qui s’opposent à la
+cause qui leur a donné naissance, c’est – à dire la rotation du disque, d’où le freinage.
+-
+
+Les transformateurs : permettent de faire varier la tension sans en affecter la fréquence. (intérêt dans la
+distribution d’énergie et son transport)
+
+-
+
+Les alternateurs : dans l’industrie de production d’énergie, l’induit fixe (le stator) est constitué par les
+bobinages en série, et l’inducteur est constitué d’aimant ou d’électro-aimants.
+(usine marée motrice, éolienne, centrale nucléaire)
+
+Dans le projet « Cyclo chargeur », nous avons voulu créer un alternateur avec un inducteur en mouvement
+autour de la roue et un induit fixe au niveau des patins de freins d’un vélo.
+
+Partie 2/ Etude expérimentale
+I.
+
+Le champ magnétique créé/ Mesure de Romaric
+
+Un aimant placé à un endroit quelconque, va perturber les propriétés magnétiques de l’espace.
+On dit qu’il crée un champ magnétique. Le champ magnétique s’applique dans toute la zone à
+son voisinage, il est tangent aux lignes de champ et il s’oriente du Sud vers le Nord. Sa norme
+dépend de la source du champ et de la distance à laquelle on évalue le champ.
+Les sources de champ magnétique sont variées :
+
+- la Terre ; Elle crée un champ d’intensité voisine de 47 µT (microTesla) au centre de la France.
+- les aimants permanents (matériaux ferromagnétiques)
+- les fils parcourus par un courant
+-…
+
+Dans ce projet, la source de champ magnétique choisie est un matériau ferromagnétique
+(aimant en Néodyme). Nous avons mis en évidence les lignes de champ grâce à de la limaille
+de fer (Fe) et mesuré son intensité grâce au programme et capteur de Romaric.
+1) Mise en évidence des lignes de champ
+
+2) Mesure du champ magnétique
+
+Romaric a beaucoup travaillé sur un programme Python qui permet grâce à un teslamètre couplé à une carte
+Arduino de mesurer le champ magnétique au voisinage de l’aimant.
+Ainsi la mesure donne B= 0,54 T
+
+7
+
+II.
+
+Les bobines de « Paul »
+
+1) Différents enroulements
+
+Pour réaliser un alternateur, il nous faut induire un champ électromagnétique dans une bobine. Nous
+avons donc décidé d’acheter des aimants au néodyme très connus pour leur champ électromagnétique
+très intense (jusqu’à 1,2 T à leur surface). Quant à la bobine, nous avons décidé d’en réaliser une nousmême. C’est Paul qui s’est attelé à leur création et à dédier quelques heures à enrouler du fil de cuivre…
+Notre but est de générer un courant continu de 5V après redressage de la tension. Or, cela représente
+une bobine assez conséquente avec une inductance relativement élevée (quelques mH). Il nous est très
+vite apparu que pour augmenter la tension de sortie, il nous fallait soit augmenter la vitesse d’alternance
+du champ magnétique, donc la vitesse de rotation de la roue du vélo, soit augmenter le nombre de spires.
+(En effet, le nombre de spire apparaît au numérateur des différentes expressions que nous avons
+trouvées pour la valeur L de l’inductance propre des bobines). Nous avons aussi expérimenté avec
+différentes formes de bobines, avec un design en « U » qui n’a malheureusement pas aussi bien
+« marché » qu’escompté. Nous avons finalement opté pour une simple bobine en solénoïde. Une
+première version a été réalisée avec 500 spires, pour finalement créer une super-bobine de 9600 spires
+(Il n’y avait plus assez de fil pour atteindre les 10000 spires !). Nous avons utilisé du fil de cuivre émaillé
+de 0,2 mm de diamètre qui malgré sa grande résistance (dû à sa très faible section) permet par son petit
+diamètre de faire beaucoup de tours tout en gardant la bobine d’une taille raisonnable. Il ne faut
+néanmoins pas oublier le rôle primordial du noyau de la bobine. En effet, puisque notre architecture ne
+permet pas de faire passer les aimants à l’intérieur des spires, il faut utiliser un matériau ferromagnétique
+en son centre qui va permettre de « resserrer » les lignes de champ magnétique dans le solénoïde. Nous
+avons ici utilisé un simple barreau de fer. Au total, la dernière version de notre bobine aura requis environ
+5 heures de fabrication, d’enroulement et de soudure.
+2) Mesure de l’inductance ; circuit RL et auto-induction.
+Comme les bobines ont été fabriquées « maison », on a eu besoin de mesurer leur résistance interne et leur
+inductance. La mesure de la résistance interne relève d’une simple mesure avec un ohmmètre, mais la
+mesure de l’inductance a nécessité plus de travail.
+8
+
+En effet, les protocoles trouvés dans d’anciens livres de Terminale proposent d’alimenter une bobine et une
+résistance par un échelon de tension.
+
+En faisant cela, on comprend que le courant qui va traverser le solénoïde sera variable. Il va donc crée au
+sein même de la bobine un champ magnétique. Il apparaît alors une fem d’auto-induction dans la bobine
+qui tend à s’opposer aux variations qui lui ont donné naissance, d’après la loi de Lenz.
+La fem n’apparaît que lorsque le courant varie. Lorsqu’il ne varie plus, la bobine se comporte comme une
+simple résistance. (de valeur égale à sa résistance interne r)
+D’après la loi de Lenz, si la bobine s’oppose aux variations du courant qui lui ont donné naissance, elle va
+donc créer un retard à l’établissement du courant dans le circuit au niveau des variations (ouverture et
+fermeture du circuit)
+La loi de Lenz-Faraday nous donne une relation dans laquelle la fem auto-induite e est proportionnelle à la
+variation du courant dans le circuit : e=- L
+L est un coefficient positif appelé inductance de la bobine. On le mesure en Henry (H)
+On trouvera, en annexe, l’équation différentielle du courant i(t) dans le montage décrit.
+Nous avons effectué le montage avec R= 25 000 ohm et un échelon de tension entre 0 et 5 V.
+Une copie d’écran est montrée ci-dessous :
+
+9
+
+En utilisant les fonctionnalités du logiciel (tangente+ asymptote horizontale+ réticule), on a mesuré la
+constante de temps du circuit τ.
+donc cette mesure nous permet d’estimer L = τ x R = 25 000 x 61.10-6= 1,5 H
+
+Or τ =
+
+Bobine n°1 :
+L = τ x R = 62,9 x 114.10-6= 7,2 x 10-3 H
+Nous avons ensuite fait une mesure d’incertitude.
+Pour cela, nous avions besoin de U() et U(Rtot).
+Pour U() nous avons estimé l’incertitude en faisant plusieurs fois la même mesure sans changer les
+paramètres. Nous avons obtenue U()= 2,2.10-5s.
+Nous avons obtenu U(Rtot) grâce à la notice du multimètre utilisé. (MY64)
+On a Rtot = r + R
+= 60,4 + 2,5
+= 62,9 Ω
+Selon la notice du multimètre, U(R)= 0,8% cal + 3d sur le calibre 200 Ω
+,
+Soit U(Rtot)=
+x 62,9 + 3 x 0,1
+= 0,80 Ω
+Avec ces données, nous avons donc pu calculer l’incertitude sur L :
+()
+
+U(L) = Lmesurée x
+= Lmesurée x
+= 7,2.10-3
+= 1,4.10
+=1,4 mH
+
+
+(
+
+.
+
+(
+(
+(
+
+(
+
++
+)
+
+.
+.
+
+)
+)
+
+.
+
+)
+
+)
+
++
++
+
+( , )
+,
+( , )
+,
+
+H
+
+L= 7,2 mH ± 1,4 mH
+Pour la bobine n°2, le raisonnement est analogue, la capture d’écran montrée plus haut, correspond à une
+des mesures faites pour cette bobine-là.
+Bobine Mesure
+de tau
+(µs)
+N°1
+112 à
+134
+
+Incertitude Résistance Incertitude sur Rtot
+sur tau
+Rtot
+(Ω)
+(µs)
+(Ω)
+22
+62,7
+0.8% x 62,7 + 3d =
+(calibre
+0.8% x 62,7 +
+200 Ω)
+3(0,1)=0,80
+
+N°2
+
+22
+
+60 à 82
+
+25000
+(calibre
+200k Ω)
+
+Calcul de
+Incertitude sur L
+l’inductance
+L
+L = tau x Rtot L = 7,2 mH ± 1,4 mH
+=1,4 10-3H
+
+0.8% x 25000 + 1d = L = tau x Rtot L =1,5 H ± 0,5 H
+0.8% x 25000 +
+= 61x10-6 x
+1(0,1k Ω)= 300Ω
+25 x 103=
+1,5 H
+
+10
+
+Nous avions donc la capacité de caractériser les bobines « maison » par leur inductance et leur résistance
+interne.
+III.
+
+Le vélo d’Hippolyte
+
+C’est l’alternateur, constitué des aimants fixés sur la roue et de la bobine n°2, qui sera le générateur de
+courant alternatif qui alimentera la batterie du téléphone portable.
+Voilà à quoi ressemblent nos séances pour trouver les astuces nécessaires au fonctionnement de
+l’alternateur :
+
+Mais il reste des étapes de transformations de ce courant à faire pour qu’il soit correctement utilisable pour
+alimenter la batterie. En effet, l’alternateur fournira un courant alternatif, la batterie du téléphone doit être
+alimentée par un courant continu.
+Le schéma de principe qu’on envisage est le suivant :
+
+Rôle du pont de diodes : le pont de diode va redresser la tension alternative, les alternances négatives seront
+« rebasculées » positivement. Avec un « pont de Graetz », on peut envisager de transformer la tension
+alternative ainsi :
+
+11
+
+Rôle du condensateur : Le condensateur va permettre de rendre la tension quasiment continue. En effet, en
+fonction de fréquence du signal, et en choisissant un condensateur dont la constante de temps sera
+suffisamment grande pour ne pas « suivre » de trop près les alternances, on arrivera à transformer la tension
+variable en tension proche d’une tension continue :
+
+Rôle du régulateur : Pour éviter que le téléphone ne reçoive une tension variable en entrée, on introduit un
+régulateur.
+1) Mesure de la vitesse de rotation de la roue du vélo reliée à une mesure de courant de sortie.
+Lors de la présentation à Lyon, nous avons réussi à montrer au jury la production d’une tension alternative,
+son redressement par le pont de diodes, son lissage par le condensateur de 10 µF.
+En revanche, nous n’avions pas corrélé la tension de sortie à la vitesse de rotation de la roue et au courant
+fourni.
+Nous avions constaté, sans mesure, le fait que plus la vitesse était importante et plus la tension de sortie
+l’était aussi. Nous avons eu l’idée alors de mesurer la vitesse de rotation de la roue de façon originale, en
+mettant en jeu des outils de la physique des semi-conducteurs.
+C’est ainsi qu’en éclairant une photodiode montée en série avec une alimentation continue de 5V et une
+résistance de 1kohm, placée d’un côté de la roue, avec un laser placé de l’autre côté, nous avons pu mesurer
+qu’à une vitesse de 1,67 tours par seconde, le courant de sortie était seulement de 0,41 mA… Avec un tel
+courant, une batterie nécessitant environ 2500 mAh soit 9000 C pour être chargée, il nous faudrait pédaler à
+cette vitesse : Δt = = 2,2 107 s soit … 250 ans !!!!!
+2) D’où la nécessité d’une amplification de courant
+Ainsi Jérôme Brunet nous a proposé d’ajouter deux transistors (ballast) pour «booster » le courant à la
+sortie de notre montage lors de l’opération de miniaturisation.
+
+12
+
+Mais la manipulation du 14 Janvier n’est encore pas concluante… le téléphone de s’allume pas lorsqu‘on
+pédale…La tension est bien régulée à 5,6 V mais le courant est encore trop petit…
+
+3) Retour sur la miniaturisation – 12 Janvier 2022
+Après nous avoir expliqué les étapes de la miniaturisation, Jérôme Brunet nous a emmené dans une salle
+équipée : nous avons placé le film pré-imprimé par Jérôme avec le schéma du circuit (typon) sur la plaque
+d’époxy puis nous l’avons exposée aux UV (étape d’insolation). Au cours de cette opération, les UV ont altéré
+la résine et les parties « cachées » par les parties opaques du film ont été protégées. La plaque a été ensuite
+plongée dans un bain de potasse (hydroxyde de potassium dissous dans l’eau) afin de faire complètement
+disparaître la résine insolée, cette dernière étant devenue complètement soluble dans l’hydroxyde de
+potassium en solution. La résine non altérée par les UV (non soluble) protègera la couche de cuivre lors de
+l’étape suivante. Il est nécessaire d’enlever le cuivre superflu (qui recouvre la totalité de la plaque d’époxy)
+pour ne laisser que le circuit imprimé ; cela va être fait par un nouveau traitement chimique grâce à l’action
+du perchlorure de fer. Pour finir, avec quelques gouttes d’acétone, on enlève les résidus de résine à la surface
+du cuivre. Le circuit est alors terminé.
+Avec une perceuse, on perce la plaque support afin de pouvoir y placer les composants.
+On positionne les composants du bon côté de la plaque et on les soude sur l’envers à l’étain.
+
+Point de cours avant de passer à la réalisation du circuit miniaturisé
+
+Le « typon » réalisé par Jérôme en amont.
+
+Etape d’insolation
+
+après 2min30 d’UV
+
+Elimination de la résine insolée par action de l’hydroxyde de potassium
+en solution (apparition progressive du circuit « imprimé »)
+
+13
+
+Action du perchlorure de fer (FeCl3 en solution) pour
+éliminer le cuivre en excès puis rinçage à l’eau.
+Avec quelques gouttes d’acétone, on termine d’enlever
+la résine résiduelle et le circuit est prêt.
+
+Juliette au perçage et Gaston à la soudure
+
+Le circuit terminé, composants d’un côté, et soudure et contacts de l’autre
+
+14
+
+Conclusion
+Nous avons commencé de ce projet en septembre 2021. Nos emplois du temps étant déjà bien chargés, il a
+été difficile de se retrouver plus d’une heure par semaine. (le vendredi de 16h à 17h)
+Nous sommes ensemble dans l’enseignement de spécialité PC, mais nous appartenons à trois classes
+différentes (TA, TB et TC) ce qui rend rare les heures libres communes.
+Nous avons eu un échange par mail avec M. Philippe Rosnet (enseignant-chercheur à l’Université d’Auvergne
+(LPC)) qui nous a donné des conseils sur les points importants à étudier par rapport au projet (vitesse de
+rotation de la roue, nombre de tours de la bobine…).
+Nous avons également eu la visite le mardi 17 Novembre 2021 de M. Jérôme Brunet qui a pris du temps pour
+comprendre les soucis de redressement de la tension alternative et nous a aiguillé sur les notions de
+fréquence de coupure de la cellule RL. Il nous a aussi donné des conseils pour la préparation de l’oral. Son
+emploi du temps et les nôtres n’ont pas laissé de possibilité de deuxième rencontre avant le 1er Décembre,
+puis le 12 Janvier pour la manipulation de miniaturisation. Cela fut une très belle expérience et nous
+remercions vivement Jérôme de nous l’avoir proposée. Nous avons découvert les locaux du département de
+physique des Cézeaux, nous avons manipulé du matériel inédit et réalisé toutes les étapes de la
+miniaturisation. C’était aussi l’occasion de faire partager l’expérience des Olympiades à nos camarades qui
+nous aident toutes les semaines mais qui ne sont pas strictement dans l’équipe.
+Le projet n’est pas complètement abouti et il nous reste bien des défis à relever comme assurer le montage
+de la bobine et des aimants solidement et sans risque pour le cycliste.
+Pour continuer ce projet, au-delà de la finale à Paris-Saclay, nous participons à un concours scolaire organisé
+par les inspecteurs de physique-chimie de l’académie de Clermont-Ferrand. Il s’intitule « Mon territoire au
+futur, mon futur dans mon territoire, quelle(s) solution(s) pour les habitants du Grand Clermont ? ». Nous
+proposerons notre projet dans la catégorie de la mobilité et de l’énergie, problématiques croisées ici.
+Nous voulions aussi préciser que l’idée de créer une assistance électrique pour fauteuil roulant était notre
+première idée, mais qu’il a été plus facile de travailler avec le vélo d’un de nos camarades.
+
+Remerciements
+Nous remercions Mme Pradeau pour nous avoir entraîné dans ce défi et Mme Jouhannet, la préparatrice
+pour avoir « supporté » le dérangement continuel dans les salles ! Nous remercions Jérôme Brunet pour sa
+visite et ses conseils, son invitation à réaliser nous-même la miniaturisation du montage, ainsi que Philippe
+Rosnet pour son soutien par mail.
+Nous remercions le directeur de Massillon pour ses encouragements et pour l’engagement financier pour le
+déplacement à Lyon. Nous remercions l’association Udppc pour son soutien financier également.
+Nous remercions tous nos camarades qui ont été enthousiasmés par nos résultats et notre travail et qui nous
+l’ont partagé. Nous remercions enfin le comité organisateur des Olympiades de Physique qui nous a
+encouragé lors de la sélection inter-académique, qui nous a ensuite prodigué des conseils et qui a maintenu
+l’organisation de l’évènement national malgré toutes les contraintes actuelles.
+
+Bibliographie
+L’Homme électrique – Roman de Martine Le Coz
+Electromagnétisme fondement et application- JP.Pérez
+Livre de terminale S (programme en vigueur en 2001) – Hachette Education Collection
+Durandeaubravo.univ-tln.fr/er/En/coursJBr/2018/pdf/6-EN1-Semiconducteurs.pdf
+15
+
+

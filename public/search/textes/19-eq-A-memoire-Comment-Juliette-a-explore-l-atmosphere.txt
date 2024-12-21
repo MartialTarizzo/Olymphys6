@@ -1,0 +1,3279 @@
+le projet Atmos'Viette a été réalisé avec le soutien du CNES,
+du Pavillon des sciences, de la région Franche-Comté, de l'UFR-ST
+de l'Université de Franche-Comté, des radio-amateurs du Doubs
+Olympiades de physique 2012 Comment Juliette a exploré l'atmosphère 1 / 29 Lycée Jules Viette Montbéliard
+et du comité organisateur des Olympiades de physique
+
+sommaire
+Le déroulement du projet :................................................................................................................ p.3
+La mesure de la pression atmosphérique :.....................................................................................p.6
+Les mesures de température :.......................................................................................................... p.8
+L'inclinaison de certains capteurs :...............................................................................................p.14
+Les mesures de rayonnement :...................................................................................................... p.15
+L'exploitation des données GPS :.................................................................................................. p.22
+
+annexe 1 : réponses aux questions posées par le jury lyonnais
+Sur les mesures de la pression atmosphérique :.........................................................................p.24
+Sur les mesures de température :.................................................................................................. p.27
+
+annexe 2 : quelques photos prises depuis la nacelle stratosphérique
+Le jury lyonnais a souhaité que l'on mette en ligne quelques photos prises par les appareils photo
+embarqués à bord de la nacelle. Vous pourrez les télécharger à l'aide du lien suivant à partir du 15
+janvier 2012 : http://www.box.com/s/xz5ujd9vslmqmc6du1jh
+
+résumé
+
+Construire et équiper une nacelle de ballon stratosphérique qui s'élèvera jusqu'à 30 000 m avant de redescendre
+suspendue à un parachute est une aventure scientifique passionnante proposée par le CNES.
+Pour mesurer la pression, les températures, le rayonnement, il a fallu choisir des capteurs. Créer des cartes
+électroniques résistant à des températures extrêmes. S'adapter aux contraintes et tirer le meilleur parti du transmetteur
+de télémesures. Exploiter à fond les données GPS pour établir les profils de vent et de température.
+Nous avons rencontré un professionnel de la météo à la station de Payerne (Suisse) et comparé nos mesures avec les
+siennes effectuées le même jour.
+Des dizaines d'heures ont été nécessaires pour analyser les 3800 télémesures reçues pendant les 3 heures de vol.
+Admirer les photos. Savourer la pleine réussite de systèmes que nous avons conçus, certains avec bien du mal... Mais
+aussi analyser les raisons des échecs et imaginer des solutions pour y remédier...que nous testerons avec un nouveau
+ballon au printemps prochain !
+Alexandre, Bruno, Dilan, Gaëtan, Jérémy, Thomas
+
+avertissement
+Malgré l'éviction de toutes les photographies (sauf celle de couverture), le présent mémoire dépasse légèrement la
+pagination fixée par les organisateurs (20 pages sans les annexes) et, plus largement, la taille du fichier préconisée pour
+la version numérique. Ces dépassements sont essentiellement dûs aux nombreux graphiques issus des télémesures
+reçues pendant le vol. En supprimer certains aurait conduit à laisser de côté une partie des fruits de notre travail.
+
+Nous prions les organisateurs d'excuser ces dépassements et sollicitons, à cet égard, une
+indulgence bienveillante de leur part...
+
+Olympiades de physique 2012
+
+Comment Juliette a exploré l'atmosphère
+
+2 / 29
+
+Lycée Jules Viette Montbéliard
+
+le déroulement du projet
+Le projet intitulé Atmos'Viette démarre en septembre 2010.
+Il est mené par le club scientifique et technique du lycée qui se réunit 4h tous les samedis matin et 40 heures pendant les
+vacances scolaires.
+L'objectif est de construire et d'équiper une nacelle de ballon stratosphérique qui s'élèvera jusqu'à 30 000 mètres
+d'altitude environ avant d'éclater. La nacelle redescendra ensuite, suspendue à un parachute. Pendant le « vol »,
+les données seront transmises par radio, permettant un suivi, en temps réel, des paramètres mesurés.
+Le lâcher du ballon a lieu le 7 mai 2011. Les télémesures, coordonnées de vol (GPS) et photos sont exploitées de mai à
+début juillet 2011.
+L'équipe, partiellement renouvelée à la rentrée 2011, décide de construire et équiper une nouvelle nacelle de ballon
+stratosphérique pour remédier aux défauts de conception constatés lors de la première expérience.
+les moyens mis à disposition par les partenaires
+Il s'agit d'un projet s'inscrivant dans l'opération « un ballon pour l'école » mis en place par le CNES et l'association
+Planète sciences dont le relais franc-comtois est le Pavillon des sciences.
+Le CNES met à disposition le transmetteur de données par radio (KIWI), et la chaîne de vol (ballon, hélium, réflecteur
+radar, parachute).
+Les radio-amateurs du Doubs sont associés au projet : fourniture d'un GPS, suivi et récupération de la nacelle.
+Le projet est soutenu financièrement par l'UFR ST de l'université de Franche-Comté; la région de Franche-Comté et le
+comité organisateur des Olympiades de physique.
+Le choix des mesures
+Après diverses recherches documentaires (Planète sciences, CNES, wikipedia, sites scientifiques spécialisés et fiches
+techniques de composants électroniques),
+nous décidons de réaliser 4 types de mesures qui seront détaillées plus loin :
+⧫ mesure de la pression atmosphérique,
+⧫ mesures de température,
+⧫ mesures de rayonnement du soleil et de la terre, dans différentes longueurs d'onde,
+⧫ mesures de trajectoire, de vitesse ascensionnelle, de vitesse et direction du vent.
+Nous décidons également d'installer 2 appareils photos dans la nacelle.
+les contraintes
+Elles sont nombreuses et affectent le choix des capteurs et leur comportement.
+●
+
+contraintes environnementales : variations importantes de pression (de 1 à 0,01 bar) de température (de +30°C à
+-70°C), risque de pluie et de condensation...
+
+●
+
+contraintes techniques : masse limitée à 2,5 kg, alimentation de l'électronique et plage de mesures entre 0 et 5V,
+
+●
+
+contraintes de sécurité : respect de la réglementation de l'aviation civile et sécurité des personnes.
+
+la recherche, le choix, les essais des appareils photo
+Les critères de choix : pas trop cher, léger, étanche, supportant les basses températures, équipé d'un intervallomètre
+pour cadencer les prises de vue et possibilité de désactiver toutes les fonctions énergivores inutiles pour notre application
+(autofocus, flash, écran de visualisation...)
+Le choix se porte sur deux optio W80 de Pentax.
+Nous testons leur comportement à -25°C dans un congélateur. Résultat : le plus performant a fonctionné 2h10min et a
+pris 260 photos avant de s'arrêter.
+À température ambiante, l'autonomie dépasse les 400 photos. Donc il faudra protéger au mieux les batteries du froid !
+
+Olympiades de physique 2012
+
+Comment Juliette a exploré l'atmosphère
+
+3 / 29
+
+Lycée Jules Viette Montbéliard
+
+la conception, la réalisation et les tests des systèmes de mesure
+Cette activité mobilise l'essentiel de notre temps. Nous conservons, dans des dossiers techniques, les références des
+composants, leurs fiches techniques, les schémas, les typons de circuits imprimés, ainsi que les résultats détaillés des
+tests effectués.
+la visite de la station d'aérologie de Payerne (Suisse)
+Nous la visitons sur les conseils des radio-amateurs. Elle compte parmi les mieux équipées d'Europe et sert, entre autres
+choses, au calibrage des satellites d'observation de la terre.
+Les radio-sondeurs de la station lâchent, deux fois par jour, un ballon sonde équipé d'une nacelle de mesures.
+Nous sommes très bien accueillis par Jean-Michel CLERC, radio-sondeur. Nous lui demandons de nous envoyer les
+mesures qui seront effectuées à Payerne le jour où nous lâcherons notre ballon. Ce qu'il accepte volontiers.
+la construction et l'équipement de la nacelle
+Nous dessinons les plans de la nacelle à l'aide du logiciel SolidWorks avant de découper les pièces (polystyrène extrudé
+de 20mm d'épaisseur) et de les assembler par collage.
+Cinq exigences : légèreté, robustesse, isolation thermique (en particulier pour les piles et les appareils photo), protection
+contre les parasites électromagnétiques provenant de l'antenne de l'émetteur et ergonomie (faciliter l'accès aux appareils
+photo, cartes électroniques, GPS, transmetteur...).
+le 7 mai 2011 : qualification de la nacelle
+Le 7 mai à 10h30, a lieu la qualification de la nacelle. Il s'agit surtout de vérifier la conformité au cahier des charges. Car
+l'opération engage la responsabilité du CNES et du Pavillon des sciences.
+Leurs représentants sont intraitables sur la sécurité et nous devons effectuer quelques petites modifications de dernière
+minute pour éviter tout risque de blessure à une personne qui recevrait la nacelle sur la tête ! Pendant ce temps, le reste
+de l'équipe prépare la « chaîne de vol », en particulier, le parachute qui doit être préparé très soigneusement pour ne pas
+se mettre en torche !
+le 7 mai 2011 : lâcher, suivi de la nacelle par radio, récupération
+Il est prévu à 15h et l'heure ne pourra être retardée. Tout doit être prêt en conséquence. L'ambiance est tendue, pour ne
+pas dire fébrile.
+Heureusement que des check-lists et des procédures ont été rédigées soigneusement, « à froid » les jours précédents,
+pour ne rien oublier !
+Une petite bise s'est levée, il va falloir maintenir le ballon sous une bâche pendant le gonflage.
+Des problèmes de parasites radio perturbent la transmission des données : ils sont causés par des contacts intermittents
+entre la feuille d'aluminium qui recouvre le couvercle et celle qui recouvre la boîte ! On isole avec du ruban adhésif.
+Pendant le « vol » du ballon, nous suivons la transmission des données :
+●
+
+la position du ballon sur la carte grâce aux données GPS,
+
+●
+
+les différentes mesures que nous « décodons » grâce aux tables de conversion que nous avons préparées.
+
+Malgré quelques interruptions de transmission, la moisson promet d'être bonne. Seul la voie qui mesure les ultraviolets C
+reste désespérément à zéro !
+la récupération de la nacelle
+Pendant ce temps, les radio-amateurs suivent la nacelle à la trace. Ils la récupéreront chez un particulier, à Istein, en
+Allemagne, peu de temps après sa chute. Ils sont de retour vers 19h.
+Malgré l'heure tardive, certains d'entre nous restent pour voir les photos prises par les appareils. C'est un soulagement :
+un appareil a pris 323 photos et l'autre 312 : les batteries ont assez bien résisté au froid. Il nous manque juste le dernier
+quart d'heure avant l'atterrissage.
+Ce fut une belle journée !
+Une seconde étape commence : exploiter cette abondante moisson de mesures et de photographies !
+
+Olympiades de physique 2012
+
+Comment Juliette a exploré l'atmosphère
+
+4 / 29
+
+Lycée Jules Viette Montbéliard
+
+le traitement et l'exploitation des données
+Le soir et le lendemain du jour J, nous récupérons les fichiers de télémesures reçus par le CNES, sur son spatiobus et
+par le Pavillon des sciences. Nous récupérons également le fichier GPS.
+Heureusement que nous avions pensé à synchroniser les horloges des ordinateurs ! Car les données comportent pas
+mal de trous. Mais on réussit à établir parfaitement les correspondances chronologiques entre les deux fichiers de
+télémesures et à combler ainsi tous les trous importants !
+Au total, 3817 lignes de données ont été récupérées soit, en moyenne, une toutes les 3 secondes environ.
+Le graphique ci-dessous présente l'ensemble des télémesures récupérées en fonction du temps.
+la comparaison avec les mesures effectuées par la station de Payerne le même jour
+Dans les jours suivants, nous envoyons quelques photos à Jean-Michel CLERC, le radio-sondeur de Payerne qui nous
+envoie, en retour, le fichier des mesures transmises par leur ballon lâché, le même jour, 1h45min plus tôt.
+La station de Payerne se trouve en Suisse, près du lac de Neuchâtel, à 74 km au sud de Montbéliard.
+L'exploitation scientifique des données va pouvoir commencer !
+
+ensemble des télémesures récupérées en fonction du temps
+Voie temp. corps noir
+Voie temp. air 2
+
+Voie temp. nacelle
+Voie pression atmos.
+
+Voie UVC
+Voie rayonnt. terre
+
+Voie temp. air 1
+Voie rayonnt. soleil
+
+16:00
+
+16:30
+
+17:00
+
+5
+4,5
+4
+3,5
+
+tensions (V)
+
+3
+2,5
+2
+1,5
+1
+0,5
+0
+15:00
+
+15:15
+
+15:30
+
+Olympiades de physique 2012
+
+15:45
+
+16:15
+
+Comment Juliette a exploré l'atmosphère
+
+16:45
+
+5 / 29
+
+17:15
+
+17:30
+
+17:45
+
+Lycée Jules Viette Montbéliard
+
+la mesure de la pression atmosphérique
+recherche documentaire : l'atmosphère standard aéronautique
+
+Cela permet de tracer la courbe de la pression en fonction de
+l'altitude.
+le choix du capteur
+
+Principe : une chambre dans laquelle un vide aussi parfait que
+possible a été réalisé, est fermée par une paroi élastique.
+
+°C
+/km
+
+-56,5°C
+
+0
+
+Notre choix s'est arrêté sur le capteur XCA415AN d'Honeywell.
+
+- 6,5
+
+°C/k
+
+m
+
+température
+
++15°C
+
+11 km
+
++1
+
+20 km
+
+-44,5°C
+
+Les lois de la statique des fluides et des gaz parfaits donnent trois
+équations de modélisation correspondant aux trois zones qui nous
+intéressent.
+
+stratosphère...
+
+Le modèle ISA divise l'atmosphère en différentes couches dans
+lesquelles la température est une fonction affine de l'altitude.
+
+atmosphère
+standard
+internationale
+
+troposphère
+
+Une atmosphère standard internationale (ISA) a été définie en
+1975 (norme ISO 2533).
+
+32 km
+
+altitude
+
+La pression atmosphérique est (encore) utilisée pour déterminer
+l'altitude des avions.
+
+pression atmosphérique standard
+en fonction de l'altitude
+1000
+900
+800
+
+pression (hPa)
+
+700
+600
+500
+400
+300
+200
+100
+
+⧫ La pression déforme la paroi,
+
+0
+0
+
+⧫ 4 capteurs de déformation font apparaître
+une tension électrique.
+⧫ Cette tension, amplifiée, est une fonction
+affine de la pression.
+
+10 000
+
+20 000
+
+30 000
+
+altitude (m)
+
+simulation mesure pression sans et avec changement de gamme de mesure
+base atmosphère ISA, CAN 5V-8bits, sensibilité 4mV/ hPa (puis 40mV/ hPa si changement de gamme)
+200
+
+⧫ Dérive en température ±0,6%.
+⧫ Autres incertitudes de mesure : ±0,3% de
+la tension à pleine échelle.
+
+La conversion analogique numérique
+(CAN) du KIWI se fait sur 8 bits (donc 28
+= 256 niveaux).
+Si on envoie la tension du capteur sur le
+KIWI sans changer de gamme,
+→ courbe bleue (résolution insuffisante
+en haute altitude)
+
+150
+
+pression atmosphérique (hPa)
+
+le choix d'un système à changement
+de gamme automatique
+
+pression sans changement de gamme
+pression avec changement de gamme
+
+100
+
+50
+
+Avec le système à changement de
+gamme automatique que nous avons
+conçu :
+→ courbe rouge (résolution satisfaisante
+dans toute la plage de mesures)
+Olympiades de physique 2012
+
+0
+10 000
+
+15 000
+
+20 000
+
+25 000
+
+30 000
+
+altitude
+
+Comment Juliette a exploré l'atmosphère
+
+6 / 29
+
+Lycée Jules Viette Montbéliard
+
+les essais et la réalisation
+ampli 1
+V1 = Vcapt -Voffset
+
+Vcapt
+
+V1
+
+Schéma de principe ci-contre.
+
+1
+
+capteur de
+pression
+
+La réalisation est ardue en raison
+des limites de fonctionnement des
+amplificateurs utilisés.
+
+tension de
+sortie
+
+Voffset
+ampli 2
+V2 = 10.(Vcapt -Voffset)
+
+V2
+Vref = 4,375V
+
+comparateur
+V2 > Vref → V3 = 5V
+V2 < Vref → V3 = 0V
+
+V2
+
+V3
+
+La première carte électronique ne
+fonctionne pas. Nous devons en
+concevoir une seconde avec
+d'autres composants qui donne
+entière satisfaction.
+
+2
+
+Nous effectuons l'étalonnage de la
+carte à l'aérodrome de Courcelles
+les Montbéliard le 16 mars 2011 :
+3 729 mV pour 965 hPa.
+
+commutateur
+V3 = 5V → position 1
+V3 = 0 → position 2
+
+Nous disposons d'un premier point
+pour l'étalonnage : avec une pompe
+à vide permettant d'atteindre une
+pression de 3 pascals, nous avons pu établir un défaut du capteur : sa tension à pression nulle est surestimée de 12 mV.
+Ce qui nous donne, pour calculer la pression à partir de la tension mesurée, la formule suivante :
+p=
+
+965
+⋅U0,012 (avec la tension U en volts et la pression p en hectopascals)
+3,741
+
+(ATTENTION ! il faut au préalable diviser la tension par 10 dans la gamme amplifiée)
+les résultats obtenus
+
+pression atmosphérique mesurée en fonction de l'altitude
+(comparée à la pression atmosphérique calculée selon le modèle de l'atmosphère standard internationale)
+Pression atmos mesurée montée
+(hPa)
+
+Pression atmos mesurée
+descente (hPa)
+
+Pression atmos calculée selon
+modèle ISA (hPa)
+
+1000
+900
+
+⧫ excellente
+superposition entre
+montée et descente
+
+800
+
+pression atmosphérique (hPa)
+
+700
+
+⧫ le petit écart avec
+l'atmosphère standard
+s'explique par la
+température de l'air
+(ci-dessous)
+
+600
+500
+400
+300
+
+⧫ zoom sur la zone en
+jaune page 8
+
+200
+100
+0
+
+0
+
+5 000
+
+10 000
+
+15 000
+
+20 000
+
+25 000
+
+30 000
+
+altitude donnée par le GPS (m)
+
+●
+
+jusqu'à 10 000m d'altitude, la température de l'atmosphère est plus élevée que pour l'ISA, donc l'air est moins
+dense et la décroissance est un peu moins rapide.
+
+●
+
+au delà de 10 000m d'altitude, la température de l'atmosphère est globalement plus basse que pour l'ISA, donc
+l'air est plus dense et la courbe rattrape celle de l'ISA.
+
+À l'éclatement, à 17 h 05 min 55s, à une altitude de 30 327 m, on enregistre une tension (sortie amplifiée) de 0,33V ce
+qui correspond à 11,6 hPa. À cette même altitude, la pression donnée par le modèle de l'ISA est de 11,8 hPa.
+Olympiades de physique 2012
+
+Comment Juliette a exploré l'atmosphère
+
+7 / 29
+
+Lycée Jules Viette Montbéliard
+
+pression atmosphérique mesurée en fonction de l'altitude
+
+En zoomant sur la courbe, on
+peut observer le changement
+automatique de gamme qui se
+traduit par un changement de
+résolution à 15 500m d'altitude.
+
+(comparée à la pression atmosphérique calculée
+selon le modèle de l'atmosphère standard internationale)
+Pression atmos
+mesurée montée (hPa)
+
+Pression atmos
+mesurée descente
+(hPa)
+
+Pression atmos calculée
+selon modèle ISA (hPa)
+
+15 000
+
+20 000
+
+25 000
+
+La résolution passe
+de 5,16 hPa en dessous de
+15 500 m
+
+200
+
+à 0,52 hPa au dessus de
+15 500 m.
+150
+
+pression atmosphérique (hPa)
+
+conclusion
+La carte de mesure de la
+pression que nous avons conçue
+et réalisée, après bien des
+tâtonnements, satisfait
+pleinement nos attentes !
+
+100
+
+50
+
+0
+10 000
+
+30 000
+
+altitude donnée par le GPS (m)
+
+les mesures de température
+quelles températures mesurer ?
+Après avoir exploré d'autres pistes, nous avons retenu la mesure de 3 températures :
+●
+
+la température de l'air atmosphérique (avec deux systèmes légèrement différents),
+
+●
+
+la température à l'intérieur de la nacelle,
+
+●
+
+la température d'un « corps noir1 » exposé au soleil.
+
+le choix du capteur
+Après avoir fait un tour d'horizon des différents types de capteurs existants, nous avons très vite opté pour des sondes
+de platine : ce sont des résistances de précision en platine pur dont la variation de la résistivité en fonction de la
+température est parfaitement connue.
+Elles font l'objet de la norme DIN IEC 751 qui définit le modèle mathématique permettant de déterminer la relation entre
+température et résistance dans une plage variant de -200°C à + 850°C. La norme définit également des classes de
+précision pour ces capteurs (0,3°C pour les capteurs choisis).
+Nous avons donc choisi une sonde de platine en sélectionnant la plus forte résistance (1000Ω à 0°C) et un capteur qui
+avait le plus faible temps de réponse : 20 secondes dans l'air calme à pression atmosphérique normale.
+Ses caractéristiques :
+Pour les températures prévues (-70°C ; +110°C), on peut se limiter à une seule formule (avec une erreur < 0,06°C) :
+R (t) = R0 (1 + A ∙ t + B ∙ t2)
+R étant la résistance à la température t en °C et R0, la résistance à 0°C.
+Les coefficients sont :
+
+A = 3,9083 ∙ 10-3 ∙ °C-1
+
+B = -5,775 ∙ 10-7 ∙ °C-2
+
+−R 0⋅A R 0⋅A2 −4⋅R 0⋅B⋅R 0 −R
+Dans l'autre sens, t=
+2⋅B⋅R 0
+1
+
+On appelle corps noir, un corps qui absorbe intégralement tout le rayonnement qu'il reçoit. Un tel corps a également la propriété,
+pour une température donnée, d'émettre le maximum de rayonnement électromagnétique.
+
+Olympiades de physique 2012
+
+Comment Juliette a exploré l'atmosphère
+
+8 / 29
+
+Lycée Jules Viette Montbéliard
+
+le choix du montage
+Le seul montage qui permette de conserver la précision du capteur dans une large plage de températures est d'utiliser un
+montage diviseur de tension : la sonde Pt1000 est placée en série avec une résistance de précision (à 0,1%) et de faible
+coefficient de température (±5ppm/°C).
+« Conditionner le signal » pour optimiser la résolution de la chaîne de mesure
+L'inconvénient de la Pt1000 est que la variation de résistance avec la température est assez faible.
+Prenons l'exemple de la température à l'intérieur de la nacelle :
+Elle variera entre -28°C et +32°C soit une variation de 25%.
+Comparaison de 2 solutions :
+1. placer le capteur en série avec une résistance de 1000Ω, et envoyer la tension directement sur l'entrée du
+convertisseur A/N.
+2. soustraire une tension constante à la tension aux bornes de la Pt1000 puis amplifier cette différence avant de
+l'envoyer sur l'entrée du convertisseur A/N.
+solution
+
+plage de tension
+
+% de la plage d'entrée du CAN
+
+résolution
+
+courbe graphique
+
+1
+
+entre 2,36V et 2,65V
+
+6%
+
+4°C
+
+rouge
+
+2
+
+entre 0,14V et 4,44V
+
+86%
+
+< 0,3°C
+
+bleue
+
+importance du conditionnement du signal température avant numérisation et transmission
+en bleu, mesures (réelles) de la température nacelle obtenues avec conditionnement du signal,
+en rouge, mesures obtenues si on avait envoyé directement sur le transmetteur la tension aux bornes du capteur (Pt1000)
+35
+30
+25
+20
+
+température (°C)
+
+15
+
+t nacelle avec
+conditionnement (°C)
+t nacelle sans
+conditionnement (°C)
+
+10
+5
+0
+15:00
+-5
+
+15:15
+
+15:30
+
+15:45
+
+16:00
+
+16:15
+
+16:30
+
+16:45
+
+17:00
+
+17:15
+
+17:30
+
+17:45
+
+-10
+-15
+-20
+-25
+-30
+
+heure
+
+Le schéma de principe est représenté ci-contre. les valeurs des
+résistances R1, R2 et R3 sont définies en fonction des températures à
+mesurer. La résistance RG permet de fixer l'amplification A.
+mesure
+
+R1 (Ω) R2 (k Ω) R3 (k Ω) V0 (V)
+
+RG (k Ω)
+
+A
+
+tmin (°C)
+
+tmax (°C)
+
+température
+atmosphère
+1
+
+1000
+
+143
+
+107
+
+2,14
+
+40
+
+10
+
+-63
+
+30
+
+température
+atmosphère
+2
+
+2000
+
+182
+
+68,1
+
+1,36
+
+40
+
+10
+
+-63
+
+48
+
+température
+nacelle
+
+1000
+
+133
+
+118
+
+2,35
+
+20
+
+15
+
+-28
+
+40
+
+température
+corps noir
+
+1000
+
+137
+
+113
+
+2,26
+
+100
+
+7
+
+-44
+
+121
+
+Olympiades de physique 2012
+
+Comment Juliette a exploré l'atmosphère
+
+9 / 29
+
+Lycée Jules Viette Montbéliard
+
+les essais sur l'échauffement propre
+Pour mesurer la résistance, il faut la faire traverser par un courant électrique d'intensité I... ce qui produit, par effet Joule,
+une puissance thermique P = R . I2, provoquant une élévation de température... qui n'est donc plus égale à celle que l'on
+souhaite mesurer !
+Nous décidons donc de mesurer la température de l'air avec des courants de mesure différents afin d'établir la loi de
+variation de la température en fonction de la puissance électrique dissipée en chaleur par effet Joule.
+Nous faisons ces essais à la pression atmosphérique ambiante et sous une cloche à vide. Dans ce cas, la dissipation de
+chaleur par convection n'existe plus : il n'y a plus que le rayonnement.
+Les essais avec les Pt1000 donnent un échauffement propre de +0,9°C par mW (sous vide).
+Ce qui peut causer une erreur de 5 à 6°C avec les montages envisagés. Ce n'est pas acceptable compte tenu de la
+précision des capteurs.
+Pour limiter cet échauffement propre, on recommence l'expérience avec des capteurs collés sur un « dissipateur »
+constitué d'une feuille d'aluminium de 12 cm2 et 0,2 mm d'épaisseur dont une face est noircie pour favoriser l'échange
+thermique par rayonnement. Dans ces conditions l'erreur est inférieure à 1°C.
+Les résultats sont synthétisés par le graphique et le tableau.
+Remarque : il ne faut pas accorder d'attention aux variations des ordonnées à l'origine entre les quatre droites : les
+mesures ont été réalisées à des températures ambiantes différentes.
+
+température mesurée en fonction de la puissance thermique
+dissipée, dans le capteur, par le courant de mesure
+34
+
+température (°C)
+
+32
+30
+t (°C) à 990 hPa
+t (°C) à 36 hPa
+t (°C) à 990 hPa
++ dissipateur
+t (°C) à 36 hPa
++ dissipateur
+
+28
+26
+
+conditions d'essai
+
+coefficient
+d'échauffement
+propre
+
+composant seul à 990 hPa
+
+0,736 °C/mW
+
+composant seul à 36 hPa
+
+0,900 °C/mW
+
+composant + dissipateur à 990 hPa
+
+0,096 °C/mW
+
+composant + dissipateur à 36 hPa
+
+0,119 °C/mW
+
+24
+22
+20
+0
+
+2
+
+4
+
+6
+
+8
+
+10
+
+12
+
+14
+
+puissance (mW)
+
+majoration
+dans le
+« vide »
++22%
++25%
+
+On peut en conclure :
+⧫ que l'échauffement propre est divisé par 7,5 quand on colle le capteur sur le dissipateur : cette solution sera retenue ;
+⧫ que, avec ou sans dissipateur, l'absence d'air augmente l'échauffement de 20 à 25% ce qui permet de conclure
+que la convection assure environ 20% de l'échange thermique à la pression atmosphérique normale.
+En revanche, on ignore quel sera l'échauffement propre à très basse température (environ -70°C) : La puissance
+rayonnée, selon la loi de Stéfan-Boltzmann, est proportionnelle à la puissance 4 de la température absolue. On peut
+donc s'attendre à ce que l'échauffement propre soit plus important.
+C'est pour cette raison qu'on effectuera deux mesures de température de l'air atmosphérique, avec deux courants
+d'intensités différentes (correspondant à des puissances dissipées de 2,7 et 6,2 mW).
+les résultats obtenus pour la température de l'atmosphère
+Ils sont représentés graphiquement, en fonction de l'altitude mesurée par GPS, page suivante et comparés :
+●
+
+à la température mesurée à Payerne le même jour
+
+●
+
+et à la température de l'atmosphère standard internationale.
+
+Remarque : les températures de l'atmosphère sont mesurées par Juliette à la montée (courbes bleue et rouge
+supérieures) et à la descente (courbes inférieures). Le signal est perdu un peu en dessous de 5000 m. À Payerne, les
+mesures ne sont effectuées qu'à la montée.
+
+Olympiades de physique 2012
+
+Comment Juliette a exploré l'atmosphère
+
+10 / 29
+
+Lycée Jules Viette Montbéliard
+
+analyse des mesures de la température de l'air atmosphérique
+L'échauffement propre est le plus souvent masqué par d'autres perturbations car la courbe rouge n'est pas
+systématiquement au dessus de la courbe bleue.
+On peut cependant l'estimer dans certaines phases du vol : à la descente, entre 16 000 m et 11 000 m, l'écart moyen des
+2 températures est de +1,02°C pour une différence de puissance dissipée de +3,64 mW.
+Ce qui donne un coefficient d'échauffement propre de 0,28 °C/mW, soit 2,3 fois plus important que le coefficient mesuré à
+la température ambiante sous faible pression, alors que l'air autour du capteur est en mouvement en raison de la vitesse
+de la chute (entre 80 et 50 km/h).
+Dans cette partie de la descente, la température de l'air est, en moyenne, inférieure à -60°C on peut donc en conclure
+que l'échauffement propre est sensiblement plus important quand la température est basse.
+Cependant, avec des capteurs collés sur une feuille d'aluminium, la correction à apporter pour tenir compte de
+l'échauffement propre serait inférieure à 1°C. Donc très modeste comparée aux autres sources d'erreur.
+
+température de l'atmosphère mesurée par Juliette à la montée et à la descente,
+comparée aux mesures de la station de Payerne (le même jour, 1h45 plus tôt)
+et à la température de l'atmosphère standard internationale en fonction de l'altitude
+t1 (°C)
+
+t2 (°C)
+
+t mesurée par Payerne (°C)
+
+t atmos. standard internat. (°C)
+
+30
+20
+10
+
+température (°C)
+
+0
+
+0
+
+5 000
+
+10 000
+
+15 000
+
+20 000
+
+25 000
+
+30 000
+
+35 000
+
+-10
+-20
+-30
+-40
+-50
+-60
+-70
+altitude (m)
+
+D'où provient l'écart important entre les mesures à la montée et à la descente, d'une part, et avec les mesures de
+Payerne, d'autre part ?
+À la montée, nous ne constatons pas de décalage du point où la température est la plus basse entre nos mesures et celle
+de Payerne (cet écart reste faible à la descente qui est 3 fois plus rapide). Donc l'écart entre nos mesures et celles de
+Payerne n'est pas dû à un phénomène d'inertie thermique.
+Deux observations :
+⧫ moins l'air est dense, plus l'écart de température est grand,
+⧫ plus la vitesse est grande (descente), plus l'écart de température est faible,
+laissent penser qu'il existe un apport de chaleur parasite aux capteurs.
+D'où peut provenir cette chaleur « parasite » ?
+La contribution de l'échauffement propre étant marginale, il ne reste qu'une hypothèse :
+Cette chaleur « parasite » est rayonnée par le tube destiné à protéger le capteur du rayonnement du soleil !
+Nos précautions étaient donc largement insuffisantes !
+Olympiades de physique 2012
+
+Comment Juliette a exploré l'atmosphère
+
+11 / 29
+
+Lycée Jules Viette Montbéliard
+
+Le schéma présente notre interprétation. Le tube de protection en polyéthylène blanc est recouvert, uniquement à
+l'extérieur, d'aluminium adhésif.
+Or le comportement de ces matériaux par rapport au rayonnement (absorption, émission) est très différent selon la
+longueur d'onde.
+fils de connexion
+de la sonde
+
+Le facteur d'absorption α d'un matériau pour une longueur
+d'onde est le pourcentage du rayonnement absorbé par le
+matériau (si α = 100%, on dit que c'est un « corps noir »).
+
+On constate que α = ε (loi de Kirchhoff) pour une même
+longueur d'onde.
+
+nt
+me
+e
+n
+o n ch i
+ray réflé
+
+À la température ambiante, les corps émettent un
+rayonnement infra rouge (lointain) encore appelé
+infrarouge C dont la longueur d'onde se situe
+essentiellement entre 7 et 15 μm.
+Or le facteur d'émission ou d'absorption varie comme suit :
+longueur d'onde
+
+visible
+
+infrarouge C
+
+aluminium poli
+
+4 à 9%
+
+4 à 9%
+
+polyéthylène blanc
+
+5 à 10%
+
+proche de 100% (*)
+
+rayt IR
+
+Autrement dit, le polyéthylène blanc est un corps noir pour
+l'infrarouge !
+La face extérieure du tube n'absorbe, peut-être, que 5 à
+10% du rayonnement solaire, mais 90% de cette
+puissance est piégée : elle est ré-émise en infra-rouge vers
+l'intérieur du tube et donc vers notre capteur.
+
+évacuation de chaleur
+par circulation de l'air
+
+ray
+on
+n
+so eme
+l ei
+l nt
+
+Le facteur d'émission ε (ou émissivité) d'un matériau pour
+une longueur d'onde est le rapport entre le rayonnement
+émis par ce matériau et le rayonnement émis, à cette
+même longueur d'onde, par un « corps noir » porté à la
+même température.
+
+rayt IR
+
+rayt IR
+
+rayt IR
+
+tube de protection contre
+le rayonnement solaire
+
+sonde Pt1000 collée sur
+feuille d'aluminium noirci
+
+vue en coupe du système de protection du capteur
+de température contre le rayonnement solaire
+et schématisation des échanges thermiques
+
+Comment remédier au problème ?
+Plusieurs idées que nous testerons sur notre prochaine nacelle :
+●
+
+Mettre un ventilateur pour accélérer la circulation de l'air dans le tube (ça, c'est une mauvaise idée, compte-tenu de la
+limitation de la masse de la nacelle).
+
+●
+
+Revêtir d'aluminium l'intérieur et l'extérieur du tube (soit utiliser un tube fait uniquement de papier d'aluminium).
+
+●
+
+Utiliser un tube blanc à l'extérieur et métallisé à l'intérieur pour privilégier le rayonnement infrarouge vers l'extérieur.
+
+●
+
+Utiliser un tube dont les faces intérieure et extérieure métallisées seraient séparées par un isolant.
+
+●
+
+Et surtout observer les solutions techniques utilisées par les professionnels de l'aérologie !
+
+analyse des autres mesures de température (voir courbes page suivante)
+analyse des mesures de la température de la nacelle
+La courbe met en évidence l'inertie thermique de la nacelle et permet une observation intéressante :
+évènement
+
+pour l'air extérieur
+
+intérieur nacelle
+
+retard
+
+vitesse verticale
+
+température mini lors de la montée à...
+
+15h 55min
+
+16h 15min
+
+20min
+
+15 km/h
+
+température mini lors de la descente à...
+
+17h 20min
+
+17h 26min
+
+6min
+
+46 km/h
+
+température maxi après l'éclatement à...
+
+17h 5min 55s
+
+17h 7min 56s
+
+2min
+
+130 km/h
+
+Plus la vitesse verticale du ballon est grande, plus les retards dans les minima ou maxima de la température sont faibles.
+(*) Nous avons vérifié cette indication provenant de sources scientifiques à l'aide d'une caméra thermique (cf. annexe 1)
+
+Olympiades de physique 2012
+
+Comment Juliette a exploré l'atmosphère
+
+12 / 29
+
+Lycée Jules Viette Montbéliard
+
+différentes températures mesurées au cours du vol
+(comparées à la température de l'atmosphère selon la station de Payerne)
+t corps noir (°C)
+
+t nacelle (°C)
+
+t atmosphère Juliette (°C)
+
+t atmosphère Payerne (°C)
+
+16:15
+
+16:45
+
+40
+30
+20
+
+températures (°C)
+
+10
+0
+15:00
+
+15:15
+
+15:30
+
+15:45
+
+16:00
+
+16:30
+
+17:00
+
+17:15
+
+17:30
+
+17:45
+
+-10
+-20
+-30
+-40
+-50
+-60
+-70
+
+analyse des mesures de la température du corps noir exposé au soleil
+Le « corps noir » est constitué d'un carré de feuille d'aluminium, revêtue de vernis noir, de 16cm 2 et de 0,2mm
+d'épaisseur au dos duquel était collée une sonde Pt1000.
+La courbe (bleu foncé) révèle une défaillance du système de mesure. Il s'agit d'une défaillance de la voie 1 du KIWI
+utilisé, confirmée par des tests effectués le 2/07/2011.
+Cette défaillance du système de mesure se traduit par un blocage, pendant une durée importante, de la température
+entre -12 et -13°C alors que celle-ci devrait être plus basse ; et, avant autant qu'après cette période de blocage, une
+période de bruitage anomal du signal. Ces phénomènes se produisent à la montée, comme à la descente.
+Malgré ce dysfonctionnement, quelques observations intéressantes :
+
+● Plus la densité
+de l'air est faible,
+plus l'écart de
+température
+entre le corps
+noir et l'air
+ambiant est
+important.
+● La vitesse de
+déplacement par
+rapport à l'air
+ambiant favorise
+largement
+l'échange de
+chaleur avec le
+corps noir,
+même pour des
+pressions de l'air
+très faibles.
+
+différence entre la température du corps noir et la température de l'air atmosphérique
+à la montée (courbe supérieure) et à la descente (courbe inférieure) de la nacelle
+70,00
+
+échauffement réduit
+de 15°C entre la
+montée et la descente
+
+60,00
+
+écart de température (°C)
+
+On constate que :
+
+50,00
+
+40,00
+
+30,00
+
+20,00
+
+Le graphique rassemble
+les seules données qui
+n'ont pas été affectées
+par le dysfonctionnement.
+
+10,00
+
+0,00
+
+0
+
+5 000
+
+10 000
+
+15 000
+
+20 000
+
+25 000
+
+30 000
+
+35 000
+
+altitude (m)
+
+Olympiades de physique 2012
+
+Comment Juliette a exploré l'atmosphère
+
+13 / 29
+
+Lycée Jules Viette Montbéliard
+
+Un bilan quantitatif est difficile.
+Car l'angle que forment les rayons du soleil avec le « corps noir » (dont la position moyenne est horizontale) diminue
+progressivement au fur et à mesure que le soleil baisse sur l'horizon (voir page suivante).
+Une idée originale pour lutter contre le refroidissement des piles !
+À 29 000 m d'altitude, alors que l'air est à -50°C, notre corps noir est à +17°C !
+L'abaissement de la température des piles réduit considérablement leurs performances. Pourquoi ne pas utiliser le
+rayonnement solaire pour les maintenir à température convenable ?
+Il y a des tests à effectuer pour un prochain projet de ballon !
+Conclusion
+La mesure des températures nous a réservé bien des surprises. Nous avons découvert que la mesure d'une température
+n'est pas une opération banale. Elle est bien plus complexe qu'on ne l'imaginait quand on veut mesurer la température
+d'un gaz peu dense comme la haute atmosphère et en présence de rayonnements importants.
+C'est un domaine qui nous ouvre des pistes pour un prochain projet de ballon stratosphérique !
+
+l'inclinaison de certains capteurs
+Tenir compte de la hauteur du soleil sur l'horizon.
+Dans tous les compte-rendus de lâchers de ballons stratosphériques, il est dit que la nacelle tourne sur elle-même.
+Dans ces conditions, on pense qu'il serait intéressant qu'à certains moments les capteurs de rayonnement soient orientés
+face aux rayons du soleil de façon à capter le flux solaire maximal.
+l'inclinaison des photodiodes face au soleil
+Nous souhaitons, en particulier, que le support des photodiodes (visible et UV) soit, à chaque rotation, perpendiculaire
+aux rayons du soleil.
+Nous trouvons sur Internet la relation fondamentale de la navigation astronomique qui nous permet de calculer et
+tracer la hauteur du soleil au dessus de l'horizon en fonction de l'heure le 7 mai 2011 à Montbéliard (voir tableau et
+graphique page 16).
+Nous demandons à lâcher notre ballon à 12h ce qui placerait la période de vol dans la zone verte du graphique et du
+tableau : la hauteur du soleil ne varierait que de 5° sur les 3 heures de vol.
+Hélas, le planning ne le permet pas : nous devrons lâcher à 15h ce qui place la période de vol dans la zone rose : la
+hauteur du soleil varie de 27° sur les 3 heures de vol.
+Nous orientons les photodiodes à un angle de 45° par rapport à la verticale afin que les capteurs soient perpendiculaires
+aux rayons du soleil au milieu de la montée, vers 16h. Dans ces conditions, l'angle variera de ± 8,5° et la sensibilité de la
+photodiode BPW21 ne sera pas affectée, compte tenu de son « angle de vision » (voir partie mesure du rayonnement).
+
+Olympiades de physique 2012
+
+Comment Juliette a exploré l'atmosphère
+
+14 / 29
+
+Lycée Jules Viette Montbéliard
+
+47,49 °
+
+projet Atmos'Viette de ballon stratosphérique
+club scientifique et technique du lycée Viette
+
+16,80 °
+heure angle horaire hauteur
+solaire
+δ
+soleil
+4,02
+-119,75 °
+-6,19 °
+4,67
+-110,00 °
+-0,47 °
+5,02
+-104,75 °
+2,77 °
+5,52
+-97,25 °
+7,55 °
+6,02
+-89,75 °
+12,47 °
+6,52
+-82,25 °
+17,48 °
+7,02
+-74,75 °
+22,53 °
+7,52
+-67,25 °
+27,59 °
+8,02
+-59,75 °
+32,61 °
+8,52
+-52,25 °
+37,52 °
+9,02
+-44,75 °
+42,26 °
+9,52
+-37,25 °
+46,72 °
+10,02
+-29,75 °
+50,77 °
+10,52
+-22,25 °
+54,27 °
+11,02
+-14,75 °
+56,99 °
+11,52
+-7,25 °
+58,73 °
+12,02
+0,25 °
+59,31 °
+12,52
+7,75 °
+58,65 °
+13,02
+15,25 °
+56,84 °
+13,52
+22,75 °
+54,06 °
+14,02
+30,25 °
+50,52 °
+14,52
+37,75 °
+46,43 °
+15,02
+45,25 °
+41,95 °
+15,52
+52,75 °
+37,20 °
+16,02
+60,25 °
+32,28 °
+16,52
+67,75 °
+27,26 °
+17,02
+75,25 °
+22,19 °
+17,52
+82,75 °
+17,14 °
+18,02
+90,25 °
+12,14 °
+18,52
+97,75 °
+7,23 °
+19,02
+105,25 °
+2,46 °
+19,37
+110,50 °
+-0,77 °
+20,02
+120,25 °
+-6,48 °
+
+hauteur du soleil le 7 mai 2011 à Montbéliard
+longitude 6°48'03" E latitude 47°29'34" N
+60 °
+
+50 °
+
+hauteur du soleil
+
+latitude : α 47°29'
+déclinaison
+le 7/05/2011
+16°48'
+à 12h : β
+heure
+heure légale
+TUC
+5,5
+3,5
+6,15
+4,15
+6,5
+4,5
+7
+5
+7,5
+5,5
+8
+6
+8,5
+6,5
+9
+7
+9,5
+7,5
+10
+8
+10,5
+8,5
+11
+9
+11,5
+9,5
+12
+10
+12,5
+10,5
+13
+11
+13,5
+11,5
+14
+12
+14,5
+12,5
+15
+13
+15,5
+13,5
+16
+14
+16,5
+14,5
+17
+15
+17,5
+15,5
+18
+16
+18,5
+16,5
+19
+17
+19,5
+17,5
+20
+18
+20,5
+18,5
+20,85
+18,85
+21,5
+19,5
+
+40 °
+
+30 °
+
+20 °
+
+10 °
+
+0°
+6
+
+7
+
+8
+
+9
+
+10
+
+11
+
+12
+
+13
+
+14
+
+15
+
+16
+
+17
+
+18
+
+19
+
+20
+
+21
+
+heure légale
+
+calculs effectués à l'aide de la formule fondamentale de la navigation astronomique :
+h = sin-1(cosα.cosδ.cosβ+sinα.sinβ)
+α : latitude du lieu
+β : déclinaison : angle entre la direction du soleil et le plan de l'équateur
+δ : angle horaire : angle de rotation de la terre par rapport à sa position au midi solaire du lieu
+sources : formule : http://francois.lonchamp.free.fr/NavigationAstro/Navigation2.html
+éphémérides : http://navastro.eu/eph2011.txt
+Institut de Mécanique Céleste et de Calcul des Éphémérides : http://www.imcce.fr/fr
+
+réponse thermique du "corps noir", sous vide,
+à une exposition au rayonnement solaire
+
+Faut-il incliner le corps noir ?
+
+test effectué au lycée le samedi 12 mars à 10h30
+
+Nous envisageons, au début,
+d'incliner le corps noir de la même
+façon.
+température (°C)
+
+On constate, expérimentalement,
+que, contrairement à la photodiode, le temps de réponse
+thermique de notre corps noir au
+rayonnement du soleil est long :
+environ 2 minutes (courbes →).
+
+70
+
+En raison de la rotation inévitable,
+de la nacelle au cours du vol,
+l'équilibre thermique ne pourra
+jamais être atteint.
+
+60
+50
+
+courant photodiode
+(éclairt) (x100μA)
+température (°C)
+
+40
+
+La courbe du courant
+dans la photodiode
+permet de repérer
+précisément les
+instants de début et
+de fin d'exposition
+au soleil
+
+30
+20
+10
+I (x100µA)
+
+C'est pourquoi nous décidons de
+0
+placer le capteur « corps noir »
+0
+1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+horizontalement sur la face
+t (min)
+supérieure de la nacelle et de
+veiller à ce que celle-ci soit bien horizontale au cours du vol afin que le flux solaire reçu soit aussi régulier que possible.
+
+les mesures de rayonnement
+recherche documentaire ; quel rayonnement mesurer ?
+L'idée de départ est de mettre en évidence les éléments du bilan radiatif de la terre et de l'atmosphère :
+●
+
+Mesurer le rayonnement solaire et sa variation, au fur et à mesure que l'on s'élève dans l'atmosphère.
+
+●
+
+Mesurer l'albédo de la terre (part de la lumière reçue du soleil réfléchie ou diffusée par la terre).
+
+●
+
+Mesurer le rayonnement infrarouge émis par la terre et mettre en évidence le rôle d'écran des nuages.
+
+●
+
+Mesurer le rayonnement ultraviolet provenant du soleil et mettre en évidence le rôle de filtre joué par
+l'atmosphère pour ce rayonnement.
+
+Olympiades de physique 2012
+
+Comment Juliette a exploré l'atmosphère
+
+15 / 29
+
+Lycée Jules Viette Montbéliard
+
+la recherche de capteurs
+Pour cela, nous recherchons et
+testons trois capteurs dont les
+sensibilités spectrales sont
+représentées ci-contre (sources :
+wikipedia pour le spectre solaire,
+constructeurs pour les sensibilités
+des capteurs) :
+●
+
+Une photodiode BPW21 sensible
+à la lumière visible.
+
+●
+
+Une photodiode SG01S_C18
+sensible aux ultraviolets C (230 285 nm) qui sont totalement filtrés
+par l'atmosphère.
+
+●
+
+Un capteur pyroélectrique
+IRA_E700ST0 sensible aux
+infrarouges lointains (5 – 15 μm).
+
+Ce dernier capteur a été abandonné
+après des essais infructueux.
+Car sa tension de sortie n'est pas
+proportionnelle au rayonnement
+infrarouge mais à ses variations.
+Il est utilisé dans les systèmes d'alarme pour
+détecter des mouvements de personnes.
+
+les essais et la réalisation avec les photodiodes en lumière visible
+Nous utilisons deux photodiodes BPW21. Une pour mesurer le rayonnement solaire, l'autre pour mesurer le rayonnement
+réfléchi et diffusé par le sol.
+La première ne nous permettra pas une mesure absolue du rayonnement mais seulement une mesure de sa variation
+relative en fonction de l'altitude.
+La seconde, nous permettra, en revanche, de mesurer l'albédo à condition d'avoir comparé, au préalable la sensibilité
+des deux capteurs !
+Le 25 mars, à 14h, nous mesurons le courant inverse circulant dans chaque photodiode dans différentes situations :
+conditions de mesure
+
+photodiode 1
+
+photodiode 2
+
+écart
+
+face au soleil
+
+1,0614 mA
+
+1,0713 mA
+
+0,9%
+
+tarmac de la cour
+
+0,0438 mA
+
+0,0444 mA
+
+1,4%
+
+carton blanc
+
+0,4738 mA
+
+0,4991 mA
+
+5,3%
+
+ciel bleu
+
+0,0999 mA
+
+0,1027 mA
+
+2,9%
+
+Olympiades de physique 2012
+
+Comment Juliette a exploré l'atmosphère
+
+16 / 29
+
+Lycée Jules Viette Montbéliard
+
+Conclusions :
+●
+
+La photodiode 1 est à peine plus sensible que la 2 mais, compte tenu de la précision de notre dispositif
+expérimental, nous les considérerons d'égale sensibilité.
+
+●
+
+En revanche, la comparaison des mesures face au soleil et face au carton blanc nous surprennent car l'albédo du
+carton est, à priori, comparable à celui de la neige soit environ 90%. Mais nous trouvons l'explication :
+
+Pour la mesure de l'albédo, il faut tenir compte de la variation de la sensibilité du capteur en fonction de l'angle. En effet,
+le rayonnement solaire est très directif alors que la lumière renvoyée par le carton diffuse dans toutes les directions !
+calcul de la sensibilité omnidirectionnelle du capteur
+Le fabricant donne la sensibilité relative du capteur
+en fonction de l'angle par rapport à l'axe.
+On suppose que la lumière diffuse également dans
+toutes les directions (émetteur dit « de Lambert »).
+On découpe la surface d'une demie sphère de rayon
+1 en zones successives, de 10° en 10°.
+On calcule la surface de chaque zone sphérique.
+S = 2∙π∙R2∙(cosφ1- cosφ2)
+On multiplie cette surface par la sensibilité angulaire
+correspondante.
+Et on fait le total.
+Puis on divise ce total par la surface de la demie
+sphère de rayon 1 : 2.π
+
+tranche angulaire
+(degrés)
+
+Ce qui donne une sensibilité omnidirectionnelle de
+0,4 (tableau ci-contre)
+
+de
+
+le montage
+Pour adapter le montage à la plage de tensions du
+convertisseur A/N du KIWI, nous plaçons, en série avec la
+photodiode qui mesure le rayonnement solaire, une
+résistance de 2 kΩ.
+Et, en série avec la photodiode qui mesure le rayonnement
+de la terre, une résistance de 5 kΩ.
+Le rapport entre les résistances est de 0,4 ; donc le rapport
+des deux tensions nous donnera directement l'albédo !
+
+0,10
+0,28
+0,46
+0,63
+0,77
+0,90
+0,99
+1,06
+1,09
+6,28
+
+0,10
+0,28
+0,44
+0,55
+0,58
+0,45
+0,08
+0,03
+0,01
+2,51
+0,40
+
++5V
+
+2kΩ 0,1%
+
+2
+
+0,1μF
+
+connecteur 1,5 pas
+
+5kΩ 0,1%
+
+Estimations du courant dans la photodiode :
+
+0,1μF
+
+connecteur 1,5 pas
+
+BPW21
+
+2
+
+● 4 nA à 30 000m (une partie seulement de la couche
+d'ozone a été traversée).
+
+1,000
+0,980
+0,940
+0,880
+0,750
+0,500
+0,085
+0,025
+0,010
+TOTAL
+
+photodiode lumière visible
+déportée à l'extérieur de la
+nacelle orientée vers soleil
+
+les essais et la réalisation avec la photodiode UV
+● 20 nA au dessus de l'atmosphère.
+
+10
+20
+30
+40
+50
+60
+70
+80
+90
+
+sensibilité omnidirectionnelle moyenne :
+
+BPW21
+
+Nous plaçons deux amplificateurs opérationnels de
+précision en suiveurs pour préserver la qualité des
+mesures (schéma ci-contre).
+
+à
+0
+10
+20
+30
+40
+50
+60
+70
+80
+
+surface zone contribution à la
+sphérique
+sensibilité
+(angle solide) omnidirectionnelle
+
+sensibilité
+relative
+
+photodiode lumière visible
+déportée à l'extérieur de la
+nacelle orientée vers la terre
+
++
+
+3
+6
+
+0,1μF
+
++
+
+5
+
+8 alim +
+
+tension de
+mesure du
+rayonnement
+solaire visible
+
+1
+double
+ampli. op.
+de précision
+LT1366CN8
+
+1nF
+tension de
+mesure du
+rayonnement
+terrestre visible
+
+7
+4 alim -
+
+1nF
+masse (0V)
+
+Objectif : obtenir une tension de 5V pour 4 nA dans la photodiode.
+● Le courant est amplifié avec un transistor
+(amplification mesurée de 125).
+
++5V
+transistor PNP
+BF423
+
+alim +
+entrée + 3
+
+2
+
+1MΩ 1%
+
+1nF
+
+entrée -
+
+connecteur 1,5 pas
+
+8
+1
+
+1MΩ 1%
+
+Pour faire les essais (qualitatifs), les ultraviolets C étant
+totalement filtrés par l'atmosphère, nous avons utilisé une
+lampe à vapeur de mercure.
+
+photodiode UVC
+déportée à l'extérieur
+de la nacelle
+
+SG01S-C18
+
+● La tension aux bornes de cette résistance est amplifiée
+5 fois par un amplificateur d'instrumentation.
+
+50MΩ
+
+● Le courant amplifié traverse une résistance de 2 MΩ.
+
+2
+
+7
+
+0,1μF
+
+ampli
+sortie
+d'instrumentation
+6
+AD627
+
+4
+alim -
+
+tension de
+mesure du
+rayonnement
+UVC
+
+5
+référence (de la
+tension de sortie)
+
+masse
+(0V)
+
+d'après les données du spectre solaire et la documentation de la photodiode
+
+Olympiades de physique 2012
+
+Comment Juliette a exploré l'atmosphère
+
+17 / 29
+
+Lycée Jules Viette Montbéliard
+
+les résultats obtenus en lumière visible
+
+télémesures reçues concernant le rayonnement (en volts)
+Voie UVC
+rayonnt. soleil (V)
+
+moy. glissante rayonnt. terre
+rayonnt. ciel
+
+Voie rayonnt. terre
+Voie rayonnt. soleil
+
+5
+
+éclatement du ballon
+Lors de l'éclatement, la nacelle est secouée,
+le capteur du rayonnement diffusé par la terre
+voit brièvement le soleil qui l'éblouit
+(saturation de la chaîne de mesure)
+
+4
+
+tension (V)
+
+3
+
+2
+
+1
+
+0
+15:00
+
+15:15
+
+15:30
+
+15:45
+
+16:00
+
+16:15
+
+16:30
+
+16:45
+
+17:00
+
+17:15
+
+17:30
+
+17:45
+
+La courbe bleu clair, varie fortement en fonction de la rotation du ballon sur lui-même :
+●
+
+Nous avons sélectionné les valeurs maxi et considéré qu'elles mesuraient le rayonnement du soleil (courbe orange).
+
+●
+
+Nous avons sélectionné les valeurs mini et considéré qu'elles mesuraient le rayonnement du ciel (courbe bleu foncé).
+
+Dans chaque couleur :
+●
+●
+
+variation relative du rayonnement du soleil et du ciel en fonction de l'altitude
+(base 100% au moment du lâcher à 15h04 le 7 mai 2011)
+
+montée : courbe supérieure,
+descente : courbe inférieure,
+s'arrêtant à 5000 m.
+
+Augmentation de 27% du
+rayonnement solaire entre le
+sol et 30 000 m d'altitude
+(conforme à nos attentes) :
+Les basses couches de
+l'atmosphère atténuent le
+rayonnement solaire (diffusion
+de la lumière : brume,
+poussières).
+Lors de la descente, le soleil
+est plus bas sur l'horizon,
+l'atmosphère atténue
+davantage le rayonnement
+solaire.
+
+140%
+
+120%
+
+100%
+
+80%
+
+Rayonnement soleil (%)
+Rayonnement ciel (%)
+
+60%
+
+40%
+
+20%
+
+0%
+
+0
+
+5 000
+
+10 000
+
+15 000
+
+20 000
+
+25 000
+
+30 000
+
+35 000
+
+altitude (m)
+
+La variation de la luminosité du ciel n'est pas aussi importante qu'attendue compte tenu de la noirceur du ciel observée
+sur les photos.
+Explication : l'« angle de vision » de la photodiode est trop large : donc, même en altitude, elle capte une partie de la
+lumière provenant de l'horizon.
+La chute brutale de luminosité, au moment de l'éclatement du ballon.
+Explication : À cette altitude, le ballon, très gros, occupe une place importante dans le champ visuel de la photodiode
+vers laquelle il diffuse de la lumière. Lors de l'éclatement, il disparaît brutalement du champ de vision d'où la chute
+brutale de la luminosité perçue.
+Olympiades de physique 2012
+
+Comment Juliette a exploré l'atmosphère
+
+18 / 29
+
+Lycée Jules Viette Montbéliard
+
+L'albédo
+albédo=
+
+rayonnement diffusé par la terre
+rayonnement dusoleil à 30000 m
+
+(à cette altitude, on surmonte 99% de l'atmosphère).
+
+albédo de la terre en fonction de l'altitude
+(montée et descente de la nacelle)
+25%
+
+20%
+
+albédo (%)
+
+15%
+
+Moyenne glissante (sur 20
+valeurs)
+Albédo (%)
+
+10%
+
+Nous pensons que les fluctuations du rayonnement reçu du sol
+proviennent du balancement de la nacelle :
+
+5%
+
+Si le capteur est légèrement orienté vers le soleil (à contrejour),
+il reçoit un rayonnement plus important.
+0%
+
+0
+
+5 000
+
+10 000
+
+15 000
+
+20 000
+
+25 000
+
+30 000
+
+35 000
+
+altitude (m)
+
+Le signal émis par la photodiode dirigée vers le sol a un pic à 5V au moment de l'éclatement (voir page 18) : la nacelle a
+été tellement secouée, à ce moment là, que le capteur a été brièvement exposé au soleil ce qui a saturé la chaîne de
+mesure. La valeur calculée de l'albédo est, à ce moment là, non significative !
+Le rayonnement provenant « du bas » augmente avec l'altitude : cela s'explique par le fait qu'au rayonnement diffusé par
+le sol s'ajoute, progressivement, le rayonnement diffusé par les basses couches de l'atmosphère (on l'observe par la
+perte de contraste sur les photos !)
+En haute altitude, l'albédo plafonne autour de 20%. Cela peut sembler faible, comparé à l'albédo moyen de la terre,
+estimé à 30%.
+Mais c'est cohérent, car l'albédo moyen de la terre prend en compte les surfaces recouvertes de nuages (ou de neige)
+qui ont un albédo autour de 90%. Or, le 7 mai, entre Montbéliard et Bâle, nuages et neige étaient absents !
+une étrange corrélation entre les signaux des 2 photodiodes lumière visible (graphe page 20)
+En observant attentivement les courbes page 18, ci-contre, on constate que le signal provenant de la photodiode orientée
+vers le sol est un peu plus élevé lorsque celui de la photodiode supérieure est élevé, lui aussi ; c'est à dire lorsque la
+photodiode supérieure est exposée au soleil.
+Le graphique de la page 20 confirme cette corrélation, même si cette corrélation est fortement perturbée par les
+mouvements de balancement de la nacelle.
+
+Olympiades de physique 2012
+
+Comment Juliette a exploré l'atmosphère
+
+19 / 29
+
+Lycée Jules Viette Montbéliard
+
+Hypothèse : En raison de modifications de dernière minute, la position d'équilibre de la nacelle suspendue n'est plus
+horizontale. Or la nacelle tourne sur elle-même.
+Dans la configuration 2, la photodiode 2 capte davantage le rayonnement diffusé, par les lointains, à contre-jour.
+C'est la seule hypothèse que nous ayons trouvée, même si elle n'est pas confirmée clairement par la position de la ligne
+d'horizon sur les photos prises par l'appareil 1.
+
+so
+le
+il
+
+so
+l
+
+ei
+l
+
+p
+dio hoto
+de 1
+
+oto 1
+ph de
+dio
+
+appare
+il
+photo 1
+
+photodiode 2
+
+des ur
+ent
+nem ontre-jo
+n
+o
+ray s à c
+tain
+loin
+
+photodiode 2
+
+il
+re
+pa 2
+ap oto
+ph
+
+s
+t de r
+men -jou
+nn e c o nt r e
+o
+y
+a
+r
+sà
+tain
+loin
+
+ap
+ph par
+oto ei l
+2
+
+il
+appare
+photo 1
+
+configuration 1 ---> après un demi tour ---> configuration 2
+
+Olympiades de physique 2012
+
+Comment Juliette a exploré l'atmosphère
+
+20 / 29
+
+Lycée Jules Viette Montbéliard
+
+capteur d'ultraviolets C : zéro partout... sauf une envolée soudaine en fin de descente !
+On a gardé « le meilleur » pour la fin : sur le graphique, page 18, on observe que la tension de mesure des ultraviolets C
+reste désespérément nulle sauf à la fin de la descente ou elle grimpe rapidement pour saturer à 5V.
+
+essai du système de mesure des ultraviolets
+dans le congélateur
+
+On teste le capteur UV, il n'est pas en cause...
+Que s'est-il passé ?
+
+6
+
+● La nacelle descend rapidement.
+
+5
+
+● De l'air de plus en plus chaud entre dans la
+nacelle.
+
+4
+
+● La vapeur d'eau contenue dans l'air se condense
+sur la carte électronique encore très froide.
+● La condensation crée un courant de fuite > 4 nA
+qui sature le système de mesure !
+
+tension (V)
+
+● La pression atmosphérique augmente.
+
+Nous avions hydrofugé les capteurs à l'extérieur de la
+nacelle, mais pas la carte électronique à l'intérieur !
+Nous faisons un test dans un congélateur pour vérifier
+notre hypothèse (courbe ci-contre) :
+
+sortie de la
+carte du
+congélateur
+
+3
+2
+1
+0
+00:00
+
+00:10
+
+00:20
+
+00:30
+
+00:40
+
+00:50
+
+01:00
+
+01:10
+
+temps
+
+Dans les minutes qui ont suivi la sortie du congélateur la tension est montée jusqu'à la saturation, puis redescendue
+lorsque la condensation a disparu !
+Mais on aurait pu prévoir qu'on ne détecterait pas d'ultraviolets C si on avait vu, plus tôt, le graphique ci-dessous
+(wikipedia) qui montre bien que la totalité des UV C sont absorbés au delà de 30 000 m !
+Mais on n'avait pas trouvé de capteur UV qui couvre le
+spectre de tous les ultraviolets !
+Depuis, on en a trouvé un pour notre prochain projet !
+Seule consolation : il n'y avait pas de trou dans la couche
+d'ozone, au dessus de nos têtes, ce jour là !
+Sur ce graphique, DU signifie unité Dobson : c'est une unité
+destinée à mesurer la quantité d'ozone dans une couche de
+l'atmosphère.
+Une unité Dobson correspond à une quantité d'ozone qui, ramenée
+à la pression atmosphérique normale mesurerait 0,01 mm
+d'épaisseur.
+L'ozone stratosphérique qui s'étend entre 20 et 50 km d'altitude,
+est très dilué dans l'atmosphère locale. De l'ordre de quelques ppm
+à quelques dizaines de ppm dans la couche d'ozone elle-même,
+qui est un mélange gazeux à faible pression.
+En fait si cet ozone était regroupé, concentré à l'état pur, il aurait à la pression atmosphérique « normale » une épaisseur de seulement
+3 mm, soit 300 unités Dobson. Il est impressionnant qu'une si faible quantité de gaz puisse apporter une telle protection !
+G.M.B Dobson, fut un des premiers scientifiques à étudier la couche d'ozone et l'inventeur du spectromètre Dobson (source wikipedia)
+
+conclusion
+Les mesures de rayonnement sont complexes en raison des mouvements de la nacelle. Mais nous avons obtenu des
+mesures intéressantes dans le domaine de la lumière visible.
+En revanche, nous avons rencontré beaucoup de difficultés à trouver des capteurs sensibles à une plage de longueur
+d'ondes précise en dehors de la lumière visible :
+●
+
+Dans le domaine des ultraviolets A, B, C (nous en avons enfin trouvé un pour notre prochaine nacelle).
+
+●
+
+Dans le domaine des infrarouges lointains ; le seul capteur que nous avons finalement trouvé, utilisé pour de la
+mesure de température sans contact, a une sortie numérique incompatible avec l'utilisation du KIWI prévue dans
+le projet.
+
+Enfin, nous avons découvert que l'angle de détection d'un capteur de rayonnement était aussi important que sa plage de
+longueurs d'onde.
+Olympiades de physique 2012
+
+Comment Juliette a exploré l'atmosphère
+
+21 / 29
+
+Lycée Jules Viette Montbéliard
+
+l'exploitation des données GPS
+la visualisation de la trajectoire et la localisation du point de chute
+Les radio-amateurs utilisent le logiciel
+UI-View32 pour visualiser les
+coordonnées sur une carte. Mais nous
+n'avons pas réussi à décoder le fichier
+texte contenant les coordonnées GPS
+transmises par le KIWI. Nous avons dû
+lire le fichier avec UI-View32 et relever
+les coordonnées (latitude, longitude,
+altitude), une fois par minute à la
+montée et pour toutes les transmissions
+à la descente.
+À l'aide du logiciel libre Viking, nous
+avons pu tracer l'itinéraire suivi par la
+
+nacelle sur un fond de carte (en
+violet). Il a survolé un temps la frontière
+suisse et a atterri à Istein, en Allemagne
+à quelques kilomètres de la frontière.
+
+La croix rouge marque le point
+d'éclatement du ballon à
+17h 05min 54s
+
+l'altitude et la vitesse ascensionnelle
+Le fichier GPS contient l'heure et
+l'altitude. Nous avons donc pu tracer
+la courbe de l'altitude en fonction du
+temps :
+Il existe une légère rupture de pente
+sur la courbe, à la descente, vers
+17 000 m qui est confirmée par la
+courbe de la vitesse ascensionnelle.
+Manifestement, à cette altitude, si la
+vitesse de chute a augmenté, c'est
+que la résistance de l'air a été réduite
+(séparation d'une partie de
+l'enveloppe du ballon ? changement
+de configuration du parachute ?).
+
+altitude de la nacelle au cours du vol en fonction du temps
+35 000 m
+
+30 000 m
+
+rupture
+de pente
+
+25 000 m
+
+20 000 m
+
+15 000 m
+
+10 000 m
+
+5 000 m
+
+0m
+15:00
+
+15:15
+
+15:30
+
+15:45
+
+16:00
+
+16:15
+
+16:30
+
+16:45
+
+17:00
+
+17:15
+
+17:30
+
+17:00
+
+17:15
+
+17:30
+
+vitesse ascensionnelle de la nacelle au cours du vol
+vitesse ascensionnelle
+
+À partir du temps et de l'altitude, nous
+avons calculé la vitesse
+ascensionnelle.
+
+Remarque : la précision de l'altitude
+donnée par le GPS paraît
+convenable : à l'aérodrome, il donnait
+entre 325 et 330m pour une altitude
+réelle de 317m.
+
+5
+0
+15:00
+
+vitesse ascensionnelle en m/s
+
+On remarque qu'elle est très régulière
+à la montée (environ 15 km/h). Très
+rapide au début de la descente
+(130 km/h), elle se réduit
+progressivement quand la densité (et
+donc la résistance) de l'air augmente.
+
+vitesse moyenne montée
+
+10
+
+15:15
+
+15:30
+
+15:45
+
+16:00
+
+16:15
+
+16:30
+
+16:45
+
+-5
+-10
+-15
+-20
+-25
+-30
+-35
+-40
+
+Olympiades de physique 2012
+
+Comment Juliette a exploré l'atmosphère
+
+22 / 29
+
+Lycée Jules Viette Montbéliard
+
+le profil du vent en fonction de l'altitude
+Il faut d'abord calculer :
+
+● la distance parcourue entre deux positions GPS,
+● ainsi que la direction du déplacement.
+
+Il faudra ensuite ajouter 180° pour obtenir la direction du vent (si le ballon va vers l'est, c'est qu'il est entraîné par un vent d'ouest !).
+
+pôle N
+
+calcul de distance et direction entre deux positions GPS
+rayon de la terre : R = 6378 km
+latitude : α
+circonférence de la terre (supposée sphérique !) : 2.π.R = 40 074 km
+
+r
+
+Un déplacement d'un degré en latitude (vers le nord) correspond à une distance
+parcourue égale à 1/360ème de méridien : d_nord = 40 074 / 360 = 111,317 km
+
+R
+
+Mais un déplacement d'un degré en longitude (vers l'est) correspond à une distance
+parcourue qui dépend de la latitude !
+
+α
+
+équateur
+
+Cette distance est égale à 1/360ème du parallèle concerné dont le rayon r = R.cos(α)
+(voir figure), soit : d_est = 111,317.cos(α) [ = 75,23 km à Montbéliard ]
+À partir du fichier, il faut donc calculer les distances parcourues d_nord et d_est entre
+deux positions successives, puis calculer :
+●
+
+la distance parcourue d en appliquant le théorème de Pythagore
+
+●
+
+puis la vitesse en divisant par l'intervalle de temps
+
+●
+
+et également la direction du vent avec la fonction ATAN2() du tableur.
+
+Les données obtenues sont comparées à celles de Payerne relevées le même jour.
+En météorologie, les angles sont comptés dans le sens horaire, à partir du nord :
+nord
+
+est
+
+sud
+
+ouest
+
+nord
+
+0°
+
+90°
+
+180°
+
+270°
+
+360°
+
+n
+tio
+c
+e
+t
+dir ven
+du
+
+d_nord
+
+d_est
+
+β
+dé
+
+pl a
+
+n
+me
+e
+c
+
+t
+
+On constate (courbes ci-dessous) une bonne corrélation entre les mesures de vent montée et descente de notre nacelle et les
+mesures de Payerne.
+On remarque : ● que les variations brutales de direction se produisent à vitesse faible (près du sol, vers 20 000 m et 30 000 m)
+● que les altitudes correspondant aux vitesses maximales ont tendance à baisser au cours de la journée.
+
+direction du vent en fonction de l'altitude
+direction Juliette montée
+nord
+
+direction Juliette descente
+
+direction Payerne
+
+360 °
+315 °
+
+ouest
+
+270 °
+225 °
+
+sud
+
+180 °
+135 °
+
+est
+
+90 °
+45 °
+
+nord
+
+0°
+
+0
+
+5 000
+
+10 000
+
+15 000
+
+20 000
+
+25 000
+
+30 000
+
+35 000
+
+30 000
+
+35 000
+
+vitesse du vent en fonction de l'altitude
+vitesse Juliette montée
+
+vitesse Juliette descente
+
+vitesse Payerne
+
+80
+70
+
+vitesse (km/h)
+
+60
+50
+40
+30
+20
+10
+0
+0
+
+5 000
+
+Olympiades de physique 2012
+
+10 000
+
+15 000
+
+20 000
+
+Comment Juliette a exploré l'atmosphère
+
+25 000
+
+23 / 29
+
+Lycée Jules Viette Montbéliard
+
+ANNEXE 1 :
+RÉPONSE AUX QUESTIONS POSÉES PAR LE JURY LYONNAIS
+
+sur les mesures de la pression atmosphérique
+Le jury nous a interrogé sur l'origine de l'écart (graphique page 7) entre la pression que nous avons mesurée et celle que
+nous avons calculée en utilisant les formules de l'atmosphère standard internationale (ISA).
+Nous avons écrit (page 7) que cet écart provient de la différence entre le profil réel de température de l'atmosphère le 7
+mai 2011et le profil de température de l'ISA.
+Cette explication ne convainc pas les membres du jury qui a un avis partagé sur la question.
+De retour à Montbéliard, nous décidons donc d'approfondir la question.
+Nous nous souvenons de ce que nous a dit le radio-sondeur de la station de Payerne :
+Depuis quelques temps, ils n'y a plus de capteur de pression sur les nacelles de Payerne. La pression
+atmosphérique est calculée à partir de la pression atmosphérique relevée au sol et du profil de température
+relevé en fonction de l'altitude. La fiabilité de la méthode a été vérifiée quelques années avant de supprimer le capteur
+de pression.
+Nous avons donc décidé de faire la même chose (en partant du profil de température de Payerne puisque nos mesures
+de température de l'atmosphère étaient entachées d'erreurs importantes).
+Le principe est simple :
+On a d'abord calculé la valeur de la pesanteur en fonction de l'altitude. Celle-ci est inversement proportionnelle au carré
+de la distance au centre de la terre.
+Donc : g=g0⋅
+
+r
+
+rz
+
+2
+
+avec le rayon de la terre r = 6378 km et g0 = 9,80665 m.s-2.
+
+On a ensuite calculé la masse d'une colonne d'air de 1m2 de section comprise entre deux points de mesure successifs.
+mair =n⋅M avec la masse molaire moyenne de l'air, M = 28,96442 g/mol
+p⋅V
+(loi des gaz parfaits) avec p égale à la pression calculée au point de mesure
+R⋅T
+précédent, le volume de la colonne d'air V=1⋅Δz , la constante des gaz parfaits R = 8,31432 J/mol et T la température
+absolue mesurée en Kelvin.
+
+et la quantité de matière n=
+
+On a enfin calculé la pression au nouveau point de mesure en retranchant de la pression calculée au point précédent, le
+poids de la colonne d'air comprise entre ces deux points :
+p zΔz =p z−mair⋅g z
+
+Les calculs donnent une courbe qui coïncide parfaitement avec le profil de pression de Payerne : l'écart reste inférieur à
+0,93 hPa, il est indiscernable sur le graphique. L'écart provient, sans doute, de légères différences sur la valeur des
+constantes utilisées pour le calcul.
+Conclusion : les graphiques page 25 montrent que :
+
+● Il y a un très léger décalage entre la courbe de pression de l'ISA et la courbe de pression calculée qui peut
+s'expliquer par la différence entre le profil réel de température et le profil de température de l'ISA.
+●
+
+Mais cet écart, très faible, n'explique pas l'écart avec nos mesures.
+
+●
+
+Il faut se rendre à l'évidence, nos mesures sont entachées d'erreur.
+
+Olympiades de physique 2012
+
+Comment Juliette a exploré l'atmosphère
+
+24 / 29
+
+Lycée Jules Viette Montbéliard
+
+pression atmosphérique en fonction de l'altitude
+1000
+
+pression (hPa)
+
+800
+
+600
+
+Pression atmos mesurée
+montée (hPa)
+Pression atmos mesurée
+descente (hPa)
+Pression atmos calculée
+selon modèle ISA (hPa)
+Pression atmos calculée
+selon gaz parfaits (hPa)
+
+400
+
+200
+
+0
+0
+
+5 000
+
+10 000
+
+15 000
+
+20 000
+
+25 000
+
+30 000
+
+35 000
+
+altitude (m)
+
+pression atmosphérique en fonction de l'altitude (zoom)
+600
+
+pression (hPa)
+
+500
+
+Pression atmos mesurée
+montée (hPa)
+Pression atmos mesurée
+descente (hPa)
+Pression atmos calculée
+selon modèle ISA (hPa)
+Pression atmos calculée
+selon gaz parfaits (hPa)
+
+400
+
+300
+
+200
+5 000
+
+6 000
+
+7 000
+
+8 000
+
+9 000
+
+10 000
+
+11 000
+
+12 000
+
+altitude (m)
+
+Olympiades de physique 2012
+
+Comment Juliette a exploré l'atmosphère
+
+25 / 29
+
+Lycée Jules Viette Montbéliard
+
+analyse des erreurs de mesure
+Nous avons recherché des points de mesure ayant la même altitude entre nos mesures et celles de Payerne. Nous en
+avons retenu 142 entre 600m et 30 200m d'altitude et nous avons relevé les écarts entre nos mesures de pression et la
+pression calculée (1er graphique ci-dessous)
+
+écart entre la pression mesurée et la pression calculée
+en fonction de l'altitude
+p mesurée - p calculée (hPa)
+
+16
+14
+12
+10
+8
+6
+4
+2
+0
+0
+
+4 000
+
+8 000
+
+12 000
+
+16 000
+
+20 000
+
+24 000
+
+28 000
+
+32 000
+
+altitude (m)
+
+écart entre la pression mesurée corrigée et la pression calculée (en fonction de l'altitude)
+p mesurée corrigée - p calculée (hPa)
+
+(correction d'offset : -1 hPa, de sensibilité : -1,1%)
+10
+8
+6
+4
+2
+0
+0
+
+4 000
+
+8 000
+
+12 000
+
+16 000
+
+20 000
+
+24 000
+
+28 000
+
+32 000
+
+-2
+
+altitude (m)
+
+écart entre la pression mesurée corrigée et la pression calculée (en fonction de la pression)
+p mesurée corrigée - p calculée (hPa)
+
+(correction d'offset : - 1 hPa, de sensibilité : -1,1%
+10
+8
+6
+4
+2
+0
+0
+
+100
+
+200
+
+300
+
+400
+
+500
+
+600
+
+700
+
+800
+
+900
+
+1000
+
+-2
+
+pression (hPa)
+
+Olympiades de physique 2012
+
+Comment Juliette a exploré l'atmosphère
+
+26 / 29
+
+Lycée Jules Viette Montbéliard
+
+La première chose qui saute aux yeux est l'impact de la résolution médiocre du convertisseur analogique/numérique du
+KIWI (transmetteur du CNES) :
+●
+
+En dessous de 15 000 m (pression supérieure à 113 hPa) la résolution est de 5,04 hPa.
+
+●
+
+Au dessus de 15 000 m (pression inférieure à 113 hPa) la résolution est de 0,504 hPa
+
+Nous avons fait figurer un segment rouge sur les graphiques :
+●
+
+son abscisse situe le changement de gamme,
+
+●
+
+sa hauteur représente le quantum à basse résolution (5,04 hPa)
+
+Ensuite, la seconde idée qui nous vient, c'est que l'erreur provient de l'étalonnage : le baromètre de l'aérodrome était-il
+lui-même bien étalonné ? Nos mesures de tension sous la cloche à vide étaient elles parfaitement exactes ?
+Puisque la tension délivrée par la chaîne de mesure est une fonction affine de la pression (voir page 7), on peut essayer
+de corriger après coup :
+●
+
+Pour corriger le décalage (correction d'offset), on retranche 1,1 hPa,
+
+●
+
+Pour corriger la pente (correction de sensibilité), on multiplie par 0,989.
+
+Cela donne le deuxième graphique page 26.
+Pour avoir une vision différente des choses, on représente également l'erreur en fonction de la pression, ce qui donne le
+troisième graphique.
+Conclusion :
+Si l'erreur a bien été annulée à chaque extrémité, elle ne l'est pas du tout au milieu de la courbe.
+Nous en concluons que la tension délivrée par le capteur n'est pas exactement une fonction affine de la pression : il y a
+une « erreur de linéarité » que l'on peut estimer à 5 hPa environ au milieu de la courbe.
+Nous relisons la documentation technique du fabricant du capteur : il indique une erreur maximale de linéarité (mesurée
+au milieu de la gamme de mesure) de ±0,5% de la pleine échelle. Cette pleine échelle étant de 1000 hPa, l'erreur
+maximale de linéarité est de ±5 hPa. On se trouve donc dans les tolérances données par le fabricant.
+Il faut également souligner que le fabricant donne la précision du capteur pour des températures comprises entre 0 et
+50°C. Il indique également qu'il peut fonctionner jusqu'à -20°C mais ne donne pas d'indication de précision pour les
+températures négatives. Or la température est descendue à -28°C dans la nacelle. Les températures basses ont, peutêtre, également contribué à l'erreur de linéarité.
+
+sur les mesures de température
+Question du jury lyonnais : Sur quoi vous appuyez-vous pour affirmer (page 12) que le polyéthylène (blanc) se
+comporte comme un corps noir dans l'infrarouge lointain ?
+On avait trouvé ça dans un article de Wikipedia qui regroupe des données de différentes sources :
+http://fr.wikipedia.org/wiki/émissivité
+Mais Dilan a utilisé, récemment, une caméra thermique en travaux pratiques de génie électrique. Il propose qu'on vérifie
+l'émissivité du polyéthylène utilisé avec la caméra thermique.
+On retrouve un morceau de la cartouche de silicone utilisée pour faire les tubes, on colle dessus une sonde de platine
+Pt1000.
+On mesure la résistance de la sonde Pt1000 : 1088,97 Ω ce qui correspond à une température de 22,84°C ±0,3°C.
+On règle l'émissivité de la caméra thermique à 100% et on mesure la température du polyéthylène : 23°C.
+On peut donc confirmer que l'émissivité du polyéthylène est de 100% dans l'infrarouge lointain détecté par les
+caméras thermiques.
+
+Olympiades de physique 2012
+
+Comment Juliette a exploré l'atmosphère
+
+27 / 29
+
+Lycée Jules Viette Montbéliard
+
+Question du jury lyonnais : Pourquoi avez-vous utilisé une feuille d'aluminium plutôt qu'une couverture de survie
+pour isoler votre nacelle ? Cela aurait peut être permis à la température intérieure de descendre moins bas ?
+On avait choisi la feuille d'aluminium en pensant que cela protégerait mieux l'électronique embarquée des ondes
+électromagnétiques émises par l'antenne du transmetteur de données... Mais on n'avait pas fait d'essai.
+On enferme donc un téléphone portable dans une feuille d'aluminium, puis dans une couverture de survie et on essaie
+de l'appeler. Sans succès. De ce point de vue, les deux matériaux sont aussi efficaces.
+Mais on se pose la question suivante : Quelle est la face (« dorée » ou « argentée ») qu'il faut mettre à l'extérieur pour
+limiter les échanges par rayonnement ?
+On essaie d'imaginer de quoi est constituée une couverture de survie. L'or coûte trop cher, donc hypothèse retenue :
+C'est un film plastique coloré en jaune dont une face est revêtue d'aluminium.
+On teste avec un ohm-mètre : la face « argentée » est conductrice et la face « dorée » est isolante. Ce qui confirme
+notre hypothèse.
+Mais, si la face « dorée » est constituée de matière plastique, elle rayonne peut-être comme un corps noir (comme le
+polyéthylène) ?
+On fait des essais avec la caméra thermique qui confirme cette hypothèse :
+La couverture de survie ne limite les échanges par rayonnement que du côté de la face argentée !
+De nombreuses personnes l'utilisent à l'envers, ce qui est totalement inefficace si elle est en contact avec l'objet ou la
+personne à isoler !
+À retenir pour une prochaine nacelle !
+Pour évoquer la deuxième partie de la question : on avait soigné les joints de la nacelle pour limiter, au maximum la
+circulation d'air entre l'intérieur et l'extérieur de la nacelle. Mais l'aérotechnicien nous a demandé, quelques heures avant
+le lâcher, de déplacer le support des capteurs de rayonnement qui auraient pu blesser une personne recevant la nacelle
+sur la tête. Cette modification de dernière minute a créé des trous dans la nacelle à travers lesquels l'air extérieur a pu
+circuler.
+
+Question du jury lyonnais : Quels sont les phénomènes qui expliquent le profil de température de l'atmosphère ?
+On n'avait pas approfondi la question... On l'a fait depuis.
+Si l'air est transparent pour un rayonnement, il ne l'absorbe pas. Donc le rayonnement le traverse sans le réchauffer.
+Si certains constituants de l'air absorbent le rayonnement dans certaines longueurs d'onde, ces rayonnements le
+réchauffent.
+Mais, en même temps, l'émissivité étant égale au coefficient d'absorption, pour une même longueur d'onde, ces
+constituants de l'air émettent un rayonnement ce qui refroidit l'air...
+Les gaz à effet de serre, dont le principal est la vapeur d'eau ,absorbent et émettent du rayonnement, surtout dans l'infrarouge.
+Près du sol, le rayonnement infra-rouge est principalement émis vers le bas (celui qui est émis vers le haut est à son tour
+absorbé et ré-émis et ainsi de suite).
+Au fur et à mesure qu'on s'élève, la température de l'air diminue et la concentration en vapeur d'eau aussi. Le
+rayonnement infra-rouge émis vers le haut est de moins en moins absorbé. Donc plus on monte, plus la part du
+rayonnement émis vers l'espace est importante.
+D'après les modèles établis en aérologie, si l'effet de serre était le seul phénomène à l'origine du profil vertical de la
+température, celle-ci diminuerait de 14,5°C/km.
+Olympiades de physique 2012
+
+Comment Juliette a exploré l'atmosphère
+
+28 / 29
+
+Lycée Jules Viette Montbéliard
+
+Mais la température ne décroît que de 6,5°C/km dans la troposphère.
+Pourquoi ?
+Aux échanges par rayonnement, s'ajoutent, dans la troposphère, les échanges par convection : l'air chauffé par le sol,
+moins dense, s'élève : il transporte de la chaleur sensible, mais également de la vapeur qui va libérer beaucoup de
+chaleur en se condensant (chaleur latente).
+Mais, pourquoi, au delà de la troposphère, donc, dans la stratosphère, la température se stabilise, puis remonte en
+fonction de l'altitude ?
+Principalement parce que l'ozone stratosphérique absorbe le rayonnement ultraviolet qui provoque des réactions
+photochimiques. Ce n'est pas une absorption classique, donc l'ozone ne ré-émet d'ultra violets.
+Mais cette absorption dégage de la chaleur.
+Pour compliquer le tout l'ozone est également un gaz à effet de serre qui absorbe et émet du rayonnement infra
+rouge.
+Des phénomènes
+contradictoires se produisent :
+par exemple, l'augmentation
+des gaz à effet de serre dans la
+troposphère, augmente
+l'efficacité du filtrage du
+rayonnement infra-rouge
+terrestre. L'ozone
+stratosphérique reçoit moins
+d'infra-rouge et la température
+de la stratosphère diminue.
+Donc, il y a, en même temps,
+réchauffement au sol et
+refroidissement dans la
+stratosphère.
+Le graphique ci-contre illustre
+la complexité de ces
+phénomènes.
+Sources :
+site de Météo France :
+comprendre la météo :
+http://comprendre.meteofrance.
+com
+site ESPERE (Environmental
+Science Published fot
+Everybody Round the Earth)
+site scientifique financé par
+l'U.E. :
+http://www.atmosphere.mpg.de/
+
+longueur
+d'onde λ
+(μm)
+
+∞
+
+40
+
+20
+
+10
+
+6,67
+
+5
+
+Sur le graphique, l'échelle de couleur représente, (en milliKelvin par jour), l'échauffement (zones grises) ou le
+refroidissement (zones colorées) de l'atmosphère, en fonction de l'altitude et de la longueur d'onde. La ligne en pointillés
+représente la tropopause (limite entre la troposphère et la stratosphère). La température moyenne de la partie inférieure
+de la stratosphère diminue de 0,5°C par décade depuis 50 ans.
+
+sur la station d'aérologie de Payerne
+Question du jury lyonnais : En quoi consiste le calibrage des satellites cité page 4 ?
+Nous allons poser la question à Jean-Michel CLERC, le radiosondeur qui nous a reçus. Ce n'est pas encore fait, mais ça
+le sera prochainement !
+Olympiades de physique 2012
+
+Comment Juliette a exploré l'atmosphère
+
+29 / 29
+
+Lycée Jules Viette Montbéliard
+
+

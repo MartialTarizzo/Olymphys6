@@ -1,0 +1,397 @@
+Conception et réalisation
+d'une pédale MIDI
+Origine et historique du projet:
+Plusieurs dizaines de lycéens de Porto-Vecchio adhèrent au club musique du foyer
+socio-éducatif et se retrouvent à l'heure du repas ou pendant leurs heures d'étude dans une
+petite salle , essentiellement pour faire du hard-rock ou de la chanson corse.
+Cette salle a été équipée au fil des ans de nombreux instruments, et en particulier d'un
+clavier numérique relié par un câble MIDI à un générateur de sons (Expandeur) capable de
+synthétiser des sons de timbres variés: violon, flûte,...
+Durant le cours de MPI (mesures physiques informatisées, option de seconde) des élèves
+ont demandé à leur professeur si la liaison MIDI entre instruments de musiques était de type
+série ou parallèle et comment les informations circulaient entre les deux instruments.
+Il a donc été décidé de se retrouver le vendredi après-midi durant le créneau
+15h30-17h30, réservé durant l'année scolaire 2007/08 aux activités culturelles et sportives,
+pour essayer de répondre à cette question.
+Ce projet a été proposé également aux élèves de première S et une douzaine d'entre eux
+y ont participé activement, mais ceux-ci préféraient un autre créneau le lundi après-midi
+pendant une heure d'étude.
+Un groupe d'élèves a effectué des expériences d'acquisition de signaux sortant par la
+prise MIDI OUT du clavier (à l'aide d'un oscilloscope numérique relié à un ordinateur) et ont
+comparé les courbes obtenues en faisant varier certains paramètres: note jouée, vélocité (force
+de frappe sur la touche), timbre de l'instrument choisi.
+D'autres ont effectué des recherches sur internet pour essayer de comprendre le
+protocole de transmission utilisé et les messages correspondant aux différentes informations
+transmises.
+Face au manque de clarté et de rigueur dans les explications trouvées sur les nombreux
+sites consultés, un groupe d'élèves déjà initiés en autodidactes à l'utilisation des logiciels
+« dreamweaver » et « flash » a proposé de réaliser un site internet sur lequel les résultats de nos
+recherches ainsi que nos réalisations pourraient être divulgués.
+Ce site a été intitulé: « comment voir MIDI à sa porte » en adaptant un ancien dicton
+datant du temps où les montres n'existaient pas et où chacun pouvait lire l'heure sur un cadran
+solaire situé au dessus de sa porte, et qui signifie que « face à un événement donné, chacun
+peut avoir son propre point de vue ».
+Nous avons pour notre part utilisé des composants électroniques appelés « portes
+logiques » pour générer des signaux MIDI.
+Ce site est presque terminé et consultable à l'adresse: www.mezziornu.com
+« Mezziornu » signifie « midi » en corse.
+
+Tout le travail réalisé l'an dernier: photos et films de nos réalisations, carnet de bord tenu
+à chaque séance, classeurs pédagogiques sur les thèmes « protocole MIDI » et « pédale MIDI »
+est consultable sur ce site.
+De nombreuses animations « flash » ont été réalisées par les élèves et leurs enseignants
+qu'ils ont initié, et qui ont rapidement pris goût à travailler avec ce logiciel qu'ils ne
+connaissaient pas avant de débuter ce projet.
+Toutes les illustrations de ce mémoire sont des copies d'écran d'animations flash réalisées pour
+illustrer et agrémenter la présentation de ce projet et le site internet qui lui est dédié.
+Après avoir décrypte et maitrisé le protocole de transmission MIDI, nous avons conçu et
+réalisé un montage électronique essentiellement basé sur l'utilisation de circuits logiques (qui
+sont au programme du cours de MPI) pour reproduire les mêmes signaux que ceux sortant d'un
+clavier numérique lorsqu'on appuie sur une touche.
+
+Ce montage, baptisé « clavier pédagogique » est en fait une sorte de télécommande capable de
+piloter un générateur de sons par sa prise MIDI, et de lui faire jouer une note quelconque avec
+une intensité sonore réglable, et de changer de timbre instrumental.
+MIDI signifie: Musical Instrument Digital Interface
+Un élève de première ES, fréquentant également la salle de musique et ayant entendu
+parler du travail réalisé par ses camarades, leur a demandé si ils étaient capables de fabriquer
+une pédale capable de démarrer et arrêter la boite à rythme qu'il utilise pour travailler ses solos
+de guitare.
+Nous avons donc recherché quels étaient les messages MIDI correspondant à ces
+fonctions et avons modifié le montage réalisé pour le « clavier pédagogique » afin de l'adapter
+au nouveau cahier des charges.
+
+Depuis la rentrée de septembre 2008, nous avons réalisé deux maquettes permettant
+d'expliquer le fonctionnement des circuits électroniques composant la pédale que nous avons
+fabriquée.
+Pour ces maquettes, nous avons augmenté considérablement les constantes de temps réellement
+mises en jeu dans la pédale, de façon à pouvoir visualiser par des diodes électroluminescentes
+les changements d'états des sorties binaires des portes logiques utilisées.
+
+La pédale que nous avons mise au point fonctionne parfaitement et est de plus capable
+de modifier grâce à un potentiomètre intégré le tempo de la boite à rythme qu'elle commande.
+Il n'existe pas dans le commerce de pédale MIDI équivalente à celle que nous avons
+réalisée (pour un cout global d'environ 20€) mais seulement des pédaliers encombrants à
+plusieurs pédales coûtant 200 à 300€, et ceux-ci ne permettent pas de modifier le tempo du
+séquenceur.
+Nous envisageons donc de la commercialiser.
+Les participants au projet:
+Durant l'année scolaire 2007/08 une douzaine d'élèves de 1ère S qui ont essentiellement
+travaillé sur les montages électroniques , 5 élèves de seconde option MPI qui se sont plutôt
+investis dans la conception du site internet et les montages de films, et une élève de BEP
+secrétariat qui a réalisé le montage d'un ordinateur et a participé au site internet.
+Durant l'année scolaire 2008/09 six élèves ont poursuivi le projet.
+Enseignants: Mme CASTEL
+
+Mme ANDREANI
+
+M. FERRANT
+
+Le protocole MIDI:
+Les prises MIDI sont des prises de type DIN à cinq
+broches: la broche du centre est reliée à la masse de
+l'appareil et au blindage du câble à deux conducteurs
+qui relie deux appareils entre eux .
+Les deux broches voisines situées de part et d'autre de la masse véhiculent le signal, et les deux
+broches éloignées ne sont pas utilisées.
+En branchant un oscilloscope numérique à la sortie MIDI d'un clavier et en enregistrant le
+signal qui en sort lorsqu'on appuie sur une touche, on se rend compte qu'il s'agit d'un signal
+numérique binaire, la tension observée étant une succession de créneaux de valeur 0V ou 5V.
+La durée d'une information élémentaire appelée « BIT » est mesurée et vaut 32μs.
+
+En tapant plus ou moins fort sur la touche du clavier, nous avons constaté que les bits situés le
+plus à droite étaient modifiés.
+En changeant de note sur le clavier, ce sont les bits situés au centre qui se trouvent modifiés,
+tandis que les bits situés à gauche de l'écran et émis en premier sont les mêmes dans tous les
+cas.
+Plusieurs sites sur internet prétendent indiquer les messages MIDI associés à chaque ordre ou
+donnée envoyés d'un instrument appelé « maitre » vers un autre appelé « esclave ».
+Mais aucun des nombreux sites que nous avons consultés ne permet à un néophyte de décrypter
+simplement un message comme celui visualisé ci-dessus!
+Tout d'abord, ce qui est annoncé comme un bit « 0 » dans le protocole MIDI correspond sur un
+oscillogramme à une tension de 5V et bien sûr un bit « 1 » correspond à une tension de 0V!
+L'explication de ces inversions est un peu complexe mais se trouve détaillée dans le cahier
+« protocole MIDI » sur notre site www.mezziornu.com
+Il est donc déjà nécessaire d'inverser les « 0 » et les « 1 » pour s'y retrouver!
+
+D'autre part, un message simple véhiculant un ordre ou une donnée correspond à un groupe de
+huit bits constituant un octet, mais celui-ci pour être reconnu doit être précédé d'un bit de début
+(« 1 ») et terminé par un bit de fin (« 0 »)... ce qui fait donc dix bits au total.
+Enfin le sens et l'ordre d'émission des bits, pour un message constitué de trois octets comme
+celui généré par notre clavier, est tout à fait imprévisible à partir de ce qui figure sur les
+différents sites consultés... et ce n'est que par la confrontation entre les oscillogrammes et les
+informations puisées sur internet qu'il a été possible de remettre de l'ordre dans tout cela.
+
+Sur les sites consultés ce message apparaît ainsi:
+
+10010101
+
+01101001
+
+00100000
+
+Décodage:
+On remplace les « 0 » par des « 1 » et inversement, ce qui donne:
+01101010
+
+10010110
+
+11011111
+
+On encadre chaque octet par un bit de début « 1 » et un bit de fin « 0 », et on obtient:
+0011010101 0100101101 0110111111
+On émet en premier l'octet de gauche, en commençant par son bit de droite, puis de la même
+façon l'octet du milieu, et enfin l'octet situé à droite.
+Aucun site consulté n'explique tout cela, et nos galères nous ont incité à créer notre propre site
+dédié aux instruments MIDI, de façon à essayer de rendre les choses plus compréhensibles...
+Le premier octet émis, noté « statut » correspond à un ordre donné: celui de jouer une note.
+Pour être pris en compte et exécuté, il doit être suivi de deux octets de données:
+la donnée 1 correspond à la note jouée
+la donnée 2, appelée « vélocité », indique la force de frappe sur la touche du clavier, ce
+qui va se traduire par une note émise plus ou moins forte.
+
+Le message ci-dessus, un peu plus complexe, est émis par un synthétiseur.
+Celui-ci, en plus des trois octets décrits précédemment, génère au préalable deux octets
+supplémentaires qui permettent d'affecter un timbre instrumental parmi 127 disponibles dans la
+banque MIDI (ici le piano) à un canal parmi 16 possibles (ici le canal noté A).
+Le standard MIDI réserve le canal 6 aux sons de percussions ou batterie, et il est donc à la fois
+inutile et impossible d'affecter un timbre instrumental à ce canal.
+A chaque touche du clavier correspond alors non plus une note mais un instrument différent
+dans la famille des percussions.
+Le « clavier pédagogique » que nous avons conçu et fabriqué l'an dernier permet de générer et
+de modifier à volonté les cinq octets décrits précédemment.
+Il peut par conséquent commander l'expandeur pour qu'il génère n'importe quelle note, plus ou
+moins forte, avec un timbre instrumental modifiable, comme le ferait un clavier de synthétiseur
+... sauf que ce dernier est polyphonique et peut générer plusieurs notes simultanément.
+Remarque:
+La notation des octets sous forme de 0 et de 1 successifs peut devenir fastidieuse pour des
+messages un peu complexes.
+Il est plus judicieux de considérer un octet comme la juxtaposition de deux « quadrets »
+(groupe de 4 bits).
+Exemple: 00111010 peut se décomposer en 0011 et 1010
+Chaque quadret peut prendre 16 valeurs possibles (voir tableau page suivante) et on affecte à
+chacune de ces valeurs un symbole particulier: un chiffre de 0 à 9, ou une lettre de A à F.
+Ceci définit le système de numérotation hexadécimal.
+Dans notre exemple, 0011=3 et 1010=A donc l'octet correspondant s'écrit simplement 3A.
+
+Le cahier des charges de la pédale MIDI:
+Un séquenceur ou une boite à rythme ne démarre que si il reçoit un ordre de démarrage (START), mais
+cela ne suffit pas... il faut aussi lui indiquer à quel tempo il doit avancer.
+Pour cela, il faut lui envoyer périodiquement des octets appelés « CLOCK (horloge) »: plus la
+fréquence d'envoi des CLOCK est grande, plus le séquenceur avance rapidement. En modifiant cette
+fréquence, il est donc possible d'accélérer ou de ralentir le tempo de la boite à rythme.
+Le séquenceur s'arrête dès qu'il reçoit un ordre d'arrêt (STOP).
+Sens d'émission des bits
+Démarrage:
+Clock:
+Arrêt:
+
+0000001001
+0000001111
+0000000111
+
+Il faut donc concevoir un montage électronique capable de générer en permanence des octets
+« CLOCK » à une fréquence ajustable par un potentiomètre.
+Lorsqu'on appuie une première fois sur la pédale, c'est à dire que l'on ferme un interrupteur, un octet
+« DEMARRAGE » doit être émis à la place des octets « CLOCK » tout de suite après la fermeture de
+l'interrupteur et laisser rapidement (une fraction de seconde) la place à des octets « CLOCK » de
+façon à ce que le séquenceur démarre effectivement au tempo choisi.
+Le fait que le musicien conserve le pied longtemps sur la pédale enfoncée ne doit pas bloquer le
+démarrage du séquenceur.
+Lorsqu'on appuie une deuxième fois sur la pédale après l'avoir relâchée, c'est un octet « ARRET » qui
+doit être émis.
+La pédale doit aussi être peu encombrante et robuste.
+Elle peut être alimentée par une petite pile de 9V ou une alimentation externe.
+
+Conception du montage électronique:
+Essayons tout d'abord de concevoir un montage électronique capable de générer, les unes à la suite des
+autres, 8 informations binaires « 0 » ou « 1 » correspondant respectivement à des tensions de 0V ou 5V,
+et ce au rythme de 32μs par bit.
+Il existe un composant électronique de référence « 4051 » qui possède 8 entrées
+de données notées de E0 à E7 que l'on peut relier soit à la masse (0V) soit au pôle
+positif de l'alimentation (+5V)... ce qui revient à mettre en mémoire 8 bits « 0 »
+ou « 1 ». Ici on a mémorisé l'octet 00011110.
+Ce circuit appelé « commutateur 8 entrées/1 sortie » permet de relier les unes
+après les autres chacune de ces entrées à la sortie S.
+Pour le faire commuter sur une entrée particulière, il faut lui adresser en binaire
+sur les entrées de commande A,B et C le numéro de cette entrée.
+
+Comment générer les tensions nécessaires pour commander les entrées A,B et C ?
+
+Une horloge (composant électronique contenant un oscillateur et un quartz pour stabiliser la
+fréquence d'oscillation) génère des créneaux à la fréquence de 2,0...MHz.
+La période T des créneaux est donc de 5,0.10-7s.
+Un circuit « compteur binaire à 14 étages » de référence « 4020 » possède une sortie A où on
+retrouve le signal d'horloge avec une fréquence divisée par 27 , soit une période T' de 64μs.
+D'autres « diviseurs par 2 » inclus dans le même boitier (il y en a 14 au total) permettent
+d'obtenir les tensions de commande B et C.
+Remarque: la valeur binaire des sorties A, B et C change de valeur 2 fois pendant une période
+T' , donc toutes les 32μs, et c'est à ce rythme que le commutateur commute.
+
+Nous retrouvons donc à la sortie S du montage précédent les 8 informations binaires mises en
+mémoire sur les entrées de données E0 à E7 , émises les unes à la suite des autres au rythme de
+un bit toutes les 32μs, conformément à ce que prévoit la norme MIDI.
+Cependant, ces octets de données sont émis en permanence, à l'identique, et à un rythme
+effréné et incontrôlable...
+Comment faire pour que le commutateur « 4051 » s'arrête automatiquement de
+commuter dès qu'il a fini d'émettre un octet complet?
+
+1
+
+2
+
+Il suffit d'utiliser un « diviseur par 2 » supplémentaire inclus dans le boitier du compteur
+« 4020 » pour obtenir une sortie D qui va passer à « 1 » dès que les sorties A,B et C auront fini
+de compter jusqu'à 7 (7 en décimal, soit 111 en binaire) et repasseront à 0 (voir courbes en bas
+à gauche du schéma ci dessus).
+Lorsque la sortie D du compteur passe à « 1 », la sortie de la porte non-et n°1 ,montée en
+inverseur, passe à « 0 », ce qui bloque la sortie de la porte non-et n°2 dans l'état « 1 » et les
+signaux d'horloge n'atteignent plus le compteur...
+Le compteur s'arrête de compter... et le commutateur s'arrête de commuter: sa sortie S reste
+reliée à l'entrée de donnée E0 et se trouve donc à 0V pour l'éternité.
+Remarque:
+Ce montage est capable d'émettre 8 bits différents avant de se bloquer dans un état où il émet
+en permanence des bits « 0 ».
+Or nous avons vu que l'émission d'un message nécessite l'émission de 10 bits en comptant le bit
+de début d'octet « 1 » et le bit de fin d'octet « 0 ».
+Heureusement les messages « temps réel » qui nous intéressent pour la pédale MIDI se
+terminent tous par plusieurs bits « 0 » dont l'émission se fait ... lorsque le commutateur se
+bloque sur l'entrée E0 !
+
+Le montage précédent émet donc dans l'ordre les bits suivants: 0 puis 1,1,1,1,0,0,0 et 0,0,0,0...
+Le séquenceur qui le reçoit prend en compte les huit bits qui suivent la réception du premier bit
+« 1 » émis, considéré comme le bit de début d'octet, soit ici 1 puis1,1,0,0,0,0,0 et vérifie que le
+message se termine bien par un bit « 0 » considéré comme le bit de fin d'octet.
+Les bits « 0 » qui suivent ne sont pas pris en compte car tout nouveau message doit forcément
+commencer par un bit « 1 ».
+Ce message correspond bien à un octet de « CLOCK » qui va permettre au séquenceur
+d'avancer dans la lecture de la séquence musicale (qui peut être un rythme préprogrammé) à
+condition qu'il ait reçu au préalable un ordre de démarrer, soit l'octet « START ».
+
+Comment faire pour que le montage précédent émette des octets « CLOCK » de façon
+périodique ?
+La boite à rythme va lire la séquence rythmique qu'elle possède en mémoire au rythme des
+octets « CLOCK » reçus.
+Comment compléter le montage précédent pour lui faire ré émettre un octet « CLOCK » ?
+Le circuit compteur diviseur « 4020 » possède une entrée de remise à zéro RAZ qui, lorsqu'elle
+est au niveau logique « 0 », laisse compter le circuit mais qui, si elle est maintenue au niveau
+logique « 1 », remet et maintient les sorties A,B,C et D à « 0 ».
+Pour émettre de façon périodique des octets « CLOCK » à la fréquence N, il suffit donc de
+brancher un oscillateur délivrant une tension en créneau de fréquence N sur l'entrée RAZ du
+compteur:
+
+1
+
+2
+
+*pendant une demi-période, l'entrée RAZ est portée à 5V et les sorties du compteur sont alors
+remises à zéro: A,B et C étaient déjà dans cet état mais la sortie D passe alors de « 1 » à « 0 »,
+ce qui rend la porte « non-et n°2 » passante pour les signaux d'horloge à 2 MHz.
+*pendant l'autre demi-période, l'entrée RAZ est ramenée à 0V, ce qui permet au compteur de
+compter... jusqu'à 8 car alors la sortie D passe à « 1 » ce qui bloque la porte « non-et n°2 ».
+
+Une porte « non-et à trigger de Schmidt » permet de réaliser facilement un oscillateur, en
+l'utilisant pour contrôler la charge et la décharge d'un condensateur à travers une résistance.
+Cette « porte non-et » présente la particularité de basculer pour une tension d'entrée différente
+selon que celle-ci augmente ou diminue: environ 3V pour une tension croissante mais
+seulement 2V pour une tension décroissante.
+
+Comment fonctionne cet oscillateur?
+État initial: le condensateur est déchargé donc la tension d'entrée de la porte est inférieure à son
+seuil de basculement: sa sortie est à +5V.
+Le condensateur se charge à travers la résistance, la tension à ses bornes augmente
+progressivement jusqu'à atteindre 3V: la porte bascule, sa sortie passe à 0V.
+Le condensateur se décharge alors à travers la résistance, la tension à ses bornes diminue
+progressivement jusqu'à atteindre 2V: la porte bascule, sa sortie passe à 5V.
+Et ainsi de suite.... En diminuant R, les charges et décharges sont plus rapides
+En reliant la sortie de cet oscillateur à l'entrée RAZ du compteur, notre montage émet donc de
+façon périodique et à un rythme que nous pouvons faire varier grâce à la résistance R ajustable
+les octets « CLOCK » nécessaires pour faire avancer le séquenceur.
+Mais n'oublions pas que celui-ci ne démarre que si il reçoit l'ordre de le faire...
+Il faut donc transformer un octet « CLOCK » en octet « START» lorsqu'on appuie la première
+fois sur la pédale, puis émettre périodiquement des octets « CLOCK », et enfin transformer un
+octet « CLOCK » en octet « STOP » lorsqu'on appuie à nouveau sur la pédale.
+
+Comment transformer un octet « CLOCK » en octet « START » ou « STOP » ?
+Comparons les 3 octets qui doivent être émis par la pédale...
+Heureusement, ils se ressemblent beaucoup!
+Start: 0000001001
+Clock:0000001111
+Stop: 0000000111
+Il est possible de passer de l'octet émis en permanence « CLOCK » à l'un des deux autres
+« DEMARRAGE » ou « ARRET » en transformant soit un bit, soit un couple de bits
+initialement à « 1 » en bit « 0 ».
+Nous avons conçu un montage permettant de réaliser cela...
+
+C2
+P1
+R1
+
+R2
+P2
+
+C1
+
+En appuyant sur la pédale, on ferme un interrupteur qui relie les entrées d'une porte « non-et » P1
+(initialement maintenues au niveau « 0 » par la résistance R1) à +5V...
+Mais la fermeture est rarement franche et passe souvent par une succession d'ouvertures et de
+fermetures brèves avant de se stabiliser.
+On place donc un condensateur C1 aux bornes de la résistance R1 pour limiter ces variations de tension,
+ce qui permet à la sortie de la porte P1 de passer brutalement et franchement de +5V à 0V lors de la
+fermeture de l'interrupteur.
+Le condensateur C2 était initialement déchargé puisque ses deux armatures étaient au même potentiel
++5V. Lors du basculement rapide de la porte P1, la tension aux bornes de C2 n'a pas le temps de varier
+et reste donc nulle tandis que son armature de gauche passe au potentiel 0V.
+Il en est donc de même pour son armature de droite reliée aux entrées de la porte P2 qui bascule ainsi
+au même instant: sa sortie passe à +5V.
+Le condensateur C2 qui a son armature de gauche à 0V et celle de droite reliée à +5V par
+l'intermédiaire de la résistance R2 se charge à travers celle-ci. La tension à ses bornes augmente
+progressivement jusqu'à atteindre le seuil de basculement de la porte P2 (environ 2,5V).
+On obtient ainsi à la sortie de P2 une impulsion positive dont la durée est fixée par la constante de
+temps R2C2 des composants utilisés.
+La durée de cette impulsion est choisie assez longue pour être sûr que l'octet « START » soit émis au
+moins une fois, mais pas trop longue car tant que l'octet « START » ne s'est pas retransformé en octet
+« CLOCK » le séquenceur ne démarre pas.
+
+Cette impulsion est émise dès que le musicien appuie sur la pédale et sa durée est indépendante
+du temps pendant lequel la pédale reste actionnée.
+Cette impulsion positive est émise chaque fois que le musicien appuie sur la pédale. Mais cela doit
+déclencher alternativement la mise en marche ou l'arrêt du séquenceur.
+Il faut donc trouver un système qui compte le nombre d'appuis sur la pédale: impair ça démarre, pair ça
+s'arrête!
+Il suffit d'envoyer ces impulsions sur un diviseur par 2 comme ceux utilisés dans les compteurs: la
+sortie du diviseur change d'état chaque fois que sa tension d'entrée passe de 0V à 5V (front montant).
+Donc au premier appui, la sortie du diviseur passe à « 1 » et à l'appui suivant elle passe à « 0 », et ainsi
+de suite.
+En utilisant enfin trois autres portes « non et », on obtient à leur sortie les tensions espérées:
+leurs sorties sont normalement à « 1 » et passent brièvement à « 0 » et à tour de rôle lorsqu'on
+appuie sur la pédale.
+En rajoutant ce circuit au montage précédent, nous obtenons enfin un dispositif capable d'émettre
+comme nous le souhaitions des octets « CLOCK » de façon périodique pour faire avancer le
+séquenceur, qui se transforment brièvement et alternativement en octets « START » ou « STOP » à
+chaque appui sur la pédale.
+
+Résistance
+Résistance ajustable
+ajustable
+permettant
+permettant de
+de faire
+faire varier
+varier
+le
+le tempo
+tempo du
+du séquenceur
+séquenceur
+
+Conclusion:
+Il n'existe pas dans le commerce de pédale de ce type, simple et bon marché (environ 20€ de
+composants).
+On peut seulement trouver des pédaliers MIDI à plusieurs pédales, encombrants et chers(200à 300€) et
+qui ne sont pas prévus pour faire varier le tempo de la boite à rythme. Ceci est intéressant pour
+travailler des morceaux au ralenti.
+Nous envisageons de commercialiser cette pédale, en kit ou montée, pour financer d'autres projets.
+De plus amples informations sont sur notre site: www.mezziornu.com
+
+

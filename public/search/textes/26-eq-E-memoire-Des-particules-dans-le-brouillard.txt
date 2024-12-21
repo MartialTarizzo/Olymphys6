@@ -1,0 +1,1323 @@
+Lycée Franco-Australien de Canberra
+2019
+
+Olympiade de Physique
+
+Des particules dans le brouillard...
+Différents métaux bloquent-ils toutes les particules radioactives et cosmiques
+observées dans une chambre à brouillard ?
+
+Matthias GUILLIN, Laure PETITDIDIER,
+Isabelle HARRIS, Marion HALAS
+Classes de seconde 1 et 2
+Enseignant encadrant : Floriane MICHEL
+
+Table des matières :
+
+I.
+
+RESUME ..................................................................................................................................................................... 3
+
+II.
+
+INTRODUCTION ..................................................................................................................................................... 3
+
+III. CONTEXTE HISTORIQUE ET PRINCIPES DE FONCTIONNEMENT ............................................................ 3
+1. HISTOIRE DE LA CHAMBRE A BROUILLARD ........................................................................................................................................ 3
+2. FONCTIONNEMENT DE LA CHAMBRE A BROUILLARD....................................................................................................................... 4
+3. LES DIFFERENTS TYPES DE PARTICULES A L’INTERIEUR DE LA CHAMBRE ................................................................................. 6
+4. OUTIL DE SIMULATION GEANT4 ........................................................................................................................................................... 7
+IV.
+
+OBJECTIFS DE NOTRE EXPERIENCE ................................................................................................................ 8
+
+V.
+
+HYPOTHESES .......................................................................................................................................................... 8
+
+VI.
+
+L'EXPERIENCE ....................................................................................................................................................... 9
+A) MATERIEL : ................................................................................................................................................................................................ 9
+B) ASSEMBLAGE DE LA CHAMBRE A BROUILLARD : ............................................................................................................................... 9
+C) VERIFICATION DE NOTRE DISPOSITIF ............................................................................................................................................... 10
+D) VARIABLES DE CETTE EXPERIENCE : ................................................................................................................................................ 10
+E) PROTOCOLE : .......................................................................................................................................................................................... 11
+F) RECUPERATION DES DONNEES :......................................................................................................................................................... 11
+
+VII. RESULTATS ET ANALYSES ............................................................................................................................. 12
+1) TABLEAU DE RESULTATS : (PARTICULE ALPHA NOTEE A, PARTICULE BETA NOTEE B, MUON NOTE M) ....................... 12
+2) INCERTITUDES : ..................................................................................................................................................................................... 13
+3) GRAPHIQUE : .......................................................................................................................................................................................... 14
+4) CONCLUSION DE L’EXPERIENCE ......................................................................................................................................................... 18
+VIII.
+
+CONCLUSION GENERALE .............................................................................................................................. 19
+
+IX.
+
+REMERCIEMENTS .............................................................................................................................................. 19
+
+X.
+
+BIBLIOGRAPHIE .................................................................................................................................................. 20
+
+Page 2 sur 20
+
+I.
+
+Résumé
+
+Les particules sont présentes partout autour de nous, mais elles sont tellement petites et rapides qu’elles
+sont invisibles à l’œil nu. Elles sont également potentiellement dangereuses pour les humains lors
+d’expositions prolongées (comme lors d’un voyage spatial). Afin de les observer, nous avons donc construit
+une chambre à brouillard avec les moyens du bord, et elle a fonctionné ! Nous avons recouvert la chambre
+brouillard de différents métaux (plomb et aluminium) et étudié l’influence de l'épaisseur des couches sur le
+nombre de particules qui la traversent. Afin de nous aider à analyser nos résultats, nous avons eu l’aide de
+deux scientifiques de l’ANU (Australian National University). Nous avons grâce à eux pu visiter leur
+laboratoire de physique nucléaire, faire des simulations avec le logiciel Geant4 pour prédire l’effet des métaux
+et les calculs correspondants à l'épaisseur de métal théoriquement nécessaire pour arrêter les particules.
+II.
+
+Introduction
+
+Dans l’espace, les astronautes sont exposés à de nombreuses particules. Celles-ci en fonction de leur
+énergie peuvent causer des mutations d’ADN et être la source de cancers. Elles peuvent également causer des
+vomissements, des dégâts sur les organes et des troubles divers. Ceci est un des obstacles principaux des
+voyages spatiaux. Pour éviter ce genre d'inconvénients et permettre à l’homme d’explorer l’espace en
+personne, il faut donc pouvoir se protéger de ces particules pour limiter la dose reçue. Quels sont alors les
+matériaux qui permettraient de protéger les humains lors d’un tel voyage ?
+L'idée de faire une chambre à brouillard vient d’un projet qu’a fait Marion, pour un concours scientifique
+proposé au lycée : “Project Astrolabe”. Nous sommes en classes de secondes mais nous avons voulu participer
+aux olympiades afin d’approfondir nos connaissances à ce sujet, et ce projet nous permettait d’en savoir plus
+sur les particules, notamment les observer ce qui est simplement merveilleux ! Nous avons dû faire cette
+expérience plusieurs fois pour obtenir des photos et vidéos des particules que nous pourrions exploiter.
+Au cours du projet, nous avons reçu l’aide de Cédric Simenel, chef du département de physique théorique
+à l’ANU (Australian National University). Grace à lui, nous avons fait une excursion à l’ANU où nous avons
+été encadrés par Matthew Gerathy, un doctorant en physique nucléaire. Matthew a pu nous en apprendre plus
+au sujet des particules. Nous avons notamment appris comment les différentes particules interagissent entre
+elles à l’intérieur de la chambre. Matthew a effectué plusieurs simulations sur Geant4, un outil de simulation
+informatique utilisé et développé par le CERN, qui nous a permis de représenter notre chambre à brouillard
+virtuellement et de visualiser des traces de particules. Grâce à cette journée avec Matthew Gerathy, nous avons
+pu bénéficier d’un avis professionnel sur notre chambre à brouillard et notre projet.
+Nous sommes aussi allés à Questacon (un musée des sciences interactif à Canberra) dans le but
+d’observer leur chambre à brouillard pour valider le fonctionnement de notre propre installation en la
+comparant avec un modèle plus professionnel.
+Voici nos expériences et tout ce que nous avons appris sur les particules et les chambres à brouillard. Bonne
+lecture !
+
+III.
+
+Contexte historique et principes de fonctionnement
+1. Histoire de la chambre à brouillard
+Page 3 sur 20
+
+Le principe de la chambre à brouillard fut inventé en 1896 par un physicien et
+météorologue écossais du nom de Charles Thomson Rees Wilson (Image 1). Son
+but original était de reproduire le phénomène des Spectres de Brocken
+artificiellement dans un laboratoire pour mieux comprendre leur mécanisme de
+formation, mais il se rendit rapidement compte que son dispositif permettait aussi
+d’observer la condensation d’ions libres, découverts en 1890.
+Pour vérifier son hypothèse il utilisa des tubes radiogènes, qui convertissent une
+charge électrique en rayons X, et observa que ces derniers reproduisaient le même
+phénomène de condensation déjà observé auparavant mais à une échelle supérieure.
+Il en déduisit que ces traces de condensation provenaient donc bien d’ions libres
+chargés.
+Image 1 Charles Wilson
+source Wikipédia
+
+En 1910, il introduisit un échantillon de radium dans la chambre et pu clairement
+observer les traces de particules radioactives émises par la source, ce qui ne fit que
+renforcer son hypothèse.
+
+La chambre à brouillard de Wilson gagna le prix Nobel de physique en 1927 et fut un avancement important
+pour la physique des particules. Elle permit notamment de démontrer l’existence du phénomène de diffusion
+Compton, découvert en 1922 par Arthur Compton, et plus tard, de découvrir plusieurs particules élémentaires
+comme le muon, le positron et même certaines des premières particules étranges.
+2. Fonctionnement de la chambre à brouillard
+Il existe deux types de chambres à brouillard : la chambre à expansion de Wilson (1912) et la chambre
+à diffusion de Langsdorf (1939) (O'Luanaigh, 2015). Toutes les deux utilisent le phénomène de la sursaturation
+pour permettre l’ionisation de particules chargées dans la chambre à brouillard. Une situation de sursaturation
+se crée quand la vapeur d’un composé chimique a une pression supérieure à celle normalement possible à
+cause d’une baisse soudaine de la température. En général, plus un système est chaud, plus une substance est
+soluble dans un liquide ou un gaz. Or si la température est soudainement refroidie alors une fraction de la
+substance n’a plus de place pour se dissoudre et reste en suspension dans l’air.
+Ceci crée un environnement métastable, où la moindre perturbation fait condenser l’excès de vapeur en
+une série de gouttelettes, montrant le chemin de passage des particules chargées. Ceci est dû au phénomène
+d’ionisation, qui consiste à enlever ou à ajouter un ou plusieurs électrons à un atome ou une molécule, pour la
+rendre positivement ou négativement chargée. Les particules non-chargées (neutres) n’ayant aucune charge,
+elles n'entraînent aucune condensation, donc, leur trajectoire est invisible dans la chambre à brouillard
+(Wikipedia, 2018a).
+Il existe plusieurs façons de créer un environnement sursaturé que nous allons détailler.
+Le schéma (Schéma1) illustre le fonctionnement de la chambre à expansion de Wilson (Cambridge, 2002). Ce
+dispositif utilise un piston pour créer un espace de sursaturation à l’intérieur de la partie A qui est mise sous
+vide grâce à une pompe. L’espace B, quant à lui, est un cylindre en verre dans lequel le piston peut bouger
+librement de haut en bas.
+
+Page 4 sur 20
+
+En descendant, il trempe dans de l’eau, ce qui fait que l’air
+présent dans le cylindre est saturé en humidité. Pour générer un
+état de sursaturation, il suffit de tirer sur la valve C pour que le
+piston descende et que le volume de l’espace B augmente.
+Lorsque ceci arrive, le gaz à l’intérieur de la chambre se dilate
+et se refroidit rapidement, ce qui crée la sursaturation
+(Cloudylabs, 2013).
+Ce phénomène doit être répété à plusieurs reprises car l’effet
+de sursaturation créé n’est que temporaire, ceci en fait un
+système fort contraignant car il ne permet d’observer les
+rayonnements qu’une à deux fois par minute. Pourtant ce
+dispositif a l’avantage de pouvoir fonctionner suivant un plan
+d’observation vertical, ce qui permet une observation facile des
+rayonnements cosmiques qui ont un flux d’apparition vertical
+1000 fois plus élevé que le flux d’apparition horizontal.
+
+Schéma 1 Image de : http://www.cloudylabs.fr/wp/differentesmachines/
+
+Schéma 2 : http://www.cloudylabs.fr/wp/differentes-machines/
+
+Le schéma ci dessus (Schéma 2) montre cette fois le fonctionnement de la chambre à diffusion élaborée
+par Alexander Langsdorf Jr (CREDO, 2016). en 1939 permettant de garder une surface continuellement
+sensible au passage de particules et d’ions (Langsdorf, 1939), ce qui favorise des expériences nécessitant des
+périodes d’observations plus longues, comme par exemple pour la détection de particules rares.
+Ce type de chambre fonctionne grâce à la création d’une différence de température importante à
+l’intérieur de la chambre. Une surface noire est amenée à une température d’au moins -30°C à la base de la
+chambre, alors que de l’alcool isopropylique (C3H8O) liquide est contenu en haut de la chambre où la nature
+très volatile de la substance fait qu’il peut s’évaporer facilement. La gravité provoque la diffusion de la vapeur
+d’alcool vers le fond de la chambre et en entrant en contact avec l’environnement très froid, un nuage de
+condensation d’environ 1 cm se forme sur le sol de la chambre. C’est pour cela que ce type de chambre ne
+peut pas utiliser d’eau car elle gèlerait instantanément, alors que le point de solidification de l’alcool
+isopropylique est de -89°C. Donc, il reste dans un état gazeux même lorsqu’il s’approche de l’endroit le plus
+froid de la chambre.
+Toutefois, le changement rapide de température fait qu’une petite fraction de la vapeur d’alcool ne
+peut pas se condenser et flotte au-dessus de la surface. C’est cette vapeur en trop que les particules chargées
+vont ioniser pour nous permettre de voir leur trajet. Même si ce type de chambre a l’avantage de permettre
+une observation continue, il a aussi le désavantage de fonctionner selon un plan d’observation horizontal ce
+
+Page 5 sur 20
+
+qui n’est pas favorable à l’observation des rayonnements cosmiques. C’est pourtant ce type de chambre à
+brouillard que nous avons utilisé pour nos expériences car il est plus simple à construire.
+3. Les différents types de particules à l’intérieur de la chambre
+Dans notre chambre à brouillard nous avons pu observer 3 types de particules :
+Les particules Alpha (Image 2), formées de 2 protons et 2
+neutrons (soit un noyau d’hélium) créent des traînées courtes et épaisses
+car elles ionisent beaucoup, ce qui leur fait perdre beaucoup d'énergie.
+Ce sont des particules lourdes. De ce fait, on ne les voit pas souvent dans
+la chambre, à moins qu’il y ait une source radioactive à l’intérieur
+(comme sur la photo Image 2), puisqu’elles se font arrêter par le verre
+de l’aquarium. Ces particules sont émises lors d’une décroissance
+radioactive nommée décroissance radioactive Alpha (ARPANSA, n.d.a).
+Masse d’une particule Alpha :
+Masse proton = 1,67262×10-27 kg
+(Wikipedia, 2018c)
+Masse neutron = 1,674925×10-27 kg
+(Wikipedia, 2018d)
+
+Image 2 Particules Alpha Source Cloudylabs
+
+Masse Alpha = 2 (Masse proton) + 2 (Masse neutron)
+= 2(1,67262×10-27) + 2(1,674925×10-27)
+= 6.69507×10-27 kg
+
+Charge électrique d’une particule Alpha : 2 e avec e = 1.6021766208×10-19 C
+Les particules Bêta, qui sont en fait des électrons, sont les particules
+que nous avons vues le plus souvent dans notre chambre à brouillard. Elles sont
+émises, elles aussi, lors d’une décroissance radioactive (décroissance
+radioactive Bêta) mais comparées aux particules Alpha elles peuvent atteindre
+des vitesses proches de celle de la lumière et elles sont très légères, ce qui leur
+donne leur long chemin fin et sinueux. Elles n’ionisent pas beaucoup et ne
+perdent donc pas beaucoup d'énergie. (Wikipedia, 2018b) (ARPANSA, n.d.-b)
+Masse d’un électron (particule Bêta) : 9.10938356 ×10-31 kg
+Charge électrique d’une particule Bêta : −e
+
+Image 3 Trace d'électron
+Source Cloudylabs
+
+Les muons sont des particules cosmiques. Ils sont créés à la suite du phénomène de la gerbe
+atmosphérique (Schéma 3), qui se produit lorsqu’un rayon cosmique entre en contact avec l’atmosphère. Les
+particules cosmiques sont plus rares à voir car elles déposent peu d’énergie sur leur passage et donc laissent
+une trace trop fine pour être visible ; les muons se créent lors de collisions avec les molécules de l’atmosphère
+généralement à 15 km d’altitude et doivent voyager de longues distances avant d’arriver au niveau de la mer.
+Masse d’un muon :1,88353×10−28 kg
+Charge électrique d’un muon : −e
+
+Page 6 sur 20
+
+Lors de notre journée à l’ANU, nous avons appris que les particules dans la chambre interagissent entres
+elles au travers d’événements de diffusion Compton, c’est à
+dire la collision d’un photon avec un électron immobile. Cette
+interaction met l'électron en mouvement et nous permet de voir
+une trace d'électron apparaître en plein milieu de la chambre.
+Etant donné que les photons n’ont pas de charge, nous ne
+pouvons pas les voir avec notre chambre à brouillard.
+4.
+
+Schéma 3 Gerbe Atmosphérique Source Wikipédia
+
+Outil de simulation Geant4
+
+Nous avons eu la chance de pouvoir nous rendre à l’ANU
+(Australian National University), qui est une Université
+australienne renommée, dans le but de demander conseil au
+doctorant, Matthew Gerathy, spécialisé dans le domaine de la
+physique nucléaire. Il nous a assistés et aidés tout au long de
+notre projet, et c’est lui qui nous a fait découvrir la simulation Geant4.
+
+Avant de nous montrer la simulation, Matthew nous a fait visiter son laboratoire et nous a expliqué la fonction
+de divers appareils avec lesquels il travaille au quotidien : il nous a montrés l'accélérateur d’ions lourds (Image
+4), qui permet d’accélérer différentes particules, ions ou atomes à des vitesses proches de celle de la lumière.
+La tour de la première photo abrite l'accélérateur d’ions lourds, et la deuxième photo montre l'intérieur, la base
+de la tour, qui réceptionne les données.
+
+Image 4 Accélérateur d’Ions lourds (sur Google images)
+
+Image 5 Base de l'accélérateur d’ions lourds qui permet de réceptionner les
+données. (photo prise lors de notre visite à l'ANU)
+
+Après la visite des locaux, nous avons travaillé sur le logiciel Geant4, qui nous a permis de simuler la
+trajectoire et l’impact d’une ou plusieurs particules (Alpha, Bêta, Muon, Proton) dans notre chambre à
+brouillard. Cela nous a permis de travailler plus rapidement et de comprendre les interactions des particules
+chargées avec des rayons gamma, invisibles dans la vraie chambre à brouillard.
+Voici des photos des résultats de certaines programmations :
+
+Page 7 sur 20
+
+Image 6 Capture d’écran représentant la trajectoire d’un positron qui
+entre en collision avec des électrons statiques et quelques particules
+gamma sur la simulation Geant4.
+
+Image 7 Capture d’écran représentant une centaine
+d'électrons qui entrent en collision avec des rayons gammas
+sur la simulation Geant4
+
+Nous avons voulu faire ces simulations car elles nous ont permis de visualiser les interactions qui se
+déroulaient dans la chambre à brouillard. Notre chambre n'étant pas assez performante nous ne pouvions pas
+observer toutes les choses qui se passaient dans notre chambre. Ces simulations nous ont permis d’approfondir
+nos connaissances et d’étudier plus en détail le comportement des particules.
+IV.
+
+Objectifs de notre expérience
+
+Notre objectif premier était d’observer différents types de particules (Alpha, Bêta, Muons, Protons) et
+de voir si différents types de métaux les arrêtaient. L'intérêt de savoir si les métaux réussissent à arrêter les
+particules est de pouvoir protéger les humains de la radioactivité et des rayonnements cosmiques. Nous avons
+donc construit une chambre à brouillard dans le but de les observer, puis entouré cette chambre de différents
+métaux (Aluminium et Plomb) pour voir en quoi cela affecte la présence de particules.
+V.
+
+Hypothèses
+
+Nous pensons que, s’il n’y a aucun métal autour de l’aquarium (la chambre à brouillard), toutes les
+particules pourront passer, puisqu’elles ne seront pas bloquées.
+Nous pensons que lorsqu’il y aura une couche d’aluminium, il y aura moins de particules présentes dans
+la chambre à brouillard, notamment de particules Alpha, qui se font arrêter par une feuille de papier. On en
+déduit qu’une feuille d’aluminium sur du verre donnera le même résultat que la feuille de papier. En revanche,
+les autres particules (Bêtas, Muons, Protons) passeront malgré la feuille d’aluminium. Nous pensons donc que
+les particules Alpha seront bloquées dès le début.
+Cependant, le nombre de particules Bêta (que l’on pourra toujours observer) devrait diminuer au fur et
+à mesure que l’on rajoute des feuilles d’aluminium, car, tout comme les particules Alpha, les particules Bêta
+ionisent l'excès de vapeur au fur et à mesure qu’elles traversent la chambre, mais leur vitesse fait qu’elles
+traversent les couches de métal plus facilement. Donc nous pensons qu’à chaque fois que l’on rajoutera une
+feuille d’aluminium, le nombre de particules Bêta diminuera.
+Enfin, la couche de plomb bloquera le passage de la quasi-totalité des particules, grâce à son épaisseur,
+sa densité (11,35 g/cm3 comparé au 2,7 g/cm3 de l’aluminium) et sa masse atomique, qui n’en laissera passer
+aucune, hormis quelques rayons Gammas, qui sont invisibles dans une chambre à brouillard.
+
+Page 8 sur 20
+
+VI.
+
+L'expérience
+
+a) Matériel :
+
+ Aquarium - Volume: 3094 cm3
+ Feutrine épaisse - Aire: 162 cm2
+ 60 mL Alcool isopropyl à 99,8 %
+ Feuille de plomb
+ Rouleau de papier aluminium
+ Glace carbonique
+
+ Bande de lumière LED
+ Canon D1500 caméra
+ Plateau en fer noir
+ Panneau de mousse isolante
+ Patafix
+ Bouillotte d’eau chaude
+
+ Gants
+ Pinces
+ Seringue
+ Pistolet à colle chaude
+ Adhésif puissant
+ Chronomètre
+
+Perforation pour
+faire passer le câble
+de la bande LED
+
+Schéma 4 Bac à glace carbonique
+
+Schéma 5 Cadre lumineux
+
+Nous avons utilisé un panneau de mousse isolante et une bande LED pour créer certains éléments nécessaires
+à l'expérience comme le bac à glace carbonique (Schéma 4) et le cadre lumineux (Schéma 5) qui illumine la
+chambre.
+b) Assemblage de la chambre à brouillard :
+Bouillotte
+
+Aquarium
+Cadre lumineux
+Plateau en
+Glace carbonique
+
+fer noir
+
+Bac isolant
+
+Schéma 6 Notre chambre à Brouillard
+
+Image 8 Notre chambre à Brouillard
+
+Page 9 sur 20
+
+Nous avons construit notre chambre à brouillard à la manière de la chambre à diffusion de Langsdorf (1939)
+(Woithe, 2016). De plus, nous avons utilisé de la patafix avec les mêmes dimensions que l’aquarium sur la
+plaque en fer noire pour que la chambre à brouillard soit hermétique.
+c) Vérification de notre dispositif
+Nous avons pu valider le fonctionnement de notre chambre à
+brouillard grâce à celle de Questacon en observant les mêmes sortes de
+particules dans les deux.
+La photo ci-contre (Image 9) est une photo prise à Questacon
+(Musée scientifique de Canberra), nous remarquons deux particules Alpha
+dans le coin en haut à droite de la chambre.
+
+Image 9 photo d’une particule Alpha dans la
+Chambre à brouillard de Questacon
+
+Les deux photos ci dessous (Image 10 et 11) sont prises dans notre chambre à brouillard et nous remarquons
+que les traces sont similaires à celles de la chambre du Questacon.
+
+Image 10 Photo d’une particule Alpha
+dans notre chambre à brouillard
+
+Image 11 Photo d’un Muon
+dans notre chambre à brouillard
+
+La seule différence est que nous voyons beaucoup moins de particules dans notre chambre que dans celle qui
+est à Questacon. Cela est dû au fait que la chambre à brouillard du Questacon est très hermétique et contient
+une alimentation continue en alcool, ce qui lui permet d’avoir une atmosphère continuellement sursaturée.
+d) Variables de cette expérience :
+En Australie, nous utilisons les notions suivantes :
+-
+
+Variable indépendante : un paramètre de l'expérience qui, lorsqu’il est remplacé ou changé, entraîne d’autres
+modifications sur d’autres paramètres, qui sont appelés “variables dépendantes”.
+
+-
+
+Variable dépendante : un paramètre de l'expérience qui varie lorsqu’un autre paramètre auquel il est relié est
+modifié.
+
+-
+
+Variable contrôlée : un ou des paramètres de l'expérience qui ne change(ent) pas tout au long de l'expérience.
+Ceci permet une meilleure compréhension de l’interaction entre les autres variables.
+Page 10 sur 20
+
+La variable indépendante de cette expérience est l'épaisseur utilisée à l'extérieur de la chambre à
+brouillard, pour couvrir toutes les vitres, sauf une pour pouvoir voir à l'intérieur de la chambre. La variable
+dépendante de cette expérience est le nombre de particules comptées à l'intérieur de la chambre à brouillard.
+Finalement les variables contrôlées de cette expérience sont le temps d’observation d’une minute, la méthode
+de construction de la chambre à brouillard et la concentration en alcool initiale. Si nous devions refaire
+l'expérience, nous pourrions considérer avoir un horaire de réalisation de l’expérience fixe (matin, journée,
+nuit) et un emplacement fixe pour la chambre à brouillard.
+e) Protocole :
+1) Mettre de la patafix en forme de rectangle avec les mêmes dimensions que l’aquarium sur le
+plateau.
+2) Remplir le bac en mousse isolante avec de la glace carbonique à l’aide de gants, pour ne pas
+se brûler les mains.
+3) Déposer, à l’aide de la seringue, 35 mL d’alcool isopropyl sur une feutrine épaisse qui est
+collée au fond de l’aquarium.
+4) Poser le plateau sur le bac de mousse isolante, qui contient maintenant la glace carbonique.
+5) Placer l’aquarium sur la patafix, qui est sur le plateau.
+6) Glisser le cadre lumineux autour de l’aquarium pour pouvoir voir à l'intérieur de la chambre
+à brouillard.
+7) Rendre la salle le plus sombre possible pour pouvoir être en mesure de faire des observations.
+8) Filmer la chambre 3x 1 minute.
+9) Ajouter une couche de métal et recommencer l'étape 8 jusqu’à ce que tous les métaux aient
+été filmés.
+f) Récupération des données :
+Nous avons tous regardé chaque vidéo au ralenti et compté le nombre de particules de chaque type (Alphas,
+Bêtas, muons, protons), chaque membre de l’équipe a réalisé cette étape séparément pour assurer des résultats
+non-biaisés. Ensuite, nous avons consigné ces résultats dans un tableau Excel pour mettre en commun tous les
+résultats et calculé la moyenne d’apparition de chaque type de particule pour chacune des épaisseurs. Par la
+suite, nous avons construit un graphique en courbe pour visualiser les résultats.
+Épaisseur d’une feuille d’aluminium : 0,020 cm
+Épaisseur d’une couche de plomb : 4 mm
+
+Page 11 sur 20
+
+VII.
+
+Résultats et analyses
+
+1) Tableau de résultats : (particule Alpha notée a, particule Bêta notée b, Muon noté m)
+Epaisseur (en couches)
+
+Vidéo 1
+
+Vidéo 2
+
+Vidéo 3
+
+Personne 1
+
+0
+
+2a 5b
+
+1a 3b
+
+1a 4b
+
+Personne 2
+
+0
+
+3a 5b
+
+2a 5b
+
+1a 6b
+
+Personne 3
+
+0
+
+2a 5b
+
+1a 6b
+
+1a 7b
+
+Moyenne
+
+2,3a 5b
+
+1,3a 4,7b
+
+1a 5,7b
+
+Personne 1
+
+1
+
+3b
+
+4b
+
+5b
+
+Personne 2
+
+1
+
+4b
+
+5b
+
+7b
+
+Personne 3
+
+1
+
+4b
+
+6b
+
+8b
+
+Moyenne
+
+3,7b
+
+5b
+
+6.7b
+
+Personne 1
+
+2
+
+3b
+
+3b
+
+3b
+
+Personne 2
+
+2
+
+3b
+
+4b
+
+6b
+
+Personne 3
+
+2
+
+4b
+
+5b
+
+5b
+
+Moyenne
+
+3,3b
+
+4b
+
+4,7b
+
+Personne 1
+
+3
+
+2b
+
+3b
+
+1b
+
+Personne 2
+
+3
+
+4b
+
+7b
+
+6b
+
+Personne 3
+
+3
+
+6b
+
+5b
+
+4b
+
+Moyenne
+
+4b
+
+5b
+
+3,7b
+
+Personne 1
+
+4
+
+1b
+
+1b
+
+1b
+
+Personne 2
+
+4
+
+2b
+
+2b
+
+1b
+
+Personne 3
+
+4
+
+3b
+
+2b
+
+2b
+
+Moyenne
+
+2b
+
+1,7b
+
+1,3b
+
+Personne 1
+
+5
+
+1b
+
+1b
+
+1b
+
+Personne 2
+
+5
+
+1b
+
+1b
+
+2b
+
+Personne 3
+
+5
+
+2b
+
+1b
+
+1b
+
+Moyenne
+
+1,3b
+
+1b
+
+1,3b
+
+Personne 1
+
+Plomb
+
+5b 1m
+
+5b
+
+5b
+
+Personne 2
+
+Plomb
+
+4b 1m
+
+5b
+
+4b
+
+Personne 3
+
+Plomb
+
+5b 1m
+
+5b
+
+4b
+
+Moyenne
+
+4,6b 1m
+
+5b
+
+4,3b
+
+Tableau 1 : Tableau de résultats
+
+Page 12 sur 20
+
+1,5a 5,1b
+
+5.1b
+
+4b
+
+4,2b
+
+1,6b
+
+1,2b
+
+4,6b 0,3m
+
+2) Incertitudes :
+Pour calculer les incertitudes sur les mesures, nous avons calculé l’écart type entre les mesures pour chaque
+vidéo grâce à Excel. Nous avons calculé l’incertitude absolue grâce à la formule ci-dessous :
+∆n=
+
+√
+
+pour un intervalle de confiance à 68%
+
+Avec n le nombre de particules comptées et 𝜎, l’écart type.
+Les résultats sont répertoriés dans le tableau ci-dessous :
+a. Expériences sans aluminium :
+Particules Alpha :
+Témoin
+
+Alpha vidéo 1
+
+Alpha vidéo 2
+
+Alpha vidéo 3
+
+Personne 1
+Personne 2
+Personne 3
+ECART TYPE
+INCERTITUDE
+MOYENNE INC .
+
+2
+3
+2
+0,47
+0,18
+0,14
+
+1
+2
+1
+0,47
+0,24
+soit
+
+1
+1
+1
+0
+0
+1,5 ± 𝟎, 𝟏
+
+Tableau 2 Incertitudes particules Alpha
+
+b. Expériences avec l’aluminium :
+Particules Bêta :
+Témoin
+
+Bêta v1
+
+Bêta v2
+
+Bêta v3
+
+MOYENNE INC.
+
+5
+5
+5
+0
+0
+0,21
+
+3
+5
+6
+1,25
+0,33
+soit
+
+4
+6
+7
+1,25
+0,30
+5,1 ± 𝟎, 𝟐
+
+2 couches
+
+Bêta v1
+
+Bêta v2
+
+Bêta v3
+
+MOYENNE INC.
+
+3
+3
+4
+0,47
+0,15
+0,24
+
+3
+4
+5
+0,82
+0,24
+soit
+
+3
+6
+5
+1,25
+0,33
+4,0 ± 𝟎, 𝟐
+
+4 couches
+
+Bêta v1
+
+Bêta v2
+
+Bêta v3
+
+1
+2
+3
+0,82
+0,33
+0,26
+
+1
+2
+2
+0,47
+0,21
+soit
+
+1
+1
+2
+0,47
+0,24
+1,6 ± 𝟎, 𝟑
+
+ECART TYPE
+INCERTITUDE
+
+ECART TYPE
+INCERTITUDE
+
+ECART TYPE
+INCERTITUDE
+MOYENNE INC.
+
+1 couche
+
+Bêta v1
+
+Bêta v2
+
+Bêta v3
+
+MOYENNE INC.
+
+3
+4
+4
+0,47
+0,14
+0,21
+
+4
+5
+6
+0,82
+0,21
+soit
+
+5
+7
+8
+1,25
+0,28
+5,1 ± 𝟎, 𝟐
+
+3 couches
+
+Bêta v1
+
+Bêta v2
+
+Bêta v3
+
+MOYENNE INC.
+
+2
+4
+6
+1,63
+0,47
+0,50
+
+3
+7
+5
+1,63
+0,42
+soit
+
+1
+6
+4
+2,05
+0,62
+4,2 ± 𝟎, 𝟓
+
+5 couches
+
+Bêta v1
+
+Bêta v2
+
+Bêta v3
+
+1
+1
+2
+0,47
+0,24
+0,16
+
+1
+1
+1
+0
+0
+soit
+
+1
+2
+1
+0,47
+0,24
+1,2 ± 𝟎, 𝟐
+
+ECART TYPE
+INCERTITUDE
+
+ECART TYPE
+INCERTITUDE
+
+ECART TYPE
+INCERTITUDE
+MOYENNE INC.
+
+Tableau 3 : Incertitudes Bêta dans l’aluminium
+
+Page 13 sur 20
+
+c. Expérience avec le plomb :
+
+ECART TYPE
+INCERTITUDE
+MOYENNE INC.
+
+Bêta v1
+
+Bêta v2
+
+Bêta v3
+
+Muon v1
+
+Muon v2
+
+Muon v3
+
+5
+4
+5
+0,47
+0,13
+0,56
+
+5
+5
+5
+0
+0
+soit
+
+5
+4
+4
+0,47
+0,13
+4,6 ± 𝟎, 𝟏
+
+1
+1
+1
+0
+0
+0
+
+0
+0
+0
+0
+0
+soit
+
+0
+0
+0
+0
+0
+0,3 ± 𝟎
+
+ECART TYPE
+INCERTITUDE
+MOYENNE INC.
+
+Tableau 4 : Incertitudes Bêta et Muon dans le plomb
+
+3) Graphique :
+
+Graphique 1 Moyenne d’apparition de chaque type de particule
+
+a. Aluminium:
+Analyse du graphique
+Le graphique ci-dessus montre que le nombre de particules Bêta diminue quand le nombre de couches
+d’aluminium augmente. La moyenne d’apparition des particules Bêta, lorsqu’il n’y a pas de couches, est de 5,1
+± 0.2 particules par minute. En revanche, la moyenne d’apparition de particules, quand il y a 5 couches
+d’aluminium, est d’environ 1,2 ± 0,2 particules par minute.
+On remarque aussi une hausse de moyenne des particules Bêta entre l’Al.2 et l’Al.3. La raison de cette hausse
+est due au fait que les moyennes du nombre de particules observées ne sont jamais exactes, car ce sont des
+moyennes de résultats observés à l’œil nu, avec des précisions relatives. Il se trouve que l’incertitude calculée
+pour une épaisseur de trois couches d’aluminium est de 4,2 ± 0,5 , ce qui est l’incertitude la plus élevée de notre
+expérience.
+Page 14 sur 20
+
+C’était l’expérience pour laquelle il y avait le plus d’hétérogénéité dans le nombre de particules observées par
+chaque personne.
+Si on éliminait ce point, nous pourrions penser qu’il s’agit d’une évolution linéaire. Il est possible que les
+incertitudes aient été sous-estimées car nous avons choisi un intervalle de confiance de 68%. L’incertitude serait
+doublée si nous avions choisi un intervalle de confiance de 95%. Une autre explication serait que l’évolution
+n’est pas linéaire, ce qui est l’hypothèse de M. Simenel qui nous a expliqué que le comportement des particules
+est très difficile à modéliser.
+Sur le graphique, nous pouvons voir qu’une particule Alpha a été observée quand il n’y a aucune couche
+d'aluminium. Normalement, il est très rare d’en voir puisque même une feuille de papier parvient à bloquer le
+passage de telles particules. Elles sont plus lourdes et plus lentes que les autres particules, donc, la vitre de
+l’aquarium devrait toutes les arrêter, et même si cette particule parvient à passer à travers la vitre de l’aquarium,
+elle n’ira pas loin (voir les simulations Geant4) dans la chambre. De plus, aucune source radioactive n’a été
+introduite dans notre chambre à brouillard, il est donc très improbable de voir des particules Alpha.
+Lien avec les simulations
+Nous avons confronté notre expérience et nos calculs à la simulation Geant4 pour des particules Alpha et Bêta.
+Dans un premier temps, nous avons observé que quand la particule Alpha avait une énergie de 5 MeV, elle ne
+pénétrait pas dans la chambre. Nous avons donc fait une autre simulation, toujours sans métal avec plus de
+particules et une énergie plus élevée :
+Image 12 : Simulation de 100 particules Alpha avec une énergie cinétique de 100 MeV sans métal :
+
+Cette simulation montre une centaine de particules Alpha (l’épais trait bleu) qui rentrent dans la chambre à
+brouillard (le carré gris). Nous remarquons que les particules Alpha se désintègrent toutes approximativement
+la même distance. Même dans ces conditions, les particules Alpha pénètrent peu dans la chambre à brouillard.
+Cela explique donc la faible quantité de particule Alpha observées.
+L’énergie moyenne d’une particule Bêta est de 0.5MeV. Nous avons fait des simulations avec cette énergie.
+Image 13 : Simulation d’une particule Bêta avec une énergie de 0.5 MeV sans métal
+
+Image 14 : Simulation d’une particule Bêta avec une énergie de 0,5 MeV avec 0,20mm d’aluminium
+
+Page 15 sur 20
+
+Image 15 : Simulation d’une particule bêta avec une énergie de 0.5 MeV avec 1mm d’aluminium
+
+Ces simulations montrent plusieurs petits points jaunes. Un point jaune représente une collision. On observe
+qu’une particule bêta d’énergie 0.5MeV ne pénètre pas beaucoup dans la chambre à brouillard, qu’une épaisseur
+de 0.2mm d’aluminium ne l’empêche pas de rentrer mais limite son trajet à l’intérieur et d’une épaisseur de
+1mm l’arrête. Cette simulation confirme donc nos résultats expérimentaux qui montre une diminution de la
+quantité de particules bêta observées avec l’augmentation de l’épaisseur d’aluminium. Cependant, ces particules
+ont une pénétration très faible dans la chambre. Ce n’est probablement ce genre de particules que nous avons
+observé.
+Image 16 : Simulation d’une particule bêta avec une énergie de 5 MeV, sans métal
+
+On voit que, sans aluminium, une particule bêta de 5MeV rentre assez profond dans la chambre à brouillard,
+elle parcourt un quart de la longueur. Nous avons donc probablement observé des particules de plus forte énergie.
+Calcul de l’énergie nécessaire pour passer la couche de métal
+Nous avons ensuite calculé l’énergie théorique perdue par les particules Alpha et Bêta dans l’aluminium pour
+voir si cela correspondait à nos mesures.
+Pour faire ces calculs, nous avons utilisé le pouvoir d’arrêt d’un métal qui dépend de l’énergie cinétique de la
+particule et du matériau. Ce pouvoir d’arrêt est en MeV cm2/g. C’est une grandeur tabulée que nous avons pu
+trouver sur le site du NIST (National Institute of Standards and Technology). Tous les calculs ont été faits pour
+un angle incident de 90°.
+Données pour une particule Alpha :
+Energie cinétique moyenne d’une particule Alpha ≃5,0 MeV
+Épaisseur moyenne d’une feuille d’aluminium ≃ 0,020 cm
+Densité moyenne d’une feuille d’aluminium ≃ 2,7 g/ cm3
+Pouvoir d’arrêt pour une particule alpha de 5,0 MeV = 605,3 MeV cm2/g
+Energie nécessaire pour traverser la première feuille d’aluminium = pouvoir d’arrêt × épaisseur× densité
+= 605,3 × 0,020 × 2,7
+= 33 MeV
+Ce résultat prouve que les particules Alpha n’ont pas assez d’énergie pour pouvoir traverser la feuille
+d’aluminium. Il faudrait qu’une particule ait une énergie cinétique d’au moins 33 MeV pour pouvoir traverser
+une épaisseur d’aluminium.
+Le pouvoir d’arrêt change en fonction de l’énergie de la particule. Ce calcul est donc une approximation mais il
+nous permet tout de même de conclure que la particule alpha ne peut pas traverser l’aluminium.
+Page 16 sur 20
+
+Données pour une particule Bêta :
+Energie cinétique moyenne d’une particule Bêta = entre 0 et 1 MeV soit 0,50 MeV
+Epaisseur moyenne d’une feuille d’aluminium ≃0,020 cm
+Densité moyenne d’une feuille d’aluminium ≃2,7 g/cm3
+Pouvoir d’arrêt pour une particule Bêta de 0,50 MeV = 1,604 MeVcm2/g
+Energie nécessaire pour traverser la première feuille d’aluminium = pouvoir d’arrêt × épaisseur × densité
+= 1,604 × 0,020 × 2,7
+= 0,086 MeV
+On voit donc que les particules Bêta ont assez d’énergie pour passer à travers une épaisseur d’aluminium.
+Pour calculer l’énergie nécessaire pour traverser plusieurs couches d’aluminium, il faut d’abord soustraire
+l’énergie que perd la particule en traversant chaque couche à l’énergie cinétique de la particule lorsqu’elle entre
+dans le matériau, puis trouver la nouvelle valeur du pouvoir d’arrêt correspondant à cette énergie. Ensuite, on
+peut simplement refaire le calcul (pouvoir d’arrêt × épaisseur × densité) avec la nouvelle valeur du pouvoir
+d’arrêt. Cette première étape est nécessaire car la perte d’énergie n’est pas linéaire.
+Pouvoir d’arrêt pour une énergie de 0,5 – 0,086 = 0,41 MeV : 1,69 MeV environ (la valeur tabulée est pour
+0,40 MeV).
+Energie nécessaire pour traverser la deuxième feuille = pouvoir d’arrêt × épaisseur ×densité
+= 1,69 × 0,020 × 2,7
+= 0,091 MeV
+En refaisant le même type de calcul on trouve une énergie nécessaire de 0,099 MeV pour traverser la 3ème
+épaisseur, et une énergie de 0,12 MeV pour la 4ème épaisseur. Finalement, la 5ème épaisseur nécessite une
+énergie de 0,17 MeV.
+En additionnant ces résultats, on trouve que l’énergie totale nécessaire à une particule Bêta pour traverser les 5
+couches d’aluminium est (0,086 + 0,091 + 0,099 + 0,12 + 0,17) 0,56 MeV. L’énergie cinétique de départ de la
+particule étant 0,5 MeV, on en déduit qu’une particule Bêta d’énergie standard ne peut pas traverser les cinq
+couches d’aluminium. Seules les particules avec une haute énergie peuvent passer, ce qui explique que l’on en
+voit moins au fur et à mesure que l’on ajoute des couches. Etant donné qu’il y a une faible proportion de
+particules Bêta avec une énergie supérieure à 1MeV, il est plus rare de voir des particules Bêta lorsqu’il y a une
+couche importante d’aluminium.
+b. Plomb :
+Analyse du graphique
+Nos résultats montrent que, contrairement à notre hypothèse initiale (le plomb arrêtera toutes les radiations), la
+présence de plomb ne modifie presque pas le nombre de particules visibles. Effectivement, le nombre de
+particules Bêta ne varie presque pas : de 5,1 ± 0,2 pour le témoin à 4,6 ± 0,1 avec le plomb (en moyenne). Les
+particules Alpha, elles, sont introuvables, le plomb les empêche toutes de passer, puisqu’elles sont tellement
+lentes et lourdes. Ceci peut s’expliquer par le fait que, étant donné que le plomb est très dense, les particules
+vont entrer en collision et réagir avec des atomes de plomb et ne vont pas avoir la possibilité de traverser le
+plomb.
+
+Calcul de l’énergie nécessaire pour passer la couche de métal
+Page 17 sur 20
+
+Nous avons réalisé les mêmes calculs que pour l’aluminium, mais cette fois avec l’épaisseur de notre plaque de
+plomb.
+Données pour les particules Bêta:
+Energie cinétique moyenne d’une particule bêta = entre 0 et 1 MeV soit 0,50 MeV Épaisseur
+moyenne d’une feuille de plomb ≃ 0,40 cm
+Densité moyenne d’une feuille de plomb ≃ 11,35 g/cm3
+Pouvoir d’arrêt pour une particule bêta de 0,50 MeV (NIST, 2018) = 1,14 MeVcm2/g
+Energie nécessaire pour traverser la feuille d’aluminium = pouvoir d’arrêt × épaisseur × densité
+= 1,14 × 0,020 × 2,7
+= 5,18 MeV
+L’énergie obtenue est plus élevée que l’énergie de la particule. Cela voudrait dire que les particules beta de 0,5
+MeV ne peuvent pas traverser le plomb et que les 4,6 particules bêta, observées en 1 minute pendant notre
+expérience, viennent d’un autre phénomène.
+Lien avec les simulations
+Image 17 : Simulation pour une particule bêta de 0.5MeV avec une plaque de plomb de 1mm
+
+On observe que la particule Bêta (Image 17) ne rentre pas dans la chambre. La simulation confirme donc qu’une
+particule bêta d’énergie moyenne venant de l’extérieur ne peut pas être visualisée dans la chambre.
+La simulation et les calculs ne permettent donc pas d’expliquer pourquoi la quantité de particules Bêta observée
+reste similaire avec et sans plomb.
+On peut faire l’hypothèse que le nombre de particules Bêta n’est pas modifié car la collision entre les particules
+incidentes et le plomb provoque l’émission de petites particules telles que les particules Bêta. Cela permettrait
+d’expliquer leur présence dans la chambre malgré la présence du plomb.
+Une autre hypothèse est que le plomb soit déjà irradié et émette les radiations que nous avons observées.
+Nous aurions donc observé les particules issues de la radioactivité du plomb.
+Image 18 : Simulation d’une particule muon avec une énergie de 50 MeV:
+
+Cette simulation permet de visionner un Muon (une particule cosmique). Elle est tellement rapide que même
+après plusieurs collisions avec des électrons immobiles, le Muon réussit tout de même à rentrer d’un côté et
+sortir par l’autre. Le Muon traverse la chambre à brouillard sans aucune difficulté. Il est donc théoriquement
+possible de voir des Muons.
+4) Conclusion de l’expérience
+Page 18 sur 20
+
+En conclusion, les expériences se sont avérées concluantes puisque nous avons pu vérifier et confirmer une
+partie de notre hypothèse : les particules Alpha sont bloquées par les métaux et il y a bien une diminution de la
+quantité de particules Bêta lorsqu’on protège la chambre avec de l’aluminium. Plus la couche d’aluminium est
+épaisse, moins on observe de particules. Ces conclusions sont en accord avec les calculs théoriques et les
+simulations.
+Cependant, la quantité de particules Bêta n’a pas été sensiblement modifiée par la plaque de plomb. Les calculs
+théoriques et la simulation nous montrent pourtant qu’elles devraient l’être pour une plaque de plomb de cette
+épaisseur. Nous avons donc fait des hypothèses : la collision des particules Bêta avec le plomb provoque une
+gerbe de particule ou alors le plomb est irradié.
+VIII.
+
+Conclusion générale
+
+Pour les expériences futures, il faudrait placer le plomb au-dessus de la chambre à brouillard puis le placer sous
+la chambre. La première expérience, où le plomb serait au-dessus de l’aquarium, devrait créer une gerbe
+cosmique qui serait observée dans la chambre à brouillard quand un ou plusieurs Muons frappent le plomb.
+L’autre expérience, où le plomb serait en dessous de l’aquarium, devrait créer une gerbe cosmique qui serait
+maintenant sous la chambre à brouillard, donc invisible à nos yeux. Si la gerbe cosmique est toujours présente
+dans la chambre à brouillard, alors le plomb est radioactif. Ces expériences complémentaires pourraient
+permettre d’expliquer les résultats obtenus avec la plaque de plomb.
+Nous pourrions également faire des simulations avec des particules de plus haute énergie afin de voir si elles
+produisent une gerbe.
+Si la conclusion était que le plomb n’est pas radioactif et qu’il s’agit d’une gerbe naturelle due aux collisions
+des particules, on pourrait en conclure que ce n’est pas un bon métal pour se protéger des particules, notamment
+lors de vols spatiaux.
+Pour approfondir les résultats, il nous faudrait trouver la répartition en énergie des particules Alpha et Bêta au
+niveau du lycée. Nous pourrions alors analyser avec plus de précision la quantité de particules que nous pouvons
+observer dans la chambre et donc approfondir l’influence de la couche de métal.
+Il nous manque également des connaissances mathématiques afin d’étudier l’épaisseur exacte d’aluminium qui
+permettrait d’arrêter les particules. Cependant, l’aluminium est un bon candidat pour assurer la protection des
+humains lors d’un voyage spatial.
+Ce projet nous a permis d'approfondir nos connaissances sur le sujet des particules et des chambres à brouillard.
+Nous avons pris beaucoup de plaisir à travailler sur l’univers subatomique qui nous entoure et à voir les
+particules dans la chambre à brouillard. Notre travail en groupe nous a beaucoup plu car nous avons su collaborer
+et se partager le travail de manière efficace. Nous avons trouvé fantastique le fait de pouvoir visiter le laboratoire
+de physique nucléaire de l’Australian National University et d’avoir eu l’opportunité de rencontrer des
+scientifiques qui sont passionnés par la physique nucléaire.
+Cédric Simenel nous a également appris qu’il utiliserait notre expérience pour une séance de travaux pratique
+pour des étudiants de physique de première année à l’Université ! La physique, c’est fantastique !
+
+IX.
+
+Remerciements
+
+Page 19 sur 20
+
+Tout d’abord, nous tenons à remercier Mme MICHEL, notre professeure de Physique, qui nous a aidés et
+encouragés tout au long de notre projet. De plus, nous remercions Matthew GERATHY et Cédric SIMENEL,
+sans eux nous n’aurions pas pu aller à l’ANU. Ils nous ont aiguillé, nous ont montré l’outil de simulation Geant4,
+nous ont assisté dans nos réflexions, nos calculs et nous ont aidés à analyser plusieurs de nos données. Un grand
+merci à M. et Mme HALAS qui nous ont permis de réaliser notre expérience chez eux et d’avoir financé en
+partie notre expérience, et à M. et Mme PETITDIDIER, qui nous ont accueillis chez eux pour que nous puissions
+travailler et qui nous ont amenés à différents endroits pour nos expériences. Merci au musée de Questacon, qui
+nous a donné l’autorisation d’utiliser et de filmer leur chambre à brouillard. Et finalement nous remercions
+Isabella STEIN et Alexandra VICKERY, qui ont participé au projet l’Astrolabe et qui nous ont aidées à réaliser
+les premières expériences.
+X.
+
+Bibliographie
+
+ARPANSA. (n.d.-a). Alpha Particles. Retrieved from https://www.arpansa.gov.au/understandingradiation/what-is-radiation/ionising-radiation/alpha-particles
+ARPANSA. (n.d.-b). Beta particles. Retrieved from https://www.arpansa.gov.au/understandingradiation/what-is-radiation/ionising-radiation/beta-particles
+Cambridge. (2002). The Museum at the Cavendish Laboratory. Cambridge Physics. Retrieved from
+http://www.cambridgephysics.org/museum/area2/cabinet1.htm
+Cloudylabs. (2013). Chambre à brouillard à expansion ou diffusion. Retrieved from
+http://www.cloudylabs.fr/wp/differentes-machines/
+CREDO. (2016). Particle Detector. In.
+Langsdorf. (1939). A continuously Sensitive Diffusion Cloud Chamber. R.S.I, 10.
+NIST. (2018). Stopping power and range tables for electrons. Retrieved from
+https://physics.nist.gov/PhysRefData/Star/Text/ESTAR.html
+O'Luanaigh, C. (2015). Voir l’invisible : événements en physique des particules. Retrieved from
+https://home.cern/fr/news/news/detectors/seeing-invisible-event-displays-particle-physics
+Wikipedia. (2018a). Cloud Chamber. Retrieved from https://en.wikipedia.org/wiki/Cloud_chamber
+Wikipedia. (2018b). Electron. Retrieved from https://en.wikipedia.org/wiki/Electron
+Wikipedia. (2018c). Neutron. Retrieved from https://en.wikipedia.org/wiki/Neutron
+Wikipedia. (2018d). Proton. Retrieved from https://en.wikipedia.org/wiki/Proton
+Woithe, J. (2016). Cloud Chamber Do-it-yourself manual. CERN.
+
+Page 20 sur 20
+
+

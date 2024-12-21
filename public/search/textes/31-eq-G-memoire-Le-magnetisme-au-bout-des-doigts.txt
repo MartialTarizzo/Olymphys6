@@ -1,0 +1,1012 @@
+31e Olympiades de Physique 2023-2024
+
+Le magnétisme au bout des doigts
+Comment cartographier en mode “low-tech”
+Le champ proche de domaines magnétiques ?
+Rafael MARTINEZ-CALVO, Neil FRIKHA, Noor GTAT, Himanshu LEGHA, Sinan AL RADI, Elodie GISSY
+
+Cité scolaire internationale Europole de Grenoble
+
+Mémoire
+
+1
+
+RÉSUMÉ
+Les microscopes à sonde locale permettent de sonder la matière à l’échelle nanométrique : les surfaces d’échantillons y sont
+cartographiées en utilisant un microlevier muni à son extrémité d’une pointe sonde qui balaie la surface à explorer et dont la flexion ou
+le mouvement d’oscillation est modifié par l’interaction avec la surface. Cette technique est l’analogue de celle du braille utilisée par
+les malvoyants pour “lire” un texte “au bout des doigts” en balayant les lettres codées en relief sur le papier. Une modélisation
+centimétrique d’un Microscope à Force Magnétique (MFM) est construite. Le profil magnétique de divers échantillons est réalisé
+grâce à un positionneur XYZ “low-tech” construit à partir de matériel et d’un capteur à effet Hall de récupération, pilotés par un
+microcontrôleur ARDUINO.
+
+Fig. 1 Cartographies de champ proche de différents échantillons obtenues à l’aide du micropositionneur/capteur de Hall
+(a) électroaimants (enroulement de fil de cuivre + noyau de fer en clous de tapissier) (b) plaque à aimantation texturée (aimant de réfrigérateur, ferrite)
+
+Les MFM fonctionnent grâce à la flexion d’une poutre ou levier submillimétrique dont la flexion (mode “contact”) ou le spectre
+(mode “non-contact ou “résonant”) de l’oscillation est perturbé par l’interaction avec la surface magnétique et une pointe aimantée
+(CoCr), produisant ainsi une information sur la présence d’un domaine magnétique lors du balayage de la surface. Différents dispositifs
+expérimentaux et chaînes de mesure ont été construits à partir de matériel simple disponible au lycée ou de versions instrumentées
+(jauge de contrainte) utilisées en TP de licence.
+Les caractéristiques physiques d’un modèle centimétrique (réglets ou scie à métaux) d’une poutre encastrée libre représentant le
+système levier-pointe d’un MFM sont étudiées : i) fléchissement statique, ii) oscillations libres amorties (modélisation du signal
+temporel, transformée de Fourier), iii) oscillations forcées du réglet muni d’un aimant permanent et excité par un système
+GBF-électroaimant. Une étude paramétrique est menée sur l’influence de la longueur libre de la poutre, et de la masse de charge
+placée à l’extrémité du réglet.
+MFM en mode “statique”: l’étude des propriétés de flexion statique de la poutre nous a permis de construire et caractériser un
+modèle de MFM permettant d'acquérir le profil de champ B(x) au-dessus d’une ligne de domaines magnétiques, par suivi de la déflexion
+d’un rayon LASER réfléchi sur le levier :
+MFM en mode “résonant” : une évaluation est menée sur la possibilité d’utiliser notre dispositif en mode oscillant. La modification
+du spectre d’oscillations libres est dû au décalage de la fréquence de résonance et permet d’accéder à un signal dont l’amplitude est
+liée au gradient de la force de l'interaction magnétique entre le réglet et les motifs magnétiques de l’échantillon.
+
+MOTS-CLÉS
+Stockage magnétique d’information, microscopie par sonde locale, à force magnétique (MFM), (électro-) aimants, moteurs pas à
+pas, champ magnétique, effet Hall, microcontrôleurs (ARDUINO), jauges de contrainte, “low-tech”, poutre encastrée-libre, oscillations
+libres amorties, oscillations forcées, résonance, transformée de Fourier, traitement des données, modélisation et simulation Pythons.
+Modélisation didactique, partage et vulgarisation des sciences.
+
+En savoir plus sur le projet
+
+2
+
+SOMMAIRE
+RÉSUMÉ
+MOTS-CLÉS
+SOMMAIRE
+1. INTRODUCTION
+
+2
+2
+3
+4
+
+1.1 Origine du projet, enjeux et problématique
+
+4
+
+1.2 Microscopes à sonde locale : Microscope à Force Magnétique (MFM)
+
+4
+
+1.3 Principes & modèles physiques au cœur du fonctionnement d’un MFM
+
+6
+
+1.4 Des maquettes didactiques : état de l’art et démarche de notre projet
+
+7
+
+1.5 Matériels et Méthodes
+
+8
+
+2. ÉTUDE DU SYSTÈME LEVIER-POINTE:
+
+10
+
+2.1 Balayage d’une ligne X d’aimants en mode statique
+
+10
+
+2.2 Modélisation du levier
+
+11
+
+2.3 Oscillation libre
+
+12
+
+2.4 Oscillation forcée
+
+13
+
+3. ÉTUDE DE SYSTÈMES MAGNÉTIQUES
+3.1 Champ magnétique
+3.2 Effets magnétiques
+
+4. MAQUETTE DE SONDE À BALAYAGE XY(Z)
+
+16
+16
+16
+
+17
+
+4.1. Construction de la maquette XYZ
+
+17
+
+4.2 Utilisation de la maquette XYZ : topographies magnétiques
+
+19
+
+5. CONCLUSION & PERSPECTIVES
+REMERCIEMENTS
+BIBLIOGRAPHIE
+
+19
+19
+20
+
+3
+
+1.
+
+INTRODUCTION
+
+Les données de ce texte sont peut-être enregistrées sur le disque dur magnétique de votre ordinateur. L'information y est stockée
+numériquement, sous forme d’une suite de 1 et de 0, codés par la polarité Nord (N) ou Sud (S) de domaines magnétiques dont la taille
+est de l’ordre de 20 à 50 nm.
+Les nanosciences ont construit leurs objets d’étude en même temps que les outils pour les “voir”. Les microscopes à force
+atomique (AFM) et à force magnétique (MFM), permettent de sonder la surface de la matière à l’échelle nanométrique (inférieure à
+100 nm). Ils utilisent comme sonde un microlevier (cantilever) muni d’une pointe (tip) dont la flexion ou les oscillations sont sensibles
+aux interactions entre la pointe et la surface. Les surfaces d’échantillons y sont cartographiées de façon “haptique” et non “visuelle”
+un peu à la manière d’un aveugle avançant tout en sondant les obstacles devant lui avec sa canne.
+
+1.1 Origine du projet, enjeux et problématique
+Fascinés par divers effets étonnants sur la matière à distance comme la lévitation ou la propulsion magnétique ou sur la rupture
+d’un verre de cristal soumis à une excitation sonore résonante, nous hésitions entre projet d’olympiades axé sur l’acoustique ou les
+effets inattendus du magnétisme. La proximité d’un laboratoire de nanosciences (le CIME Nanotech, INP-UGA) en face de notre lycée
+nous a conduits à nous intéresser aux microscopes à sonde locale, microscopes à force atomique (AFM) qui permettent de sonder la
+matière à l’échelle nanométrique. Inaccessibles à la microscopie optique (dont la résolution spatiale est limitée au micromètre par la
+diffraction). Suite à une discussion avec deux responsables techniques du CIME, nous nous sommes focalisés sur l'interaction
+magnétique mise en œuvre sur les Microscopes à Force Magnétique (MFM). Ce système nous permet a priori de faire des
+modélisations à l’échelle centimétrique du système à l’aide d’aimants et électroaimants. Nous nous sommes ainsi rapidement rendu
+compte que les vibrations qui nous intéressaient dans le domaine de l’acoustique étaient en jeu dans le principe d’utilisation des
+appareils : la résonance du microlevier. Par ailleurs, nous avons découvert qu’un système d’inspiration “low tech” de positionneur XYZ
+de l’échantillon était envisageable, piloté par un microcontrôleur, et donnant une seconde vie au lecteur interne de CD d’un ordinateur
+des années 2000. Nous n’en étions pas encore conscients, mais outre la fascination pour le vertige du contrôle nanométrique de la
+matière dans des objets du quotidien (il y a des minidisques durs pour stocker les photos de nos smartphones aujourd’hui) nous avons
+découvert des effets mystérieux dans nos cuisines avec des aimants souples ou “magnets” sur nos réfrigérateurs, qui ne “collent” que
+d’un seul côté du fait de leur structure magnétique. Après quelques tâtonnements, notre problématique, est finalement la suivante :
+
+Comment cartographier les domaines magnétiques millimétriques
+à la surface d’un aimant, en s’inspirant - en mode “low-tech”des principes physiques d’un microscope à force magnétique à balayage ?
+
+1.2 Microscopes à sonde locale : Microscope à Force Magnétique (MFM)
+1.2.1 Principe de fonctionnement
+Le MFM est une variante du Microscope à Force Atomique (AFM). Il appartient à la famille des microscopes à sonde locale et à
+balayage, utilisés pour cartographier des échantillons à l'échelle nanométrique en balayant un microlevier muni d’une pointe avec un
+contrôle à l’échelle nanométrique du positionnement de l’échantillon et de la distance pointe-échantillon. L’image est construite par la
+perturbation du microlevier en interaction avec la surface de l’échantillon : la déflexion statique ou la perturbation de la résonance
+d’oscillation du levier est mesurée par un capteur optique qui détecte le déplacement d’un faisceau laser réfléchi à la surface du
+microlevier. Dans le cas d’un AFM, on sonde l’interaction de Van der Waals (de portée quelques nanomètres). Dans le cas d’un MFM, on
+utilise une pointe magnétisée et on sonde l’interaction avec le champ magnétique (essentiellement vertical) générés à l’extérieur de
+l’échantillon par les structures magnétiques qui le composent.
+
+Figure 1 : Microscope à sonde locale à balayage. Détection optique
+(laser + photodiode à quadrants)
+
+Figure 2 : Principe de fonctionnement du MFM. Interaction magnétique
+entre la sonde et l’échantillon
+
+4
+
+1.2.2 Modes de fonctionnement : flexion statique ou oscillations quasi-résonantes
+Une photodiode dite 4-quadrants mesure la flexion ou les oscillations du signal réfléchi, selon le mode d’acquisition retenu. La
+pointe peut être en contact ou à distance, en oscillation forcée, à une fréquence proche de la résonance du microlevier.
+Quand plusieurs interactions se superposent, il faut les différencier. L’image topographique des reliefs est réalisée en mode
+contact ou effleurement périodiques (tapping) : la sonde, en mode AFM et sensible aux interactions de Van der Waals à l’échelle de
+quelques nanomètres. Un deuxième passage (lift), en mode oscillant résonant (non-contact) est ensuite réalisé à distance constante
+de l’échantillon (50 nm), distance où seule l’interaction magnétique se manifeste.
+En mode statique, le levier est repoussé ou attiré de manière statique. En mode oscillant, le levier oscille au-dessus de
+l’échantillon sans le toucher. La fréquence de l’oscillation libre est modifiée par l’interaction (la fréquence baisse si l’inertie du
+système global augmente ou la raideur effective de l’interaction diminue). Cette fréquence peut être suivie dans un régime
+d’oscillations libres. On préfère pour des raisons de stabilité le régime d’oscillations forcées à proximité de la résonance. Si l’on fixe la
+fréquence de travail, l'interaction résulte d’une modification de l’amplitude qui peut être mesurée directement. Par exemple, si l’on se
+place à la résonance d’une zone sans interaction magnétique, le passage dans une zone d’interaction diminue l’amplitude de
+l’oscillation, car on ne sera alors plus à la résonance. On peut même faire la différence entre une interaction attractive ou répulsive si
+la fréquence de travail est décalée de la résonance (voir paragraphe 1.3 et Figure 3).
+
+Figure 3 : Fonctionnement en mode résonant : excitation forcée à proximité de la résonance. Un déplacement de la fréquence de résonance
+résulte de l’interaction entre la pointe et l’échantillon (ici interaction attractive, décalage vers les basses fréquences). Si l’échantillon est excité à
+une fréquence donnée (ici plus basse que les résonances avec ou sans interaction), l'amplitude est modulée quand la pointe passe au-dessus d’un
+domaine avec lequel elle est en interaction (ici augmentation d’amplitude).
+
+L’objectif principal de notre projet est de comprendre les principes de fonctionnement d’un MFM et d’en démontrer quelques
+éléments constitutifs au moyen de maquettes didactiques à l’échelle centimétrique inspirée de l’esprit “low tech”, c'est-à-dire par le
+recyclage de matériel multimédia ou électronique grand public.
+
+1.2.3 Applications : stockage magnétique d’information & force magnétique
+●
+
+Stockage magnétique d’information & MFM
+
+Le microscope à force magnétique offre une perspective unique sur les échantillons présentant à leur surface des domaines à
+l'échelle nanométrique. C’est le cas des systèmes à stockage magnétique d’information numériques (bandes audio/vidéo et disques
+durs magnétiques ou Hard Disk Drive (HDD)) ou encore des nanoparticules magnétiques dans le domaine biomédical.
+
+Figure 4 : Disque dur magnétique - Image MFM d’un disque dur magnétique (HDD) de 400 Mo (a) Image MFM d’un disque dur de 10 Go (b)
+(Images CIME Nanotech). Aujourd’hui, les domaines magnétiques ont été miniaturisés à 𝑑 ≃ 50 nm permettant l’apparition de disques de capacité
+𝑁 ≈ 5 To (1012 octets) dans les ordinateurs de bureautique.
+
+5
+
+Lors de notre visite au CIME-Nanotech, Valentine BOLCATO, technicienne responsable de la plateforme nanomonde, a fait
+fonctionner pour nous un microscope MFM, expliqué les différents éléments et réglages de cet instrument, et réalisé la cartographie
+topographique et magnétique d’un disque dur de faible capacité (200 Mo).
+La discussion sur les principes de fonctionnement des têtes d’écriture (induction assistée laser) ou de lecture (valves de spin, A.
+Fert) avec les chercheurs du CIME ou du CNRS nous a fascinés.
+
+●
+
+Contrôle et optimisation de la force magnétique : design des domaines en réseau de Halbach
+
+Comme nous l’avons découvert mi-décembre après les Olympiades académiques, la force magnétique peut être optimisée. Ainsi,
+les magnets souples collés sur nos réfrigérateurs sont constitués de ferrite noyée dans une matrice d’élastomère. La géométrie des
+domaines millimétriques et submillimétriques en réseau de Halbach, permet de doubler le champ sur la face magnétique de l’aimant en
+l'annulant sur l’autre face.
+
+À côté de l’objectif principal de notre projet, nous espérons étudier, à l’aide de notre maquette centimétrique, des dispositifs, des
+aimants, ou assemblages d’aimants ou électroaimants permettant :
+1- la démonstration de stockage, écriture ou lecture d’information magnétique
+2- d’optimiser le champ ou la force magnétique autour d’assemblages magnétiques bien choisis comme les réseaux de Halbach
+
+1.3 Principes & modèles physiques au cœur du fonctionnement d’un MFM
+1.3.1 Oscillations
+●
+
+Oscillations libres et Transformée de Fourier
+
+Dans le cas d’oscillations libres (levier écarté de sa position d’équilibre puis lâché à t = 0), le mouvement est décrit par la
+fonction :
+Afin de lire plus facilement les grandeurs caractéristiques qui seront utiles en mode fonctionnement oscillant forcé dans un MFM,
+il peut être utile de déterminer numériquement la Transformée de Fourier des données (Python). Dans le cas du modèle considéré, le
+signal de Fourier est de la forme :
+
+dont nous ajusterons les paramètres du modèle au spectre expérimental. La largeur spectrale à 1/ 2 du maximum est relié au
+facteur de qualité du résonateur par la relation :
+
+●
+
+Oscillations forcées - Résonance
+
+En régime forcé, la réponse à l’excitation
+
+est de la forme :
+
+avec l’amplitude
+Le facteur de qualité est lié au temps d’amortissement du régime libre :
+. La courbe de résonance à une allure
+similaire à celle de la transformée de Fourier de l'oscillation libre autour de la résonance si Q>10, ce qui est le cas dans notre étude. A
+la résonance, l’amplitude est multipliée par le facteur de qualité Q par rapport à l’amplitude à basse fréquence (
+
+)
+
+1.3.3 Effet de l’interaction magnétique : visualisation de domaines magnétiques de surface
+Si on utilise un capteur de Hall, on mesure directement le champ magnétique (cas du dispositif XYZ avec sonde de Hall). Par
+contre, avec notre modèle de MFM, on est sensible en fait à la dérivée ou la dérivée seconde du champ [Lamani 2004, Abelman 2017].
+
+6
+
+●
+
+Flexion statique
+
+En régime statique, le levier est à l’équilibre donc
+
+On en déduit que la déflexion due à
+
+l’interaction magnétique est définie par la loi de Hooke des ressorts :
+
+. On en déduit donc (voir 1.3.2) que la
+
+déflexion statique est proportionnelle à la dérivée du champ magnétique :
+
+●
+
+Oscillation proche de la résonance
+
+En régime oscillant (Figure 3, paragraphe 1.2.2), la modulation de l’amplitude du fait de l’interaction est due à un décalage du
+spectre de la fréquence propre. On suppose (ce qui ne sera pas vraiment le cas dans nos expériences) que l’effet magnétique est une
+perturbation par rapport à la flexion statique. Si on fait une approximation linéaire (développement limité), on obtient :
+
+soit une variation relative
+
+ou encore
+
+(proportionnelle à la dérivée de la force)
+
+: proportionnelle à la dérivée seconde de la force
+
+La situation la plus favorable serait que la variation relative de fréquence soit faible (inférieure à 10%) et de travailler au point
+d’inflexion de la courbe de résonance [Abelman 2017].
+Pour ce qui est d’identifier la jonction entre deux domaines magnétiques, le fait que le champ soit une fonction décroissante de la
+distance à la surface magnétique fait qu’une inversion de domaine est généralement identifiable à la fois sur le champ, sa dérivée ou
+sa dérivée seconde. Par contre, la distance nécessaire pour éviter que deux aimants attractifs ne se collent implique de travailler à
+distance, ce qui nuit à la résolution spatiale. À distance, la sonde peut aussi être sensible à d’autres directions du champ magnétique.
+
+1.4 Des maquettes didactiques : état de l’art et démarche de notre projet
+Plusieurs maquettes de Microscopes à Champ Proche à Balayage de type AFM ont été construites. Les objectifs peuvent être
+différents :
+- Des démonstrateurs à visée pédagogique pour les élèves ou le grand public comme entrée introduction au nanomonde.
+- Des activités pour mettre en œuvre des principes physiques dans une approche moderne.
+- Des outils de formation pour les étudiants en complément d’une prise en main d’AFM et l’utilisation de simulateurs.
+- La construction de version “low-tech” favorisant la formation en ingénierie ou permettant la démocratisation de ces outils.
+Concernant les MFM, l’interaction magnétique à longue portée est particulièrement adaptée à des maquettes à l’échelle du
+centimètre au mètre. Quelques démonstrateurs grand public ont été décrits [vidéos], basés le plus souvent sur la flexion statique.
+Deux auteurs démontrent une première mise en œuvre des éléments de principe de fonctionnement en mode oscillant d’une maquette
+de MFM centimétrique, pour le balayage d’une ligne X. Le premier [Planinsic, 2008] présente l’interaction entre un modèle de
+pointe-aimant et des matériaux ferreux ou non. Le second [Lenoble, Pelletier 2016] est un mémoire d’Olympiades de Physique que
+nous avons découvert mi-décembre (le titre “Laserator” n’était pas explicite) explore également le sujet avec beaucoup d’ingéniosité
+pour étudier les caractéristiques de l'interaction entre deux aimants.
+Notre travail a démarré avec le désir de construire une maquette modèle de balayage XY à deux dimensions à partir de matériel de
+récupération (moteurs de lecteurs de CD récupérés avant la déchetterie) pour sonder des structures et des assemblages
+magnétiques planaires. L’inspiration s’est concrétisée à l’occasion de 4 séances de travail au CIME-Nanotech de Grenoble avec deux
+techniciens, Gaétan Debontride (plateforme capteurs et atelier low-tech) et Valentine Bolcato (plateforme nanomonde et
+microscopies). La fascination pour le stockage, la lecture et l’écriture magnétique a nourri notre motivation, avec les nanobits
+magnétiques des disques durs notamment, tout comme la découverte de comportements inattendus des “magnets” ou aimants de
+frigo : ils ne “collent” que d’un côté [Halbach, Lehoucq].
+Notre travail au moment des olympiades inter-académiques était d’essayer de :
+i) Comprendre “la physique” cachée derrière les MFM (oscillations, résonance) d’une part, en commençant par les
+propriétés mécaniques du levier (élasticité ou raideur en torsion) et l’interaction magnétique avec de premiers balayages en mode
+statique.
+7
+
+ii) Concevoir des protocoles et chaînes de mesure pour mettre en évidence ces phénomènes physiques : excitateurs
+électromagnétiques, capteurs optiques ou jauges de contraintes, acquisition automatisée de mesures (scripts Python pour le suivi
+optique, ponts et amplification pour les mesures électriques).
+iii) Construire plusieurs générations de maquettes intégrées pour passer du scan X au scan XY, et essayer d’intégrer nos
+maquettes X en les miniaturisant pour un dispositif XY. Début décembre, un dispositif de balayage XY d’électroaimants fabriqués à la
+main (clou et fils de cuivre) et magnets de frigo nous a permis de tester et de calibrer un premier dispositif avec sonde utilisant un
+capteur à effet Hall de récupération. Nous avons ainsi pu faire la différence entre une image “optique” et une image magnétique.
+L’instrumentation était pilotée par un Arduino (commande et lecture du signal) assisté par un dispositif de puissance (ponts en H)
+pour commander les moteurs pas-à-pas de déplacement.
+Depuis décembre, nous avons pu :
+I) Mettre en évidence un balayage de type MFM en mode oscillant.
+II) Réfléchir à la résolution du système (en force, en champ magnétique, dimension latérale) en fonction des propriétés
+du levier (raideur effective et taille) et commencer à comprendre quels sont les paramètres cruciaux pour réaliser une réduction
+d’échelle de l’échelle centimétrique-décimétrique à l’échelle millimétrique.
+III) Mieux comprendre les propriétés du champ magnétique à l’extérieur d’un aimant dur au Nd2Fe14B dit “Néodyme”, et
+leur assemblage.
+IV) Comprendre les subtilités entre champ magnétique et force magnétique. Nous balayons différentes grandeurs : le
+champ B avec une sonde de Hall, la raideur donc force magnétique (la dérivée de B) en déflexion statique, et la variation
+correspondante à la raideur sous l’effet du champ (donc la dérivée de la force ou la dérivée 2nde du champ B).
+V) Passer à une 2e génération de maquette de balayage : le démonstrateur intègre maintenant un axe Z pour des
+balayages à différentes distances, 3 bras instrumentés différents réalisées en impression 3D intégrant au choix : A) une sonde de
+Hall sondant le champ dans une direction ou dans trois (non encore fonctionnel), B) une sonde pour le profil topographique (image en
+relief, non magnétique) et C) une sonde pour des tests en mode microlevier (non encore fonctionnel).
+VI) L’amélioration de nos dispositifs expérimentaux nous a ouvert un champ d’étude que nous n’imaginions pas : des
+explorations sont en cours pour tester des assemblages différents d’aimants Néodyme (en réseau de Halbach) maintenu dans des
+boîtiers construits en impression 3D, la mesure de forces magnétiques par la méthode d’arrachement et de premiers tests de lecture,
+effacement et réécriture magnétique sur des aimants de frigo.
+Ces développements ont pu être renforcés par une visite d’un après-midi au laboratoire de nanomagnétisme au CNRS le 11 janvier
+(Laboratoire Louis Néel) où Laurent Ranno a pu répondre à nos nombreuses questions et nous a fait visiter plusieurs laboratoires
+(domaines magnétiques “frustrés” en MFM et déplacement de domaines ferromagnétiques dans des échantillons “grenat” vues en
+microscopie Kerr). Laurent Ranno, après avoir écouté notre présentation avec un collègue chercheur nous a donné de nombreux
+conseils pour simplifier notre discours car nous ne savons manifestement pas encore aller à l’essentiel ! Encore un énorme défi d'ici le
+2 février.
+
+1.5 Matériels et Méthodes
+Notre démarche de “recherche” ou “ingénierie”, a pour but —sans encore combiner tous les éléments d’un MFM— d’étudier,
+modéliser ou construire différents éléments d’un tel système. Les dispositifs expérimentaux et chaînes de mesure ont dû être
+construits, allant de l’assemblage de simples objets disponibles au lycée, ou le détournement de dispositifs instrumentés utilisés en
+TP de licence (réglet, poutre instrumentée avec une jauge de contrainte et une amplification de signal).
+
+1.5.1 Étude expérimentale du système mécanique
+●
+
+Étude du système mécanique
+
+Lors de notre étude du système poutre encastrée, nous avons eu recours à divers modèles de réglets avec des facteurs
+d’amortissement, de masse et de longueur différents. On observe notamment une différence significative entre l’amortissement d’un
+réglet en métal face à un réglet en plastique. L’extrémité fixe est solidarisée avec la base d'un support élévateur par un dispositif de
+type serre-joint, et une surface réfléchissante est fixée sur le levier afin de récupérer le signal laser que l’on a mis en place à la façon
+d’un vrai MFM de sorte à pouvoir suivre la déformation du réglet et ce en récupérant le déplacement vertical de ce laser sur un écran.
+
+●
+
+Systèmes excitateurs
+
+Pour exciter notre poutre encastrée, nous avons fait appel à un système composé d’un électro-aimant et d’un générateur à basses
+fréquences (GBF). Ainsi, le réglet est mis en oscillation de façon efficace à une fréquence donnée.
+Dans notre étude du système masse-ressort réalisée au préalable, nous avons fait appel à un moteur muni d’un axe désaxé, ce qui
+entraîne une oscillation du système relié à l’axe par un fil [voir Annexe].
+
+8
+
+●
+
+Détection par jauge de contrainte
+
+Une méthode que nous avons utilisée pour mesurer les oscillations du réglet est l’usage d'une jauge de contrainte. Cette jauge,
+solidarisée au levier, se tord avec celui-ci, ce qui induit une variation de sa résistance. De cette manière, nous pouvions obtenir un
+signal avec une très bonne résolution temporelle [voir Annexe].
+
+●
+
+Détection optique
+
+Nous avons finalement opté pour un système à détection optique se déclinant sous deux formes. Tout d’abord, celle présente dans
+un MFM, un laser est réfléchi sur le levier ce qui projette et amplifie le mouvement. On le rend ainsi plus facilement mesurable à la
+main. On se munit d’une règle dans le cas d’une mesure d’amplitude, ou, dans le cas d’une mesure informatisée, d’une caméra à haute
+vitesse, où il est important d’avoir un point plus facile à distinguer de l’environnement grâce à un contraste plus grand et à l’amplitude
+plus grande du mouvement. Une acquisition basée sur une photodiode à deux quadrants (nous rapprochant d’un véritable MFM) a été
+envisagée, mais le manque de temps et le manque de composants a rendu sa mise en place impossible [voir Annexe].
+
+●
+
+Systèmes d’acquisition automatisée
+
+La réalisation du pointage automatisé a été mené à bout par un programme Python écrit par nos soins. Il filtre la couleur de la
+vidéo afin d’en extraire le spectre correspondant au laser. Ainsi, un algorithme de détection de forme peut être appliqué à l’image [voir
+Annexe], ce qui nous apporte la position du point reflété par le levier et donc le signal correspondant à son oscillation. Pour permettre
+le bon fonctionnement de ce système, un bon contraste, choix des couleurs et cadrage est nécessaire, ainsi que l’usage d’une caméra
+à haute vitesse capable de suivre fidèlement le mouvement du levier [voir Annexe].
+
+1.5.2 Etude expérimentale des systèmes magnétiques
+●
+
+Mesure de champs magnétiques
+
+La mesure détaillée des champs magnétiques de divers systèmes a pu être réalisée à l’aide de deux outils : Tout d’abord un film
+commercial, sensible au champ magnétique qui change de couleur en présence d’un champ magnétique. Il nous apporte l’information
+instantanément, mais n’apporte pas d’information quant à la polarité du champ et à son intensité réelle. Le deuxième système, qui
+sera plus amplement abordé dans la partie [4. ASSEMBLAGE] nous permet de connaître en chaque point la polarité ou sens du champ
+sur la composante Z de l’échantillon vis-a-vis de la sonde ainsi que son intensité réelle, à une hauteur donnée. Ce système est
+néanmoins beaucoup plus lent puisqu’il doit balayer l’ensemble de l’échantillon.
+
+●
+
+Mesure de forces magnétiques
+
+Pour mesurer la force de nos systèmes, nous avons fait appel à une méthode présentée par Laurent Ranno lors de notre visite à
+l’institut Néel. Nous disposons sur une balance un poids en métal qui sera porté par l’aimant. En faisant la tare puis en tirant sur
+l’aimant, on peut observer, le poids qu’il est capable de porter juste avant son décrochage et donc la force d’attraction qu’il exerce sur
+le bloc en métal.
+
+●
+
+Assemblage de structures d’aimants permanents
+
+Pour mieux comprendre l’impact de l’arrangement des aimants, nous avons réalisé en impression 3D un support permettant
+d’agencer des aimants de dimension 5x5x5mm sous diverses formes. On a ainsi pu comparer l’arrangement les Halbach, alterné et
+régulier. Le support en plastique facilite le maintien des aimants dans des dispositions instables normalement impossibles à réaliser.
+
+1.5.3 Construction d’un micro-positionneur XYZ “low-tech
+●
+
+Déplacements X et Y (puis Z)
+
+Nous avons construit un micro-positionneur XYZ version “low tech”, pour cela nous avons utilisé trois moteurs de lecteurs CD de
+récupération afin de créer un support permettant de déplacer un échantillon sur les axes X et Y. Le troisième, sur lequel est fixée la
+sonde, permet d’ajuster la hauteur de celle-ci vis-a-vis de l’échantillon.
+
+●
+
+Commande et lecture avec un ARDUINO
+
+Grâce au microcontrôleur (ARDUINO) et d’un circuit de puissance, nous avons pu contrôler le déplacement des moteurs et
+récupérer les données mesurées par le capteur à effet Hall démonté d’une sonde commerciale.
+
+●
+
+Sonde de Hall, calibration
+
+Avec la sonde, on mesure la valeur analogique en unité arbitraire allant de 0 à 1028. On a disposé une sonde commerciale nous
+donnant l’intensité du champ en millitesla que nous avons pu comparer à celle de la sonde.
+
+●
+
+Ajout de plusieurs têtes de lecture
+
+Plusieurs étapes ont été suivies. Nous avons pu :
+1.
+
+Mesurer de la cartographie de champ proche de différents échantillons dont les tailles caractéristiques des domaines
+magnétiques ont différentes échelle : lignes ou matrices d’aimants permanents de pôles alternés ou non (0.,5-1cm), réseau
+9
+
+2.
+3.
+
+d’électroaimants réalisés par bobinage autour de clous (1-5mm), empreintes magnétiques d’aimants souples alternés
+(0,5-1mm). Le profil mesuré est comparé au motif théorique du champ 2 mm au-dessus de l’échantillon.
+Cartographier la topographie d’un échantillon à l'aide de notre positionneur et d'une sonde d’imprimante 3D mesurant le
+contact.
+Modéliser et imprimer de différentes pièces en 3D servant de support aux sondes et de maintien pour des dispositions
+d’aimants.
+
+Concernant la partie modélisation physique, nous avons étudié la physique d’un modèle centimétrique (réglet ou scie à métaux)
+d’une poutre encastrée libre représentant la pointe du MFM :
+1.
+2.
+3.
+
+Étude du fléchissement statique du réglet (flexion simple ou décuplé par réflexion d’un faisceau LASER sur la lame)
+Étude des oscillations libres du réglet (vidéo avec caméra rapide ou signal aux bornes d’une jauge de contrainte). Modélisation
+du signal temporel d’oscillations libres amorties et caractéristique de la transformée de Fourier (TF)
+Étude des oscillations forcées du réglet (muni d’un aimant permanent) soumis à une excitation au moyen d’un électroaimant
+alimenté en régime sinusoïdal. La courbe de résonance construite par mesure de l’amplitude de la réflexion LASER sur un miroir
+placé sur le réglet.
+
+Dans tous les cas, une étude paramétrique est menée sur l’influence de la longueur libre de la poutre, et sur l’effet de la masse de
+charge placée à l’extrémité du réglet.
+Cette étude des propriétés de la poutre nous a permis d’évaluer la possibilité d’utiliser les propriétés mécaniques de la poutre
+comme sonde des structures magnétiques d’une ligne ou d’une surface, en mode “braille”, tel que mis en œuvre d’un MFM commercial.
+1.
+
+Modèle de MFM en mode “contact” (statique). Un premier balayage en mode statique du profil de champ au-dessus d’une ligne
+de pôles magnétiques alternée est menée à l’aide d’une poutre fléchissante à l’échelle centimétrique (réglet muni d’une pointe
+en aimant permanent). Ce profil est comparé à celui obtenu par l’utilisation d’une sonde de Hall.
+
+2.
+
+Modèle de MFM en mode “non-contact” (oscillant). Enfin, une évaluation est menée sur la possibilité d’utiliser notre
+modélisation de poutre en mode oscillant , la modification du spectre d’oscillation libre par décalage de la fréquence de
+résonance ou de l’amortissement (facteur de qualité) permettant en principe d’accéder à un signal (tension électrique) dont
+l’amplitude est liée à la force de l'interaction entre l’aimant du réglet et les motifs magnétiques de l’échantillon balayé sous la
+pointe.
+
+2.
+
+ÉTUDE DU SYSTÈME LEVIER-POINTE:
+2.1 Balayage d’une ligne X d’aimants en mode statique
+
+Dans cette partie, nous nous intéressons à la physique du bras de levier du microscope à force magnétique, et plus
+particulièrement aux oscillations. En effet, nous avons vu qu’il existait deux modes possibles auxquels pouvait être soumis le bras de
+levier afin d’étudier son comportement lorsque sa pointe aimantée est soumise à des forces magnétiques (ceux de la surface à
+étudier). Un premier dans lequel le bras de levier est statique et où la pointe est soit attirée, soit repoussée selon le pôle du champ
+magnétique qui l’oppose. Nous modélisons cela grâce au système de poutre encastrée [Étude expérimentale]. Nous associons sur le
+graphique ci-contre le rapprochement de la règle vis-a-vis de la surface (ici un écran blanc) en fonction de X, position horizontale sur la
+surface dans laquelle sont disposés des aimants de pôles variés (Fig.5). Ainsi, la déformation subie par la règle est traduite par le
+mouvement du laser sur un écran. Cette expérience nous a servi de point d’entrée dans la compréhension du fonctionnement d’un MFM
+et la fabrication d’une maquette.
+
+Figure 5 : Balayage d’une ligne d’aimants alternés (NdFeB, ferrite, rien) sous un levier muni d’une pointe magnétique (NdFeB) et d’un miroir pour
+suivre la réflexion LASER de la flexion sur un écran. (a) Balayage obtenu distinguant bien les FORCES d’attraction ou répulsion (b)
+
+10
+
+Dans le deuxième mode, appelé “non-contact” une oscillation est induite sur le bras de levier à une fréquence connue (grâce à un
+électroaimant, Cf 2.1.2), provoquant une amplitude d’oscillation spécifique. Ces deux paramètres sont modifiés sous l'action du
+champ magnétique auquel le bras de levier va être soumis. Sachant que ce deuxième mode est le plus répandu sur le marché des MFM,
+nous avons conclu qu’il était préférable de se focaliser sur celui-ci dans notre étude du bras de levier. Ainsi, nous étudierons les
+phénomènes physiques qui se cachent derrière les oscillations (ex : résonance, amortissement, etc) grâce au modèle que nous avons
+conçu.
+
+2.2 Modélisation du levier
+Avant d’utiliser le bras de levier (cantilever) dans notre modèle macroscopique de MFM, nous avons choisi d’étudier les
+caractéristiques mécaniques d’un tel objet : la poutre encastrée libre soumise à son propre poids et à une éventuelle “charge”
+constituée par une masse localisée (aimantée ou non).
+
+2.2.1 Effet de la masse
+
+Figure 6 : flèche de l'extrémité de la poutre en fonction de sa longueur L (a) fréquence propre en fonction de l’inverse carré de L (b)
+
+2.2.2 Effet de la longueur de la poutre fléchissante - loi d’échelle
+De même l’étude de la flèche statique et la fréquence propre a été étudiée expérimentalement en fonction de la charge déposée à
+l'extrémité du réglet. La flexion statique est proportionnelle à la masse comme le prévoit la théorie, et la fréquence propre diminue
+également de façon cohérente avec la théorie.Effet de la longueur - loi d’échelle
+On constate l’accord aux incertitudes de mesure près entre les données expérimentales et le modèle théorique : la distance de
+fléchissement (ou flèche) est proportionnelle au cube de la longueur de la poutre L, et la fréquence propre d’oscillations est
+proportionnelle à l’inverse du carré de L. Cette loi d’échelle permet de comprendre que si on divise la longueur de la poutre d’un facteur 10,
+la fréquence d’oscillation (à matériau et forme donnée) augmente d’un facteur 100. Ainsi une boîte à musique formée de poutres
+encastrées libres centimétriques oscille à une fréquence de 500 à 1000 Hz et celle des cantilever millimétriques de MFM est de l’ordre de
+la centaine de kHz.
+
+11
+
+Fig. 7 : Loi d’échelle : Spectre en fréquence (Transformée de Fourier, Audacity) du son émis par une lame de boîte à musique (L = 1,5 cm) (a),
+Image microlevier de MFM (microscopie électronique) (b) ; Notice d’un Microlevier-Pointe de MFM (c)
+
+2.3 Oscillation libre
+2.3.1 Les oscillations libres amorties : aspects temporels ou fréquentiels ?
+Une oscillation mécanique est dite libre amortie lorsque nous écartons le solide (dans notre cas la règle) de sa position d'équilibre
+puis que nous le laissons revenir à sa position d’équilibre en oscillant. Nous observons une oscillation dont l’amplitude diminue au
+cours du temps. Nous associerons à celui-ci un régime d’évolution faiblement amorti dont le facteur de qualité Q << et qui correspond
+à un régime pseudo-périodique.
+Dans notre cas, nous utilisons une poutre encastrée libre comme modèle d'étude des oscillations du bras de levier, modèle
+analogue d’un système masse-ressort et dont l’amplitude d'oscillation en fonction du temps est solution générale de l'équation
+différentielle obtenue grâce à un bilan des forces du système masse-ressort et qui se présente sous la forme :
+
+Sachant qu’il nous fallait étudier l’influence du changement de différents paramètres dans notre système (longueur et masse
+ajoutée à la règle), nous avons intuité (par analogie aux vibrations d’une corde de guitare) que ceux-ci induisent le déplacement du pic
+de résonance de l'oscillateur. On a donc cherché à passer de l’aspect temporel des oscillations libres amorties à l’aspect fréquentiel.
+Nous avons réalisé un premier essai en filmant avec une caméra rapide l'oscillation libre amortie de notre système et par pointage
+vidéo, nous avons obtenu des points de mesures qui correspondaient bien à notre sinusoïdale exponentielle décroissante x(t) (Fig.8),
+et par ajustements nous avons pu déterminer les conditions précises tel que la fréquence propre et le temps caractéristique
+permettant de caractériser notre courbe obtenue. en effectuant la transformée de Fourier de celle-ci on observe une cohérence des
+données obtenus( fo et Q)
+
+Figure 8 : Acquisition vidéo des oscillations libres d’un levier (réglet plastique) lesté d’une pointe (aimant ferrite). Modélisation du signal S(t) et
+tement des paramètres du modèle (f0, 𝜏 et Amax) (a), Transformée de Fourier S(f) (Python) du signal et modélisation par une fonction de type
+ntzienne avec ajustement des paramètres (f0, 𝛥f et Amax) (b). Détermination du facteur de qualité Q et cohérence des modèles.
+
+2.3.2 Transformée de Fourier
+Au travers de la transformée de Fourier de l’équation du mouvement de chaque oscillateur, nous pouvons comparer les fréquences
+de résonance de l’oscillation libre de notre poutre encastrée en variant divers paramètres de contrôle : (1) longueur de la règle, (2)
+ajout d’une masse à son extrémité, (3) interaction d’un aimant solidaire à la poutre avec un aimant représentant le domaine
+magnétique d’un échantillon.
+La transformée de Fourier est réalisée numériquement par notre programme python, qui nous permet donc de passer du domaine
+temporel correspondant à l’oscillation au domaine fréquentiel. Dans le cas où l’oscillation peut être représentée sous forme de
+sinusoïdale exponentielle décroissante, la solution analytique de la TF est connue et s’exprime par une fonction dite “lorentzienne” :
+12
+
+Ici, ∆𝑓
+
+1/ 2
+
+correspond à la largeur du pic du spectre à une hauteur égale à 1/ 2
+
+Nous avons ainsi réussi à modéliser le pic de résonance de notre oscillateur sans masse ajoutée qui correspond à 9.7 Hz.
+
+2.3.3 Effets de la masse et de l’amortissement du levier
+Effet de la masse : Nous avons réalisé, dans les mêmes conditions, deux autres pointages de l’oscillation de la règle en ajoutant
+tout d’abord 1.5 g puis 3.0 g supplémentaires. À l’aide de la même procédure, nous avons modélisé le déplacement du pic de
+résonance. Nous observons un décalage vers les fréquences basses lors de l’augmentation de la masse (pointe) (fig.3.10). Ceci
+correspond à un effet de l’inertie sur la fréquence de résonance (voir Annexe, théorie)
+
+(P
+Figure 9 : Oscillations LIBRES du levier : Dispositif de mesure des caractéristiques de la pointe (réglet métallique ou plastique avec
+amortisseur sur l’image) par acquisition optique automatisée (script Python) (a) . Effet de la masse de la pointe sur les oscillations libres.
+Graphe après transformée de Fourier du signal S(t) et ajustement d’une fonction de type Lorentzienne. On observe un décalage vers les basses
+fréquences (b)
+
+Effet de l’amortissement : Notre dernier paramètre à modifier était l’amortissement. Le modèle suppose une diminution du facteur
+de qualité Q et un léger décalage vers les basses fréquences. Les résultats expérimentaux sont donnés dans l’Annexe, (expériences
+complémentaires).
+Dans le cas d’un fort Q, le temps d’amortissement 𝜏, est très long, ce qui oblige à attendre un temps plus long pour que s’éteigne
+la réponse d’oscillation libre et se stabilise la réponse forcée. Les temps d’acquisition X ou XY deviennent très longs.
+Nous avons constaté que Q ≈ 20 du réglet en plastique et Q ≈ 200 pour un réglet métallique. C’est pour cela que notre choix a été
+de garder le réglet en plastique.
+
+2.4 Oscillation forcée
+Nous étudions le pic de résonance du bras de levier et comment il se déplace selon le changement de paramètres.
+Afin de trouver le pic de résonance, nous traçons une courbe représentant l’amplitude par rapport à la fréquence d’oscillation que
+nous imposons. L’amplitude est la distance entre le point maximal et le point minimal atteint par l'extrémité du levier quand il oscille.
+Nous souhaitons alors mesurer cette distance.
+Nous avons enfin réussi à obtenir une première courbe (en orange). Suite à ce succès, nous avons décidé de rajouter de la masse
+sur le réglet afin d’observer les changements que cela entraînerait dans son pic de résonance. Cela nous a permis d’obtenir la figure
+ci-dessous. En vert, nous avons le pic de résonance avec un ajout de 1.5 g, et en bleu 3 g. Nous observons alors un pic de résonance
+qui varie dépendant de la masse ajoutée.
+
+13
+
+Figure 10 : Effet de la MASSE sur oscillations FORCÉES du levier (réglet plastique, excitateur). Dispositif : GBF + bobine + aimant solidaire de la
+règle, mesure de l’amplitude pic à pic par réflexion LASER) (a) Effet de la masse de la pointe sur la courbe de résonance (normalisé) (b)
+
+Une masse plus grande entraîne une baisse de la fréquence de résonance, donc de la fréquence f0 où l’amplitude est maximale.
+Ces courbes peuvent être modélisées avec une fonction lorentzienne.
+On peut voir que les fréquences de résonance mesurées des oscillations correspondent entre les oscillations libres et forcées :
+paramètre :
+
+Oscillations libres
+
+Oscillations forcées
+
+masse m
+
+fréquence propre, f’0
+
+fréquence résonance, fr
+
+facteur de qualité, Q
+
+0.0 g
+
+9.7 Hz
+
+9.94 Hz
+
+20
+
+1.5 g
+
+7.9 Hz
+
+8.00 Hz
+
+21
+
+3.0 g
+
+6.8 Hz
+
+6.79 Hz
+
+24
+
+Pour l’amortissement voir Annexe
+
+2.4.1 Détection d’un aimant
+Maintenant que nous avons terminé l’étude paramétrique globale, concentrons-nous sur ce qui caractérise un MFM ! La détection des
+domaines magnétiques se fait à l’aide du bras de levier oscillant. Mais qu’affectent-ils ?
+Nous gardons le même setup expérimental mais cette fois nous plaçons un échantillon constitué de plusieurs aimants en dessous du
+levier. Puisque le support sur lequel nous avons collé les aimants sera en mouvement, grâce à un moteur qui le tire à l’aide d’un fil, et que
+les aimants de l’échantillon et celui au bout du levier doivent être l’un au-dessus de l’autre, nous fixons deux barres rectangulaire
+métallique graduée afin de mieux maîtriser la trajectoire. Nous précisons que le levier doit être suffisamment proche des aimants pour
+mieux détecter le champ magnétique tout en évitant que les deux aimants se collent.
+Nous commençons par retracer le pic de résonance sans aimant, puis avec un aimant attractif et enfin avec un aimant répulsif. Nous
+obtenons la courbe suivante (fig 14). Nous observons qu’un aimant attractif diminue la fréquence du pic de résonance tandis que l’aimant
+répulsif augmente cette dernière. Ainsi, et en se plaçant sur une fréquence appartenant à la courbe de référence (en vert) nous pouvons
+savoir au-dessus de quel côté de l’aimant nous nous trouvons en analysant le changement d’amplitude d’oscillation du levier.
+
+14
+
+Figure 11 : Effet de l’interaction magnétique sur la résonance de vibration du levier-pointe : Dispositif avec excitation électromagnétique, pointe
+magnétique (ferrite) et aimants de répulsion ou attraction (aimants permanents NdFeB) (a). Modification de la courbe de résonance : red-shift
+(attraction) ou blue-shift (répulsion) ; estimation de la variation relative de raideur du système (modèle oscillateur harmonique) (b)
+
+2.4.2 Balayage d’une ligne X d’aimants en mode oscillant
+Cependant , si nous nous plaçons sur le pic, on ne peut pas savoir de quel côté de la courbe, nous nous déplaçons et donc il sera
+plus difficile de déterminer au-dessus de quel aimant nous nous trouvons. Nous devons donc nous positionner sur le point d'inflexion,
+gauche ou droit, de la courbe de référence. Ainsi, nous pouvons débuter un mapping résonant sur l’axe X.
+
+Figure 12 Variations de l’amplitude d’oscillation à un point donné du graphique de référence (a). Résultats du même mapping avec levier oscillant (b).
+On effectue deux mesures à deux fréquences d’oscillation différente.
+
+En mode résonnant, on observe qu’il nous faut nous placer à des fréquences qui ne correspondent pas à la résonance, car lorsque
+l’on se placera au-dessus d’un aimant attractif ou répulsif, le changement d’amplitude sera le même, ainsi pour pouvoir distinguer
+comment s’effectue le déplacement du pic de résonance, on s’est placé sur un des deux flans, celui de gauche à 11.9 Hz et celui de
+droite à 12.8 Hz, de notre courbe de résonance, et nous avons effectué un mapping sur un seul axe d’un échantillon constitué d’un
+aimant attractif et d’un aimant répulsif espacés. Avec notre aimant pôle Nord orienté vers l’échantillon placé à l'extrémité du levier,
+nous avons pu distinguer l’aimant attracteur de l’aimant répulsif grâce au changement induit sur l’amplitude d’oscillation qui nous
+permet, en sachant si on se trouve sur le flanc gauche ou droit, d’identifier les aimants selon la variation d’amplitude. Par exemple, à
+12.8 Hz, on a observé que la répulsion correspondait à une augmentation de l’amplitude et l’attraction à sa diminution. En ANNEXE est
+détaillée comment sont obtenues ces courbes, ainsi qu’un balayage pseudo-statique du même échantillon.
+
+15
+
+3.
+
+ÉTUDE DE SYSTÈMES MAGNÉTIQUES
+3.1 Champ magnétique
+
+Le champ magnétique est un champ vectoriel qui permet de quantifier les propriétés magnétiques des matériaux. Noté B, celui-ci
+est caractérisé par une direction, un sens et une norme en Tesla (T). Les sources de champ magnétique, aimants et électro-aimants
+sont caractérisés par des pôles Nord et Sud. Le champ magnétique de la Terre est de 50 𝜇T. Les champs magnétiques mesurés à la
+surface des aimants “Néodyme” utilisés dans ce travail est compris entre 0,5 et 1T.
+
+3.2 Effets magnétiques
+Le magnétisme est au cœur de nos objets d’étude. Nous pouvons distinguer les sources de champ permanentes (aimants
+permanents), et les électroaimants formés d’un bobinage de cuivre entourant un matériau de fer doux qui canalise le champ, et les
+matériaux qui sont attirés par les aimants (sans être eux-mêmes des aimants, le fer par exemple) (Quaranta, 2012, t4). Les
+électroaimants permettent de générer des champs magnétiques qui dépendent du temps (si le courant qui les parcourt est alternatif).
+Le déplacement d’un aimant près d’une bobine sera utilisé pour produire un signal électrique (tension induite) qui nous servira de
+signal permettant d’accéder à la fréquence des oscillations libres de notre levier métallique auquel est attaché un aimant. En
+situation inverse, l’établissement d’un courant sinusoïdal de fréquence donnée dans une bobine à proximité de l’aimant solidaire du
+réglet métallique permettra de mettre en oscillations mécaniques forcées ce levier et étudier le phénomène de résonance. Enfin, une
+autre conversion électromécanique sera utilisée dans les moteurs pas à pas utilisés par la platine XYZ fabriqué avec trois tiroirs de
+lecteurs de CD ou CD-ROM recyclés.
+
+3.2.1 Pôles négatifs et positifs
+Chaque aimant dispose de deux pôles opposés : Nord et Sud. Ces pôles sont liés à l’aimantation d’origine microscopique au sein
+des matériaux qui forment l’aimant. Deux aimants interagissent donc de manière particulière : deux pôles positifs ou deux pôles
+négatifs se repoussent, tandis que deux pôles opposés s’attirent. Dans nos expériences, nous avons donc fait cela afin de déterminer
+la présence d’aimants et le sens de leur champ magnétique. Lors de la modélisation en flexion statique d’un MFM, l’attraction entre
+les aimants devient tellement forte entre aimants néodymes de force opposée que nous ne pouvons approcher la lame du motif à
+explorer à moins d’un cm, sauf à arracher l’aimant du support qui vient se coller sur l’aimant-sonde de la lame flexible.
+
+3.2.2 Les électroaimants
+
+Figure 13 : fabrication d’un assemblage d'électro-aimants : circuit (a), bobinage et polarité (b) détermination d’un pôle Nord (c) assemblage (d)
+
+Une des sources de plan magnétique texturé en pôles N et S ont été obtenus en bobinant des clous de tapissier par du fil de cuivre
+verni récupéré sur un bobinage usagé. Le fil est alimenté par un courant continu (attention le fil chauffe !). Les pôles rouges sur la
+photo correspondent à des pôles Nord au niveau de la tête du clou, le sens du bobinage étant dans le sens trigonométrique direct. Les
+clous noirs, bobinés dans l’autre sens, correspondent à des pôles Sud, et certains clous ne sont pas magnétisés (pas de bobinage).
+
+3.2.3 Les aimants de frigo – Structure d’Halbach
+La structure de Halbach est disposition spécifique d’aimants permanents qui crée un champ magnétique asymétrique. Cette
+configuration (fig.14.a - les flèches sont orientées vers le pôle Nord, les croix indiquent les pôles Sud, et les cercles sont les pôles
+Nord) augmente le champ d’un côté tout en réduisant le champ de l’autre. Une modélisation de ce réseau peut être trouvée dans
+l'annexe. Le réseau de Halbach a des applications très variées, allant des aimants de frigo jusqu'aux domaines industrielles tels les
+moteurs sans balais, les bobinages de haut-parleur. Cette configuration est également utilisée dans des technologies avancées
+comme le synchrotron wiggler, des aimants utilisés pour accélérateurs de particules, et des lasers à électrons libres.
+
+16
+
+Nous nous sommes donc intéressés à ces aimants et nous avons pris comme but de démontrer que leur champ est plus élevé d’un
+côté que de l’autre ainsi que d'étudier leurs structures pour comprendre ce caractère du champ magnétique. Pour y arriver, nous avons
+créé notre propre réseau d’Halbach. En utilisant un dispositif pour pouvoir ranger les aimants sans les coller, que nous avons modélisé
+et imprimé en 3D (fig. 14.b, voir annexe pour plus de détails). Nous avons réussi à placer des petits cubes néodymes, créant ainsi une
+structure d’Halbach. Ensuite, pour démontrer que le champ est augmenté d’un côté et réduit de l’autre, nous avons placé un cube de
+métal (≃4000g) sur une balance ainsi que notre pièce (fig. 14.b). Après avoir fait la tare (fig. 14.c), nous avons tiré doucement,
+soulevé l’aimant jusqu’à ce que l’aimant décroche de la balance (force d’arrachement). La valeur du poids indiqué sur la balance nous
+permet d’obtenir des valeurs de forces :
+
+Figure 14 : Structures de Halbach : réseau d’aimants (a), boitier de confinement (impression 3D) (b), mesure de force magnétique par arrachement (c)
+
+Structure de l’aimant
+
+Aimants orientés de façons
+alternés (nord/sud)
+
+Halbach (côté faible)
+
+Halbach (côté fort)
+
+Force (N)
+
+127 ±4
+
+41 ±0.2
+
+180 ±4
+
+On voit ici que le côté fort de l’aimant avec la structure d’Halbach a une force d’attraction vers le cube de métal plus fort, donc le
+champ magnétique de ce côté est aussi plus puissant.
+
+4.
+
+MAQUETTE DE SONDE À BALAYAGE XY(Z)
+4.1.
+
+Construction de la maquette XYZ
+
+On souhaite créer un support qui se déplace dans trois dimensions (principalement X et Y ainsi que Z). Nous avions à disposition
+trois anciens lecteurs CD qui nous ont servi pour déplacer notre échantillon dans deux directions : x et y et pour varier la hauteur de la
+sonde.
+
+Figure 15 : Dispositif de sonde magnétique à balayage XY+Z : assemblage à partir de 3 moteurs pas à pas (lecteur CD) et un bras sonde (Hall) ;
+dispositif de commande et mesure (ARDUINO) : commande des déplacements et lecture du signal, puissance moteur via pont en H (b)
+
+4.1.1 Montage électrique des moteurs
+Les moteurs présents dans les lecteurs CD sont des moteurs “pas à pas”. Ces moteurs sont des actionneurs précis, qui
+convertissent des impulsions électriques en mouvements angulaires discrets, alors que les moteurs à courant continu (DC)
+produisent un mouvement continu en fonction du courant électrique appliqué. Ces moteurs offrent donc une précision bien meilleure
+que les moteurs DC traditionnels.
+17
+
+Notre idée pour avoir un plan XY était donc d’assembler deux lecteurs CD et les programmer de sorte qu'ils fassent un mouvement
+en serpentin. Pour pouvoir contrôler le moteur du lecteur CD, nous avons décidé d’utiliser Arduino comme logiciel de programmation. À
+ce stade, le problème que nous avons rencontré était que l’alimentation de l’Arduino ne suffisait pas pour alimenter les moteurs. La
+solution que nous avons trouvée était de passer par un pont en H. Ce dispositif permet d’amplifier l’intensité du courant électrique et
+donc d'alimenter les moteurs avec assez de courant pour les faire fonctionner. Le schéma électrique d’un seul moteur est dans
+l’annexe. Pour pouvoir contrôler les deux moteurs avec la même carte Arduino, nous ajoutons un autre pont en H au circuit que nous
+connectons au deuxième moteur.
+
+4.1.2 Assemblages des lecteurs CD
+Pour assembler les deux lecteurs CD, nous avons mis en place une solution ingénieuse pour assembler les moteurs sans qu'ils
+entrent en contact, ce qui compromettrait ainsi leurs mouvements. En fixant un morceau de bois entre les deux lecteurs CD à l'aide de
+colle, nous avons créé une séparation nécessaire pour éviter toute interférence entre les moteurs. De plus, en insérant ce morceau de
+bois, nous avons aussi amélioré la stabilité de notre système. Pour assurer la stabilité du système, des bouchons ont été vissés à
+chaque coin, consolidant ainsi l'ensemble de manière efficace. En outre, nous avons aussi fait attention à ce que les deux lecteurs CD
+aient un mouvement perpendiculaire en utilisant un autre morceau de bois rectangulaire pour bien aligner les deux lecteurs. Nous
+avons aussi assuré l’horizontalité du système final en utilisant un niveau à bulles au moment de l’assemblage. Finalement, nous avons
+fixé un morceau de plastique sur nos deux lecteurs qui servira de support pour les différents échantillons que nous avons mesurés.
+Pour mesurer le champ magnétique, nous avons simplement placé une sonde à effet Hall (reliée à notre carte Arduino) au-dessus de
+notre plan XY. Pour l’installation de l’axe Z, nous avons dû solidariser le montage sur une planche, facilitant au passage son transport
+et sa stabilité. L’axe Z, supporté par des équerres de fixation, est contrôlé par un troisième pont en H. Permettant ainsi le réglage de
+la hauteur de sonde vis-a-vis de l’échantillon.
+4.2.1 Programmes
+
+●
+
+Arduino
+
+Ce programme Arduino (voir Annexe) sert diverses fonctions. Tout d’abord, il définit la référence sur la sonde afin d'obtenir des
+mesures relatives au point zéro. Il permet ensuite de déplacer notre plan XY. En définissant width et height, nous définissons la
+taille de la zone qui sera scannée, elle doit correspondre à la taille de notre échantillon.
+Nous réalisons un balayage de précision stepsz. À chaque pas, le programme communique avec la sonde pour lire sa valeur, qu’il
+compare à la référence. Ces résultats sont ensuite communiqués à l’ordinateur au travers du port série sous la forme de coordonnées
+et valeurs : x, y, v. Elles sont ensuite récupérées par le programme python “Communication Série” puis enregistrées dans un fichier
+.csv les données sont simultanément transférées à un autre programme qui utilise la librairie Matplotlib pour afficher les résultats en
+temps réel.
+Pour la topographie, l’axe Z est tout d’abord translaté sur toute son envergure afin de déterminer la hauteur maximale et
+d’établir la référence. À continuation, le positionneur XY déplace l’échantillon et pour chaque position, la sonde balaye l’axe Z jusqu'à
+détecter un contact, elle mesure ainsi la hauteur de l’échantillon en chaque point.
+
+Figure 16 : Dispositif de avec sonde balayage topographique (a) représentation 3D de la topographie de l’échantillon (pile bouton) (b)
+
+●
+
+Python / Visualisation
+
+Les différents programmes (voir Annexe), écrits en python, lisent les coordonnées contenues dans les fichiers .csv puis les
+interprètent sous forme de matrice. Ils peuvent ensuite être interpolés en utilisant les algorithmes “bicubic”. Nous pouvons ensuite
+les afficher en utilisant la librairie Matplotlib sous forme d’image (2D) ou de plan (3D).
+18
+
+4.2 Utilisation de la maquette XYZ : topographies magnétiques
+Nous avons pu réaliser un scan du champ proche de différents échantillons en disposant la sonde parallèle à l’échantillon, a une
+hauteur d’environ 2 mm.
+
+Fig. 17 Mapping d’un agencement d'électroaimants de diverses polarités constituées à partir de fil de cuivre enroulé autour de clous. Une tension de
+1.2V est fournie au système. Nous pouvons observer ici les différences de polarité en fonction du sens d’enroulement.
+
+5.
+
+CONCLUSION & PERSPECTIVES
+
+Au cours de ces derniers mois, notre projet, débuté fin octobre, s’est grandement rapproché de son but final. Nous avons pu
+consolider nos connaissances quant à l'analyse et la modélisation théorique de nos mesures grâce à nos expériences, nos recherches
+et nos visites de laboratoires. Nous avons réussi à faire des scans des propriétés magnétiques d’aimants différents à l’échelle
+centimétrique à l’aide du levier, et millimétrique en mode “low-tech”. Nous avons aussi pu, de manière rudimentaire, nous intéresser au
+processus de cartographie topologique avec une sonde créée à l’occasion, associée à notre modèle “low-tech”. Enfin, nous nous
+sommes également penchés sur les divers aspects du magnétisme et de ses propriétés physiques avec notamment sa modélisation et
+la compréhension du fonctionnement d’un montage de Halbach.
+
+REMERCIEMENTS
+Merci à Thierry GRIFFO, Eric MARTINET pour l’encadrement de notre projet, la découverte de concepts scientifiques plus
+grands que nous et toutes les suggestions d’astuces pour améliorer nos dispositifs expérimentaux. Merci à Fabio DE SANTIS,
+Théophile MEISTERMANN, Ben EVANS, et Yann EICHENMÜLLER pour leur aide et conseils pour les différents montages et
+expériences. Merci aussi à tous les membres de l’autre équipe d’olympiades du lycée “Le vol de frisbee” pour le soutien mutuel et
+la bonne humeur lors des phases “intenses” de nos projets respectifs ces dernières semaines. Merci à Mme DEGROOTE et à
+toute la direction de la Cité Scolaire Internationale de Grenoble, pour leur soutien et encouragements. Merci à tous nos
+camarades de terminale qui ont bien voulu écouter nos multiples entraînements à l’oral et nous donner un retour sur la clarté de
+notre message pour des “non-spécialistes”. Un très grand merci aux chercheurs et techniciens de l’Université Grenoble Alpes qui
+ont accompagné scientifiquement notre projet. Un grand merci à Gaëtan DEBONTRIDE et Valentine BOLCATO, responsables
+techniques au CIME-Nanotech (Grenoble INP-UGA) pour deux demi-journées de formation pratique aux micro-positionneurs “low
+tech” et aux poutres encastrées libres instrumentées (jauge de contrainte et ampli de signal) (G.D.) et pour la démonstration du
+fonctionnement des microscopes à force magnétique (V.B., plateforme nanomonde). Très grand merci à Laurent RANNO, Nora
+DEMPSEY et toute l’équipe de chercheurs de l’Institut Néel (CNRS-UGA) pour nous avoir invités à présenter notre travail au
+Laboratoire de Micro et Nanomagnétisme, pour les précieuses explications et les conseils, et pour la visite d’un laboratoire
+spécialisé dans le nanomagnétisme.
+
+19
+
+BIBLIOGRAPHIE
+Dispositifs expérimentaux
+●
+●
+●
+●
+●
+
+Quaranta 1992 - Dictionnaire de physique expérimentale, t4 électricité (Pierron) : aimants, électro-aimants, bobines de Helmholtz
+Quaranta 1992 - Dictionnaire de physique expérimentale, t1 mécanique (Pierron) : oscillations libres, forcées, résonance
+Polytech 2020, Grenoble (UGA) — Caractérisation d’un matériau (énoncé de TP) (poutre encastrée-libre, jauge de contraintes)
+CIME-Nanotech(UGA), Atelier Low tech (énoncé de TP) et DIY Mini CNC Plotter from Old CD-DVD Writers (consulté oct 2023)
+Lauman 2023 - Phys. Ed. 58 2023 Simulating magnetic response of everyday materials with magnetic balance , simulateur ( jan 2024)
+
+Magnétisme, Aimants
+●
+Site Physiquarium (CNRS, UGA) : https://neel.cnrs.fr/institut-neel/science-societe/physiquarium : magnétisme et applications
+●
+Site Supermagnete https://www.supermagnete.de/eng/faq/How-do-you-calculate-the-magnetic-flux-density (consulté dec. 2023)
+●
+L. Ranno, Cours de Magnétisme et matériaux, Polytech Grenoble 2023-2024, Ch1-magnétostatique, Ch2-techniques instrumentales,
+Ch7-aimants)
+
+Aimants de frigo, Réseaux de Halbach
+●
+●
+●
+Fabrication
+
+M. Courty et E. Kierlik, Les magnets, aimants à un seul pôle ?, Pour la Science n°391 (mai 2010)
+Wikipedia, Réseau de Halbach, (consulté dec. 2023)
+Olson 1999, J. Chem. Educ. 1999, 76, Chemistry with Refrigerator Magnets: Modeling of Nanoscale Characterization & Composite
+
+Stockage magnétique d’information : Disques durs magnétiques et spintronique
+●
+●
+●
+
+D. Morgan (2016) Wire in the gallery : eraly magnetic recording, kits for culture (consulté jan 2024) (expérience de Poulsen)
+L. Bloomfield, How things work, The physics of everyday life (Wiley 1996) Ch12.5 Tape recorders
+H. Fischer, La spintronique : stocker plus, vite, sobre https://www.youtube.com/watch?v=0WArAJ1yE64 (consulté dec. 2023)
+
+Nanosciences
+●
+●
+
+Site nanoatschool (GIANT, UGA) : https://padlet.com/elmartinet/nanoatschool_Pedagogie : nanomonde, low tech
+Lahmani 2004, Belin - Nanosciences, tome 1 : nanophysique (Ch4. AFM, Ch14 Nanomagnétisme, Ch15 Stockage d’information)
+
+Maquettes didactiques AFM
+●
+●
+●
+●
+●
+
+Planinsic 2015 - Physics Education 43(1) p. 37, Nano goes to school: a teaching model of the atomic force microscope
+Engstrom 2015 - Physics Teacher (53), Computer-Controlled Classroom Model of AFM
+MFM 2016, Projet étudiant Grenoble UGA, Institut Néel, https://epa2015neel.fandom.com/fr/wiki/MFM-2016
+Reimer 2015 - Nanotechnol Rev 2017; 6(2) - An acoustic model illustrating the principles of dynamic mode MFM
+O. Lenoble et N. Pelletier 2016 - Laserator est notre ami, Olympiades de Physique 2016 (découvert dec 2023)
+
+Fonctionnement des Microscopes à Champ Proche
+●
+●
+
+L. Abelman(2017) Encyclopedia of Spectroscopy and Spectrometry, Magnetic Force Microscopy
+N. Burnham (2013) Fundamentals of AFM (Worcester Polytech. Institute) 1 : principles & resolution, 15 : dynamic AFM, ( dec 2023)
+
+20
+
+

@@ -1,0 +1,1588 @@
+Année 2017-2018
+
+DUFOUR Antoine, MARCHANDOU Adrien, PERNOT Paul, WEISSROCK Edgard
+
+Que la mélanine soit ! Et la lumière fut.
+
+Mise au point d’une cellule
+thermophotovoltaïque réceptrice
+aux UV par l’utilisation de la
+molécule de mélanine.
+Professeurs encadrants : M. Lohner & Mme Vonesch
+
+Lycée Le Gymnase Jean Sturm
+À Strasbourg
+
+TABLE DES MATIÈRES
+
+Que la mélanine soit ! Et la lumière fut.
+
+Résumé
+Le monde consomme trop d’énergies fossiles. Comment en être indépendant ? Le rendement des panneaux photovoltaïques actuels est réputé être médiocre. Existe-t-il des alternatives ? La mélanine dégage
+de la chaleur lorsqu’elle est exposée à des rayons ultraviolets. Comment quantifier cette énergie thermique
+et quelles en sont les applications possibles ? Voilà des questions pertinentes auxquelles nous essayerons de
+répondre dans notre projet qui se matérialise par une cellule thermophotovoltaïque d’un nouveau genre.
+Notre démarche se concentrera sur la mélanine. Alors que nous l’exposerons sous une lampe UV, elle dégagera de l’énergie thermique. Cela est dû à la "conversion interne". Nos recherches nous mèneront aussi
+à la quantification de l’énergie thermique dégagée. Nous transformerons ensuite cette énergie dégagée en
+énergie électrique en utilisant la thermoélectricité qui nous permettra d’obtenir une tension électrique
+à partir d’une diﬀérence de température. Mais qu’attendez-vous ? Rejoignez nous dans la découverte de
+l’agencement parfait de la matière et admirons, étudions et quantifions ses incroyables eﬀets.
+
+Table des matières
+Introduction
+
+3
+
+1 Mélanine
+1.1 Définition . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+1.2 Synthèse in vitro . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+1.3 Approximation de la quantité de matière de mélanine synthétisée . . . . . . . . . . . . . . . .
+1.4 Spectre d’absorption . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+1.5 Variations énergétiques concernant la molécule de mélanine . . . . . . . . . . . . . . . . . . .
+
+4
+4
+4
+6
+6
+7
+
+2 Quantification de l’énergie thermique
+2.1 Variables retenues . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+2.2 Montage expérimental . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+2.3 À la recherche d’une équation empirique . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+2.4 À la recherche d’une équation physique . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+2.5 Comparaison des modèles . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+
+8
+8
+8
+9
+9
+11
+
+3 Thermoélectricité
+3.1 Définition . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+3.2 Formules et exemples . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+3.3 Montages expérimentaux . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+3.4 Résultats et interprétations . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+3.5 Contraintes . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+
+12
+12
+13
+15
+15
+16
+
+4 Cellule thermophotovoltaïque à base de mélanine
+4.1 Explication du principe . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+4.2 Construction du prototype . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+4.3 Courant électrique produit . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+4.4 Rendement . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+4.5 Améliorations à venir . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+
+17
+17
+17
+17
+18
+19
+
+Conclusion
+
+19
+
+Remerciements
+
+20
+
+Références
+
+20
+
+Olympiades de Physique France
+
+Page 2
+
+Année 2017/2018
+
+TABLE DES MATIÈRES
+
+Que la mélanine soit ! Et la lumière fut.
+
+Liste des abréviations et des symboles
+A
+a
+Bi2 T e3
+C
+r éf
+Cmél
+C
+c
+ceau
+E
+Eabsorbée
+Ec
+Eémise
+Ephoton
+E0
+E
+h
+I
+It
+I0
+IR
+
+Absorbance
+Coeﬃcient directeur
+Tellurure de bismuth
+Concentration
+Concentration de référence de mélanine
+Fonction correctrice (cf. 2.5)
+Célérité
+Capacité thermique de l’eau
+Énergie
+Énergie absorbée
+Énergie cinétique
+Énergie émise
+Énergie du photon
+Force électromotrice
+Éclairement énergétique spectrique
+Constante de Planck
+Intensité (du courant)
+Intensité de la lumière transmise
+Intensité de la lumière incidente
+Infrarouge
+
+K
+K✓
+`
+meau
+Mmél
+mmél
+mtot
+n
+nmél
+P
+Pélec
+Pi
+PL
+Pt
+Q
+Q✓
+r
+RL
+Rpn
+RT EG
+Sexposée
+
+Jonction froide
+Conductivité thermique
+Épaisseur de la cuvette utilisée
+Masse d’eau
+Masse molaire de la mélanine
+Masse de mélanine
+Masse totale (mélanine et eau)
+Nombre de thermocouples
+Quantité de matière de mélanine
+Puissance
+Puissance électrique
+Puissance radiante incidente
+Puissance avec charge L
+Puissance radiante transmise
+Quantité d’énergie transférée
+Émission ou absorption de chaleur
+Rayon
+Résistance de la charge
+Résistance d’une jonction
+Résistance du module TEG
+Surface de mélanine exposée aux UV
+
+smél
+T
+Tf inale
+Tinitiale
+Tk
+Tw
+T
+t
+T EG
+U
+UV
+V
+Veau
+Vsol
+V IS
+W
+↵i
+T
+⌘
+⇢eau
+
+Solubilité de la mélanine dans l’eau
+Température
+Température finale
+Température initiale
+Température de la jonction froide
+Température de la jonction chaude
+Transmittance
+Temps
+Thermoelectric generator
+Tension
+Ultraviolet
+Voltmètre
+Volume d’eau
+Volume de la solution
+Visible
+Jonction chaude
+Coeﬃcient Seebeck du matériau i
+Diﬀérence de température
+Rendement
+Longueur d’onde
+Masse volumique de l’eau
+
+Introduction
+«Nature peut tout et fait tout» - Montaigne
+
+«La nature fait bien les choses» - Proverbe français
+
+À ce jour, le pétrole est la première source d’énergie dans le monde et cela n’est pas sans conséquence.
+Ainsi, sur les quelques 36 milliards de tonnes de dioxyde de carbone (CO2 ) relâchés chaque année dans
+l’atmosphère en raison de la combustion des énergies fossiles [1], le pétrole représente à lui-seul 12 milliards
+de tonnes (soit 34 % sur les 36 Gt). Ces milliards de tonnes de CO2 relâchés en raison de nos activités
+humaines sont à l’origine d’un déséquilibre important du cycle carbone, impliquant ainsi une augmentation de
+la concentration de gaz à eﬀet de serre dans l’atmosphère. De ce fait, la Terre est condamnée à se réchauﬀer,
+menant ainsi l’environnement vers des conséquences inquiétantes que nous pourrions énumérer de manière
+non exhaustive : la fonte des glaces, l’élévation du niveau des océans, une augmentation des phénomènes
+météorologiques extrêmes, la disparition de certaines espèces, ... Le pétrole est aussi une énergie fossile qui est
+donc, par définition, épuisable. Or l’humanité en consomme énormément. Pour donner un exemple concret, si
+vous mettez 30 minutes à parcourir ce mémoire, ce seront un peu plus de 305 millions de litres de pétrole qui
+auront été consommés dans le monde. Soit donc une consommation quotidienne de pétrole à l’échelle mondiale
+d’un peu plus de 14 milliards de litres [2]. Ainsi il est nécessaire de trouver une alternative et la recherche va
+bon train. En eﬀet, les énergies renouvelables doivent être partie intégrante de notre présent mais aussi la clé
+de voute de notre futur énergétique. Malheureusement certaines d’entres elles sont souvent montrées du doigt
+à cause de leur rendement médiocre (qui cependant progresse au fil des années). L’exemple le plus parlant
+est sûrement l’énergie solaire : un panneau photovoltaïque a un rendement compris entre 4% et 20%. Et pour
+centrer d’avantage, les panneaux thermophotovoltaïques n’absorbent que les rayons infrarouges. Mais alors :
+Comment mettre au point une cellule thermophotovoltaïque réceptrice aux UV par
+l’utilisation de la molécule de mélanine ?
+Afin de répondre au mieux à cette problématique, nous définirons préalablement la mélanine et étudierons
+son incroyable absorption des UV mais aussi sa capacité à dégager de l’énergie thermique. Nous étudierons
+également la thermoélectricité et ses diﬀérents eﬀets dont un, l’eﬀet Seebeck, nous permettra d’obtenir de
+l’électricité à partir d’une diﬀérence de température. Finalement, nous construirons un prototype d’un panneau solaire amélioré et étudierons son rendement.
+
+Olympiades de Physique France
+
+Page 3
+
+Année 2017/2018
+
+1
+
+Que la mélanine soit ! Et la lumière fut.
+
+1
+
+Mélanine
+
+1.1
+
+Définition
+
+MÉLANINE
+
+La mélanine est un pigment biologique qui se retrouve principalement dans le règne animal mais aussi
+chez les champignons. C’est elle qui est principalement responsable de la coloration de l’ensemble des tissus
+et des formations organiques (c’est-à-dire les plumes, les poils, la peau, etc.) qui recouvrent un organisme
+vivant. Il existe diﬀérents types de mélanine dont trois sont présents chez l’être humain 1 : l’eumélanine, la
+phéomélanine (ou phæomélanine) et la neuromélanine. La neuromélanine se situe dans le cerveau humain. Sa
+structure, sa fonction et sa formation n’étant pas encore élucidées, nous en concluons qu’il serait absurde de
+l’utiliser lors de nos expériences. La phéomélanine est, quant à elle, un pigment de couleur jaune à rouge qui
+présente le défaut de n’absorber que peu les rayons UV et de se dégrader rapidement lors d’une exposition à
+ces derniers. Ainsi, nous en déduisons que la phéomélanine ne présente pas un réel intérêt et nous l’écartons
+de ce devoir. Ne reste que l’eumélanine qui, elle, semble très prometteuse. Son étymologie l’annonçait déjà :
+le préfixe « eu- », du grec ancien « eú » signifie « bon » et « mélas, mélanos » signifie « noir ». L’eumélanine
+est donc étymologiquement la « bonne noire » et cela n’est pas un hasard : il s’agit du type le plus répandu
+de mélanine, de couleur brune à noire et qui est doté d’un pouvoir incroyable de protection contre les UV :
+99,9% des rayons UV nocifs sont absorbés et ce, sans grandement endommager le pigment [3]. Ainsi, nous
+nous focaliserons spécifiquement sur la mélanine de type eumélanine que nous désignerons, dans ce mémoire,
+par mélanine.
+
+1.2
+
+Synthèse in vitro
+
+La synthèse de la mélanine a plusieurs avantages. Elle est avant tout peu coûteuse, facile à réaliser mais
+aussi sans danger pour l’environnement ou la santé d’un individu. Le prix de la mélanine pure sur le marché est
+également élevé. Nous avons ainsi cherché diﬀérents protocoles sur Internet [4] mais nous les avons légèrement
+modifiés afin d’obtenir une synthèse plus eﬃcace :
+1 À l’aide d’un couteau, découper en morceau 20g de pied de champignon de Paris (Agaricus Bisporus)
+○
+jeunes (la tyrosinase se trouvant principalement dans le pied [5]).
+2 Puis, dans un mortier, les broyer avec 20mL d’eau glacée. Placer ensuite le broyat dans un entonnoir
+○
+Büchner afin de réaliser une filtration sous vide. Le filtrat ainsi recueilli contient la tyrosinase. Cette dernière
+est à garder au froid.
+3 Prélever ensuite 3mL de tyrosine et 2mL de tyrosinase et les mettre dans un tube à essai. Le mélange
+○
+devient de plus en plus foncé et pour accélérer le processus, nous mettons le tube à essai dans une étuve à
+37°C pendant environ 24 heures 2 .
+4 Finalement, un précipité noir s’est formé et est en suspension dans notre solution. Il s’agit là de la mélanine.
+○
+
+Figure 1 – Pigments de mélanine photographiés dans
+un verre de montre. Le contraste a été augmenté de
+150% et la luminosité de 100% afin de rendre plus visible les pigments insolubles de mélanine, regroupés en
+amas. Une granule de mélanine fait un diamètre d’environ 600-800 nm.
+1. Il existe en eﬀet d’autres types de mélanine dans d’autres espèces (exemple connu de l’allomélanine chez les plantes
+notamment).
+2. Une exposition encore plus prolongée ne semble pas aﬀecter la qualité de la mélanine obtenue.
+Olympiades de Physique France
+
+Page 4
+
+Année 2017/2018
+
+1
+
+Que la mélanine soit ! Et la lumière fut.
+
+MÉLANINE
+
+En toute rigueur, afin de vérifier qu’il s’agisse bien de mélanines, nous allons utiliser un spectrophotomètre.
+Ce-dernier va nous permettre de déterminer la courbe d’absorbance de notre solution (Mél obs) que nous
+comparerons à celle de référence propre à la mélanine (Mél réf) [6]. Nous utilisons d’abord le spectrophotomètre
+du lycée (Figure 2). Cependant, ce spectrophotomètre présente quelques désavantages notamment la précision
+et son domaine de mesure limité au visible c’est-à-dire aux longueurs d’onde comprises entre 400nm et 800nm.
+Or, on peut aisément remarquer sur la courbe de référence que la mélanine absorbe principalement les UV.
+Ainsi, afin d’avoir une courbe d’absorbance plus complète, nous avons utilisé un "spectrophotomètre UVVIS" (200-900nm) situé dans le laboratoire de chimie analytique - chimie physique de la faculté de chimie de
+Strasbourg. La courbe d’absorbance obtenue (Figure 3) est à la hauteur de nos attentes mais nous remarquons
+cependant l’apparition d’un second pic d’absorption vers 220nm. Nous ajoutons alors sur notre graphique, la
+courbe d’absorbance de la tyrosine (Tyr) qui admet, elle aussi, un pic à 220nm. Ainsi, nous en déduisons que
+notre solution de mélanine contient quelques résidus de tyrosine. Nous négligerons cependant ces résidus par
+la suite.
+2.5
+
+1.5
+1
+0.5
+0
+300
+
+Mél réf
+Mél obs
+Tyr
+
+2
+Absorbance
+
+2
+Absorbance
+
+2.5
+
+Mél réf
+Mél obs
+
+1.5
+1
+0.5
+
+400
+500
+600
+700
+Longueur d’onde (nm)
+
+0
+200
+
+800
+
+Figure 2 – Absorbance de la mélanine.
+
+400 500 600 700
+Longueur d’onde (nm)
+
+800
+
+Figure 3 – Absorbance de la mélanine et tyrosine.
+
+Étudions maintenant plus en détail les transformations chimiques à l’origine de cette synthèse (Figure 4). Précisons que la synthèse qui suit n’est valable uniquement que pour la mélanine de type eumélanine. La tyrosinase catalyse les deux premières
+étapes avec l’hydroxylation de la tyrosine en 3,4dihydroxyphenylalanine (DOPA) et l’oxydation de
+DOPA (intermédiaire non libre de la réaction catalytique) en DOPAquinone. Elle intervient également
+lors de l’oxydation du 5,6-dihydroxyindole (DHI) en
+indole-5,6-quinone. L’isomérisation du DOPAchrome
+en DHICA est quant à elle catalysée par la DOPAchrome tautomérase et l’oxydation du DHICA est réalisée par l’enzyme DHICA-oxydase. La mélanine est
+ainsi un copolymère fortement hétérogène consistant
+d’unités de DHI (DiHydroIndole) et de DHICA (DiHydroxyIndole Carboxylic Acid.) sous forme réduite ou
+oxydée. En somme, les tyrosines que nous avions au départ sont oxidées par la tyrosinase et métabolisées en
+DOPAs puis en DOPAquinones qui sont automatiquement oxydés en composés indole. Ces composés indole
+se lient entre eux pour former la mélanine.
+Olympiades de Physique France
+
+300
+
+Page 5
+
+Figure 4 – Synthèse de la mélanine.
+
+Année 2017/2018
+
+1
+
+Que la mélanine soit ! Et la lumière fut.
+
+1.3
+
+MÉLANINE
+
+Approximation de la quantité de matière de mélanine synthétisée
+
+Principe :
+Au départ, les pigments de mélanine étaient en suspension dans la solution. Au bout de quelques jours,
+en raison de leur diamètre et de leur poids, les particules solides de mélanine se sont déposées au fond de
+l’éprouvette graduée. Cette méthode est appelée décantation solide/liquide. Nous pourrons alors distinguer
+deux phases (Figure 5).
+
+phase aqueuse contenant de la mélanine dissoute à raison de smél = 0, 31g.L-1
+dépôt solide de mélanine pure
+Figure 5 – Deux phases résultent de la décantation solide/liquide.
+Protocole :
+1 Nous mesurons la masse de notre solution dans une éprouvette graduée préalablement tarée. Nous notons :
+○
+mtot = (2, 33 ± 0, 01)g. Le contenu de notre éprouvette étant composé essentiellement d’eau et de mélanine,
+nous pouvons alors écrire la relation suivante : mtot = mmél + meau .
+2 Nous mesurons le volume de la phase aqueuse. On note : Veau = (2, 1 ± 0, 1) · 10-3 L. Vu qu’on a admis
+○
+que la mélanine dissoute ne change pas significativement le volume de la phase aqueuse, on peut alors écrire
+que meau = ⇢eau · Veau . Cependant, nous ne négligeons pas la masse de la mélanine dissoute. En eﬀet, elle est
+d’ores et déjà comprise dans mmél . Enfin, le dépôt solide ne rentre pas en compte dans les calculs de la masse
+d’eau.
+3 Nous soustrayons à la masse totale, la masse d’eau présente dans l’éprouvette. N’oublions pas que nous
+○
+m
+cherchons une quantité de matière et que la relation reliant quantité de matière n et masse m s’écrit : n = M
+.
+Ainsi pour récapituler nous avons :
+nmél =
+
+mmél
+mtot meau
+mtot ⇢eau · Veau
+=
+=
+Mmél
+Mmél
+Mmél
+
+(1.1)
+
+En prenant en compte la précision des appareils de mesure, il est possible de déterminer la quantité de matière
+de mélanine : n = (7 ± 4) · 10 4 mol (Annexe A.1). Par la suite, nous diluerons cette quantité de matière dans
+réf
+2,3mL d’eau. Cette concentration sera notée Cmél
+et équivaut à (3 ± 2) · 10 1 mol · L 1 . Cette concentration
+nous servira pour les mesures qui vont suivre. En eﬀet, il s’agit de la concentration de référence pour laquelle
+toutes mesures réalisées et rapportées dans ce mémoire, sont dépendantes.
+
+1.4
+
+Spectre d’absorption
+
+Dans la littérature scientifique, il est commun de trouver que la mélanine admet un pic d’absorption
+à 335nm [6]. Elle absorbe en particulier les rayons UV (rayons plutôt énergétiques) mais aussi le spectre
+du visible de manière un peu moins significative (Figure 6). Par ailleurs, il est également possible de sousdiviser le spectre des UV en trois parties 3 : les UVA avec U V A 2 [100, 280]nm, les UVB avec U V B 2
+[280, 315]nm, les UVC avec U V C 2 [315, 400]nm. Ainsi, nous pouvons dire que la molécule de mélanine
+absorbe principalement les UVC (qu’on peut aussi nommer "ultraviolets proches"). Enfin, 3 diﬀérentes thèses
+[7] tentent d’expliquer cette incroyable capacité d’absorption de la mélanine. La première soutient que ce large
+domaine d’absorption n’est pas dû à une absorption électronique mais qu’il s’agit plutôt d’un phénomène
+3. Simplification venant du découpage historique de 1932, la classification des UV par la norme ISO 21348 est -de nos joursplus précise.
+Olympiades de Physique France
+
+Page 6
+
+Année 2017/2018
+
+1
+
+Que la mélanine soit ! Et la lumière fut.
+
+MÉLANINE
+
+de dispersion. La deuxième nous dit que la mélanine est un semi-conducteur amorphe, le spectre observé
+résulterait donc naturellement de cette caractéristique. La troisième dit que le mélanine est en fait composée
+de plusieurs espèces chimiquement distinctes et que donc le spectre d’absorbance serait la superposition des
+diﬀérents pics des spectres de ses espèces. A notre niveau, nous retiendrons que l’absorbance de la mélanine est
+due à sa structure moléculaire relativement plane et composée de noyaux aromatiques (Figure 7). Précisons
+également que la structure moléculaire exacte de la mélanine est inconnue à ce jour. Cependant, il existe des
+formules empiriques et de récents modèles (plus complexes) qui suggèrent une structure. La figure 7 montre
+une partie de la structure moléculaire de la mélanine où (COOH) peut être COOH ou H, ou (plus rarement)
+d’autres groupes fonctionnels. La flèche désigne où le polymère continue.
+2.5
+
+Absorbance
+
+2
+1.5
+1
+0.5
+0
+300
+
+UV SPECTRE DU VISIBLE
+400
+500
+600
+700
+Longueur d’onde (nm)
+
+800
+
+Figure 6 – Absorbance de la mélanine.
+
+1.5
+
+Figure 7 – Structure de la mélanine.
+
+Variations énergétiques concernant la molécule de mélanine
+
+Nous avons vu précédemment que la mélanine absorbait des photons (donc de l’énergie) mais nous n’avons
+toujours pas vu les mécanismes utilisés par la mélanine pour restituer l’énergie absorbée. Les phénomènes
+suivants sont dits « ultra-rapides » dans la mesure où ils se déroulent dans un intervalle de temps de l’ordre
+de 10 15 s pour l’absorption, et compris entre 10 11 s et 10 14 s pour l’émission [8]. Ils sont par ailleurs nonradiatifs : absence d’émission de photon, fort heureusement pour notre organisme. Un diagramme de Jablonski
+(Figure 8) illustre de manière schématique, ou plus rarement quantitative, les diﬀérents niveaux d’excitation
+dans lequel une particule ou un ensemble de particules peut se trouver. Ici S0 , S1 , ... représentent les diﬀérents
+états électroniques des particules. Entre eux figurent des niveaux d’énergie vibrationnelle, soient donc des états
+d’excitation intermédiaires entre chaque état électronique [8]. L’absorption consiste en l’élévation du niveau
+d’excitation d’un électron de la molécule de mélanine, qui passe d’un état dit « fondamental » S0 à un état
+dit « excité ». Ainsi un photon de longueur d’onde proche de 330nm par exemple, peut être absorbé par la
+mélanine ; et transmet alors son énergie à un électron. Ce-dernier se retrouve alors dans un état instable, et
+va chercher à dissiper l’énergie reçue pour revenir à son état initial par deux mécanismes successifs. Lors de
+la relaxation vibrationnelle, l’électron cherche à dissiper son énergie sous forme d’autres énergies, notamment
+sous forme d’énergie cinétique (Ec ) dont l’expression est :
+Ec = Eétat excité
+
+Eintermédiaire/f ondamental
+
+(1.2)
+
+Cette énergie peut rester au sein de la molécule et exciter d’autres électrons, mais elle peut aussi exciter
+d’autres molécules proches de la molécule excitée. La relaxation vibrationnelle permet à l’électron d’atteindre
+un état moins excité dit « intermédiaire ». Notons que c’est cette faculté de la mélanine à garder plus ou
+moins l’énergie acquise du photon qui protège nos tissus de cancers potentiels. La conversion interne intervient
+lorsqu’il y a chevauchement des niveaux d’énergies liés à toute la molécule et vibrationnelle.
+Olympiades de Physique France
+
+Page 7
+
+Année 2017/2018
+
+2
+
+Que la mélanine soit ! Et la lumière fut.
+
+QUANTIFICATION DE L’ÉNERGIE THERMIQUE
+
+La molécule transite alors immédiatement d’un niveau d’énergie vibrationnelle d’un certain état électronique à un niveau d’énergie vibrationnelle d’un état
+énergétique inférieur. A l’instar de la relaxation vibrationnelle, la molécule se désexcite en émettant d’autres
+formes d’énergies, mais notamment émet de l’énergie
+thermique 4 . C’est sur cette émission d’énergie thermique que nous nous basons afin de mener à bien notre
+projet.
+Figure 8 – Scénario possible : absorption, conversion
+interne, relaxation vibrationnelle.
+
+2
+
+Quantification de l’énergie thermique
+
+2.1
+
+Variables retenues
+
+Nous voulions au départ utiliser quatre variables : le temps t, la température de notre solution de mélanine
+T , sa concentration C et la longueur d’onde provenant des UV. Or, d’une part, il s’avère que la concentration
+de mélanine que nous avions déterminée est issue d’une approximation (et donc manque indubitablement de
+précision) d’où l’impossibilité d’en tenir compte dans notre modèle. D’autre part, il aurait été très diﬃcile de
+mettre la main sur une "lampe UV monochromatique à large faisceau" que nous aurions utilisée afin de voir
+l’évolution de la température de notre solution de mélanine au cours du temps en faisant varier la longueur
+d’onde (tout en analysant les résultats avec son spectre d’absorption). L’idée aurait été de déterminer l’énergie
+du photon simplement par la relation de Planck-Einstein modifiée (2.1) ; et ainsi voir la corrélation possible
+entre l’énergie du photon et l’énergie thermique dégagée par la mélanine.
+Ephoton =
+
+h·c
+
+(2.1)
+
+On verra par la suite en sous-section 2.4 que nous remplacerons l’énergie d’un photon en particulier, par
+l’étude de l’éclairement énergétique spectrique de notre lampe UV. Ainsi, pour notre modèle mathématique,
+nous n’avons retenu que deux variables : le temps t et la température de notre solution T . Ces deux variables
+présentent aussi l’avantage d’être facilement mesurables.
+
+2.2
+
+Montage expérimental
+
+Afin de connaitre l’évolution de la température de
+notre solution de mélanine au cours du temps d’exposition à des rayons UV, nous plaçons 2,3 mL de notre
+réf
+solution de mélanine de concentration Cmél
+dans une
+boîte de Pétri (de rayon r = 5, 5cm et donc d’aire
+95cm2 ). L’isolation est assurée par du liège 5 . Nous
+plongeons une sonde reliée à un thermomètre dedans.
+Nous plaçons ensuite le verre de montre sous une
+lampe UV et à l’aide d’un chronomètre nous notons le
+temps à chaque augmentation d’un dixième de degré
+et ce pendant un peu plus de 400 secondes.
+
+Lampe UV
+
+XX.X °C
+
+UV
+
+Figure 9 – Montage expérimental.
+
+4. Précisons que la mélanine (mais aussi l’ADN) sont capables d’eﬀectuer le processus de conversion interne plus rapidement
+que n’importe quelle autre molécule synthétisée par l’homme [3].
+5. Le liège est considéré comme un isolant car sa conductivité thermique est inférieure à 0,065 W · m 1 · K 1 . Pour être exact,
+elle est de 0,04 W · m 1 · K 1 pour une température de 293,15K. Le liège est aussi imperméable en raison de la présence de
+subérine et de cérine.
+Olympiades de Physique France
+
+Page 8
+
+Année 2017/2018
+
+2
+
+Que la mélanine soit ! Et la lumière fut.
+
+2.3
+
+QUANTIFICATION DE L’ÉNERGIE THERMIQUE
+
+À la recherche d’une équation empirique
+
+Après avoir relevé le temps t à chaque dixième de degré d’augmentation, nous classons les mesures dans
+un tableau (Table 1) et rentrons toutes ces données brutes dans un clavier Regressi. Nous lançons ensuite
+une modélisation aﬃne et trouvons une droite de régression linéaire (Figure 10) de coeﬃcient directeur a =
+0, 0014 K.s 1 . Plus précisément, en considérant l’incertitude absolue donnée par Regressi sur a, nous avons :
+a = (1, 4 ± 0, 10) · 10 3 K.s 1 .
+Temps d’exposition t (en s)
+Température de notre solution T (en s)
+
+0
+294,6
+
+89
+294,7
+
+150
+294,8
+
+223
+294,9
+
+277
+295,0
+
+348
+295,1
+
+437
+295,2
+
+Table 1 – Mesures relevées.
+
+Figure 10 – Droite de régression linéaire sur le logiciel Regressi.
+Notre droite de régression linéaire a pour équation :
+T (t) = 0, 0014 · t + Tinitiale
+
+(2.2)
+
+Où Tinitiale = 294, 6 K. Nous avons ainsi réussi à trouver une fonction mathématique qui décrit l’évolution
+de la température de notre solution de mélanine en fonction du temps d’exposition aux rayons ultraviolets.
+Mais il serait d’autant plus intéressant de déterminer une équation physique pour quantifier ce phénomène.
+
+2.4
+
+À la recherche d’une équation physique
+
+Déterminons dans cette sous-section l’énergie que notre lampe UV apporte à notre solution de mélanine et de
+combien de degrés cette dernière augmente.
+Dans un premier temps nous pouvons déjà trouver sur Internet l’éclairement énergétique spectrique de notre
+lampe UV noté E (en W.m 2 .nm 1 ). De là, nous pouvons tenter de mettre en équation le spectre d’émission
+de notre lampe. La fonction gaussienne suivante que nous avons déterminée décrit relativement bien cette
+émission :
+2
+(
+
+E = 0, 045 · e
+Olympiades de Physique France
+
+Page 9
+
+371)
+2·7,012
+
+(2.3)
+Année 2017/2018
+
+2
+
+Que la mélanine soit ! Et la lumière fut.
+
+QUANTIFICATION DE L’ÉNERGIE THERMIQUE
+
+Nous voulons maintenant connaitre la puissance par mètre carré libérée par la lampe UV 6 . Cela revient à
+résoudre l’intégrale de Gauss suivante :
+Z
++1
+
+(2.4)
+
+E d
+
+1
+
+Ce qui nous donne :
+
+Z +1
+1
+
+(
+
+0, 045 · e
+
+371)2
+2·7,012
+
+d = 0, 045 · 7, 01 ·
+
+p
+
+2 · ⇡ ⇡ 0, 79 W · m 2
+
+(2.5)
+
+Ainsi, notre solution de mélanine reçoit 0,79 W · m 2 . Cependant, la surface de notre solution de mélanine
+exposée aux UV est égale à Sexposée = 9, 5 · 10 3 m2 (boîte de Pétri de rayon r = 5, 5cm). Un simple produit
+en croix nous permet de déterminer la puissance reçue par notre solution de mélanine :
+P = 9, 5 · 10 3 · 0, 79 = 7, 5 · 10 3 W
+
+(2.6)
+
+Cette puissance reçue (P ) correspond à la puissance radiante incidente (Pi ). Nous pouvons alors écrire P = Pi .
+Par ailleurs, la mélanine ayant une absorption inégalée dans les UV, nous pouvons admettre 7 que la puissance
+radiante transmise (Pt ) est tout à fait négligeable par rapport à la puissance radiante incidente et que donc :
+Pi
+Pt ⇡ 0.
+Solution de mélanine
+
+Pi
+
+Pt
+
+Figure 11 – Absorption de notre solution de mélanine.
+Ensuite, pour trouver l’énergie que la mélanine a absorbée. Il faut multiplier la puissance par le temps d’exposition aux UV. Prenons ici 437 secondes, notre dernière mesure de t.
+Eabsorbée = 7, 5 · 10 3 · 437 = 3, 3 J
+
+(2.7)
+
+Notre solution de mélanine a ainsi absorbée 3, 3 J. Or, nous avons vu précédemment en section 1.5, que
+la mélanine restituait rapidement l’énergie absorbée sous forme de chaleur. Ainsi, nous avons : Eabsorbée =
+Eémise . Cette chaleur va être transmise aux molécules environnantes. Dans notre situation, les molécules
+environnantes sont les molécules d’eau qui constituent le solvant de notre solution de mélanine. De là, nous
+pouvons maintenant mener une étude calorimétrique en considérant le système admis isolé {eau} et amener
+la relation Q = meau · ceau · T où Q est la quantité d’énergie transférée, meau est la masse d’eau dans notre
+solution, ceau est la capacité thermique de l’eau et T = Tf inale Tinitiale . Notre objectif étant de trouver
+Tf inale , il faut ainsi l’isoler. Ce qui nous donne :
+Tf inale =
+
+Q
++ Tinitiale
+meau · ceau
+
+(2.8)
+
+Nous pouvons ensuite remplacer :
+- Q par l’énergie restituée par la mélanine (Eémise ), c’est-à-dire 3, 3 J,
+6. Autrement dit : "l’éclairement énergétique de notre lampe".
+7. Nous verrons par la suite comment il est possible d’être plus précis et donc éviter cette approximation.
+Olympiades de Physique France
+
+Page 10
+
+Année 2017/2018
+
+2
+
+Que la mélanine soit ! Et la lumière fut.
+
+QUANTIFICATION DE L’ÉNERGIE THERMIQUE
+
+- meau par 2, 3 g (Voir section 2.2),
+- ceau par 4, 185 J · g 1 · K 1 ,
+- Tinitiale par 294, 6 K
+Ce qui nous donne :
+Tf inale =
+
+3, 3
++ 294, 6 = 295, 0 K
+2, 3 · 4, 185
+
+(2.9)
+
+L’application numérique conduit à un résultat de 295, 0 K. Résultat qui a un ordre de grandeur cohérent.
+Ainsi, la température finale Tf inale est donnée par la formule (2.10) à la seule condition que les longueurs
+d’onde ( ) de l’éclairement énergétique E correspondent aux longueurs d’ondes absorbées par la mélanine.
+
+Tf inale =
+
+2.5
+
+Sexposée · t ·
+
+Z +1
+
+E d
+
+1
+
+(2.10)
+
++ Tinitiale
+
+meau · ceau
+
+Comparaison des modèles
+
+Rappel du modèle mathématique : T (t) = 0, 0014
+Z · t + Tinitiale
++1
+
+Rappel de l’équation (2.10) : Tf inale =
+
+E d
+
+Sexposée ·t·
+
+1
+meau ·ceau
+
++ Tinitiale
+
+Si nous mettons l’équation (2.10) sous la forme : y = a · t + b, nous obtenons :
+Z +1
+Sexposée ·
+E d
+1
+Tf inale =
+· t + Tinitiale
+meau · ceau
+Nous trouvons alors que :
+a=
+
+Sexposée ·
+
+Et donc après application numérique, on a :
+a=
+
+Z +1
+
+E d
+
+1
+
+meau · ceau
+
+K ·s 1
+
+9, 5 · 10 3 · 0, 79
+= 0, 0009 K · s 1
+2, 1 · 4, 185
+
+Explications pour augmenter le coeﬃcient directeur du modèle physique : On remarquera aisément que 0, 0009 ⇡ 0, 0014. Mais comment expliquer cette diﬀérence ? Tout d’abord, la lampe UV n’émet pas
+uniquement dans l’ultraviolet (alors que l’éclairement énergétique trouvé sur Internet nous donnait uniquement les valeurs dans l’UV). Par ailleurs, la fonction gaussienne que nous avions déterminée est issue d’une
+approximation minorée 8 de l’éclairement énergétique donné. Il s’en suit que la détermination d’une intégrale
+gaussienne de cette forme est complexe et s’entache aussi d’une erreur loin d’être inconséquente dans notre
+modèle au vu de la précision recherchée.
+(
+
+371)2
+
+8. Une approximation majorée donnerait la fonction gaussienne suivante : E = 0, 045 · e 2·11,22 qui aboutirait à un a d’une
+valeur de 0, 0014K · s 1 . Remarquons également que l’intersection des intervalles associés à l’incetitude de a, est non nulle, ce
+qui montre que la théorie est en accord avec la pratique.
+
+Olympiades de Physique France
+
+Page 11
+
+Année 2017/2018
+
+3
+
+Que la mélanine soit ! Et la lumière fut.
+
+THERMOÉLECTRICITÉ
+
+Explications pour rendre plus précis le coeﬃcient directeur du modèle physique : L’équation
+(2.10) ne s’applique que pour un éclairement énergétique décrit dans l’ultraviolet. En eﬀet, la mélanine absorbe
+moins bien dans le visible que dans les UV. Nous pouvons alors réfléchir à une correction possible afin d’avoir
+l’absorbance réelle de la mélanine pour une longueur d’onde donnée et ainsi corriger l’éclairement énergétique
+qui ne sera pas entièrement absorbé par la molécule de mélanine. Si nous trouvons la fonction d’écrivant
+l’absorbance de la mélanine en fonction de la longueur d’onde et que nous la notons par exemple : A , nous
+aurions juste à revenir à la définition de l’absorbance [9] :
+A = log
+
+I0
+It
+
+(2.11)
+
+Maintenant, il faudrait calculer la transmittance de la fonction par :
+T = 10 A
+
+(2.12)
+
+Seulement, la transmittance ne nous intéresse pas spécialement. Nous voulons savoir quelle part d’une longueur
+d’onde la mélanine absorbe (elle n’absorbe pas l’intégralité) :
+C = (1
+
+10 A )
+
+(2.13)
+
+Cette fonction de correction notée C correspond à la part de ce que la mélanine absorbe pour une longueur
+d’onde donnée et nous pouvons maintenant l’intégrer à l’équation (2.10) afin de savoir ce que la mélanine
+absorbe vraiment de l’éclairement énergétique :
+Z +1
+Sexposée · t ·
+E ·C d
+1
+Tf inale =
++ Tinitiale
+(2.14)
+meau · ceau
+Pourquoi peut-on admettre le système {eau} comme isolé ? Nous pouvons admettre le système
+{eau} comme isolé pour les raisons suivantes. Tout d’abord, la solution a été confinée dans un boite de
+Pétri dont les parois était recouverte d’1cm de liège. Ce dernier a une conductivité thermique de K✓ =
+0, 04W · m 1 · K 1 9 . Or selon la norme française RT2012, un matériau est considéré comme isolant si sa
+conductivité thermique est inférieure à 0,065 W · m 1 · K 1 . Le liège est donc bien isolant. Nous pouvons
+alors admettre l’absence de conduction. D’autre part, des échanges entre l’air et l’eau sont envisageables.
+Si ces derniers sont existants, la formation d’un mouvement de convection serait visible. Nous avons donc
+cherché de mettre en évidence un mouvement de convection éventuel. Une méthode artisanale consistait à
+souﬄer de la craie broyée (Carbonate de calcium CaCO3 ) au-dessus de notre solution de mélanine et voir
+d’éventuels mouvements ascendants et descendants. Cependant, aucune perturbation n’a été visible. Une étude
+plus précise, par strioscopie montrera d’insignifiants mouvements. Nous pouvons alors admettre l’absence de
+convection. De là, il est possible de dire que notre système {eau} peut être admis comme isolé (même s’il ne
+l’est pas parfaitement).
+
+3
+
+Thermoélectricité
+
+3.1
+
+Définition
+
+La thermoélectricité est une partie de la physique qui étudie les relations existantes entre les phénomènes
+thermiques et électriques. On peut observer expérimentalement dans le domaine de la thermoélectricité, trois
+eﬀets qualifiés alors d’eﬀets thermoélectriques. Le premier à avoir été découvert fut l’eﬀet Seebeck (Sous-Figure
+12-a). Découvert en 1821 par Thomas Johann Seebeck, cet eﬀet correspond à l’apparition d’une tension lorsque
+9. K✓ pour une température de 293, 15K.
+
+Olympiades de Physique France
+
+Page 12
+
+Année 2017/2018
+
+3
+
+Que la mélanine soit ! Et la lumière fut.
+
+THERMOÉLECTRICITÉ
+
+les jonctions de deux conducteurs diﬀérents (notés 1 et 2 sur les schémas) sont portées à des températures différentes (Tk est la température à la jonction froide et Tw est la température à la jonction chaude). Le deuxième
+à avoir été découvert fut l’eﬀet Peltier (Sous-Figure 12-b), découvert en 1824, par Jean-Charles Peltier, correspond à l’émission de chaleur 10 à une jonction (W ) et à l’absorption de chaleur à l’autre (K) quand un courant
+électrique 11 I parcourt le circuit. Rappelons que notre circuit est constitué de deux conducteurs diﬀérents
+soudés en deux points. Nous remarquerons enfin que l’eﬀet Peltier est l’eﬀet inverse de l’eﬀet Seebeck. L’eﬀet
+Peltier est extrêmement utilisé dans l’industrie et l’informatique. Il reste enfin l’eﬀet Thomson (Sous-Figure
+12-c), découvert en 1851, par le baron Kelvin William Thomson (devenu Lord Kelvin). Cet eﬀet se rapporte
+à l’émission de chaleur ou l’absorption de chaleur Q✓ dans une portion d’un conducteur homogène lorsque ce
+dernier est en même temps traversé par un courant électrique I et soumis à une diﬀérence de température.
+Notons enfin que l’eﬀet Thomson ne nécessite pas la présence d’une jonction.
+
+(a) Eﬀet Seebeck.
+
+(b) Eﬀet Peltier.
+
+(c) Eﬀet Thomson.
+
+Figure 12 – Les trois eﬀets thermoélectriques : Seebeck, Peltier et Thomson.
+Nous nous intéresserons par la suite à l’eﬀet Seebeck. En eﬀet, la mélanine dégageant de l’énergie thermique, il serait envisageable qu’à partir d’une diﬀérence de température, nous puissions produire une tension
+électrique.
+
+3.2
+
+Formules et exemples
+
+Calcul du pouvoir thermoélectrique d’un couple : Chaque matériau présente ce qu’on appelle un
+coeﬃcient Seebeck exprimé en V · K -1 ou plus généralement en µV · K -1 12 (car le coeﬃcient Seebeck est très
+petit dans les matériaux usuels). Le coeﬃcient Seebeck correspond à la tension qui apparait lorsqu’un écart
+de 1 K est appliqué entre les deux jonctions. Le coeﬃcient Seebeck de chacun des conducteurs (↵1 et ↵2 ) est
+lié au pouvoir thermoélectrique du couple (↵1,2 ) par une simple soustraction (3.1).
+↵1,2 = ↵1
+
+↵2
+
+(3.1)
+
+Calcul de la tension : Par ailleurs, si dans un circuit ouvert, composé de deux conducteurs nommés 1 et
+2, les jonctions sont portées à deux températures diﬀérentes (Tk et Tw ), on observa une tension électrique aux
+extrémités libres du conducteur 2. Cette tension électrique est proportionnelle à la diﬀérence de température
+entre les deux jonctions (3.2).
+U = ↵1,2 (Tw Tk )
+(3.2)
+L’exemple du couple fer (Fe)/nickel (Ni) : Au départ, nous voulions réaliser notre propre thermocouple.
+Pour cela, nous avons cherché des métaux présentant un coeﬃcient Seebeck fortement élevé en valeur absolue
+et de signe opposé. Ainsi le fer ayant un coeﬃcient Seebeck de +11, 6µV et le nickel ayant un coeﬃcient
+10. Le terme de chaleur désigne ici, un transfert thermique.
+11. Notons bien qu’il s’agit ici du sens conventionnel du courant électrique et non du sens du déplacement des électrons.
+12. Le Kelvin est l’unité SI de température thermodynamique. Rappelons aussi que : T (K) = T (°C) + 273, 15.
+
+Olympiades de Physique France
+
+Page 13
+
+Année 2017/2018
+
+3
+
+Que la mélanine soit ! Et la lumière fut.
+
+THERMOÉLECTRICITÉ
+
+Seebeck de 8, 50µV semblaient des métaux idéaux pour ce que nous souhaitions faire. Nous nous sommes
+ensuite demandé combien de volt nous pourrions (en théorie) avoir grâce à ce thermocouple. Appliquons dès
+lors, les formules citées précédemment. D’abord, calculons le pouvoir thermoélectrique du couple ↵f er/nickel
+et nous obtenons ↵f er/nickel = 20, 1µV · K -1 (Annexe C.1). Ensuite, afin de calculer la tension théorique, il
+nous faut préalablement déterminer la température de nos jonctions. La jonction chaude de température Tw
+aura comme valeur le dernier relevé expérimental de la température de notre solution de mélanine après une
+exposition prolongée 13 aux UV. Cette température est égale à 297, 0K. Pour la jonction froide, prenons (par
+exemple) de l’eau froide à une température Tk = 276, 15K(soit 3, 00°C). La deuxième formule nous donne
+comme résultat la faible valeur de 419µV (Annexe C.1). Valeur qui nous laisse dubitatif quant à la réalisation
+de notre propre couple. Nous écartons alors l’idée du couple fer/nickel, la tension produite étant trop faible
+pour un réel usage quelconque.
+L’exemple du tellurure de bismuth (Bi2 T e3 ) dopé N et P : Les scientifiques, afin d’augmenter l’eﬃcacité d’un couple thermoélectrique, ont fait appel aux semi-conducteurs qui ont des propriétés de conductivité
+électrique intermédiaires entre celle des isolants et des métaux. En eﬀet, les semi-conducteurs sont isolants
+à 0 K, contrairement aux métaux. Il est également possible d’augmenter la conductivité électrique des semiconducteurs par dopage soit de type N ou de type P. Le semi-conducteur est dit dopé N lorsque des
+impuretés donneuses d’électrons ont été incorporées dans son réseau atomique, l’enrichissant ainsi en électrons.
+(N pour négatif). Le semi-conducteur est dit dopé P lorsque des impuretés acceptrices d’électrons ont été
+introduites dans son réseau atomique, l’enrichissant ainsi en « manque d’électron » plus communément appelé
+« trous » (P pour positif). Les scientifiques ont donc, par exemple, dopé le tellurure de bismuth. Ainsi, celui-ci
+dopé N présente un coeﬃcient Seebeck de 170µV et dopé P un coeﬃcient Seebeck de +160µV , formant
+ainsi un couple de pouvoir thermoélectrique 330µV · K -1 (Annexe C.2). Et si nous reprenons les valeurs Tw
+et Tk utilisées précédemment, nous obtenons une tension théorique de U = 688 · 10µV (Annexe C.2). Nous
+obtenons alors une valeur 16,4 fois plus élevée que le couple fer/nickel mais elle reste encore trop petite ...
+L’exemple (et cette fois le dernier) du module Seebeck : Les scientifiques ont compris que le dopage était un moyen extrêmement eﬃcace d’augmenter les propriétés de conductivité électrique d’un semiconducteur. Ainsi, ils ont eu comme idée de faire un « module » regroupant plusieurs jonctions de type P/N
+et de type N/P (Figure 13) afin d’augmenter considérablement la tension. Ce module porte le nom de module
+Seebeck que l’on peut également désigner par TEG (pour ThermoElectric Generator). Ainsi, nous utiliserons
+par la suite un module Seebeck afin de produire une tension convenable. Le modèle que nous avons retenu est
+le TEC1-12706 de Hebei I.T. Co., Ltd. (Figure 14) regroupant 127 thermocouples. Par la suite, il sera noté n
+le nombre de thermocouples.
+
+Figure 13 – Architecture interne d’un TEG
+
+Figure 14 – Caractéristiques géométriques du TEC1-12706
+
+13. "L’exposition prolongée" correspond à 30min d’exposition sous la lampe UV. En eﬀet, nous avons réalisé un montage
+expérimental similaire à celui de la section 2.2, mais nous avons exposé la solution sous les UV pendant 30min (sans relever le
+temps t à chaque dixième de degré d’augmentation de T ).
+
+Olympiades de Physique France
+
+Page 14
+
+Année 2017/2018
+
+3
+
+Que la mélanine soit ! Et la lumière fut.
+
+3.3
+
+THERMOÉLECTRICITÉ
+
+Montages expérimentaux
+
+Dans un premier temps : Nous mettons en place une cuve divisée en deux par un module Seebeck, ce qui
+nous permet d’obtenir deux milieux. Le premier milieu est consacré à la solution de mélanine (dont 6,8 cm2 est
+exposée aux UV) et l’autre milieu est dédié à l’eau froide (sensiblement entre 276 et 277K). Ces deux milieux
+sont séparés par un module Seebeck (de côté 4cm). On verse ensuite 2,3 mL de notre solution de mélanine et
+on expose notre cuve sous notre lampe UV. Nous plongeons également des sondes reliées à un thermomètre
+pour mesurer précisément l’évolution de la température (de l’eau froide et de la solution de mélanine).
+Dans un deuxième temps : Nous aimerions aussi connaitre la tension (U ), l’intensité (I) et la puissance
+(P ) produites par le module Seebeck lorsqu’une de ses faces est chauﬀée par la solution de mélanine et l’autre
+refroidie à l’aide d’eau froide. Pour cela nous utiliserons un multimètre afin de mesurer d’une part la tension
+mais aussi l’intensité. Nous essayerons de maximiser ces valeurs et donc choisirons une résistance (RL ) pour
+laquelle ces valeurs sont maximales, cela implique l’utilisation d’une résistance variable. Nous calculerons
+ensuite la puissance lorsque le circuit est chargé d’une resistance (RL ).
+
+Lampe UV
+XX.X °C
+V
+
+UV
+
+A
+
+T
+E
+G
+
+Figure 15 – Mesure de la tension U et de l’intensité I avec charge (résistance variable)
+
+3.4
+
+Résultats et interprétations
+
+Quelques suppositions préalables : Nous supposerons que les connections entre les diﬀérents thermocouples "PN", "NP" et le conducteur électrique (cuivre) sont parfaites et ne présentent pas de résistance
+électrique et/ou thermique. Nous supposerons également l’absence de convection, conduction, ou radiation
+avec l’environnement. Ainsi, le flux thermique ne peut se faire qu’à travers le module Seebeck. Ces suppositions nous permettront d’écrire les équations suivantes [10].
+Nous rappelons que la force électromotrice du module TEG [11] s’exprime de la manière suivante :
+E0 = n · ↵pn (Tw
+
+(3.3)
+
+Tk )
+
+En branchant une résistance (RL ) au circuit, nous pouvons exprimer l’intensité (I) [10] par :
+I=
+
+n · ↵pn (Tw Tk )
+n · Rpn + RL
+
+(3.4)
+
+La puissance réelle fournie à la charge est donnée par :
+
+
+
+n · ↵pn (Tw Tk ) 2
+n · ↵pn (Tw Tk ) 2
+PL =
+RL ou PL =
+RL
+n · Rpn + RL
+RT EG + RL
+Olympiades de Physique France
+
+Page 15
+
+(3.5)
+
+Année 2017/2018
+
+3
+
+Que la mélanine soit ! Et la lumière fut.
+
+THERMOÉLECTRICITÉ
+
+Il est en eﬀet possible de remplacer n·Rpn par la résistance du module Seebeck (RT EG ). La puissance maximale
+sera obtenue si et seulement si RT EG = RL . Cette condition remplie, le rendement ⌘ ne sera jamais supérieur
+à 50% [11]. Ceci étant dit, il est maintenant possible de déterminer la charge optimale. Nous avons mesuré à
+l’aide d’une résistance variable, l’intensité et la tension aux bornes de la résistance tout en veillant à garder
+une diﬀérence de température constante sur les faces du TEG. Nous obtenons alors une table de valeur (Table
+2) à laquelle nous rajoutons une ligne pour calculer la puissance que l’on définit ici comme :
+(3.6)
+
+PL = U · I
+
+Force est de constater que l’intensité et la tension sont dépendantes de la température d’où l’extrême diﬃculté
+d’avoir des valeurs très précises. Nous avons cependant essayé de maintenir une diﬀérence de température
+constante en ajoutant des glaçons dans le milieu froid. Un apport d’eau plus chaude dans le milieu chaud a
+également été fait. Une puissance maximale (PLmax ) est visible entre 1⌦ et 2⌦. Or rappelons que si la puissance
+est maximale, nous avons : RT EG = RL . Donc vu que RL 2 [1; 2]⌦, alors RT EG 2 [1; 2]⌦. Cette approximation
+de RT EG est en accord avec les données du constructeur [12].
+Résistance (en ⌦)
+Tension (en mV )
+Intensité (en mA)
+Puissance (en mW )
+
+0
+0
+0
+
+1
+20
+22
+0, 440
+
+2
+29
+15
+0, 435
+
+3
+35
+12
+0, 420
+
+10
+65
+6
+0, 390
+
+50
+130
+2, 5
+0, 325
+
+100
+140
+1, 5
+0, 210
+
+500
+120
+0, 2
+0, 024
+
+1000
+100
+0, 1
+0, 010
+
+Table 2 – Mesures de la tension, de l’intensité et calcul de la puissance
+0.5
+
+Tension (mV )
+Intensité (mA)
+
+60
+
+Puissance (mW )
+
+0.4
+0.3
+
+40
+
+0.2
+20
+0.1
+0
+
+0
+
+2
+
+4
+6
+Résistance (⌦)
+
+8
+
+0
+
+10
+
+0
+
+2
+
+4
+6
+Résistance (⌦)
+
+Figure 16 – Tension, intensité et puissance en fonction de la résistance pour un
+
+3.5
+
+8
+
+10
+
+T constant.
+
+Contraintes
+
+La thermoélectricité présente une contrainte fondamentale : lorsqu’un équilibre thermique est atteint et
+que donc Tw Tk = 0, il en résulte que la tension U est nulle. Tous les travaux menés sur les calculs de
+tensions/intensité/puissance ont été réalisés de telle manière à ne pas en tenir compte. En eﬀet, nous nous
+sommes focalisés à l’instant t où la diﬀérence entre les deux températures est grande. Mais on observera
+expérimentalement que la tension calculée décroit au cours du temps au fur et à mesure que l’équilibre
+thermique est atteint. Ainsi, il faudra tenir compte de cette contrainte et y remédier !
+
+Olympiades de Physique France
+
+Page 16
+
+Année 2017/2018
+
+Que la mélanine soit ! Et la lumière fut.
+
+4
+
+CELLULE THERMOPHOTOVOLTAÏQUE À BASE DE MÉLANINE
+
+4
+
+Cellule thermophotovoltaïque à base de mélanine
+
+4.1
+
+Explication du principe
+
+Notre cellule photovoltaïque sera composée de
+deux compartiments principaux : un -le supérieurcontiendra notre solution de mélanine ; l’autre l’inférieur- contiendra de l’eau provenant du robinet
+par exemple. Ces deux milieux seront séparés par
+un module Seebeck. La première étape (Figure 17)
+consiste tout d’abord à ouvrir la voie d’eau afin de
+remplir le compartiment inférieur dédié à cet eﬀet.
+Lors de la deuxième étape (Figure 18), la face inférieure du TEG sera refroidie par l’eau fraiche et la face
+supérieure sera réchauﬀée par la solution de mélanine
+exposée aux UV/VIS (le solvant sera également réceptif aux IR). Cette diﬀérence de température entre les
+deux faces du TEG conduira à la formation d’une tension électrique que nous pourrons exploiter. Afin de ne
+pas trop alourdir le schéma, les câbles électriques reliant le TEG à l’extérieur de la cellule, n’ont pas été
+représentés.
+Finalement, lorsqu’un équilibre thermique sera atteint, nous pourrons ouvrir la voie d’eau (Figure 19),
+vidant ainsi le compartiment. L’émission perpétuelle
+d’énergie thermique de la mélanine conduira à nouveau à une diﬀérence de température entre les deux
+faces du TEG et donc à la formation d’une tension
+électrique. Par la suite, un nouvel équilibre thermique
+se formera. Nous pourrons alors réitérer les étapes précédentes. Le principe de notre cellule photovoltaïque
+est ainsi cyclique. En eﬀet, il s’agit de l’enchainement
+de trois étapes : faire entrer l’eau dans le compartiment, la maintenir dedans, la faire sortir.
+
+4.2
+
+flux d’eau
+
+Solution de mélanine
+TEG
+
+Figure 17 – Étape 1 : arrivée d’un flux d’eau.
+Solution de mélanine
+TEG
+eau fraîche
+
+Figure 18 – Étape 2 : mise en place d’un équilibre
+thermique.
+
+Solution de mélanine
+TEG
+flux d’eau
+Figure 19 – Étape 3 : sortie d’eau et nouvel équilibre
+thermique.
+
+Construction du prototype
+
+Après avoir réfléchi sur papier au fonctionnement de notre cellule thermophotovoltaïque, nous élaborons le
+modèle du prototype sur le logiciel Sketchup, un logiciel de modélisation en 3 dimensions. Nous construisons
+notre prototype sur-mesure par rapport au module TEG. Par la suite, nous avons commandé notre prototype
+à une "imprimerie 3D".
+
+4.3
+
+Courant électrique produit
+
+Nous avons reçu notre modèle imprimé en 3D et avons réalisé le montage ci-dessous (Figure 20). Le TEG
+est fixé par de la colle extra-forte et l’étanchéité entre les deux compartiments est assurée par des joints en
+silicone. Remarquons que sur la Figure 20, la solution de mélanine est placée sur la face supérieur du TEG.
+Le tuyau pour faire entrer l’eau est aussi visible tout comme les câbles électriques situés plus à l’arrière.
+Ces derniers sont branchés à une résistance d’1⌦. Le circuit présente aussi un ampèremètre branché en série,
+Olympiades de Physique France
+
+Page 17
+
+Année 2017/2018
+
+4
+
+Que la mélanine soit ! Et la lumière fut.
+
+CELLULE THERMOPHOTOVOLTAÏQUE À BASE DE MÉLANINE
+
+qui nous permettra d’étudier l’intensité pendant les diﬀérentes étapes (cf. sous-section 4.1). Le robinet nous
+permettra aussi de régler le flux d’eau entrant.
+
+Figure 20 – Montage de notre cellule thermophotovoltaïque.
+
+Figure 21 – Mesure de l’intensité au cours du
+temps.
+
+En faisant varier les flux d’eau et en mesurant l’intensité au cours du temps, nous obtenons une certaine
+table de valeur que nous analysons avec Regressi. Nous modélisons ensuite par un graphique (Figure 21)
+traduisant l’évolution de l’intensité du courant dans notre circuit en fonction du temps. Nous ouvrons le robinet
+(à 3s sur le graphique) et constatons une forte augmentation de l’intensité du courant, à savoir 0, 46 mA. À
+8s, nous fermons le robinet et constatons une forte chute de l’intensité. Cependant, cette dernière augmente
+à nouveau en raison de l’émission d’énergie thermique de la mélanine (l’eau du robinet étant maintenant
+absente). Au cours du temps, l’intensité décroit jusqu’à atteindre l’équilibre thermique. Afin de vérifier cette
+tendance, nous avons mesuré à nouveau l’intensité en réitérant les étapes (tracé rouge). Les valeurs trouvées
+ci-dessus peuvent sembler quasiment non-significatives mais rappelons qu’en terme de surface exposée nous
+sommes seulement à 16 cm2 . En plus, il est encore possible de réduire la taille de notre cellule tout en gardant
+les qualités de production ci-dessus.
+
+4.4
+
+Rendement
+
+En rappelant que Pi est la puissance radiante incidente (cf. section 2.4), nous pouvons définir le rendement ⌘
+comme :
+Putile
+Pélec
+I2 · R
+⌘=
+· 100 =
+· 100 =
+· 100
+(4.1)
+Pf ournie
+Pi
+Pi
+Ce qui conduit à l’application numérique :
+⌘=
+Et au résultat de :
+
+(0, 46 · 10 3 )2 · 1
+· 100
+0, 79 · 1, 6 · 10 3
+
+(4.2)
+
+⌘ = 8, 0 · 10 2 %
+
+(4.3)
+
+Nous pouvons constater la médiocrité du rendement. Précisons seulement que Pi n’est pas la puissance réelle
+absorbée par la mélanine. Il aurait fallu Pi Pt . La valeur de Pi semble grande à l’échelle de notre solution. La
+valeur de R est également à remettre en cause. En eﬀet rappelons que le rendement est maximal si RL 2 [1; 2]⌦.
+Or, nous avons pris arbitrairement une résistance de 1⌦. En considérant ceci, le rendement ⌘ pourrait s’élever
+à 0, 2 %.
+
+Olympiades de Physique France
+
+Page 18
+
+Année 2017/2018
+
+4
+
+Que la mélanine soit ! Et la lumière fut.
+
+4.5
+
+CELLULE THERMOPHOTOVOLTAÏQUE À BASE DE MÉLANINE
+
+Améliorations à venir
+
+Un panneau photovoltaïque actuellement sur le marché ne peut pas produire d’énergie électrique à partir
+des rayons ultraviolets. Par contre, les panneaux photovoltaïques transparents en cours de développement [13]
+en semblent être capable mais leur absorption maximale reste encore dans l’IR. Il y a donc toujours un potentiel
+dans l’UV que nous pouvons exploiter avec la molécule de mélanine. Ainsi, pour améliorer le rendement, il
+serait possible de coupler notre cellule thermophotovoltaïque à une cellule photovoltaïque transparente. On
+aurait alors une absorption très large (des UV jusqu’aux IR). Nous travaillons aussi sur un autre modèle
+de cellule photothermovoltaïque que celle présentée, celle-ci sera plus intelligente et permettra de résoudre
+ce problème d’équilibre thermique en faisant varier des flux d’eau d’une manière complètement autonome
+(grâce à une carte Arduino). Jusque là, c’est nous qui ouvrions ou fermions le robinet. Mais il serait d’autant
+plus intéressant d’étendre le spectre d’absorption de notre solution. Pour cela nous pourrions imaginer mettre
+dans une même solution, diﬀérentes espèces qui ont toutes un spectre d’absorption diﬀérent mais aussi qui
+présentent toutes le processus de conversion interne afin d’obtenir un dégagement thermique plus important.
+L’eau, par exemple, est une molécule présentant une absorption notable à certaines longueurs d’onde du
+spectre IR.
+2.5
+
+Espèce 1
+Espèce 2
+Espèce 3
+Espèce 4
+Espèce 5
+
+Absorbance
+
+2
+1.5
+1
+0.5
+0
+200
+
+400
+600
+800
+Longueur d’onde (nm)
+
+1,000
+
+Figure 22 – Couplage de diﬀérentes espèces.
+
+Conclusion
+Les énormes investissements dans le photovoltaïsme ne sont pas toujours synonymes de développement
+durable. Les matériaux utilisés pour construire un panneau photovoltaïque sont, pour certains, rares sur Terre
+et très peu recyclables . Ainsi, il faudra s’attendre à une certaine angoisse ces prochaines années lorsque le
+problème se posera. C’est cette envie d’un futur plus vert qui nous a motivés dans ce projet se matérialisant
+par une cellule thermophotovoltaïque réceptrice aux rayons ultraviolets et ce en utilisant la molécule de
+mélanine. Nous avons dans un premier temps, étudié son absorbance inégalée dans les UV due en partie à
+sa structure moléculaire. Puis dans un deuxième temps, l’étude de la conversion interne nous a permis de
+comprendre comment la mélanine restituait de l’énergie provenant des photons . Nous avons ensuite quantifié
+ce dégagement thermique par l’équation (2.10) et essayé de l’optimiser par l’équation (2.14). Finalement nous
+sommes arrivés à la mise au point de notre prototype imprimé en 3D. Nous avons étudié son fonctionnement
+et le courant qu’il produisait. Un rendement de ⌘ = 8, 0 · 10 2 % (4.3) peut faire sourire mais il ne s’agit là
+qu’un début. En eﬀet, une optimisation du dopage, une puissance incidente adaptée et l’utilisation d’autres
+molécules (qui utiliseraient elles aussi, le processus de conversion interne) permettraient, d’après nos calculs,
+d’atteindre des rendements de 10 % à 15 % en considérant cette fois, l’énergie solaire et non plus l’énergie d’une
+simple lampe UV. Ces rendements futurs sont comparables aux rendements des panneaux photovoltaïques
+actuels. Il va de soi, qu’il s’agit là d’un énorme travail de recherche. En eﬀet, il faudra faire preuve d’une grande
+patience pour trouver les dizaines voire centaines de molécules qui toutes superposées, seraient à l’origine de
+rendements meilleurs, d’un futur meilleur.
+Olympiades de Physique France
+
+Page 19
+
+Année 2017/2018
+
+RÉFÉRENCES
+
+Que la mélanine soit ! Et la lumière fut.
+
+Remerciements
+Nous tenons premièrement à remercier nos professeurs encadrants, Mme Vonesch et M. Lohner. Mais aussi
+M. Alati, professeur de mathématiques dans notre lycée, qui nous a consacré un cours sur l’intégration. Remercions aussi Dr. Emmanuelle LEIZE-WAGNER, Directeur de Recherches CNRS, Directeur du Laboratoire
+de Spectrométrie de Masse des Interactions et des Systèmes (LSMIS) et Présidente de la Société Française
+de Spectrométrie de Masse (SFSM), pour nous avoir ouvert les portes de diﬀérents laboratoires. Des mesures
+précieuses ont pu être réalisées là-bas.
+
+Références
+[1] Carbon dioxyde information analysis center. http ://cdiac.ornl.gov/GCP/.
+[2] Planetoscope. https ://www.planetoscope.com/petrole/209-consommation-mondiale-de-petrole.html.
+[3] A. Simmons. Melanin. In Encyclopedia of adaptations in the natural world. Greenwood Press, 2010.
+[4] Jean-Jacques Auclair. http ://jean-jacques.auclair.pagesperso-orange.fr/tyrosinase/synthese.htm.
+[5] B. Levine M. Boiret, A. Marty. Distribution of activity of tyrosinase in the mushroom. June 2010.
+[6] N. Kollias. The spectroscopy of human melanin pigmentation. January 1995.
+[7] Jennifer Riesz. The spectroscopic properties of melanin. PhD thesis, University of Queensland, 2007.
+[8] Chemistry libretexts, jablonski diagram. https ://chem.libretexts.org/.
+[9] Chemistry libretexts, 4.4 : Ultraviolet and visible spectroscopy. https ://chem.libretexts.org/.
+[10] T. Kousksou M. Rivaletto F. Strub P. Pignolet D. Champier, J.-P. Bédécarrats. Study of a thermoelectric
+generator incorporated in a multifunction wood stove. Technical report, Energy, Elsevier„ 2011.
+[11] D.M. Rowe, editor. CRC Handbook of Thermoelectrics, chapter Conversion Eﬃciency and Figure-OfMerit, pages 24–25. 1994.
+[12] Ltd. Hebei I.T. (Shanghai) Co. Thermoelectric Cooler TEC1-12706.
+[13] M. Deumié G. Meek R. Lunt, Y. Zhao.
+Solar energy that doesn’t block the view.
+http ://msutoday.msu.edu/news/2014/solar-energy-that-doesnt-block-the-view/.
+
+Olympiades de Physique France
+
+Page 20
+
+Année 2017/2018
+
+

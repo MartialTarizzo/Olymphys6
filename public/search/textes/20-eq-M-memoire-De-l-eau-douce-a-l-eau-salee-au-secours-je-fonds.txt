@@ -1,0 +1,1022 @@
+De l’eau douce à
+l’eau salée :
+au secours, je
+fonds !
+
+De l’eau douce à l’eau salée : au secours, je fonds !
+
+2012 ~
+2013
+
+Sommaire
+Présentation ............................................................................................................................................ 3
+Introduction............................................................................................................................................. 4
+I)
+
+Observation..................................................................................................................................... 5
+1)
+
+Expérience préliminaire ..................................................................................................... 5
+
+2)
+
+Expérience de vitesse de fonte........................................................................................... 6
+
+II)
+
+Mesures et simulation .................................................................................................................... 8
+1)
+
+Expériences de vitesses comparées .................................................................................... 8
+
+2)
+
+Surface et volume en fonction du temps ............................................................................ 9
+
+III)
+
+i)
+
+Expériences et pointage aviméca ............................................................................................ 9
+
+ii)
+
+Simulation.............................................................................................................................. 10
+
+iii)
+
+Critiques de la simulation ...................................................................................................... 13
+Projets et remarques ................................................................................................................ 14
+
+1)
+
+Le phénomène de retournement ..................................................................................... 14
+
+2)
+
+Le phénomène de courant et de convections ................................................................... 14
+
+3)
+
+L’apport calorifique de la lumière .................................................................................... 15
+
+4)
+
+Remarques...................................................................................................................... 15
+
+IV)
+
+Conclusion ................................................................................................................................. 17
+
+V)
+
+Remerciements ............................................................................................................................. 18
+
+VI)
+
+Annexe ...................................................................................................................................... 19
+
+1)
+
+Poids de la presse ............................................................................................................ 19
+
+2)
+
+Complément au volume en fonction du temps ................................................................. 20
+
+3)
+
+Mathlab : Simulation 1.0 ................................................................................................. 22
+
+© Hugo Blanc, Claire Delorme, Quentin Guye, Mathias Roux - projet.fusion.olympiade@gmail.com
+
+2
+
+2012 ~
+2013
+
+De l’eau douce à l’eau salée : au secours, je fonds !
+
+Présentation
+- Etablissement :
+
+Lycée René Cassin, à Tarare (69)
+
+- Elèves du groupe :
+
+Hugo BLANC
+Claire DELORME
+Quentin GUYE
+Mathias ROUX
+Élèves de terminale scientifique, option sciences de l’ingénieur
+
+- Professeur coordinateur :
+
+Mustapha ERRAMI
+
+- Professeur collaborateur :
+
+Fabien BRUNO
+
+- Partenaires :
+
+Rectorat de l’académie de Lyon
+Conseil Régional de Rhône-Alpes
+M. Roger DUFFAIT, Université Claude Bernard de Lyon
+M. Romain VOLK, École Normale Supérieure de Lyon
+M. Florent JOYET, École Centrale de Lyon
+
+De gauche à droite, M.Mustapha ERRAMI, Quentin GUYE, Hugo BLANC, M. Romain VOLK, Matthias ROUX, M. Fabien BRUNO et
+Claire DELORME dans les couloirs de l’ENS de Lyon après une discussion enrichissante avec M.VOLK.
+
+© Hugo Blanc, Claire Delorme, Quentin Guye, Mathias Roux - projet.fusion.olympiade@gmail.com
+
+3
+
+2012 ~
+2013
+
+De l’eau douce à l’eau salée : au secours, je fonds !
+
+Introduction
+Au début de l'année scolaire, nous sommes tombés sur un article alarmiste
+prophétisant la fin des icebergs d'ici 10 ans (c'est peu !). Nous nous sommes alors demandés
+si les sources n'étaient pas un ramassis de superstitions en tout genre qui prônait une
+apocalypse imminente. Bien entendu, il n'est pas question de se rendre au Pôle Nord et de
+faire nos mesures sur place, nous avons donc voulu reproduire un iceberg en laboratoire.
+Quoi de plus ressemblant à un glaçon qu'un autre glaçon ? C'est donc tout naturellement
+que l'on a voulu faire fondre un glaçon dans l'eau afin d'observer le phénomène de fusion du
+bloc de glace. Très vite, nous avons observé des volutes transparentes dans l'eau douce lors
+de la fonte du glaçon.
+La question qui s'est alors posée est simple « D'où viennent ces volutes ? ». La
+réponse a entrainé à son tour les questions « Sont-elles toujours présents avec l'eau salée,
+comme dans l'océan ? » et « La température influe-t-elle dessus ? ». Mais surtout, « quelle
+est l'influence de ces mouvements sur la fusion de l'iceberg miniature ? »
+Nous avons donc énoncé la problématique suivante : « Quels sont les vecteurs de la
+fonte des icebergs, peut-on les quantifier ? ».
+Nous avons donc organisé notre travail en plusieurs étapes : tout d'abord les
+observations de l'expérience préliminaire telle que la fonte du glaçon en eau douce. C'est
+ainsi que nous avons détecté les mouvements cités auparavant. Pour les mettre en évidence,
+nous avons pensé à colorer ce glaçon. Pour pouvoir interpréter ces résultats, et ainsi se
+placer dans le contexte voulu qui est celui de l'iceberg, nous avons fait, dans une deuxième
+étape, varier les facteurs de salinité (à savoir, 31g/L dans l'océan et 311g/L pour une solution
+saturée à 20°) et de température. La troisième étape serait donc de tester dans les
+conditions de l'océan, en omettant plusieurs éléments tels que les courants marins et les
+vents.
+Bien entendu, nous ne pouvons prétendre à sauver les icebergs du réchauffement
+climatique. D'autre part, certains phénomènes sont hors de notre contrôle tels que la
+température interne des blocs de glace, ou encore la température de la couche d'eau qui se
+forme autour du glaçon (d'un millimètre d'épaisseur) et qui est vraiment la zone d'échange
+de chaleur responsable de la fonte du glaçon, mais aussi l’énergie apportée par le flux
+lumineux.
+
+© Hugo Blanc, Claire Delorme, Quentin Guye, Mathias Roux - projet.fusion.olympiade@gmail.com
+
+4
+
+2012 ~
+2013
+
+De l’eau douce à l’eau salée : au secours, je fonds !
+
+I) Observation
+1) Expérience préliminaire
+
+Figure 1 : Bloc de glace coloré fondant dans une cuve
+
+La première expérience ayant piqué notre curiosité, nous avons retenté en colorant
+l'eau du glaçon afin de voir les volutes plutôt que de les deviner par transparence. Pour ne
+pas trop perturber l'expérience nous avons utilisé un colorant alimentaire dont la densité
+était proche de l'eau douce. Nous avons essayé quatre colorants différents et une cartouche
+d'encre effaçable. Élément frappant : si la cartouche d'encre a bien le pouvoir colorant le
+plus élevé lorsqu'on le mélange à l'eau, il suffit d'attendre une demi-heure pour que l'eau
+redevienne tout aussi incolore qu'elle l'était avant. Nous avons donc du renoncer à l'encre
+bleue. En revanche les colorants bleu et rouge nous montrent des filaments qui descendent
+du glaçon. Nous nous sommes placés dans des conditions de température proche de la
+température ambiante pour éviter toute fluctuation. Il vaut mieux être sur et précis, même
+si l'expérience est qualitative :
+Reprenons : les filaments bleus sont assurément créés par la différence de densité
+entre l'eau à 20° et l'eau proche du glaçon de 0°, le colorant étant hors de cause car proche
+de la densité de l'eau.
+En réitérant l'expérience en eau salée, on s'aperçoit qu'il y a une séparation de phase
+entre l'eau colorée froide en haut (une fine couche de 1 à 2mm d'épaisseur), et l'eau salée
+en bas. On en déduit que l'eau froide est de densité inférieure à l'eau salée à 20°. On
+remarque une autre séparation de phase en eau douce avec l’eau froide en bas et l’eau
+chaude en haut.
+
+© Hugo Blanc, Claire Delorme, Quentin Guye, Mathias Roux - projet.fusion.olympiade@gmail.com
+
+5
+
+De l’eau douce à l’eau salée : au secours, je fonds !
+
+2012 ~
+2013
+
+Figure 3 : Eau salée (phase froide d'eau douce en haut)
+
+Figure 2 : Eau douce (phase froide d'eau douce en bas)
+
+Autre fait intéressant, on observe juste autour du glaçon une fine pellicule d'eau
+froide qui remonte le long du glaçon.
+
+2) Expérience de vitesse de fonte
+Hypothèse :
+
+Au regard de la fine couche autour du glaçon en eau salée, nous avons émis la
+possibilité que la couche agisse comme un « isolant » au chaud et donc protège le glaçon
+d'une fonte accélérée. Nous avons donc relancé les deux expériences en mêmes conditions
+de volume de glaçon, de température, de quantité d'eau dans deux béchers côte à côte mais
+l'un contenant de l'eau douce, et l'autre une solution de plus de 200g/L de sel (NaCl).
+
+Figure 4 : Filaments d'eau froide descendant
+
+© Hugo Blanc, Claire Delorme, Quentin Guye, Mathias Roux - projet.fusion.olympiade@gmail.com
+
+6
+
+De l’eau douce à l’eau salée : au secours, je fonds !
+
+2012 ~
+2013
+
+Observations :
+
+Nous avons filmé les deux expériences en mettant les glaçons au même moment
+dans l'eau, à peine sortis du congélateur dont la température est homogène. Conformément
+à l'hypothèse de départ, le glaçon en eau salée a fondu bien plus lentement comme l'atteste
+la vidéo et l’image prise à la fin de la fonte du glaçon en eau douce.
+
+Figure 5 : Eau salée à gauche, douce à droite
+
+Ces expériences nous ont permis de donner une direction à notre recherche :
+observer la forme des convections (les mouvements des volutes d'eau) en fonction de la
+température et de la salinité et observer où se situent les changements de salinité ainsi que
+de température lors de la fonte du bloc de glace.
+Afin de pouvoir observer cela, il nous faut donc permettre des mesures.
+
+© Hugo Blanc, Claire Delorme, Quentin Guye, Mathias Roux - projet.fusion.olympiade@gmail.com
+
+7
+
+De l’eau douce à l’eau salée : au secours, je fonds !
+
+2012 ~
+2013
+
+II) Mesures et simulation
+
+Dans une optique de quantifier la vitesse de fonte des icebergs, nous avons ensuite
+fait des expériences sur la vitesse de fonte du glaçon dans des milieux de températures
+identiques mais de salinités différentes. C’est pour des raisons de commodités
+expérimentales que nous avons choisi de faire varier la salinité plutôt que la température.
+Nous avons élargi un peu le champ de mesure. Toutefois dans l’arctique, la température de
+l’eau ne varie que de quelques degrés entre 0 et 5 °C. La salinité par contre diminue avec la
+fonte des Icebergs puisque le milieu aqueux environnant gagne en eau douce sans gagner en
+sel en même temps. C’est l’autre raison qui nous a poussés à ne changer que la salinité.
+
+1) Expériences de vitesses comparées
+Pour des raisons de praticité encore, nous nous sommes placés à température
+ambiante de telle sorte que l’ensemble des solutions soit à même température. Ainsi nous
+avons pu obtenir une courbe du temps de fonte en fonction de la salinité. On remarquera
+une petite subtilité de la courbe assez étonnante (autant que les 4°C pour la température de
+la densité la plus élevée de l’eau liquide, voir annexe).
+
+Temps de fonte en fonction de la salinité
+1200
+
+Temps (en s)
+
+1000
+800
+600
+
+Ligne 7
+
+400
+200
+0
+0
+
+5
+
+10
+
+15
+
+20
+
+25
+
+30
+
+35
+
+40
+
+45
+
+Salinité (en g/L)
+
+Reprenons : notre courbe, dans notre plage d’étude, atteint son maximum pour
+17g/L. On peut supposer que sur les basses salinités la « couche protectrice » d’eau douce à
+la température du glaçon s’épaissit ou englobe parfaitement le glaçon. Or à partir d’un
+certain point (17 g/L), en augmentant la salinité, cette couche n’englobe plus totalement le
+glaçon et se concentre en haut du glaçon ce qui réduit le temps de fonte puisque le glaçon se
+retrouve en contact immédiat avec l’eau salée plus chaude. L’hypothèse est confirmée d’une
+part par une vidéo où l’on voit le glaçon fondre en cône, et d’autre part par une courbe avec
+le glaçon totalement immergé présentée en Annexe.
+
+© Hugo Blanc, Claire Delorme, Quentin Guye, Mathias Roux - projet.fusion.olympiade@gmail.com
+
+8
+
+2012 ~
+2013
+
+De l’eau douce à l’eau salée : au secours, je fonds !
+
+Figure 6 : Environnement Aviméca et glaçon conique
+
+2) Surface et volume en fonction du temps
+
+i) Expériences et pointage aviméca
+On part de l’hypothèse que le glaçon sphérique au début le reste jusqu’à la fin. De
+fait, il existe une symétrie autour des axes diamètres de la sphère. On peut alors simplifier le
+problème en l’appliquant à un modèle en deux dimensions.
+Grâce à la projection de l’éclairage en lumière parallèle, on peut déterminer le
+diamètre et le volume du glaçon. Comme dans l’expérience, le glaçon n’est pas parfaitement
+sphérique on mesure deux diamètres perpendiculaires dont on fera la moyenne pour
+obtenir le diamètre. En pointant à intervalles de temps réguliers, où tout du moins à des
+dates connues, on peut tracer une courbe du volume en fonction du temps. (Annexe).
+Concrètement, ces mesures nous permettent d’estimer combien de temps notre
+glaçon va mettre pour fondre connaissant son volume.
+
+© Hugo Blanc, Claire Delorme, Quentin Guye, Mathias Roux - projet.fusion.olympiade@gmail.com
+
+9
+
+2012 ~
+2013
+
+De l’eau douce à l’eau salée : au secours, je fonds !
+
+A 20°, la température ambiante, le volume du glaçon en fonction du temps décrit une
+courbe exponentielle. Les valeurs inférieures n’ont pas été calculées car le glaçon ne
+semblait plus sphérique et son volume en devenait difficilement calculable. La salinité est de
+15g/L. Une autre courbe a été faite à 31g/L, malheureusement, une simple goutte d’eau sur
+la paroi de la cuve a suffit à ne plus permettre la mesure puisqu’il est impossible de dissocier
+l’eau sur la paroi de la cuve du glaçon. Une seconde vidéo est en cours de traitement.
+
+ii) Simulation
+En même temps que les expériences, nous avons voulu modéliser le système et
+simuler la fonte en fonction de la salinité extérieure. La première étape est de simplifier le
+modèle.
+On garde l’hypothèse précédente. On supprime aussi les convections. Le fluide
+autour peu donc être considéré immobile, ce qui n’est valable que si la salinité de l’eau est
+supérieure à 15g/L (suite à des expérimentation sur la recherche de la densité équivalente
+entre le volume d’eau douce à 0° C et celui d’eau salée à 20°C) et que l’eau douce et l’eau
+salée ne sont pas miscibles ou du moins peu. Ce qui est aussi le cas. On peut aussi au
+contraire simuler un fort courant en admettant que celui-ci chasse l’eau douce et garde le
+glaçon en contact avec une eau de température homogène.
+On considère aussi que le glaçon est totalement immergé, ce qui n’est pas
+totalement exact mais le facteur d’erreur diminue avec la taille du glaçon.
+Dans un second temps on partitionne le volume en cellules dont on pourra
+déterminer certaines caractéristiques, notamment, l’état et la température.
+
+© Hugo Blanc, Claire Delorme, Quentin Guye, Mathias Roux - projet.fusion.olympiade@gmail.com
+
+10
+
+De l’eau douce à l’eau salée : au secours, je fonds !
+
+2012 ~
+2013
+
+Soit donc notre glaçon sphérique de rayon R, on divise le disque projeté par N disques. On
+divise de même le disque par M rayons. On prend i l’indice du plus petit disque contenant la
+cellule en prenant pour les cellules centrales i = 1 et n l’indice des cellules délimitées par les
+rayons par le sens trigonométrique avec n = 1 pour les cellules à gauche de l’axe vertical.
+On obtient Ri = R * (i - ½ ) * N-1 et Θn = 2π * (n - ½) * M-1 pour coordonnées polaires du centre
+la cellule par rapport à l’axe vertical.
+Enfin vient la mise en équation. D’après le premier principe de la thermodynamique,
+
+∆ U =∑ Q
+
+où la variation d’énergie interne à la cellule ΔU est égale à la somme des
+échanges de chaleur Q avec les autres cellules. La loi de Fourrier de la chaleur permet de
+modéliser cette somme : Où
+représente le flux de chaleur par une unité
+de surface. Cette loi permet de modéliser le flux spontané de chaleur qui est proportionnel à
+la différence de température des deux points et inversement proportionnel à la distance les
+séparant. Le coefficient de conduction thermique λ est la conductivité thermique du milieu
+et augmente avec la capacité du milieu à transmettre sa chaleur.
+Le flux de chaleur reçue par la cellule (i ; n) et donnée par la cellule (i-1 ; n) est donc :
+j=λ.
+
+T i−1; n−T i ;n
+R/ N
+
+De fait, au cours du temps ΔT la chaleur reçue est telle que :
+
+Q= λ.
+
+T i−1 ;n−T i ;n
+R 2π
+. ( i−1 ) . . . ∆ t
+R
+N M
+N
+
+Où R*N-1 * 2π*M-1 est la surface d’échange entre les deux cellules.
+
+On obtient par simplification :
+
+Q=λ. (T i−1 ;n−T i ; n ) . (i−1 ) .
+
+2π
+. ∆t
+M
+
+De même, la chaleur reçue par la cellule (i ; n) et donnée par la cellule (i+1 ; n) est :
+
+Q=λ. ( T i+1; n−T i ;n ) .i. 2π . ∆t
+M
+
+© Hugo Blanc, Claire Delorme, Quentin Guye, Mathias Roux - projet.fusion.olympiade@gmail.com
+
+11
+
+De l’eau douce à l’eau salée : au secours, je fonds !
+
+2012 ~
+2013
+
+Le flux de chaleur reçue par la cellule (i ; n) et donnée la cellule (i ; n-1). On assimile la
+distance entre les deux centres des deux cellules avec la longueur d’arc entre les deux
+centres des cellules :
+j= λ.
+
+T i ;n−1−T i ;n
+1 R 2π
+i− . .
+2 N M
+
+( )
+
+Donc la chaleur reçue au court du temps est telle que :
+Q= λ.
+
+T i ; n−1−T i ;n
+R
+. . ∆t
+1 R 2π N
+i− . .
+2 N M
+
+( )
+
+Q= λ.
+
+soit
+
+T i ; n−1−T i ;n
+.∆t
+1 2π
+i− .
+2 M
+
+( )
+
+De même le flux de chaleur reçue par la cellule (i ; n) et donnée la cellule (i ; n+1) est :
+Q= λ.
+
+On a aussi :
+
+T i ; n+1−T i ;n
+. ∆t
+1 2π
+i− .
+2 M
+
+( )
+
+∆ U=U i , n ( t +∆ t )−U i ,n ( t )=∑ Q
+
+Ce qui nous permet de savoir l’énergie actuelle de la cellule en sachant l’énergie à l’étape
+précédente. Or, comme
+(avec V le volume de la cellule, C
+sa capacité calorifique volumique et T sa température) on peut déterminer la température
+de la cellule. On peut aussi déterminer son état suivant que la température soit inférieure ou
+supérieure à la température de fusion.
+
+La suite appartient à MATHLAB. Le programme est montré en annexe.
+
+© Hugo Blanc, Claire Delorme, Quentin Guye, Mathias Roux - projet.fusion.olympiade@gmail.com
+
+12
+
+2012 ~
+2013
+
+De l’eau douce à l’eau salée : au secours, je fonds !
+
+Figure 7 : Rendu Mathlab
+
+iii) Critiques de la simulation
+Une première critique pourrait être de ne pas avoir compté dans les calculs la partie
+émergée du glaçon. Celle-ci fond en effet plus lentement du fait que l’air a une conductance
+thermique très faible par rapport à l’eau (0,0262 pour l’air à 20°C et à 100kPa contre 0.6
+pour l’eau en mêmes conditions). La simulation ne tient pas non plus compte pour l’instant
+des convections dues au glaçon ou simplement même du refroidissement extérieur de l’eau
+(l’écriture du code est en cours mais pas totalement aboutie). Troisième critique, on observe
+en Annexe, des courbes montrant que la proportion du volume influence la vitesse de fonte,
+or dans le cas de la simulation, on le considère totalement immergé.
+
+© Hugo Blanc, Claire Delorme, Quentin Guye, Mathias Roux - projet.fusion.olympiade@gmail.com
+
+13
+
+2012 ~
+2013
+
+De l’eau douce à l’eau salée : au secours, je fonds !
+
+III) Projets et remarques
+
+Nous avons découvert au fil de nos expériences des phénomènes particuliers qu’il
+serait intéressant de noter. Nous avons aussi dans l’optique d’automatiser les mesures de
+sorte à pouvoir les multiplier sans être surchargés de données car elles seraient traitées en
+temps réel et nous permettrait de traiter rapidement un plus grand nombre d’expériences
+semblables et ainsi augmenter notre précision. A ces fins nous avons créé quelques
+instruments qu’il n’apparaît toutefois pas nécessaire de vous présenter puisqu’encore en
+phase de conception.
+
+1) Le phénomène de retournement
+Dans l’eau les convections font fondre le glaçon plus rapidement par le bas et les
+côtés que par le haut. De ce fait, il se produit alors un retournement car le haut du glaçon
+devient alors plus lourd que le bas. L’on a alors émis l’hypothèse qu’il existe une fréquence
+de retournement. Il vient alors que la géométrie du glaçon devient préoccupante pour
+l’étude de mouvement, nous avons alors acheté, enfin plus précisément, M.Volk nous a
+prêté généreusement deux presses de tailles différentes formant des glaçons parfaitement
+sphériques dont il conviendrait peut-être de détailler le fonctionnement en quelques lignes
+tant le procédé est efficace. Ce que nous faisons d’abord, c’est un glaçon grossier dans un
+verre en plastique ou un moule à cannelés. Nous le démoulons et nous l’insérons dans la
+presse après l’avoir élevée à température ambiante. Le glaçon fond alors d’abord
+rapidement en récupérant de l’énergie calorifique de la presse qui tend à approcher la
+température du glaçon. Ainsi, quand la presse est totalement fermée autour du glaçon, elle
+est à une température tellement proche de celui-ci que le glaçon est alors parfaitement
+sphérique et ne fond plus. Pour ceux qui se demanderaient si le poids de la presse ne
+jouerait pas un rôle, nous avons détaillé nos calculs pour le savoir en Annexe.
+
+2) Le phénomène de courant et de convections
+C’est en fait le phénomène que l’on cherche à étudier. Très complexe, pour pouvoir
+l’observer visuellement, nous avons eu recours au colorant. Mais il faut noter que celui-ci
+apporte un élément supplémentaire aux expérimentations et qu’il serait difficile d’utiliser le
+colorant dans des mesures quantitatives. Nous avons donc pensé sous les conseils de M.Volk
+à utiliser un montage en lumière parallèle. Très simplement, nous plaçons une lampe sur un
+banc optique, devant une cuve dans laquelle fondra le glaçon, et entre les deux, toujours sur
+ce banc, nous plaçons une lentille pour changer la direction des rayons lumineux et les
+rendre parallèles. Ainsi, nous obtenons une projection sur une surface (le mur blanc du fond
+de la pièce dans notre cas) du glaçon et des mouvements de convections dus au changement
+d’indice de réfraction de l’eau chaude, de l’eau froide, et des bulles d’airs coincées dans le
+glaçon. L’image projetée ainsi est parfaitement nette et lisible, plus encore qu’avec du
+colorant.
+
+© Hugo Blanc, Claire Delorme, Quentin Guye, Mathias Roux - projet.fusion.olympiade@gmail.com
+
+14
+
+De l’eau douce à l’eau salée : au secours, je fonds !
+
+2012 ~
+2013
+
+Figure 8 : Nous disposons d'une presse semblable qui forme des glaçon aussi parfaitement sphériques
+
+3) L’apport calorifique de la lumière
+Le soleil est une source de chaleur importante, et ce, plus précisément quand le
+glaçon contient des bulles d’air. En effet, si celui-ci nous parait blanc plutôt que transparent,
+c’est qu’il renvoie de la lumière mais aussi en capte une légère partie. Et cette partie qu’il
+capte le fait fondre plus rapidement que dans le noir total dans les même autres conditions
+qu’un glaçon exposé au soleil. Sur ce point là, il est difficile d’établir avec précision une
+valeur. Nous supposerons que la valeur est constante, et nous ne l’étudierons pas ou peu car
+définir précisément la quantité d’énergie absorbée par le glaçon dépend de facteurs que
+nous ne pouvons mesurer. Notamment, les bulles qui se forment dans le glaçon sont
+aléatoires et fabriquer des glaçons sans aucune bulle est strictement impossible pour nous,
+faute d’outils et de technicité dans le maniement de ceux-ci. D’autre part, il faudrait mesurer
+en le lieu, la quantité de flux lumineux en lumen dispensé par le soleil, ce qui ferait intervenir
+des unités (unité d’angle solide,…) que l’on serait tout bonnement incapables de maîtriser
+en l’état actuel de nos connaissances. L’apport calorifique solaire et de la lampe seront donc
+totalement supprimés de nos calculs.
+
+4) Remarques
+Nous avons quelques courbes indiquant la vitesse de la convection sous le glaçon qui
+descend vers le fond, toutefois, il n’est pas utile de la noter, et la forme de la courbe dépend
+énormément de la salinité (alors que sur certaines nous avions des polynômes du second
+degré, pour d’autres, nous avions une progression parfaitement linéaire et croissante)
+n’apportant finalement que peu de choses au sujet, nous les avons mises de côté.
+
+© Hugo Blanc, Claire Delorme, Quentin Guye, Mathias Roux - projet.fusion.olympiade@gmail.com
+
+15
+
+2012 ~
+2013
+
+De l’eau douce à l’eau salée : au secours, je fonds !
+
+Même s’il n’en est pas fait mention ailleurs, nous avons apporté un soin particulier à
+la température interne des glaçons. Une plage de mesure ne peut se faire qu’avec des
+glaçons mis au congélateur à la même date et sortis ensemble ou avec suffisamment peu de
+décalage pour que le premier glaçon en expérimentation ne soit pas sorti moins froid que le
+suivant. Dans le même ordre d’idée, les températures de départ de chaque expérimentation
+d’une plage d’expérience sont uniformisées au dixième de degré près, d’où le fait que nous
+préférons nous placer à approximativement 20°C (suivant le jour) plutôt que les conditions
+arctiques de température.
+De plus, même si nos mesures ont été faites dans la plus grande rigueur, la précision
+que nous obtenons va rarement au-delà d’un chiffre significatif (nous ne pouvons estimer
+par exemple la fonte des glaçons qu’à la minutes près), il faudrait recommencer un nombre
+de fois très important nos expériences pour augmenter la précision, ce que nous n’avons pas
+pu faire malgré une très grande volonté générale (faire des glaçons prend au moins 3 jours,
+afin d’être sûrs que rien n’est liquide dans le glaçon et que le glaçon soit d’une température
+uniforme. Les faire fondre ensuite peu aller jusqu’à 15minutes). Ces précautions font suite
+aux premières expériences où nous nous sommes rendu compte de l’importance de ces
+paramètres et notre volonté à les rendre invariants.
+
+© Hugo Blanc, Claire Delorme, Quentin Guye, Mathias Roux - projet.fusion.olympiade@gmail.com
+
+16
+
+2012 ~
+2013
+
+De l’eau douce à l’eau salée : au secours, je fonds !
+
+IV) Conclusion
+Sommes toutes, nous avons passé entre début Novembre et milieu Décembre la
+phase « préliminaire » du projet dans laquelle nous avons défini ce que nous pouvons
+chercher par nos moyens et organisé un planning de travail et de chose à réaliser dans des
+ordres précis pour pouvoir mener jusqu’au bout notre enquête sur la fonte des icebergs.
+C'est-à-dire, après avoir mené des observations nous permettant d’émettre des hypothèses
+simples, passer à l’étape de vérification par le calcul et la mesure.
+Nous nous partageons nos tâches, pour une meilleure efficacité. Pendant que l’un
+s’occupe de l’expérimentation, un autre s’occupe d’élaborer les dossiers, un troisième
+s’occupe de l’aspect théorique et le quatrième fait le lien et informe, en apportant son
+raisonnement, chacun de l’avancement des autres. Les tâches ne sont pas fixées, toutefois,
+avant d’entamer une session de travail, nous savons ce que nous avons à faire. Nous
+apprenons le partage des tâches.
+Sur les deux derniers mois jusqu’à Février nous nous sommes appliqués à faire de
+mesures de vitesse de fonte, des simulations et des expériences afin de vérifier si oui ou non,
+nous pouvions émettre quelques hypothèses simplificatrices quant à la simulation et à
+modéliser le comportement d’un glaçon suivant certains paramètres.
+Nous sommes désormais capable d’estimer le temps que va mettre un Iceberg à
+fondre dans l’eau arctique, à supposer qu’il ait une forme approximativement sphérique où
+du moins dont le rapport Volume/Surface s’approche de celui de la sphère, et qu’il soit
+compact (les icebergs qui ne subissent aucun choc sur un sol dur restent couverts de neige
+sur une large épaisseur ce qui a une forte tendance à accélérer le processus de fonte du fait
+que la neige fonde vite).
+
+© Hugo Blanc, Claire Delorme, Quentin Guye, Mathias Roux - projet.fusion.olympiade@gmail.com
+
+17
+
+De l’eau douce à l’eau salée : au secours, je fonds !
+
+2012 ~
+2013
+
+V)
+
+Remerciements
+
+Nous adressons de sincères remerciements à nos professeurs :
+M. Mustapha ERRAMI, notre professeur coordinateur, pour sa disponibilité et son
+enthousiasme à encadrer des projets.
+M. Fabien BRUNO, professeur agrégé de physique-chimie, pour son aide précieuse, et le
+temps passé avec nous.
+M. François PINAULT et M. Christian VALLON, professeurs des sciences de l’ingénieur, pour
+leurs conseils avisés. Et tout particulièrement pour l’aide sur les possibilités qu’offraient nos
+microcontrôleurs (non éprouvés dans ce dossier par manque d’intérêt sans montre de
+mesures) apportées par M. PINAULT.
+M. Roger DUFFAIT, maître de conférences à l’Université Claude Bernard qui a corrigé
+quelques imperfections de raisonnement et nous a donné un nouvel angle d’appréciation de
+nos expériences.
+M. Romain VOLK, maître de conférences à l’ENS de Lyon, qui nous a proposé l’expérience
+avec un montage en lumière parallèle, et nous a prêté chaleureusement la presse que nous
+utilisons pour fabriquer nos glaçons sphériques.
+Nous remercions aussi, bien qu’ils ne puissent ni le lire, ni l’entendre, les travaux de
+la famille Bernoulli, d’Euler, et d’autres grands Mathématiciens et Physiciens.
+
+© Hugo Blanc, Claire Delorme, Quentin Guye, Mathias Roux - projet.fusion.olympiade@gmail.com
+
+18
+
+2012 ~
+2013
+
+De l’eau douce à l’eau salée : au secours, je fonds !
+
+VI) Annexe
+1) Poids de la presse
+Le questionnement avait été soulevé par des physiciens présents dans la salle lors de
+notre passage à Lyon.
+Prenons notre presse. Elle a pour caractéristiques, la masse m de sa partie supérieure
+ainsi que le poids P correspondant et le diamètre d de l’alvéole contenant le glaçon. On se
+place dans le cas où la pression est la plus élevée sur le glaçon qui sera moulé.
+
+On suppose que le glaçon est un cylindre de diamètre D = 55mm. Sa base a une aire de :
+
+L’alvéole a pour aire du disque le traversant le plus grand :
+
+On en déduit que la surface de contact S vaut :
+
+Et donc on obtient une pression σ :
+
+On observe rapidement que le glaçon reste dans la partie gauche du tableau, dans l’état solide,
+et ce même si l’on ajoute la pression atmosphérique de 100 kPa à Tarare (14 kPa étant à peine
+plus d’un dixième de la pression atmosphérique). Ce cas étant le cas de plus forte pression, on
+peut affirmer que le Poids de la presse n’influence en rien la vitesse de fabrication du glaçon.
+
+© Hugo Blanc, Claire Delorme, Quentin Guye, Mathias Roux - projet.fusion.olympiade@gmail.com
+
+19
+
+De l’eau douce à l’eau salée : au secours, je fonds !
+
+2012 ~
+2013
+
+2) Complément au volume en fonction du temps
+En parallèle de la courbe du temps de fonte du glaçon, nous avons édité une courbe
+du volume immergé par rapport au volume total. On observe une fonction affine quasiment
+parfaite de coefficient négatif relativement faible.
+
+Pourcentage de Volume immergée en fonction de la salinité
+92
+f(x) = -0,07x + 91,6772727273
+
+Pourcentage immergé
+
+91
+90
+89
+88
+87
+86
+0
+
+10
+
+20
+
+30
+
+40
+
+50
+
+60
+
+salinité en g/L
+
+On peut aussi considérer la poussée d’Archimède de l’air car par calcul, la poussée
+d’Archimède de l’eau seule donne des valeurs très proches de celles expérimentales sans
+qu’on ait à lui additionner l’effet de la poussée d’Archimède de l’air.
+Cette deuxième courbe nous permet de dissocier les effets causés par la couche
+protectrice en surface de la fonte causée par la salinité de l’eau en elle-même, le glaçon
+étant immergé 3cm en-dessous de la surface de l’eau.
+
+Temps de fonte en fonction de la salinité (glaçon immergé)
+500
+450
+400
+
+temps (en s)
+
+350
+
+f(x) = -5,1x + 505,43
+
+300
+250
+200
+150
+100
+50
+0
+0
+
+5
+
+10
+
+15
+
+20
+
+25
+
+30
+
+35
+
+40
+
+45
+
+salinité (en g/L)
+
+© Hugo Blanc, Claire Delorme, Quentin Guye, Mathias Roux - projet.fusion.olympiade@gmail.com
+
+20
+
+De l’eau douce à l’eau salée : au secours, je fonds !
+
+2012 ~
+2013
+
+3) Complément sur la densité de l’eau
+Cette courbe illustre la particularité de l’eau à avoir une densité plus élevée à 4° qu’à
+toutes les autres températures (ainsi qu’en tant que solide car cette densité supérieure à 4°
+est due à une « mémoire » de l’organisation moléculaire du solide de l’eau).
+1,0002
+1
+Densité
+
+0,9998
+0,9996
+0,9994
+y = 7E-12x5 - 1E-09x4 + 1E-07x3 - 9E-06x2 + 7E-05x +
+0,9992
+0,9998
+0,999
+R² = 1,0003
+0,9988
+0
+5
+10
+15
+
+20
+
+température °C
+
+Cette seconde image n’est certes pas en accord direct avec ce que nous faisons mais
+elle illustre parfaitement deux choses : la faible miscibilité de deux eaux à salinités
+différentes et le fait que le volume du liquide le plus lourd repousse le second vers le haut
+(poussée d’Archimède).
+
+© Hugo Blanc, Claire Delorme, Quentin Guye, Mathias Roux - projet.fusion.olympiade@gmail.com
+
+21
+
+2012 ~
+2013
+
+De l’eau douce à l’eau salée : au secours, je fonds !
+
+3) Mathlab : Simulation 1.0
+pi = 3.141569;
+Tab = 273.15;
+// Rayon du cylindre
+R = 2E-2;
+// Rayon du contenant
+Rc = 10E-2;
+// Nombre de division radiale
+N = 10;
+// Nombre de division angulaire
+M = 10;
+// température de l'eau ambiante
+Ta = 20;
+// température du glaçon
+Tg = -10;
+//Masse volumique de l'eau kg/m3
+ro = 1000;
+//chaleur latente de changement d'état de l'eau (fusion)
+Lv = 333E3*1.00E3;
+Lfus = Lv;
+Lsol = -Lv;
+//Pas de temps pour la simulation
+dt = 5;
+
+J/m3
+
+s
+
+//Coefficient de conductivité de l'eau
+landa = 0.68;
+
+J/m/K
+
+//capacité calorifique massique de l'eau J/m3/K
+c = 4180*10^3;
+//initialisation de la température du glaçon et de l'eau ambiante
+for i = 1:N
+for n = 1:M
+Ri = Rc/N*(i-0.5);
+tetai = 2*pi/M*(n-0.5);
+//Position de la cellule
+X(i,n)= Ri*sin(tetai);
+Y(i,n)= Ri*cos(tetai);
+//Volume de la cellule
+V(i,n) = (Rc/N)^2*(i^2-(i-1)^2)*2*pi/M;
+//Chaleur reçue par la cellule
+Q(i,n)=0;
+//On introduit une variable Etat : Etat == 1 : c'est de la glace ; Etat == 0 c'est du liquide. Dans
+le cas où il y a un changement d'état, Etat représente la proportion d'eau sous la forme liquide de la
+cellule.
+//Ri<R : :c'est le glaçon : sa température est de Tg
+if(Ri<R)
+T(i,n) = Tg ;
+Etat(i,n) = 1;
+else
+T(i,n) = Ta ;
+Etat(i,n) = 0;
+end;
+end;
+end;
+//initialisation de l'indice
+w=0;
+t=0;
+// Début de la boucle de la simulation
+
+© Hugo Blanc, Claire Delorme, Quentin Guye, Mathias Roux - projet.fusion.olympiade@gmail.com
+
+22
+
+De l’eau douce à l’eau salée : au secours, je fonds !
+
+2012 ~
+2013
+for w = 1:500
+t(w+1)=t(w)+dt;
+
+for i=1:N
+for n=1:M
+//intéraction de (i-1;n) avec (i;n)
+if(i==1)
+Q(i,n) = 0;
+else
+Q(i,n) = landa*(T(i-1,n)-T(i,n))*(i-1)*2*pi/M*dt;
+end
+//intéraction de (i+1;n) avec (i;n)
+if(i==N)
+else
+Q(i,n) = Q(i,n) + landa*(T(i+1,n)-T(i,n))*i*2*pi/M*dt;
+end
+//intéraction de (i;n-1) avec (i;n)
+if(n==1)
+Q(i,n) = Q(i,n) + landa*(T(i,M)-T(i,n))/(i-0.5)/(2*pi/M)*dt;
+else
+Q(i,n) = Q(i,n) + landa*(T(i,n-1)-T(i,n))/(i-0.5)/(2*pi/M)*dt;
+end
+//intéraction de (i;n+1) avec (i;n)
+if(n==M)
+Q(i,n) = Q(i,n) + landa*(T(i,1)-T(i,n))/(i-0.5)/(2*pi/M)*dt;
+else
+Q(i,n) = Q(i,n) + landa*(T(i,n+1)-T(i,n))/(i-0.5)/(2*pi/M)*dt;
+end
+end
+end
+//Variation de température
+T = T + Q./V/c;
+// Changement d'état ?
+// Etat == 1 : c'est de la glace ; Etat == 0 c'est du liquide. Dans le cas où il y a un changement d'état,
+Etat représente la proportion d'eau sous la forme liquide de la cellule.
+for i=1:N
+for n=1:M
+//Changement d'état si la température résultante est inférieur à 0°C et si toute la cellule n'est
+pas entièrement solide
+if((T(i,n)<0)*(Etat(i,n)< 1))
+if(Q(i,n)<(Lsol*V(i,n)*(1-Etat(i,n))))
+T(i,n)=(Lsol*V(i,n)*(1-Etat(i,n))-Q(i,n))/(c*V(i,n));
+Etat(i,n)=1;
+else
+T(i,n)=0;
+Etat(i,n)= Etat(i,n) + Q(i,n)/(Lsol*V(i,n));
+end;
+end;
+//Changement d'état si la température résultante est supérieur à 0°C et si toute la cellule n'est
+pas entiièrement liquide
+if((T(i,n)> 0)*(Etat(i,n)> 0))
+if(Q(i,n)>(Lfus*V(i,n)*Etat(i,n)))
+T(i,n)=(Q(i,n)-Lfus*V(i,n)*Etat(i,n))/(c*V(i,n));
+Etat(i,n)=0;
+else
+T(i,n)=0;
+Etat(i,n)= Etat(i,n) - Q(i,n)/(Lfus*V(i,n));
+end;
+end;
+end;
+end;
+end;
+
+//On trace la courbe
+surf(X,Y,T
+
+© Hugo Blanc, Claire Delorme, Quentin Guye, Mathias Roux - projet.fusion.olympiade@gmail.com
+
+23
+
+

@@ -1,0 +1,1146 @@
+SPACE E.T.
+Un premier pas vers le cosmos
+PARADOT Eline & MARIN Thibaut,
+Lycée Bertran de Born, PERIGUEUX
+
+RESUME
+Nous avons choisi d’aborder dans notre mémoire, nommé « SPACE E.T. Un premier pas vers le
+cosmos », les procédés permettant de modéliser la trajectoire d’une fusée tout en étant néophytes.
+Nous développerons dans un premier temps les principes élémentaires de physique qui ont été
+utilisés tout au long de notre recherche. Puis, nous décrirons chaque étape de nos
+expérimentations, de la première fusée d’artifice utilisée, au lancement de notre modèle personnel
+avec un système de mesures embarqué dans le but d’obtenir une trajectoire correcte qui sera
+mesurée et détaillée à l’aide de nos connaissances acquises. La conclusion dévoilera si notre projet
+a été techniquement mené à terme et si les améliorations effectuées ont été bénéfiques.
+
+REMERCIEMENTS
+Nous tenons tout d’abord à témoigner notre profonde reconnaissance à nos professeurs encadrants,
+Monsieur Ducassou et Monsieur Torrens, qui nous ont guidés tout au long de cette expérience. Nous
+remercions également le personnel, les techniciens de laboratoire ainsi que notre établissement
+pour leur aide et le matériel qui a été mis à notre disposition.
+Nous adressons enfin nos remerciements au comité national des Olympiades de Physique de France,
+organisateur de ce concours, qui nous a permis d’aborder la physique autrement et de faire un
+premier pas dans la recherche.
+
+1
+
+TABLE DES MATIERES
+1.
+
+2.
+
+3.
+
+Introduction..................................................................................................................................... 4
+1.1.
+
+La conquête spatiale................................................................................................................ 4
+
+1.2.
+
+Une nouvelle conquête lycéenne ............................................................................................ 4
+
+Les principes élémentaires de physique ......................................................................................... 5
+2.1.
+
+Les lois de Newton .................................................................................................................. 5
+
+2.2.
+
+Les différentes forces exercées sur une fusée ........................................................................ 5
+
+2.3.
+
+Adaptation de la théorie pour nos expérimentations ............................................................. 6
+
+2.3.1.
+
+Expression des paramètres du vol : accélération, vitesse, altitude ................................ 6
+
+2.3.2.
+
+Étude de la vitesse v(t) de la fusée. Équation de Tsiolkovski ......................................... 7
+
+Les premières études et les premiers lancements .......................................................................... 9
+3.1.
+
+Recherche d’ordres de grandeur ............................................................................................. 9
+
+3.2.
+
+Les premiers tirs et leurs exploitations ................................................................................. 10
+
+3.2.1.
+
+Réalisation de chronophotographies ............................................................................ 10
+
+3.2.2.
+
+Exploitation des données – Paramètres du vol ............................................................. 10
+
+3.2.3.
+
+Conclusion sur l'étude des fusées à l’unité ................................................................... 12
+
+3.3.
+
+4.
+
+Nouvelles générations fusées Objectif : embarquer un capteur .......................................... 12
+
+3.3.1.
+
+Avec trois moteurs – tests préliminaires ....................................................................... 12
+
+3.3.2.
+
+Avec trois moteurs – Test 2 ........................................................................................... 13
+
+3.3.3.
+
+Utilisation d'un lanceur pour guider la fusée au décollage ........................................... 13
+
+3.3.4.
+
+Une tuyère pour gagner en puissance et en équilibre .................................................. 13
+
+3.3.5.
+
+Les dernières fusées ...................................................................................................... 15
+
+Étude avec un système embarqué : le Arduino mini .................................................................... 16
+4.1.
+
+Les différents modules utilisés .............................................................................................. 16
+
+4.1.1.
+
+Le microcontrôleur ........................................................................................................ 16
+
+4.1.2.
+
+L’accéléromètre ............................................................................................................. 16
+
+4.1.3.
+
+Le lecteur de carte SD.................................................................................................... 16
+
+4.1.4.
+
+Assemblage des modules : Le dispositif embarqué ...................................................... 17
+
+4.1.5.
+
+L'alimentation externe et autonome ............................................................................ 17
+
+4.2.
+
+Programmation des modules ................................................................................................ 18
+
+4.3.
+
+Les tirs avec systèmes embarqués et leur exploitation ........................................................ 20
+
+4.3.1.
+
+Le temps entre deux mesures ....................................................................................... 20
+
+4.3.2.
+
+Courbes expérimentales a=f(t) ...................................................................................... 20
+
+4.3.3.
+
+Exploitations des données............................................................................................. 21
+2
+
+5.
+
+Conclusion ..................................................................................................................................... 21
+
+6.
+
+Bibliographie – Webographie ........................................................................................................ 23
+
+3
+
+1. INTRODUCTION
+1.1.LA CONQUETE SPATIALE
+L’épopée de la conquête spatiale a démarré dans les années 1900, lorsque l’Homme s’est intéressé
+au plus grand domaine jamais exploré : l’espace. Un demi-siècle a suffi aux scientifiques pour
+envoyer les premiers objets puis le premier homme dans l’espace.
+C’est à Constantin Tsiolkovski que l’on doit de nombreux travaux en fuséologie (l'étude de la
+physique des fusées) ainsi que l’équation de Tsiolkovski, plus de trois siècles après qu’Isaac Newton
+ait posé les bases de l’astronautique. A cette époque, les scientifiques ne sont pas les seuls à se poser
+la question de la possibilité d’un voyage dans l’espace : Jules Verne en est l’exemple avec son roman
+De la Terre à la Lune.
+Ce sont dans des perspectives militaires que naissent d’abord les premières innovations
+technologiques dans le domaine du spatial avant de se tourner vers la création d’outils d’exploration.
+La guerre froide, notamment entre l’Union Soviétique et la puissance américaine, a permis des
+progrès gigantesques en matière de propulsion avec l’envoi des premiers satellites.
+C’est lors de cette compétition entre les deux supers puissances appelée la « course à l’espace »
+qu’est apparue, en 1958, l'agence spatiale américaine, NASA avec de nombreux objectifs comme
+envoyer le premier Homme dans l’espace, poser le pied sur la Lune ou survoler les planètes Mars et
+Vénus. Cette course prit fin avec la mission américaine Apollo 11 qui envoya notamment Neil
+Armstrong sur la Lune en 1969. La réconciliation entre les deux pays donne un nouveau souffle à la
+conquête spatiale qui se tourne vers de nouveaux objectifs encore plus importants comme
+l’exploration de la planète Mars.
+
+Figure 1 : Viking 2 Lands on Mars (Source NASA Sept. 3, 1976)
+
+1.2.UNE NOUVELLE CONQUETE LYCEENNE
+Notre expérience ne nous permettra pas de faire un pas sur la Lune ni un grand pas pour l'humanité
+mais nous pourrons simplement tenter de satisfaire notre soif de connaissances à l’aide de fusées
+d’artifice manipulées avec précaution1. Dans la production seront abordés les principes de base de la
+physique qui permettront l’étude du vol des fusées et notamment leur phase dite “atmosphérique”.
+Nous tâcherons ensuite de faire l’acquisition expérimentale de grandeurs physiques pertinentes
+permettant de caractériser la physique du vol de nos fusées. Une fois exploitées ces données
+exploitées, nous auront à notre disposition les caractéristiques physiques et performances de nos
+fusées.
+
+1
+
+Voir annexe sur la sécurité
+
+4
+
+2. LES PRINCIPES ELEMENTAIRES DE PHYSIQUE
+2.1.LES LOIS DE NEWTON
+Les lois de Newton permettent d'étudier les mouvements des systèmes mécaniques en physique
+classique. La seconde loi donnée ci-dessous de Newton est la principale loi permettant cette étude :
+∑
+
+=
+
+La somme des forces extérieures est égale au produit de la masse du corps en kilogramme par
+l'accélération en m.s-2. Les forces s'expriment en Newton. Cependant, cette formule n'est valable que
+lorsque la masse du corps est constante au cours du temps. Dans le cadre de nos expérimentations,
+une formulation de la loi utilisant de la quantité de mouvement est plus adaptée car la masse de
+notre système n’est pas constante.
+∑
+
+=
+
+On détermine la quantité de mouvement par le produit de la masse et de la vitesse. Si m et v
+dépendent du temps en effectuant la dérivation d'un produit de fonctions :
+=
+
+∑
+
+.
+
++
+
+Le principe de l’action et de la réaction (ou troisième loi de Newton) selon lequel à toute action
+correspond une réaction égale et de sens opposé est à l'origine de la propulsion. La troisième loi de
+Newton, nous sera utile pour comprendre la poussée. Celle-ci est générée lors de la propulsion des
+gaz par les moteurs. La vitesse de la fusée augmentera d’autant plus que les gaz sont propulsés plus
+rapidement. Nous démontrerons plus tard que le second terme de notre expression correspond à
+cette force de poussée :
+=
+
+.
+
+= −Q.
+
+Dans cette expression est la poussée exprimée n Newton, Q le débit massique des gaz en kg.s-1 et
+ve la vitesse d'éjection des gaz en m.s-1. Le débit massique est masse qui passe à chaque instant à
+travers une section. Ici, il est lié aux gaz issus de la combustion de la poudre qui sont expulsés par la
+fusée.
+
+2.2.LES DIFFERENTES FORCES EXERCEES SUR UNE FUSEE
+En mécanique, pour étudier le mouvement d’un corps, il faut tout d’abord définir le système sur
+lequel on travaille. La fusée est le système étudié, dans un référentiel terrestre, supposé galiléen. En
+effet, dans la mesure où les vols des fusées ne durent que quelques secondes, le mouvement de la
+Terre dans le référentiel héliocentrique est négligeable.
+
+5
+
+Les fusées utilisées sont soumises à plusieurs forces : le poids, la
+poussée, la traînée et la portance. La poussée est obtenue grâce aux
+lois de Newton citées précédemment. Le poids est calculable en
+connaissant la masse de la fusée et l'intensité de la pesanteur au lieu
+où sont effectués les tirs. La portance ne sera pas étudiée dans notre
+développement car elle est inutile à notre échelle. Ces trois forces
+sont d'une importance cruciale pour quantifier le mouvement de nos
+systèmes de fusées.
+La traînée est une force mécanique générée par l'interaction et le
+contact entre un corps et un fluide2 (liquide ou gazeux), et par la
+vitesse de la fusée, ici dans l'air. Elle dépend également de la taille et
+de la forme de la fusée. Concrètement, la traînée est une friction
+aérodynamique entre les molécules de l'air et la surface de la fusée.
+Si la surface est lisse la friction sera faible contrairement à une surface rugueuse.
+
+Figure 2 : Les différentes forces qui
+s'exercent sur une fusée
+
+Pour calculer la traînée, on utilise généralement l'équation suivante en appelant
+est ensuite intégrée dans l'équation de mouvement :
+
+la traînée. Elle
+
+1
+ρ
+2
+
+Où ρ est la masse volumique du fluide (dans notre cas, la masse volumique de l'air) en kg/m3, S la
+surface de référence de la fusée en m2, le coefficient de traînée (sans unité, déterminé par des
+abaques) et la vitesse de l'obstacle (fusée) en m/s.
+La surface de référence S de la fusée est l'aire de la coiffe, partie mise en contact avec l'air.
+L’aérodynamisme de nos fusées n’a pas été étudié dans notre développement.
+Après la poussée, la portance et la traînée qui sont des forces citées précédemment, on relève le
+poids qui correspond à la force de la pesanteur exercée par la Terre sur nos fusées. Cette dernière
+force est égale au produit de la masse par l’accélération de la pesanteur g. Le poids s’exprime en
+Newton, la masse en kilogramme et g en m.s-2. Par notre localisation et l'altitude atteinte lors des
+lancements, on peut estimer que g reste constant pour nos expérimentations avec g=9.81m.s-2 qui
+est la valeur de g à Paris et donc sensiblement celle à Périgueux.
+
+2.3.ADAPTATION DE LA THEORIE POUR NOS EXPERIMENTATIONS
+2.3.1. Expression des paramètres du vol : accélération, vitesse, altitude
+Les relations mathématiques entre hauteur, vitesse et accélération sont indispensables dans notre
+étude du corps d'une fusée en mouvement.
+On note la hauteur en fonction du temps d'un corps z(t). Si on calcule la dérivée de l'équation
+horaire, on obtient la variation de la vitesse au cours du temps notée v(t). Et si v(t) est dérivée elle
+aussi, on obtient la fonction donnant l'accélération au cours du temps notée a(t). Le processus
+inverse, l'intégration, est aussi applicable. On a alors entre deux instants notés t0 et t1:
+
+2
+
+il n’y a donc pas de trainée dans l’espace
+
+6
+
+Pour la vitesse : Δ
+
+!
+
+"
+
+et pour la distance parcourue : Δ#
+
+#
+
+#
+
+!
+
+"
+
+Si entre deux instant t0 et t1 nous avons a , l'aire sous la courbe de l’accélération au
+cours du temps permet d’obtenir sa vitesse dans ce même intervalle de temps puis par
+intégration l'altitude atteinte.
+Grâce à une étude chronophotographique, il est possible de calculer facilement
+l'accélération moyenne d'un corps en mouvement dans un repère en trois dimensions.
+La norme de l'accélération est déterminée à partir de trois composantes (ax, ay, az).
+Il faut utiliser la relation du théorème de Pythagore, simplement adaptée pour un
+%
+
+repère en trois dimensions. Soit :
+
+²
+
+'²
+
+(²
+
+En adaptant ces notions théoriques à notre cas, il est alors possible de déterminer
+Figure 3 : Composantes de
+l'équation de mouvement d'après les relations précédentes.
+l'accélération
+
+Mais pour cela, nous avons besoin d’émettre l’hypothèse simplificatrice suivante : le
+poids et la poussée sont les uniques forces appliquées sur notre système.
+
+2.3.2. Étude de la vitesse v(t) de la fusée. Équation de Tsiolkovski
+Le système {fusée} sera étudié à deux instants donnés : les instants et
+.
+On pose l'hypothèse que la vitesse d'éjection est constante ainsi que le débit
+massique Q. A tout instant, la seconde loi de Newton est applicable à notre
+système fermé.
+Système à l'instant t :
+- masse :
+- vitesse :
+Système à l'instant t+dt : il existe deux sous-systèmes : le corps de la fusée et
+les gaz qui se sont échappés (une masse ) ).
+Corps de la fusée
+- masse :
+)
+- vitesse :
+gaz
+- masse : )
+- vitesse :
+
+Figure 4 : le système fusée aux temps
+t et t + dt
+
+Évaluons la différence de quantité de mouvement entre les instants et
+.
+
+En divisant tout par
+
+δ
+
+δ
+
+.
+
+:
++
+
+,
+
+δ
+
+, on en déduit que :
+
+7
+
+.
+
++
+
+=
+- ../
+-
+
++
+
+,
+
+−
+
++
+
+δ
+
+-/
+
+=
+
+. - + Q.
+1.
+
+Où Q est le débit d'éjection de gaz (supposé constant): 0 = -
+
+L’application de la seconde loi de Newton (où seul le poids s’applique - la force de frottement a été
+négligée) permet de retrouver l'équation horaire:
+.
+
+=
+
+.
+.
+
++ Q.
+
+= 2
+
+= 2 − Q.
+
+Dans cette équation, le membre gauche se compose des paramètres observables et mesurables du
+corps étudié, et le membre droit les forces mentionnées précédemment.
+Cette équation peut être encore transformée pour exprimer la variation de vitesse :
+
+345./6
+
+= .
+
+D’après nos hypothèses a également
+=
+− 0 où
+est la masse initiale de la fusée. En
+effet la masse restante de la fusée à un instant t est sa masse initiale à laquelle on retranche la masse
+des gaz éjectés.
+Cette dernière relation donne, après intégration, la variation de la vitesse. On l'appelle l'équation de
+Tsiolkovski :
+∆ = −8. +
+
+. ln
+
+−0
+
+Cette équation permet ensuite de trouver l'équation du mouvement. Il faut considérer qu'il n'y a que
+la poussée qui agit sur la fusée et que la vitesse d'éjection est constante.
+
+8
+
+3. LES PREMIERES ETUDES ET LES PREMIERS LANCEMENTS
+
+Figure 5 : Une fusée d'artifice de type K1
+
+Le type de fusée utilisé est composé de deux grandes parties :
+-
+
+-
+
+Le propulseur, qui est composé généralement de deux types de poudres. L'une pour la
+propulsion et l'autre pour l'explosion de l'artifice. Il correspond à la partie inférieure de la
+fusée, de forme cylindrique (5,8 cm de
+hauteur pour 1,4 cm de diamètre).
+Un compartiment creux, contenant des
+billes de combustible, qui seront éjectées à
+l'explosion de la fusée dans des directions
+Figure 6 : Représentation schématique de la fusée
+aléatoires. Ces billes, lors de leur combustion,
+émettront une flamme colorée. Elles se
+trouvent dans la partie supérieure de forme cylindrique, avec 5 cm de hauteur et 1,4 cm de
+diamètre.
+
+La masse, en comptant la baguette, est approximativement de 16 grammes, la masse d'explosif est
+indiquée à 7,5 grammes. La force de pesanteur s'exerçant sur cette fusée correspond à une norme de
+0,157N. Sa force de poussée, en admettant qu'elle soit constante, doit être supérieure à son poids
+afin que l’ensemble puisse décoller.
+
+3.1.RECHERCHE D’ORDRES DE GRANDEUR
+Ces premiers lancements ont permis de mesurer approximativement le temps de combustion de la
+fusée ainsi que l’altitude maximale atteinte. Le temps ascensionnel est d’environ 4 secondes pour
+un temps de combustion de 1.8 secondes d’après le chronomètre utilisé. L’altitude maximale est
+comprise entre 7 et 8 mètres environ. Grâce au temps de combustion et à l'indication portée sur les
+fusées, il est possible d’en déduire le débit massique de gaz éjectés Q :
+0
+
+7,5
+1,8
+
+4,28. @ 4
+
+Puis la vitesse moyenne ascensionnelle en effectuant le rapport de la distance parcourue sur le
+temps total du parcours :
+
+.A'
+
+B
+C
+
+1,75 . @ 4
+
+Et enfin la masse restante après un temps de combustion de 1,8 secondes, soit :
+1,8
+
+0
+
+8,58
+
+Avec ces premiers résultats, il est possible de critiquer les valeurs obtenues. L’altitude maximale a
+été estimée à l’œil nu et la détermination du temps total de combustion par chronométrage
+manuel ne prend pas en compte le temps de réaction humain et ne peut donc pas être qualifié de
+précis.
+
+9
+
+3.2.LES PREMIERS TIRS ET LEURS EXPLOITATIONS
+3.2.1. Réalisation de chronophotographies
+Dans cette seconde phase, le même modèle de fusée a été utilisé. Cette
+deuxième étude va permettre de préciser et d'affiner les résultats obtenus
+lors de la première phase de tests.
+Deux caméras fixes sont utilisées. Une permettra de filmer le décollage et
+l’autre de filmer l’ensemble du vol. Un étalon de 2,20 mètres est placé à
+côté de la fusée dans le but de calculer au mieux l'altitude maximale. Les
+vidéos seront analysées grâce à la chronophotographie. Cela permettra de
+calculer la vitesse, l'altitude et donc de pouvoir en déduire son Figure 7 : Décollage d’une fusée
+accélération et sa poussée.
+Toutes ces grandeurs physiques sont calculées par le logiciel Latis Pro à partir de la
+chronophotographie réalisée.
+
+3.2.2. Exploitation des données – Paramètres du vol
+Douze lancements et douze chronophotographies ont été réalisés dans le but d’affiner les résultats à
+l’apogée.
+Tout d'abord, grâce à ces lancements, nous avons pu obtenir une altitude moyenne des fusées à
+l'apogée, en conservant les valeurs cohérentes : DE 6,70
+Le calcul de l’écart type sur cette série de données nous a permis d’étudier la dispersion des altitudes
+
+obtenues lors des différents lancements. L’écart type d’une série de mesure est donné par H
+où V est la variance. Soit, dans notre cas : H 0,64
+
+√J
+
+L’altitude moyenne atteinte par une fusée est donc de :
+DE
+
+6,70 K 0,64
+
+A l’aide d'un chronomètre, il nous a été possible de déterminer une durée de temps ascensionnel :
+/AL
+
+2,93 K 0,38 @
+
+Nous avons considéré que la durée de combustion des fusées est égale à la durée de la phase
+ascensionnelle, bien que la fusée décolle un peu après le début de la combustion et arrête son
+ascension un peu après la fin de la combustion du carburant.
+Nous pouvons maintenant affiner notre première estimation du débit massique. Pour avoir une
+valeur de la masse de carburant consommé, quatre des douze fusées utilisées ont été pesées avant
+et après les lancements. On mesure une perte de masse moyenne de 2,73 g. On peut donc calculer le
+débit massique moyen qui est de 0 0,93 K 0,208. @ 4 . On peut donc remarquer une dispersion
+importante de nos résultats autour de la moyenne.
+Afin d'établir l'équation de Tsiolkovsky, nous avons cherché à déterminer la vitesse d’éjection des
+gaz.
+10
+
+Nous avons considéré que la vitesse d'éjection et le débit massique des gaz sont constants au cours
+de la phase ascensionnelle. Nous supposerons également que la fusée a une trajectoire parfaitement
+verticale à tout instant, ce qui nous permet de dire que les vecteurs vitesses et de poids ne
+possèdent des composantes que selon l'axe vertical (celui de la trajectoire).
+Nous avons choisi d’étudier notre système à un instant bien défini, à mi-chemin de l’apogée dans un
+référentiel terrestre galiléen.
+•
+•
+•
+
+Vitesse moyenne : 2,51 K 0,69 . @
+Masse de la fusée à mi-chemin : 11,2 K 3,1 8
+Norme du vecteur poids à cet instant : 2
+.8
+
+0,11 O
+
+Remplaçons maintenant, après projection sur l'axe vertical, les termes de l'équation précédente par
+4-/
+Q
+-
+
+les valeurs calculées :
+
+.P
+
+2
+
+Application numérique :
+
+3ARSSé
+
+0.
+
+0.
+0,13 O
+
+Sa poussée sera donc de 0,14 Newton. Notons que la poussée de la fusée est supérieure à son poids,
+ce qui lui permet de décoller et valide la cohérence de nos résultats. On peut alors en déduire la
+vitesse d'éjection des gaz :
+3ARSSé
+
+0
+
+130
+
+. @4
+
+Nous pouvons donc désormais établir l'équation de Tsiolkovski expérimentale pour notre fusée en
+prenant une vitesse initiale nulle:
+∆
+
+8.
+
+. ln
+
+0
+
+Figure 8 : modélisation de la loi de vitesse selon l’équation de Tsiolkovski. A gauche : modélisation sur 12 s,
+A droite modélisation sur 2s.
+
+Notons que cette vitesse prend des valeurs qui tendent vers l'infini quand t tend vers 13 s, mais cela
+correspondrait à une consommation totale de la masse, or la masse totale de la fusée n'est pas égale
+à la masse de combustible consommé pour créer la poussée.
+
+11
+
+3.2.3. Conclusion sur l'étude des fusées à l’unité
+Nous arrivons à la fin de cette grande partie atmosphérique, après les nombreuses expérimentations
+de lancements de fusées ainsi que l'exploitation des chronophotographies qui y sont rattachées, à en
+déduire une fiche d'identité de nos fusées :
+•
+•
+•
+•
+•
+•
+•
+
+Masse totale avant lancement : 12,55 K 0,33 8
+Masse moyenne de la coiffe (ogive) : 0,92 K 0,09 8
+Masse totale après lancement : 9,82 K 0,74 8
+Masse carburant : 2,73 8
+Altitude maximum : 6,70 K 0,64
+Durée de vol moyenne : 2,93 K 0,38 @
+Débit massique 0,93 8. @ 4
+
+A la fin de cette première étude, nous avons pensé qu’il serait judicieux d’utiliser un système
+embarqué dans nos fusées afin d’obtenir des données plus précises sur les vols effectués. En effet, le
+pointage des positions successives des fusées est délicat, la fusée apparaissant floue sur les images.
+De plus la fusée sort rapidement du champ fixe de la caméra, nous n'avons pas pu capter sur le
+même plan toute la trajectoire des fusées.
+
+3.3.NOUVELLES GENERATIONS FUSEES OBJECTIF : EMBARQUER UN CAPTEUR
+Après avoir étudié précisément les fusées d’artifice à l’unité, l’objectif était de passer à une
+génération de fusées plus puissantes afin d’optimiser plusieurs paramètres comme la poussée,
+l’accélération ou même la vitesse. Il a donc fallu rechercher une solution pour atteindre ce but car le
+fait d’ajouter un système embarqué dans la fusée augmente considérablement sa masse et limite sa
+capacité à décoller.
+
+3.3.1. Avec trois moteurs – tests préliminaires
+L'hypothèse d’assembler le moteur de trois fusées avec simplement une coiffe
+pour multiplier la poussée par trois a été le point de départ de cette nouvelle
+génération de fusées. Étant donné que ce sont des fusées d’artifice, les billes
+d’artifice sont inutiles. Elles seront retirées dans toutes les expérimentations qui
+suivront.
+Ce premier modèle n’a pas été concluant puisqu’en effet, il semble que les gaz
+s’échappent par le haut des trois moteurs. Ce qui explique le fait que ce modèle
+n’ait pas décollé.
+Pour vérifier cette hypothèse, un test a été effectué avec une seule fusée sur
+laquelle le haut du réacteur a été bouché avec de la colle extra-forte. La fusée a
+Figure 9 : Photo des trois
+moteurs liés vus de dessus
+
+décollé correctement, confirmant ainsi l’hypothèse des gaz s’échappant par le
+haut.
+
+Coller trois fusées entre elles pour obtenir un lanceur plus puissant semblait donc envisageable.
+
+12
+
+3.3.2. Avec trois moteurs – Test 2
+L’objectif dans la conception du modèle suivant était d’améliorer la
+stabilité d’une fusée à trois réacteurs à l’aide d’une enveloppe
+externe. Cette dernière était faite de carton recouvert de papier
+aluminium pour éviter un éventuel embrasement de la fusée lors du
+vol.
+La coiffe utilisée pour ce modèle est une demi-sphère (une balle de
+Figure 10 : Fusée à trois moteurs et son corps
+tennis de table découpée en deux) afin de faciliter le calcul de la de protection
+surface de référence.
+Lors des essais de tir, la fusée décollait bien, mais sa trajectoire devenait vite aléatoire dans le sens
+où, au lieu de rester verticale, elle partait en spirale au cours de son vol. Cette observation est
+sûrement liée à une poussée non équivalente des trois réacteurs.
+
+3.3.3. Utilisation d'un lanceur pour guider la fusée au décollage
+Le lanceur de ce modèle était composé d’une bouteille en plastique sur laquelle nous avons découpé
+une fenêtre pour permettre l'allumage des mèches. Un tube en carton de 70 cm de long est placé
+dans au sommet d'une bouteille pour guider la trajectoire de la fusée.
+Le résultat de ce vol n’a été ni concluant ni un échec : la fusée a décollé mais sa trajectoire n’était pas
+du tout stable comme précédemment. Elle a atteint une altitude d’environ deux mètres, avant de se
+déséquilibrer et retomber au sol. Le problème pouvait être causé par deux éléments :
+•
+•
+
+Le tube était trop court et n’a pas correctement accompagné la trajectoire de la fusée.
+Le lanceur n’était pas assez stable, ce qui a pu déséquilibrer dès le début la fusée.
+
+Pour pallier ces problèmes, nous avons utilisé un tube PVC deux fois plus long, celui-ci étant vissé à
+un pied en acier pour plus de stabilité. Le test de ce lanceur s’est fait avec le même modèle de fusée
+que précédemment.
+La fusée a pris naturellement une trajectoire en spirale qui a démontré qu’elle était toujours
+déséquilibrée. La conclusion était que c’est la fusée elle-même qui n’était pas bien équilibrée. Il fallait
+donc changer sa conception.
+
+3.3.4. Une tuyère pour gagner en puissance et en équilibre
+L’élément principal rajouté au prochain modèle fut une tuyère de
+Laval. L’avantage de cette dernière est que, de par sa forme, elle va
+accélérer les gaz éjectés et homogénéiser leur vitesse d’éjection
+lorsqu’ils passeront le col.
+Elle a été réalisée avec de l’aluminium de canette alimentaire,
+découpé, soudé et collé avec du mastic acrylique. Le tout est Figure 11 : Schéma d’une tuyère de Laval
+directement collé au trois réacteurs.
+
+13
+
+Un test préalable au sol a été effectué : le moteur
+complet était placé dans un étau et maintenu immobile
+afin de savoir si la tuyère résisterait à la poussé des trois
+réacteurs. Le résultat fut un échec puisque les deux
+cônes de la tuyère se sont désolidarisés et l’aluminium
+n’a pas conservé sa forme.
+
+Figure 12 : Tuyère montée sur une fusée (image du haut)
+et en cours de test au sol (image du bas)
+
+Nous avons alors imaginé un modèle de tuyère plus résistante. Nous l’avons fait
+concevoir par une entreprise spécialisée de notre région : TDI Laser.
+Les deux cônes, réalisés dans un alliage d'aluminium beaucoup plus résistant que celui
+utilisé précédemment, ont été fixé grâce à une colle spéciale et un morceau de tube en
+PVC pour en assurer la jonction.
+
+Une autre amélioration faite sur ce modèle de fusée était le changement de matière pour
+l’enveloppe externe. L’utilisation du carton recouvert de papier aluminium pouvait influer
+sur l’équilibrage de la fusée et donc sa trajectoire pendant le vol. Un tube en PVC
+de même diamètre que celui du moteur semblait mieux équilibré que du carton.
+Ces modifications ont alourdi considérablement la masse totale de la fusée (tout comme la
+tuyère). En effet elle a été multipliée par un facteur 10, de 15 grammes initialement, notre
+modèle en faisait désormais 169 grammes au total.
+
+Figure 13 : Tuyère finale
+
+La coiffe initiale (une demi-sphère ) et le lanceur ont été conservés.
+Le résultat de ce lancement fut un échec, la fusée n'a pas décollée. L’explication la plus
+logique était que la masse était trop importante pour que la fusée décolle
+En plus la tuyère, après ce test, fut fortement endommagée. La section qui collait les deux
+cônes n’a pas tenu sous la pression exercée par les gaz ainsi que, vraisemblablement, leur
+température d'éjection.
+Une fois la tuyère réparée avec de la colle spéciale haute température nous avons procédé à
+de nouveaux tests
+Nous avons alors constaté, grâce à la fenêtre du lanceur permettant une
+observation directe, que la combustion se faisait bien mais que la fusée
+ne bougeait pas. Un ultime test sans lanceur, avec le même modèle de Figure 15 : fusée
+fusée simplement posée sur un support, nous a permis de conclure que complète
+la masse était la cause du non-décollage de la fusée.
+
+14
+Figure 14 : seconde version
+du lanceur
+
+Dès lors, afin de pouvoir embarquer les modules de mesures Arduino, nous nous sommes employés à
+minimiser la masse de la fusée au décollage. De plus, le lanceur ayant été rendu inutilisable, nous
+avons abandonné son utilisation pour la suite.
+
+3.3.5. Les dernières fusées
+Dans un premier temps, nous avons testé plusieurs stratégies afin de diminuer la masse de nos
+fusées :
+-
+
+le retour à l’utilisation du corps cartonné plus léger
+le retrait des colles et mastics qui ont été remplacés par un scellement à l'aide de mousse
+polyuréthane expansée.
+
+La masse de ces fusées était bien plus faible (46 g) elles décollaient à vide mais étaient incapables
+d’emporter une charge utile (modules de mesure et pile). Ces deux paramètres nous ont amené à
+utiliser un modèle de fusée radicalement différent, celles de classe K2, plus puissantes que celles de
+classe K1 utilisées jusqu’à présent (voir annexe).
+
+Figure 16 : Photo et schéma de la fusée
+
+Afin de s’assurer que ce modèle était utilisable pour embarquer nos modules, nous avons fait une
+simulation de tir avec une fusée constituée d’un corps cartonné, d’une coiffe, du nouveau moteur
+issu des fusées type K2 et d’une masse utile équivalente à celle de notre module de mesure (nous
+avons chargé le corps de la fusée avec des pierres). Le tout a bien décollé à plusieurs mètres de haut,
+ce qui a validé l’utilisation de ce système pour mener à terme nos expérimentations.
+
+15
+
+4. Étude avec un système embarqué : le Arduino mini
+Dans les premières expérimentations, les chronophotographies permettaient de déterminer la
+position des fusées. C'est-à-dire leur accélération, leur vitesse et leur altitude. En revanche, cette
+technique est limitée puisque dès l'instant où les fusées sortent du champ de la caméra, l'étude
+chronophotographique n'est plus possible.
+Il y a donc deux techniques plus élaborées pour déterminer la totalité de la course d'une fusée :
+l'enregistrement des données sur une carte mémoire ou bien la transmission radio.
+L'utilisation d'une liaison radio est plus risquée à cause de la poussée des fusées. Mettre au point un
+module de mesure embarqué dans les derniers modèles de fusées construites, avec un
+enregistrement sur une carte mémoire semble être une bonne manière d'obtenir les paramètres
+voulus. Le but étant que le module soit autonome ; il doit mesurer l'accélération et enregistrer ses
+mesures sur une carte SD.
+
+4.1.LES DIFFERENTS MODULES UTILISES
+4.1.1. Le microcontrôleur
+Le système Open Source Arduino a été choisi pour concevoir le module. Ce dernier est
+un circuit imprimé sur lequel se trouve un microcontrôleur programmable grâce au
+logiciel gratuit fourni sur le site Arduino.com.
+Il est possible d'ajouter à ce microcontrôleur plusieurs modules adaptés. Dans la gamme
+des processeurs Arduino, c'est la version Pro Mini (processeur Atmega328) qui est plus
+spécialement adaptée pour les expérimentations, de par sa faible masse et de sa petite Figure 17 :
+Microcontrôleur
+taille (dimension : 18x33 mm – 2g).
+Il peut être alimenté de 5 V jusqu'à 12V sur une pin dédiée de la carte. Le composant a une
+consommation de 30 mA.
+
+4.1.2. L’accéléromètre
+A ce microcontrôleur est ajouté un accéléromètre ADXL345 3 axes. Ce composant a pour
+tâche de mesurer trois valeurs d'accélération selon les trois axes d'un repère (conversions
+d'unité dans le code). En intégrant ces valeurs, on obtient la vitesse puis l'altitude.
+Il supporte une tension de 3V jusqu'à 5V et a un domaine de mesure de l'accélération de Figure 18 : Accéléromètre
+16g. Sa consommation est de 140 µA et a une masse inférieure à 2 grammes. Il mesure ADXL345
+20x15 mm.
+
+4.1.3. Le lecteur de carte SD
+Enfin, pour stocker les informations mesurées par l'accéléromètre, on
+utilisera un lecteur de carte SD. Le lecteur supporte une tension de
+3,3V jusqu'à 5V et a une masse de 8 grammes. Il mesure 48x30 mm.
+En mode écriture, le lecteur de carte SD a une consommation de Figure 19 : lecteurs de carte SD (gauche) et
+100 mA. Toutefois, lors de nos tests avec les alimentations externes, microSD (droite)
+nous avons choisi un module micro SD, d’une part pour sa masse
+16
+
+inférieure au lecteur SD et d’autre part pour sa consommation électrique inférieure. Cette
+modification fut facilitée du fait que le câblage est rigoureusement identique.
+
+4.1.4. Assemblage des modules : Le dispositif embarqué
+Quelques caractéristiques techniques de nos modules :
+Tension (V)
+
+Consommation
+(mA)
+
+Masse (g)
+
+Dimensions
+(mm x mm)
+
+Microcontrôleur
+
+5-12
+
+30
+
+2
+
+18 x 33
+
+Accéléromètre
+
+3,3-5
+
+0,140
+
+<2
+
+20 x 15
+
+Lecteur carte SD
+
+3,3-5
+
+100
+
+8
+
+48 x 30
+
+Nous sommes parvenus à ce montage en utilisant les sources d'exemples du site Arduino.com ainsi
+que celles de son forum. Les deux résistances placées sur les pins SDA et SCL ont une valeur de 47kΩ.
+
+Figure 20 : Schéma du cablage
+
+4.1.5. L'alimentation externe et autonome
+L'Arduino Pro Mini possède un régulateur de tension (pin référencée RAW sur le schéma précédent),
+ce qui signifie que bien que le lecteur de carte SD et l'accéléromètre ne supportent qu’une tension
+maximum de 5 V chacun, le module peut être alimenté jusqu'à 12 V par une alimentation externe.
+C'est le microcontrôleur qui fournit ensuite l'alimentation des autres modules via un port VCC.
+D'après les fiches techniques des composants, le module devrait consommer jusqu'à environ 140
+mA.
+Un premier test a été effectué avec deux piles CR2032 de
+3V dans un montage en série. Les deux piles ont été fixées
+sur un circuit imprimé, réalisé par l'entreprise KCE
+(photographie). Ce système s’est avéré pas assez puissant
+pour alimenter l’intégralité de nos modules. Nous avons
+Figure 21 : : Circuit imprimé réalisé par la société KCE sur
+nos plans
+
+17
+
+donc cherché une solution technique permettant d’obtenir des valeurs d’intensité du courant
+électrique plus grandes.
+Dans un second test, nous avons tenté d’utiliser des batteries d’aéromodélisme qui possèdent les
+caractéristiques nécessaires pour faire fonctionner le module. Avec une pile lithium-polymère
+délivrant une tension de 7.4 V et d’une capacité de 500 mA.h, le module fonctionne.
+Lors de la phase de tests informatisés, sûrement à cause d’une intensité trop importante,
+l’accéléromètre a été détérioré, ainsi que la pin RAW de l’Arduino Pro Mini permettant d'utiliser sans
+risque une alimentation externe relativement puissante.
+Même si sa masse de 35 g était bien adaptée à nos tirs, nous avons dû trouver une autre solution
+pour alimenter nos modules.
+Le dernier test s'est fait à l'aide d'une pile 9V classique. Tous les modules fonctionnent correctement
+avec ce type d'alimentation.
+
+4.2.PROGRAMMATION DES MODULES
+Les microcontrôleurs Arduino sont programmables grâce au logiciel fourni gratuitement sur
+Arduino.com. Le langage d'écriture est propre à Arduino mais c'est un langage proche du C++
+Le programme a été réalisé à l'aide des programmes d'exemples fournis dans le logiciel (CardInfo,
+listfiles et ReadWrite pour le lecteur de carte SD) et des bibliothèques Adafruit.com (nécessaires pour
+le fonctionnement et la calibration de l'accéléromètre)
+Ce qu'il faut coder pour le module peut être expliqué par une liste de tâches :
+-
+
+Un bloc initial ou toutes les bibliothèques ainsi que les variables sont déclarées
+Trois blocs de paramétrage de l'accéléromètre
+Un bloc d'initialisation pour le lecteur de carte SD et un pour l'accéléromètre
+Et enfin, la boucle où l'accéléromètre prend les mesures et les écrit sur un fichier texte sur la
+carte SD.
+
+Décomposons maintenant le programme bloc par bloc :
+Bloc n°1 – L'entête (code placé en annexe)
+Dans cette première partie cinq bibliothèques sont déclarées. Elles sont nécessaires au bon
+fonctionnement du lecteur de carte SD, à l'accéléromètre ainsi qu'à la communication entre
+l'ordinateur et le microcontrôleur.
+Les deux bibliothèques Adafruit vont permettre au programme de reconnaître différentes
+caractéristiques de l'accéléromètre comme le modèle, le nom, le domaine de mesures. Ce bloc
+comporte également la déclaration des variables telles que le timer qui va compter le nombre de fois
+que la boucle se répète. On déclare un fichier myFile qui sera le fichier où les données seront
+enregistrées. Et enfin on déclare l'accéléromètre.
+Bloc n°2 – Reconnaissance de l'accéléromètre (code placé en annexe)
+
+18
+
+Le bloc n°2 servira à déclarer la fonction displaySensorDetails qui indiquera si l'accéléromètre est
+reconnu par le microcontrôleur et par l'ordinateur et plusieurs détails techniques. La valeur minimum
+et maximum mesurable de l'accélération, le domaine de mesure, le nom du capteur etc...
+Bloc n°3 - Initialisation du lecteur de carte SD (code placé en annexe)
+Le bloc suivant fait parti du Void Setup c'est-à-dire là où tous les composants sont initialisés. Dans le
+cas du lecteur de carte SD. Si l'ordinateur ainsi que le microcontrôleur reconnaît le lecteur, alors il
+affiche « initialization done » sinon « initialization failed ».
+Bloc n°4 – Les caractéristiques de l'accéléromètre (code placé en annexe)
+La seconde ligne de ce bloc teste si l'accéléromètre est détecté, s'il ne l'est pas, un message d'erreur
+s'affiche. Ensuite, les différentes fonctions display lui assigne le domaine de mesure convenu (16g
+dans notre cas), et les paramètres de calibration établis précédemment.
+Bloc n°5 - Écriture des données dans un fichier de la carte micro SD
+
+Figure 22 : Script de la boucle utilisée pour les mesures en vol
+
+Pour terminer le code, nous avons la boucle Void Loop. Cette boucle infinie a pour but de réaliser
+une série de tâches :
+-
+
+Enclencher le compteur timer de la boucle
+Ouvrir la carte et le document texte vierge en mode écriture
+Demander une mesure de l'accélération
+Écrire l'accélération selon les trois axes sur une seule ligne
+Demander au programme un pause (incrément de temps). Dans cet exemple, une pause de
+500ms est demandée entre chaque itération. de répétition de la boucle de 500 ms.
+Fermer le document texte
+
+Le résultat sur la carte SD sera affiché de cette manière :
+Ce code informatique n’est pas forcément le plus optimal, mais il nous permet d’avoir des résultats
+exploitables. Cette amélioration a été entreprise par la suite afin d’obtenir un intervalle de temps
+entre deux mesures plus court (6 ms au mieux).
+
+19
+
+4.3.LES TIRS AVEC SYSTEMES EMBARQUES ET LEUR EXPLOITATION
+4.3.1. Le temps entre deux mesures
+Avec la boucle, le timer et un chronomètre on détermine l'intervalle de temps qu'il y a entre deux
+mesures de l'accélération faite par notre code informatique.
+Grâce à la console de communication du logiciel permettaient la programmation du microcontrôleur
+sur ordinateur, nous avons un retour graphique et en temps réel des données.
+Le timer est un nombre défini dans le code (valant initialement 1), qui est incrémenté de +1 lors de
+chaque boucle. En mesurant le temps nécessaire grâce à un chronomètre pour réaliser un nombre
+précis de mesures indiqué sur la console, nous pouvons en déduire l'intervalle de temps ∆t entre
+deux mesures.
+Nous avons chronométré un temps de 11 minutes 59 secondes et 240 millisecondes pour réaliser
+précisément 10 039 boucles de mesures, soit une mesure tous les 71 ms.
+
+4.3.2. Courbes expérimentales a=f(t)
+Une fois les données brutes traitées et centrées sur la durée du vol de notre fusée, nous obtenons les
+courbes expérimentales suivantes :
+
+Figure 23 : Accélération en fonction du temps pour le vol n°2
+
+Nous avons choisi de ne pas retenir les données de notre premier essai en vol. En effet, sûrement à
+cause d'un mauvais calibrage, les données ne nous ont pas permis de retrouver des grandeurs
+physiquement acceptables. Par exemple, la combustion des gaz ayant continué après l'apogée de la
+fusée, nous ne pouvions plus émettre l'hypothèse que le vol était globalement vertical.
+Dans le second vol, la fusée a eu une trajectoire correcte avant d'avoir brûlé l'intégralité de ses
+réserves et elle est tombée par la suite. Nous en avons conclu que seul ce vol serait exploitable. Nous
+n'avons malheureusement pas pu réaliser d'autres tests avant la rédaction de ce mémoire.
+
+20
+
+4.3.3. Exploitations des données
+Trois phases observables
+Sur les deux graphiques, on constate qu'on peut les découper en trois parties.
+-
+
+-
+
+Une première pour 0 < t < 400 ms : La fusée, sous l'effet des premiers instants de la combustion,
+s'agite sur le support qui la maintient pour le lancement. L'accéléromètre capte cette agitation.
+Une deuxième 400 < t < 700 ms : la fusée décolle. La poussée, et donc l'accélération, est
+maximale, puis diminue progressivement. Il s'agit du temps de la phase ascensionnelle à
+proprement parlé.
+Une troisième pour t > 700 ms : dans cette phase, l'accélération est constante. On constate que
+sur le graphique la valeur de l'accélération est proche de celle de l'accélération gravitationnelle
+terrestre.
+
+Quelques autocritiques
+Les différences entre valeurs théoriques et valeurs expérimentales proviennent majoritairement de
+deux facteurs : la méthode utilisée pour créer une accélération nulle en moyenne lorsque la fusée est
+au repos dans la zone de lancement ainsi que le fait que la fusée et le capteur sont retombés en
+faisant des spirales et donc l'accéléromètre a enregistré les accélérations selon les axes de rotation.
+Le graphique étant reconstruit en créant la norme des trois mesures ax, ay et az, la valeur obtenue
+pour « l'accélération totale » prend en compte ces paramètres, mais cette valeur reste proche de la
+valeur théorique g=9,81 m.s-2.
+Nous avons réussi à obtenir la courbe expérimentale de l'accélération de la fusée dans sa phase
+ascensionnelle en fonction du temps. Nous pouvons donc désormais effectuer une interpolation de
+cette courbe afin d'en connaître l'expression mathématique. Malheureusement cette interpolation
+n'a pas révélé des résultats parfaitement exploitables.
+Nous aurions aimé réaliser d'autres vols d'essai afin de confirmer ou d'infirmer nos hypothèses, mais
+nous n'en avons pas eu l'occasion avant le rendu de ce mémoire. Il s'agit donc là d'une perspective
+d'étude ultérieure que nous essayerons de réaliser.
+
+5. CONCLUSION
+Pour tenter de résumer notre sujet, nous pouvons reprendre rapidement la chronologie de notre
+développement. Notre étude commença tout d'abord par de simples fusées d'artifice que nous
+envoyions afin de découvrir petit à petit le monde de l'aéronautique. En parallèle à cela, il était
+nécessaire de se pencher sur la physique qu'il y a derrière les fusées et qui expliquait certains
+phénomènes. Une fois plus à l'aise avec notre matériel, nous avons pu établir une fiche d'identité des
+fusées d'artifice utilisées et passer à des modèles plus développés. Le but était d'optimiser les
+capacités des fusées : en multipliant le nombre de moteurs, en construisant différents lanceurs, en
+utilisant de nouvelles pièces comme une tuyère pour mettre en relief les différentes contraintes
+matérielles et physiques de ce projet. Pour ce qui est des fusées, nous sommes arrivé à un modèle
+plus que concluant, avec une phase ascensionnelle correcte et des données exploitables.
+Le deuxième axe de recherche du projet « Space E.T. » fut de progresser dans nos techniques de
+mesure. Nous nous sommes appuyés, pour débuter nos expérimentations, sur des repères visuels,
+21
+
+puis des séries de chronophotographies, et enfin la conception d'un module de mesure
+d'accélération sans fil Arduino. La programmation de ce module nous a permis de mener notre
+imagination et nos idées où on le souhaitait et d'avoir un bon aperçu de l'univers de l'électronique
+embarqué.
+L’intérêt scientifique principal de « Space E.T. » était donc de combiner aéronautique amateur et
+programmation de composants électroniques. En revanche, il est évident qu'aucune démarche de
+recherche scientifique ne se termine définitivement. C'est pour cela que nous avons réfléchis tout de
+même à d'autre pistes à exploiter pour approfondir notre sujet et le rendre d'autant plus intéressant.
+Pour la partie dynamique, nous pourrions par exemple, compléter l'étude de la traînée
+aérodynamique et augmenter la précision de nos modélisations et de nos études de mouvement. En
+effet, le calcul de la surface de référence et l'exploitation de la variation du coefficient de traînée
+n'est pas inintéressant car c'est un facteur qui influe sur la trajectoire d'une fusée. L'équilibrage
+horizontal et vertical de nos fusées assurerait sans doute également une trajectoire plus stable et un
+vol mieux contrôlé.
+Compléter l'accéléromètre du module Arduino avec un altimètre nous donnerait accès à une altitude
+plus précise. Également nous pourrions étudier la température moyenne du compartiment du
+module lors des vols afin de s'assurer que le matériel n'est pas détérioré pendant le vol. Notamment
+le risque de détérioration de la carte SD pendant le vol qui n'est pas inexistant. Nous pourrions
+passer à une liaison radio pour recevoir les données et limiter les risques.
+Pour nous, élèves, « Space E.T. » nous a aussi permis de procéder à de la recherche scientifique, à
+l'échelle lycéenne, et de découvrir les sciences sous un autre angle.
+Aussi modeste soit-elle, voici notre contribution au vaste domaine de l'aéronautique.
+
+22
+
+6. BIBLIOGRAPHIE – WEBOGRAPHIE
+Sources numériques principales:
+•
+
+“L’épopée de la conquête spatiale” http://spaceconquest.pagesperso-orange.fr/MainCH1.html
+(consulté en novembre 2015)
+
+•
+
+Le site de la NASA, http://nasa.gov (consulté en novembre 2015)
+
+•
+
+Programmation de l’accéléromètre, https://github.com/adafruit/Adafruit_ADXL345 (consulté
+en septembre 2015)
+
+•
+
+Les forums et ressources Arduino, https://www.arduino.cc/ (consulté en novembre 2015)
+
+•
+
+Granier, Olivier. ”Bilans de quantités de mouvements et de moments
+cinétiques” http://olivier.granier.free.fr/Seq08/co/rappels-de-cours-meca-fluide-bilans-p.html
+(consulté en septembre 2015)
+
+•
+
+Physique de la fusée, équation de Tsiolkovski,
+https://fr.wikipedia.org/wiki/%C3%89quation_de_Tsiolkovski (consulté en juin 2015)
+
+Livres :
+•
+
+Lanoë, Ivan. Construisez et lancez des fusées à eau. DUNOD, 2003.
+
+•
+
+Lanoë, Ivan & Mollo, Michel. Améliorez vos fusées à eau. DUNOD, 2004.
+
+23
+
+

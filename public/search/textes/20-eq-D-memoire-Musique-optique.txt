@@ -1,0 +1,880 @@
+OLYMPIADES DE PHYSIQUE France
+XIXe édition
+
+Année 2012-2013
+
+Optique
+musicale
+Elèves participants :
+
+Salaberry Léa, Pulicani Ombeline, Micheli Amaury, Pouyanne Damien,
+Le Parc Samuel, Vaughan Streater Dylan.
+Avec LACLAVERIE Jean-Michel
+Professeur encadrant
+Lycée Bernard Palissy- AGEN
+Académie de Bordeaux
+
+Table des matières
+Résumé (Abstract)
+Mots clefs
+Partenaires
+Introduction
+A- Ondes stationnaires dans une corde
+1- Modes de vibration d’une corde fixée aux deux extrémités
+2- Vibrations libres ou vibrations forcées
+3- Enregistrement du son d’un instrument à corde par un
+microphone et un capteur piezo électrique
+3.1- Microphone électrodynamique et capteur piézoélectrique
+3.2- Note de musique et fréquence
+3.3- Réalisation et comparaison des enregistrements
+B- Transmission de l’information par les ondes électromagnétiques
+1- Détecteur de présence : un système binaire
+2- Modulation d’un signal lumineux
+3- Expérience du Peigne-Laser et de la roue du vélo
+4- Etude d’une corde
+4.1- Montage à fourche optique
+4.2- Ecoute optique d’une corde unique avec
+phototransistor séparés.
+
+Laser
+
+C- Application : vers une musique à écoute optique
+D- Effets sonores: utilisation d’un filtre passe-bande
+Conclusion
+Annexes
+
+XXe Olympiades de physique/ Lycée Bernard Palissy/ Agen/ Optique musicale
+2
+
+et
+
+Résumé : Le son produit par un instrument de musique à cordes est habituellement
+
+enregistré par un microphone (grâce aux vibrations de l’air) ou un capteur piézoélectrique
+(grâce aux vibrations de la caisse de résonance). Un faisceau laser peut transporter une
+information jusqu’à un capteur en étant modulé, ou simplement détecter une présence en
+étant coupé. Nous avons réalisé et étudié l’écoute optique des vibrations d’une corde, grâce à
+un phototransistor et un laser. La qualité des enregistrements a été évaluée grâce à l’analyse
+de Fourier. Avec nos trois types de capteur, nous avons comparé les tensions obtenues, images
+des vibrations de l’air, de la caisse ou directement de la corde. Puis le système d’écoute a été
+relié à un amplificateur et un haut-parleur et a permis une création musicale originale. Un
+filtre a été intercalé entre le capteur et le haut-parleur pour modifier le son.
+
+Mots clefs : acoustique musicale – photocapteur – filtre passe bande.
+Partenaires : Conservatoire de musique et de danse
+Départemental d’Agen.
+
+à Rayonnement
+
+Introduction
+Lorsque nous écoutons le son d’une guitare ou d’un violon, c’est une onde
+acoustique qui arrive jusqu’à nos tympans. Elle est transportée par l’air, qui vibre à
+cause des vibrations produites par les cordes, la caisse de résonance de l’instrument
+et l’air qu’elle renferme. Comment peut-on enregistrer ce son ?
+Avec un microphone par exemple, qui est constitué d’une membrane qui
+vibrera sous l’action de l’air traversé par l’onde acoustique. Un signal électrique, à
+l’image du signal acoustique, est produit par ce capteur. Un capteur piezo électrique,
+fixé sur la caisse de résonance peut aussi enregistrer le son. Il sera sensible aux
+vibrations de la caisse, et non pas directement de l’air.
+Nous nous sommes demandé s’il était possible d’enregistrer directement le
+signal issu des vibrations des cordes, pas celui transporté par l’air comme le fait le
+microphone, ou celui issu des vibrations de la caisse utilisé par les capteurs piezo
+électriques.
+Nous sommes tous des musiciens, comme notre professeur. Un micro et un
+bon système de restitution du son reproduisent assez fidèlement le son entendu
+directement. Mais l’air et la caisse entrent en résonance pour fabriquer l’impression
+sonore de l’auditeur. Est-il possible de s’affranchir de tout cela pour écouter le son de
+la corde seule ? Plus d’air, plus de caisse, la corde seule, car c’est là que tout
+commence.
+Le cours d’acoustique nous apprend que la caisse de résonance permet de
+mettre en valeur certaines fréquences et d’en atténuer d’autres. Tous les sons
+d’instruments à corde dépendent de la forme de la caisse de résonance. Notre quête,
+c’est de remonter à la source, au son original produit par la corde, pour mieux
+comprendre ensuite le rôle de la caisse de résonance. Peut-être allons nous ainsi
+découvrir de nouveaux sons, une nouvelle impression musicale, car personne
+n’écoute jamais directement le son des cordes. Un micro, un capteur piezo ou notre
+oreille ne permettent pas de le faire.
+XXe Olympiades de physique/ Lycée Bernard Palissy/ Agen/ Optique musicale
+3
+
+Nous avons décidé de regarder vibrer la corde pour enregistrer son signal. Les
+astrophysiciens utilisent cette technique pour étudier les ondes sismiques dans les
+étoiles. En effet, les ondes mécaniques ayant besoin d’un support matériel pour se
+propager, il est impossible à ce type d’onde de se propager en dehors d’une étoile. Il
+faut donc les enregistrer indirectement. Pour le soleil, la sonde SOHO avec son
+spectrophotomètre GOLF à effet Zeeman, utilise la lumière venant de la surface
+solaire pour reconstituer les modes de vibration solaire grâce à l’effet Doppler.
+Notre technique est plus simple que celle des héliosismologues. Une diode
+électroluminescente produit un signal lumineux en direction d’un photocapteur. La
+corde vibrante est placée entre les deux. Ce système est d’habitude utilisé pour
+étudier la rotation d’une roue, et la tension du détecteur varie seulement entre deux
+états (éclairé ou non éclairé). N’ayant pas trouvé de documentation sur l’utilisation
+d’un photocapteur pour étudier les vibrations d’une corde, nous ne savions pas à
+quel résultat nous attendre : signal numérique variant seulement entre deux états, ou
+signal analogique ?
+Pour chacune de nos séances de travail, nous
+avons essayé d’applique la méthode de la roue de
+Deming
+pour
+mener
+une
+expérimentation
+scientifique structurée et efficace :
+Planifier, agir, vérifier et réagir. Planifier des
+expériences, puis les réaliser. Vérifier si leurs
+résultats sont cohérents avec une recherche
+documentaire et avec l’avis de notre professeur, puis
+réagir pour préparer la nouvelle séance de travail.
+Nous allons d’abord présenter les ondes stationnaires s’établissant dans une
+corde de violon lors de l’émission sonore. Puis nous étudierons l’enregistrement du
+son d’un instrument à corde par un microphone, puis par un capteur piezo
+électrique. Ensuite nous aborderons le montage électronique permettant
+d’enregistrer optiquement les vibrations de la corde. Enfin nous essayerons
+d’appliquer ce système une production musicale innovante, en utilisant un filtre
+passe bande pour modifier le son.
+
+A- Ondes stationnaires dans une corde
+1- Modes de vibration d’une corde fixée aux deux extrémités
+Le jeudi 05 avril 2012, Léa, Dylan et Samuel ont réalisé l’expérience de la corde de
+Melde, pour comprendre comment vibre une corde soumise à une excitation. Les vibrations
+étudiées ici sont des vibrations forcées. C’est notre première expérience d’acoustique !
+On a utilisé un vibreur, qui est en fait un simple haut-parleur, dont la membrane est
+associée à une petite tige. L’extrémité de la corde, accrochée à la tige, vibre à la même
+fréquence que le signal venant du générateur de signaux. Nous avons fait vibrer la corde qui
+est tendue par une petite masse. Puis nous avons étudié l’évolution de la fréquence du mode
+fondamental et des premiers harmoniques, en changeant la masse et la longueur du fil.
+Nous avons relevé les valeurs des différentes fréquences en fonction du nombre de
+fuseau observé sur la corde vibrante.
+
+XXe Olympiades de physique/ Lycée Bernard Palissy/ Agen/ Optique musicale
+4
+
+-
+
+-
+
+Voici nos remarques :
+Les fréquences des harmoniques sont multiples de la fréquence du fondamental.
+Pour une longueur de corde fixe, plus la masse qui tend la corde est grande, plus la
+fréquence du fondamental est grande. C’est comme lorsque l’on tend la corde d’un
+violon. Plus on tire dessus, plus le son est aigu.
+Pour une masse fixe, lorsque la longueur de la corde augmente, la fréquence du
+fondamental diminue. Les longues cordes de contrebasse donnent un son plus grave
+que les petites cordes d’un violon.
+
+Schéma de notre expérience:
+
+λ/2
+Noeud
+
+Générateur
+de signaux
+
+Ventre
+
+Noeud
+
+Ventre
+
+Noeud
+
+Vibreur
+
+M
+
+Dylan face au deuxième harmonique
+
+Léa et le sixième harmonique
+La longueur de la corde est multiple de la demi-longueur d’onde : L = n λ/2.
+Deux nœuds sont toujours aux extrémités, et la distance entre deux nœuds
+consécutifs est égale à λ/2.
+Fréquences
+de
+résonance
+(Hz)
+F1
+F2
+F3
+F4
+Masse (g)
+Longueur (cm)
+1
+2
+3
+100
+80
+22
+44
+66
+50
+80
+21
+38
+62
+20
+80
+13
+26
+39
+100
+100
+26
+47
+71
+50
+100
+18
+38
+57
+20
+100
+13
+29
+39
+
+F5
+
+F6
+
+4
+
+5
+
+80
+50
+
+100
+63
+90
+59
+
+F7
+6
+
+7
+
+108
+68
+
+Quantitativement, nos mesures ont donc montré que la fréquence de vibration
+de la corde pour le mode fondamental est inversement proportionnelle à la longueur
+de la corde.
+XXe Olympiades de physique/ Lycée Bernard Palissy/ Agen/ Optique musicale
+5
+
+L = n λ/2 = n v.T/2 = n v/(2f) = n/(2f). (F/μ)1/2 donc
+f (Hz) = n/(2L) (F/μ)1/2.
+Avec f la fréquence de vibration (Hz), T la période (s), F la force de tension de la
+corde (N), μ la masse linéique de la corde (kg/m), v la célérité de l’onde dans la
+corde (m/s), λ la longueur d’onde (m), et n le numéro de l’harmonique.
+Grâce à cette expérience, nous avons montré que lorsqu’une corde vibre, des
+ondes stationnaires s’établissent dans certaines conditions, avec des nœuds et des
+ventres localisés.
+
+2- Vibrations libres ou vibrations forcées
+Les vibrations des cordes vocales d’Ombeline sont forcées, comme celle du violon
+de Damien. En effet la corde est excitée à chaque instant, par le souffle du chanteur
+ou le dérapage de l’archet.
+Par contre la guitare d’Amaury fonctionne en oscillations libres, comme le piano.
+Une fois pincées ou frappées les cordes oscillent librement.
+Lorsqu’un son est produit par une corde, il est rarement une vibration sinusoïdale
+parfaite. Les courbes de forme complexe montrent la présence d’harmoniques : ce
+sont ces vibrations de fréquence 2f, 3f…, de différentes amplitudes qui sont
+responsable du timbre et font la richesse d’un son composé.
+Notre quête est d’étudier l’enregistrement d’un son pour déterminer si la part des
+différents harmoniques dépend seulement du son lui-même ou aussi des moyens
+utilisés pour l’enregistrer.
+
+3- Enregistrement du son d’un instrument à corde par un microphone et
+un capteur piezo électrique
+Le jeudi 05 avril 2012, nous souhaitions comparer un enregistrement fait avec
+un microphone classique et un capteur piézoélectrique souvent utilisé pour
+enregistrer ou sonoriser les guitares. Pour cela nous avons enregistré la voix
+d’Ombeline et le son du violon de Damien simultanément avec le microphone et le
+capteur piezo au moyen du logiciel Latis Pro et d’un boitier d’acquisition SYSAM
+SP5. Mais auparavant nous avons cherché à comprendre le fonctionnement d’un
+micro, d’un capteur piezo, et nous avons précisé quelques notions sur les notes et
+leurs fréquences.
+3.1- Microphone électrodynamique et capteur piézoélectrique
+Un microphone, comme un capteur piézoélectrique, est un transducteur
+d'énergie, car il transforme de l'énergie acoustique en énergie électrique. Cette
+transformation d’énergie ne s’effectue pas directement : il y a un passage par un
+stade intermédiaire, celui ou l’énergie mécanique est emmagasinée par un solide qui
+se meut ou qui est déformé : c’est la membrane pour le microphone. Cette membrane
+XXe Olympiades de physique/ Lycée Bernard Palissy/ Agen/ Optique musicale
+6
+
+qui se déplace au rythme des vibrations acoustiques entraîne une modification de la
+position de la bobine par rapport à l’aimant. Ce phénomène entraîne la production
+d’une grandeur électrique variable : la force électromotrice induite. Pour transformer
+l'énergie acoustique en énergie électrique, le microphone électrodynamique se base
+sur le phénomène d'induction électromagnétique, dont la découverte est attribuée à
+Michael Faraday (1791-1867) en 1831. La force électromotrice induite est
+proportionnelle aux oscillations de la membrane, qui elles-mêmes sont
+proportionnelles aux variations de la pression acoustique.
+Un capteur piézoélectrique crée une tension à cause d’une variation de
+pression qu’il subit. Les variations de pression sont dues aux ondes acoustiques se
+propageant dans la caisse de résonance.
+3.2- Note de musique et fréquence
+Tout son musical (ou note) possède une fréquence fondamentale
+correspondant à sa hauteur. Deux notes dont les fréquences fondamentales ont un
+ratio qui est une puissance de deux (c'est-à-dire la moitié, le double, le quadruple...)
+donnent deux sons très similaires. Cette observation permet de regrouper toutes les
+notes qui ont cette propriété dans la même catégorie de hauteur. Dans la musique
+occidentale, les différentes catégories de hauteurs sont au nombre de sept et
+s'appellent : do, ré, mi, fa, sol, la et si. L'intervalle compris entre deux hauteurs dont la
+fréquence de l'une vaut le double (ou la moitié) de l'autre s'appelle une octave. Pour
+distinguer deux notes de même nom dans deux octaves différentes, on numérote les
+octaves et donne ce numéro aux notes correspondantes : par exemple, le « La3 » (ou
+A4) a une fréquence de 440 Hertz dans la norme internationale. Cette fréquence de
+référence est donnée par un diapason1.
+Cependant une note donnée n’est pas caractérisée par une seule fréquence. La
+hauteur perçue correspond le plus souvent à la fréquence fondamentale, mais le
+timbre du violon est différent de celui de la guitare, car le son contient d’autres
+fréquences, multiples du fondamental, les harmoniques. Le timbre dépend de
+l’amplitude relative de chacun des harmoniques. Lors des enregistrements présentés
+ci-dessous, nous étudierons grâce à l’analyse de Fourier la part des différents
+harmoniques dans le son.
+3.3 Réalisation et comparaison des enregistrements
+Nous avons étudié la voix d’Ombeline et de son du violon de Damien avec un
+capteur piézoélectrique et avec un microphone du lycée. Nous avons soudé nous
+même deux fils sur la pastille du capteur piézoélectrique acheté moins d’1 Euros chez
+un fournisseur d’électronique.
+Pour l’enregistrement de la voix, Damien tenait le microphone et Ombeline
+appuyait le piezo contre sa gorge. Nous avons dû baisser le niveau d’enregistrement
+du capteur piezo car l’enregistrement saturait. Les enregistrement sont faits sur le
+
+1
+
+http://fr.wikipedia.org/wiki/Note_de_musique
+XXe Olympiades de physique/ Lycée Bernard Palissy/ Agen/ Optique musicale
+
+7
+
+logiciel Latispro, équipé d’une carte d’acquisition SYSAM-SP5, avec un boitier
+d’amplification pour microphones.
+On observe des courbes différentes avec le capteur piezo et le microphone
+pour la même prise de son. En revanche les périodes du fondamental ne diffèrent
+que de 0,013 ms soit 0,57 %. Cette différence nous semble due à notre utilisation du
+réticule pour déterminer la période. Malgré les 5 chiffres significatifs affichés par le
+logiciel, 3 au plus doivent l’être vraiment.
+Conclusion : La fréquence du son perçu reste la même quelque soit le capteur, par
+contre le timbre change.
+
+Cependant pour analyser le timbre, regarder l’allure de la courbe n’est pas
+suffisant. Nous avons utilisé l’analyse de Fourier, qui permet de visualiser
+l’amplitude relative de chacun des harmoniques composants le son : le capteur piezo
+donne un fondamental à 440 Hz qui domine et un second harmonique. C’est un la
+440 Hz que nous percevons, ce qui est en accord avec l’analyse du son du capteur.
+Par contre les résultats sont très différents pour le micro. Le second harmonique (880
+Hz) a une amplitude 4 fois plus importante que le fondamental. Mais c’est La 440, le
+La du téléphone que nous percevons à l’oreille. Dans ce cas, le capteur piezo nous
+semble plus fidèle que le micro.
+Nous avons voulu vérifier ce résultat avec l’enregistrement du son d’un
+instrument à corde. Amaury a tenu le microphone et le capteur piezo contre le
+violon pendant que Damien jouait. Nous avons là aussi obtenu des courbes
+différentes mais des fréquences et des périodes égales à 0,60 % prés (périodes
+identiques si nous ne retenons que 3 chiffres significatifs).
+
+XXe Olympiades de physique/ Lycée Bernard Palissy/ Agen/ Optique musicale
+8
+
+Le son du violon semble plus riche en harmoniques que la voie d’Ombeline,
+quelque soit le moyen de l’enregistrer. Dans les deux cas le fondamental domine.
+Mais le capteur piezo fait apparaître des harmoniques 7, 8, 9 avec une amplitude
+importante, ce que ne voit pas le micro.
+Cependant, nous étions étonnés de ces résultats et le 12 avril nous avons refait les
+mêmes mesures avec un autre capteur piezo électrique, beaucoup plus cher, acheté
+dans un magasin de musique (1Euros chez Conrad pour celui du labo et 30 Euros
+pour celui du magasin de musique). Les résultats furent peu différents.
+
+XXe Olympiades de physique/ Lycée Bernard Palissy/ Agen/ Optique musicale
+9
+
+Les formes des courbes restent différentes ainsi que les analyses de Fourier. Il n’y
+a aucune différence de qualité entre un capteur piezo nu de chez Conrad et celui 30
+fois plus cher d’un magasin de musique !
+Nous pouvons conclure qu’un capteur piézoélectrique et un microphone
+électrodynamique enregistrent un signal ayant les caractéristiques suivantes :
+- Même période et même fréquence fondamentale pour les deux capteurs et
+pour le son perçu directement à l’oreille
+- Timbre différent car la part des différents harmoniques change. On peut
+supposer que cette différence est due aux vibrations de la caisse de résonance
+(caisse du violon ou gorge du chanteur) qui ne se transmettent pas toutes de la
+XXe Olympiades de physique/ Lycée Bernard Palissy/ Agen/ Optique musicale
+10
+
+même manière à l’air ou au capteur piezo. En effet, il peut y avoir des modes
+de vibration perpendiculaires à la surface (transversales) et d’autres parallèles
+(longitudinales). Le capteur piezo est un accéléromètre surtout sensible aux
+ondes transversales. De plus la caisse présente comme la corde des nœuds et
+des ventres de vibration (figure de Chaldini). Si le capteur est sur un nœud, il
+ne perçoit pas le mode de vibration correspondant. C’est comme si nous
+regardions une corde résonante uniquement sur un nœud. Nous aurions
+l’impression qu’elle ne vibre pas.
+
+B- Transmission de l’information par les ondes électromagnétiques
+1- Détecteur de présence : un système binaire
+Nous disposons d’un laser rouge Hélium-Néon que nous plaçons en face d’un
+phototransistor associé à une résistance. La tension du phototransistor est ensuite
+envoyée vers un amplificateur puis un haut-parleur. Ce montage est extrait du livre
+de spécialité physique TS. N’ayant pas la résistance de 0,5kΩ proposée sur le schéma,
+nous l’avons remplacée par 2 résistances d’1kΩ en parallèle. L’entrée analogique EA0
+enregistre directement la tension de la résistance, et le condensateur permet ensuite
+d’éliminer la composante continue. Cela sera très important par la suite, car le signal
+d’un micro n’a pas de composante continue, et notre système optique doit être vu
+comme un micro par l’amplificateur qui traitera son signal. Des valeurs de C de 220
+nF à 5μF fonctionnent comme il faut. N’ayant jamais appris ni l’électricité, ni
+l’électronique au lycée, nous avons simplement réalisé ce schéma trouvé dans le
+livre, et modifié les valeurs de R et C pour comprendre leur rôle. Notre approche est
+uniquement empirique. Comme James Dyson le célèbre inventeur qui réalisa plus de
+5000 prototypes de son aspirateur avant d’être satisfait, nous avons modifié notre
+montage pour mieux le comprendre.
+Schéma du montage :
++5V
+
+Entrée
+Analogique
+EA0
+
+Laser rouge
+EA1 ou entrée micro
+de l’ordinateur ou de
+l’amplificateur + HP
+
+220 nF à
+5 μF
+
+2 x 1 kΩ
+
+XXe Olympiades de physique/ Lycée Bernard Palissy/ Agen/ Optique musicale
+11
+
+Notre système permet de détecter une coupure du faisceau lumineux. La tension
+bascule entre deux états :
++160 mV si la lumière Laser atteint le capteur.
+0 V si le faisceau laser est coupé par un obstacle.
+Nous n’avons pour l’instant qu’un système binaire. Nous ne savions pas à ce
+stade de notre travail, si le mouvement d’une corde dans le faisceau serait codé par
+une suite de 1 et de 0, ou par une tension analogique. Quoiqu’il en soit, si la présence
+d’un obstacle a été détectée, nous espérions que les vibrations d’une corde pourraient
+l’être aussi.
+
+2- Modulation d’un signal lumineux
+L’utilisation de la lumière Laser et du phototransistor a permis de déterminer si
+un obstacle coupe le faisceau. Nous avons récupéré une information simplement
+binaire. Mais notre système peut faire plus. Il est possible de transmettre par
+modulation de la lumière laser une information musicale. Notre Laser a une entrée
+modulation sur laquelle nous branchons un module musical. Si le faisceau atteint le
+phototransistor nous entendons la mélodie sur le haut-parleur.
+Le phototransistor peut percevoir des variations de l’intensité lumineuse qui sont
+à l’image d’un son.
+La question qu’il nous reste à résoudre est donc la suivante :
+Le transistor pourra-t-il percevoir les variations d’intensité lumineuse du aux
+vibrations d’une corde ?
+
+3- Expérience du Peigne-Laser et de la roue du vélo
+Avant d’utiliser les vibrations d’une corde dans le faisceau, nous avons tenté
+d’autres expériences complémentaires, pour couper périodiquement le passage de la
+lumière. Utilisons le montage de la première expérience, sans musique modulant le
+Laser. Déplaçons un peigne dans le faisceau Laser. Le capteur perçoit les
+mouvements du peigne. Pour chaque passage d’une dent du peigne dans le faisceau
+nous obtenons un pic. La tension est analogique et varie continument. Nous pouvons
+l’utiliser pour déterminer la vitesse du peigne, connaissant l’écart entre deux dents :
+V = 3,5. 10-3/12.10-3 = 0,29 m/s = 29 cm/s
+
+XXe Olympiades de physique/ Lycée Bernard Palissy/ Agen/ Optique musicale
+12
+
+Delta t = 12 ms
+
+Le signal envoyé vers le haut-parleur est
+un bruit grave non musical.
+Avec une roue de vélo à la place du
+peigne, nous obtenons le même type
+d’enregistrement.
+Nous pouvons déterminer la vitesse de
+rotation de la roue. Si la vitesse de
+rotation de la roue est suffisante, nous
+percevons un son musical grave en
+sortie du haut parleur. Par exemple,
+nous avons obtenu un delta t = 9 ms
+pour une fréquence de 111 Hz. C’est un
+son deux octaves au dessous du la du
+téléphone.
+
+4- Etude d’une corde
+Nous arrivons maintenant au cœur de notre travail : l’enregistrement des
+vibrations de la corde. Nous avons testé un montage à fourche optique, puis nous
+sommes revenus sur le montage précédent à phototransistor et Laser séparés.
+
+4.1- Montage à fourche optique
+Une diode électroluminescente est abrégée sous les sigles DEL ou LED (de
+l'anglais light emitting diode). C'est un composant opto-électronique capable
+d’émettre de la lumière lorsqu’il est parcouru par un courant électrique. Une diode
+électroluminescente ne laisse passer le courant électrique que dans un seul sens.
+L’intensité lumineuse générale des diodes électroluminescentes est assez faible, mais
+suffisante pour être capté par un phototransistor.
+XXe Olympiades de physique/ Lycée Bernard Palissy/ Agen/ Optique musicale
+13
+
+Nous avons commandé chez Conrad une barrière photoélectrique, c'est-à-dire
+un système associant une source de lumière et un photodétecteur. Nous avons choisi
+un « Photomicrosensor (Transmissive) EE-SX1041 ». Pourquoi celui-là ? Parce que
+c’est la barrière photoélectrique la plus large vendue chez ce fournisseur. La corde
+doit avoir la place pour osciller. La barrière utilise une photodiode infrarouge et un
+phototransistor.
+
+Photodiode
+
+Phototransistor
+
+La notice du composant indique que la tension seuil de la diode est proche de
+1,2 V. L’intensité doit être de quelques dizaines de milliampères. La longueur d’onde
+de la lumière émisse est λ= 940 nm, pour une intensité de 20 mA. Pour le
+phototransistor, la tension à ses bornes dépend de l’intensité lumineuse et de
+l’intensité du courant le traversant.
+
+La notice nous a aussi donné le
+schéma du circuit dans lequel intégré la
+barrière photoélectrique. Les résistances
+sont indispensables pour limiter l’intensité
+du courant et ne pas détériorer les
+composants et les générateurs. Une
+résistance de 500 Ω pour la diode, et d’1kΩ
+pour le transistor conviennent. Pourquoi
+ces valeurs ? Nous ne savons pas les calculer, mais nous avons trouvé sur un site :
+« LE PHOTOTRANSISTOR ET LA FOURCHE OPTIQUE »2, des montages
+comparables utilisant des résistances entre 220 Ω et 4,7 kΩ. Après plusieurs essais,
+sans rien casser, le montage fonctionne.
+La tension aux bornes de la photodiode est de 1,15 V. Celle aux bornes du
+phototransistor est de 650 mV lorsque la corde ne vibre pas. La tension
+d’alimentation du phototransistor est de 5V, et celle de la photodiode de 4V. La
+tension de 5V est directement fournie par la plaque SYSAM-SP5 du logiciel Latispro.
+La barrière est soudée avec 4 long fils, sur une plaque, pour pouvoir être
+placée sous une corde. Puis nous tentons un premier enregistrement.
+2
+
+http://frederic.ducrocq.free.fr/Station_meteo/Anemometre/fabrication_helice.htm
+
+XXe Olympiades de physique/ Lycée Bernard Palissy/ Agen/ Optique musicale
+14
+
+Le premier résultat est encourageant :
+- La barrière optique voit les vibrations de la corde.
+- Le signal obtenu est analogique et a même allure que celui obtenu avec un
+micro.
+- La barrière ne gêne pas les vibrations de la corde si elle est décalée de
+quelques centimètres par rapport à la rosace, et si la corde n’est pas excitée
+trop fort.
+Donc, un enregistrement optique du mouvement d’une corde est possible avec une
+barrière photoélectrique.
+Ce montage permet d’étudier les vibrations d’une corde, sans avoir à
+démonter les autres. Il y a cependant des limites à notre méthode. L’enregistrement
+des vibrations des 3 cordes transparentes en nylon les plus aigües de la guitare
+acoustique n’est pas possible. Le capteur ne voit pas les cordes. Par ailleurs, en
+situation de jeu, la barrière photoélectrique est trop souvent en contact avec les
+cordes, ce qui perturbe la production sonore. Il faut changer de montage, car nous
+voulons un système utilisable par un musicien, et pas seulement par un physicien.
+
+4.2- Ecoute optique d’une corde unique avec Laser et phototransistor
+séparés.
+Pour pouvoir utiliser notre instrument de musique à une corde, il est obligatoire
+de le relier à un amplificateur. L’amplificateur Jeulin relié à un haut-parleur
+produisait un son médiocre dans les expériences avec peigne, roue de vélo, ou
+modulation, avec beaucoup de souffle : pourquoi ?
+Il faut d’abord éliminer la composante continue contenue dans le signal. Pour cela
+un condensateur de valeur comprise entre 220 nF et 5 μF convient. Pour des valeurs
+plus faibles (22 nF par exemple), la forme du signal est mal respectée. Pour des
+valeurs trop élevées (4700 μF par exemple), la composante continue n’est pas
+éliminée.
+Nous pensons qu’il s’agit d’un problème d’adaptation d’impédance.
+Nous avons mesuré à l’Ohmmètre la résistance d’un micro du lycée : 532 Ω. Puis
+celle de l’entrée micro d’un ordinateur : 1355 Ω. La valeur assez élevée de l’entrée
+micro de l’ordinateur permet de limiter l’intensité fournie par le micro (Loi d’Ohm :
+si R augmente, I diminue pour une tension donnée). Nous constatons que sur
+Audacity, le son enregistré est correct.
+XXe Olympiades de physique/ Lycée Bernard Palissy/ Agen/ Optique musicale
+15
+
+Nous avons cherché à adapter par l’expérience, la tension de sortie de notre
+capteur à l’entrée d’un amplificateur ou à l’entrée micro de l’ordinateur. Une
+résistance de 500 Ω convient. Avec 1 kΩ, ou des valeurs supérieures, un souffle est
+présent dans le son, alors que ce n’est plus le cas avec 500 Ω. Nous choisissons donc
+500 Ω.
++5V
+
+Laser rouge
+EA0
+EA1 ou entrée micro
+de l’ordinateur ou de
+l’amplificateur
+
+220 nF à
+5 μF
+
+2 x 1 kΩ
+
+Voici un exemple d’enregistrement obtenu sur Latispro pour une corde fine.
+Le signal bleu, sur l’entrée EAO n’est pas centré. Par contre celui sur l’entrée EA1 est
+centré, et la forme de l’onde est respectée. Le condensateur a joué son rôle en
+éliminant la composante continue. Un micro (Son 1) permet d’enregistrer
+directement le son de la corde. Mais comme la corde est seule, dans caisse de
+résonance, le son est très faible et le micro a du mal à le percevoir. L’ampli son
+Eurosmart est au maximum, ce qui explique le bruit sur la courbe. Les formes des
+courbes micro et capteur optique restent proches.
+
+XXe Olympiades de physique/ Lycée Bernard Palissy/ Agen/ Optique musicale
+16
+
+Examinons le cas d’un cordon élastique assez large. Le faisceau Laser est
+complètement coupé par une grosse corde, et le son enregistré est distordu.
+
+Le même pic à 160 Hz apparait dans les deux analyses, mais le reste est différent,
+notamment à cause du bruit sur le micro, qui a du mal à capter le son.
+Donc le son de la grosse corde est mal enregistré par notre capteur optique. Il y a
+une distorsion. Nous avons donc deux possibilités d’utilisation de notre système :
+- des petites cordes pour obtenir un enregistrement fidèle.
+- des grosses cordes pour obtenir un son « saturé » et distordu, qui présente un
+véritable intérêt musical (Pensez à des guitares électriques utilisées en hard rock).
+Alors que les musiciens utilisent une électronique supplémentaire pour obtenir un tel
+XXe Olympiades de physique/ Lycée Bernard Palissy/ Agen/ Optique musicale
+17
+
+effet, notre système produit directement ce son saturé. Moins d’électronique, moins
+de sources de panne, moins de source de bruit.
+
+C-Application : vers une musique à écoute optique
+Nous ne pouvons pour l’instant enregistrer que le son d’une seule corde à la fois. Le
+dispositif doit devenir portable. Nous remplaçons le laser du lycée par un petit
+pointeur Laser, plus facile à fixer sur une guitare ou un violon.
+Phototransistor
+Corde
+Pointeur Laser
+
+Le montage reste bâti sur le même principe que précédemment.
+
+1 kΩ
+Envoyé vers
+l’ampli guitare
+
+Le signal est ensuite envoyé vers l’entrée son de
+l’ordinateur ou un ampli de guitare. Voici un
+enregistrement avec le système fixé à une
+guitare folk et utilisé par un vrai musicien. Il est
+opérationnel, utilisable sans gêner le musicien,
+et le résultat obtenu directement sur l’ampli
+guitare est très satisfaisant. Il a fallu le fixer a
+grand renfort de scotch et de Pâteàfix, pour
+éviter que le laser ou le phototransistor se
+XXe Olympiades de physique/ Lycée Bernard Palissy/ Agen/ Optique musicale
+18
+
+décalent. Le pointeur Laser est insérer dans un petit tube, qui maintient enfoncé le
+bouton poussoir. Le défaut du système est la consommation électrique du pointeur,
+qui épuise 3 piles 1,5V LR44, en 1 heure. Nous cherchons à les remplacer par des
+batteries rechargeables.
+Au cours du temps, l’intensité lumineuse du Laser diminue, car les piles
+s’épuisent. Cependant la qualité de l’enregistrement reste la même. Les tensions
+oscillent autour de 3V avec des piles neuves, et diminuent rapidement. Mais même
+avec une tension autour de 250 mV, comme sur l’enregistrement ci-dessous, le son
+reste correct. Il suffit d’augmenter le gain sur l’ampli pour percevoir toujours la
+même intensité sonore.
+
+Sur Audacity, nous avons enregistré le son
+d’une guitare Folk, de l’attaque à l’extinction, puis
+effectué une analyse de Fourier. Nous voyons ici
+un son de hauteur 212 Hz, riche de nombreux
+harmoniques. Le son a un timbre « métallique »,
+qui correspond à la présence de nombreux
+harmoniques de fréquence supérieure à 1000 Hz. A
+l’attaque, il y a davantage d’harmoniques
+supérieur qu’à l’extinction. Le son semble plus
+« métallique » au début qu’à la fin.
+XXe Olympiades de physique/ Lycée Bernard Palissy/ Agen/ Optique musicale
+19
+
+D- Effets sonores: utilisation d’un filtre passe-bande :
+Pour compléter notre travail, nous avons voulu rajouter un filtre facile à
+manipuler, pour modifier à volonté et en direct le son de notre guitare issu du
+phototransistor. Nous utilisons pour cela un filtre passe-bande. Le signal du
+phototransistor est simplement envoyé sur le filtre. C’est un filtre à circuit résonant
+RLC3.
+En choisissant la fréquence
+centrale du filtre, il est possible de
+modifier le timbre de notre guitare.
+Les fréquences entre fL et fH (voir
+figure ci-dessous) passent à travers le
+montage sans être atténuées, mais
+toutes les autres sont atténuées. En
+modifiant la part des harmoniques
+du son, nous modifions son timbre.
+Pour modifier la fréquence
+centrale du filtre, nous déplaçons à la main le noyau de la bobine, et le timbre change
+en direct ! Cette bobine est une grosse bobine 16000 spires du laboratoire avec un
+noyau de fer doux permettant de faire varier l’inductance entre 100 mH et 1 H. Nous
+avons démonté le noyau du pas de vis permettant de le déplacer lentement. Nous
+pouvons ainsi le déplacer très rapidement, à la main et obtenir des effets sonores.
+
+U
+entrée
+filtre
+
+U
+sortie
+filtre
+
+Schéma du filtre sélectif
+Caractéristiques du montage :
+C = 4,7 nF, bobine 100 mH à 1H à noyau mobile,
+Rp = 1MΩ, R = 22kΩ
+
+3
+
+D’après V.Chollet, Université de Franche Comté, TP électronique 2
+
+ème
+
+année S3 EA2-07.
+
+XXe Olympiades de physique/ Lycée Bernard Palissy/ Agen/ Optique musicale
+20
+
+Tests d’un premier filtre
+Nous avons choisi comme premier montage, un circuit centré sur 1 kHz, c'està-dire sur une fréquence permettant une modification facilement reconnaissable du
+son de notre guitare. Il semble plus sourd, car les harmoniques supérieurs ont
+disparus.
+Voici les tensions obtenues en entrée et sortie du filtre. Les signaux d’entrée et
+de sortie du filtre sont sinusoïdaux.
+
+Nous remarquons que Usortiefiltre est en opposition de phase avec Uentréefiltre si la
+fréquence d’entrée est égale à celle du centre de la bande passante. Si la tension
+Uentréefiltre évolue jusqu’à 0,8 kHz, Usortiefiltre a une amplitude qui diminue et est
+XXe Olympiades de physique/ Lycée Bernard Palissy/ Agen/ Optique musicale
+21
+
+déphasé de T/4. De même si f augmente au-delà de 1,5 kHz. La tension U détecteur de
+crête tend aussi à diminuer.
+Nous avons constaté ces déphasages dans nos expériences, et leur évolution.
+Mais nous n’avons pas cherché à les étudier directement, car ils ne nous semblent
+être importants pour la qualité musicale. L’évolution du déphasage est une
+conséquence de l’éloignement de la fréquence du signal d’entrée par rapport à la
+fréquence centrale du filtre.
+L’amplitude du signal de sortie du filtre peut être modifiée en changeant la
+valeur de R. Si R diminue, l’amplitude augmente.
+Nous pouvons calculer la valeur de la fréquence centrale du filtre avec la
+formule correspondant à la fréquence de résonance d’un circuit LC: Fo = 1/(2Π√(LC))
+Avec ce filtre, nous avons tracé l’évolution de la tension efficace de sortie du
+filtre Ueff en fonction de la fréquence du signal d’entrée, lorsque le noyau ne bouge
+pas.
+
+U eff sortie du filtre
+(V)= f(F) avec F en kHz
+
+U eff sortie du filtre
+(V)= f(F) avec F en kHz
+
+1,2
+
+1,2
+
+1
+
+1
+
+0,8
+
+0,8
+
+0,6
+
+0,6
+
+0,4
+
+0,4
+
+0,2
+
+0,2
+0
+
+0
+0,8
+
+0,9
+
+1
+
+1,1
+
+1,2
+
+0,4
+
+0,45
+
+0,5
+
+0,55
+
+0,6
+
+En modifiant la position du noyau, la fréquence centrale du filtre change.
+
+Conclusion :
+Nous sommes tous musiciens, et combiner dans ce projet la physique et la
+musique fut un véritable plaisir. Ce mémoire est à lire, mais c’est surtout le son de
+notre guitare ou de notre violon, ou encore d’un simple cordon élastique vibrant
+entre deux pointes qui est à écouter. Nous avons composé un petit « jingle » pour
+illustrer notre oral. Il s’appuie sur notre capteur et le filtre passe-bande.
+L’intégration dans un orchestre d’un instrument amplifié équipé d’une écoute
+optique est possible. Nous l’avons fait et nous espérons pouvoir vous le faire
+découvrir lors de notre oral.
+Aucun capteur sonore ne reproduit aussi fidèlement le son d’un instrument
+que notre oreille. Notre système optique ne fonctionne pas plus mal qu’un
+microphone ou un capteur piezo de qualité moyenne. L’analyse de nos
+enregistrements nous l’a montré.
+XXe Olympiades de physique/ Lycée Bernard Palissy/ Agen/ Optique musicale
+22
+
+C’est une petite victoire pour nous, car nous sommes partis dans ce projet sans
+avoir trouvé de référence bibliographique sur l’écoute optique d’une corde. Nous ne
+savions pas si c’était possible.
+Grâce à ces expériences, nous avons fait nos premiers pas en acoustique et en
+électroniques. Nous avons essayé d’apprendre pendant ces semaines de travail la
+prudence et la rigueur pour la réalisation de nos montages, pour casser le moins de
+composants possibles (seules deux barrières optoélectroniques semblent
+définitivement hors d’usage).
+Nous avons complété ce travail avec un petit programme de calcul de
+fréquence à partir du nom d’une note et du nombre de cent de décalage donné par
+un accordeur.
+
+Annexe
+Grâce à la spécialité Informatique et
+sciences du Numérique en Terminale S, nous
+avons modifié et utilisé un logiciel créé au lycée
+Palissy en Visual Basic, il y a 4 ans pour
+transformer les notes en fréquence. Un accordeur
+donne le nom de la note et un nombre de cent c de
+décalage par rapport à la note juste :
+
+c = 1200 log2 f note jouée/ f note référence
+Notre
+
+logiciel
+
+permet
+
+de
+
+trouver
+
+fréquence correspondante.
+
+XXe Olympiades de physique/ Lycée Bernard Palissy/ Agen/ Optique musicale
+23
+
+la
+
+

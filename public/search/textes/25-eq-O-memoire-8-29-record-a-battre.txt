@@ -1,0 +1,1310 @@
+Edition 2017/2018
+
+8’’29
+Membres du projet :
+-WECKER Léa
+-SCHMIDT Julia
+-MARING Emma
+-BIANCHI Mathieu
+-EL GHEMMAZ Amine
+-JACINTO Hugo
+
+Professeurs Référents : SAÏBI Tanguy - MALGRAS Marc-Olivier
+
+Adresse du lycée : 59 Rue du Maréchal Foch, 57500 Saint-Avold
+
+1
+
+Table des matières
+I. NOS CHUTES ......................................................................................................................................................... 3
+1. PREMIERS PAS ............................................................................................................................................................. 3
+2. COMPARAISON DES DEUX CHUTES. .................................................................................................................................. 4
+II. UN PEU DE THEORIE POUR NOUS AIDER A COMPRENDRE. .................................................................................. 4
+1. LA CHUTE LIBRE............................................................................................................................................................ 4
+2. CHUTE AVEC FROTTEMENTS ........................................................................................................................................... 5
+3. ZOOM SUR LES FROTTEMENTS FLUIDES ............................................................................................................................. 6
+III. UN MODELE REDUIT POUR UNE ETUDE APPROFONDIE ....................................................................................... 8
+1. AVEC UN DEBIT CONSTANT ............................................................................................................................................. 8
+2. ESSAIS ET VERIFICATIONS ............................................................................................................................................... 9
+3. CONCEPTION ET REALISATION DU MODELE REDUIT. .......................................................................................................... 12
+IV. NOTRE TOBOGGAN ! ........................................................................................................................................ 12
+1. LES AVENTURES DE NOTRE PLAYMOBIL ........................................................................................................................... 12
+2. ETUDE DES FROTTEMENTS FLUIDES PLUS DETAILLEE .......................................................................................................... 14
+3. INFLUENCE DES FROTTEMENTS SOLIDES .......................................................................................................................... 17
+4. UNE COURBE OPTIMALE .............................................................................................................................................. 18
+V. CONCLUSION..................................................................................................................................................... 19
+
+Version numérique : Accès à notre Genial.ly !
+
+2
+
+I. Nos chutes
+1. Premiers pas
+Nous avons filmé nos chutes à l'aide d'un smartphone possédant un fort ralenti et les avons étudiées à l'aide du
+logiciel Avistep.
+
+Lors de nos premières études sur Avistep, nous
+avions des valeurs d'accélération
+inconcevables. Ainsi, selon le logiciel,
+l'accélération valait parfois 90 m/s² et nous
+avions ce type de graphique.
+
+Plusieurs solutions à ce problème :
+• Nous avions mis trop de points, la précision limitée du pointage a induit de gros écarts ;
+• L'excès de points a induit de nombreuses erreurs de pointage ;
+• Nous avions un problème avec le "framerate" qui correspond au nombre d'images par seconde, étant donné
+que nos vidéos avaient été filmées avec un ralenti de smartphone ;
+Nous avons remédié à ce dernier problème. Tout d'abord, nous savions que la valeur de l'accélération devait être
+d'environ 10m/s². Ensuite, nous avons essayé d'entrer le temps entre deux images avec les données constructeurs
+de ce téléphone cependant, l'accélération était toujours délirante (jusqu'à 120m/s2).
+Nous avons ensuite réalisé l'étude de la chute libre d'une bille. Nous avons alors pu déterminer le temps séparant
+deux images pour une valeur d'accélération valant 10m/s² et rentrer cette valeur de temps dans l'étude de nos
+différentes chutes au calypso.
+
+Étude de la chute de la bille
+
+La hauteur du tableau est de 121 cm.
+On voit donc que nous avons une valeur d'accélération d'environ 10m/s².
+On prend alors 0,0043 seconde entre chaque image et on procède à l'étude de nos deux chutes.
+
+3
+
+2. Comparaison des deux chutes.
+Nous avons décidé de nous intéresser à deux chutes en particulier : une chute respectant la position de base
+proposée par la piscine, une chute avec les mains relevées.
+
+Chute classique
+
+Chute avec les mains relevées
+
+Mathieu est descendu en 10''10.
+Après pointage, nous obtenons ce graphique. Nous
+remarquons que notre vitesse (v) a une moyenne
+de 9,501m/s.
+
+Mathieu est descendu en 10''53.
+Après pointage, nous obtenons ce graphique. Nous
+remarquons que notre vitesse (v) a une moyenne
+de 9,380m/s.
+
+https://www.youtube.com/watch?v=oylIM_HL9z8
+
+https://www.youtube.com/watch?v=nIgvIJzbn6U
+
+Comment expliquer le fait que la première chute ait été plus rapide que la seconde ?
+Intéressons-nous aux différences entre les deux chutes. L'environnement ne change pas, toutefois la position de
+Mathieu change : la position des bras et des mains est différente. On remarque que la première chute avec les bras
+le long du corps est plus rapide que la seconde avec les bras "en l'air". On en déduit donc que cette position a une
+réelle influence sur la vitesse.
+Ces constats nous amènent donc à nous intéresser à la chute des corps, d'abord la chute libre, puis une chute avec
+frottements. Nous soupçonnons ces derniers d'être à l'origine de ces variations de vitesse.
+
+II. Un peu de théorie pour nous aider à comprendre.
+1. La chute libre.
+Chute libre signifie chute sous l'influence d'une seule force : le poids. Pour cela, nous utilisons la deuxième loi de
+Newton, aussi appelée théorème du centre d’inertie. Elle permet de lier, dans un référentiel galiléen, la somme
+vectorielle des forces appliquées à un système avec la dérivée de la quantité de mouvement du système. Nous
+travaillons dans le référentiel du laboratoire étant un référentiel terrestre, supposé galiléen, pour la durée de
+l'expérience. Comme nous négligeons l'action des frottements extérieurs (Fext) la seule force s'exerçant sur le
+système est le poids (P).
+
+4
+
+Au départ, à t=0 on a : vx = 0
+vy = 0
+
+donc
+
+cte0 = 0
+cte1 = 0
+
+Ce modèle ne peut évidemment pas convenir mais nous aura permis de déterminer des équations horaires pour la
+première fois. Nous intégrons maintenant les frottements à notre étude.
+
+2. Chute avec frottements
+v Nous allons introduire les forces de frottements fluides. En effet, nous nous intéressons aux effets de l’air
+sur le nageur pendant sa chute :
+Au poids précédemment cité nous ajoutons ces forces de frottement et appliquons la seconde loi de Newton :
+
+∗ ! = −!. !
+∗ !. ! − !. ! = !. !
+On se place alors dans un référentiel terrestre, celui du
+laboratoire :
+! = −!. ! !" ! = ! ! . !
+!. ! !
+! = −! −
+.!
+!
+
+Et on exprime les équations horaires :
+On sait que ax=0
+!. !! (!)
+!! ! = −! −
+!
+!!! (!)
+!. !! (!)
+= −! −
+!"
+!
+
+La solution particulière est : !!"# =
+
+!!.!
+!
+
+!!.!
+
+La solution générale est : ! ! = !!"# (! − ! ! ) (1)
+Interprétation de la solution : la fonction exponentielle tend vers 0 lorsque la durée (t) augmente, la parenthèse tend
+donc vers 1 ; v tend donc vers vlim.
+v Prise en compte des frottements solides :
+Les frottements solides !! sont dus à des interactions à l'échelle macroscopique qui sont d’abord liées à la rugosité
+des deux surfaces. Cette partie des frottements semble évidente, nous nous sommes donc intéressés à la partie des
+frottements solides qui relève des interactions entre les atomes.
+De la chaleur est produite lorsque deux objets sont en contact et en mouvement. Cette chaleur est témoin des
+liaisons de Van der Waal initialement formées entre les deux surfaces. La rupture de ces liaisons entraîne une
+libération d'énergie sous forme d'énergie thermique. Les frottements solides sont, en effet, de nature
+électrostatique.
+
+Expression :
+! = !! + !!
+Tant que !! > 0, l’objet reste en contact avec le support.
+
+5
+
+!! = !! !!
+
+!! est le coefficient de frottement dynamique dont la valeur dépend des deux matériaux en présence et de l'état de
+leurs surfaces.
+
+Les projections dans un repère cartésien nous ont paru trop compliquées, par conséquent les expressions l'étaient
+aussi. Nous nous sommes dit qu'avoir des vecteurs unitaires colinéaires à nos vecteurs forces faciliterait la projection
+et simplifierait les expressions. Nous sommes donc passés à une base de Frenet composée de deux vecteurs
+mobiles : ! tangent à la trajectoire et ! normal à celle-ci.
+
+On obtient alors ces expressions pour l’accélération : !. !! = −!. !. !. cos ! − !. ! + !. !. sin (!)
+Nous décidons, dans un premier temps, de négliger les frottements solides car ils sont au moins en partie compensés
+par l'eau qui coule dans le toboggan.
+En effet, on suppose que l'ajout d'une fine couche d'eau entre le nageur et la paroi du toboggan limite le contact
+entre ces deux corps. Les molécules d'eau intercalées peuvent facilement glisser les unes sur les autres, les
+frottements solides ont donc presque totalement disparu.
+Nous avons pu observer la persistance de ces frottements par la diminution de notre temps de chute en adoptant
+une position limitant la surface de contact entre notre corps et la paroi.
+
+3. Zoom sur les frottements fluides
+Nous avons ensuite supposé que notre position avait une influence sur le temps nécessaire pour parcourir le
+toboggan et donc si elle a une influence sur notre vitesse. La traînée est provoquée par la résistance de l'air sur un
+corps, c’est-à-dire une force appliquée dans le sens opposé à la marche d'un corps. Cette force peut être réduite en
+améliorant l'aérodynamisme du corps.
+Une position optimale permet de diminuer notre résistance à l'air et influe sur le coefficient de traînée Cx.
+
+alaire
+6
+
+Ce qui signifie que le coefficient de trainée influe sur la traînée. Donc en améliorant l'aérodynamisme du corps, la
+force de traînée est moins grande.
+Comme la position joue sur les écoulements d'air autour de nous, nous nous sommes intéressés aux écoulements.
+Il existe deux types d'écoulements :
+• Écoulements laminaires : les flux ne se mélangent pas, il n'y
+a donc pas d'échange d'énergie. Le fluide s'écoule plus ou
+moins dans la même direction, sans que les différences locales
+se contrarient. Moins de pertes de charge dues aux
+frottements.
+• Écoulements turbulents : Les flux se mélangent, donc
+échange d'énergie. Il y a donc plus de perte de charge.
+Nous avons cherché quelles seraient les conditions
+nécessaires pour pouvoir avoir une vitesse la plus optimisée
+possible. Il serait donc question d'éviter les turbulences et
+d'éviter un maximum les pertes de charge.
+
+Afin d'avoir une position plus optimisée, il faut laisser les bras collés au corps et tirer les pointes de pieds au
+maximum. De plus, pour éviter le contact avec la paroi, il faut rentrer les omoplates pour que seules les épaules
+soient en contact avec l'eau. Ainsi, seul les épaules et les talons seront en contact avec l'eau, ce qui permettrait
+d'avoir le moins de frottements solide possible.
+Sans obstacle dans le tuyau, l'écoulement de l'air est laminaire, il y a donc une perte de charge assez minime.
+Cependant notre corps est un obstacle pour cet écoulement. Des tourbillons se forment après l'obstacle, ce qui
+entraîne une grande perte de charge. Nous perdons donc de la vitesse. Cet effet est bien sûr accentué lorsque nos
+bras sont relevés. Le but serait ici d'éviter au maximum les frottements de l'air qui nous ralentissent en essayant de
+rester en un bloc et donc de ne pas laisser de surfaces planes qui sont à l'encontre de l'écoulement de l'air.
+
+Chute en position aérodynamique
+
+Mathieu est descendu en 10''03.
+Après pointage, nous obtenons ce graphique. Nous remarquons que notre vitesse (v) a une moyenne de 9,807m/s.
+
+Donc, nous voyons bien que le fait d'adopter une position aérodynamique nous permet d'être plus rapide puisque
+nous sommes ralentis par moins de frottements. Pour étudier plus précisément ce mouvement il est important de
+
+7
+
+multiplier le nombre d’essais et donc de mesures pour obtenir des résultats exploitables. Nous souhaitons
+notamment vérifier que les modèles théoriques déterminés précédemment correspondent aux modèles
+expérimentaux.
+Nous avons donc réalisé un modèle réduit de notre toboggan préféré !
+
+III. Un modèle réduit pour une étude approfondie
+1. De l’eau dans le tuyau
+Nous utilisons une boite de conserve percée.
+Notre objectif est d'avoir un débit volumique constant en sortie (point B).
+On veut connaître le débit volumique dB :
+Pour le débit théorique :
+
+Pour le débit expérimental :
+
+La détermination du débit théorique implique de connaître la vitesse de sortie, pour cela nous utilisons la relation de
+Bernoulli :
+
+Cette équation traduit le principe de conservation de l’énergie le long d’une ligne de courant et s’écrit entre A et B,
+
+De plus, nous considérons que la vitesse en A est négligeable devant celle en B car nous alimentons en permanence
+le réservoir.
+En A comme en B, l’eau est en contact avec l’atmosphère, les pressions en ces deux points sont donc égales : PA=PB.
+
+!! =
+
+1 !
+2 !! + !!! − !!!
+1
+2
+
+Comme nous considérons que la vitesse en A est nulle : !! = 2!ℎ où ℎ = !! − !!
+Nos surfaces de sortie seront toutes identiques. Ainsi, pour influer sur le débit, nous serons amenés à changer la
+hauteur (h).
+Afin d’avoir une cuve remplie de manière homogène et constante, nous avons décidé d’utiliser une cuve « tampon ».
+Cette cuve placée au-dessus de notre cuve principale permettra d’avoir un circuit fermé, l’eau descend de notre
+
+8
+
+cuve secondaire à notre cuve principale de manière à ce que celle-ci déborde. L’eau du toboggan et du débordement
+seront remontées jusqu’à la cuve secondaire grâce à une pompe.
+
+2. Essais et vérifications
+Avant d'étudier les différents débits expérimentalement, nous avons réalisé une expérience permettant de montrer
+l'influence de la hauteur de sortie sur la vitesse de sortie du fluide. Cette expérience met en lumière la loi de
+Bernoulli liant vitesse et hauteur.
+Nous versions en même temps de l'eau
+dans la conserve afin que la hauteur de
+l'eau soit constante. De cette manière,
+nous voyons bien les différences de
+vitesse du fluide pour chaque sortie.
+
+Nous avons mesuré nos 3 différents
+débits expérimentalement.
+
+Etapes de l'expérience :
+• On a laissé couler l'eau d'une sortie pendant 60,0 secondes dans un réservoir.
+• On a pesé l'ensemble {récipient + eau} et l'on a soustrait la masse de ce même réservoir afin d'obtenir la
+masse d'eau (g) pour une durée 60,0 secondes.
+• Nous en avons déduit le volume correspondant.
+• Nous avons calculé le débit.
+Pour avoir plus de précision, nous avons réalisé cette même expérience plusieurs fois et calculé la moyenne des
+débits à chaque sortie.
+Plus la sortie est haute, plus le débit est faible. Nos résultats sont cohérents puisque nous obtenons le même ordre
+de grandeur entre le débit théorique et le débit expérimental. Cependant nous n'avons pas pris en compte certains
+facteurs comme le coefficient lié à la forme des sorties, les effets de l'eau dans la conserve et ses parois qui ne sont
+pas lisses.
+Incertitudes des débits expérimentaux :
+Nous avons calculé les incertitudes pour chacune de nos valeurs expérimentales :
+-
+
+-
+
+L’incertitude liée au chronomètre est de 0,01s.
+Cependant, nous avons déterminé que l’incertitude du réflexe est 0,15s. Pour cela nous avons défini un
+temps auquel arrêter le chronomètre (10s), nous lancions alors le chronomètre puis nous l’arrêtions à 10s le
+plus précisément possible. Nous avons donc calculé la moyenne des 30 mesures obtenus, faites par 3
+personnes différentes, et nous avons ainsi obtenu ce résultat de 0,15s pour le réflexe.
+On cherche donc les incertitudes des différents volumes (V), obtenus pour chaque sortie.
+Nous avons réalisé plusieurs mesures de la masse d’eau obtenue à chaque sortie. Nous en avons déduit les
+volumes.
+Dans un premier temps, nous avons fait la moyenne des volumes pour chaque sortie puis nous avons calculé
+les incertitudes.
+Il s’agit donc d’une incertitude de répétabilité de formule : ! ! =
+
+!.!"
+
+Avec k le coefficient d’élargissement pour 8 mesures.
+Et n le nombre de mesure.
+-
+
+Le débit est une incertitude de type B de formule : ! ! = !. (
+
+! !
+!
+
+!
+
+)! + (
+
+!(!) !
+!
+
+)
+
+9
+
+Pour la sortie du milieu :
+
+! = 1,20. 10!! !3
+!. !"
+! ! =
+!
+
+=
+
+! = 2,00. 10!! !! ! !!
+
+!,!".!,!.!"!!
+!
+
+= 1,17. 10!!
+
+! ! = !. (
+= 2,00. 10!! (
+
+! ! !
+!(!) !
+) +(
+)
+!
+!
+
+1,17. 10!! !
+0,15 !
+)
++
+(
+)
+1,20. 10!!
+60
+
+= 0,021. 10!!
+! = 2,00 ± 0,02 . 10!! !! . ! !!
+Résultats finaux :
+
+Sortie
+
+Intervalles débits théoriques
+
+Intervalles débits expérimentaux
+
+Haut
+
+! = 1,98 ± 0,92 . 10!! !! . ! !!
+
+! = 1,19 ± 0,02 . 10!! !! . ! !!
+
+Milieu
+
+! = 3,19 ± 1,49 . 10!! !! . ! !!
+
+! = 2,00 ± 0,02 . 10!! !! . ! !!
+
+Bas
+
+! = 4,15 ± 1,93 . 10!! !! . ! !!
+
+! = 2,45 ± 0,02 . 10!! !! . ! !!
+
+Pour chaque sortie il y a une intersection entre les intervalles des débits théoriques et expérimentaux.
+
+Précisions sur les incertitudes
+
+Afin de déterminer dans quel régime d’écoulement l’eau arrive dans le toboggan, nous nous sommes intéressés au
+nombre de Reynolds et aux différences entres les écoulements.
+N’ayant pas le matériel nécessaire à la réalisation de l’expérience de Reynolds au lycée Charles Jully, nous nous
+sommes déplacés au lycée Louis Vincent de Metz qui ont accepté de nous laisser manipuler la maquette prévue pour
+cette expérience présente dans leur lycée.
+Nous avions étudié les régimes d’écoulements sur une plage de 30L/h à 150 L/h, réglé grâce à un débitmètre dans un
+tuyau de 21mm de diamètre. Grâce au colorant bleu de méthylène nous pouvons observer la nature de
+l’écoulement. La température de l’eau était de 12°c (mesurée à la sortie du tube à l’aide d’un thermomètre
+étanche).
+Nous utiliserons la formule suivante : Re =
+
+!×!
+!
+
+Avec D le diamètre en m, U la vitesse du fluide en m/s, ! la viscosité cinématique en ! ! .! !!
+!! le débit en ! ! /! et S la section du tube en ! ! .
+!
+
+U = !!
+Re =
+Donc
+
+!
+
+!
+
+!× !!
+!
+
+S = !×!
+42, 70 !/ℎ = 1,18611×10!! ! ! /!
+S = !×(10,5×10!! )!
+
+10
+
+Vous retrouverez en Annexe le graphique de la valeur de la viscosité cinématique en fonction
+de la température de l’eau ainsi que des photos de la manipulation.
+
+Valeur à 42.7 L/h,
+
+Re =
+
+72 L/h
+
+Re =
+
+88L/h
+
+Re =
+
+150 L/h
+
+Re =
+
+!,!"#!!×!"!!
+!×(!",!×!"!! )!
+!,!"#×!"!!
+
+!"×!"!! ×
+
+= 576,2.
+
+!,!!"""×!"!!
+!×(!",!×!"!! )!
+!,!"#×!"!!
+
+!"×!"!! ×
+
+!,!"×!"!!
+!×(!",!×!"!! )!
+!,!"#×!"!!
+
+!"×!"!! ×
+
+!,!""#×!"!!
+!×(!",!×!"!! )!
+!,!"#×!"!!
+
+!"×!"!! ×
+
+= 973,3.
+
+= 1190,3.
+
+= 2024,7.
+
+Vous retrouverez une playlist regroupant les vidéos de ces écoulements.
+On sait que quand Re < 2000 l’écoulement est dit laminaire et quand 2000<Re <3000
+l’écoulement est transitoire. Quand Re > 3000 l’écoulement est dit turbulent.
+
+On peut voir que les écoulements sont censés être laminaires en théorie à 40, 70 et 90 L/h
+alors qu’en pratique à 70L/h et encore plus à 90 L/h, les écoulements se rapprochent d’un
+écoulement transitoire. On peut voir qu’à 150L/h l’écoulement est bien transitoire et se
+rapproche presque d’un écoulement turbulent.
+Pour donner un ordre d’idée, sur ce schéma en A l’écoulement est laminaire, en B
+l’écoulement est transitoire et en C l’écoulement est turbulent.
+
+Sur notre maquette, le tuyau reliant la cuve au toboggan a un diamètre de 5mm. Les débits en sortie de notre cuve
+sont de 42.7 L/h à la sortie haute, 72.12 L/h à la sortie du milieu et 88.2L/h à la sortie basse. On passe maintenant
+aux calculs pour un tuyau ayant une largeur de 5mm :
+
+A 42.7 L/h, Re =
+
+A 72.12 L/h, Re =
+A 88.2 L/h, Re =
+
+!,!"#!!×!"!!
+!×(!,!×!"!! )!
+!,!"#×!"!!
+!,!!"""×!"!!
+!×!"!! ×
+!×(!,!×!"!! )!
+
+!×!"!! ×
+
+!,!"#×!"!!
+
+!,!"×!"!!
+!×!"!! ×
+!×(!,!×!"!! )!
+
+!,!"#×!"!!
+
+= 2420,2.
+= 4087,7.
+
+= 4999,1.
+
+Nous pouvons donc assurer que l’eau arrivant dans le toboggan se situe dans un régime turbulent peu importe la
+sortie utilisée car Re >4000 pour les deux sorties les plus basses et Re>2000 à la sortie haute or nous avons vu avec
+l’expérience réalisée plus haut qu’à Re=2000, l’écoulement commence vraiment à être turbulent.
+
+11
+
+3. Conception et réalisation du modèle réduit.
+Avant de passer à la réalisation de notre modèle réduit, nous avons schématisé notre toboggan pour l'étudier. Nous
+nous sommes uniquement concentrés sur la première partie du toboggan.
+Afin de réaliser un modèle réduit du toboggan, nous avons utilisé l'échelle 1/10ème. Nous avons alors dessiné des
+plans afin de le construire puis nous avons modélisé les pièces du support qui maintiendra le tuyau du toboggan en
+place.
+Pour cette réalisation, nous avons utilisé la découpeuse
+laser, pour la pièce principale, ainsi que l'imprimante 3D
+pour les trois pièces, disponibles au lycée. Avec
+l'imprimante 3D, certaines pièces nécessitent une durée
+d'impression de plus de 9heures.
+D’autres photos illustrant la réalisation de ces
+pièces sont disponibles ici
+
+Nous utiliserons également un électro-aimant afin de lâcher notre Playmobil, équipé d’une bille en métal dans la
+tête, sans vitesse initiale comme vu dans les équations.
+
+Fonctionnement d'un électroaimant
+
+IV. Notre toboggan !
+1. Les aventures de notre Playmobil
+Nous souhaitons étudier la chute d'un Playmobil en présence de frottements fluides et sans frottements fluides.
+La chute du Playmobil dans le tuyau sans eau ne semble pas présenter de frottement, les interactions entre le
+Playmobil et le tuyau sec ne correspondents pas à celles observées entre un nageur (peau) et un toboggan sec.
+
+Comparaison avec et sans "peau"
+
+Réaliser la chute d'un Playmobil dans un tuyeau sec avec et sans "peau" couplé à l'analyse de la chute d'un Playmobil
+dans un tuyau mouillé, avec et sans "peau", nous a bien permi de mettre en avant l'importance de l'eau compensant
+les frottements solides. En effet, nous pouvons négliger les frottements solides dès que la paroi du toboggan est
+recouverte d'eau.
+
+12
+
+Test n°1 avec un Playmobil avec peu de
+frottements fluides
+
+Test n°1 avec un Playmobil avec frottements fluides
+
+Après pointage, nous obtenons ce graphique. Nous
+Après pointage, nous obtenons ce graphique. Nous
+remarquons que notre vitesse (v) a une moyenne de remarquons que notre vitesse (v) a une moyenne de
+1,880m/s.
+1,784 m/s.
+
+https://www.youtube.com/watch?v=PBDV4RPPdGI
+
+https://www.youtube.com/watch?v=hR4AGNP_HLA
+
+!!.!
+
+La seconde étape est de vérifier l’adéquation de notre modèle théorique (! ! = !!"# (! − ! ! )) avec les
+résultats expérimentaux.
+Chute sans accentuer les frottements fluides (bras le long du corps) :
+
+Chute en accentuant les frottements fluides (bras relevés) :
+
+13
+
+Les modèles sont cohérents avec nos résultats expérimentaux. Ce qui prouve la validité de notre équation
+différentielle qui modélise la vitesse par une fonction exponentielle.
+Nous allons affiner nos résultats en proposant un plus grand nombre de mesures et d’autres méthodes de
+détermination de la vitesse ou de la durée de chute.
+
+2. Etude des frottements fluides plus détaillée
+Nous avons mesuré la durée de chute du Playmobil, grâce à un chronomètre conçu à partir de deux lasers, deux
+photodiodes et d’un oscilloscope.
+
+Fonctionnement du chronomètre
+Dans le but de prouver l’existence des frottements qui agissent sur le Playmobil, nous allons dans un premier temps
+calculer la vitesse puis l’énergie cinétique de celui-ci en bas du tube s’il ne subissait pas de frottements. Puis dans un
+second temps, nous mesurerons la vitesse du Playmobil au bout du tube grâce à notre chronomètre à photodiode,
+puis nous calculerons son énergie cinétique. En comparant cette énergie cinétique à celle obtenu s’il n’y avait pas de
+frottements, nous pourrons en déduire la valeur du travail des forces de frottement agissant sur le Playmobil.
+Pour calculer la vitesse théorique en bas du tube, donc sans toboggan, nous allons utiliser l’énergie mécanique. Le
+poids étant une force conservative, l’énergie mécanique ne varie pas. Ainsi, EM en A (uniquement de l’énergie
+potentielle) qui est égale a EM en B (énergie cinétique uniquement) avec A le point de départ en haut du tube et B
+son point d’arrivée à la fin du tube en considérant un repère tel que B est sur l’axe des abscisses.
+
+⇔
+⇔
+
+!""! = !"!
+m*g*h = ½*m*! !
+2!ℎ = v = 2 ∗ 9.81 ∗ 62.9 ∗ 10!! = 3.51 !/!
+
+Calculons l’énergie cinétique : !"! = ½*m*3.51!
+Nous effectuons des mesures de vitesse grâce à deux lasers placés au bout du toboggan espacés de 5.8 cm. Nous
+mesurons le temps que marcel met à parcourir la distance entre ces deux lasers tout au bout du toboggan, nous
+répétons cette mesure 20 fois. La valeur moyenne de la durée mesurée est de 30.04 ms.
+Le Playmobil ayant de la cire de Babybel dans le dos et les bras baissés a une vitesse moyenne instantanée de 1.93
+m/s sur une distance de 5.8 cm en bas du tube. Nous allons calculer l’incertitude sur cette valeur :
+!∗! !∗!.!""#$%%&
+
+U(t)= ! =
+
+Incertitude de répétabilité pour le temps :
+Incertitude de double mesure :
+
+Et enfin : U(v)= ! ∗
+
+! !
+
+U(d)=
+
+!!"#$
+!"
+
+!"
+
+=1.1ms
+
+∗ 2 ∗ 2 = 0.82 !!
+
+! !
+
+( ! )! + ( ! )! =0.08
+
+Étant donné l’incertitude de 0.08 m/s la vitesse (v) du Playmobil est comprise entre 1.85 m/s et 2.01m/s.
+Connaissant la masse de marcel avec de la cire de Babybel (m=18.6659g), nous pouvons calculer son énergie
+cinétique :
+
+!"!" = ½ *(18.6659*10!! )*1.93! =0.0348 J
+14
+
+Or sans frottement on aurait :
+
+!"! = ½ *(18.6659*10!! )*3.51! =0.115 J
+Or nous savons que
+
+!!" ! = !"!!!"#$ !"#$$%&%'$( - !"!!!"#! !"#$$%&%'$(
+!!" ! = 0.0348-0.115 = -0.0802 J
+
+Donc
+
+Nous considérons l’existence de deux forces de frottements : les frottements fluides et les frottements statiques
+contre la paroi :
+
+!!" !! + !!" !" = -0.0802 J
+Quand notre Playmobil glisse sur le toboggan avec un filet d’eau, de la cire de Babybel dans le dos et les bras baissés,
+la somme des travaux des forces de frottements vaut -0.0802 Joules.
+Nous avons refait la même chose en levant les bras du Playmobil et en y ajoutant de la cire de Babybel entre les deux
+bras. Nous espérions ainsi augmenter les forces de frottements.
+Nous avons refait les mesures de vitesse de la même façon, nous obtenons un temps moyen de 34.52 ms sur une
+distance de 5.8 cm en bas du tube, donc une vitesse instantanée en bas du tube de 1.68 m/s.
+U(t)= 5.17 ms
+U(d)=0.82mm
+U(v)=0.31m/s
+
+La valeur est plus grande qu’avant car nous avons effectué seulement 10 essais.
+
+Le Playmobil pèse maintenant 21.1227 g à cause de la cire de Babybel ajouté au niveau des bras (pour simuler la
+fermeture des bras).
+
+!"!"" = ½ *(21.1227*10!! )*1.68! =0.0298 J
+!"! ′= ½ *(21.1227*10!! )*3.51! =0.130 J
+Donc maintenant,
+
+!!" ! ‘= 0.0298-0.130 = -0.100 J
+
+Or la surface de contact avec la paroi n’a pas changé, nous considérons donc que les frottements solides n’ont pas
+changé.
+Nous cherchons la différence du travail des forces de frottements fluides :
+
+!!!" !! =
+
+!!" ! ‘ -
+
+!!" ! = -0.0198
+
+Donc nous en déduisons qu’avec les bras levés le travail de la force de frottement fluide augmente de l’ordre de 0.02
+Joules soit à peu près 20 %.
+Tout au long de notre projet, nous avons étudié les effets de l’écoulement d’air sur notre corps et sur le Playmobil.
+Pour notre étude, nous avons jugé que visualiser ces turbulances était la meilleure façon de les comprendre. Notre
+lycée a à sa disposition une soufflerie, cela permet des visualisations d’écoulement le plus souvent difficiles à faire
+dans le conditions réelles de déplacement.
+
+15
+
+Cx et frottements du Playmobil
+Nous avons calculé Cx avec le logiciel SolidWorks dans le
+but d’obtenir le coefficient de traînée d’un Playmobil
+dans l’air.
+Plusieurs étapes :
+- obtenir un Playmobil sur SolidWorks ;
+
+- se familiariser avec SolidWorks et principalement avec
+flow simulation ce qui nous permettrait de calculer Cx ;
+- calculer Cx.
+Le problème principal dans l’obtention du Cx fut de déterminer l’aire de la section projetée par les arrêtes du
+Playmobil. Après de nombreuses heures passées sur le logiciel et avec l’aide d’un intervenant extérieur, nous avons
+pu finalement avoir ce projeté d’arrêtes.
+
+- Programmer les calculs du cx à l’aide de la formule.
+
+- Lancer le calcul.
+
+Résultats :
+Pour une chute avec les bras baissés, le CX=0,89
+
+Pour une chute avec les bras levés, le CX=1,06
+
+16
+
+Comme nous avons pu le voir plus haut, les frottements fluides induits par la trainée font intervenir ce coefficient de
+trainée Cx et la surface alaire ainsi que d’autres facteurs comme la vitesse et l’environnement. Nous pouvons voir
+que le Cx et la surface alaire sont tous deux beaucoup plus grands chez le Playmobil ayant les bras levés. Ceci
+explique le fait que le Playmobil aux bras levés a une force de trainée plus elevée (« Force (Y) » dans le tableau cidessus ).
+
+Expériences dans notre soufflerie :
+La première position : Avec les bras levés
+On voit bien les turbulences liées à la position de l’action man dans le cercle rouge.
+
+La deuxième position : Avec les bras le long du corps
+On voit bien que cette position a pour but de limiter les frottements : il y a beaucoup moins de turbulences
+qu’avec la première position.
+
+Vidéo de comparaison entre les deux
+positions
+
+3. Influence des frottements solides
+Dans le but d’évaluer l’influence des frottements solides, nous avons effectué des mesures de vitesse instantanée en
+huilant le dos du Playmobil. Nous avons mesuré un temps moyen de 28.4 ms sur la section de 5.8 cm tout au bout du
+tube. Ainsi la vitesse instantanée, en bas du tube, du Playmobil lubrifié est de 2.04 m/s.
+U(t) = 2.2 ms
+U(d)= 0.82 mm
+U(v)=0.17 m/s
+Le Playmobil a une masse de 18.6659g car nous considérons la masse de l’huile
+négligeable.
+!"!"# = ½ *(18.6659*10!! )*2.04! = 0.0388 J
+
+17
+
+Nous avons déjà calculé l’énergie cinétique sans frottements pour ce Playmobil, elle était de 0.115 J.
+!!" !′′ = 0.0388 – 0.115 = - 0.0762 J
+
+!!!" !" =
+
+!!" !′′ -
+
+!!" ! = - 0.0762 + 0.0802 = 0.0040 J
+
+On voit que !!" ! avec huile <
+!!" ! sans huile. Or la position du Playmobil n’a pas changé (position bras
+baissés), nous en concluons donc que les frottements fluides n’ont pas changé, la différence de frottements est due
+à la lubrification de la cire réduisant ainsi les frottements solides. Cela prouve l’existence des frottements solides
+dans le toboggan malgré la présence de l’eau. Nous noterons que la différence est de l’ordre de 5% ce qui est bien
+inférieur à la différence engendrée par la position des bras.
+
+4. Une courbe optimale
+Durant les épreuves interacadémiques, une remarque pertinente nous a été faite par un professeur du public, il nous
+a signalé l'existence de travaux sur la « courbe parfaite » par Jean Bernoulli. Une fois rentré au lycée cette « courbe »
+nous a intrigués. Nous nous sommes donc renseignés sur celle-ci, avons lu sa démonstration qui était très algébrique
+mais accessible. Nous savions pertinemment que cette courbe sortait un petit peu de notre sujet puisque le but n'est
+pas de modifier le toboggan pour battre le record mais cela nous a tellement intéressé que nous n'avons pas pu
+passer à côté. Nous avons donc décidé de modéliser cette courbe sur le logiciel Inventor afin de la comparer à celle
+de notre modèle réduit. On peut voir sur les images en annexe que la différence n'était pas énorme mais notable. Par
+manque de temps et de pertinence par rapport au sujet nous n'avons pas imprimé le modèle pour comparer les
+temps de chutes.
+Cependant, nous avons étudié ce problème avec l’aide de nos camarades américains.
+
+Précisions sur cette courbe
+Notre projet et nos collaborateurs :
+
+Nous avons d’or et déjà pris contact avec le Calypso afin d’obtenir des informations supplémentaires et
+d’entreprendre un partenariat. Ces informations nous permettrons d’effectuer nos expérimentations avec encore
+plus de précision et de certitudes. Actuellement, les personnes avec lesquelles nous sommes en contact ne nous on
+pas encore envoyé les éléments nécessaires mais cela ne saurait tarder.
+De plus, notre lycée est en partenariat avec un établissement américain du nom
+de Campbell Highschool qui se situe à Smyrna en Georgie (USA). Les membres de
+notre groupe ont eu l’opportunité d’y passer une semaine et donc de créer des
+liens avec les étudiants américains. Nous continuons de garder contact et avons
+décidé de les intégrer à notre projet.
+
+Straight
+
+Accéder à notre vidéo
+Nos correspondants américains possèdent un support composé de plusieurs
+
+rampes et pouvaient donc comparer la chute de différentes billes sur différentes
+rampes, une rampe courbée se rapprochant de la courbe brachistochrone et une
+rampe droite. En haut de la rampe, les deux billes ont la même énergie
+Curve
+potentielle de pesanteur. A la fin de la rampe toute l’énergie potentielle de
+pesanteur s’est transformée en énergie cinétique. Les billes ont commencé à la
+même hauteur (20,5 cm) et elles ont la même vitesse :
+si on néglige les frottements car ΔEpp = ΔEc donc mgh = ½ mv2.
+La durée prise par la bille sur la rampe droite est beaucoup plus importante que sur la rampe courbée, une moyenne
+sur 5 essais de 0.902 s avec une incertitude de 0.087s contre 1.072 s avec une incertitude de 0.120s. La bille sur la
+rampe courbée accélère plus vite et arrive à la fin de la rampe plus rapidement. Les billes, à la fin de la rampe, ont la
+même vitesse mais arrivent à des moments différents.
+
+18
+
+V. Conclusion
+Rappelons que notre but était de voir comment améliorer notre vitesse à l'intérieur du tube. Etant arrivé à la fin de
+nos investigations, et ayant étudié tous les facteurs externes devant être pris en compte, nous avons pu determiner
+comment optimiser notre chute pour battre le record de 8.29 secondes.
+En effet, nous nous sommes rendu compte que la position était un facteur important afin de limiter les frottements
+fluides. Nous avons également compris que les frottements solides, bien que présents, étaient négligeables par
+rapport aux frottements fluides. A travers l'étude des chutes dans la maquette nous avons confirmer ce que nous
+avions trouvé par la théorie. De plus la conception de notre propre maquette nous a permis de modifier certains
+paramètres impossible à changer au Calypso.
+De plus, nous avons rencontré quelques difficultés au fur et à mesure de l'élaboration de notre projet. Nous avions
+eu des difficultés pour avoir l'autorisation de filmer sur le terrain (au Calypso), c'est pour cela que nos mesures ne
+sont pas parfaites, nous ne pouvions pas filmer avec le portable parallèle au toboggan. De plus, nous avions aussi eu
+quelques problèmes en relation avec la réalisation des supports de notre modèle réduit du toboggan car
+l’impression était très longue et certaines pièces trop grandes. Enfin, la réalisation de l’expérience de Reynolds étant
+impossible à réaliser au lycée Charles Jully, nous nous sommes déplacés au lycée Louis Vincent de Metz. Nous avons
+donc résolu tous ces problèmes ensemble et nous sommes parvenus à la fin de ce projet.
+Ensuite, les olympiades nous ont permis d’étendre nos connaissances dans le domaine des mathématiques et des
+sciences physiques, ainsi que découvrir de nouveaux domaines tel que les sciences de l’ingénieur. Nous avons tous
+contribué à la réalisation de ce projet grâce à la bonne ambiance qui fut omniprésente, l’entraide ainsi que
+l’ouverture d’esprit de chacun d’entre nous. Nous avons su resté soudés lorsque les problèmes ont fait surface et
+nous les avons surpassés en confrontant nos opinions et en trouvant des solutions. Les olympiades sont plus qu’un
+simple concours pour nous, elles représentent un challenge pour chacun d’entre nous, une occasion de nous
+surpasser et de nous épanouir dans le domaine des sciences.
+Il ne nous reste plus qu’à retourner au Calypso et battre ce fameux record !
+REMERCIEMENTS
+Nous remercions :
+• Le jury pour l'attention portée à notre dossier.
+• Nos professeurs référents pour nous avoir soutenus et guidés tout au long du projet.
+• Baptiste Faivre pour sa précieuse aide dans nos expérimentations.
+• Lucas Stallknecht, un de nos camarades en section SI, pour avoir créé les plans de la maquette sur Inventor.
+• Louis Brunod notre cadreur attitré.
+• M. Geisen et M. Fovet pour nous avoir aidés à imprimer les pièces de la maquette au lycée.
+• Nos professeurs pour avoir été compréhensifs tout au long de notre projet en nous accordant quelques
+heures pour travailler sur le projet.
+• Le lycée Louis Vincent de Metz qui nous a permis de réaliser l’expérience de Reynolds en nous prêtant le
+matériel adéquat.
+• Campbell High School pour nous avoir aidé tout au long du projet.
+
+19
+
+VI. Annexes
+Annexe 1 : Calcul des incertitudes sur le débit
+Nous avons calculé les incertitudes des débits théoriques et expérimentaux.
+Le débit théorique :
+Formule : ! = !. !
+Il s’agit donc d’une incertitude de type B de formule : ! ! = !. (
+-
+
+! !
+!
+
+)! + (
+
+! !
+!
+
+)!
+
+Pour la surface :
+! = !. ! ! = 2,0. 10!! ! !
+! ! !
+)
+!
+La mesure du rayon a été faite à la règle, c’est une double lecture. Lors d’une mesure à la règle avec des
+graduations d’un millimètre, en double lecture, U = 0,82mm.
+On a donc :
+! ! = !. 2. (
+
+0,82 !
+! ! = 2,0. 10 . 2.
+2,5
+!! !
+= 9,10. 10 !
+!!
+
+-
+
+Pour la sortie la plus haute :
+! = 2. !. ℎ = 0,990 !. ! !!
+1 !(ℎ) !
+! ! = !.
+.
+2
+ℎ
+
+! = 1,98. 10!! ! ! . ! !!
+! ! = !. (
+
+1 0,82 !
+= 0,990.
+.
+2 50
+= 1,15. 10!!
+
+= 1,98. 10!! . (
+
+! ! !
+! ! !
+) +(
+)
+!
+!
+
+1,15. 10!! !
+9,10. 10!! !
+) +(
+)
+0,990
+2,0. 10!!
+
+= 9,20. 10!!
+
+! = 1,98 ± 0,92 . 10!! ! ! . ! !!
+-
+
+Pour la sortie du milieu :
+! = 2. !. ℎ = 1,597!. ! !!
+1 !(ℎ) !
+! ! = !.
+.
+2
+ℎ
+
+! = 1,98. 10!! ! ! . ! !!
+! ! = !. (
+
+1 0,82 !
+= 1,597.
+.
+2 130
+= 7,123. 10!!
+
+= 3,19. 10!! . (
+
+! ! !
+! ! !
+) +(
+)
+!
+!
+
+7,123. 10!! !
+9,10. 10!! !
+) +(
+)
+1,597
+2,0. 10!!
+
+= 1,483. 10!!
+! = 3,19 ± 1,49 . 10!! ! ! . ! !!
+
+-
+
+Pour la sortie la plus basse :
+! = 2. !. ℎ = 2,077!. ! !!
+! ! = !.
+
+1 !(ℎ) !
+.
+2
+ℎ
+
+1 0,82 !
+.
+2 220
+= 5,474. 10!!
+= 2,077.
+
+! = 4,15. 10!! ! ! . ! !!
+! ! = !. (
+= 4,15. 10!! . (
+
+! ! !
+! ! !
+) +(
+)
+!
+!
+
+5,574. 10!! !
+9,10. 10!! !
+) +(
+)
+2,077
+2,0. 10!!
+
+= 1,929. 10!!
+! = 4,15 ± 1,93 . 10!! ! ! . ! !!
+
+20
+
+L’incertitude est grande pour les trois sorties car la précision des mesures est faible : le rayon de la surface
+est R=2,5mm et notre graduation=1mm.
+Le débit expérimental :
+Formule : ! =
+
+!
+!
+
+Il s’agit également d’une incertitude de type B de formule : ! ! = !.
+
+!
+
+! !
+!
+
++
+
+!
+
+! !
+!
+
+-
+
+L’incertitude liée au chronomètre est de 0,01s.
+Cependant, nous avons déterminé que l’incertitude du reflex est 0,15s. Pour cela nous avons défini un temps
+auquel arrêter le chronomètre (10s), nous lancions alors le chronomètre puis nous l’arrêtions à 10s le plus
+précisément possible. Nous avons donc calculé la moyenne des 30 mesures obtenus, faites par 3 personnes
+différentes, et nous avons ainsi obtenu ce résultat de 0,15s pour le reflex.
+
+-
+
+Pour le volume :
+Nous avons réalisé plusieurs mesures de la masse d’eau obtenue à chaque sortie. Nous les avons donc
+converties de telle sorte d’obtenir les volumes.
+Dans un premier temps nous avons fait la moyenne des volumes pour chaque sortie puis nous avons calculé
+les incertitudes.
+Il s’agit donc d’une incertitude de répétabilité de formule : ! ! =
+Avec k le coefficient d’élargissement pour 8 mesures
+Et n le nombre de mesure
+
+-
+
+!.!"
+!
+
+Pour la sortie la plus haute :
+V = 0,71. 10!! ! !
+! ! =
+=
+
+! = 1,19. 10!! !3. ! !!
+
+!.!"
+
+!
+!,!".!,!.!"!!
+
+! ! = !. (
+
+!
+
+= 1,17. 10!!
+
+= 1,19. 10!! (
+
+! = 1,19 ± 0,02 . 10!! ! ! . ! !!
+-
+
+Pour la sortie du milieu :
+! = 1,20. 10!! !3
+!. !"
+! ! =
+!
+=
+
+!,!".!,!.!"!!
+
+Pour la sortie la plus basse :
+! = 1,47. 10!! !3
+!. !"
+! ! =
+!
+=
+
+!,!".!,!.!"!!
+
+! ! = !. (
+= 2,00. 10!! (
+
+!,!" !
+!"
+
+)
+
+! ! !
+!(!) !
+) +(
+)
+!
+!
+
+1,17. 10!! !
+0,15 !
+) +(
+)
+!!
+1,20. 10
+60
+
+= 0,021. 10!!
+
+! = 2,45. 10!! !3! !!
+! ! = !. (
+
+!
+
+= 0,77. 10!!
+
+) +(
+
+!,!".!"!!
+!!
+
+! = 2,00. 10!! !3! !!
+
+! = 2,00 ± 0,02 . 10!! ! ! . ! !!
+-
+
+!,!".!"!! !
+
+= 0,020. 10
+
+!
+
+= 1,17. 10!!
+
+! ! !
+!(!) !
+) +(
+)
+!
+!
+
+= 2,45. 10!! (
+
+! = 2,45 ± 0,02 . 10!! ! ! . ! !!
+
+! ! !
+!(!) !
+) +(
+)
+!
+!
+
+0,77. 10!! !
+0,15 !
+) +(
+)
+!!
+1,47. 10
+60
+
+= 0,015. 10!!
+
+21
+
+Comparaison :
+Sortie
+
+Intervalles débits théoriques
+
+Intervalles débits expérimentaux
+
+Haut
+
+! = 1,98 ± 0,92 . 10!! ! ! . ! !!
+
+! = 1,19 ± 0,02 . 10!! ! ! . ! !!
+
+Milieu
+
+! = 3,19 ± 1,49 . 10!! ! ! . ! !!
+
+! = 2,00 ± 0,02 . 10!! ! ! . ! !!
+
+Bas
+
+! = 4,15 ± 1,93 . 10!! ! ! . ! !!
+
+! = 2,45 ± 0,02 . 10!! ! ! . ! !!
+
+Pour chaque sortie il y a une intersection entre les intervalles des débits théoriques et expérimentaux.
+
+22
+
+Annexe 2
+
+Fonctionnement du chronomètre
+La photodiode :
+Une photodiode est composée d’une jonction -PN formée d’un cristal semi-conducteur (composé de
+Silicium et de Germanium) qui lorsqu’on l’éclaire, émet un courant par effet photoélectrique, c’est-à-dire
+lorsque l’on expose le métal a de la lumière pour que des électrons soient éjectés de la surface du métal.
+La jonction -PN est une zone du cristal où le dopage varie brusquement, passant d’un dopage P à un
+dopage N. Lorsque la région dopée P est mise en contact avec la région N, les électrons et les trous
+d’électron (absence d’électron dans la bande de valence) se diffusent de part et d’autre de la jonction, ce
+faisant ils laissent derrière eux des ions de charges opposés, qui assuraient la neutralité électrique des
+régions dopées P et N. Il y a donc apparition d’une zone dépourvue d’électrons à la jonction dans le semiconducteur de type N et une zone dépourvue de trous dans le semi-conducteur de type P, alors que les
+ions résultants des atomes dopants sont toujours présents dans cette zone. Ces ions qui ne sont alors plus
+compensés par les électrons créent un champ électrique.
+La juxtaposition de ces deux zones dépourvues de porteurs libres et chargées électriquement constituent
+la zone de déplétion.
+Dopage : c’est l’action d’ajouter des impuretés (atomes : du Phosphore à la place du Silicum pour une
+charge plus négative et du Bore à la place du Germanium pour une charge plus positive) en petite quantité
+à une substance pure afin de modifier ses propriétés électriques.
+
+électrique
+
+Courant
+
+Ce courant électrique est ensuite envoyé à l’oscilloscope qui affiche un signal.
+Lorsqu'un objet coupe le laser, il y a une coupure sur le signal de l’oscilloscope.
+Grâce à ce principe, nous avons placé un laser qui traversait le toboggan et qui allait droit sur la
+photodiode pour une première position et un autre laser avec une deuxième photodiode à un deuxième
+endroit du toboggan. Lorsque le playmobil passe devant ces deux lasers, il y a donc deux coupures sur les
+signaux de l’oscilloscope. Pour mesurer le temps, nous avons mesurer le retard de temps entre ces deux
+coupures, du début de la première au début de la seconde. Grâce à ce retard de temps, nous pouvons
+calculer la vitesse grâce à la relation v = d/t.
+
+23
+
+Annexe 3
+
+Equations
+
+L’image ci-dessus est une capture d’écran des équations paramétriques de notre brachistochrone.
+Les équations paramétriques d’une brachistochrone sans prise en considération des frottements
+sont toujours celles d’une cycloïde. La brachistochrone avec frottements existe mais les équations
+sont plus compliquées pour très peu de changements.
+Forme de la brachistochrone :
+
+Comparaison avec notre modèle
+
+L’image ci-dessus est une superposition de la courbe de notre modèle réduit et d’une
+brachistochrone. La différence de hauteur de départ est due au fait que sur notre modèle réduit, le
+tuyau dépasse. La modèle réduit est la pièce en bleue et la brachistochrone, morceau de
+cycloïde, est en noire. La différence est notable.
+24
+
+25
+
+8’’29 – Résumé
+Ce toboggan (Adrenaloop) est apprécié par tous ses utilisateurs et nous vous le conseillons fortement ! Du
+moins si vous aimez vous faire peur...
+8’’29 est le record de descente établi sur ce toboggan à sensations. Comment est-il possible de parcourir
+les 90 mètres en si peu de temps ? En allant très vite.
+Comment faire pour battre ce record ? Telle est la question que nous nous sommes posée.
+Informations pratiques donnée par la piscine :
+Sa Longueur : 90 mètres
+Notre vitesse maximale: 55 km/h
+Restrictions d´âge et de masse : 10 ans et 45 kilos
+Principe : "Vous entrez dans une capsule vitrée. Sous vos pieds une trappe. Un compte à rebours. Et puis la
+chute verticale…
+10 mètres dans le néant suivis d´un looping vertigineux avec une accélération maximale de 2,6 g. Vivez une
+expérience d´adrénaline pure pendant 10 secondes."
+Amine, Hugo et Mathieu sont allés au Calypso et se sont lancés dans l'Adrenaloop :
+
+Le premier descend en 9''34, le second en 8''58 tandis que le dernier arrive avec un temps de 10''13.
+
+Pourquoi de telles différences ? Comment les expliquer?
+Notre but est alors de déterminer comment améliorer notre vitesse une fois à l'intérieur du tube et
+pendant ces "dix mètres de chute libre" en prenant en compte les différents facteurs externes.
+Nous allons de ce fait nous pencher uniquement sur la première chute de ce toboggan car c’est dans celleci que la vitesse maximale est atteinte. A hauteur de la trappe, nous possédons de l’énergie potentielle de
+pesanteur et c’est lorsque cette trappe s’ouvre que cette énergie se transforme dans son intégralité en
+énergie
+cinétique.
+26
+
+

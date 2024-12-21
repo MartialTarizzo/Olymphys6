@@ -1,0 +1,633 @@
+Professeurs : Romain Marie et Arnaud Durieux
+Chercheur : Benjamin Hanoune
+1
+
+Sommaire
+
+● Résumé
+● Introduction au Sujet
+Capteur de CO2
+
+● Introduction
+● Fonctionnement : Beer Lambert
+● Traitement des donnés (code)
+○ Quantification
+○ Améliorer la précision
+○ Enregistrer les données
+○ Affichage en temps réel
+● Modélisation
+○ Taux de renouvellement de l’air
+○ Comptage du nombre de personnes dans une pièce
+● Début de solution
+Capteur de particules
+
+● Introduction
+● Fonctionnement : Diffusion de Mie
+○ Énoncé de la Diffusion de Mie
+○ Observation du phénomène
+● Traitement des donnés (code)
+● Résultats et Réglementation
+Collaboration avec le chercheur
+Conclusion
+
+● Sources
+Résumé
+Dans le but de réaliser des mesures de qualité d’air, nous réalisons deux systèmes Arduino destinés à établir des
+valeurs sur la concentration de CO2 et sur la quantité de particules fines dans l’air.
+
+2
+
+Introduction
+La mauvaise qualité de l’air est un enjeu actuel qui nous concerne tous, elle représente un danger pour notre
+santé.
+Dans chacun de nos trajets quotidiens, de nos journées de lycéens, nous sommes exposés à la pollution de l’air.
+Le type de pollution peut varier: dioxyde de carbone CO2, particules fines ou autres polluants.
+Dans le cadre des Olympiades de Physique, nous nous sommes donc penchés sur la question de la qualité de
+l’air rencontrée par un lycéen, au cours d’une journée banale, dans les transports en commun, sur la route, et à
+l’intérieur de son lycée.
+Nous avons développé nos propres systèmes de mesures pour déterminer la qualité de l’air dans des lieux variés.
+Nous avons également travaillé parallèlement avec un chercheur du PC2A (Université de Lille) qui nous a aidé
+dans nos mesures et nous a renseigné sur des informations utiles. Nous avons interprété et comparé ces
+mesures à des normes, recommandations et études afin de déterminer les effets sur nous, les lycéens.
+
+Capteur CO2
+Introduction
+Certaines salles du lycée Colbert sont assez petites et avec 27 élèves pendant plus de 2 heures de cours, la
+chaleur et la sensation d'asphyxie peuvent se faire rapidement ressentir si la salle n’est pas aérée.
+Lorsque que nous respirons, nous consommons ou absorbons du dioxygène O2 et rejetons du dioxyde de
+carbone CO2.
+Nous avons donc décidé de réaliser des mesures de concentration de CO2 pendant les cours.
+Afin de réaliser ses mesures, nous avons décidé d’utiliser un capteur de CO2 relié à une carte Arduino.
+Principe de fonctionnement
+La loi de Beer-Lambert établit une proportionnalité
+entre l'absorbance et la concentration.
+Elle est applicable aux gaz.
+C’est ce que notre capteur de CO2 va utiliser en
+mesurant l’intensité de la lumière après être passée à
+travers le gaz. Le capteur va ensuite calculer
+l’absorbance A
+
+A=log (
+
+I réf
+I mesuré
+
+)
+
+à l’aide de l’intensité lumineuse obtenue et l’intensité
+lumineuse de référence quand il n’y a pas de gaz
+absorbant. Par proportionnalité, plus l’absorbance est
+grande, plus la concentration en CO2 est grande.
+
+3
+
+Ce graphique nous donne la transmission des différents gaz de l’atmosphère en fonction du domaine des ondes
+électromagnétiques. Dans le visible, la transmission est de 100%, le CO2 n’absorbe pas, c’est pour ça qu’il est
+invisible à l’œil nu. Par contre, sur le graphique, on peut voir que le CO2 absorbe dans l’Infrarouge. Notre capteur
+va donc mesurer son absorption dans l'Infrarouge.
+Traitement des données
+-Quantification
+Dans notre système, la concentration mesurée grâce au capteur de CO2 (Gravity SEN0219) arrive dans la carte
+Arduino Uno sous forme de tension via l’une de ces 6 entrées analogiques pouvant mesurer des tensions
+comprises entre 0 et 5 volts. Cette tension va ensuite être convertie grâce au CAN (Convertisseur Analogique
+10
+
+Numérique) intégré à la carte. Le CAN numérise la tension sur 10 bits (soit 2 =1024 points). Ici on va
+s'intéresser surtout à la quantification du CAN qui va jouer sur la précision de nos mesures et non
+l'échantillonnage car dans notre modèle, on ne mesure par la valeur à chaque instant.
+La résolution ou pas de quantification du CAN est donnée par la relation :
+
+p=
+On a donc : p=
+
+plage de mesure
+avec N le nombre de bit du CAN
+2N
+
+5
+≈ 0,0048828125 V , la précision du CAN de l’Arduino est donc d’environ 5mV.
+210
+
+Une valeur de 1024 en sortie du CAN, correspond donc à 5000 mV en l’entrée. En faisant un simple produit en
+croix, on obtient :
+// The analog signal is converted to a voltage
+float voltage = sensorValue*(5000/1024.0);
+Ce code qui provient de la fiche technique du capteur permet de passer de la valeur en sortie du CAN
+(sensorValue) à la tension en entrée (voltage) en mV.
+
+4
+
+Dans la fiche technique, on trouve aussi comment passer de cette tension à une concentration en ppm.
+La plage de mesure du capteur est de 0 à 5000 ppm avec une précision
+de ±50 ppm. Une tension de 0V est envoyée si il y a une erreur lors de
+l’initialisation du capteur et 0.2V si le capteur est en train de préchauffer
+(3 min requises). La valeur 0,4V correspond à une valeur de 0ppm. On
+va donc retirer 400 mV à notre tension calculée :
+int voltage_diference=voltage-400;
+On a maintenant 2.0-0.4=1.6V qui correspond à 5000 ppm. Via un
+produit en croix, on peut maintenant calculer notre concentration :
+float concentration=voltage_diference*5000/1600.0;
+
+- Améliorer la précision
+Le CAN de la carte Arduino ayant une précision d’environ 5 mV, nous nous sommes demandés si nous pouvions
+utiliser un CAN plus précis dans notre système.
+
+5
+∗1000∗5000
+210
+≈ 15 ppm
+1600
+Notre CAN peut détecter une variation de 15 ppm, or le capteur de CO2 n’a qu’une précision de 50 ppm. Il nous
+faudrait donc utiliser un capteur de CO2 plus précis plutôt qu’un CAN.
+Maintenant, on peut aussi remarquer que l'imprécision due à la quantification du CAN peut faire alterner la valeur
+mesurée. Nous allons donc faire la moyenne sur 10 mesures espacées d’une seconde chacune pour compenser
+cela.
+-Enregistrer les données
+
+Support
+pour
+carte SD
+
+Horloge
+(RTC)
+
+5
+
+Pour stocker les résultats de nos expériences, on va utiliser un lecteur de cartes SD compatible avec Arduino. Les
+mesures sont écrites directement dans un fichier csv de la carte SD qui peut s’ouvrir avec un tableur.
+De plus, on utilisera une horloge (aussi appelée RTC pour Real Time Clock) pour obtenir le moment exact de
+prise des mesures. L’horloge RTC permet de ne pas avoir à remettre le système à l’heure à chaque nouvelle
+utilisation car elle est équipée d’une pile qui a une très longue durée de vie.
+Voici un exemple de fichier csv obtenu. On a
+ici la date, l’heure, le numéro de la mesure, les
+minutes depuis le lancement du programme et
+enfin la mesure de la concentration du CO2 en
+ppm. Les premières mesures de la
+concentrations sont fausses car notre capteur
+a besoin d’un certain temps pour s’initialiser.
+-Afficher les valeurs en temps réel
+Le module Bluetooth HC06 permet simplement d’effectuer la connexion entre la
+carte Arduino et un téléphone. Il nous suffit de convertir notre valeur mesurée en
+chaîne de caractères à envoyer.
+On va ensuite créer notre propre application grâce au logiciel en ligne MIT App
+Inventor 2. Il nous permet de créer des applications smartphone très facilement.
+La programmation dans MIT App Inventor 2 est très intuitive car elle utilise un
+
+Module
+Bluetooth
+HC06
+
+système d'emboîtement de blocs semblable à celui de Scratch.
+
+6
+
+Code permettant d’établir la connexion
+Bluetooth entre l’application et la carte
+Arduino
+Notre application permettra l’affichage en temps réel des valeurs de concentrations de CO2 à distance avec un
+téléphone. Les valeurs sont automatiquement affichées dans un graphique.
+
+Lors de la programmation de nos cartes Arduino Uno, nous sommes tombés sur un problème assez important:
+“La mémoire de la carte Arduino Uno est très limitée”. En effet une carte Arduino Uno ne possède seulement
+32KB de mémoire flash pour les programmes. Nous avons donc décidé de les remplacer par des cartes Arduino
+Mega qui ont une mémoire flash de 256KB et qui nous permettent donc d'utiliser des programmes 8 fois plus
+volumineux.
+7
+
+-Analyse des résultats
+
+Grâce aux capteurs de CO2, nous avons pu relever les données dans différentes salles. Pour les mesures
+prises dans une salle utilisée en mathématiques et en physique, nous avons pu établir ce graphique :
+
+Les mesures ont été prises toutes les 3 minutes durant 1188 minutes. En axe des abscisses nous avons le
+nombre de mesures et en ordonné, le taux de ppm de CO2. Nous avons placé trois niveaux :
+-400 ppm, qui représente un taux faible de CO2 équivalent à l’air extérieur.
+-1000 ppm, le taux recommandé de CO2 dans les bâtiments scolaires en France :
+
+-2000 ppm, un taux à partir duquel on peut observer des symptômes tel que la nausée ainsi que la perte de
+concentration et d’attention.
+
+8
+
+Dans la partie où la salle était occupée, nous pouvons observer que le seuil des 2000 ppm est souvent
+dépassé et que l’on atteint même les 3200 ppm. Le taux recommandé de 1000 ppm est alors largement dépassé
+Pour la durée d’exposition, ces taux ne sont pas dangereux. Cependant, ils sont suffisamment élevés pour nuire à
+la concentration des élèves et des professeurs.
+
+L’étude menée par les deux chercheurs William Fisk et Mark Mendell, sur l’impact du CO2 sur les
+performances de prise de décision humaine montre qu’un plus haut taux de CO2 dans un pièce diminue les
+capacités. Ainsi en comparant nos mesures au tableau issu de l’étude, nous pouvons interpréter que les élèves et
+les professeurs peuvent avoir certaines difficultés dans certaines tâches cognitives. Les mesures ont été réalisées
+pendant un cours de mathématiques et un cours de physique pendant lesquels les élèves ont eu à cause du taux
+de CO2 des dysfonctionnements dans la prise d’initiative, l’utilisation d’informations et la mise en place de
+stratégies basiques. C’est un vrai handicap dans un cours de sciences ! Il est donc nécessaire de ventiler la
+salle, en ouvrant les fenêtres par exemple.
+
+9
+
+Dans la deuxième partie du graphique, nous pouvons observer une exponentielle décroissante similaire à
+celle qui nous a permis plus tôt d’obtenir le taux de renouvellement d’une salle de mathématique. On peut alors
+observer que les taux de CO2 se rapprochent de 400 ppm sans l’atteindre, même au bout de 15 heures.
+Des mesures dans deux salles nous ont été demandées :
+• Par les professeurs de prépa dont aucune fenêtre n’ouvre dans leur salle alors que la demande a été faite
+régulièrement depuis plusieurs années :
+
+Ils ont battu le record de l’établissement 4800 ppm ! Inutile de demander pourquoi la porte est toujours ouverte.
+• Par l’intendance, en effet les salles ont été changées malheureusement dans 2 salles aucune fenêtre
+n’ouvre.
+
+Sans surprise sans aucun système d’aération le CO2 s’accumule très vite dans la pièce.
+10
+
+Modélisation
+
+Taux de renouvellement de l’air
+Lorsque la pièce est inoccupée :
+
+V
+
+d C CO2
+=− R air ⋅C CO2 La variation de la quantité de CO2 dans la pièce est due au renouvellement de l'air dans la
+dt
+
+pièce. Rair correspond au taux de renouvellement de l'air dans la pièce.
+
+d C CO2 − R air
+=
+⋅CCO 2
+dt
+V
+V
+On pose τ vide=
+Rair
+d C CO2 C CO 2
++
+=0
+dt
+τ vide
+
+On a une équation différentielle dont la solution est de la forme C CO2=a⋅e− bt
+avec b=
+
+1
+
+τ vide
+
+En réalité, la concentration en CO2 dans la salle n’est jamais nulle, elle tend vers la valeur de 400ppm.
+Donc la solution est de la forme C CO2=a⋅e− bt +c .
+On va ensuite modéliser la diminution du CO2 dans un pièce vide (salle E301) grâce à un code Python qui nous
+trouvera les valeurs de a, b et c correspondantes.
+Voici le graphique obtenu avec la fenêtre
+restée légèrement ouverte qui suit bien une
+courbe exponentielle décroissante. Ici le
+volume de la pièce V=200 m3
+On obtient b=0.43600010
+Or b=
+
+1
+donc
+τ vide
+
+1
+1
+τ vide= =
+≈2.294 h
+b 0.43600010
+τ vide=
+
+V donc R = V = 200 ≈ 87 m3 /h
+air
+τ vide 2.294
+Rair
+
+Ici on a réalisé la même expérience mais avec la fenêtre fermée cette fois. On obtient :
+
+11
+
+b=0.30132916
+1
+1
+τ vide= =
+≈ 3.319h
+b 0.30132916
+R air =
+
+V
+200
+=
+≈ 60 m3 /h
+τ vide 3.319
+
+Sans surprise ouvrir une fenêtre permet une meilleur aération. Est-ce suffisant ?
+La réglementation de 1978 préconise dans une salle de classe au lycée un débit minimal d’air neuf de 18m3/h par
+occupant.
+La salle E301 pourrait donc accueillir 3 personnes fenêtres fermées (
+fenêtres ouvertes (
+
+87
+≈4 personnes ) !
+18
+
+60
+≈3 personnes ) et 4 personnes
+18
+
+Notre valeur de renouvellement d’air ne s’applique pas seulement au renouvellement du CO2, cette valeur susdite
+est d’une grande importance car elle concerne également les particules fines et les polluants présents dans la
+salle, portés par les mouvements d’air.
+Comptage du nombre de personnes dans une pièce
+Pour une pièce occupée, il faut ajouter à cette équation différentielle la production de CO2 émise par les
+personnes présentes dans cette pièce :
+
+V
+
+d C CO 2
+=− Rair . C CO 2 + Phumaine (t)
+dt
+
+Phumaine correspond à la production du dioxyde de carbone (CO2) par les personnes présentes dans la pièce.
+Afin d’évaluer notre production de dioxyde de carbone P, nous avons calculer celle-ci à l’aide de la formule
+suivante :
+−5
+
+P=4.10 . M . A
+
+Avec M le métabolisme que l’on fixera à 70 W.m-2 qui est une valeur communément utilisée pour une personne
+assise.
+0 ,425
+A correspond à notre aire et se calcule en utilisant la formule : A=0 ,202 .m
+.h 0,725
+avec m la masse en kilogramme et h la hauteur en mètre.
+
+12
+
+A(m2)
+
+P(L/s)
+
+P(L/h)
+
+Louis
+
+1,69
+
+0,00473
+
+17,04
+
+Ismaël
+
+1,61
+
+0,00449
+
+16,20
+
+Yann
+
+1,64
+
+0,00460
+
+16,56
+
+Pour un adulte le taux moyen est de 18L/h par respect pour nos professeurs nous les considérerons dans la
+moyenne.
+Nous nous sommes enfermés pendant 1h avec nos deux professeurs dans la salle E301 pour travailler et
+mesurer l’élévation de CO2. En 1 heure, le taux de CO2 est passé de 1015 ppm à 1225 ppm soit une
+augmentation de 210 ppm.
+Si nous estimons notre production de CO2 en 1 heure :
+
+17 ,04+16 ,20+16 ,56+18+18≈85,8 L
+
+Soit un volume de 85,8 L en 1 heure dans une pièce de 200 m³, qui correspond donc à une augmentation de la
+concentration de
+
+0.0858
+=4 ,29 .10−4 =429 ppm .
+200
+
+Toutefois durant cette heure l’air s’est partiellement renouvelé, par lecture graphique sur une courbe de
+décroissance du dioxyde de carbone dans la salle E301 on voit une diminution d’environ 200 ppm par heure pour
+une concentration dans la pièce de l’ordre de 1000 ppm à 1200 ppm (voir le graphique fenêtre fermée).
+Donc en prenant en compte le taux de renouvellement on trouve par le calcul une augmentation de l’ordre
+de 229 ppm en « théorie ».
+On a donc un accord entre le résultat obtenu par la mesure 210 ppm et le résultat obtenu par le calcul 229
+ppm.
+On peut donc estimer le nombre de personnes dans une salle ainsi. Pour un plus grand nombre de
+personnes, l’ordre de grandeur est bon mais une incertitude sur la corpulence des personnes donc leur
+production de dioxyde de carbone ne permet pas un comptage exact mais une très bonne première évaluation.
+Début de solution
+Nous avons maintenant ajouté un système d’alerte constitué d’un buzzer qui sonne pour un seuil de CO2 donné.
+En concertation avec le chercheur nous avons choisi un seuil de 2000 ppm. En effet, dans nos salles de classe
+en dehors de la première heure de cours le taux de 1000 ppm (recommandation pour une salle de classe en
+France norme aux Etats Unis) est atteint très rapidement et il faut plusieurs heures même en aérant pour
+retrouver un taux inférieur. Le seuil de 1500 ppm (recommandation pour un lieu accueillant du publique) a aussi
+été évoqué mais nous sommes aussi beaucoup trop souvent au dessus de ce seuil pour laisser un buzzer sonné
+dans la salle.
+Dès que le buzzer sonne, nous ouvrons en accord avec le professeur une fenêtre en grand ainsi après environ 20
+minutes le taux de CO2 retrouve un niveau acceptable. On réussit ainsi à faire prendre conscience aux élèves de
+notre classe pour l’instant et aux enseignants de la nécessité d’aérer et de la faisabilité même en hiver dans le
+Nord.
+
+13
+
+Capteur de particules
+Introduction
+Lors de nos trajets quotidiens entre maison et lycée, on est soumis à différentes particules fines se trouvant dans
+l’air. Ces particules, de tailles variées peuvent s’infiltrer dans nos poumons et obstruer nos bronchioles, causant
+ainsi différents problèmes respiratoires. Nous avons donc décidé de mesurer la quantité des différentes microsparticules dans l’air.
+Principe de fonctionnement
+-La Diffusion de Mie
+La théorie de Mie, aussi appelée théorie de Lorenz-Mie, est une théorie de la diffusion de la lumière par des
+particules sphériques. Elle tire son nom du physicien danois Ludvig Lorenz et du physicien allemand Gustav Mie,
+qui lui donna sa première forme en 1908.
+La diffusion de Mie désigne la diffusion par des particules dont le rayon oscille entre 0,1 et 10 fois la longueur
+d’onde. Cette théorie est complexe et des résultats quantitatifs ne sont obtenus qu’avec des particules de
+géométries symétriques (ici sphériques). On note que la puissance diffusée est maximale lorsque la particule est
+grande devant la longueur d’onde.
+
+Les propriétés de diffusion des particules dépendent de leur taille, de leur forme et de leurs constantes
+intrinsèques. Selon Mie, la quantité d’énergie diffusée vers l’avant est plus importante que dans n’importe quelle
+autre direction (voir figure). Lorsque la taille de la particule augmente, la diffusion vers l’avant augmente
+également. La diffusion type des particules plus importantes de la lumière incidente est illustrée par la figure cidessus.
+Bien que la théorie de Mie soit compliquée, on peut trouver une relation simple entre la taille de la particule, la
+longueur d’onde et l’intensité.
+La solution de Mie a été publiée il y a de nombreuses années. Étant donné qu’il n’y avait pas de solution
+analytique au problème, il a fallu attendre, pour son application, les progrès informatiques permettant le calcul
+numérique de nombreux coefficients et fonctions impliqués.
+
+14
+
+Les poussières et polluants dans l'atmosphère au-dessus des grandes villes diffusent le rayonnement solaire à
+toutes les longueurs d'onde. Sur cette photo de la ville de Lille, on peut observer un nuage grisâtre dû à la
+diffusion de Mie.
+
+Représentation de la diffusion Mie pour une particule sphérique de 2 µm de rayon, éclairée par la gauche avec de
+la lumière rouge (λ = 633 nm).
+De part une diffusion non-symétrique avec une Diffusion de Mie, nous pouvons expérimentalement le montrer, en
+utilisant les particules de Toner, d’un diamètre relativement comparable à la longueur d’onde de notre laser nous
+pouvons alors visualiser une diffusion plus importante dans le sens de propagation du laser et inversement.
+
+-Observation de la Diffusion de Mie
+En faisant passer un laser dans un bécher contenant des particules de Toner en suspension, nous pouvons alors
+observer une Diffusion de Mie, identifiée par la luminosité plus importante des particules dans le sens de
+propagation du laser (quand on est face à la source).
+
+15
+
+Nous avons alors observé des particules de Toner au microscope pour en estimer leur taille. Si leur rayon est
+comparable à la longueur d’onde du laser utilisé (530 nm) nous avons bel et bien affaire à une diffusion de Mie.
+Lors de cette observation au microscope, nous avons utilisé une lamelle graduée, sur laquelle nous avons
+répandu une petite quantité de Toner.
+
+Ici, une graduation représente 10µm. On peut alors estimer qu’ici, une particule de toner a en moyenne un
+diamètre de 9µm et donc un rayon de 4,5µm, soit 4500 nm. Puisque la longueur d’onde du laser est de 530 nm,
+ce qui nous donne un rapport de
+
+4500
+≈ 8,5. La diffusion de mie s’applique lorsque le rayon des particules et de
+500
+
+0,1 à 10 fois la longueur d’onde, il s’agit alors bien d’une diffusion de Mie.
+
+16
+
+-Application au capteur
+Le capteur de particules utilise la Diffusion de Mie, en examinant et mesurant la diffusion d’un laser par des
+particules fines. Le capteur mesure la puissance lumineuse à un angle précis, pour pouvoir ensuite déterminer si
+une particule d’une certaine taille a créé une diffusion. Il va ensuite réaliser différentes estimations pour obtenir
+des résultats en µg/m3 et peut aussi nous donner une valeur plus précise qui représente directement le nombre
+de particules d’une certaine taille présentes.
+Traitement des données
+Le capteur de particules transmet ces données sur 32 octets. On va ensuite découper ces octets par paquets qui
+représentent chacun une donnée différente.
+
+Voici la répartition des données correspondantes aux différents octets. Nous utilisons dans notre code les Data1,
+Data2 et Data3 sur l’écran d’affichage et nous utilisons les Data 7, 8, 9,10,11,12 que nous récupérons sur la carte
+SD. En effet les 3 premières données sont reliées aux normes alors que les autres données ont une information
+scientifique plus importante. Tous les capteurs ne permettent pas de faire cela.
+On a ensuite utilisé une horloge RTC et un support pour carte SD comme on l’a fait pour le capteur CO2. Ainsi
+qu’un module Bluetooth pour indiquer où la mesure a été prise.
+
+Résultats et Réglementation
+
+Avec nos capteurs, nous avons obtenu des données dans différentes conditions. Pour les interpréter il faut alors
+les comparer soit à des normes ou à des taux recommandés. En France, il n’y a pas de lois sur les particules de
+1µm ou moins, qu’on appelle particules ultrafines. Seules les particules fines sont réglementées.
+17
+
+Ces particules sont divisées en deux catégories : les particules de 10µm ou moins et celles de 2,5µm ou moins.
+Plus les particules sont petites plus elles peuvent pénétrer dans les poumons. Cependant l’unité utilisée pour
+mesurer les particules dans l’air est le ppm ou mg/m3, une unité qui se base sur la masse des particules et non
+sur leur quantité. Ainsi, pour 1 ppm, il y a plus de particules de 2,5µm que de particules de 10µm. 1 ppm de
+particules 2,5µm est donc plus dangereux de part le nombre et la taille de ces particules que 1 ppm de particules
+de 10µm. Les particules fines sont réglementées en fonction d’une durée d’exposition, relativement longue : à
+partir de 24 heures consécutives.
+
+Nous avons mesuré les particules fines à l’extérieur car les mesures en intérieur n’indiquaient pas ou peu
+de particules.
+Parmi nos différentes mesures nous avons notamment pu mesurer deux situations où les valeurs sont
+élevées.
+PM 1.0
+
+PM 2.5
+
+PM 10
+
+133
+
+184
+
+247
+
+Nombre de Nombre de Nombre de Nombre de Nombre de Nombre de
+particule
+particule
+particule
+particule
+particule
+particule
+supérieur à supérieur à supérieur à supérieur à supérieur à supérieur à
+0.3
+0.5
+1
+2.5
+5
+10
+29118
+
+12770
+
+5491
+
+179
+
+1
+
+0
+
+61
+83
+115
+11930
+4669
+1687
+164
+18
+5
+La première valeur est issue du parvis du lycée durant la pause de récréation. Durant cette période
+certains lycéens ont pour habitude de sortir du lycée afin d’aller fumer ce qui provoque une grosse quantité de
+particules fines et ultrafines.
+La seconde valeur est issue d’une rame de métro. Cette fois ci, la quantité de particules fines et ultrafines
+est expliquée par l’architecture du métro. En effet la profondeur du métro rend difficile l’aération et les poussières
+et particules viennent s’y déposer, elles s’accumulent et sont remises en suspensions à chaque passage de la
+rame.
+Les taux observés sont au-dessus des normes, cependant les durées d’exposition y sont inférieures. Les
+élèves ne fument que durant les pauses de récréation et le métro est fermé durant la nuit.
+Le problème est que l’exposition à ces particules est répétée 5 ou 6 jours par semaine. L’élève est donc
+exposé longtemps à ces particules.
+
+18
+
+Collaboration avec le chercheur B. Hanoune
+Dans le cadre de notre projet, nous avons collaboré avec un chercheur professionnel. Ce chercheur travaille au
+PC2A, un laboratoire de l’Université de Lille, il participe au projet Apolline (d’où notre titre), visant à mesurer et
+analyser la composition de l’air. Il nous a permis d'utiliser leur matériel afin de calibrer nos instruments, qui
+avaient 50 ppm de moins ce qui est correct sachant que notre capteur a une précision de 50 ppm et qui est tout à
+fait satisfaisant au vue de l’ordre de grandeur des mesures que nous réalisons. Par ailleurs, il nous a présenté
+avec plus de précision leur projet Apolline, ainsi que les capteurs qu’ils utilisent, répartis sur le campus. Il nous a
+également partagé un grande variété d’informations utiles.
+Ici, nous voyons la Chambre utilisée par les chercheurs pour tester l'efficacité et la calibration de leurs
+instruments, ici, ils augmentent le CO2 , les particules et autres gaz, c’est ici que nous avons calibré nos capteurs
+en utilisant leurs appareils plus perfectionnés
+
+Voici une image des boîtes de capteurs, réparties sur tout le campus, elles sont reliés en réseau et transmettent
+Taux de CO2 , Particules, Humidité, Niveau Sonore et bien d’autres pour analyse par le PC2A. Ces boîtiers étant
+mobile nous allons pouvoir bientôt accueillir l’un de ceux-ci dans l’établissement.
+
+19
+
+Conclusion
+Nous avons ainsi vu, pour le moment, que la qualité de l’air dépend de nombreux facteurs, et si ces variables sont
+analysées et maîtrisées, elles peuvent nous apporter nombre d’informations.
+Avec ces mesures, nous pouvons cependant déjà établir quelques affirmations :
+-La qualité de l’air au lycée ( Principalement au niveau du CO2) est bien pire que celle imaginée, et peut
+ainsi avoir des conséquences sur les élèves et leur capacité d'apprentissage dans les salles de classe.
+-L’accumulation du CO2 nous permet aussi d’affirmer que l’aération de nos salles est globalement à revoir.
+-Les transports en communs nous exposent à une grande quantité de particules fines, bien que notre
+exposition est généralement trop faible pour sortir des normes.
+Nous sommes fiers d’avoir développés deux systèmes de mesure de CO2 et de particules fines qui
+fonctionnent et qui sont fiables, de les avoir utilisé pour faire un constat sur l’exposition à la pollution pour un
+lycéen au abord du lycée et dans le lycée, de pouvoir faire le suivi de nos mesures en direct sans fil mais aussi de
+pouvoir enregistrer celles-ci, de pouvoir déterminer le taux de renouvellement d’une salle avec notre matériel, de
+pouvoir évaluer le nombre de personnes dans un salle et d’avoir un système d’alerte nous permettant de faire
+évoluer les choses. Nous sommes contents d’avoir collaborer avec M. Hanoune, chercheur au PC2A, mais aussi
+avec l’intendance du lycée et avec les professeurs de l’établissement qui sont prêts à faire évoluer leurs pratiques
+en terme d’aération.
+Nous sommes heureux d’avoir participer à ce concours et nous comptons poursuivre notre travail après le
+concours.
+
+20
+
+

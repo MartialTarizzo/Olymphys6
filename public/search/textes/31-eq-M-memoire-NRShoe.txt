@@ -1,0 +1,1029 @@
+Académie de Lille – 2023-2024
+
+NRSHOE
+
+NACKAERTS Lucile - Terminale
+TITRENT Thomas - Terminale
+VAN INGHELANDT Nathan - Terminale
+VIEREN Héloïse - Terminale
+Parrainé par : Benjamin PERRIN-LICINI
+1
+
+Sommaire
+
+Introduction……………………………………………………………………..………………………p3
+I. Analyse du projet……………………………………………………………………………………p4
+A. Objectif………………………………………………………………………………………..p4
+B. Les notions physiques principales du sujet…..…………………………………………...p4
+C. Etude du mouvement………………………………………………………………………..p5
+D. Étude des différentes modes de transduction ……………………………………………p6
+E. Choix du matériau……………………………………………………………………………p7
+II. La solution piézoélectrique…………………………………………………………………..…...p8
+A. Commande de capteurs piézoélectrique avec Smart Material……………..…………..p8
+B. Premiers tests avec les capteurs piézoélectriques…………..…………………………..p8
+C. Variation des différents facteurs……………………………………..…………………...p8
+D. Conclusion relative à la solution piézoélectrique……………………………………….p10
+III. La solution électromagnétique……………………………………………………………...…p11
+A. La transduction électromagnétique…………………………………………………….…p11
+B. Modélisation du mouvement de la marche / course……………………………………p12
+C. Étude de la transformation du courant alternatif en courant continu…………………p13
+D. Lien entre les différentes parties du montage………………….………………………p15
+IV. Le prototype
+A. Réalisation du prototype…………………………………………………………………...p16
+B. Le prototype initial………………………………………………………..………………...p17
+C. Amélioration du prototype initial…………………………………………………………..p17
+D. Le prototype final………………………………………...…………………………………p19
+Conclusion………………………………………………………………………………………….…p20
+Remerciements……………………………………………………………………………………….p21
+Sources………………………………………………………………………………………………...p21
+2
+
+Introduction
+Nous sommes 4 élèves de terminales du lycée Saint-Jacques à Hazebrouck. Nous nous
+sommes rencontrés il y a deux ans car nous étions dans la même classe. Cette proximité
+quotidienne a forgé des liens entre nous. Des amitiés qui ont évolué au rythme de nos intérêts
+communs notamment celui de la science. Notre équipe, bien que novice dans le monde de la
+physique, est animée par la curiosité scientifique et l'envie de faire une différence. Chacun d'entre
+nous apporte une perspective unique et des compétences distinctes à notre projet. Nous sommes
+une équipe enthousiaste passionnée par la physique, et nous sommes fiers de présenter notre
+projet innovant pour les Olympiades. Nous sommes déterminés à laisser une trace dans le
+concours et pourquoi pas être la source d’une solution tangible qui pourrait avoir un impact positif
+sur notre monde. C’est pourquoi, nous nous sommes posés la question :
+Comment améliorer notre quotidien pour protéger la planète sans en changer nos
+habitudes ?
+Nous avons donc pensé à créer un processus qui ne se contente pas de nous
+accompagner à marcher, mais qui génère de l'énergie tout au long du parcours. L’objectif
+principal étant de charger un téléphone avec l’électricité générée. Imaginez ! Chaque pas que
+vous faites, chaque mouvement, pourrait contribuer à la production d'énergie. C'est cette vision
+qui alimente notre projet et nous motive à explorer les principes de la physique pour concevoir
+un prototype révolutionnaire.
+La problématique qui tourne autour du projet est donc : “Comment mettre au point un
+processus intégrable dans notre vie quotidienne convertissant l’énergie mécanique en
+énergie électrique ?”
+Nous vous laissons découvrir notre projet propulsant chacun de nos pas vers un avenir
+énergétique et durable.
+
+3
+
+I.
+
+Analyse du projet
+
+A/ Objectif
+Nous avons commencé par nous renseigner sur le fonctionnement d’un téléphone et
+notamment sur le fonctionnement du chargement d’un téléphone. La capacité moyenne d’une
+batterie de téléphone est de 10 W.h. Cela signifie que si l’on veut permettre une charge entre 1h
+et 2h, il faut réussir à fournir une puissance entre 5W et 10 W en courant continu. Pour obtenir
+cette puissance, nous souhaitons générer un courant électrique où l’énergie électrique produite
+provient de l’énergie mécanique lorsque quelqu’un marche ou court. Pour cela, il semble tout
+d’abord nécessaire de définir 2 notions qui nous paraissent essentielles à notre projet : l’énergie
+mécanique et l’énergie électrique.
+
+1. L’énergie mécanique
+L'énergie mécanique Em est une quantité utilisée en mécanique classique pour désigner
+l'énergie d'un système, emmagasinée sous forme d'énergie cinétique et d'énergie potentielle de
+pesanteur.
+L'énergie mécanique s'exprime généralement : Em = Ec + Ep où : Ec est l'énergie cinétique et Ep
+est l'énergie potentielle de pesanteur.
+Ec = 1/2 * m * v², où m est la masse en kg de l'objet et v est sa vitesse en m/s, Ec est en Joules
+Ep = m * g * h, où g est l'accélération due à la gravité (9,81 N/kg sur Terre), h est la hauteur en
+mètre de l'objet par rapport à une référence et m est la masse de l’objet en kg.
+Finalement, on a : Em= 1/2 * m * v² + m * g * h.
+2. L’énergie électrique
+L'énergie électrique n'est pas une énergie primaire puisqu'il faut une autre énergie en
+amont pour la produire. Elle peut être produite à partir d’énergies renouvelables, mécaniques,...
+C’est l’énergie associée au déplacement des électrons à travers un matériau conducteur.
+L’énergie électrique est la quantité d’énergie consommée par un appareil par unité de temps. Elle
+se calcule le plus souvent par : E = P x T où E est l’énergie électrique en W.h, P est la puissance
+en W et T est la durée en h.
+L’électricité fait intervenir différentes notions physiques telles que la tension, la puissance,
+l’intensité, définies dans la partie ci-dessus.
+
+B/ Les notions physiques principales du sujet
+Différentes notions physiques vont être évoquées tout au long de notre compte-rendu.
+Nous les définissons maintenant :
+1. La puissance
+La puissance électrique est le taux, par unité de temps, auquel l'énergie électrique est
+transférée par un circuit électrique. Selon le Système international d'unités, l'unité de mesure de
+cette puissance est le watt, symbole W.
+P = U x I, P est la puissance en W, U la tension en volts et I l’intensité en A
+2. La tension
+La tension électrique est la différence de potentiel électrique entre 2 points d’un circuit
+mesurée en volts par un voltmètre. Dans le cas général, le symbole normalisé de la tension
+électrique est U. Il existe différents types de tension : la tension peut être continue c’est à dire
+qu’elle est stable dans le temps et sa valeur n'évolue pas, ou très peu. Elle peut également être
+4
+
+alternative c’est à dire qu’elle est monophasée ou polyphasée, la tension étant généralement
+sinusoïdale.
+3. L’intensité
+Un courant électrique désigne le flux d’électrons dans un conducteur. Comme pour la
+tension, il peut être continu ou alternatif. L’intensité du courant électrique est un nombre décrivant
+le débit de charge électrique à travers une surface donnée, notamment la section d'un fil
+électrique. Dans le Système international d'unités, l'intensité du courant se mesure en ampères,
+une unité de base dont le symbole normalisé est A. Un ampère correspond à un débit de charge
+d'un coulomb par seconde. L'intensité se mesure à l'aide d'un ampèremètre, qui doit être branché
+en série dans le circuit.
+
+4. La résistance
+La résistance désigne la capacité physique d'un matériau à s'opposer au passage d'un
+courant électrique sous une certaine tension. Elle est notée R et est souvent mesurée en Ohms
+notés Ω. Associée à cette notion de résistance, il se doit d’évoquer la loi d’Ohm.
+Elle s'écrit : U = R × I avec U la tension aux bornes de la résistance, en volt (V). I l’ intensité
+qui traverse la résistance, en ampère (A).
+
+C/ Etude du mouvement
+Nous nous sommes intéressés au mouvement d’une chaussure quand son porteur est en
+mouvement. En particulier lorsqu’il marche et court. Pour cela nous avons fait un pointage à partir
+de 2 vidéos prises sous le même angle et sous les mêmes conditions.
+
+On observe que le mouvement est plus ample lorsque le porteur de la chaussure court.
+On a ensuite réalisé une expérience pour vérifier nos résultats en comptant le nombre de pas
+(pour une chaussure).
+Vitesse (10’’)
+
+6km/h (marche)
+
+12 km/h (course lente)
+
+15 km/h (course rapide)
+
+Nb de pas pour 1 pied
+
+8
+
+12
+
+14
+
+Période s
+Fréquence
+
+1,25
+0,8
+
+0,83
+1,2
+
+0,71
+1,4
+
+Cela nous montre que plus la période est grande, plus la fréquence est petite. Notre projet
+nécessite donc le plus de mouvements possibles pour avoir le plus d’énergie mécanique possible
+à convertir. Il est donc plus intéressant de courir.
+Par curiosité, nous nous sommes intéressés au mouvement d’autres parties du corps. Le
+mouvement serait peut-être différent et plus adapté au projet en fonction de ce que nous ferons.
+5
+
+Par étude rapide, en regardant un membre du groupe, on se rend compte que le genou est
+toujours en mouvement. Nous avons donc réalisé une étude du mouvement du genou pour
+comparer à l’aide des vidéos précédentes :
+
+Le mouvement est différent de celui observé pour le genou. Il est plus circulaire et
+quasiment toujours en mouvement.
+
+D/ Etude des différents modes de transduction
+Nous nous sommes rendus compte qu’il existait différentes méthodes de transduction,
+c’est à dire des moyens qui permettent de convertir l’énergie mécanique en énergie électrique.
+Deux ont retenu notre attention : la piézoélectricité et l’électromagnétisme.
+1. La transduction piézoélectrique
+La piézoélectricité fonctionne grâce à des capteurs
+piézoélectriques. Ce sont des capteurs qui sont composés de
+deux plaques de cristal. Ils permettent de transformer l’énergie
+mécanique qui provient de la déformation d’une partie métallique
+entraînant la polarisation de cette dernière, créant ainsi un
+courant électrique et donc une certaine intensité.
+Nous avons pu vérifier avec les capteurs piézoélectriques
+du lycée que le capteur délivre une tension et une intensité
+lorsqu’il est soumis à un choc, à une torsion, ou à des vibrations.
+
+2. La transduction électromagnétique
+Ensuite, nous avons expérimenté une méthode efficace et
+répandue afin de générer un courant et une tension électrique : la
+transduction électromagnétique.
+Un transducteur de type électromagnétique est composé d’un ou
+plusieurs aimants qui créent un champ magnétique (voir schéma)
+constant et d’une bobine plongée dans ce champ. En faisant bouger
+l’aimant dans la bobine ou inversement, on peut générer une tension
+éléctrique ainsi qu’une intensité. C’est le principe qui est utilisé dans les
+dynamos.
+
+6
+
+E/ Choix du matériau
+1. Tableau récapitulatif Avantages/Inconvénients:
+Type
+
+Avantages
+
+Inconvénients
+
+Piézoélectrique
+
+-Compact
+-Plus ou moins fortes
+tensions générées
+-Fort couplage pour les
+monocristaux
+-Compatible
+avec
+intégration MEMS
+
+-Dépolarisation
+-Fragilité des éléments
+pzt -Haute impédance
+-Faible
+couplage
+pour les polymères
+frittés
+
+Electromagnétique
+
+-Forts couplages
+-Absence de matériaux
+intelligents
+
+-Intégration
+difficile
+-Faibles
+générées
+
+MEMS
+tensions
+
+En comparant ces différentes méthodes de récupération d’énergie vibratoire,
+on se rend compte que la solution piézoélectrique semble être la plus adaptée. On
+décide donc d’approfondir en premier cette méthode.
+
+7
+
+II. La solution piézoélectrique
+
+A Commande de capteurs piézoélectriques avec Smart Material
+En faisant quelques recherches, on a trouvé que les capteurs les plus intéressants et adaptés au
+projet sont des MFC que nous avons commandé auprès de Smart Material, une compagnie
+allemande.
+Voici le produit reçu :
+C’est un MFC (= Macro Fiber Composite). C’est un
+excellent appareil pour récupérer l’énergie des vibrations.
+Le MFC reçu est un standard de type P2. Il appartient au
+mode d31. Il possède une tension de fonctionnement
+anisotrope de -60 V à 360 V. Il mesure 85 mm de long et 7
+mm de largeur.
+B/ Premiers tests avec le capteur piézoélectrique reçu
+Nous avons commencé à effectuer des tests afin d’évaluer leurs rendements. Nous avons
+effectué des premiers tests ‘à vide’, simplement en reliant un MFC à un multimètre, afin de
+mesurer sa tension produite, lors de sa déformation ou de sa torsion :
+Mesure de tension
+Mesure d’intensité
+
+On a obtenu une tension maximale de 30 mV seulement avec distorsion du MFC, mais
+l’intensité, elle était quasiment nulle, ce qui explique le fait que dans ces conditions, il est
+impossible d’allumer une led avec un MFC, et ainsi recharger une batterie semble impossible.
+C/ Variation de différents facteurs
+Il s’agissait donc de rendre les capteurs piézoélectriques assez rentables électriquement,
+afin d’obtenir les résultats attendus. Pour cela nous avons décidé de faire varier différents facteurs
+afin d’obtenir le meilleur rendement possible.
+1. Variation de la fréquence
+Le premier facteur que nous avons décidé de faire varier était celui de la fréquence, c'està-dire du nombre de fois que le pied taperait ou déformerait le MFC en une seconde, et donc de
+trouver la fréquence qui donnerait le maximum de rendement…
+Grâce à un générateur basse fréquence, on peut faire vibrer notre appareil a pied vibrant
+à différentes fréquences voulues. Ainsi, notre MFC est coincé entre ce pied vibrant (qui simule
+l’action du pied) et une mousse florale couverte de papier (qui remplace la texture d’une semelle).
+8
+
+Le tout forme un circuit avec un voltmètre branché en série, qui nous permet de mesurer la tension
+à différentes fréquences.
+appareil à pied vibrant
+
+MFC
+mousse florale couverte
+d’une feuille de papier
+
+On a donc pris différentes mesures, sachant qu’en dessous de 30hz, l’action du pied vibrant
+n’était pas assez forte :
+Tableau de mesures :
+Fréquence
+Hz
+
+30
+
+40
+
+50
+
+60
+
+70
+
+80
+
+90
+
+100
+
+110
+
+120
+
+130
+
+140
+
+150
+
+160
+
+170
+
+180
+
+190
+
+200
+
+Tension 1
+mV bleue
+
+218
+
+387
+
+500
+
+489
+
+532
+
+630
+
+656
+
+898
+
+956
+
+1257
+
+1398
+
+1172
+
+1016
+
+913
+
+822
+
+780
+
+772
+
+811
+
+Tension 2
+mV rouge
+
+250
+
+380
+
+500
+
+630
+
+800
+
+890
+
+935
+
+980
+
+1200
+
+1260
+
+1063
+
+987
+
+841
+
+805
+
+691
+
+604
+
+514
+
+455
+
+On réalise le graphique représentant la tension obtenue
+en fonction du temps :
+Nous avons décidé d’effectuer deux prises de
+mesures afin de mieux fiabiliser notre expérience. En
+effet, la tension varie énormément en fonction des
+éléments extérieurs, dont nous n’avons pas vraiment pu
+évaluer les causes… Nous avons donc pu déduire grâce
+aux deux graphiques que la fréquence de résonance de
+notre capteur piézoélectrique se situe au plus haut des
+deux courbes. Cela concerne donc les fréquences de
+100hz à 140hz.
+Cela signifie qu’il faudrait faire entre 100 et 140 pas à la
+seconde si l’on souhaite le rendement optimal qui est ici
+de 1,3 V. Ces résultats sont dérisoires et nous montrent que charger un téléphone avec ce
+mécanisme serait vraiment très long. La méthode piézoélectrique n’est donc ici exploitable pour
+notre projet si nous voulons un temps de charge à échelle quotidienne.
+2. Variation de la masse
+Même si l’expérience précédente nous montre que cela rend nos objectifs presque
+impossibles, nous avons voulu vérifier un autre facteur qui peut possiblement donner des
+rendements : celui du poids qui fait pression sur le MFC.
+Pour cela, nous avons reproduit le dispositif en taille réelle, en attachant le MFC à notre plante
+de pied, puis en marchant avec, tout en vérifiant à l’aide d’un voltmètre la tension que cela
+produisait, puis avec un ampèremètre branché en dérivation afin d’observer l’intensité délivrée.
+Nous avons intégré une diode de résistance 1 ohm pour respecter la dérivation.
+Nous avons effectué ce montage sur Thomas et Nathan, pesant respectivement 55 et 65 kg,
+ce qui fait varier la masse.
+9
+
+Poids (kg)
+
+Tension en marche
+(v)
+
+intensité en marche
+(µA)
+
+Tension en course (v)
+
+intensité en course
+(µA)
+
+70
+
+0,300
+
+3,5
+
+0,45
+
+15
+
+80
+
+0,300
+
+5
+
+0,40
+
+17
+
+120
+
+0,250
+
+8
+
+0,350
+
+20
+
+On remarque que l’intensité en marchant ou en courant augmente lorsque le poids est
+élevé. C’est à dire qu’au plus le poid d’une personne qui marche ou cours sur le MFC est élevé,
+au plus il y aura de l’intensité.
+Ainsi, on voit que la masse appuyant sur le MFC a une importance significative sur les
+rendements de tension donnés. Cela peut aussi concerner la façon de marcher, car on sait que
+la torsion du MFC influe également…
+Malgré tout, l’intensité est toujours restée très faible… Or sans intensité, et même avec une
+grande tension, il est impossible de recharger une batterie.
+D/ Conclusion relative à la solution piézoélectrique
+Au vu des différentes expériences réalisées avec les capteurs piézoélectriques et MFC,
+nous avons décidé de changer de méthode pour générer un courant électrique. En effet, les MFC
+sont très sensibles, soit pratiques pour repérer chocs ou vibrations. Cette sensibilité ne permettait
+que de créer un courant électrique dérisoire, trop faible pour recharger une batterie. Il serait tout
+à fait possible de réaliser un projet similaire avec des capteurs piézoélectriques bien spécifiques
+(des PZT piézocéramiques) Ils sont bien plus performants et ont une meilleure capacité mais ils
+sont fabriqués aux Etats-Unis et ne sont pas vraiment adaptés à un projet comme le nôtre.
+
+10
+
+III. La solution électromagnétique
+Nous avons eu contact avec Benjamin PERRIN-LICINI, un ingénieur spécialisé dans
+l’électronique chez Décathlon qui nous a conseillé d’autres solutions notamment la solution
+électromagnétique. Nous nous sommes donc redirigés vers cette méthode prometteuse dans
+l’objectif de proposer un mécanisme capable de charger un téléphone grâce à l’énergie
+mécanique créée lors d’une marche/course. Contrairement à la solution piézoélectrique, il est ici
+plus intéressant de réaliser un processus basé sur le mouvement du genou (voir étude du
+mouvement).
+A/ La transduction électromagnétique
+1. Présentation plus approfondie des notions liées à l’électromagnétisme
+Dans cette transduction, on retrouve 2 matériaux essentiels : les bobines et les aimants.
+Les aimants sont des dispositifs capables de produire un champ magnétique extérieur.
+L’aimant possède 2 pôles : nord et sud. Le champ magnétique mesuré en Tesla est un champ
+de force produit par les aimants qui se déplacent du pôle nord au pôle sud sous différentes
+trajectoires. Ensemble, elles définissent une région où l’aimant aura un effet d’attraction sur
+d’autres objets métalliques.
+Pour que l’on puisse créer de la tension et du courant électrique, il faut que les lignes de
+champ traversent la bobine lorsque l’aimant est en mouvement. Un champ magnétique qui passe
+dans une surface donnée est appelé le flux magnétique noté 𝜙 et est mesuré en Webers (Wb). Il
+est déterminé par : 𝜙 = 𝐵 × 𝑆 × 𝑐𝑜𝑠 𝛼 avec B le champ magnétique en tesla, S la surface du
+champ traversée en m² et 𝛼 l’angle entre les vecteurs B et S( le vecteur surface étant normal à la
+surface). Donc pour induire un courant, il faut avoir une variation du flux magnétique au cours du
+temps qui permet alors de générer une tension U aux bornes d’un circuit. Pour amplifier la tension,
+il faut rajouter des spires dans la bobine car la tension induite par chaque spire s’additionne. D’où
+𝑑𝜙
+𝑑𝜙
+la loi de Faraday : U = -N x 𝑑𝑡 où U est la tension en V, N le nombre de spires et 𝑑𝑡 la dérivée du
+flux magnétique au cours du temps. On a création d’intensité lorsque le circuit est fermé. On
+𝑁
+𝑑𝜙
+calcule sa valeur par I = -𝑅 x 𝑑𝑡 où I est l’intensité en Ampères et R la résistance en ohms. Ce
+courant a un sens. Lorsque le flux magnétique augmente, le courant induit est tel que le champ
+magnétique induit s’oppose à la variation du flux magnétique. A l’inverse, lorsque le flux
+magnétique diminue, le courant induit est tel que le champ magnétique induit renforce le flux
+magnétique. C’est la loi de Lenz qui en fonction de la variation du flux magnétique donne le sens
+du courant.
+2. Premiers tests
+Nous avons essayé d’allumer une DEL
+avec un alternateur électromagnétique ce
+qui s’est effectué avec succès, ce qui
+s’était révélé impossible avec les capteurs
+piézoélectriques.
+On se rend compte que cela fonctionne
+selon 2 mouvements (en photo ci dessous)
+En faisant tourner de bas en haut
+
+En faisant tourner complètement la roue
+
+11
+
+Nous avons également réalisé une autre expérience où nous avons utilisé une perceuse
+pour faire tourner l’aimant dans la bobine
+Dans tous les cas, on obtient une tension et une intensité,
+cependant les rendements sont bien plus élevés lorsque l’on fait
+tourner l’aimant. Avec ce constat, on en déduit qu’il faudrait se baser
+sur un mouvement circulaire car les rendement seraient meilleurs.
+Nous avons alors revu notre étude du mouvement et nous avons
+décidé de changer d’objectif. En effet, le mouvement du pied n’est pas
+vraiment adapté contrairement au mouvement du genou qui est plus
+circulaire et surtout toujours continu. D’où le nouvel objectif de créer
+une genouillère permettant de transformer l’énergie mécanique en énergie électrique.
+B/ Modélisation du mouvement de rotation du genou
+Il s’agit donc de mettre au point une expérience modélisant le mouvement du genou. Le
+genou est tout le temps en mouvement.
+Nous avons réalisé une expérience où l’aimant tourne
+à l’intérieur de la bobine. Nous avons pour cela démonter un
+alternateur électromagnétique et nous avons relié l’aimant à
+une visseuse. Cela permet en effet de faire varier la vitesse
+de rotation de l’aimant. (voir photo ci-contre)
+Nous avons réalisé des mesures à l’aide d’un
+tachymètre pour contrôler le la vitesse de rotation de l’aimant
+afin de constater l’évolution de la tension et de l’intensité
+grâce à un multimètre.
+Voici les mesures :
+Tension U (en volt )
+
+Vitesse de rotation
+
+Intensité ( en mA )
+
+Vitesse de rotation
+
+0
+
+300
+
+0
+
+260
+
+1
+
+350
+
+0,02
+
+300
+
+1,3
+
+400
+
+0,16
+
+320
+
+1,55
+
+500
+
+1,1
+
+350
+
+1,7
+
+560
+
+3,1
+
+410
+
+2
+
+620
+
+6
+
+450
+
+2,1
+
+650
+
+9,4
+
+530
+
+2,2
+
+700
+
+13
+
+540
+
+2,4
+
+780
+
+15
+
+550
+
+2,6
+
+800
+
+16,1
+
+580
+
+2,7
+
+900
+
+14,6
+
+600
+
+3
+
+1000
+
+35
+
+700
+
+3,3
+
+1200
+
+48
+
+780
+
+71
+
+1000
+
+Graphique représentant la tension et l’intensité en fonction de la vitesse de rotation :
+
+12
+
+On observe que la tension et l’intensité augmentent de manière plutôt proportionnelle ce
+qui valide la loi de Faraday. Cependant, nos graphiques sont réalisés à partir de mesures
+expérimentales où les sources d’erreur sont nombreuses car il est difficile de stabiliser la vitesse
+de rotation et de prendre les mesures car ça change très rapidement. On en déduit donc que plus
+le nombre est grand, au plus les rendements seront bons.
+C/ Etude de la transformation du courant alternatif en courant continu
+Nous avons remarqué que l’intensité et la tension produite par l’électromagnétisme sont
+continus. Cependant, pour recharger un téléphone, il faut que ils soient continus. D’où la
+nécessité d’intégrer un processus pour transformer ce courant alternatif en courant continu.
+1. Le pont de diodes
+Un pont de diodes ou pont de Graetz est un assemblage de quatre diodes montées en
+pont (montage similaire à celui d'un pont de Wheatstone) qui redresse le courant alternatif
+monophasé c’est-à-dire ne circulant que dans un seul sens. En réalité, le pont de diode est un
+redresseur de courant. Le courant de sortie est toujours la valeur absolue du courant d'entrée.
+En revanche, la forme de la tension de sortie dépend à la
+fois de la forme de la tension d'entrée et de la nature de la
+charge.
+Toutefois, la chute de tension dans le pont est égale à deux
+fois la tension d'une diode dans le sens passant ce qui est
+gênant lorsqu'on veut redresser des tensions de faibles
+valeurs. La tension de sortie n'est pas réglable.
+On réalise un montage avec un générateur basse fréquence
+pour comprendre le mécanisme. Voici la tension émise par
+le générateur (réglé à 50 Hz) visible à l’aide d’un
+oscilloscope :
+En intégrant, un pont de diode, on observe que le signal se redresse :
+Les 2 chaînes correspondent à 2 placements de pont de diode différents.
+
+En intégrant, un pont de diode, on observe que le signal se redresse :
+Les 2 chaînes correspondent à 2 placements de pont de diode différents. Cependant, le résultat
+est toujours le même. Ensuite, nous remplaçons le générateur basse fréquence par un alternateur
+électromagnétique pour constater les mêmes résultats. On observe tout d’abord l’oscillation de
+la tension sans pont de diode :
+
+13
+
+On modifie le circuit en
+intégrant un pont de
+diodes.
+On observe le même
+résultat : le signal est
+redressé.
+
+2. Le condensateur
+Un condensateur est un composant électronique élémentaire constitué de deux armatures
+conductrices séparées par un isolant polarisable Sa propriété principale est de pouvoir stocker
+des charges électriques opposées sur ses armatures. La valeur absolue de ces charges est
+proportionnelle à la valeur absolue de la tension qui lui est appliquée. Ils permettent dans notre
+cas de lisser le courant et la tension. La capacité est une propriété électrique d'un condensateur
+et c'est le rapport de la charge accumulée à la tension. L'unité de capacité est le Farad (F),
+On réalise un premier montage avec un générateur basse fréquence réglé sur 50 Hz. Par rapport
+au montage précédent, on rajoute un condensateur de 1000 µF et une résistance de 1000 Ω qui
+fait ici l’office de batterie (voir partie suivante) :
+
+Le signal a été lissé, on observe une presque droite. Cela signifie qu'on a un courant continu qui
+est capable de venir charger une batterie.
+On reproduit l’expérience en remplaçant le générateur en alternateur électromagnétique :
+
+On observe également que le signal a été lissé. A partir de ce montage, on parvient donc à
+générer un courant continu capable de recharger une batterie qui dans notre projet permettra
+ensuite de recharger un téléphone.
+
+3. Insertion d’une batterie
+Nous avons très vite cherché à savoir comment récupérer l’énergie générée lorsque nous
+marchons. L’idée d’une batterie, nous a intéressé et nous avons fait quelques recherches. La
+batterie est un dispositif stockant l’énergie chimique convertie de l’électricité pendant la charge
+et vice versa lors de la décharge, elle est caractérisée par des cycles réversibles de
+charge/décharge. La batterie est composée de plaques positives dans un récipient étanche, elle
+14
+
+facilite des réactions d’oxydo-réduction entre éléments métallique. Dans notre projet, nous visons
+à stocker l’électricité pour recharger un téléphone. A l’aide d’un générateur basse fréquence,
+nous avons démontré la recharge d’une pile rechargeable (même principe que la batterie) (voir
+montage ci-contre). Le résultat nous montre que la pile se charge assez facilement.
+
+Nous avons réalisé nos expériences avec une pile 9V rechargeable. Nous avons essayé de
+charger un téléphone à partir de cette pile. En 15 minutes, la charge a augmenté
+de 3% ce qui correspond à une charge totale de 6-7h ce qui est bien plus long
+qu’une charge classique qui prend environ 2-3h.
+Dans notre projet, une autre possibilité sur laquelle
+nous souhaitons aboutir est d’intégrer directement un
+port USB mais pour cela il faut être sûr de générer une
+tension minimale de 5V en continu. Cela serait plus
+simple et plus efficace que la solution avec la pile.
+
+D/ Lien entre les différentes parties du montage
+En assemblant le montage avec la dynamo et la perceuse et le montage de lissage du courant,
+on parvient à générer un courant continu capable d’allumer une led en continue. Finalement,
+grâce à la solution électromagnétique, charger un téléphone en un temps correct semble
+possible. Le nouvel objectif qui s'offre à nous est de mettre au point un prototype répondant à
+notre problématique initiale.
+
+15
+
+IV. Le prototype
+A/ Réalisation du prototype
+1. Facteurs essentiels à prendre en compte
+A partir des différentes expériences réalisées dans la partie précédente, nous avons
+conclu qu’il était essentiel que le prototype permette une forte rotation des aimants ou de la
+bobine et que le champ magnétique créé soit important. Pour cela, il faut que dans le prototype:
+- une forte rotation soit créée
+- des aimants puissants soient installés
+- les bobines aient un grand nombre de tours.
+A partir de cela, nous avons pu réalisé un prototype en collaboration avec Benjamin
+PERRIN-LICINI. Pour répondre aux attentes exposées ci-dessus, nous avons décidé d’y placer
+32 aimants néodymes et des bobines comportant 350 tours chacun. L’idée est également de
+baser le prototype sur une démultiplication de la rotation pour l’amplifier. En effet, une rotation du
+genou de 10° implique une rotation des rotors de 160°. Le prototype répond ainsi aux attentes du
+projet.
+2. Présentation du prototype
+Nous avons réalisé le prototype dans le but de l’imprimer avec une imprimante 3D. Voici les
+différentes pièces :
+
+Le prototype comporte deux supports qui permettent de
+maintenir l’ensemble des pièces du prototype. C’est par
+ces pièces qu'on pourra le fixer sur notre jambe. Le
+mouvement du genou va venir mettre en rotation le pignon qui est une petite pièce comportant
+plusieurs dents. Lorsque celle- ci est mise en rotation, elle entraîne la couronne qui également
+équipée d’un grand nombre de dents déclenchant la rotation des rotors. Ces rotors sont chacun
+composés de 16 aimants néodymes. Les rotors sont situés de chaque côté du stator. Le stator
+est composé de 8 bobines en cuivre de 350 tours, ces bobines sont branchées en parallèle 2 à
+2 puis en série pour assurer l’indépendance des bobines. C’est le schéma qui nous assure
+potentiellement le plus de rendements.
+En ce qui concerne la production d’énergie, ce sont les aimants et les bobines qui s’en
+occupent. Les aimants du prototype émettent un champ magnétique avec des lignes de champ
+qui vont venir entrer en contact avec le circuit composé ici des 8 bobines. Lorsque les rotors sont
+en mouvement, les aimants le sont également, les flux magnétiques vont donc varier sur les
+différentes bobines. On aura donc pour chaque bobine des variations du flux magnétique au
+cours du temps ce qui traduit alors la création d’une tension et d’un courant électrique. Cette
+énergie est générée dans les 8 bobines et à la fin elle est rassemblée sur une sortie de circuit.
+La disposition des aimants sur les rotors a été réalisée pour que chaque bobine soit constamment
+16
+
+soumise aux champs magnétiques de plusieurs aimants pour éviter un arrêt d’induction trop
+fréquent ce qui aurait pu avoir un impact sur nos rendements.
+A partir de ce prototype d’après Benjamin on devrait pouvoir produire 1 à 2 Watts assez
+facilement. La tension devrait varier entre 0 et 15/20 Volts. En ce qui concerne l’intensité, on peut
+espérer sortir environ 1 à 2 ampères max. L’objectif qui était de produire une puissance de 5W
+semble donc largement réalisable au vu des capacités du prototype.
+B/ Le prototype initial
+Voici à quoi ressemble le prototype initial visuellement il correspond à ce que l’on attendait.
+Cependant, les résultats ne sont pas vraiment ceux attendus.
+
+1. Explications des différents problèmes rencontrés
+Nous avons rencontré différents problèmes lors
+du montage du prototype. L’impression du stator a en
+effet été très mal réalisée. Nous n’avons pu placer que
+6 bobines au lieu de 8 composées chacune de 150
+tours au lieu des 350 prévus initialement. Ceci a
+forcément un impact sur le rendement final. De plus,
+lors du montage, nous nous sommes rendus compte
+que la couronne ne s’embrayait pas bien avec le
+pignon ce qui empêchait la rotation du prototype.
+2. Expérimentations
+Nous avons tout de même essayé de produire de
+l’énergie à partir de ce prototype. Pour cela nous avons
+fait tourner les rotors manuellement et on a mesuré la
+tension et l’intensité à la sortie des bobines. Les résultats
+sont très décevants. On obtient 10 mV au maximum et
+l’intensité reste toujours nulle, ce qui n’est pas cohérent
+avec les résultats attendus.
+C/ Amélioration du prototype initial
+Après les phases de qualifications, nous avons établi les défauts de notre prototype, afin
+de trouver en collaboration avec Benjamin des solutions pour rendre the “NRshoe” pleinement
+fonctionnel, exploitable et digne des attentes de tous.
+1. Présentation des nouvelles propriétés du prototype
+Le premier défaut, et sûrement le plus dérangeant, était la mauvaise impression du stator
+(élément contenant les bobines), d’où nous nous sommes assuré d’avoir des imprimantes
+suffisamment développées pour réimprimer nos pièces. Ensuite le peu de production d’électricité
+nous a interpellé, ainsi en ré-effectuant des tests, nous nous sommes rendu compte que le fil de
+cuivre était défectueux. Nous avons donc commandé du fil de cuivre enduit d’un verni isolant
+résistant qui évite le court circuit, en prenant le soin de diminuer l’épaisseur du fil de 0,2 mm afin
+d’augmenter le nombre de tours dans nos bobines et ainsi maximiser la production.
+17
+
+De plus, après réflexion, nous avons pensé que pour diminuer la gène
+et la dépense d'énergie il ne faudrait faire fonctionner notre système que
+lors de l’extension de la jambe, et non lors de la flexion car le premier
+mouvement requiert moins d’énergie. En lien avec Benjamin, nous avons
+donc établi un nouveau système ingénieux : un blocage installé au niveau
+d’un des supports permet de faire tourner la couronne uniquement dans
+le sens anti-horaire, tandis qu’un système de roue libre au sein du stator
+entraîne une rotation continue des deux couronnes, rendant possible le
+blocage. Un élastique permettra de garder le blocage contre la roue, tout
+en la laissant tourner dans un sens.
+Ces améliorations ne devraient pas changer les capacités de
+production d’énergie du prototype, elles restent identiques (15-20 Volts
+et 1-2 Ampères environ)
+2. L’adaptation au projet initial
+Le dernier objectif était de relier ce prototype aux attentes du projet initial. Cela concerne
+2 points en particulier : l’intégration du prototype sur la jambe et l’intégration du processus
+permettant de transformer le courant alternatif en courant continu.
+Pour l’intégration sur la jambe, nous voulions qu’elle soit ajustable, confortable et qu’elle
+suive les mouvements naturels de la jambe car nous ne voulions pas que notre prothèse gène
+notre quotidien. Cela semble cependant assez compliqué vu la taille du prototype actuel. C’est
+pourquoi, nous avons intégré des scratchs sur les supports ainsi que de la mousse sous le
+prototype pour que ce soit plus agréable pour le porteur du prototype. Mais l’objectif final reste
+cependant que the “NRshoe” puisse s’apparenter à une genouillère ordinaire.
+En ce qui concerne l’intégration du processus permettant de
+transformer le courant alternatif en courant continu, nous avons
+intégré dans le prototype une petite boîte (illustrée en photo ci-contre)
+sur l’un des supports dans lequel nous pouvons intégrer un pont de
+diode et un condensateur.
+Nous avons pour cela miniaturisé notre pont de diodes et notre
+condensateur. Nous avons démonté les ponts de diode et
+condensateurs utilisés dans les parties précédentes pour pouvoir
+redresser et lisser le courant avec les dispositifs les plus petits
+possibles. Nous avons testé que
+le processus pouvait relié une DEL en continu ce qui s’est
+fait avec succès (voir photo) Ce processus est relié à la
+sortie des bobines et est relié à un port USB. En effet, le
+prototype final peut produire une tension supérieure à 5 volts
+ce qui permet de recharger directement un téléphone via un
+port USB.
+
+18
+
+D/ Le prototype final
+1. Expérimentations et rendements
+
+Lors du montage nous avons rencontré la même difficulté que la première fois en ce qui
+concerne la fabrications des bobines. C’est une activité qui demande beaucoup de précision et
+les 350 tours se sont révélés impossibles à réaliser avec le matériel à disposition. Cela affectera
+forcément la production finale. Nous avons donc mis 100 tours de fil de cuivre par bobine ce qui
+devrait tout de même nous assurer une production nécessaire pour remplir nos objectifs.
+A l’heure où nous terminons notre compte-rendu, les conditions climatiques du Nord de la
+France nous ont contraint à travailler chez nous et nous étions alors dans l’incapacité de nous
+rendre au lycée pour terminer les manipulations. Nous en avons cependant réalisé une qui peut
+permettre d’évaluer le rendement final. En effet, nous avons voulu testé nos bobines 2 par 2 pour
+vérifier que l’induction était bonne pour chaque
+paire de bobines. En faisant tourner
+manuellement les rotors autour du stator et en
+mesurant la tension aux bornes des bobines, on
+se rend compte que cela génère bien une tension
+et un courant. Avec une paire de bobines, nous
+avons réussi à atteindre les 2 V ! Cependant ce
+n’est pas le cas avec toutes car souvent on stagne
+autour de 50 mV. On pense que c’est un problème
+de connectique, le fil est sûrement déverni à
+certains endroits ce qui raccourcit le circuit. En
+refaisant les bobines et en vérifiant les conditions,
+on devrait parvenir aux mêmes résultats de
+tension. En ce qui concerne l’intensité, avec la paire de bobines performantes, on est parvenu à
+obtenir 200 mA et nous avons réussi à allumer une led avec notre courant induit.
+2. Lien avec nos attentes
+Finalement, on se rend compte que l’on peut générer de l’énergie à partir de
+l’électromagnétisme. Si les 4 paires de bobines fonctionnent comme celle qui produisait 2V et
+200 mA , alors nous pouvons espérer obtenir 8V et 800 mA. En sachant que l’installation pour
+19
+
+redresser et lisser le courant et la tension va faire diminuer nos résultats, on devrait obtenir entre
+4 et 6V et entre 0,4 et 0,6 mA. Cela n’est pas tout à fait ce que nous souhaitions obtenir mais
+nous avons été contraints à une problématique matérielle qui nous a empêché de faire le nombre
+de tours voulus. Cependant cela reste des résultats exploitables. On peut en effet obtenir une
+puissance de entre 1,6 et 2,4 W. Pour obtenir les 10W.h attendus, il faudrait donc marcher entre
+4 et 6h30. Ce temps est à nuancer, il a été calculé à partir de données expérimentales optimales.
+Cela paraît réalisable à échelle quotidienne. Cependant il faut prendre en compte de nombreux
+facteurs qui empêcheront son utilisation notamment le poids du prototype qui est assez
+conséquent. Il ne facilite pas la marche. De nombreuses améliorations sont à faire à ce niveau
+ainsi que sur le niveau esthétique pour pouvoir rendre ce prototype utilisable dans notre vie.
+Si l’on reprend l’étude du mouvement que nous avons réalisée au début, nous en avions
+conclu que pour avoir le plus de rendements il faudrait courir. Ici, il est impossible de courir avec
+le prototype car n’est pas adapté et il reste fragile. Cependant, la théorie reste bonne et si le
+prototype parvient à être encore amélioré et adaptable à des mouvements plus brusques comme
+ceux d’une course, alors nos rendements pourraient être amplifiés. Par ailleurs, les rendements
+sont ici évalués par rapport aux mesures expérimentales, nous attendons donc d’avoir des
+résultats plus significatifs pour nous positionner sur la solution de récupération d’énergie (port
+USB ou batterie) et pour apporter un temps de charge fixe et moins approximatif.
+
+Conclusion
+Notre projet de genouillère énergétique représente une convergence entre la physique et
+la technologie, démontrant la conversion réussie de l’énergie mécanique en énergie électrique.
+Cette genouillère offre une solution pratique pour le recharge d’un téléphone mobile grâce aux
+mouvements naturels de la jambe. Notre dispositif promet une source d’alimentation alternative
+et durable, adaptée à divers contextes tels que les activités sportives, les déplacements
+quotidiens et les situations d’urgences. Bien que notre projet soit un premier pas, des
+améliorations continues sont possibles pour optimiser l’efficacité, la convivialité et l’esthétique.
+Participer aux Olympiades de Physique a renforcé notre passion pour la physique et l’innovation.
+Nous sommes impatients de continuer à explorer les domaines où la science et la technologie se
+rencontrent.
+Notre genouillère énergétique montre notre engagement envers la découverte, la créativité et la
+résolution de problèmes concrets. Nous sommes convaincus que ce projet ouvre la voie à de
+nouvelles perspectives dans le domaine de l’énergie cinétique.
+A très vite !
+Lucile, Thomas, Nathan et Héloïse
+
+20
+
+Remerciements
+Pour terminer ce compte-rendu sur notre projet physique, nous tenons à remercier toutes les
+personnes sans qui ce projet n’aurait pas pu voir le jour ou aboutir :
+- Merci à l’ISEN Lille, à Pierre-Emmanuel DUMONT, professeur à l’ISEN, à Linxens et à
+Thomas PERRIER pour leur prêt d’imprimantes 3D.
+- Merci à Benjamin PERRIN-LICINI pour son parrainage tout au long de notre aventure.
+- Merci au lycée Saint-Jacques Hazebrouck pour le prêt de locaux et à tout le personnel qui
+nous a permis de nous engager dans un tel projet.
+- Un grand merci à Mme MUSY et M.THIBAUT, nos professeurs référents qui nous ont
+accompagnés tout au long du projet et sans qui tout cela n’aurait pas pu être possible.
+
+Sources
+Nous devons notre idée de projet à 2 entreprises notamment :
+- Pavegen, entreprise qui a créé des dalles à partir de capteurs
+piézoélectriques qui convertit la pression des pas en énergie
+électrique capable d’allumer des lampadaires.
+- Ampy, entreprise qui a créé un boitier intégrable sur le bras qui
+transforment l’énergie mécanique du bras en énergie électrique.
+Sources des différentes images :
+- https://si.blaisepascal.fr/1t-les-capteurs/
+- https://parlonssciences.ca/ressources-pedagogiques/les-stimexpliquees/la-loi-de-lenz-a-loeuvre-dans-les-tours-de-chute-libre
+- https://pixers.fr/stickers/athlete-homme-qui-court-coureur-masculin-a-san-francisco70871867
+Lois en lien avec le projet qui nous ont beaucoup aidé :
+- Loi de Faraday
+- Loi de Lenz
+- Loi d’Ohm
+- Ainsi que toutes celles citées dans ce compte rendu
+Entreprises sur lesquelles on a commandé du matériel :
+- Smart Material
+- SuperMagnete
+- Amazon
+
+21
+
+

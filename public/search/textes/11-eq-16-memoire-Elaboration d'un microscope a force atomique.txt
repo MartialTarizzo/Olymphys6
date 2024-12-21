@@ -1,0 +1,652 @@
+?
+
+?
+
+Le microscope à effet tunnel
+Le microscope à force atomique
+
+Dossier réalisé par :
+PORCHER Nicolas
+VIGNERON Basile
+MARTINEZ Pierre
+ROMEU Guillaume
+TISSOT François
+Encadrement :
+JEANJACQUOT Philippe.
+
+LYCEE CHARLIE CHAPLIN
+DECINES
+
+1
+
+2
+
+Index
+Remerciements ………………………………………………………………………p 4
+Résumé ……………………………………………………………………………..….p 5
+Bibliographie …………………………………………………………………………p 6
+Introduction……………………………………………………………………...…...p 7
+
+A Théorie …….…………………………………………………………...…………p 8
+I Le microscope à effet tunnel (STM)……………………………..p8
+a) Principe de l’effet tunnel
+b) Fonctionnement du STM
+
+II Microscope à force atomique (AFM) …….…………….…..… p 10
+Principe et fonctionnement
+
+B Evolution et élaboration de notre propre AFM ………….…..…p11
+I Le palpeur………………………………………………………………p12
+II Piezo XYZ ……………………………………………………………..p13
+III Mécanique, approche manuelle ……………………….………..p15
+1ére configuration :
+2éme configuration :
+
+IV Régulation…………………………………………………..…….….p18
+a) Principe
+? Mode à hauteur constante.
+? Mode à « oscillation » constante.
+b) Détection électronique de la résonance du fil.
+V Balayage, acquisition, représentation ………………………….p21
+VI Assemblage des différents éléments……………………………p21
+C Expériences, tests et manipulations . ……………………………..….p23
+I Attaque chimique des pointes……………………………………..p23
+1)Préparation de la solution de CaCl2 :
+2)Préparation de la pointe
+II Test de la boucle de régulation…………………………………..p24
+III Montage du fil sur le quartz……………………………………p25
+IV Test de notre Piezo de déplacement. ……………………….…p25
+
+Topographies de matériaux par AFM ou STM…………………………….p26
+Conclusion ………………………………………………………………………….p27
+
+3
+
+REMERCIEMENTS :
+.
+
+?
+
+M Philippe DUMAS ,directeur de recherche dans le service
+« microscopie à champ proche » au GPEC de Marseille et toute son
+équipe de chercheurs : ACKERMANN Jörg.
+BELLINI Boris .
+BATTAGLINI Nicolas .
+KLEIN Hubert .
+
+?
+?
+
+.
+
+CADETE SANTOS AIRES et M GENET du CNRS de Lyon .
+NATIONAL INSTRUMENT pour leur prêt de la carte PCI-MOI-16 E4.
+.
+.
+? M ROMEU et M LOISON, Artisan et professeur de BTS au Lycée
+Charlie Chaplin de Décines .
+me
+.
+? M MAILLARD et M MASSAULT, professeurs d’électronique au
+Lycée Charlie Chaplin .
+.
+? M JEANNOT , professeur de Physiques appliquées au Lycée Charlie
+Chaplin .
+
+4
+
+RESUME :
+La microscopie à champ proche inventée en 1986 par Binnig et Rohrer
+regroupe deux familles de microscopes :le STM et l’AFM .
+Nous avons commencé à étudier l’aspect théorique de la microscopie à
+champ proche (la mécanique et les forces de proximité entre autre ).
+Notre choix d’élaboration pour observer l’atome s’est ensuite orienté vers
+un AFM qui est moins complexe dans sa construction et qui possède un plus
+large champ d’étude. Pour cela nous avons cherché à construire et à simplifier
+les éléments de notre AFM .
+Après une série de calculs et d’expériences nous en sommes arrivés à une
+version simplifiée , dans sa construction .
+
+5
+
+Bibliographie
+Sites Internet :
+?
+?
+?
+?
+?
+?
+?
+?
+?
+?
+
+http://www.lgep.supelec.fr/ce/STM.htm
+http://dpmc.unige.ch/
+http://www.physique.u-strasbg.fr/lettre/microscope_effet_tunnel.pdf
+http://sxm4.uni-muenster.de/stm-en/
+http://www.almaden.ibm.com/vis/stm/
+http://www.ujf-grenoble.fr/
+http://users.skynet.be/andystrappazon/memoires/
+http://lcpe.cnrs-nancy.fr/GABO/afm.h tm
+http://tel.ccsd.cnrs.fr/
+http://web.ccr.jussieu.fr/lple/STM.html
+
+? Encyclopédie Encarta
+? Cours de physique « l’effet tunnel » de M Jeanjacquot
+.
+? Rapport de stage de Maîtrise « physique et applications » de M Paul de
+Feraudy
+? « Lecture notes on shear and friction force detection with quartz tuning
+forks » de Khaled Karrai
+
+6
+
+Introduction
+L’étude de l’infiniment petit a toujours passionné les scientifiques.
+Des modèles élaborés ont été crées afin d’explorer la matière et d’étudier sa structure à
+l’échelle nanomètrique.
+Le développement de cette microscopie a révolutionné l’étude des matériaux à l’échelle
+atomique.
+C'est à G. Binnig et H. Rohrer que l'on doit l'invention du premier microscope à effet
+tunnel. Ce dernier voit le jour il y a un peu plus de vingt ans dans les laboratoires d'IBM à
+Zurich. Grâce à leur invention, Binnig et Rohrer obtiennent le prix Nobel de physique en
+1986.
+A l'heure actuelle, d'autres techniques dérivées existent; elles sont toutes regroupées
+sous le nom de microscopie à champ proche ou à sonde locale.
+La microscopie à champ proche (SPM : Scanning Probe Microscopy) regroupe un
+large éventail de techniques microscopiques où une sonde parcourt une surface à très faible
+distance. L'interaction qui s'établit entre la sonde et la surface de l'échantillon étudié, est
+enregistrée et visualisée sous forme d'image.
+Les deux formes principales de microscope à sonde locale sont le microscope à effet
+tunnel (STM: Scanning Tunnneling Microscope) et le microscope à force atomique (AFM:
+Atomic Force Microscope).
+Le plus utilisé de ces microscopes est le microscope à force atomique inventé par Gerg
+Binnig, Calvin Quate et Cristopher Gerber en 1986.
+Nous nous sommes intéressés à ce sujet et suite à la lecture de l’article suivant dans le
+magasine « La Recherche », nous avons décidé de construire notre propre microscope à
+sonde locale.
+
+Nous nous sommes d’abord penchés sur l’étude théorique de la microscopie à champs
+proche. Suite à cela nous avons décidé d’élaborer notre propre microscope à champ proche en
+s’appuyant sur les modèles existants, tout en modifiant leurs principes.
+Lors de cette élaboration, nous avons du réaliser un certain nombre d’expériences et de
+tests.
+
+7
+
+A Théorie
+I Le microscope à effet tunnel (STM)
+Le microscope à effet tunnel rend possible l’analyse des surfaces dans le domaine de
+la physique des surfaces et dans le domaine de la biologie (résolution atomique de petites
+molécules organiques).
+Les informations recueillies sont un mélange de la structure électronique et de l’aménagement
+géométrique des atomes..
+Le principe du STM utilise une partie de la mécanique quantique : L’effet tunnel, découvert
+en 1928.
+a) Principe de l’effet tunnel
+L’effet tunnel est une des prédictions les plus surprenantes de la mécanique quantique.
+En mécanique classique, une particule n’a pas assez d’énergie pour surmonter une barrière de
+potentiel de hauteur V0 et reste indéfiniment bloquée du coté de la barrière où elle se trouve
+initialement.
+En mécanique quantique, par contre, la fonction d’onde associée à cette même particule n’est
+pas nulle de l’autre coté de la barrière.
+
+Il y a donc une certaine probabilité pour que cette particule franchisse la barrière et même si
+son énergie est inférieure à V0, c’est ce que l’on appelle l’effet tunnel. Tout se passe comme si
+la particule empruntait un « tunnel » à travers la barrière de potentiel.
+Considérons un électron incident, auquel est associée une onde , rencontrant une
+barrière de potentiel V 0 de largeur a. Dans le cadre de la théorie quantique, les solutions de
+l'équation de Schrödinger pour chaque région correspondent à deux ondes progressives
+et
+à gauche et à droite de la barrière, et à une onde évanescente à l'intérieur de la barrière.
+A l'aide des conditions de continuité, on établit l'expression du coefficient de
+transmission d'un électron T(E) à une dimension, de la partie gauche de la barrière vers la
+droite:
+
+Où 'V0' est la hauteur de la barrière, 'E' l'énergie de la particule, ' ' la constante de Planck/2 pi,
+'m' la masse de la particule et 'a' la largeur de la barrière.
+
+8
+
+Dans une première approche du fonctionnement d'un microscope à effet tunnel,
+on considère généralement deux électrodes polarisées, séparées par un isolant (par exemple le
+vide). On peut démontrer que, dans ces conditions, le courant tunnel s'écrit de la manière
+suivante :
+
+Où 'V' est la tension appliquée entre les deux électrodes, '
+
+' la constante de décroissance des
+
+fonctions d'onde dans la barrière (
+où m représente la masse de l'électron et
+travail d'extraction), et 'a' la distance séparant les deux électrodes.
+
+le
+
+b) Fonctionnement du STM
+Si l’on applique une différence de potentiel VT entre deux électrodes, qui sont, dans le
+cas du STM, la pointe (généralement en tungstène) et l’échantillon à étudier, le transfert
+d’électrons par effet tunnel est permis lorsque la pointe et l’échantillon sont à une très faible
+distance (de 1 à 2 nm), donnant lieu à un courant tunnel IT.
+L’intensité de ce courant dépend avec une grande sensibilité de la distance entre la
+pointe et la surface.
+
+On approche donc la pointe de1 à 2 nm de l’échantillon grâce à une approche manuelle
+qui doit être très précise, pour que le courant tunnel s’établisse. Si la distance est supérieure à
+2 nm, le courant ne passe pas.
+Ensuite, on balaye la surface de l'échantillon (conducteur ou semi-conducteur) avec la
+pointe qui doit être la plus fine possible pour avoir une bonne résolution.
+On utilise un tube piézo-électrique pour les déplacements.
+En effet, à l’aide d’une boucle de régulation (voir pour l’AFM) on garde le courant IT
+constant en faisant varier la hauteur du tube piézo-électrique.
+Grâce à la mécanique quantique, on comprend que maintenir le courant constant
+revient à maintenir constante la distance (d) entre la pointe et l'échantillon.
+Il suffit d’enregistrer les variations de la hauteur du piezo (Z) en fonction des
+coordonnées de la pointe (X,Y) pour tracer une représentation de la topographie de la surface.
+En enregistrant pour chaque position de la pointe le courant tunnel et la hauteur Z, on
+réalise une image topographique de la surface dont la résolution sera fonction de l'ordre de la
+9
+
+taille d'un atome. Seulement, ce courant tunnel restreint le champ de possibilité. Le signal
+détecté est un courant électrique, il ne s'établit donc qu'entre surfaces conductrices.
+
+II Microscope à force atomique (AFM)
+?
+
+Principe et fonctionnement
+
+Le principe de fonctionnement du microscope est basé sur la détection des forces interatomiques s’exerçant entre une pointe associée à un levier de constante de raideur fixe, et la
+surface d’un échantillon.
+
+La figure représente le modèle d’AFM le plus utilisé (environ 99 %).
+Dans cette configuration, la pointe est placée à une distance d (de quelques nanomètres ) de
+la surface de l’échantillon.
+
+10
+
+Elle est solidaire d’un dispositif qui guide son déplacement. Grâce à un système de
+céramiques piézoélectriques, elle peut être finement déplacée par rapport à l’échantillon dans
+les 3 dimensions de l’espace : X, Y (plan de la surface ) et Z (perpendiculaire à la surface).
+La position de la sonde est mesurée par l’intermédiaire d’un laser focalisé à l’extrémité du
+levier (au-dessus de la pointe). La réflexion de ce signal laser est collectée sur un photodétecteur constitué de cellules photoélectriques.
+Cette réflexion permet de détecter les variations locales des forces, en effet selon la distance
+d, la pointe est plus ou moins attirée par l’échantillon.
+Cette analyse nécessite un alignement au préalable du faisceau réfléchi au centre de la cellule
+photosensible.
+Une boucle de régulation permet de garder ce faisceau réfléchi au centre des cellules
+photoélectriques en modifiant la hauteur de la pointe (axe Z) à l’aide du piézoélectrique. A
+chaque déplacement sur X et Y un ordinateur enregistre la position en Z et trace un graphique
+en 3 dimensions (X,Y et Z) qui représente la topographie de l’échantillon scanné.
+
+B Evolution et élaboration de notre propre AFM
+Nous avons décidé de laisser de coté pour le moment le STM, et de commencer la
+construction d’un AFM pour les raisons suivantes.
+?
+
+Le STM repose sur la mécanique quantique ce qui rend l’étude de son
+fonctionnement très compliqué, avec des formules qui ne sont pas à notre portée
+cette année. L’étude de l’AFM est plus simple, et peut être extrêmement simplifiée.
+
+?
+
+Un STM ne permet d’étudier que des matériaux conducteurs ou semi-conducteurs,
+alors que un AFM permet beaucoup plus d’applications.
+
+?
+
+Un STM est beaucoup plus fragile qu’un AFM du fait de sa pointe qui doit être la
+plus fine possible.
+
+?
+
+La construction d’un AFM est beaucoup plus intéressante car il y a beaucoup à
+créer, alors que pour le STM nous avons déjà tous les plans mécaniques et les
+schémas électriques.
+
+Pour l’étude et la construction de notre AFM nous avons réparti le travail en 5 parties
+représentées sur le schéma suivant :
+
+11
+
+I Le palpeur
+Dans 99 % des AFM, le palpeur est un levier flexible avec une pointe fixée à son bout.
+
+Nous n’avons pas choisi le palpeur le plus utilisé car le levier et la pointe de celui ci,
+étant de dimensions très petites (levier de 0.1 mm de longueur et de 0.03 mm de largeur et une
+pointe de 3 µm de longueur), sont très fragiles et difficiles à manipuler. En effet, si la pointe
+se heurte à la surface de l’échantillon trop violemment elle casse, ce qui faussera toutes les
+données sans que nous nous en apercevions. De plus il est assez coûteux.
+Dans notre cas nous avons choisi une autre propriété de l’AFM.
+
+12
+
+Notre palpeur n’est plus un levier, mais un bout de fil très fin que l’on fait osciller grâce à un
+quartz piézoélectrique (identique à ceux que l’on peut trouver dans les montres).
+Lorsque que l’on fait vibrer le quartz à sa fréquence de résonance on observe un pic
+de tension et c’est ce pic de tension que nous allons exploiter pour observer les variations de
+hauteur entre la pointe et la surface de l’échantillon.
+En effet, lorsque la distance entre le bout du fil et la surface de l’échantillon permet
+aux forces inter-atomiques de s’exercer, on observe une variation du pic de résonance. Les
+forces inter-atomiques absorbent le pic de résonance, ce qui diminue l’amplitude de celui-ci.
+C’est donc sur ce pic de résonance que nous allons baser notre régulation.
+Pour avoir la résolution la plus pré cise possible, il faut que la pointe soit la plus fine
+possible à son extrémité. Pour cela, on affine l’extrémité de la pointe par attaque chimique
+(voir C I)
+
+En conclusion, notre palpeur est constitué d’un quartz (céramique piézoélectrique en
+forme de diapason) et d’une pointe dont on a affiné l’extrémité, elle-même collée à
+l’extrémité du quartz.
+
+II Piezo XYZ
+Le positionnement de la pointe sur la surface doit être entrepris avec un maximum de
+précision.
+On utilise pour ce faire des cristaux piézoélectriques appelés aussi céramiques
+piézoélectriques.
+Ce matériau a la propriété de se contracter ou de se dilater proportionnellement à une
+tension qui lui est appliquée.
+Disposé suivant les 3 axes X,Y et Z, il permet un positionnement et un balayage
+nanoscopique très précis.
+Dans notre cas nous avons besoin d’une céramique piézoélectrique permettant un
+déplacement de quelques micromètres en XY (plan de l’échantillon), d’environ 1 micromètre
+en Z (plan normal à l’échantillon) pour des tensions comprises e ntre +30 V et –30 V. Ceci
+avec une précision inférieure au nanomètre.
+La sensibilité d’un piézo est notée en nm/Volts. Cette sensibilité varie en fonction de
+la géométrie du tube piézoélectrique (diamètre intérieur, diamètre extérieur, épaisseur,
+longueur …).
+Un tube piézoélectrique est composé de 4 électrodes externes pour les axes X et Y et
+d’une électrode interne pour Z comme le représente le schéma suivant :
+13
+
+Ce schéma représente un tube piézoélectrique, ce qui est généralement utilisé dans la
+microscopie à champ proche. Mais ce genre de matériel coûte extrêmement cher (entre 200 et
+900 euros).
+Nous sommes donc partis d’un buzzer piézoélectricité de haut -parleur (qui coûte
+moins de 1 euro) pour en faire notre piézo de déplacement.
+Il est constitué d’une électrode conductrice fixée sur une céramique piézoélectrique,
+elle-même fixée à un support en métal.
+
+Ce buzzer se déforme selon un seul axe comme cela :
+
+vers le haut
+
+vers le bas
+
+Nous l’avons modifié pour obtenir nos 3 axes (X, Y et Z), pour cela il suffit de couper
+l’électrode conductrice en 4 parties :
+X et –X
+Y et –Y
+Le support en métal servira comme électrode Z (Z étant l’axe de la hauteur).
+
+14
+
+Il faut ensuite coller un fil électrique (le plus fin possible) sur chaque électrode avec
+de la colle conductrice et un point de colle forte puis créer des différences de potentiel, et de
+coller un petit levier, sur lequel sera placé l’échantillon, pour obtenir des déplacements sur les
+3 axes.
+
+Déplacement en Z.
+
+Déplacement en X et Y.
+
+III Mécanique, approche manuelle
+Nous avons étudié 2 configurations différentes.
+1ére configuration :
+Le palpeur est fixé sur le piezo XYZ. Cette configuration permet de scanner un échantillon de
+grande taille e n posant l’appareil directement sur celui-ci (ex : une table ou une feuille de
+papier).
+Cette configuration permet donc une grande diversité d’échantillon mais les mesures ne sont
+pas très précises du fait de l’interaction entre les 2 piézos fixés l’un à l’autre.
+
+15
+
+2éme configuration :
+Le palpeur et le piezo XYZ ne sont plus fixés ensemble. Cette configuration ne permet de
+scanner que des échantillons de petit format mais il permet une grande précision car les
+céramiques piézo-électriques ne s’interfèrent plus.
+
+Nous nous sommes tournés vers la deuxième configuration.
+Nous avons construit un prototype d’étude :
+
+Il est constitué d’un triangle équilatéral de 150 mm, de 3 trous taraudés M8, de 3 vis M8 avec
+au bout de chacune une bille soudée pour éviter que celle -ci dérape sur l’échantillon et 6
+écrous M8 pour bloquer le système une fois l’approche manuelle réalisée.
+Nous avons construit ce prototype selon le calcul suivant :
+
+16
+
+Si on remplace la droite d par une vis, et qu’après vissage le point B se retrouve au point B’
+(ses coordonnés d’axe X ont donc varié d’une distance L)
+Le point A est le point d’accroche du palpeur, après vissage il se retrouve au point A’ (ses
+coordonnés d’axe X ont donc varié de l ) et O est un point fixe.
+On peut donc en déduire que la hauteur de la pointe varie selon la formule
+l= (L.d)/D et donc que la précision de la vis est multipliée par le facteur D/d .
+Dans notre cas le pas de la vis est de 1.25 mm (vis M8) et le rapport D/d=10 alors à chaque
+tour de vis la pointe descendra de 0.125 mm.
+Pour augmenter cette précision nous avons monté une roue sur la tête de la vis pour contrôler
+au maximum la rotation de celle-ci.
+Nous nous sommes ensuite inspirés de ce prototype et de ce calcul pour construire la
+mécanique finale.
+
+17
+
+IV Régulation
+a) Principe
+Cette partie est peut être la partie la plus importante, en effet l’AFM ne pourrait pas
+fonctionner sans une boucle de régulation.
+Il existe 2 modes de régulation pour l’AFM :
+? Mode à hauteur constante.
+La boucle de régulation maintient la hauteur de la pointe constante.
+Ce sont en effet les variations d’oscillation qui sont ici mesurées.
+
+18
+
+Ce mode n'est approprié que pour l'étude de surfaces planes (du point de vue
+atomique). Dans le cas contraire, il y a un risque pour que la pointe vienne toucher la surface.
+Cependant, son principal avantage est qu'il peut être utilisé à de très grandes vitesses de
+balayage.
+
+? Mode à « oscillation » constante.
+Dans ce mode, la valeur de l’oscillation de la pointe est imposée. La boucle de régulation
+ajuste la hauteur du piezo et on enregistre ensuite sa position verticale.
+
+Dans les 2 cas la boucle de régulation suit le principe suivant :
+? Comparer le signal d’entrée et le signal de référence à l’aide d’un amplificateur monté
+en comparateur (avec ou sans intégrateur).
+? Varier la hauteur du piézo pour que le signal d’entrée soit égal au signal de référence.
+Le circuit de régulation de notre AFM doit être une boucle de régulation analogique qui doit
+être externe (elle ne doit pas être réalisée par un PC, car sa fréquence serait alors trop faible et
+nous ne pourrions pas obtenir de bonnes résolutions d’images).
+Dans notre cas, le signal à comparer n’est ni un courant comme pour le STM, ni une
+tension de photodiodes comme dans la majorité des cas pour un AFM, mais une tension qui
+vient de l’oscillation du quartz.
+Dans tous les cas le signal à réguler est une tension, nous sommes donc partis du plan
+d’une boucle de régulation d’un STM, pour construire notre propre boucle de régulation.
+
+19
+
+b) Détection électronique de la résonance du fil.
+Il existe 2 techniques :
+La première est basée sur le principe de la variation d’impédance du quartz.
+En effet il a une capacité fixe Cp à l’équilibre, c’est à dire lorsqu’il est sans contrainte ; mais
+lorsqu ‘on le fait vibrer celle-ci varie de Cp à Cp+Cp’.
+On utilise ensuite un pont d’impédance pour supprimer la valeur continue Cp du quartz et
+ainsi pouvoir mesurer les variations de capacité.
+
+Une fois la fréquence de résonance de la pointe connue et repérée, on se fixe à celle-ci. On
+peut ainsi effectuer des images.
+Le deuxième utilise le montage suivant :
+
+Ce montage permet de récupérer en sortie une tension ( U= -R1) qui est en fait le courant
+traversant le quartz, amplifié par une grosse résistance ( de l’ordre du méga ohm ).
+Cette tension représente en fait l’amplitude de l’oscillation de la pointe. Elle varie en fonction
+de la fréquence selon la courbe suivante :
+
+20
+
+On peut observer un pic au niveau de la fréquence de résonance ( environ 32 kHz pour un
+quartz de montre standard), c’est ce pic que l’on va utiliser.
+
+V Balayage, acquisition, représentation
+Toute cette partie est réalisée par un ordinateur à l’aide d’une carte d’acquisition et
+d’un programme que nous devrons réaliser.
+Nous utilisons un PC et une carte d’acquisition prêtée par National Instruments.
+On appelle balayage, le déplacement de la pointe sur les axes X et Y. Chaque
+déplacement doit être de même grandeur afin d’avoir des points équidistants. Le balayage de
+la surface doit être assez rapide, de l’ordre d’une seconde par « ligne d’atomes ».
+Pendant le balayage on enregistre les variations de hauteur ? Z de la pointe en chaque
+point (X,Y) de la surface examinée.
+Pour la représentation il suffit de tracer la courbe en 3 dimensions de ? Z(X ,Y).
+
+21
+
+On obtient donc un aperçu en 3D de la surface.
+L’acquisition, le balayage et la représentation devront être réalisés par le même programme
+pour que nous puissions contrôler les 3 étapes en même temps.
+Ce programme sera réalisé en langage de programmation C et devra être relativement simple
+d’emploi.
+
+VI Assemblage des différents éléments constitutifs.
+Chacun des différents éléments que nous venons de vous présenter constituent notre
+AFM. Nous les avons assemblés afin de pouvoir commencer les tests, sur cette photographie
+Il n’y a pas la carte de régulation est la carte d’acquisition :
+
+22
+
+C Expériences, tests et manipulations.
+I Attaque chimique des pointes
+? Fabrication des pointes en tungstène avec une solution de NaOH.
+Elle s’effectue à l’aide d’une solution de NaOH (soude).Cette technique permet de fabriquer
+de manière reproductible des pointes extrêmement fines.
+L’extrémité du fil de tungstène est plongée dans la solution de NaOH avec une
+concentration de 2 moles/litres; une tension continue d’environ 12V est appliquée entre les 2
+électrodes pour activer la réaction chimique.
+
+Lors du processus, le fil de tungstène (W (s)) se dissout en oxyde de tungstène au
+niveau du ménisque ( jusqu’a la rupture du fil en deux ), suivant la réaction :
+W(s)+ 2OH- + 2H2O
+WO42 - + 3H 2 (g)
+Nous sommes arrivés à réaliser des pointes par ce procédé en utilisant 23.7 V et 0.56 A, les 2
+pointes réalisées sont colées chacune sur un quartz d’expér ience.
+?
+
+Fabrication de pointes en Pt/Ir (Platine Iridium) avec une solution de CaCl2 .
+
+On peut grâce à cette attaque électrochimique réaliser des pointes très fines.
+
+1)Préparation de la solution de CaCl2 :
+Dans un bécher on place environ 50 mL d’eau.
+Puis on y ajoute des granulés de CaCl2 jusqu’à saturation.
+On remue pour bien homogénéiser.
+On dilue ensuite cette solution par 2, pour cela on verse dans un bêcher un volume V
+de cette solution auquel on ajoute le même volume d’eau.
+
+23
+
+2)Préparation de la pointe
+On coupe un fil de Pt/Ir d’environ 1 cm que l’on plonge d’environ 1mm dans la
+solution de CaCl2
+On met ensuite le montage sous tension. On observe alors des petites bulles à la surface de la
+solution tout au tour de la pointe ce qui montre un dégagement de gaz.
+
+Lorsque la pointe est suffisamment fine, la pointe n’est plus en contact avec la solution ce qui
+entraîne l’arrêt de la réaction.
+Ensuite il suffit de nettoyer la pointe en la plongeant dans de l’éther pour être sûre d’arrêter la
+réaction.
+Nous sommes donc arrivés à fabriquer 5 pointes en utilisant ce procédé avec l’aide de
+l’Institut de Catalyse de Lyon.
+
+Il y a donc deux principaux types de pointes utilisées dans la microscopie à
+champ proche : en tungstène et en Pt /Ir , à noter que les pointes en Pt /Ir sont le plus souvent
+utilisées avec le STM car dans ce cas le rayon de courbure est beaucoup plus important. En
+microscopie AFM on utilisera plutôt des pointes plus fines comme du tungstène.
+Dans notre AFM les types de pointes utilisées seront en tungstène obtenues par attaque
+électrochimique comme décrit ci-dessus.
+
+II Test de la boucle de régulation.
+Afin de tester notre boucle de régulation nous nous sommes rendu au laboratoire du GPEC
+(groupe de physique des Etats Condensés) de Marseille.
+On utilise le montage suivant pour tester la boucle.
+V(I)
+GBF
+
+Sommateur
+
+V (Z)
+Boucle de régulation
+
+24
+
+Ces tests ont permis de montrer que notre boucle de régulation fonctionne et nous avons pu
+réaliser les premiers tests de réglage de l’intégration (qui dépend de la fréquence du signal
+d’entrée). Les réglages définitifs ne pourront être effectués que lors de la fin de l’élaboration
+du microscope.
+III Montage du fil sur le quartz.
+Pour cela il faut coller le fil avec un tout petit point de colle sur l’une des pattes du quartz en
+le laissant dépasser d’environ 5 mm de chaque coté. Puis avec une pince très fine on vient
+couper le bout du fil dépassant entre les 2 pattes du quartz.
+
+quartz sans pointe
+
+quartz avec pointe
+
+Nous avons collé deux pointes avec cette technique :
+
+25
+
+VI test de notre piezo de déplacement
+Nous avons profité de notre journée au GPEC pour tester notre « piézo de déplacement ».
+Pour cela nous avons placé le piézo sur un microscope optique très puissant et nous avons fait
+varier l’alimentation de la tension aux bornes des électrodes du piézo.
+
+Nous avons pu observer le déplacement du tube en verre que nous avions collé sur le piézo
+pour faire levier. Nous avons donc ainsi pu estimer la course du piézo en Z.
+
+26
+
+Soit D: la longueur du tube
+R :rayon du tube
+X :déplacement mesuré
+d :hauteur de déplacement
+Le déplacement X mesuré était d’environ 3µm
+Nous avons donc pu estimer d à environ 0.6µm pour une alimentation en –30V et +30 V (soit
+0.1µm/V).
+La mécanique d’approche manuelle doit donc permettre une précision d’approche inférieure à
+0.6µm.
+La notre ne nous permet d’avoir qu’un rapport D/d=10, il faut donc que nous puissions
+contrôler le réglage de la vis avec une précision inférieur à 6µm.
+Pour cela nous avons remplacé la vis de réglage classique par une vis au pas de 0.5mm, qui se
+divise en 5 divisions. On peut contrôler facilement la demi-division c’est à dire 0.5µm.
+Elle permet donc une approche convenable.
+De plus, pour augmenter sa stabilité, nous avons crée un contact point-trait-plan entre les 2
+parties de la mécanique.
+
+27
+
+Topographies de matériaux par AFM ou STM
+Images STM :
+
+Images AFM:
+
+28
+
+Conclusion
+La construction et l’aboutissement de ce projet ont demandé plus d’un an
+de travail et de recherches épaulées par différents chercheurs pour arriver à
+simplifier au maximum un AFM « normal » : ce qui était notre projet de départ.
+Notre AFM possède les particularités d’être simple dans sa construction et
+de présenter des simplifications au niveau électrique qui rendent simple la
+compréhension de son fonctionnement.
+Le budget avoisine les 300 euros, ce qui est très loin des 15000 euros pour
+l’achat d’un AFM « dans le commerce ».
+Cette expérience fut enrichissante, car en plus des nombreuses visites de
+laboratoires travaillants sur ce sujet, elle nous a permis de « toucher » au
+domaine de la physique de l’infiniment petit ce qui est très intéressant.
+La construction de ce microscope à sonde locale nous a aussi permis de
+mettre en œuvre nos connaissances dans de nombreux domaines : électronique,
+mécanique, physique, chimie, informatique…
+
+29
+
+

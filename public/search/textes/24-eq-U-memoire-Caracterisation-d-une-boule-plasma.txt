@@ -1,0 +1,727 @@
+XXIVe Olympiades de Physique
+2016-2017
+
+Caractérisation d’une boule plasma
+
+Par François DUHIL DE BÉNAZÉ et Delphine YEH
+Encadrés par Brigitte PIVETEAU
+École alsacienne (Paris)
+
+Caractérisation d’une boule plasma
+
+Équipe U
+
+Résumé
+Au cours des six mois durant lesquels nous avons préparé les Olympiades de Physique, nous
+avons étudié un objet qui semble en apparence n’avoir qu’une fonction décorative, mais à partir
+duquel nous avons réalisé de nombreuses expériences de physique, transformant cet objet en sujet
+d’étude scientifique. Notre choix s’est notamment porté sur les boules plasmas car elles constituent
+un sujet visuellement beau et peu répandu. Dans ce mémoire, nous vous présentons les résultats de
+nos meilleures expériences. Ainsi, vous découvrirez trois méthodes pour déterminer la fréquence du
+courant alternatif d’une boule plasma, comment identifier les gaz contenus dans une boule plasma à
+l’aide d’un goniomètre à prisme, ou encore pourrez-vous observer des images prises à une cadence
+allant jusqu’à cent mille images par seconde, qui révèlent des phénomènes invisibles à l’œil nu.
+Bonne lecture !
+
+Olympiades de Physique 2016-2017
+
+Page 1/24
+
+Caractérisation d’une boule plasma
+
+Équipe U
+
+Remerciements
+Nous tenons tout d’abord à remercier vivement Madame Brigitte PIVETEAU pour sa grande
+implication à nos côtés et ses nombreux conseils, sans qui nous n’aurions pas pu mener à bien notre
+projet.
+Nous remercions également Monsieur David QUÉRÉ, directeur de recherche au laboratoire
+de Physique et mécanique des milieux hétérogènes à l’ESPCI, qui nous a accueilli dans son
+laboratoire et qui a mis à notre disposition une caméra rapide dont nous avions besoin.
+Nous remercions aussi Monsieur Pierre CHANTELOT, doctorant sous la supervision de
+Monsieur Quéré, qui nous a accordés son temps afin de nous aider à réaliser nos expériences au
+laboratoire.
+Merci également aux professeurs de l’École alsacienne qui nous ont apportés leur aide au
+cours de nos travaux.
+Enfin, nous tenons à remercier les organisateurs des Olympiades de Physique de France,
+pour nous avoir permis de vivre une expérience passionnante et enrichissante durant la préparation
+du concours.
+
+Olympiades de Physique 2016-2017
+
+Page 2/21
+
+Caractérisation d’une boule plasma
+
+Équipe U
+
+Sommaire
+Résumé .......................................................................................................................................... p.1
+Remerciements ............................................................................................................................... p.2
+Introduction ................................................................................................................................... p.4
+Partie I : Fonctionnement d’une boule plasma .......................................................................... p.5
+A/ Comment fonctionne de manière globale une boule plasma ? .............................................. p.5
+B/ Que se passe-t-il au contact d’une main ? ............................................................................. p.5
+Partie II : Caractéristiques d’une boule plasma ........................................................................ p.6
+A/ Quelle est la température à la surface de la boule plasma ? .................................................. p.6
+B/ Quelle est la fréquence du courant de la boule plasma ? ....................................................... p.7
+C/ Comment retrouver cette fréquence à partir du circuit électronique de la boule plasma ? .... p.7
+D/ Comment caractériser les filaments à l’intérieur de la boule plasma ? ................................. p.9
+1. Vie d’un filament .............................................................................................................. p.9
+2. Mouvement des filaments ............................................................................................... p.10
+3. Couleur des filaments ..................................................................................................... p.12
+E/ Quels sont les gaz présents dans la boule plasma ? ............................................................. p.12
+F/ Comment varie le champ électrique autour de la boule plasma ? ........................................ p.15
+Conclusion .................................................................................................................................... p.17
+Bibliographie et références ......................................................................................................... p.18
+Annexe I – Modélisations de la position des filaments en fonction du temps ........................ p.19
+Annexe II – Estimation de l’incertitude sur les longueurs d’onde dans le spectre de la boule
+plasma ........................................................................................................................................... p.21
+
+Olympiades de Physique 2016-2017
+
+Page 3/21
+
+Caractérisation d’une boule plasma
+
+Équipe U
+
+Introduction
+Qu’est-ce que le plasma ?
+Le plasma est un gaz ionisé, susceptible de conduire le courant. Il correspond à un état
+désordonné de la matière, constitué d’atomes et de molécules neutres, d’électrons et d’ions en
+déplacement libre, formant un mélange électriquement neutre. Il résulte d’un apport d’énergie à un
+gaz, tel que cette énergie soit suffisante pour arracher des électrons aux atomes ou molécules de
+gaz, et ainsi les ioniser. La quantité d’énergie nécessaire à la formation des plasmas varie selon les
+gaz. De plus, alors que certains états de la matière tels que la supraconductivité ou la superfluidité
+ne peuvent être atteints que par certains atomes ou certaines molécules, tous les gaz sont
+susceptibles d’être ionisés à partir du moment où l’énergie apportée est suffisante.
+Où trouve-t-on du plasma ?
+Dans l’espace, le plasma naturel se trouve par exemple dans les étoiles ou dans les milieux
+interstellaires. On estime que 99 % de l’univers visible est formé de plasma. Sur Terre, le plasma
+s’observe dans les éclairs ou les aurores boréales. Toutefois, on sait également produire des plasmas
+artificiels, par exemple en soumettant des gaz à des champs électromagnétiques suffisamment
+puissants pour ioniser leurs atomes, ou encore en apportant de l’énergie aux gaz par élévation de la
+température ou par absorption de photons énergétiques.
+Quelles sont les utilisations du plasma ?
+Le plasma utilisé dans l’industrie peut se décliner en deux catégories. D’une part, les
+plasmas froids, formés par des décharges électriques et faiblement ionisés, sont utilisés dans la
+production de semi-conducteurs ou de nouveaux matériaux. Les plasmas basse température peuvent
+aussi être utilisés pour la pasteurisation des aliments, la stérilisation de matériel médical ou la
+purification de certains environnements. D’une manière plus quotidienne, les plasmas sont utilisés
+dans les tubes fluorescents, ou encore dans les écrans plasmas. D’autre part, des plasmas chauds
+sont utilisés dans des horloges atomiques pour améliorer leur précision, ou encore dans des
+accélérateurs de particules pour maintenir le plus grand niveau de vide possible.
+Pourquoi étudier le plasma à partir d’une boule plasma ?
+D’un point de vue pratique, la formation des plasmas requiert une forte énergie, donc des
+températures importantes, qui détruiraient la plupart des instruments de mesure. Ainsi, il n’est pas
+évident ni accessible d’étudier directement des plasmas, c’est pourquoi il est nécessaire de trouver
+des alternatives : la boule plasma en est une.
+De plus, une boule plasma constitue une méthode sécurisée pour étudier les plasmas. En
+effet, le courant alternatif de haute fréquence généré par la boule entraîne un effet de peau, c’est-àdire que le courant circule essentiellement à la surface des conducteurs ; dans notre cas, où le corps
+constitue le conducteur, le courant ne pénètre donc pas à l’intérieur du corps lorsqu’on touche la
+boule plasma, mais circule à la surface de notre peau, ce qui limite les dangers dus à la haute
+tension.
+En outre, d’après les travaux de M. Campanell 1, le courant maximal qui circule dans un
+filament est d’environ 1 mA, ce qui n’est pas suffisant pour électriser un corps : la manipulation
+d’une boule plasma représente donc peu de dangers.
+
+Olympiades de Physique 2016-2017
+
+Page 4/21
+
+Caractérisation d’une boule plasma
+
+Équipe U
+
+Partie I : Fonctionnement d’une boule plasma
+A/ Comment fonctionne de manière globale une boule plasma ?
+Une boule plasma est une boule en verre contenant des gaz rares initialement neutres
+électriquement. Au centre de la boule se trouve une électrode soumise à une forte tension
+alternative, ce qui crée un champ électrique important entre l’électrode centrale et la paroi interne
+du verre. Ainsi, ce champ est suffisamment intense pour arracher des électrons aux atomes de gaz
+contenus dans la boule. Lors de leur déplacement entre la paroi interne du verre et l’électrode
+centrale, toutes deux de charge opposée, si les électrons libres entrent en collision avec un atome de
+gaz avec une énergie suffisamment importante, ils peuvent ioniser cet atome, qui libère alors des
+électrons. Ces derniers peuvent à leur tour ioniser d’autres atomes de gaz : des collisions en cascade
+se produisent, entraînant une augmentation exponentielle du nombre d’ions et d’électrons libres au
+sein des gaz. Du plasma est ainsi créé, et la désexcitation des atomes, qui ont été excités par une
+collision, produit la lumière des filaments observés dans la boule plasma. La couleur de cette
+lumière dépend par conséquent des gaz présents dans la boule.
+B/ Que se passe-t-il au contact d’une main ?
+Pour comprendre ce qui se passe lorsque nous touchons la boule plasma avec notre main, il
+faut se rappeler que, juste avant la formation d’éclairs, des charges soit positives, soit négatives
+s’amassent sur la paroi interne du verre, ce qui signifie que des charges de signe opposé s’amassent
+sur la paroi extérieure du verre. Pour simplifier la compréhension du phénomène, nous allons
+considérer ici que les charges amassées sur la paroi interne du verre sont positives. Cela signifie
+donc que des charges négatives sont groupées sur la surface extérieure de la boule.
+Quand notre doigt s’approche ou entre en contact avec la boule, les charges négatives à
+l’extérieur de la boule attirent donc des charges positives, qui se groupent alors à la surface de notre
+doigt. Ainsi, notre doigt se polarise, selon la polarité du verre. Par conséquent, la tension entre la
+zone de la boule en contact avec notre doigt et l’électrode centrale de la boule augmente également,
+et un éclair plus lumineux se forme.
+
+FIGURE 1. — Schéma du fonctionnement de la boule plasma au contact d’un doigt
+Olympiades de Physique 2016-2017
+
+Page 5/21
+
+Caractérisation d’une boule plasma
+
+Équipe U
+
+Partie II : Caractéristiques d’une boule plasma
+A/ Quelle est la température à la surface de la boule plasma ?
+À l’aide d’un thermomètre à infrarouge, nous avons estimé la température à la surface de la
+boule plasma lors de son démarrage, puis après 30 minutes de fonctionnement. Pour ce faire, nous
+avons placé 9 points répartis sur toute la surface de la boule. Le point 1 est situé au pôle supérieur
+de la boule plasma, les points 7 à 9 en bas de la boule, et les points 2 à 6 entre les deux pôles. Le
+thermomètre à infrarouge est équipé d’un laser, qui nous permet de pointer les différents points
+marqués sur la boule.
+
+FIGURE 2. — Schéma de la position des points à la surface de la boule plasma
+Température T1
+au démarrage (° C)
+
+Température T2
+après 30 min (° C)
+
+Variation de température
+ΔT = T2- T1 (° C)
+
+Point 1
+
+20,0
+
+24,0
+
++4
+
+Point 2
+
+20,4
+
+22,5
+
++ 2,1
+
+Point 3
+
+20,1
+
+22,1
+
++ 2,0
+
+Point 4
+
+20,0
+
+21,9
+
++ 1,9
+
+Point 5
+
+20,2
+
+21,7
+
++ 1,5
+
+Point 6
+
+20,5
+
+21,8
+
++ 1,3
+
+Point 7
+
+20,0
+
+21,2
+
++ 1,2
+
+Point 8
+
+20,7
+
+21,6
+
++ 0,9
+
+Point 9
+
+20,2
+
+21,1
+
++ 0,9
+
+FIGURE 3. — Résultats de la cartographie de la température à la surface de la boule plasma
+Ainsi, nous constatons que la température augmente globalement à la surface de la boule
+plasma au cours du temps. Cette élévation de température est la plus faible au pôle inférieur de la
+boule, où elle est de 0,9 ° C (points 8 et 9), puis elle varie entre + 1,2 ° C et + 1,5 ° C pour les points
+5 à 7, situés un peu plus hauts. L’augmentation de la température est ensuite de 2 °C en moyenne si
+l’on considère les points placés près du pôle supérieur de la boule (points 2 à 4), et elle est la plus
+forte au pôle supérieur, où elle atteint 4 ° C. Ceci suggère qu’au sein de la boule plasma, les gaz,
+chauffés, s’élèvent par convection vers le pôle supérieur.
+Olympiades de Physique 2016-2017
+
+Page 6/21
+
+Caractérisation d’une boule plasma
+
+Équipe U
+
+B/ Quelle est la fréquence du courant de la boule plasma ?
+Pour déterminer la fréquence du courant alternatif dans la boule plasma, nous avons utilisé
+une sonde reliée à un oscilloscope. En l’approchant de la boule, la sonde agit comme une antenne
+pour les ondes électromagnétiques produites par le courant haute tension à la surface de l’électrode
+centrale. Nous avons ainsi obtenu le signal quasi-sinusoïdal ci-dessous sur l’écran de l’oscilloscope.
+
+FIGURE 4. — Signal obtenu sur l’oscilloscope
+Échelle horizontale : 20 µs / div
+Pour déterminer la période T des ondes, nous avons mesuré 3 périodes afin de minimiser les
+incertitudes. La distance ainsi mesurée entre le premier et le quatrième maxima du signal est de 10,5
+cm. Sachant que 1,4 cm correspondent à 20,00 µs, nous en avons déduit :
+T = 10,5×20,00×10
+= 50 µs .
+1,4×3
+Ainsi, nous avons pu déterminer la fréquence ƒ du courant alternatif :
+1
+1
+ƒ = T = 50×10 = 20 kHz .
+6
+
+−6
+
+C/ Comment retrouver cette fréquence à partir du circuit électronique de la boule
+plasma ?
+Nous avons ensuite voulu étudier le circuit électronique d’une boule plasma, afin d’essayer
+de comprendre son fonctionnement, puis de retrouver la fréquence mesurée à l’extérieur de la boule,
+en réalisant des mesures de tension directement sur le circuit, ou à l’aide de calculs des résistances
+et des capacités du circuit oscillant.
+Pour ce faire, nous nous sommes procurés une deuxième boule plasma. Nous avons d’abord
+mesuré la fréquence du courant alternatif à l’extérieur de la boule plasma en procédant selon le
+même protocole que précédemment. Nous avons ainsi obtenu une fréquence de 25 kHz.
+Ensuite, nous avons démonté le socle de la boule plasma afin de récupérer le circuit
+électronique et de l’étudier. Nous avons alors réalisé un schéma du circuit.
+
+Olympiades de Physique 2016-2017
+
+Page 7/21
+
+Caractérisation d’une boule plasma
+
+Équipe U
+
+FIGURE 5. — Schéma du circuit électronique de la boule plasma
+Le circuit oscillant est encadré en rouge sur la figure 5. Il est composé du condensateur C1,
+de deux résistances R9 et R10, et de deux inverseurs. Après avoir dessoudé le transformateur afin
+d’éviter tout risque d’électrisation, puis ressoudé un fil de cuivre afin de refermer le circuit, nous
+avons mesuré la tension aux bornes du condensateur C1 à l’aide d’un oscilloscope.
+
+FIGURE 6. — Signal obtenu aux bornes du condensateur C1
+Échelle horizontale : 10 µs / div
+Sachant que dans un circuit oscillant, la constante de temps vaut τ = RC, avec R la valeur
+totale des résistances et C celle de la capacité du condensateur, nous avons voulu déterminer la
+1
+fréquence en calculant l’inverse de τ : f = RC
+.
+Sur la figure 6, la période du signal vaut 37 µs. Ainsi, la fréquence du courant alternatif est
+1
+égale à 27 kHz ( 37×10
+= 27×103 Hz ). On retrouve effectivement une valeur proche de la
+fréquence de 25 kHz mesurée à l’extérieur de la boule plasma.
+−6
+
+Olympiades de Physique 2016-2017
+
+Page 8/21
+
+Caractérisation d’une boule plasma
+
+Équipe U
+
+Par ailleurs, on remarque sur le signal que le condensateur C1 se charge puis se décharge au
+cours d’une période. En effet, il commence à se charger dans la résistance R9 jusqu’à ce que la
+tension à ses bornes atteigne un certain seuil, d’environ 0,28 V ; du fait de la présence d’un
+inverseur, une fois ce seuil dépassé, le condensateur se décharge alors. Ainsi, la période du signal
+semble cohérente, mais son expression en fonction de la constante de temps τ n’est pas immédiate
+car la charge du condensateur n’est pas maximale, étant interrompue par l’inverseur. C’est pourquoi
+nous n’avons pas pu calculer directement la valeur de la fréquence à partir de la capacité C du
+condensateur et de la valeur R de la résistance que nous avons déterminés sur le schéma du circuit
+électronique.
+D/ Comment caractériser les filaments à l’intérieur de la boule plasma ?
+1. Vie d’un filament
+
+Afin d’observer le comportement des filaments à l’intérieur de la boule plasma, nous avons
+réalisé des vidéos à l’aide d’une caméra rapide Phantom V7, dans le laboratoire de M. Quéré à
+l’ESPCI.
+Nous avons d’abord filmé la mise en place du plasma au démarrage de la boule, à une
+vitesse de 10 000 images par seconde.
+
+FIGURE 7. — Images du démarrage de la boule plasma (10 4 fps)
+Durée séparant deux images : 0,1 ms
+On constate que les filaments ne se forment pas instantanément. En effet, on observe
+d’abord une lueur diffuse (FIGURE 7 – Images 1_0002, 1_0003), et ce n’est qu’après 9 images que
+des filaments épais et droits apparaissent distinctement (FIGURE 7 – Image 1_009), c’est-à-dire
+environ 0,9 ms. Puis, il faut attendre 1 ms de plus (FIGURE 7 – Image 1_019) pour que le filament
+s’allonge, s’amincisse et commence à se courber légèrement. Puis, ce n’est qu’environ 3 s après le
+démarrage de la boule plasma que le filament entame sa montée vers le pôle supérieur de la boule.
+Cependant, ce mouvement est trop lent pour être perceptible sur des photographies ; on ne s’en rend
+compte réellement qu’avec une vidéo dont les images défilent suffisamment rapidement, par
+exemple à 150 fps. Enfin, le filament finit par « mourir » en se rétractant vers l’électrode centrale de
+la boule, avant de réapparaitre de nouveau (FIGURE 8 – La position du filament étudié est signalée
+par la pointe de la flèche rouge).
+
+Olympiades de Physique 2016-2017
+
+Page 9/21
+
+Caractérisation d’une boule plasma
+
+Équipe U
+
+FIGURE 8. — Rétraction puis réapparition d’un filament (10 4 fps)
+Durée séparant deux images : 0,1 ms
+Un filtre gris a été ajouté sur les images pour mieux distinguer les filaments.
+En filmant cette fois-ci à une vitesse de 100 000 images par seconde, on constate que,
+contrairement à l’impression que nous avons lorsque nous observons les filaments à l’œil nu, ceuxci ne sont pas présents de façon continue. En effet, dans notre vidéo, le filament apparaît environ
+toutes les 5 images (FIGURE 9 – Images 5_001, 5_006, 5_012), c’est-à-dire qu’il apparaît pendant
+une durée d’environ 10 µs, puis disparaît pendant environ 40 µs avant de réapparaître. Ainsi, les
+filaments n’apparaissent en réalité que durant 20 % du cycle de décharge électrique.
+
+FIGURE 9. — Apparition périodique d’un filament (105 fps)
+Durée séparant deux images : 10 µs
+Il est également intéressant de remarquer qu’à chaque fois, le filament se reforme suivant un
+même chemin, qui constitue un « canal d’ionisation ». Ceci s’explique par les ions qui restent sur ce
+canal durant la courte période où le filament disparaît ; lorsqu’il se reforme, le courant circule donc
+facilement suivant ce chemin, ce qui explique que le filament apparaîsse au même endroit à chaque
+fois.
+2. Mouvement des filaments
+
+L’étude de la vidéo précédente (images de la FIGURE 9) nous permet d’estimer la vitesse de
+propagation radiale d’un filament. Sachant que le rayon de la boule plasma est de 10 cm et que le
+filament apparaît durant environ 10 µs, on en déduit que cette vitesse est de l’ordre de 10 6 cm.s-1, au
+minimum. En effet, puisque nous n’avons pas pu filmer à une vitesse supérieure à 100 000 images
+par seconde, il est possible que les filaments soient présents pendant une durée plus courte que
+10 µs, donc que leur vitesse soit plus élevée que 10 6 cm.s-1.
+Olympiades de Physique 2016-2017
+
+Page 10/21
+
+Caractérisation d’une boule plasma
+
+Équipe U
+
+Par ailleurs, outre cette propagation radiale, les filaments ont aussi un mouvement ascendant
+vers le pôle supérieur de la boule plasma. Ce mouvement s’explique par le réchauffement, par le
+courant électrique, du gaz au sein d’un filament et autour de lui. Ce gaz se dilate alors et, étant
+moins dense que le gaz qui l’entoure, il subit une poussée d’Archimède et se déplace alors vers le
+haut par convection.
+Nous avons tenté d’estimer la vitesse de déplacement vertical des filaments. Nous voulions
+également déterminer si cette vitesse variait selon la température de la boule. Pour ce faire, nous
+avons filmé la boule plasma à une vitesse de 500 images par seconde au moment de son démarrage,
+puis nous avons réalisé un deuxième film après 12 minutes de fonctionnement.
+Nous avons ensuite réalisé un pointage vidéo à l’aide du logiciel Regressi, en suivant le
+déplacement de trois filaments pour chacune des vidéos. Nous avons veillé à choisir des filaments
+qui se déplaçaient parallèlement au plan. À partir des données obtenues, nous avons réalisé des
+modélisations affines d’équations de la forme y = v×t + b , avec y l’ordonnée du point dans
+l’espace et t son temps, v correspondant alors à la vitesse de déplacement du filament.
+Au démarrage (température plus basse)
+-1
+
+Après 12 minutes (température plus élevée)
+-1
+
+v (mm.s-1)
+
+U(v) (mm.s-1)
+
+Filament 4
+
+6,51
+
+0,83
+
+0,48
+
+Filament 5
+
+6,44
+
+0,66
+
+0,41
+
+Filament 6
+
+7,62
+
+0,45
+
+v (mm.s )
+
+U(v) (mm.s )
+
+Filament 1
+
+3,69
+
+0,40
+
+Filament 2
+
+5,52
+
+Filament 3
+
+5,79
+
+FIGURE 10. — Vitesses des filaments obtenues par pointage vidéo et modélisation
+
+FIGURE 11. — Modélisation de la position du filament 1 en fonction du temps
+Les cinq autres modélisations se trouvent en annexe I.
+Ainsi, nous avons trouvé une vitesse moyenne v de déplacement vertical des filaments de
+5,00 mm.s-1 dans la boule juste après son démarrage, et de 6,86 mm.s -1 après 12 minutes de
+fonctionnement, dans la boule dont la température est plus élevée. On note effectivement que les
+filaments ont tendance se déplacer plus rapidement lorsque la température de la boule plasma est
+plus élevée.
+
+Olympiades de Physique 2016-2017
+
+Page 11/21
+
+Caractérisation d’une boule plasma
+
+Équipe U
+
+3. Couleur des filaments
+
+En observant la boule plasma, on constate que les filaments sont de couleur bleu-violet dans
+leur longueur, et rouge aux extrémités. Cette variation s’explique par une différence de niveau
+d’excitation des atomes de gaz. Près du verre extérieur de la boule, ainsi que de celui entourant
+l’électrode centrale, le déplacement des électrons et des ions est limité. Ainsi, ils ne parviennent pas
+à gagner suffisamment d’énergie pour exciter les atomes de gaz aux niveaux d’énergie plus
+importants, associés à des longueurs d’onde plus courtes, donc à des couleurs qui tendent vers le
+violet.
+E/ Quels sont les gaz présents dans la boule plasma ?
+Afin de déterminer les gaz présents dans la boule plasma, nous avons effectué une analyse
+spectrale à l’aide d’un goniomètre à prisme. Les longueurs d’onde et les intensités lumineuses de
+référence que nous avons utilisées sont issues du Handbook of Basic Atomic Spectroscopic Data en
+ligne 2.
+
+FIGURE 12. — Installation du goniomètre
+Nous avons commencé par réaliser une courbe d’étalonnage du goniomètre à l’aide d’une
+lampe à vapeur de mercure et d’une lampe à vapeur de zinc, en réglant le minimum de déviation du
+prisme sur le doublet jaune du mercure.
+
+FIGURE 13. — Tableau de valeurs pour l’étalonnage du goniomètre
+Olympiades de Physique 2016-2017
+
+Page 12/21
+
+Caractérisation d’une boule plasma
+
+Équipe U
+
+FIGURE 14. — Courbe d’étalonnage du goniomètre
+L’analyse spectrale a ensuite été plus délicate à réaliser, notamment parce que les filaments
+de la boule plasma sont instables et peu lumineux. Ainsi, nous avons tout d’abord pensé à poser
+notre main au-dessus de la boule, afin d’obtenir un seul filament très lumineux et relativement
+immobile, puis nous avons placé une lentille convergente entre la boule et le collimateur du
+goniomètre pour concentrer la lumière émise par le filament sur la fente du collimateur.
+Toutefois, le léger mouvement du filament et la faible luminosité rendaient toujours
+l’observation difficile : nous apercevions les raies de façon trop éphémère pour pouvoir réaliser nos
+mesures. C’est pourquoi nous avons alors décidé d’utiliser un appareil photo, réglé avec un temps
+de pose long (5 minutes), afin d’obtenir des photographies des raies observées à travers l’oculaire
+de la lunette de visée autocollimatrice, que nous pourrions analyser plus aisément par la suite.
+Cependant, la lumière provenant de la lunette micrométrique était trop forte et les raies
+étaient difficiles à distinguer sur les photographies. Par conséquent, nous avons placé un polariseur
+et un analyseur quasiment croisés entre la lunette micrométrique et le prisme, ce qui a permis de
+diminuer la luminosité de la lunette, et donc de mieux observer les raies sur les photographies. Nous
+sommes finalement parvenus à obtenir les clichés suivants :
+
+FIGURES 15 à 17. — Spectre d’émission des gaz de la boule plasma
+À l’aide de la courbe d’étalonnage et des valeurs d’angles de déviation lues sur la figure cidessus, nous avons déterminé les longueurs d’onde des raies observées par interpolation et
+extrapolation.
+Olympiades de Physique 2016-2017
+
+Page 13/21
+
+Caractérisation d’une boule plasma
+
+Équipe U
+
+Considérons par exemple la première raie, dont la déviation lue sur la photographie vaut
+dx = 11,05. Nous réalisons une extrapolation des points 7 et 8 de la courbe d’étalonnage, à savoir les
+raies de longueurs d’onde et de déviations respectives (491,6 nm ; 12,05) et (496,0 nm ; 11,65).
+Ainsi, la variation Δd de la déviation entre les points 7 et 8 est de 0,40, tandis que la
+variation Δλ de la longueur d’onde entre ces points est de 0,60 nm. De plus, sachant que la variation
+Δdx de la déviation entre le point 8 et celui correspondant à la première raie du spectre est de 0,60,
+nous en déduisons :
+0,60×4,40
+λ x = λ8 + Δ λ x = 496,0 + 0,40 = 502,6 nm = 5026 Å .
+Enfin, nous estimons l’incertitude sur Δλx, en considérant que la principale source
+d’incertitude est la lecture des valeurs des déviations sur les verniers. La méthode d’estimation de
+l’incertitude est détaillée en annexe II. Ainsi, nous obtenons :
+U(Δλ x ) = k ×u(Δλ x ) = 2×0,978732173 = 2,0 nm ,
+D’où : Δλx = (6,6 ± 2,0) nm.
+Ainsi, λx appartient à l’intervalle [496 + (6,6 - 2,0) ; 496 + (6,6 + 2,0)] nm,
+C’est-à-dire que λx appartient à l’intervalle [500,6 ; 504,6] nm.
+Le spectre du xénon possède une raie de longueur d’onde 5028 Å, donc nous avons identifié
+cette première raie du spectre à une raie émise par le xénon.
+Nous avons procédé de même pour les 15 autres raies obtenues sur le spectre de la boule
+plasma.
+
+FIGURE 18. — Résultats de l’analyse spectrale de la boule plasma
+Les points a et b correspondent aux points utilisés pour réaliser l’interpolation ou l’extrapolation.
+Le tableau complet se trouve en annexe II.
+Nous avons attribué deux raies, dont les longueurs d’onde ne correspondaient ni à celles du
+xénon ni à celles du néon, à du krypton. En effet, nous avons contacté Air Liquide, groupe industriel
+spécialisé dans la production de gaz industriels, afin de nous renseigner sur les impuretés que
+peuvent contenir le xénon et le néon, obtenus par distillation dans l’air. Ainsi, il s’avère que le
+krypton est l’une des impuretés les plus probables dans le xénon, tandis qu’il s’agit de l’hélium et
+de l’hydrogène pour le néon. En comparant les longueurs d’onde de ces trois gaz avec celles que
+nous avons obtenues, nous avons ainsi pensé que les raies de longueurs d’onde 4693 Å et 4697 Å
+étaient susceptibles d’être des raies du krypton, bien qu’il s’agisse des raies du krypton ionisé.
+Finalement, afin de valider les valeurs de longueurs d’onde que nous avons obtenues, nous
+avons utilisé le logiciel Regavi pour faire une lecture d’intensité lumineuse à partir des trois
+photographies (FIGURES 15 à 17). Nous avons comparé les rapports d’intensité lumineuses avec
+ceux des valeurs de référence Iréf fournies par le Handbook.
+Olympiades de Physique 2016-2017
+
+Page 14/21
+
+Caractérisation d’une boule plasma
+
+Équipe U
+
+FIGURE 19. — Intensités lumineuses des raies du spectre de la boule plasma
+Nous n’avons pas trouvé les valeurs d’intensité lumineuse pour les raies du xénon à 4624 Å et 4671 Å.
+Par exemple, considérons les deux raies du xénon de longueurs d’onde et d’intensité
+lumineuse de référence respectives (4917 Å ; 50), (4843 Å ; 30). Le rapport des intensités
+lumineuses de référence vaut alors 30
+50 = 0,6 , tandis que celui des intensités mesurées vaut
+0,2523
+0,3646 = 0,7 . On constate alors que les deux rapports sont proches. En procédant de même pour
+toutes les raies, on en conclut que les valeurs d’intensités lumineuses sont ainsi en concordance
+avec les longueurs d’onde que nous avons trouvées.
+Toutefois, nous ne sommes parvenus qu’à identifier deux raies du néon en réalisant l’analyse
+spectrale à partir de la lumière émise par un filament, dont le corps est bleu-violet. Sachant que le
+spectre d’émission du néon possède de nombreuses raies rouges, nous avons recommencé
+l’expérience, suivant le même protocole, mais cette fois à partir de la lumière émise par l’électrode
+centrale de la boule plasma, rouge. On parvient ainsi à identifier plusieurs raies du néon, par
+exemple des raies de longueurs d’ondes égales à 614,8 nm, 585,4 nm ou encore 470,5 nm, qui sont
+très proches des valeurs théoriques des raies du néon, respectivement 614,3 nm, 585,2 nm et 470,4
+nm. On identifie également toujours des raies du xénon.
+Tous les résultats nous permettent de conclure que la boule plasma comporte du xénon et du
+néon, ce qui est conforme aux informations fournies par le constructeur de la boule plasma.
+F/ Comment varie le champ électrique autour de la boule plasma ?
+Le champ électrique créé par la boule plasma s’étend au-delà du globe en verre, et peut donc
+être mesuré dans l’air autour de la boule. Afin de calculer les variations du champ électrique autour
+de la boule plasma, nous avons d’abord mesuré la tension à l’extérieur de la boule.
+
+Olympiades de Physique 2016-2017
+
+Page 15/21
+
+Caractérisation d’une boule plasma
+
+Équipe U
+
+FIGURE 20. — Montage pour la mesure de la tension à l’extérieur de la boule
+Pour réaliser nos mesures, nous avons branché un multimètre Jeulin CL3 en voltmètre
+alternatif. À la borne V, nous avons relié un fil avec des bornes métalliques non isolées, terminé par
+un carré de papier aluminium de 10 cm de côté. La boule plasma est alors progressivement
+rapprochée du papier aluminium. La distance qui les sépare est mesurée à partir du globe en verre ;
+nous y ajoutons par la suite le rayon de la boule, soit 10 cm.
+À l’aide des valeurs mesurées, nous modélisons la tension U (en V) en fonction de la
+distance d’ (en m) à l’aide du logiciel Regressi. L’incertitude du multimètre est de ± (1, % + 4
+digits) ; sachant que nous utilisons le multimètre avec un calibre 200 V, nous en déduisons une
+1
+incertitude sur la tension U égale à ± 100
+×U + 0,4 V.
+Nous faisons ensuite calculer la dérivée de U en fonction de d’ par Regressi, ce qui
+correspond au champ électrique E (en V.m-1), que nous modélisons alors.
+
+FIGURE 21. — Modélisations de la tension U (en V) et du
+champ électrique E (en kV.m-1) en fonction de la distance d’ (en m)
+En bleu : U(d’) = 6,08 × d’ -1,50 ; en rouge : E(d’) = 18,7 × d’ -1,98
+Nous constatons que la tension et le champ électrique diminuent avec la distance radiale. Par
+ailleurs, nous remarquons également que la norme du champ électrique est presque inversement
+proportionnelle au carré de la distance d’ (FIGURE 21 – Équation de la courbe E(d’)), et que cette
+modélisation est la plus fidèle lorsqu’on s’éloigne de la boule plasma : en effet, l’électrode centrale
+est alors assimilée à une charge ponctuelle à l’origine du champ électrique.
+Olympiades de Physique 2016-2017
+
+Page 16/21
+
+Caractérisation d’une boule plasma
+
+Équipe U
+
+Conclusion
+En définitive, nos travaux autour de la caractérisation d’une boule plasma nous ont d’abord
+permis de mieux appréhender le plasma, un état de la matière qui nous est peu familier bien qu’il
+constitue plus de 99 % de l’univers visible. Nous avons également pu mieux comprendre le
+fonctionnement d’une boule plasma et mettre en évidence un certain nombre de ses caractéristiques.
+Ainsi, nous sommes notamment parvenus à identifier les gaz qui composent notre boule plasma, à
+savoir du xénon et du néon ; nous avons également pu estimer la fréquence du courant alternatif qui
+circule dans la boule, qui vaut environ 20 kHz, ou encore caractériser les filaments qui se trouvent à
+l’intérieur de la boule, en décrivant leurs cycles de vie, leurs couleurs et leurs mouvements.
+Par ailleurs, notre longue étude d’une boule plasma nous a permis d’apprendre à utiliser des
+logiciels ou des instruments de mesure qui nous étaient inconnus, tel que le goniomètre à prisme,
+ainsi que de mieux comprendre la rigueur, la persévérance, mais aussi la créativité nécessaires afin
+de mener à bien des travaux de recherche, depuis l’élaboration des protocoles jusqu’à la réalisation
+des expériences et l’exploitation des résultats obtenus.
+Dans la continuité de nos travaux, nous pourrions peut-être construire une bobine Tesla, dont
+le principe de fonctionnement s’apparente à celui d’une boule plasma : un courant alternatif à haute
+fréquence permet d’atteindre des tensions élevées et de former des arcs électriques, mais cette fois
+dans l’air et à pression atmosphérique, et non plus au sein de gaz rares enfermés dans la boule, ce
+qui nous permettrait de comparer la formation des éclairs dans différentes conditions et
+d’approfondir nos connaissances sur ces phénomènes.
+
+Olympiades de Physique 2016-2017
+
+Page 17/21
+
+Caractérisation d’une boule plasma
+
+Équipe U
+
+Bibliographie et références
+Articles
+(1) : M. CAMPANELL, « Measurements of the Motion of Filaments in a Plasma Ball », American
+Institute of Physics (AIP) Publishing, Physics of Plasmas, N°17 (2010).
+- GUILBERT, Nicholas. « Deconstructing a Plasma Globe » American Association of Physics
+Teachers (AAPT), N°37 (1999).
+- REILAND, Robert. « The Physics of Plasma Globes », Contemporary Physics Education Project
+(CPEP) (2004).
+- REILAND, Robert. « Plasma Globes and “Body Capacitance” » , Contemporary Physics
+Education Project (CPEP) (2007).
+- REILAND, Robert. « Studying the Electric Field Near a Plasma Globe », Contemporary Physics
+Education Project (CPEP) (2002).
+
+Sites internet
+(2) : Handbook of Basic Atomic Spectroscopic Data, in NIST,
+https://www.nist.gov/pml/handbook-basic-atomic-spectroscopic-data
+- « Qu’est-ce qu’un plasma ? », in Fusion Magnétique CEA,
+http://www-fusion-magnetique.cea.fr/fusion/physique/plasma.htm
+
+Images de couverture
+- Photographie d’une boule plasma :
+https://anewdawnarising.files.wordpress.com/2014/03/tesla-ball.jpg
+- Logo des Olympiades de Physique de France :
+https://repertoireconcours.files.wordpress.com/2014/02/rouge.png
+
+Olympiades de Physique 2016-2017
+
+Page 18/21
+
+

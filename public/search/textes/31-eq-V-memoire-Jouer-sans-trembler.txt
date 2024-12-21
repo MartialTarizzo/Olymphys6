@@ -1,0 +1,725 @@
+1
+
+RESUME :
+C'est l'année des JO de Paris. Les joueurs de tennis vont taper dans la balle, encore et encore. Mais
+qu'ils soient professionnels ou amateurs, les vibrations communiquées par la raquette au bras du
+joueur sont source de potentiels problèmes et nuisent au confort de jeu. Placer un anti vibrateur sur le
+cordage s'avère alors être une très bonne solution. Mais comment fonctionne cet anti vibrateur ?
+Durant ce projet, il s’agira de parvenir à identifier les vibrations causées par l’impact de la balle sur la
+raquette, de les quantifier, et nous tenterons de comprendre comment un simple morceau de
+caoutchouc est capable de réduire cette vibration.
+Mais pour cela, il fallait un dispositif capable de lancer la balle de façon contrôlée, et c’est alors ce à
+quoi nous nous sommes attelés dans un premier temps.
+
+Sommaire :
+Introduction
+I – Comment lancer la balle de la même manière sur la raquette ?
+II – A quelle fréquence la raquette vibre-t-elle suite à l’impact et comment agit l’anti vibrateur ?
+III - Le cordage de la raquette vibre-t-il et si oui, à quelle fréquence ?
+IV – Comparaison de différents anti vibrateurs.
+Conclusion
+
+INTRODUCTION :
+À la fois passionnés par la physique, et par le tennis, nous avons voulu travailler sur un sujet en rapport
+avec ces deux domaines. Plusieurs questions pouvaient être abordées, mais l’une d’entre elles nous a
+fortement interpelée. En effet, lorsqu’on tape dans une balle avec la raquette, on ressent des vibrations
+dans la main, qui remontent dans l’avant-bras. En plus d’être particulièrement désagréables, ces
+vibrations sont source de fatigue générale du bras jusqu’à l’épaule, pouvant engendrer à terme des
+maux tels que tennis Elbow.
+Pour éviter cela, on place sur le cordage une petite pièce appelée
+« anti-vibrateur » (figure 1 ) .
+Comme son nom l’indique, cet élément permet de réduire de façon
+significative les vibrations, ainsi le confort de jeu est immédiat.
+Nous avons alors voulu mesurer ce bénéfice d’un point de vue
+scientifique, comprendre le mode d’action de l’anti vibrateur et,
+pourquoi pas, imaginer des formes ou des matériaux, voire d’autres
+méthodes pour arriver à des résultats similaires.
+Figure 1 : anti vibrateur disposé sur le cordage
+2
+
+I – Comment lancer la balle de la même manière sur la raquette ?
+Nous avons cherché un dispositif permettant de lancer les balles dans une direction et avec une vitesse
+contrôlée. Les dispositifs existants coûtant plusieurs centaines d’euros, nous avons rassemblé nos
+neurones pour en concevoir un capable de répondre à nos attentes.
+Voici alors ce que nous avons imaginé :
+Avec quelques ingrédients tels que ceux-ci : figure 2
+
+Nous avons confectionné cela : figure 3
+
+Rondelle mobile 2
+
+Rondelle mobile 1
+Rondelle fixe 1
+
+Rondelle fixe 2
+
+Tige
+
+Figure 3 : lance balle confectionné au lycée
+En tirant la tige, on déplace la rondelle mobile N°1 vers la gauche, sur laquelle sont fixées les extrémités
+gauches des 4 ressorts. Les extrémités droites des ressorts étant fixées sur la rondelle fixe N°2, on
+allonge ainsi les ressorts, qui sont des ressorts à spires jointives. Lorsqu’on relâche alors la tige, la force
+de rappel des ressorts déplace la tige, et donc la rondelle mobile N°2 vers la droite. La rondelle mobile
+N°2 percute alors la balle qui est ainsi éjectée dans la direction de l’axe du tube, avec une vitesse qui
+dépend de l’élongation initiale des ressorts.
+Quels ressorts choisir ?
+3
+
+Nous n’avons pas la prétention de lancer la balle à des vitesses que l’on peut observer chez les joueurs
+de tennis professionnels, qui peuvent aller jusqu’à 200 km/h, mais nous avions l’intention de lancer la
+balle à 100 km/h, soit environ 28 m/s.
+Comme nous mettons 4 ressorts qui auront la même constante de raideur k, tout se passe comme si
+on disposait d’un ressort unique de constante de raideur 𝐾 = 4𝑘.
+Ainsi, en étirant le dispositif de telle sorte que l’élongation des 4 ressorts est ∆ℓ, il stocke une énergie :
+1
+𝐸 = 𝐾∆ℓ²
+2
+En relâchant le ressort de sorte qu’il percute la balle de tennis initialement immobile en bout de course,
+c’est-à-dire lorsque le ressort revient quasiment à sa taille au repos, cette énergie est alors
+communiquée à la balle de tennis, principalement sous forme d’énergie cinétique.
+On a alors l’égalité :
+1
+1
+𝐾∆ℓ2 = 𝑚𝑣²
+2
+2
+Où m est la masse de la balle de tennis et v sa vitesse immédiatement après l’impact.
+Ainsi, pour disposer d’une vitesse v, il faut que chacun des 4 ressorts ait une constante de raideur
+𝑘=
+
+𝑚𝑣² 58,5. 10−3 × 28²
+=
+= 127𝑁/𝑚
+4∆ℓ2
+4 × 0,3²
+
+Dans ce calcul, nous avons pris une élongation de 30 cm pour chaque ressort car nous avons remarqué
+que c’est l’élongation que l’on pouvait obtenir avec des ressorts que nous possédions au lycée.
+Nous n'avons pas trouvé de ressorts avec cette constante de raideur, mais nous avons trouvé des
+ressorts de constante de raideur 𝑘 = 100 N/m. Nous les avons achetés. Avec de tels ressorts, on peut
+ainsi espérer obtenir des vitesses de l’ordre de 25 m/s, soit 89 km/h.
+Une fois que nous avons réalisé le dispositif, nous avons voulu vérifier expérimentalement nos
+prévisions en termes de vitesse d’éjection de la balle !
+Pour mesurer la vitesse de la balle, nous avons réalisé 2 expériences différentes :
+Nous avons positionné 2 lasers en sortie du tube (figure 4 ), espacés d’une distance 𝑑 de 11 cm. Ces 2
+lasers éclairent 2 photorésistances qui font chacune partie d’un circuit série comprenant une résistance
+et un générateur. On relève alors l’évolution de la tension aux bornes de la résistance. Lorsque la
+photorésistance est éclairée par le laser, la valeur de la résistance de la photorésistance est faible, donc
+l’intensité qui circule dans le circuit est élevée, et grâce à la loi d’Ohm, on peut dire que la tension aux
+bornes de la résistance est élevée. Mais lorsque le faisceau laser est obturé par le passage de la balle,
+la valeur de la résistance de la photorésistance augmente, ce qui fait chuter l’intensité, et par suite la
+tension aux bornes de la résistance. On obtient alors 2 chutes de tension correspondant aux
+obturations successives des deux faisceaux laser, avec un intervalle de temps ∆𝑡. En considérant que la
+vitesse de la balle entre les 2 lasers soit restée identique, on peut en déduire la vitesse en faisant
+simplement le rapport de la distance d sur la durée ∆𝑡.
+
+4
+Figure 4 : mesure de la vitesse de la balle à la sortie du lance balle à l’aide de 2 lasers et 2 photorésistances
+
+Et voici alors le type de résultat obtenu avec le logiciel Latis pro : Figure 5
+
+Temps (ms)
+Figure 5 : intervalle de temps entre l’obturation des 2 faisceaux laser par la balle
+Pour examiner le comportement de notre dispositif, nous avons réalisé un grand nombre de lancers avec
+4 élongations différentes et 10 lancers par élongation de sorte à évaluer une incertitude sur la mesure.
+Voici ce que nous avons trouvé en allongeant les ressorts de 15, 20, 25 et 30 cm : Figure 6
+
+v(km/h) en fonction de l'élongation
+30
+25
+20
+15
+10
+5
+
+Elongation ressort (cm)
+
+0
+0
+
+5
+
+10
+
+15
+
+20
+
+25
+
+30
+
+35
+
+Figure 6 : vitesse de la balle en sortie du lance balle en fonction de l’élongation des ressorts
+Cela dit. Comme nous le voyons, nos premiers lancers ont permis d’obtenir une vitesse bien moins
+grande, de l’ordre de 27 km/h au maximum. Il y a eu un gros oubli de notre part : lorsque les ressorts
+sont relâchés depuis leur forme allongée, ils se rétractent en emmenant avec eux la tige métallique
+constituant l’axe du dispositif, ainsi que les 2 rondelles mobiles. Or, cet ensemble a une masse d’environ
+1kg. Si on ajoute cette masse à celle de la balle dans le calcul précédent, on obtient alors une vitesse
+théoriquement égale à 7,1 m/s, soit 27km/h. On aurait alors pu modifier le dispositif en remplaçant la
+tige en métal par une tige réalisée dans un matériau de masse volumique moins importante, mais en
+lançant la balle sur la raquette avec ce dispositif, nous avons tout de même pu obtenir des vibrations
+de la raquette exploitables. Nous nous contenterons alors dans un premier temps de notre lance balle
+avec sa tige en métal.
+Maintenant que nous avons confectionné et étudié notre lance balle, étudions la vibration de la
+raquette en projetant les balles dessus, et profitons-en pour voir les différences observables lorsque le
+cordage possède ou pas l’anti vibrateur.
+
+5
+
+II – A quelle fréquence la raquette vibre-t-elle suite à l’impact et
+comment agit l’anti vibrateur ?
+1 ) Mesures de la vibration de la raquette au niveau du cadre
+A – Dispositif expérimental
+Pour mesurer les vibrations de la raquette, nous
+avons accroché un aimant sur le cadre, et nous
+avons disposé une bobine dans le voisinage
+immédiat de l’aimant. La raquette est quant à elle
+fixée par le manche au moyen d’un étau fixé à la
+table. (figure 7)
+En effet, un mouvement de l’aimant par rapport à
+la bobine modifiera le flux du champ magnétique à
+travers celle-ci, ce qui créera un courant induit dans
+la bobine à l’image de la variation du flux du champ
+magnétique, donc de la vibration de la raquette.
+Après différents essais, nous avons pu constater
+qu’en disposant un aimant néodyme de dimensions
+2 cm de diamètre et 3 mm d’épaisseur , l’amplitude
+de vibration de la raquette était suffisamment
+importante pour engendrer un courant induit dans
+la bobine mesurable. On le voit notamment dans le
+résultat suivant : figure 8.
+
+Figure 7 : dispositif expérimental avec bobine et aimant
+permettant de mesurer la vibration du cadre de la raquette
+
+Amplitude
+
+Figure 8 : vibration détectée par une
+bobine du fait de la vibration de
+l’aimant accroché au haut du cadre
+de la raquette
+
+Temps (ms)
+Mais en réalité, ces premiers résultats montrent une vibration de la raquette, mais pas seulement…
+malheureusement. En effet, après plusieurs expériences du même type, nous nous sommes rendus
+compte que la table sur laquelle était disposé l’ensemble du dispositif expérimental vibrait très
+légèrement suite à l’impact, mais cette légère vibration faisait vibrer le pied qui tient la bobine
+électrique.
+6
+
+Pour éviter cela, la solution est simple, mais contraignante :
+nous devons utiliser 2 tables séparées l’une de l’autre : la
+raquette est fixée à une table, et le pied tenant la bobine
+est posé sur une deuxième table, comme on peut le voir sur
+la figure 7. Nous avons pu nous assurer, en secouant la table
+sur laquelle est disposée la raquette, que la très légère
+vibration de cette table ne donne aucun signal dans la
+bobine.
+Par la suite, nous avons décidé de mesurer la vibration du
+cadre de la raquette en 3 endroits, en disposant alors 3
+aimants et 3 bobines reliées à la carte d’acquisition (figure
+9)
+
+B – Les mesures
+
+Figure 9 : disposition des trois bobines pour
+étudier la vibration du cadre en différents
+endroits
+
+Nous avons lancé la balle de différentes manières :
+•
+•
+•
+•
+•
+•
+•
+•
+
+Lancers rapides – raquette tenue par le manche
+Lancers lents – raquette tenue par le manche
+Lancers rapides centrés – raquette tenue par le manche
+Lancers rapides sur le côté – raquette tenue par le manche
+Lancers rapides en haut du cordage – raquette tenue par le manche
+Lancers rapides en bas du cordage – raquette tenue par le manche
+Lancers raquette à l’envers - tenue par le cadre
+Lancers raquette à l’envers – tenue par le cadre et tenue à la main par le manche
+
+Nous allons essayer de nous focaliser sur les observations particulières que nous avons pu faire :
+Avant cela nous précisons que chaque lancer a été réalisé 10 fois afin de s’assurer du caractère
+reproductible des résultats obtenus.
+Commençons par voir les lancers rapides dirigés au milieu du cordage (figure 10)
+
+Figure 10 : lancer rapide au centre de la raquette
+7
+
+Amplitude
+
+Amplitude
+
+Amplitude
+Sans anti
+vibrateur
+
+Temps (ms)
+
+Fréquence (Hz)
+
+Avec anti
+vibrateur
+
+Fréquence (Hz)
+
+Figure 11 : à gauche : signaux issus des trois bobines avec une raquette sans anti vibrateur - Au milieu :
+analyse spectrale du signal de gauche – A droite : analyse spectrale avec un cordage avec anti vibrateur
+Nous voyons sur la figure 11 , sur le schéma de gauche les trois signaux issus des trois bobines. Lors de
+ces mesures, nous avons finalement remarqué que les 2 aimants disposés sur le côté de la raquette
+n’apportent pas d’informations supplémentaires par rapport à l’aimant situé sur le dessus de la raquette.
+Nous avons finalement uniquement étudié la courbe EA0 issue de la bobine située sur le dessus de la
+raquette. Nous avons en particulier fait une analyse de Fourier de ce signal, que nous avons enregistré
+avec anti vibrateur, et sans anti vibrateur.
+On constate alors à première vue, que la raquette vibre selon la même fréquence, d’environ 8 Hz, avec
+une amplitude similaire, qu’il y ait ou pas un anti vibrateur sur la raquette. Il est même surprenant de
+voir qu’avec l’anti vibrateur, la raquette semble vouloir vibrer à 2 autres fréquences supplémentaires.
+Nous insistons ici sur le fait que toutes les mesures sont réalisées dans les mêmes conditions et donnent
+des résultats identiques.
+Le fait de lancer la balle sur le côté de la raquette n’apportait pas de grosses différences avec et sans anti
+vibrateur. La raquette vibrait à une fréquence d’environ 8 Hz.
+Nous pouvons alors à ce stade du projet nous demander si la vibration désagréable que le joueur ressent
+correspond bien à la fréquence de 8 Hz. Et si c’est bien celle-là, est-ce que notre protocole expérimental
+est bon ?
+Alors nous avons tenté une autre disposition : nous avons tenu la raquette par le cadre, pour laisser le
+manche libre, et nous avons essayé de mesurer la vibration du manche de la raquette.
+2 ) Mesures de la vibration de la raquette au niveau du manche
+A – Avec le même dispositif pour capter la vibration au niveau du manche
+Raquette à l’envers, tenue par le cadre, balle tirée au centre avec une vitesse rapide.
+Nous avons à nouveau utilisé les bobines et les aimants pour détecter la vibration de la raquette.
+
+Figure 12 : raquette à
+l’envers, tenue par le cadre
+
+8
+
+Voici les résultats obtenus :
+Raquette sans anti vibrateur : figure 13
+
+Temps (ms)
+
+Fréquence (Hz)
+
+Figure 13 : sans anti vibrateur : en haut : signal après l’impact – En bas : Analyse spectrale
+Raquette avec anti vibrateur : Figure 14
+
+Temps (ms)
+
+Fréquence (Hz)
+
+Figure 14 : sans anti vibrateur : en haut : signal après l’impact – En bas : Analyse spectrale
+
+9
+
+Comme vous pouvez le voir, les différences entre les deux signaux sont anecdotiques : dans les deux
+cas, non seulement la raquette vibre aux mêmes fréquences (14 Hz et 28 Hz), mais en plus, la
+décroissance de l’amplitude du signal au cours du temps est également similaire dans les deux cas.
+Nous n’allons pas montrer l’ensemble des mesures réalisées en lançant la balle avec des vitesses
+différentes, ou aux différents endroits de la raquette. Nous y avons cela dit passé beaucoup de temps,
+sans vraiment être en mesure de voir une différence apportée par l’anti vibrateur.
+B - Mesures de la vibration du manche fixé par le biais d’un capteur de force
+Nous avons alors essayé de mesurer les vibrations au niveau du manche d’une autre manière : Nous
+voulions mesurer une vibration au niveau du manche, tout en fixant la raquette au niveau du manche,
+car finalement, c’est bien comme cela que le joueur tient la raquette. Le problème est alors le suivant :
+comme le manche de la raquette est fixé et que la vibration a forcément une amplitude très faible,
+l’utilisation des aimants et des bobines n’était pas possible. Alors nous avons imaginé une autre
+expérience pour y parvenir :
+Nous avons fixé une lamelle en métal contre le manche de la raquette en la plaçant, elle aussi, dans la
+mâchoire de l’étau, et nous avons intercalé un capteur de pression entre le manche et la lamelle
+métallique. L’idée est la suivante : lorsque le manche vibre, cela devrait comprimer le capteur de force
+relié à la carte Arduino. Le circuit électrique comprenant le capteur de force FSR est un diviseur de
+tension, qui permet d’obtenir une tension proportionnelle à la force appliquée : figure 15 a. Nous avons
+alors écrit un programme pour réaliser des mesures à une fréquence de 100 Hz : figure 15 b
+
+Figure 15 a et b : circuit électrique avec le capteur de force FSR : diviseur de tension – Figure 16 b : code
+permettant à la carte Arduino de faire des mesures en communiquant avec le capteur de force
+En réalité, lors des acquisitions, nous étions limités par les performances du matériel, ce qui fait que
+nous pouvions seulement prendre 63 mesures par seconde.
+Voici les résultats obtenus par capteur de force lorsque la raquette n’est pas munie de l’anti
+vibrateur (nous n’avons pas étalonné le capteur de force, donc l’axe des abscisses n’est pas en Newton,
+mais ce n’est pas grave car nous cherchons avant tout une fréquence) : Figure 16
+10
+
+Amplitude
+
+Temps (s)
+Figure 16 : signal au niveau du manche, mesuré par un capteur de force – raquette sans anti vibrateur
+L’expérience montre ainsi une très belle vibration de l’ordre de 20 Hz.
+Nous pensons alors toucher au but ! Il nous reste à voir l’action de l’anti vibrateur. Nous l’avons donc
+placé sur le cordage et avons refait une mesure. Voilà ce que nous obtenons en disposant l’anti
+vibrateur sur le cordage (figure 17)
+Amplitude
+
+Temps (s)
+Figure 17 : signal au niveau du manche, mesuré par un capteur de force – raquette avec anti vibrateur
+Quelle déception ! Cela ne change rien. Il faut se rendre à l’évidence : nos mesures ne permettent pas
+de capter la vibration à éliminer.
+Nous avons tenté d’autres dispositions, en tenant la
+raquette autrement, avec une pince et en intercalant
+le capteur de force entre la pince et le manche,
+comme on peut le voir sur la figure 18, mais rien n’y
+fait, on ne voit pas de différence flagrante de
+vibration avec et sans anti vibrateur.
+Figure 18 : capteur de force intercalé entre le manche et la pince
+Car il y a bien une vibration. Chacun d’entre nous peut la ressentir en tapant un objet avec le cordage
+de la raquette. Une vibration bien distincte se ressent dans la main. Et lorsqu’on place l’anti vibrateur
+sur le cordage, on ne ressent plus du tout cette vibration.
+Alors nous devons poursuivre nos investigations.
+Pour le moment, nous nous sommes intéressés à la vibration du cadre. Mais qu’en est-il du cordage ?
+Vibre-t-il suite à l’impact avec la balle ? C’est sûrement le cas. Mais pour le voir vibrer, cela devient
+compliqué. Il faut en effet immobiliser toute la raquette car si toute la raquette bouge pendant que l’on
+souhaite voir la vibration du cordage, il est peu probable d’y parvenir.
+Cela dit, finalement, la vibration du cordage ne nous est pas si inaccessible que ça !
+11
+
+III – Le cordage de la raquette vibre-t-il et si oui, à quelle fréquence ?
+1 ) Le cordage vibre-t-il ?
+En effet, lorsqu’on tape le cordage avec la main, ou avec un objet rigide, on entend un son suffisamment
+périodique pour pouvoir lui associer une note, donc une fréquence. Donc la réponse à la question
+semble être que oui, le cordage doit vibrer à une certaine fréquence que nous allons chercher à
+mesurer.
+Nous avons alors enregistré le son produit par l’impact d’un morceau de bois sur le cordage, et voici le
+résultat obtenu : Dans un premier temps, nous observons bien le caractère périodique du signal sonore
+suite à l’impact : figure 19.
+Temps (s)
+Amplitude
+
+Figure 19 : signal sonore après un impact sur le cordage sans anti vibrateur
+Et voici (figure 20- a ) ce que donne une analyse spectrale du signal sonore entre l’instant 3,75 s et 3,90 s
+du signal ci-dessus :
+
+Amplitude
+
+Amplitude
+
+Figure 20 – b
+Fréquence (Hz)
+Fréquence (Hz)
+Figure 20- a - : Analyse spectrale du signal sonore après un impact sur le cordage sans anti vibrateur
+Figure 20- b - Analyse spectrale du signal sonore après un impact sur le cordage avec anti vibrateur
+Figure 20 – a
+
+12
+
+On voit alors clairement un pic à 531 Hz. Pour être certain que ce pic corresponde à la fréquence que
+nous entendons en tapant le cordage, nous avons généré un son à 531 Hz, et nous entendons
+exactement la même note. On peut donc affirmer que le cordage vibre à une fréquence de 531 Hz.
+Disposons maintenant l’anti vibrateur en espérant voir une différence … Voici l’analyse spectrale que
+l’on obtient avec l’anti vibrateur sur le cordage : figure 20 – b.
+La différence est flagrante. Nous avons fais 10 mesures avec anti vibrateur et 10 mesures sans anti
+vibrateur et nous obtenons toujours les résultats suivants : sans anti vibrateur le cordage vibre à une
+fréquence très voisine de 530 Hz, alors qu’avec l’anti vibrateur, cette fréquence est carrément absente
+de l’analyse spectrale.
+
+Une autre comparaison avec et sans la présence de
+l’anti vibrateur est intéressante à souligner : il s’agit
+de la durée de la vibration. Ci-contre, on peut voir
+en haut la durée de la vibration avec la présence de
+l’anti vibrateur, et en bas, sans la présence de l’anti
+vibrateur. On peut donc dire que l’anti vibrateur
+empêche le manche de vibrer à 530 Hz, mais en
+plus il diminue la durée de la vibration du cordage
+(figure 21).
+
+Temps(s)
+
+Temps(s)
+
+Figure 21 comparaison de la durée de vibration du cordage avec anti vibrateur (en haut) et sans (en bas)
+Prouvons maintenant que c’est bien cette vibration qui parvient jusqu’au manche, que l’on cherche à
+enlever avec l’anti vibrateur. Car cela ne nous paraît pas si évident : nous sommes en train de faire
+l’hypothèse qu’une vibration de fréquence de 530 Hz gêne un joueur de tennis, alors qu’il s’agit d’une
+fréquence qui semble élevée pour la ressentir d’un point de vue physiologique.
+
+2 ) La vibration du cordage se propage-t-elle dans le manche de la raquette ?
+Pour être certain que cette fréquence se propage bien jusqu’au manche, nous avons maintenu la
+raquette horizontalement, de sorte que le manche soit libre de vibrer, et nous avons posé une
+membrane vibrante sur le cordage de la raquette (figure 22)
+
+Figure 22 : vibration du manche au moyen d’une membrane vibrante disposée sur le cordage – Mesure de
+la vibration grâce à l’accéléromètre du téléphone piloté par l’application Phyphox
+13
+
+Nous avons alors fait vibrer la membrane vibrante à une fréquence que nous avons fait varier autour
+de 530 Hz. Nous avons pu alors constater que pour une fréquence d’environ 508 Hz, l’intensité sonore
+présentait un maximum d’amplitude : le son qui est issu de la membrane vibrante est amplifié par la
+vibration de la raquette. Il semble alors que pour cette fréquence, la vibration du cordage entre en
+résonance avec la vibration de la membrane vibrante. Mais pourquoi 508 Hz et non 530 Hz ? Cela est
+sans aucun doute dû à la masse de la membrane vibrante déposée sur le cordage. Lors de cette
+expérience, nous avons également posé, sur le manche de la raquette, un téléphone disposant de
+l’application Phyphox. Nous avons alors actionné la fonction « mesure de l’accélération ». En effet, si le
+manche vibre, l’accéléromètre du téléphone doit être capable de la détecter.
+Voici alors le fichier Excel obtenu lors de la mesure, avec une fréquence d’excitation de la membrane
+vibrante égale à 508 Hz : figure 23.
+
+Amplitude
+
+Début de
+l’excitation
+
+Fin de
+l’excitation
+
+Temps (s)
+
+Figure 23 : mesure de la vibration au niveau du manche au moyen d’un accéléromètre posé sur le manche
+On voit nettement le déplacement du manche de la raquette dès que la membrane vibrante est
+actionnée.
+Zoomons alors sur la partie intéressante : figure 24.
+
+Figure 24 : zoom de la figure 23 mais problème de fréquence d’échantillonnage
+14
+
+L’analyse spectrale du signal obtenu donne une fréquence d’environ 180 Hz, donc bien loin des 508 Hz
+ou 530 Hz attendus. Le problème, c’est qu’on ne peut pas exploiter ce dernier graphique sans
+équivoque : en effet, l’application du téléphone ne prend des mesures qu’à une fréquence maximale
+de 500 Hz. Or c’est précisément l’ordre de grandeur de la fréquence du signal que nous cherchons à
+observer. La courbe figure 24 ne présente donc probablement pas la vibration réelle du manche de la
+raquette.
+
+Puisque le problème vient de la fréquence d’échantillonnage, nous sommes revenus vers la carte
+d’acquisition que nous utilisons régulièrement en TP de physique, et nous avons relié le capteur de
+force à la carte, par le biais d’un pont diviseur de tension. Nous avons d’autre part dû amplifier le signal
+comme le montre le schéma figure 25.
+
+PHOTO du dispositif à ajouter
+
+Figure 25 : dispositif avec capteur de force coincé entre le manche et une masse pour mesurer la fréquence de vibration au niveau du manche
+
+Nous avons alors disposé la raquette horizontalement et nous avons posé la membrane vibrante sur le
+cordage. Le capteur de force est alors posé sur le manche, et une masse est quant à elle posée sur le
+capteur de force. La mesure est très délicate : nous avons choisi un capteur ayant une plus grande
+sensibilité que le précédent et un temps de réponse suffisamment faible pour suivre une variation de
+force de l’ordre de 500 Hz. En positionnant alors la masse de façon précise sur le capteur de force et le
+capteur de force de façon précise sur le manche, nous avons pu observé la vibration du manche de la
+raquette à une fréquence de 508 Hz (figure 26).
+15
+
+Figure 26 : signal issu du capteur de force, à une fréquence d’environ 500 Hz
+
+Nous avons pu aussi constater qu’en faisant varier la fréquence de vibration de la membrane vibrante
+autour de cette fréquence, l’amplitude de vibration du manche diminuait de façon significative.
+L’expérience prouve donc bien que la vibration du cordage à 530 Hz se transmet bien jusqu’au manche
+de la raquette.
+Cela dit, avec cette expérience, il n’a pas été possible de voir l’action de l’anti vibrateur. En effet, le fait
+de le disposer sur la raquette faisait forcément bouger les éléments du dispositif expérimental, ce qui
+modifiait la façon dont le capteur de force était positionné très précisément, et les résultats obtenus
+avec et sans anti vibrateurs n’étaient plus comparables.
+Mais maintenant que nous savons comment vibre le manche, nous pouvons imaginer un nouveau
+dispositif expérimental permettant de voir l’action de l’anti vibrateur. Mais avant d’aborder cela, nous
+pouvons porter un regard critique sur notre choix que nous avons fait jusqu’à présent de distinguer la
+vibration du cadre de celle du cordage.
+
+3 – Cordage et cadre, un couple qui vibre !
+En effet, à force de taper sur la raquette et de réfléchir avec tout ce que nous
+observons, nous pensons comprendre ce qui se passe lorsqu’on tape sur une balle avec
+la raquette, et cela mérite un nouveau paragraphe.
+En bloquant le cadre, le son produit par un coup donné sur le cordage ne donne pas le
+pic de fréquence que nous avons observé figure 20. De la même manière, en posant
+juste un doigt sur le cordage, on ne retrouve pas aussi distinctement le son à l’origine
+du spectre de la figure 20. On pense alors que ces deux éléments sont couplés.
+Il nous paraît maintenant évident que lorsque la raquette oscille suite au coup donné
+dans la balle, cela ne déforme pas le cadre de la raquette dans le plan de la raquette.
+Elle se contente d’osciller comme une lame qui vibrerait.
+Par contre, l’impact de la balle provoque une déformation du cordage, qui se creuse au
+moment de l’impact (Figure 27 ci-contre).
+
+Figure 27 : déformation du cordage lors de l’impact de la balle
+
+16
+
+Il est alors tout à fait naturel de penser que cela déforme le cadre de la
+raquette dans le plan de la raquette. En particulier, vue la configuration
+géométrique de la raquette, la largeur étant de dimension plus faible
+que la hauteur, nous pensons que la déformation sera plus grande selon
+la largeur que selon la longueur de la raquette.
+Cette déformation serait alors à l’origine d’une vibration, donc d’une
+onde mécanique qui serait une onde mécanique stationnaire qui
+s’installerait tout le long du cadre de la raquette, jusqu’au manche. C’est
+ce que nous avons représenté en vert de façon très exagérée, sur la
+figure 28 ci-contre.
+Nous avons voulu vérifier ces hypothèses, en essayant en particulier de
+voir ces ondes stationnaires.
+En promenant un stylo qui effleure le cadre, on peut très clairement
+confirmer que le cadre vibre plus intensément sur les côtés que dessus :
+à ces endroits-là, le stylo se met en effet à vibrer au contact du cadre,
+alors que cette vibration est soit absente, soit très faible aux autres
+endroits. S’il y a bien présence d’onde stationnaire, ces endroits
+représenteraient des ventres de vibration. Nous avons essayé d’avoir un
+aperçu global de la vibration du cadre dans le plan de la raquette.
+
+Figure 28 : ondes stationnaires et
+déformation de la raquette
+potentiellement présentes suite à
+l’impact de la balle
+
+Pour cela, nous avons mis le cadre à fleur d’eau dans un récipient, de sorte que les cordes surnagent.
+Nous avons alors déposé la membrane vibrante et avons réglé la fréquence de vibration à 508 Hz pour
+voir si la vibration du cadre avait une amplitude suffisante pour faire vibrer l’eau au niveau des supposés
+ventres de vibration. Mais pour le moment l’expérience n’a rien montré (même en faisant varier la
+fréquence de vibration de la membrane vibrante autour de 508 Hz), et nous chercherons à améliorer
+le dispositif car les résultats obtenus ne sont peut-être pas représentatifs.
+Voyons maintenant comment nous pouvons évaluer l’efficacité de l’anti vibrateur :
+
+IV – Comparaison de différents anti vibrateurs
+1 ) Dispositif expérimental
+Comme nous abordions la notion d’ondes stationnaires, nous nous sommes familiarisés avec cette
+notion à l’aide de la corde de Melde : une corde fixée à une première extrémité et son autre extrémité
+est attachée à un vibreur. Le vibreur monte et descend périodiquement, engendrant une perturbation
+qui se propage le long de la corde. Si la période de la perturbation est égale à la durée que met la
+perturbation pour faire un aller-retour sur la corde entre ses deux extrémités, alors apparaît une onde
+stationnaire sur la corde. Il s’agit du premier mode propre de vibration de la corde, appelé aussi mode
+fondamental. En voyant cette expérience, nous avons eu l’idée d’accrocher une corde de guitare à
+l’extrémité du manche de la raquette de tennis (figure 29). Si la fréquence du mode fondamental de
+vibration de la corde correspond à la fréquence de vibration du manche de la raquette, alors on peut
+s’attendre à ce que la corde vibre. Le fait de placer ensuite l’anti vibrateur doit atténuer l’amplitude de
+vibration de la corde.
+
+17
+
+Figure 29 : raquette guitare : une corde de guitare est fixée à l’extrémité du manche de la raquette
+
+2 ) Test de validité du dispositif
+
+Nous avons dans un premier temps cherché la fréquence de vibration de la raquette insérée dans le
+dispositif de la figure 29 en tapant dessus et nous avons relevé la fréquence du son produit. Nous avons
+alors ajusté la longueur et la tension de la corde de guitare de sorte que son mode fondamental de
+vibration corresponde à la fréquence de la vibration de la raquette. Nous avons enfin réglé la fréquence
+de vibration de la membrane vibrante à cette même fréquence. Lors de ces mesures, la fréquence était
+voisine de 530 Hz.
+Le test est alors très clairement positif : la corde de guitare se met à vibrer et cette vibration cesse si
+on bloque le manche de la raquette de tennis. Nous savons que la corde vibre non pas en la regardant,
+car l’amplitude de vibration est relativement faible, mais en écoutant le son provenant de la corde et
+en mesurant l’amplitude sonore avec l’application Phyphox du téléphone qui nous permet de relever
+la fréquence et l’amplitude du son.
+Pour compléter le test, nous avons augmenté la fréquence de vibration de la membrane vibrante de 10
+Hz, et nous avons accordé la corde de guitare pour qu’elle vibre à cette nouvelle fréquence de vibration.
+La corde ne vibre alors pas. Elle ne vibre pas non plus si nous diminuons la fréquence de la membrane
+de 10 Hz. L’ensemble de ces mesures confirment que la vibration de 530 Hz se propage jusqu’au
+manche, et le dispositif expérimental que nous avons imaginé permet d’isoler cette vibration et de la
+mettre en évidence. En essayant de forcer la raquette à vibrer à une fréquence voisine de 530 Hz, le
+dispositif montre que l’amplitude de la vibration au niveau du manche n’est pas assez grande pour faire
+vibrer la corde de guitare.
+Que se passe-t-il en disposant l’anti vibrateur ?
+En disposant l’anti vibrateur sur le cordage, nous constatons bien une diminution de l’amplitude de
+vibration de la corde. La corde continue de vibrer, mais avec une amplitude significativement plus faible
+comparé à la façon dont elle vibre en l’absence de l’anti vibrateur.
+Il va alors être possible d’utiliser le dispositif expérimental pour comparer l’impact de différents anti
+vibrateurs sur la vibration du manche de la raquette.
+18
+
+3 ) Comparaison des différents anti vibrateurs (figure 30)
+
+1
+
+3
+2
+
+5
+4
+
+6
+
+7
+
+Ci-dessus, figure 30, nous avons numéroté les anti vibrateurs étudiés :
+1 – Fait maison avec imprimante 3D
+2 – xtra damp -HEAD
+3 – Custom damp – Babolat
+4 – Djokovic dampener – HEAD
+5 – Vibrakil – Babolat
+6 – Les smiley – Pro Touch
+7 – Logo damp - Technifibre
+Nous avons donc acheté 6 anti vibrateurs et nous avons réalisé l’expérience décrite ci-dessus pour
+chacun d’entre eux. Nous avons alors mesuré l’amplitude maximale de la vibration de la corde avec et
+sans anti vibrateur en mesurant l’amplitude sonore du son produit par la vibration de la corde de
+guitare. Voici les résultats obtenus : figure 31. Ils montrent le pourcentage de réduction de l’intensité
+sonore issu de la corde lorsqu’on place l’anti vibrateur sur le cordage.
+A la vue de ces résultats, nous pouvons formuler
+plusieurs remarques :
+-
+
+-
+
+-
+
+Il y a de réelles différences en terme de qualité entre les anti vibrateurs.
+Il semble peu probable que dans nos
+expériences, nous mesurions le pourcentage
+d’atténuation réellement atteint lors d’un
+match de tennis, car les 7% de diminution
+obtenus avec le « xtra damp – HEAD » ne
+correspondent pas à la sensation éprouvée en
+jouant au tennis avec cet anti vibrateur.
+L’atténuation réelle semble bien plus
+importante.
+Lors de nos mesures, nous nous somme
+intéressés à l’amplitude de vibration et non à
+sa durée.
+Enfin, voici une remarque qui nous est venue
+en rédigeant le mémoire : est ce que
+l’efficacité de l’anti vibrateur dépend de la
+raquette ?
+
+Figure 31 : réduction de l’intensité sonore issu de la corde lorsqu’on place l’anti vibrateur sur le cordage
+
+19
+
+Quoi qu’il en soit, comme il s’agit d’une étude relative, la comparaison des résultats reste valable pour
+choisir l’anti vibrateur. Celui qui semble le plus performant est celui qui prend le plus de cordes
+verticales : le « Vibrakill – Babolat ». Cela dit, il reste difficile d’en déduire le mécanisme qui permet à
+l’anti vibrateur de diminuer les vibrations au niveau du manche :
+-
+
+Est-ce que l’anti vibrateur rend le cadre de la raquette plus rigide ?
+Est-ce qu’il contraint les ondes mécaniques à se propager au niveau du tamis au lieu de se
+diriger vers le manche de la raquette ?
+Est-ce qu’il absorbe les ondes mécaniques ?
+
+Il s’agit de questions auxquelles nous devons encore répondre. On pourra pour cela s’intéresser aux
+anti vibrateurs qui ne prennent que 2 cordes verticales et voir leurs différences en termes de formes,
+de structures, de déformabilité, etc., car il est très intéressant de constater de telles différences
+d’efficacité d’atténuation pour des formes et des malléabilités qui semblent peu différentes (cela reste
+tout de même à vérifier rigoureusement).
+Justement, en termes de malléabilité, nous avons voulu comparer les atténuations obtenues avec les
+anti vibrateurs du marché, avec un anti vibrateur que nous avons-nous même conçu à l’imprimante 3D,
+très rigide. Il se trouve que les résultats en termes d’atténuation sont catastrophiques et nous ne nous
+lancerons donc pas tout de suite dans la création d’une entreprise de fabrication d’anti vibrateur. Plus
+sérieusement, nous constatons donc que le caractère malléable de l’anti vibrateur sera un élément
+particulièrement intéressant à étudier.
+Pour poursuivre au niveau de la comparaison entre les anti vibrateurs, nous les avons testé en jouant
+au tennis et les résultats sont sans équivoque. En effet, en utilisant le « xtra damp HEAD », nous avons
+ressenti les vibrations et après seulement quelques minutes de jeu, nous avons ressenti une fatigue
+musculaire et le bras beaucoup plus contracté qu’à l’accoutumée. L’utilisation du « Custom damp –
+Babolat » permettait quant à lui de jouer sans fatigue musculaire.
+Nous sommes conscients que ces ressentis ne sont pas associées à des valeurs mesurées, même s’ils
+sont bien réels et flagrants. Pour rendre cette discussion plus rigoureuse quantitativement, nous
+sommes entrés en contact avec Monsieur Tony Monnet, professeur des universités à l’Université de
+Poitiers (Institut Pprime, Département GMSC - SP2MI – professeur au sein de l’UFR STAPS), et un
+rendez-vous est pris le mardi 16 janvier pour poursuivre le projet sur un plan biomécanique.
+
+Conclusion :
+Il n’est pas évident d’accéder à la vibration de la raquette qui perturbe les joueurs de tennis, en
+particulier car il s’agit d’une vibration qui semble se propager dans le plan de la raquette, avec une
+amplitude très faible par rapport à la très grande amplitude de la vibration dans le plan perpendiculaire
+au plan de la raquette. Mais à force de tester de nouvelles approches, nous avons fini par trouver une
+méthode permettant d’y parvenir. Nous avons alors pu voir que l’anti vibrateur coupe la fréquence à
+530 Hz. Nous avons pu imaginer un dispositif expérimental permettant d’évaluer la qualité d’un anti
+vibrateur, tout en gardant en tête qu’il faut réaliser ces expériences sur différentes raquettes pour
+conclure sur le caractère absolu de cette efficacité. Nous avons enfin laissé des questions en suspens,
+telles que l’étude du caractère plus ou moins déformable et élastique des anti vibrateurs sur leur
+efficacité, et la façon dont une vibration pourtant de faible amplitude peut amener à un tel inconfort
+de jeu. Nous poursuivrons notre projet en travaillant en particulier sur ces points-là.
+
+20
+
+

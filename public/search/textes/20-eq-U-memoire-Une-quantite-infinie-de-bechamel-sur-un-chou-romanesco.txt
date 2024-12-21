@@ -1,0 +1,654 @@
+;
+
+Table des matières
+1)
+
+Introduction : Comment tout a commencé … ................................................................................. 3
+
+a)
+
+De quoi allons nous parler............................................................................................................... 4
+
+2)
+
+Définition......................................................................................................................................... 4
+
+a)
+
+Définition de fractale....................................................................................................................... 4
+
+b)
+
+Définition de surface ....................................................................................................................... 5
+
+c)
+
+Définition de dimension de Hausdorff ............................................................................................ 6
+
+3)
+
+Différents fractales .......................................................................................................................... 7
+
+a)
+
+Fractale de Julia............................................................................................................................... 7
+
+b)
+
+Fractale de Mandelbrot.................................................................................................................... 8
+
+c)
+
+Fractales de Brownien ..................................................................................................................... 8
+
+d)
+
+Des fractales dans la nature ............................................................................................................. 9
+
+4)
+
+Les choux ...................................................................................................................................... 10
+
+a)
+
+Tous les choux sont-ils fractales ?................................................................................................. 10
+
+b)
+
+Mesurage de la surface de choux et présentation des résultats...................................................... 11
+
+c)
+
+Rapprochement flocon de koch ..................................................................................................... 16
+
+d)
+
+Création d’un blog......................................................................................................................... 17
+
+e)
+
+Et la Béchamel?............................................................................................................................. 18
+
+essai titre .........................................................................................................Erreur ! Signet non défini.
+Sources .............................................................................................................................................. 18
+
+2
+
+1) Introduction : Comment tout a commencé …
+Il était une fois un beau lundi de septembre trois élèves de première S, en cours de travaux
+Personnels Encadrés (TPE), présentèrent une liste de sujets à leur professeur de physique et
+chimie. Le professeur s'assit sur un coin de table, prit la liste et commença sa lecture :
+"- Ça c'est chiant ! " dit-il en rayant la ligne.
+"- Ras le bol de ce sujet !" poursuivit-il en rayant la deuxième ligne.
+"- Sujet bateau ! Pas assez de recherches ! Bougez-vous le cul1!" continua-t-il en rayant la
+sixième et dernière ligne.
+Les élèves restèrent sans voix.
+Ils se dirent alors que les fractales étaient le sujet qui leur plaisait le plus. Ils descendirent au
+CDI et firent de recherches sur les fractales dans la nature. Ils trouvèrent alors une
+problématique qui leur plu : "Comment calculer la surface d'un chou romanesco ?". Ils en
+parlèrent alors à l’autre professeur encadrant les TPE : leur professeur de mathématiques:
+"- Ce n'est pas calculer, c'est mesurer une surface. Allez voir le professeur de physique et
+chimie ! ".
+Les trois élèves se retrouvèrent timidement devant ce professeur qui venait de leur dire que
+leur sujet était chiant2 ...
+"- Monsieur ? demanda l'élève la moins timide, comment fait-on pour mesurer la surface d'un
+chou romanesco ? ".
+Le professeur, intrigué, se mit à réfléchir : "Bonne question " finit-il par dire.
+Les élèves commencèrent alors leur TPE. Suite à des problèmes de santé d'une des élèves du
+groupe, Sophie, le TPE resta en suspens.
+L'année suivant, Sophie eu envie de reprendre ce TPE qui l’intéressait beaucoup, mais les
+élèves avec qui elle avait fait le TPE ne voulait plus. Le professeur de physique et chimie lui
+proposa alors de présenter ce TPE aux Olympiades de Physique. Sophie trouva alors deux
+copines pour reprendre en parallèle d'un TPE pour le Bac, celui-ci, le 22 septembre 2012.
+Et l'aventure reprit pour Sophie et commença pour Axelle et Laurine...
+
+1
+
+Le professeur de physique-chimie ne se souvient pas avoir utilisé cette expression… Mais c’est leur texte…
+Là, malheureusement, le professeur de physique-chimie se souvient parfaitement avoir dit cela…
+
+2
+
+3
+
+a) De quoi allons nous parler
+Nous allons parler d'un protocole expérimental pour mesurer une des caractéristiques
+géométrique d'un objet : sa surface.
+Objet en 2D
+Un objet en 2D a un périmètre et une surface. Le mesurage du périmètre est simple : à partir
+d’un point on dépose soigneusement une ficelle le long du bord de l’objet en épousant toutes
+les irrégularités jusqu’à revenir au point de départ ; on retire la ficelle et on la tend puis on la
+mesure à l’aide d’un décimètre, d’un réglet ou d’un mètre à ruban selon la taille.
+Le mesurage de la surface est elle aussi simple : on découpe la surface dans du carton épais
+puis on découpe une surface carrée de 10cm de côté soit 100cm2 ; on pèse ces deux surfaces
+puis on fait une règle de trois.
+Objet en 3D
+Un objet en 3D a une surface et un volume. Un objet en 3D n’a pas de périmètre.
+Le mesurage de la surface est simple : à partir… Non, pas tout de suite…
+Le mesurage du volume est simple : on utilise les travaux de plomberie de monsieur
+Archimède en mesurant le volume d’eau déplacé lors de l’immersion totale de l’objet.
+Le mesurage de la surface n’est en revanche pas simple et c’est ce que notre professeur de
+physique et chimie avait rapidement compris.
+
+Ce travail présente une tentative d’établissement d’un protocole de
+mesurage de la surface de n’importe quel objet en 3D.
+2) Définition
+a) Définition de fractale
+On nomme figure fractale ou "fractale", une courbe ou surface de forme irrégulière ou
+morcelée qui se crée en suivant des règles déterministes. Le terme « fractale » est un
+néologisme créé par Benoît Mandelbrot en 1974 à partir de la racine latine «fractus », qui
+signifie brisé, irrégulier. Dans la « théorie de la rugosité » développée par Mandelbrot, une
+fractale désigne des objets dont la structure est invariante par changement d’échelle.
+Ce terme était au départ un adjectif : les objets fractals. Malgré les apparences, ce type de
+définitions de nature récursive n'est pas seulement théorique mais peut concerner aussi des
+4
+
+concepts usuels : un ancêtre est un parent ou un ancêtre d'un parent, un multiple est un
+composé d'un nombre ou d'un multiple de ce nombre, un escalier commence ou prolonge un
+escalier, une dynastie inaugure ou prolonge une dynastie, etc.
+Un objet fractal possède au moins l'une des caractéristiques suivantes :
+ sa dimension de Hausdorff est strictement supérieure à sa dimension topologique.
+Cette caractéristique est généralement prise comme définition même d'un objet fractal.
+Pour exprimer la chose autrement, un réseau d'irrigation est un déploiement de lignes
+(« en 1D ») qui offre des caractéristiques commençant à évoquer une surface (« en
+2D »). La surface du poumon (« en 2D ») est repliée en une sorte de volume (« en
+3D »). De façon imagée, les fractales se caractérisent par une sorte de dimension non
+entière ;
+ il a des détails similaires à des échelles arbitrairement petites ou grandes ;
+ il est trop irrégulier pour être décrit efficacement en termes géométriques
+traditionnels ;
+ il est exactement ou statistiquement auto-similaire, c'est-à-dire que le tout est
+semblable à une de ses parties.
+Remarque : les membres du jury régional nous ont reproché d’avoir fait du
+« copié/collé » sans avoir peut-être réellement pris conscience de ce qu’était un fractal :
+vous verrez dans ce mémoire, plus loin, là où nous avons estimé que c’était pertinent,
+nos études approfondies du flocon de Koch et vous verrez, lors de la présentation
+orale… Euh… Suspense !
+
+b) Définition de surface
+Le dictionnaire de français indique que c’est un synonyme de superficie et que c’est la partie
+extérieure d'un corps, ce qui le limite dans l'espace.
+En mathématiques, une surface dans un espace de dimension n est un ensemble de points de
+cet espace décrit par un système de ( n - 2 ) équations à n variables.
+On distingue entre :
+
+
+
+surfaces planes, quand le système d'équations est linéaire ou affine;
+et surfaces gauches dans les autres cas.
+
+Une surface peut être :
+
+
+orientable; dans ce cas, elle comporte deux faces.
+
+
+Si la surface est ouverte, il est possible de passer d'une face à l'autre sans
+traverser la surface.
+
+5
+
+
+
+
+
+Si la surface est fermée, elle sépare l'espace en deux zones correspondant aux
+deux faces, l’intérieur et l’extérieur, et il faut traverser la surface pour passer
+d'une zone à l'autre.
+
+non-orientable; dans ce cas elle ne comporte qu'une seule face, ce qui défie a priori le
+sens commun. Elle peut avoir un bord (exemple : ruban de Möbius ) ou non
+(exemple : bouteille de Klein ).
+
+On peut aussi rencontrer des surfaces connexes, convexes, ...
+En physique, la notion de surface a deux sens voisins :
+
+
+
+d'une part, la surface propre d'un objet désigne sa limite, sa frontière avec le reste de
+l'univers;
+d'autre part, la surface de contact entre deux objets ou, plus généralement, deux
+milieux différents, désigne la frontière commune à ces deux objets ou milieux.
+
+Par ailleurs, on peut préciser les trois points suivants :
+
+
+
+
+
+Un objet est rigide quand sa forme, donc celle de sa surface, ne peut être modifiée; on
+peut parler dans ce cas de l'état de surface de l'objet.
+Quand on parle de la surface d'un liquide, l’eau par exemple, il faut distinguer entre sa
+surface propre et sa surface libre, qui est la portion de sa surface totale en contact avec
+un gaz (l' air en général) ou le vide.
+Un gaz n'a pas de surface définie, sauf s'il est en contact avec un solide ou un liquide.
+
+En géographie, une surface est une portion de terrain délimitée par une frontière ou des
+limites.
+
+c) Définition de dimension de Hausdorff
+Notre professeur de physique et chimie nous a dit que c’était ce qui caractérisait
+l’envahissement de l’espace de dimension « n » par les objets de dimensions « n-1 ».
+Cette dimension était alors comprise entre « n » et « n-1 ».
+Il a eu la chance de suivre une conférence par le mathématicien Adrien DOUADI là-dessus.
+Une droite n’est pas fractale
+On prend un segment de droite et on place les deux extrémités d’un compas aux deux
+extrémités du segment puis on mesure la longueur. On divise ensuite cette longueur par 10
+puis on réduit l’écartement du compas à cette longueur divisée par 10.
+On compte combien de fois on doit reporter la longueur divisée par 10 sur le segment de
+droite pour aller d’un bout à un autre en faisant des demi-tours avec le compas : on va
+naturellement compter 10 fois. On divise ce nombre de fois, ici 10, par 10 et on a 1.
+La dimension de Hausdorff d’un segment de droite est égale à 1 car, bien sûr, ce segment
+n’envahit pas du tout l’espace.
+6
+
+La côte bretonne est fractale
+On reprend ce travail avec par exemple une photocopie de la côte bretonne sud entre deux
+points extrêmes. Quand on va reporter la longueur du compas divisée par 10, on aura besoin
+de plus de 10 demi-tours de compas, par exemple 13. On divisera 13 par 10 pour trouver 1,3
+et on pourra dire que la dimension de Hausdorff de la côte bretonne sud est de 1,3 : elle a
+commencé un peu à envahir l’espace en 2D.
+Vous pouvez le faire : nous illustrons l’augmentation du périmètre mesuré avec le pas de
+mesure avec une image tirée de Wikipédia dans le thème « dimension fractale » pour, cette
+fois-ci, la grande et bretonne côte.
+
+3) Différents fractales
+a) Fractale de Julia
+
+7
+
+b) Fractale de Mandelbrot
+
+c) Fractales de Brownien
+
+8
+
+d) Des fractales dans la nature
+Des formes fractales approximatives sont facilement observables dans la nature. Ces objets
+ont une structure auto similaire sur une échelle étendue, mais finie : les nuages, les flocons de
+neige, les montagnes, les réseaux de rivières, le chou-fleur ou le brocoli, et les vaisseaux
+sanguins.
+
+givre formé sur une vitre.
+
+Feuille de fougère.
+
+poumon (vaisseaux sanguin)
+9
+
+4) Les choux
+a) Tous les choux sont-ils fractales ?
+
+romanesco
+rouge frisé en tige
+frisés
+
+Fleur
+
+chinois
+
+cavalier
+
+de Bruxelles
+
+brasica
+frises
+
+vert
+
+cabus
+pommé
+
+frangés
+
+rouge
+Brocolis
+
+de Milan de Pontoise
+blanc
+palmiste
+10
+
+b) Mesurage de la surface de choux et présentation des résultats
+Mesurage de la surface : le rêve
+Notre protocole consiste comme pour un objet en 2D à peser la surface.
+En effet, si nous déposons une épaisseur « e » d’un liquide mouillant (qui adhère partout à la
+surface, même dans les moindres recoins et qui préfère adhérer à la surface plutôt que de faire
+des gouttes) de masse volumique « ρ » sur un objet préalablement pesé et que nous pesons
+ensuite l’objet convenablement et totalement mouillé, la différence de masse « m » est la
+masse du liquide et la surface « S » de l’objet est alors simplement :
+S = m/(ρ.e)
+
+Du rêve à la réalité
+Nous ne nous sommes qu’à peine approchées de cette formule : notamment, il nous a été
+impossible d’estimer l’épaisseur « e » du liquide choisi et nous n’avons donc travaillé qu’en
+valeurs relatives des surfaces des différents objets étudiés.
+Le premier liquide mouillant choisi a été de l’huile de table.
+Contrôle de la surface d’huile
+Nous pesons une partie du chou puis nous la trempons dans de l’huile en évitant que la
+tige (la partie non-fractale) trempe : nous espérons ainsi ne mettre de l’huile que sur la
+surface fractale.
+Des gouttes tombent et notre première difficulté a été de décider à partir de quand nous
+pouvions légitimement cesser de regarder le chou égoutter pour mesurer sa masse.
+
+Contrôle de la masse d’huile
+L’expérience d’égouttage de la surface d’un morceau de chou trempée dans l’huile a été
+réalisée sur un morceau de chou d’une masse initiale de 9,81+/-0,02g puisque notre balance
+est à 0,02g.
+De la courbe à la page suivante (page 12), nous avons estimé que nous pourrions attendre que
+le temps entre deux gouttes soit supérieur ou égale à 10 secondes et évaluer une barre d’erreur
+pour les gouttes surnuméraires : il faut encore huit gouttes pour que l’écart de temps entre
+deux gouttes soit supérieur à 35 secondes. 16 gouttes surnuméraires pourraient être une
+estimation correcte de l’erreur maximale.
+11
+
+Une goutte d’huile a une masse de 0,025g (mesurée à partir de la masse de 10 gouttes). Notre
+barre d’erreur est donc de 0,4g et la masse que nous mesurons au bout de 10 secondes est une
+borne supérieure.
+Après la trempe dans l’huile, nous attendrons toujours que le temps entre deux gouttes
+successives soit supérieur ou égale à 10 secondes et nous affecterons le résultat d’une
+barre d’erreur décentrée vers les petites valeurs de masse de 0,4g.
+
+Temps entre deux gouttes
+Temps entre deux gouttes en seconde
+
+50
+45
+40
+
+Temps = 0,2626e0,1347(Nombre de gouttes)
+R² = 0,9803
+
+35
+30
+25
+20
+15
+10
+5
+0
+0
+
+5
+
+10
+
+15
+
+20
+
+25
+
+30
+
+35
+
+40
+
+Nombre cumulé de gouttes
+
+Mesure de la masse contrôlée de la surface contrôlée d’huile sur des objets à la
+géométrie contrôlable
+Afin de valider notre protocole, nous mesurons la surface mathématiquement connue d’objets
+mathématiques connus : des cubes.
+Présentation des résultats
+Il nous fallait une présentation claire du fait que la surface allait croitre beaucoup plus vite
+que le volume dans un objet fractal en 3D.
+Le choix du cube pour tester le protocole expérimental nous a donné l’idée de la présentation.
+Le volume « V » du cube est proportionnel au cube « c3 » du côté « c » et la surface « S » du
+cube est proportionnelle au carré « c2 » du côté. Il en va d’ailleurs de même pour une sphère.
+Le volume « V » est alors en fait proportionnel à la puissance (3/2) de la surface « S », soit «
+S3/2 ».
+12
+
+Si un objet n’est pas fractal, la fonction V = f(S3/2) est une fonction linéaire ; si l’objet est
+fractal, cette fonction va être de moins en moins croissante, un peu comme une racine
+carrée.
+
+Mesurages sur des cubes
+« VOLUME »
+
+« SURFACE »
+
+« SURFACE »^(3/2)
+
+1,66
+4,66
+10,33
+32,06
+0,001
+
+0,24
+0,34
+0,57
+1,1
+0,001
+
+0,117
+0,198
+0,430
+1,15
+0,001
+
+Nous vous avions prévenu : du rêve de mesures absolues nous sommes passées à la réalité de
+mesures relatives : « SURFACE » et « VOLUME » avec les guillemets indiquent qu’il s’agit
+de quantités proportionnelles à la surface du chou (à travers l’épaisseur non-mesurée d’huile
+et à sa masse volumique) et au volume du morceau de chou (à travers sa masse volumique qui
+n’a pas été mesurée). Ces quantités sont des masses en grammes.
+Et la réalité (et le jury régional) nous ont imposé la nécessité des barres d’erreur… Nous
+avons déjà discuté de la barrer d’erreur horizontale à 0,4g. La surface des cubes, très
+régulière, sans aspérités et sans aucune procédure de coupe conduit à des barres d’erreur sur la
+mesure de « VOLUME » qu’on peut estimer être celle de la balance, à savoir 0,02g.
+
+V=f(S^(3/2))
+40
+"VOLUME" en grammes
+
+35
+30
+25
+"VOLUME" = 28,386"SURFACE" - 1,0492
+20
+R² = 0,9967
+15
+10
+5
+0
+-0,2
+
+-5 0
+
+0,2
+
+0,4
+
+0,6
+
+0,8
+
+1
+
+1,2
+
+1,4
+
+("SURFACE")^(3/2) en g^(3/2)
+
+Nous constatons, comme prévu, que la fonction entre le volume V et la surface S est une
+fonction linéaire de S3/2.
+
+13
+
+Nous validons ainsi :
+- Le protocole basé sur des mesurages de poids
+- La présentation des résultats.
+Nous sommes armés pour attaquer la mesure de la surface d’un chou romanesco !
+Mesurages sur des choux romanesco
+
+"VOLUME" "SURFACE" ("SURFACE")^(3/2)
+
+0,17
+0,37
+0,49
+1,09
+1,23
+1,86
+2,43
+3,98
+4,01
+4,82
+5,02
+5,85
+9,58
+11,05
+14,40
+14,52
+14,59
+15,12
+15,17
+16,06
+23,11
+27,76
+
+0,03
+0,05
+0,12
+0,24
+0,32
+0,39
+0,41
+0,86
+1,01
+0,92
+1,19
+1,18
+1,45
+1,95
+2,90
+2,21
+2,70
+1,93
+1,98
+2,36
+3,94
+4,36
+
+0,01
+0,01
+0,04
+0,12
+0,18
+0,24
+0,26
+0,80
+1,02
+0,88
+1,30
+1,28
+1,75
+2,72
+4,94
+3,29
+4,44
+2,68
+2,79
+3,63
+7,82
+9,10
+
+« SURFACE » et « VOLUME » indiquent qu’il s’agit de quantités proportionnelles à la
+surface et au volume. Ces quantités sont des masses en grammes.
+La barre d’erreur horizontale est toujours de seize gouttes de trop (0,4g).
+La barre d’erreur verticale est en pourcentage (10%) de ma masse associée à la quantité
+« VOLUME » car une des causes principale d’erreur est l’endroit où on coupe les éléments
+du chou, ce qui affecte le « VOLUME ». 10% nous semble être une borne supérieure.
+
+14
+
+"VOLUME"=f(("SURFACE")^(3/2))
+35,00
+"VOLUME" = 5,5036."SURFACE"0,6901
+R² = 0,9785
+
+"VOLUME" en gramme
+
+30,00
+25,00
+20,00
+15,00
+10,00
+5,00
+0,00
+-2,00
+
+0,00
+
+2,00
+
+4,00
+
+6,00
+
+8,00
+
+10,00
+
+("SURFACE"^(3/2) en g^(3/2)
+
+Nous constatons la tendance à la saturation attendue par le comportement fractal de la
+surface du chou : sa surface va augmenter bien plus vite que son volume.
+Le comportement n’est pas celui d’une racine carrée (puissance 0,5) mais est quand même
+une puissance positive inférieure à 1, soit la puissance 0,69.
+Nous ne savons pas si cela a un sens que cette puissance 0,69 soit proche de 2/3 si ce n’est
+que cela fait que, curieusement, le volume « V » semble être une fonction linéaire de la
+surface « S » ce qui n’est de toute façon pas le comportement d’un cube.
+Les membres du jury régional avaient évoqué des problèmes de mouillabilité, de porosité et
+de capillarité.
+La mouillabitié
+Sur la suggestion d’un des membres du jury régional, nous avons utilisé des mélanges d’eau
+et de glycérine : 40ml à chaque fois et on fait varier la quantité d’eau de 10mL en partant de
+0mL.
+Nous avons donc réalisé 5 mélanges.
+Aucun de ces mélanges n’a mouillé de brocoli : des petites gouttes apparaissaient sur la
+surface, preuve que le mélange préférait adhérer à lui-même plutôt qu’au brocoli.
+15
+
+La glycérine ne mouille pas le brocoli.
+Les deux premiers mélanges à 100% et 75% de glycérine mouillent le chou fleur et le chou
+romanesco sans trace de gouttes en surface.
+
+c) Rapprochement flocon de koch
+
+Le flocon de Koch est un flocon en 2D, il ressemble à un chou romanesco en 3D.
+Nous avons donc étudié la surface, du flocon de koch. Pour mieux comprendre la relation de
+la surface par rapport à la dimension de ses cotés, nous sommes parties d'un triangle
+équilatéral qui a pour dimension 9cm de côté.
+Ces travaux ont été essentiels pour le flocon de Koch en 3D que nous avons réalisé et que
+vous verrez… Bien !
+
+16
+
+d) Création d’un blog
+Nous avons décidé de créer un blog, pour nous permettre, de vous présenter en vidéo et en
+image, les expériences que nous avons réalisées mais, également, utiliser cet outil comme un
+petit journal, de nos plus grandes recherches.
+Adresse de notre blog : http://fractalyceennes.canalblog.com
+
+17
+
+e) Et la Béchamel?
+La béchamel a été notre premier fluide mais elle était trop visqueuse et ne nous permettait pas
+de déposer une épaisseur constante ; par ailleurs, elle risquait de se déposer assez mal dans les
+fins détails de la surface des choux.
+Nous avons cependant gardé cette idée de la béchamel pour le titre car, franchement, auriezvous sinon ouvert les pages de ce mémoire avec un aussi bon appétit si il s’était appelé :
+
+« Une quantité infinie d’huile sur un chou romanesco ? »
+
+Sources
+http://fr.wikipedia.org/wiki/Fractale
+http://www.slate.fr/story/28791/les-fractales-de-mandelbrot-cest-bete-comme-un-chou-fleur-breton
+http://fr.wikipedia.org/wiki/Flocon_de_Koch
+
+18
+
+

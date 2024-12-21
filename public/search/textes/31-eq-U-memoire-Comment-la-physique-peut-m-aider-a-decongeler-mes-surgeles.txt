@@ -1,0 +1,970 @@
+Comment la physique peut m’aider à
+décongeler mes surgelés ?
+Mémoire pour les Olympiades de Physique 2023
+préparé au Lycée général et technologique François Rabelais
+
+Olympiades de Physiques 2023
+
+Mémoire présenté et soutenu à Paris, le 6 Décembre 2023, par
+
+Sofia COMET
+Elise EFFNER
+Clara FERNANDES
+Nicole Maria PESSOA REIS
+William WANG
+Léa ZARI
+sous la direction de Raphaël AESCHLIMANN
+
+Table des matières
+Introduction
+
+3
+
+Historique . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+
+3
+
+Motivation . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+
+3
+
+Déroulement du mémoire . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+
+3
+
+1 Compléments théoriques
+1.1
+
+1.2
+
+4
+
+Comment sont générées les micro-ondes ?
+
+. . . . . . . . . . . . . . . . . . . . . . . . .
+
+4
+
+1.1.1
+
+Déﬁnition des micro-ondes . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+
+4
+
+1.1.2
+
+Génération des micro-ondes . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+
+4
+
+1.1.3
+
+Équation de propagation et condition aux limites . . . . . . . . . . . . . . . . .
+
+5
+
+Comment les ondes chauﬀent la nourriture ? . . . . . . . . . . . . . . . . . . . . . . . .
+
+6
+
+1.2.1
+
+Principe du chauﬀage . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+
+6
+
+1.2.2
+
+Absorption par l’eau . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+
+6
+
+2 Expériences
+2.1
+
+2.2
+
+2.3
+
+2.4
+
+8
+
+Répartition de la puissance dans le four . . . . . . . . . . . . . . . . . . . . . . . . . .
+
+8
+
+2.1.1
+
+Étalonnage du banc Koﬂer et étude du papier thermique . . . . . . . . . . . . .
+
+8
+
+2.1.2
+
+Présentation de l’expérience . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+
+9
+
+2.1.3
+
+Calcul des modes dans le four . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+
+10
+
+2.1.4
+
+Analyse des résultats . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+
+11
+
+Puissance transférée à l’eau . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+
+12
+
+2.2.1
+
+Présentation de l’expérience . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+
+12
+
+2.2.2
+
+Présentation des résultats . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+
+13
+
+2.2.3
+
+Variation de ∆T en fonction du temps de chauﬀe . . . . . . . . . . . . . . . . .
+
+14
+
+2.2.4
+
+Conclusion . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+
+15
+
+Puissance transférée à l’huile . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+
+16
+
+2.3.1
+
+Présentation de l’expérience . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+
+16
+
+2.3.2
+
+Présentation des résultats . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+
+16
+
+Ouverture : la décongélation. . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+
+17
+
+2.4.1
+
+17
+
+Présentation de l’expérience . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+
+2
+
+Introduction
+Historique
+Selon Bruno Jacomy, conservateur en chef honoraire du patrimoine, le four à micro-onde est une
+invention qui permet de traiter la cuisson des aliments grâce à la rapidité avec laquelle la chaleur
+produite par les ondes électromagnétiques cuit les aliments. En eﬀet, cette technique du XXème siècle
+et qui sert au quotidien peut paraître anodine et évidente, mais elle fut développée tout d’abord dans
+le cadre militaire et collectif en partie par l’ingénieur Lebaron Spencer qui travaillait en 1945 chez la
+société fournisseuse de magnétrons, Raytheon. Lors d’expériences sur l’utilisation de magnétrons pour
+des radars, il observe sa barre de chocolat fondre et tente diverses expériences sur le maïs et les œufs
+mettant en lumière un lien entre les ondes électromagnétiques et la cuisson. En 1950, il dépose un
+brevet mais l’usage des micro-ondes reste encore limité à la restauration collective dans les hôtels ou
+les paquebots à cause de la taille des systèmes de refroidissement du magnétron. Finalement c’est en
+1967 que le four à micro-onde entre dans les foyers.
+
+Motivation
+Le monde moderne dans lequel on vit nous donne accès à des choses extraordinaires. Bien que
+la plupart du temps on ne s’en rende même pas compte. La facilité d’usage et l’eﬃcacité sont des
+facteurs que nous recherchons dans notre vie quotidienne. Cette accessibilité nous fait trouver banal
+des procédés, qui, en réalité, ont été des véritables découvertes dans le monde scientiﬁque. C’est par
+exemple le cas du four à micro-onde, une boîte métallique qui nous permet de faire chauﬀer nos aliments
+en quelques minutes. Il est en eﬀet exceptionnel qu’une telle action soit réalisée par un tel objet. Et
+c’est bien pour cela que l’on a choisi de parler du four à micro-onde, aﬁn de mieux comprendre la
+partie physique de cette machine et de découvrir la complexité de son fonctionnement. Notamment ce
+qui fait qu’il peut réchauﬀer et décongeler des aliments. Nous voulions, à la manière de Francis Ponge
+dans le "Le parti pris des choses", découvrir la magie qui se cache derrière le trivial.
+
+Déroulement du mémoire
+Il serait intéressant de se demander comment cet appareil réchauﬀe des aliments à une vitesse
+aussi importante. Nous nous sommes tout d’abord posé la question du fonctionnement d’un four à
+micro-ondes. Pour cela, on voulait savoir ce qui permet le chauﬀage les aliments mais aussi s’il y a
+les endroits où cela chauﬀe davantage. Finalement, nous nous sommes demandés ce qui rendait la
+décongélation si compliquée.
+
+3
+
+Chapitre 1
+
+Compléments théoriques
+1.1
+
+Comment sont générées les micro-ondes ?
+
+Dans cette partie nous nous sommes intéressés à ce que sont les micro-ondes et comment le four
+les génère.
+
+1.1.1
+
+Déﬁnition des micro-ondes
+
+Les micro-ondes sont des ondes électromagnétiques qui portent assez mal leur nom car leur longueur
+d’onde n’est pas de l’ordre du micromètre mais bien du centimètre, elle est comprise entre 1 m et 30
+cm. Ce qui correspond, en utilisant la formule suivante : f = λc ,à une fréquence comprise entre 1
+GHz et 300 GHz. Leur nom provient du fait qu’elles ont une longueur d’onde plus petite que celles
+de la bande VHF (very high frequencies). En eﬀet plus la longueur d’onde est petite plus la fréquence
+est grande d’où le nom micro-onde. Pour des raisons de norme sur les fréquences utilisées dans les
+foyers : 2,45 GHz est celle qui a été choisie pour le four à micro-onde. Cette fréquence correspond à la
+première expérience de Lebaron Spencer, son créateur.
+
+1.1.2
+
+Génération des micro-ondes
+
+Comme nous l’avons dit précédemment, le four à
+micro-onde repose sur le magnétron. Il s’agit d’un tube
+électrique, son rôle est de transformer l’énergie cinétique d’électron en énergie électromagnétique. Pour se
+faire, une tension de plusieurs kV est appliquée, ce
+qui a pour eﬀet de créer un champ électrique entre la
+cathode et l’anode. Les électrons sont alors arrachés
+de la cathode vers l’anode. Or, cela ne suﬃt pas à
+générer des micro-ondes car il faut pour cela que les
+électrons tournent et passent devant les cavités résonantes. Un champ magnétique B est donc ajouté le
+long de l’axe de ladite cathode. L’eﬀet de ces deux champs nous permet d’obtenir la force de Lorentz
+⃗ + ⃗v ∧ B).
+⃗ Grâce à cette force le courant d’électrons se retrouve dévié et décrit donc une
+F⃗ = q × (E
+trajectoire circulaire autour de la cathode. Le passage de ces électrons devant les cavités fait résonner
+ces dernières ce qui émet des ondes électromagnétiques. La fréquence de ces ondes est déterminée par
+
+4
+
+la taille et forme des cavités, leur nombre détermine à quel point la fréquence des ondes émises sera
+proche de la valeur voulue.
+Les ondes électromagnétiques, après avoir été émises dans le magnétron, sont acheminées à l’intérieur de la boîte métallique qui accueille les aliments via un guide d’onde et un agitateur d’ondes
+qui leur permet une répartition homogène. Cette boîte métallique est une cage de Faraday c’est-à-dire
+qu’elle empêche les ondes électromagnétiques de sortir ou de rentrer.
+
+1.1.3
+
+Équation de propagation et condition aux limites
+
+On peut modéliser les ondes électromagnétiques émises par le magnétron par des ondes planes progressive harmonique (OOPH). Dans un cas simple où l’OPPH se déplace selon l’axe z et n’est contrainte
+que selon x, elle arrête d’être une OPPH car son amplitude dépend de x : E(x, z, t) = E0 (x).sin(ω.t −
+k.z)
+Cette contrainte pourrait être des plaques de métal écartées
+d’une distance a et placées sur les côtés de l’onde. Or, comme
+nous l’avons dit, le champ électrique ne peut pas exister dans un
+métal. On parle de condition aux limites. On obtient ainsi des
+ondes stationnaires qui présentent des minium (les nœuds N) et
+maximum (les ventres V).
+Les équations de Maxwell qui gouvernent l’électromagnétisme
+nous donnent l’équation :
+∂ 2 E0 (x)
++ k 2 .E0 (x) = 0
+∂x2
+Les solutions de cette équation sont de la forme : E0 (x) = C1 .cos(k.x) + C2 .sin(k.x)
+D’après les conditions aux limites (champ électrique est nul dans le métal) :
+E0 (x = 0) = 0
+et E0 (x = 0) = C1 .cos(k.0) + C2 .sin(k.0) = C1 .cos(0) + C2 .sin(0) = C1
+Donc C1 = 0
+De la même manière E0 (x = a) = 0
+E0 (x = a) = C1 .cos(k.a) + C2 sin(k.a) = C2 .sin(k.a) = 0
+On a donc C2 = E0′ avec E0′ l’amplitude de E0 (x)
+Pour que E0′ .sin(k.a) = 0 faut que sin(k.a) = 0
+Donc k.a = nπ avec n ∈ N k = nπ
+a
+avec k est le vecteur d’onde qui permet de décrire une onde et est directement lié à la longueur d’onde
+nπ
+1
+n
+par : 2π
+λ = a et donc λ = 2a
+
+On voit alors que tous les λ et tous les k ne peuvent exister dans ces conditions. Seuls les k multiples
+de πa peuvent exister dans le guide d’onde.
+⃗ r, t) = Re[E⃗0 exp(i⃗k.⃗r − iwt)] avec ⃗r le vecteur
+De manière générale la solution est de forme E(⃗
+donnant la position de l’espace considéré et ⃗k le vecteur d’onde.
+⃗k = kx u⃗x + ky u⃗y + kz u⃗z décomposé selon x, y et z.
+
+−
+→
+k 2 = kx2 +ky2 +kz2 On applique le même raisonnement selon chaque composante de k et on obtient :
+
+5
+
+1
+1
+1
+1
+= 2 + 2+ 2
+λ2
+λx λy
+λz
+On considère que la boite en métal a pour longueur Lx , Ly et Lz , on peut avoir les λx ,λy et λz qui
+respectent les conditions :
+λ
+
+Lx = l λ2x Ly = m 2y Lz = n λ2z avec l, m et n ∈ N
+Les dimensions de la cage de Faraday, nous permettent donc de déterminer les longueurs d’ondes qui
+peuvent exister dans le micro-onde. On parle alors de mode qui sont déﬁnis par un triplet (λx , λy , λz ).
+
+1.2
+
+Comment les ondes chauﬀent la nourriture ?
+
+1.2.1
+
+Principe du chauﬀage
+
+Une fois à l’intérieur de l’enceinte les microondes font résonner les molécules d’eau contenues
+dans les aliments. De plus, ces molécules polarisées vont, sous l’inﬂuence d’un champ électrique,
+se comporter comme des aimants qui ont un pôle
+positif et négatif et donc s’aligner le long des
+lignes de champs en présence d’un champ électromagnétique oscillant. Or, ce champ varie et
+change donc d’orientation, et ce, 2,45 milliards
+de fois par seconde. Les molécules d’eau vont donc également osciller à ce rythme, or les liaisons
+hydrogènes et de Van der Waals qui les entourent assurent la cohésion entre les molécules et non pas
+entre les atomes de la molécule. De plus, en freinant le mouvement les liaisons exercent une force qui
+crée de la chaleur. C’est ce qui crée l’échauﬀement que nous recherchons. Un échauﬀement qui va se
+propager par conduction au reste de la nourriture.
+
+1.2.2
+
+Absorption par l’eau
+
+À présent nous savons que les ondes micro-ondes réchauﬀent la nourriture par agitation des molécules d’eau. Ces micro-ondes pénètrent la nourriture et donc l’eau qui est présente dans les aliments
+absorbe les micro-ondes. Nous pouvons représenter l’absorption des ondes micro-ondes grâce à ce qu’on
+appelle : l’indice de réfraction. Celui-ci permet de calculer le coeﬃcient d’absorption qui correspond
+au degré de pénétration des ondes électromagnétiques dans la nourriture. Il existe un lien entre la
+permittivité ϵ et l’indice de réfraction. En eﬀet n2 = ϵ et comme ϵ et n sont des nombres complexes
+n = n1 + i.n2 et ϵ = ϵ1 + i.ϵ2 .
+La partie imaginaire correspond à l’absorption. C’est là que réside le principe physique de réchauﬀement de la nourriture qui s’eﬀectue par le processus d’absorption des micro-ondes par l’eau présente
+2 .V . Cependant les ondes électromagnédans les aliments. La puissance absorbée est P = ω.ϵ0 .ϵ2 .Eef
+f
+
+tiques ne pénètrent qu’une certaine épaisseur, il faudra donc prendre en compte cela dans le calcul de
+V.
+λ
+δ = 4.π.n
+2
+
+avec
+
+λ la longueur d’onde en cm
+n2 la partie imaginaire de l’indice de réfraction
+δ la longueur sur laquelle l’onde pénètre le matériau en cm
+6
+
+Comme n2 = ϵ ϵ2 = 2.n1 .n2 Les deux termes imaginaires sont donc liés.
+On remarque que ϵ1 varie avec la température et converge vers une même valeur.
+On s’intéresse ϵ2 car plus ϵ2 augmente plus
+la puissance absorbée augmente. On remarque
+que la longueur d’onde où l’absorption est la
+plus haute change avec la température. On
+en conclu que la température de la nourriture fait changer l’absorption des microondes.
+
+Pourquoi 2,45 GHz ?
+On pourrait choisir là où l’absorption est maximale aﬁn
+que le plat chauﬀe plus vite c’est-à-dire environ 1013 Hz
+comme le montre le graphe ci-contre. Cela correspond à
+λ
+δ = α1 = 4.π.n
+= 1µm. Cela ne servirait à rien car on
+2
+
+chauﬀerait très fort seulement sur une épaisseur de δ = 1
+µm. Nous avons choisi 1 micromètre qui correspond à la
+lecture graphique de la fréquence maximale 101 3 Hz. La
+surface serait calcinée et l’intérieur de l’aliment gelé. On
+choisit donc plutôt une fréquence de f = 2, 45 GHz ce qui
+correspond à une longueur d’onde de 12,24 cm.
+Nous choisissons 0, 5 cm−1 qui correspond par lecture gra1
+phique à la fréquence 2,45 Ghz. δ = 0,5
+cm−1 = 2 cm
+
+ce qui est suﬃsant pour la plupart des plats car la surface étant assez large la chaleur se propage par conduction.
+Ainsi le choix de cette fréquence apparaît comme la plus
+adaptée malgré qu’elle ne corresponde pas au maximum de
+puissance, elle répond tout à fait aux conditions de chauﬀe
+puisque le plat est uniformément chauﬀé aussi bien de l’extérieur que de l’intérieur. Bien sûr, on aurait pu prendre
+une fréquence plus petite que 2,45 GHz mais le temps de
+chauﬀe sera beaucoup plus long. Cela ne nous convient pas
+car le but est d’être plus rapide qu’un four traditionnel sinon autant le mettre à l’intérieur d’un four. Aﬁn que tous les aliments soient uniformément réchauﬀés,
+il faut en milieu de cuisson tourner la nourriture pour que les aliments au centre qui sont moins
+chauﬀés reçoivent la même chaleur que les aliments sur les côtés.
+
+7
+
+Chapitre 2
+
+Expériences
+Nos expériences portent sur nos habitudes quotidiennes lorsque nous utilisons notre micro-onde.
+Nous nous sommes posé les questions suivantes : pourquoi a-t-on besoin d’un plateau tournant ?
+Comment mesurer la puissance transmise à l’eau par les micro-ondes ? Et ﬁnalement, pourquoi le
+cœur de nos aliments reste si souvent congelé quand on utilise un micro-onde ?
+
+2.1
+
+Répartition de la puissance dans le four
+
+2.1.1
+
+Étalonnage du banc Koﬂer et étude du papier thermique
+
+Tout d’abord, nous avons commencé par mesurer
+la température à partir de laquelle le papier commence
+à changer de couleur à l’aide d’un banc Koﬂer. Nous
+avons placé un thermomètre sur le banc Koﬂer pour
+vériﬁer la température de celui-ci. Le thermomètre
+montant très lentement et stagnant vers 106 °C. Nous
+avons remarqué que le thermomètre n’allait pas plus
+haut que 150 °C. On a conclu que le thermomètre était
+conçu pour des températures inférieures à celles qui
+nous intéressent mais on peut faire conﬁance à notre
+étalonnage du banc à l’aide de la phénacétine. La température de coloration du papier thermique est
+de 92 ± 6 °C, on l’a déterminé en prenant le début du dégradé (86 °C) et la ﬁn du dégradé (98 °C). Il
+y a une diﬀérence de 12 °C, on a donc pris la moitié pour déterminer l’incertitude.
+Protocole
+— Brancher le banc Koﬂer aﬁn qu’il ait le temps de chauﬀer.
+— Calibrer le banc Koﬂer avec de la phénacétine qui a pour température de fusion T = 134, 5 °C.
+— Nettoyer le banc Koﬂer avec de l’éthanol et un coton.
+— Placer un morceau préalablement coupé de papier thermique sur le banc Koﬂer.
+— Mesurer la température de coloration du papier thermique.
+
+8
+
+2.1.2
+
+Présentation de l’expérience
+
+Enﬁn nous allons utiliser la feuille de papier thermique dans le micro-onde aﬁn de voir s’il chauﬀe
+de manière homogène ou bien s’il y a des endroits meilleurs que d’autres. Pour cela nous plaçons une
+feuille de papier thermique dans le four à micro-onde posé à plat et nous chauﬀons. Mais lorsque nous
+avons fait cela le four à micro-ondes est devenu particulièrement brûlant. Ceci s’explique par le fait
+qu’il y a très peu de matière et donc que le four chauﬀe à vide, ce qui abîme le magnétron, car les
+ondes sont renvoyées vers celui-ci au lieu de se faire absorber.
+Nous avons ensuite placé dans le four à micro-onde le papier thermique à diﬀérentes hauteurs pour
+déterminer où les ventres des ondes se trouvent. De plus, nous avons rajouté un bécher rempli d’eau
+distillée aﬁn de ne pas chauﬀer à vide. Des éclaboussures faussant nos résultats, nous l’avons donc
+enlevé et fait attention au temps de chauﬀe pour éviter que le magnétron ne surchauﬀe.
+Nous avons tout d’abord remarqué que peu importe le temps de
+chauﬀe la feuille du bas ne change jamais de couleur. Cela s’explique
+par le fait que comme le champ électrique est nul dans le métal,
+il est donc logique que plus on se rapproche des parois moins cela
+chauﬀe.
+On remarque l’apparition de taches noires à certains endroits, ce
+qui conﬁrme qu’il existe des points chauds et que le four ne
+chauﬀe pas uniformément. Cela conﬁrme aussi qu’il existe certain
+mode électromagnétique dans le four. On conﬁrme l’image faite à
+la caméra thermique dans le papier de Vollmer que nous avions
+lu.
+
+Dispositif expérimental pour cartographier les modes
+Dans le but de cartographier les modes dans le four nous avons réalisé plusieurs prototype de
+dispositif jusqu’au prototype 4 que nous avons utilisé. La démarche de d’amélioration des prototypes
+est détaillée dans en annexe.
+
+9
+
+2.1.3
+
+Calcul des modes dans le four
+
+Dans cette partie, nous allons chercher à prédire quels modes sont présent dans notre four en
+supposant qu’il a une forme de parallélépipède.
+Si tous les modes respectant les conditions présentés dans la partie théorique peuvent exister dans le
+four, seuls ceux qui ont une longueur d’onde proche de celle du magnétron (2,45 GHz donc 12,24 cm)
+existent vraiment. Nous cherchons donc les modes pour lesquels λtotal est compris entre 12,00 et 12,5
+cm. Aﬁn de calculer les modes existant dans notre four à micro-onde, nous avons d’abord déterminé
+les lambdas x, y et z pour lesquels les entiers naturels valent 0,1,2,3 et 4 (dans le cas où l’entier vaut
+0, on enlèvera le terme correspondant).
+Nous avons aussi mesuré les dimensions du four micro-onde aﬁn de calculer les lambdas x, y et z.
+Lx = 32,8 cm ; Ly = 32,6 cm ; Lz = 20,85 cm.
+Les λ pouvant exister sont ceux qui respectent :
+1
+
+1
+
+1
+
+1
+
+= 2 + 2+ 2
+λx λy
+λz
+λ2total
+Ensuite après avoir calculer les lambdas, nous avons rentré ces valeurs sur Excel sous forme de
+tableau car les calculs à la mains
+√ auraient été très long avec la formule suivante qui nous permet de
+calculer lambda total : λtotal =
+
+λ2x .λ2y .λ2z
+.
+λ2x .λ2y +λ2z .λ2y +λ2x .λ2z
+
+Tous les calculs pour obtenir les résultats ci-dessous sont dans un calque en annexe.
+Voici les résultats obtenus :
+λtotal (cm)
+
+l
+
+m
+
+n
+
+12,49
+
+4
+
+3
+
+1
+
+droits de chauﬀe dans le four à micro-onde fait à
+
+12,47
+
+3
+
+4
+
+1
+
+partir des calculs des modes. En eﬀet, même s’ils
+
+12,39
+
+3
+
+3
+
+2
+
+ne sont pas exacts ils nous donnent une idée réa-
+
+12,55
+
+1
+
+2
+
+3
+
+12,558
+
+2
+
+1
+
+3
+
+Voici ci-dessous un dessin de la répartition des en-
+
+liste du nombre d’endroits chauds (points noirs sur
+le dessin) dans l’enceinte.
+
+Nous allons maintenant vériﬁer si nos résultats expérimentaux sont cohérents avec ces modes.
+10
+
+2.1.4
+
+Analyse des résultats
+
+Sur la photo ci-contre, nous avons mis les feuilles de papier thermique
+à une hauteur de 6cm de profondeur et décalé des bords du four de 1,6
+cm. Nous avons seulement changé les paramètres temporels. La feuille en
+haut est chauﬀée pendant t = 30 s et celle en bas pendant plus de 1 minute. En eﬀet, nous observons que le micro-onde chauﬀe plus sur les bords.
+Nous observons globalement les mêmes modes donc 1 minute de chauﬀe
+semble suﬃsante. C’est la forme du micro-onde qui crée ces modes. De
+plus, il y a un creux au milieu du four ce qui modiﬁe les modes et fait que
+l’on n’observe pas de taches au centre de la feuille. Si nous avions mis les
+feuilles thermosensibles collées aux parois du four à micro-ondes alors nous
+aurions obtenu une bande blanche car le champ électrique est nul dans le
+métal des parois. Nous mesurons les tâches selon y et nous relevons un
+écart d’environ 8 cm ce qui est une bonne nouvelle car cela nous permet alors de prouver l’existence
+d’un mode avec un ordre 4 selon y comme (341). En eﬀet c’est proche d’un quart de la dimension
+du micro-onde selon y λ4Y = 32,6
+4 = 8.15 cm. Pourquoi un quart car nous sommes sur le mode (341)
+donc selon x nous avons 3 ventres, en y 4 ventres et en z un ventre. Ce qu’il nous intéresse est l’axe
+des y car nous avons mesuré l’écart entre les centres des tâches selon y et qui correspond à la taille
+d’un ventre. L’écart par rapport à la valeur théorique s’explique par l’erreur que l’on fait quand on
+détermine le centre des tâches. Nous n’obtenons pas la même chose que nos résultats théorique car en
+réalité la forme du micro-onde est beaucoup plus complexe qu’un parallélépipède rectangle et donc les
+modes sont diﬀérents.
+Pour améliorer l’expérience, nous allons donc vériﬁer les modes que nous avons calculés précédemment, en plaçant les papiers thermiques vers les endroits attendus. Nous montrerons que sur les
+parois du four à micro-ondes le champ électrique est nul, en plaquant les papiers thermiques sur les
+parois avec le nouveau dispositif mis en place. Eﬀectivement, nous avons fabriqué un support qui nous
+permet de choisir les diﬀérentes hauteurs pour placer les feuilles. Nous allons donc vériﬁer nos modes
+en superposant les feuilles aﬁn d’obtenir les endroits de chauﬀe du four à micro-onde et les comparer
+avec les calculs des modes.
+
+Conclusion
+Nous avons tout d’abord remarqué que peu importe le temps de chauﬀe la feuille du bas ne change
+jamais de couleur. Cela ne nous étonne pas car comme le champ électrique est nul dans le métal, il
+est logique que plus on se rapproche des parois moins cela chauﬀe.
+Nous nous sommes rendu compte à la ﬁn de l’expérience que nous retrouvons les taches sur les bords
+de la feuille et non au centre de celle-ci. En eﬀet, on observe au milieu du micro-onde un creux qui par
+conséquent modiﬁe le chauﬀage et aux parois du micro-onde les ondes s’annulent dus aux conditions
+limites. À travers cette observation, on en a déduit que le centre du four recevait moins d’énergie. Cela
+voudrait dire que nos aliments ne sont pas à l’endroit où ils recevraient le plus d’énergie quand on
+utilise le four. D’autre part nous avons pu vériﬁer la théorie pour calculer les modes en retrouvant les
+bonnes périodes mais les modes étaient diﬀérents de ceux que nous avions prédit. Cela s’explique par
+le fait que la forme du four est beaucoup plus complexe et il faudrait faire une simulation numérique
+
+11
+
+pour prédire exactement les modes.
+
+2.2
+
+Puissance transférée à l’eau
+
+Aﬁn de pouvoir étudier la puissance transmise à l’eau dans un four à micro-onde, il nous a fallu
+déterminer la variation de température de l’eau avant et après la chauﬀe. Nous avons ensuite calculé
+l’écart de température qui nous a permis d’obtenir la puissance transmise à l’eau.
+
+2.2.1
+
+Présentation de l’expérience
+
+Protocole
+— Remplir une ﬁole de jaugée de 50 mL d’eau distillée.
+— Verser cette eau dans un bécher de 50 mL.
+— Mesurer la température de l’eau.
+— Retourner le plateau tournant pour que celui-ci ne tourne pas.
+— Placer le récipient au centre du four à micro-onde.
+— Chauﬀer l’eau pendant la durée souhaitée
+— Mesurer après le temps de chauﬀe la température de l’eau, puis soustraire cette mesure à la
+température de l’eau avant le passage dans le four à micro-ondes (pour connaître l’augmentation
+de la température de l’eau).
+— Refroidir les béchers de 50 mL en les mettant dans un bac d’eau froide.
+— Réaliser une courbe de l’écart de température en fonction du temps.
+Sources d’erreur
+Lors de cette expérience nous avons fait un certain nombre d’erreurs . L’une d’elle est liée à notre
+temps de réaction qui nous empêche de mesurer la température après chauﬀe sitôt le temps écoulé.
+Aﬁn de mesurer qualitativement cette erreur nous avons pris deux mesures à 15 s l’une en prenant la
+mesure avec un temps de réaction minimale (1 s) et l’autre avec un temps de réaction plus long (3 s)
+Nous avons fait la même chose avec un temps de chauﬀe de 30 s. Voici nos résultats :
+
+temps de chauﬀe (s)
+
+∆T (°C) vitesse maximale (1 s)
+
+∆T (°C) après 3 s
+
+∆(∆T ) (°C)
+
+15
+
+21, 5
+
+18, 4
+
+3,3
+
+30
+
+43, 7
+
+42
+
+1,7
+
+On peut constater que dans le cas d’un temps de réaction de 3 s le ∆T est plus faible. Cela
+s’explique par le fait que durant ce laps de temps la température de l’eau diminue. Pour t = 15 s un
+temps de réaction de 3 s (donc 2 s plus lent) nous fait perdre 3,3 °C, on peut donc dire que chaque
+seconde retard nous fait perdre environ 1,65 °C sur nos ∆T , ce qui est non négligeable. On remarque
+pour t = 30 s de chauﬀe, on perd 1,7 °C ce qui est surprenant. En eﬀet, nous nous serions attendus à
+plus refroidir car l’eau était plus chaude qu’après 15 s de chauﬀe. Cela peut s’expliquer par le fait que
+nos incertitudes sur ∆T sont plus grande que cet eﬀet (montré dans la suite) et que l’on ne peut pas
+le voir.
+
+12
+
+2.2.2
+
+Présentation des résultats
+
+Nous avons rencontré plusieurs problèmes lors de nos expériences notamment lors du chauﬀage de
+l’eau à 500 W dans le four à micro-onde. En eﬀet, la puissance maximale de notre four à micro-onde
+est de 900 W. Or, le magnétron n’est pas capable de dispenser une puissance moindre ce qui signiﬁe
+qu’il s’éteint et qu’il se rallume pour qu’en moyenne le four chauﬀe à 500 W.
+
+Voici un histogramme présentant la répartition des résultats après 10 s de chauﬀage à 500 W (et
+un deuxième après 15 s de chauﬀage).
+Nous pouvons observer que, pour une même durée de 10 s chauﬀage, les ∆T (°C) varient de façon
+importante, allant de presque 0 à 18 °C. Ces variations peuvent être expliquées par le fait que, comme
+dit précédemment, pour dispenser une puissance de 500W le magnétron s’allume et s’éteint . Un faible
+delta serait donc lié au fait qu’au début de la chauﬀe il était éteint et qu’il s’est rallumé juste avant
+la ﬁn. À l’inverse un delta important serait lié à un magnétron allumé durant tout le processus.
+
+Cet histogramme présentant la répartition des ∆T (°C) pour 10 s de chauﬀage à 900 W nous
+permet d’observer que ladite répartition est centrée autour de 1 point et non plus deux. On remarque
+que cette répartition semble aléatoire autour d’une valeur (la moyenne) et non plus de deux. Ceci
+conﬁrme ce qui est dit plus tôt c’est à dire que pour 900 W le magnétron ne s’éteint pas. On obtient
+ici une moyenne de 15, 45 °C et un écart-type de 2, 00 °C. Nous pouvons utiliser cet écart-type comme
+incertitude type pour nos mesures suivantes où nous n’allons en général prendre qu’un point par temps
+de chauﬀe.
+13
+
+2.2.3
+
+Variation de ∆T en fonction du temps de chauﬀe
+
+Comme on pouvait s’y attendre plus on chauﬀe longtemps l’eau plus d’augmentation de température est importante. On remarque que les points ne forment pas une droite. Cela s’explique par le fait
+que le magnétron s’allume et s’éteint ce qui rend les résultats inexploitables.
+En réalisant la même expérience à 900 W, on obtient des résultats stables et qui forment une
+droite (à l’exception du dernier point qui doit correspondre à une erreur de mesure). En réalisant une
+régression linéaire on obtient une pente 1, 19 ± 0, 08 °C/s et une ordonnée à l’origine de −2, 02 ± 2, 63
+°C. On remarque que l’ordonnée à l’origine est compatible avec un passage par 0 comme on pourrait
+s’y attendre. Le tout avec un R2 ≃ 0, 95 ce qui est assez bon.
+
+En réalisant deux séries de mesures supplémentaires, on obtient les courbes ci-dessus. On voit que
+les droites sont quasiment parallèles en eﬀet :
+
+14
+
+série
+
+pente (°C/s)
+
+ordonnée à l’origine (°C)
+
+R2
+
+1
+
+1, 19 ± 0, 08
+
+−2, 02 ± 2, 63
+
+0,95
+
+2
+
+1, 16 ± 0, 09
+
+0, 18 ± 1, 67
+
+0,97
+
+3
+
+1, 32 ± 0, 06
+
+0, 6 ± 1, 47
+
+0,99
+
+Maintenant que nous avons la pente de la courbe, nous allons l’utiliser pour déterminer la puissance
+absorbée grâce à la loi de Joule.
+∆U = Cv .∆T
+
+avec
+
+∆U l’énergie reçue par l’eau
+CV la capacité caloriﬁque et la capacité caloriﬁque massique de l’eau
+cV = 4180 en J.kg−1 .K−1
+∆T la variation de température en K
+
+∆T
+1 ∆U
+1
+On a donc ∆T = ∆U
+Cv Or la pente de la droite obtenue est donc : ∆t = Cv . ∆t = Cv .P avec P la
+
+puissance transmise à l’eau.
+On a donc que la pente de notre courbe est directement proportionnelle à la puissance absorbée.
+∆T
+P = ∆U
+∆t = CV . ∆t = (4180.0, 05) ∗ pente = P
+
+Nous avons calculé la puissance transférée à l’eau en fonction de chacune des trois pentes.
+Série 1 : 249W
+Série 2 : 242W
+Série 3 : 276W
+Nous pouvons constater que sur les 900w de puissance produite moins d’un tiers seulement est absorbé.
+De plus, la pente 1 et 2 présente une diﬀérence de puissance de 7 watts ce qui correspond à environ
+2,8 %. Ces deux valeurs sont donc cohérentes entre elles. Cependant la troisième pente nous donne
+une puissance de 276 W. Il y à donc une diﬀérence de puissance de 27 W entre celle-ci et la deuxième,
+ce qui correspond à une diﬀérence de 11%. Nous pouvons donc en déduire que cette troisième pente
+est la moins ﬁable.
+Aﬁn de donner une valeur ﬁnale de la puissance transférée à l’eau nous avons calculé la moyenne de
+ces 3 valeurs : Pmoyenne = 242+249+276
+= 256 ± 2, 12 W. Voici le calcul d’incertitude sur la moyenne :
+3
+u(totale) =
+
+√
+
+u(1)2 + u(2)2 + u(3)2 =
+
+√
+
+1, 192 + 1, 162 + 1, 322 = 2,12 W On observe que l’incertitude
+
+est petite. C’est une bonne nouvelle.
+
+2.2.4
+
+Conclusion
+
+Selon nos calculs et nos mesures, la puissance transmise à l’eau dans un four à micro-onde est
+seulement de 256 ± 2,12 W sur les 900W produits par le magnétron. Il n’est pas surprenant que toute
+la puissance transmise ne soit pas entièrement absorbée par l’eau étant donné que ladite puissance
+n’est pas répartie uniformément. De plus, le verre du bécher en absorbe lui aussi une partie et l’eau
+ne récupère pas cette chaleur.
+
+15
+
+2.3
+
+Puissance transférée à l’huile
+
+2.3.1
+
+Présentation de l’expérience
+
+Comme nous avons pu le voir avec l’expérience précédente nous savons que les ondes micro-ondes
+ont pour but d’agiter les molécules d’eau et donc de faciliter la chauﬀe des aliments. Mais que se
+passe-t-il quand nous mettons de l’huile dans le four à micro-ondes, sachant que l’huile est composée
+de molécules apolaires contrairement à celles de l’eau qui sont polaires. Nous avons tout d’abord été
+confronté à une diﬃculté : celle de pouvoir se procurer de l’huile pure. En eﬀet, ce type d’huile étant
+très coûteuse nous avons plutôt opté pour une huile de cuisine, ce qui modiﬁera légèrement notre
+expérience. Pour minimiser les variations nous avons utilisé la même bouteille d’huile commerciale
+pour être sûr d’avoir la même composition pour chacune de nos mesures.
+Pour réaliser cette expérience nous avons suivi le même protocole que celui mit en place pour l’eau
+liquide mais cette fois avec de l’huile.
+
+2.3.2
+
+Présentation des résultats
+
+On trace ici le même type de graphique en représentant l’eau et l’huile sur le même graphe pour
+pouvoir comparer. On observe tout de suite que comme prévu l’huile chauﬀe beaucoup moins bien que
+l’eau. En utilisant la pente de 0,5 °C/s on obtient une puissance absorbée de 104 W, c’est-à-dire plus
+de deux fois moins qu’avec l’eau !
+
+Conclusion
+Nous pouvons remarquer que le delta T de l’huile est bien moins important que celui de l’eau ce qui
+signiﬁe que l’huile chauﬀe beaucoup moins dans le four à micro-onde que l’eau ce n’est pas surprenant
+quand on sait que l’huile n’est, théoriquement parlant, pas censée chauﬀer. La polarité a une inﬂuence
+sur le coeﬃcient d’absorption des micro-ondes puisque l’on remarque que plus la molécules est apolaire,
+moins elle absorbe. En eﬀet, les molécules d’huile sont ,comme mentionné plus haut , apolaires ou tout
+du moins d’une polarité si faible qu’elle en devient négligeable. Le fait qu’elle n’est pas tout à fait nulle
+explique que l’huile chauﬀe légèrement . Ci-dessus une représentation d’une molécule d’acide oléique
+16
+
+que l’on retrouve en majorité dans de nombreuses huiles. Comme nous pouvons le constater, elle est
+longue et quasiment apolaire dû à tous les atomes de carbone présents. Seul le groupe carboxylique
+est polaire mais étant donné qu’il est en bout de chaîne il doit tirer les électrons à l’autre bout de la
+chaîne. Nous considérons alors que la molécule est non polarisée car les charges partielles sont très
+faibles.
+
+2.4
+
+Ouverture : la décongélation.
+
+2.4.1
+
+Présentation de l’expérience
+
+Nous pourrions nous demander pourquoi ne pas décongeler ses aliments dans le four à microonde simplement en l’allumant à la puissance maximum. Nous avons alors pris l’initiative de mettre
+un glaçon dans le four à micro-onde pour voir ce que l’on observe. Nous avons constaté qu’il n’a
+quasiment pas fondu mais cela n’est pas rigoureux donc nous avons fait l’expérience suivante :
+Protocole
+— Placer dans le récipient un glaçon qui a été préalablement séché avec un coton.
+— Placer le récipient dans le four à micro-onde, pour un temps t=20 s.
+— Sortir le récipient, observer et noter le résultat.
+— Placer un glaçon dans un autre récipient et ajouter 2 ml d’eau distillée.
+— Placer le récipient dans le four à micro-onde pour t = 20 s.
+— Comparer le résultat à un temps t=20 s des deux récipients.
+
+Nous avons alors observé que le glaçon humidiﬁé avec l’eau distillée avait beaucoup plus fondu que
+le glaçon sec. Cette expérience montre que la glace fond alors plus vite lorsque sa surface est humide.
+Cela s’explique par le fait que la glace absorbe très mal les micro-ondes mais que l’eau liquide chauﬀe
+et fait fondre la glace.
+De plus, nous avons pu apprendre que le mode décongélation est obtenu en allumant et en éteignant
+le magnétron. En eﬀet, cela ne sert à rien d’envoyer beaucoup d’énergie qui ne sera pas absorbée par
+
+17
+
+la glace. Il vaut donc mieux chauﬀer moins et laisser le temps à l’eau liquide de faire fondre la glace.
+Cela veut dire que la décongélation commence lentement mais plus il y a d’eau liquide plus cela va
+vite.
+
+Conclusion
+D’après nos résultats et de ce que l’on a appris, nous en avons conclu que celui-ci par agitation des
+molécules d’eau cuit les aliments or lors de la décongélation de ceux-ci ce mécanisme ne fonctionne pas
+car les molécules d’eau dans un glaçon sont quasiment immobiles car elles forment un cristal. Donc
+elles ne peuvent s’agiter sous l’eﬀet du rayonnement micro-onde.
+Lorsque l’on touche un glaçon celui-ci devient humide car il y a une couche d’eau liquide. Dès
+lors que l’on introduit le glaçon dans le four à micro-onde et qu’on le met à pleine puissance, cette
+partie humide chauﬀe, et chauﬀe à son tour les molécules voisines et ainsi de suite. Ce processus de
+décongélation mettra évidemment beaucoup de temps, ce qui fait que décongeler un aliment en le
+mettant dans le four à micro-onde à forte température le rend quasiment impossible. Il faut alors
+d’abord laisser la nourriture congelée à l’air libre aﬁn que le glaçon devienne liquide. Nous pourrons
+alors le mettre dans le four à micro-onde.
+
+18
+
+Conclusion
+Un four à micro-ondes est un appareil électroménager pratique et polyvalent qui permet de réchauﬀer et décongeler rapidement les aliments. Il permet de chauﬀer les aliments de manière assez
+homogène. En passant au travers des aliments les ondes agitent les molécules d’eau présentes ce qui lui
+permet de réchauﬀer. Pour eﬀectuer cette action, les micro-ondes pénètrent sur une épaisseur de 2 cm
+avec une fréquence de 2,45 GHz. Grâce à nos expériences, nous avons prouvé que le four à micro-onde
+ne chauﬀe pas de manière homogène et que des dispositifs ont été mis en place pour rendre le chauﬀage
+uniforme que nous avons démontré. Nous l’avons montré avec l’expérience du papier thermique. Dans
+cette expérience, nous observons des tâches présentes sur les côtés du papier thermique et rien au
+centre. Ainsi nous avons compris qu’il existe des points chauds et froids dans le four à micro-onde.
+En mettant un plateau tournant nous évitons de mettre nos aliments sur un endroit chaud ou froid
+et cela permet d’obtenir un aliment chauﬀé de manière homogène. De plus, lors de l’expérience avec
+le papier thermique, nous nous sommes rendu compte qu’à force de le faire tourner à vide le magnétron s’arrêtait de fonctionner et surchauﬀait car les ondes revenaient à l’intérieur du magnétron. À
+ce moment-là nous avons cru l’avoir abîmé mais heureusement ce fut plus de peur que de mal. Par
+la suite, nous avons fait plus attention lorsque nous l’utilisons. Cette expérience nous prouve l’existence d’ondes stationnaires et donc des modes qui ne sont pas exactes dus aux conditions limites.
+Nous avons essayé de les calculer même si ça implique des calculs trop compliqués pour les solutions
+exactes. Au moment de tracer les courbes, nous avons appris à évaluer nos incertitudes. Ce fut une
+première pour nous. En apprenant à les tracer, nous nous sommes rendus compte de l’incertitude que
+nos points pouvaient avoir. Eﬀectivement les incertitudes rendent compte de nos erreurs. La plupart
+du temps nous faisons les mêmes erreurs systématiques comme la vitesse de prise de température,
+sur notre temps de réaction, erreur de thermomètre, temps de chauﬀe du thermomètre et permettent
+donc de réﬂéchir quant à nos résultats et au fonctionnement réel du four micro-onde. Lors du mode
+décongélation, le magnétron s’allume et s’éteint car le mettre à pleine puissance ne servirait à rien.
+En eﬀet, si le magnétron s’éteint c’est pour laisser le temps à la chaleur de se propager autrement cela
+consommerait de l’énergie pour rien car ce n’est pas en essayant d’augmenter la puissance que cela
+chauﬀera plus vite. Ainsi nous en avons déduit que mettre le four à micro-onde à pleine puissance ne
+servirait pas à grand-chose car ce n’est pas ce paramètre qui ferait qu’un glaçon fonde plus rapidement
+c’est la quantité d’eau liquide que celui-ci a à sa surface et le temps. Cela consommerait de l’énergie
+pour rien car ce n’est pas en essayant d’augmenter la température que cela chauﬀera plus vite, c’est
+le temps que la chaleur se propage qui est eﬃcace. En eﬀet, les molécules d’eau sont immobiles dans
+la glace, par conséquent elles ne peuvent pas vibrer en même temps que le champ électrique. Or c’est
+le principe même du chauﬀage dans un four à micro-onde. C’est pour cela que le mode décongélation
+se contente de faire chauﬀer l’eau liquide qui recouvre tout aliment congelé lorsque le magnétron est
+allumé. Cette chaleur sera ensuite transmise par conduction pendant la phase où celui-ci est éteint.
+
+19
+
+Créant ainsi une autre partie liquide et ainsi de suite jusqu’à la décongélation complète de l’aliment.
+Par manque de temps nous n’avons pas pu déterminer, grâce à nos mesures, la valeur de ϵ2 et la
+comparer à celle déjà connue.
+
+20
+
+

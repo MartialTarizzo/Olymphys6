@@ -1,0 +1,990 @@
+L’intouchable thérémine,
+une mine de sciences…
+
+1
+
+Sommaire
+Introduction………………………………………………………………………………………………………………………………….. p. 3
+1. Présentation générale de l’instrument………………………..………………………………………………………….. p. 4
+2. Utilité et fonctionnement du condensateur………………………………………………………………………….. p. 5
+a) Fonctionnement général……………………………………………………………………………………….…... p. 5
+b) Condensateur formé par l’antenne et la main………………………………………………………….… p. 6
+3. L’oscillateur…………………………………………………………………………………………………………………………….. p. 8
+a) Analogie du vase de Tantale…………………………………………………………………………….………….p. 8
+b) Comparateur à hystérésis …………………………………………………………………………………….….. p. 9
+c) Intégrateur……………………………………………………………………………………………………………….. p. 11
+d) Multivibrateur astable……………………………………………………………………………………………… p. 12
+4. La multiplication de deux signaux…………………………………………………………………………………………. p. 14
+5. Réglage du thérémine…………………………………………………………………………………………………………… p. 15
+a) Principe du réglage…………………………………………………………………………………..………………. p. 15
+b) Cage de Faraday……………………………………………………………………………………………………….. p. 15
+c) Principe de fonctionnement du filtre passe-bas……………………………………………………..… p. 17
+d) Comment la distance main-plaque fait-elle varier la fréquence ?................................ p. 18
+Conclusion…………………………………………………………………………………………………………………………………… p. 19
+Bibliographie et remerciements………………………………………………………………………………………………….. p. 20
+Annexes : Amplificateurs Opérationnels et calcul de la fréquence d’oscillation…………………………….p. 21
+
+2
+
+Introduction
+L’année dernière, dans le cadre des Travaux Personnels Encadrés, nous avions étudié la
+relation entre la musique de film et les émotions que le spectateur ressentait. Nous avons listés de
+nombreux paramètres qui pouvaient faire varier ces émotions, comme la rythmique, la mélodie ou le
+timbre des instruments utilisés qui constituent un style musical. Ainsi, en variant ces paramètres,
+nous avons montré qu’il était possible de faire ressentir au spectateur des sentiments allant de la
+tristesse à la joie, en passant par l’angoisse.
+Pendant notre période de recherche, nous avons étudié de nombreuses ambiances
+cinématographiques et nous avons découvert un timbre particulier qui nous a tout de suite fait
+penser à des scènes de science-fiction ou extraterrestres. En cherchant plus de renseignements, nous
+avons trouvé que cet instrument qui produisait aussi bien des mélodies au timbre similaire à la voix
+humaine que des effets sonores amusants s’appelait le thérémine. Il s’agit d’un des premiers
+instruments électroniques, inventé en 1919 par l’ingénieur russe Léon Thérémine. Cet instrument de
+musique se joue sans contact avec l’instrument qui n’offre aucun repère au musicien : il joue donc
+entièrement à l’oreille.
+Nous nous sommes alors intéressés à la manière dont fonctionne cet instrument, et plus
+précisément comment fonctionne la partie tonalité de l’instrument. Comment la position de la main
+du musicien peut-elle faire varier la hauteur du son ? Avec l’informatique actuelle, cela est plutôt
+facile à mettre en œuvre, mais Léon Thérémine a construit son instrument avec des circuits
+électriques.
+
+3
+
+1. Présentation générale de l’instrument
+Le thérémine est un des premiers instruments électronique du XXe siècle. Le premier
+thérémine date des années 1920 et fonctionnait à l’aide d’oscillateurs à tube à vide. Aujourd’hui, le
+thérémine fonctionne grâce à des composants électroniques tels que les oscillateurs.
+
+A l’origine dénommé « Ætherophone », le thérémine possédait
+originellement deux octaves et demi et fonctionnait à l’aide d’oscillateurs à
+tube électronique. En 1929, le « RCA theremin » fut le premier thérémine
+commercialisé. Cet instrument a ensuite traversé les époques en ne se
+limitant pas simplement aux bruitages de film, mais également aux mélodies
+de bandes-originales de science-fiction des années 1960 et 1970 ou encore,
+en faisant apparition dans la musique populaire. On retient aujourd’hui son
+utilisation dans la bande-originale de « Le Jour où la Terre s’arrêta » de
+Robert Wise ou encore dans certains titres du groupe Led Zeppelin.
+Aujourd’hui cet instrument peu connu du grand public n’en est pas moins
+délaissé, pratiqué seulement par quelques théréministes marginaux, il reste
+cependant très utilisé pour les bruitages, les nappes harmoniques ou encore
+les mélodies de certaines bandes-originales ou musiques plus populaires.
+
+Un thérémine actuel se compose de nombreux composants électroniques, comme des
+condensateurs, des résistances et surtout des circuits intégrés : amplificateurs opérationnels,
+oscillateurs, le multiplieur... Nous allons étudier ces différents composants du thérémine.
+
+Le thérémine que nous étudions comporte deux oscillateurs, comprenons le fonctionnement
+de ces circuits électriques.
+
+4
+
+2. Utilité et fonctionnement du condensateur
+a) Fonctionnement général
+Dans un oscillateur, on trouve un condensateur. Un condensateur est un composant
+électronique constitué de deux lames métalliques appelées armatures placées à faible distance mais
+sans contact. Lorsqu’on relie un condensateur à une pile, il se charge et une tension égale à celle de
+la batterie s’établit entre les armatures et est maintenue, même si on déconnecte la pile.
+U
+Armature A
+
+Armature B
+
+Charge qA
+
+Charge qB
+
+Diélectrique
+
+La capacité électrique est la propriété que le condensateur possède à emmagasiner une charge
+(quantité d’électricité) et à la conserver. Elle s’exprime en Farad :
+
+
+Où C est la capacité en farads, Q est la charge en coulombs et U est la tension en volts.
+
+
+Plus la surface des armatures est grande, plus la capacité est grande. Le matériau isolant qui
+sépare les deux armatures est appelé diélectrique. Il peut s’agir d’air, de mica, de papier imprégné
+d’huile ou de paraffine, de plastique… Chacun de ces matériaux a un facteur d’augmentation de la
+capacité, donc une constante diélectrique relative différente. Par exemple, l’air a comme constante
+diélectrique 1, le papier imprégné de paraffine entre 3 et 4, la céramique 5,5 et le mica 7.
+  8,85  10
+
+
+
+   
+2
+
+Où C est la capacité en farads (F), S est la surface des plaques en mètres carrés (m ), d est la
+
+distance entre les deux plaques en mètres (m) et εr est la constante diélectrique relative
+correspondant au matériau séparant les deux plaques.
+On constate bien avec cette formule que plus la surface des armatures est grande est la
+distance entre-elles est petite, plus la capacité du condensateur est grande. Les condensateurs
+entrent dans le fonctionnement des oscillateurs. La fréquence à laquelle oscille le circuit dépend,
+entre autres, de la capacité du condensateur.
+
+5
+
+b) Condensateur formé par l’antenne et la main
+Si l’antenne du thérémine (armature du condensateur) est chargée négativement, et qu’on
+approche un objet conducteur métallique, les électrons de l’antenne vont repousser ceux de cet
+objet qui va se charger positivement, mais ceci aura pour conséquence d’attirer de nouveaux
+électrons sur l’antenne. De la sorte, plus le conducteur et l’antenne sont proches, plus le phénomène
+sera important. En approchant un conducteur de l’antenne, on augmente sa charge électrique, et
+également sa capacité électrique. Cette influence à distance grâce aux charges peut être vérifiée avec
+un électroscope.
+Expérience de l’influence de charges sur un électroscope :
+Si l’on charge l’armature d’un électroscope par contact avec une baguette chargée par
+frottement, l’aiguille de l’électroscope se déplace, indiquant un champ électrique.
+
+Electroscope au repos
+
+Electroscope soumis aux charges du tube de PVC chargé par frottement
+
+6
+
+On approche ensuite la main, qui est conductrice, de l’électroscope chargé. En effet, c’est
+avec ses mains qu’un musicien joue du thérémine. On observe que l’aiguille se déplace. Ainsi la main
+a une influence sur le champ électrique de l’électroscope.
+
+Ainsi, lorsqu’un musicien joue du thérémine il forme avec sa main la deuxième armature d’un
+condensateur de capacité variable, dont la première est formée par l’antenne. Le diélectrique est
+l’air situé entre les deux (de constante diélectrique 1).
+La distance entre les deux armatures ainsi que la surface en regard des armatures peut
+varier, mais on négligera cette dernière. La capacité augmente quand la main s’approche de
+l’antenne.
+La capacité d’un condensateur étant variable, il est possible de faire varier la fréquence
+d’oscillation de l’oscillateur.
+
+7
+
+3. L’oscillateur
+Le thérémine est constitué d’oscillateurs. Leur fonctionnement est le suivant. L’oscillateur est
+alimenté par une tension continue qu’il va transformer en tension alternative, il fait ainsi osciller la
+tension. Un oscillateur harmonique est un oscillateur idéal, dont l’évolution au cours du temps est
+décrite par une fonction sinusoïdale. La fréquence de cette fonction ne dépend que des
+caractéristiques du système et l’amplitude du signal est constante.
+
+a) Analogie du vase de Tantale
+Une analogie avec le vase de Tantale permet une meilleure compréhension du
+fonctionnement de l’oscillateur. En effet, le vase de Tantale permet à partir d’un robinet fournissant
+un courant continu d’eau, d’obtenir une alternance d’un flux d’eau.
+
+Ce système mécanique tire son nom du mythe grec de Tantale. Tantale, qui s’est
+attiré la colère des dieux en leur offrant son fils en sacrifice, se retrouve plongé dans l’eau
+jusqu’au cou mais, il ne peut en boire, car dès qu’il essaye, le niveau du fleuve diminue.
+Un robinet fournit le vase en eau. Quand le niveau d’eau dépasse la hauteur du tuyau du
+siphon, on peut dire que le vase a atteint sa capacité maximum d’eau (h1) puisque le siphon va vider
+le contenu de la bouteille dans l’évier. Ensuite l’eau s’écoule jusqu’à ce que son niveau dans la
+bouteille ait atteint son état bas c’est-à-dire son niveau minimum (h0). Le siphon n’aspire plus d’eau,
+et le niveau d’eau dans la bouteille augmente à nouveau jusqu’à son niveau maximal, et ainsi de
+suite.
+Le système s’amorce lorsque le niveau est maximal et se désamorce lorsque le niveau est
+minimal. Le phénomène se répète de manière périodique, donc nous avons bien un phénomène
+oscillatoire.
+On peut donc dire, en faisant l’analogie, que le robinet est le générateur de tension
+constante, que le condensateur « retient » le courant jusqu’à sa charge maximale.
+ Le vase de Tantale, alimenté de manière continue par un filet d’eau, se vide de manière
+périodique par un siphon. Il est un analogue mécanique de l’oscillateur électrique qui va
+transformer un courant continu en un courant alternatif.
+
+8
+
+Nous avons réalisé un vase de Tantale. Pour qu’il fonctionne, nous avons du respecter quelques
+contraintes : la période de son amorçage doit être courte. De plus, il faut que le débit entrant soit
+inférieur au débit sortant, sinon, le vase déborde !
+Pour construire un oscillateur, nous avons monté un multivibrateur astable, qui se compose d’un
+intégrateur et d’un comparateur à hystérésis.
+
+b) Comparateur à hystérésis (Trigger de Schmitt)
+Ce composant de l’oscillateur est formé de deux résistances et d’un amplificateur
+opérationnel (AO) alimenté par un générateur de tensions constantes de +15/-15V. Il délivre une
+tension de + ou – 15 V, selon la tension appliquée à l’entrée.
+
+Pour notre circuit nous avons choisi les résistances aux valeurs de valeurs R1 = 15 kΩ et R2 = 56kΩ.
+Circuit électrique du comparateur à hystérésis
+Nous avons mesuré l’évolution de la tension en sortie V2 = Vs du comparateur en fonction de
+la tension en entrée V1 = Ve.
+
+9
+
+Nous avons également acquis V1(t) = Ve(t) et V2(t) = Vs(t)
+
+Voir en annexe l’étude théorique du comparateur à hystérésis (p. 21)
+Nous pouvons, pour expliquer nos résultats, faire à nouveau l’analogie avec le vase de
+Tantale. En effet, si nous suivons le sens du premier graphique, lorsque la tension d’entrée est
+croissante (jusqu’à +3V), la tension de sortie est à son état bas, de valeur -15V.
+Puis la tension
+d’entrée arrivée à 3V,
+V, la tension de sortie passe à son état haut, +15V.
++1 V. Il s’agit ici du moment où le
+vase se remplit dans l’analogie. La représentation graphique
+graphique du niveau d’eau est à son état bas puis,
+arrivé à un certain niveau, elle passe à l’état haut qui est caractérisé par le début du débit d’eau
+(niveau h1 sur le schéma). Puis l’eau s’écoule, et de la même manière que le niveau diminue, la
+tension d’entrée
+trée est décroissante et la tension de sortie reste à son état haut de valeur, jusqu’à -7V
+où la tension de sortie bascule vers son état bas. Cet état peut être assimilé à la hauteur h0 sur le
+schéma.
+
+Etat haut h1
+Etat haut h0
+
+Niveau d’eau du vase
+
+Débit sortant
+
+h1
+
+c
+
+h0
+
+Temps
+
+Temps
+Evolution du niveau d’eau dans le vase en
+fonction du temps
+
+Evolution du débit sortant en fonction du temps
+(alternance entre débit nul et débit constant c)
+
+10
+
+Vase de Tantale
+h(t) : hauteur d’eau dans la cuve
+D(t) : débit d’eau dans le siphon
+Remplissage du siphon, h(t) est croissante
+
+h(t) = h1
+Amorçage de la vidange, h(t) est décroissante
+
+h(t) = ho
+
+Analogie
+Grandeur d’entrée
+Grandeur de sortie
+Etat bas
+D(t) = 0, pas de débit dans le siphon
+V2(t) = - 15 V
+La sortie bascule de l’état bas à l’état haut
+Etat haut
+D(t) ≠ 0, débit d’eau dans le siphon
+V2(t) = + 15 V
+La sortie bascule de l’état haut à l’état bas
+
+Comparateur à hystérésis
+V1(t)=Ve(t)
+V2(t)=Vs(t)
+V1(t) est croissante
+
+V1(t) = + 3V
+V1(t) est décroissante
+
+V1(t) = - 3V
+
+c) Intégrateur
+Ce montage électrique, fonctionne grâce à un condensateur, une résistance ainsi qu’un
+composant électronique appelé amplificateur opérationnel devant être alimenté par un générateur
+de tensions constantes de +15 / -15V.
+
+Schéma de principe de l’intégrateur
+R ‘= 1 MΩ
+C=100
+Y1
+
+R = 10
+
+-
+
+Y2
+
++
+Ve
+
+Vs
+
+Schéma du montage réalisé
+
+11
+
+Tensions mesurées aux bornes de l’intégrateur (entrée : Ve et sortie Vs)
+
+L’intégrateur transforme la tension d’entrée, un signal carré délivré par un générateur basse
+fréquence en un signal triangulaire. En fait, le signal d’entrée est l’opposé de la dérivée du signal de
+sortie. Autrement dit l’intégrateur intègre le signal d’entrée, au signe près ce qui donne un motif en
+triangle à la sortie. Cette tension triangulaire est la tension d’entrée du comparateur à hystérésis.
+
+d) Le multivibrateur astable
+Le comparateur et l’intégrateur agissent inversement l’un de l’autre. Le comparateur, comme
+vu précédemment transforme donc une tension triangulaire en une tension en créneaux. Au
+contraire, l’intégrateur retransforme ce signal en créneaux en signal triangulaire. Cela permet de
+boucler le circuit et donc de faire osciller le circuit en l’absence de générateur basse fréquence, (en
+n’omettant pas bien sûr l’alimentation des composants tels que les Amplificateurs Opérationnels, qui
+ont besoin d’une alimentation permanente). On utilisera le signal triangulaire pour la production du
+son du thérémine. De plus on constate dans le circuit la présence d’un condensateur qui fait varier la
+fréquence du signal de l’oscillateur. Ce circuit est appelé « multivibrateur astable ».
+
+Intégrateur
+
+Comparateur
+Schéma électrique du multivibrateur astable
+
+12
+
+La fréquence d’oscillation de l’oscillateur est donnée par  
+
+
+.
+  
+
+Avec les valeurs numériques on trouve une fréquence théorique de f = 534 Hz. Lorsqu’on fait une
+acquisition de l’écran de l’oscilloscope qui mesure les tensions V1(t) = Ve(t) et V2(t) = Vs(t) on
+détermine une fréquence d’oscillation de l’oscillateur de 532 Hz. Ceci permet de vérifier la formule
+permettant de calculer cette fréquence puisque les valeurs calculées et déterminées sont très
+proches.
+
+Dans le thérémine, on retrouve deux de ces multivibrateurs astables, l’un avec un
+condensateur à valeur fixe et donc à fréquence fixe et un second avec un condensateur à valeur
+variable et donc à fréquence variable. La partie tonalité du thérémine, celle qui génère la fréquence
+du son, se compose de deux multivibrateurs astables. Pourquoi notre thérémine a-t-il besoin de deux
+oscillateurs pour fonctionner ? S’il n’y avait qu’un seul oscillateur, on réglerait la fréquence
+d’oscillation dans le domaine audible, et le musicien la ferait varier en faisant varier la capacité du
+condensateur formé par l’antenne et sa main. Seulement, les fréquences obtenues ne seraient pas
+très éloignées de celle de référence. Ainsi, la gamme de fréquence jouable serait sans intérêt musical
+et donc inutilisable pour jouer des mélodies. L’idée astucieuse de Léon Thérémine réside en la
+multiplication des signaux de deux oscillateurs.
+Schéma de principe du 2e oscillateur : il est identique au premier avec une capacité additionnelle en
+parallèle réalisée par une plaque de métal et la main :
+
+Intégrateur
+
+13
+
+Comparateur
+
+4. La multiplication de deux signaux
+Pour obtenir une fréquence audible, on utilise deux oscillateurs générant des hautes
+fréquences, environ 20 kHz dont on va multiplier les signaux. En multipliant deux signaux, on obtient
+deux autres signaux en sortie : l’un est la somme des deux fréquences, donc encore dans les
+ultrasons (40 kHz) tandis que l’autre est la différence des deux fréquences, ce qui donne une
+fréquence appartenant au domaine audible. C’est cette fréquence qui va nous intéresser.
+U1(t) de fréquence f1
+k x U1(t) x U2(t) de fréquences
+f1 – f2 et f1 + f2
+
+U2(t) de fréquence f2
+
+Ainsi, dans notre montage, il y a un oscillateur de fréquence constante et un oscillateur dont
+la fréquence varie en fonction de la position de la main face à l’antenne. Le son est généré par un
+haut-parleur après la multiplication du signal.
+Pour mieux visualiser la multiplication des signaux, nous avons multiplié les signaux
+sinusoïdaux de deux GBF (Générateurs Basse Fréquence) avec f1 = 20 kHz et f2 = 16 kHz. On constate
+bien, après décomposition de Fourier du signal obtenu, que le résultat de la multiplication est
+composé d’une onde de fréquence f1 – f2 = 4 kHz et d’une autre de fréquence f1 + f2 = 36 kHz. Ici,
+seule la différence des deux signaux est comprise dans le domaine audible. Ainsi, si on relie un hautparleur à la sortie du multiplieur, on constate qu’on entend qu’une seule fréquence. Dans la
+représentation de l’onde, on constate que l’enveloppe du signal a la fréquence de la différence des
+fréquences effectuée lors de la multiplication des signaux, soit la fréquence la plus basse, celle qui est
+audible.
+
+20 – 16 = 4 kHz
+
+20 + 16 = 36 kHz
+Décomposition de Fourier du signal multiplié
+14
+
+5. Réglage du thérémine
+a) Principe du réglage
+Lors du test du montage de notre thérémine, nous nous sommes retrouvés face au problème
+du réglage
+glage de l’instrument. En effet, le principe de fonctionnement de cet instrument repose sur le
+fait que l’on peut faire varier la capacité d’un des deux condensateurs en approchant ou éloignant la
+main d’une antenne qui forment la deuxième armature d’un condensateur.
+co
+Il a fallu effectuer un réglage sur ce thérémine, réglage qui se fait « à l’oreille ». Ce réglage a
+pour but de placer les deux oscillateurs à une même fréquence ; ce qui permettra (grâce au principe
+de multiplication des signaux) de ne pas avoir
+avoir de son lorsque le thérémininiste est devant son
+instrument sans agir sur lui.
+Or le bouton de réglage se trouve sur le même circuit intégré que le condensateur, et
+lorsqu’on s’approche pour tourner ce bouton, notre main influe sur le champ électrique du
+condensateur de l’oscillateur de référence, donc sur sa capacité et sur la fréquence d’oscillation de
+cet oscillateur, le réglage est ainsi faussé.
+Il a donc fallu isoler le circuit intégré contenant tous les composants pour ne laisser dépasser
+que l’antenne
+nne et le bouton de réglage. Pour cela nous avons étudié et utilisé le principe d’isolation
+aux champs électriques que permet la cage de Faraday.
+
+b) La cage de Faraday
+Une cage de Faraday est une enceinte ou une cage métallique qui permet d'isoler un espace
+de l'influence des champs électriques extérieurs. A l'intérieur de la cage, le champ électrique est nul,
+même si des charges sont placées à l'extérieur ou si la cage est reliée à un générateur. Inversement si
+on introduit des charges à l'intérieur d'une cage
+cage de Faraday, le champ électrique à l'extérieur n'en
+sera pas perturbé.
+Son enceinte en aluminium doit être reliée à la Terre de manière à
+maintenir un potentiel électrique fixe. L’enceinte métallique doit en
+principe être fermée de chaque côté. Mais elle peut aussi être
+constituée de grillage. Un grillage avec une maille de quelques
+centimètres agit comme un miroir sur une onde.
+onde Plus la fréquence de
+l'onde est élevée (donc plus sa longueur d'onde est courte), plus la
+maille doit être petite.
+Nous avons visité le musée EDF Electropolis de Mulhouse pour en
+apprendre un peu plus sur l’électrostatique et en particulier sur la cage
+de Faraday.
+Exemples de l’utilisation de la cage de Faraday :
+•
+
+Une voiture à carrosserie métallique est une cage de Faraday qui
+protège
+tège ses occupants contre les dangers d'électrocution
+provenant d'un contact extérieur ou d'une décharge
+atmosphérique (foudre). Inconvénient : les ondes radio (électromagnétiques) ne traversent
+15
+
+•
+•
+
+pas les cages de Faraday, ce qui empêche de faire fonctionner correctement, à l'intérieur
+d'une automobile, des récepteurs ou des émetteurs (autoradios, téléphones portables). On
+utilise alors une antenne de toit.
+un four à micro-ondes est composé d'une cage de Faraday dans laquelle on place les
+aliments à chauffer, et la porte est munie d'un grillage assez fin pour retenir les ondes et
+assez grand pour permettre de voir à l'intérieur.
+Les appareils de médecine IRM (imagerie par résonance magnétique) comportent une cage
+de Faraday.
+
+Nous avons donc décidé d’entourer notre montage d’une cage de Faraday, en ne laissant sortir
+que l’antenne et le bouton de réglage. Testons l’efficacité de cette cage de Faraday avec un
+électroscope.
+Expérience
+Si l’on répète l’expérience d’influence en interposant une cage de Faraday entre
+l’électroscope et la main, on constate que les charges n’ont plus aucune influence sur
+l’électroscope.
+
+Electroscope au repos
+
+Electroscope au repos avec la cage
+de Faraday
+
+Grâce à la cage de Faraday, l’électroscope n’est plus influençable.
+La main n’a plus d’influence sur l’électroscope chargé lorsque qu’un grillage est placé entre la
+main et l’électroscope.
+16
+
+c) Principe de fonctionnement du filtre passe-bas
+Il résulte donc deux fréquences de la multiplication des signaux. Comme seul le signal de
+basse fréquence nous intéresse puisqu’il est dans le domaine audible, nous avons ajouté au montage
+un filtre passe-bas qui permet d’atténuer fortement l’amplitude du signal haute fréquence. Ainsi,
+seul le signal audible est émis par le haut-parleur.
+Y1
+Y2
+G
+
+R
+C
+
+Ve
+
+Vs
+
+Le filtre passe-bas est composé d’une résistance et d’un condensateur. Une armature du
+condensateur est reliée à la masse. Lorsque la fréquence du signal est élevée, le condensateur est
+équivalent à un court-circuit. L’amplitude des hautes fréquences est donc atténuée et on ne les
+entend plus.
+Montage :
+On mesure les tensions aux bornes du GBF et du condensateur. On constate que plus la fréquence du
+signal d’entrée est élevée, plus le signal de sortie est atténué. On cherche alors à déterminer pour
+quelles valeurs de capacités et résistances, l’amplitude de la tension de sortie est divisée par deux.
+Voici nos valeurs :
+Résistance (k)
+10
+100
+10
+10
+1
+
+Capacité (nF)
+100
+10
+10
+1
+10
+
+Produit RC (µs)
+1000
+1000
+100
+10
+10
+
+Fréquence limite (amplitude/2) kHz
+0,282
+0,271
+2,74
+23,3
+24.0
+
+Nous remarquons que si le produit des valeurs de la résistance et du condensateur est
+constant, la fréquence pour laquelle l’amplitude est divisée par deux est la même. Pour une même
+valeur du produit RC de la résistance et de la capacité, la fréquence limite à partir de laquelle
+l’amplitude sera divisée par deux est la même.
+
+17
+
+d) Comment la distance main-plaque fait-elle varier la fréquence ?
+
+Ici, nous avons mesuré la fréquence de sortie du thérémine, passant par le filtre passe-bas pour avoir
+la valeur d’une seule fréquence. Nous avons donc mesuré la fréquence émise par le thérémine en
+fonction de la distance de la main à la plaque métallique. Nous nous sommes appliqués à mesurer
+précisément cette distance ainsi qu’à garder une surface de la main en regard constante.
+
+En exprimant la capacité par :   8,85  10
+
+
+
+
+où S est la surface de la plaque en regard
+
+
+avec la main et d la distance main-plaque, on doit avoir :
+
+
+
+
+1     
+
+où
+
+ 
+
+4
+
+
+
+
+
+(voir Annexes p. 21 pour l’explication des formules)
+
+18
+
+Conclusion
+Antenne (armature d’un condensateur)
+
+Oscillateur de fréquence
+constante f1
+
+Oscillateur de fréquence f2
+variable selon la capacité
+du condensateur
+
+Multiplication
+des signaux
+de fréquences
+
+f1 + f2 et f1 - f2
+
+Filtre
+passe-bas
+
+f1 et f2
+
+Schéma bilan
+
+Voici le montage électrique de notre thérémine artisanal :
+
+Un thérémine complet comporte également une antenne supplémentaire qui permet de
+faire varier l’intensité des sons émis pour plus de musicalité.
+
+19
+
+f1 – f2
+
+Bibliographie
+http://www.sonelec-musique.com/electronique_realisations_theremin_002.html
+http://www.systemes-electroniques.fr/cours-1-3-les-condensateurs.html
+http://electroniqueists.free.fr/ISTS2/Cours_en_section/02Condensateur/Cours%20condensateur.pdf
+http://www.ilephysique.net/physique_terminale-dipole-RC.php
+http://www.sonelec-musique.com/electronique_realisations_theremin_presentation.html
+http://etheremin.com/index.html ethttp://www.thereminworld.com
+Pour la science, http://www.pourlascience.fr/ewb_pages/a/article-le-theremine-un-son-venu-dailleurs-23557.php
+
+Remerciements
+
+Merci à nos professeurs encadrant, M. Strubel et Mme Adloff qui nous ont aidés à monter notre
+projet !
+Merci à Jean Hurter, théréministe, que nous avons pu écouter en concert.
+Merci Pauline Jenn, animatrice du Musée EDF Electropolis de Mulhouse.
+
+Magaly Arnold, Thomas Fournier, Anthony Ropp et Mathieu Vogt
+
+20
+
+Annexes
+Comment calculer la fréquence émise par le thérémine en fonction des composants utilisés ?
+On ne va parler ici que d’un modèle simplifié dit « idéal ».
+L’amplificateur opérationnel (A.O.) idéal est un composant électronique comportant deux entrées
+(inverseuse - et non inverseuse +) et une sortie.
+C’est un amplificateur différentiel de tension.
+L’alimentation continue symétrique ( +15 V , 0, -15 V ) n’est pas représentée, mais est présente. Il
+faut d’abord alimenter l’A.O. avec cette alimentation.
+C’est le 0 de cette alimentation qui définit la masse du montage.
+La grandeur d’entrée est ε = (V+) – (V-) .
+Suivant la valeur de cette tension ε, dite différentielle (d’où le nom) l’amplificateur opérationnel peut
+fonctionner selon deux régimes :
+(
+• un régime linéaire pour ε = 0 et "#$% & '# & "#$%
+: C’est le cas de l’intégrateur
+- Si ε > 0, '#  "#$%
+- Si ε < 0, '#  ) "#$%
+C’est le cas du comparateur.
+Les courants d’entrée, entrant dans les pattes + et -, sont nuls.
+Comment faire pour avoir ε = 0 ?
+C’est simple : si un composant relie la sortie à l’entrée inverseuse, alors l’AO fonctionnera en régime
+linéaire, c’est le cas de l’intégrateur. Sinon non, il s’agit du cas du comparateur.
+
+Comparateur à hystérésis
+u2
+
+i
+
+R2
+
+i
+
+u1
+R1
+
+ve
+
++
+vs
+
+La sortie inverseuse est reliée à la masse, donc on a v- = 0.
+Comme le courant qui entre à la sortie non inverseuse (+) est nul, c’est le même qui circule dans R1
+et R2.
+D’après la loi d’Ohm : + 
+ , et + 
+,
+En appliquant la loi des mailles, on obtient :
+'- ) + ) + ) '#  0
+'- )
+,)
+ , ) '#  0
+D’où
+'- ) '#
+,
+
+21
+
+Calcul de v+ :
+
+' (  '- )  ,
+'
+- ) '#
+' (  '- ) 
+
+ '- 
+ '#
+
+
+
+Si ε = v+ - v- > 0, alors vs = + vsat. Dans quel cas est-ce réalisé ?
+Pour répondre à cette question, prenons le problème dans l’autre sens : supposons que vs = + vsat.
+Alors
+'( 
+Et
+ε  '( ) '  '( ) 0 
+
+
+
+
+ '- 
+
+ '#$%
+
+
+
+
+
+ '-    '#$% / 0
+ (
+ (
+
+On en déduit : '- / )   '#$%
+
+
+
+
+On conclut donc que tant que ve reste supérieur à )   '#$% , vs reste égale à vsat.
+
+
+
+
+
+De la même manière, tant que ve reste supérieur à    '#$% , vs reste égale à - vsat.
+
+
+On se place à vs = + vsat :
+
+Que se passe-t-il si ve diminue, et passe sous la valeur )   '#$% ?
+
+
+
+
+Alors vs va « basculer » à la valeur – vsat et y restera tant que ve restera inférieure à    '#$% .
+
+
+L’intégrateur
+u’2
+
+i
+
+i
+
+u’1
+-
+
+R
+
++
+
+v’e
+
+v’s
+
+Remarque : Les tensions sont notées avec ’ pour relier ensuite les deux montages.
+Les grandeurs i, v’e , v’s , u’1 et u’2 sont des fonctions du temps.
+On a ici v+ = 0
+Comme le montage fonctionne en régime linéaire, on a ε = 0, donc :
+ε  '( ) '  '(  '  0
+Or on a
+'0- ) +0 ) +0 ) '0#  0 (1)
++0   , (2)
+Pour un condensateur, on a :
+2
+
+,  1  % (3)
+22
+
+Et
+'  '- ) +0  0 (4)
+On en déduit donc (1) et (4) : '#  +0  0
+Donc :
+'# +0
+
+0
+3
+3
+45
+6
+ 0
+%
+
+
+(d’après (3))
+
+45
+2
+ 0
+%
+
+
+(d’après (2))
+
+45
+4
+ 7  0
+%
+
+(d’après (4))
+
+On en déduit que
+'# )'
+3
+
+Si v’e =-vsat ,
+croissante.
+Si v’e =+vsat ,
+décroissante.
+
+45
+4589
+  
+donc comme le coefficient directeur de v’s est positif, v’s est
+%
+
+45
+4589
+ ) 
+donc comme le coefficient directeur de v’s est négatif, v’s est
+%
+
+%
+
+On a donc ' : # ;3<  ' # ;0< )   = '#$% 3
+' : # ;3<  ' : # ;0< )
+
+1
+1
+ '#$% ;3 ) 0<  ' : # ;0< )
+ '#$%  3
+
+
+
+Si v’s(t) est la tension d’entrée du comparateur, alors on va se retrouver au cas où vs = +vsat.
+Donc vs va « basculer » à – Vsat !
+
+Oscillateur
+Que se passe-t-il lorsque les deux montages sont bouclés ?
+
+C
+
+R2
+
+R
+v’e
+
++
+
+R1
++
+-
+
+v’s = ve
+
+23
+
+vs = v’e !
+
+Imaginons que vs = + vsat donc v’e = +vsat
+
+
+
+D’après l’étude du comparateur on est à +vsat tant que ve reste supérieure à )   '#$% , et d’après
+l’étude de l’intégrateur, ve décroît.
+
+
+Au moment (appelons le t = 0s) où ve atteint )   '#$% , vs bascule à – vsat.
+
+
+A partir de là, l’intégrateur intègre la tension v’e = - vsat. Il suffit de reprendre la formule exprimant v’s
+et de remplacer + vsat par – vsat !
+' : # ;3<  ' # ;0< 
+
+
+
+ '#$% ;3< et v’s(t) croît !
+
+Jusqu’où croît-elle ? D’après ce que l’on a vu précédemment, elle croît jusqu’à ce que
+
+'-    '#$% , alors vs rebasculera ) +vsat … ça oscille !
+
+
+Période de l’oscillateur :
+
+
+
+On a dit qu’à t = 0s, on avait '- ;0<  ' : # ;0<  )   '#$%
+
+
+Combien de temps faut-il pour arriver à ' : # ;3 <     '#$% ?
+
+
+On reprend la formule :
+' : # ;3<  ' : # ;0< )
+
+1
+ '#$%  3
+
+
+' : # ;3 <  ' : # ;0< 
+
+1
+ '#$%  3
+
+
+Avec vs = - vsat :
+
+
+
+ '#$%  )
+
+ '#$% 
+
+1
+ '#$%  3
+
+
+3 2 
+Comme la deuxième phase de l’oscillateur a la même durée, la période de l’oscillateur est :
+? 23 4 
+La fréquence de l’oscillateur est ainsi :
+
+
+1
+
+? 4 
+
+Cette fréquence d’oscillation est bien inversement proportionnelle à C !
+Application numérique avec nos valeurs :
+R1 = 22kΩ ; R = 10 kΩ ; R2 = 47kΩ ; C = 100nF
+
+
+47
+ 534 CD
+4  22  10 A
+24
+
+On peut également calculer la fréquence émise par le thérémine en faisant la différence des
+fréquences générées par les deux oscillateurs.
+Le premier oscillateur oscille à une fréquence fixe f1 :
+ 
+
+4 
+
+
+
+1
+
+
+Avec
+ 
+
+4 
+
+Le second oscillateur oscille à une fréquence f2 qui varie en fonction de la capacité du condensateur
+du circuit. Il s’agit en réalité d’une capacité parasite qui s’ajoute à celle du condensateur du circuit.
+Cette capacité parasite est dûe aux variations de positions de la main.
+ 
+Avec E  8,85  10
+
+
+
+4 
+
+ ;  E <
+
+
+
+1
+ ;  E <
+
+
+
+
+∆   )  
+
+1
+)
+
+
+1
+ ;  E <
+
+Par application numérique, on peut calculer une fréquence théorique que peut émettre le
+thérémine.
+
+25
+
+

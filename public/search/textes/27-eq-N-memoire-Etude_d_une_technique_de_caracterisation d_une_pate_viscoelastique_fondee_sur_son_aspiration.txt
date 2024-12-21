@@ -1,0 +1,378 @@
+Olympiades de physique 2019-2020
+
+Issane ABBED
+Ikrame CHETTOUH
+Ilham CHIKH
+Lilian FELLICE
+Amina MAAMERI
+Hissam RAHMANI
+
+Etude d'une technique de caractérisation d'une pâte
+viscoélastique fondée sur son aspiration
+
+Résumé :
+Nous avons lu qu'étudier la dynamique d'aspiration d'un amas de cellules dans un capillaire permettait
+de renseigner sur le caractère cancéreux ou non de l'amas [1]. Nous avons aussi lu qu'un amas de cellules
+pouvait être considéré comme un uide viscoélastique [1]. Nous avons voulu en savoir plus. Nous avons
+donc choisi un uide viscoélastique du commerce, la silly putty. Nous avons tout d'abord vérié que la
+silly putty était bien un uide viscoélastique, et donc un bon candidat pour notre travail, puis nous avons
+donc essayé de l'aspirer dans un tube en plastique en nous inspirant de l'étude [7]. L'analyse de nos lms
+nous a permis de calculer le module d'élasticité E et la viscosité dynamique η de la silly putty.
+Mot-clés :
+viscoélasticité, silly putty, étalement, aspiration, dynamique, amas de cellules cancéreuses.
+
+− Encadré par Mme DEMEURE
+− Lycée Robert Doisneau de Vaulx-en-Velin
+
+Table des matières
+
+1 Introduction et motivations
+1.1 Motivations . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+1.2 Introduction . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+
+2 La silly putty : un uide viscoélastique
+2.1 Fluide viscoélastique : dénition . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+2.2 Comportement de la silly putty : deux échelles de temps . . . . . . . . . . . . . . . . . . .
+2.2.1 Au temps court . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+2.2.2 Au temps long . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+
+3 Aspiration de la silly putty dans un capillaire
+
+2
+2
+2
+
+4
+4
+4
+4
+5
+
+7
+
+3.1 Démarche expérimentale . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 7
+3.1.1 Dispositif expérimental . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 7
+3.1.2 Traitement de la vidéo d'aspiration . . . . . . . . . . . . . . . . . . . . . . . . . . . 8
+3.2 Observations expérimentales . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 8
+3.3 Modélisation de la silly putty . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 10
+
+4 Conclusion et perspectives
+
+12
+
+Références
+
+13
+
+Chapitre 1
+
+Introduction et motivations
+1.1 Motivations
+En septembre 2018, c'est-à-dire au moment où notre groupe entrait en première S, Mme Demeure
+est venue nous présenter le concours des Olympiades de Physique. Au début, seulement deux d'entre
+nous étaient intéressés. En eet, nous avons tout d'abord pensé que cela nous prendrait trop de temps et
+que participer aux Olympiades ne serait pas très amusant. Finalement, après discussion entre nous, nous
+avons réussi à former une équipe de six, avec pour atouts majeurs une très bonne entente entre nous et
+un excellent esprit d'équipe. Nous étions alors prêts à relever le dé !
+Avant de dénir le sujet sur lequel porterait notre étude, nous avons choisi comme thème principal
+l'étude des cellules cancéreuses. Par la suite, et après avoir été un peu guidés par notre encadrante, nous
+avons décidé d'étudier une technique de caractérisation des cellules cancéreuses fondée sur leur aspiration.
+An d'en apprendre plus sur le sujet, nous avons lu quelques fragments de la thèse de Mélanie DURTH [1].
+Cette lecture nous a guidés dans le choix des expériences que nous réaliserons par la suite. Il a alors fallu
+dresser la liste du matériel nécessaire à la mise en ÷uvre de ces expériences. Nous nous sommes vite rendu
+compte qu'il faudrait adapter les expériences en fonction du budget dont nous disposions, ce que nous
+avons fait. Cela a été long, mais nous y sommes nalement parvenu et avons pu démarrer sérieusement les
+expériences en mai 2019. Après la nale académique, nous sommes allés rencontrer Charlotte RIVIERE,
+chercheuse à l'Institut Lumière Matière de Lyon pour qu'elle nous aide à mieux comprendre le phénomène
+de propagation du cancer dans le corps humain. Nous tenons à la remercier.
+
+1.2 Introduction
+Des recherches menées contre le cancer ont prouvé qu'il existait un lien entre l'évolution de la maladie
+et celle des propriétés mécaniques des cellules. Une des particularités des cellules cancéreuses est que,
+contrairement aux cellules saines, elles sont déformables. Ceci leur procure la faculté de migrer à travers
+les vaisseaux du corps humains (comme représenté sur la gure 1.1) et c'est ainsi que se propage le cancer :
+on parle alors de formation de métastases [1].
+Il est donc important de mettre en place des techniques qui permettent de sonder cette capacité à se
+déformer de la cellule. L'une de ces techniques consiste à aspirer la cellule dans un tube et à étudier la
+dynamique de cette aspiration. Pour les mêmes raisons, mais cette fois à plus grande échelle, il peut être
+intéressant d'aspirer un amas de cellules cancéreuses (tumeur). C'est cette expérience sur laquelle nous
+nous sommes concentrés, en modélisant la tumeur par une pâte viscoélastique appelée  silly putty .
+
+2
+
+Fig. 1.1
+
+ Déformation cellulaire et propagation du cancer [2].
+
+3
+
+Chapitre 2
+
+La silly putty : un uide viscoélastique
+2.1 Fluide viscoélastique : dénition
+Un uide viscoélastique est un uide qui a un double visage [3] :
+ il se comporte comme un solide élastique si on l'observe au temps court ; en eet, si on fait une
+balle avec un uide viscoélastique et qu'on la lâche sur le sol, elle va rebondir comme une balle de
+tennis.
+ il se comporte comme un liquide visqueux au temps long : si on dépose une balle d'un uide
+viscoélastique sur la table, elle va s'étaler mais cela prend du temps.
+Nous allons vérier que la silly putty est bien un uide viscoélastique.
+
+2.2 Comportement de la silly putty : deux échelles de temps
+2.2.1
+
+Au temps court
+
+Si l'on fait une balle avec un petit morceau de silly putty et qu'on la lâche au-dessus d'une table, elle
+rebondit. Nous avons voulu faire cette expérience et la lmer comme décrit sur la gure 2.1).
+
+Fig. 2.1
+
+ Montage expérimental pour lmer le rebond d'une petite balle de silly putty.
+
+Pour cela, nous avons pris un morceau de silly putty que nous avons modelé pour en faire une balle de
+1, 5 cm de diamètre. Nous avons installé une webcam sur l'ordinateur et avons lmé le rebond de la silly
+putty. Finalement, nous n'avons pas pu exploiter le lm pour étudier le rebond de la silly putty car notre
+
+4
+
+caméra n'était pas assez rapide (seulement 60 images/s) et seules des traînées oues étaient visibles sur
+la vidéo.
+Nous vous le montrerons donc en direct.
+2.2.2
+
+Au temps long
+
+An d'étudier le comportement de la silly putty au temps long, nous avons pris trois morceaux de
+silly putty de tailles diérentes que nous avons modelé pour former des balles : une balle de 1, 1 cm,
+une de 1, 5 cm et une de 1, 8 cm. Ces diamètres ont été mesurés grâce à une règle placée en arrière-plan.
+Ensuite, nous avons utilisé une webcam et avons lmé pendant environ une heure et demi (voir gure 2.2).
+
+Fig. 2.2
+
+ Montage expérimental pour lmer l'étalement de trois petites balles de silly putty.
+
+Les cinq images que nous avons extraites du lm et qui sont visibles sur la gure 2.3 montrent que
+les balles de silly putty s'étalent très lentement, comme le ferait un liquide très visqueux.
+
+Fig. 2.3
+
+ Evolution de la forme des balles de silly putty en fonction du temps.
+
+Pour le visualiser plus facilement, nous avons tracé sur la gure 2.4 ci-dessous l'évolution du diamètre
+
+5
+
+du disque de contact entre la balle et le support de chacune des trois balles en fonction du temps.
+
+Fig. 2.4
+
+ Evolution du diamètre du disque de contact entre la balle et le support pour chacune des trois balles
+
+en fonction du temps.
+
+Les graphiques montrent que l'étalement de la silly putty est lent, qu'il n'est pas linéaire et qu'il
+ralentit au fur et à mesure du temps puisque la tangente à la courbe s'horizontalise de plus en plus
+jusqu'à atteindre un palier. La silly putty peut donc être considéré comme un liquide visqueux lorsqu'on
+l'observe sur un temps susamment long.
+Finalement, la silly putty se comporte bien comme un solide élastique au temps court et comme un
+liquide visqueux au temps long
+
+6
+
+Chapitre 3
+
+Aspiration de la silly putty dans un
+capillaire
+3.1 Démarche expérimentale
+3.1.1
+
+Dispositif expérimental
+
+An d'étudier l'aspiration d'une balle de silly putty, nous avons réalisé le montage décrit sur la
+gure 3.1.
+
+Fig. 3.1
+
+ Montage expérimental permettant d'aspirer une balle de silly putty dans un capillaire.
+
+Le mélange eau/glycérol ayant la même masse volumique que la silly putty, il permet de s'aranchir
+du poids de la balle lors de l'aspiration. Cependant, cela rend très dicile la réalisation de l'expérience
+alors nous avons supprimé la cuve remplie du mélange eau/glycérol et posé la balle directement sur le
+support élévateur. Le capillaire et la seringue ont ensuite été remplis d'eau et la sortie du tube capillaire
+a été alignée avec la surface libre de l'eau dans la seringue an qu'il n'y ait aucun écoulement d'eau.
+La balle est alors mise au contact du tube capillaire à l'aide du support élévateur et la vidéo est lancée.
+Finalement la seringue est abaissée brutalement d'une dizaine de centimètres pour que la balle de silly
+putty soit aspirée dans le tube capillaire. L'aspiration est lmée pendant presque 7 h. Lorsque le lm est
+terminé, il est rééchantillonné avec Virtualdub en ne gardant qu'1 image sur 400. En eet, comme nous
+ne connaissions pas a priori la vitesse du phénomène étudié, nous avons fait une vidéo à 60 images/s.
+
+7
+
+Nous avions donc plus d'un million d'images pour 7h d'enregistrement, ce qui était impossible à traiter.
+Nous nous sommes limités à une vingtaine d'images à traiter.
+3.1.2
+
+Traitement de la vidéo d'aspiration
+
+Une fois le lm rééchantillonné, nous l'avons ouvert avec le logiciel Aviméca et nous avons pointé la
+position du front de silly putty dans le capillaire (voir gure 3.2 ci-dessous).
+
+Fig. 3.2
+
+ Pointage de la vidéo dans Aviméca.
+
+Finalement, nous avons envoyé les valeurs de la position de la silly putty dans le tube en fonction du
+temps dans le logiciel Regressi et avons tracé le graphique correspondant (voir gure 3.3 ci-dessous).
+
+Fig. 3.3
+
+ Tracé du graphique représentant la position de la silly putty dans le capillaire en fonction du temps.
+
+3.2 Observations expérimentales
+Cinq images ont été extraites d'une vidéo d'aspiration (voir gure 3.4 ci-après) pour laquelle l'abaissement de la seringue a été mesuré à 10 cm. Elles montrent que le front de la balle de silly putty est
+arrondi dans le capillaire et qu'il monte au fur et à mesure du temps.
+
+8
+
+Fig. 3.4
+
+ Montée de la silly putty dans le tube de diamètre intérieur D = 0, 50 ± 0, 04 cm.
+
+An d'avoir une idée de la vitesse à laquelle la balle monte dans le tube, nous avons tracé la position
+L du front de silly putty dans le tube en fonction du temps (voir gure 3.5 ci-dessous).
+
+Fig. 3.5
+
+ Position de la silly putty dans le capillaire en fonction du temps pour une pression d'aspiration de
+
+∆h = 10 cm soit ∆P = (9, 8 ± 0, 1) × 102 Pa.
+
+Sur ce graphe, on retrouve les deux comportements de la silly putty : aux temps courts, le régime
+élastique où le front de la silly putty s'arrondit rapidement et, aux temps longs, le régime visqueux où
+le front de la silly putty avance lentement dans le tube à vitesse constante. Le comportement de la silly
+putty est caractérisé par trois paramètres : τ , δ et L˙f . Le temps τ représente le temps caractéristique
+pour que le régime visqueux s'établisse ; δ représente le saut élastique, c'est-à-dire la déformation rapide
+du front de la silly putty au début de l'aspiration et L˙f est la vitesse nale du front dans le tube.
+
+9
+
+L'objectif de la partie suivante est d'utiliser ces trois paramètres an de remonter au module d'Young
+E et à la viscosité dynamique η de la silly putty.
+
+3.3 Modélisation de la silly putty
+Pour faire coïncider ces deux régimes, on peut utiliser le modèle de uide viscoélastique décrit sur
+la gure suivante (voir gure 3.6 ci-dessous) : un amortisseur (ξv ) est mis en série avec un modèle de
+2
+Kelvin-Voigt (κ, ξel ). La silly putty est ici aspirée avec une force fa = ∆P × π D4 où D = 0, 50 ± 0, 04 cm
+et ∆P = (9, 8 ± 0, 1) × 102 .
+
+Fig. 3.6
+
+ Modèle de uide viscoélastique appliqué à la silly putty.
+
+En résolvant une équation diérentielle, ce qui n'est pas à notre niveau et c'est pour cela que nous
+ne le détaillons pas ici, on peut montrer que ce modèle permet d'obtenir l'expression suivante pour la
+position L du front de silly putty dans le tube en fonction du temps :
+L(t) = L(0) + fκa (1 − exp(− ξκtel )) + fξva t
+
+La position peut aussi s'exprimer en fonction des trois paramètres τ , δ et L˙f de la manière suivante :
+L(t) = L(0) +
+
+δ−L(0)−L˙f τ
+(1 − exp(− τt )) + L˙f t
+0,63
+
+Aux temps courts, il a été montré par M. Aoki et al que, pour un tube ayant la même nesse que le
+nôtre, on a :
+2δ
+∆P
+D = E
+
+[4]
+
+D'après la gure 3.5, δ = 2, 8 mm. Ainsi :
+−2
+
+E = ∆P2δ×D = 980×0,50×10
+2×2,8×10−3
+
+= 8, 7 × 102 Pa.
+
+L'incertitude majeure sur E provient de la mesure de D qui a été faite au pied à coulisse. On estime
+1
+l'incertitude à u(D) = 0, 04 cm. Ainsi u(E) = u(D)
+D × E = 7 × 10 Pa.
+Finalement le module d'élasticité de la silly putty est estimé à :
+
+10
+
+E = (8, 7 ± 0, 7) × 102 Pa.
+
+Aux temps longs, et tant que la silly putty n'est pas trop rentrée dans le tube, on fait l'hypothèse
+˙ [5],
+que la force d'aspiration fa est compensée par la force de frottements visqueux fv = 3π 2 ηD/2L(t)
+c'est-à-dire qu'on néglige le poids de la balle (car elle repose encore sur le support) et on néglige les
+frottements aux parois du tube. Dans ce cas, on obtient :
+L˙f = D∆P
+6πη
+
+Soit :
+η = D∆P
+6π L˙
+f
+
+Dans le cas de la gure 3.5, L˙f = 7, 3 × 10−7 m.s−1 soit 2, 6 mm.h−1 .
+Ainsi :
+−2
+
+×980
+η = 0,50×10
+= 3, 6 × 105 Pa.s.
+6π×7,3×10−7
+
+L'incertitude majeure sur η provient, comme pour E , de la mesure de D. Ainsi u(η) = u(D)
+D ×η =
+4
+3 × 10 Pa.s.
+Finalement la viscosité dynamique de la silly putty est estimée à :
+η = (3, 6 ± 0, 3) × 105 Pa.s.
+
+Ces valeurs de E et η paraissent être de bons ordres de grandeur si l'on en croit l'étude du Cambridge
+Polymer Group [6].
+
+11
+
+Chapitre 4
+
+Conclusion et perspectives
+Pour l'instant, nous avons réussi à mettre en évidence le caractère viscoélastique de la silly putty,
+faisant d'elle un bon candidat pour modéliser un amas de cellules cancéreuses [1]. Nous avons réalisé
+quelques lms d'aspiration de balle de silly putty dans un capillaire. Ces lms nous ont permis de
+remonter aux valeurs du module élastique et de la viscosité dynamique de la silly putty. On a trouvé :
+E = (8, 7 ± 0, 7) × 102 Pa et η = (3, 6 ± 0, 3) × 105 Pa.s.
+
+Ces résultats semblent raisonnables aux vues de l'étude [6].
+Nous aimerions faire d'autres lms an d'améliorer la reproductibilité de nos expériences.
+D'autre part, il faudrait que nous puissions aspirer la balle lorsqu'elle baigne dans le mélange eau/glycérol
+an de nous aranchir du poids et que la balle garde la même allure sphérique pendant la phase d'aspiration.
+Enn, il serait intéressant de voir l'impact de la hauteur d'abaissement de la seringue sur la dynamique
+d'aspiration de la balle, an de voir si l'on retrouve les mêmes valeurs pour E et η .
+
+12
+
+Références
+
+[1] M. Durth, Dynamiques d'aspirations d'interfaces complexes, Thèse, Ecole Polytechnique X, 2012
+[2] O'Hayre et al., Cell assemblies evolution during cancer progression, Biochem. J. 409, 2008
+[3] C. Verdier, Cours de rhéologie, LIPhy, Université Joseph Fourier de Grenoble
+[4] T. Aoki et al., The pipette aspiration applied to the local stiness measurements of soft tissues,
+Anals of Biomedical Engineering, 1997
+[5] Z. Dagan et al., Journal of Fluid Mechanics ;115 : 505, 1982.
+[6] Cambridge Polymer Group, Silly putty "Egg", Application note, 2010.
+[7] K. Guevorkian, M.-J. Colbert, M. Durth, S. Dufour et F. Brochard-Wyart, Aspiration of biological
+viscoelastic drops, 2010.
+
+13
+
+

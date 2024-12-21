@@ -1,0 +1,871 @@
+Membres du groupe :
+- Eliott Bernard de Courville
+- Johanna Charpentier
+- Margot Farkas
+- Tangui Reltgen
+
+XV​e​ Olympiades de Physique
+2017-2018
+
+Les Chemins de la colère de Zeus
+
+Professeurs référents
+- Mme Guerra
+- M. Ménétrier
+75006 Paris
+
+​Ecole Alsacienne
+
+109 rue Notre-Dame des Champs
+
+Résumé
+La foudre est un phénomène aussi dangereux qu’impressionnant, d’une forme facilement
+reconnaissable. A travers cette Olympiade, nous nous sommes intéressés à la modélisation de sa
+trajectoire. Bien que nous ne puissions pas reproduire ce phénomène naturel en laboratoire, nous
+avons trouvé d’autres solutions pour l’étudier. Nous avons cherché les paramètres déterminants dans
+la trajectoire de la foudre, et pour ce faire nous avons analysé des arcs électriques à plus petite
+échelle, en utilisant comme générateurs une machine de Wimshurst et une bobine Tesla. Nous avons
+ensuite développé des modèles de simulation en 2D et en 3D basés sur les paramètres considérés
+(champ électrique et aléatoire). Enfin, nous avons cherché à vérifier la cohérence de nos
+modélisations, en comparant les dimensions fractales des résultats de nos programmes avec celles
+des figures obtenues expérimentalement.
+
+1
+
+Sommaire
+Résumé
+
+1
+
+Sommaire
+
+2
+
+Introduction
+
+3
+
+I. Étude du phénomène et recherche des paramètres déterminants
+
+3
+
+A. ​Étude des caractéristiques de l’éclair nuage-sol
+
+B. ​Recherche des paramètres influençant la trajectoire de l’arc
+II. Modélisation mathématique et simulation
+A. ​Le DBM, un modèle mathématique satisfaisant pour décrire la propagation de la
+foudre
+1. ​Le DBM et l’équation de Laplace
+2. ​Fonctionnement du DBM
+
+B. ​Programme de simulation en 2D
+
+1. ​Résolution itérative de l’équation de Laplace en appliquant la méthode aux
+différences finies
+2. ​Justification de la méthode itérative de résolution de l’équation de Laplace
+3. ​Election du site de croissance parmi les sites de croissance potentiels
+
+C. ​Programme de simulation en 3D
+
+III. Vérification de la cohérence de la simulation
+A. La foudre, un objet fractal
+B. Expérience permettant de mettre en évidence la dimension fractale
+C. Resultats et comparaison
+
+4
+4
+7
+7
+7
+7
+8
+8
+10
+10
+11
+12
+12
+14
+15
+
+Conclusion
+
+19
+
+Remerciements
+
+19
+
+Annexes
+Images supplémentaires
+Sources des figures
+Bibliographie
+
+2
+
+Introduction
+La foudre est un phénomène qui a toujours fasciné les Hommes. Indomptable, imprévisible
+et destructeur, ce phénomène a longtemps été considéré comme une manifestation divine.
+Pourtant, dès l'Antiquité, les hommes de science se sont penchés sur la nature de la colère de Zeus :
+ainsi, Lucrèce écrit dans son œuvre ​De rerum natura : “Le ciel est ébranlé quand la foudre résonne, /
+Parce que dans les airs les nuages mouvants / S'entrechoquent”.
+En France, on recense environ un million d’impacts par an en moyenne, responsables de
+20000 sinistres chaque année, dont le coût total est estimé à 100 000 000 d’euros par an. La foudre
+est aussi particulièrement meurtrière : chaque année, 10 000 à 20 000 têtes de bétail sont tuées, et
+entre 20 et 40 personnes décèdent à la suite d’un foudroiement direct ou indirect.
+Les dangers que représente cette manifestation électrique sont considérables, et ne vont
+cesser d’augmenter au cours des prochaines années. En effet, une étude publiée par l’American
+Association for the Advancement of Science affirme que l’augmentation progressive de la
+température de l’atmosphère va conduire à une augmentation de la densité de foudroiement
+partout dans le monde. Les chiffres sont impressionnants : +12% de foudroiements par degré gagné,
+soit une augmentation globale de 50% d’ici la fin du siècle1. Cette menace va s’intensifier, d’autant
+plus que les technologies numériques en plein essor sont de plus en plus nombreuses et donc
+vulnérables face à ce phénomène. La compréhension de ce phénomène est donc essentielle pour
+prévenir des dangers conséquents qu’il représente, mais la complexité des mécanismes qui régissent
+le déclenchement, la trajectoire et le point d’impact sont encore mal connus. Ainsi, la forme
+singulière que prend la rupture diélectrique qui détermine la trajectoire de l’arc électrique qui
+frappera le sol est facilement reconnaissable, mais il est difficile de la reproduire précisément en se
+basant sur des réalités physiques.
+Au cours de cette Olympiade, nous avons tenté de modéliser la trajectoire de la foudre le
+plus exactement possible, en se basant sur les lois physiques qui l’influence.
+Pour cela, nous avons d’abord étudié le phénomène naturel qu’est la foudre, ce qui nous a
+permis de le reproduire à notre échelle afin de comprendre les paramètres qui régissent sa
+trajectoire, paramètres que nous avons fait varier dans un programme qui simule différents arcs
+électriques. Nous avons enfin vérifié la cohérence de notre simulation en comparant la dimension
+fractale des résultats obtenus avec celle des figures réalisées lors des expériences.
+
+I. ​Étude du phénomène et recherche des paramètres
+déterminants
+Compte tenu de l’ampleur du phénomène de rupture diélectrique qu’est la foudre, se
+produisant sur des distances d’environ un kilomètre et nécessitant des tensions de l’ordre du
+mégavolt, il est impossible de le réaliser expérimentalement. Nous avons donc cherché à reproduire
+ce phénomène tout en restant relativement proche de la réalité physique. Il a ainsi été nécessaire
+d’analyser précisément les caractéristiques de l’éclair nuage-sol afin de parvenir à un dispositif
+expérimental approprié.
+
+1
+
+Climate change. Projected increase in lightning strikes in the United States due to global warming
+
+3
+
+A. Étude des caractéristiques de l’éclair nuage-sol
+Le nuage d’orage (cumulonimbus), est le générateur qui produit la tension nécessaire au
+déclenchement de l’éclair. Lors de son développement, le cumulonimbus est constitué d’un courant
+ascendant (air chaud) et d’un courant descendant (air froid et précipitations). Les particules
+charriées dans ces courants s’entrechoquent et s’arrachent des électrons, polarisant ainsi le nuage :
+les particules chargées positivement se situent dans l’enclume du cumulonimbus, tandis que celles
+chargées négativement se trouvent dans la base du nuage, à l’exception d’une petite zone de
+charges positives. À l’approche de la base du cumulonimbus, le sol se charge positivement par
+induction. On observe ainsi une structure en tripôle comme figuré ci-dessous.
+
+Structure du cumulonimbus [figure 1]
+
+Lorsque la différence de potentiel excède 30kV/m (valeur moyenne de la rigidité diélectrique
+de l’air), une première décharge, nommée traceur pas à pas se propage vers le sol, progressant par
+bonds successifs. Lorsque celui-ci parvient à une distance d’environ 50m du sol, le champ électrique
+devient suffisamment intense pour initier un traceur ascendant qui entre en contact avec le traceur
+descendant. Dès que le contact entre les deux traceurs s’établit, un canal d’air ionisé relie le nuage
+au sol. Les charges traversent alors le canal afin de rétablir l'électroneutralité entre les zones reliées.
+Le premier arc en retour s’initie, et correspond visuellement à une très forte intensification
+lumineuse de l’éclair. D’autres arcs en retours peuvent ensuite avoir lieu à travers ce même canal
+ionisé, jusqu’à neutraliser entièrement le nuage et le sol.
+Ainsi, la trajectoire de l’éclair est uniquement déterminée par les traceurs ascendants et
+descendants puisque, dès lors que le canal ionisé s’établit, il reste fixe.
+
+B. Recherche des paramètres influençant la trajectoire de l’arc
+La foudre présente une structure particulière : elle est en effet le plus souvent ramifiée,
+c’est-à-dire composée de plusieurs branches aux motifs irréguliers. Afin de déterminer les
+paramètres qui conduisent à cette structure, il était nécessaire de reproduire une décharge qui
+présente des caractéristiques semblables. Nous avons donc d’abord pensé à la machine de
+Wimshurst, capable de produire des décharges sur quelques centimètres.
+La machine de Wimshurst est constituée de deux disques isolants, recouverts de secteurs
+métalliques, qui tournent en sens opposé. Au début de l’expérience, les secteurs sont neutres
+électriquement, il n’y a donc pas de tension. Deux balais en contact avec les secteurs métalliques
+leur arrachent des électrons par triboélectricité lorsque l’on fait tourner les disques. Des peignes
+métalliques captent les charges puis les dirigent vers les condensateurs, situés en-dessous d’eux. Un
+4
+
+des condensateurs se charge positivement et l’autre négativement. La charge des condensateurs se
+traduit par une augmentation de la tension électrique entre les deux sphères et permet la formation
+d’un arc électrique entre elles lorsqu’elles sont suffisamment rapprochées.
+
+Machine de Wimshurst [figure 2]
+
+Nous pensions d’abord pouvoir représenter la rupture diélectrique à une échelle moindre en
+réalisant un arc électrique entre les deux bornes de la machine de Wimshurst, puis l’étudier à l’aide
+d’une caméra ultrarapide du Laboratoire de Physique Statistique de l’ENS Paris Est (Photron APX RS),
+allant jusqu’à 100 000 images par secondes, qui nous a été prêtée par deux chercheurs de l’ENS avec
+lesquels nous travaillions. Pourtant, nous avons pas obtenus les résultats escomptés : ainsi, même en
+filmant l’arc à 25 000 images par seconde, nous avons
+obtenu une structure parfaitement rectiligne, loin des
+ramifications que l’on peut observer lors d’un éclair. De
+plus, sur un nombre d’essai important, nous avons
+constamment obtenu un arc identique, ce qui est
+contraire à ce que nous recherchions : chaque éclair est
+unique.
+Arc formé avec la machine de Wimshurst [figure 3]
+
+Cette uniformité s’explique par l’homogénéité du milieu. En effet, la rigidité diélectrique
+d’un gaz dépend de différents paramètres : la température, l’hygrométrie et la pression. Or, dans le
+cas de la foudre, la distance séparant le nuage du sol est telle que d’importantes fluctuations de ces
+trois paramètres ont lieu, lesquelles sont suffisantes pour influer sur la trajectoire de l’éclair. Ce ne
+peut être le cas lors de notre expérience, puisque la distance entre les électrodes (5 cm au
+maximum) est bien trop faible pour permettre de telles fluctuations.
+Pour obtenir une structure ramifiée et vérifier cette conjecture, nous avions besoin de
+réaliser une expérience similaire mais entre deux électrodes suffisamment éloignées, ce qui implique
+de travailler sur des tensions bien plus importantes. Nous avons ainsi contacté le palais de la
+découverte, dont les installations possèdent des voltages conséquents. Ainsi, la bobine de Tesla du
+laboratoire d’électrostatique, d’une tension de 2 mégaVolts, capable de produire des éclairs ramifiés
+sur 2 mètres semblait convenir.
+
+5
+
+Le dispositif est alimenté en courant du secteur
+passant par le transformateur. Ce courant charge le
+condensateur qui se décharge ensuite dans la bobine
+primaire, qui produit un champ électromagnétique. Ceci
+va induire une différence de potentiel aux bornes de la
+bobine secondaire. Pour qu’un maximum d’énergie soit
+transféré entre le circuit primaire et secondaire, ils
+présentent la même fréquence de résonance.
+
+Schéma d’une bobine Tesla [figure 4]
+
+La bobine nous a permis d’observer des traceurs ramifiés partant des pointes placées sur la
+cage de faraday l’entourant. Nous avons filmé les arcs à l’aide d’un appareil photo réflex et la caméra
+ultra-rapide qui nous a été prêtée. Voici ci-dessous l’une des images prises où l’on peut observer le
+traceur ramifié issu de la bobine à droite ainsi qu’un second traceur qui peut être apparenté à un
+traceur ascendant (à gauche). On remarque que le traceur est toujours attiré par la pointe placée sur
+la cage entourant la Tesla, car le champ électrique y est plus faible.
+
+Photo prise par notre appareil photo reflex de l’arc en formation [figure 5]
+
+Photo prise par notre appareil photo reflex de l’arc électrique issu de la bobine Tesla [figure 6]
+
+L’ensemble de ces expériences nous a donc permis d’étudier plus en détails la propagation
+de la foudre et de déterminer les paramètres qui régissent sa trajectoire : tout d’abord, le champ
+électrique qui, selon son intensité en un point, attire plus ou moins fortement la décharge, mais
+aussi un paramètre aléatoire, qui rend chaque éclair unique.
+
+6
+
+Nous avons ainsi mis en évidence les deux paramètres qui influent sur la trajectoire de la
+foudre : le champ électrique et les discontinuités du milieu, que l’on peut considérer comme un
+facteur purement aléatoire. Une simulation aboutie d’un éclair nuage-sol doit donc prendre en
+compte ces deux paramètres ainsi que leur importance dans la trajectoire de l’arc électrique.
+
+II. ​Modélisation mathématique et simulation
+A. Le DBM, un modèle mathématique satisfaisant pour décrire la
+propagation de la foudre
+1. Le DBM et l’équation de Laplace
+Pour simuler la trajectoire de la foudre en deux dimensions, nous sommes tournés vers le
+DBM (pour Dielectric Breakdown Model), un modèle qui a été spécialement conçu pour représenter
+la croissance de figures dont la formation est régie par les lois de l'électromagnétisme. Développé en
+19842, il prend en compte l’équation de Laplace qui régit la trajectoire des particules dans un champ
+électrique.
+Rappelons qu’une distribution de charges en deux dimensions génère un champ
+électrostatique vectoriel E dérivé d’un potentiel scalaire 𝛷 qui vérifie l’équation de Laplace en tout
+point de l’espace ne portant pas de charge :
+
+Il existe une solution unique à l’équation de Laplace pour des conditions aux limites fixées et
+suffisamment régulières. L’équation de Laplace signifie qu’en tout point de l’espace le potentiel est
+le même que la moyenne des potentiels sur une sphère de rayon suffisamment petit l’entourant.
+Cela indique un principe de continuité fort du potentiel.
+En 2D, le potentiel électrostatique généré par une charge ponctuelle q et qui vérifie
+l’équation de Laplace est donné à une distance r de cette charge par :
+
+2. Fonctionnement du DBM
+Le fonctionnement du DBM en 2D est le suivant, en notant que nous travaillons sur un plan
+discrétisé, une grille formée de carrés de côté 1.
+Chaque itération du modèle comporte trois étapes distinctes. Dans un premier temps, il faut
+identifier des sites de croissance potentiels autour d’une graine. Ensuite, on calcule le potentiel
+électrique de chacun de ces sites en résolvant l’équation de Laplace en tenant compte des
+conditions aux limites imposées à la grille. Enfin, on choisit et ajoute le nouveau site de croissance en
+fonction des probabilités de croissance et on le définit comme faisant partie de la structure (donc
+ayant un potentiel fixé
+, en effet il s’agit d’une charge).
+Le modèle de croissance décrit par le DBM permet de produire des figures similaires à celles
+que nous avons obtenues durant nos expériences, ce qui souligne sa pertinence.
+
+2
+
+L. Niemeyer, L. Pietronero et H.J. Wiesmann, 1984
+
+7
+
+B. Programme de simulation en 2D
+Afin de simuler le phénomène de rupture diélectrique qu’est la foudre, nous avons utilisé
+l’article de recherche de Perera3 qui nous a mené à résoudre l’équation de Laplace d’une manière
+itérative en se basant sur les résultats de l’article de Mitra4. Des astuces d’accélération pour la
+recherche des candidats de croissance ont été empruntées à un article plus récent5. En effet, il n’est
+pas possible de trouver la formule du potentiel vérifiant l’équation de Laplace par superposition du
+potentiel généré par chaque charge tout en vérifiant les conditions aux limites imposées sur la
+surface du nuage et le sol. Une résolution itérative par relaxation est donc requise.
+Un exemple de résultat de simulation avec sa carte de potentiel obtenu en utilisant notre
+programme en python est illustré par les figures suivantes :
+
+Simulation de la foudre sur une grille de 512x512 pixels et la carte de potentiel correspondante [figure 7]
+
+Notons qu’afin d’obtenir une différence de potentiel, nous avons fixé les conditions aux limites
+φ = 1 sur le sol et φ = 0 dans le nuage. Le sol et le nuage sont considérés dans cette modélisation
+comme des conducteurs parfaits.
+
+1. Résolution itérative de l’équation de Laplace en appliquant la
+méthode aux différences finies
+La résolution de l’équation de Laplace s’opère en appliquant la méthode aux différences
+finies en considérant le problème de Dirichlet et en se reposant sur l’article de Mitra.
+Le problème est de déterminer la valeur du potentiel
+
+au point de coordonnées (i, j ) de
+
+la grille NxN matérialisant la discrétisation de l’espace 2D étudié où sont disposées des charges
+positives et négatives.
+A l’initialisation, seul le nuage est au potentiel 0 :
+au potentiel
+
+pour 0 ≤ j ≤ N − 1 , et le sol est
+
+pour 0 ≤ j ≤ N − 1 . Toute charge positive ou négative de la grille est
+
+affectée d’un potentiel respectif 1 ou 0 immuable au cours du temps : elles constituent les
+conditions aux limites.
+​ .D.N. Perera and D.U.J. Sonnadara, 2012
+M
+A.K. Mitra
+5
+T. Kim, A. Sud, M.C. Lin et J. Sewall, 2007
+3
+4
+
+8
+
+Le potentiel en tout autre point de la grille est déterminé par une mise à jour itérative,
+suivant un calcul barycentrique de pondération
+entre sa valeur à l’itération précédente et la
+moyenne des potentiels des quatres voisins connexes :
+, où :
+
+A l’itération n, la mise à jour des potentiels est effectuée séquentiellement en parcourant la
+grille de bas en haut (en commençant par le sol) et de gauche à droite de la manière suivante :
+
+Sens de parcours de la grille lors de la mise à jour des potentiels [figure 8]
+
+Il est à noter que pour la formule précédente de mise à jour à l’itération n du potentiel du
+point (i, j ) , afin de propager plus rapidement les conditions en bordure, les valeurs les plus récentes
+sont utilisées quand elles sont disponibles, c’est à dire celles à l'itération n des points adjacents à
+gauche et en-dessous du point (i, j ) . Les potentiels des points situés au-dessus et à droite du point
+(i, j ) n’étant pas disponibles à l’itération n , on doit considérer la valeur à l’itération précédente
+n − 1.
+On itère cette opération jusqu’à ce que le processus converge, c’est à dire que la variation de
+la mise à jour maximale du potentiel des points de la grille est de 0.001% de sa valeur maximale 1 :
+(valeur de ε donnée par la publication).
+
+Il est à noter que l’article dédié6 préconise une valeur de 0.001% qui n’est pas suffisante
+dans notre cas pour atteindre un calcul de potentiel assez précis, comme l’attestent les figures
+suivantes. En effet, le potentiel croît linéairement entre deux plaques.
+
+Convergence de la courbe de potentiel bleue (effective) vers le potentiel linéaire initial en orange (théorique)
+pour ε = 10 −4 (courbe de gauche) et ε = 10 −3 (courbe de droite) [figure 9]
+
+Nous avons donc opté pour ε = 10
+
+6
+
+−4
+
+.
+
+M.D.N Perea et D.U.J. Sonnadara, 2012
+
+9
+
+Cette méthode de résolution itérative est qualifiée de successive à sur-relaxation quand on
+utilise un facteur ω > 1 . Dans notre simulation, la valeur ω > 1.6 est employée afin d’accélérer la
+convergence.
+On observe que l’étape de calcul à l’itération 0 des potentiels est la plus longue à converger.
+Ensuite, lors de l’ajout d’un électron perturbant la résolution précédente, la mise à jour des
+potentiels est beaucoup plus rapide. Sachant que le potentiel électrostatique croît linéairement
+entre deux plaques, nous avons donc opté pour une résolution analytique de l’équation de Laplace
+lors de l’étape d’initialisation afin d’optimiser le temps d’exécution du programme.
+
+2. Justification de la méthode itérative de résolution de l’équation de
+Laplace
+La dérivée seconde d’une fonction f en un point a peut s’écrire sous la forme :
+
+Cette expression est valable lorsque h tend vers 0 quand l’espace dans lequel on considère la
+dérivée seconde est continu. Si nous tentons de l’appliquer à un espace 2D discrétisé avec une
+résolution de 1, on obtient :
+
+et
+Si nous prenons f la fonction qui à chaque point du bitmap associe son potentiel électrique :
+
+Ainsi :
+
+On obtient bien par calcul que le potentiel électrique en un point (i, j ) du bitmap est égal à
+la moyenne des potentiels des points qui l’entourent. L’idée est donc d’itérativement forcer cette
+relation en parcourant tout le bitmap plusieurs fois jusqu’à ce que la mise à jour des valeurs du
+potentiel en un point (i, j ) devienne négligeable.
+
+3. Election du site de croissance parmi les sites de croissance potentiels
+L’ensemble des sites de croissance potentiels est constitué des points
+adjacents aux points de la décharge qui n’ont qu’un unique voisin chargé:
+supposons qu’il y en a ​n à cette itération du programme. Il y a au maximum 7
+chemins possibles de croissance à partir d’une charge rattachée à la figure de
+DBM sur une grille 2D (5 en partant de la graine initiale, comme illustré
+ci-dessous).
+Grille NxN des sites de croissance possibles, sol charges +, nuage charges - [figure 10]
+
+Dans son article fondateur, Niemeyer montre que la probabilité
+par le point ​i​ de croissance potentielle de potentiel
+est déterminée par:
+
+que la décharge passe
+
+10
+
+Dans cette expression,
+représente la différence de potentiel entre la charge P déjà
+présente sur le bitmap et la charge du nouveau point potentiel Q émanant du point P. On a donc
+finalement
+le potentiel du point Q car le potentiel de P, point faisant partie de la figure, est nul :
+
+En effet on fixe :
+
+et d = 1 .
+
+Le variable η est un paramètre qui influence la dimension de croissance de la structure de
+décharge. Pour une valeur de η suffisamment grande, une ligne de dimension 1 est produite (cf
+annexe 1).
+On peut vérifier que la somme des probabilités est bien égale à 1 :
+
+Afin de choisir le site de croissance élu, il suffit donc de tirer une une variable aléatoire uniforme sur
+l’intervalle [0, 1] et de lui associer le point i ​qui lui correspond en fonction des probabilités
+.
+
+C. Programme de simulation en 3D
+Après avoir simulé la foudre en deux dimensions, nous avons tenté d’appliquer la même
+démarche que nous avons présenté précédemment afin d’aboutir à un programme de simulation en
+3D en nous appuyant sur le DBM. Nous avons donc appliqué les formules de résolution itérative en
+les adaptant, en nous appuyant sur les travaux de Theodore Kim et Ming C. Lin7 :
+
+Malheureusement, le temps de simulation devient prohibitif pour de grands bitmaps : cela
+est dû à la résolution itérative de l’équation de Laplace à chaque progression de la décharge.
+Nous nous sommes alors tournés vers une résolution analytique en nous reposant sur les
+formules de calcul de potentiel présentées précédemment.
+En effet, en 3D, le potentiel électrostatique généré par une charge ponctuelle q et qui
+vérifie l’équation de Laplace est donné à une distance r de cette charge par :
+
+Nous aboutissons à des résultats de simulation satisfaisants :
+
+7
+
+​Theodore Kim et Ming C. Lin, 2007
+
+11
+
+Exemple de simulation de foudre pour un bitmap 128x128x128 avec η = 60 [figure 11]
+
+Nous avons identifié des pistes d’améliorations, mais celles-ci
+dépassent nos capacités. Le principe serait de ne pas effectuer le calcul
+du potentiel sur un bitmap régulier mais de se reposer sur une
+discrétisation non régulière de l’espace 3D à l’aide d’une structure de
+donnée “Octree”. Cette représentation reflète que l’impact de la
+modification du potentiel lié à l'addition d’une charge est localisé et
+s’estompe vite lorsqu’on s’éloigne de la charge. Il est donc nécessaire
+d’adopter une discrétisation adaptative, avec une fine résolution près
+des charges et une décroissance exponentielle au fur et à mesure que
+l’on s’éloigne.
+Figure illustrant le concept de discrétisation adaptative et d’octree [figure 12]
+
+Pour parvenir à ces conclusions, nous avons exploité les recherches du Computer Graphics
+Laboratory de Zurich8 qui exposent leur emploi du “Octree”, et celles de Jonathan Richard Shewchuk
+9
+qui a permis une résolution dite par gradient conjugué utilisée dans cette nouvelle résolution. Ces
+travaux dépassent malheureusement nos compétences, nous n’avons donc pas pu implémenter
+cette meilleure résolution à notre programme de simulation.
+
+III. ​Vérification de la cohérence de la simulation
+Après avoir réalisé un programme de simulation permettant de modéliser la foudre nous
+avons voulu vérifier la cohérence de nos simulations avec la réalité. Il a alors fallu trouver un
+élément de comparaison entre toutes ces figures régies par l’aléatoire. De fait, la dimension fractale
+de la foudre en est un.
+
+A. La foudre, un objet fractal
+La foudre constitue un phénomène complexe dont l’allure est chaque fois différente. En
+effet, comme vu précédemment, sa trajectoire est aléatoire, faisant de chaque éclair un motif
+unique. Cependant, l’étude des éclairs montre la présence d’une structure qui se répète à
+différentes échelles. L’éclair est de fait formé d’une branche principale qui se divise en de plus
+petites branches qui se divisent à leur tour. Dès lors, il semble que la structure de la foudre se
+8
+9
+
+​Bernd Bickel, Martin Wicke et Markus Gross
+Jonathan Richard Shewchuk, 1994
+
+12
+
+caractérise par une répétition à différentes échelles d’un même motif : c’est l’autosimilarité.
+Pourtant, l’éclair n’est pas exactement autosimilaire de par son tracé aléatoire. Il est en fait
+statistiquement autosimilaire, c’est à dire que sur un grand nombre de branchements, on obtiendra
+une structure qui tendra de plus en plus vers l’autosimilarité exacte.
+La notion de fractale a été conceptualisée par Benoît Mandelbrot en 197410. Un objet est
+fractal s’il présente une auto-similarité systématique à toutes les échelles. De nombreux
+phénomènes naturels présentent un caractère fractal, et l’éclair en est un. Cette nature fractale de la
+foudre a été mise en évidence par Niemeyer, Pietronero et Weismann dans leur article : “Fractal
+Dimension of Dielectric Breakdown Model”.
+Bien que de nombreux objets aient des dimensions entières appelées dimensions
+euclidiennes (​d​), qui représente l’ensemble des paramètres nécessaires pour définir un objet dans
+l’espace (les carrés ont ainsi une dimension ​d​=2, les cubes une dimension ​d​=3) ; il existe également
+des objets aux dimensions non entières. C’est notamment le cas des fractales dont la dimension est
+alors dite fractale. Notée ​D​, elle permet notamment de décrire totalement une fractale “parfaite”,
+c’est-à-dire à la suite d’une infinité d’itérations.
+La structure fractale de la foudre lui confère ainsi une caractéristique qui se retrouve à
+chaque arc électrique. Le calcul de la dimension nous permet alors de vérifier la cohérence de nos
+expériences - ainsi que celle du programme - avec le phénomène que nous tentons de modéliser.
+Pour ce faire, nous avons donc comparé la dimension fractale de nos figures avec celle calculée par
+la Deutsche Meteorologische Gesellschaft sur 20 photographies de foudre analysées dans leur article
+“Contributions to Atmospheric physics”11 : ​D ​= 1,34 ± 0,06.
+Le calcul d’une dimension euclidienne s’effectue selon la
+formule : n​d ​= k où ​n est le facteur d’agrandissement d’une figure et k le
+nombre de fois où la figure d’origine est présente dans son
+agrandissement ; ​d nous donne alors la dimension de la figure. Si on
+prend l’exemple d’un carré dont on multiplie la longueur du côté par 2
+on obtient bien 4 fois le carré d’origine dans son agrandissement ce qui
+vérifie 2​2 ​= 4.
+Schéma explicatif du calcul de la dimension [figure 13]
+
+Cependant, dans le cadre des figures fractales il est extrêmement compliqué de déterminer
+le facteur d’agrandissement k car nous n’avons pas de figure d’origine à proprement définie. Dès
+lors, il faut recourir à d’autres méthodes.
+L’une des méthodes fréquemment utilisées est celle de Minkowski qui permet de calculer la
+dimension d’une fractale par “box-counting”. Le but est de compter le nombre de carrés ​K​(​ε​) de
+côté ​ε nécessaires pour recouvrir la fractale, puis d’observer l’évolution du nombre de carrés
+nécessaires pour recouvrir la fractale quand on diminue la taille ​ε du carré. Plus le côté du carré est
+petit plus le recouvrement de la figure est précis puisqu’alors le réseau de carrés s’adapte toujours
+plus précisément aux variations de la forme de la figure, comme on peut l’observer sur la figure
+ci-dessous.
+
+10
+
+Les Objets fractals - Forme, hasard et dimension
+Sous la direction de F. Herbert, 1989
+
+11
+
+13
+
+Illustration de la méthode de Minkowski sur le flocon de Von Koch [figure 14]
+
+Notons que le périmètre d’une fractale de dimension 2 étant
+infini, une précision totale n’est obtenue que pour un nombre infini
+de carrés dont le côté tend vers 0. La dimension de Minkowski est
+donc la limite du nombre de carrés lorsque ε tend vers 0.
+
+Une fois ​K​ trouvé, on applique la formule suivante pour calculer la dimension :
+
+L’emploi du logarithme se justifie par la définition : log(a)​b ​= b log(a) qui permet d’isoler l’exposant ​b​.
+Dans cette formule, ​b nous donne la dimension et constitue ainsi le parallèle de ​d de la première
+formule : n​d​=k.
+
+B. Expérience permettant de mettre en évidence la dimension
+fractale
+Afin de comparer les dimensions fractales des figures des simulations en 2D de notre
+programme il a d’abord fallu établir un protocole nous permettant de réaliser des figures à notre
+échelle en 2D. Pour ce faire nous avons utilisé la machine de Wimshurst. L’objectif de cette
+expérience était de mettre en évidence les lignes de champs reliant une électrode en pointe à une
+électrode plane. En effet, lorsqu’il y a une différence de potentiel entre les deux électrodes, les
+lignes de champ qui se forment alors suivent les mêmes règles de propagation que la foudre.
+Le montage que nous avons réalisé relie les sphères de la machine de Wimshurst à deux
+électrodes (l’une en pointe, l’autre plane). L​e potentiel d'une électrode étant sensiblement le même
+que celui de la sphère à laquelle il est relié, la différence de potentiel entre les sphères créé un
+champ électrique entre les deux électrodes.
+Afin de rendre les lignes de champ visibles nous utilisons des grains de semoule, des
+diélectriques, susceptibles de s’aligner sur ces lignes. ​Les chaînes d’amidon qui composent la
+semoule se polarisent lorsque les grains se situent dans un champ électrique suffisamment
+important. Les grains ainsi polarisés s’orientent (le côté positif vers la cathode et le négatif vers
+l’anode) sur les lignes de champ. Ainsi, ils modifient localement le champ électrique autour d’eux, ce
+qui influence les autres grains qui ont alors tendance à se coller à eux, formant des arcs allant d’une
+électrode à l’autre. Le motif dessiné par les grains témoigne alors de la présence des lignes de champ
+comme figuré sur les deux photos ci-dessous.
+De plus, nous avons disposé la pointe et l’électrode plane dans un faible volume d’huile de
+ricin dans une boîte de Pétri afin de permettre la mobilité des grains de semoule et pour qu’ils soient
+sur un même plan.
+
+14
+
+​Photo de la boîte de Pétri comportant l’huile et les grains de semoule ; photo de la figure formée
+et mise en valeur du tracé de la semoule [figure 15]
+
+Lors de la formation et la propagation de cet arc électrique de nombreux paramètres entrent
+en jeu. Il a tout d’abord fallu déterminer la position de la pointe. Après de multiples tests nous avons
+conclu que celle-ci devait être en contact avec l’huile à une faible distance de l’électrode plane (3 cm
+environ) afin d’avoir un champ électrique suffisamment important pour influencer les grains de
+semoule. De plus les figures étaient optimales lorsque la pointe était orientée vers l’électrode.
+La viscosité de l’huile permet alors d’obtenir des figures peu volatiles sans empêcher la
+mobilité des grains de semoule. De plus, son caractère isolant permet d’éviter une rupture
+diélectrique en son sein, et donc de maintenir le champ électrostatique constant. Néanmoins, nous
+avons constaté qu’après un nombre important d’expériences réalisées dans une même huile, des
+décharges s’y produisaient. On peut donc supposer que l’huile finissait par s’ioniser.
+Dans ce montage, la pointe s’apparente au nuage et l’électrode plane, au sol ; l’alignement
+progressif des grains de semoule, soumis au champ électrique mais également à un paramètre
+aléatoire, peut ainsi être comparé au phénomène de propagation des électrons lors d’une décharge
+appliqué en 2D.
+
+C. Resultats et comparaison
+L’application de la méthode de Minkowski sur les figures que nous avons produites à l’aide
+de la machine de Wimshurst demandait au préalable de tracer un quadrillage sur les photos prises.
+Afin d’obtenir des calculs à différents degrés de précision en fonction de ε nous avons fait varier la
+taille du quadrillage (cf annexe 2). Les mesures étant réalisées expérimentalement nous avons
+également tenté de déterminer leurs incertitudes. Pour cela, nous avons choisi aléatoirement une
+portion de la photo sur laquelle nous avons modifié le positionnement du quadrillage d’un demi
+carré sur neuf positions différentes. En comptant le nombre de carrés correspondant à la figure sur
+ces neuf positions, nous avons pu déterminer la moyenne du nombre de carrés sur cette portion de
+photo puis le généraliser à l’ensemble de la figure en voyant combien de portions de photo
+semblable à celle-ci comportait la photo entière, ce qui permet de déterminer une incertitude sur la
+dimension.
+Voici le tableau récapitulatif des résultats obtenus pour le calcul des dimensions sur la figure
+réalisée en 2D expérimentalement.
+
+15
+
+Taille du côté de la
+photo (en nombre
+de carrés)
+
+4
+
+8
+
+16
+
+32
+
+64
+
+128
+
+256
+
+Nombre de carrés
+de la figure (k)
+
+7±
+6,05%
+
+17 ±
+6,56%
+
+39 ±
+2,97%
+
+98 ±
+1,44%
+
+266 ±
+1,44%
+
+612 ±
+1,21%
+
+2051 ±
+1,22%
+
+Dimension fractale
+
+1,40235
+±
+0,04371
+
+1,36145
+±
+0,03158
+
+1,32119
+±
+0,01072
+
+1,32291
+±
+0,00416
+
+1,34252
+±
+0,00347
+
+1,32247
+±
+0,00249
+
+1,37525
+±
+0,00220
+
+Tableau n°1 : des dimensions calculées sur la figure expérimentale en 2D par la méthode de Minkowski
+
+Graphique n°1 des dimensions calculées sur la figure expérimentale par la méthode de Minkowski [figure 16]
+
+Les résultats que nous avons obtenus pour la 2D sont proches de la valeur théorique
+(moyenne de la dimension fractale des figures expérimentales ≈1,35 et valeur théorique =1,34).
+L’écart que l’on constate peut se justifier de différentes manières. Tout d’abord, cette expérience
+modélise l’arc électrique, mais ne constitue en aucun cas une reproduction exacte des conditions de
+déclenchement d’un éclair nuage-sol. De plus, les grains de semoule sont de formes variables et
+donnent lieu à des figures imprécises. De même, le calcul de la dimension est réalisé à partir d’une
+photo ce qui rend le comptage difficile. Enfin, le calcul est effectué sur une seule figure, or pour un
+phénomène aussi complexe et aléatoire cela ne permet pas de rendre compte précisément de la
+dimension fractale moyenne.
+De même, nous avons réalisé le calcul des dimensions fractales des figures réalisées par
+notre programme de simulation en 2D. Les figures étant aléatoires, nous avons décidé de faire une
+moyenne du nombre de carré comptés pour dix figures de même bitmap pour que le calcul soit le
+plus proche possible de la valeur théorique. De plus, nous avons fait varier la valeur de η.
+Nous aboutissons alors au graphique suivant :
+
+16
+
+Graphique n°2 des dimensions calculées par la méthode de Minkowski sur les figures de notre
+programme [figure 17]
+
+On remarque que, conformément à nos attentes, la valeur de la dimension fractale obtenue
+tend à se stabiliser lorsque la taille du bitmap augmente. Ainsi, nous nous apercevons que pour
+obtenir une simulation cohérente avec la réalité, une valeur de η de 4 est plus appropriée car sa
+dimension fractale est plus proche de celle que nous avons obtenu expérimentalement. Notons que
+nous aurions pu avoir un plus large éventail de valeurs en choisissant des valeurs de η relatives, non
+entières.
+Les résultats sont cohérents avec la valeur théorique. Néanmoins, un léger décalage apparaît
+entre la valeur de la dimension fractale théorique de la foudre et celle des figures obtenues. Cela
+peut s’expliquer par plusieurs phénomènes. Tout d’abord, le DBM considère que la surface sur
+laquelle se produit la décharge est parfaitement homogène, or le milieu dans lequel a lieu la rupture
+diélectrique ne l’est pas : la pression de l’air, la température et l’humidité évoluent en fonction de
+l’altitude, et la distance entre le nuage et le sol est suffisamment grande pour que ces variations
+soient conséquentes. Ensuite, nous avons considéré la source de potentiel (le nuage) comme étant
+unique et uniforme, ce qui n’est pas toujours le cas lors d’un orage où plusieurs structures
+électrifiées cohabitent et peuvent ainsi fortement influencer la trajectoire des éclairs, donnant lieu à
+des structures parfois presque horizontales et/ou présentant des motifs étranges. De plus, nous
+avons considéré le sol comme absolument plat, alors que la topographie d’une zone est souvent plus
+complexe : cela influence la trajectoire des éclairs qui sont attirés par les objets pointus dépassant
+de la surface du sol. Enfin, le nombre de clichés analysés est relativement faible, et cela ne permet
+pas de rendre compte précisément de la dimension fractale moyenne.
+Malgré cela, le faible écart que nous obtenons entre la valeur de la dimension des figures de
+nos expériences en 2D, et celle de notre programme de 2D nous permettent d’affirmer la cohérence
+de notre modèle avec les expériences réalisées et les mesures déjà effectuées.
+De même, nous avons calculé la dimension fractale des arcs électriques en 3D produits par la
+bobine de Tesla ainsi que celle des figures réalisées par notre programme en 3D. Pour plus de
+17
+
+commodité, nous avons calculé la dimension à partir de photographies projetant ainsi le phénomène
+de 3D en 2D. Cette fois les calculs ont été réalisés à l’aide du logiciel imageJ. La méthode de calcul
+des incertitudes reste cependant la même en faisant varier la position du quadrillage sur 9 positions.
+Afin d’obtenir les résultats les plus fiables possibles, nous avons réalisé les calculs sur 6 photos
+différentes dans chaque cas.
+Voici le tableau récapitulatif des résultats obtenus :
+Numéro de la
+figure
+
+1
+
+2
+
+3
+
+4
+
+5
+
+6
+
+moyenne
+
+Dimension
+fractale (bobine
+Tesla)
+
+1,15 ±
+0,01
+
+1,2294 ±
+0,0062
+
+1,2322 ±
+0,0052
+
+1,2476 ±
+0,0053
+
+1,2683 ±
+0,0086
+
+1,2601 ±
+0,0062
+
+1,2313 ±
+0,0159
+
+Tableau n°2 : dimensions fractales de Minkowski de 6 photos d’arcs produits par la bobine Tesla
+
+Dimension fractale
+(programme 3D)
+
+η=50
+
+η=60
+
+bitmap de 64 de côté
+
+1,3545 ± 0,0234
+
+1,3235 ± 0,0259
+
+bitmap de 128 de côté
+
+1,3522 ± 0,0183
+
+1,2611 ± 0,0081
+
+Tableau n°3 : dimensions fractales de Minkowski de figures produites par notre programme 3D
+
+On remarque que les valeurs de la dimension fractale de l’arc électrique produit par la
+bobine Tesla, ainsi que celle des figures de notre programme est inférieure à celle des figures en 2D
+que nous avions analysées. On voit aussi que les figures produites par le programme dont la
+dimension fractale se rapproche le plus de la réalité le sont avec η = 60 . On remarque tout de même
+quelques écarts entre nos mesures expérimentales et celles de la simulation : cela est dû à
+l’inexactitude des formules de calcul de potentiel que nous avons appliquées. Malgré cela, nous
+pouvons être globalement satisfaits, les résultats étant similaires à 1, 08% près dans le meilleur des
+cas.
+Ainsi, les modélisations expérimentales de la foudre nous ont permis de vérifier la cohérence
+de nos programmes de simulation. Le rapprochement de l’étude de figures formées par des grains
+de semoule dans une boite de Pétri et de figures obtenues avec une application itérative du DBM a
+fourni des résultats cohérents, ce qui indique que le modèle que nous avons appliqué est
+suffisamment précis pour. Nous avons ensuite tenté d’adapter ce modèle à la troisième dimension,
+et bien que nous n’ayons pas eu le temps de perfectionner la simulation correspondante, nous
+pouvons d’ores et déjà présenter des résultats ayant une dimension fractale proche de celle que
+nous avons calculé sur des photos d’arcs électriques produits par une bobine Tesla.
+
+18
+
+Conclusion
+Au cours de cette Olympiade, nous avons travaillé sur la trajectoire de la foudre. Après avoir
+étudié le phénomène naturel qu’est la foudre, et avoir mis en place diverses expériences afin de
+comprendre les paramètres qui régissent sa trajectoire, nous avons exploité ces paramètres à
+travers un programme (en 2D et 3D) qui simule des arcs électriques et dont nous avons vérifié la
+cohérence en comparant la dimension fractale des résultats obtenus avec celle des figures réalisées
+lors de nos expériences. Ainsi, nous avons pu simuler informatiquement le trajet du flux électronique
+en se fondant sur des modèles physiques préexistants. De plus, nous avons noté que ces résultats
+expérimentaux sont cohérents avec les valeurs obtenues lors de précédentes recherches sur le sujet.
+Nous avons ainsi fini par montrer, expérimentalement et par simulation que la dimension fractale de
+la colère de Zeus vaut environ 1,4 et que les paramètres qui influencent sa trajectoire sont le champ
+électrique et, ironie du sort, le hasard.
+
+Remerciements
+Nous remercions tout d’abord Mme Guerra et M. Ménétrier, professeurs de physique de
+l’Ecole Alsacienne, pour nous avoir apporté leur aide, leur soutien et leur temps au cours de ces
+olympiades.
+Nous remercions aussi les chercheurs de l’ENS, M. Frédéric Lechenault et Sébastien Moulinet
+qui nous ont prêté la caméra ultrarapide et apporté leurs précieux conseils.
+Nous remercions également les modérateurs du Palais de la Découverte, et en particulier
+Maryline Certain pour nous avoir permis d’utiliser leurs installations.
+Mme Santorsola, professeur de mathématiques à l’École Alsacienne, qui nous a été d’une
+grande aide pour comprendre la résolution itérative de l’équation de Laplace.
+
+19
+
+
