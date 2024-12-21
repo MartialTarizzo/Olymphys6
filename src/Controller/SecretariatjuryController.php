@@ -1304,7 +1304,7 @@ class SecretariatjuryController extends AbstractController
             $sheet->getRowDimension($ligne)->setRowHeight(30);
 
             $sheet->mergeCells('B' . $ligne . ':D' . $ligne);
-            $remispar = 'Oliver'; //remplacer $remispar par $voix1 et $voix2
+            $remispar = 'Oliver'; //remplacer $remis par par $voix1 et $voix2
 
             if ($equipe->getPhrases()[0] != null) {
                 $sheet->setCellValue('A' . $ligne, $remispar);
