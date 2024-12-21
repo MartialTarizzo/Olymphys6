@@ -61,6 +61,11 @@
                             <ul>
                                 <li><a href="{{ path('core_pages',{choix:'editions'}) }}">Les éditions</a></li>
                                  <li><a href="{{path('search')}}">Rechercher des mémoires</a></li>
+
+                                 {# le bloc commenté suivant va avec le modal de recherche google,
+                                 (cf lignes 176 et suivantes).
+                                 remplacé par le nouveau moteur de recherche -> à supprimer ! #}
+
                                 {#<li><a href="{{ path('core_pages' ,{choix:'les_videos'}) }}">Les vidéos</a></li>
                                  <li><a data-toggle="modal" href="#modarecherche"> Rechercher des mémoires</a>
 
@@ -169,7 +174,8 @@
     {% if app.session.get('info')!='' %}
         {{ include('modales/modale_info.html.twig') }}
     {% endif %}
-    <div class="modal fade" id="modarecherche" tabindex="-1" role="dialog"> {# moteur de recherche #}
+    {# moteur de recherche google -> à supprimer ! #}
+    {# <div class="modal fade" id="modarecherche" tabindex="-1" role="dialog"> 
         <div style="display:table;height: 100%; width: 80%; pointer-events:none;margin: auto">
             <div class="modal-dialog " role="document"
                  style="display: table-cell;  vertical-align: middle; pointer-events:none;">
@@ -196,7 +202,7 @@
                 </div>
             </div>
         </div>
-    </div>
+    </div> #}
     {{ app.session.set('nluser',false) }}
     {{ app.session.set('info','') }}
 {% endblock %}
