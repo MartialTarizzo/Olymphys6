@@ -154,7 +154,13 @@ class SecretariatjuryCiaController extends AbstractController
             ->getQuery()->getResult();
 
         $repositoryEquipes = $this->doctrine->getRepository(Equipesadmin::class);
-        $listEquipes = $repositoryEquipes->findBy(['edition' => $this->requestStack->getSession()->get('edition'), 'centre' => $centrecia, 'inscrite' => true]);
+        $listEquipes = $repositoryEquipes->createQueryBuilder('e')
+            ->where('e.centre =:centre')
+            ->andWhere('e.edition =:edition')
+            ->andWhere('e.inscrite =:value')
+            ->andWhere('e.numero <:numero')
+            ->setParameters(['value' => true, 'centre' => $centrecia, 'edition' => $this->requestStack->getSession()->get('edition'), 'numero' => 100])
+            ->getQuery()->getResult();
 
         $nbre_equipes = 0;
         $progression = [];
@@ -205,8 +211,13 @@ class SecretariatjuryCiaController extends AbstractController
         $repositoryEquipes = $this->doctrine->getRepository(Equipesadmin::class);
         $repositoryRangs = $this->doctrine->getRepository(RangsCia::class);
         $centrecia = $repositoryCentres->findOneBy(['centre' => $centre]);
-        $listEquipes = $repositoryEquipes->findBy(['edition' => $edition, 'centre' => $centrecia, 'inscrite' => true]);
-
+        $listEquipes = $repositoryEquipes->createQueryBuilder('e')
+            ->where('e.centre =:centre')
+            ->andWhere('e.edition =:edition')
+            ->andWhere('e.inscrite =:value')
+            ->andWhere('e.numero <:numero')
+            ->setParameters(['value' => true, 'centre' => $centrecia, 'edition' => $this->requestStack->getSession()->get('edition'), 'numero' => 100])
+            ->getQuery()->getResult();
         $rangs = $repositoryRangs->createQueryBuilder('r')
             ->leftJoin('r.equipe', 'eq')
             ->where('eq.edition =:edition')
@@ -405,7 +416,8 @@ class SecretariatjuryCiaController extends AbstractController
             ->where('e.centre =:centre')
             ->andWhere('e.edition =:edition')
             ->andWhere('e.inscrite =:value')
-            ->setParameters(['value' => true, 'centre' => $centrecia, 'edition' => $this->requestStack->getSession()->get('edition')])
+            ->andWhere('e.numero <:numero')
+            ->setParameters(['value' => true, 'centre' => $centrecia, 'edition' => $this->requestStack->getSession()->get('edition'), 'numero' => 100])
             ->getQuery()->getResult();
         $horaires = $this->doctrine->getRepository(HorairesSallesCia::class)->createQueryBuilder('h')
             ->leftJoin('h.equipe', 'eq')
@@ -649,7 +661,8 @@ class SecretariatjuryCiaController extends AbstractController
         $listeEquipes = $this->doctrine->getRepository(Equipesadmin::class)->createQueryBuilder('e')
             ->where('e.centre =:centre')
             ->andWhere('e.edition =:edition')
-            ->setParameters(['centre' => $centre, 'edition' => $this->requestStack->getSession()->get('edition')])
+            ->andWhere('e.numero <:numero')
+            ->setParameters(['centre' => $centre, 'edition' => $this->requestStack->getSession()->get('edition'), 'numero' => 100])
             ->addOrderBy('e.numero', 'ASC')
             ->getQuery()->getResult();
 
@@ -1129,7 +1142,11 @@ class SecretariatjuryCiaController extends AbstractController
         $nbMaxEquipes=0;
         $repositoryEquipes=$this->doctrine->getRepository(Equipesadmin::class);
         $centrescia = $this->doctrine->getRepository(Centrescia::class)->findBy(['actif' => true]);
-        $equipes=$repositoryEquipes->findBy(['edition' => $this->requestStack->getSession()->get('edition'),'inscrite'=>true]);
+        $equipes = $repositoryEquipes->createQueryBuilder('e')
+            ->andWhere('e.inscrite =:value')
+            ->andWhere('e.numero <:numero')
+            ->setParameters(['value' => true, 'edition' => $this->requestStack->getSession()->get('edition'), 'numero' => 100])
+            ->getQuery()->getResult();
         $repositoryRangs=$this->doctrine->getRepository(RangsCia::class);
         $rangscia = $repositoryRangs->findBy([],['rang'=>'ASC']);//les rangs des équipes pour chaque centre
         $satistiques=[];

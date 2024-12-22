@@ -1,5 +1,9 @@
+$(document).ready(function () {
 
-
+    $("#form1").on('change', function () {
+        $("#form1").submit();
+    });
+});
 
 
 function changejure(j) {//j est l'objet input qui a lancé la fonction, pour le formulaire de gestion des jures des cia
