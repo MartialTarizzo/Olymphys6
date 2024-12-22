@@ -144,8 +144,13 @@ class SecretariatjuryCiaController extends AbstractController
             ->getQuery()->getResult();
 
         $repositoryEquipes = $this->doctrine->getRepository(Equipesadmin::class);
-        $listEquipes = $repositoryEquipes->findBy(['edition' => $this->requestStack->getSession()->get('edition'), 'centre' => $centrecia, 'inscrite' => true]);
-
+        $listEquipes = $repositoryEquipes->createQueryBuilder('e')
+            ->where('e.centre =:centre')
+            ->andWhere('e.edition =:edition')
+            ->andWhere('e.inscrite =:value')
+            ->andWhere('e.numero <:numero')
+            ->setParameters(['value' => true, 'centre' => $centrecia, 'edition' => $this->requestStack->getSession()->get('edition'), 'numero' => 100])
+            ->getQuery()->getResult();
         $nbre_equipes = 0;
         $progression = [];
         $nbre_jures = 0;
@@ -194,7 +199,13 @@ class SecretariatjuryCiaController extends AbstractController
         $repositoryEquipes = $this->doctrine->getRepository(Equipesadmin::class);
         $repositoryRangs = $this->doctrine->getRepository(RangsCia::class);
         $centrecia = $repositoryCentres->findOneBy(['centre' => $centre]);
-        $listEquipes = $repositoryEquipes->findBy(['edition' => $edition, 'centre' => $centre]);
+        $listEquipes = $repositoryEquipes->createQueryBuilder('e')
+            ->where('e.centre =:centre')
+            ->andWhere('e.edition =:edition')
+            ->andWhere('e.inscrite =:value')
+            ->andWhere('e.numero <:numero')
+            ->setParameters(['value' => true, 'centre' => $centrecia, 'edition' => $this->requestStack->getSession()->get('edition'), 'numero' => 100])
+            ->getQuery()->getResult();
 
         $rangs = $repositoryRangs->createQueryBuilder('r')
             ->leftJoin('r.equipe', 'eq')
@@ -392,7 +403,8 @@ class SecretariatjuryCiaController extends AbstractController
             ->where('e.centre =:centre')
             ->andWhere('e.edition =:edition')
             ->andWhere('e.inscrite =:value')
-            ->setParameters(['value' => true, 'centre' => $centrecia, 'edition' => $this->requestStack->getSession()->get('edition')])
+            ->andWhere('e.numero <:numero')
+            ->setParameters(['value' => true, 'centre' => $centrecia, 'edition' => $this->requestStack->getSession()->get('edition'), 'numero' => 100])
             ->getQuery()->getResult();
         $horaires = $this->doctrine->getRepository(HorairesSallesCia::class)->createQueryBuilder('h')
             ->leftJoin('h.equipe', 'eq')
@@ -621,8 +633,9 @@ class SecretariatjuryCiaController extends AbstractController
         $listeEquipes = $this->doctrine->getRepository(Equipesadmin::class)->createQueryBuilder('e')
             ->where('e.centre =:centre')
             ->andWhere('e.edition =:edition')
-            ->setParameters(['centre' => $centre, 'edition' => $this->requestStack->getSession()->get('edition')])
-            ->addOrderBy('e.numero', 'ASC')
+            ->andWhere('e.inscrite =:value')
+            ->andWhere('e.numero <:numero')
+            ->setParameters(['value' => true, 'centre' => $centre, 'edition' => $this->requestStack->getSession()->get('edition'), 'numero' => 100])
             ->getQuery()->getResult();
 
         $horairesSalles = $this->doctrine->getRepository(HorairesSallesCia::class)->createQueryBuilder('h')
@@ -1103,7 +1116,13 @@ class SecretariatjuryCiaController extends AbstractController
         $nbJures=null;
         $nbJureNotes=null;
         foreach($centrescia as $centre) {
-            $equipeslocales = $repositoryEquipes->findBy(['centre' => $centre, 'inscrite' => true, 'edition' => $this->requestStack->getSession()->get('edition')]);
+            $equipeslocales = $repositoryEquipes->createQueryBuilder('e')
+                ->where('e.centre =:centre')
+                ->andWhere('e.edition =:edition')
+                ->andWhere('e.inscrite =:value')
+                ->andWhere('e.numero <:numero')
+                ->setParameters(['value' => true, 'centre' => $centre, 'edition' => $this->requestStack->getSession()->get('edition'), 'numero' => 100])
+                ->getQuery()->getResult();
             if (count($equipeslocales) > $nbMaxEquipes) $nbMaxEquipes = count($equipeslocales);//pour connaître le nombe maximum de ligne dans le tableau affiché
             $satistiques[$centre->getId()]=$this->statistiques($centre);
             foreach($equipeslocales as $equipe){
