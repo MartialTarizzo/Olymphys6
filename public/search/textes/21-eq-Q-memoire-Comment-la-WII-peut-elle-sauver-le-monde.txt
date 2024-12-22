@@ -1,0 +1,848 @@
+OLYMPIADES DE PHYSIQUE
+
+Comment la Wii peut-elle
+sauver le monde ?
+Une solution d’autofreinage pour ascenseur pour
+plus de sécurité
+Charline Dumont, Arniko Meinhold, Jeanne Oberlé
+2013-2014
+
+Qui ne connaît pas la fabuleuse manette de Wii ? Chacun sait très bien quelle est cette
+merveilleuse console qui a révolutionné le monde pour tous les grands adeptes de jeux
+vidéo. Le principe est génial : le mouvement effectué par le joueur est capté puis
+retransmis de sorte à ce que l'avatar du joueur effectue le même mouvement. Toutefois,
+la question se pose : comment cela est-il possible ?? Quel est donc l'ingénieux système qui
+retranscrit nos mouvements frénétiques dans Mario Kart ??
+
+Sommaire
+Pages
+
+Introduction
+Quelle est la composante de la console
+retransmettre nos mouvements sur l’écran ?
+
+qui
+
+permet
+
+de
+
+3
+
+Un fabuleux capteur d’accélérations
+Qu’est-ce qu’un accéléromètre ? Et une accélération alors ?
+Comment fonctionne réellement un accéléromètre ?
+Mais comment peut-on fabriquer des éléments aussi précis à une
+échelle si minuscule ?
+Peut-on trouver des accéléromètres autre part que dans les
+consoles de jeu ?
+
+4
+5
+6
+7
+
+Notre accéléromètre
+Quelles sont les caractéristiques de notre accéléromètre ?
+Quelle est la corrélation entre les valeurs d’entrée et de sortie ?
+Mais comment disposer d’une accélération de valeur connue ?
+Notre montage d’étalonnage
+Modélisation et incertitudes
+
+8
+9
+9
+10
+11
+
+Notre projet et sa réalisation
+Et dans la vraie vie, à quoi donc pourrait nous servir cet
+accéléromètre ?
+Qu’est-ce qu’une chute libre ?
+Détection d’une chute et freinage de notre ascenseur
+Principe de fonctionnement de notre montage
+La réalisation de notre maquette
+Et le freinage alors ?
+Vous avez dit courants de Foucault ?
+
+12
+12
+13
+14
+15
+17
+17
+
+Ouvertures
+Notre accéléromètre serait-il défectueux ?
+Pourrions-nous utiliser l’accéléromètre à des fins de commande ?
+Remerciements
+
+Page 2
+
+18
+19
+20
+
+Comment la Wii peut-elle sauver le
+monde ?
+Qui ne connaît pas la fabuleuse manette de Wii ? Chacun sait
+très bien quelle est cette merveilleuse console qui a révolutionné le
+monde pour tous les grands adeptes de jeux vidéo. Le principe est
+génial : le mouvement effectué par le joueur est capté puis retransmis
+de sorte à ce que l'avatar du joueur effectue le même mouvement.
+Toutefois, une question se pose : comment cela est-il possible ?? Quel
+est donc l'ingénieux système qui retranscrit nos mouvements
+frénétiques dans Mario Kart ??
+Le document qui suit est le fruit de nos recherches d'investigation, et
+à chaque étape de notre démarche correspond une interrogation,
+signalée par l'icône :
+comme le W de What (et de Wii)
+
+Quel est la composante de la console qui permet de
+retransmettre nos mouvements sur l'écran?
+Le mouvement est détecté par l'accéléromètre de la Wii, qui est présent dans la manette utilisée
+par le joueur. L'information est ensuite transmise par Bluetooth jusqu'à la console qui va jouer le rôle
+de l'interface qui reçoit et retravaille les données pour que l'image de l'avatar sur l'écran effectue les
+mouvements correspondants à l’orientation, à la rotation et au déplacement de la manette. Cette
+retransmission est très rapide (de l’ordre de la dizaine de ms), ainsi dès que le joueur descend le bras
+ou tourne vers la gauche, son avatar accomplit presque instantanément les mêmes gestes.
+Nous nous sommes alors étonnés de la détection si précise et rapide du mouvement, et donc plus
+particulièrement sur la nature de l'accéléromètre, ce qui nous conduit à la prochaine étape.
+
+Page 3
+
+Un fabuleux capteur d’accélérations
+Qu'est-ce qu'un accéléromètre?
+Un peu de théorie et un exemple de modèle
+Un accéléromètre est, comme son nom l'indique, un appareil capable de mesurer une
+accélération et de la convertir sous forme de signal électrique (on parle de transducteur).
+Par conséquent, l'accéléromètre est une interface entre une grandeur physique et une information
+manipulable. Toutefois il est uniquement capable d’acquérir des données et non de les traiter. Son
+fonctionnement se base sur des principes électroniques et mécaniques, c’est pourquoi on le nomme
+dispositif électromécanique.
+Cet appareil est parfois appelé accéléromètre MEMS, ce qui signifie Micro Electronical Mechanical
+System. Le système est réellement mécanique et son fonctionnement s'appuie sur des systèmes
+mécaniques simples : par exemple le déplacement d'une masse à l'intérieur d'un compartiment (Figure
+1). Cette masse est suspendue à un ressort et la mesure des modifications de l’allongement de ce
+dernier permet de calculer l'accélération subie à une date t donnée.
+
+Figure 1
+
+Mais qu’est-ce qu’une accélération ?
+On parle d’une grandeur vectorielle
+
+appelée accélération (dont l’unité est le m.s-²), dès lors que le
+
+vecteur vitesse change. En effet on définit la vecteur accélération de la manière suivante :
+
+. Il
+
+s’agit en d’autres termes du taux de variation temporel du vecteur vitesse.
+La notion d’accélération, qui s’évalue dans un référentiel donné (qu’il soit galiléen ou non), est donc
+liée soit à une augmentation (ou une diminution) de la valeur numérique de la vitesse, soit à une
+modification de la trajectoire.
+Un accéléromètre va en l’occurrence détecter puis quantifier les modifications du vecteur vitesse .
+Par exemple, on aura pour un mouvement rectiligne une accélération positive due à un déplacement
+plus rapide, une accélération négative due à un freinage, une accélération nulle si la vitesse est
+uniforme…Mais si la géométrie de la trajectoire est modifiée, l’accélération variera aussi.
+
+Page 4
+
+Un mouvement quelconque est décrit par un nombre fini de translations et de rotations. Aujourd’hui,
+certaines manettes et même certains téléphones portables sont dotés d’accéléromètres munis de 6
+degrés de liberté, c’est-à-dire qu’ils peuvent mesurer des accélérations dans toutes les directions de
+l'espace. Les accéléromètres peuvent ainsi mesurer des déplacements mono- (seulement sur l’axe des
+abscisses, par exemple juste de gauche à droite), bi- (abscisse et ordonnée, de gauche à droite et de bas
+en haut) ou tridimensionnel (axe z supplémentaire, on introduit la dimension de profondeur), et
+prennent en compte tous les types de rotation (Figure 2)
+
+Figure 3
+
+Figure 2
+
+Sur la Figure 3, on observe que l'axe z est maintenant à la place du compartiment de l'axe x. Notre
+modèle a donc tourné d'un quart de tour vers la droite. Pendant cette rotation, les accéléromètres dans
+les compartiments x et z ont donc mesuré des accélérations.
+Le système mécanique précédemment proposé n'est qu'une modélisation à une échelle bien supérieure
+à ce qui se fait réellement dans un accéléromètre. En effet, aujourd'hui, un accéléromètre mesure
+environ 3mm², et ceci prend en compte le boîtier extérieur!
+
+Comment fonctionne réellement un accéléromètre?
+Observons maintenant l'intérieur d'un de ces appareils électroniques minuscules.
+Le modèle présenté ci-dessus est mis en œuvre à l’échelle microscopique. Une partie mobile est
+présente à l'intérieur d'un compartiment fixe :
+
+Figure 4
+Lorsque l'objet sur lequel est placé l'accéléromètre bouge, la partie mobile (ici l'élément bleu, façonné
+en silicium, donc malléable) va se déplacer et entrer en contact avec les parties vertes. On peut ainsi
+comparer cet ensemble à une multitude d’armatures reliées à autant de mini-condensateurs. Par le
+déplacement de la masse de silicium en raison d’un mouvement, il va alors s'opérer un changement de
+la capacité électrique de ces condensateurs de l’ordre de 10-14 F (Figure 5), et la tension de sortie de
+l’accéléromètre va en conséquence être modifiée. Par conséquent, plus il y aura d’armatures, plus la
+sensibilité de l’accéléromètre et donc la mesure du mouvement du mobile sera précise.
+
+Page 5
+
+Figure 5
+
+Figure 6
+
+On remarque d'ailleurs sur la Figure 6 la présence de ressorts qui gouvernent et maîtrisent le
+déplacement du mobile.
+Cette multitude de condensateurs est reliée à un calculateur qui émet une tension proportionnelle à la
+capacité constatée. Une chaîne de composants conditionne le signal et émet une tension de sortie. S’il
+n’y a pas d’accélération (ou de décélération) constatée, c’est-à-dire si la capacité reste stable, la
+tension de sortie ne varie pas. Et dans le cas où la capacité varie, il y aura une autre tension de sortie.
+Ainsi, l’accéléromètre permet de mettre en relation la variation de la capacité des armatures due à un
+mouvement et une tension de sortie.
+
+Mais comment peut-on fabriquer des éléments aussi précis
+à une échelle si minuscule?
+Les accéléromètres MEMS se sont majoritairement développés pendant les années 80, et depuis
+leur taille a été fortement réduite : ainsi les premiers accéléromètres occupaient un espace d’environ
+50cm², alors qu’aujourd’hui la partie active est réduite à une plaque carrée de 3mm² environ. Cette
+minimisation de la surface de ces appareils est reliée au développement des micros technologies, et
+aujourd’hui, la taille des structures du condensateur est de l’ordre de 1 à 100µm.
+Pour fabriquer des pièces aussi petites, on utilise le silicium comme matériau de base pour le mobile.
+C’est de l‘hydroxyde de potassium déposé en très petites quantités sur une plaque de silicium qui va
+graver la surface de cette dernière. Si cette réaction est maintenue dans un petit espace (sur ces figures
+grâce à un cache qui ne réagit pas avec l'hydroxyde de potassium), il est donc possible, moyennant la
+connaissance de la cinétique de la réaction chimique, de « modeler » une plaque de silicium à des
+dimensions micrométriques.
+
+Figure 7
+
+Figure 8
+
+Plus récemment, on a néanmoins réussi à développer d'autres techniques qui permettent de produire
+des M&NEMS c'est-à-dire l'association entre des capteurs (des transducteurs) nanométriques et des
+masses mobiles encore micrométriques. La partie mobile ne peut pas être réduite davantage car la
+masse de cette dernière deviendrait alors trop faible.
+
+Page 6
+
+Peut-on trouver des accéléromètres autre part que dans les
+consoles de jeu?
+Ce composant électromécanique est aujourd’hui utilisé dans de nombreux domaines et se
+démocratise, d’autant qu’il coute de moins en moins cher (de l’ordre quelques dizaines d’euros pour
+les modèles grand public). On regroupe les applications de l’accéléromètre en trois grandes catégories,
+dans lesquelles on utilise des modèles différents (voir en bas de page) :
+• La détection de chocs :
+Ce sont des accélérations de très forte amplitude et très brèves. On parle d’accélérations
+impulsionnelles.
+Les accéléromètres vont détecter ces chocs et permettre le déclenchement immédiat d’un
+dispositif de protection. Par exemple, ils sont utilisés pour le déclenchement d’un airbag dans une
+voiture. De même, certaines marques comme IBM et Apple ont incorporé des accéléromètres
+dans les disques durs de leurs ordinateurs, pour qu’en cas de chute, celui-ci se mette à l’arrêt.
+Ceci empêche que les têtes de lecture/d’écriture viennent s’écraser sur le disque, ce qui
+provoquerait la destruction des informations codées à cet endroit du disque.
+• La détection de vibrations :
+Les vibrations sont caractérisées par des déplacements multidirectionnels. L’accéléromètre est
+donc tout à fait adapté pour ce genre de mesures. Elles vont être effectuées en recherche et
+développement industriel. Par exemples : la surveillance des vibrations d’un moteur de voiture
+afin de rendre silencieux l’habitacle. Comme application importante, on compte aussi le
+sismographe…
+• Le suivi de trajectoires :
+Un accéléromètre peut être intégré à la station inertielle d’un avion qui est le couplage d’un
+gyroscope et d’un accéléromètre 3 axes. On emploie également ce genre de capteurs dans la
+navigation par inertie (correction de trajectoire) et pour stabiliser des plates-formes. Les
+accéléromètres peuvent aussi être utilisés pour des mesures d’inclinaison (il joue alors le rôle
+d’inclinomètre).
+On retrouve aujourd’hui l’accéléromètre dans de nombreux produits technologiques destinés au grand
+public. Ils sont en effet utilisés dans les Smartphones pour l’orientation de l’écran en cas de
+retournement du mobile, dans les appareils photo pour la stabilisation de l’image et dans de nombreux
+appareils destinés aux sportifs afin de mesurer des vitesses et des distances de déplacement…
+Enfin, les accéléromètres sont utilisés par la marque Nintendo dans la manette de sa console à succès
+Wii, ce qui constitue le point de départ de notre projet.
+Pour toutes les applications précédemment citées, on utilise toutefois différents modèles
+d’accéléromètres. On distingue quatre familles de capteurs :
+- Asservi
+- Capacitif
+- Piézoélectrique
+- Piézorésistif
+Pour choisir son accéléromètre en fonction de l’utilisation, il faut prendre en compte différents critères
+comme la sensibilité, la température d’utilisation, la masse, encore la gamme de mesure…
+
+Page 7
+
+Le développement des accéléromètres n’en finit pas d’évoluer et ils sont de plus en plus performants.
+L’électronique utilisée est aussi de plus en plus sophistiquée, ils sont de plus en plus petits, robustes et
+légers. On pense même à mettre des accéléromètres en réseau pour améliorer les mesures.
+
+Après la découverte d'une telle merveille de l'électronique, il
+ne nous restait plus qu'à en acheter une!
+
+Notre accéléromètre
+Quelles sont les caractéristiques de notre accéléromètre?
+Présentation de la fiche technique
+
+Accéléromètre DE-ACCM2G2
+
+Notre module (le DE-ACCM2G2) est composé d’un accéléromètre deux
+axes et capable de mesurer des accélérations allant jusqu'à 2g (c.à.d. 20 m.s-2). Il
+est doté de sorties analogiques.
+
+L’accéléromètre a une sensibilité de 660 mV par g et une bande passante de
+500Hz (il effectue donc des mesures fiables dès lors qu’on ne le sollicite pas
+plus de 500 fois par seconde).
+Il fonctionne avec différentes sources externes d’alimentation délivrant de 3,5 V
+à 15 V. Il est en conséquence doté d’un RIT (régulateur intégré de tension) qui
+assure une tension d’alimentation constante de 3,3 V, quelle que soit la tension
+d’entrée.
+Notre accéléromètre nécessite une tension d’alimentation stable pour effectuer des mesures précises.
+On comprend bien que la tension de sortie fluctuerait, si la tension d’alimentation n’était pas stable.
+
+Notre accéléromètre et ses différents composants
+Borne négative (= masse)
+Régulateur intégré de tension
+Borne positive (= Vcc)
+Accéléromètre
+Amplificateur opérationnel
+Sortie Y
+
+Axe Y
+
+Sortie X
+Axe X
+
+Page 8
+
+Quelle est la corrélation entre les valeurs d'entrée et de
+sortie?
+Le composant essentiel de notre projet étant l’accéléromètre, il était important de maitriser son
+fonctionnement. Il a été décidé de procéder à son étalonnage pour le bon déroulement de la suite. Il
+s’agit en effet d’interpréter l’information électrique délivrée par le capteur. On a donc déterminé la
+relation qui existe entre l’indication donnée par l’appareil (c.à.d. la tension de sortie) et l’accélération
+mesurée. Elle est représentée graphiquement sur la courbe donnant l’évolution de la tension U en
+fonction de l’accélération U = f(a).
+
+Mais comment disposer d’une accélération de valeur
+connue ?
+Il existe plusieurs formules littérales permettant d’exprimer une accélération. Celle-ci dépend de la
+nature du mouvement du système étudié (mouvement rectiligne varié, mouvement curviligne varié,
+rotation uniforme autour d’un axe fixe…).
+Il a fallu réfléchir à laquelle on allait faire appel. On a donc exploité la formule qu’on a jugé comme
+étant la plus simple. On a choisi celle donnant l’accélération d’un mobile en rotation uniforme autour
+d’un axe fixe dans le référentiel du laboratoire supposé galiléen.
+
+a = ω²*r
+Dans cette formule :
+- a représente la valeur de l’accélération en m.s⁻²
+- r la distance de l’accéléromètre à l’axe instantané de rotation en m
+- ω la vitesse angulaire en rad.s-1
+La valeur de la fréquence de rotation et de la vitesse angulaire sont liées par la formule ω = 2π.f avec f
+la fréquence en Hz.
+
+Page 9
+
+Notre montage d'étalonnage
+Pour comprendre les informations délivrées par l’accéléromètre, nous avons réalisé le montage
+présenté ci-dessous. L’accéléromètre a été fixé sur un dispositif tournant dont on maitrise la vitesse
+angulaire de rotation. Nous avons ensuite pris plusieurs séries de mesures d’accélérations à des
+vitesses angulaires et des rayons différents.
+
+Oscilloscope
+
+Générateur
+continu de
+tension
+
+Accéléromètre
+
+Rhéostat
+Règle
+
+Nos mesures :
+Tours/min
+120
+
+ω² (s )
+157,7
+157,7
+157,7
+157,7
+157,7
+
+-2
+
+d (m)
+0,03
+0,05
+0,08
+0,10
+0,13
+
+U (V)
+1,92
+2,17
+2,45
+2,71
+2,89
+
+a1 (m.s )
+3,94
+7,89
+11,83
+15,78
+19,72
+
+a (g)
+0,40
+0,80
+1,21
+1,61
+2,01
+
+100
+
+108,7
+108,7
+108,7
+108,7
+
+0,03
+0,05
+0,08
+0,10
+
+1,83
+2,01
+2,24
+2,39
+
+2,72
+5,44
+8,16
+10,88
+
+0,28
+0,55
+0,83
+1,11
+
+108,7
+108,7
+108,7
+
+0,13
+0,15
+0,18
+
+2,61
+2,72
+2,97
+
+13,60
+16,32
+19,04
+
+1,39
+1,66
+1,94
+
+Page
+10
+
+-2
+
+L’accélération a été convertie en g avec la formule a =
+
+a1
+afin de comparer facilement avec les
+9, 81
+
+données constructeur.
+
+La modélisation graphique sur Regressi :
+
+Grâce à Regressi nous avons pu réaliser le tracé ci-dessus et modéliser cette représentation graphique
+U = f(a) par une courbe à tendance affine. C’est pour cette modélisation que l’écart modèle-expérience
+était le plus faible, à savoir 1,2 %.
+Nous avons relevé une ordonnée à l’origine de 1,62 V et un coefficient directeur de 687 mV, ce qui est
+en corrélation avec la donnée constructeur. Celui-ci mentionne sur sa fiche technique une valeur de
+tension au repos de 1,65V pour une mesure d’accélération effectuée selon l’axe des X et une
+augmentation de tension de 660 mV lorsque l’accélération croît de 1 g.
+Grâce à cet étalonnage, nous disposons à présent de la corrélation tension-accélération. Nous pourrons
+donc associer, dans la suite de notre projet, à une valeur seuil d’accélération, une valeur seuil de
+tension. En d’autres termes, nous comprenons ce que veut nous signifier notre accéléromètre.
+Pour jauger de la qualité de notre travail, nous avons procédé à l’évaluation des incertitudes.
+
+Evaluation des incertitudes :
+-
+
+La vitesse angulaire a été mesurée à l’aide d’un tachymètre dont on connaît la résolution par
+donnée constructeur : q = 0,1 rad.s-1.
+
+On en déduit l’incertitude type puis l’incertitude élargie pour un taux de confiance à 95 % :
+,
+u(ω) = = = 0.058 rad.s-1 et U(ω)= 2u = 0,12 rad.s-1.
+√
+
+√
+
+Remarque : la tension est relevée à chaque fois après stabilisation de la vitesse angulaire, c.-à-d.
+lorsque le régime permanent est atteint, à l’aide d’un oscilloscope et/ou d’un voltmètre.
+
+Page
+11
+
+-
+
+Le rayon de la trajectoire a été relevé avec une règle. Toutefois à la vue de la non
+connaissance exacte de la position de l’accéléromètre, qui se trouve caché dans une « boîte
+noire » de deux mm de long, nous avons postulé une résolution q = 3 mm (et non q = 1 mm).
+
+D’où l’incertitude type u =
+
+√
+
+=
+
+√
+
+= 1,73 mm et l’incertitude élargie U(r) = 2u = 3,46 mm.
+
+Au final par méthode des incertitudes composées, nous sommes arrivés à une estimation de
+l’incertitude élargie sur l’accélération :
+2
+Sur l’exemple d’une valeur parmi toutes les mesures réalisées, cela donne :
+7.89
+
+2
+
+.
+
+.
+
+.
+
+= 0,6 m.s-2 donc l’accélération s’exprime : a = 7,9 ± 0,6 m.s-2
+
+Notre projet et son application
+Et dans la vraie vie, à quoi donc pourrait nous servir cet
+accéléromètre?
+Toute cette théorie c'est bien beau, mais concrètement, comment pourrait-on vraiment mettre en
+œuvre les fonctionnalités de l'accéléromètre? Comme vu précédemment, l'accéléromètre mesure des
+accélérations, c'est-à-dire des déplacements, des mouvements, ou même des chutes... Et à propos de
+chute, nous avons pu lire dans un journal qu’il y a eu une chute d’ascenseur. En effet, il y a moins d’un
+mois, un ascenseur a chuté de quatre à cinq mètres à Metz au centre St. Jacques. Deux femmes sont
+blessées, dont une enceinte de sept mois. L’ascenseur a été rénové en 2010 et le contrôle le plus récent
+date du 23 Septembre de cette année. Les raisons de la chute de l’ascenseur restent inconnues
+puisqu’aucune anomalie n’a été détectée.
+Ainsi l'idée a-t-elle germé d'utiliser l'accéléromètre pour détecter la descente anormalement
+rapide d'un ascenseur et de déclencher par la suite un freinage. Notre sujet est donc vraiment
+contextualisé même si ces chutes restent rarissimes en France. En effet, seulement 11 personnes sont
+décédées par chutes d’ascenseur depuis 2006 sans pour autant compter le nombre de blessés, alors
+qu’en moyenne, 100 millions de personnes empruntent un ascenseur par jour. Il reste donc des vies à
+épargner et des traumatismes à éviter. Le fait qu’il y ait eu cette chute d’ascenseur nous a montré que
+la technologie d'aujourd'hui n’est pas toujours totalement fiable et qu'il était pertinent de rechercher
+une solution à d’éventuels problèmes.
+
+Donc finalement, on essaierait de :
+Notre projet consiste à détecter une chute d’ascenseur par un accéléromètre embarqué et
+de freiner cette chute via une chaîne de commande sans intervention manuelle.
+Lorsqu’une chute de l’ascenseur est observée, l’accéléromètre fixé sur la cabine va délivrer une
+tension qui va traduire une certaine accélération ; cette dernière étant supérieure à la valeur de
+l’accélération en fonctionnement normal. Il nous suffit à présent de déterminer l’intervalle des tensions
+qui définissent un état de chute pour l’ascenseur.
+
+Page
+12
+
+Qu’est-ce qu’une chute libre ?
+Pour nous faire une idée de l’ordre de grandeur des accélérations mesurées au cours d’une chute, nous
+nous sommes intéressés à la notion de chute libre. Une chute libre est un état de mouvement constaté
+pour un système évoluant sous le seul effet du poids. On néglige en l’occurrence les frottements et la
+poussée d’Archimède, on obtient ainsi d’après le principe fondamental de la dynamique :
+!!" d’où !" = #
+!!"
+m!" = m#
+Lors d’une chute libre, un objet va subir une accélération d’un g. L’accélération s’identifie à la valeur
+de l’accélération dite de pesanteur et vaut environ 10 m.s-2.
+Nous sommes conscients que la cabine ne sera pas en chute libre en raison de l’interventions de
+différentes forces (frottements solides, fluides,…). Toutefois la valeur trouvée, nous renseigne sur la
+valeur extrêmale de l’accélération que pourrait subir la cabine en chute.
+
+Détection d’une chute et freinage de notre ascenseur
+Il faut dans un premier temps pouvoir affirmer que l’ascenseur est bien en chute. Il serait en effet
+gênant qu’il se produise un déclenchement intempestif du système de freinage d’urgence alors que la
+cabine est en fonctionnement normal.
+Nous avons donc réalisé des mesures dans les ascenseurs de divers bâtiments de l’établissement pour
+connaître la valeur de l’accélération au démarrage. Toutes les valeurs constatées étaient très faibles
+(environ 0,1 g), voire non mesurables avec notre matériel.
+Il apparaît donc qu’une valeur quelconque au-delà de 0,1 g nous informe d’un fonctionnement anormal
+voire d’une chute.
+Certains ascenseurs montés dans des buildings américains sont très performants : ils permettent des
+descentes et des démarrages fulgurants. Pour éviter un déclenchement non souhaité même dans ces
+derniers, on a fixé comme valeur d’accélération seuil aréf = 0,5 g. Et oui on ne sait jamais si quelqu’un
+désirait acheter notre système.
+D’après la courbe d’étalonnage de notre accéléromètre, cela représente une tension Uréf supérieure
+d’environ 0,3 V à la tension donnée au repos.
+
+Principe de fonctionnement du détecteur de chute
+Un amplificateur opérationnel va accomplir une opération de comparaison entre une valeur de tension
+seuil Uréf définissant une chute et la valeur donnée en temps réel par l’accéléromètre. Si la valeur
+mesurée de l’accélération est plus importante que celle de la tension seuil alors il va y avoir une action,
+sinon rien ne se produit. L’action envisagée est la transmission d’un courant à la base d’un transistor
+afin de polariser cette dernière. Celui-ci joue le rôle d’interrupteur et ferme un circuit dans lequel se
+trouve un électroaimant qui fera basculer un bras articulé sur lequel se situe un aimant permanent à
+fort champ magnétique. Ce dernier en se rapprochant d’une barre de cuivre entrainera un freinage par
+courants de Foucault.
+Vous avez dit compliqué? EUH… On acquiesce (d’ailleurs on l’a fait exprès) et voilà de quoi
+simplifier (du moins un peu) la présentation.
+
+Page
+13
+
+Un diagramme fonctionnel pour y voir plus clair
+Notre diagramme fonctionnel laisse apparaître cinq éléments principaux : l’accéléromètre,
+l’amplificateur opérationnel en mode comparateur, le transistor, un relais commandant un circuit de
+puissance dans lequel se situe l’électroaimant et naturellement le frein magnétique.
+
+Accéléromètre
+
+Amplificateur
+opérationnel
+
+Transistor
+
+Relais
+
+Freinage
+
+Notre circuit électronique est composé :
+- de l'accéléromètre.
+-
+
+d’un amplificateur opérationnel monté en comparateur. Il reçoit deux tensions, une variable et
+image de l’accélération (notée Uacc) et une de référence (Uréf). L’A.O génère alors une tension de
+sortie U, qui est négative si Uréf > Uacc et positive dans le cas contraire.
+
+-
+
+d’un transistor, qui est l'élément de commande actif du système électronique. Il est utilisé ici
+comme interrupteur. Il impose l’installation d’un courant dans le circuit contenant l’électroaimant à
+la seule condition que sa base se retrouve polarisée.
+Explications : si la tension de sortie de l’AO notée U est inférieure à 0, alors aucun courant ne
+circule en sortie de l’AO car il est en saturation négative. Si au contraire la tension est supérieure à
+0 alors l’AO engendre un courant de sortie de quelques dizaines de mA. Ce courant contribue à
+polariser la base. Le transistor est alors passant c.-à-d. qu’il circule un courant dans le collecteur.
+
+- d’un relais. A présent parcouru par un courant, le relais va commander la fermeture du circuit de
+puissance constitué de l’électroaimant. En conséquence de quoi, l’électroaimant va alors
+rapprocher un puissant aimant permanent d’une barre de cuivre. La chute de notre ascenseur sera
+alors freinée grâce aux courants de Foucault apparaissant dans la barre.
+
+Schéma électronique du montage
+
+électroaimant
+
+U
+
+Page
+14
+
+La réalisation de notre maquette
+Le but de notre projet étant de réussir à freiner un ascenseur en chute libre, il est indispensable de
+réaliser une maquette. La voici !
+
+Cabine d’ascenseur
+contenant
+l’accéléromètre et
+reliée à un moteur
+
+Rail
+
+Alimentation de
+l’accéléromètre
+Dispositif de
+freinage
+Accéléromètre
+
+Notre cabine
+
+Électro-aimant
+
+Barre de cuivre
+
+Aimants
+
+Le dispositif de freinage
+
+Une fois la maquette réalisée, nous avons relié l’accéléromètre à un oscilloscope afin de visualiser
+la tension image de l’accélération.
+
+Page
+15
+
+Tension observée aux bornes de l’accéléromètre au repos
+Lors de la chute libre de notre cabine d’ascenseur, nous avons observé une tension variable aux
+bornes de l’accéléromètre. En effet, c’est un appareil très sensible qui réagit au moindre
+mouvement. Il a pris en compte la chute verticale mais aussi des petits mouvements transversaux
+du dispositif. Nous observions bien un passage de la tension délivrée au repos à une valeur
+incrémentée de la valeur de l’accélération mesurée au cours de la chute mais le régime transitoire
+était oscillant. Cela nous a empêché de visualiser clairement la tension image de l’accélération
+finale. De plus, la valeur seuil était franchie plusieurs fois, ce qui avait pour conséquence un
+freinage par à-coups.
+Afin d’annuler ces oscillations, nous avons lissé le courant au cours du régime transitoire. Pour ce
+faire, nous avons utilisé un condensateur électrolytique de forte capacité. Nous avons testé
+différentes valeurs et finalement nous avons retenu le condensateur de capacité 2200 µF. Et voilà le
+résultat !
+
+Tension observée avec un condensateur de 2200µF lors d’une chute libre de l’ascenseur
+Sur cette courbe, on peut faire une évaluation du temps de réponse de notre dispositif : il vaut
+environ 175ms (= 3,5 carreaux x la base de temps de 50 ms).
+
+Page
+16
+
+Et le freinage alors?
+On pourrait envisager un freinage traditionnel comme celui, mécanique, d'une roue de vélo par
+exemple, mais cela nous paraissait trop banal à la vue de tout ce que l’on avait effectué jusqu’à
+présent. Nous avons eu une énième idée. On a constaté que si l’on pose un aimant sur une barre de
+cuivre et qu'on positionne cette barre à la verticale, l'aimant descend très doucement, et ce sans quitter
+la barre. De même, si on essaie, à l'horizontale, de faire glisser cet aimant sur le cuivre, son avancée
+est difficile. Il faut réellement forcer pour déplacer l'aimant. Il s'agit bien d’une manifestation de
+freinage. Il s’agit plus précisément d’un freinage électromécanique par courants de Foucault. Celui-ci
+se manifeste en présence d’un matériau non ferromagnétique (ici notre barre de cuivre).
+
+Vous avez dit courants de Foucault?
+Lorsqu’on déplace un aimant à proximité d’un conducteur non ferromagnétique, il apparaît au sein de
+ce dernier des courants induits. Il en résulte l’apparition d’un champ magnétique (qu’on qualifie
+également d’induit). Ce dernier est orienté de telle manière à s’opposer à la cause qui lui a donné
+naissance : ceci provient du principe de modération de Lenz. L’interaction du champ
+
+avec le
+
+champ magnétique permanent
+de l’aimant en chute engendre l’apparition de forces
+magnétiques dont la résultante est orientée vers le haut. En effet ces forces cherchent à contrecarrer le
+poids, responsable de la chute. Intuitivement on comprend en outre que l’intensité de ces forces
+dépend de la vitesse de l’aimant.
+Pour comprendre comment la matière réagit au passage de l’aimant à proximité du conducteur, on va
+se placer dans le cas d’une expérience similaire qui est la chute verticale d’un aimant dans un tube
+cylindrique en cuivre. Il faut savoir qu’on modélise en électromagnétisme un dipôle magnétique par
+une spire de courant. Les courants qui apparaissent sont aussi assimilables à des aimants.
+L’orientation de ces aimants est telle qu’il y a attraction dans le cas d’une rencontre pôle nord – pôle
+sud et répulsion si les deux pôles sont de même nature. On en déduit les sens des courants induits.
+
+Apparition de courants induits
+dits de Foucault
+
+S
+N
+
+Il apparaît une face Sud
+lorsqu’on observe depuis
+le dessus.
+
+Il apparaît une face Nord
+lorsqu’on observe depuis
+le dessus.
+
+Page
+17
+
+Voilà donc, comment avec une manette de Wii, le monde
+peut échapper au destin sordide de crash d'ascenseur !
+
+Ouvertures
+Notre accéléromètre serait-il défectueux ?
+Juste avant de quitter le laboratoire de Sciences Physiques, nous avons décidé de mettre en
+relation nos séances de Travaux Pratiques de Physique sur les pendules que nous réalisons en ce
+moment et notre accéléromètre. Nous avons donc fixé notre accéléromètre à un pendule pesant de
+période T = 2,0 secondes et observé l’évolution de l’accélération mesurée par notre accéléromètre sur
+un oscilloscope. Jusque là tout se passait bien, et nous observions des signaux périodiques
+d’amplitudes variables en fonction de la position de l’accéléromètre sur le pendule.
+Néanmoins, pour une certaine positon sur le pendule, l’accéléromètre nous donnait une valeur
+aberrante : il ne mesurait plus aucune accélération ! Nous avons retenté plusieurs mesures, mais
+toujours avec cette même anomalie : à environ un mètre de l’axe de rotation du pendule, l’accélération
+était toujours nulle !
+Intrigués, nous avons décidé de visualiser l’accélération par un niveau à bulles fixé sur le pendule.
+Nous constatons à nouveau que quel que soit l’angle avec lequel on lâche le pendule, la bulle ne bouge
+pas du tout lorsque le niveau est situé à environ un mètre de l’axe de rotation. D’autre part, lorsqu’on
+déplace le niveau à bulle de ce point précis, on a bien la présence d’une accélération : la bulle bouge
+de gauche à droite.
+Il s’avère en fait que l’accélération orthoradiale (c’est-à-dire orthogonale au pendule) est nulle en ce
+point particulier du pendule conjugué. Il s’avère de plus que la distance entre l’axe de rotation et ce
+point correspond à la longueur du fil à donner à un pendule simple pour que celui-ci possède la même
+période T.
+Ceci est dû au fait que la somme des composantes des forces orthoradiales est nulle dans le référentiel
+du pendule qui n’est pas un référentiel galiléen. Dans celui-ci s’ajoutent aux forces « traditionnelles »
+des forces d’inertie.
+Alimentation de
+l’accéléromètre
+
+Accéléromètre
+
+Niveau à bulle
+
+Pendule pesant
+Montage de notre pendule
+
+Page
+18
+
+Pourrions-nous utiliser notre accéléromètre à des fins de
+commande?
+Comme dans la Wii, l’accéléromètre trois axes de la manette permet de créer des mouvements relatifs
+aux accélérations enregistrées. En effet, le traitement des tensions délivrées par ce capteur permet de
+reproduire à l’écran les mêmes mouvements effectués par le joueur.
+Nous envisageons d’utiliser un micro-contrôleur « Arduino Uno » pour commander des servomoteurs
+qui articuleraient un bras mécanique reproduisant les mouvements décelés par l’accéléromètre. Les
+accélérations captées sont converties en tensions puis en mouvement du bras articulé sur trois axes.
+
+Conclusion
+Depuis la manette de Wii, en passant par des généralités sur l'accéléromètre, ses propriétés, son
+fonctionnement et ses utilisations, nous avons apprivoisé et étalonné notre propre modèle. Puis nous
+nous sommes confrontés à une mise en pratique concrète de cet appareil électromécanique : la
+situation d'un ascenseur en chute. Après avoir recherché et fixé un critère physique permettant de
+décréter l’ascenseur comme étant en chute, nous avons imaginé une solution d’autofreinage efficace
+pour stopper l’ascenseur…
+
+A titres personnels, nous avons découvert des systèmes,
+approfondi nos connaissances et compris beaucoup de choses,
+et comme nous le faisons remarquer dans la partie
+« ouvertures » notre démarche peut encore continuer,
+tellement le sujet est vaste.
+
+Page
+19
+
+Remerciements
+Nous remercions :
+-
+
+Notre cher lycée Fabert qui nous a prêté les différents outils et matériaux
+nécessaires à la réalisation du projet.
+Notre professeur de Physique-Chimie Monsieur J.Baumann et Monsieur
+R.Hadi, qui nous ont été d’une aide précieuse et qui ont toujours été très
+disponibles pour nous. Grâce à eux, nous avons pu élaborer ce projet
+formidable et instructif des Olympiades de Physique, ce qui nous a
+conforté dans notre choix pour nos études supérieures.
+
+Sources :
+Sur l’accéléromètre :
+
+http://dirac.epucfe.eu/projets/wakka.php?wiki=P09A04index#TOC_0_4_-9
+http://www.youtube.com/watch?v=KZVgKu6v808#t=91
+http://www.esiee.fr/~pfmweb/pfm2/MEMS_c_quoi.pdf
+http://fr.wikiversity.org/wiki/Capteur/Capteur_d%27acc%C3%A9l%C3%A9ration__Acc%C3%A9l%C3%A9rom%C3%A8tres#Vibrations_et_chocs
+http://www.mesures.com/archives/090_098_gda.pdf
+http://www.gotronic.fr/pj-541.pdf
+http://microdess.atwebpages.com/Famille/Capteur/pages/Accelerometre.php
+http://www.dimensionengineering.com/products/de-accm2g
+http://www.effektmodell.de/index.php?main_page=product_info&products_id=6409
+Sur la chute d’ascenseur :
+http://www.loractu.fr/metz/5424-chute-d-ascenseur-a-metz-les-blesses-portent-plainte.html
+http://www.republicain-lorrain.fr/moselle/2013/11/07/chute-d-ascenseur-deux-blessees
+Sur le courant de Foucault :
+http://de.wikipedia.org/wiki/Wirbelstrombremse
+http://visite.artsetmetiers.free.fr/foucault_courants.html
+http://www.cstfelicien.qc.ca/scinat/cyberexpojournal2002/A02P4.pdf
+
+Page
+20
+
+

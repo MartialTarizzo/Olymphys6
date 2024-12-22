@@ -1,0 +1,311 @@
+Olympiades de physique
+Concours 2005
+
+RECONNAISSANCE DE FORMES
+
+CHAINTRON Rémi
+FAYOLLE Jessica
+FICHET Elise
+VIALA Romain
+
+Lycée Charles Baudelaire
+(Cran-Gevrier)
+
+PROFESSEUR RESPONSABLE : - M. GALLIN-MARTEL
+
+SOMMAIRE
+
+PROBLEMATIQUE
+PRESENTATION
+I. RESOLUTION THEORIQUE DU PROBLEME
+1) RECHERCHE THEORIQUE POUR REPONDRE A LA
+PROBLEMATIQUE DU SUJET
+2) NOTRE CHOIX FINAL
+II. APPLICATION PRATIQUE
+1) MATERIEL UTILISE
+2) LE PRINCIPE DE LA PHOTODIODE
+3) L’INTERFACE
+4) LE MONTAGE
+5) LA PROGRAMMATION
+CONCLUSION
+1) AMELIORATIONS ENVISAGEES
+2) BILAN
+3) NOS PARTENARIATS
+ANNEXES
+1) Q-BASIC
+2) LA PROGRAMMATION DES FORMES
+
+PROBLEMATIQUE :
+Comment un ordinateur pourrait-il reconnaître des formes géométriques en
+carton posées sur une console à l’aide d’un circuit électronique et d’un programme
+informatique ?
+
+PRESENTATION :
+
+Nous sommes 4 élèves du Lycée Charles Baudelaire de Cran Gevrier, issus
+de l’option MPI proposée en classe de seconde par notre établissement.
+C’est par le biais de cette option et grâce à notre professeur, Monsieur
+Gallin-Martel que nous avons décidé de travailler sur un projet T.P.E traitant le
+thème « formes et structures ». Ce projet est donc validé T.P.E (Travaux
+Pratiques Encadrés) et participe au concours national des Olympiades de
+Physique 2005. Nous l’avons débuté en première scientifique, et poursuivi en
+Terminale scientifique. Nous nous sommes concertés et avons choisi « la
+reconnaissance de formes » comme sujet de recherche.
+Pour mener à bien ce projet, nous avons dû mêler des connaissances
+touchant à plusieurs domaines : informatique, électronique, électricité,
+mathématiques…
+Notre projet a consisté à faire reconnaître à un ordinateur des formes
+que l’on pose, au moyen de jeux d’ombres et de lumières, sur une plaque où sont
+disposés des capteurs à des endroits stratégiques.
+Ce projet correspond à notre interprétation de la reconnaissance de
+formes par un ordinateur. Il représente donc une simulation pédagogique des
+méthodes employées au niveau industriel.
+Complet et intéressant, ce projet fut très instructif pour chacun de nous, nous
+espérons que ce mémoire saura satisfaire votre curiosi té et votre intérêt.
+
+I.
+
+Recherche théorique
+1) Recherche théorique pour répondre à la
+problématique du sujet :
+
+En premier lieu, pour répondre à notre problématique, nous avons tenté de la
+résoudre théoriquement c’est à dire nous avons imaginé la résolution du problème
+sous plusieurs formes :
+- Tout d’abord nous avons pensé à déterminer les formes en mesurant
+les angles. On peut compter le nombre d’angles et ensuite leur
+valeur en degré, ainsi on peut connaître précisément la forme qu’on
+a : exemple : un triangle (3 angles détectés) équilatéral (3 angles de
+60°)
+mais cette idée pose problème pour voir les différences entre des
+formes comme le carré et le rectangle…
+- Nous avons ensuite imaginé une console sur laquelle nous poserions
+des formes précises (carré, triangle, trapèze, cercle…) en ombres
+et lumières. Nous avons pensé relier des capteurs via une interface
+à un ordinateur et les placer sur la console afin que celui-ci, en
+fonction des formes posées, permette de les reconnaître.
+
+2) Notre choix final :
+Après de multiples réflexions plus ou moins fructueuses, nous nous sommes
+décidés et avons adopté la dernière idée, celle qui consiste à poser des formes
+géométriques simples : un carré, un triangle isocèle, un trapèze régulier et un
+cercle en carton sur une console, ce qui a pour effet de cacher des photo-diodes
+placées à des points-clés de la plaque. (voir schéma 1)
+On peut envoyer un courant électrique dans un circuit contenant ces photodiodes. Si elles sont cachées, le courant ne passe pas et si elles sont éclairées le
+courant passe. On récupère la tension à la sortie des photodiodes puis des
+portes logiques et on transforme ces données analogiques en données numériques
+par l’intermédiaire d’une interface, et ainsi les données peuvent être utilisées
+dans un programme informatique.
+
+II. Application pratique
+1) Matériel utilisé :
+Nous avons commencé par une plaque de petites dimensions mais le
+circuit était complexe à manipuler et n’était donc pas adapté d’un point de
+vue pratique. Nous avons donc opté pour une plaque plus grande, plus claire,
+plus aérée. En effet, notre montage allait être imposant… Nous utilisons donc
+des portes logiques NAND dont les deux entrées sont reliées entre elles,
+des cavaliers, des photodiodes, des résistances de 1 MΩ ainsi que des RIT
+(7805) afin de bénéficier d’une tension fixe de 5V en certains points du
+circuit.
+
+Nous avons découpé les formes dans du papier cartonné et avons scié
+dans du bois des planches afin de fabriquer notre support sur lequel nous
+positionnons nos formes.
+
+Schéma 1
+
+2) Le principe de la photodiode :
+Les photodiodes sont composées d’une jonction PN. Lorsqu’on éclaire une
+jonction PN polarisée sous tension inverse, on apporte de l’énergie. Cela a pour
+effet de faire passer les électrons du matériau P au matériau N. Le courant peut
+donc passer.
+Matériau P : silicium (Si) + impuretés de bore (B)
+Matériau N : silicium (Si) + impuretés d’arsenic (As)
+Le dopage est égal à : 1 atome d’impureté pour 10^6 atomes de Si.
+
+Schéma d’une photodiode polarisée en inverse
+
+3) L’interface :
+Plusieurs interfaces « clé en mains » nous étaient proposées dans les
+catalogues. Nous avons commandé « L’intelligent interface » à partir du
+catalogue Séléctronic, cependant nous nous sommes vite aperçus qu’elle ne
+convenait pas à notre projet. En effet, elle était adaptée surtout pour la
+robotique avec un logiciel fermé d’où l’impossibilité de le relier au Q-Basic. Une
+interface sérielle semblait être mieux adaptée. C’est pourquoi, nous avons
+cherché de la documentation à propos de ce type d’interface. C’est alors que
+nous sommes tombés sur un livre : « J’exploite les interfaces de mon PC »
+Publitronic. B.Kainka où nous avons trouvé ce qu’il nous fallait.
+Notre interface est formée à partir d’un composant intégré : le CD 4021.
+Il s ‘agit d’un registre à décalage statique 8 bits. Nous avons été confrontés au
+Turbo Pascal dans la programmation de cette interface. Mais n’étant pas simple
+d’accès, nous avons décidé de le traduire en Q-Basic, langage évolué simple avec
+lequel nous avions déjà travaillé en MPI, notre option en classe de seconde.
+Nous l’avons donc câblée comme ci-dessous :
+(Nous utilisons les entrées D1, D2, D3, et D4, les autres n’étant pas utiles. En
+effet nous avons 4 photodiodes).
+
+4) Le montage :
+Quatre photodiodes sont fixées sur la plaque en bois, chacune étant
+reliée à un circuit indépendant. Notre montage représente alors 4 circuits
+indépendants reliés à l’interface 4021 et à un générateur.
+Voici le schéma de l’un d’eux :
+
+vers interface 4021
+
+Quatre capteurs sont positionnés en des points stratégiques (voir schéma 1).
+Lorsque l’on pose une des formes, certains capteurs sont cachés, donc privés
+de lumière. En effet, privés de lumière, la porte logique NAND avec ses
+deux entrées reliées reçoit une faible tension (< 2V) qu’elle transforme en 5V
+en sortie. Cette tension représente un niveau haut (1) pour l’interface.
+Quand une photodiode est éclairée le courant passe et à l’inverse quand
+celle-ci est cachée, le courant ne passe pas. Or, pour notre manipulation nous
+désirions le contraire, c’est à dire nous voulions qu’une photodiode ne fasse
+pas passer le courant lorsqu’elle est éclairée et permette son passage
+lorsqu’elle ne reçoit pas de lumière. C’est pourquoi, nous avons besoin de
+portes logiques NAND avec ses deux entrées reliées qui permettent
+d’obtenir le résultat escompté.
+
+L’ordinateur nous affiche alors un nombre correspondant à la forme.
+Exemple : on pose le triangle sur notre plaque en bois, celui-ci correspond à
+D1+D2 sachant que D1=2^1 et D2=2^2, l’ordinateur nous affiche donc le chiffre
+6.
+-cercle : 2 (D1)
+-triangle : 6 (D1+D2)
+-trapèze : 14 (D1+D2+D3)
+-carré : 30 (D1+D2+D3+D4)
+
+4) La programmation :
+La programmation permet à l’ordinateur de reconnaître les formes posées sur la
+plaque en bois. Pour permettre à la porte logique de transformer ses valeurs
+binaires en valeurs numériques, nous avons tapé un programme déjà donné en QBasic :
+SCREEN 12
+REM interface sérielle a 8 entrées numériques
+Ba=&H2F8 : REM COM2
+OUT (ba+4) , 2 : REM strobe ON(RTS)
+Position=1
+Reception=0
+OUT(ba+4) , 0 : REM strobe OF(RTS)
+FOR n=1 TO 8
+FOR w=0 TO 20 : NEXT W
+IF(INP(ba+6)AND 128)=128 THEN reception=reception+position
+REM lire données DCD
+OUT(ba+4) ,1 :REM clock ON(DTR)
+Position=position*2
+OUT(ba+4) ,0 :REM clock OFF(DTR)
+NEXT n
+Nous avons ensuite créé un programme afin que l’ordinateur nous affiche le
+dessin de la forme posée sur la plaque. En effet l’ordinateur nous affichait un
+nombre correspondant à la forme(voir ci-dessus, « le montage »).
+Exemple pour le cercle :
+CASE IS=2
+CIRCLE (320 , 230) ,100 ,4
+PAINT (320 ,230) ,4
+LOCATE 14, 37 : PRINT « cercle » ;
+Pour cela, nous avons configuré notre programme afin que, pour chaque valeur de
+la réception, la forme correspondante s’affiche. Ainsi, avant d’entrer les
+programmes de formes (voir ci-dessus et annexes), nous avons placé une ligne de
+code, nous permettant de faire opérer au programme, un « choix » entre les
+formes :
+SELECT CASE réception
+
+Ainsi, pour les quatre valeurs possibles, cette ligne renvoie au programme
+correspondant :
+CASE IS=2 (cercle)
+CASE IS=6 (triangle)
+CASE IS=14 (trapeze)
+CASE IS=30 (carré)
+Dans chacun des cas, le programme correspondant s’opère alors, nous permettant
+d’associer à chaque valeur de réception, l’image correspondante.
+
+CONCLUSION
+1) AMELIORATIONS ENVISAGEES
+
+Le montage que nous avons réussi à faire fonctionner peut effectivement subir
+des améliorations qui lui donnerait la possibilité de reconnaître des formes plus
+complexes ou du moins plus diversifiées. C’est pourquoi, nous avons pensé que si
+nous augmentions le nombre de photodiodes présentes sur la console, l’ordinateur
+pourrait identifier d’autres formes. Plus on augmente le nombre de photodiodes
+(et par conséquent plus on rajoute de circuits allant en combinaison avec les
+photodiodes), et plus l’ordinateur peut déterminer des formes géométriques.
+Le montage idéal auquel nous avons pensé mais qui nous demanderait un temps
+supplémentaire de réalisation serait d’avoir une console couverte de photodiodes reliées chacune à un circuit indépendant (voir II/ 3) montage). Ces
+circuits seraient ensuite reliés à l’interface qu’il faudrait changer, une interface
+8 bits étant insuffisante. Un tel montage permettrait l’identification de
+nombreuses formes et constituerait une réelle amélioration.
+
+2) BILAN
+
+Nous sommes parvenus, après un an et demi de recherche, à l’aboutissement de
+notre projet de « reconnaissance de formes ». En effet, nous pouvons désormais
+par l’intermédiaire de notre montage composé d’une console avec quatre
+photodiodes, d’un circuit électrique, d’une interface et d’un ordinateur faire
+reconnaître à celui-ci les quatre formes désirées : un carré, un triangle isocèle,
+un trapèze et un cercle.
+Ce projet nous a permis de voir la physique sous un nouvel angle, celui de la
+recherche. Cette vision nous permet d’approcher les sciences physiques non pas
+de façon théorique mais plutôt de manière expérimentale. Durant ces deux ans,
+nous avons pu mettre à l’épreuve notre groupe, qui a dû faire face à divers
+problèmes. Ce projet a donc été une expérience nouvelle pour chacun d’entre
+nous, nous ouvrant les yeux sur le travail en groupe et la réalité d’une recherche
+scientifique.
+
+3) NOS PARTENARIATS
+Pendant l’élaboration de notre projet, nous n’avons pas eu réellement besoin de
+rencontrer le monde de l’entreprise ou même l’extérieur en général. En effet,
+nous nous sommes plutôt renseignés dans des livres.
+Cependant, nous avons eu l’occasion de visiter le LAPP (Laboratoire d’Annecy-leVieux de Physique des Particules) et particulièrement son laboratoire
+d’électronique.
+Nous venons également de visiter le laboratoire d’instrumentation de l’ESIA
+(Ecole Supérieure d’Ingénieur d’Annecy).
+Par l’intermédiaire du Thésame, notre partenaire permanent, nous avons eu le
+privilège de participer à une émission télévisée de 8MontBlanc en septembre
+2004 où nous avons pu présenter notre projet et ainsi faire une promotion des
+Olympiades de Physique au niveau régional.
+
+ANNEXE
+1) Q-Basic
+Dans notre programmation Q-Basic, nous utilisons le langage basic. Et plus
+précisément certaines actions très fréquemment employées telles que :
+_ print, nous permet d’afficher un texte
+_ locate, sert à placer ce texte sur l’écran. Ce sont les coordonnées du texte
+_ if… then, permet comme sa traduction en anglais le laisse entendre d’exprimer
+une condition : si… alors…
+_ paint, permet de colorier quelque chose en couleur. La couleur étant
+déterminée par un chiffre.
+_ next, permet comme on peut le traduire en français de faire ensuite… il
+permet de donner un ordre à l’application des actions
+_ line, permet de tracer des lignes en indiquant les coordonnées des points
+d’origine.
+_ cls, annule les actions effectuées précédemment
+_ for… next, est une boucle permettant d’effectuer un calcul entre deux valeurs
+d’une variable.
+_…
+
+2) PROGRAMMATION POUR LES FORMES
+Pour le triangle :
+CASE IS =6
+LINE (320, 115)-(480,345)
+LINE (320, 115)-(160, 345)
+LINE (160, 345)-(480,345)
+LOCATE 14,37
+PRINT “triangle”
+Pour le trapèze :
+CASE IS =14
+LINE (213, 154)-(426, 154)
+LINE (426, 154)-(480, 309)
+LINE (480, 309)-(160, 309)
+LINE (160, 309)-(213, 154)
+LOCATE 14, 37
+PRINT “trapèze”
+
+Pour le carré :
+LINE (190, 116)-(450, 376), 4, BF
+LOCATE 15, 38
+PRINT “carré”
+Pour le cercle :
+CIRCLE (320, 230), 100, 4
+LOCATE 14,37 : PRINT « cercle »
+
+Ensemble expérimental :
+
+

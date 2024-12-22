@@ -1,0 +1,1399 @@
+Mathieu Bour / Émilie Laurent / Marine Matton
+
+Les capteurs jouent aujourd’hui un rôle essentiel dans notre
+société. Ils participent à notre vie courante de manière
+active. Ce sont eux qui permettent l’ouverture des portes à
+l’entrée d’un magasin, qui maintiennent la température des
+maisons à un niveau souhaité ou encore qui ont établi le
+temps du record du monde du 100 mètres.
+Ces objets mystérieux ont de nombreuses facettes et nous
+avons décidé de nous pencher sur un cas bien précis pour
+notre étude : sécuriser le coffre-fort de Picsou !
+Armés de nos livres de physique, de nos calculatrices, d’un
+bon ordinateur, d’un fer à souder et d’une carte Raspberry
+Pi, nous nous mettons dans la peau d’agents de sécurité
+bancaire, prêts à en découdre avec les Rapetou !
+
+1
+
+Mathieu Bour / Émilie Laurent / Marine Matton
+
+Mathieu Bour / Émilie Laurent / Marine Matton
+
+Lycée Fabert
+
+Table des matières
+Introduction ................................................................................................................................. 3
+Un coffre-fort ? ............................................................................................................................ 3
+Protection N°1 : Le capteur piézoélectrique ................................................................................... 4
+Qu’est-ce que c’est ? .......................................................................................................................... 4
+Comment Picsou l’a-t-il utilisé ? ......................................................................................................... 5
+Protection N°2 : L’accéléromètre .................................................................................................. 5
+Qu’est-ce que c’est ? .......................................................................................................................... 5
+Quelles sont les caractéristiques de notre accéléromètre? ............................................................... 7
+Protection N°3 : Le capteur de luminosité ................................................................................... 11
+Qu’est-ce que c’est ? ........................................................................................................................ 11
+Comment Picsou l’a-t-il utilisé ? ....................................................................................................... 12
+Protection N°4 : Le pyromètre à infrarouge ................................................................................. 14
+Qu’est-ce que c’est ? ........................................................................................................................ 14
+Comment Picsou l’a-t-il utilisé ? ....................................................................................................... 15
+Protection N°5 : Le capteur de température ................................................................................ 17
+Qu’est-ce que c’est ? ........................................................................................................................ 17
+Application au montage ................................................................................................................... 18
+L’aboutissement : le Raspberry Pi ............................................................................................... 19
+Qu’est-ce qu’un Raspberry ? ............................................................................................................ 19
+Pourquoi un Raspberry dans notre projet ? ..................................................................................... 19
+Aller plus loin.................................................................................................................................... 20
+Conclusion ................................................................................................................................. 20
+Remerciements ................................................................................................................................ 21
+Annexes ..................................................................................................................................... 22
+Le coffre-fort .................................................................................................................................... 22
+L’accéléromètre ............................................................................................................................... 23
+Le capteur de luminosité .................................................................................................................. 25
+Le pyromètre à infrarouges .............................................................................................................. 25
+Le capteur de température .............................................................................................................. 26
+Bibliographie .................................................................................................................................... 27
+
+2
+
+Mathieu Bour / Émilie Laurent / Marine Matton
+
+Lycée Fabert
+
+Introduction
+Notre très cher oncle Picsou dont l’attrait pour l’argent n’a pas de limites a été horrifié par des
+nouvelles accablantes. En effet, il découvre dans une ancienne coupure de presse le récit du braquage
+de l’un des coffres forts les plus sécurisés du monde. Ceci est une preuve que le vol menace tous les
+coffres et tout le monde ! Picsou est depuis cette lecture obnubilé par la sécurisation de son coffrefort !
+« DIAMOND CENTER D’ANVERS, EN BELGIQUE. LE 15 FEVRIER 2003, DES BRAQUEURS ITALIENS PARVIENNENT A
+S’EMPARER DE DIAMANTS, D’OR ET DE BIJOUX DANS 123 COFFRES SUR 160, POUR UNE VALEUR D’AU MOINS 73 MILLIONS
+D’EUROS. LES MALFAITEURS ONT PRIS TROIS ANS POUR ORGANISER CE «BRAQUAGE DU SIECLE», TANT LE SYSTEME DE
+SECURITE DE L’ETABLISSEMENT ETAIT SOPHISTIQUE. LA SALLE DES COFFRES ETAIT NOTAMMENT EQUIPEE DE CAMERAS DE
+SURVEILLANCE, DE DETECTEURS INFRAROUGES, D’UN CHAMP MAGNETIQUE ET D’UN SISMOMETRE, SANS COMPTER LES
+MULTIPLES COMBINAISONS DU COFFRE. »
+Ni une, ni deux, Picsou se met en quête d’un nouveau système de sécurité pour protéger son précieux
+or. En s’inspirant du Diamond Center, il compte bien créer le coffre le plus sécurisé du monde !
+
+Un coffre-fort ?
+Pour matérialiser le coffre-fort de Picsou, nous avons choisi de fabriquer nous-même le coffre en
+question. C’est un cube de 30 cm d’arrête.
+Pour des raisons de pratiques expérimentales et de démonstrations, nous avons choisi le plexiglas
+comme matériau de construction principal pour notre coffre. En effet, le plexiglas ou verre synthétique
+a pour avantage d’être transparent tout en étant rigide et dur, sans pour autant être aussi lourd et
+cassant que le verre classique. Après quelques courses, nous avons le matériel pour assembler notre
+boîte.
+Nous nous en tenons au plan général du coffre (voir annexe 1 page 22), destiné à être assez grand pour
+contenir tout le matériel que nécessitera notre étude.
+
+Figure 1 : Le coffre, une fois réalisé par nos soins
+
+C’est ainsi qu’après quelques heures de travail, de coups de scie et colle nous obtenons notre boîte
+finalisée !
+3
+
+Mathieu Bour / Émilie Laurent / Marine Matton
+
+Lycée Fabert
+
+Les Rapetou, cambrioleurs intrépides, ont réussi à pénétrer dans la demeure de
+Picsou et se dirigent vers la fameuse salle du coffre. Ils marchent à pas de loup
+quand soudain, une alarme les fait sursauter. « Que se passe-t-il ? », demande l’un
+des frères.
+
+Protection N°1 : Le capteur piézoélectrique
+Qu’est-ce que c’est ?
+La piézoélectricité est la propriété que possèdent certains corps qui se polarisent électriquement sous
+l'action d'une contrainte mécanique. Il y a apparition d’un champ électrique et de charges liées (à ne
+pas confondre avec les charges libres comme les électrons responsables de la conduction dans un
+métal). L’apparition de ces dernières engendre un potentiel électrique mesurable à l’aide d’un simple
+voltmètre.
+Remarque : la piézoélectricité est un phénomène réversible, c’est-à-dire que l’on peut également
+générer une contrainte mécanique en soumettant le capteur à une tension.
+Le capteur piézoélectrique est composé d’une superposition d’au minimum une couche « sensible »,
+ayant une résistance élevée, intercalant au moins deux couches dites « électrodes » complémentaires
+et de résistance faible.
+
+1 sq = 6,45 cm2
+Figure 2 : Principe d'un capteur piézoélectrique
+
+4
+
+Mathieu Bour / Émilie Laurent / Marine Matton
+
+Lycée Fabert
+
+Comment Picsou l’a-t-il utilisé ?
+Le capteur nous indique l’application d’une force par l’apparition instantanée d’une tension. Cette
+dernière est d’amplitude élevée quelle que soit l’intensité de la force exercée. Lors de tests rapides,
+on a constaté que l’impact d’une masse de quelques grammes depuis une hauteur de quelques cm
+entraine une tension de l’ordre de quelques volts. Il paraît donc impossible d’occulter une pression,
+aussi petite soit-elle. Ce système donne toutefois une information qui ne dure pas dans le temps. Peu
+importe car la simple modification de tension qui est passée de 0 à une valeur autre (élevée qui plus
+est) nous permet par comparaison de déclencher une alarme. En effet (et ce sera décrit plus loin) nous
+allons relier le capteur à un Raspberry Pi qui va s’occuper de la surveillance.
+Nos voleurs n’ont qu’à bien se tenir car ils ne pourront pas espérer leurrer notre système même en
+marchant sur la pointe des pieds. Et voilà donc ce qui les a trahis ! Picsou a caché des détecteurs piézo
+sous les dalles posées sur le sol.
+
+Les Rapetou ayant retenu le parcours des dalles piégées s’y reprennent une seconde
+fois et arrivent devant le coffre. « Prenons-le ! Nous l’ouvrirons au quartier
+général ! ». Malheureusement pour eux, à peine l’ont il soulevé que l’alarme retentit
+encore. Malin, ce Picsou !
+
+Protection N°2 : L’accéléromètre
+Qu’est-ce que c’est ?
+Un accéléromètre est un appareil capable de mesurer une accélération et de la convertir sous forme
+de signal électrique (on parle de transducteur). C’est une interface entre une grandeur physique et une
+information manipulable. Toutefois il est uniquement capable d’acquérir des données et non de les
+traiter. Son fonctionnement se base sur des principes électroniques et mécaniques, c’est pourquoi on
+le nomme dispositif électromécanique. Son fonctionnement s'appuie sur des systèmes mécaniques
+simples : par exemple le déplacement d'une masse à l'intérieur d'un compartiment (Figure 3). Cette
+masse est suspendue à un ressort et la mesure des modifications de l’allongement de ce dernier
+permet de calculer l'accélération subie à une date t donnée.
+
+Figure 3 : Principe de l'accéléromètre (1 dimension)
+
+Mais qu’est-ce qu’une accélération ?
+On parle d’une grandeur vectorielle appelée accélération (dont l’unité est le m.s -²), dès lors que le
+vecteur vitesse change. En effet on définit le vecteur accélération de la manière suivante :
+
+a
+
+dv
+dt
+5
+
+Mathieu Bour / Émilie Laurent / Marine Matton
+
+Lycée Fabert
+
+Il s’agit en d’autres termes du taux de variation temporel du vecteur vitesse. La notion d’accélération,
+qui s’évalue dans un référentiel donné (qu’il soit galiléen ou non), est donc liée soit à une augmentation
+(ou une diminution) de la valeur numérique de la vitesse, soit à une modification de la trajectoire.
+Un accéléromètre va en l’occurrence détecter puis quantifier les modifications du vecteur vitesse .
+Par exemple, on aura pour un mouvement rectiligne une accélération positive due à un déplacement
+plus rapide, une accélération négative due à un freinage, une accélération nulle si la vitesse est
+uniforme… Mais si la géométrie de la trajectoire est modifiée, l’accélération variera aussi.
+Un mouvement quelconque est décrit par un nombre fini de translations et de rotations. Aujourd’hui
+certains téléphones portables sont dotés d’accéléromètres munis de 6 degrés de liberté, c’est-à-dire
+qu’ils peuvent mesurer des accélérations dans toutes les directions de l'espace. Les accéléromètres
+peuvent ainsi mesurer des déplacements mono-, bi- ou tridimensionnel, et prennent en compte tous
+les types de rotation (Figure 4) grâce à la présence de gyroscopes.
+
+Figure 4 : Accéléromètre à 3 dimensions
+
+Figure 5 : Accéléromètre à 3 dimensions
+
+Sur la Figure 5, on observe que l'axe z est maintenant à la place du compartiment de l'axe x. Notre
+modèle a donc tourné d'un quart de tour vers la droite. Pendant cette rotation, les accéléromètres
+dans les compartiments x et z ont donc mesuré des accélérations. Le système mécanique
+précédemment proposé n'est qu'une modélisation à une échelle bien supérieure à ce qui se fait
+réellement. Actuellement un accéléromètre occupe une surface d’environ 3 mm², et ceci avec le boîtier
+extérieur!
+
+A quoi ressemble l’accéléromètre vu de l’intérieur ?
+Observons maintenant l'intérieur d'un de ces appareils électroniques minuscules. Le modèle présenté
+ci-dessus est mis en œuvre à l’échelle microscopique. Une partie mobile est présente à l'intérieur d'un
+compartiment fixe :
+
+Figure 6 : Accéléromètre, vue intérieure
+
+6
+
+Mathieu Bour / Émilie Laurent / Marine Matton
+
+Figure 7 : Accéléromètre, vue des condensateurs
+
+Lycée Fabert
+
+Figure 8 : Accéléromètre, vue des ressorts
+
+Lorsque l'objet sur lequel est placé l'accéléromètre bouge, la partie mobile (ici l'élément bleu, façonné
+en silicium, donc malléable) va se déplacer et se rapprocher des parties vertes. On peut ainsi comparer
+cet ensemble à une multitude d’armatures reliées, ce qui constitue autant de mini-condensateurs. Par
+le déplacement de la masse de silicium en raison d’un mouvement, il va alors s'opérer un changement
+de la capacité électrique (de l’ordre de 10-14 F) de ces condensateurs (figure 7), et la tension de sortie
+de l’accéléromètre va en conséquence être modifiée. Par conséquent, plus il y aura d’armatures, plus
+la sensibilité de l’accéléromètre et donc la mesure du mouvement du mobile sera précise. On
+remarque d'ailleurs sur la figure 8 la présence de ressorts qui gouvernent et maîtrisent le déplacement
+du mobile. On notera l’étonnante dimension des ressorts.
+Cette multitude de condensateurs est reliée à un calculateur qui émet une tension proportionnelle à
+la capacité constatée. Une chaîne de composants conditionne le signal et émet une tension de sortie.
+S’il n’y a pas d’accélération (ou de décélération) constatée, c’est-à-dire si la capacité reste stable, la
+tension de sortie ne varie pas. Et dans le cas où la capacité varie, il y aura une autre tension de sortie.
+Ainsi, l’accéléromètre permet de mettre en relation la variation de la capacité des armatures due à un
+mouvement et une tension de sortie.
+Les utilisations de l’accéléromètre sont détaillées en annexe 2 page 23.
+
+Quelles sont les caractéristiques de notre accéléromètre?
+Présentation de la fiche technique
+
+Accéléromètre DE-ACCM2G2
+
+Notre module (le DE-ACCM2G2) est composé d’un
+accéléromètre deux axes et capable de mesurer des
+accélérations allant jusqu'à 2g (c.à.d. 20 m.s -2). Il est doté de
+sorties analogiques.
+L’accéléromètre a une sensibilité de 660 mV par g et une
+bande passante de 500Hz (il effectue donc des mesures fiables
+dès lors qu’on ne le sollicite pas plus de 500 fois par seconde).
+
+Quelle est la corrélation entre les valeurs d'entrée et de
+sortie?
+Il était important pour nous de maitriser son fonctionnement.
+Il a été décidé de procéder à son étalonnage pour le bon déroulement de la suite. Il s’agit en effet
+d’interpréter l’information électrique délivrée par le capteur. On a donc déterminé la relation qui
+existe entre l’indication donnée par l’appareil (c.à.d. la tension de sortie) et l’accélération mesurée.
+Elle est représentée graphiquement sur la courbe donnant l’évolution de la tension U en fonction de
+l’accélération a : U = f(a), voir figure 11 (page 9)
+7
+
+Mathieu Bour / Émilie Laurent / Marine Matton
+
+Lycée Fabert
+
+Mais comment disposer d’une accélération de valeur connue ?
+Il existe plusieurs formules littérales permettant d’exprimer une accélération. Celle-ci dépend de la
+nature du mouvement du système étudié (mouvement rectiligne varié, mouvement curviligne varié,
+rotation uniforme autour d’un axe fixe…).
+Il a fallu réfléchir à laquelle on allait faire appel. On a donc exploité la formule qu’on a jugé comme
+étant la plus simple. On a choisi celle donnant l’accélération d’un mobile en rotation uniforme autour
+d’un axe fixe dans le référentiel du laboratoire supposé galiléen.
+
+Axe de rotation
+r
+
+Figure 9 : Schéma fonctionnel théorique
+de l'étalonnage
+
+𝑎 = ⍵2 × 𝑟
+Dans cette formule :
+-
+
+a représente la valeur de l’accélération en m.s⁻²
+
+-
+
+r la distance de l’accéléromètre à l’axe instantané de rotation en m
+
+-
+
+ω la vitesse angulaire en rad.s-1
+
+La valeur de la fréquence de rotation et de la vitesse angulaire sont liées par la formule ω = 2π.f avec f
+la fréquence en Hz.
+
+Notre montage d'étalonnage
+Pour comprendre les informations délivrées par l’accéléromètre, nous avons réalisé le montage
+présenté ci-dessous. L’accéléromètre a été fixé sur un dispositif tournant dont on maitrise la vitesse
+angulaire de rotation. Nous avons ensuite pris plusieurs séries de mesures d’accélérations à des
+vitesses angulaires et des rayons différents.
+
+8
+
+Mathieu Bour / Émilie Laurent / Marine Matton
+
+Lycée Fabert
+
+Accéléromètre
+Voltmètre
+
+Rhéostat
+
+Figure 10 : Schéma de notre montage d'étalonnage
+
+Nous avons pris plusieurs séries de mesures, en jouant sur la distance à l’axe de rotation et la vitesse
+angulaire (en tours/min). L’ensemble des valeurs relevées se trouve en annexe 3 page 24.
+L’accélération a été convertie par la suite en g avec la formule
+
+a1
+afin de comparer facilement avec
+9, 81
+
+les données fournies par le constructeur.
+
+La modélisation graphique sur Regressi :
+
+Tension en fonction de l'accélération
+4
+3,5
+
+Tension (V)
+
+3
+2,5
+2
+1,5
+1
+
+u = 0,660 g + 1,73 V
+
+0,5
+0
+0
+
+0,5
+
+1
+
+1,5
+
+2
+
+2,5
+
+3
+
+Accélération (g)
+Figure 11 : Modélisation graphique de la caractéristique de notre accéléromètre
+
+Grâce à Regressi, nous avons pu réaliser le tracé ci-dessus et modéliser cette représentation graphique
+U = f(a) par une courbe à tendance affine. C’est pour cette modélisation que l’écart modèle-expérience
+était le plus faible, à savoir 3,2 %.
+
+9
+
+Mathieu Bour / Émilie Laurent / Marine Matton
+
+Lycée Fabert
+
+Nous avons relevé une ordonnée à l’origine de 1,73 V et un coefficient directeur de 660 mV, ce qui est
+en corrélation avec la donnée constructeur. Celui-ci mentionne sur sa fiche technique une valeur de
+tension au repos de 1,65V pour une mesure d’accélération effectuée selon l’axe des X et une
+augmentation de tension de 660 mV lorsque l’accélération croît de 1 g.
+Grâce à cet étalonnage, nous disposons à présent de la corrélation tension-accélération. Nous
+pourrons donc associer, dans la suite de notre projet, à une valeur seuil d’accélération, une valeur seuil
+de tension. En d’autres termes, nous comprenons ce que veut nous signifier notre accéléromètre.
+Pour jauger de la qualité de notre travail, nous avons procédé à l’évaluation des incertitudes.
+
+Évaluation des incertitudes :
+-
+
+La vitesse angulaire a été mesurée à l’aide d’un tachymètre dont on connaît la résolution par
+donnée constructeur : q = 0,1 rad.s-1.
+
+On en déduit l’incertitude type puis l’incertitude élargie pour un taux de confiance à 95 % :
+
+u(ω) =
+
+𝑞
+0,1
+-1 et U(ω)= 2u = 0,12 rad.s-1.
+=
+=
+0.058
+rad.s
+√3 √3
+
+Remarque : la tension est relevée à chaque fois après stabilisation de la vitesse angulaire, c.-à-d.
+lorsque le régime permanent est atteint, à l’aide d’un oscilloscope et/ou d’un voltmètre.
+-
+
+Le rayon de la trajectoire a été relevé avec une règle. Toutefois à la vue de la non connaissance
+exacte de la position de l’accéléromètre, qui se trouve caché dans une « boîte noire » de deux
+mm de long, nous avons postulé une résolution q = 3 mm (et non q = 1 mm).
+
+D’où l’incertitude type u =
+
+𝑞
+3
+= = 1,73 mm et l’incertitude élargie U(r) = 2u = 3,46 mm.
+√3 √3
+
+Au final par méthode des incertitudes composées, nous sommes arrivés à une estimation de
+l’incertitude élargie sur l’accélération a :
+
+2
+
+𝑈(𝜔)
+𝑈(𝑟)
+𝑈(𝑎 ) = 𝑎 × √2 (
+) +(
+)
+𝜔
+𝑟
+
+2
+
+Sur l’exemple d’une valeur parmi toutes les mesures réalisées, cela donne :
+𝑈(𝑎) = 7.895 × √2 (
+
+0.12 2
+3.46 2
+) + ( ) = 0,6 m.s-2 donc l’accélération s’exprime : a = 7,9 ± 0,6 m.s-2
+12.54
+50
+
+Maintenant que notre accéléromètre nous est familier, nous pouvons l’insérer dans notre coffre-fort
+et il servira à détecter tout mouvement. Les frères Rapetou se sont donc fait détecter au moment où
+ils soulevaient le coffre.
+
+10
+
+Mathieu Bour / Émilie Laurent / Marine Matton
+
+Lycée Fabert
+
+Les voleurs tentent leur chance une troisième fois ; ils prennent soin d’éviter la zone
+sensible, ne déplacent pas le coffre mais ils allument la lumière pour voir plus clair.
+Cependant une alarme retentit de nouveau. Mais comment est-ce possible ?
+
+Protection N°3 : Le capteur de luminosité
+Qu’est-ce que c’est ?
+Une photorésistance (PhotoCells ou CdS en anglais) est un composant électronique dont la résistance
+dépend du flux lumineux auquel il est exposé. Elles se nomment aussi LDR (Light-Dependent Resistor)
+ou cellules photoconductrices. Elles permettent de détecter la lumière. On utilise principalement la
+photorésistance pour mesurer l’intensité lumineuse, qui s’exprime en lux (éclairement lumineux). Il
+existe également d’autres unités pour mesurer ce type de données, telles que le Candela (cd) qui est
+utilisé pour calculer la luminance, exprimée en cd/m² ou encore le lumen noté lm, qui mesure le flux
+lumineux.
+
+Ces capteurs répondent à des lumières de longueur d'onde variant entre 400nm (violet) et 600nm
+(orange), avec un pic à environ 520nm (vert). On peut donc les utiliser pour capter la lumière visible
+(dont la longueur d’onde λ se situe entre 400 et 600 nm).
+
+Amplitude de la réponse du capteur (en
+échelle arbitratire)
+
+Sensibilité
+des photorésistances en fonction de la longueur d'onde
+
+0
+
+100
+
+200
+
+300
+
+400
+
+500
+
+600
+
+700
+
+800
+
+Longueur d'onde (nm)
+Figure 12 : Domaine de fonctionnement des photorésistances
+
+Ils sont également de petite taille (quelques centimètres carrés), économiques, tout en étant faciles à
+mettre en place dans un montage. Les photorésistances sont notamment utilisées dans le
+déclenchement automatique d'éclairage : ils sont alors insérés dans des relais optiques.
+11
+
+Mathieu Bour / Émilie Laurent / Marine Matton
+
+Lycée Fabert
+
+Comment Picsou l’a-t-il utilisé ?
+La valeur de la résistance (en ohms) de ces capteurs change en fonction de la quantité de photons qui
+les atteint. Il est ainsi possible de détecter un changement de luminosité brusque tel que l’allumage
+d’une lumière.
+
+Figure 13: Une LDR peut être assimilée à une résistance qui réagit aux rayons lumineux
+
+Les flèches placées au-dessus de la résistance représentent le flux de photon et R dépend de ce flux.
+
+Étalonnage de notre capteur
+Afin de mieux connaître la LDR, nous avons relevé différentes valeurs de résistances pour différents
+flux lumineux mesurés à l’aide d’un luxmètre. Les valeurs sont en annexe 4 page 25.
+Nous traçons, à partir de ces valeurs, le graphique représentant la résistance en fonction de l’intensité
+lumineuse.
+
+Résistance en fonction de l’intensité lumineuse
+4000
+3500
+
+Résistance (Ω)
+
+3000
+2500
+2000
+1500
+1000
+500
+0
+0
+
+200
+
+400
+
+600
+
+800
+
+1000
+
+1200
+
+1400
+
+1600
+
+Luminosité (lux)
+Figure 14 : Graphique de la résistance en fonction de l'intensité lumineuse soumise à la LDR (Excel)
+
+Après modélisation, nous avons la formule numérique suivante liant flux et résistance :
+
+Ω = 2,82. 104 × 𝑙𝑢𝑥 −0.711
+On déduit aisément à partir de ce graphique que plus l’intensité lumineuse est grande, plus la
+résistance du capteur est faible et que la variation de résistance pour une variation de flux faible (entre
+0 et 100 lux) est grande. Pour se donner une idée de cette variation locale de résistance R en fonction
+du flux on a évalué la pente p avec la formule (qui n’est rien d’autre que la dérivée de la fonction R) :
+
+12
+
+Mathieu Bour / Émilie Laurent / Marine Matton
+
+p =
+
+Lycée Fabert
+
+dR
+dØ
+
+avec Ø représentant le flux et [p] = Ω.lux-1.
+
+Dans le domaine allant de 0 à 100 lux, on a tracé la tangente à la courbe en un point quelconque et on
+a trouvé que p est environ égale à -200 Ω.lux-1. Cette variation nous conforte dans l’idée que la LDR est
+très sensible lorsqu’on passe d’un milieu initialement sombre à un milieu éclairé.
+Mais comment exploiter concrètement cette variation dans notre coffre-fort ?
+
+Le pont de Wheatstone
+Le pont de Wheatstone est un instrument de mesure inventé par Samuel Hunter Christie en 1833, puis
+amélioré et popularisé par Charles Wheatstone en 1843. Il est utilisé pour mesurer une résistance
+électrique inconnue par équilibrage de deux branches d'un circuit en pont, avec une branche
+contenant le composant inconnu.
+Le capteur de luminosité est monté en pont de Wheatstone, c'est-à dire-que quatre composants
+ohmiques (deux de valeur de résistance fixe, un de valeur variable et le composant ohmique LDR à
+étudier) sont branchés de telle manière que le pont est dit en équilibre :
+
+𝑅𝑅𝑣𝑎𝑟 = 𝑅𝑅𝐿𝐷𝑅
+est vérifiée
+Dans notre cas, le composant ohmique à étudier est le capteur de luminosité, qu’on notera LDR. Nous
+avons choisi des résistances de 10 kΩ pour celles de valeur fixe ; la valeur de résistance variable est
+fixée pour être égale à la résistance du capteur au repos. Le pont est donc en équilibre au début. Or
+tant que le pont est en équilibre les potentiels V+ et V- sont égaux. Ces deux potentiels sont reportés
+sur les entrées inverseuses et non inverseuses d’un amplificateur opérationnel. Ce dernier est utilisé
+en comparateur. Il va à chaque instant vérifier si les potentiels demeurent identiques. Tant que ce sera
+le cas, il n’y aura aucun courant en sortie de l’AO. Dès lors que V+ > V-, la tension de sortie US sera
+égale à 15 V ou si V+ < V-, US sera égale – 15V.
+Ce déséquilibre se produira dès que l’intensité lumineuse variera. Nous pourrons ainsi récupérer la
+variation de tension (ou courant) en sortie et ceci permettra de déclencher diverses actions.
+
+Schéma final du montage
+
+Figure 15 : Schéma du pont de Wheatstone avec la LDR, couplé à un comparateur
+
+13
+
+Mathieu Bour / Émilie Laurent / Marine Matton
+
+Lycée Fabert
+
+Et encore une fois les Rapetou ont été surpris ! Il est décidément très bon en physique notre ami
+Picsou.
+
+Nouvelle tentative pour les Rapetou. Mais cette fois-ci, les voleurs prennent soin de
+ne pas allumer la lumière. Mais à peine sont-ils à portée du coffre que Picsou surgit,
+fusil en main. Comment a-t-il fait ???
+
+Protection N°4 : Le pyromètre à infrarouge
+Qu’est-ce que c’est ?
+Un détecteur infrarouge est un détecteur réagissant à un rayonnement infrarouge (IR). Ses domaines
+d’application sont multiples : détecteur de présence couplé à une alarme, domotique, interrupteur
+infrarouge…
+Un détecteur infrarouge est le plus souvent constitué de :
+
+
+Un capteur pyroélectrique. On rencontre ce genre de capteurs dans les systèmes d'alarme, les
+allumages automatiques de lampes de jardin, les ouvertures de portes automatiques. Il peut
+être utilisé en extérieur pour détecter le passage de personnes ou de voitures. Utilisé en
+intérieur il peut être un capteur d'appoint pour confirmer les informations données par un
+autre capteur, ou encore pour réagir aux mouvements d'êtres vivants. Il est sensible au
+rayonnement infrarouge.
+
+
+
+C’est un semi-conducteur à base de silicium. Le silicium est le plus utilisé commercialement,
+du fait de ses bonnes propriétés et de son abondance naturelle même s'il existe également
+des dizaines d'autres semi-conducteurs utilisés, comme le germanium, l'arséniure de gallium
+ou le carbure de silicium.
+Une lentille de Fresnel chargée de faire converger tous les rayons sur le capteur situé sur la
+plaque.
+Une partie électronique dont le rôle est de traiter le signal issu du capteur et de produire une
+information destinée à la centrale.
+
+
+
+
+Le rayonnement infrarouge (IR) est un rayonnement électromagnétique d'une longueur d'onde
+supérieure à celle de la lumière visible mais plus courte que celle des micro-ondes (entre 10-6 à 10-3 m,
+plus précisément de 750 nm à 0.1 mm). Selon la loi de Wien, le spectre continu du rayonnement
+thermique émis par un corps à la température T possède une intensité maximale pour une longueur
+d’onde λmax est donnée par la relation :
+
+λmax. 𝑇 = 2.90 × 10−3
+avec T la température absolue (en Kelvin), λmax la longueur d’onde (en m)
+Le capteur infrarouge est constitué d'un récepteur qui détecte l'intensité lumineuse dans la gamme
+des lumières infrarouge. Pour fonctionner, il utilise notamment un équivalent de l’effet
+photoélectrique.
+Il existe différents type de capteurs infrarouges, détaillés dans l’annexe 5 page 25.
+
+14
+
+Mathieu Bour / Émilie Laurent / Marine Matton
+
+Lycée Fabert
+
+Qu’est-ce que l’effet photoélectrique ?
+L’effet photoélectrique est l’émission d’électrons par un matériau soumis à l’action de la lumière.
+Le physicien allemand Heinrich Rudolf Hertz réalisa expérimentalement en 1886 qu’un matériau
+métallique exposé à la lumière pouvait émettre des particules chargées négativement (qui seront
+appelées «électron »). Cette découverte fut nommée effet photoélectrique. Malheureusement, Hertz
+ne fut pas en mesure d’expliquer théoriquement le phénomène, car certaines caractéristiques de cet
+effet ne fonctionnaient pas avec la théorie classique de l’électromagnétisme de l’époque. Il faudra
+attendre 1905 et l’interprétation d’Einstein, qui lui vaudra au passage le prix Nobel en 1921.
+Plus haut, nous parlons d’un équivalent de l’effet photoélectrique car il s’agit en réalité de l’apparition
+d’une paire électron-trou qui se produit sous l’impact de photons infra-rouges. L’électron passe alors
+de la bande de conduction à la bande de valence ce qui engendre un courant dans le semi-conducteur.
+
+Figure 16 : Étalonnage du pyromètre à infrarouge
+
+Comment Picsou l’a-t-il utilisé ?
+Dans notre cas, nous avons un détecteur à infrarouge qui fonctionne avec une lentille de Fresnel qui
+est censée en augmenter l’efficacité. Dans notre cas, nous cherchons à couvrir un angle large. La lentille
+de Fresnel permet donc de gagner en largeur d’angle, mais en perdant de la profondeur de champ.
+
+Qu’est-ce qu’une lentille de Fresnel ?
+La lentille de Fresnel est un type de lentille inventé par Augustin Fresnel en 1822 pour équiper à la
+base le système optique des phares de signalisation marine, ayant une portée trop faible.
+Par rapport à une lentille simple, la lentille de Fresnel réduit la quantité de verre à utiliser en la
+découpant en un ensemble de sections annulaires concentriques. Pour chacune de ces zones,
+l'épaisseur est réduite, ce qui fait que la surface globale de la lentille n'est plus lisse mais se compose
+de plusieurs surfaces de même courbure, séparées par des discontinuités.
+Les lentilles de Fresnel sont utilisées entre autre dans les vidéoprojecteurs pour convertir l’image de
+l’écran interne en image agrandie sur un écran proche.
+Dans notre cas, nous allons utiliser la lentille de Fresnel pour faire converger des rayons lumineux sur
+un grand angle vers un seul point (le foyer) : notre capteur infrarouge !
+
+15
+
+Mathieu Bour / Émilie Laurent / Marine Matton
+
+Lycée Fabert
+
+Figure 17 : Lentille de Fresnel convergente
+
+Étude de notre capteur
+Nous avons mesuré les caractéristiques de notre capteur infrarouge : sa portée et son angle
+d’ouverture. La portée maximale de notre capteur est de 6 mètres. Le champ de vision est différent
+selon l’orientation du capteur (verticale ou horizontale).
+
+
+Avec la lentille
+o À l’horizontale : 35-40°
+o
+
+À la verticale : 20°
+
+
+
+Sans la lentille
+o
+
+À l’horizontale : 70°
+
+o
+
+À la verticale : 50°
+
+Ayant trouvé ces caractéristiques (surprenantes car non attendues), nous avons choisi de ne pas
+utiliser la lentille de Fresnel afin de conserver un grand angle, ce qui est plus intéressant que la longue
+portée dans le cas de notre coffre-fort.
+
+Application au montage
+Contrairement au capteur de luminosité, le capteur infrarouge émettra une tension à l’activation. Il
+n’y a donc pas besoin de pont de Wheatstone, car ce capteur n’est pas un capteur résistif, mais qui
+produit un signal numérique lorsqu’il y a détection. Il est donc exploitable immédiatement.
+Il suffit donc simplement de le brancher sur un comparateur afin de déclencher une action à son
+activation par une présence étrangère.
+
+Ultime essai pour les frères Rapetou. Ils sont proches du but, ayant réussi à
+s’approcher du coffre tant convoité sans déclencher les précédentes protections.
+« Puisque nous ne pouvons ni l’emporter, ni l’ouvrir avec la moindre vibration,
+employons le chalumeau ! » Encore perdu !
+
+16
+
+Mathieu Bour / Émilie Laurent / Marine Matton
+
+Lycée Fabert
+
+Protection N°5 : Le capteur de température
+Qu’est-ce que c’est ?
+Le LM35 est un circuit intégré calibré en usine pour être utilisé comme capteur de température de
+précision.
+Sa tension de sortie Vout est linéairement proportionnelle à la température exprimée en degré Celsius.
+Plus exactement, la tension de sortie Vout augmente de 10 mV chaque fois que la température
+augmente de 1°C, selon les données fournies par le constructeur.
+Le circuit intégré LM35 convient parfaitement pour des mesures dans lesquelles les variations de
+température sont lentes, ce qui est le cas chez nous, puisqu’il servira à détecter l’augmentation de
+température d’une plaque métallique.
+Il en existe plusieurs versions, différant par leur domaine de sensibilité : de 0 à 100°C, de -55°C à +150°C
+ou -40°C à +110°C.
+Malgré son coût d’achat faible (entre 3 et 8 euros) et sa consommation peu élevée (de l'ordre de 60
+µA pour une tension d’alimentation comprise entre 4 et 30 V), sa linéarité reste excellente sur toute
+sa plage de sensibilité.
+Le LM35 possède 3 pattes : alimentation, tension de sortie et masse.
+
+Figure 18 : Le LM35
+
+Le schéma fonctionnel de notre capteur se trouve en annexe 6 page 26.
+
+Étalonnage de notre capteur
+Afin de mieux vérifier les données de ce capteur, nous avons relevé la tension délivrée par le LM35 à
+l’aide d’un voltmètre pour différentes températures. Pour cela, la sonde est rendue étanche et est
+plongée dans l’eau d’une cuve dont on contrôle la température. Un thermomètre, également
+immergé, permet de vérifier cette dernière.
+Les résultats obtenus sont dans l’annexe 7 page 26.
+
+17
+
+Mathieu Bour / Émilie Laurent / Marine Matton
+
+Lycée Fabert
+
+Thermomètre
+
+LM35
+
+Cuve
+
+Voltmètre
+
+Figure 19 : Notre montage d'étalonnage du capteur de température
+
+De ces valeurs nous traçons la courbe représentant la tension délivrée en fonction de la température.
+
+Tension délivrée par le LM35 en fonction de la température
+600
+
+Tension U (mV)
+
+500
+400
+300
+
+200
+
+U = 9,50T
+
+100
+0
+0
+
+10
+
+20
+
+30
+
+40
+
+50
+
+60
+
+Température T (°C)
+Figure 20 : Graphique de la tension en fonction de température
+
+On constate aisément qu’il s’agit d’une fonction linéaire (écart modèle expérience de 1,1%), dont le
+coefficient directeur vaut 9,50 mV. Cette valeur est proche de celle annoncée par le constructeur à
+savoir 10 mV.
+Se pose à présent la question de l’exploitation de tous ces signaux mentionnés depuis le début du
+travail et engendrés par les différents capteurs, lorsque des intrus sont signalés. Nous avons opté pour
+une surveillance accrue effectuée par un Raspberry Pi.
+
+Application au montage
+Nous savons que la tension délivrée par notre capteur est proportionnelle à la température. Nous
+allons donc comparer la tension de sortie avec une tension représentant une valeur seuil d’environ
+20°C. Nous allons donc utiliser encore une fois un amplificateur opérationnel. Dès lors que la tension
+référence est dépassée, le comparateur sortira +15V en sortie.
+
+18
+
+Mathieu Bour / Émilie Laurent / Marine Matton
+
+Lycée Fabert
+
+L’aboutissement : le Raspberry Pi
+Qu’est-ce qu’un Raspberry ?
+
+Figure 21 : Le merveilleux monde des Raspberry
+
+Une carte Raspberry est en fait un micro-ordinateur qui n’a rien à envier à ses grands frères. En effet,
+à l’inverse des cartes dites « programmables » telles que les cartes Arduino, les Raspberry possèdent
+tous les composants d’un ordinateur classique : sorties audio et vidéo, ports USB, lecteur de carte SD,
+connexion internet, etc.
+Ces cartes ont pour avantages d’être très compactes ( 85,60 mm × 53,98 mm × 17 mm pour une masse
+de 45 g), de pouvoir être utilisées dans de nombreux domaines (ordinateur de poche, serveur de petite
+taille, domotique…), tout en étant très économique (20 à 35 dollars américains) et peu gourmand en
+énergie (une prise micro USB de 3.5 W suffit).
+Le choix système d’exploitation de la carte se fait parmi un large choix de distributions Linux
+spécialement développées pour les Raspberry. L‘optimisation est donc poussée à son maximum du
+côté du fabricant.
+
+Pourquoi un Raspberry dans notre projet ?
+Le Raspberry nous permettra ici de centraliser la gestion de notre coffre-fort. En effet, il capable
+d’interagir avec les capteurs, qui seront directement branchés dessus. Il interprète les tensions en
+entrées et donne lieu à une réponse. Il nous permettra même de communiquer par liaisons
+téléphoniques classiques avec les utilisateurs du coffre. Par exemple, lorsqu’un capteur se déclenche,
+ce dernier est capable de réagir différemment selon le capteur activé (alarmes visuelles, sonores, …).
+Il pourra même envoyer un SMS au propriétaire du coffre pour l’informer de l’intrusion et de la même
+manière prévenir les forces de l’ordre afin de piéger le voleur.
+
+19
+
+Mathieu Bour / Émilie Laurent / Marine Matton
+
+Lycée Fabert
+
+Toutes ces actions sont possibles grâce aux nombreuses entrées et sorties présentes sur le Raspberry
+que nous avons au passage équipé d’une carte supplémentaire appelée Pi Face.
+
+Détection sur le
+capteur
+
+Envoi d'un signal
+électrique au
+Raspberry
+
+Inteprétation du
+signal
+
+Choix de l'action
+(SMS, alarme,
+etc.)
+
+Exécution
+de l'action
+
+Figure 22 : Schéma fonctionnel du déclenchement de l'alarme et des SMS
+
+Pour envoyer des SMS, nous avons simplement utilisé une clé 3G que nous avons branché en USB sur
+le Raspberry. Un programme, « gammu », intégré dans la carte, permet d’interagir avec la clé 3G.
+Nous n’avons plus qu’à brancher nos capteurs sur le Raspberry pour tout faire fonctionner.
+
+Aller plus loin
+Nous souhaitons aller plus loin dans l’ergonomie de notre coffre-fort, c’est pourquoi nous avons
+encore utilisé le Raspberry pour améliorer notre produit. En envoyant un SMS depuis nos Smartphones
+sur le numéro de la carte SIM du Raspberry, il nous est maintenant possible de réaliser de nombreuses
+actions. Nous pouvons couper certaines alarmes, en allumer d’autres… Au moment où nous écrivons
+ceci, nous sommes encore en phase d’amélioration et nul doute que le produit fini sera une solution
+satisfaisante pour Picsou qui peut maintenant (un peu) mieux dormir même s’il garde toujours son
+fusil à portée de main.
+
+Conclusion
+Construire ce coffre-fort fut de longue haleine ; le projet n’était pas simple à réaliser. Mais nous avons
+réussi à produire du concret avec quelques capteurs et un mètre carré de plexiglas.
+L’aventure scientifique de ce projet a également été artistique : tous les dessins ont été faits à la main
+par Marine et colorisés par Mathieu.
+Au final, choisir de bons capteurs et bien les brancher sur un Raspberry permet d’obtenir un système
+précis et puissant, tout en restant très modulable. Nous avons pris grand plaisir à faire nos
+traditionnelles heures supplémentaires au laboratoire de physique ; et nous continueront si nous en
+avons l’occasion surtout que les idées d’améliorations du coffre-fort sont dans nos escarcelles !
+
+Néanmoins, notre travail aura payé. Les Rapetou ont abandonné l’idée
+de piller oncle Picsou… Pour cette fois !
+
+20
+
+Mathieu Bour / Émilie Laurent / Marine Matton
+
+Lycée Fabert
+
+Remerciements
+Nous tenons à remercier, pour leurs investissements :
+-
+
+-
+
+Jérôme Baumann, aka « Grand Chef », notre professeur de physique préféré, pour nous avoir
+motivés et soutenus durant toute la durée de la préparation. Merci aussi pour les heures sup’
+du lundi, du mardi… et pour son accueil plus que chaleureux, ce qui nous permet de travailler
+dans des conditions si agréables.
+Renaud Hadi, notre spécialiste de l’électronique toujours disponible, roi de l’oscilloscope,
+prince des circuits intégrés et qui ne s’emmêle jamais avec les fils de connexion…
+Robert Hamann, pour nous avoir ouvert les portes du laboratoire à toute heure de la journée
+et nous avoir mis à disposition le matériel.
+MM. Jean-Louis Hurlin, Forgeron Maître d’art à Ban St Martin, et Cristophe Veeckmans,
+Artisan Vitrier, pour leur disponibilité et leurs précieux conseils.
+Le lycée Fabert, pour nous avoir permis de participer aux Olympiades de Physique France.
+
+21
+
+Mathieu Bour / Émilie Laurent / Marine Matton
+
+Lycée Fabert
+
+Annexes
+Le coffre-fort
+
+Annexe 1 : Plan du coffre-fort
+
+22
+
+Mathieu Bour / Émilie Laurent / Marine Matton
+
+Lycée Fabert
+
+L’accéléromètre
+
+A quoi sert en pratique un accéléromètre ?
+Ce composant électromécanique est aujourd’hui utilisé dans de nombreux domaines et se
+démocratise, d’autant qu’il coute de moins en moins cher (de l’ordre quelques dizaines d’euros
+pour les modèles grand public). On regroupe les applications de l’accéléromètre en trois
+grandes catégories :
+
+
+La détection de chocs :
+
+Ce sont des accélérations de très forte amplitude et très brèves. On parle d’accélérations
+impulsionnelles.
+Les accéléromètres vont détecter ces chocs et permettre le déclenchement immédiat d’un
+dispositif de protection. Par exemple, ils sont utilisés pour le déclenchement d’un airbag dans
+une voiture. De même, certaines marques comme IBM et Apple ont incorporé des
+accéléromètres dans les disques durs de leurs ordinateurs, pour qu’en cas de chute, celui-ci se
+mette à l’arrêt. Ceci empêche que les têtes de lecture/d’écriture viennent s’écraser sur le
+disque, ce qui provoquerait la destruction des informations codées à cet endroit du disque.
+
+
+La détection de vibrations :
+
+Les vibrations sont caractérisées par des déplacements multidirectionnels. L’accéléromètre est
+donc tout à fait adapté pour ce genre de mesures. Par exemples : la surveillance des vibrations
+d’un moteur de voiture afin de rendre silencieux l’habitacle. Comme application importante,
+on compte aussi le sismographe…
+
+
+Le suivi de trajectoires :
+
+Un accéléromètre peut être intégré à la station inertielle d’un avion qui est le couplage d’un
+gyroscope et d’un accéléromètre 3 axes. On emploie également ce genre de capteurs dans la
+navigation par inertie (correction de trajectoire) et pour stabiliser des plates-formes.
+On retrouve aujourd’hui l’accéléromètre dans de nombreux produits technologiques destinés
+au grand public. Ils sont en effet utilisés dans les Smartphones pour l’orientation de l’écran en
+cas de retournement du mobile, dans les appareils photo pour la stabilisation de l’image et dans
+de nombreux appareils destinés aux sportifs afin de mesurer des vitesses et des distances de
+déplacement…
+Annexe 2 : Utilisation de l'accéléromètre
+
+23
+
+Mathieu Bour / Émilie Laurent / Marine Matton
+Tension (U)
+1,7
+1,75
+1,77
+1,81
+1,84
+1,87
+1,95
+1,95
+1,95
+1,99
+2,06
+2,08
+2,14
+2,19
+2,22
+2,27
+2,28
+2,31
+2,36
+2,42
+2,53
+2,55
+2,61
+2,69
+2,74
+2,88
+2,9
+2,95
+2,98
+3
+3,17
+3,24
+3,28
+3,28
+
+Accélération (g)
+0,068
+0,11
+0,18
+0,17
+0,23
+0,29
+0,27
+0,34
+0,45
+0,46
+0,45
+0,48
+0,58
+0,72
+0,90
+0,80
+0,69
+0,82
+0,87
+1,01
+1,16
+1,36
+1,29
+1,16
+1,36
+1,61
+1,81
+1,74
+1,85
+1,69
+2,18
+2,32
+2,33
+2,71
+
+a1 (m.s-2)
+0,1666
+1,111
+1,777
+1,705
+2,221
+2,842
+2,665
+3,332
+4,442
+4,548
+4,441
+4,737
+5,685
+7,106
+8,883
+7,895
+6,822
+8,007
+8,527
+9,963
+11,37
+13,32
+12,63
+11,37
+13,35
+15,79
+17,77
+17,1
+18,19
+16,61
+21,35
+22,74
+22,93
+26,57
+
+Lycée Fabert
+distance (m)
+0,03
+0,05
+0,08
+0,03
+0,10
+0,05
+0,03
+0,03
+0,20
+0,08
+0,05
+0,03
+0,10
+0,08
+0,10
+0,05
+0,03
+0,03
+0,15
+0,03
+0,20
+0,15
+0,08
+0,05
+0,05
+0,10
+0,20
+0,03
+0,08
+0,05
+0,08
+0,10
+0,03
+0,08
+
+Tours par minute
+45
+45
+45
+73
+45
+73
+45
+90
+45
+73
+90
+122
+90
+90
+90
+122
+145
+157
+73
+173
+73
+90
+122
+145
+157
+122
+90
+227
+145
+173
+157
+145
+265
+173
+
+ω² (s-2)
+22,21
+22,21
+22,21
+56,85
+22,21
+56,85
+22,21
+88,83
+22,21
+56,85
+88,83
+157,9
+88,83
+88,83
+88,83
+157,9
+227,4
+266,9
+56,85
+332,1
+56,85
+88,83
+157,9
+227,4
+266,9
+157,9
+88,83
+570,1
+227,4
+332,1
+266,9
+227,4
+764,3
+332,1
+
+Annexe 3: Relevé des valeurs lors de l’étalonnage
+
+24
+
+Mathieu Bour / Émilie Laurent / Marine Matton
+
+Lycée Fabert
+
+Le capteur de luminosité
+Luminosité (lux)
+17
+42
+113
+201
+351
+542
+808
+1160
+1455
+
+Résistance (Ω)
+3780
+1940
+947
+645
+450
+345
+274
+223
+197
+
+Annexe 4 : Relevé des valeurs lors de l’étalonnage
+
+Le pyromètre à infrarouges
+
+Il existe trois grands types de détecteurs infrarouge :
+
+Les détecteurs grands angles
+L’angle d’ouverture varie entre 90° et 180° ; leur portée de détection peut atteindre 20m.
+Ce type de détecteur est couramment utilisé, car placé judicieusement, il peut couvrir le volume
+d’une pièce en étant placé dans un coin.
+
+Les détecteurs longue portée
+L’angle d’ouverture est très faible (quelques degrés) ; leur portée de détection peut atteindre
+60m.
+Ils sont utilisés pour la surveillance de couloirs ou de corridors. Ce type de détecteur est
+réservé pour les couloirs, on peut remarquer une zone de détection au pied du détecteur qui
+interdit l'inhibition.
+
+Les détecteurs de type "rideau"
+Leur zone de détection est très fine ; l’angle d’ouverture peut varier entre 1 et 20°. Ils sont
+utilisés pour détecter le passage d’un intrus par une alcôve, une baie vitrée… Le détecteur est
+placé afin que le rideau soit vertical. Le franchissement du rideau engendre une détection.
+Annexe 5 : Catégories de détecteurs à infrarouges
+
+25
+
+Mathieu Bour / Émilie Laurent / Marine Matton
+
+Lycée Fabert
+
+Le capteur de température
+Schéma fonctionnel
+
+Annexe 6 : Schéma fonctionnel du capteur de température
+
+Relevé de valeurs à l’étalonnage
+Température (°C)
+21,2
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+
+Tension (mV)
+212,7
+218
+224
+231,4
+241,2
+248,9
+257
+266,3
+276,9
+286
+294,6
+304
+312,6
+322,6
+333,3
+
+Température (°C)
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46
+47
+48
+49
+50
+
+Tension (mV)
+341,2
+359,6
+369,8
+370,4
+378,2
+387,6
+399,9
+407,6
+415,9
+424,9
+433,2
+439,9
+451,2
+461,7
+471,4
+
+Annexe 7 : Relevé des valeurs lors de l'étalonnage
+
+26
+
+Mathieu Bour / Émilie Laurent / Marine Matton
+
+Lycée Fabert
+
+Bibliographie
+-
+
+-
+
+-
+
+-
+
+Loïc Blum, Bernard Crétinon, Pierre Desgoutte, Jacques Fouletier, Technique et Ingénierie,
+Dunod/L'Usine Nouvelle, Les capteurs en instrumentation industrielle, 2010.
+Allinbox, Les rétroprojecteurs
+http://www.youtube.com/watch?v=KZVgKu6v808#t=91
+Comparatif Capteur ultrason / InfraRouge,
+http://www.acgrenoble.fr/college/henri.corbet/file/Technologie/4ieme/Confort_Domotique/CI_6/webpro
+f/res/Comparatif_Capteurs_ultrason_IR.pdf
+DimensionEngineering, DE-ACCM2G2 Buffered ±2g Accelerometer
+http://www.dimensionengineering.com/products/de-accm2g
+Génération ROBOTS, Le capteur infrarouge,
+http://www.generationrobots.com/fr/content/70-capteur-infrarouge
+Gotronic, DE-ACCM2G2 Buffered ±2g Accelerometer
+http://www.gotronic.fr/pj-541.pdf
+Papier Logik, Capteur de contact en papier
+http://www.papierlogik.com/fr/technologie/fabrication/capteur-de-force
+Physique et simulations numériques, Photorésistance,
+http://ressources.univlemans.fr/AccesLibre/UM/Pedago/physique/02/electro/photores.htm
+l
+Robot astuces, Photorésistances,
+http://robotastuces.free.fr/?page_id=1036
+Wikipédia, Charles Wheatstone
+http://fr.wikipedia.org/wiki/Charles_Wheatstone
+Wikipédia, Lentille de Fresnel,
+http://fr.wikipedia.org/wiki/Lentille_de_Fresnel
+Wikipédia, Photo-résistance,
+http://mchobby.be/wiki/index.php?title=Photo-r%C3%A9sistance
+YouTube, How a smartphone Knows Up from Down
+http://www.youtube.com/watch?v=KZVgKu6v808#t=91
+
+27
+
+

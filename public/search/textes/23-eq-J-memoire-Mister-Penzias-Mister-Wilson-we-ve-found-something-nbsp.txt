@@ -1,0 +1,1458 @@
+Mister Penzias, Mister Wilson,
+we’ve found something !
+Peut-on détecter le rayonnement
+fossile dans son jardin ?
+
+élèves :
+Morgane Toureille (Terminale S)
+Jacky Gentile (Terminale S)
+Thibaud Caillet (Première S)
+Gaspard Petitclair (Première S)
+Axel Pruvot (Première S)
+
+Professeure référente (Lycée Marie Reynoard) :
+Nadège Buriller
+Ingénieure d’études référente (LPSC) :
+Myriam Migliore
+
+Table des matières
+Résumé................................................................................................................................................2
+Acronymes et sigles.............................................................................................................................3
+Remerciements....................................................................................................................................4
+I- Modèle cosmologique du Big Bang de t = 0s à l'émission du rayonnement fossile........................6
+II- Réalisation d'une maquette pédagogique pour matérialiser le scénario du Big Bang de t = 0s à
+l'émission du rayonnement fossile........................................................................................................8
+1. Création d'une frise avec des notes de musique..........................................................................8
+2. L'électronique de la maquette.....................................................................................................8
+3. Réalisation du chenillard de la maquette avec des DEL...........................................................10
+a) La réalisation du schéma et son fonctionnement.................................................................10
+b) La révélation........................................................................................................................11
+c) Le perçage et le soudage des composants............................................................................11
+III- Le rayonnement fossile...............................................................................................................12
+1. La découverte de Arno Penzias et Robert Wilson en 1965.......................................................12
+2. Ses caractéristiques...................................................................................................................12
+a) Qu'est ce qu'un corps noir ?.................................................................................................12
+b) Loi de Planck.......................................................................................................................13
+c) Le spectre électromagnétique du rayonnement fossile........................................................14
+d) Modélisation du spectre électromagnétique du rayonnement fossile avec la loi de
+Rayleigh-Jeans..........................................................................................................................14
+IV- Notre expérience dans les pas de Arno Penzias et Robert Wilson 50 ans plus tard : la chaîne
+expérimentale.....................................................................................................................................15
+1. Le dispositif de Penzias et Wilson............................................................................................15
+2. La chaîne instrumentale réalisée au laboratoire........................................................................16
+a) Descriptif..............................................................................................................................16
+b) Améliorations du dispositif..................................................................................................20
+V- Réalisation des mesures expérimentales.......................................................................................21
+1. Étalonnage de l'antenne............................................................................................................21
+a) Mise en station.....................................................................................................................21
+b) Position de l'antenne en azimut et élévation........................................................................22
+c) Conversion de la puissance du signal reçu en température..................................................23
+d) La calibration de l'antenne...................................................................................................23
+2. La cartographie du ciel.............................................................................................................24
+3. L'atmosphère terrestre...............................................................................................................25
+4. Exploitation des données..........................................................................................................26
+5 - Calcul des incertitudes.............................................................................................................27
+a) Incertitude de répétabilité pour Vciel moyen notée σ(Vciel moyen )..................................27
+b) Pour une élévation donnée, incertitude type composée pour Tciel notée u(Tciel)..............28
+c) Ajustement du modèle mathématique de la droite Tciel=f(épaisseur d'air relative) avec le
+khi2............................................................................................................................................28
+6 - Résultat expérimental final......................................................................................................29
+VI - Conclusion.................................................................................................................................30
+Album de photographies de l'équipe du LPSC avec les Olympiens :................................................31
+Bibliographie.....................................................................................................................................32
+
+1
+
+Résumé
+L'Organisation Internationale des Nations Unies a proclamé « 2015 : Année Internationale de la
+Lumière et des Techniques utilisant la lumière ».
+En partenariat avec le Laboratoire de Physique Subatomique et de Cosmologie de Grenoble
+(LPSC), nous eûmes alors l'idée de réaliser, 50 ans après, l'expérience historique de Arno Penzias et
+Robert Wilson de détection de la lumière primordiale, appelée rayonnement fossile ou CMB
+(Cosmic Microwave Background). Cette lumière primordiale, prédite par Georges Gamow en 1948,
+fut la troisième preuve majeure de la crédibilité du scénario du Big Bang.
+A l'occasion d'une conférence, Michel Piat, enseignant chercheur à l'Université Paris/Diderot et au
+laboratoire d'AstroParticule et Cosmologie (APC), annonce que la détection du CMB peut se faire
+dans son jardin avec simplement une parabole satellite mais aussi (un peu moins simple) un peu
+d'azote liquide...
+Faute de jardin approprié, nous avons installé sur les toits du LPSC, une antenne parabolique de
+réception TV satellitaire pour détecter les plus vieux photons du monde. En effet, cette lumière a été
+émise 380 000 ans après le Big Bang au moment où la température de l'Univers était suffisamment
+basse pour que les photons n'interagissent plus avec les électrons libres et puissent ainsi se propager.
+Durant une année, nous nous sommes glissés dans la peau des 2 chercheurs, Robert Wilson et Arno
+Penzias.
+
+2
+
+Acronymes et sigles
+AP
+
+Aide Personnalisée
+
+APC
+
+AstroParticule et Cosmologie
+
+BNC
+CAN
+
+Bayonet Neill-Concelman connector, connecteur pour câble
+coaxial
+Convertisseur Analogique Numérique
+
+CEM
+
+Compatibilité ElectroMagnétique
+
+CMB
+FDC
+
+Cosmic Microwave Background ou Rayonnement diffus microonde
+Fond Diffus Cosmologique
+
+GSM
+
+Global System for Mobile Communications
+
+IMEP-LAHC
+LNB
+
+Institut de Microlélectronique Electromagnétisme et
+Photonique et le Laboratoire d’Hyperfréquences et de
+Caractérisation
+Low Noise Block (bloc bas bruit)
+
+LPSC
+
+Laboratoire de Physique Subatomique et de Cosmologie
+
+MPS
+OEM
+
+Méthodes et Pratiques Scientifiques: enseignement
+d'exploration de la classe de seconde générale et technique
+Onde Electro-Magnétique
+
+RF
+
+Radio-Fréquence
+
+3
+
+Remerciements
+Nous tenons à remercier de nombreuses personnes pour leur soutien et leur aide tout au long de notre projet ;
+contributions précieuses sans lesquelles tout ce travail n'aurait pas pu se concrétiser.
+L'équipe du Laboratoire de Physique Subatomique et de Cosmologie de Grenoble, LPSC, a joué un rôle
+essentiel. Un grand merci à:
+- Monsieur Arnaud Lucotte, directeur du LPSC, qui nous a accueillis, a mis à notre disposition des
+locaux pour travailler et a assumé la responsabilité de notre sécurité.
+- Madame Myriam Migliore, ingénieure d'études, qui a été à l'initiative de ce travail, qui a rédigé les
+dossiers de demande de financement auprès du Labex Enigmass et réalisé les achats de matériel, qui a
+coordonné le travail de l'équipe du LPSC, qui a assuré des enseignements théoriques et expérimentaux
+puis nous a soutenus pendant une année.
+- Monsieur Marc Marton, assistant ingénieur, qui a construit le radiomètre et a apporté une aide pour la
+manipulation de l'azote liquide.
+- Monsieur Jean Claude Malacour, assistant ingénieur, chaudronnier, qui a réalisé les coupes et
+soudures du contenant en aluminium pour la source à 77K.
+- Monsieur Olivier Zimmermann, ingénieur d'études, et Monsieur Rémi Faure, assistant ingénieur, qui
+ont réalisé le développement du programme Labview de commande des moteurs et du logiciel
+d'acquisition des mesures.
+- Monsieur Damien Tourres, ingénieur d'études, qui a conçu l'électronique de détection.
+- Madame Cécile Renault, chercheuse astrophysicienne, qui a donné un cours sur le rayonnement
+fossile.
+- Monsieur Patrick Stassi, ingénieur de recherche, qui a donné un cours sur les antennes.
+- Madame Mariane Mangin-Brinet, chercheuse Physique Théorique, qui nous a apporté de l'aide sur le
+calcul des incertitudes et la méthode du Khi2.
+- Mesdames Cécile Vannier et Anic Vey, assistantes de gestion, pour la gestion du budget Enigmass.
+Nous remercions également:
+- Monsieur Roberto Néri, chercheur et responsable du groupe Cosmologie de l'IRAM, qui nous a fait
+un exposé sur le Soleil et la couche atmosphérique terrestre.
+- Monsieur Nicolas Corrao, responsable de la plate-forme Hyperfréquences Optomicroondes / CEM &
+Antennes à l’IMEP-LAHC, qui nous a permis de visiter une chambre anéchoïque sur le site de
+MINATEC.
+- Monsieur Eric Bréelle, ingénieur techniques expérimentales au Laboratoire d'AstroPhysique et
+Cosmologie de Paris (APC) puis Monsieur Michel Piat, enseignant chercheur à l'APC et à l'université
+Paris Diderot pour les conseils et informations qui nous ont permis de finaliser ce projet.
+Enfin, nous tenons à exprimer notre gratitude à :
+- Madame Sophie Pruvot, maman d'Axel, pour l'aide apportée à la réalisation de la couverture du
+mémoire.
+- Monsieur Claude Richard pour les nombreuses heures passées avec son petit fils, Thibaud, pour la
+réalisation du chenillard de la maquette. Monsieur Patrice Petitclair, papa de Gaspard, pour tous les
+conseils donnés au niveau de l'électronique de la maquette.
+- Les agents techniques du lycée Marie Reynoard pour les découpes de bois nécessaire à la réalisation
+de la maquette et l'aide lors des déplacements du matériel.
+- Madame Nadège Buriller, professeure de Physique Chimie du Lycée Marie Reynoard, qui nous a
+soutenus, encadrés et aidés tout au long de la réalisation de ce projet.
+- Madame Cécile Mandelbaum, professeure de Physique Chimie du Lycée Marie Reynoard, qui nous a
+encadrés lors de la présélection du concours à Lyon.
+- Madame Evelyne Excoffon, inspectrice d'académie-inspectrice pédagogique régionale de Physique
+Chimie, référente du concours des Olympiades de Physique qui nous a soutenus pendant tout le projet.
+
+4
+
+Comment s'est formé notre groupe ?
+Jacky et Morgane, deux élèves de première S qui ne se connaissaient pas, sont passionnés de Sciences en
+tout genre et particulièrement de Physique. Tous les deux voulaient pouvoir en faire encore plus. L'un apprit
+par son ancienne professeure de MPS, Cécile Mandelbaum, que l'une de ses collègues, Nadège Buriller,
+organise souvent des projets dans le cadre du concours des Olympiades de Physique. L'autre l'apprit par l'un
+de ses amis. Chacun partit de son côté demander à cette enseignante s'ils pouvaient monter un projet
+scientifique ensemble. Elle leur répondit : «Revenez dans huit jours. Maintenant c'est un peu tôt, on est juste
+la première semaine de la rentrée, laissez-moi m'installer et réfléchir. Pendant ce temps, vous pouvez
+prendre contact avec un autre camarade qui m'a sollicitée pour la même idée, car si nous travaillons
+ensemble, cela sera sur le même projet». Le hasard faisant bien les choses, il s'avère qu'ils étaient tous les
+deux dans la même classe. Ils se rencontrèrent alors facilement. Pendant ce temps, Nadège Buriller, contacta
+Myriam Migliore, ingénieure d'études au LPSC pour lui soumettre cette demande. Myriam proposa, dans un
+premier temps, une mesure du diamètre apparent du Soleil à l'aide d'une antenne parabolique afin de se
+familiariser avec ce type de matériel, car une autre idée lui trottait dans la tête : refaire l'expérience
+historique d'Arno Penzias et Robert Wilson avec laquelle, en 1965, ils détectèrent fortuitement le
+rayonnement fossile.
+Une aussi belle proposition ne pouvait pas rester sans suite.
+Alors nous prîmes la décision de partir dans cette aventure.
+Étant consciente du travail considérable que nécessiterait ce projet, Nadège Buriller souhaita agrandir le
+groupe, et proposa à trois élèves de sa classe de seconde de rejoindre l'équipe. Seuls deux acceptèrent,
+Gaspard et Thibaud.
+Le temps s'écoula.
+Trois semaines après la rentrée, le groupe était formé, le projet défini et le partenariat avec le laboratoire était
+acté. Resta les démarches administratives à réaliser. Mais rien ne se passa comme prévu: en effet nous
+apprîmes que nous ne pouvions pas réaliser ce projet dans le cadre d'un volet d'approfondissement de l'aide
+personnalisée (AP). Le motif donné fut que Nadège Buriller aurait dû créer en juin un groupe
+d'approfondissement en classe de première S pour vingt élèves afin de présenter 4 ou 5 projets aux
+Olympiades de Physique : une pure utopie tellement ce travail est long et difficile pour l'enseignant
+encadrant. Cette décision administrative n’altéra pas notre motivation. Nous trouvâmes des créneaux de
+travail entre midi et deux, les mercredis après-midi, pendant les vacances au lycée les jours de permanence,
+et chez nous.
+En janvier, Nadège Buriller se rendit compte qu'Axel, l'un de ses élèves de seconde, demandait souvent à ses
+camarades Gaspard et Thibaud l'évolution de leur projet. Alors, devant cet intérêt, elle lui proposa d'intégrer
+l'équipe.
+Comme Arno Penzias et Robert Wilson, nous espérions détecter ce rayonnement fossile.
+Ces deux radioastronomes obtinrent, pour cette découverte, le prix Nobel de Physique en 1978.
+Comme eux, nous espérions que notre dur labeur serait récompensé…
+
+5
+
+I- Modèle cosmologique du Big Bang de t = 0s à l'émission
+du rayonnement fossile
+De nos jours, nous pouvons dater l'Univers à 13,7 milliards d'années. Il est alors logique de penser
+que s'il a un âge fini, il a eu un commencement. Il semblerait que notre Univers ait débuté au
+moment du Big Bang (mais il se peut qu'il n'ait jamais eu de début, ou qu'il y ait eu quelque chose
+antérieurement).
+Le Big Bang est un modèle cosmologique qui décrit, grâce à la mathématique, tout ou une partie de
+l’histoire de l’Univers. C’est une gigantesque dilatation de l'espace à partir d'un « point » unique. Il
+ne s'agit pas d'une explosion comme le laisse supposer son nom. Cet événement appelé singularité
+initiale définit l'instant t=0s. C'est un état singulier où tout l'Univers était concentré dans un
+volume de petitesse quasi infinie, ayant une très forte densité d'énergie (toute l'énergie des futurs
+milliers de milliards de galaxies) et très chaud (10 billions de billions plus chaud que le centre du
+Soleil (15 millions °C)) dans lequel la matière n'existait pas. Seul, le temps et l'espace ont été créés
+à cet instant. L'Univers est composé de particules/antiparticules virtuelles qui apparaissent et
+disparaissent comme des bulles de savon.
+Entre t = 0s et 10-43s après le Big Bang, c’est l’ère de Planck. Rien ne peut être expliqué. En
+effet, durant cet intervalle de temps incompressible appelé temps de Planck, la température et la
+densité d'énergie sont tellement grandes que les lois de la physique classique comme de la physique
+quantique trouvent leur limitation. Elles s'écrasent sur un mur nommé mur de Planck. A t = 10-43s,
+l'Univers a une taille de 10 -35m soit 10 millions de milliards de milliards de fois plus petit qu'un
+atome d'hydrogène et a une température de 1032K.
+À 10-35s, une expansion fulgurante appelée inflation a commencé. L'univers a grossi d'un facteur
+1050 en 10-32s (par comparaison, un noyau d'atome deviendrait aussi grand qu'une sphère centrée sur
+le Soleil englobant les étoiles les plus proches).
+À 10-32s, l'Univers termine sa période d'inflation pour retrouver une période d'expansion. Il a la
+taille d'une orange et sa température chute à 10 25K. Apparaissent alors les premières briques
+élémentaires de matière les quarks et antiquarks. A chaque rencontre, quark et antiquark
+s’annihilent en créant un photon.
+À 10-12s, le diamètre de l’Univers fait 2 fois la distance Terre-Soleil. D'autres particules
+apparaissent : les électrons, les muons, les particules tau, les neutrinos correspondants et les
+antiparticules associées. Elles forment la famille des leptons.
+À 10-6s, l'Univers englobe le système solaire, sa température est de 10 12K (un millier de fois plus
+chaud que le centre du Soleil). La température a baissé d'un facteur 10 millions de milliards, les
+quarks et antiquarks étant moins agités peuvent enfin s'associer pour former les protons et les
+neutrons. Ils constituent la famille des hadrons.
+Au bout d'une seconde, le temps d'un clin d’œil, la matière a dominé pour une raison encore
+6
+
+inexpliquée. L'Univers est une soupe de protons, neutrons, électrons, neutrinos et photons.
+Cependant, les photons interagissant avec les particules, ne peuvent pas se propager: l'Univers est
+opaque, depuis sa création, à la radiation.
+Trois minutes après la création de l'Univers, 98% de la matière actuelle ( noyau hydrogène,
+noyau d'hélium, noyau de lithium, isotopes de l’hydrogène) se forme : on parle de nucléosynthèse
+primordiale (aucune autre théorie ne peut expliquer la formation des éléments seconde preuve
+majeure de la crédibilité du scénario du Big Bang). Les noyaux complexes seront formés dans
+les réactions thermonucléaires au cœur des futures étoiles à naître, soit un milliard d'années plus
+tard...
+À cette époque, les électrons sont toujours libres car très énergétiques: ils ne se lient pas aux
+noyaux. L’Univers est un plasma composé de photons, de noyaux chargés positivement et
+d'électrons chargés négativement. Les photons sont continuellement diffusés par les électrons libres
+(c’est ce que les physiciens appellent la diffusion Thomson).
+L'Univers est un immense brouillard opaque.
+A t = 380 000 ans, l'Univers a bien refroidi, sa température atteint 3000K. L'énergie des photons
+n'est pas assez grande pour dissocier les électrons des noyaux. Les électrons libres se combinent
+alors aux noyaux légers pour former des atomes.
+Les photons peuvent alors se propager. L’Univers devient transparent au rayonnement. Ce
+rayonnement est celui d'un corps noir à la même température que l'Univers (T=3000K, soit
+λ=1µm) .
+Les derniers photons créés à cette époque se propagent librement et sont observés aujourd’hui sous
+la forme d’un rayonnement uniforme dans le domaine des micro-ondes λ ≈ 1mm à une température,
+T = 2,73K provenant de toutes les régions du ciel. Ce rayonnement s'appelle fond diffus
+cosmologique ou CMB.
+Ce changement de longueur d’onde des plus vieux photons du monde est dû à l’expansion de
+l’Univers. Il s’explique grâce à l’Effet Doppler-Fizeau : lorsque la source d'une onde lumineuse
+s'éloigne du récepteur, la longueur d'onde devient plus grande.
+
+7
+
+II- Réalisation d'une maquette pédagogique pour
+matérialiser le scénario du Big Bang de t = 0s à l'émission
+du rayonnement fossile
+1. Création d'une frise avec des notes de musique
+
+Emission
+du CMB
+
+Nous avons décidé de réaliser cette création avec des notes de musique car le groupe est composé
+de trois musiciens.
+
+2. L'électronique de la maquette
+Nous avons décidé d'apporter à la maquette différents effets
+lumineux et visuels dans le but de la rendre plus vivante et
+ludique. L'utilisateur peut ainsi, simplement en pressant des
+boutons, voir évoluer notre représentation du scénario du Big
+Bang avec les différents changements qui s'y opèrent.
+
+Figure 1: Thibaud et Axel
+réalisent le câblage
+
+Pour cela, nous avons au début défini ce que nous voulions de
+façon précise. Ainsi, nous en sommes arrivés à la conclusion
+finale que nous voulions 6 boutons, et que chaque bouton
+devait faire exécuter une tâche précise au reste de
+l'électronique.
+
+Par exemple, nous avons écrit pour chaque interrupteur une phrase selon ce modèle:
+“Lorsque le bouton 1 est pressé, alors le temps affiché doit être t=0, et la température infinie.
+Ainsi, le moteur du chronomètre doit déplacer l'aiguille de façon à ce qu'elle indique que le temps
+est t=0, les leds qui correspondent à ce temps doivent s'allumer et les leds qui indiquent la
+température infinie doivent s'éclairer.”
+Ensuite, nous nous sommes chargés de traduire ces différents paramètres en langage informatique
+8
+
+selon les codes Arduino (qui est un type de code adapté à l'électronique utilisée). Le programme fait
+une centaine de lignes, et a été téléversé sur une carte Arduino Mega, qui est le cerveau de notre
+circuit électronique. C'est cette carte qui gère tout le circuit, et fait exécuter le code.
+
+Figure 2: carte arduino mega
+Cette carte est composée de différentes connectiques électroniques (les parties noires avec des trous
+en haut, à droite et en bas) de trois sortes :
+- les connectiques appelées “power”: elles servent à fournir une tension, toujours la même, de façon
+continue. Les différentes tensions que l'on peut rencontrer sont 5V; 3,5V; GND. GND, dit “ground”
+correspond à 0V ou la borne négative d'une pile.
+- les connectiques analogiques: ce sont des entrées (rôle semblable à celui des capteurs)
+analogiques. Elles vont permettre de lire une tension.
+- les connectiques numériques: elles peuvent êtres utilisées comme entrées (capteurs) ou sorties
+(fournir du courant ou non). Elles n'ont que deux variations possibles, 0 ou 1. Autrement dit, soit
+elles fournissent un courant maximum, soit elles n'en fournissent pas.
+Nous avons ensuite connecté chaque composant de la maquette à cette carte selon le montage que
+nous avions défini, qui est le suivant :
+
+Nous voyons que le circuit est composé de la carte électronique, de leds, d'interrupteurs, de
+résistances et d'un moteur.
+Ainsi, nous avons installé ce montage électrique sur la maquette. Pour ce qui est de la partie visible,
+on peut voir les interrupteurs (sous forme de boutons poussoirs), les leds qui s'éclairent ou non en
+fonction du besoin, et le moteur fait tourner une aiguille qui est également visible.
+9
+
+Pour ce qui est du fonctionnement, les interrupteurs sont montés de la façon suivante :
+
+Ainsi, quand l'interrupteur est ouvert, le capteur lit 0V, et quand celui ci est fermé, le capteur lit une
+tension supérieure à 0V. La carte traduit ces informations, les interprète et ainsi les leds s'éclairent
+en fonction de ce qui est défini par le programme, puis le moteur va s'orienter dans une position
+prédéfinie.
+Les LEDs sont montées de la façon suivante :
+Ainsi, quand la sortie fournit une tension, la LED s'éclaire.
+Le moteur est connecté de cette façon :
+Le moteur est appelé servomoteur. Ses caractéristiques sont
+qu'il a 3000 positions définies sur 180º. Il est alimenté en
+continu par une tension de 5V. La sortie numérique lui envoie lorsqu'il doit changer de position un
+code en binaire (composé de 0 et 1) qu'il va interpréter pour prendre une nouvelle position.
+Ainsi, nous avons ajouté à notre maquette une partie électronique pour la rendre plus vivante, et
+nous avons pour cela utilisé une carte électronique, réalisé un montage électrique et mis au point un
+programme sur ordinateur.
+
+3. Réalisation du chenillard de la maquette avec des DEL
+
+Figure 3: Thibaud et son grand-père réalisent le chenillard
+
+Nous avons réalisé ce montage pour pouvoir montrer de façon claire le fait que la longueur d’onde
+du rayonnement fossile a augmenté avec le temps en raison de l'expansion de l'Univers. C’est pour
+cette raison que nous avons choisi de dessiner une sinusoïde de longueur d’onde de plus en plus
+importante.
+
+a) La réalisation du schéma et son fonctionnement
+La première étape de la réalisation d’un circuit électronique est la mise au point du schéma du circuit
+entier. Pour cela nous avons utilisé un logiciel appelé TCI. Ce dernier permet de créer des pistes et
+d’afficher les empreintes des composants avec le nombre de pattes qui correspond à chacun.
+
+10
+
+Le principe du fonctionnement du circuit est le suivant : le courant arrive tout d’abord vers un circuit
+intégré (4017) qui va distribuer le courant successivement aux leds. Cependant les 4017 n’envoient
+du courant que temporairement. C’est pour cela que l’on doit ajouter un autre circuit intégré (4043)
+entre les 4017 et chaque led afin de leur permettre de rester allumée. Ensuite lorsque 9 leds sont
+allumées, le premier 4017 envoie du courant à une « porte » (circuit intégré 4081) qui va elle-même
+alimenter le prochain 4017. Ainsi cela est répété jusqu’à ce que toutes les leds soient allumées.
+
+b) La révélation
+La révélation est un processus très important dans la réalisation d’un circuit électronique. En effet si
+elle est mal réalisée le courant ne pourra pas bien passer dans le circuit.
+Il faut tout d’abord prendre une plaque de cuivre pré-sensibilisée. Cette plaque se compose d’une
+plaque d’époxy sur laquelle on trouve une couche de cuivre, au dessus du cuivre une couche de résine
+photosensible (sensible aux UV) et pour finir au dessus de cette résine un film protecteur qu’il faudra
+enlever avant la prochaine étape.
+Cette étape s’appelle l’insolation. Elle consiste à placer le schéma, imprimé sur un film transparent (le
+typon) sur la plaque pré-sensibilisée. Ensuite il suffit de laisser le tout sous une lampe à ultraviolets
+quelques minutes. Lors de ce processus la résine au dehors des pistes imprimées est exposée aux UV.
+Une fois cette étape terminée, on enlève le typon de la plaque et on plonge cette dernière dans un bain
+de « révélateur » (perchlorure de fer). La résine exposée va ainsi se décomposer dans ce bain pour
+laisser apparaître le cuivre.
+
+On plonge ensuite la plaque dans un bain d’acide chlorhydrique qui va dissoudre le cuivre qui n’est
+pas protégé par le vernis et laisser apparaître l’époxy. Ainsi il ne reste sur la plaque plus qu’une
+couche de cuivre et de résine de la forme des pistes du schéma et il ne reste plus qu’à passer un
+coup de chiffon imbibé d’acétone pour enlever la couche de résine.
+Enfin, si on le souhaite, on peut étamer les pistes pour faciliter le passage du courant dans les pistes
+avec un fil d’étain et un fer à souder.
+c) Le perçage et le soudage des composants
+Il ne reste maintenant qu’à percer la plaque avec une perceuse aux endroits où les pattes des
+composants iront se loger et ensuite à souder les différents composants sur la plaque avec un fer à
+souder et un fil d’étain.
+
+Figure 4: La maquette du scémario du Big Bang terminée.
+11
+
+III- Le rayonnement fossile
+1. La découverte de Arno Penzias et Robert Wilson en 1965
+En 1964, deux radioastronomes, Arno Allan Penzias et Robert Woodrow Wilson de l'entreprise de
+téléphonie Bell Telephone tentent de transformer une antenne qui servait à communiquer avec le
+satellite Echo et Telstar I, en un radiotélescope pour pouvoir mesurer la puissance d'émission de
+Cassiopée A (les restes d'une supernova) vers 4,0 GHz, et le halo d'émission de notre galaxie (la
+Voie Lactée) dans les 1,42 GHz.
+Après avoir étalonné l'antenne, ils effectuèrent leurs premières mesures. Malgré leurs réglages, ils
+détectèrent un bruit supplémentaire d'origine inconnue provenant de toutes les directions. Ils
+supposèrent que le problème devait venir de leur antenne. En effet, ils découvrirent qu'un couple de
+pigeons nichait dans l'antenne. Penzias et Wilson nettoyèrent l'antenne de fond en comble pensant
+que le problème venait de là. Ils recommencèrent les mesures et le bruit était toujours présent. Ils ont
+été forcés de constater que le problème ne venait pas de leur antenne mais qu'ils captaient un signal
+radio provenant de l'Univers de longueur d'onde 7,35 cm (converti en température d'antenne: 3,5K).
+Ce dernier ne variait pas au cours du temps et fluctuait de 10 % en fonction de l'orientation de
+l'antenne.
+Un jour, Penzias rencontra le radioastronome, Bernie Bucke. Il lui parla de l'existence du bruit
+qu'il avait découvert avec Wilson. Le radioastronome lui apprit que Ralf Alpher, George Gamow, et
+Robert Herman prédisaient l'émission d'un rayonnement isotrope aux alentours de 5K si la théorie
+du Big Bang était juste. Une équipe de chercheurs composée de Robert Dicke, Peter Roll et David
+Wilkinson étaient en train de construire une antenne pour le capter. Il se trouve que ce rayonnement
+correspondait à celui découvert fortuitement par Penzias et Wilson. Le rayonnement fossile venait
+d'être découvert. Penzias fit parvenir les résultats à Dicke. Ils les publièrent alors dans deux articles
+distincts. Penzias et Wilson décrivirent le rayonnement fossile et leur expérience, et Robert Dicke
+expliqua tout l'impact de cette découverte. Cette dernière, preuve expérimentale supplémentaire
+qui accrédite le scénario du Big Bang, permit à Penzias et Wilson d'obtenir le prix nobel de
+Physique en 1978.
+
+2. Ses caractéristiques
+À partir du découplage matière-rayonnement (380 000 ans après le Big Bang), l'Univers est
+constitué d'un bain de photons en équilibre thermique avec la matière. Ce rayonnement suit la loi de
+Planck d'un corps noir.
+a) Qu'est ce qu'un corps noir ?
+Un corps noir est un corps idéal qui absorbe intégralement tout rayonnement incident, quelle que
+soit sa longueur d'onde; il n'y a ni réflexion, ni diffusion, ni transmission.
+Un corps noir réémet l'énergie qu'il a absorbée sous forme de rayonnements électromagnétiques. La
+quantité d'énergie réémise dépend de sa température. Ainsi, il existe une "loi de rayonnement du
+corps noir", appelée loi de Planck, qui donne la valeur de la distribution de la luminance
+énergétique spectrale du rayonnement thermique du corps noir en fonction de sa température.
+12
+
+b) Loi de Planck
+La distribution spectrale d'énergie du corps noir est déterminée par la thermodynamique statistique,
+en considérant un gaz de photons dans une enceinte fermée à l'équilibre thermique T.
+La luminance spectrale ou intensité spécifique ou brillance B ν (T ) d'un corps noir, qui correspond
+à l'intensité monochromatique du rayonnement en un point dans une direction, ne dépend que de la
+température et est définie par la loi de Planck :
+
+3
+
+B ν (T )=
+
+2h ν
+.
+c2
+
+1
+hν
+kT
+
+e −1
+
+ν : fréquence des photons en Hz
+h : constante de Planck = 6,63. 10-34 J . s
+k: constante de Boltzmann = 1,38. 10-23 J . K -1
+c : célérité de la lumière dans le vide 3,00 .108 m.s-1
+Cette loi donne la puissance rayonnée par un corps noir à la température T en fonction de la
+longueur d'onde λ du flux par unité d'angle solide (stéradian) entourant une direction donnée, par
+surface projetée et par unité de fréquence soit en W . m-2 . sr-1 . Hz -1 .
+Le rayonnement d'une source ponctuelle
+se propage dans un cône ayant pour
+sommet elle-même.
+L'angle solide Ω caractérise l'ouverture
+plus ou moins grande de ce cône.
+
+Ω=
+
+Brillance en
+W.m -2.sr-1.Hz-1
+
+loi
+de Rayleigh-Jeans: la
+brillance est proportionnelle à la
+température du corps noir et au
+carré de sa fréquence
+
+aire de la surface interceptée
+rayon de la sphère2
+
+loi de Wien
+
+À basse fréquence (grande λ ), la loi de Planck suit la loi de Rayleigh-Jeans, c'est a dire une
+dépendance linéaire de la brillance avec la température. Ce cas nous intéressera dans la suite de
+notre étude.
+hν
+
+3
+2
+hν
+2 h ν kT 2 k T ν 2 kT
+soit B ν (T )≈ 2 .
+≈
+≈ 2
+kT
+hν
+c
+c2
+λ
+À haute fréquence en revanche, la loi de Planck suit la loi de Wien c'est-à-dire selon une
+exponentielle décroissante de la température.
+
+Si h ν << kT
+
+Si h ν >> kT
+
+e kT ≈1+
+
+hν
+kT
+
+e −1 = e
+
+hν
+kT
+
+soit
+
+2h ν3
+B ν (T )= 2 .
+c
+
+13
+
+1
+hν
+
+e kT −1
+
+−h ν
+
+2 h ν3 kT
+≈ 2 .e
+c
+
+c) Le spectre électromagnétique du rayonnement fossile
+
+-2
+
+Bν
+
+W.m .sr-1.Hz-1
+
+Le rayonnement fossile est un rayonnement électromagnétique homogène et isotrope présent sur
+l'intégralité du ciel. Son spectre électromagnétique, figure 5, suit la loi de Planck d'un corps noir,
+c'est à dire que son intensité pour chaque longueur d'onde est uniquement déterminée par sa
+température.
+Longueur d'onde en cm
+
+Fréquence en GHz
+Figure 5: Spectre électromagnétique du rayonnement fossile
+source: http://www.apc.univ-paris7.fr/APC_CS/content/le-fond-diffus-cosmologique-cmb
+d) Modélisation du spectre électromagnétique du rayonnement
+fossile avec la loi de Rayleigh-Jeans
+La bande de détection de l'antenne que nous utilisons est [10,70 GHz ; 12,75GHz ] . Calculons le
+domaine des longueurs d'onde du rayonnement reçu.
+c
+3,00.108
+λ = ν AN : λ =
+=2,80 cm
+10,70.109
+
+λ=
+
+3,00.108
+=2,35 cm
+12,75.109
+
+L'antenne peut recevoir des ondes électromagnétiques ayant une longueur d'onde comprise dans le
+domaine suivant [2,35cm ; 2,80cm] .
+La température du rayonnement fossile est T = 2,728K. Calculons le rapport
+AN :
+
+hc
+.
+kT
+
+hc 6,63.10 -34 x 3,00.108
+=
+=0,528 cm
+kT
+1,38.10-23 x2,728
+
+hc
+soit h ν << kT alors la loi de Planck suit la loi de
+kT
+Rayleigh-Jeans. La puissance lumineuse émise par le rayonnement fossile sera modélisée par la
+
+Nous constatons que
+
+relation
+
+B ν (T )≈
+
+λ >>
+
+2 kT
+.
+λ2
+14
+
+IV- Notre expérience dans les pas de Arno Penzias et Robert
+Wilson 50 ans plus tard : la chaîne expérimentale
+1. Le dispositif de Penzias et Wilson
+L’objectif de notre projet étant de refaire l’expérience de Penzias et Wilson, il nous a fallu
+comprendre, dans un premier temps, leur dispositif expérimental.
+Penzias et Wilson travaillaient à l’époque sur l’adaptation d’une antenne de 3m d’ouverture conçue
+en 1961 pour recueillir les signaux des satellites « Echo et Telstar » lancés en 1959. Après
+modifications, ils souhaitaient capter d’éventuels signaux radios autour de 4 GHz provenant de la
+Voie Lactée et de Cassiopée A. Leur dispositif et ses caractéristiques sont synthétisés dans le tableau
+ci-dessous.
+Synopsis :
+L’onde
+électromagnétique
+(OEM)
+incidente
+est
+collectée, transmise via un
+cornet et un guide d’onde
+jusqu’au MASER, un préamplificateur, ancêtre de ce
+qui deviendra le LNB. Le
+signal radiofréquence RF est
+ensuite mélangé via un
+coupleur à un oscillateur local
+(OL) pour abaisser la
+fréquence du signal.
+
+Antenne cornet offset ou
+« hors axe » à réflecteur
+parabolique
+
+Guide d’onde
+
+Maser, switch,
+antenne et source de
+référence à 4.2K
+
+Réflecteur
+parabolique
+
+Ouverture antenne effective
+Fréquence/longueur d’onde d’observation
+Gain
+Angle d’ouverture
+Système pointage
+
+33 m²
+4.08 GHz, 7.35 cm
+43 dBi
+1.5° à 2.39 GHz
+Motorisé en azimut et
+élévation
+L’angle d’ouverture de l’antenne est de 1.5°, ce qui nécessite une précision de pointage de l’ordre
+du degré. Les 2 radioastronomes appliquèrent la méthode de switch ou modulation de Dicke qui
+permet par modulation entre le signal provenant du ciel et le signal issu d’une source de référence
+(ici, de l’hélium liquide, 4.2K) de s’affranchir de la dérive en température du système instrumental.
+Ce dispositif leur permit d’obtenir des mesures radio du ciel pour différentes élévations et azimuts.
+15
+
+2. La chaîne instrumentale réalisée au laboratoire
+a) Descriptif
+Le rayonnement du FDC étant dominant dans une gamme de longueur d’onde allant d’environ
+500µm à 22cm, la chaîne de détection doit être à large bande. Les radiomètres permettent de
+mesurer l’intensité du flux du rayonnement électromagnétique incident et le convertir en un signal
+électrique exploitable. Cette solution instrumentale présente des avantages incontestables en termes
+de simplicité, de transportabilité et de coût.
+La solution technique proposée repose sur l’utilisation
+d’un système de réception TV par satellite, que l’on trouve
+facilement dans les grandes surfaces. Ces systèmes
+fonctionnent de manière analogique autour de 10GHz
+(longueur d’onde = 3,0 cm). Le synopsis de notre chaîne
+instrumentale est présenté ci-après.
+
+Ondes
+électromagnétiques
+(10,70GHz ;
+12,75GHz)
+
+LNB
+Tension électrique
+périodique
+[ 0,95GHz; 1,95GHz]
+
+Satfinder
+convertisseur
+Tension périodique en une
+tension continue
+VRèf
+
+Vciel
+
+Générateur réglable
+
+Amplificateur
+d'instrumentation
+
+Vsortie = G.(Vciel – V Rèf )
+
+CAN
+Convertisseur Analogique
+Numérique
+
+communication via câble RS232
+
+16
+
+ORDINATEUR
+
+En général, pour les observations astrophysiques, la chaîne instrumentale comprend :
+
+
+Une parabole ou réflecteur hors-axe dont la taille varie de 40cm à 120cm. et qui possède
+un nombre d’ouverture constant, environ 0.7. Elle est généralement réalisée par
+emboutissage d’une tôle d’acier ou d’aluminium. Celle que nous avons utilisée est une
+parabole de graphite noyé dans de la résine, ce qui lui confère une très bonne résistance et
+une grande légèreté. La qualité de la surface du réflecteur est mate et rugueuse, ce qui
+permet de diffuser et, par conséquent, minimiser la réflexion des ondes visible et IR sur la
+tête de réception (tête LNB).
+
+Géométrie réflecteur
+Dimensions : largeur, hauteur, profondeur = W, H, d
+Angle d’offset :  =arcos(W/H)
+Angle d’ouverture à 10 GHz, =/D
+3
+w
+Focale F=
+16 xdxH
+Rapport F/D
+Rendement d’antenne k
+
+Paraboloïde à contour ellipsoïdal
+W=61,0cm ; H=68,2cm ; d=65.3mm
+26,6°
+2.64°
+31,5 cm
+0.520
+61.4 %
+
+Tableau 1: caractéristiques de notre réflecteur
+
+
+Un cornet corrugué et les antennes pour collecter, concentrer, adapter progressivement
+l’onde électromagnétique, la coupler aux antennes et la convertir en un signal électrique
+périodique.
+
+Figure 6 : cornet corrugué ou graduel et les 2 antennes
+
+
+Le système d’amplification et de conversion à basse fréquence appelé LNB (Low Noise
+Block converter) - figure 6 - est un détecteur hétérodyne dédié à la bande Ku (réception des
+signaux entre 10.70-12.75 GHz). Les 2 antennes reçoivent 2 polarisations (perpendiculaires
+l’une de l’autre) des OEM incidentes. Le choix de la polarisation dépend de la tension
+d’alimentation (13V ou 18V). Le signal est par la suite amplifié, filtré puis mélangé à un
+oscillateur local (OL) dont la fréquence est de 9.75 GHz. Le 2nd OL (10.6 GHz) n’est pas
+utilisé pour notre expérience. L'oscillateur local à 9,75 GHz agit sur le domaine de
+fréquence (10,70 - 11,70 GHz), la fréquence du signal en sortie du mélangeur (MIX) est
+alors entre 10,70 - 9,75 = 0,95 GHz et 11,70 - 9,75 = 1,95 GHz. Il peut ainsi être transporté
+sans pertes (typiquement -2 dB/10m) par câble coaxial sur plusieurs mètres.
+17
+
+Figure 7: schéma de principe du LNB
+Antenne 18V
+
+Figure 8: tête LNB et son électronique associée (gauche) ;
+caractéristiques affichées par le constructeur du LNB
+La figure de bruit (NF, Noise Figure) du LNB est de 0,2 dB. Ce qui signifie que ~95% du signal
+initial est conservé par le LNB. Les meilleures sont à NF=0,1 dB. En général, on en trouve avec NF
+=0,6dB et 0,8dB
+
+
+
+Le système de détection s’appuie sur un Satfinder (type Schwaizer FLS 517) qui se
+connecte directement au LNB et permet à l’utilisateur de vérifier le pointage de sa parabole
+TV vers un satellite. Il permet de convertir le signal périodique RF reçu en un signal continu
+par filtrage de la composante alternative et amplification de la composante continue.
+
+Figure 9 : (gauche): LNB +convertisseur RF/DC reliés par câble RF ; (centre) : satfinder
+avec câble blanc RF pour alimentation 13V ou 18V ; (droite) : zoom sur câble noir LEMO
+qui transporte la tension analogique Vciel (le signal qui nous intéresse !)
+
+18
+
+
+
+Le système de pointage est un système de type Yaesu G-5500. Il est capable d’orienter
+l’antenne en azimut (course de 450°) et élévation (course de 180°) avec une précision de
+pointage de 1°. Les moteurs mis en place par le fabricant sont des moteurs continus, donc
+sans précision de pointage. Une des premières modifications a été de remplacer ces moteurs
+par des moteurs pas à pas, connus pour leur précision et leur répétabilité. La précision a été
+ainsi améliorée d’un facteur 1000. Un microcontrôleur ou boîtier d’interface, développé par
+le LPSC, permet de connecter un PC et de contrôler le pointage via une interface LabVIEW.
+Cette liaison est assurée par un connecteur RS232. La monture a été réalisée avec des tubes
+de =40mm et des noix de serrage. L’alignement vertical et l’horizontalité du châssis ont
+été contrôlés au niveau à bulle.
+
+
+
+Le système d’acquisition utilise un CAN (Convertisseur Analogique Numérique), l’USB6009 de National Instrument, qui numérise le signal analogique sur 13 bits, sur une plage de
+20
+=2,44 mV . Une petite électronique développée par le
+213
+LPSC permet de commuter depuis le PC l’alimentation du LNB entre 13V et 18V, et donc
+alimenter l’une ou l’autre des polarisations.
+10V ; la précision est donc de
+
+Figure 10 : switch pour l'alimentation en
+13V ou 18V des antennes du LNB.
+L’électronique est alimentée en 24V.
+
+Figure 11: CAN NI USB permettant de
+numériser le signal analogique provenant du
+ciel, de commander le switch depuis le PC.
+
+Les données ainsi numérisées sont sauvegardées sous forme de fichier de type texte. Leur
+exploitation est facilement réalisable sous un tableur.
+
+19
+
+Figure 12 : (gauche) : expérien ce P&W su r le to it d u LPS C; (haut-droite) : ensemble de
+l’électronique pour l’acquisition de Vciel ; (bas-droite) : le connecteur BNC/LEMO de Vciel avec la
+source de référence (la petite puce noire) Vref entrant chacun dans l’ampli d’instrumentation pour la
+mesure différentielle. Les câbles vert et noir vont ensuite aux entrées analogiques du CAN. Les câbles
+rouge-bleu-vert sont les câbles d’alimentation en  15V.
+
+b) Améliorations du dispositif
+Les premières mesures du CMB obtenues étaient noyées dans un
+signal à 300K. L’origine de ce signal parasite provenait probablement
+du rayonnement issu du sol qui, par un effet de diffraction des ondes
+sur le périmètre du réflecteur, polluait notre signal du ciel. L’antenne
+est en effet constituée de plusieurs lobes de détection (ou d’émission)
+dont le lobe principal qui détermine la directivité de l’antenne, et les
+lobes latéraux et arrière. Bien que la sensibilité du lobe parasite arrière
+soit modeste, la puissance du signal du sol (généralement autour de
+300K) est bien supérieure à celle du CMB à 3K. En outre, le LNB
+présente une ouverture plus large que le réflecteur (spillover ou surilluminatio n d u réflecteu r p ar le LNB), ce q u i l’ex p o se au x OEM
+directes du sol. Pour pallier ces difficultés, nous avons placé une
+seconde parabole de =1m derrière la première avec, pour
+conséquence, le basculement du lobe parasite vers le ciel et un
+écrantage des OEM provenant directement du sol (pas de réflexion par
+le réflecteur).
+Une autre amélioration majeure a consisté à isoler thermiquement le LNB par la réalisation d’une
+boite en polystyrène extrudé et, à réaliser une série de blindage électromagnétique. L’électronique
+du Satfinder, par exemple, a été placée dans une boite en aluminium pour constituer une cage de
+Faraday, et éviter ainsi les interférences par des ondes Radio environnantes (Wifi, GSM). Les câbles
+RF ainsi que le câble BNC qui transportent le signal V ciel sont des câbles coaxiaux avec, pour
+certains un triple blindage.
+20
+
+V- Réalisation des mesures expérimentales
+1. Étalonnage de l'antenne
+Nous comptons avec tout ce matériel, détecter le fond diffus cosmologique. Nous rappelons que ce
+dernier vient de toutes les directions. De ce fait, nous pouvons le mesurer quasiment de partout.
+Nous allons voir comment procéder.
+a) Mise en station
+La mise en station de l’instrument se fait dans un premier temps en ajustant l’horizontalité du
+châssis et la verticalité du mât de l’antenne supporté par la monture à l’aide d’un simple niveau à
+bulle précis à 0,09°. Le système étant hors axe (offset), il faut déterminer l’angle de pointage de
+l’antenne (ou angle d’offset). Cette donnée est obtenue par géométrie analytique de la parabole.
+L’antenne pointe à l’horizon lorsqu’elle est inclinée en avant d’un angle d’environ 27° (aux erreurs
+d’incertitude près).
+Élévation Ɵ=0° plus angle d'offset ~27°
+
+Normale au réflecteur
+
+Rayon provenant de l'horizon.
+Épaisseur de l'atmosphère maximale
+
+Élévation: Ɵ = 90° plus angle d'offset ~27°
+
+Rayon provenant du zénith.
+Épaisseur de l'atmosphère minimale
+d'où masse d'air relative égale à 1
+
+21
+
+b) Position de l'antenne en azimut et élévation
+
+Lorsque nous mettons en marche l'alimentation des moteurs de l'antenne et que nous ouvrons le
+logiciel d'acquisition, les moteurs cherchent leurs butées mécaniques.
+Le logiciel indique alors des valeurs d'élévation θ et d'azimut φ qui correspondent au repère
+utilisateur non au repère moteur.
+Dans cette position "butée" des moteurs, avec une
+boussole, nous alignons grossièrement l'antenne en
+direction du Nord Magnétique. Le logiciel nous donne
+alors des positions de l'antenne (φ = -29,33° et θ= -95,83°)
+qui correspondent aux coordonnées de l'antenne dans le
+repère utilisateur. Or ces dernières ne correspondent pas à
+la position réelle de l'antenne dans le repère moteur.
+Figure 13 : Alignement avec le
+Nord magnétique
+Nous ouvrons le fichier configuration afin de faire coïncider le repère moteur et le repère utilisateur,
+en entrant manuellement les valeurs azimut: +29,33° et élévation: +95,83°. Ainsi l'élévation du
+réflecteur sera de 0° et l'azimut également de 0°. Cette opération définit l'offset entre le repère
+moteur et utilisateur.
+Ce premier pointage étant très imprécis, nous effectuons un balayage du ciel pour repérer les
+satellites géostationnaires Astra (154,55° en azimut, 36,33° en élévation), Eutelsat Hotbird 13 (163°
+en azimut et 30,74° en élévation) et Eutelsat 28A (142,64° en azimut et 33,33° en élévation).
+
+En effet, ces derniers sont fixes par rapport à
+un référentiel terrestre comme l'antenne
+utilisée. Une fois cette cartographie faite, nous
+pointons le satellite Eutelsat 28A et nous
+ajustons ses coordonnées dans le logiciel
+d'acquisition, soit φ = 142,64° et θ = 33,33°.
+Puis nous contrôlons, l'exactitude des
+coordonnées des deux autres satellites.
+Nous vérifions ensuite dans le logiciel de configuration, l'amélioration de la coïncidence des
+repères moteur et utilisateur car nous lisons φoffset = 26,6° et θoffset = 83,4°.
+Ces réglages faits, l'antenne est correctement orientée dans l'espace.
+
+22
+
+c) Conversion de la puissance du signal reçu en température
+
+Lorsque nous recevons une onde électromagnétique avec une antenne, cette dernière est convertie
+en une tension électrique.
+Grâce à cette tension mesurée, nous allons devoir déterminer la température du rayonnement reçu
+afin de pouvoir l'identifier.
+La puissance reçue par l'antenne (détectée par le LNB), provenant d'un corps noir à une température
+T, est donnée par la relation: P détectée =B ν (T ) . S détecteur . Ω source . Δ ν
+S détecteur : surface du détecteur en m2
+Ωsource : angle solide depuis la source (ciel, CMB) vers le détecteur en stéradian (sr)
+Δ ν : bande de fréquence de détection du LNB en Hz
+Sachant que la condition
+soit
+
+B ν≈
+
+h ν <<
+
+kT est vérifiée, la loi de Planck suit la loi de Rayleigh-Jeans
+
+2 kT
+.
+λ2
+
+De plus, comme nous détectons le signal sur une seule antenne du LNB, une seule polarisation est
+détectée. Alors, la puissance du signal reçu est divisée par deux:
+1
+1 2kT
+Pdétectée = . B ν (T ) . S détecteur. Ω source . Δ ν= . 2 . S détecteur .Ω source. Δ ν
+2
+2 λ
+Sachant que la limite de diffraction est : S détecteur .Ω source =λ 2
+Nous obtenons
+
+P détectée =kT . Δ ν
+
+Cependant, si nous nous plaçons à 0K, la puissance détectée ne sera pas nulle. En effet, nous devons
+ajouter une température de bruit inhérente à l'expérience.
+Alors la puissance totale détectée sera:
+
+P totale =P détectée + P bruit =k (T ciel +T bruit ). Δ ν
+
+La tension mesurée est proportionnelle à la puissance totale
+V mesurée =a . Ptotale =ak(T ciel +T bruit ). Δ ν = R .(T ciel +T bruit ) avec R=a .k . Δ ν
+
+reçue
+
+soit
+
+L'expression précédente contient deux constantes R et T bruit que l'on doit déterminer avec deux
+corps noirs à deux températures différentes : par exemple un corps noir à température ambiante et
+un corps noir à 77K (azote liquide). Cette étape est la calibration de l'antenne.
+
+d) La calibration de l'antenne
+Nous sommes amenés à déterminer deux inconnues avec deux équations:
+- l'une pour un corps noir à 300K (température ambiante qui sera lue avec un thermocouple type J)
+soit le couple de valeurs (T 300 , V 300 )
+23
+
+- l'autre pour un corps noir à 77K (azote liquide) soit le couple de valeurs (T 77 ,V 77 )
+
+Figure 14 : Mesure avec
+un corps noir à 300K
+
+Figure 15 :
+
+( à gauche) Mesure avec un corps noir à 77K (azote liquide)
+
+(à droite) Corps noir à 77K
+
+Nous avons le système suivant à résoudre:
+V 300= R .(T 300 +T bruit ) et V 77 =R .(T 77 +T bruit )
+
+La résolution donne
+
+R=
+
+V 300−V 77
+T 300−T 77
+
+et
+
+T bruit =
+
+V 300 . T 77−V 77 . T 300
+V 77−V 300
+
+Maintenant, nous pouvons calculer la température du rayonnement reçu avec la relation suivante :
+T ciel =
+
+V ciel
+−T bruit
+R
+
+Pour réaliser un corps noir à 300K (température ambiante) ou 77K, nous avons utilisé un corps noir
+de type mousse Eccosorb, absorbant électromagnétique. La réflectivité de cette mousse est
+meilleure, -40dB au dessus de 10GHz, ce qui en fait un corps d'émissivité égale à 1 à 10-4 près.
+
+2. La cartographie du ciel
+Afin de réaliser une mesure du rayonnement provenant de l'Univers, nous avons cartographié le ciel
+pour localiser des différentes sources d'ondes radio aux alentours de 10 GHz qui pourraient gêner
+notre acquisition.
+Cette carte nous a permis de voir que nous pouvions regarder le ciel en direction de l'Univers pour
+l'azimut φ = 320° et une élévation 20° <θ < 90°.
+
+24
+
+3. L'atmosphère terrestre
+Quand nous mesurons la puissance rayonnée par le CMB, nous mesurons aussi la puissance
+rayonnée par l'atmosphère terrestre. Nous allons chercher à calculer l'épaisseur d'air en fonction de
+l'angle d'élévation.
+
+Quand le détecteur est au zénith (élévation θ=90 ° ), le
+rayonnement traverse le moins d'atmosphère : ceci définit
+une épaisseur d'air relative de 1 .
+
+25
+
+Quand le détecteur se trouve à 30° au dessus de l'horizon, le rayonnement traverse deux fois plus
+d'atmosphère pour atteindre le détecteur au sol, et dans cette situation l'épaisseur d'air relative est
+alors de 2.
+Ainsi, nous voyons que l'épaisseur d'air relative est une fonction de l'angle d'élévation. Plus
+précisément, nous avons la relation suivante : Epaisseur d ' air relative=
+
+1
+.
+sin(θ)
+
+De plus, les constituants atmosphériques ( H 2 O ; O2) n'absorbent pas dans le domaines des ondes
+radiofréquences. Puis l'atmosphère émet uniquement dans l'infrarouge.
+
+4. Exploitation des données
+Nous avons fait des mesures pour différentes élévations par pas de 1°, de 20° à 90°, pour un azimut
+donné de 320°.
+Dans cette direction, l'antenne tourne le dos à un fort signal électromagnétique qui provient d'une
+antenne émettrice dans la station de ski de Chamrousse et aucun satellite géostationnaire n'est
+présent.
+La mesure expérimentale doit être la puissance rayonnée par un signal qui provient de l'Univers.
+Sachant que la puissance rayonnée est proportionnelle à la tension du signal reçu, nous mesurons
+alors une tension électrique notée V ciel .
+Cependant, l'électronique utilisée via les amplificateurs fournit
+V ciel , nous avons calculé
+T ciel =
+
+log V ciel . Po u r av o ir accès à
+
+V ciel =10 Vlue/10 . Enfin, nous avons calculé
+
+T ciel avec la relation
+
+V ciel
+−T bruit . Le détail des calculs se trouve en annexe page 1.
+R
+
+Afin d'obtenir la température du rayonnement fossile, nous avons tracé le graphique qui représente
+la moyenne de la température du signal reçu noté T ciel en fonction de l'épaisseur d'air relative.
+En effet, la température du signal détecté correspondra à celle du rayonnement fossile lorsque
+le signal proviendra uniquement de l'Univers c'est-à-dire sans atmosphère.
+Nous avons alors extrapolé la courbe
+
+T ciel =f (
+
+épaisseur d'air nulle.
+
+26
+
+1
+) et lu la v a eur
+l
+sin θ
+
+T ciel pour une
+
+40,00
+
+Tciel = f( épaisseur d'air relative)
+35,00
+
+30,00
+
+Tciel en K
+
+25,00
+
+20,00
+
+15,00
+
+10,00
+
+Pour une épaisseur nulle, nous lisons:
+
+5,00
+
+TCMB = 2,95 K
+0,00
+0,00
+
+0,50
+
+1,00
+
+1,50
+
+2,00
+
+épaisseur d'air relative = 1/sinϴ
+
+2,50
+
+3,00
+
+3,50
+
+5 - Calcul des incertitudes
+Dans le tableau de mesures, en annexe page 1, chaque mesure expérimentale de
+
+logV ciellue donc
+
+de V ciel réel est la moyenne de 16 mesures indépendantes pour une élévation donnée.
+Pour chaque élévation, la valeur de V ciel moyen est la moyenne sur 5 mesures de V ciel réel .
+
+a) Incertitude de répétabilité pour Vciel moyen notée σ(Vciel moyen )
+L'incertitude type (écart type sur la moyenne)
+σ(V ciel moyen )=
+
+σ(V ciel moyen )
+
+de l'estimation de
+
+σ n−1 (V ciel réel )
+avec
+√n
+
+σ n−1 (V ciel réel ) : écart type expérimental d'une mesure (écart type de répétabilité)
+
+n = nombre de mesures de la valeur moyenne = 5
+
+27
+
+V ciel moyen est
+
+b) Pour une élévation donnée, incertitude type composée pour
+Tciel notée u(Tciel).
+Afin que les calculs soient faisables par des lycéens, nous faisons l'hypothèse que les grandeurs
+x i dans notre cas V ciel , V 300 , V 77 , T 300 , T 77 , T bruit et R sont indépendantes
+alors
+2
+
+l'incertitude
+n
+
+∂ T ciel 2
+
+i=1
+
+∂ xi
+
+type
+
+composée
+
+de
+
+( ) ()
+( ) (
+) ( )( )
+
+u ( T ciel )=∑
+
+. u 2 xi
+
+T ciel est
+
+donnée
+
+par
+
+la
+
+relation:
+
+soit
+
+∂T ciel 2 2
+∂ T ciel 2 2
+∂ T ciel 2 2
+u T ciel =
+. u V ciel +
+. u ( R )+
+. u ( T bruit )
+∂ V ciel
+∂R
+∂ T bruit
+2
+
+( )
+
+u2 (V ciel ) V 2ciel 2 2 2
++ 4 .u ( R ) +u ( T bruit )
+d'où u ( T ciel )=
+R2
+R
+2
+
+Le calcul des incertitudes-types composées de
+
+T ciel ,
+
+T bruit et R notées
+
+u(T ciel ) ,
+
+u(T bruit )
+
+et u(R) sont développées en annexe page 2 et 3 .
+
+c) Ajustement du modèle
+Tciel=f(épaisseur d'air relative) avec le khi2
+
+mathématique
+
+de
+
+la
+
+droite
+
+Le calcul du χ 2 correspond à une statistique qui caractérise la dispersion des valeurs mesurées
+T (ciel exp)i par rapport aux valeurs données par le modèle T (ciel théo)i .
+Si les mesures sont en parfait accord avec les valeurs du modèle alors le χ 2 est nul.
+T (ciel théo)i −T (ciel exp)i 2
+)
+u(T (ciel)i )
+i=1
+n
+
+Expression du χ 2 : χ 2 =∑ (
+
+u(T ciel ) aussi notée σ(T ciel ) est l'incertitude type pour T ciel .
+On utilise
+
+χ
+
+2
+réduit
+
+n
+
+2
+
+T (ciel théo)i−T (ciel exp)i
+1
+=
+(
+) avec n = nombre de mesures expérimentales et p
+∑
+n− p i=1
+u(T (ciel )i)
+
+nombre de paramètres à ajuster. Le modèle choisi sera en bonne adéquation lorsque
+proche de 1.
+
+2
+
+χ réduit
+
+sera
+
+Nous avons admis que l'incertitude sur l'ordonnée à l'origine avec la méthode du khi2 est donnée
+α niveau de confiance (dans notre cas 0,68):
+par la relation suivante avec
+
+√
+
+Δ b= −2 .
+
+ln (1−α)
+.
+1
+∑ u (T )2
+ciel
+28
+
+6 - Résultat expérimental final
+Nous avons détecté un rayonnement provenant de l'Univers, appelé rayonnement fossile à la
+température indiquée ci dessous:
+
+T CMB = ( 2,95 ± 0,34 ) K
+Avec un niveau de confiance de 68 %
+
+Nous avons 68% de chance pour que la température du rayonnement détecté soit compris dans
+l'intervalle [ 2,61 K; 3,29 K].
+
+29
+
+VI - Conclusion
+Ce travail laborieux d'une année a été riche d'enseignements, tant au niveau personnel qu'au niveau
+des connaissances scientifiques. Nous avons connu des moments difficiles où l'inquiétude était
+omniprésente car l'idée d'un abandon s'installait un peu plus tous les jours. Mais notre ténacité, notre
+envie de réussir, nous ont permis de vivre une émotion d'une grande intensité lorsque nous avons "vu"
+le rayonnement fossile.
+Pour mener à terme ce projet, nous avons suivi la démarche
+scientifique suivante:
+- compréhension du dispositif de Arno Penzias et Robert Wilson
+- recherche de solutions techniques peu onéreuses, transportables et
+simples pour la mise en œuvre du radiomètre.
+- réalisation de mesures, dans un premier temps non conformes au
+résultat attendu car le signal à 3K était noyé dans un signal à 300K.
+De nombreuses tentatives sont restées infructueuses mais fin août
+2015, la lecture d'un article du magazine du Palais de la Découverte
+à Paris et des échanges avec Messieurs Eric Bréelle et Michel Piat,
+du Laboratoire d'AstroParticule et de Cosmologie de Paris, nous ont
+permis d'apporter des solutions.
+Enfin, une rencontre au LPSC début octobre 2015 avec Michel Piat,
+nous a permis de sortir définitivement du brouillard opaque dans
+lequel nous étions, car le dépouillement des mesures du vendredi 16
+octobre nous a permis de "voir" le rayonnement fossile. Nous avons
+profité de cette rencontre pour dire à Michel Piat que la détection du
+rayonnement fossile, dans son jardin, n'est pas simple !
+
+Première antenne
+
+Antenne améliorée
+
+L'expérience doit encore être améliorée afin de rendre plus compacte
+l'électronique. Puis ce radiomètre aura une seconde vie car des
+travaux pratiques seront élaborés pour les étudiants de Master 2 en
+Physique Subatomique et Astrophysique, en collaboration avec le
+laboratoire CPP (Centre de Physique des Particules) de Marseille.
+Malgré le temps colossal pris sur notre temps libre pour réaliser ce
+projet, nous sommes très heureux d'avoir vécu une aussi belle
+expérience humaine :
+De gauche à droite: Marc Marton, Damien Tourres, Michel Piat ,
+- nous avons rencontré des personnes passionnantes et
+Olivier Zimmermann et Myriam Mgliore.
+passionnées qui n'ont jamais compté les heures passées avec nous
+(enseignements théoriques et expérimentaux, visite d'une salle
+anéchoïde, etc ...)
+- nous avons appris à être plus rigoureux, plus organisés, à travailler nous même en équipe en
+prenant comme exemple le travail collaboratif de l'équipe du LPSC.
+- Nous avons eu la chance d'avoir été initiés à un travail de recherche, d'être entrés dans la
+peau de Messieurs Penzias et Wilson puis d'échanger des courriels avec Monsieur Wilson.
+
+30
+
+Album de photographies de l'équipe du LPSC avec les Olympiens :
+Myriam Migliore
+
+Olivier
+Zimmermann
+
+Patrick Stassi
+
+Cécile Renault
+
+Visite de la salle
+anéchoïde sur le site
+de Minatec avec
+Nicolas Corrao.
+Rémi Faure
+
+Marc Marton
+
+Damien Tourres
+31
+
+Une rencontre
+décisive avec Michel
+Piat, enseignant
+chercheur à l'APC et à
+l'Université Paris
+Diderot.
+
+Bibliographie
+Périodique:
+- Article du magazine du Palais de la Découverte à Paris: Découverte n°379 - Mars/Avril 2012.
+Rapport:
+- Rapport de stage de DUT, 2ième année de l'IUT de Mesures Physiques, Université Paris Sud 11,
+centre d'Orsay - Détection du Fond Diffus Cosmologique avec un radiomètre à 10 GHz - Auteur:
+Florian Houel.
+Livre:
+- Petite histoire de l'UNIVERS Du Big Bang à la fin du monde, écrit par Stephen HAWKING,
+traduit par Carole Benton.
+Conférence:
+Etienne Klein à Grenoble, le 12 juin 2015: L'univers a-t-il connu l'instant zéro ?
+Webographie:
+http://www.cnrs.fr/cw/dossiers/dosbig/decouv/xchrono/origine/niv1_1.htm
+http://www.astronomes.com/le-big-bang/
+https://www.polytechnique.edu/fr/theorie-physique-ultime-de-l-univers
+http://www.futura-sciences.com/magazines/matiere/infos/dossiers/d/physique-boson-higgs-clefondamentale-univers-532/page/6/
+http://www.cnrs.fr/cw/dossiers/dosbig/decouv/xchrono/inflat/niv1_1.html
+http://molaire1.perso.sfr.fr/bigbang.html
+
+32
+
+23e LYMPIADES
+DE PhYSI uE FrAncE
+épreuves nationales vendredi 29 et samedi 30 janvier 2016
+à l’université Paris Diderot, Paris, équipes de 2 à 6 lycéens
+épreuves régionales mercredi 9 décembre 2015
+inscription sur odpf.org du 10 mai 2015 au 15 octobre 2015
+
+Avec le soutien de
+
+Lycée Marie Reynoard de Villard-Bonnot (38)
+2015 - 2016
+
+

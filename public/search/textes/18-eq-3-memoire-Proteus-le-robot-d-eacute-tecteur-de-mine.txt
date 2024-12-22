@@ -1,0 +1,964 @@
+OLYMPIADES DE PHYSIQUE France
+XVIIIe édition
+
+Année 2010-2011
+
+Proteus
+Robot détecteur de mines.
+
+Elèves participants :
+Cano Manon
+Labat Bastien
+
+Garric Justine
+
+Kopp Paul-Emile
+
+Petitpas Guillaume
+
+Avec LACLAVERIE Jean-Michel
+Professeur encadrant
+Lycée Bernard Palissy- AGEN
+Académie de Bordeaux
+
+1
+
+Table des matières
+Résumé
+Partenaires
+Mots clefs
+Introduction
+1- Détecteur de métaux à battements
+1.1- Principe de la détection
+1.2- Les détecteurs à battements
+1.3- Montage et tests du détecteur à battements
+1.3.1 L’oscillateur à réaction
+1.3.2 La multiplication des signaux
+1.3.3 Changements de perspectives
+2- Le détecteur à filtre passe-bande de bande passante variable
+2.1- Modification du montage précédent
+2.2- Test d’un premier filtre
+2.3- Performances et choix des composants
+2.4- Les dispositifs d’alerte et d’arrêt
+2.5- Le robot en fonctionnement
+Conclusion
+
+2
+
+Résumé :
+Nous avons fabriqué un détecteur de métaux, porté par une voiture télécommandée.
+Dans le cas de la recherche d’un modèle de mine anti-personnelle, seul le robot est en
+danger, pas l’opérateur. La détection d’un objet métallique par la bobine entraîne l’arrêt du
+véhicule et le signalement de l’objet par un son et l’allumage d’une lampe. La variation de
+fréquence est convertie en tension pour déclencher l’arrêt du robot, par l’intermédiaire d’un
+transistor de puissance et d’un montage comparateur. Nous avons essayé de réaliser un
+montage efficace et simple car nous n’avons aucun enseignement d’électronique au lycée.
+Notre système est suffisamment performant pour révéler la présence d’un objet métallique de
+100 g enfoui à 10 cm. Toutes nos connaissances actuelles en électronique ont été acquises
+grâce à ce travail.
+Partenaires : Radio-modèle 47
+Mots clefs : Induction, bobine détectrice, filtre actif à bande passante variable, robot.
+Introduction
+Le cours de physique de Première S aborde l’électromagnétisme, les aimants et les
+bobines, les moteurs et les haut-parleurs. Notre professeur de physique nous a montré en
+cours la bobine d’un détecteur de métaux. Nous cherchions un sujet pour les Olympiades de
+physique et nous l’avons trouvé ce jour-là : fabriquer un robot détecteur de métaux.
+Les premiers détecteurs de métaux sont apparus vers la fin de la 2nde guerre mondiale
+après les travaux de Józef Kosacki. Ils ont d’abord servi au déminage et à d’autres utilisations
+militaires avant d’être des outils pour l’archéologie et les chercheurs de trésors. Une
+caractéristique importante d’un détecteur de métaux est la sensibilité. Elle va déterminer le
+type d’objet qu’il est possible de trouver et leur profondeur.
+Notre première piste de travail a été un montage utilisant les battements de deux
+fréquences proches, celle d’un oscillateur fixe et celle de l’oscillateur dont la fréquence varie
+à cause de la présence de métal prés de la bobine détectrice. Le signal de sortie est un signal
+d’amplitude constante, mais de fréquence variable. Le traitement de ce signal pour
+commander l’arrêt d’un moteur demande de nombreuses étapes : filtre passe-bande, détecteur
+de crête pour la démodulation, conversion fréquence-tension, montage comparateur pour
+commander un transistor. Le nombre de composants et le nombre de pannes augmentant de
+manière inquiétante, nous nous sommes alors demandé s’il n’était pas possible de faire plus
+simple.
+Nous avons alors modifié l’oscillateur variable, pour le transformer en simple filtre passe
+bande actif à bande passante variable. Pas de multiplieur, plus de démodulation et de circuit
+intégré pour la conversion fréquence-tension. Les performances de détection sont
+comparables à celles de notre premier détecteur à battements.
+Sa sensibilité est cependant peu élevée car notre montage n’utilise pas de circuits
+électroniques complexes. Nous avons voulu nous limiter à ce qu’il nous semblait possible de
+comprendre.
+Le signal de sortie du détecteur sert à bloquer l’avancement
+d’une voiture
+télécommandée, si un métal est présent à proximité de sa bobine de détection. La commande
+d’arrêt de la voiture est obtenue grâce à un montage comparateur et un transistor de puissance.
+Nous vous présentons les différentes étapes de notre projet, dans l’ordre dans lequel nous
+
+3
+
+les avons réalisées. Dans une première partie, nous abordons notre travail sur le détecteur de
+métaux à battements. Puis la seconde partie présente la modification du montage à battements
+pour obtenir un détecteur à filtre passe bande à bande passante variable, moins sujet aux
+pannes. Nous avons fait varier les paramètres du circuit pour améliorer sa sensibilité. Dans la
+troisième partie nous abordons la commande du moteur et des dispositifs d’alerte. Pour finir,
+nous présentons les performances de notre robot.
+
+1 Détecteur de métaux à battements
+1.1- Principes de la détection
+Pour détecter les métaux, plusieurs voix sont possibles. On peut utiliser un champ
+magnétique variant dans le temps car les métaux réagissent aux champs magnétiques. Le
+champ magnétique est alors produit par une bobine parcourue par un courant alternatif. C’est
+le cas de la plupart des détecteurs du commerce.
+Un oscillateur électrique comportant une bobine permet de fabriquer le champ magnétique
+variable. Tout élément métallique présent dans ce champ, modifie la valeur de l’inductance L
+de la bobine et donc la fréquence de l’oscillateur auquel elle appartient.
+En effet, le métal a la faculté de conduire l’électricité. Le champ créé par la bobine peut
+induire des courants de Foucault dans les métaux, qui à leur tour créent des champs
+magnétiques induits. C’est ce phénomène qui modifie la fréquence de l’oscillateur. On appelle
+courants de Foucault les courants électriques créés dans une masse conductrice, soit par la
+variation au cours du temps d'un champ magnétique extérieur traversant ce milieu, soit par un
+déplacement de cette masse dans un champ magnétique constant. C’est la variation de
+fréquence de l’oscillateur qui est la première étape de la détection.
+Il existe aussi une autre voie expérimentale, que nous présenterons dans la seconde partie
+de ce mémoire. Au lieu d’utiliser un oscillateur à fréquence variable, il est possible d’utiliser
+un filtre passe-bande, centré sur une fréquence qui varie en présence d’un métal. Ce montage
+plus simple, moins sujet aux pannes, est celui que nous utiliserons dans le montage final.
+
+1.2-
+
+Les détecteurs à battements
+
+Ces détecteurs utilisent la technique des battements de fréquences et des circuits
+résonants :
+-
+
+-
+
+-
+
+La technique des battements de fréquences est enseignée en spécialité physique de
+Terminale S, pour la chaîne de transmission des signaux radios et en acoustique,
+pour l’accord de deux instruments de musique.
+Les oscillateurs sont des circuits résonants, dont l’un utilise la bobine du capteur
+comme inductance. Une variation de l’inductance L modifiera la fréquence des
+oscillations. Les oscillations d’un circuit LC sont enseignées en tronc commun.
+Les champs magnétiques sont abordés en première S
+
+C’est pour cela que nous avons tout d’abord choisi de réaliser un détecteur à
+battements, pour avoir plus d’atouts pour comprendre le fonctionnement de notre système.
+Cette technique est la moins compliquée à mettre en œuvre, même si elle a des défauts
+et des limites. On peut utiliser un oscillateur fixe et un oscillateur variable utilisant la bobine
+de la tête de détection. En mélangeant le signal de ces deux oscillateurs, on obtient un
+battement, soit la différence des deux fréquences. Il faut créer un battement audible de
+quelques centaines de Hz, pour que la détection soit possible.
+
+4
+
+Le montage précédent n’est pas suffisant si l’on veut commander l’arrêt d’un moteur.
+Il faut alors rajouter un convertisseur fréquence tension, un comparateur et un transistor de
+puissance.
+La technique des battements présente deux inconvénients pour les démineurs ou les
+chercheurs de trésor. Les circuits résonnants ne sont pas stables en fréquence. Ils sont en
+particulier très sensibles à la température. Nous avons au cours de nos expériences observé
+des dérives en fréquences de nos oscillateurs et de nos générateurs de signaux. Mais nous
+avons la possibilité d’ajuster manuellement les fréquences sur nos prototypes, pendant les
+mesures.
+De plus, la bobine est sensible aux corps ferreux des sols minéralisés et la réponse du
+détecteur varie aussi avec la distance détecteur-sol. Ces deux problèmes occasionnent des
+variations de tonalité sans rapport avec une détection. Pour nos expériences, la voiture se
+déplacera sur une table en plastique ou en céramique. Il est impossible de la faire se déplacer
+sur le sol de la classe à cause des ferrailles qui sont
+inclues dans le béton. La bobine est fixée à 1cm du
+sol et cette distance ne varie pas, ce qui évite de
+fausses détections.
+La bobine va déterminer la fréquence de
+l’oscillateur variable. Elle doit donc être choisie
+avec soin pour que des battements soient possibles
+avec l’oscillateur fixe. Voici sur la photo 1,
+quelques unes des bobines que nous avons testées.
+Remarque : Il existe aussi des détecteurs à
+induction pulsée et balance d’induction, mais ils
+Photo 1
+sont beaucoup plus complexes et coûteux.
+Nous avons téléchargé plusieurs articles de revue d’électronique présentant la
+construction de détecteur de métaux. Dans un article de la revue Nouvelle électronique de
+janvier 1997, p 42-51, un mini-détecteur est décrit. Il fonctionne à 40 kHz et utilise une
+antenne détectrice de ferrox-cube (ferrite), comme celle contenu dans les récepteurs radios
+grande ondes et moyenne-ondes. La bobine d’un détecteur de métaux n’est donc pas toujours
+circulaire et plate. La fréquence correspond à celle des émetteurs ultrasons du laboratoire que
+nous avons déjà utilisés. Comme dans la chaîne de régulation thermique de l’inspecteur de
+Sciences Physiques M.Moreaux vue en MPI, un transistor sert à déclencher le fonctionnement
+d’un circuit électrique, ici le circuit du buzzer.
+
+5
+
+Un détecteur à battements à 445 kHz est présenté par Elektor, janvier 1979, page 111.
+Les fréquences de détecteurs à performances comparables, peuvent être très différentes les
+unes des autres, de 40 kHz à 445 kHz ou plus. Elles dépendent surtout des caractéristiques de
+la bobine. Après cette première documentation et en nous aidant de notre cours de spécialité
+physique, nous avons fabriqué notre premier détecteur à battements.
+
+1.3 Montage et tests du détecteur à battements
+1.3.1 L’oscillateur à réaction :
+Le système bouclé constitué d’un filtre passe-bande passif (L, C, R, R2) et d’un
+amplificateur non inverseur, peut fonctionner en oscillateur. Notre oscillateur n’est pas
+sinusoïdal, le signal étant écrêté. Il est capable de délivrer un signal de sortie alternatif en
+l'absence de signal d'entrée. Ceci est possible grâce à un couplage entre sortie et entrée de
+telle sorte que la fraction du signal de sortie qui est réinjectée à l'entrée soit responsable d'un
+signal de sortie d'amplitude au moins égale à celle qui lui a donné naissance. La puissance
+nécessaire à l’entretien des oscillations est fournie par l’alimentation continue de
+l’amplificateur opérationnel.
+Les composants sont dans un premier temps choisis parmi ceux présents dans la
+classe d’MPI. Nous choisissons des condensateurs et des bobines pour obtenir des fréquences
+d’oscillation de quelques dizaines de kHz, car elles sont visualisables sur le logiciel Latispro
+et notre documentation nous a montré qu’un détecteur à battements peut fonctionner à ces
+fréquences-là.
+
+6
+
+La fréquence de résonance du circuit oscillant est aussi la fréquence centrale ou
+fréquence d’accord du filtre passe-bande. C’est également la fréquence propre des oscillations
+d’un circuit LC, que nous avons vu en cours d’électricité de Terminale S :
+Fo = 1/(2Π√(LC))
+Les bobines que nous avons fabriquées, comme la plus part de celles présentes au
+laboratoire, ont une inductance inconnue. Nous les avons placées dans des oscillateurs pour
+déterminer cette inductance.
+Nous avons trouvé ce montage dans un livre d’électronique de Terminale STI. Nous
+n’avons pas abordé son fonctionnement théorique, et les équations qui permettent de le
+décrire. Nous avons choisi nos composants par essais successifs. Notre compréhension du
+montage n’est qu’expérimentale.
+Oscillateur à 62626 Hz
+C’est le premier oscillateur que nous ayons testé, avec une fréquence de vibration
+Fo = 62626 Hz lorsque tout objet métallique est éloigné.
+La bobine n’a pas la valeur de son inductance indiquée, seulement le nombre de
+spires. C’est une bobine à section carrée, haute de 12 cm et ayant servi pour des
+transformateurs. En supposant correcte l’indication de la capacité du condensateur (2,2 nF), la
+bobine de 2x125 spires a une inductance proche de 2,9 mH.
+L’oscillateur fonctionne, mais il n’est pas sinusoïdal. Le signal est rectangulaire et
+permet la détection. Lorsque l’on approche de la bobine un objet métallique, la valeur de la
+fréquence d’oscillation indiquée par Latispro change. Pour un objet en plastique, il n’y a
+aucune variation de fo. Les variations sont d’autant plus importantes que l’objet métallique est
+près de la bobine. Elles sont très importantes si l’objet rentre dans la bobine, mais ce n’est pas
+possible pour un détecteur de métaux en fonctionnement.
+
+Oscillateur à 41582 Hz (fichier 08047)
+Avec la petite bobine jaune de la photo 1 et un condensateur de 4,7 nF, nous obtenons
+des oscillations à 41582 Hz, et une détection correcte. Le signal a la même forme que
+précédemment.
+Les sites consacrés à la détection indiquent les performances des bobines en fonction
+de leur taille et de leur forme : Plus le disque sera petit plus les champs électromagnétique
+
+7
+
+seront « concentrés » et il sera possible de détecter de très petits objets de manière précise,
+évidement la profondeur sera plus faible. A contrario, plus le disque est grand plus le champ
+est large .On trouver des objets de plus grandes tailles, avec moins de précision, mais plus
+profondément. Les disques de 20 cm sont reconnus par les fabricants comme étant les disques
+"standard".
+Nous avons comparé les performances de tous nos oscillateurs.(voir partie 2)
+Pour cela nous avons mesuré la variation de fréquence de l’oscillateur en fonction de la
+distance de l’objet métallique. Puis nous avons inséré une même bobine dans des oscillateurs
+de fréquences différentes pour choisir le plus sensible. Nous avons aussi testé des objets de
+tailles différentes.
+Nous avons remarqué que plus la fréquence des oscillations est élevée, plus le système
+dérive au cours du temps. Nous pensions initialement que plus la fréquence des oscillations
+est grande, plus le système serait sensible. Ce n’est pas le cas pour nos montages.
+
+1.3.2 La multiplication des signaux :
+Après ces tests pour choisir l’oscillateur, nous avons poursuivi le montage en
+multipliant le signal de l’oscillateur variable avec celui de l’oscillateur fixe. Un générateur de
+signaux nous sert d’oscillateur fixe. Cependant nous avons remarqué que pour les fréquences
+élevées (145 kHz), le générateur dérive de manière importante, ce qui oblige à des réglages
+fréquents pour obtenir des battements.
+Schéma du multiplieur:
+
++15
+V
+
+Masse
+
+-15V
+
+X1
+
+Y1
+
+S
+
+Un multiplieur est un composant électronique qui fonctionne lorsqu’il est alimenté en
++15Volt, 0Volt et –15 Volt, il permet de « mélanger » deux tensions afin d’en moduler une
+(en faire varier l’amplitude ou la fréquence). En effet, à la borne X1 est appliquée une tension
+dite modulante (U1) et à la borne Y1 c’est une tension que l’on appelle porteuse (celle qui sera
+modulée, U2). Enfin, la borne S (borne de sortie) permet de délivrer le signal modulé (Us), qui
+correspond à :
+Us = k*U1*U2 (k est un coefficient multiplicateur qui varie selon le multiplieur).
+Pour que la modulation soit satisfaisante, il faut que l’enveloppe supérieure du signal
+modulé (Us) suive les variations du signal modulant (U1).
+Le multiplieur, à sa borne de sortie, fournit un signal qui peut être audible grâce à un
+haut parleur qui convertit ce signal en onde sonore (entre 20Hz et 20kHz). Si U1 et U2 ont
+respectivement pour fréquence F1 et F2, le signal de sortie est la somme de trois tensions
+sinusoïdales de fréquence F1-F2, F1+F2 et F2. Plus la fréquence du signal est basse plus le son
+sera grave et inversement. Sans filtre passe bas, nous obtenons un signal audible utilisable
+pour la détection, même si le bruit de fond est important.
+Nous disposons au laboratoire d’oscillateurs ultrasonores pouvant fonctionner en
+émission continu, ou en salve. Leur fréquence est de 40kHz. Le détecteur présenté par la
+revue La nouvelle électronique fonctionne à cette fréquence. Nous avons tenté de multiplier le
+
+8
+
+signal d’un de nos oscillateurs (41582 Hz) avec celui du générateur d’ultrasons. Les
+battements sont exploitables. On observe un pic vers 1kHz dans l’analyse de Fourier, qui
+correspond à la différence des deux fréquences.
+
+Nous avons ensuite réalisé un démodulateur à détection d’enveloppe pour obtenir un
+signal sans bruit de fond, c'est-à-dire ne contenant que la fréquence audible de détection.(voir
+partie 2).
+
+1.3.3 Changements de perspectives
+Après avoir obtenu ces premiers résultats encourageants, nous avons réfléchi à la
+commande du moteur. Nous avons un signal de fréquence variable qui doit être converti en
+tension continue pour piloter un transistor, par l’intermédiaire d’un montage comparateur.
+Une tension de référence est envoyée sur une des 2 entrées de l’amplificateur opérationnel
+fonctionnant en comparateur. Lorsque la tension de sortie du convertisseur fréquence tension
+passe par la valeur de référence, l’amplificateur opérationnel bascule de + 15V à -15V, ou
+inversement, et le transistor se bloque ou devient passant.
+La conversion fréquence-tension peut être obtenue par exemple par des bascules
+monostables (à construire ou par des circuits intégrés), ou encore par un filtre passe-bande. Et
+nous avons commencé à paniquer ! La table est pleine de composants, nous commençons à
+manquer de fils, les pannes se multiplient, les montages sont très longs à faire et à tester et il
+reste encore beaucoup d’étages à construire ! Nous ne comprenons nos montages que par
+l’expérience, et tout devient trop compliqué. Il faut changer de méthode.
+Devant l’augmentation inquiétante du nombre de composants et de fils de nos montages,
+nous nous sommes alors demandé s’il n’était pas possible d’utiliser un seul filtre passe-bande
+dans notre détecteur, pouvant à la fois servir à détecter le métal et à convertir la fréquence en
+tension. Et tout s’est simplifié…
+
+2- Le détecteur à filtre passe-bande de bande passante variable
+2.1- Modification du montage précédent
+
+9
+
+Nous utilisons dans ce montage un oscillateur sinusoïdal de fréquence fixe égale à la
+fréquence centrale du filtre passe-bande auquel il est associé. Le signal est simplement fourni
+par un générateur de signaux. Le filtre à circuit résonant RLC est issu de l’oscillateur
+précédent utilisé pour le détecteur à battement1 :
+
+U entrée filtre
+
+U sortie filtre
+
+Schéma du filtre sélectif
+Il est associé à un simple détecteur de crête dans toutes nos mesures :
+
+U sortie filtre
+
+U détecteur de crête
+
+Schéma du détecteur de crête
+
+2.2- Tests d’un premier filtre
+Nous avons choisi comme premier montage, un circuit centré sur 42 kHz, c'est-à-dire
+sur une fréquence permettant une détection correcte avec l’oscillateur de notre première
+partie.
+Fréquence centrale du filtre à 42148 Hz, bobine jaune :
+Caractéristiques du montage complet :
+C = 4,7 nF, bobine jaune (2,2 cm sur 2,6 cm rectangulaire),
+Rp = 1MΩ, R = 22kΩ pour le filtre
+Cf =1μF, Rf = 1MΩ pour le détecteur de crête.
+Niveau fort du GBF (13,8 sur son affichage)
+1
+
+D’après V.Chollet, Université de Franche Comté, TP électronique 2
+
+10
+
+ème
+
+année S3 EA2-07.
+
+Voici les tensions obtenues en entrée et sortie du filtre, et en sortie du détecteur de
+crête, lorsque la fréquence du générateur est égale à la fréquence centrale du filtre, ici 42148
+Hz. Les signaux d’entrée et de sortie du filtre sont sinusoïdaux.
+
+Nous remarquons que Usortiefiltre est en opposition de phase avec Uentréefiltre si la
+fréquence d’entrée est égale à celle du centre de la bande passante, soit 42148 Hz. Si la
+tension Uentréefiltre évolue jusqu’à 30 kHz, Usortiefiltre a une amplitude qui diminue et est déphasé
+de T/4. De même si f augmente au-delà de 42 kHz. La tension U détecteur de crête tend aussi à
+diminuer.
+
+T/4
+
+Nous avons constaté ces déphasages dans nos expériences, et leur évolution. Mais
+nous n’avons pas cherché à les étudier directement, car ils ne nous semblent être importants
+pour la qualité de la détection. L’évolution du déphasage est une conséquence de
+l’éloignement de la fréquence du signal d’entrée par rapport à la fréquence centrale du filtre.
+L’amplitude du signal de sortie du filtre peut être modifiée en changeant la valeur de
+R. Si R diminue, l’amplitude augmente. Il suffit que le signal ne sature pas à cause des limites
+de l’amplificateur opérationnel, car dans ce cas la détection peut être impossible.
+
+11
+
+Nous avons calculé la valeur de l’inductance de la bobine : Fo = 1/(2Π√(LC)), donc
+Ljaune = (1/2πFo)².1/C = 3mH
+Avec ce filtre centré sur 42148 Hz, nous avons tracé l’évolution de la tension efficace
+de sortie du filtre Ueff et de la tension de sortie du détecteur de crête U détecteur de crête en fonction
+de la fréquence du signal d’entrée, lorsque tout métal est loin de la bobine.
+
+La plus grande valeur de Ueff est 1,07V. Ueff/√2 est obtenue pour 41kHz et 43 kHz.
+On obtient donc une bande passante à 3dB de 2kHz.
+Nous avons ensuite approché une masse de 100g de cuivre pour tester la sensibilité de
+notre montage.
+
+La tension continue diminue de manière significative à partir d’une distance de 2 cm
+entre le centre de la bobine détectrice et la masse de 100g de cuivre. La bobine jaune a un trou
+central de section rectangulaire de 2,2 cm sur 2,6 cm.
+Nous avons ensuite réalisé des essais avec le socle de potence de masse 1000g, notre
+modèle d’une mine anti-personnelle. Sa présence est décelée à 14 cm de la bobine, même à
+travers une planche 1,5 cm d’épaisseur. Si la masse métallique est cachée dans le sable, la
+détection est possible à partir de 10 cm.
+Notre système n’est pas un détecteur de métaux destiné à découvrir des pièces ou des
+bijoux, mais un détecteur de mines, c'est-à-dire de gros objets métalliques. La distance
+maximale de détection obtenue lors de cet essai nous semble satisfaisante.
+Le détecteur de métaux à battements du lycée a de meilleures performances que notre
+montage, puisqu’il détecte le socle à 22 cm, et qu’il est capable de détecter des pièces de
+monnaies à 5 cm. Il utilise une bobine circulaire de 20 cm de diamètre. Cependant notre
+
+12
+
+montage a l’avantage d’être beaucoup plus simple à construire et à comprendre, et ses
+performances sont plus limitées, mais restent acceptables à notre avis.
+Les métaux ferreux (fer, fonte, acier), et les métaux non ferreux (zinc, aluminium,
+cuivre) ne sont pas différentiés par notre système. L’un entraîne l’augmentation de la
+fréquence centrale du filtre, l’autre sa diminution. Dans les deux cas, la tension U détecteur de crête
+diminue. Le détecteur du lycée est capable de faire la différence. Les chercheurs de trésor
+utilisent cette différentiation pour faire la différence entre les objets de valeur et les ferrailles
+enterrées. Mais ce n’est pas notre but.
+
+2.3- Performances et choix des composants
+Nous avons envisagé de faire varier plusieurs paramètres de notre robot et d’étudier
+leur influence sur la distance de détection du modèle de mine. Nous avons modifié :
+- La forme du signal du générateur de signaux.
+- La valeur de l’inductance de la bobine et sa taille.
+- La fréquence centrale du filtre en modifiant C ou L.
+- La résistance R du filtre, pour modifier les valeurs de U détecteur de crête.
+Cependant les paramètres ne sont pas indépendants, et modifier la bobine modifie
+aussi la fréquence centrale du filtre. Nos bobines sont trouvées dans les tiroirs du laboratoire
+ou sont fabriquées à la main, avec du fil issu de vieilles bobines du lycée ou des fils
+électriques de l’atelier.
+Avec le montage du paragraphe précédent centré à 42 kHz, nous utilisons un signal
+triangulaire, puis créneau et enfin par impulsion, obtenu en modifiant la forme d’un signal
+créneau en augmentant la durée pendant laquelle la tension est à sa valeur minimale. Aucune
+amélioration des performances n’est constatée. La distance maximale de détection reste à 14
+cm pour le signal triangulaire, et diminue à 12 cm pour le signal créneau. Donc
+La forme du signal a peu d’influence sur la qualité de la détection
+Modifions la valeur de la résistance R
+du filtre à 42 kHz, pour un niveau constant
+du signal d’entrée, réglé sur la fréquence
+centrale du filtre : Uentréefiltremax = 4,2 V
+Usortiefiltremax = 3,6 V si R = 22 kΩ
+Usortiefiltremax = 7,9 V si R = 10 kΩ
+Usortiefiltre max> 10 V (non mesurable
+sur Latispro) si R < 8 kΩ
+Dans certaines limites, si R diminue,
+Usortiefiltremax augmente, ce qui facilite les
+réglages pour la détection. Cependant la
+distance maximale de détection n’est pas
+améliorée.
+Les résultats sont décevants avec notre bobine enroulée sur une boîte de Camembert,
+ronde de diamètre 10,7 cm. Le filtre est centré sur 85800 Hz et la variation de U détecteur de crête
+n’est que de 0,5V lorsque d varie de 100 mm à 0. Le système n’a plus aucune sensibilité
+lorsque la fréquence du filtre est à 106300 Hz. Nous concluons donc que :
+
+13
+
+Une fréquence centrale du filtre élevée n’est pas favorable à une bonne détection.
+Nous faisons un nouvel essai, avec une bobine ronde de 0,56 mH et 3 cm de diamètre
+et R = 1kΩ. Les dimensions de la bobine sont comparables à celle de la bobine jaune de 3 mH
+de l’oscillateur à 42 kHz. Le filtre est centré sur 14326 Hz. Le reste du montage précédent
+n’est pas modifié :
+
+L’amplitude des variations de U détecteur de crête est importante, mais la distance
+maximale de détection ne dépasse pas 10 cm.
+Avec un filtre centré sur une fréquence encore plus basse, 2743 Hz, la distance
+maximale de détection n’est que de 4 cm.
+
+14
+
+Une fréquence centrale du filtre basse n’est pas favorable à une bonne détection.
+Une fréquence centrale du filtre proche de 40 kHz semble être un bon choix.
+Forme de la bobine
+Nous avons testé d’autres bobines :
+- Longue bobine sur support
+bois, 22 cm de long et 3 cm
+de diamètre. Ne détecte que
+le métal placé à l’intérieur
+de la bobine, mais pas à
+l’extérieur. Fréquence du
+filtre 84600 Hz avec C =
+4,7nF et R =22 kOhm.
+Amplitude des signaux
+importante.
+Ils
+sont
+utilisables, mais la bobine
+ne détecte rien. Si on
+change C= 220 nF, aucun
+résultat, résonance vers
+11000 Hz, avec signal de
+sortie du détecteur de crête nul. Ces résultats sont cohérents car seul le champ
+magnétique créé à l’extérieur de la bobine sert pour la détection.
+-
+
+-
+
+Enroulement de fil électrique vert jaune. Détecte correctement la grosse masse
+métallique d’un support de potence, à 23600 Hz (10 cm). R = 470 ohm et c=220
+nF.
+Bobine bleu de plus petit diamètre, pas de
+meilleures
+performances.
+Détecte
+correctement le métal à travers une table
+de 3 cm (bois + carrelage). F =30766 Hz.
+Distance maximale de détection dans l’air
+7 cm.
+
+15
+
+Bobine bleue
+7
+6
+
+Ueff (V)
+
+5
+4
+3
+2
+1
+0
+0
+
+10000
+
+20000
+
+30000
+
+40000
+
+F en Hz
+
+Bande passante à - 3dB de la bobine bleu = 1,5 kHz. La bande passante est plus faible
+que pour le filtre centré à 42 kHz, mais la distance maximale de détection est moins grande.
+
+Bobine
+
+géométrie
+
+dimensions
+
+R (kΩ)
+
+Distance
+maximale de
+détection en cm
+
+jaune
+
+rectangulaire
+
+2,2 cm sur 2,6 cm
+
+3
+
+4,7
+
+42148
+
+2
+
+22
+
+14
+
+bleue
+
+ronde
+
+110 mm (0,4 kg)
+
+0,125
+
+220
+
+30304
+
+1,5
+
+0,47
+
+7
+
+rouge
+
+ronde
+
+230 mm
+
+0,15
+
+220
+
+27473
+
+/
+
+0,47
+
+11
+
+verte et jaune
+
+ronde
+
+230 mm
+
+0,2
+
+220
+
+23648
+
+/
+
+0,47
+
+10
+
+support bois
+
+cylindrique
+
+250 mm 30 mm
+
+0,75
+
+4,7
+
+84600
+
+/
+
+22
+
+0
+
+boîte de camembert
+
+ronde
+
+107 mm
+
+0,02
+
+220
+
+85800
+
+/
+
+bobineTACA
+
+ronde
+
+130mm
+
+1
+
+4,7
+
+71760
+
+/
+
+10
+
+14
+
+bobineTACA
+
+ronde
+
+130 mm
+
+1
+
+220
+
+10600
+
+/
+
+10
+
+2
+
+Bobine TACA
+
+ronde
+
+130 mm
+
+1
+
+47
+
+23000
+
+/
+
+10
+
+7
+
+L (mH)
+
+C (nF)
+
+F(Hz)
+
+bande
+passante 3dB (kHz)
+
+4
+
+Les enroulements de couleur bleu, rouge ou verte et jaune sont inutilisables pour notre
+détecteur car le tracto-pelle ne peut les porter. Ce fil électrique est trop lourd. La pelle ne peut
+soulever plus de 150 g.
+La bobine « boîte de camenbert » est obtenue grâce à un enroulement de 20 tours de
+fils fin d’une vieille bobine de 16000 spires enroulées sur un support bois.
+La bobine TACA est obtenue grâce à un support circulaire de mobile à coussin d’air.
+Nous avons utilisé les derniers mètres de fils que nous possédions pour la fabriquer. Les
+résultats sont satisfaisants, surtout lorsqu’elle est en mouvement dans le tracto-pelle, où elle
+donne des résultats parfois meilleur que la bobine jaune. Dans son cas les meileurs résultats
+sont avec un filtre centré sur 71, 760 kHz.
+Un fil trop fin donne une inductance trop faible et un fil trop gros est trop lourd pour
+notre modèle réduit. La bobine jaune nous semble donc un bon compromis pour notre
+détecteur. Une bobine de même masse, même inductance, mais de plus grand diamètre
+donnerait peut-être de meilleurs résultats. Sur les sites d’utilisateurs de détecteurs de métaux,
+nous avons trouvé que plus la bobine a de petites dimensions, moins la profondeur de
+détection est grande.
+Signalons pour finir que nous avons aussi testé des associations de bobines, une seule
+servant à la détection. Lorsque nous avons deux bobines d’inductance L1 et L2 mises en série,
+elles sont équivalentes à une bobine d’inductance équivalente Leq=L1 + L2. Lorsque nous
+
+16
+
+avons deux bobines d’inductance L1 et L2 mises en parallèle, elles sont équivalentes à un
+bobine d’inductance équivalente Leq telle que 1/Leq=1/L1+1/L2. Ces expériences
+supplémentaires n’ont pas apportées d’amélioration des performances.
+
+2.4- Les dispositifs d’alerte et d’arrêt
+Nous nous sommes inspirés de la chaîne de régulation thermique de l’inspecteur de
+sciences physiques, M.Moreaux2, qui a été longtemps utilisée dans notre lycée, et dont la
+maquette a été fabriquée dans un autre lycée agenais, le lycée J.B de Baudre. Dans cette
+chaîne électronique, un transistor de puissance permet de déclencher ou d’arrêter le chauffage
+dans une enceinte fermée. Il est commandé par le signal de sortie d’un amplificateur
+opérationnel fonctionnant en comparateur. Nous avons essayé le même système pour arrêter
+ou lancer le moteur de notre robot.
+A la sortie du détecteur de crête, nous disposons d’une tension continue, qui diminue
+en présence d’un métal. Cette tension est envoyée sur l’une des entrées d’un amplificateur
+opérationnel, monté en comparateur. Sur l’autre entrée de l’amplificateur opérationnel est
+envoyée une tension continue de référence Eref. Sa valeur est légèrement inférieure à Udétecteur
+de crête en l’absence de métal.
+Avec un montage comparateur à amplificateur opérationnel, si sur l’entrée – la
+tension est plus faible que sur l’entrée +, alors la tension de sortie vaut +Vsat, sinon – Vsat.
+Nous pouvons donc avec deux comparateurs piloter l’arrêt du moteur, et le déclenchement du
+buzzer ou de la lampe.
+La carte d’acquisition étant limitée à +/- 10V, la tension n’est pas mesurable sur le
+logiciel Latispro. On observe sur le logiciel le basculement d’un tension de + 10 V à – 10 V.
+Elle est en fait de +/-12V, si on la mesure au voltmètre. Mais cette limite n’est pas importante
+dans notre cas. Le logiciel suffit pour voir basculer la tension du comparateur, même si la
+valeur indiquée est fausse.
+
+2
+
+Cours de D. Gauthier, Lycée B.Palissy Agen, Seconde MPI / Association de quadripôles, chaîne électronique
+
+17
+
+Rp = 470 Ω
+
+∞
+Module
+
+ERef
+
+Rp = 470Ω
+∞
+
+Udétecteur de crête
+
+M
+
+Dispositif de commande de l’alarme sonore, visuelle, et de l’arrêt du moteur
+
+Pour notre maquette, le moteur et son alimentation sont ceux de la voiture
+télécommandée, et sont donc embarqués. La bobine est également portée par le robot. Nous
+n’avons que 4 longs fils entre robot et montage électronique. La voiture est télécommandée et
+s’arrête automatiquement quand un métal est détecté. Le buzzer se déclenche ou la lumière
+s’allume.
+Les dispositifs d’alerte que nous avons testés, avec un transistor BD 139 ou 2N 3055
+S7638 , et une résistance de protection Rp de 470 Ω sont :
+- Un module musical alimenté en 5 V
+- Une lampe 6V 100 mA
+- Un buzzer
+Le module musical produit un son faible s’il est seul et un amplificateur est nécessaire.
+Nos essais avec des buzzers n’ont pas été concluants. La lampe et le module musical peuvent
+fonctionner en même temps.
+Sur l’acquisition ci-contre, nous
+voyons l’état différent des deux
+comparateurs : lorsque l’un est à
++Vsat, l’autre est à –Vsat. Ainsi le
+moteur peut s’arrêter quand l’alerte se
+déclenche.
+Nous avons eu des problèmes
+de masse pour le circuit d’arrêt du
+moteur. En effet si le circuit
+l’alimentation du moteur n’est pas relié
+à la masse, le tractopelle ne s’arrête
+jamais. Par contre, quand la masse est
+connectée, le moteur tourne un peu
+moins vite, mais s’arrête en présence
+de métal. La résistance de protection
+vaut 470 Ω. Si elle est plus grande le
+
+18
+
+moteur tourne moins vite, ou pas du tout.
+
+Avec la bobine de 13 cm de diamètre TACA (matériel deTable à Coussin d’Air), le
+filtre est à 71,7 kHz, et le signal de sortie du comparateur pilotant le moteur diminue lorsque
+le moteur fonctionne jusqu’à 7V. Nous sommes aux limites de l’utilisation de cet
+amplificateur opérationnel.
+Nous avons connu un échec en essayant d’alimenter la voiture avec un générateur
+indépendant, pour éviter d’avoir à recharger fréquemment les accumulateurs pendant nos
+essais. Le système que nous avions installé ne fonctionne pas. En effet, le générateur n’est
+pas assez puissant pour alimenter convenablement la voiture électrique qui doit servir de
+support au détecteur de métaux. Même deux générateurs en parallèle pouvant fournir chacun
+2 A ne permettent que de la faire avancer au ralentit. L’intensité demandée par le moteur est
+très importante, supérieure à 4 A pour avancer à vitesse normale, sous une tension de 18V.
+Nous pensons à utiliser une batterie de voiture, mais cela n’est pas pratique. Nous devons
+donc envisager une autre solution pour régler le problème de l’alimentation, et utiliser les
+accumulateurs, que nous devons souvent recharger.
+Il n’est pas courant, au laboratoire du lycée Palissy, d’avoir à commander un moteur
+nécessitant plus de 4A pour fonctionner. Notre professeur ne l’avait jamais fait. Nous avons
+alors rencontré des difficultés pour réaliser cette commande. Plusieurs transistors ne
+fonctionnaient pas correctement et ne permettaient pas de lancer le moteur. En effet, le
+courant devant traverser le moteur doit être important (plusieurs ampères) et il est
+proportionnel au courant de base. Le transistor 2N 3055 S7638, provenant de la chaîne de
+régulation thermique de M. Moreaux convient pour arrêter le moteur. Une résistance de
+protection de 470 Ω est placée entre l’AO et le transistor. Par contre, pour le déclenchement
+du buzzer, n’importe lequel des transistors trouvés au laboratoire fonctionne. L’intensité mise
+en jeu est beaucoup plus faible.
+Signalons qu’avant de trouver le bon transistor pour arrêter le moteur, nous avons
+aussi essayé avec un relais d’automobile. Ces relais permettent de faire la transition entre un
+courant faible et un courant fort. L’intensité nécessaire pour obtenir la fermeture du relais est
+plus faible (0.1 A), mais que la tension soit positive ou négative, le relais se ferme si
+l’intensité du courant est suffisante. Un relais " standard " est constitué d’une bobine ou
+
+19
+
+solénoïde qui lorsqu’elle est sous tension attire par un phénomène électromagnétique une
+armature ferromagnétique qui déplace des contacts. Mais après avoir trouvé un transistor
+satisfaisant, nous avons abandonné la piste du relais, parce que ses connections n’étaient pas
+adaptées à nos plaquettes, et que les fils que nous y avions soudés tenaient mal.
+
+2.5- Le robot en fonctionnement
+Voici une photo de notre montage complet et opérationnel ! Vous pouvez y voir :
+- Le générateur de signaux en entrée du filtre.
+- Le générateur continue alimentant les amplificateurs opérationnels et fournissant la
+tension de référence pour la comparaison.
+- Les quatre plaques de câblage, une pour le filtre, une pour le détecteur de crête,
+une pour chaque montage comparateur, transistor et circuit d’alerte ou de coupure
+du moteur.
+- Le tractopelle télécommandé portant la bobine de détection, et relié au montage
+électronique par 4 longs fils.
+- Les mains de Bastien portant la télécommande
+- Le socle d’une potence modélisant la mine à détecter.
+- L’écran de l’ordinateur et le boitier d’acquisition SYSAM-SP5, permettant de
+suivre l’évolution de toutes les tensions du système en fonctionnement, grâce à
+Latispro.
+
+Le montage fonctionne, mais avec le mouvement du véhicule, la distance maximale de
+détection d’une mine est faible, moins de 5cm.
+Notre professeur vient de commander de nouveaux composants et une plaquette
+d’essais de montage électronique, pour que nous puissions essayer de faire un circuit avec
+moins de fils, qui préparera la réalisation d’un circuit imprimé. Nous espérons que tout cela
+sera prêt pour les épreuves régionales. Nos premiers tests avec la plaquette d’essai, le 21
+septembre 2010, ne sont pas concluants. Les AO ne marchent pas. Nous n’avons pas acheté
+
+20
+
+de supports pour les AO, c’est peut-être ce qui nous manque pour assurer de bonnes
+connections. Nous pensons souder les AO TL 81 pour améliorer les contacts.
+Les AO
+Nous avons aussi pensé rendre notre détecteur autonome, c'est-à-dire supprimer
+le générateur de signaux et l’alimentation continue, et n’utiliser que la batterie du tractopelle.
+Cela n’a d’intérêt que si nous réalisons un circuit imprimé. Cependant réaliser une
+alimentation symétrique et un oscillateur est difficile et nous ne pourrons pas le faire avant le
+concours régional. Il faut également un montage diviseur de tension pour créer la tension de
+référence des comparateurs Eref , grâce à une résistance réglable. Nous travaillons pour
+l’instant à préparer notre présentation orale.
+
+Conclusion
+Notre robot fonctionne enfin. Il détecte, il signale et il s’arrête seul. Puis nous nous
+demandons, peut-être un peu tard, si notre système est bien un robot. Selon le dictionnaire
+encyclopédique illustré Larousse, un robot est « un appareil automatique capable d’effectuer
+des opérations selon un programme fixe ou modifiable : Utiliser un robot pour des opérations
+de déminage ». Notre véhicule s’arrête sans intervention humaine, et signale la présence du
+métal : c’est bien un robot !
+Notre travail a beaucoup de limites car nous avons très peu de connaissances en
+électronique, puisque jamais elle ne nous a été enseignée ! Malgré cela, nous avons réussi à
+fabriquer, entre les mois de mars et de novembre 2010, un détecteur opérationnel. Résumons
+son fonctionnement :
+- Le filtre passe bande, dont la fréquence centrale varie en présence de métal sert de
+capteur.
+- Le détecteur de crête converti le signal sinusoïdal du filtre en tension continue.
+- Cette tension continue a une valeur qui baisse en présence de métal, qu’il soit
+ferreux ou non-ferreux.
+- Un comparateur à amplificateur opérationnel bascule de + Vsat à – Vsat lorsque la
+tension de sortie du détecteur de crête diminue, et un second comparateur bascule
+de – Vsat à + Vsat.
+- Un transistor, utilisé comme interrupteur, se bloque pour arrêter le moteur du
+tractopelle, et un second transistor devient passant pour déclencher le signal sonore
+ou l’éclairage d’alerte.
+Si nous pouvons continuer notre travail, nous essayerons de fabriquer un circuit
+imprimé pour rendre notre système plus facile à utiliser.
+Cette aventure a été passionnante pour nous, car elle est notre seul et unique contact
+avec l’électronique au lycée. Nous avons beaucoup expérimenté, surtout pendant la fin de
+l’année de 1ère S. Nous avons détruit quelques composants et fait chauffer des alimentations
+continues en les branchant sur notre moteur. Nous n’avons pas abordé la théorie de nos
+montages électriques, mais nous avons compris leur fonctionnement et leur réglage en faisant
+des essais. Modifier la valeur d’un composant et observer son effet sur une tension étudiée,
+après accord de notre professeur : voilà notre méthode de travail.
+Nous avons eu un peu l’impression d’être des chercheurs dans un labo, qui essayent,
+qui se trompent, puis qui trouvent la bonne solution, même si nous n’avons rien découvert de
+nouveau !
+Bibliographie et Netographie :
+[1] Détection & Détecteur de métaux
+
+21
+
+http://www.la-detection.com/detecteur.htm
+[2] Détecteur.net : guide de la prospection au détecteur de métaux.
+http://www.detecteur.net/montages/montages.php
+[3] Site réalisé par 3 étudiants de l’IUT GEII3 de l'Isle d'Abeau
+http://detecteurdemetaux.free.fr/
+[4] Electronique-Pratique (juillet août 1994) : Schéma d’un détecteur de métaux ainsi que
+différentes explications sur le principe des détecteurs de métaux.
+[5] les détecteurs de métaux (Lionel MERLAT)
+http://www.artid.org/Fr/documentation_deminage/detecteursmetal.html
+[6]
+http://d.nardi.free.fr/metaux.htm
+
+22
+
+

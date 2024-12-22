@@ -1,0 +1,1012 @@
+OLYMPIADES DE PHYSIQUE
+
+XXVe édition
+
+Est-il possible de fabriquer un émetteur à
+Rayons X portable afin de faciliter l'accès à la
+radiographie ?
+
+Avec LACLAVERIE Jean-Michel
+Professeur Encadrant
+MICHELI Baptiste, PEREZ Lucas, SHAFROTH Lisa
+Lycée Bernard Palissy – Agen - Académie de Bordeaux
+
+Résumé
+De nos jours, les rayons X sont utiles en médecine, notamment en radiographie où ils
+permettent des analyses plus approfondies du corps. Cependant, ces machines proposant une
+précision exceptionnelle coûtent très cher et donc sont peu accessibles, en particulier dans les
+pays du tiers-monde qui en ont besoin pour l’avancée de leur médecine. De plus, les Rayons
+X représentent une importance capitale en sciences, et ont permis par exemple de préciser la
+structure de l’ADN grâce à la cristallographie. Le but de notre projet est donc de produire des
+Rayons X avec un dispositif peu coûteux et miniature, le rendant transportable et surtout plus
+facilement utilisable tout en respectant les normes de sécurité concernant les radiations.
+Grâce à la Pyroélectricité, un phénomène encore méconnu, nous sommes arrivés à cette
+émission simplifiée et en prime à résultats très satisfaisants !
+
+Avant-propos
+Ce projet prend son origine aux Arts et Métiers à Paris en mai dernier, à la fin du concours
+C'Génial. Nous souhaitions alors nous attaquer à travers la science aux problèmes du quotidien. Nous
+avions précédemment visité l'ESRF de Grenoble et c’est à ce moment que nous avons décidé de
+consacrer notre projet aux rayons X, après avoir été fasciné par les recherches menés au
+Synchrotron. Nos propres études ont donc commencé dès cette date.
+C’est cependant dans son originalité que ce projet tire sa force. En effet, c’est un projet fait par
+nous, les élèves et débuté par une idée que nous avons imaginé et développé sans proposition de
+notre professeur. C’est au cours de l’été que le projet s’est poursuivi, sans aucune aide et par nos
+propres moyens mais surtout, depuis la rentrée, sur nos heures de temps libre en dehors du travail
+scolaire car les deux heures d’atelier scientifique ne nous permettaient pas d’avancer suffisamment
+vite. Notre ambition était de proposer un projet à échelle d’élèves, entièrement réalisé par nous et
+ainsi découvrir par nous même les notions essentielles ainsi que la rigueur nécessaire à la construction
+complète d’un dossier comme celui-ci. C’est dans cette optique là que nous nous sommes tant investis.
+Nous tenions notamment à remercier Lisa Shafroth, notre amie et première supportrice, qui
+est en réalité un membre à part entière du projet, mais malheureusement sa poursuite d'études en
+Classe Préparatoires au Lycée Henry IV ne lui a pas permis de participer aux Olympiades de Physiques.
+Toutefois, Lisa nous a mis en relation avec un chercheur de l'Université de Binghamton dans l'État de
+New York aux Etats-Unis, qui travaille sur les cristaux pyroélectriques : James D. Brownridge. Ce
+dernier, dès notre premier email, a été très intéressé par notre projet, il avait et a toujours une volonté
+de nous aider sans limite. De plus, c'est grâce à cet homme, que nous avons eu des cristaux
+pyroélectriques. En cela, pour la confiance qu'il nous accorde, nous souhaiterions le remercier du fond
+du cœur, et même nous espérons le rencontrer un jour !
+Ensuite, nous nous devions d'écrire un petit mot à Amaury Micheli, élève à l'école
+Polytechnique, qui a su nous guider dans les moments difficiles et apporter sa connaissance. Enfin,
+nous adressons une pensée et nos vœux de réussite à Léa Cabrol, notre amie, qui a choisi dès le départ
+de se concentrer à son travail scolaire plutôt que de participer aux Olympiades de Physique.
+
+2
+
+Sommaire
+Introduction ........................................................................................ 4
+Problématique .................................................................................... 4
+I) Les principes physiques régissant le monde des particules ......... 5
+A) La lumière .................................................................................................... 5
+B) Émettre de la lumière .................................................................................. 5
+C) Émettre des rayons X : le rayonnement continu de freinage........................ 6
+
+II) Émettre nos propres rayons X : première version ........................ 6
+A) Le tube à rayons X ........................................................................................ 6
+B) Etude du spectre continu d'un tube à rayons X ............................................ 7
+C) Etude des raies caractéristiques ................................................................. 10
+D) Générer des hautes tensions...................................................................... 11
+
+III) Émettre nos propres rayons X : deuxième version .................. 11
+A) La pyroélectricité ....................................................................................... 11
+B) Les cristaux pyroélectriques ....................................................................... 12
+C) Modification du Tube de Coolidge ............................................................. 14
+D) Fabrication de notre tube .......................................................................... 15
+
+IV) Fabrication d'un détecteur à rayons X ..................................... 16
+A) Le film photographique .............................................................................. 16
+B) Détection par scintillation .....................................Erreur ! Signet non défini.
+C) Fabrication de notre détecteur .................................................................. 18
+
+Conclusion et perspectives ............................................................... 19
+
+3
+
+Introduction
+Que sont les rayons X ? Ce sont des rayonnements électromagnétiques éloignés du visible, les
+rendant peu utilisés dans la vie de tous les jours. Ces rayonnements trouvent tout de même une grande
+part dans les applications technologiques actuelles et font partie des plus grandes découvertes
+scientifiques à ce jour. Ils peuvent ainsi servir pour l’imagerie médicale, leur utilisation la plus connue,
+afin de réaliser des radiographies ou pour scanner les bagages des passagers lors des contrôles dans
+les aéroports. Cependant, d’autres utilisations sont bien moins connues du grand public car réservées
+à la recherche scientifique. Ainsi, il est possible d’étudier la matière à l’échelle de l’infiniment petit par
+rayonnement dit « synchrotron ». Cette étude est par exemple réalisée à l’ESRF de Grenoble que nous
+avons eu la chance de visiter et où les électrons sont accélérés à très grande vitesse puis déviés de leur
+trajectoire pour émettre des rayons X dans des lignes de lumière spécialisées. Une autre application
+réside dans la cristallographie. En effet, les rayons X permettent d’analyser la structure des cristaux
+moléculaires grâce à l’étude de leur arrangement spatial. De manière plus générale, il est possible de
+déterminer la structure d’un matériau grâce à la spectrométrie X dont on peut tirer des spectres
+caractéristiques des différents atomes. Ce sont leurs utilisations multiples qui nous ont amené à les
+étudier.
+Pour réaliser ce projet, nous avons donc fait nombre de recherches et nous sommes posés de
+nombreuses questions sur l’émission de ces radiations, sur leurs applications actuelles mais surtout
+sur les futures applications possibles qu’il reste à découvrir. Tout au long de ce projet, notre intérêt a
+été de fabriquer notre propre émetteur de Rayons X expérimental, permettant d’élargir le domaine
+des applications notamment pour une utilisation médicale, dans le grand problème actuel des déserts
+médicaux français mais aussi pour un accès à la radiographie plus développé. Marchant dans les pas
+des grands physiciens du XXème siècle ayant travaillé sur les rayons X, nous avons cherché la méthode
+la plus adéquate pour les émettre et ainsi réaliser nos ambitions. Elèves de lycée, ce fut un défi difficile
+de manipuler ces rayons pour proposer une expérience à notre portée mais après de nombreux
+d’efforts, notre dispositif a finalement pu être conçu.
+Dans un premier temps, nous aborderons la physique de l’infiniment petit pour aborder les
+notions des particules que nous utiliserons. Dans un deuxième temps, nous présenterons la première
+idée que nous avons eue pour émettre des rayons X puis dans un troisième temps, la seconde idée qui
+nous a conduits à fabriquer notre émetteur final. Enfin, dans un dernier temps, nous détailleront la
+conception théorique d’un détecteur adapté aux rayons X.
+
+Problématique
+Est-il possible de fabriquer un émetteur à Rayons X portable afin de faciliter l'accès à
+la radiographie et à la spectrométrie ?
+4
+
+I)
+
+Les principes physiques régissant le monde des
+particules
+
+A) La lumière
+En physique, on considère que les photons sont à l’origine de la lumière. Sachant que
+le photon est une particule élémentaire et même un boson, il est soumis à la dualité ondecorpuscule de la mécanique quantique. Donc le photon peut être considéré comme une onde.
+Ainsi, on peut associer à la lumière une longueur d’onde. Le photon est considéré en physique
+quantique comme le médiateur de l’interaction électromagnétique. On peut alors voir la
+lumière comme un rayonnement électromagnétique, et tracer son spectre pour les
+différentes longueurs d’ondes possibles. La lumière dite « visible » n’est qu’une partie du
+spectre électromagnétique.
+
+B) Émettre de la lumière
+Nous avons vu précédemment que les photons constituaient la lumière. Nous nous
+sommes demandés comment pouvait-on émettre de la lumière, et donc par conséquent,
+comment émettre des photons. Il existe trois méthodes pour émettre des photons : la
+transition électronique, la transition nucléaire et l’annihilation de paires particule/antiparticule. Nous allons nous intéresser à la production de photon par transition électronique.
+
+5
+
+Un électron possède plusieurs niveaux d’énergie. Il peut monter ou descendre de
+niveau avec des valeurs fixées. Lorsqu’un électron passe au niveau d’énergie inférieur, il émet
+un photon. A l’inverse, lorsque l’électron est dit « excité » et qu’il passe au niveau d’énergie
+supérieur, l’électron absorbe un photon.
+
+C) Émettre des rayons X : le rayonnement continu de freinage
+Afin de réaliser notre projet, nous devons produire des rayons X. Pour ce faire, il existe
+deux principales manières. De manière naturelle, lorsque certains isotopes se désintègrent, ils
+peuvent produire des rayons X. Mais, pour produire des rayons X utilisables, on utilisera le
+Rayonnement continu de Freinage ou Bremsstrahlung (nom d'origine).
+Lorsqu'on fait entrer des électrons accélérés en collision avec un solide (généralement
+en métal), ceux-ci sont fortement ralentis par le solide. Un ralentissement d'un faisceau
+d'électrons correspond à une réduction de vitesse de particules chargées. Selon la Formule de
+Larmor :
+
+𝑃=
+
+𝑞 2 𝑎2
+6𝜋𝜀0 𝑐 3
+
+Où q est la charge de la particule, a l'accélération, 𝜀0 la permittivité du vide, c la célérité de la
+lumière
+
+Donc, les électrons subissant une réduction de vitesse émettent un rayonnement
+électromagnétique.
+
+II)
+
+Émettre nos propres rayons X : première version
+
+A) Le tube à rayons X
+Pour rappel, les premiers rayons X ont été émis à partir d'un tube cathodique (comme on peut
+trouver dans les téléviseurs cathodiques) modifié. Ces tubes spéciaux sont alors définis
+comme des tubes à rayons X. La première version a été inventée par Crookes et est appelée
+le Tube de Crookes. Ce tube a été amélioré par Coolidge et a donné le Tube de Coolidge :
+
+6
+
+Les tubes de Coolidge sont constitués d'une cathode K dans laquelle on fait passer une
+haute-tension afin de générer une différence de potentiel avec l'anode A, ce qui va permettre
+d'accélérer des électrons entre la cathode et l'anode. Les électrons vont aller se collisionner
+sur l'anode, provoquant un rayonnement continu de freinage. Toutefois, la collision des
+électrons sur l'anode provoque énormément de chaleur (dû à l'Effet Joule), c'est pourquoi il
+faut refroidir l'anode.
+
+B) Etude du spectre continu d'un tube à rayons X
+Pour produire nos premiers rayons X, nous allons chercher à reproduire un tube de
+Coolidge. Cependant, avant d'expérimenter, il nous faut déterminer certaines choses, comme
+le spectre émis par le tube, et par conséquent la différence de potentiel entre la cathode et
+l'anode. De plus, l'anode est susceptible de s'échauffer, il faut choisir en quel matériau
+fabriquer notre anode.
+Pour déterminer le spectre d'un rayonnement continu de freinage, on peut démontrer
+la longueur d'onde minimale du spectre à l'aide de la Seconde Loi de Newton.
+En effet, nous savons que l'énergie du photon sera inférieure ou égale à l'énergie de l'électron
+qui émet. Par conséquent :
+
+𝐸𝑒 ≥ 𝐸𝑝
+De plus, on sait que :
+
+𝐸𝑒 =
+
+1
+2
+
+𝑚𝑣 2 et 𝐸𝑝ℎ𝑜𝑡𝑜𝑛 =
+
+ℎ𝑐
+𝜆
+
+On décrit l'expérience par le schéma suivant :
+
+Donc définissions :
+𝑣⃗(0) = 𝑜⃗
+
+𝐸𝑥
+𝐸⃗⃗ = ( 0 )
+0
+
+𝑎𝑥
+𝑎⃗ = (𝑎𝑦 )
+𝑎𝑧
+
+𝑥(0) = 0
+𝑦(0)
+=0
+Pour 𝑡 = 0 : {
+𝑧(0) = 0
+
+7
+
+Or, rappelons que l'émission du photon a lieu au contact de la cible, donc on cherche la vitesse
+pour un temps 𝑡 correspondant à la collision avec la cible. L'électron se déplace dans le vide,
+il est soumis à la gravité mais sa masse est négligeable. On ne considèrera donc seulement la
+force due au champ électrique produit par le Tube. Donc selon la Deuxième Loi de Newton :
+𝑎𝑥
+𝐸𝑥
+⃗⃗⃗⃗⃗⃗⃗⃗
+𝑎
+𝑚𝑎⃗ = ∑ 𝐹𝑒𝑥𝑡 <=> 𝑚 ( 𝑦 ) = −𝑒 ( 0 )
+𝑎𝑧
+0
+𝑚𝑎𝑥 = −𝑒𝐸𝑥
+<=> { 𝑚𝑎𝑦 = 0
+𝑚𝑎𝑧 = 0
+𝑚𝑎𝑥 = −𝑒𝐸𝑥
+<=> { 𝑣𝑦 = 0
+avec les Conditions Initiales précédemment énoncées
+𝑣𝑧 = 0
+𝑚𝑎𝑥 = −𝑒𝐸𝑥
+<=> { 𝑦(𝑡) = 0 avec les Conditions Initiales précédemment énoncées
+𝑧(𝑡) = 0
+Donc : 𝑎𝑥 =
+
+−𝑒𝐸𝑥
+𝑚
+
+−𝑒𝐸𝑥
+<=> 𝑣𝑥 (𝑡) = (
+) 𝑡 + 𝑐𝑜𝑛𝑠𝑡𝑎𝑛𝑡𝑒
+𝑚
+−𝑒𝐸
+
+𝑣𝑥 (0) = 𝑐𝑜𝑛𝑠𝑡𝑎𝑛𝑡𝑒 or 𝑣𝑥 (0) = 0 donc : 𝑣𝑥 (𝑡) = ( 𝑚 𝑥 ) 𝑡
+−𝑒𝐸𝑥
+
+𝑥(𝑡) = (
+
+2𝑚
+
+) 𝑡 2 + 𝑐𝑜𝑛𝑠𝑡𝑎𝑛𝑡𝑒 or 𝑥(0) = 0 donc 𝑐𝑜𝑛𝑠𝑡𝑎𝑛𝑡𝑒 = 0
+
+On appelle 𝑡1 le moment où les électrons rencontrent la cible donc :
+−𝑒𝐸
+
+𝑥(𝑡1 ) = 𝑑 donc 𝑑 = ( 2𝑚𝑥 ) 𝑡1 ²
+
+Sachant que : 𝑡1 = √
+
+2𝑑𝑚
+−𝑒𝐸𝑥
+
+donc 𝑣𝑥 (𝑡1 ) =
+
+<=> 𝑣𝑥 (𝑡1 ) = √
+
+−𝑒𝐸𝑥
+𝑚
+
+2𝑑𝑚
+
+√−𝑒𝐸
+
+𝑥
+
+−2𝐸𝑥 𝑑 × 𝑒
+𝑚
+−2𝐸𝑥 𝑑×𝑒
+
+Donc 𝑣𝑐𝑖𝑏𝑙𝑒 = √
+1
+
+−2𝐸𝑥 𝑑×𝑒
+
+2
+
+𝑚
+
+𝐸𝑒 = 𝑚 (
+
+𝑚
+
+𝑈
+) <=> 𝐸𝑒 = −(𝐸𝑥 𝑑 × 𝑒) <=> −𝐸𝑥 = ‖𝐸⃗⃗ ‖ = 𝑑
+
+<=> 𝐸𝑒 = 𝑒𝑈
+ℎ𝑐
+
+Donc 𝑒𝑈 ≥ 𝜆
+
+8
+
+Donc, nous aboutissons sur la formule suivante décrivant la longueur d'onde minimale du
+spectre généré, car nous avons auparavant calculé l'énergie maximale de ce même spectre :
+
+𝜆0 =
+
+ℎ𝑐
+𝑒𝑈
+
+Où 𝜆0 est la longueur d'onde minimale du spectre, h la constante de Planck, c la célérité, e l'énergie
+d'un électron et U la différence de potentiel entre la cathode et l'anode
+
+Afin de déterminer pour quelle longueur d'onde les Rayons X seront les plus intenses,
+on utilise cette loi empirique :
+
+3
+𝜆𝑚𝑎𝑥 = 𝜆0
+2
+
+Où 𝜆𝑚𝑎𝑥 est la longueur d'onde pour l'intensité maximale possible du spectre et 𝜆0 la longueur
+d'onde minimale du spectre
+
+Comme abordé précédemment, les rayons X varient d'une longueur d'onde de 10−9
+nm à 10−12 m (soit de l’ordre du nm à 10−3nm). Ainsi, nous modélisons sur un tableur cette
+formule en fonction de différentes longueurs d'ondes minimales possibles.
+Cependant, avant de présenter nos résultats, il est important de rappeler que les
+rayons X peuvent être plus ou moins impactant sur la santé des individus qui y sont exposés.
+Plus la longueur d'onde est faible, plus le rayon est énergétique. Ainsi, plus le rayon est
+énergétique, plus il est dangereux pour un tissu humain, par exemple. De plus, il faut un
+compromis entre avoir le minimum de risque possible et la plus grande partie du spectre émis
+dans les rayons X et si la longueur d’onde est trop petite, l’image finale obtenue ne sera pas
+suffisamment contrastée puisque peu de rayons seront absorbés par les organes.
+De plus, il faut faire varier la longueur d’onde en fonction du type de radiographie désiré. En
+effet, pour une mammographie par exemple, les tissus sont plutôt mous, il faut donc un fort
+contraste possible avec des grandes longueurs d’ondes (de l’ordre de 0.03 nm à 0.04 nm). Par
+opposition, une radiographie du thorax nécessite un faible contraste car la zone présente à la
+fois des tissus mous et une structure osseuse ; les longueurs d’ondes requises seront donc
+plutôt de 0.01 nm. Ici, nous baserons nos calculs dans l’objectif d’effectuer une radiographie
+de la main. La radiographie de la main nécessite une longueur d’onde comprise entre 0.0250
+et 0.0260 nm, d’après nos calculs.
+Nos calculs montrent que pour de telles longueurs d’ondes, λmax est comprise entre
+0.0375 et 0.0390 nm.
+λ0 (nm)
+0,01
+U (kV)
+123,9
+λmax (nm) 0,015
+
+0,0125
+99,152
+0,0188
+
+0,0135
+91,807
+0,0203
+
+0,0145 0,0155
+85,476 79,961
+0,0218 0,0233
+
+0,017 0,0175
+75,12 70,823
+0,025 0,0263
+
+0,019
+66,99
+0,028
+
+0,0195
+63,559
+0,0293
+
+0,021
+60,46
+0,031
+
+λ0 (nm)
+0,022
+U (kV)
+57,65
+λmax (nm) 0,032
+
+0,0225
+55,084
+0,0338
+
+0,0235
+52,74
+0,0353
+
+0,0245 0,025
+50,588 49,576
+0,0368 0,0375
+
+0,026 0,026
+48,6 47,669
+0,038 0,039
+
+0,027
+46,77
+0,04
+
+0,0275
+45,069
+0,0413
+
+0,029
+43,49
+0,043
+
+C'est pour cette raison que nous choisissons des longueurs d'ondes comprises entre
+0.025 et 0.026, étant considérés comme des rayons X dits légers. Donc, nous obtenons les
+résultats ci-contre:
+9
+
+Ce tableau révèle que nous devons produire des tensions de l'ordre du kilovolt, et
+cela ne se fait pas à l'aide des générateurs disponibles au lycée utilisés pour pratiquer
+l'électronique classique.
+
+C) Etude des raies caractéristiques
+Au spectre continu émis par le tube, va se superposer un spectre de raies, qui ne
+dépendent que de la composition de l'anode. En effet, les atomes composant l'anode, sous
+l'effet de la collision avec le flux d'électrons sont dits ionisés. C'est-à-dire qu'un électron
+gravitant autour du noyau est expulsé. La place ainsi rendue libre est occupée par un électron
+d'une orbite plus éloignée du noyau : ce saut est accompagné de l'émission d'un photon dans
+lequel se retrouve l'énergie que l'électron a perdue en se rapprochant du noyau. Au niveau du
+spectre, ces phénomènes d’ionisations sont caractérisés par des raies aux longueurs d’ondes
+caractéristiques. Ces mêmes raies peuvent ainsi être calculées à l'aide la loi de Moseley :
+
+√𝜐 = 𝐶(𝑍 − 𝜎) <=> 𝜐 = 𝐶 2 (𝑍 − 𝜎)²
+
+Où υ est la fréquence de la raie, C et σ des constantes, et Z le numéro atomique constituant l'anode
+
+Or C et Z sont des constantes qui dépendent du type de raies émises (K, L, etc… selon
+la notation des rayons X). Leurs valeurs sont donc les mêmes pour l’émission de toutes les
+raies Kou L (selon la notation de Siegbahn où la lettre principale est la couche électronique
+d’arrivée et l’indice détermine la couche de départ avec  s’il y a un décalage d’une couche
+supérieure et  si deux couches supérieures). Les travaux de Rydberg et sa constante ont
+permis une réécriture différente de la loi de Moseley tel que :
+
+1
+1
+𝜐 = 𝑅∞ ∙ c ∙ ( 2 − ′2 ) ∙ (Z − 𝜎)2
+n
+n
+Où υ est la fréquence de la raie, R∞ la constante de Rydberg, c la célérité de la lumière, n le nombre
+quantique principal de la couche d’arrivée, n’ le nombre quantique principal de la couche de
+départ, Z le numéro atomique de l’anode et σ une constante.
+
+Sachant que 𝑅∞ = 1,097 x107 𝑚−1 . Si on la multiplie par la célérité on
+obtient 𝑅∞ . c = 3.291 x1015 𝑠 −1 . Après de nouvelles recherches, Moseley trouva que la
+valeur de σ, pour les transitions Kvalait 1 et valait 7,4 pour les transitions L. De là, on
+obtient 2 formules, pour les fréquences des raies Ket L
+1
+
+1
+
+1
+
+𝜐(Kα) = (3,291 x1015 ) ∙ (1 − 4) ∙ (𝑍 − 1)2 et 𝜐(Lα) = (3,291 x1015 ) ∙ (4 − 9) ∙ (𝑍 − 7,4)2
+Sachant que pour rappel dans le cas d'onde électromagnétique :
+
+𝜆=
+
+𝑐
+𝜐
+
+Où λ est la longueur d'onde, c la célérité de la lumière et υ la fréquence
+
+On peut donc en déduire les longueurs d’onde caractéristiques.
+10
+
+Comme dit précédemment, l'anode est susceptible de chauffer énormément. Il faut
+donc un matériau ayant une température de fusion élevée. Généralement, les anodes de tube
+de Coolidge sont fabriquées en Tungstène ou en Molybdène, même si on pourrait envisager
+un élément comme le Tantale. Donc selon la Loi de Moseley, en modélisant nos calculs sur un
+tableur, on obtiendrait les raies caractéristiques suivantes :
+Anode
+Z
+Tungstène
+Molybdène
+Tantale
+
+υ(Kα) (Hz) λ(Kα)
+ΔE(eV)
+υ(Lα) (Hz) λ(Lα)
+ΔE(eV)
+74 1,3149E+19
+2,28E-11
+5,45E+13 2,0268E+18
+1,48E-10 8,3986E+12
+42 4,1479E+18
+7,23E-11
+1,72E+13 5,4704E+17
+5,48E-10 2,2668E+12
+73 1,2792E+19
+2,35E-11
+5,30E+13 1,9664E+18
+1,53E-10 8,1483E+12
+
+On peut trouver sur Internet des valeurs expérimentales mesurées avec précision, pour
+rappel nous calculons avec une loi empirique, qui ne décrit pas parfaitement le modèle des
+raies caractéristiques, alors nous comparons :
+Anode
+Tungstène
+Molybdène
+Tantale
+
+ΔE(eV)(Kα)
+Inexactitude ΔEₑₓᵨ(eV)(Lα) Inexactitude
+5,93E+13 8,11561053
+8,40E+12 0,01701016
+1,75E+13 1,78442313
+2,30E+12 1,44439941
+5,75E+13 7,81763304
+8,14E+12 0,10141605
+
+D) Générer des hautes tensions
+Afin de produire des rayons X, nous avons besoin d'un flux d'électrons en direction de
+l'anode. Pour générer ce flux, les Tube de Coolidge utilisent des filaments de Tungstène
+chauffés par des hautes tensions. Selon nos précédents calculs, nous allons chercher à générer
+des tensions de l'ordre du kilovolt (voir section II, B)
+De fait générer de telles tensions pose deux problèmes : cela relève d'expériences
+dangereuses impossibles à réaliser dans le cadre du lycée et un tel générateur prendrait
+beaucoup trop de place pour un émetteur dit "portable". Nous avons donc réalisé que générer
+des hautes tensions de manière "classique" posait un réel problème.
+Heureusement, pour pallier à ce problème, Lisa est la petite-fille du chercheur Stephen
+Shafroth de l'Université de Chapell Hill en Caroline du Nord. Ce dernier a établi et publié des
+recherches sur les cristaux pyroélectriques. Ces derniers sont capables de produire des
+hautes-tensions en dépensant peu d'énergie et surtout, prennent peu de place.
+
+III) Émettre nos propres rayons X : deuxième version
+A) La pyroélectricité
+La pyroélectricité peut être définie comme la capacité d'un cristal à générer une
+tension temporaire quand il est chauffé ou refroidi. Une variation de température induit une
+modification de la polarisation électrique du cristal, qui entraine la génération d'une tension
+temporaire. En vulgarisant, un changement de température induit un rapprochement ou un
+
+11
+
+éloignement des atomes entre eux dans le réseau cristallin, ce qui induit une variation de la
+polarisation, cette dernière produisant donc une tension discontinue.
+A l’origine, la surface du cristal est chargée à cause de la polarisation interne. Mais,
+cette surface est neutralisée par l’absorption d’ions de l’air ambiant qui est en équilibre avec
+la surface du cristal. Aucun champ électrique n’est donc formé. Si la température du cristal
+est modifiée, la polarisation interne change à cause du petit déplacement d’ions dans le cristal.
+Néanmoins, les périodes d’absorption et de désorption des ions sont beaucoup plus longues
+que le temps nécessaire au changement de la polarisation interne pour que la surface du
+cristal atteigne une charge stable. C’est ce décalage qui permet la genèse d’une tension.
+Par exemple, quand une surface chargée négativement du cristal (surface -z) est placée
+à l’opposée d’une cible et si l’on augmente sa température, la surface -z acquiert une charge
+positive. Cela s’explique par le fait que la charge électrique négative de la surface -z diminue,
+ce qui cause une libération d’ions positifs, ce qui retarde le changement de température sur
+la surface -z du cristal.
+D’un autre côté, la surface -z acquiert une charge nette négative quand la température est
+réduite. Un champ électrique est généré par la charge de la surface du cristal. Les molécules
+du gaz sont ionisées par le champ électrique, produisant des électrons et des ions positifs.
+Puis, les électrons sont accélérés par le champ électrique vers la cible et des rayons X sont
+donc générés quand les électrons entrent en collision avec la cible.
+
+B) Les cristaux pyroélectriques
+Nous pouvons diviser tous les cristaux existants en 32 classes. Dans ces 32 classes, 10
+classes sont polaires spontanément, c'est-à-dire que ce sont des cristaux n'ayant pas besoin
+d'un champ électrique extérieur pour être polarisé. Si un cristal est polaire, il est
+pyroélectrique, la réciproque est aussi valable.
+Après des recherches, nous avons pu dresser le tableau suivant :
+Système
+
+Classe Symétrie Schönflies Nom de la Classe
+
+Exemples connus
+
+Triclinic
+
+1
+
+non
+
+C₁
+
+Pedial
+
+Analcime, Zéolite, Hilgardite, Kaolinte
+
+Monoclinic
+
+2
+
+1A₂
+
+C₂
+
+Sphenoidal
+
+Afwillite, Barytocalssite
+
+Monoclinic
+
+m
+
+1m
+
+Cs
+
+Domatic
+
+Chamosite, Dickit, Scolecite
+
+Orthorhombic mm2
+
+1A₂, 2m
+
+C₂v
+
+Rhombic-pyramidal
+
+Blossite, Chambersite, Natrolite
+
+Tetragonal
+
+4
+
+1A₄
+
+C₄
+
+Tetragonal-pyramidal
+
+Piypite
+
+Tetragonal
+
+4mm
+
+1A₄, 4m
+
+C₄v
+
+Ditetragonal-pyramidal Duabouleite, Wakefieldite
+
+Hexagonal
+
+3
+
+1A₃
+
+C₃
+
+Trigonal-pyramidal
+
+Gordaite, Jarosite, Zussmanite
+
+Hexagonal
+
+3m
+
+1A₃, 3m
+
+C₃v
+
+Ditrigonal-pyramidal
+
+Acetamide, Tourmaline
+
+Hexagonal
+
+6
+
+1A₆
+
+C₆
+
+Hexagonal-pyramidal
+
+Nepheline
+
+Hexagonal
+
+6mm
+
+1A₆, 6m
+
+C₆v
+
+Dihexagonal-pyramidal Brokenhilite, Greenockite, Moissanite
+
+Toutefois, pour que la pyroélectricité fonctionne parfaitement, il faut que le cristal ne
+présente pas d'impuretés (voir section III, A). De plus, la polarisation spontanée d'un cristal
+12
+
+pyroélectrique n'est vraie que jusqu'à une certaine température : la température de Curie
+notée 𝑇𝑐 . Pour cela, les cristaux nécessitent un polissage spécial que nous ne sommes pas en
+mesure d'effectuer. C'est pourquoi nous choisissons d'utiliser des cristaux synthétiques tels
+que LiNbO₃ ou le LiTaO₃.
+On peut définir le coefficient pyroélectrique primaire en première approximation par :
+
+𝑝=
+Où p le coefficient pyroélectrique en
+
+𝐶
+
+∆𝑃
+∆𝑇
+
+𝐶
+
+, ΔP la différence de polarisation en 𝑚² et ΔT la différence
+𝑚²𝐾
+
+de température en Kelvins
+
+On appelle ce coefficient le primaire car Zheng en 2008 a découvert qu'il existait deux
+coefficients pyroélectriques. En effet, le primaire décrit le modèle classique, et le secondaire
+décrit quand le changement de température est si important qu'il y a présence d'effet
+piézoélectrique. Nous ne nous intéressons qu'au primaire. De plus, la polarisation peut
+s'exprimer de cette manière :
+
+∆𝑃 =
+
+𝑄
+𝐴
+
+Où ΔP la différence de polarisation, Q la charge en Coulomb et A l'aire en m²
+
+𝑝𝐴∆𝑇 = 𝑄
+On peut alors considérer le tube à Rayons X comme un condensateur, ce qui nous permet
+d'utiliser la formule suivante :
+
+𝑄 = 𝐶𝑈
+Où Q la charge électrique, C la capacitance du condensateur et U la tension
+
+Sachant que la Capacitance vaut :
+𝐶=
+
+𝜀0 𝜀𝑟 𝐴
+𝑡
+
+Où C la capacitance, 𝜀0 𝜀𝑟 la permittivité du matériau, A l'aire et t l'épaisseur
+
+En combinant :
+
+𝑄𝑡
+=𝑈
+𝜀0 𝜀𝑟 𝐴
+
+On obtient alors notre formule finale :
+
+𝑝∆𝑇𝑡
+=𝑈
+𝜀0 𝜀𝑟
+
+Où U est la tension à atteindre, p le coefficient pyroélectrique du matériel, t l'épaisseur, ΔT la
+différence de température en Kelvins, 𝜀0 𝜀𝑟 la permittivité du matériel
+
+On peut donc combiner cette dernière formule avec la formule du début (voir section
+II, B) pour trouver de combien faudrait-il augmenter en température pour obtenir des rayons
+X à la longueur d'onde voulue. On étudie pour des cristaux de Lithium Tantalate (LiTaO₃) et de
+13
+
+Lithium Nobiate (LiNbO₃) avec une permittivité expérimentale jugée en matrice 11 et 33
+donnée par l'Université de Stanford et des coefficients pyroélectriques donnés également par
+l'Université de Stanford :
+LiTaO₃ : p = -175 µc/(m²K), ε₁₁ = 51, ε₃₃ = 46,2
+LiNbO₃ : p = -95,8 µc/(m²K), ε₁₁ = 43, ε₃₃ = 28
+Donc on obtient le tableau de valeurs et graphique suivant :
+Cristal p(300K)
+t(m) ε₁₁ ε₃₃ U(kV)
+ΔT(11)(K)
+ΔT(33)(K)
+LiNbO₃ -0,0000988 0,005 43 28 57,6465116 -44,4076518 -28,9166105
+55,0844444 -42,4339784 -27,6314278
+52,7404255 -40,6282772 -26,4556224
+50,5877551 -38,9699802 -25,375801
+49,576 -38,1905806 -24,868285
+48,6039216 -37,4417457 -24,3806716
+47,6692308 -36,7217121 -23,9118125
+46,7698113 -36,0288496 -23,4606462
+45,0690909 -34,7187096 -22,6075318
+43,4877193 -33,5005093 -21,8142851
+42,0135593 -32,3648988 -21,0748178
+
+C) Modification du Tube de Coolidge
+Même si nous changeons une part du système, les Rayons X restent émis par rayonnement
+continu de freinage. Toutefois, désormais, il n'y a plus uniquement que la cible à produire les
+rayons X. Pour rappel, le cristal produit en phase "de chauffage", et la cible ne va produire que
+sur l'autre phase. Pour la cible, les Tube de Coolidge utilisent des cibles en Tungstène ou en
+Molybdène car ces matériaux possèdent des températures de fusion très élevées. Ici, nous
+n'avons pas ce problème, car la cible ne sera pas continuellement utilisée. Cela nous permet
+donc d'utiliser une cible en cuivre, beaucoup plus accessible financièrement.
+Pour information, voici les raies caractéristiques du cuivre et une comparaison avec des
+valeurs expérimentales précises :
+Anode
+Cuivre
+
+Z
+
+υ(Kα) (Hz)
+λ(Kα)
+ΔE(eV)
+υ(Lα) (Hz)
+λ(Lα)
+ΔE(eV)
+29 1,9345E+18 1,5508E-10 8,0162E+12 2,1319E+17 1,4072E-09 8,8341E+11
+
+Anode
+Cuivre
+
+ΔE(eV)(Kα)
+Inexactitude ΔEₑₓᵨ(eV)(Lα) Inexactitude
+8,05E+12 0,42028261
+9,29E+11
+4,9069591
+
+De plus, Brownridge nous a suggéré de faire baisser la pression à l'aide d'une pompe à
+vide. En effet, selon lui, si nous ne baissons pas la quantité de gaz présent dans le tube,
+14
+
+l'excédent de charge généré va être directement compensé et cela rend donc la production
+de Rayons X impossibles. C'est pourquoi nous choisissons de mettre le cristal du moins, sous
+vide à une pression de 1,3x10-4 Pa. Cependant, la pompe à vide du lycée n’étant pas capable
+d’atteindre cette valeur, nous nous limiterons à 670x10-4 Pa. Le système global pour maintenir
+le tube hermétique sera donc composé d'une cloche à vide avec son support relié à notre
+pompe à vide. Tout le dispositif électronique sera disposé sous la cloche à vide, à l'exception
+de certains branchements.
+Enfin, nous devrons utiliser une cible de cuivre, que nous choisissons de placer à 1 cm
+du cristal environ. Voici le schéma de notre expérience :
+
+D) Fabrication de notre tube
+Manquant un peu de temps, nous avons choisi de réaliser une première expérience pour
+vérifier si nous étions capables de produire des rayons X avec le matériel présupposé pour.
+Nous avons donc réfléchi à la mise en pratique de notre tube à la réception par Baptiste des
+cristaux pyroélectriques envoyés par Brownridge. Celui-ci avait déjà couplé le cristal à une
+résistance ainsi qu’à un thermocouple pour vérifier la tension du cristal :
+
+Il nous fallait maintenant un support pour placer le cristal ainsi qu’un autre peu éloigné
+(environ 1 cm) pour placer la plaque de cuivre permettant l’émission de rayons X. Une fois
+reliée à un générateur, la résistance peut amener le cristal à une température avoisinant les
+120°C. Nous avons également placé une sonde à côté pour nous permettre de suivre en temps
+réel l’évolution de la température de cette même résistance. C’est alors que nous avons
+réfléchi à la manière dont nous pouvions faire le vide autour du cristal car le support total était
+déjà trop grand pour être contenu dans un récipient connecté à la pompe à vide. C’est
+pourquoi notre professeur nous a conseillé d’utiliser directement la cuve à vide du lycée à
+l’intérieur de laquelle le matériel pouvait être placé. Le problème de la plaque de cuivre s’est
+15
+
+ensuite posé et nous avons décidé d’utiliser à la place une pièce de monnaie. Enfin, n'ayant
+pas encore fabriqué de détecteurs, nous utilisons la partie sensible à la fluorescence X d'un
+vieux tube de Coolidge trouvé dans les placards du lycée, que nous plaçons sur la trajectoire
+de l’émission de nos propres rayons X émis par le cristal, pour vérifier si notre expérience
+permet bien d'émettre des Rayons X dans un premier temps.
+Voici donc des photos de l’installation :
+
+Cependant, cette expérience s'est soldée par un échec. En effet, après avoir répété
+plusieurs fois le protocole, la partie fluorescente du tube n'a rien détecté. Ainsi, nous avons
+essayé de comprendre, avec James Brownridge, les raisons de cet échec. Selon lui, nos
+rayons X sont trop mous et trop peu énergétiques pour traverser la paroi de la cuve à vide.
+De plus, la pièce est trop épaisse, tous nos Rayons X émis étaient absorbés par elle.
+Ainsi, nous cherchons à reproduire notre expérience en évitant nos précédentes erreurs.
+Nous avons suivi le protocole à la lettre (voir Annexe), et la principale modification était
+d'avoir remplacé la pièce de cuivre par un film d'aluminium très fin.
+De plus, nous avons changé de méthode de détection. Ainsi, nous avons rigoureusement
+placé un film photographique et nous l'avons laissé s'imprimer (voir le résultat dans la partie
+suivante).
+
+IV)
+
+Fabrication d'un détecteur à rayons X
+
+Précisons d'abord les différents usages possibles de notre émetteur à Rayons X avant de
+montrer quels détecteurs pouvons-nous éventuellement fabriquer. En effet, nous voulions
+dans un premier temps utiliser notre émetteur dans le domaine médical.
+
+A) Le film photographique
+Le film photographique est utilisé depuis très longtemps déjà dans le domaine du visible
+pour les photographies, il est le 1er support ayant permis l’impression d’une image. C'est aussi
+16
+
+un film photographique modifié et rendu fluorescent qui a permis à Röntgen de découvrir les
+Rayons X en 1895 et de réaliser la 1ère radiographie, celle de la main de sa femme. Il est à noter
+que tous ces films réagissent à toutes les régions du spectre électromagnétique, même les
+plus énergétiques, dont les rayons X qui sont notre base d’étude. Concernant les rayons X,
+l’émulsion est appliquée des deux côtés du film photographique pour permettre une
+absorption maximale. De plus, on lui applique une fine couche de plomb pour augmenter sa
+sensibilité. La technique est cependant identique, les rayons bombardent le filtre et l’émulsion
+réagit à chaque photon qu’elle rencontre. Dans le domaine médical, le patient est placé entre
+la source de rayons X et le film qui est directement utilisable après la radiographie.
+
+Pour les films couleur, 3 couches d’émulsion sont placées, chacune réagissant
+respectivement aux 3 couleurs primaires (RVB). Les émulsions sont donc faites de bromure
+d’argent mais surtout d’un coupleur chromatique qui libère un colorant de couleur
+complémentaire à la sienne lorsqu’il est placé à proximité du bromure d’argent réagissant à
+la lumière. Cependant, ces colorants « polluent » les couches inférieures du film.
+Nous avons donc mené une expérience avec un film photographique
+
+Nous avons ensuite récupéré le film photographique, après son développement chez un
+photographe. Sur celui-ci, nous avons pu observer très clairement une zone de démarcation
+au niveau de l’impression du film. Cette ligne est d’ailleurs assez nette. Ayant pris toutes les
+précautions pour que le film ne subisse pas la lumière visible, il est exclu que ce n’en soit. La
+partie noircie était ainsi celle présente sur la trajectoire des rayons X et donc impressionnée
+par eux. D’après M. Brownridge, cette diffusion sur une large zone est due à la manière dont
+sont émis les rayons X depuis l’aluminium. Mais comment être sûr que ce sont bien des
+rayons X ? Tous nos calculs tendent à montrer que les longueurs d’onde émises par le cristal
+ne se situent que dans le domaine des rayons X. Le film étant capable d’être impressionné
+par ceux-ci, nous en concluons que le cristal a bien émis des rayons X.
+
+17
+
+Pour vérifier notre hypothèse, nous allons à nouveau reproduire l’expérience mais cette
+fois-ci en changeant de méthode de détection. Nous avons ainsi acheté un cristal scintillateur
+(voir section IV, C), mais nous ne l'avons pas encore reçu. Nous vous présenterons les résultats
+obtenus lors de la finale des Olympiades de Physique le 3 et 4 Février.
+
+B) Détection par scintillation
+La scintillation est un phénomène physique comparable à la fluorescence ou à la
+phosphorescence. En effet, ces trois phénomènes permettent d’observer de la lumière visible
+après avoir reçu une quantité d’énergie. La fluorescence est un phénomène très rapide (de
+l’ordre de la nanoseconde) car les états électroniques se désexcitent particulièrement
+rapidement, le temps d’une transition atomique. La phosphorescence, quant à elle, est plus
+lente, de quelques microsecondes à plusieurs mois, car les électrons excités sont tout de
+même dans un niveau métastable et se désexcitent en passant par un stade intermédiaire.
+Ainsi, la scintillation est plus proche de la fluorescence car l’émission d’un photon visible est
+très rapide, quasiment instantanée. Un rayonnement incident, comme un photon X dans notre
+cas, va venir perturber les atomes du cristal qui vont s’exciter et leur désexcitation spontanée
+va ensuite émettre un photon dans le domaine du visible, grâce à une perte d’énergie, le long
+de la trajectoire du photon X absorbé.
+Les scintillateurs peuvent donc être utilisés comme détecteurs de particules car
+l’énergie qui les traverse est quantifiée et dépend de la particule ayant traversé le matériau.
+Ils sont donc classés en deux catégories : les scintillateurs organiques composés de matière
+organique dont le délai de réponse est très rapide et utilisé surtout pour des mesures
+d’évènements très courts ainsi que les scintillateurs inorganiques, entièrement minéraux
+comme celui que nous allons utiliser, qui possèdent un délai de luminescence plus long.
+Néanmoins, c’est bien un scintillateur inorganique que nous allons utiliser car leur résolution
+est bien supérieure et c’est ceci que nous privilégions.
+Les principaux détecteurs inorganiques sont donc composés de cristaux d’iodure de
+Sodium (NaI), préalablement dopés au Thallium pour ajouter des impuretés aux cristaux. Ces
+impuretés vont permettre de créer des lieux spécifiques dans le réseau cristallin où les
+électrons vont se désexciter et émettre un photon après le passage de la particule. Celui-ci se
+situera dans le domaine du visible car sa longueur d’onde aura augmenté du fait que l’énergie
+libérée est inférieure à l’énergie absorbée. On parle ainsi de cristaux NaI (Tl). Ceux-ci peuvent
+aisément absorber les rayons X, dont l’énergie est comprise entre 100 eV et 100 keV, à hauteur
+d’au moins 60%. Cette précision est suffisamment élevée pour notre expérience. Néanmoins,
+lorsque l’électron se désexcite, il y a un délai durant laquelle il ne peut à nouveau recevoir de
+l’énergie. Ce délai de luminescence est d’environ 0.25 µs pour les cristaux NaI (Tl), ce qui est
+également suffisant pour nos expérimentations. Une fois les photons dans le visible émis, il
+nous restera ainsi à les amplifier puis à les collecter pour estimer le flux de photons X transmis
+par notre cristal pyroélectrique.
+
+C) Fabrication de notre détecteur
+Pour l'utilisation médicale, nous faisons le choix d'acheter simplement dans le commerce
+une certaine quantité de films photographiques, ceci est très peu onéreux qui plus est.
+18
+
+Pour pratiquer des détections précises et sûres en termes de Rayons X, nous choisissons
+d'utiliser un détecteur à scintillation. Nous l'avons acheté sur eBay à un prix abordable (price)
+en provenance de vieux laboratoires en Ukraine. C'est un détecteur d'Iodure de Sodium dopé
+au Thallium de format 60x10mm :
+
+Nous sommes en attente de le recevoir pour mener d'autres expériences plus précises.
+
+Conclusion et perspectives
+Les rayons X sont et resteront toujours sources de nombreuses découvertes ce qui en fait un
+domaine d’étude d’avenir. Pour ce projet, nous ne sommes partis de rien, nous inspirant seulement
+de notre visite à l’ESRF. Malgré cela, nous avons réussi en seulement quelques mois à émettre nos
+premiers rayons X grâce à notre éminent mécène James Brownridge.
+Notre étude des rayons X nous a ainsi permis d’appréhender un domaine de la physique plus
+vaste que nous pouvions l’imaginer.
+Notre première intuition nous avait poussé à étudier les tubes à rayons X avec pour exemple
+le tube de Coolidge que notre lycée possède. Pour cela, nous avons étudié les propriétés des électrons,
+la manière dont les photons X étaient émis mais également la longueur d’onde caractéristique de ses
+photons et son lien avec la composition de l’anode. Néanmoins, il était impossible pour nous de
+fabriquer notre propre tube à Rayons X car trop de composants ne nous étaient pas accessibles.
+C’est alors à ce moment, grâce à Lisa, que nous avons découvert le potentiel des cristaux
+pyroélectriques et leur intérêt l’avenir comme une source de rayons X plus accessible et donner des
+dispositifs moins encombrants pour les radiographies, ce que nous avons cherché à faire tout au long
+de ce projet. Notre propre dispositif est au final assez encombrant notamment du fait de la nécessité
+de faire le vide mais il faut rappeler qu’il est n’est fabriqué qu’avec le matériel disponible au lycée.
+Lorsqu’on étudie les composants principaux, on remarque l’émetteur ne fait finalement qu’un peu plus
+19
+
+d’un centimètre. Cela ouvre d’immenses perspectives dans la miniaturisation de ces émetteurs et par
+ce biais, dans un développement plus large d’un accès à une médecine avancée. La détection de ces
+rayons X est aussi source d’innovation et de nombreux procédés le permettent. Pour remplacer les
+parois fluorescentes du tube de Coolidge, nous avons ainsi pensé à notre propre détecteur que nous
+essayons maintenant de mettre au point pour réaliser une expérience d’émission de rayons X
+entièrement fabriquée par nos soins et opérationnelle.
+
+20
+
+

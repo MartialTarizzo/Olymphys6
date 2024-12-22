@@ -1,0 +1,648 @@
+Session 2023/2024
+
+Lycée Eugène Delacroix
+Maisons-Alfort (94700)
+
+Une Application de la
+Piézoélectricité
+
+FLORENT-MERCIER Sacha Marie
+SOARES Gabriel
+DA SILVA Stanislas
+
+1
+
+En pleine période de transition énergétique, nous savons déjà produire de l’énergie électrique grâce au vent, à
+l'énergie solaire ou encore à la force de l'eau. Le thème du réchauffement climatique et de la transition énergétique
+nous intéresse beaucoup tous les trois et lorsque nous devions trouver un thème pour ces Olympiades de physique,
+nous voulions trouver un sujet en rapport avec les énergies « vertes ». Nous nous sommes alors intéressés à l’effet
+piézoélectrique et comment nous pouvions nous en servir afin de répondre à notre problématique.
+Dans ce mémoire, nous allons d’abord définir ce qu’est l’effet piézoélectrique et l’illustrer avec quelques
+exemples concrets puis nous allons présenter la démarche scientifique que nous avons suivi afin d’atteindre notre
+objectif de produire de l’électricité décarbonée en utilisant des capteurs piézoélectriques de manière la plus efficace
+possible.
+
+Sommaire
+1) Qu’est-ce que la piézoélectricité
+1.1
+1.2
+1.3
+1.4
+
+Principe de la piézoélectricité
+Mesure de la déformation d’un matériau piézoélectrique par interférométrie
+Exemple d’application de la piézoélectricité
+Caractéristiques de nos capteurs piézoélectriques
+
+2) Le « son » comme source d’énergie mécanique
+2.1
+2.2
+2.3
+
+Recherche de la fréquence de résonnance de nos capteurs
+Mise en œuvre de l’expérience
+Critique des résultats obtenus
+
+3) Les pas, une source d’énergie mécanique plus adaptée
+3.1
+3.2
+3.3
+3.4
+3.5
+
+Energie électrique produite par un capteur seul
+Circuit électrique permettant d’obtenir une tension continue
+Association des capteurs pour avoir un meilleur rendement
+Choix du stockage de l’énergie
+Création de nos prototypes de dalles piézoélectriques
+
+4) Analyse des résultats obtenus
+4.1
+4.2
+
+Comparaison avec des ordres de grandeur d’énergie
+Critique des résultats obtenus et calcul du rendement
+
+5) Conclusion
+2
+
+1) Qu’est-ce que la piézoélectricité
+1.1
+
+Principe de la piézoélectricité
+
+La piézoélectricité est la propriété que possèdent certains corps de se polariser électriquement sous l’action
+d’une contrainte mécanique et réciproquement de se déformer lorsqu’on leurs appliquent un champ électrique. Le
+premier est appelé effet piézoélectrique direct, le second effet piézoélectrique inverse. Cette propriété a été mise en
+évidence par les frères Curie en 1880 mais a été utilisée pour la première fois de manière pratique pendant la première
+guerre mondiale dans l’élaboration d’un sonar.
+La quasi-totalité des matériaux cristallins qui sont dépourvus de centre de symétrie possèdent des propriétés
+piézoélectriques. Les cristaux de cette structure, dans des conditions calmes, ne présentent pas de polarisation, mais
+lorsqu'une force extérieure leur est appliquée, les barycentres des charges positives et négatives ne sont plus
+confondus. La structure cristalline se déforme alors et perd la condition de neutralité électrique du matériau.
+On voit sur la figure 1 que le domaine cristallin ne présente pas de centre de symétrie au repos. Puis, lorsqu’il est
+soumis à une compression, les centres de gravité des charges positives et négatives, initialement confondus, se
+séparent, créant un dipôle électrique. L'effet piézoélectrique apparaît alors.
+
+Figure 1 : Domaine cristallin au repos puis soumis à une contrainte
+(Couleur-Science)
+
+1.2
+
+Mesure de la déformation du matériau par interférométrie
+
+Pour mesurer la déformation d’un matériau piézoélectrique, nous nous sommes rendus à la préparation de
+l’agrégation de l’ENS à Montrouge afin de réaliser une expérience d’interférométrie. Au cours de cette expérience nous
+utilisons l’effet piézoélectrique inverse. En appliquant un champ électrique entre deux faces parallèlement au matériau
+de forme parallélépipédique, il se déforme. L’interférométrie est une technique optique permettant de mesurer, entre
+autres, de petits déplacements. Décrivons maintenant en quoi consiste le phénomène d’interférences que nous avons
+observé. Dans notre cas, des fronts d’ondes électromagnétiques issues de deux sources synchrones se superposent et
+interfèrent dans un champ d’interférences. En plaçant un écran dans la zone d’interférences, on observe une figure où
+alternent des franges brillantes et sombres (figure 2).
+3
+
+Figure 2 : Schéma d’interférences
+(Le livre scolaire)
+
+La nature brillante ou sombre de la frange dépend de la différence de marche δ entre les deux ondes issues
+des sources 𝑆1 et 𝑆2 : δ = S2P – S1P. Pour une longueur d’onde  donnée, la différence de marche δ varie selon la distance
+D entre les sources et l’écran ainsi que la distance a entre les deux sources, ce qui est schématisé sur la figure 2. Les
+franges brillantes sont le lieu d’interférences constructives pour lesquelles les ondes arrivent en phase (dans ce cas
+δ = k.λ où k est un entier relatif). Les franges sombres sont le lieu d’interférences destructives où les ondes arrivent en
+opposition de phase (δ = (2k+1).λ /2) (figure 3).
+
+Figure 3 : Interférences constructives (à gauche) et interférences destructives (à droite)
+(Parti’ Prof)
+
+Au laboratoire de l’ENS, nous avons pu utiliser un interféromètre de Michelson pour effectuer notre expérience. Cet
+interféromètre est constitué de deux miroirs, d’un cube constitué de deux prismes (jouant le rôle de lame séparatrice)
+et d’un écran comme on peut le voir sur la figure 4. Nous obtenons une figure d’interférences composée de cercles
+concentriques alternativement brillants et sombres appelés franges d’interférences (cf. figure 5). On colle de plus sur
+le miroir 2 un transducteur multicouche composé de plusieurs capteurs piézoélectriques empilés.
+Le but de cette expérience est de mesurer le déplacement du miroir 2 (et donc la dilatation des capteurs
+piézoélectriques) lorsqu’une tension est appliquée au transducteur multicouche.
+
+4
+
+Loupe
+
+Laser
+
+Cube séparateur
+
+Figure 4 : Photo du montage
+
+Miroir 1
+
+Miroir 2 monté sur le
+
+transducteur
+multicouche
+
+Figure 5 : Cercles d’interférences
+
+Figure 6 : Manipulation du Michelson
+
+Lorsqu’on fait varier la tension appliquée au transducteur multicouche celui-ci se dilate et on observe un changement
+dans la figure d’interférences : l'aspect de la frange centrale alterne entre brillant et sombre. Lorsque deux franges
+brillantes consécutives défilent à l’écran la différence de marche entre les deux rayons est égale à  avec λ la longueur
+d’onde dans le vide (ou dans l’air) du laser, soit ici 633 nm.
+Partant d’une figure d’interférences où la frange centrale est brillante, nous avons alors compté le nombre de franges
+brillantes qui se succèdent consécutivement lorsqu’on fait varier la tension de 0 V à 1000 V. On en compte 22 dont on
+déduit la différence de marche :
+
+𝛿 = 22 × 𝜆
+𝛿 = 22 × 633 = 13296 nm
+Compte-tenu de la géométrie de l’expérience qui impose un aller-retour des rayons sur chaque miroir, cette différence
+de marche est égale au double de la déformation e du transducteur multicouche :
+𝛿
+
+e = = 6963 nm pour une variation de tension de 1000 V.
+2
+
+5
+
+On en déduit un coefficient de réponse d du miroir donné par la formule suivante :
+
+d=
+
+𝑒
+∆𝑈
+
+=
+
+6963
+1000
+
+= 6,963 nm.𝑉 −1
+
+La dilatation est celle de l’empilement total des matériaux piézoélectriques et correspond à l’ordre de grandeur
+indiquée par la notice du matériel utilisé (5,0 nm.𝑉 −1 ). Si on considère maintenant la déformation d’un seul cristal
+piézoélectrique, on obtient le coefficient piézoélectrique 𝑑33 du matériau qui quantifie la dilatation d’un matériau
+piézoélectrique lorsqu’il est soumis à un champ électrique (voir annexe document : Propriété de quelques matériaux).
+Cependant nous ne pouvons pas calculer ce coefficient car le nombre de capteurs qui compose le transducteur
+multicouche n’est pas donné par la notice.
+Cette expérience montre bien qu’un capteur piézoélectrique se déforme lorsqu’il est soumis à un champ électrique
+entrainant une différence de marche entre deux ondes électromagnétiques. C’est l’effet inverse de la piézoélectricité
+qui est ici mis en évidence.
+
+1.3
+
+Exemple d’application de la piézoélectricité
+
+La piézoélectricité est aujourd’hui utilisée dans de nombreuses applications, on peut donner l’exemple des montres à
+quarts qui utilisent l’effet inverse de la piézoélectricité. Sur la figure 7, on voit qu’une pile alimente le quartz (qui est
+un matériau piézoélectrique), il joue le rôle d’oscillateur et oscille à une fréquence stable d’environ 32000 oscillations
+par seconde ce qui permet de réguler le mouvement des aiguilles.
+On peut aussi retrouver la piézoélectricité dans des allume-feu, des buzzers, des actionneurs ou encore des micros
+générateurs.
+
+Figure 7 : Montre à quartz
+(WRYST)
+
+6
+
+1.4
+
+Caractéristiques de nos capteurs piézoélectriques
+
+Lors de nos manipulations, nous avons utilisés les transducteurs piézoélectriques du lycée. Les capteurs sont des
+disques de 27 mm de diamètre et d’environ 0.40 mm d’épaisseur. Le matériau piézoélectrique est entouré d’électrodes
+connectées à deux fils et posé sur une plaque en laiton.
+Les performances attendues ainsi que le matériau piézoélectrique présent dans le capteur ne sont pas indiquées par
+les différents vendeurs.
+
+Electrode
+Matériau
+
+Plaques en laiton
+Figure 8 : Capteurs piézoélectriques
+(Amazon)
+
+2) Le son comme source d’énergie mécanique
+Notre première idée a été d’utiliser le son comme contrainte mécanique afin de déformer nos capteurs
+piézoélectriques. Nous nous sommes inspirés d’une campagne de publicité Peugeot qui, pour promouvoir le lancement
+de leur nouvelle voiture électrique, avait construit deux grands panneaux composés de milliers de capteurs
+piézoélectriques que l’on peut voir sur la figure 9.
+Ces panneaux étaient placés proches du périphérique parisien, un endroit où la pollution sonore est très importante
+et l’énergie générée par ces panneaux piézoélectriques permettaient d’alimenter en partie les bornes de recharge des
+voitures que l’on peut voir sur la figure 10.
+
+Figure 9 : Milliers de capteurs piézoélectriques utilisés
+(Peugeot)
+
+Figure 10 : Panneaux piézoélectriques permettant de recharger en partie la
+batterie d’une voiture électrique
+(Peugeot)
+
+7
+
+Nous allons donc vous présenter la démarche expérimentale que nous avons suivie afin de répondre à notre objectif
+de générer le plus d’électricité grâce au son.
+
+2.1 Recherche de la fréquence de résonance de nos capteurs
+Nous avons d’abord cherché la fréquence de résonance de nos capteurs. Le vendeur donnait une valeur voisine de
+4600 Hz, nous avons donc cherché à préciser cette information.
+D’abord nous avons connecté un capteur posé sur un gobelet à un générateur de signaux de forme sinusoïdale
+d’amplitude 10 V afin de choisir une fréquence et de faire vibrer le piézoélectrique.
+Pour avoir un ordre de grandeur, nous avons déterminé approximativement, à l’oreille, la fréquence à laquelle
+l’intensité sonore était la plus forte soit entre 4000 Hz et 5000 Hz. Puis nous avons connecté un microphone à Audacity
+et nous avons enregistrés successivement les signaux correspondant à 10 fréquences différentes (avec un pas de
+100 Hz) entre 4000 Hz et 5000 Hz. On cherchait pour quelle fréquence l’amplitude était maximale, le signal enregistré
+est une image de la tension aux bornes du microphone. Nous avons trouvé une plus grande amplitude entre 4900 Hz
+et 5000 Hz et nous avons réutilisé la même méthode avec un pas de 10Hz pour affiner la détermination de la fréquence
+de résonance.
+Finalement, en comparant tous les signaux enregistrés ; on constate que l’amplitude est maximale à la fréquence de
+4860 Hz, c’est donc la fréquence de résonance de nos capteurs.
+
+Figure 11 : Enregistrement Audacity du son émis par la vibration pour une fréquence de 4000 Hz
+L’amplitude est inférieure à 0.020 (en unité arbitraire)
+
+Figure 12 : Enregistrement Audacity du son émis par la vibration pour une fréquence de 4860 Hz
+L’amplitude est maximale environ égale à 0.03 (en unité arbitraire)
+
+8
+
+2.2 Mise en œuvre de l’expérience
+Nous avons voulu mesurer la valeur de la tension qui apparait aux bornes du capteur lorsqu’il excité par une onde
+sonore produite par un haut-parleur à proximité (figure 13).
+
+Figure 13 : Mesure de la tension délivrée par le capteur soumis à une contrainte mécanique sonore
+L’oscilloscope permet de mesurer la valeur crête-crête de la tension (figure 13.bis) de 46 mV pour une fréquence de
+l’onde sonore voisine de 4860 Hz.
+
+Figure 13.bis : Ecran de l’oscilloscope
+
+2.3 Critique des résultats obtenus
+Bien que la pollution sonore soit tout le temps présente, la tension apparaissant aux bornes du capteur est très faible
+et il nous faudrait une centaine de capteurs pour avoir un résultat significatif et une tension suffisante pour alimenter
+une LED par exemple. En plus, cette mesure est effectuée dans des conditions idéales, le haut-parleur est dirigé vers le
+capteur, le son émis est à la fréquence de résonnance et il est éloigné de la distance correspondant à cette fréquence
+de résonnance. Bien sûr, toutes ces conditions ne sont pas réunies dans la vie quotidienne. D’ailleurs dans leur
+campagne, l’entreprise Peugeot ne donne aucun chiffre permettant de quantifier l’énergie produite par leurs
+panneaux, peut-être car ils ne sont pas significatifs.
+À la vue de ces résultats, nous avons décidé de changer de source d’énergie mécanique en passant du son à la force
+des pas.
+9
+
+3) Les pas, une énergie mécanique plus adaptée
+3.1 Energie produite par un capteur
+Nous avons d’abord connecté un de nos capteurs à un oscilloscope afin de mesurer la tension délivrée lorsque nous
+tapions dessus de manière répétitive, on voit alors sur la figure 14 qu’on a une tension alternative lorsque l’on tape sur
+le capteur pouvant atteindre un pic supérieur à 40 V lors d’un court instant avec une intensité de 0.1 mA. Cette tension
+est largement supérieure à celle mesurée lorsqu’on utilisait le son et on peut par exemple alimenter une LED lorsqu’on
+appuie sur le capteur. Toutefois, l’énergie apportée par un seul capteur permet d’alimenter notre LED pendant une très
+courte durée et seulement lorsqu’on appuie sur le capteur (figure 15). De plus, on ne choisit pas le moment lors duquel
+l’appareil électrique est alimenté.
+Nous avons alors cherché à avoir un courant continu afin de pouvoir stocker cette énergie.
+
+Figure 14 : Tension alternative délivrée lorsque l’on tape sur
+le capteur
+
+Figure 15 : LED allumée avec un seul capteur
+
+3.2 Circuit électrique permettant d’obtenir une tension continue
+Nous avons donc, afin de résoudre ce problème, utilisé un circuit électrique grâce auquel nous pouvons redresser le
+courant à l’aide d’un pont redresseur de diodes et d’un condensateur comme on peut le voir sur la figure 16. L’objectif
+était d’obtenir un courant redressé plus ou moins continu selon la capacité du condensateur choisi afin d’avoir une
+alimentation plus stable et d’alimenter un appareil électrique pendant une période plus longue. Par ailleurs pour
+pouvoir gérer le moment où l'on alimente la LED on peut ajouter un interrupteur.
+
+10
+
+Figure 16 : Photo et schéma de notre premier circuit électrique
+
+Pour que ce circuit se retrouve dans la dalle piézoélectrique, nous l’avons
+condensé sur une breadbord (photo ci-contre).
+Pour mesurer la valeur de la tension lorsqu’elle est inférieure à 5V (en
+raison de la limite de tension en entrée) émise par notre “générateur
+piézoélectrique” nous avons aussi utilisé un microcontrôleur. La courbe
+obtenue est en annexe.
+
+3.3 Association des capteurs pour avoir un meilleur rendement
+Afin d’obtenir plus d’énergie électrique, nous avons voulu utiliser plusieurs capteurs en même temps, nous nous
+sommes alors demandés comment associer les capteurs entre eux de manière optimale.
+Nous avons donc comparé les différents branchements possibles pour nos capteurs : en série, en parallèles ou en
+associant deux à deux les capteurs en séries puis les 5 couples en parallèles, ce qui est rendu compte dans la figure 17.
+Il y a forcément une incertitude importante sur ce type de mesure car nous ne pouvons pas appliquer à chaque fois la
+même force sur la dalle. Cependant, les résultats obtenus sont assez tranchés ce qui nous permet de conclure malgré
+cette incertitude. La meilleure configuration est donc de brancher tous les capteurs en parallèles.
+
+Figure 17 : Évolution de la tension aux bornes du condensateur en fonction du nombre de pas effectués sur la dalle
+11
+
+3.4 Choix du stockage de l’énergie
+La première idée afin de stocker l’énergie électrique produite était d’utiliser une batterie. Cependant, les batteries sont
+polluantes notamment à cause de leur durée de vie qui est plutôt courte ainsi que les éléments polluants qui les
+composent tels que le lithium. Dans une démarche écologique qui est la nôtre, utiliser une batterie n’était pas la
+meilleure solution possible. Nous avons donc cherché un autre moyen de stocker cette énergie, notamment avec un
+condensateur.
+En effet, on peut stocker de l’énergie électrique dans un condensateur, c’est par exemple le cas dans les flashs
+d’appareils photo, mais les condensateurs peuvent aussi stocker bien plus d'électricité. On les appelle alors super
+condensateurs.
+Ils peuvent par exemple alimenter des bus comme c’est déjà le cas, comme nous pouvons le voir sur la figure 18, entre
+les terminaux de l’aéroport Nice-Côte d’Azur et les parkings alentour où six arrêts de bus sont équipés de « totems »,
+qui rechargent les bus en 10 secondes grâce à des supercondensateurs. Le bus peut alors parcourir entre 800 mètres
+et un kilomètre selon les conditions de circulation. Un bus roulant au Diesel aurait utilisé pour les mêmes trajets 30000
+litres de carburant en un an.
+
+Figure 18 : Bus chargé par un super condensateur
+(Automobile Propre)
+
+On a alors cherché à comparer les différents avantages et inconvénients d’une batterie et d’un condensateur. L’avantage
+d’une batterie est notamment sa forte capacité de stockage et son énergie massique environ 222 Wh/kg pour une
+batterie contre environ 7 Wh/kg pour un super condensateur. Quant au condensateur, son principal avantage est sa
+vitesse élevée de charge et de décharge.
+De plus, les condensateurs sont plus écologiques dans la mesure où leur durée de vie est presque illimitée. Le tableau
+de comparaison suivant permet de voir plus clairement les différences entre une batterie, un super condensateur et
+notre condensateur.
+Batterie
+Lithium-ion
+
+Condensateur
+
+Super condensateur
+
+1à6h
+
+4.7 s
+
+5s
+
+Quantité d’électricité
+Q = 2.9 Ah
+
+Capacité
+C = 470 μF
+
+Capacité
+C = 3000 F
+
+Masse
+
+47 g
+
+10 g
+
+520 g
+
+Energie massique
+
+222 Wh.kg −1
+
+6,5 × 10−4 Wh.kg −1
+
+7 Wh.kg −1
+
+Temps de charge
+
+Figure 19 : Tableau de comparaison entre batterie, super condensateur et notre condensateur
+12
+
+Dans notre cas, la tension d’entrée dans le circuit n’est pas stable, ce qui risque d’endommager la batterie et donc de
+réduire sa durée de vie. Un avantage du condensateur dans notre cas est sa charge rapide ce qui permet de le charger
+plus rapidement qu’une batterie. Nous avons donc finalement choisi de stocker l’énergie directement dans le
+condensateur du circuit.
+Un condensateur est un ensemble de deux conducteurs placés l’un en face de l’autre et séparés par un isolant. Dans
+un circuit électrique, les charges positives vont s'accumuler sur une armature et les charges négatives sur l’autre. Cette
+polarisation provoque l’apparition d’une tension 𝑢𝑐 (𝑡) du condensateur.
+On appelle C la capacité d’un condensateur et on exprime cette grandeur en farad (F).
+Dans un circuit RC, lorsqu'on alimente le circuit, le condensateur se charge en énergie électrique. L'énergie E stockée
+dans un condensateur ne dépend pas de la façon dont il a été chargé, mais de la charge Q accumulée et de la tension
+U à ses bornes :
+
+𝐸=
+
+1
+× 𝐶 × 𝑈2
+2
+
+Dans un circuit RC série, le condensateur est initialement chargé. Si on ferme l’interrupteur, le condensateur se
+décharge progressivement et la tension 𝑢𝑐 à ses bornes vérifie l’équation différentielle suivante :
+
+𝑑𝑢𝑐
+1
++
+× 𝑢𝑐 = 0
+𝑑𝑡
+𝑅𝐶
+Cette équation différentielle admet comme solution :
+1
+
+𝑢𝑐 (𝑡 ) = 𝐸 × 𝑒 −𝑅𝐶 × 𝑡
+Avec E la tension aux bornes du condensateur à 𝑡 = 0.
+Cette expression correspond à une exponentielle décroissante que l’on peut voir sur la figure 22 qui modélise la tension
+aux bornes du condensateur pendant la décharge.
+
+Figure 20 : Réponse en tension pour la décharge
+(Lumni)
+
+Dans un circuit RC, pour qualifier le temps de décharge, on utilise de temps caractéristique
+𝜏 (𝑒𝑛 𝑠) = 𝑅 (𝑒𝑛 𝛺) × 𝐶 (𝑒𝑛 𝐹). On considère 𝑢𝑐 = 0 après 5 à 6 𝜏.
+Dans le but d’alimenter un appareil électrique (par exemple la LED évoquée précédemment), l’alimentation doit être
+la plus stable et on souhaite que l’appareil soit alimenté le plus longtemps possible donc le temps de décharge du
+condensateur doit être le plus long possible.
+On peut donc utiliser la relation, 𝜏 = 𝑅𝐶 c’est-à-dire que pour R constant le temps caractéristique est d’autant plus
+long que la capacité du condensateur est élevée.
+13
+
+Pour visualiser cette relation, nous avons redresser le courant d’un générateur alternatif à l’aide de différents
+condensateurs puis nous l’avons étudié à l'aide d'un oscilloscope. Ces étapes sont présentées en annexe.
+On peut visualiser la charge et la décharge d'un condensateur grâce au script Arduino en annexe qui enregistre deux
+cycles de charge/décharge que l’on peut observer sur le traceur série (figures 21 et 21.bis).
+
+Figures 21 et 21.bis : Evolution de la tension aux bornes du condensateur pendant un cycle de charge / décharge
+commandé par le microcontrôleur.
+Par la suite nous avons à nouveau utilisé le circuit électrique suivant pour observer différents résultats pour différentes
+valeurs de capacité et comme on pouvait l’imaginer, une fois le condensateur chargé, lorsqu’on le branche à la LED,
+plus la capacité est élevée, plus la LED reste allumée longtemps. On peut aussi faire varier la valeur de R afin d’allonger
+ou de raccourcir le temps de charge et décharge du condensateur.
+Nous avons donc séparé par un interrupteur le circuit de charge du condensateur et le circuit de décharge, dans le
+circuit de charge, dans le but de charger le condensateur rapidement on utilisera une résistance de faible valeur alors
+que dans le circuit de décharge on utilisera une résistance plus ou moins importante dans le but d’adapter le temps de
+décharge en fonction de l’appareil à alimenter.
+
+3.5 Création de nos prototypes de dalles piézoélectriques
+Nous avons tout d’abord développé un premier prototype de dalle piézoélectrique (figure 22) en associant 10 capteurs
+branchés en parallèles, un condensateur de 117 µF et d’une résistance de 10 kΩ. Nous avons collé les capteurs sur des
+bouchons afin que lorsqu’on appuie sur la dalle, les capteurs piézoélectriques puissent se déformer d’avantage que sur
+une surface plus rigide et nous avons aussi utilisé des chevilles en bois au-dessus des capteurs dans le but de protéger
+les soudures. En effet, si la planche sur laquelle on marche était directement posée sur les capteurs, les soudures
+auraient été détériorées.
+Cette dalle nous a permis de charger notre condensateur jusqu’à environ 8 volts et d’alimenter jusqu’à 3 LED à la fois
+pendant :
+5𝜏 = 5 × 𝑅𝐶 = 117 × 10−6 × 10−4 = 5 × 1.2 𝑠 = 6 𝑠
+
+14
+
+Figure 22 : Photo de notre première dalle piézoélectrique
+
+Nous avons ensuite voulu créer une autre dalle permettant une meilleure alimentation (figure 23). Nous avons donc
+choisi de faire une dalle plus grande avec cette fois-ci 30 capteurs branchés en parallèles, avec le même condensateur
+et la même résistance dans le circuit de décharge. Cette nouvelle dalle nous a permis de charger notre condensateur
+jusqu’à environ 10 V (avec le même nombre de pas qu’il en fallait pour charger le condensateur à 8 V avec la première
+dalle) et d’alimenter une quatrième LED pendant à nouveau 6 s.
+
+Figure 23 : Notre deuxième dalle piézoélectrique en cours de
+fabrication
+
+Figure 24 : Évolution de la tension
+aux bornes de l’association de
+condensateurs en fonction du
+nombre de pas
+
+Notre dalle peut aussi permettre de charger un condensateur de 470 µF à 8 V ainsi, avec une même résistance dans le
+circuit de décharge, comme 𝜏 = 𝑅𝐶 = 470 × 10−6 × 10−4 = 4.7 s, on peut alors allumer nos 3 LED pendant quatre
+fois plus longtemps.
+Notons par ailleurs que notre deuxième dalle est plus grande que la première, ce qui implique que si on la place dans
+un lieu très fréquenté, plus de pas seront appliqués sur notre dalle et donc plus d’électricité serait générée.
+15
+
+4) Analyse des résultats obtenus
+4.1 Comparaison avec des ordres de grandeur d’énergie
+Nous avons réalisé ces calculs grâce à notre deuxième prototype de dalle. Grace à notre dalle, on produit de l’énergie
+électrique avec nos pas. Pour nous rendre compte de l’efficacité de la dalle on a voulu déterminer combien de pas il
+faudrait pour charger un téléphone soit fournir une énergie de 5 Wh.
+1
+
+On commence par calculer l’énergie du condensateur pour 45 pas avec la formule : 𝐸 = 2 𝐶 𝑈 2
+Dans notre cas :
+
+𝐸=
+
+1
+× 117.5 × 10−6 × 102
+2
+𝐸 = 5.86 × 10−3 𝐽
+𝐸 = 5.86 𝑚𝐽
+
+L’énergie pour un pas est donc :
+
+𝐸𝑝𝑜𝑢𝑟 𝑢𝑛 𝑝𝑎𝑠 =
+𝐸𝑝𝑜𝑢𝑟 𝑢𝑛 𝑝𝑎𝑠 =
+
+𝐸
+45
+
+5.86 × 10−3
+= 1.31 × 10−4 𝐽
+45
+
+Pour charger un téléphone il faut fournir une énergie de 5 Wh que l’on convertit en joules :
+
+5 𝑊ℎ = 18 × 103 𝐽
+Enfin, pour trouver combien de pas il faudrait pour produire cette énergie on divise l’énergie dont on a besoin par
+l’énergie produite par un pas :
+
+𝑁=
+
+18 × 103
+= 137 × 106 𝑝𝑎𝑠
+1,31 × 10−4
+
+Si l’on considère que nous faisons en moyenne 6500 pas par jour il faudrait environ 22978 jours pour charger un
+téléphone avec notre première dalle piézoélectrique soit plus de 62 ans.
+
+4.2 Critique des résultats obtenus et rendement
+Les résultats obtenus ne sont pas concluants quant à l’efficacité de notre dalle piézoélectrique unique pour créer de
+l’énergie. Cependant, ces résultats peuvent en partie s’expliquer à cause de la qualité des matériaux que nous avons
+utilisés. D’abord les capteurs piézoélectriques utilisés sont ceux du lycée. Ce sont des capteurs bas de gamme qui ne
+permettent pas un rendement optimal, ce sont ces capteurs qui nous font perdre le plus d’énergie. Ensuite, on perd de
+l’énergie car lorsque l’on marche sur la dalle, nous n’appliquons pas la même force sur tous les capteurs. De plus de
+l’énergie est perdue dans notre circuit électrique dû aux fuites du condensateur notamment.
+
+16
+
+Nous avons par ailleurs essayé de calculer le rendement de la dalle qui s’avère complexe suite aux nombreuses pertes
+énergétiques. Nous sommes parvenus à ce calcul en considérant que la dalle se déplace d’un millimètre au total (ce
+sont en grande partie les bouchons qui se déforment) :
+
+𝜂𝑑𝑎𝑙𝑙𝑒 =
+
+𝑊é𝑙𝑒𝑐𝑡𝑟𝑖𝑞𝑢𝑒
+𝑊𝑚é𝑐𝑎𝑛𝑖𝑞𝑢𝑒
+
+𝑊𝑚é𝑐𝑎𝑛𝑖𝑞𝑢𝑒 = 𝐹 × 𝑑 = 400 × 1.00 × 10−3 = 0.400 𝐽
+𝑊é𝑙𝑒𝑐𝑡𝑟𝑖𝑞𝑢𝑒 =
+
+1
+1
+𝐶𝑈 2 = × 117,5 × 10−6 × 0.252 = 3,7 × 10−6 𝐽
+2
+2
+
+𝜂𝑑𝑎𝑙𝑙𝑒 =
+
+3,7× 10−6 𝐽
+0.400 𝐽
+
+= 9,2 × 10−6 soit environ 0,0009 %
+
+Pour améliorer ces résultats, il faut utiliser des capteurs piézoélectriques de « force ». Un seul de ces capteurs
+piézoélectriques a un rendement largement supérieur à notre dalle complète. On peut bien sûr ensuite augmenter le
+nombre de capteurs et de dalles afin d’avoir plus d’énergie mécanique et donc électrique. Ce type de dispositifs a par
+exemple été mis en place lors d’une édition du marathon de Paris où des dalles piézoélectriques ont été disposées à
+l’arrivée du parcours. Les pas des 38690 marathoniens ont permis de générer 8 W à chaque pas des coureurs soit
+environ 7000 Wh ce qui correspond à la consommation électrique annuelle moyenne de 1,5 foyer français (ou de 2 h
+d’illumination de la tour Eiffel selon l’organisateur).
+
+5) Conclusion
+Lors de ce projet des Olympiades, nous avons donc cherché à comprendre et expliquer le fonctionnement des
+matériaux piézoélectriques puis d’utiliser cette propriété pour générer de l’énergie décarbonée en utilisant un
+générateur piézoélectrique.
+De la même manière, on peut remplacer les dalles d’un trottoir dans une rue très fréquentée par des dalles
+piézoélectriques, l’électricité crée pourrai alors alimenter une part des équipements de la ville. C’est déjà le cas dans
+certaines rues grâce à la jeune entreprise Pavegen qui a développé un sol piézoélectrique comment on peut le voir sur
+la figure 25.
+Un dernier exemple de la piézoélectricité comme générateur est le développement d’un appareil photo sous-marin
+développé par le MIT alimenté par les ondes sonores sous-marines comme on le voit sur la figure 26. Ainsi cet appareil
+n’utilise pas de batterie mais un super condensateur alimenté par la piézoélectricité.
+
+Figure 25 : Sol piézoélectrique
+(Pavegen)
+
+Figure26 : Appareil photo piézoélectrique
+(MIT)
+17
+
+Remerciements
+Nous tenions à remercier toutes les personnes qui ont contribués à ce projet des Olympiades de physique et qui nous
+ont aidé dans la rédaction de ce mémoire.
+Nous voudrions dans un premier temps remercier nos professeurs M. JENNY et M. TOMOLILLO qui nous ont proposés
+de participer à ce projet et qui depuis plus d’un an maintenant nous accompagnent dans celui-ci.
+Nous remercions également toute l’équipe pédagogique du lycée et notamment M. COLOMBO pour sa disponibilité
+qui nous ont laissé avec confiance utiliser leur matériel.
+Nous tenions aussi à remercier M. Charlie LEPRINCE, notre rapporteur du concours académique, pour ses judicieux
+conseils qui nous a permis d’améliorer ce mémoire ainsi que pour son aide dans la recherche d’un laboratoire dans le
+but de réaliser l’expérience d’interférométrie.
+Nous remercions sincèrement le professeur M. Arnaud RAOUX, qui nous a accompagné lors de cette expérience
+d’interférométrie à la préparation de l’agrégation de l’ENS de Montrouge, qui nous a laissé mettre en place et réaliser
+la manipulation puis qui nous a aidé à comprendre et expliquer celle-ci.
+Merci aussi à Éric GUINEVEU, technicien de laboratoire à la préparation de l’agrégation de l’ENS de Montrouge qui a
+pris sur son temps pour nous faire visiter le lieu et nous guider.
+Nous remercions pour finir spécialement nos chers parents qui nous ont soutenus dans ce projet, qui n’ont pas hésité
+à nous aider dans la conception des maquettes et qui nous ont laissé, plusieurs dimanches matin, travailler tôt et
+quelque peu bruyamment.
+
+18
+
+Bibliographie
+Couleur-Science : D’où vient l’effet piézoélectrique ? - Couleur-Science
+Parti ’Prof Composition et principe de fonctionnement de l'anti-reflet des lunettes - Le blog Parti'Prof (partiprof.fr)
+Le livre scolaire Cours | Lelivrescolaire.fr
+WRYST : Comment fonctionne une montre à quartz ? Tout sur le quartz dans une montre (wryst-timepieces.com)
+Peugeot : Peugeot - Recycle the Noise, Silence the City (FR) (youtube.com)
+Amazon : TIMESETL 15Pcs Piezo Disques avec Fils Pickup Acoustique 27 mm de Diamètre Capteur Piezo Electrique
+Piézoélectrique éléments pour Buzzer Micros Piezo de Guitare Disque Piezo Electrique : Amazon.fr: Instruments de
+musique et Sono
+Automobile Propre : Le bus électrique à autonomie illimitée expérimenté à Nice (automobile-propre.com)
+Manuel scolaire de Terminal Physique Chimie Bordas
+Lumni Charge et décharge d’un condensateur dans un circuit RC - Vidéo Physique-chimie | Lumni
+L’industrie c’est fou [L'industrie c'est fou] Découvrir les secrets des fonds marins grâce à un appareil photo sans
+batterie (usinenouvelle.com)
+Forbes Rencontrez Pavegen, la start-up avec le monde entier à ses pieds (forbes.com)
+Wikipédia Piézoélectricité — Wikipédia (wikipedia.org)
+
+19
+
+

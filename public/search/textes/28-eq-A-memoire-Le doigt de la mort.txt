@@ -1,0 +1,771 @@
+Olympiades de Physique 2020-2021
+Le doigt de la mort
+
+Antonina Kozhukhar, Driss Benhmidane, Mérabi Nadiradze, Matisse Lebrin,
+Eudes Peyrouny Mazeau et Paulin Lemoine
+
+Lycée Bertran de Born
+
+Olympiades de Physique 2020-2021
+
+Table des matières
+1. Résumé
+
+3
+
+2. Introduction
+
+4
+
+3. Présentation du doigt de la mort
+
+4
+
+3.1. Historique
+
+4
+
+3.1.1. Découverte du phénomène
+
+4
+
+3.1.2. Expériences réalisées
+
+5
+
+3.1.3. Premier doigt de la mort filmé en milieu naturel
+
+7
+
+3.2. Comment poussent les brinicles ? :
+
+7
+
+3.2.1.Les réservoirs et canaux de saumure de la banquise
+
+7
+
+3.2.2.Physique de la formation du brinicle
+
+9
+
+3.2.3.Modélisation mathématiques de la cinétique de formation
+
+11
+
+4. Dispositif expérimental et son évolution :
+
+13
+
+4.1. Un premier dispositif
+
+13
+
+4.1.1. Une chambre froide maison avec Arduino
+
+13
+
+4.1.2. Le réservoir d’eau et le circuit d’alimentation
+
+13
+
+4.1.3. Le système de prise de vue
+
+14
+
+4.2. Echecs et améliorations du dispositif
+
+14
+
+3.2.4.Choix des concentrations en sel
+
+15
+
+3.2.5.Amélioration du système
+
+15
+
+5. Bilan de l’expérience
+
+16
+
+5.1. Résultats :
+
+16
+
+5.2. Analyse des résultats :
+
+17
+
+6. Conclusion :
+
+18
+
+8. Sources :
+
+19
+
+9. Remerciements :
+
+19
+
+2
+
+Lycée Bertran de Born
+
+Olympiades de Physique 2020-2021
+
+1. Résumé
+Nous sommes 6 élèves en terminale générale au lycée Bertran de Born de Périgueux.
+Nous avons été encouragés l’année dernière par des professeurs de physique-chimie
+à participer aux Olympiades de Physique. L’origine de ce projet est le visionnage d’un court
+documentaire présentant le phénomène du “Doigt de la Mort”. Cela nous semblait à tous
+intéressant et original.
+Nous avons donc commencé les recherches bibliographiques sur le sujet durant l’été
+entre notre première et notre terminale.
+Découvrant ainsi de plus près ces brinicles et les vidéos de ce phénomène assez
+impressionnant. Nous avons donc décidé de l’étudier expérimentalement.
+Pour cela nous avons décidé d’utiliser un congélateur. Ainsi nous avons pu mesurer
+la vitesse de formation de ces doigts de la mort. Et nous avons réussi, après de nombreuses
+heures de construction du système et de nombreux échecs, à filmer cette expérience.
+
+3
+
+Lycée Bertran de Born
+
+Olympiades de Physique 2020-2021
+
+2. Introduction
+Aux pôles, l’océan est un lieu propice à la vie sous-marine puisque celle-ci est
+protégée de la surface par une couche de glace. Cela permet la création d’un véritable
+royaume vivant où se développent tous types d’organismes vivant étranges et rares.
+Cependant, cette vie n’est pas à l’abri des imprévus et le froid vient parfois jouer les troubles
+fêtes. En effet, il peut se former des brinicles, « brine » en anglais signifiant saumure et
+« icicle » qui signifie stalactites de glaces, donc stalactites de glace d’eau salée, lorsque les
+températures chutent à la surface. L’origine des brinicles est la formation des glaces. En
+devenant solide, l'eau expulse le sel qui ne peut, lui, se solidifier. Ainsi se forment des poches
+de saumure dans la glace. En temps normal cette eau très salée s’écoule et permet une
+augmentation de la glace de façon homogène. Cependant, de temps en temps, les poches
+de saumure sont trop proches, le flux est trop important et au lieu de se geler directement, un
+courant vertical d’eau très froide et très salée apparaît. Il va geler l’eau autour de lui et ainsi
+créer une sorte de stalactite qui dans de bonnes conditions peut atteindre le fond des océans.
+Il devient ainsi très meurtrier pour les étoiles de mer et les oursins présents en les gelant dans
+une rivière de glace ; il obtient donc son surnom de Doigt de la mort grâce à son apparence
+mais aussi ses conséquences sur ces animaux marins. Ainsi, nous avons décidé de recréer
+ce phénomène en laboratoire et de le filmer puisque ce dernier est fascinant et que nous nous
+disions qu'il était intéressant de recréer ce genre de phénomène très rares naturellement mais
+c’est aussi un moyen d’obtenir plus d’images de Doigts de la mort. De plus, c’est une
+expérience qui sort de la norme de ce qu’on a fait en physique chimie jusqu’à présent et qui
+nous pousse sur des terrains sur lesquels nous nous aventurons peu, ce qui est d’autant plus
+intéressant pour nous et notre année de terminale.
+
+3. Présentation du doigt de la mort
+3.1. Historique
+3.1.1. Découverte du phénomène
+A partir des années 1960, des observations scientifiques de la banquise mettent en
+évidence la formation de stalactites de glace qui se développent sous la banquise des océans
+polaires. Par exemple, W. J. Campbell a observé pendant la période de juin à septembre
+1958, de petites stalactites de glace en plongeant au large de la station de glace Alpha de la
+mer de Beaufort dans l'Arctique. Puis, Paige (1970) a observé dans le détroit de McMurdo, en
+Antarctique, des stalactites similaires de 10 à 100 cm de longueur, à travers lesquelles la
+saumure (solution aqueuse très salée) s'écoulait de la glace à la surface vers l’eau. Par temps
+4
+
+Lycée Bertran de Born
+
+Olympiades de Physique 2020-2021
+
+calme, lorsqu’il n’y avait que très peu voire pas de mouvement de glace par rapport à l’eau, il
+a observé la formation de petites stalactites de 20-30 cm de longueur tout au long de cette
+période, et a remarqué l’absence de ce phénomène durant la période de vents violents.
+Ainsi, ce phénomène est de plus en plus étudié par les scientifiques, chercheurs et
+observateurs qui s’y intéressent. Ces derniers découvrent qu’il existe une grande diversité de
+stalactites de glace (ou “brinicles” en anglais). Ainsi en 1968, Paul K. Dayton et Seelye Martin
+découvrent que de bien plus grandes stalactites peuvent se former : ils observent sous une
+glace dont l’épaisseur dépassait 2 mètres, près du cap Bird, dans le détroit de McMurdo des
+doigts de la mort pouvant mesurer de 1,5 à 6 mètres de longueur et de 10 à 20 cm de diamètre
+! D’après eux, les stalactites de glace peuvent non seulement se former dans des eaux peu
+profondes (comme dans leurs zones d’observations du Détroit de McMurdo, où les grands
+brinicles pouvant aller jusqu’au fond de l’océan sont plutôt fréquents), mais également dans
+les eaux de plus de 300 mètres de profondeur, comme ont pu l’observer Dayton avec son
+équipe.1
+Cet incroyable phénomène captive également l’océanographe américain Seelye
+Martin, qui en 1974, compare les stalactites à des « tubes creux » et en propose un modèle
+de formation généralement accepté2.
+
+3.1.2. Expériences réalisées
+A la suite de ces multiples observations réalisées, des expériences ont été menées
+par ces scientifiques.
+Par exemple, à travers l’expérience de Seelye Martin, on suit la croissance de
+stalactites dans un réservoir d’eau salée dont la concentration en chlorure de sodium et la
+température égalent celles du détroit de Mc Murdo (34,8 pour mille de chlorure de Sodium
+dont la température de fusion correspondait à -1,9°C). Afin de pouvoir en mesurer la salinité,
+la taille, et le poids, Martin a fait pousser sa stalactite en dessous d’un fragment de
+polyuréthane dans lequel il a percé un canal pour permettre la circulation de la saumure. Un
+système de trop plein permettait de maintenir le niveau d’eau de mer constant. L’expérience
+s’effectuait dans une chambre froide (où était placé le réservoir) gardée à 0,5°C près de la
+température de saumure souhaitée. Une pompe péristaltique à débit constant permettait le
+transport de la saumure vers l’eau de mer, restant, comme le montraient à la fois le
+thermomètre et la présence de cristaux de glace dans et sur l’eau, à 0,1°C de son point de
+
+1
+
+Paul K. Dayton “Observations of Ice Stalactites in McMurdo Sound, Antarctica” Journal of Geophysical
+Research, vol. 76, NO. 6, pp 1595 - 1599
+2
+S. Martin “Ice stalactites: comparison of a laminar flow theory with experiment” Journal of Fluid
+Mechanics, vol. 63, part 1, 1974, pp. 51-79
+
+5
+
+Lycée Bertran de Born
+
+Olympiades de Physique 2020-2021
+
+congélation. En se basant sur les observations de Partch (1972, communication privée) faites
+dans la mer de Beaufort qui a découvert que le diamètre du flux de saumure à l’intérieur de la
+glace n’était de que l’ordre d’un millimètre, Martin a utilisé un tube en verre de 1 à 5 mm de
+rayon pour amener le système d’apport de saumure, dont la concentration et la température
+de fusion variait pour les expériences de 35 pour mille à 224 pour mille de la salinité et de 2°C à -20°C de température de fusion.
+Dans le travail d’observation des brinicles, la technologie est effectivement très
+importante puisque non seulement elle permet de recréer des conditions réelles de formation
+de ces stalactites, mais c’est elle également qui nous permet de les observer. Il y a seulement
+une cinquantaine d’années, les conditions n’étaient évidemment pas les mêmes
+qu’aujourd’hui, et il était beaucoup plus difficile d’obtenir une représentation performante de
+l’expérience. Cependant Martin a su surmonter cette difficulté en utilisant un éclairage se
+composant d'un écran diffuseur avec une bande noire étroite descendant au milieu, éclairé
+par l'arrière avec un projecteur de diapositives. Afin de mieux voir les parois de la stalactite,
+Martin et son équipe ont acidifié légèrement l’eau de mer et utilisé un indicateur acido-basique,
+le bleu de thymol. Ainsi, l’eau de réservoir était de couleur bleue, celle de la saumure était
+jaune.
+A travers leurs observations des photographies, ils ont pu confronter la théorie de la
+croissance des parois intérieure et extérieure de la stalactite avec la pratique, et ils ont vu
+grâce à des photographies réalisées que les lois que nous allons expliquer ultérieurement se
+retrouvaient dans la réalité. Également, grâce à leurs mesures que la fragilité de la stalactite
+rendait difficile, l’océanographe et son équipe ont pu notamment déterminer quelle fraction de
+la chaleur transférée à la saumure allait dans la croissance de la stalactite par opposition à la
+fraction rejetée comme cristaux de glace libre.
+Ces expériences de Martin ont servi de base à de nombreuses autres (comme pour
+les expériences réalisées par la Communauté de Harvard, université américaine située à
+Cambridge). Ces expériences, bien que parfois simplement reprises, ont pu être menées dans
+des conditions différentes (par exemple Lars Ingolf Eide en coopération avec Seelye Martin
+ont étudié la formation des caractéristiques de drainage de la saumure dans la jeune glace de
+mer. Les scientifiques Steven D. Vance, Laura M. Barge, Silvana S.S. Cardoso, et Julyan H.E.
+Cartwright se sont mêmes demandé si les brinicles pourraient se former sur le satellite de
+Jupiter, Europe, et ont trouvé que « le large éventail de configurations compositionnelles et
+dynamiques possibles de la glace et de l'océan sur Europa met en évidence les incertitudes
+quant à la prédiction de comment et où les brinicles peuvent apparaître ». Comme le
+démontrent leurs calculs et « les analogies avec les glaces sur Terre, le fractionnement des
+saumures dans la glace d’Europe peut confondre l’inférence directe de la composition en
+6
+
+Lycée Bertran de Born
+
+Olympiades de Physique 2020-2021
+
+sulfate de l’océan basée uniquement sur des observations de surface. » (Self-Assembling Ice
+Membranes on Europa: Brinicle Properties, Field Examples, and Possible Energetic Systems
+in Icy Ocean Worlds)
+
+3.1.3. Premier doigt de la mort filmé en milieu naturel
+Mais revenons aux évolutions des observations des brinicles sur Terre… Bien que ce
+phénomène soit déjà observé depuis près de 60 ans, il n’a pu être filmé qu’en 2011 pour la
+première fois, et encore accidentellement par les opérateurs de BBC3.
+Les caméramans Hugh Miller et Doug Anderson ont été les pionniers du phénomène
+jusqu'alors inconnu lors de leur présence en Antarctique. Au-dessus de la surface de l'océan,
+les deux hommes ont trouvé des stalactites de glace comme représenté sur la Figure 1, qui
+traversaient les profondeurs de l'océan sous la forme d'un jet d'eau extrêmement froide
+(presque gelée) et très salée. Les scientifiques ont appelé ce phénomène « brinicles», et les
+opérateurs qui l'ont observé l'ont surnommé «le doigt glacé de la mort».
+
+Figure 1 : capture d’écran de la vidéo de la BBC sur les brinicles
+
+3.2. Comment poussent les brinicles ? :
+3.2.1.
+
+Les réservoirs et canaux de saumure de la banquise
+
+Comme le décrit Weeks (1968) Lorsque la glace se forme sur l’eau de mer, le sel n’est
+pas incorporé dans la structure cristalline de la glace. En effet, comme montré sur la Figure
+2, la saumure s’accumule en des « poches » contenues dans cette structure cristalline,
+entraînant ainsi une augmentation en concentration locale en chlorure de sodium.
+A mesure que l‘hiver avance et que donc la température environnante baisse,
+l’épaisseur de la glace sur mer ou océan s’épaissit. Cela conduit donc à une augmentation de
+la concentration en sel de la saumure et au refroidissement de celle-ci. Ensuite, grâce aux
+micro-fissures naturellement présentes dans la banquise et sous l’effet de la gravité, cette
+3
+
+En 2017, cette vidéo était la seule montrant le phénomène captivant tant certains
+scientifiques.
+7
+
+Lycée Bertran de Born
+
+Olympiades de Physique 2020-2021
+
+saumure rejoint l’eau de mer par des systèmes de tubes appelés « canaux de saumure »,
+comme représenté sur la Figure 2.
+
+Figure 2 : Formation des poches et des canaux de saumure au cours du temps
+
+Au fur et à mesure que la concentration en sel dans la saumure augmente, la densité
+de celle-ci croît également, ce qui engendre son écoulement de la calotte de glace vers le
+fond marin. Comme montré sur la Figure 3, l'augmentation de la concentration favorise non
+seulement une densité de plus en plus importante de la saumure, mais également rend la
+température de fusion du mélange eau /sel de plus en plus basse.
+
+8
+
+Lycée Bertran de Born
+
+Olympiades de Physique 2020-2021
+
+Figure 3 : Graphique représentant l’évolution de la température de fusion et de la densité de la saumure en
+fonction de la salinité
+
+3.2.2.
+
+Physique de la formation du brinicle
+
+Ainsi, la saumure, qui est à une température inférieure à celle de la température de
+fusion de l’eau de mer, refroidit celle-ci. Or à l’interface en l’eau et la glace, l’eau de mer est à
+sa température de fusion. C’est pourquoi, lorsque la saumure pénètre sous la couche de
+glace, elle gèle l’eau de mer environnante par le processus suivant : la chaleur de l’eau de
+mer est transmise à la saumure par effet de conduction. Par conséquent, l’eau de mer, étant
+déjà à son point de fusion, gèle et forme la glace. Quant à la saumure, celle-ci est faiblement
+réchauffée par la chaleur absorbée de l’eau environnante.
+La saumure forme donc un courant autour duquel, comme décrit ci-dessus, pousse la glace.
+C’est ce que nous pouvons observer sur la Figure 4a. Cette glace nouvelle prend ainsi forme
+d’une stalactite dont les parois s’allongent et s’épaississent au cours du temps. En d’autres
+mots, la paroi externe de la stalactite de glace ou « brinicle » en anglais se développe. Mais
+qu’en est-il de la paroi intérieure ?
+
+9
+
+Lycée Bertran de Born
+
+Olympiades de Physique 2020-2021
+
+Les parois
+de
+
+glace
+
+formée
+
+à
+
+partir
+
+de
+
+l’eau
+
+de
+
+Le
+
+courant
+
+saumure
+circulant
+
+mer
+
+de
+froid
+
+vers
+
+fond marin
+
+Figure 4a : formation d’un brinicle à partir de l’eau de mer au cours du temps autour du flux de la saumure (source :
+Martin et al., 1974)
+
+Comme on peut l’observer sur les photos réalisées au cours des observations de la
+stalactite par Seelye Martin dans son rapport de 1974, le diamètre interne du bout de la
+stalactite de glace a tendance à croître au cours du temps.
+Cette croissance
+peut être
+expliquée ainsi :
+comme expliqué
+précédemment, la
+température de
+l’eau de mer est
+plus élevée que
+celle de la
+saumure. Cette
+différence entraîne
+la transmission de
+chaleur par
+conductivité de
+l’eau de mer vers
+la saumure.
+Comme
+représenté sur le
+schéma cidessous, cette
+chaleur réchauffe
+la surface du
+courant de la
+saumure. Ainsi,
+comme représenté
+sur la Figure 4b,
+les parois internes
+10
+
+le
+
+Lycée Bertran de Born
+
+Olympiades de Physique 2020-2021
+
+de la stalactite, étant en contact de cette partie du courant réchauffé, sont ramenées à la
+température de fusion et fondent.
+C’est pourquoi, le diamètre de la paroi interne de la stalactite croît car plus la stalactite se
+développe, plus la chaleur de l’eau environnante est transmise au flux de saumure,
+réchauffant et dissolvant plus la paroi interne du brinicle, menant alors à l’augmentation de
+son diamètre et donc de celui du bout du brinicle.
+
+Figure 4b :
+
+Schéma représentant le mécanisme d’épaississement de la paroi intérieure de la stalactite
+
+3.2.3.
+
+Modélisation mathématique de la cinétique de formation
+
+Il est également intéressant d’étudier cette croissance de la stalactite à travers le modèle
+mathématique suivant élaboré par Seelye Martin que nous avons supposé juste et que nous
+cherchons à prouver grâce à nos expériences où est la longueur du brinicle (en centimètres),
+le temps (en secondes) et
+de dimension
+
+2
+
+un paramètre dépendant des conditions initiales
+
+/
+
+et
+
+:
+2
+
+Où
+
+=
+
+correspond à la longueur du brinicle à
+
+/
+et où
+
+correspond au moment où l’on
+
+commence l’expérience.
+Et pour des temps suffisamment longs, on peut simplifier cette expression :
+
+11
+
+Lycée Bertran de Born
+
+Olympiades de Physique 2020-2021
+
+A partir de cette formule, on trouve l’équation suivante :
+
+√
+En d’autres termes, cette loi permet de calculer la longueur l de la stalactite à une date t. Il est
+donc intéressant d’étudier dans quelle mesure cette loi fonctionne. Pour cela, comme on le
+voit sur la Figure 5a ci-dessous, Martin a mesuré la longueur de la stalactite en fonction du
+temps à trois différentes dates. La modélisation en racine du temps est donnée par un trait
+plein. Sur la Figure 5b, on peut observer également l’évolution de la longueur de la stalactite
+en fonction du temps, représentée grâce à nos mesures expérimentales effectuées.
+Figurés
+
+ponctuels
+
+représentants
+différentes
+
+Modèle
+
+les
+
+mathématique
+
+mesures
+
+prises par Martin
+(en trois jours différents)
+
+Figure 5a : Evolution de la longueur des brinicles au cours du temps (mesures expérimentales de Martin)
+
+On observe bien dans ce graphique que malgré les conditions climatiques différentes
+selon les jours, les mesures de Martin permettent de valider l'équation selon laquelle la
+longueur d’un brinicle est proportionnelle à la racine carrée du temps.
+10
+
+Longueur du brinicle (cm)
+
+9
+8
+7
+6
+5
+
+points expérimentaux
+
+4
+
+modèle
+
+3
+2
+1
+0
+0
+
+1
+
+2
+
+3
+
+4
+
+5
+
+Temps (min)
+
+4,64√
+12
+
+Lycée Bertran de Born
+
+Olympiades de Physique 2020-2021
+
+Figure 5b : Evolution de la longueur des brinicles au cours du temps (nos mesures expérimentales)
+
+La manière dont pousse la stalactite de glace est asymétrique. En effet, comme on
+peut l’observer sur les photos prises par Seelye Martin lors de ses observations
+expérimentales, une fine couche de cristaux glace se constitue d’abord d’un côté puis de
+l’autre de la stalactite, à la suite de quoi, la glace remplit les espaces entre les cristaux jusqu’à
+former un tube complet autour du flux.
+
+13
+
+Lycée Bertran de Born
+
+Olympiades de Physique 2020-2021
+
+4. Dispositif expérimental et son évolution :
+4.1. Un premier dispositif
+4.1.1. Une chambre froide maison avec Arduino
+Tout d’abord, nous avons acheté un congélateur d’occasion que nous avons modifié
+pour pouvoir contrôler le niveau de refroidissement grâce à un relais et une carte Arduino que
+nous avons programmé pour pouvoir s’arrêter à une température donnée et redémarrer à une
+autre. Le programme écrit est représenté sur la Figure 6 ci-dessous. En effet, les expériences
+devant s’effectuer avec une eau possédant une température proche de son point de fusion,
+nous avions besoin d’une chambre froide que nous avons construite nous-même. Bien sûr la
+carte est équipée d’une sonde de température pour pouvoir effectuer ses décisions. Celle-ci
+est placée dans l’eau où se passe l’expérience pour que ce soit l’eau et non l’air qui soit à la
+bonne température.
+
+Figure 6 : Code Arduino pour le maintien d’une température dans le congélateur entre 0.3 et 1.5°C
+
+4.1.2. Le réservoir d’eau et le circuit d’alimentation
+Ensuite, pour pouvoir reproduire l’environnement de l’expérience nous nous sommes
+munis d’un vase sphérique que nous avons percé avec un diamètre d’un centimètre qui fait
+office de trop plein à une distance de 3 centimètres du bord supérieur. Puis, pour avoir un
+14
+
+Lycée Bertran de Born
+
+Olympiades de Physique 2020-2021
+
+débit constant d’eau dans le récipient, nous avons acheté une pompe péristaltique (nous
+avons trouvé un modèle permettant d’obtenir un débit d’eau similaire à celui utilisé pour les
+expériences de Martin). L’arrivé d’eau a été fixé au milieu d’une plaque de polystyrène flottant
+à la surface du bocal qui comporte deux niveaux, un qui fait toute la surface de l’eau et un
+autre plus bas et plus petit pour que l’écoulement de l’eau se produise à l’intérieur du milieu
+et non à sa surface. La pompe a été placée à l’intérieur du congélateur pour qu’il n’y ait aucun
+écart de température significatif.
+
+4.1.3. Le système de prise de vue
+De plus, nous avons équipé l’intérieur d’une bande LED que nous avons fait passer
+entre l’évaporateur supérieur et la cloison. Par la suite, nous avons accroché une caméra sur
+la porte du réfrigérateur pour pouvoir filmer l’expérience convenablement.
+Nous avons fait passer les câbles de la sonde, de la caméra et de l’alimentation du
+ruban LED par le passage prévu pour la sonde de température originale du le congélateur.
+
+4.2. Echecs et améliorations du dispositif
+
+Figure 7 : schémas du dispositif expérimental
+
+L’expérience consiste à réussir à recréer un brinicle dans notre congélateur. Pour cela,
+comme indiqué sur la Figure 7, nous avons mis dans notre congélateur un bocal de 14L que
+nous avons rempli (pas dans son entièreté mais en grande partie) avec de l’eau puis nous
+avons disposé la saumure (concentration minimale de 220 g/L en sel – température -15°C) à
+l’extérieur du congélateur et celle-ci fut pompée et envoyée progressivement dans le bocal via
+une pompe et un tuyau passant dans le congélateur. En plus de cela, nous avons installé un
+15
+
+Lycée Bertran de Born
+
+Olympiades de Physique 2020-2021
+
+trop plein pour évacuer le surplus d’eau dans le bocal durant l’expérience (voir schéma
+dispositif initial).
+
+4.2.1. Choix des concentrations en sel
+Dans un premier temps, nous avons fait une erreur en décidant de ne pas suivre les
+concentrations données dans la publication de Seelye Martin sur laquelle nous nous sommes
+appuyés, avec une saumure beaucoup plus concentrée en sel et ainsi avec une température
+plus basse. De plus, nous n’avions pas mis de sel dans le bocal où se passe l’expérience. Le
+but était ainsi d’obtenir un résultat encore plus fort. Et nous fabriquions notre saumure sur le
+moment en mélangeant de la glace avec de l’eau salée. N’ayant pas de résultats probants,
+nous avons ensuite décidé de nous rapprocher de la salinité et de la température présentes
+dans la publication. Pour le reste des expériences, nous avons mis une concentration en sel
+dans le bocal d’environ 22 g/L afin de se rapprocher de la composition de l’eau de mer, et
+nous l’avons maintenue à une température comprise entre 0 et 1 °C. Quant à la saumure, elle
+possède maintenant une concentration de 220 g/L de sel et nous maintenons sa température
+entre -15 et -7 °C grâce à un bloc de saumure gelée très froid (en-dessous de -20°C) que
+nous plaçons dans le réservoir de saumure
+
+4.2.2. Amélioration du système
+Quelques problèmes techniques : Le premier problème que nous avons rencontré
+est que notre sonde reliée à la carte Arduino n’a pas supporté le contact prolongé avec l’eau
+salée, nous avons donc dû en changer car ses mesures n'étaient plus fiables. En suivant,
+nous nous sommes retrouvés face à un autre problème : le tuyau présent à l’intérieur de notre
+pompe s’est percé, nous avons donc dû démonter la pompe afin de couper le tuyau au niveau
+du trou car c’était notre seul tuyau de la bonne taille. Après cela tout était prêt pour procéder
+à l'expérience mais cela n’a pas fonctionné.
+Au cours de cette aventure nous avons aussi eu d’autres pépins : un problème avec
+le relais. Celui-ci ne stoppait plus le refroidissement du congélateur ce qui a occasionné 2 fois
+où nous avons retrouvé notre bocal complètement gelé. Nous avons donc dû changer le relais,
+ce qui a résolu le problème. Pour finir notre pompe s’arrête de fonctionner aléatoirement ce
+qui implique de la démonter et de la remonter de temps en temps
+Des modifications du dispositif :
+Cependant, nous avons vite remarqué que cela n’allait pas permettre la réussite de
+l’expérience et nous avons donc décidé de mettre la saumure et la pompe directement dans
+le congélateur, au-dessous du bocal et nous avons ajouté une plaque isolante en polystyrène
+que nous perçâmes afin de les faire passer.
+
+16
+
+Lycée Bertran de Born
+
+Olympiades de Physique 2020-2021
+
+Afin d’améliorer notre dispositif et d’obtenir un brinicle, nous avons d’abord travaillé
+sur la partie haute de notre expérience. Nous nous sommes rendus compte que le tuyau
+envoyant la saumure dans le bocal n’était pas stable, en effet il bougeait sous la pression de
+l’eau et ne diffusait donc pas la saumure au même endroit tout au long de l’expérience. Nous
+avons donc découpé et troué une plaque de polystyrène flottant à la surface de l’eau pour y
+coincer notre tuyau. Ainsi le flux de saumure restait au même endroit. De plus, le flux de
+saumure est maintenant injecté à quelques centimètres sous la surface de l’eau, là où la
+pression est plus importante.
+Dans un second temps nous avons décidé de mettre la pompe à l’intérieur du
+congélateur pour conserver la saumure à la température la plus basse possible.
+Enfin, nous avons décidé de rajouter une plaque de glace que nous plaçons sous le
+socle en polystyrène, nous avons en effet remarqué que cela favorise la formation des
+brinicles.
+Malgré ses difficultés nous avons finalement réussi à obtenir nos premiers brinicles
+avec le montage final (voir schéma)
+
+5. Bilan de l’expérience
+
+Figure 8 : Image d’un brinicle en formation
+
+17
+
+Lycée Bertran de Born
+
+Olympiades de Physique 2020-2021
+
+5.1. Résultats :
+Nous sommes enfin arrivés à nos premiers objectifs : former un brinicle, le filmer et mesurer
+la croissance de la stalactite en fonction du temps afin de vérifier par nous-même l’équation
+mathématique établie par Seelye Martin. Certains paramètres semblent très importants pour
+voir l’apparition de ce phénomène :
+●
+
+Une grande différence de température entre la saumure et l’eau liquide
+
+●
+
+L’absence de bulle d’air dans le flux de saumure (souvent une bulle est venue casser
+un brinicle en cours de formation)
+
+●
+
+La présence d’un peu de glace au démarrage semble favoriser l’apparition.
+
+5.2. Analyse des résultats :
+Pour que les brinicles se forment, il faut donc que l’eau que va traverser le courant de
+saumure soit salée. Il faut également que la saumure soit de température plus basse que l’eau
+du bocal. L’eau du bocal, quant à elle, doit être comprise entre 0 et -1°C.
+Nous voulons maintenant réussir à filmer la formation de plusieurs brinicles ainsi que
+déterminer la vitesse à laquelle se forment les brinicles dans le cadre de notre expérience. De
+plus, nous cherchons maintenant également à rendre notre expérience reproductible plus
+facilement, notamment en faisant varier des paramètres tels que la salinité des solutions ou
+le débit de la pompe péristaltique afin de trouver les conditions idéales de formation des
+brinicles dans le cadre de notre expérience.
+
+18
+
+Lycée Bertran de Born
+
+Olympiades de Physique 2020-2021
+
+6. Conclusion :
+Nous pourrions penser que cette expérience n’était pas très compliquée à mettre en
+œuvre. Il ne s’agissait en effet que de créer un courant de saumure froide dans de l’eau moins
+froide et moins salée que la saumure.
+Seulement, la partie pratique de l’expérience s’est révélée plus compliquée que la
+partie théorique. Effectivement, nous avons tout d’abord attendu que la pompe que nous
+avions commandée arrive. Pendant ce temps, nous avons dû régler quelques problèmes pour
+préparer le reste de l’expérience. Une fois la pompe arrivée, nous l’avons adaptée pour notre
+expérience. Seulement, une fois l’expérience lancée, les brinicles n’apparaissaient pas. Tout
+semblait pourtant fonctionner. Nous avons ensuite été confrontés à un autre problème : le
+réfrigérateur contrôlé par une carte Arduino devait maintenir l’eau du bocal à une température
+fixe. Mais, quand le réfrigérateur atteignait la température fixée, il continuait à refroidir alors
+qu’il était censé s’arrêter. Nous avons finalement réussi à trouver d’où provenait le problème.
+Le réfrigérateur s’arrêtait donc maintenant bien à la température fixée. Entre-temps, lors d’une
+manipulation où nous avons sorti le bocal du réfrigérateur, l’une d’entre nous s’est retrouvée
+les doigts coincés sous le bocal, bilan : fracture des doigts.
+Mais nous avons finalement réussi à surmonter tous ces obstacles pour obtenir des
+brinicles.
+Nous pourrions certainement mieux maîtriser la formation des brinicles de plusieurs façons.
+Tout d’abord en contrôlant la salinité de la saumure et de l’eau du bocal de manière plus
+précise. Ensuite, nous pourrions également essayer de maîtriser de manière plus précise la
+température de la saumure.
+Les brinicles sont donc un phénomène naturel étrange et spectaculaire qui demande des
+conditions précises de salinité et de température pour se former.
+
+19
+
+Lycée Bertran de Born
+
+Olympiades de Physique 2020-2021
+
+8. Sources :
+Seelye Martin (1974) : Ice stalactites: comparison of a laminar flow theory with experiment
+Paul K. Dayton & Seelye Martin (1971) Observations of Ice Stalactites in McMurdo Sound,
+Antarctic
+Lars Ingolf Eide & Seelye Martin (1975) The formation of brine drainage features in young sea
+ice
+Steven D. Vance, Laura M. Barge, Silvana S.S. Cardoso, & Julyan H.E. Cartwright (2019)
+Self-Assembling Ice Membranes on Europa: Brinicle Properties, Field Examples, and Possible
+Energetic Systems in Icy Ocean Worlds
+
+9. Remerciements :
+Nous souhaitons remercier M. Ducassou et M. Torrens, professeurs de physique-chimie, qui
+nous ont encadrés et permis d’avancer malgré les difficultés rencontrées et sans qui nous
+n’aurions jamais pu faire ne serait-ce que la moitié de ce que nous avons fait.
+Nous souhaitons également remercier le personnel des laboratoires qui nous ont permis
+d'accéder au matériel dont nous avons eu besoin.
+
+20
+
+

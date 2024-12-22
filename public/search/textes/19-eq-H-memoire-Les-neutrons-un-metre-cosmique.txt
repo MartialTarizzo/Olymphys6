@@ -1,0 +1,1084 @@
+BOSCH
+Daphnée
+CHEMIN
+Arsène
+CHUARD
+Julie
+MARQUET-BASSET
+Alexandra
+SAINT-GERMAIN
+Thomas
+Projet encadré par
+BURILLER
+Nadège
+Lycée Marie
+Reynoard
+Villard-Bonnot
+Académie de
+Grenoble
+
+Les neutrons : un mètre
+cosmique ?
+Partenariats
+
+XIXème édition
+
+Remerciements :
+Nous tenons à remercier de nombreuses personnes pour leur soutien et leur aide tout au
+long de notre projet ; contribution précieuse sans laquelle tout ce travail n'aurait pu se concrétiser :
+L'équipe du L.P.S.C (1), tout d'abord, a joué un rôle particulièrement important. Un grand
+merci donc à :
+• Monsieur Guillaudin, ingénieur chercheur pour son aide à la conception et aux tests du
+détecteur,
+• Monsieur Roger Brissot, enseignant chercheur à la retraite pour ses cours si
+intéressants, sa patience et les multiples réponses qu'il a sues nous apporter,
+• Madame Myriame Migliore, ingénieure d'étude instrumentation pour son travail sur
+l'acquisition et le matériel,
+• Monsieur Patrick Stassi, ingénieur chercheur et Rémi Faure, assistant ingénieur pour
+leur étude sur le logiciel d'acquisition,
+• Monsieur Germain Bosson, ingénieur d'étude électronique pour son travail sur le préamplificateur,
+• Monsieur Jean-Pierre Scordilis pour le câblage et la mise en boîtier du préamplificateur.
+• Monsieur Dominique Fombaron, technicien mécanique pour l'élaboration de pièces du
+détecteur.
+La participation de l'entreprise E.D.F a elle aussi été particulièrement concluante, et plus
+particulièrement celle de la D.T.G (Division Technique Générale), située 21 rue de l'Europe à
+Grenoble. Parmi elle, nous remercions plus particulièrement :
+• Monsieur Thibault Mathevet pour son cours sur l'hydrologie et sa pédagogie,
+• Monsieur Dominique Parrel pour son efficacité et sa contribution dans la partie
+logistique de notre projet (financement et commande du tube BF3, de l'ordinateur et de
+l'alimentation haute tension...),
+• Monsieur Paul Carrier pour nous avoir accueillis à la station météorologique du Col de
+Porte.
+Pour notre exposé à Paris, il nous est important de signaler la participation de l’Institut Laue
+Langevin (ILL) de Grenoble et de remercier :
+• Monsieur Bruno Guerard, chef du Service des Détecteurs de Neutrons, pour le prêt d'un
+pré-amplificateur et d'un tube contenant de l'hélium 3.
+Nous tenons enfin à exprimer notre gratitude à :
+• Madame Nadège Buriller, qui nous a faits découvrir ce projet et qui nous a avant tout
+soutenus, encadrés et aidés tout au long de sa réalisation,
+• Monsieur Thierry Bonvin pour ses corrections, ses suggestions de rédaction et sa
+contribution à la partie sur l'hydrologie.
+• Monsieur Gilbert Vincent pour ses cours, ses suggestions et sa contribution à la partie
+absorption sur les calculs conservation de la quantité de mouvement placés en annexe.
+
+(1) Laboratoire de Physique Subatomique et de Cosmologie de Grenoble.
+
+Table des illustrations :
+Illustration n°1 : Sortie à la station météorologique du Col de Porte le 14 Juin 2011 (photographie).
+Page de couverture.
+Illustration n°2 : Gerbe cosmique produite par un proton (schéma).
+Partie théorique / Page 6.
+Illustration n°3 : La création d'un neutron par interaction directe (schéma).
+Partie théorique / Page 7.
+Illustration n°4 : Création d'un neutron par évaporation (schéma).
+Partie théorique / Page 8.
+Illustration n°5 : Schéma du détecteur (schéma).
+Partie théorique / Page 10
+Illustration n°6 : La réaction d'un neutron avec le BF3 dans le tube (schéma).
+Partie théorique / Page 12.
+Illustration n°7 : La création d'un signal dans le tube (schéma).
+Partie théorique / Page 13.
+Illustration n°8 : Intensité du champ électrique en fonction de la distance au fil (graphique).
+Partie théorique / Page 13.
+Illustration n°9 : Une cascade électronique (schéma).
+Partie théorique / Page 13.
+Illustration n°10 : La détection des neutrons : l'énergie en fonction du nombre de coups (diagramme).
+Partie pratique / Page 15.
+Illustration n°11 : Extrapolation sur la forme du diagramme de l'énergie en fonction du nombre de coups
+(diagramme).
+Partie pratique / Page 18.
+Illustration n°12 : Variation du flux de neutrons en % en fonction d'une variation de pression (graphique).
+Partie pratique / Page 19.
+Illustration n°13 : Courbe du nombre de coups en fonction de l'épaisseur d'eau (graphique).
+Partie pratique / Page 20.
+Illustration n°14 : Courbe du rapport N/N0 en fonction de l'épaisseur d'eau (graphique).
+Partie pratique / Page 21.
+
+Sommaire
+Résumé . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . page 4
+Introduction . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . page 4
+Partenaires . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . page 4
+
+Théorie :
+I. De l'espace au détecteur
+1. De la source à l'atmosphère . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . page 6
+2. Création de neutrons sur nos têtes . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . page 6
+a. Création de neutrons par interaction directe. . . . . . . . . . . . . . . . . . . . . . page 7
+b. Création de neutrons par évaporation . . . . . . . . . . . . . . . . . . . . . . . . . . page 8
+3. La neige . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . page 8
+a. La thermalisation . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . page 8
+b. L'absorption . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . page 9
+c. Une nouvelle production . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . page 9
+II. Dans le détecteur
+1. Vision d'ensemble : schéma du détecteur . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . page 10
+2. Les gaz . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . page 10
+a. L'Hélium 3 . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . page 10
+b. Le Trifluorure de Bore . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . page 11
+c. Les motivations de notre choix. . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . page 12
+3. Le traitement du signal . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . page 13
+
+Pratique :
+Introduction : nos expériences . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . page 15
+I. Etudes des mesures
+1. Etude du diagramme obtenu. . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . page 15
+a. Le type de diagramme . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . page 15
+b. Extrapolation théorique de la forme du diagramme . . . . . . . . . . . . . . . page 16
+2. Fluctuation du flux cosmique : influence de la pression et de l'activité solaire . . . . . . page 18
+3. Courbe d'étalonnage : nombre de neutrons détectés en fonction de la hauteur d'eau . . page 20
+II. Applications pratiques du détecteur par EDF
+1. Optimiser la production d'électricité . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . page 22
+2. Du détecteur à la prévision d'apport d'eau . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . page 22
+3. Les bassins versants et leur modélisation . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . page 22
+Bibliographie . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . page 24
+Annexes:
+Annexe 1 : La section efficace.
+Annexe 2 : L'électron-volt.
+Annexe 3 : L'énergie de liaison.
+Annexe 4 : Calcul de quantité de mouvement.
+
+Annexe 5 : Schéma de pré-amplificateur.
+Annexe 6 : Mesures et traitement.
+Annexe 7 : A propos du tube...
+Annexe8 : Album photos.
+
+Résumé :
+Comment les neutrons peuvent-ils jouer le rôle de mètre cosmique ? Telle est la question autour
+de laquelle s'organise notre travail, pour nous élèves du Lycée Marie Reynoard de l'académie de
+Grenoble. Nous avons décidé de nous pencher sur le principe d'un détecteur de neutrons, utilisé
+par E.D.F pour déduire une hauteur d'eau à partir d'une couche de neige . Issus de la réaction de
+protons secondaires avec des noyaux d'azote, ces derniers sont créés par interaction directe ou par
+évaporation. Suite à leur passage dans la neige (nouveau lieu d'interactions) ils arrivent enfin dans
+notre détecteur pour réagir avec les noyaux de Bore présents dans le BF3. Après ionisation de ce
+gaz, une cascade électronique permettra l'obtention d'un signal, qui sera traité par un système
+d'acquisition. De là, nous pouvons construire de nombreux diagrammes et en particulier celui du
+nombre de neutrons en fonction de l'épaisseur d'eau. Le tour est joué : notre mètre cosmique
+fonctionne !
+Introduction :
+Tout a commencé par les propos de Madame Buriller, notre professeur de Sciences
+Physiques au lycée Marie Reynoard. Elle a eu la chance de réaliser un stage au CERN (1) pour
+mieux sensibiliser les élèves du secondaire à la physique des particules. Elle prend ainsi la
+responsabilité d'une Roue Cosmique fabriquée dans un but pédagogique par l'IN2P3 (2) et le
+CPPM (3). Son mari, ingénieur chez E.D.F, lui apprend que son entreprise utilise aussi les rayons
+cosmiques et des détecteurs de neutrons. Madame Buriller nous propose alors ce thème, songeant
+déjà aux Olympiades de Physique. Pour ne pas tout dévoiler, disons simplement que E.D.F
+emploie le détecteur pour déterminer le volume d'eau qui résultera de la fonte des neiges, et de
+prévoir les répercussions sur leurs barrages. Imaginé par des chercheurs et ingénieurs du LPSC de
+Grenoble (4), avec qui nous avons travaillé tout au long de ce projet, il est aujourd'hui utilisé non
+loin de chez nous, au Col de Porte. De nombreux autres capteurs sont également implantés au
+travers des Alpes et des Pyrénées.
+Mais bien des mystères encadrent finalement cette machine et parmi eux, le suivant :
+comment les neutrons peuvent-ils mesurer des hauteurs d'eau ?
+Quand les neutrons tombent à l'eau, cela laisse toujours présager de plaisantes
+découvertes !
+Pour mieux comprendre cette thématique, nous vous proposons tout d'abord de suivre les
+particules dans leurs incroyables aventures de l'espace jusqu'à notre détecteur. Pour continuer
+avec la théorie, nous aborderons dans un second temps le principe de détection en lui-même.
+Ensuite, nous passerons à une partie plus pratique concernant les conditions de nos expériences, à
+savoir la fabrication de notre propre machine et les problèmes rencontrés. Nous achèverons alors
+avec le traitement de nos résultats et autres données de l'expérience.
+(1) Stage effectué dans le cadre de l'action didactique COSMOS du dispositif « Sciences à
+l'Ecole ».
+(2) Institut National de Physique des Particules.
+(3) Centre de Physique des Particules de Marseille
+(4) Laboratoire de Physique Subatomique et de Cosmologie
+Partenaires :
+Tout au long de notre projet, nous avons eu la chance de bénéficier d'un important
+partenariat avec des chercheurs et ingénieurs du Laboratoire de Physique Subatomique et de
+Cosmologie de Grenoble (LPSC) mais aussi de l'entreprise E.D.F (Électricité De France).
+
+Page 04
+
+Théorie
+
+I. De l'espace au détecteur.
+1. De la source à l'atmosphère.
+Le temps que vous lisiez ces mots, des centaines de neutrons viennent de vous traverser (75 par m2
+par seconde). Mais, d'où viennent-ils ?
+Leur histoire commence dans l'immensité de l'espace. Là, se trouvent les différentes sources des
+rayons cosmiques.
+Les premières sont les supernovas. Ces phénomènes extraordinairement violents résultent de
+l'implosion d'une étoile en fin de vie. Certaines supernovas peuvent produire une quantité de lumière
+équivalente à celle de milliard de soleils. Toutes expulsent aussi un nombre gigantesque de particules dans
+toutes les directions avec une énergie considérable.
+La seconde source de rayons cosmiques est probablement le noyau actif des très grandes galaxies.
+Les trous noirs qui se trouvent en leur centre éjecteraient un grand faisceau de particules
+perpendiculairement à leur plan. Cependant nous n'avons encore que peu d'informations sur cette source.
+En effet, l'univers n'a pas encore dévoilé tous ses secrets.
+
+2. Création de neutrons sur nos têtes.
+Aux abords de notre planète, les rayons cosmiques sont composés de 87% de protons, dits
+primaires, de 12% de noyaux atomiques (essentiellement de l’hélium) et de 1% d'électrons. Ils
+contiennent aussi de nombreux neutrinos. Cependant ces derniers sont presque indétectables car ils
+interagissent très peu avec la matière.
+Toutes ces particules ont parcouru de longues distances dans le vide intersidéral avant de pénétrer
+dans l'atmosphère terrestre où elles vont interagir avec les noyaux d'oxygène et d'azote qui la composent.
+Evidemment il y a plus d'interactions avec l'azote puisque celui-ci constitue 78% de l'air, mais aussi parce
+que sa section efficace (cf. ANNEXE 1) est plus importante que celle de l'oxygène.
+Les rayons cosmiques n'arrivent donc pas tels quels au sol : nous ne recevons pratiquement que le
+résultat de leurs interactions avec la matière de l'atmosphère. Ces interactions vont donner naissance à une
+grande quantité de particules. On parle de gerbe cosmique ou de pluie céleste.
+Celles-ci sont constituées au sol de 60% de muons, 17% d'électrons et de 23% de composantes
+nucléoniques. L'ensemble de ces particules représente au sol un flux de 191 muons/m2/s,
+de 75 neutrons/m2/s et de 1,7 protons/m2/s.
+Ainsi on compte près de 45 fois plus de
+neutrons que de protons au niveau du sol alors
+que ces derniers étaient initialement majoritaires !
+Nous ne nous intéressons qu'aux interactions
+au niveau du sol entre des protons secondaires et
+des noyaux d'azote. Ces protons sont appelés ainsi
+car ils sont créés dans l'atmosphère par d'autres
+particules cosmiques. Seules ces interactions
+entrent dans la création des neutrons que nous
+détectons. Lors de ces interactions les neutrons
+apparaissent de deux façons différentes.
+
+Schéma d'une gerbe cosmique produite par un proton
+
+Page 06
+
+a. Création de neutrons par interaction directe.
+L'interaction directe est à l'image d'un carreau parfait
+à la pétanque : une boule prend la place d'une autre en la
+chassant. Ainsi en arrivant dans un noyau d'azote, un proton
+peut entrer en collision avec un neutron : il en prend la place
+tandis que ce dernier est chassé directement de l'atome. Les
+protons secondaires responsables de ces interactions
+possèdent en moyenne une énergie d'environ 10 MeV
+(mégaélectron-volt, cf. ANNEXE 2).
+Cette réaction est très rapide. Sa vitesse est
+comparable au temps qu'il aurait fallu au proton incident pour
+traverser le noyau, c'est à dire 10-22 s (diamètre moyen d'un
+noyau 10-14 m et célérité de la lumière dans le vide
+3,00.108 m.s-1).
+L'atome d'azote, noté 714N, auquel on a ajouté un proton, devient alors un oxygène 14 excité, noté
+8 O*, selon l'équation nucléaire :
+14
+1
+1
+14
+7 N + 1 p → 0 n + 8 O*
+14
+
+L'oxygène 14 se désexcite en émettant une particule β+. En effet cet atome est instable. Pour se
+stabiliser il va chercher à transformer un de ses protons en neutron. C'est à dire qu'un proton du noyau
+d'oxygène va redevenir un neutron en formant un positron (ou anti-électron) et un neutrino électronique.
+Le noyau d'oxygène perdant un proton va redevenir un noyau d'azote selon l'équation:
+14
+
+8
+
+O* → 714N + +10e + ve
+
+Du fait des propriétés de la symétrie physique, cette équation peut aussi s'écrire sous la forme:
+14
+
+8
+
+O* + -10e → 714N + ve
+
+En effet l'émission d'un positron équivaut à la capture d'un électron par un proton du noyau
+d'oxygène. On appelle cela la capture électronique. Or il est intéressant de savoir que cet électron
+provient directement du cortège électronique de l'atome.
+Mais toutes les particules subatomiques ont seulement "une probabilité de présence" à un endroit
+donné. Cela signifie qu'un électron du cortège électronique peut parfois se retrouver à l'intérieur même du
+noyau, ce qui explique la capture électronique. Pour un atome léger comme l'oxygène ce phénomène est
+plus probable que la désintégration β+.
+Pour autant, le modèle physique du cortège électronique avec des couches d'électrons bien placées
+autour du noyau, n'est pas vraiment erroné. L'électron est représenté à cet endroit précis parce que c'est
+l'endroit où il a le plus de probabilité de se trouver.
+La capture électronique et la désintégration β+ sont des réactions lentes du point de vue physique :
+elles se font en 70 secondes. Pendant ce temps l'atome d'oxygène peut aussi émettre un rayonnement
+gamma, c'est à dire émettre des photons :
+14
+14
+8 O* → 8 O + γ .
+Cette réaction ne durant que 10-12 s, elle peut avoir lieu en même temps que la désintégration β+.
+
+Page 07
+
+b. Création de neutrons par évaporation.
+Pour l'évaporation des nucléons, on peut prendre
+l'image d'une boule de pétanque qui va en percuter une autre
+mais en gardant de l'énergie. C'est toujours un carreau mais
+moins bien réalisé !
+En entrant dans un noyau d'azote, un proton ne heurte
+pas forcément un nucléon bien de face.
+Le noyau d'azote accueillant ce proton va devenir un
+noyau composé.
+Le proton incident va passer son énergie à tous les
+nucléons du noyau. Ceux-ci vont alors tous s'entrechoquer. À
+un moment, un neutron va accumuler assez d'énergie par ces
+chocs pour pouvoir s'affranchir des frontières du noyau et
+quitter l'atome d'azote.
+Pour l'évaporation, un autre parallèle peut être fait avec l'eau chauffée dans une casserole sur le
+gaz. Des molécules d'eau s'évaporent, passant de l'état liquide à l'état gazeux, lorsque leur énergie atteint
+au moins 2257 J/g à pression ambiante. On appelle cela la chaleur latente de vaporisation.
+Dans cette analogie, la chaleur latente de vaporisation correspond à l'énergie de liaison du
+neutron au noyau. Cette dernière est d'environ 7 MeV (cf. ANNEXE 3). C'est cette énergie que doit
+atteindre un neutron pour sortir du noyau.
+Il est plus probable que ce soit un neutron qui s'évapore au lieu d'un proton. En effet les neutrons
+étant électriquement neutres, ils ne sont pas sensibles à la force électromagnétique générée par les protons
+du noyau. Cette dernière, répulsive pour un proton, crée en s'ajoutant à la force nucléaire forte, une
+barrière électrostatique autour du noyau. Les protons, qui sont chargés, doivent la traverser pour
+s'affranchir des limites de celui-ci. Et cela demande une énergie plus importante.
+La réaction d'évaporation a lieu en 10-14s. Même si cela paraît court elle prend 108 fois plus de
+temps que l'expulsion du neutron par interaction directe, mais elle a la même probabilité d'avoir lieu.
+En conclusion le trajet des rayons cosmiques sur notre planète n'est pas de tout repos. Les neutrons
+qui arrivent au sol sont créés par interaction directe et par évaporation.
+Maintenant le voyage continue dans la neige. Traverser celle-ci est une autre histoire !
+
+3. La neige.
+a. La thermalisation.
+Notre or blanc est composé de molécules d'eau, donc d'atomes d'oxygène et d'atomes d'hydrogène.
+Ces derniers vont être responsables du phénomène de thermalisation : les neutrons vont atteindre dans la
+neige une énergie voisine de 0,025 eV. On parle alors de neutrons thermiques. Un neutron thermalisé
+possède une vitesse d'environ 2200 m.s-1.
+Ec = 3/2 k T
+
+k = constante de Boltzmann = 1,3806503.10-23 J.K-1
+neutron thermalisé autour de 20°C (293K)
+
+Ce sont ces neutrons que le détecteur va mesurer le plus souvent. En effet c'est à ces énergies que la
+section efficace (cf. ANNEXE 1) du gaz utilisé avec les neutrons est la plus grande.
+
+Page 08
+
+De l'atmosphère arrivent également des neutrons thermiques. En effet, il se peut que l'énergie des
+protons secondaires responsables de la création des neutrons soit elle-même basse. Et ce parce que
+l'énergie des particules qui les ont créés s'est dissipée au cours de leurs différentes interactions avec les
+particules de l'atmosphère.
+Dans la neige cependant c'est une autre raison qui explique la thermalisation des neutrons.
+Pour expliquer cela : un peu de sport. Imaginez que vous placiez sur une table des boules de
+pétanque. Maintenant, au milieu de ces boules, vous lancez une balle de ping-pong. Lorsque celle-ci tape
+dans une boule de pétanque, elle repart pratiquement à la même vitesse, c'est à dire avec la même énergie
+cinétique. Seule sa direction change. C'est ce qui se passe, dans l'atmosphère et dans la neige, lorsqu'un
+neutron non thermalisé croise les gros noyaux d'oxygène et d'azote. (cf. ANNEXE 4)
+Maintenant imaginez que les boules de pétanque soient remplacées par des balles de ping-pong.
+Lorsque la balle que vous allez lancer va en frapper une autre, de même masse, elles vont partir toutes les
+deux avec une vitesse inférieure à la vitesse initiale. Dans la neige, c'est ce qui se passe lorsqu'un neutron
+entre en collision avec un atome d'hydrogène. En effet qu'est-ce qu'un atome d'hydrogène sinon un proton
+autour duquel tourne un électron. Un proton et un neutron ayant sensiblement la même masse, en se
+cognant contre les atomes d'hydrogène un neutron va perdre de l'énergie et être thermalisé au fur et à
+mesure. (cf. ANNEXE 4)
+b. L'absorption.
+De ce fait, on pourrait penser observer de plus en plus de neutrons dans notre détecteur lorsque la
+couche de neige augmente : plus il y aurait de neutrons thermalisés, plus il en arriverait au détecteur.
+Cependant un deuxième phénomène entre en jeu : l'absorption. Celui-ci se produit de façon encore plus
+importante que le premier. Les atomes d'hydrogène vont capturer les neutrons, de préférence thermalisés,
+qui passent: c'est la capture radiative selon :
+1
+1
+
+H + 01 n→ 12 H + γ
+
+Ainsi un deutérium est formé. Il peut alors à son tour capter un autre neutron et former un tritium.
+2
+
+1
+
+H + 01 n→ 13 H + γ
+
+Plus il y a de neutrons thermalisés, plus il y a de neutrons absorbés. Donc plus il y a de neige,
+moins on capte de neutrons.
+Un neutron est absorbé en moyenne 6 cm après être entré dans l'eau. De ce fait, le détecteur ne
+voit plus de neutrons originaires de l'atmosphère au bout d'environ 20 cm de neige, car la neige est moins
+dense que l'eau : il y a donc une moins forte densité d'atome d'hydrogène.
+c. Une nouvelle production.
+Ne vous en faites pas, un détecteur mesure la neige au-delà de 20 cm d'épaisseur de neige, car
+après il reste toujours des neutrons. Cela s'explique par une nouvelle création de neutrons dans la neige.
+En effet il arrive toujours des protons au sol, même s'il y en a peu. En interagissant avec les noyaux
+d'oxygène, ils forment un noyau de fluor 14 excité. Des neutrons vont apparaître par interaction directe ou
+par évaporation.
+Cette fois selon l'équation :
+14
+1
+1
+14
+8 O + 1 p → 0 n + 9 F*.
+Ce fluor 14 excité se désexcite de la même façon que l'oxygène 14 excité (β+).
+
+Page 9
+
+II. Dans le détecteur de neutrons
+1. Vision d'ensemble : schéma du détecteur
+Anode
+Tube protecteur
+Bouchon d'étanchéité
+Générateur
+H.T
+
+Pré-amplificateur
+de charge
+
+±
+
+Céramique de scellage
+
+6V
+
+oscilloscope
+Système d'acquisition
+
+Comme nous le voyons ci-dessus, le détecteur est constitué en premier lieu d'un tube puis d'un
+système électronique. Le tube contient un gaz qui permet, par une réaction avec les neutrons, de créer un
+signal électrique qui est ensuite amplifié et traité par le système électronique. Nous allons étudier ces
+deux étapes ci-dessous.
+
+2. Les Gaz
+Le composant principal de ce détecteur de neutrons cosmiques est le gaz contenu dans le tube.
+C'est grâce aux différentes propriétés de celui-ci que les neutrons sont détectés. Il est donc fondamental de
+bien le choisir. Actuellement, il existe deux gaz différents pouvant être utilisés dans ce type de détecteur :
+l'hélium 3, noté 23He, et le trifluorure de bore, noté BF3. Afin de privilégier l'un de ces deux gaz , voyons
+leurs propriétés plus en détail.
+a. L'hélium 3
+L'hélium 3 est un des sept isotopes de l'hélium. Il s'agit d'un noyau stable composé d'un neutron et
+de deux protons. Cet isotope est très rare à l'état naturel. Il est maintenant presque absent de notre planète,
+d’autant plus qu’il est déjà très exploité dans d'autres domaines de la science telle que la fusion nucléaire.
+Aussi son prix est très élevé : 15 000 $ le litre atmosphérique. Néanmoins, sa section efficace
+(cf. ANNEXE 1) est bien plus importante que celle du BF3. Il est donc, dans des conditions similaires,
+d’une plus grande efficacité pour détecter les neutrons puisqu'il réagit mieux.
+Que se passe-t-il lorsque ce gaz est en présence d'un neutron ?
+Le neutron prend alors la place d'un proton du noyau de l'hélium 3 suivant une reaction de type
+(n,p). Une nouvelle particule est alors formée : un tritium. Ce dernier est un isotope de l'hydrogène
+composé de deux neutrons et d'un proton. Il est noté 13H :
+3
+
+2
+
+He + 01n → 13H + 11p
+Page 10
+
+Lors de cette réaction, une partie de la masse du système est convertie en énergie selon la célèbre
+relation d'Einstein : E=mc2. Cette énergie est alors dissipée par la mise en mouvement des deux particules
+créées. Elles partent dans deux directions diamétralement opposées conservant ainsi la quantité de
+mouvement p. Dans notre cas, l'atome avant réaction peut être considéré comme immobile si on le prend
+comme référentiel. On a donc pi = 0. Par le principe de la conservation de la quantité de mouvement, on
+en déduit que la somme des quantités de mouvements des deux particules créées p 1 et p2 est égale à la
+quantité de mouvement initiale pi :
+pi = p1 + p2 = 0
+m1.v1 + m2.v2 = 0
+m1.v1 = -m2.v2
+On déduit de cette égalité que v2 a la même direction que v1 mais un sens opposé et donc que les deux
+particules suivent deux trajectoires opposées.
+Notons que, dans ce cas, ces deux corpuscules ne se déplacent pas dans le vide mais dans un gaz.
+Ils vont donc se heurter aux différents nuages électroniques des atomes d'hélium 3 se trouvant sur leur
+trajectoire. La force de cette collision va pouvoir arracher des électrons aux atomes qui vont alors se
+retrouver libres. Le détecteur sera par la suite capable de capter ces électrons libres.
+b. Le trifluorure de bore
+Contrairement à l'hélium 3, le trifluorure de bore n'est pas un atome mais une molécule composée
+d'un atome de bore (B) et de trois atomes de fluor (F). Le bore est composé de cinq protons et de cinq
+neutrons pour l'isotope qui nous intéresse (20%). Le fluor, lui, est composé de neuf protons et
+généralement de dix neutrons. Cette molécule est nettement plus simple à créer et à se procurer que
+l'hélium 3, mais la section efficace (cf. ANNEXE 1) du bore est bien inférieure à celle de l’hélium 3.
+Le trifluorure de bore est donc un gaz bien moins efficace pour détecter les neutrons.
+Le principe de la réaction entre cette molécule et un neutron est le même que celui vu pour
+l'hélium à quelques différences près. Notons que le réactif est l’atome de bore et non la molécule entière.
+De la même manière que précédemment, le bore absorbe un neutron, mais il devient alors instable. Il se
+casse donc en formant deux nouveaux noyaux : un lithium (Li) et un hélium 4 (24He). Les deux noyaux de
+ces particules contiennent respectivement trois et deux protons ainsi que quatre et deux neutrons. Il y a
+alors deux réactions possibles :
+10
+
+5
+
+B + 01n → 37Li* + 24He
+1
+7
+4
+5 B + 0 n → 3 Li + 2 He
+10
+
+Elibérée = 2,31 MeV (93% des cas)
+Elibérée = 2,79 MeV (7% des cas)
+
+On remarque la création d'un noyau d'hélium également appelé particule α qui est stoppée par le
+gaz ou absorbée par la paroi du tube. Le lithium 7 n'est, quant à lui, laissé à l'état fondamental que dans
+7% des cas. Remarquons que dans la plupart des cas (93%), le noyau de Lithium est excité. Pour revenir à
+son état fondamental, il va émettre un photon γ :
+7
+
+3
+
+Li* → 37Li + γ
+
+Le photon émis possède alors une énergie de 478 keV, énergie correspondant à un rayonnement
+gamma.
+L'énergie récupérée par le détecteur est moins importante dans cette réaction : 2,31 MeV contre
+2,79 MeV. Une partie de l'énergie est diffusée par le photon et, ce dernier trop énergétique, ne s'arrête pas
+dans le gaz. Nous pourrons observer cette différence d'énergie lors de la détection. Nous pouvons
+également retrouver ces valeurs énergétiques par le calcul (voir I.1.b. Page 16)
+Suite à cette réaction, les deux noyaux formés vont, tout comme avec l'Hélium 3, être mis en
+mouvement et suivre des trajectoires diamétralement opposées. Ces deux particules vont arracher des
+électrons au gaz environnant et ainsi l'ioniser et permettre la détection.
+Page 11
+
+Li*
+
+n
+
++
+
++
+
+-
+
++
+
+- : électrons libres
++ : ions formés ( déf aut d'électrons )
+
+γ
+
+γ : photon émis dans 93 %
+des cas
+
+-
+
+B
++
+
+-
+
+-
+
++
+
+BF3
+
++
+
+He
+
+Réaction d'un neutron dans le BF3
+dans 93% des cas
+
+c. Les motivations de notre choix
+Dés le début de notre projet, il a fallu déterminer lequel de ces deux gaz nous allions utiliser dans
+notre détecteur. Pour cela nous avons dû comparer efficacité et coût. Comme nous avons pu l'observer,
+l'efficacité tranche clairement en faveur de l'hélium 3 : il est plus efficace et permet, pour une qualité
+d'analyse égale, de diminuer la quantité de gaz utilisée et donc la taille du détecteur. Cependant le tube est
+très difficile à se procurer puisqu'il est dorénavant peu commercialisé et très demandé. Son prix en est
+d'autant plus important et il semble inapproprié de dépenser plus de 2000 € afin d'acquérir celui-ci dans le
+cadre de notre projet.
+Finalement, nous avons utilisé le trifluorure de bore comme gaz pour notre détecteur de neutrons.
+Néanmoins il s'est avéré que ce dernier, contrairement à l'hélium, présente des risques sanitaires. En effet,
+si le tube se perce pour des raisons de vandalisme ou lors d'un accident important, le gaz s'échappe. Or ce
+dernier réagit avec l'air et forme un acide qui, à forte concentration, peut être dangereux. Face à ce risque,
+nous avons donc choisi d'instaurer des précautions supplémentaires à celles du fabriquant tel que l'ajout
+d'un boitier en polyéthylène haute densité et en inox.
+
+Page 12
+
+3. Le traitement du signal.
+
+Nous pouvons voir sur le schéma ci-dessus que lorsque le neutron entre dans le détecteur et casse
+un noyau de bore, deux nouveaux noyaux sont créés : un lithium et un hélium. Ces derniers ionisent le
+BF3 en arrachant des électrons au gaz. Ces mêmes électrons se dirigent vers le fil ayant un potentiel de
++2150 V et ayant une épaisseur de 100 μm.
+Cependant, nous pouvons observer une véritable «cascade d’électrons» car chaque électron
+produit va arracher d’autres électrons durant sa trajectoire. En effet, le champ électrique augmente lorsque
+l'on se rapproche du fil. Arrivés dans la zone «a» suffisamment proche, les électrons ont une accélération
+suffisante pour arracher eux-mêmes des électrons à leur environnement. Le nombre final d’électrons
+obtenu est donc bien plus important que l'initial.
+
+Fil
+
+Champ électrique minimum
+pour la formation d'une
+avalanche
+cascade électronique
+
+Région de
+multiplications
+
+Intensité du champ électrique en
+fonction de la distance au fil
+
+Vues d'une cascade électronique
+
+Le signal obtenu passe alors par le pré-amplificateur où il est d'abord filtré par une capacité ne
+laissant passer que les impulsions de hautes fréquences avant d'être amplifié et épuré (atténuation du
+bruit). Grâce à celui-ci, le signal initial passe de moins d'1 mV à environ 500 mV. L’impulsion obtenue est
+proportionnelle au nombre d'électrons et par conséquent aux « neutrons rentrants ». Pour finir, ce
+dispositif est relié à un oscilloscope électronique afin d’acquérir les données informatiques. L'oscilloscope
+enregistre les événements dont l'amplitude est supérieure à un palier pré-défini. Ces données sont ensuite
+envoyées à un ordinateur et traitées par un logiciel créé par le LPSC sous LabVIEW. Il permet de mesurer
+l'amplitude de l'impulsion et de les classer selon cette caractéristique.
+Schéma du pré-amplificateur (cf. ANNEXE 5)
+
+Page 13
+
+Pratique
+
+Introduction: nos expériences.
+Au cours de nos recherches, nous avons parcouru les alentours de Grenoble, pour nous rendre sur
+différents sites en rapport avec notre expérience.
+Nous sommes montés à 1100m d'altitude, au Col de Porte, pour voir un des détecteurs à l'hélium
+3, utilisé par EDF (photo en couverture). Nous sommes aussi allés à la division technique générale de
+cette entreprise pour nous renseigner sur l'utilisation de ses détecteurs. Cependant, c'est principalement au
+LPSC que nous nous sommes rendus pour obtenir des informations théoriques utiles pour notre mémoire,
+mais aussi, pour réaliser nos expériences.
+La première était un TP, avec un détecteur BF3 du laboratoire, une source de neutrons et des
+plaques de polyéthylène. Puis nous avons fait deux séances de manipulation pour apprendre à utiliser
+notre matériel, voir enfin nos premiers neutrons et réaliser nos premières mesures.
+Tout cela ne s'est pas réalisé sans quelques problèmes. Le principal concernait notre tube. Il est
+arrivé si tard que nous désespérions de le voir. Finalement il est arrivé le 3 novembre et le 9, nous le
+tenions dans nos mains. A partir de cette date, le laboratoire a dû travailler activement sur notre matériel
+pour fabriquer la boîte aux dimensions du tube, accorder et prérégler tous les logiciels que nous devions
+utiliser...
+C'est seulement le 23 novembre que nous avons pu réaliser nos premières mesures avec l'eau !
+
+I. Etudes des mesures
+1. Etude du diagramme obtenu
+a. Le type de diagramme
+Une fois les mesures faites, nous obtenons ce type de diagramme :
+
+En abscisse se trouvent une multitude de canaux dont chacun représente un intervalle d'énergie. En
+ordonnée nous pouvons lire le nombre de «coups» associés. Comme expliqué précédemment, pour
+détecter les neutrons, notre appareil mesure une impulsion électrique. Mais toutes ces impulsions n'ont
+pas la même énergie. Ainsi chacune d'elle sera comptabilisée comme un coup dans son intervalle
+d'énergie.
+Page 15
+
+Pourquoi ne pas simplement les compter puisque la quantité d'eau ou de neige varie selon le
+nombre total de neutrons détectés ? Et bien cela ne peut pas se faire directement. De nombreuses
+impulsions ne sont pas dues à la détection d'un neutron mais au «bruit» environnant. Néanmoins les
+signaux dus au bruit ont pour caractéristique de tous être de faible énergie.
+Dans ce cas, pourquoi ne pas comptabiliser toutes les impulsions au-dessus d'une certaine énergie
+et ainsi ne pas prendre en compte le bruit ? Cela peut en effet être une solution. C'est d'ailleurs ce que font
+les détecteurs d'EDF. Malgré tout, cette solution empêche de nombreuses observations au niveau des
+diagrammes obtenus. C'est pourquoi, dans le cadre de nos expérimentations, nous ne l'avons pas suivie.
+Ce diagramme possède une forme singulière. Et plus étonnant encore elle est récurrente ! Mais à
+quoi est-elle due ?
+
+b. Extrapolation théorique de la forme du diagramme
+Cette forme de diagramme peut être retrouvée théoriquement. En effet elle est due à différents
+phénomènes physiques quantifiables.
+Dans un premier temps, nous avons vu qu'il se produit deux réactions nucléaires qui libèrent deux
+énergies différentes. Or nous pouvons parfaitement calculer ces énergies. Celles-ci sont la valeur absolue
+de la différence de masse du système avant et après réaction par le carré de la célérité de la lumière dans
+le vide :
+Elibérée = ‌ maprès – mavant ‌ c2
+Lors de la réaction 510B + 01n → 37Li + 24He (7% des cas), on a donc :
+Données :
+
+m(n) = 1,008655 u
+m(37Li) = 7,01435 u
+
+m(510B) = 10,010194 u
+m(24He) = 4,00151 u
+
+u = 1,66055.10-27 kg
+Elibérée = ‌ maprès – mavant ‌ c2
+mavant = m(n) + m(510B)
+mavant = 11,018849 u
+maprès = m(37Li) + m(24He)
+maprès = 11,01586 u
+Elibérée = 0,002989 x 931,5 = 2,784 MeV
+Lors de la réaction 510B + n01 → 37Li* + 24He, l'énergie libérée est la même que dans la réaction précédente
+moins l'énergie du photon émis (0,480 MeV) :
+E*libérée = 2,784 – 0,480 = 2,304 MeV
+On déduit de ces calculs que le diagramme forme deux «pics», un à des valeurs voisines de
+2,784 MeV et un aux alentours de 2,304 MeV. Ce dernier est bien plus important car il est dû à la réaction
+se produisant dans 93% des cas.
+Notez que ces valeurs sont théoriques : il faut que la totalité de l'énergie libérée soit transmise au
+détecteur. En réalité notre tube est limité par ses parois. Lorsqu'une particule (lithium ou hélium) heurte la
+paroi, elle transmet son énergie restante à celle-ci et non au gaz. La quantité d'électrons formés est plus
+faible et il en est donc de même pour l'énergie détectée. Le graphique va ainsi comporter toute une plage
+de coups de valeurs énergétiques inférieures. On peut alors faire une différence entre les événements où le
+lithium est arrêté et ceux où il s'agit de l'hélium.
+Page 16
+
+L'énergie transférée au gaz par ces particules est leur énergie cinétique. De plus, leur somme est
+égale à l'énergie libérée par l'évènement. On a donc :
+Ec =
+
+1
+m.v2 et EcLi + Ecα = E*libérée .
+2
+
+(particule α = noyau 42He)
+
+De plus, par le principe de la conservation de la quantité de mouvement (projetée sur un axe) :
+mα . vα + mLi . vLi = 0
+m Li . v Li
+vα = m
+Dès lors nous pouvons calculer l'énergie cinétique du lithium ( EcLi ) :
+
+
+
+2
+
+
+
+1
+1
+m . v2+
+m . V 2 = E*libérée
+2 α α
+2 Li Li
+
+m Li . v Li
+1
+mα .
+2
+−m 
+
+m 2Li . v 2Li
+1
+1
+mα .
++
+mLi . VLi2 = E*libérée
+2
+2
+2
+m
+
+2
+1 2 m Li
+m Li = E*libérée
+v Li .
+2
+m
+
+
+
+
+
+m Li
+1
+2
+1 = E*libérée
+mLi . v Li .
+m
+2
+EcLi = E*libérée /
+
+
+
+m Li
+1
+m
+
+A.N : EcLi = E*libérée /
+
+
+
+7,01
+4,00
+1 =
+. E*libérée
+4,00
+11,01
+
+
+
++
+
+1
+m . V 2 = E*libérée
+2 Li Li
+
+
+
+
+
+m Li
+1
+2
+1
+mLi . v Li = E*libérée /
+m
+2
+
+
+
+
+
+
+EcLi =
+
+4,00
+.2,304 = 0.837 MeV
+11,01
+
+Et l'énergie cinétique de l'hélium ( Ecα ) :
+EcLi + Ecα = E*libérée
+Ecα = E*libérée – EcLi
+Ecα =
+A.N : Ecα =
+
+7,01
+. E*libérée
+11,01
+7,01
+.2,304 = 1.47 MeV
+11,01
+
+De ces calculs, on déduit qu'il existe deux «plateaux». L'un commençant vers 0.837 MeV et l'autre
+vers 1.47 MeV. Le premier correspond à la perte d'énergie de l'hélium et le second à celle du lithium.
+Notons que le type d'événements composant le premier plateau se produit également dans des niveaux
+d'énergie correspondant au second plateau. Ces variations d'énergie sont dues à la distance plus ou moins
+grande parcourue par la particule avant son arrêt. Cette superposition de plateaux permet d'expliquer la
+différence du nombre de coups.
+
+Page 17
+
+En somme, par ces calculs, nous pouvons extrapoler la forme du diagramme suivant :
+
+2. Les fluctuations du flux cosmique: influence de la pression et de l'activité solaire
+Le nombre de neutrons qui arrivent dans le détecteur varie indépendamment de la couche de
+neige. En effet, il existe deux facteurs majeurs qui influencent l'ensemble du flux cosmique.
+Le premier est la pression atmosphérique. Celle-ci varie presque tous les jours de manière
+importante durant une dépression et très faiblement pendant un anticyclone. Ainsi une correction doit être
+apportée à chaque mesure. Pourquoi cela ? Un changement de pression signifie tout simplement qu'il y a
+une variation de la quantité de matière au-dessus de nos têtes. Quand la pression augmente, il y a plus de
+particules au-dessus de nous ; et inversement, quand elle diminue, il y en a moins. Donc les particules
+cosmiques, et celles issues de leurs interactions dans l'atmosphère, rencontrent plus ou moins de matière
+en fonction des jours. Or les protons engendrent les neutrons que nous mesurons par des interactions dans
+notre atmosphère. Plus la pression augmente plus ils ont de chances de réagir vite, donc à une altitude
+plus élevée. Évidemment, le phénomène s'inverse lorsque la pression diminue. Mais les neutrons créés
+dans l'atmosphère sont absorbés par les atomes la composant. Plus ils sont créés en altitude, moins nous
+en recevons au sol, et inversement. De cette manière la pression atmosphérique influe sur la quantité de
+neutron mesurée. Notons que ce phénomène a tout de même un avantage : le flux cosmique est plus
+important en haute montagne (il double tous les 1000 mètres), ce qui est une bonne nouvelle pour
+l'application en altitude que EDF fait du détecteur !
+Page 18
+
+Pour corriger les fluctuations dues à la pression, il suffit d'appliquer un simple coefficient de
+proportionnalité en fonction de la valeur de la pression lors de la mesure.
+Ce coefficient s'obtient en construisant un graphique représentant le pourcentage de variation d'un flux de
+neutrons (choisi pour une pression de référence) en fonction de la variation de la pression. On calcule
+alors le coefficient directeur de la droite obtenue.
+
+Pour construire ce graphique nous avons procédé comme suit :
+1. Nous avons effectué une série de mesures à diverses valeurs de pression, sur une durée de 4 jours.
+2. Nous avons choisi la pression de référence, P0 =1037mbar. Pour cela nous avons choisi la
+pression pour laquelle nous possédions le plus de mesures, pour réduire la marge d'erreur. Nous
+avons fait la moyenne du nombre de neutrons que nous détections par heure à cette pression
+(Notons ce flux de référence F0).
+3. Pour chaque écart de pression par rapport à P0 (ΔP en mbar), nous calculons l'écart de flux par
+N0− N ( p)
+×100 .
+rapport à F0 ( ΔF en %), selon la formule
+No
+Nous obtenons le résultat suivant :
+ΔF = -0,6% par millibar.
+Cette valeur est très proche de -0,7% mesurée par le LPSC dans des conditions peut-être plus
+favorables.
+Pour aborder la suite, il faut savoir que le champ magnétique terrestre nous protège de la trop forte
+exposition aux rayons cosmiques en les déviant. En effet les particules chargées, comme les protons, qui
+les composent, sont déviées par les champs magnétiques. De plus, moins ces particules ont de vitesse,
+c'est-à dire d'énergie, plus elles sont déviées.
+Par là, on en vient au deuxième facteur de fluctuations des rayons cosmiques : le Soleil. Celui-ci
+envoie en permanence des particules sur Terre, même si celles-ci n'entrent pas dans la fabrication des
+neutrons car, trop peu énergétiques, elles ne passent pas notre champ magnétique. Lors des éruptions
+solaires ce flux de particules est bien plus important. Paradoxalement la Terre nous en protège encore
+mieux. En effet, les particules atmosphériques sont ionisées par le passage des particules cosmiques.
+En plus grand nombre, par exemple lors des éruptions solaires, cela influence notablement les lignes de
+champ terrestre. Le flux cosmique diminue alors fortement et nous recevons beaucoup moins de
+particules, donc de neutrons.
+De plus, le Soleil fonctionne par cycles de durée variable, mais estimée à une dizaine d'années. Au
+cours de ceux-ci, le flux de particules envoyé par notre étoile augmente puis diminue.
+Un unique détecteur de référence à Moscou suffit à indiquer ces variations pour notre hémisphère.
+Cependant, nos mesures ont été faites sur un temps assez court pour ne pas être influencées par les
+fluctuations dues au Soleil.
+Page 19
+
+3. Courbe d'étalonnage : nombre de neutrons détectés en fonction du volume d'eau.
+Le but d'EDF, rappelons le, est de mesurer un équivalent en eau d'une couche de neige en haute
+montagne. Or ceci est possible en connaissant simplement le nombre de neutrons ayant traversé, en un
+temps donné, cette même couche de neige. Plus la quantité d'eau est importante, plus les neutrons sont
+absorbés, moins nous en détectons.
+Bien évidemment il nous faut, pour en déduire la quantité d'eau, une courbe d'étalonnage du
+nombre de neutrons détectés en fonction de l'épaisseur d'eau. C'est précisément le but de cette expérience.
+Nous avons effectué cinq mesures avec notre détecteur en le plaçant sous une cuve d'eau plus ou
+moins remplie, et une mesure sans eau dans la cuve. Chacune d'elle s'effectue sur une durée de plusieurs
+heures. Ainsi le nombre de coups N est important (plusieurs milliers) et l'erreur statistique ±N 
+d'autant meilleure. Hormis celle réalisée sans eau, la première se déroule avec 2,5 cm d'eau, la deuxième
+avec 5,0 cm, la troisième avec 10,0 cm, la quatrième avec 15,0 cm et la cinquième avec 20,0 cm.
+Nous ne sommes pas allés au delà de 20 cm pour une raison purement pratique. Notre cuve
+mesure à sa base 1,00 m par 1,20 m. Or il s'avère que des neutrons arrivent sur le détecteur par le côté.
+Ainsi ils ne traversent pas la couche d'eau. Ces phénomènes sont relativement peu nombreux. Néanmoins,
+avec plus de 20 cm d'eau, une grande partie des neutrons sont absorbés. Dés lors le nombre des neutrons
+arrivant latéralement est loin d'être négligeable par rapport au peu de neutrons détectés. C'est ce que l'on
+nomme « effet de bord ». Aussi pour obtenir une courbe allant jusqu'à des épaisseurs de 1,80 m, le LPSC
+a dû, lors de la conception du détecteur, faire ces mesures dans une piscine de 6 m de diamètre. Ce
+phénomène n'a bien évidemment pas lieu en haute montagne puisque le détecteur est enterré et que la
+couche de neige s'étend uniformément.
+Au terme de cette expérience, nous obtenons donc 6 valeurs. Néanmoins elles doivent être
+corrigées en fonction de la pression atmosphérique, comme nous l'avons vu précédemment.
+Ensuite nous devons ramener, de la même manière, ces valeurs à une pression de référence que
+nous avons définie à 1015 hPa. De plus les mesures étant effectuées sur plusieurs heures, nous devons les
+ramener à une durée de référence de une heure par une simple division.
+Dés lors, nous pouvons, grâce à ces six points, construire notre courbe d'étalonnage du nombre de
+neutrons détectés en une heure à une pression de 1015 hPa en fonction de l'épaisseur d'eau :
+
+Nombre de neutrons (en 1h)
+
+Hauteur d'eau (cm)
+
+Ainsi, lorsque nous effectuons une mesure, il nous suffit, grâce aux règles énoncées cidessus, de la ramener à une pression de 1015 hPa et à une durée de une heure pour ensuite la rapporter sur
+la courbe et en déduire une épaisseur d'eau. Sans oublier, bien évidemment, de prendre en compte
+l'erreur statistique de la mesure.
+Page 20
+
+Rapport du nombre de neutrons détectés N/N0 en fonction de l'épais
+Épaisseur d'eau en cm
+
+Nombre de neutrons (N/N0)
+
+1,1
+1
+0,9
+0,8
+0,7
+0,6
+0,5
+
+0
+
+2
+
+4
+
+6
+
+8
+
+10
+
+12
+
+14
+
+16
+
+18
+
+Epaisseur d'eau en cm
+
+Pour se libérer des contraintes de corrections (pression, flux cosmique), il est aussi possible de
+faire une seconde mesure hors neige en parallèle. Il suffit alors de faire le rapport N/N0 entre les deux
+mesures et de le reporter sur la courbe pré-définie ci-dessus.
+Si notre seconde courbe commence par croître avant de décroître de façon exponentielle, c'est à
+cause du gaz. En effet la section efficace du Bore avec un neutron dépend de l'énergie de ce dernier :
+celle-ci est plus élevée lorsque le neutron est thermalisé. Or on a vu que les neutrons étaient thermalisés
+dès leur entrée dans la neige. Ainsi, lorsque le sol est recouvert d'un peu de neige, certains neutrons qui
+arrivent dedans sont absorbés, évidemment, mais tous sont thermalisés. Et au sortir de la neige on reçoit
+plus de neutrons thermalisés que s'il n'en était pas tombé, même s'il y a moins de neutrons au total. Donc
+nous en mesurons plus ! Mais attention, seulement lorsque la couche est fine.
+
+Page 21
+
+II. Applications pratiques du détecteur par EDF
+1. Optimiser la production d’électricité
+L’électricité est produite en fonction des besoins de la demande qui est variable en fonction de
+l’heure de la journée, du jour de la semaine ou encore de la température.
+Une centrale nucléaire se plie difficilement à ces variations rapides de consommation, elle produit
+de l’énergie de base.
+L’énergie de pointe est fournie par les centrales hydroélectriques. C’est une énergie à forte valeur
+ajoutée. Elle est très précieuse et donc doit être optimisée.
+De manière générale, les barrages sont remplis à l’automne pour répondre aux besoins de
+consommation en hiver. Au printemps ils sont vides s’ils ont répondu de manière optimale aux besoins en
+énergie. Ils peuvent alors capter les eaux de fonte du manteau neigeux et la pluie. Ils ont parfois
+l’obligation d’atteindre, en été, une côte de remplissage «touristique» (pour la navigation ou d’autres
+activités). Et le cycle continue …
+L’eau est le «carburant» des centrales hydroélectriques. Il est gratuit mais donné selon le bon
+vouloir de la nature, en quantité et en placement dans le temps.
+Comme pour une course automobile, pour optimiser nos chances de gagner il faut connaître, ou
+plutôt prévoir, la quantité de carburant sur laquelle nous pourrons compter puis l’utiliser au maximum et
+au bon moment (dans les côtes!), tout en maîtrisant notre consommation (pas de panne sèche!).
+Sans prévisions, la gestion de la course serait prudente et basée sur les valeurs moyennes (de
+quantité et de consommation). Avec des prévisions, la course est gagnée …!
+2. Du détecteur à la prévision d’apport en eau
+Tout le travail des hydrologues d'EDF consiste à prévoir ce que la nature mettra à leur disposition
+et à l’optimiser, pour leur permettre de produire de l’électricité avec les centrales et barrages. Or pour
+gérer ces barrages, il est primordial de connaître les stocks en eau situés autour d'eux car ceux-ci seront
+ensuite amenés à s'y écouler (on appelle «bassin versant» le territoire d'où vont provenir les écoulements
+perçus en un point, le barrage).
+Ainsi, en hiver, lorsque les rivières sont en étiage (niveau d'eau le plus bas), les précipitations sont
+stockées sous forme de neige dans le bassin versant.
+C'est alors qu'intervient notre détecteur : le signal enregistré varie en fonction de la quantité de
+neige recouvrant le capteur. A partir de cette mesure réalisée en un point représentatif du bassin versant,
+nous allons pouvoir évaluer le volume d'eau contenu dans la couche de neige présente sur son ensemble.
+Ainsi, notre détecteur va permettre d'évaluer le volume d'eau, qui sera associé à la fonte des
+neiges, qui finira par s'écouler au fil du printemps dans le barrage. Mieux encore, des «prévisions
+d’apports» en eau pour les mois à venir seront calculées à partir du stock initial, que nous mesurons avec
+notre capteur, et des données statistiques de température et de pluviométrie (car de nouvelles
+précipitations sont statistiquement probables). Elles prédiront à quel rythme notre stock de neige va
+fondre en moyenne, une année plutôt froide ou encore une année plutôt chaude. Il suffira ensuite de
+choisir le scénario optimal pour turbiner l’eau des barrages hydroélectriques.
+
+Page 22
+
+3. Les bassins versants et leur modélisation
+Pour les aider et être de plus en plus précis dans leurs prévisions, les hydrologues mettent au point
+des modèles mathématiques qui ont pour but de représenter la réalité : reproduire l’hydrologie et la
+dynamique des bassins versants.
+On s'intéresse tout d'abord au débit de leurs rivières, c'est-à-dire le volume d'eau qui s'écoule en
+fonction du temps, ainsi qu’à la multitude de facteurs qui peuvent le faire fluctuer : la pente, la nature du
+sol, le soleil pour les évaporations, mais par-dessus tout les précipitations et la température au sol, qui
+sont les variables clés du débit. Ainsi chaque jour de l’année, des mesures de ces deux derniers paramètres
+sont réalisées et, en fonction de leurs valeurs, on pourra en déduire différentes informations. Par exemple,
+si la température est supérieure à zéro degrés un certain jour alors, dans le cas de précipitations, il s'agira
+de pluie; tandis que de la neige sera observée lorsque cette température s'abaissera au-dessous de zéro.
+Dans cette dernière situation, les précipitations n'auront pas d'influence directe sur le débit de la rivière.
+Le modèle peut être linéaire (dans le cas d'un seau jeté sur une surface perméable: x = y, où x est
+le volume d'eau jeté, et y le volume récupéré en fin d'expérience). Ce modèle linéaire peut être adopté
+dans le cas d'un sol trop sec pour que l'eau s'infiltre, provoquant son ruissellement.
+Cependant, il faudra revoir cette conception de la réalité quand le sol est plus humide. Dans ce cas,
+une partie de l’eau va ruisseler mais une quantité importante va s’infiltrer. Et en fonction de l’état du
+stock souterrain ou encore du taux de saturation des nappes phréatiques, l’eau infiltrée sera conservée
+pour une durée plus ou moins longue. Elle sera ensuite restituée par les sources.
+Le modèle se complexifie …
+Si l’on poursuit avec une hypothèse d’un sol extrêmement humide et saturé, l’eau s’écoule à
+nouveau essentiellement par ruissellement !
+Ainsi, chaque modèle présente des limites et finalement beaucoup de complexité.
+C'est pourquoi les mesures sont particulièrement importantes, puisqu'elles permettent d'adapter le
+modèle en cas d'erreur pour qu'il corresponde par la suite mieux à la réalité. Malgré cela, les incertitudes
+sont parfois grandes, et il existe alors une grande différence entre ce qui a été observé et ce que l'on avait
+prévu.
+Le modèle est donc indissociable des mesures. Ensemble, ils constituent un outil d'aide à la prise
+de décisions puisque l'on peut, grâce à lui, prévoir pour agir. Or « prévoir c'est gérer » (dixit Thibault
+Mathevet).
+
+Page 23
+
+Bibliographie :
+Périodiques :
+– « Elémentaire: le neutron », n°2, 2005 (approche global du sujet).
+– « Elémentaire: Les rayons cosmiques », n°3, 2006 (approche global du sujet).
+Rapports :
+– A. BENABED, R. BRISSOT, V. COMPARAT, « Rapport sur la possibilité de mesurer
+l'équivalent en eau d'une couche de neige par la détection des neutrons cosmiques »,
+1995-1996.
+Livres :
+– INPG, « Travaux pratiques d'instruction nucléaire: Détection des neutrons »
+– Sven Ortoli et Jean-Pierre Pharabod « Le cantique des quantiques » (annexe 1).
+Webographie :
+– G. VINCENT, « http://dlst.ujf-grenoble.fr/cours/PHY121_GV/ », Cours de Mécanique du
+Point, 17 janvier 2011 (forces).
+– « http://membres.multimania.fr/physicisss/labos/longcompt.pdf » (courbe de la partie
+théorique).
+– « http://www.nucleaire-info.com/section_efficace.htm » (annexe 1).
+– « http://fr.wikipedia.org/wiki/Section_efficace » (annexe 1).
+– « http://www.enseignement.polytechnique.fr/physique/cours/annee3/pdf/phy553/Phy553_2
+.pdf » (annexe 1).
+– « http://fr.wikipedia.org/wiki/Électron-volt » (annexe 2).
+– « http://www.futura-sciences.com/fr/definition/t/physique-2/d/electron-volt_338/ »
+(annexe 2).
+– « http://boulant.nicolas.free.fr/cours_data/Cahier%20de%20texte/Terminale/Moisprecedents/Janvier/TS_cahier%20de%20texte_janvier_2.pdf » (annexe 3).
+
+Page 24
+
+0
+
+1
+
+.
+
+Page 14
+
+

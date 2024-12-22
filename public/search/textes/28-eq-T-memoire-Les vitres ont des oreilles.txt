@@ -1,0 +1,506 @@
+Lycée Albert Schweitzer, Mulhouse (68)
+
+LES VITRES ONT DES OREILLES
+
+Adrien WEISSBECK, Pauline NASS, Kanto LIROT et Pablo PENARRUBIA,
+encadrés par Marc STRUBEL et Arnaud BOIRON
+Année 2020-2021
+
+1
+
+Résumé du projet
+Le projet s'intéresse à un dispositif d'espionnage à distance utilisant une détection optique des
+vibrations d'un miroir ou d’une vitre sous l'effet d’un son, en particulier de la parole.
+Le dispositif de base se compose d’un faisceau émis par une source laser, qui après réflexion sur un
+miroir est capté par une photodiode ou un phototransistor. Le capteur peut être simplement
+branché sur la prise casque d’un ordinateur et exploité grâce à un logiciel comme Audacity : ce fut la
+première partie de notre travail.
+On peut aussi associer le capteur à un système autonome constitué d’un amplificateur et d’un
+casque, ce que nous avons réalisé ensuite.
+Nous avons ensuite cherché à remplacer le miroir par une vitre. Il faut pour cela augmenter la
+sensibilité du dispositif, mais malgré cela le système fonctionne moins bien par réflexion sur une
+vitre.
+Enfin nous avons utilisé un faisceau invisible : des infra-rouges, pour rendre le dispositif
+indétectable à l’œil.
+
+Plan :
+1. Premiers essais avec Audacity
+1.1. Essai “de vacances”
+1.2. Essais de labo
+2. Elaboration d’un système autonome :
+2.1. Principe
+2.2. Comment le système fonctionne-t-il ?
+2.3. Quel laser choisir ?
+2.4. Quel capteur optique choisir ?
+2.5. Amplificateur
+2.6. Sensibilité du système d’essai.
+3. Le problème de la vitre
+3.1. Augmentation de la sensibilité
+3.2. Essais
+4. Essai à 35 m
+5. Travail en infra-rouge
+5.1. Caractéristiques du laser IR
+5.2. Mesures de puissances
+5.3. Réflexion sur le verre ?
+
+2
+
+Introduction : Après bon nombre de recherches, un article du journal “Le Monde” suscite notre
+interrogation. Celui-ci présente une nouvelle technique d’espionnage mise au point par des
+chercheurs israéliens. En effet, on y parle sobrement d’écoute à distance, qu’ils appellent
+“lamphone”.
+Cette technique permettrait à toute personne possédant un simple ordinateur accompagné d’un
+télescope et d’un capteur électro-optique d’écouter, instantanément tous les sons émis dans
+n'importe quelle pièce située à distance, pourvu que celles-ci soit éclairée par une ampoule, dont on
+capte les vibrations.
+Notre projet s’inspire donc de ces recherches, dans le sens où il s’agit d’un système d’écoute basé
+sur la lumière. Nous allons donc tenter de reproduire cette technique dans l’optique de pouvoir
+réellement “écouter à travers les vitres”.
+
+1. Premiers essais avec Audacity :
+1.1. Essai “de vacances” :
+
+Pendant les vacances, Kanto a réalisé chez elle un petit
+montage pour tester une expérience en utilisant le matériel
+fourni par le professeur : une diode laser ainsi qu’une
+photodiode. Elle a tout d’abord vérifié que la photodiode
+fonctionnait correctement en la connectant à l’aide d’un câble
+pour écouteurs à l’entrée casque d’un ordinateur, utilisant le
+logiciel Audacity , puis elle a testé la photodiode en déplaçant
+la diode laser pour faire varier le signal lumineux : on obtient
+bien des variations du signal électrique, la diode est
+fonctionnelle(photo 1).
+Maintenant assurée que tout fonctionne, l’élève a réalisé un
+montage permettant la réflexion du laser sur une fenêtre. La
+photodiode est placée de sorte qu’elle puisse être dans l’axe du
+rayon réfléchi.
+Deux tests sont effectués : l’élève se place derrière la vitre et
+toque dessus durant un intervalle de temps bien précis,
+l’enregistrement par Audacity révèle un résultat concluant, les
+“tocs” sont bien audibles. Dans un second temps, une enceinte est placée derrière la fenêtre, de la
+musique est lancée à plein volume, le rendu est moins concluant, seuls quelques sons de basses
+fréquences sont entendus. Le système est donc fonctionnel, mais pas assez sensible.
+
+3
+
+1.2. Essais de labo :
+Les premières semaines de reprise des cours, nous nous attelons à la mise en place de notre
+premier système expérimental. Nous fixons tout d’abord un miroir sur un haut-parleur, puis nous
+plaçons le laser ainsi que la photodiode, servant de capteur, à quelques mètres de là.
+
+Nous relions ensuite la photodiode à un ordinateur en utilisant la prise micro jack. L’expérience
+consiste à pointer le miroir avec le laser, de telle sorte que le rayon réfléchi du laser arrive sur la
+photodiode, puis à crier près du miroir, pour le faire vibrer.
+
+4
+
+Les signaux sont ensuite enregistrés puis traités grâce au logiciel Audacity. Après traitement des
+fichiers sonores, le test est concluant : la voix de notre camarade est audible (voir fichier son en
+annexe) !
+
+Nous décidons alors de réitérer l’expérience en plaçant le laser et la photodiode à 6m75 du miroir
+et en gardant le même principe. Après amplification du signal et réduction du bruit sur Audacity,
+ce deuxième test est également concluant, ses paroles sont non seulement audibles mais même
+intelligibles (pour peu que l’on comprenne l’alsacien).
+Bien décidés à pousser l’expérience et galvanisés par nos récentes réussites, nous tentons d’utiliser
+ce qui se rapproche le plus d’une vitre et qui est à notre disposition : une vitre de téléphone
+portable. Les résultats de ce test sont beaucoup moins concluants et un peu décevants : le son n’a
+plus la même clarté, le signal capté est beaucoup plus faible et le rayon laser est beaucoup plus
+diffus. Dernier coup de massue, le traitement du son sur Audacity est beaucoup moins efficace.
+Déçus, mais non pas fatalistes, nous entreprenons d’élaborer un système autonome afin de nous
+affranchir des contraintes inhérentes à l’utilisation d’Audacity et d’un ordinateur.
+
+2. Elaboration d’un système autonome :
+Nous avons voulu construire un système autonome qui permettrait de convertir de signal lumineux
+en signal sonore sans utiliser Audacity (ni d’ordinateur).
+
+2.1. Principe :
+Le système d’essai utilise un laser, et un capteur optique, relié à un petit amplificateur puis à
+un casque. Le rayon incident du laser est dirigé vers un miroir, de sorte que celui-ci soit réfléchi
+vers le capteur optique (phototransistor). Dans ce système d’essais, le son est émis par le haut5
+
+parleur, qui est branché en sortie d’un générateur basse fréquence, générant un signal sinusoïdal de
+fréquence voisine de 500 Hz.
+Cela nous permet de mettre au point le système, avant de remplacer le couple hautparleur+miroir par le miroir seul ou une vitre, et d’utiliser la voix.
+
+Les premiers essais sont concluants : le son du haut-parleur est audible et clair.
+Nous supprimons le GBF et parlons ensuite directement devant le miroir accroché au haut parleur.
+Là encore, le résultat est concluant puisque la structure du haut parleur permettait d’augmenter la
+sensibilité du système.
+Remarque : le fait de placer le miroir au centre du haut parleur contribue à optimiser le système. En
+effet, la structure de notre haut parleur étant de forme sensiblement parabolique, celle-ci offre une
+meilleure sensibilité à notre miroir et donc à notre système. Cela s’explique par le fait qu’une
+structure de forme parabolique a pour principe de concentrer toutes les ondes en un seul point que
+l’on appelle foyer. En définitive, le miroir sera donc placé de sorte à ce qu’il se trouve sur le foyer de
+notre parabole (haut parleur), dans l’optique d’avoir une concentration d’onde sonores plus
+conséquente qui lui offriront une meilleure sensibilité.
+
+6
+
+2.2. Comment le système fonctionne-t-il ?
+Comment comprendre précisément le phénomène qui nous permet d’écouter à distance ?
+Le miroir est en fait constitué d’une couche métallique déposée sur une lame de verre ; une
+hypothèse est que le son déforme la lame de verre, et provoque des interférences entre les rayons
+réfléchis par la surface du verre et la surface du métal, interférences
+détectées par le phototransistor.
+Pour tester cette hypothèse, nous avons décidé de changer notre bon
+vieux miroir par un morceau de disque dur d’ordinateur ( photo cicontre), très lisse et ayant une bonne capacité de réflexion.
+La couche externe se compose généralement d’un alliage d’oxyde de
+fer, de nickel et de cobalt, surmontées d’une couche protectrice, le
+tout ne dépassant pas 1 millimètre d’épaisseur !
+Si notre expérience est basée sur le phénomène d’interférences entre
+les deux rayons réfléchis par la vitre, alors nous ne devrions pas
+pouvoir avoir un quelconque résultat probant avec le disque dur, car
+il s’agit simplement d’une plaque métallique et il n’y aurait alors pas
+de possibilité d’interférences.
+
+La réalisation de cette expérience ne diffère pas beaucoup des précédentes, à part :
+❖ le remplacement du miroir par un morceau de disque dur ;
+❖ l’ajout d’un oscilloscope afin de visualiser le signal réfléchi.
+Nous nous plaçons à deux mètres du disque dur seulement, pour optimiser les chances de résultat.
+Après expérimentation, nous avons obtenu un résultat, certes moins satisfaisant qu’avec un miroir
+mais tout de même audible ! Donc pas d’interférences en vue dans notre expérience !
+7
+
+Notre hypothèse est que l’onde acoustique provoque de légères rotations du miroir, donc du
+faisceau réfléchi : le phototransistor détecte une translation de la tâche.
+
+Cette hypothèse semble corroborée par une autre constatation : le
+système est très sensible au positionnement de la photodiode sur
+la tache laser ; on doit se positionner sur une zone contrastée ( cicontre une image de la tache laser).
+
+2.3. Quel laser choisir ?
+Nous disposions de deux types de lasers (rouge) : un modèle commercial HeNe, alimenté en
+220V, et de petites diodes laser achetées sur un site chinois, alimentées avec une tension
+continue de 4V.
+
+8
+
+Nous avons mesuré leurs caractéristiques pour savoir lequel choisir.
+Les caractéristiques d’un laser sont :
+● sa longueur d’onde
+● sa puissance
+● sa divergence.
+Nous avons mesuré les spectres grâce au logiciel Spectrovio :
+
+9
+
+La puissance émise a été mesurée à l’aide d’un petit wattmètre.
+Mesures à D = 1,0 m du laser
+Laser HeNe : P = 0,85 ± 0,05 mW
+Diode laser : P’ = 4,1 ± 0,1 mW.
+
+La divergence a été calculée en mesurant à l’aide d’une caméra CCD Caliens la largeur d de la
+tache laser pour différentes distances D laser-écran.
+
+Mesures :
+Laser HeNe 1
+
+Diode laser (4V)
+
+D (cm)
+
+d (mm)
+
+D (cm)
+
+d (mm)
+
+169
+
+4,7
+
+129
+
+4,07
+
+60
+
+2,2
+
+220
+
+6,28
+
+100
+
+3,4
+
+318
+
+8,05
+
+150
+
+5,4
+
+262
+
+6,7
+
+192
+
+7,5
+
+79
+
+2,8
+
+1,94
+
+On peut estimer l’erreur sur D à 1 cm.
+Pour le laser HeNe :
+
+Δd = 0,5 mm
+
+Pour la diode :
+
+Δd = 1 mm
+
+L’erreur sur d est plus grande pour la diode laser car la tâche n’est pas circulaire.
+
+10
+
+On constate que les angles de divergence sont :
+Laser HeNe : θ = 2,2 mrad
+Diode laser : θ’ = 3,9 mrad
+En conclusion, le laser HeNe, bien que moins puissant que la diode laser, diverge moins.
+
+En conclusion de ces mesures, nous avons choisi d’utiliser la diode laser à grande
+distance pour sa puissance, l’étalement du faisceau n’étant pas un problème pour le
+dispositif.
+Remarque : nous avons au cours de ces mesures constaté que l’intensité du laser HeNe fluctuait
+beaucoup au cours du temps. De plus, nous avions également mis en évidence un fort bruit à f =
+100Hz, que nous avions tenté de corriger partiellement par un filtrage coupe-bande . Deux
+autres raisons qui nous ont fait préférer la diode laser.
+2.4. Quel capteur choisir ?
+Les caractéristiques d’un capteur sont sa sensibilité spectrale et sa sensibilité au flux lumineux.
+Notre choix premier fût d’opter pour une photodiode BPW 21, dont les caractéristiques sont les
+suivantes:
+
+L’éclairement lumineux dû au laser sur l’écran peut être estimé à E = 104 à 105 lx, soit un
+photocourant de l’ordre de 10 à 100 μA.
+Le maximum de sensibilité est dans le vert .
+
+11
+
+Nous avons ensuite testé un phototransistor PS5132, dont les caractéristiques sont :
+
+On constate que le photocourant est de l’ordre du mA pour un éclairement énergétique de 10
+mW.cm-2, ce qui est l’ordre de grandeur de l’éclairement du laser : le phototransistor est donc
+beaucoup plus sensible, ce que nous avons constaté expérimentalement.
+Le maximum de sensibilité est dans l’infrarouge proche.
+
+12
+
+On observe que le phototransistor offre une sensibilité bien meilleure que la photodiode (
+environ 200 fois plus ), c’est donc pour cela que notre choix s’est porté sur le phototransistor.
+
+2.5. Amplificateur :
+
+Le courant délivré par le phototransistor traverse une résistance de 10 kΩ ; la tension aux
+bornes de cette résistance doit être amplifiée. Pour cela nous avons utilisé un ALI TL 081.
+Le montage est le suivant :
+
+Le gain de l’amplificateur est G = 1+R’/R. Nous avons choisi R = 10 kΩ et R’ = 200 kΩ soit un
+gain d’environ G = 20.
+Remarque : Pour supprimer un peu de ronflement grave, nous avons placé entre le
+phototransistor et l’entrée de l’amplificateur un filtre passe haut de fréquence de coupure fc =
+300 Hz qui n'apparaît pas sur ce schéma.
+
+2.6. Choix de la tension aux bornes de la diode laser :
+Le son est également plus fort si le laser est plus intense : nous devons mesurer ce phénomène
+pour choisir une tension d’alimentation de la diode laser.
+Pour une configuration donnée du système, nous mesurons la tension aux bornes du casque
+Ucasque et celle qui alimente la diode laser U.
+La courbe obtenue est la suivante :
+
+13
+
+Nous choisissons de travailler à U = 4 V.
+
+3. Le problème de la vitre :
+Le but est de remplacer le miroir par une vitre.
+
+3.1. Augmentation de la sensibilité :
+Le miroir possède un coefficient de réflexion environ égal à 1, tandis que la vitre possède un
+coefficient de réflexion du dioptre air/verre avec n1 (air) =
+1 et n2 (verre) = 1,5 égal à :
+𝑅! =
+
+𝑛! − 𝑛! !
+= 0,04
+𝑛! + 𝑛!
+
+On effectue un calcul un peu plus précis, car en réalité la
+lumière transmise à la première interface peut être
+réfléchie à la deuxième interface.
+Si T1 est le coefficient de transmission tel que : T1 = 1-R1, on
+a:
+!
+
+𝑅 = 𝑅! + 𝑅! 𝑇!! + 𝑅!! 𝑇!! + ⋯ = 𝑅!
+
+1 + 𝑇!!
+
+𝑅!!!
+!!!
+
+= 𝑅!
+
+1
+1 + 𝑇!!
+= 0,077
+1 − 𝑅!!
+
+14
+
+Pour augmenter la sensibilité du système, il faut donc la multiplier par 1/0,077 = 13. Il suffit
+alors d’augmenter le gain de l’amplificateur. Aussitôt formulé, aussitôt fait !
+
+3.2. Essais :
+Après l'augmentation de la sensibilité, nous sommes passés aux
+essais ! Nous nous sommes placés à quelques mètres d’une vitre
+de la salle (c’était un double vitrage) et avons installé le
+système. Après les tests, nous avons remarqué que la voix,
+même si elle est transmise, est fortement modifiée et n'est pas
+intelligible. De plus, le rayon réfléchi est très diffus.
+Pour comprendre l'origine des problèmes liés aux vitres, nous
+décidâmes de faire un montage modèle. Il consistait à
+suspendre une vitre à l'aide de ressorts.
+Il était maintenant l'heure du test, mais il ne fut pas concluant,
+le rayon réfléchi était très diffus et le son toujours modifié. Le
+principal problème était le fait que les ressorts étaient trop
+lâches, donc lorsque quelqu'un parlait, la vitre bougeait trop et
+le signal n'arrivait plus jusqu'au capteur.
+Pour pallier au problème des ressorts, nous décidâmes de
+suspendre le miroir à l'aide d'élastiques. Le résultat était
+légèrement meilleur mais toujours pas satisfaisant.
+Nous avons ensuite collé une lame de verre sur le miroir du HP,
+le résultat était meilleur : nous pensons que l’état de surface du
+verre ( rayures ) intervient également.
+Mais l’échec du montage à élastique mettait surtout une chose
+en évidence : le problème n’était peut-être pas seulement la
+stabilité du montage. C’est pourquoi nous avons décidé de
+vérifier si le double-vitrage pouvait être la cause de la
+déformation de nos voix.
+Pour cela, nous avons fixé des piézoélectriques de chaque côté
+d’une vitre possédant un double-vitrage, nous avons toqué sur
+la vitre mais ne recevions pas de signal de l’autre côté, il n’y
+avait donc pas une bonne transmission entre les deux côtés du
+double vitrage. Cette mauvaise transmission vient notamment
+de la couche d’air présente entre les deux vitres du double
+vitrage. C’est d’ailleurs pour cela que les doubles vitrages sont
+de bons isolateurs phoniques !
+Le double-vitrage avait donc deux problèmes de taille : le rayon
+laser était réfracté et réfléchi plusieurs fois et si le milieu
+présent entre les deux vitres est très compressible et peu dense
+alors il y aura une mauvaise transmission du son.
+15
+
+En conclusion, notre système fonctionne bien avec un miroir, pas sur une vitre.
+
+4. Essai à 35 m :
+Après ces mesures, il est temps de voir plus grand.
+Nous décidons donc d'éloigner le miroir de 35m du laser et de
+brancher le système autonome à des hauts-parleurs.
+L'expérience se déroule dans le noir pour éviter le bruit dû aux
+lampes allumées.
+La distance augmente la sensibilité du dispositif : nous
+utilisons alors un miroir monté sur un support et non plus sur
+une membrane de haut-parleur ( photo ci-contre).
+La diode laser et le récepteur sont placés dans la salle
+d’optique et le miroir, lui, 5 salles plus loin. Nous procédons
+ensuite aux derniers ajustements : vérifier que la tache laser
+peut être captée par le phototransistor, allumer les hauts-parleurs et vérifier leur branchement.
+Le test peut maintenant commencer.
+Un élève est placé à côté du miroir et récite une partie de l’appel du 18 juin du Général de
+Gaulle, sa voix est très bien retransmise par les hauts-parleurs situés à 35 m de là, son appel est
+entendu !
+Cette manipulation est donc un franc succès, le discours est intelligible et il n’est plus
+nécessaire de crier pour entendre la voix de notre camarade !
+Remarque : pour la présentation, nous utiliserons pour source un diapason ( visible sur la
+photo ci-dessus derrière le miroir), et nous visualiserons le signal de sortie de l’amplificateur
+sur un oscilloscope, c’est plus visuel.
+
+5. Travail en infra-rouge :
+En tant qu’espions avertis, nous avons décidé de changer notre laser, en tentant de travailler avec
+des infrarouges… quoi de plus discret que des rayons que l’on ne voit pas à l'œil nu !
+5.1. Caractéristiques du laser IR :
+Nous avons donc commandé des laser IR, dont le constructeur donnait la longueur d’onde et la
+puissance :
+λ = 808 nm ; P = 50 mW
+Il était équipé d’une petite lentille.
+Nous avons mesuré sa longueur d’onde à l’aide de Spectrovio (cf spectre page 10), qui est bien celle
+donnée par le constructeur. C’est de l’infra-rouge proche.
+16
+
+5.2. Mesure de puissances :
+Nous avons souhaité caractériser ce laser : la première étape a été de déterminer la puissance
+maximale que l’on puisse obtenir avec la lentille, en utilisant un wattmètre et en changeant
+d’orientation celle-ci.
+Nous nous sommes heurtés à un défi de taille : si ce système est invisible, nous ne pouvons
+également pas le voir et tenter de le régler… pas très pratique ! Ayant plus d’un tour dans notre sac,
+nous avons tenté de voir le faisceau à l’aide d’un objectif de téléphone portable… BINGO !! A l’aide
+du téléphone de la marque Honor, le rayon est visible ! Le système est malheureusement très
+sensible, l’orienter correctement était un véritable défi technique. Nous avons décidé de
+caractériser le laser sans lentille : puissance et divergence.
+La mesure était cette fois impossible avec Caliens, car le signal est extrêmement bruité et fluctuant.
+Nous mesurons des puissances moyennes avec le wattmètre. Pour cela nous plaçons le laser sur un
+support pivotant gradué en degrés, face au wattmètre.
+Les résultats sont les suivants :
+
+La courbe à d = 50 cm donne un angle à mi-hauteur de 10° : le laser présente une forte divergence,
+c’est pourquoi il doit être concentré grâce à une lentille.
+
+5.3. Réflexion sur le verre ?
+17
+
+Nous souhaitions connaître le comportement par rapport au verre de vitre : les IR sont-ils réfléchis
+ou absorbés ?
+
+Nous avons mesuré avec un wattmètre la puissance émise par le laser à une distance de 60 cm.
+P = 320±5 µW,
+puis nous avons mesuré la puissance transmise,
+Pt =270±5 µW,
+en intercalant la vitre entre le laser et le wattmètre, puis nous avons mesuré la puissance réfléchie
+par la vitre en plaçant le laser infrarouge, la vitre et le wattmètre comme sur la photo ci-dessous.
+Nous mesurons une puissance réfléchie :
+Pr = 24 ±5µW
+Le coefficient de réflexion en puissance est donc :
+R = 0,075 ± 0,016
+Malgré la grande incertitude, on peut noter que l’on retrouve une valeur proche de la valeur
+calculée théoriquement avec un indice n = 1,5 : le verre se comporte avec l’IR proche comme avec le
+rouge.
+Le système pourrait donc fonctionner avec ce laser !
+Fonctionnera-t-il ? Vous le saurez le 30 janvier !!
+
+18
+
+Conclusion : Partis d’une simple idée d’espionnage à l’aide d’un laser, nous voilà maintenant
+bien avancés sur notre projet. Après de nombreux essais et multiples recherches, nous sommes
+arrivés à un résultat assez concluant : nous voilà donc capables d’espionner une conversation sans
+que la victime ne se sente visée, ni que celle-ci crie pour obtenir des propos audibles. “Ecouter à
+travers les vitres”, nous y sommes donc arrivés ? Hélas, non, car notre système est fonctionnel
+seulement avec un miroir… pas très pratique pour espionner une conversation en étant bien caché
+et sans se faire remarquer !! Malgré tout, les différentes péripéties traversées, de l’élaboration d’un
+système autonome, à l’augmentation de la sensibilité du système, en passant par les capteurs
+piézoélectriques, le franc succès de l’essai à 35 mètres, et en finissant par le travail en infrarouge,
+nous avons beaucoup appris, dont quelques mots d’alsacien !
+Dàs esch a wunderbàres Erlabnis fer uns gse ! D’Olympiades de Physique han uns sehr gfàlla
+!!
+(en alsacien : “Ce fut pour nous une expérience formidable ! Les Olympiades de Physique nous ont
+beaucoup plu !”)
+
+Bibliographie :
+Bernard VALEUR “Sons et lumière” BELIN Collection Pour la Science
+Sextant “Optique expérimentale” Editions Hermann
+
+Sitographie :
+https://www.lemonde.fr/big-browser/article/2020/06/22/le-lamphone-ou-l-espionnageune-conversation-en-observant-l-ampoule-d-une-piece_6043767_4832693.html
+https://www.youtube.com/watch?v=iI8w2s05sd8 : Make a laser listener.
+http://lucidscience.com/pro-laser%20spy%20device-9.aspx : un autre système plus avancé.
+
+19
+
+

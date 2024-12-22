@@ -1,0 +1,1067 @@
+Projet Rétinac
+– Peut-on voir le son ? –
+2017 - 2019
+
+Ambre Deshayes
+
+Violette Kubiaczyk
+
+Professeurs référents: JC. Jouan Y. Chriqui
+
+Lycée Militaire de Saint-Cyr L’Ecole
+
+1
+
+Table des matières
+1 Introduction
+
+3
+
+2 Quelques notions sur le son
+2.1 La fréquence . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+2.2 L’amplitude . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+2.3 Longueur d’onde . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+
+3
+4
+4
+4
+
+3 Description et fonctionnement du montage
+3.1 Acquisition . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+3.2 Déplacement . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+3.3 Traitement des données . . . . . . . . . . . . . . . . . . . . . . . . . .
+
+5
+5
+7
+8
+
+4 Application du montage à l’étude de phénomènes physiques liés au
+son
+9
+4.1 Interférences . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 9
+4.1.1 Franges d’interférences . . . . . . . . . . . . . . . . . . . . . . 9
+4.1.1.1 Description de l’expérience . . . . . . . . . . . . . . . 9
+4.1.1.2 Résultats expérimentaux . . . . . . . . . . . . . . . . 10
+4.1.2 Anneaux d’interférences . . . . . . . . . . . . . . . . . . . . . 12
+4.1.2.1 Description de l’expérience . . . . . . . . . . . . . . . 12
+4.1.2.2 Résultats expérimentaux . . . . . . . . . . . . . . . . 12
+4.2 Diffraction . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 14
+4.2.1 Franges de Grimaldi . . . . . . . . . . . . . . . . . . . . . . . 15
+4.2.1.1 Description de l’expérience . . . . . . . . . . . . . . . 15
+4.2.1.2 Résultats expérimentaux . . . . . . . . . . . . . . . . 15
+4.2.2 De la diffraction de Fresnel à la diffraction de Fraunhofer . . . 17
+5 Conclusion
+
+20
+
+6 Annexes
+21
+6.1 Annexe 1 : absorption des ultrasons dans l’air . . . . . . . . . . . . . 21
+
+Projet Rétinac
+
+Peut-on voir le son ?
+
+Résumé
+Nous proposons un montage permettant de rendre visible les phénomènes
+sonores. Le montage permet de visualiser la répartition spatiale de l’intensité
+sonore dans l’espace. Le montage est ensuite utilisé pour visualiser et étudier
+les phénomènes d’interférences et de diffraction dans le domaine des ultrasons.
+
+1
+
+Introduction
+
+Peut-on voir le son ? Peut-on obtenir une image de notre environnement sonore ?
+Tel est le point de départ de notre réflexion.
+Réaliser une telle image nécessiterait de localiser les sources sonores dans notre
+environnement et de faire l’analyse de leur contenu spectral à l’instar de l’œil pour
+le traitement de l’information lumineuse.
+La première étape consisterait à réaliser un écran acoustique constitué d’une
+matrice de détecteurs sonores, analogue de la rétine, d’où le nom Rétinac que nous
+avons donné à notre projet.
+Plusieurs solutions techniques ont été envisagées, comme la réalisation d’un écran
+avec un grand nombre de micros. Au final nous avons choisi de travailler avec un
+nombre restreint de micros que l’on déplace dans l’espace. La solution technique
+retenue nous permet à la fois de gérer le déplacement, l’acquisition ainsi que le
+traitement des données à partir de la même interface.
+A l’aide du montage, nous avons pu revisiter les expériences classiques d’interférences et de diffraction dans le domaine acoustique. Il y a deux cents ans,
+Augustin Fresnel présentait son mémoire sur la nature ondulatoire de la lumière
+devant l’Académie des Sciences. Suivant ses pas, nous sommes parties à la recherche
+de l’équivalent acoustique du point brillant de Poisson.
+
+2
+
+Quelques notions sur le son
+
+Le son est une onde mécanique produite par une vibration mécanique : celle de
+la membrane d’un haut-parleur par exemple. Le déplacement de la membrane comprime la tranche d’air en contact avec elle. Celle-ci comprime à son tour la tranche
+d’air voisine et ainsi de suite.
+La propagation du son s’accompagne de variations de pression que l’on peut détecter
+et transformer en signal électrique à l’aide d’un microphone.
+Dans le cas d’une onde sonore sinusoı̈dale (celle produite par un diapason par
+exemple ; on parle dans ce cas de son pur) le microphone détecte des variations
+de pression sinusoı̈dales, représentées figure 1, et qui s’écrivent :
+p(t) = pm cos(2πf × t + Φ)
+où
+— pm est l’amplitude du signal en Pa ;
+— f la fréquence du signal en Hz ;
+— Φ la phase initiale du signal en rad.
+3
+
+(1)
+
+Projet Rétinac
+
+Peut-on voir le son ?
+
+p(t)
+T
+pm
+t
+
+Figure 1 – Evolution de la pression de l’air au cours du temps pour une position
+donnée du micro.Φ = −π/2
+
+2.1
+
+La fréquence
+
+La fréquence correspond au nombre de motifs reçus par le micro par seconde.
+Elle est liée à la période T (plus petite durée au bout de laquelle le signal se répète
+identique à lui même) par la relation 2 :
+f=
+
+1
+T
+
+(2)
+
+Les sons audibles ont des fréquences comprises entre 20 Hz et 20 kHz. Les ultrasons
+ont des fréquences supérieures à 20 kHz et les infrasons des fréquences inférieures à
+20 Hz.
+
+2.2
+
+L’amplitude
+
+L’amplitude correspond à la valeur maximale du signal. L’amplitude est liée à
+l’intensité sonore I (en W.m−2 ) qui représente l’énergie acoustique reçue par unité
+de temps et de surface. Plus précisément, l’intensité acoustique est proportionnelle
+au carré de l’amplitude.
+L’oreille humaine étant un détecteur logarithmique, on caractérise la sensation
+sonore par le niveau acoustique LdB .
+ 
+I
+(3)
+LdB = 10 log
+I0
+où I0 = 10−12 W.m−2 est une intensité de référence correspondant au seuil d’audibilité de l’oreille humaine.
+A titre d’exemple, une conversion normale correspond à un niveau acoustique de
+L = 60 dB et des surpressions acoustiques de l’ordre de 2 × 10−4 P a.
+
+2.3
+
+Longueur d’onde
+
+L’onde sonore sinusoı̈dale est également caractérisée par sa longueur d’onde
+λ (en m) qui représente la plus petite distance au bout de laquelle l’onde se répète
+dans l’espace.
+
+4
+
+Projet Rétinac
+
+Peut-on voir le son ?
+
+p(x)
+λ
+pm
+x
+
+Figure 2 – Evolution de la pression de l’air en fonction de la distance à un instant
+donné.
+La longueur d’onde est liée à la fréquence par la relation 4 :
+λ=c×T =
+
+c
+f
+
+(4)
+
+où c est la célérité du son dans le milieu.
+Pour l’air (T= 25 ◦C ; P = 1 bar), c vaut 343 m s−1 .
+Les sons de fréquence 20 Hz, ont des longueurs d’onde λ = 17 m ; ceux de
+fréquences 20 kHz des longueurs d’onde λ = 1,7 cm.
+
+Dans le cadre de notre projet, nous cherchons à mesurer l’intensité sonore liée à
+la grandeur pm .
+Nous travaillons à fréquence fixe dans le domaine des ultrasons : le son étant
+produit par un émetteur piézoélectrique de fréquence 40 kHz (λ = 8 mm) et capté
+par un récepteur piézoélectrique.
+Le choix des ultrasons s’est vite imposé à nous pour plusieurs raisons. Tout
+d’abord pratique, les ultrasons sont faciles à mettre en oeuvre avec le matériel disponible au lycée et permettent de faire de l’acoustique sans fatigue auditive pour
+l’oreille humaine. Travailler dans le domaine ultrasonique permet de plus de s’affranchir des perturbations dues au bruit ambiant. Leur longueur d’onde de l’ordre du
+centimètre permet de mettre en évidence facilement les phénomènes d’interférence et
+de diffraction comme nous le verrons dans la suite. Il faudra cependant tenir compte
+de leur atténuation lors de leur propagation dans l’air comme le montre la courbe
+de l’annexe 6.1.
+
+3
+
+Description et fonctionnement du montage
+
+3.1
+
+Acquisition
+
+Nous avons tout d’abord réalisé l’acquisition de la tension aux bornes d’un seul
+micro.
+Faire une acquisition consiste à mesurer la valeur de la tension à intervalle de temps
+régulier appelé période d’échantillonnage et notée Te. La durée d’acquisition et le
+nombre N de points de mesure sont reliés par la relation :
+durée d’acquisition = N × Te
+5
+
+Projet Rétinac
+
+Peut-on voir le son ?
+
+Dans le cas des ultrasons, de fréquence f = 40,0 kHz (période T = 25 µs), pour avoir
+N = 10 points de mesure par période, il faut choisir une période d’échantillonnage de
+Te = 2,5 µs soit une fréquence d’échantillonnage de fe = 400 kHz comme le montre
+la figure ci-dessous.
+
+1
+
+u(t)
+
+0.5
+0
+−0.5
+−1
+0
+
+10
+
+20
+
+30
+
+40
+
+50
+
+t(µs)
+
+Figure 3 – Fonction sinusoı̈dale échantillonnée : en tirets, le signal non échantillonné
+Pour l’acquisition nous avons utilisé la carte d’acquisition SYSAM SP5 (Eurosmart) disponible au lycée. C’est un CAN (convertisseur analogique numérique)
+12 bits dont la fréquence d’échantillonnage maximale est de 500 kHz (quand plusieurs voies sont utilisées) ce qui est largement suffisant pour échantillonner un signal
+à 40 kHz.
+L’acquisition est pilotée par le langage Python et la bibliothèque Pycanum écrite
+par F. Legrand ce qui nous permet de récupérer les N valeurs ui de la tension
+échantillonnée afin de pouvoir les traiter par la suite. L’acquisition est faite sur une
+durée de 0,10 ms avec une fréquence d’échantillonnage de 500 kHz ce qui correspond
+à N = 50 points de mesure.
+La valeur efficace de la tension (root mean square) est ensuite calculée par la
+relation 5 :
+v
+u
+N
+u1
+X
+u2i
+(5)
+urms = t ×
+N
+i=1
+Dans le cas d’un signal sinusoı̈dal, la valeur efficace est liée à l’amplitude um par
+la relation 6 :
+um
+urms = √
+(6)
+2
+Dans un deuxième temps, nous avons réalisé 7 acquisitions successives sur 7 micros
+reliés aux 7 entrées analogiques de la carte d’acquisition et extrait les valeurs efficaces pour chacun des micros ce qui nous a permis d’observer une première figure
+d’interférences à l’aide du premier prototype de la figure 4.
+
+6
+
+Projet Rétinac
+
+Peut-on voir le son ?
+
+Figure 4 – Premier prototype
+Ce premier montage présente plusieurs limitations. La première est liée au nombre
+limité de micros, lui même lié au nombre limité d’entrées de la carte d’acquisition. La
+seconde est la faible résolution spatiale liée à l’encombrement des boı̂tiers supports
+des micros.
+Nous avons dépassé ces limitations en achetant des micros de plus petite taille
+et augmenté artificiellement le nombre de micros en déplaçant la barrette de micros
+dans l’espace ce qui a pour effet d’améliorer la résolution spatiale comme nous le
+verrons dans la suite.
+
+3.2
+
+Déplacement
+
+Le déplacement de la barrette se fait grâce à un moteur pas à pas (NEMA 17).
+Le moteur est piloté par le langage Python et la bibliothèque pycanum (F. Legrand)
+via la carte d’acquisition SYSAM SP5 et son boitier bologic. Le boitier bologic est
+connecté à un pont en H (circuit L298N) lui même connecté au moteur.
+Le chariot de déplacement sur lequel est fixé la barrette de micros est un chariot
+d’imprimante 3D autorépliquante dont on trouve les plans (fichiers.scad) sur Internet
+(voir par exemple reprap PrusaMendel). Le chariot et les supports du rail de guidage
+ont été réalisés en impression 3D avec l’imprimante du lycée. Le rail permet un
+déplacement sur une distance maximale de 1,0 m. Mais en pratique, nous réalisons
+des enregistrements sur des distances de l’ordre de 30,0 cm.
+La résolution horizontale est de 0,8 mm. Cette distance correspond à un pas du
+moteur. La résolution verticale est quant à elle limitée par la taille des micros (1 cm
+7
+
+Projet Rétinac
+
+Peut-on voir le son ?
+
+de diamètre). Dans la barrette réalisée, les micros sont distants de 1,6 cm.
+
+Figure 5 – Photo du montage sur laquelle on peut voir la barrette de micros.
+
+3.3
+
+Traitement des données
+
+Pour chaque position de la barrette, les valeurs efficaces des tensions aux bornes
+de chacun des micros sont calculées puis stockées dans un tableau.
+Nous utilisons la fonction imshow de la bibliothèque Matplotlib pour afficher une
+image en 256 niveaux de gris à partir des valeurs du tableau. Le niveau de gris 0 est
+affecté à la valeur minimale du tableau et le niveau 255 à la valeur maximale.
+L’image est ensuite filtrée par un algorithme de lissage (lanczos) ce qui a pour
+effet de faire disparaı̂tre la pixellisation et de rendre l’image plus lisible.
+Nous avons été par ailleurs confrontées à une autre difficulté. En effet, nous
+avons constaté que pour une même intensité, les microphones n’avaient pas la même
+réponse et ne donnaient pas la même valeur efficace. Nous avons du normaliser les
+réponses des microphones, en divisant la valeur de la tension efficace mesurée par
+une valeur de référence correspondant à la valeur efficace mesurée par le micro placé
+à distance nulle de l’émetteur.
+
+8
+
+Projet Rétinac
+
+4
+
+Peut-on voir le son ?
+
+Application du montage à l’étude de phénomènes
+physiques liés au son
+
+Le montage réalisé nous a permis de visualiser et d’étudier des phénomènes stationnaires pour les lesquels il y a une modulation spatiale de l’intensité sonore tels
+que les interférences et la diffraction.
+
+4.1
+
+Interférences
+
+Le phénomène d’interférences résulte de la superposition de deux ondes cohérentes.
+Il se traduit par un modulation spatiale de l’intensité sonore. Si les signaux qui se
+superposent sont en opposition de phase, alors l’amplitude du signal résultant est
+minimale. On dit que les interférences sont destructives. Au contraire, quand les
+signaux qui interfèrent sont en phase alors l’amplitude du signal résultant est maximale et les interférences constructives.
+On se propose de rendre le phénomène visible dans le cas des ondes sonores.
+
+4.1.1
+
+Franges d’interférences
+
+4.1.1.1 Description de l’expérience Les ondes sonores sont produites par
+deux émetteurs E1 et E2 distants de a et alimentés par le même GBF. On observe la figure d’interférence dans un plan parallèle à la droite (E1 E2 ), à la distance
+D, comme le montre la figure 6. La barrette est déplacée sur une distance de 30,0 cm
+avec un pas de 8 mm.
+x
+×M
+
+E
+• 1
+a
+
+D
+O
+•
+E2
+
+Figure 6 – Schéma du dispositif des interférences
+
+9
+
+Projet Rétinac
+
+Peut-on voir le son ?
+
+(a) sans lissage
+
+(b) avec lissage
+
+Figure 7 – Figures d’interférences ; a=5,2 cm ; D = 30,0 cm ; les échelles des axes
+sont en cm
+4.1.1.2 Résultats expérimentaux Le graphique ci-dessous représente l’évolution de la valeur efficace en fonction de sa position, pour le micro central numéro 4.
+La valeur efficace a été divisée par la plus grande valeur mesurée par le micro lors
+du déplacement.
+1
+
+points exp
+
+rms norm.
+
+0.8
+0.6
+0.4
+0.2
+0
+0
+
+5
+
+10
+
+15
+x (cm)
+
+20
+
+25
+
+30
+
+Figure 8 – Tension efficace relative en fonction de la position
+On superpose la courbe théorique aux résultats expérimentaux.
+Dans le cas d’une interférence à deux ondes, l’amplitude du signal au point M
+d’abscisse x (cf figure 6) est donnée par :
+
+
+2πδ
+2
+2
+2
+A = A1 + A2 + 2A1 A2 cos
+(7)
+λ
+avec
+10
+
+Projet Rétinac
+
+Peut-on voir le son ?
+
+— A1 et A2 , amplitudes au point M des signaux émis par E1 et E2 respectivement ;
+— δ, différence de marche
+M donnée
+par :
+r au point
+
+2 r
+
+a
+a 2
+δ = E2 M − E1 M = D2 + x +
+− D2 + x −
+2
+2
+Dans l’hypothèse où, les deux ondes ont la même amplitude, on obtient :
+
+
+
+2πδ
+2
+2
+A = 2A1 1 + cos
+(8)
+λ
+On superpose aux points expérimentaux, la courbe
+
+A(x)
+que l’on a pris soin de
+2A1
+
+centrer autour de la position x = 13,5 cm (figure 9).
+1
+
+points exp
+modélisation
+
+rms norm.
+
+0.8
+0.6
+0.4
+0.2
+0
+0
+
+5
+
+10
+
+15
+x (cm)
+
+20
+
+25
+
+30
+
+Figure 9 – valeur efficace relative en fonction de la position
+Les points expérimentaux montrent une diminution du contraste des franges
+à cause de la différence d’amplitude des signaux que l’on superpose au point M :
+A1 6= A2 . On pourrait améliorer notre modèle en prenant en compte l’atténuation de
+l’onde lors de sa propagation. Les amplitudes A1 et A2 dépendent ainsi de la distance
+parcourue selon la relation et les paramètres tirés de la courbe de l’annexe 6.1.
+Le nouvel ajustement de courbe est représenté à la figure 10. On constate une
+diminution de l’amplitude plus en accord avec nos valeurs expérimentales.
+Cependant, l’interfrange expérimental augmente quand on s’éloigne du centre de
+la figure ce qui n’est pas le cas pour l’interfrange théorique qui reste constant. Nous
+n’avons pas à ce stade de la rédaction de ce rapport d’explication à cet écart.
+
+11
+
+Projet Rétinac
+
+Peut-on voir le son ?
+
+1
+
+points exp
+modélisation
+
+rms norm.
+
+0.8
+0.6
+0.4
+0.2
+0
+0
+
+5
+
+10
+
+15
+x (cm)
+
+20
+
+25
+
+30
+
+Figure 10 – Valeur efficace relative en fonction de la position et modélisation tenant
+compte de l’atténuation des ultrasons.
+4.1.2
+
+Anneaux d’interférences
+
+4.1.2.1 Description de l’expérience On observe maintenant la figure d’interférence dans un plan perpendiculaire à la droite (E1 E2 ). E1 et E2 étant distants
+de a et l’écran d’observation placé à la distance D de E1 .
+x
+×M
+
+•
+E2
+
+a
+
+•
+E1
+
+D
+
+O
+
+Figure 11 – Schéma du dispositif des anneaux
+
+4.1.2.2 Résultats expérimentaux Le graphique de la figure 13 représente
+l’évolution de la valeur efficace en fonction de la position, pour le micro central
+numéro 4. La valeur efficace a été divisée par la plus grande valeur mesurée par le
+micro lors de son déplacement.
+
+12
+
+Projet Rétinac
+
+Peut-on voir le son ?
+
+(a) sans lissage
+
+(b) avec lissage
+
+Figure 12 – Figures d’interférences ; a=20,0 cm ; D = 10,8 cm ;
+1
+
+points exp
+
+rms norm.
+
+0.8
+0.6
+0.4
+0.2
+0
+0
+
+5
+
+10
+
+15
+x (cm)
+
+20
+
+25
+
+30
+
+Figure 13 – Valeur efficace relative en fonction de la position.
+On superpose aux résultats expérimentaux, la courbe théorique donnée par la
+relation 8 en adaptant l’expression de la différence de marche δ (équation 9), et en
+recentrant autour de la position x = 14,0 cm (figure 14).
+p
+√
+δ = E2 M − E1 M = x2 + (D + a)2 − x2 + D2
+(9)
+
+13
+
+Projet Rétinac
+
+Peut-on voir le son ?
+
+1
+
+points exp
+modélisation
+
+rms norm.
+
+0.8
+0.6
+0.4
+0.2
+0
+0
+
+5
+
+10
+
+15
+x (cm)
+
+20
+
+25
+
+30
+
+Figure 14 – Valeur efficace relative en fonction de la position.
+Pour améliorer la modélisation, il faudrait aussi tenir compte de l’effet de diffraction de l’émetteur E1 sur l’onde émise par E2 . En effet, les émetteurs ont une
+dimension de l’ordre de la longueur d’onde des ultrasons.
+1
+
+points exp
+modélisation
+
+rms norm.
+
+0.8
+0.6
+0.4
+0.2
+0
+0
+
+5
+
+10
+
+15
+x (cm)
+
+20
+
+25
+
+30
+
+Figure 15 – Valeur efficace relative en fonction de la position et modélisation tenant
+compte de l’atténuation des ultrasons.
+
+4.2
+
+Diffraction
+
+Le phénomène de diffraction se manifeste lorsqu’une onde rencontre un obstacle
+ou une ouverture dont les dimensions sont comparables à sa longueur d’onde. Il se
+14
+
+Projet Rétinac
+
+Peut-on voir le son ?
+
+traduit par un éparpillement spatial de l’intensité sonore derrière l’obstacle.
+Le phénomène se manifeste également quand l’onde rencontre un bord rectiligne.
+Ce sont les franges de Grimaldi (1618-1663), qui fut le premier à décrire le phénomène
+et à qui l’on doit le nom de diffraction.
+4.2.1
+
+Franges de Grimaldi
+
+4.2.1.1 Description de l’expérience L’émetteur est placé devant le bord rectiligne d’un écran métallique, à la distance d de celui-ci. L’observation est faite à la
+distance D de l’écran. La barrette de micros est déplacée sur une distance de 20 cm
+avec un pas de 4 mm.
+x
+×M
+
+•
+E1
+
+D
+
+d
+
+O
+
+Figure 16 – Schéma du dispositif des franges de Grimaldi vu du dessus
+
+(a) sans lissage
+
+(b) avec lissage
+
+Figure 17 – Franges de Grimaldi ; d = 22,0 cm ; D = 4,0 cm
+4.2.1.2 Résultats expérimentaux Le graphique de la figure 18 représente
+l’évolution de la valeur efficace en fonction de la position, pour le micro central
+numéro 4. La valeur efficace a été divisée par la plus grande valeur mesurée par le
+micro lors de son déplacement.
+15
+
+Projet Rétinac
+
+Peut-on voir le son ?
+
+1
+
+points exp
+
+rms norm.
+
+0.8
+0.6
+0.4
+0.2
+0
+0
+
+5
+
+10
+x (cm)
+
+15
+
+20
+
+Figure 18 – valeur efficace relative en fonction de la position
+On superpose aux points expérimentaux, la courbe théorique donnée par [3] :
+"
+!#2 "
+!#2 
+r
+r
+
+2 
+A
+2
+2
+1
+1
+A2 = 0
+− C −x
++
+− S −x
+(10)
+
+2  2
+Dλ
+2
+Dλ
+où C et S sont les intégrales de Fresnel dont les valeurs sont calculées avec Python.
+1
+
+modélisation
+expérience
+
+rms norm.
+
+0.8
+0.6
+0.4
+0.2
+0
+0
+
+5
+
+10
+15
+x (cm)
+
+20
+
+25
+
+Figure 19 – valeur efficace relative en fonction de la position et modélisation
+On retrouve un profil de courbe similaire. En revanche, les franges de la modélisation sont plus resserrées. L’origine de cet écart peut venir du fait que la formule
+16
+
+Projet Rétinac
+
+Peut-on voir le son ?
+
+précédente est valable dans le cas d’un émetteur qui serait placé à grande distance
+devant le bord diffractant.
+4.2.2
+
+De la diffraction de Fresnel à la diffraction de Fraunhofer
+
+Pour finir, nous nous sommes intéressées à la diffraction par des ouvertures circulaires et des obstacles sphériques. Nous présentons ici les résultats obtenus dans le
+cas d’une ouverture circulaire de diamètre a variable. L’émetteur étant placé à une
+distance d de l’ouverture et l’écran d’observation à une distance D (figure 20).
+x
+×M
+
+E1
+•
+
+a
+O
+
+d
+D
+
+Figure 20 – Schéma du dispositif de diffraction par ouverture sphérique
+Le régime de diffraction est gouverné par le nombre de Fresnel NF :
+NF =
+
+a2
+Dλ
+
+(11)
+
+N F < 0, 1 correspond à un régime de diffraction de Fraunhofer ;
+N F > 10 correspond à un régime de diffraction de Fresnel.
+L’expression de la distance caractéristique Dc séparant les deux régimes de diffraction, obtenue à partir de la relation 11 pour NF = 1, est donnée par la relation 12.
+Dc =
+
+a2
+λ
+
+(12)
+
+Pour une distance D supérieure à Dc , on se trouve dans le régime de Fraunhofer.
+Dans le cas où a = 7λ, la distance caractéristique séparant les deux régimes de
+diffraction est Dc = 42 cm. Pour a = 3, 5λ, Dc = 10 cm.
+Les figures de diffraction (figure 21), ont été obtenues avec D = 15 cm et d = 8 cm
+pour une ouverture circulaire dont le diamètre varie entre 3, 5λ et 7λ.
+L’émetteur a été placé volontairement proche de l’ouverture (diaphragme d’optique, comme le montre la figure 5) de façon à être sur d’éviter une diffraction par
+les bords extérieurs du diaphragme.
+
+17
+
+Projet Rétinac
+
+Peut-on voir le son ?
+
+(a) a=3,0 cm ; d = 8,0 cm ; D = 15,0 cm ;
+NF = 0,17
+
+(b) a=4,0 cm ; d = 8,0 cm ; D = 15,0 cm ;
+NF = 0,31
+
+(c) a=5,0 cm ; d = 8,0 cm ; D = 15,0 cm ;
+NF = 0,48
+
+(d) a=6,0 cm ; d = 8,0 cm ; D = 15,0 cm ;
+NF = 0,70
+
+Figure 21 – Diffraction par une ouverture circulaire de diamètre variable.
+Les graphiques de la figure 22 représentent l’évolution de la valeur efficace en
+fonction de la position, pour le micro central numéro 4. La valeur efficace a été
+divisée par la plus grande valeur mesurée par le micro lors de son déplacement.
+
+18
+
+Projet Rétinac
+
+Peut-on voir le son ?
+
+1
+
+a= 3 cm
+a= 4 cm
+a= 5 cm
+a= 6 cm
+
+rms norm.
+
+0.8
+0.6
+0.4
+0.2
+0
+0
+
+5
+
+10
+
+15
+20
+x (cm)
+
+25
+
+30
+
+Figure 22 – Diffraction par une ouverture circulaire de diamètre a variable ;
+d = 8,0 cm ; D = 15,0 cm.
+Le régime de diffraction de Fraunhofer correspond à la courbe obtenue pour
+a = 3 cm (NF = 0,17). On observe une figure d’Airy pour laquelle le diamètre l de
+la tâche centrale est donné par la formule 13.
+θ = 1, 22 ×
+
+l
+λ
+=
+a
+2D
+
+(13)
+
+L’application numérique avec un diamètre l = 10,5 cm est en accord avec les
+résultats expérimentaux.
+Le régime de diffraction de Fresnel correspond à la courbe obtenue pour a = 6 cm
+(NF = 0,70). Cette courbe montre un résultat surprenant : l’apparition d’un point
+obscur dans la zone de pleine intensité acoustique (équivalent du point brillant de
+Poisson dans la zone d’ombre acoustique). Ce résultat prédit par la diffraction de
+Fresnel s’observe pour des distances D qui vérifient la relation 14.
+(a/2)2
+D=
+2nλ
+
+(14)
+
+où n est un entier naturel. Cette formule étant valable dans le cas où l’émetteur est
+loin de l’ouverture diffractante.
+Pour n = 1, a = 6 cm, nous obtenons Dthéorique = 10,5 cm. Calculons l’incertitude
+sur Dthéorique :
+∆D = D(
+
+2∆a ∆λ
+0, 2 × 0, 1
++
+) = 10, 5 ×
+= 0, 35 cm
+a
+λ
+6
+
+Nous avons négligé l’incertitude sur λ par rapport à l’incertitude sur a.
+D = 10, 5 ± 0, 4cm. Les 15.0 cm obtenus expérimentalement n’appartiennent pas à
+l’intervalle [10, 1cm; 10, 9cm]. Le modèle de Fresnel n’est donc pas adapté, l’émetteur
+étant trop proche de l’ouverture.
+19
+
+Projet Rétinac
+
+5
+
+Peut-on voir le son ?
+
+Conclusion
+
+Nous avons réalisé un montage permettant de visualiser la répartition spatiale
+de l’intensité acoustique dans l’espace. Le montage réalisé nous a permis de revisiter quelques expériences classiques d’interférences et de diffraction et d’obtenir des
+images inédites dans le domaine de l’acoustique. Nous avons notamment observé une
+tâche obscure dans la zone de pleine intensité acoustique d’une ouverture circulaire.
+On pourrait imaginer utiliser le montage pour étudier d’autres phénomènes acoustiques, à d’autres fréquences, pour lesquels l’intensité acoustique est stationnaire
+telle que la répartition spatiale de l’intensité acoustique derrière des structures plus
+complexes comme les métamatériaux acoustiques.
+
+Remerciements
+Nous remercions monsieur Marchal (Maitre de Conférence, UPMC, Institut Jean
+le Rond d’Alembert) pour nous avoir conseillées dans le choix des micros à ultrasons.
+Nous remercions également monsieur Jouan et monsieur Chriqui pour nous avoir
+encadrées lors de la réalisation de ce projet.
+
+Références
+[1] B. Valeur, Sons et lumière, Paris, Belin, 2008, coll. Bibliothèque scientifique
+[2] C.Simon, ”Des franges de Grimaldi à la télémétrie laser, réflexions
+sur la diffraction de la lumière et son enseignement au lycée” ,
+Bull.Un.Prof.Phys.Chim.,vol112,n1003,p. 621-653,avril 2018.
+[3] ENS Cachan, ”étude de la diffraction de Fresnel dans quelques cas simples” :
+http ://www.physique.ens-cachan.fr/laboratoire/experiences/fichiers/DiffractionFresnel.pdf
+[4] F.Legrand, Informatique Appliquée aux Sciences Physiques :
+http ://www.f-legrand.fr/scidoc/
+
+20
+
+Projet Rétinac
+
+Peut-on voir le son ?
+
+6
+
+Annexes
+
+6.1
+
+Annexe 1 : absorption des ultrasons dans l’air
+
+Nous avons mesuré la valeur efficace mesurée par un micro en fonction de sa
+distance y à la source d’émission placée en y = 0. Les résultats expérimentaux sont
+présentés à la figure 23.
+1,000
+
+fit: a=2477 mV b=−0,816 cm−1
+
+rms (mV)
+
+800
+
+rms = a × y b
+
+600
+400
+200
+0
+0
+
+20
+
+40
+
+60
+
+80 100 120 140 160 180
+y (cm)
+
+Figure 23 – Evolution de la valeur efficace aux bornes d’un micro en fonction de
+sa distance y à l’émetteur.
+
+21
+
+

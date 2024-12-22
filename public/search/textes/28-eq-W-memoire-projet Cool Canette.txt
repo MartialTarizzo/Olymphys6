@@ -1,0 +1,614 @@
+Projet Cool Canette
+2018 - 2020
+
+Alexis Balestra
+
+Philomène Didierjean
+
+Professeurs référents: JC. Jouan & Y. Chriqui
+
+Lycée Militaire de
+Saint-Cyr L’Ecole
+
+Table des matières
+1 Introduction
+
+3
+
+2 Comment produire du froid ?
+2.1 Les machines frigorifiques : le congélateur . . . . . . . . . . . . . . . .
+2.2 Froid physique et changements d’état . . . . . . . . . . . . . . . . . .
+2.3 Froid chimique et mélanges réfrigérants . . . . . . . . . . . . . . . . .
+2.4 Détente de gaz . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+2.5 Autres effets thermiques . . . . . . . . . . . . . . . . . . . . . . . . .
+2.5.1 Effet Peltier . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+2.5.2 Effet magnétocalorique . . . . . . . . . . . . . . . . . . . . . .
+
+4
+4
+5
+6
+8
+8
+8
+9
+
+3 Le prototype
+9
+3.1 Solution de refroidissement retenue . . . . . . . . . . . . . . . . . . . 9
+3.2 Réalisation du prototype . . . . . . . . . . . . . . . . . . . . . . . . . 12
+4
+
+Optimisation du réfrigérant
+4.1 Aspect théorique . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+4.2 Ajout d’ailettes de refroidissement . . . . . . . . . . . . . . . . . . . .
+4.3 Ajout d’un absorbeur de chaleur . . . . . . . . . . . . . . . . . . . . .
+
+5 Conclusion
+
+13
+13
+15
+16
+19
+
+Projet Cool Canette
+
+1
+
+Introduction
+
+Par une chaude journée d’été l’envie vous prend de savourer une canette de soda
+bien fraı̂che. Vous ouvrez votre réfrigérateur et...déception, il n’y a plus de canette
+au frais. Qu’à cela ne tienne, vous prenez une canette à température ambiante et la
+placez dans votre congélateur en espérant la boire fraı̂che rapidement. Il vous faudra
+attendre 30 à 40 min avant de vous rafraı̂chir. L’idée suivante vous vient alors :
+Peut-on rafraı̂chir une canette en moins de trois minutes ?
+Tel est le point de départ du projet ”Cool Canette” que nous avons développé en
+partenariat avec la société Air Liquide et l’équipe R&D de M. Nicolle. Le projet
+consiste à refroidir une canette de 33 cL depuis la température ambiante (20 ◦C) à la
+température de 5 ◦C en moins de trois minutes avec des moyens simples à disposition
+dans une cuisine. Tout le monde ne dispose pas en effet d’une réserve d’azote liquide
+(à −196 ◦C) dans sa cuisine pour les besoins de réfrigération !
+Une recherche rapide sur Internet montre très peu de références sur le sujet :
+canette auto réfrigérante avec réservoir d’azote liquide proposée par l’entreprise sud
+coréenne Icetec en 2002, canette West Cold Child de l’entreprise américaine Joseph
+Company International avec réservoir de dioxyde de carbone liquide en 2014 et enfin
+la machine V-tex de l’entreprise britannique Enviro-cool qui propose en 2013 une
+machine permettant de refroidir une boisson en moins de 45 s mais destinée aux
+professionnels.
+La première partie de notre travail a consisté à nous documenter sur les différentes
+techniques de production du froid et faire quelques expériences qualitatives préliminaires pour tester les solutions envisageables. C’est à l’issue de cette première phase
+de recherche que nous nous sommes rendus compte que la  production  de froid
+en quantité et en temps limité n’était pas si facile à réaliser. Nous avons néanmoins
+trouvé une solution basée sur l’utilisation du congélateur de la cuisine. Nous avons
+cherché à optimiser le transfert thermique avec la canette de façon à descendre
+sous la barre des 3 minutes. Cette deuxième étape d’optimisation nous a permis
+d’atteindre l’objectif visé et de mettre au point un prototype. A cette occasion, nous
+avons développé une solution originale et innovante pour augmenter les capacités
+de réfrigération du dispositif : l’absorbeur de chaleur. Dans un troisième et dernier
+temps nous nous sommes intéressés à la physique du transfert thermique mis en jeu
+dans l’expérience afin de valider le modèle théorique de la loi de Newton. Nous avons
+observé un écart à cette loi que nous interprétons et qui peut être mis à profit.
+
+3
+
+Projet Cool Canette
+
+2
+
+Comment produire du froid ?
+Commençons par quelques chiffres pour préciser l’objectif visé.
+
+Refroidir 33cL d’eau de Ti =20 ◦C à Tf =5 ◦C nécessite d’extraire une quantité de
+chaleur :
+Q = meau × Ceau (Tf − Ti )
+(1)
+soit numériquement,
+Q = 0, 33 × 4180 × (−15)
+Q = −2,1 × 104 J
+Le transfert ayant lieu en trois minutes, cela correspond à une puissance thermique :
+Q
+Pth =
+(2)
+∆t
+soit numériquement,
+−2, 07 × 104
+Pth =
+3 × 60
+Pth = −115 W
+Voyons maintenant les différentes solutions de refroidissement compatibles avec
+ces données.
+
+2.1
+
+Les machines frigorifiques : le congélateur
+
+Le premier réflexe pour refroidir la canette est de la mettre au congélateur.
+Réalisons l’expérience suivante : la canette est placée au congélateur et relevons la
+température au centre de la canette toutes les minutes. Nous obtenons la courbe de
+refroidissement de la figure 1.
+
+Figure 1 – Canette dans congélateur
+4
+
+Projet Cool Canette
+
+Premier enseignement : le temps de refroidissement pour atteindre 5 ◦C est bien
+supérieur à 3 minutes et avoisine les 27 minutes, malgré le température intérieure du
+congélateur qui frôle les −30 ◦C (c’est la température du congélateur du laboratoire ;
+la température intérieure d’un congélateur domestique est plus proche de −20 ◦C).
+Les échanges thermiques avec l’air (même froid, −30 ◦C, sont mauvais car l’air
+est un isolant thermique.
+
+2.2
+
+Froid physique et changements d’état
+
+Le deuxième réflexe, pour refroidir une boisson est d’y introduire des glaçons.
+La fusion d’un kilogramme d’eau à 0 ◦C nécessite un apport d’énergie thermique de
+334 kJ, appelée chaleur latente de changement d’état et notée Lf usion = 334 kJ kg−1 .
+Cette énergie est prélevée au milieu ambiant qui se refroidit. Ainsi, on peut déterminer
+la masse de glace nécessaire au refroidissement de 33cL d’eau de Ti =20 ◦C à Tf =5 ◦C :
+−Q
+(3)
+Lf usion
+où Qeau = −2,07 × 104 J est le transfert thermique nécessaire pour refroidir la boisson et calculé dans le paragraphe précédent. Nous obtenons numériquement :
+mg =
+
+2,07 × 104
+334 × 103
+mg ' 60 g
+mg =
+
+Réalisons alors l’expérience suivante : dans un bécher agité contenant 330 mL
+d’eau, introduisons une masse de glace voisine de la masse calculée précédemment
+et mesurons la température en fonction du temps.
+Nous obtenons les courbes de la figure 2, dans le cas de 54 g de glace (3 glaçons)
+et 106 g.
+
+Figure 2 – Refroidissement de 330 mL d’eau avec glaçons
+5
+
+Projet Cool Canette
+
+Nous voyons sur cette courbe l’efficacité de la fusion dans le processus de refroidissement. La technique possède néanmoins un inconvénient : elle nécessite d’introduire
+une grande quantité de glace dans la boisson, donc d’eau ce qui risque d’en altérer
+le goût. Malgré son efficacité nous ne retenons pas cette solution.
+La vaporisation de l’eau à 100 ◦C sous la pression atmosphérique, est bien plus
+efficace d’un point de vue énergétique car elle nécessite un apport d’énergie thermique 10 fois plus grand que celui nécessaire à la fusion. En effet, la vaporisation
+d’un kg d’eau nécessite un apport de 2265 kJ (Lvap = 2265 kJ kg−1 ). Ainsi la masse
+d’eau nécessaire pour refroidir la canette serait seulement de :
+meau =
+
+−Q
+Lvap
+
+(4)
+
+Soit
+2,07 × 104
+2265 × 103
+meau ' 9 g
+
+meau =
+
+Seulement, pour que la vaporisation se produise à température ambiante, il faudrait
+travailler sous pression réduite de 23 mbar.
+Une autre solution, consisterait à utiliser un liquide qui se vaporise à la température
+ambiante à une pression supérieure à la pression atmosphérique. Le liquide maintenu sous pression, à la température ambiante, est détendu et se vaporise. C’est
+sur ce principe que reposent les bombes de froid utilisées par les sportifs (composition : mélange de n-butane/propane/iso-butane (gaz propulseur), alcool denat,
+parfum) qui permettent d’atteindre localement une température de −40 ◦C comme
+nous avons pu le constater en pulvérisant le liquide sur l’extrémité d’un thermomètre.
+La difficulté avec ces techniques de vaporisation,comme nous avons pu le constater
+expérimentalement, est d’optimiser le transfert thermique avec la canette. En effet,
+la chaleur nécessaire à la vaporisation du liquide est prélevée en partie à la canette
+et en partie à l’air ambiant.
+Terminons par citer le phénomène d’évaporation responsable de la sensation de
+froid que l’on ressent lorsque notre peau est mouillée (principe du brumisateur, ou
+du réfrigérateur pot en pot). L’évaporation est un phénomène lent mais qui peut être
+accéléré en présence d’un courant d’air. La lenteur du phénomène nous a conduit a
+mettre cette solution de côté après quelques tests non concluants.
+
+2.3
+
+Froid chimique et mélanges réfrigérants
+
+Le mélange eau/glace pillée a une température de 0 ◦C. L’ajout de sel de cuisine
+(chlorure de sodium NaCl(s) ) au mélange précédent permet d’obtenir une température
+négative. Théoriquement, l’ajout de 30 g de sel à 100 g de glace permet d’atteindre
+une température de −20 ◦C [1].
+
+6
+
+Projet Cool Canette
+
+Pour tester l’efficacité du refroidissement, nous avons fait les expériences qualitatives suivantes : une canette contenant 33 cL d’eau à température ambiante voisine
+de 20 ◦C est plongée dans différents mélanges. Nous mesurons la température au
+centre de la canette et mesurons le temps nécessaire pour atteindre 5 ◦C.
+La figure 3 montre le montage expérimental : nous travaillons dans un calorimètre de
+façon à limiter les échanges thermiques entre le mélange réfrigérant et l’air ambiant.
+
+Figure 3 – Expériences préliminaires
+Les résultats sont résumés dans le tableau 1.
+Type de mélange
+eau/glace à 0 ◦C
+◦
+eau/glace à 0 C et agitation du contenu de la canette
+sel/glace pilée à −12 ◦C
+sel/glace pilée à −12 ◦C et agitation du contenu de la canette
+
+Durée (min)
+20
+15
+6
+5
+
+Tableau 1 – Durée de refroidissement suivant le mélange réfrigérant.
+Ces expériences qualitatives montrent que les mélanges réfrigérants constituent
+un meilleur thermostat que l’air du congélateur, pourtant à une température plus
+basse. Les solides et les liquides ont en effet une capacité thermique bien plus élevée
+que celle des gaz, si bien que pour un même transfert thermique, un solide (ou un
+liquide) s’échauffe moins qu’un gaz.
+Nous observons aussi que plus la température du mélange réfrigérant est basse,
+plus le refroidissement est rapide.
+7
+
+Projet Cool Canette
+
+Ces expériences montrent également le rôle fondamental de l’agitation dans le
+processus de refroidissement.
+Notons qu’il est possible d’atteindre des températures encore plus basses à l’aide
+d’autres mélanges [1]. Ainsi le mélange de 100 g de glace pilée (0 ◦C) avec 143 g de
+chlorure de calcium hydraté CaCl2 , 6H2 O(s) doit permettre de descendre à −55 ◦C.
+Une substance comme CaCl2 , 6H2 O(s) n’étant pas d’usage courant, nous mettons
+provisoirement cette solution de refroidissement de côté. D’autant que le processus
+n’est pas réversible et ne permet pas de réutiliser le mélange une fois utilisé.
+
+2.4
+
+Détente de gaz
+
+Un gaz quand il se détend se refroidit. C’est le principe utilisé par notre partenaire pour obtenir de l’air liquide (procédé Claude). C’est aussi la détente de gaz
+qui est mise à profit dans un congélateur pour refroidir le liquide réfrigérant avant
+que ce dernier ne se vaporise pour refroidir l’intérieur du congélateur.
+Considérons de l’air détendu et refroidit à une température de −20 ◦C. La capacité thermique volumique de l’air étant de CV = 0,8 J K−1 L−1 , nous pouvons évaluer
+le volume d’air Vair nécessaire pour refroidir la canette, en supposant que l’air se
+réchauffe de Ti = −22 ◦C à Tf = 0 ◦C.
+Vair =
+
+Q
+(Tf − Ti ) × Cv
+
+où Q = −2,07 × 104 J est le transfert thermique nécessaire pour refroidir la canette.
+Nous obtenons numériquement :
+2,07 × 104
+20 × 0, 8
+Vair ' 1 × 103 L
+
+Vair =
+
+De l’ordre de 1 m3 , le volume d’air est important et rend le système peu pratique
+à utiliser. Par ailleurs comme l’a montré l’expérience réalisée avec le congélateur, l’air
+est un mauvais conducteur thermique ce qui nous conduit à mettre cette solution de
+côté.
+
+2.5
+
+Autres effets thermiques
+
+2.5.1
+
+Effet Peltier
+
+Quand une jonction entre deux métaux de nature différente est parcourue par
+un courant, elle libère ou absorbe de la chaleur selon le sens du courant.
+Cet effet a été découvert en 1834 par Jean-Charles Peltier. C’est sur ce principe
+que fonctionnent les modules Peltier du commerce, qui utilisent aujourd’hui des
+matériaux semi-conducteurs.
+Les puissances thermiques de réfrigération de ces modules vont de 1 W à quelques
+centaines de W. Elles sont donc compatibles avec la puissance thermique requise
+
+8
+
+Projet Cool Canette
+
+pour refroidir la canette. Les modules de puissance nécessitent cependant l’emploi
+de courants de forte intensité, de l’ordre de la dizaine d’ampères.
+Faute de temps, nous n’avons pas pu explorer cette piste qui présenterait l’avantage d’être une solution portative. Nous nous interrogeons notamment sur le temps
+nécessaire pour atteindre le régime de fonctionnement d’un tel module. Ainsi que
+sur l’efficacité du transfert thermique avec la canette (contact solide/solide).
+2.5.2
+
+Effet magnétocalorique
+
+Certaines substances magnétiques (métaux et céramiques comme MnAs1−x ,Sbx )
+qui ont été aimantées par un champ magnétique se refroidissent lors du processus de
+désaimantation (quand on supprime le champ magnétique). Cet effet a été découvert
+en 1881 dans le fer par le physicien allemand E. Warburg. Le premier réfrigérateur
+conçu sur ce principe a été inventé en 1976 par Brown qui utilisait la désaimantation
+cyclique du gadolinium pour un abaissement de température de −44 ◦C.
+Cette solution a été écartée par notre partenaire.
+
+3
+
+Le prototype
+
+3.1
+
+Solution de refroidissement retenue
+
+À l’issue de cette première phase de recherche, nous avons défini les propriétés
+du thermostat. Il doit être :
+bon conducteur thermique pour favoriser les échanges thermiques avec la
+canette. De ce point de vue, les gaz sont moins efficaces que les liquides ou
+les solides car moins denses. Dans le cas des solides, il faudrait s’assurer d’un
+contact parfait entre le solide et la canette alors qu’avec un liquide, le contact
+est nécessairement parfait.
+le plus froid possible. En effet, le transfert thermique est d’autant plus efficace que la différence de température entre le thermostat et la canette
+est grand. Plus précisément, la puissance thermique est proportionnelle à
+la différence de température entre la canette et le milieu extérieur d’après la
+loi de Newton (annexe 2)
+de grande capacité thermique de façon à limiter son réchauffement et maintenir une différence de température entre le thermostat et la canette, pour la
+même raison que précédemment.
+liquide pour bénéficier de l’effet d’agitation qui favorise le transfert thermique
+et maintenir de part et d’autre de la paroi de la canette une différence de
+température élevée, du moins supérieure à celle que l’on aurait sans agitation.
+Nous avons alors retenu la solution de refroidissement suivante : utilisation d’un
+réfrigérant liquide préalablement refroidit par un congélateur à −18 ◦C. L’utilisation d’un liquide, de capacité thermique élevée, permet de limiter le réchauffement
+du réfrigérant et de bénéficier de l’effet d’agitation qui permet d’homogénéiser les
+températures et de favoriser le transfert thermique. En revanche, cela nécessite d’utiliser un liquide réfrigérant qui se solidifie en-dessous de −18 ◦C.
+9
+
+Projet Cool Canette
+
+Nous nous sommes ainsi orientés vers le mélange eau-éthanol dont la température
+de solidification dépend du pourcentage massique d’éthanol comme le montre la
+courbe de la figure 4 :
+
+Figure 4 – Température de solidification d’un mélange eau-éthanol en fonction du
+pourcentage massique d’éthanol ( [2]).
+Nous choisissons de travailler avec des mélanges réfrigérants dont le pourcentage
+massique en éthanol est de 40 %, ce qui assure une température de solidification
+inférieure à −30 ◦C tout en limitant la consommation d’éthanol.
+
+Dans la deuxième phase du projet nous avons cherché à optimiser le transfert thermique entre la canette et le réfrigérant.
+Pour tester l’influence d’un paramètre, le protocole expérimental est le suivant :
+la canette test est placée au congélateur en même temps qu’une canette témoin.
+Nous mesurons les températures au centre des deux canettes en fonction du temps
+comme le montre la figure 5.
+
+10
+
+Projet Cool Canette
+
+Figure 5 – canette au congélateur
+Différents paramètres ont été testés : volume du réfrigérant, agitation ou non
+de l’intérieur de la canette. L’agitation du réfrigérant est plus difficile à réaliser en
+pratique.
+Nous présentons l’expérience la plus concluante par rapport à l’objectif visé : la
+canette test est placée au congélateur dans 425 mL de réfrigérant dont la température
+initiale est de −28 ◦C. L’intérieur de la canette est agitée mécaniquement. La température au centre de la canette est mesurée en fonction du temps ainsi que celle au
+centre de la canette témoin (placée dans le même volume de réfrigérant mais sans
+agitation de l’intérieur de la canette). Nous obtenons les courbes de la figure 6 :
+
+Figure 6 – canette agitée placée dans le réfrigérant au congélateur
+11
+
+Projet Cool Canette
+
+Le processus de refroidissement est particulièrement efficace puisque nous atteignons 5 ◦C en 110 s ! Et à ce stade, le défi que nous nous étions lancés est relevé !
+
+3.2
+
+Réalisation du prototype
+
+Fort de ce succès, nous avons réalisé un premier prototype.
+Le prototype est constitué d’un récipient contenant le liquide réfrigérant (400
+mL) et placé au congélateur. Les parois du récipient sont en plastique afin de limiter
+les transferts thermiques avec l’air ambiant lors du refroidissement de la canette.
+Nous souhaitons garder la canette sèche pendant l’opération de refroidissement
+sans réduire le temps de refroidissement. Pour cela nous empruntons une technologie
+développée initialement par la NASA. La canette est insérée dans une poche en
+contact avec le réfrigérant et réalisée à partir d’une couverture de survie. Le matériau
+de la couverture de survie présente les avantages suivants :
+— conducteur thermique
+— fin mais résistant
+— souple ce qui permet à la pression du liquide réfrigérant de venir le plaquer
+sur la canette et d’avoir un bon contact thermique
+Le prototype est agité manuellement par l’opérateur et permet de refroidir une
+canette en moins de trois minutes tout en la gardant sèche comme le montre la vidéo
+suivante (insérer un lien vers la vidéo du projet).
+Des améliorations sont possibles comme l’ajout d’un capteur de température au
+réfrigérant pour suivre la réfrigération de la canette en fonction du temps ainsi que
+l’utilisation d’une agitation mécanique plutôt que manuelle (mais il est nécessaire
+d’agiter et le réfrigérant et la canette).
+L’étape suivante consisterait à tester le prototype avec des liquides autres que
+l’eau que nous avons utilisée pour les expérimentations ainsi que l’effet de l’agitation
+sur les boissons gazeuses.
+
+12
+
+Projet Cool Canette
+
+Figure 7 – prototype
+En tant que conquérants du froid, nous ne nous sommes pas arrêtés là et nous
+avons cherché à optimiser le transfert thermique entre le réfrigérant et la canette.
+
+4
+
+Optimisation du réfrigérant
+
+Comment optimiser le réfrigérant et son pouvoir de réfrigération ? Pour répondre
+à cette question, nous avons approfondi nos connaissances dans le domaine de la
+physique du transfert thermique.
+
+4.1
+
+Aspect théorique
+
+Le transfert thermique entre le réfrigérant et la canette est régi par la loi de
+Newton (annexe 2). La puissance thermique prélevée à la canette est donnée par :
+P = h × S × (Tréfrigerant − Tcanette )
+
+(5)
+
+où h (W m−2 K−1 ) est un coefficient d’échange caractéristique de l’interface canette/réfrigérant et S la surface d’échange entre la canette et le réfrigérant.
+Cette relation confirme que plus la différence de température entre la canette
+et le réfrigérant est élevée, plus la puissance thermique est importante comme l’ont
+montré les expériences préliminaires.
+L’influence du volume du réfrigérant intervient dans le terme Tréfrigerant −TcanetteT .
+En effet, plus le volume du réfrigérant est grand, plus la variation de température
+du réfrigérant est faible. Le réfrigérant reste efficace plus longtemps.
+D’un point de vue énergétique, pour refroidir 330 mL d’eau de 20 ◦C à 5 ◦C, il faut un
+
+13
+
+Projet Cool Canette
+
+volume équivalent de réfrigérant qui passe de −20 ◦C à −5 ◦C. Ainsi le volume minimal de réfrigérant est d’environ 330 mL. Pour la réalisation du prototype, nous avons
+cherché un compromis entre puissance thermique et encombrement du dispositif.
+Comme l’ont montré les expériences préliminaires, le rôle de l’agitation est crucial. En effet, le coefficient d’échange h est plus élevé en présence d’agitation. Cela
+se comprend facilement : l’agitation permet d’homogénéiser les températures dans le
+réfrigérant et la canette et de maintenir une différence de température importante de
+part et d’autre de la paroi de la canette de façon à maximiser le transfert thermique.
+Conformément à la loi de Newton, pour optimiser le réfrigérant, nous avons
+exploré deux pistes :
+la première consiste à augmenter la surface d’échange grâce à l’ajout d’ailettes
+de refroidissement à la canette.
+la seconde consiste à maintenir une différence de température constante entre
+le réfrigérant et la canette. A cette occasion nous avons trouvé une solution
+originale et développé un absorbeur de chaleur simple mais efficace.
+Au cours du projet, le protocole expérimental a évolué comme le montre la
+figure 8. Les dernières expérimentations ont été réalisées en dehors du congélateur
+et à température ambiante. Certes les pertes thermiques avec l’air ambiant sont plus
+importantes mais cela nous a permis d’interfacer les thermomètres d’une part et
+d’autre part d’agiter l’intérieur de la canette et le réfrigérant de façon à pouvoir
+mesurer le flux thermique.
+
+Figure 8 – canette instrumentée
+
+14
+
+Projet Cool Canette
+
+4.2
+
+Ajout d’ailettes de refroidissement
+
+Pour tester l’influence des ailettes de refroidissement, nous avons réalisé l’expérience
+suivante.
+La canette est plongée (à la date t = 0) dans un volume V = 1,0 L de réfrigérant à
+−28 ◦C contenant préalablement les ailettes de refroidissement (pré-refroidies donc).
+L’intérieur de la canette et le réfrigérant sont agités. La température de la canette
+est mesurée au cours du temps à l’aide d’un système d’acquisition (figure 10). La
+même expérience est réalisée sans les ailettes.
+L’encombrement dû aux ailettes nous oblige à travailler avec un volume de
+réfrigérant et un bécher de taille plus importante.
+
+Figure 9 – expérience de refroidissement d’une canette munie d’ailettes
+Nous obtenons les courbes de température de la figure 10.
+
+15
+
+Projet Cool Canette
+
+Figure 10 – Évolution de la température de la canette avec et sans ailettes
+Comme le montre les courbes de température les ailettes induisent un retard au
+refroidissement de l’ordre de 20 s.
+Nous proposons l’interprétation suivante : l’ajout d’ailettes certes augmente la
+surface d’échange mais également l’épaisseur de la paroi de la canette. L’augmentation de l’épaisseur est responsable du retard au refroidissement dans les premières
+secondes du refroidissement. Pour vérifier l’hypothèse, il faudrait refaire l’expérience
+dans les mêmes conditions avec des ailettes de même surface mais d’épaisseur différente.
+Conclusion : l’introduction d’ailettes est une fausse bonne idée.
+
+4.3
+
+Ajout d’un absorbeur de chaleur
+
+La deuxième piste pour optimiser le réfrigérant consiste à essayer de maintenir sa
+température constante. Il faut donc évacuer la chaleur que le réfrigérant prélève à la
+canette ou l’absorber ! L’idée originale que nous avons trouvée est la suivante : utiliser la fusion du mélange eau-éthanol pour absorber la chaleur. Comme nous l’avons
+vu lors des expériences préliminaires, les changements d’état sont particulièrement
+efficaces d’un point de vue énergétique. En jouant sur la composition en éthanol
+du mélange eau-éthanol, nous pouvons choisir sa température de fusion. Ainsi, pour
+une fraction massique en éthanol de 40 pour cent, la température de fusion est de
+−20 ◦C d’après la figure 4.
+Pour tester cette idée, nous réalisons l’expérience suivante.
+La canette est plongée (à la date t = 0) dans un volume V = 400 mL de réfrigérant
+liquide à −28 ◦C entouré de 900 mL de réfrigérant solide à la même température et
+séparé par une paroi en aluminium (bon conducteur thermique). L’intérieur de la
+canette et le réfrigérant liquide sont agités. La température de la canette est mesurée
+au cours du temps à l’aide d’un système d’acquisition ainsi que celle du réfrigérant
+(figure 11). La même expérience est réalisée en remplaçant le réfrigérant solide par
+un réfrigérant liquide de même volume.
+16
+
+Projet Cool Canette
+
+Figure 11 – expérience de refroidissement d’une canette avec un absorbeur
+Nous obtenons les courbes de températures suivantes (figure 13) qui montrent
+l’effet positif de l’absorbeur sur le refroidissement, d’autant que dans le cas de
+l’expérience avec absorbeur la température initiale de la canette est supérieure de
+3 ◦C à la température initiale de la canette de l’expérience sans absorbeur.
+L’effet de l’absorbeur se manifeste au niveau de la pente de la courbe. Alors
+que le pente diminue au cours du temps dans l’expérience sans absorbeur, elle reste
+sensiblement constante au début de l’expérience avec absorbeur.
+Nous notons au passage l’apparition d’un phénomène de surfusion dans l’expérience
+réalisée avec absorbeur.
+
+Figure 12 – Evolution de la température de la canette avec et sans absorbeur
+
+17
+
+Projet Cool Canette
+
+L’effet de l’absorbeur est confirmé par la courbe montrant l’évolution de la
+température du réfrigérant en fonction du temps (figure 13) : l’absorbeur limite
+le réchauffement du réfrigérant.
+
+Figure 13 – Evolution de la température du réfrigérant avec et sans absorbeur
+Une amélioration du prototype consisterait à introduire dans le réfrigérant des
+absorbeurs de chaleur de façon à limiter le réchauffement du réfrigérant. Il resterait à
+optimiser le fonctionnement de ces absorbeurs. Il pourrait être intéressant d’étudier
+l’influence du pourcentage massique d’éthanol sur l’efficacité des absorbeurs, de la
+position et du nombre d’absorbeurs dans le dispositif.
+
+18
+
+Projet Cool Canette
+
+5
+
+Conclusion
+
+Nous nous étions lancés comme défi de refroidir une canette en moins de 3 minutes. Ce défi nous a conduit sur le chemin de la physique des transferts thermiques
+dont nous avons pu améliorer notre compréhension et observer des phénomènes physiques surprenant comme le phénomène de surfusion. Nous avons mis au point une
+solution de réfrigération simple et efficace, qui met en jeu une puissance thermique
+élevée et qui pourrait trouver des applications dans les besoins de réfrigération rapides.
+Le défi nous a également permis de faire preuve d’imagination afin de développer
+un prototype qui pourrait être utilisé au quotidien. Ainsi, le principe pourrait être
+intégré aux futurs réfrigérateurs ou mis à profit dans les distributeurs de boissons
+réfrigérées qui, plutôt que de refroidir un ensemble de canettes, se limiteraient à refroidir l’équivalent du volume d’une canette. Cela représenterait un gain énergétique
+substantiel compte-tenu des enjeux énergétiques et écologiques actuels.
+Notons pour finir que le sujet sur lequel nous avons travaillé est brûlant d’actualité. En effet, en janvier 2020, au CES (Consumer Electronics Show) de Las Végas la
+société Matrix proposait un produit innovant pour refroidir des boissons. La solution
+proposée est similaire à la solution que nous avons trouvée. La différence réside dans
+la production de froid initial par effet Peltier. Nous proposons un produit meilleur
+marché et qui utilise une innovation : l’absorbeur de chaleur.
+
+Remerciements
+Nous remercions vivement M.Nicolle (Directeur Agile@RD Paris-Saclay Ecosystème) et son équipe dont C. Delboux (Responsable Méthodes Agiles) pour avoir
+pris le temps de nous recevoir à plusieurs reprises sur le site de Air Liquide (Jouy
+en Josas, Yvelines) et pour les échanges fructueux que nous avons eus ensemble.
+Nous remercions également nos professeurs M. Jouan et M. Chriqui pour nous avoir
+guidés dans la réalisation de ce projet.
+
+Références
+[1] https://wiki.scienceamusante.net/index.php?title=M%C3%A9langes_r%
+C3%A9frig%C3%A9rants
+[2] https://fr.wikipedia.org/wiki/Solidification_fractionn%C3%A9e
+
+19
+
+

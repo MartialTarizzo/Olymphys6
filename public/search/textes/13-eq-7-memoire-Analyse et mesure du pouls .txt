@@ -1,0 +1,730 @@
+Olympiade de physique
+Concours 2006
+
+ANALYSE ET
+MESURE DU POULS
+
+1
+
+A notre professeur, Monsieur Gallin-Martel
+
+2
+
+SOMMAIRE
+INTRODUCTION
+
+page 4
+
+PROBLEMATIQUE
+
+page 4
+
+I. DEMARCHES
+
+page 5
+
+A. démarche théorique
+B. démarche pratique
+
+page 5
+page 6
+
+II. PRINCIPE ET MISE EN OEURVRE
+DU CAPTEUR ET DU MONTAGE
+
+page 7
+
+A. Principe de l’oxymétrie
+B. Elaboration de notre capteur
+C. Elaboration du montage
+Schéma global du circuit
+
+page 7
+page 7
+page 9
+page 12
+
+III. UTILISATION DU MONTAGE ET MESURE DU POULS
+
+page 12
+
+A. Oscilloscope à mémoire
+B. Visualisation sur ordinateur
+C. Essais d’interprétation du signal obtenu
+D. Expérience en apnée et en hyperventilation
+
+page 12
+page 13
+page 14
+page 15
+
+IV. LES APLICATIONS BIOLOGIQUES
+
+page 17
+
+CONCLUSION
+
+page 18
+
+A. Les limites de notre projet
+B. Bilan
+
+page 18
+page 19
+
+REMERCIEMENTS
+
+page 20
+
+BIBLIOGRAPHIE
+
+page 21
+
+GLOSSAIRE
+
+page 22
+
+3
+
+Introduction
+
+Nous sommes actuellement quatre élèves de terminale scientifique au lycée Baudelaire
+à Cran-Gevrier. C’est à l’issue de l’option M.P.I. en classe de seconde, que notre
+professeur, Mr Gallin-Martel, nous a proposé de faire partie de l’atelier scientifique
+afin de mener, sur deux ans, un projet d’olympiade. L’idée de suivre un projet en
+commun nous a tout de suite intéressés. Le choix de notre sujet ne fut pas simple, car
+nous recherchions un thème qui puisse nous offrir un vaste champ de recherche. C’est
+ainsi que nous avons abouti sur le sujet de la mesure du pouls. Nous avons néanmoins
+rencontré de nombreuses difficultés au cours de son élaboration, notamment la partie
+électronique. C’est pour cela que nous avons du revoir notre progression tout au long
+de ces deux années, ce qui nous a permis, malgré des échecs, de balayer un grand
+champ de résolutions à notre problématique.
+Bien que notre projet ne puisse être validé en tant que TPE, et les nombreuses
+difficultés rencontrées au cours de notre année, nous n’avons pas hésité, sous la
+directive de notre nouveau professeur Mr Bottos, à mener notre projet à terme.
+Retraçant le travail effectué sur ces deux années, ce mémoire ne tient pas compte de
+certaines modifications en cours de réalisation ; nous nous en excusons et espérons,
+néanmoins, qu’il vous donnera satisfaction.
+
+Problématique
+Le cœur possède sa propre activité rythmique, c’est à dire qu’il n’a pas besoin de
+stimulus pour se contracter. Les cellules qui le composent possèdent leur propre
+excitation électrique, qui est indépendante du système nerveux. Ce sont ces cellules
+qui engendrent le rythme cardiaque, c’est à dire le pouls.
+A partir de ces données, il nous a d’abord fallu mettre au point un capteur, qui, par le
+biais d’une interface, offrait une visualisation du pouls sur un ordinateur.
+Notre seconde problématique a consisté à traiter ces visualisations afin d’en tirer des
+applications simples.
+
+4
+
+I. Démarches
+A. Théorique
+La première étape a porté sur le choix de notre projet. Nous souhaitions que notre
+sujet soit pluridisciplinaire de manière à concilier la physique mais aussi la biologie
+pour que notre travail puisse être validé en tant que T.P.E. De plus, l’une d’entre nous
+était très intéressée par la biologie et se trouve d’ailleurs actuellement en spécialité
+S.V.T. C’est ainsi que nous avons décidé de travailler sur le pouls. Il fallait que nous
+nous fixions un but précis, aussi avons nous élaboré notre propre problématique qui se
+compose de trois points :
+-La mesure du pouls
+-la visualisation
+-quelques applications
+La problématique nous offrait un large éventail de résolutions, notamment au niveau
+de la mesure.
+Le point de départ de notre réflexion a été l’expérience qui consiste, à l’aide d’un
+laser, à retranscrire un son émis par un haut-parleur.
+Un miroir est placé sur la membrane du haut-parleur. Un rayon laser est envoyé sur ce
+miroir, qui le réfléchi en direction d’un photocapteur qui rend compte des fluctuations
+d’intensité du rayon générées par les vibrations de la membrane. Ainsi, on peut
+récupérer le son émis par le haut-parleur initial en branchant un second haut-parleur
+sur le circuit du photocapteur.
+La pléthysmographie consiste à étudier les variations de volume sanguin dans les
+différents organes à l’aide d’un rayon lumineux. En convertissant la lumière réfléchie
+en signaux électriques, on obtient les variations du volume sanguin dans les veines,
+c’est à dire le pouls.
+
+5
+
+Figure 1
+
+B. Pratique
+Par analogie avec l’expérience décrite précédemment, nous avons remplacé le hautparleur par le poignet et fixé un morceau de papier aluminium au niveau de l’artère,
+pour faire office de miroir.
+Nous
+
+avons
+
+alors
+
+rencontré
+
+plusieurs
+
+difficultés,
+
+notamment
+
+le
+
+problème
+
+d’immobilisation du poignet.
+Nous avons donc eu l’idée d’élaborer un système reposant toujours sur le principe de
+réflexion mais s’appliquant au doigt. Nous avons échangé le laser contre une diode
+électroluminescente infrarouge et élaboré un capteur constitué d’une DEL et d’une
+photodiode formant un angle au sommet duquel on place le doigt. L’immobilisation du
+doigt se faisait à l’aide d’un support pour la main. Nous avons ensuite travaillé sur le
+montage qui permettrait d’observer la variation d’intensité du rayon infrarouge sur un
+oscilloscope. Il fallait amplifier le signal car la variation n’était pas assez forte. C’est
+alors que nous avons constaté que le signal était bruité et que donc la mise en place
+d’un filtrage s’imposait. Après plusieurs mois d’essais, nous sommes arrivés à la
+conclusion que le capteur permettait de mettre en évidence que les petits mouvements
+du doigt et n’était pas assez sensible pour constater les fluctuations du volume
+sanguin.
+En plaçant le doigt sous une LED, nous avons pu observer à l'œil nu des variations
+d’intensité lumineuse qui semblaient correspondrent aux battements du cœur, par
+conséquent, un capteur optique serait en mesure de le visualiser, contrairement à
+notre essai précédent.
+
+6
+
+Figure 2
+Nous avons alors orienté nos recherches vers d’autres principes, notamment celui
+utilisé dans les hôpitaux sur la base de l’oxymétrie, technique qui repose sur un
+principe d’absorption de la lumière.
+
+II / Principe et mise en œuvre du capteur et du montage
+A. Principe de l’oxymétrie
+L’oxymétrie vise à mesurer la saturation en oxygène du sang. Un émetteur constitué
+d’une diode rouge et infrarouge envoie deux rayons à travers le doigt. Le récepteur
+capte le rayon dont une partie a été absorbée selon la couleur du sang, qui varie en
+fonction de son oxygénation (seules certaines longueurs d'ondes sont absorbées). En
+exploitant les variations de couleur du sang, on en déduit son taux d’oxygénation, ce
+qui permet de mettre en évidence les différentes contractions du cœur, donc le
+rythme cardiaque.
+
+Figure 3
+
+7
+
+B. Elaboration de notre capteur
+Reposant sur le principe d’absorption, notre capteur, contrairement à l’oxymétrie, ne
+tient pas compte de la couleur du sang mais de la variation du volume sanguin. De ce
+fait, il ne nécessite qu’une diode et un récepteur.
+De plus, nous savions que nos valeurs allaient être très petites, et que nous allions très
+certainement rencontrer des problèmes de bruitage. Nous avons donc mis en place un
+schéma fonctionnel, qui fut le support de notre réalisation.
+Schéma fonctionnel
+Capteur
+optique
+
+Amplification
++filtre
+
+visualisation
+
+Figure 4
+Le capteur fut le centre de notre projet car il nous a très vite permis de visualiser des
+résultats ; cependant, les prototypes que nous avons réalisés n’étaient pas forcément
+pratiques et nous avons dû y apporter de nombreuses modifications pour obtenir des
+résultats convenables. Le problème principal réside dans le bruitage du signal dû au
+50Hz et la lumière ambiante. Nous avons donc placé la main munie du capteur dans
+une boîte de manière à ce qu’elle soit dans le noir. De ce fait, nous éliminions les
+fluctuations du signal dues à la réception de lumière autre que la diode. Cependant, le
+signal nouvellement obtenu n’était toujours pas net. Nous avons donc remplacé le
+générateur par des piles afin de supprimer le 50Hz venant du secteur, et placé notre
+montage dans de l’aluminium, comme une cage Faraday, pour éliminer le 50Hz émis
+par rayonnement. Par le biais d’une interface, nous avons pu traiter nos données
+directement sur ordinateurs ce qui nous permettait de pratiquer des mesures beaucoup
+plus précises que sur oscilloscope. La prochaine étape de notre mettre nos composants
+sur circuit imprimé de manière à limiter les contacts dus aux plaques Leybold que nous
+utilisons.
+Notre premier capteur était constitué de deux plaques d’époxy percées. On avait fixé
+sur la première la diode et le phototransistor sur la seconde. On plaçait ensuite le doigt
+entre les deux plaques (DEL sur la pulpe du doigt et phototransistor sur l’ongle) que
+l’on maintenait à l’aide d’élastiques. Mais ce système très précaire nécessitait une
+8
+
+amélioration. Nous avons donc pensé fixer les composants sur un tuyau mais le
+problème venait de l’adaptation à la taille du doigt puisque l’émetteur et le capteur
+doivent être en contact avec le doigt.
+Notre second capteur était fait d’un pince sur laquelle on fixait les composants et que
+l’on maintenait entrouverte à l’aide de bandes adhésives de manière à ce que le doigt
+ne soit pas trop comprimé, ce qui fausserait les mesures. C’est avec ce capteur que
+nous avons participé à l’expo science à l’occasion de la fête de la science ce qui nous a
+fait prendre conscience des limites de notre système. En effet nous nous sommes
+aperçus que le vernis à ongle empêchait l’obtention de résultats cohérents : la courbe
+obtenue était complètement irrégulière. Il nous a effectivement été impossible de
+déterminer le pouls d’une personne de couleur noire. Ces expériences mettaient bien
+en évidence le caractère inachevé de notre montage qu’il nous fallait améliorer, afin
+d’obtenir un meilleur signal.
+
+C. Élaboration du montage
+Notre montage n'était constitué au départ que d'une diode électroluminescente haute
+luminescence accompagnée d'une résistance de 470Ω, alimentées par du 9V, et d'un
+phototransistor accompagné d'une résistance de 100Ω également alimentés par du 9V.
+Le phototransistor a été choisi car après de multiples essais avec la photodiode. Nous
+avons remarqué que ça ne fonctionnait pas avec cette photodiode probablement parce
+que celle à notre disposition n’était pas assez sensible aux variations lumineuses ou
+qu’elle ne correspondait pas à la longueur d’onde du rayon lumineux utilisé.
+Avec ce choix nous avons compliqué notre montage, en effet nous connaissions
+correctement le fonctionnement de la photodiode, mais pas celui du phototransistor.
+Nous nous sommes inspirés d’un montage d’un livre.
+Le montage de base est le suivant :
+
+R
+
++15 V
+VCE
+
+Figure 5
+9
+
+Après de multiples essais nous nous sommes aperçus que les variations de lumière
+faisaient varier la tension VCE, nous avions donc notre convertisseur.
+Pour trouver la résitance R nous en avons essayé plusieurs et le meilleur choix c’est
+avéré être 100 kΩ parmi les résistance à notre disposition.
+On observe que plus la lumière est forte moins la tension est élevée et
+réciproquement.
+La tension obtenue à l’oscilloscope était très bruitée (50 Hz différentes origine)
+En branchant l'oscilloscope aux bornes du phototransistor, on pouvait observer les
+variations
+
+caractéristiques
+
+du
+
+pouls.
+
+Le
+
+phototransistor
+
+donne
+
+une
+
+tension
+
+proportionnelle aux variations d’éclairement, mais cette variation n’est pas centrée sur
+0 mais sur 5V et elle n'est que de l'ordre de quelques millivolts. Il nous fallait donc
+enlever la constante de 5V et amplifier les quelques millivolts de variation, qui, eux,
+sont proportionnels à l'éclairement.
+Schéma fonctionnel après choix du phototransistor
+Capteur
+optique :
+phototransistor
+
+Filtrage de la
+composante
+continue
+
+Tension
+(mV)
+
+Amplification de la
+tension
+
+Tension
+(mV)
+
+Quelques
+Volt
+
+t
+
+t
+
+Tension
+(V)
+
+t
+
+Figure 6
+10
+
+Nous avons essayé plusieurs valeurs de condensateur pour arriver à la conclusion que
+celui de 100nF était le plus adapté pour supprimer la composante continue de 5V. Le
+signal se trouvait à présent centré sur 0 mais il nous restait à régler le problème du
+filtrage. Nous avons estimé que le nombre de pulsations par minutes devait se situer
+entre 30 et 200 pulsations par minutes par conséquent, les fréquences qui étaient
+susceptibles de nous intéresser étaient situées entre 0,5 et 3,5 Hz. Aidés par notre
+professeur, nous avons donc mis en place un filtre gardant un signal inférieur à 3,5Hz
+mais qui permettait également un gain d’amplification de 10.
+De manière à observer les meilleurs résultats possibles sur l'oscilloscope mais aussi par
+l'interface, nous avons placé un second étage d'amplification non inverseur avec un
+gain de 10. Les mesures se font à la sortie du condensateur de 100nF, après le second
+étage d'amplification.
+Cependant, le montage n’était pas stable. En effet, certains réglages étaient
+nécessaires à chaque fois que le capteur bougeait. Les amplificateurs opérationnels
+saturaient par moments car les condensateurs n’étaient pas stabilisés par de grandes
+résistances. Il était indispensable de fiabiliser le montage puisque nous voulions le
+mettre sur circuit imprimé. Nous avons donc ajouté un condensateur de 100nF avant le
+second étage d’amplification de manière à améliorer le filtrage de la composante
+continue qui faisait saturer l’amplificateur. Nous avons aussi ajouté de grandes
+résistances pour accompagner les trois condensateurs de 100nF qui filtrent la
+composante continue. Le montage nous permettait ainsi de prendre le pouls de
+plusieurs personnes à la suite sans avoir à faire de réglages.
+
+11
+
+Schéma global du circuit
+
+Schéma réalisé sur crocodile physique figure 7
+
+III -Utilisation du montage et mesure de pouls
+A. Oscilloscope à mémoire
+La première étape a été de visualiser le pouls sur un oscilloscope. Mais, la fréquence
+du signal étant très faible, il nous était impossible de la calculer. Nous avons donc opté
+pour un oscilloscope à mémoire qui permet une visualisation du signal dans son
+ensemble (on garde une trace de la tension mesurée quelques secondes avant) mais
+aussi un calcul de la fréquence en temps réel et une mise au point du montage plus
+aisé. Une photo d’un oscillogramme obtenu est donnée ci-dessous.
+
+figure 8
+
+12
+
+B. visualisation sur l’ordinateur
+L’utilisation de l’interface Labpro et du logiciel qui l’accompagne, Loggerpro, nous a
+permis de mémoriser nos mesures et de travailler directement sur le graphique obtenu.
+
+3,3 secondes pour 5 pulsations
+
+Résultats obtenus avec l’interface labpro et le logiciel loggerpro .
+
+Figure 9
+On a ici une grande précision dans la mesure de pouls en utilisant les fonctionnalités
+graphiques du logiciel. Exemple : 3,3 s pour 5 pulsations, soit un pouls de
+
+5 " 60
+# 91
+3,3
+
+pulsations par minute.
+Mais au-delà de ce pouls, nous avons réalisé que l’on avait un véritable signal donnant
+!
+une information d’ordre biologique.
+
+13
+
+C. Essais d’interprétation du signal obtenu
+Durant notre recherche sur l’interprétation d’un tel signal nous nous sommes heurtés à
+la difficulté et au manque de connaissances médicales. Néanmoins il est apparu clair
+que ce signal n’avait rien à voir avec un électrocardiogramme classique, mais était
+sensiblement proche d’un signal Doppler.
+Il faut donc se replacer dans le cadre de ce que voit notre capteur optique :
+Lors de la contraction du cœur, le volume sanguin augmente, et sous l’effet de la
+pression sanguine, les artères se dilatent et entrainent le gonflement du doigt. De ce
+fait, l’espace que le rayon doit traverser et plus grand donc l’absorbance et elle aussi
+plus importante. Ainsi la lumière est moins importante et la tension Vce du
+phototransistoraugmente.
+Et réciproquement.
+Le volume
+sanguin diminue
+dans les artérioles
+Pic systolique.
+
+Le volume
+sanguin augmente
+dans les artérioles
+lors de la systole
+ventriculaire.
+
+Le volume sanguin est
+au minimum dans les
+artérioles dans l’attente
+d’une nouvelle
+pulsation.
+
+Augmentation
+temporaire du volume
+du à la réflexion de
+l’onde artérielle sur les
+embranchements
+artériels.
+
+Figure 10
+
+14
+
+Nous nous sommes aperçus que le signal obtenu nous donnait des informations précises
+sur la variation de volume et donc de pression dans les artérioles. Lors de la
+contraction du cœur, la pression sanguine augmente car un certain volume de sang est
+éjecté. Pour compenser cette augmentation de pression, les artères se dilatent. En
+effet, si elles étaient rigides, l’augmentation de pression les ferait éclater et la vitesse
+serait trop importante. Quand le cœur se contracte, une onde de pression se propage
+dans les artères, provocant la déformation locale des tissus artériels et une
+augmentation du volume ; cette onde transversale est appelée le pouls.
+Le flux sanguin
+Dilatation des
+artères due à
+l’augmentation de
+pression ; élasticité
+des artères
+
+Figure 11
+
+Zone de réflexion
+de l’onde :
+résistance
+circulatoire
+
+Nous avons remarqué à travers toutes nos mesures que la zone de
+stagnation temporaire du volume sanguin était plus prononcée chez
+certain individu, pouvant même créer une augmentation du volume du
+sang.
+Un exemple est donné ci-contre figure 12, zone indiqué en pointillé.
+Figure 12
+
+D. Expérience en apnée et en hyperventilation :
+Nous avons effectué quelques expériences en mesurant avec notre capteur les
+pulsations dans le cas d’une apnée de 20s et une hyperventilation de même durée.
+Cas de l’apnée :
+
+15
+
+L’apnée engendre une augmentation du taux
+de CO2 dans le sang donc une diminution de
+son pH.
+Ce qui provoque un réflexe de dilatation des
+artères
+
+et
+
+l’augmentation
+
+artérioles,
+des
+
+ainsi
+
+volumes
+
+que
+
+sanguins
+
+transportés.
+Figure 13
+Ce phénomène est mis en évidence dans l‘enregistrement, ci-dessus figure 13 où
+l’apnée a été commencée à l’origine.
+On observe que l’amplitude augmente très progressivement jusqu’à stabilisation du
+volume sanguin.
+Cas de l’hyperventilation :
+
+La zone
+d’augmentation
+temporaire de
+volume est
+fortement
+atténuée
+
+Figure 14
+Contrairement à l’apnée, l’hyperventilation engendre une diminution du taux de CO2
+dissous dans le sang donc une augmentation du pH sanguin.
+Ce qui provoque un réflexe de contraction des artères et artérioles.
+Les amplitudes obtenues sont plus faibles, mais surtout le phénomène réflexion
+disparaît ou s’atténue très fortement (figure 14). La phase où le volume sanguin stagne
+dans les artérioles dans l’attente d’une nouvelle pulsation est plus longue.Comme le
+montre l’enregistrement figure 14.
+16
+
+IV. Application biologique
+Pour assurer le bon fonctionnement de notre organisme, nous nous devons de fabriquer
+notre propre énergie à travers notamment la respiration.
+Lors de la respiration, les molécules de glucose sont oxydées dans les Mitochondries des
+cellules musculaires, pour former des molécules énergétiques, l’A.T.P. Cette oxydation
+est complète et permet la formation pour une molécule de glucose de 36 A.T.P.
+Lors d’un effort, lorsque le taux d’oxygène dans les mitochondries n’est plus assez
+élevé pour permettre à cette oxydation d’avoir lieu, la formation d’A.T.P. par le biais
+de la respiration est substituée par la fermentation lactique. Cette fermentation ne
+permet pas l’oxydation complète du glucose, seulement 2 A.T.P. sont formées pour 1
+molécule. De ce fait, il y a également formation de déchets, les acides lactiques, qui
+provoquent des douleurs et engendrent les courbatures après l’effort.
+Si la respiration permet à l’individu d’effectuer un effort sur une longue période, la
+fermentation lactique, quant à elle, ne permet qu’un effort intense mais court.
+BUT DE NOTRE EXPERIENCE
+Le but de notre expérience est de définir à quel moment un individu passe de la
+création d’énergie par respiration, à la création d’énergie par fermentation.
+Grâce à un dispositif d’expérimentation assisté par ordinateur (Ex.A.O) on peut
+visualiser ce passage en relevant la valeur maximum de dioxygène prélevée par
+l’organisme lors de l’effort : c’est la VO2max. En prenant en parallèle, les variations du
+rythme cardiaque, on peut savoir, pour quel nombre de pulsations par minute, ce seuil
+est atteint, ce qui permettra de gérer son effort, et de déterminer une sorte de
+« compte tour » : Jusqu’à ce seuil de VO2max, l’effort peut être tenu, tandis qu’après, il
+ne pourra être que bref.
+Nous avons alors réalisé l’expérience suivante :
+A l’aide de l’Ex.A., une interface qui était ici accompagnée d’un embout dans lequel
+on respirait, et d’un cardiofréquencemètre nous avons mesuré la quantité d’oxygène
+absorbé au cours le l’effort ainsi que la fréquence cardiaque. A des intervalles de
+temps de plus en plus cours, allant de 10 secondes jusqu’au maximum possible, l’un de
+nous montait sur une chaise puis redescendait, de sorte qu’il puisse atteindre ce
+passage de la respiration à la fermentation lactique.
+Ce dispositif nous a permis de voir les résultats en temps réel sur l’ordinateur.
+17
+
+On obtient ainsi le graphique suivant :
+
+70
+
+60
+200
+50
+150
+
+40
+
+30
+
+100
+
+20
+
+VO2 absorbée (mL.min-1.kg-1)
+
+fréquence cardiaque (battements par minute)
+
+250
+
+50
+10
+
+0
+
+0
+0
+
+50
+
+100
+
+150
+
+200
+
+250
+
+300
+
+350
+
+puissance de l'effort (Watts)
+
+Figure 15
+Chaque personne possède sa propre VO2max, c’est pour cela qu’une mesure préalable de
+celle-ci est indispensable ; elle est le support par la suite de la connaissance des ses
+propres capacités physiques et permet ainsi à chaque personne de pouvoir gérer son
+effort.
+
+CONCLUSION
+A. Limites techniques du montage
+Bien que notre système ait évolué au cours de ces deux années, il demande encore à
+être amélioré, car nous rencontrons des limites dans notre progression.
+Tout
+
+d’abord,
+
+notre
+
+système
+
+de
+
+filtrage
+
+est
+
+globalement
+
+peu
+
+performant.
+
+Effectivement, nos connaissances dans ce domaine étaient assez limitées, et nous
+avons dû travailler avec le matériel mis à notre disposition. Cependant, le résultat
+obtenu est assez satisfaisant, puisqu’il nous a permis de traiter les données obtenues
+et d’en dégager des applications.
+Nous voulions un capteur qui s’adapte à n’importe quelle taille de doigt et qui donc
+était ajustable. Nous avons étudié plusieurs possibilités mais il s’est avéré qu’aucune
+18
+
+d’entre elles ne permettait de placer le doigt dans l’obscurité. Il nous a donc fallu
+créer l’obscurité d’une autre manière mais nous n’avons pas réussi à l’obtenir
+totalement ; de plus le système mis en place était encombrant et ne permettait pas le
+mouvement ce qui rendait plus difficile la prise de mesure. Ainsi, après plusieurs
+modèles de pinces que nous avons confectionnés, le dernier, plutôt satisfaisant car
+moins encombrant et de loin plus pratique que les précédents, ne nous permet toujours
+pas d’effectuer des mesures en nous déplaçant.
+Enfin, notre projet pour l’avenir serait d’intégrer à notre montage un compteur de
+pulsations, afin d’orienter nos recherches de développement vers d’autres axes de
+visualisations.
+
+B. Bilan
+Malgré les nombreuses difficultés que nous avons rencontrées au cours de ces deux
+années, ce fut véritablement une expérience très enrichissante pour chacun d’entre
+nous. Nous avons réussi à mener notre projet à termes, et bien que notre système soit
+loin d’être parfait, il nous a permis de répondre à notre problématique.
+
+19
+
+Remerciements
+Sincères remerciements
+A Monsieur Gallin Martel qui nous a choisi, fait confiance et nous a donné l’envie, la
+volonté de mener à bien ce projet.
+A Messieurs Enselme et Bottos , nos professeurs de physique, qui ont accepté d’assurer
+le maintien de l’atelier.
+A Monsieur Baudry, professeur de S.V.T. au lycée Charles Baudelaire, qui nous a
+encadrés pour les applications.
+Au C.C.S.T.I. (centre culturel scientifique et technique de l’industrie) qui nous a
+permis de participer à l’expo science.
+Et aux infirmières des H.U.G. (hôpitaux universitaires de Genève) qui nous ont aidés
+dans nos recherches.
+
+20
+
+Bibliographie
+Physique Appliquée
+génie électronique, génie électrotechnique
+1ère S.T.I
+Robert le Goff
+Nathan Technique
+Guide du technicien en électronique
+C.Cimelli
+R.Bourgeron
+Hachette Technique
+Traité de l’électronique analogique et numérique
+Volume 1 : Techniques Analogiques
+Paul Howitz et Winfield Hill
+Elektor
+mémotech électronique
+G. et B. Chevalier
+J-C.Chauveau
+Edition Casteilla
+Sites Internet
+Wikipédia
+encyclopédie libre
+www.adrenaline112.org
+www.chu.rouen.fr
+www.snv.jussieu.fr
+www.medecine-et-sante.com
+http://perso.wanadoo.fr/xcotton/electron
+
+21
+
+Glossaire
+CARDIOLOGIE :
+Spécialité médical qui traite du cœur et des vaisseaux sanguins.
+
+POULS :
+Battement rythmique (pulsations) des artères lors du passage du sang propulsé à chaque contraction
+cardiaque. La palpation du pouls artériel permet de mesurer la fréquence cardiaque.
+
+TENSION ARTERIELLE :
+Pression artérielle, c’est à dire la pression exercée sur les vaisseaux pendant la contraction et la
+relaxation du cœur.
+
+22
+
+

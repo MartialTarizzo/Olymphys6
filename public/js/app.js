@@ -1,3 +1,7 @@
+
+
+
+
 function changejure(j) {//j est l'objet input qui a lancé la fonction, pour le formulaire de gestion des jures des cia
 
     var data_value = j.value;

@@ -1,0 +1,973 @@
+Du circuit à la voix.
+Comment sont formés les sons, et de quelles façons peut on
+en reproduire un ?
+Nicolas Assouad - Nicolas Gouraud - Adrian Lemaigre - Rime Vastra
+Année 2011-2012
+
+Ecole Alsacienne
+
+Du circuit à la voix
+
+Olympiades 2012
+
+2
+
+Ecole Alsacienne
+
+Olympiades 2012
+
+Table des matières
+Avant-propos
+
+5
+
+1 Produire un son
+1.1 Rappels sur le son . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+1.2 Qu’est ce qu’un spectre ? . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+1.3 La synthèse additive . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+1.4 La synthèse FM . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+1.5 La synthèse numérique . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+
+7
+7
+7
+8
+10
+10
+
+2 Le Modèle Humain
+2.1 Appareil phonatoire humain et formants . . . . . . . . . . . . . . . . . . . . . . . .
+2.2 Des sons voisés et non voisés . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+
+13
+13
+15
+
+3 La Talkbox
+3.1 La construction de la talkbox . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+3.2 Mise en évidence des résonances du système phonatoire humain par la Talkbox . .
+
+17
+17
+18
+
+Conclusion
+
+21
+
+A Acoustique et voyelles
+
+23
+
+B Séries de Fourier
+
+25
+
+C Les filtres numériques et les voyelles
+
+27
+
+Bibliographie
+
+31
+
+Du circuit à la voix
+
+3
+
+Ecole Alsacienne
+
+Du circuit à la voix
+
+Olympiades 2012
+
+4
+
+Ecole Alsacienne
+
+Olympiades 2012
+
+Avant-propos
+Dans le règne animal, la communication sonore est l’un des moyens les plus efficaces et les plus
+répandus de communication. Que ce soit pour repérer ses semblables dans la jungle ou pour asseoir
+sa domination sur la savane, les animaux ne cessent de produire des sons. Dans sa forme la plus
+évoluée, avec l’homme, elle permet la mise en place d’un langage construit, grâce à la richesse des
+phonèmes produits.
+
+Dans l’optique de simuler le langage humain, de nombreuses méthodes se mettent en place pour
+permettre une production sonore de même nature. Comme les prothèses, la production artificielle
+de parole ou synthèse vocale est capitale pour certaines personnes handicapées. L’exemple le plus
+célèbre en est le fameux Stephen Hawking.
+
+Nous nous proposons donc de comprendre comment est formée une voyelle. Dans la compréhension des méthodes de synthèse, nous sommes passés par l’étude de méthodes électroniques (une
+méthode numérique est présentée en annexe).
+
+Du circuit à la voix
+
+5
+
+Ecole Alsacienne
+
+Du circuit à la voix
+
+Olympiades 2012
+
+6
+
+Ecole Alsacienne
+
+Olympiades 2012
+
+Chapitre 1
+
+Produire un son
+1.1
+
+Rappels sur le son
+
+Qu’est ce qu’un son ?
+Un son n’est autre qu’une onde mécanique progressive, c’est à dire, un phénomène de propagation d’une perturbation dans un milieu élastique sans déplacement de matière.
+On dit d’un phénomène (comme une onde) qu’il est périodique dans le temps quand il se répète
+identiquement à lui-même à intervalle de temps régulier.
+Un son peut-être assimilé à une onde mécanique périodique (ou pseudo périodique dans certains
+cas). Dans notre étude, nous nous intéresserons seulement aux sons périodiques. Un son périodique
+est caractérisé par sa période T ou sa fréquence fondamentale f = T1 .
+
+1.2
+
+Qu’est ce qu’un spectre ?
+
+Le spectre d’un signal est la représentation fréquentielle d’un signal périodique. En effet, comme
+l’a montré le mathématicien Joseph Fourier au début du XIXème, tout signal périodique s(t) à
+valeurs réelles (donc un son périodique) peut être décomposé en une somme pondérée de cosinus
+des différents multiples positifs de la fréquence fondamentale, soit :
+s(t) =
+
++∞
+X
+
+cn cos (2πf nt + φn )
+
+n=0
+
+avec s notre signal périodique, et f la fréquence fondamentale. Cette égalité découle de l’étude
+des séries de Fourier qui montre sous des conditions très générales, l’existence et l’unicité de la
+suite des coefficients cn (positifs ou nuls sauf pour n = 0) et des phases φn (données modulo 2π)
+donnant lieu à cette décomposition ; pour n = 0, on prend φ0 = 0 et c0 réel de signe quelconque.
+Les φn sont les déphasages qui permettent de prendre les cn positifs ou nuls (pour n > 0), et
+seront ignorés par la suite (on ne distinguera pas en première analyse deux signaux périodiques
+ne différant que par les phases ; sur ce sujet, voir la fin de l’Appendice A). On ne s’intéressera pas
+non plus au coefficient c0 qu’on peut interpréter comme la valeur moyenne du signal, et on prendra
+en général c0 = 0. En fait, si on pose dn = 12 cn exp (iφn ), d−n = 21 cn exp (−iφn ) pour n > 0, et
+d0 = c0 , on obtient :
++∞
+X
+s(t) =
+dn exp (2iπf nt)
+n=−∞
+
+(les dn sont les coefficients de Fourier de s(t), voir Appendice B).
+Le signal t → cos (2πf t) (harmonique fondamental) correspond à la fréquence fondamentale f
+et intervient dans la composition du signal s avec l’intensité c1 . De même les autres coefficients cn
+Du circuit à la voix
+
+7
+
+Ecole Alsacienne
+
+Olympiades 2012
+
+sont les intensités des différents harmoniques. Un harmonique n’est autre qu’une sinusoïde ayant
+pour fréquence un multiple de la fréquence fondamentale du signal. Le spectre de s est la suite de
+ces intensités cn .
+Cette décomposition nous est indispensable pour étudier un son périodique (ou non).
+
+1.3
+
+La synthèse additive
+
+Après un temps de recherche nous avons entrepris d’essayer de créer un son à l’aide de la
+synthèse additive. Cette synthèse découle directement de l’étude spectrale menée à la section précédente. Elle consiste à additionner différentes sinusoïdes de fréquences multiples (celle ayant la
+fréquence la plus basse définit la fréquence fondamentale) et d’intensité différentes. En cela c’est
+exactement la création manuelle d’un son à partir d’un spectre.
+Nous avons tenté de créer un circuit nous permettant de faire cela. Il existe deux difficultés à
+surmonter dans la mise en place de ce dispositif : comment créer une sinusoïde parfaite (c’est à
+dire non amortie) et comment additionner deux sinusoïdes.
+Afin de produire une sinusoïde, nous avons construit un circuit RLC. Le circuit RLC est composé
+un bobine L, un condensateur C et une résistance R branchés en série. On branche momentanément
+un générateur pour charger le condensateur puis on laisse le condensateur se décharger dans les
+dipôles R,L. On obtient alors une tension aux bornes du condensateur. Mais elle a la forme d’une
+sinusoïde amortie.
+Ce signal est créé par le condensateur qui se décharge dans la bobine, l’énergie retourne ensuite
+dans le condensateur jusqu’à ce qu’il se décharge à nouveau et ainsi de suite. Cela a pour effet de
+faire osciller la tension aux bornes de condensateur. Mais à cause de la résistance du circuit, la
+sinusoïde représentant la tension aux bornes du condensateur est amortie.
+On a par la suite ajouté au circuit un amplificateur opérationnel. Ce-dernier a la propriété
+d’amplifier la tension présente à ses entrées. Tant que cette tension reste dans ce que l’on appelle
+le domaine de linéarité dé l’amplificateur opérationnel, la tension de sortie (en 3 sur le schéma
+ci-dessous) est proportionnelle à la tension d’entrée. La résistance variable R4 a pour but de nous
+donner la possibilité de régler la tension entrante (en 1 et 2) afin qu’elle ne soit pas trop petite
+(dans ce cas, la tension en entrée est presque égale à celle en sortie) tout en restant dans le domaine
+de linéarité de l’amplificateur opérationnel. On peut alors utiliser l’amplificateur opérationnel dans
+le circuit RLC pour amplifier la tension du circuit et donc obtenir des oscillations non-amorties.
+
+Du circuit à la voix
+
+8
+
+Ecole Alsacienne
+
+Olympiades 2012
+
+Ainsi la résistance du circuit est nulle et les ondes ne sont plus amorties. On obtient alors un
+signal sinusoïdal périodique de fréquence f :
+f=
+
+1
+√
+2π LC
+
+où L est l’inductance de la bobine en H, C est la capacité électrique du condensateur en F et f est
+la fréquence du signal, en Hz.
+On a ensuite réalisé un deuxième oscillateur pour obtenir un signal de fréquence différente de
+celle du premier oscillateur. Pour pouvoir additionner les deux signaux sinusoïdaux émis par les
+oscillateurs, nous avons utilisé un deuxième amplificateur opérationnel. Celui-ci permet d’additionner les différentes tensions qui lui sont données en entrée. Cela revient à réaliser le montage
+suivant :
+
+Sur ce schéma, V1 et V2 sont les deux tensions additionnées par le montage et Vs est la tension
+de sortie, c’est à dire la somme de V1 et de V2.
+On peut, par exemple obtenir le signal de sortie suivant après la somme de trois sinusoïdes
+parfaites.
+
+Néanmoins, nous nous sommes vite rendu compte que la synthèse additive ne permettait pas de
+synthétiser un quelconque son complexe comme une voix (tout du moins sous sa forme électronique)
+Du circuit à la voix
+
+9
+
+Ecole Alsacienne
+
+Olympiades 2012
+
+car elle nécessite autant d’oscillateurs que d’harmoniques. Un son complexe étant composé de
+beaucoup d’harmoniques (richesse du spectre), en synthétiser un deviendrait rapidement dantesque.
+
+1.4
+
+La synthèse FM
+
+Après avoir abandonné la synthèse additive nous avons commencé à nous intéresser à la synthèse
+par modulation de fréquence. Elle a été mise eu point par l’américain John Chowning au début
+des années 70. Elle a pour principe de faire varier la fréquence d’une onde périodique, la porteuse,
+en fonction de l’amplitude d’une deuxième onde, la modulante. La porteuse et la modulante ont
+toutes les deux une fréquence appartenant à la gamme des audibles (en moyenne de 20 Hz à 20000
+Hz).
+L’avantage de cette méthode de synthèse sonore par rapport à la synthèse additive est qu’avec
+seulement deux oscillateurs il est possible de générer un grand nombre de sons différents. Lorsque
+les deux signaux sont des sinusoïdes, le signal de sortie y(t) s’exprime :
+y(t) = sin(2πfp t + Im sin(2πfm t))
+où fp est la fréquence de la porteuse, fm celle de la modulante et Im est l’indice de modulation.
+Lorsque l’on fait varier Im , on fait varier l’intensité de la modulation, c’est à dire l’écart entre la
+fréquence la plus élevée et la plus basse. On obtient alors une onde comme celle ci dessous :
+
+Nous avons donc réalisé un dispositif composé de deux générateurs nous permettant d’effectuer
+une modulation de fréquence. Mais nous nous sommes très rapidement heurtés à la sensibilité
+excessive de la méthode. Cela rend la synthèse très instable et aléatoire et donc peu pratique pour
+notre utilisation.
+
+1.5
+
+La synthèse numérique
+
+Toute les méthodes vues jusqu’à présent, étaient étudiées d’un point de vue purement analogique. En effet, de par la mise en oeuvre électronique, elles traitent le signal continûment.
+
+Du circuit à la voix
+
+10
+
+Ecole Alsacienne
+
+Olympiades 2012
+
+A l’instar des méthodes analogiques, les méthodes numériques travaillent sur des signaux discrets, c’est à dire non continus. Ainsi elles n’ont plus besoin de dispositifs de grande taille, seule une
+unité de calcul suffit. Les contraintes de place et de coût sont quasi-inexistantes. Cette petite unité
+de calcul peut alors effectuer de manière discrête toutes les méthodes vues précédemment comme
+la synthèse additive, la synthèse FM, ou bien la synthèse soustractive. Un exemple de modélisation
+numérique d’une synthèse soustractive (filtres), et additive est présenté dans l’appendice C.
+
+Du circuit à la voix
+
+11
+
+Ecole Alsacienne
+
+Du circuit à la voix
+
+Olympiades 2012
+
+12
+
+Ecole Alsacienne
+
+Olympiades 2012
+
+Chapitre 2
+
+Le Modèle Humain
+2.1
+
+Appareil phonatoire humain et formants
+
+Avant de parler du principe physique de la parole humaine, définissons le concept de formant
+indissociable de la synthèse vocale.Le terme de formants se réfère à des pics dans le spectre harmonique d’un son complexe. Ils sont habituellement associés à une résonance du signal source dans
+des résonateurs. En raison de leur origine de résonance, ils ont tendance à rester essentiellement à
+la même fréquence lorsque la fréquence fondamentale change.
+Les Formants dans le son de la voix humaine sont particulièrement importants parce qu’ils sont
+des composantes essentielles de l’intelligibilité du discours. Par exemple, les sons des différentes
+voyelles sont caractérisés par les fréquences des trois premiers formants. Produire différentes voyelles
+sonores revient à réaccorder les formants pour une gamme générale de fréquences. Benade suggère
+les plages de fréquences ci-dessous pour les formants (quel que soit le type voix) :
+– 1er formant 150 − 850 Hz
+– 2me formant 500 − 2500 Hz
+– 3eme formant 1500 − 3500 Hz
+– 4eme formant 2500 − 4800 Hz
+C’est dans le processus d’articulation que sont déterminées les fréquences des formants vocaux.
+Sundberg a identifié les parties de l’anatomie buccale dont les modifications déterminent les fréquences centrales des formants. Par exemple, l’ouverture de la mâchoire, qui resserre la cavité
+buccale du côté de la glotte et la dilate du côté des lèvres, est le facteur décisif de réglage du premier formant : plus la mâchoire est ouverte et large, plus la fréquence des formants augmente. Le
+second formant correspond à la forme du corps de la langue, et le troisième formant, plus sensible,
+se détermine soit par la position de la pointe de la langue, soit par l’intervention de la cavité nasale.
+Pour illustrer la place des formants dans les sons prononcés, nous allons analyser la voyelle
+"a", en partiquant plusieurs enregistrements de voyelle "a" dite par différents locuteurs : Nicolas
+ASSOUAD, Rime VASTRA, et un homme d’âge mür. Ces enregistrements ont pour but de montrer l’invariabilité des formants en fonction du locuteur. Pour chaque enregistrement, on calcule
+le spectre de celui-ci sur un échantillon de 10 périodes avec le logiciel Acquisonic. On note, dans
+chacun des cas, la fréquence fondamentale, et les positions des deux premiers formants (le troisième
+n’étant réellement déterminant que pour les voyelles nasales comme le "an"). Les résultats sont
+regroupés dans le tableau suivant :
+
+M. Nicolas A.
+Homme d’âge mür
+Mlle. Rime V.
+
+Du circuit à la voix
+
+Fréquence fondamentale
+89.9 Hz
+113 Hz
+209 Hz
+
+13
+
+1er Formant
+629.2 Hz
+568 Hz
+419 Hz
+
+2me Formant
+1168.6 Hz
+1024 Hz
+1256 Hz
+
+Ecole Alsacienne
+
+Olympiades 2012
+
+On remarque que les deux sujets masculins ont des fréquences fondamentales comparables. Cela
+met en évidence l’une des caractéristiques de la voix masculine : une fréquence fondamentale aux
+alentours de 100 Hz. La gente féminine, quand à elle, possède une fréquence fondamentale à peu
+près égale au double (un octave au dessus) de celle de son homologue masculin : Rime en possède
+une à 200 Hz.
+Le deuxième point important exposé par ce tableau, est la position des deux premiers formants.
+En effet, on peut remarquer que chez les trois individus, la position des premiers et deuxièmes formants est respectivement la même (approximativement autour de 600 pour le premier formant
+et 1100 pour le deuxième, les écarts entre les individues sont dus à leur manières différentes de
+parler), malgré des fréquences fondamentales différentes (notamment Rime). Cela découle du fait
+que ces formants trouvent leur origine dans des phénomènes de résonances (comme expliqué plus
+haut). On dit alors que l’enveloppe spectrale de la voyelle "a" est (approximativement) la même
+pour tous les locuteurs. On peut d’ailleurs bien observer l’enveloppe spectrale caractéristique sur
+la représentation graphique des spectres des enregistrements effectués :
+
+Du circuit à la voix
+
+14
+
+Ecole Alsacienne
+
+Olympiades 2012
+
+Nous sommes maintenant équipés pour parler de la production et de la transmission de la parole. Le schéma ci-dessous présente la structure générale du système vocal humain.
+Les poumons servent de soufflerie et font vibrer les cordes vocales. Cette vibration entraîne la
+création d’une onde sonore. Celle-ci va résonner dans un ensemble de cavités souples (pharyngienne
+et buccale) ; nous produisons différents phonèmes (l’élément sonore distinctif du langage) en modifiant la géométrie de nos cavités, nous changeons ainsi la fréquence de résonance de ces cavités
+et donc les formants.
+
+2.2
+
+Des sons voisés et non voisés
+
+Le modèle important qui permet la production de la parole est le modèle source/filtre. Il existe
+deux types de sons parlés qui peuvent être produits par un modèle source/filtre. Ils diffèrent tout
+deux par leur source, en effet, le filtre reste inchangé dans les deux cas.
+Tout d’abord, on peut distinguer les sons voisés (ou voyelles). Leur source est la vibration des
+cordes vocales en réponse au flux d’air dans les poumons. Cette vibration est périodique et si elle
+Du circuit à la voix
+
+15
+
+Ecole Alsacienne
+
+Olympiades 2012
+
+pouvait être examinée indépendamment des propriétés du conduit vocal (qui changent sa forme
+spectrale), on verrait qu’elle est constituée d’une suite de dents asymétriques. La reproduction des
+figures de Harrington et Cassidy montrent la forme d’onde et le spectre de la source glottique.
+
+Ce signal (la source glottique) est une superposition d’harmoniques de la fréquence fondamentale de vibration des cordes vocales : le spectre diminue en amplitude à un taux d’environ −12
+dB par octave. C’est ce signal qui est ensuite modifié par les différents filtres pour produire les
+différents formants et donc les différentes voyelles.
+A l’opposé il y a des sons que l’on qualifie de non voisés (ce sont les consonnes). Leur source
+sonore n’est pas une vibration régulière mais plutôt des vibrations causées par des flux turbulents
+dus à une constriction dans le conduit vocal.
+Le signal créé par une constriction est apériodique et on ne peut le réduire à un son fondamental et à ses harmoniques. Au mieux, pour les consonnes chuintantes, il s’agit d’un signal presque
+périodique, c’est à dire où les harmoniques sont remplacés par des composantes sinusoïdales de
+fréquence non multiple de la fréquence fondamentale.
+
+Du circuit à la voix
+
+16
+
+Ecole Alsacienne
+
+Olympiades 2012
+
+Chapitre 3
+
+La Talkbox
+3.1
+
+La construction de la talkbox
+
+Le modèle humain observé précédemment, est très complexe. Nous nous sommes mis en tête
+d’utiliser ce modèle humain pour mettre en évidence différentes caractéristiques de celui-ci. Pour
+cela, nous avons construit une talkbox. Une talkbox est un instrument permettant de produire
+un son articulé à partir de n’importe quelle source, par exemple une guitare. Pour cela, elle est
+composée essentiellement d’un tuyau que l’expérimentateur met dans sa bouche. L’autre bout du
+tuyau est placé devant un haut-parleur. Le son sortant du haut-parleur passe par le tuyau et est
+ensuite articulé par le système vocal de l’expérimentateur.
+
+La construction de la talkbox a suivi quelques critères nécessaires à son bon fonctionnement.
+Tout d’abord, l’armature de la talkbox est un point critique. Nous avons hésité entre plusieurs
+matériaux pour composer celle-ci : plastique (PVC) ou bois. Finalement, nous avons réalisé les
+deux, une en PVC, et une en bois. La question de l’insonorisation était très importante, car le son
+ne doit être entendu qu’au bout du tuyau, et non aux alentours de la boite. Pour la première boîte
+construite, en bois, nous n’avons pas ajouté d’isolation. Mais pour la seconde, en plastique, nous
+avons ajouté à l’armature en plastique une épaisse couche de liège (matériau insonorisant) afin
+d’insonoriser au maximum la structure. Nous avons pris une épaisseur pour le liège de 2 cm. Dans
+les deux cas, pour faire passer le tuyau, nous avons percé une face et nous l’avons laissée amovible
+de sorte que l’on puisse atteindre l’intérieur de la boite.
+
+A l’intérieur, nous avons placé un haut parleur mono, récupéré dans le démontage d’un ordinateur. Nous avons bien pris soin de laisser sortir le cable jack 3.5 et la prise du courant, de la boîte.
+Nous l’avons fixé avec du scotch et avons placé un entonnoir dessus pour concentrer tout le son
+sur le haut parleur placé en face.
+
+Le choix du tuyau fut assez délicat. En effet, il nous fallait un tuyau suffisamment petit pour
+pouvoir rentrer dans notre bouche, mais suffisamment grand pour que suffisamment de son passe
+à l’intérieur, permettant ainsi que la production sonore finale soit audible. Nous avons opté pour
+un tuyau utilisé usuellement pour le gaz dans les cuisines. Il possèdait un diamètre de 8 mm. Avec
+tout cela, nous avions fini la réalisation de la talkbox.
+
+Du circuit à la voix
+
+17
+
+Ecole Alsacienne
+
+3.2
+
+Olympiades 2012
+
+Mise en évidence des résonances du système phonatoire
+humain par la Talkbox
+
+Nous avions remarqué que lors de la production d’une voyelle par un humain, des formants
+apparaissaient dans le spectre. L’étude de l’appareil humain nous a montré que c’était la géométrie
+du système phonatoire humain qui produisait les différents formants observés dans le spectre. Le
+son produit par la talkbox devrait alors lui aussi possèder des formants dans son spectre étant
+donné qu’il est modulé, comme le son source des cordes vocales, par les différentes cavités de l’appareil humain.
+Pour vérifier cela, nous avons fait une série d’enregistrement des sons produits par la talkbox,
+en changeant les sons sources envoyés dans les haut-parleurs. Nous avons respectivement mis dans
+les haut-parleurs un son de guitare saturée, un son de piano, et un son de flûte (jouant un "la" 110
+Hz). Les différents enregistrements sont faits avec le même expérimentateur articulant la même
+voyelle : un "a", et les sons sources sont tous à la même fréquence fondamentale. On regroupe
+alors dans un tableau récapitulatif les différentes données extraites des différents spectres des sons
+produits par la talkbox.
+
+Son source
+Guitare saturée
+Piano
+Flûte
+
+1er Formant
+766 Hz
+666 Hz
+749 Hz
+
+2me Formant
+985 Hz
+1071 Hz
+1113 Hz
+
+Cette analyse montre bien le filtrage effectué par l’appareil phonatoire humain, en effet, on
+peut remarquer qu’il sélectionne les mêmes fréquences des différents sons sources. Cette sélection
+de fréquences est fortement visible quand on compare les spectres avant et après filtrage. Prenons,
+par exemple, ceux calculés à partir de l’enregistrement de la guitare saturée.
+
+Du circuit à la voix
+
+18
+
+Ecole Alsacienne
+
+Olympiades 2012
+
+On constate que l’harmonique ayant la plus forte intensité dans le spectre de la guitare est celle
+à 219 Hz, suivie de celle à 655 Hz. Après être passé dans la talkbox, on voit très clairement le
+filtrage de fréquences obtenu : les harmoniques prépondérantes dans le spectre de la guitare ont
+grandement perdu en intensité au profit d’autres harmoniques. Celles-ci se trouvent à 766 Hz et
+985 Hz, c’est à dire aux fréquences que l’on avait trouvées lors de l’analyse de la prononciation de
+la vraie voyelle "a". Cette analyse met, encore une fois, en évidence les phénomènes de résonance
+de l’appareil phonatoire humain.
+
+Du circuit à la voix
+
+19
+
+Ecole Alsacienne
+
+Du circuit à la voix
+
+Olympiades 2012
+
+20
+
+Ecole Alsacienne
+
+Olympiades 2012
+
+Conclusion
+Nous étions partis avec un objectif : comprendre la structure des sons. De fil en aiguille, nous
+en sommes arrivés à étudier l’un des sons les plus riches : la voix. Grâce à quelques expériences
+nous avons réussi à mettre en avant différents points importants du langage parlé.
+
+Après de nombreux essais, nous avons réussi à synthétiser nos premières voyelles. Notre travail
+n’a pas traité le cas du signal source qui est pourtant si important, en effet, c’est lui qui définit
+le timbre de la voix d’une personne. Mais cela nous aurait amené trop loin pour notre modeste
+compte rendu.
+
+Toutes les productions sonores effectuées pendant ces travaux seront montrées lors de la présentation.
+
+Nous tenons à remercier Nicolas Obin et Thomas Hézard, deux chercheurs de l’équipe "Analyse
+et synthèse des sons" à l’IRCAM pour nous avoir acueillis et pour nous avoir donné une documentation précieuse.
+Nous tenons aussi à remercier notre professeur Mme Piveteau, qui nous a accompagnés dans
+ce travail depuis le commencement.
+
+Du circuit à la voix
+
+21
+
+Ecole Alsacienne
+
+Du circuit à la voix
+
+Olympiades 2012
+
+22
+
+Ecole Alsacienne
+
+Olympiades 2012
+
+Annexe A
+
+Acoustique et voyelles
+Le classement des sons dans le langage a des origines très anciennes. Dès l’Antiquité, on commença à classifier les phonèmes et en particulier les voyelles (ce qui était nécessaire pour les langues
+notées alphabétiquement) ; les Indiens et les Arabes poursuivirent ce travail.
+Au Moyen Age on chercha à construire des instruments pouvant imiter les sons du langage
+parlé ; ce fut le cas du pape Sylvestre II et plus tard, au XIIIème siècle du dominicain Albert le
+Grand : celui-ci aurait construit un automate parlant tellement réussi que son disciple Saint Thomas
+d’Aquin, dès qu’il l’entendit, fut indigné et le brisa à coups de bâton, y voyant l’oeuvre du démon.
+Ces essais furent poursuivis par le jésuite Athanase Kircher au XVIIème siècle et culminèrent à la
+fin du XVIIIème siècle avec les "monophtong" du russe Kratzenstein (qui prononçaient une seule
+voyelle), les têtes parlantes de l’abbé Mical, et la machine à parler de von Kempelen L’abbé Mical
+exposa en 1783 à Paris deux têtes parlantes qui pouvaient articuler un petit éloge de Louis XVI ;
+mais il ne put mener à bien son projet de clavecin vocal et mourut dans la misère. Wolfgang von
+Kempelen, hongrois de lanque allemande né en Slovaquie, réussit entre 1780 et 1800 à mettre au
+point la "Sprechmachine", une vraie machine parlante commandée à la main par l’opérateur (il
+s’était fait connaître auparavant par une escroquerie célèbre : "l’automate du turc joueur d’échec",
+dont la machinerie apparente cachait en fait un homme) : la "Sprechmachine" prononçait mieux les
+voyelles que les consonnes (d’où quelques difficultés en allemand), et parlait de façon très monotone.
+
+Têtes parlantes de l’abbé Mical et Sprechmachine de von Kempelen.
+Les voyelles fournirent à Molière toute une scène du Bourgeois Gentilhomme et la vie de von
+Kempelen une nouvelle à Edgar Poe.
+La superposition des harmoniques dans un signal périodique, qu’on trouve déjà dans les "épicycles" de Ptolémée, est à la base de la théorie musicale en Occident depuis très longtemps : si
+on part du "do" comme fréquence fondamentale, les harmoniques successifs sont le "do" supérieur
+à l’octave (2), puis le "sol" (3), le "do" suivant (4), le "mi" (5), le "sol" (6), le "si bemol" (7)
+Du circuit à la voix
+
+23
+
+Ecole Alsacienne
+
+Olympiades 2012
+
+et le "do" (8) qui suivent. Cette constatation, antérieurement aux travaux de Fourier, se trouve
+par exemple dans le traité de musique théorique (1726) du compositeur Jean-Philippe Rameau, ou
+dans les travaux sur les cordes vibrantes (1800) de Young.
+Le souci d’apprendre à parler aux sourds muets fut un autre moteur pour une étude plus poussée de la production des phonèmes : dans cette lignée, on trouve Bède le Vénérable (d’après la
+légende), le bénédictin espagnol Ponce de Leon (mort en 1584), l’évêque mathématicien Wallis
+(dans un traité de 1653), auteur de nombreux travaux mathématiques et du symbole de l’infini, et
+l’abbé de l’Epée (1774), instituteur des sourds-muets après Pereire.
+Ernst Chladni (1757-1827) découvrit les figures de Chladni qui se forment sur les plaques vibrantes, et proposa en 1809 une classification des voyelles, le triangle de Chladni, qui devient très
+naturelle lorsqu’on interprète les voyelles à l’aide de formants.
+
+ou
+o fermé
+a
+
+o ouvert
+e muet
+e grave
+
+eu
+
+u
+
+e aigu
+i
+Le physiologiste allemand Ludimar Hermann (1838-1914) utilisa le phonographe d’Edison pour
+tester les théories des voyelles, notamment celles de Robert Willis et de Charles Wheatstone (tous
+deux ayant travaillé dans les années 1830). Richard Paget (1869-1955) construisit des résonateurs
+permettant d’engendrer chacune des voyelles (vers 1920) George Oscar Russel (1890-1962), élève
+d’Hermann, utilisa les rayons X pour mieux comprendre la physiologie de la production des voyelles.
+L’acousticien suédois Gunnar Fant (1919-2009) a fait une étude systématique des voyelles à l’aide
+des formants.
+Parmi les problèmes qui se sont posés aux acousticiens, il y a la question des déphasages (les
+φn ) figurant dans la décomposition en harmoniques). Les acousticiens classiques, comme Ohm ou
+Helmholtz, prétendaient que les déphasages n’avaient aucune incidence pour l’effet sur l’homme
+d’un signal sonore. C’est encore ce qui est dit couramment, bien que des études récentes montrent
+que les déphasages peuvent engendrer des différences de timbre tout à fait observables.
+
+Du circuit à la voix
+
+24
+
+Ecole Alsacienne
+
+Olympiades 2012
+
+Annexe B
+
+Séries de Fourier
+Joseph Fourier (1768-1830), mathématicien et physicien, fut préfet sous Napoléon, baron d’Empire en 1809, et entra à l’Académie Française en 1817. Dès 1807, il introduisit les séries trigonométriques qui portent maintenant le nom de séries de Fourier ; il fut soutenu par Legendre, mais
+se heurta à la vive opposition de Lagrange. Ses résultats furent finalement publiés dans son livre
+sur la "Théorie analytique de la chaleur" (1822), ouvrant d’immenses perspectives de travail aux
+mathématiciens et aux physiciens. Il fut aussi l’inventeur de l’effet de serre.
+L’énoncé précis de la décomposition de Fourier est le suivant :
+Sous des conditions très générales (notamment si le signal s est de carré intégrable), toute
+application s de R dans C périodique de période T = f1 peut s’écrire :
+s(t) =
+
++∞
+X
+
+dn exp (2iπf nt)
+
+n=−∞
+
+. De plus cette décomposition est unique car on a :
+1
+dn = ( )
+T
+
+Z T
+s(t) exp (−2iπf nt)dt
+0
+
+.
+Supposons que la fonction s soit à valeurs réelles ; alors d0 est réel et d−n est le conjugué de
+dn . Posons c0 = d0 , et notons 12 cn le module de dn et φn son argument pour chaque n > 0 ; on a
+donc c−n = cn et φ−n = −φn .
+On a alors :
+s(t) = c0 +
+
++∞
+X
+1
+
+1
+cn exp (iφn ) exp (2iπf nt) + cn exp (−iφn ) exp (−2iπf nt)
+2
+2
+n=1
+
+donc :
+s(t) = c0 +
+
++∞
+X
+
+cn exp (iφn ) cos (2πf nt + φn ).
+
+n=1
+
+En introduisant cette décomposition des fonctions périodiques, Joseph Fourier ouvrait un grand
+domaine des mathématiques, riche d’applications en physique et dans bien d’autres domaines.
+
+Du circuit à la voix
+
+25
+
+Ecole Alsacienne
+
+Olympiades 2012
+
+Il fallut attendre assez longtemps pour que l’importance des résultats de Joseph Fourier fut
+vraiment reconnue. Ainsi, dans un chapitre des "Misérables" (parus en 1862) sur l’année 1817,
+Victor Hugo comparait le baron Joseph Fourier (le mathématicien) et l’utopiste Charles Fourier
+d’une façon très désobligeante pour le mathématicien :
+"Il y avait à l’Académie des Sciences un Fourier célèbre que la postérité a ignoré et dans je ne
+sais quel grenier un Fourier obscur dont l’avenir se souviendra".
+Sur ce point Victor Hugo n’était pas plus perspicace que le "Fourier obscur" (Charles Fourier)
+qui prévoyait, sérieusement, que l’application de ses principes de travail communautaire aboutirait
+aussi à une amélioration de la nature toute entière, et par exemple à la mutation des baleines en
+antibaleines dociles et aptes à la traction des paquebots. Il faut dire que Victor Hugo n’aimait pas
+les mathématiques :
+"Que de fois j’ai maudit, quand j’étais écolier,
+Les x et les y, et la stupeur qu’engendre
+Biot multiplié par Bezout et Legendre !"
+
+Caricature de Boilly représentant Joseph Fourier en 1820.
+
+Du circuit à la voix
+
+26
+
+Ecole Alsacienne
+
+Olympiades 2012
+
+Annexe C
+
+Les filtres numériques et les voyelles
+Depuis le début de l’ère du numérique, il a été nécessaire de créer des filtres ayant les mêmes
+propriétés que certains filtres naturels, mais pouvant être appliqués par une unité de calcul. On
+appelle ces filtres des filtres numériques.
+Ils n’ont pas pour but de représenter à l’indentique les fonctionnements naturels des filtres
+physiques comme la cavité buccale. Ils ont plutôt vocation à simuler la sortie d’un filtre naturel
+par des moyens totalement artificiels et loin de toute réalité physiologique.
+
+Les filtres numériques sont définis par leur fonction de transfert. La fonction de transfert d’un
+filtre numérique (la transformée en z du signal de sortie sur la transformée en z du signal source)
+se présente sous la forme générale suivante :
+Pn
+bk z −k
+Pk=0
+H(z) =
+m
+1 + k0 =1 ak0 z −k0
+
+On appelle max(n, m) l’ordre du filtre numérique. Dans un filtre numérique, on appelle pôles
+les racines du dénominateur et zeros les racines du numérateur. Le nombre de pics de fréquence
+dans le spectre du signal en sortie est égal au nombre de pôles, et le nombre d’atténuations de
+fréquence dans le spectre du signal en sortie est égal au nombre de zeros.
+
+Les filtres numériques utilisés pour produire une résonance semblable à un formant, sont généralement des filtres du second ordre (deux pôles, et au plus deux zeros).
+La fonction de transfert d’un filtre du second ordre (à deux pôles et sans zero) est donc la
+suivante :
+1
+H(z) =
+−1
+1 + a1 z + a2 z −2
+. On peut alors trouver les pôles du filtre en résolvant : 1 + a1 z −1 + a2 z −2 = 0. Si le discriminant
+est positif (ou nul), on trouve des pôles réels. Dans le cas contraire, les pôles sont complexes. Des
+pôles réels ne sont pas intéressants, en effet, cela transforme le filtre à deux pôles en deux filtres à
+un pôle mis en série. Ceux ci ne présentent aucun phénomène de résonance et donc, ils ne sont pas
+intéressants pour la simulation de formants. C’est avec des pôles complexes que l’on peut observer
+un phénomène de résonance.
+S’ils sont complexes, alors on peut les écrire sous la forme trigonométrique suivante : Reiω et Re−iω ,
+avec ω l’argument du pôle (la position de la résonance) en radian et R le module du pôle.
+Après factorisation, on trouve une autre forme de la fonction de transfert :
+H(z) =
+
+Du circuit à la voix
+
+1
+1
+=
+(1 − Reiω )(1 − Re−iω )
+1 − 2R cos(ω)z −1 + R2 z −2
+27
+
+Ecole Alsacienne
+
+Olympiades 2012
+
+Par identification avec la forme habituelle de la fonction de transfert, on trouve a1 = −2R cos (ω)
+et a2 = R2
+Le spectre réel du filtre, noté Spc(f ) est trouvé en calculant le module de H(eiπ ), soit :
+Spc(f ) = |H(eif )| = |
+
+1
+1 + a1 e−if + a2 e−2if
+
+|= q
+
+1
+2
+
+(1 + a1 cos (f ) + a2 cos (2f )) + (−a1 sin (f ) − a2 sin (2f ))
+
+La fonction Spc est une fonction périodique de période 2π. Les maximas de cette fonction se
+trouvent approximativement aux f ≡ ω[2π] ou f ≡ −ω[2π]. Un spectre n’est pas périodique, il
+est donc nécessaire de réduire le spectre à une seule période. De plus, nous souhaitons obtenir un
+spectre présentant une résonance, il est donc nécessaire de ne prendre qu’une des deux résonances
+(la première). Il est donc obligatoire de prendre une demi période comme spectre, c’est à dire π.
+On peut voir sur le graphe suivant les deux pôles sur une période (2π), en ayant pris ω = π3 et un
+R proche de 1 (la question du R sera discutée plus loin) :
+
+avec en bleu la première demie période possèdant le premier pôle situé à f = π3 , et en rouge la
+seconde demi période possèdant le second pôle situé à f = 2π − π3 .
+Le spectre est une fonction des entiers naturels sur les réels, cette fonction n’est donc pas définie sur un intervalle assez grand. Il est nécessaire de changer d’échelle. Mais cela implique le choix
+judicieux de ω, il doit être inférieur à la période, car sinon, le premier pôle observé ne sera pas à
+ω, mais à p ≡ ω tel que p soit positif et le plus possible.
+
+Le R des pôles est très important, en effet, c’est lui qui définit l’importance de la résonance.
+R est compris entre 0 et 1. Plus il est proche de 1, plus la résonance est importante. Mais il ne
+peut pas être supérieur à 1, en effet, sinon le filtre serait instable, c’est à dire que son spectre ne
+tendrait pas vers 0 (le spectre représente la première demie période de la fonction Spc). Il est lié à
+la bande passante de la résonance par la relation suivante : R = e−πB/l avec B la bande passante
+et l le facteur de réduction de la bande passante (en effet, la bande passante est exprimée à un
+facteur d’aggrandissement élevé, généralement 18000)
+
+Nous allons, par exemple, produire le spectre du filtre représentant la cavité buccale dans le
+cadre de la prononciation du phonème "a". Pour cela, il suffit d’additionner les spectres de différents
+filtres à deux pôles produisant une résonance aux emplacements des différents formants. Nous avons
+vu précédemment que seuls les trois premiers formants étaient nécessaires à la compréhension d’une
+voyelle. Pour la voyelle "a", les trois premiers sont à 700 Hz, 1200 Hz, et 2600 Hz.
+Du circuit à la voix
+
+28
+
+2
+
+Ecole Alsacienne
+
+Olympiades 2012
+
+Nous devons donc réaliser trois filtres à deux pôles. Pour une question d’échelle, nous allons prendre
+toutes nos valeurs non pas en radians, mais en degrés. On mettra, de même, ω en degrés. Cela a
+pour effet de modifier la période de la fonction Spc des filtres de 2π à 360. On augmente ensuite
+l’étendue de ces fonction par un facteur 100. Cela nous donne les fonctions suivantes :
+
+Spc1 (f ) = q
+
+Spc2 (f ) = q
+
+Spc3 (f ) = q
+
+b0
+2
+
+2f π
+2f π
+fπ
+fπ
+7π
+7π
+(1 − R1 cos ( 180
+) cos ( 18000
+) + R12 cos ( 18000
+)) + (R1 cos ( 180
+) sin ( 18000
+) − R12 sin ( 18000
+))
+
+2
+
+b0
+2
+2
+2f π
+2f π
+fπ
+fπ
+12π
+2
+2
+(1 − R2 cos ( 12π
+180 ) cos ( 18000 ) + R2 cos ( 18000 )) + (R2 cos ( 180 ) sin ( 18000 ) − R2 sin ( 18000 ))
+
+b0
+2
+
+2
+
+2f π
+2f π
+fπ
+fπ
+26π
+2
+2
+(1 − R3 cos ( 26π
+180 ) cos ( 18000 ) + R3 cos ( 18000 )) + (R3 cos ( 180 ) sin ( 18000 ) − R3 sin ( 18000 ))
+
+Les changements d’échelles nous ont permis d’obtenir les fonctions apropriées. En effet, le
+changement de période à 360 nous permet de prendre des points de résonances (7, 12, 26) qui sont
+principaux, c’est à dire inférieurs à la demi période (180). Ainsi, on voit apparaitre des pics à 7, 12,
+et 26. Mais le spectre ne va que jusqu’à 180 (valeur de la demi période). Il faut donc l’augmenter
+d’un facteur multiplicatif de 100, ce qui nous donne alors les pics suivant : 700, 1200, et 2600, et un
+spectre allant jusqu’à 18000. On peut considérer le spectre seulement sur 10000. Cela nous donne
+le graphique suivant :
+
+Ce spectre constitue un filtre en mesure de produire le phonème "a". En effet, il suffit de multiplier le spectre de notre signal source (pour un son source optimal, voir graphique de la partie
+sur le modèle humain) par le spectre de notre filtre pour produire le phonème "a". Puis, grâce à
+l’égalité exposé dans le 1.2, on retrouve le signal ressemblant au "a".
+
+On peut maintenant comparer les spectres de deux filtres produisant deux phonèmes différents :
+"a" et "i".
+Du circuit à la voix
+
+29
+
+Ecole Alsacienne
+
+Du circuit à la voix
+
+Olympiades 2012
+
+30
+
+Ecole Alsacienne
+
+Olympiades 2012
+
+Bibliographie
+[1] Josiane Clarenc and others, "Atelier des Sciences du Langage de l’Université de Montpellier
+3 : Les caractéristiques articulatoires et acoustiques des sons",
+http ://asl.univ-montp3.fr/e58fle/caracteristiquesarticulatoiresetacoustiques.pdf,
+[2] Jean-Pierre Kahane, Pierre-Gilles Lemarié, "Séries de Fourier et ondelettes",
+1998, Cassini.
+[3] Jean-Pierre Kahane, "La caricature de Fourier et Legendre par Boilly",
+sur le site "images.math.cnrs.fr"
+[4] George-Oscar Russell, "The vowel : its physiological mechanism as shown by X-ray",
+1928, Ohio State University Press.
+[5] Julius O. Smith, "Introduction to Digital Filters with Audio Applications",
+http ://ccrma.stanford.edu/ jos/filters/, online book,
+[6] http ://www.jhu.edu/signals/listen-new/listen-newindex.htm
+Voir "effect of phase"
+
+Du circuit à la voix
+
+31
+
+

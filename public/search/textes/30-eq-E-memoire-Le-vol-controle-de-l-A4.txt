@@ -1,0 +1,725 @@
+École Européenne de Bruxelles 4 :
+
+‟Même le papier peut
+voler ! ”
+
+MOTORISATION
+D’UN AVION EN
+PAPIER
+Page n°1
+MÊME LE PAPIER PEUT VOLER !
+
+| OLYMPIADES DE PHYSIQUE France
+
+FRANCE
+
+OLYMPIADES
+DE PHYSIQUE
+
+Sommaire :
+Table des matières :
+Qui sommes nous ? ..........................................................................................2
+1. Problématique .................................................................................... 3
+Introduction .......................................................................................................3
+2. Méthode .............................................................................................................. 4
+Modèles ..............................................................................................................4
+Soufflerie............................................................................................................5
+Carte des vitesses du vents ............................................................................5
+Capteurs nécessaires .......................................................................................6
+3. L’avion .............................................................................................. 7
+Forces .................................................................................................................. 8
+4. Mesure de la portance ...................................................................... 8
+5. Mesure de la poussée ..................................................................... 10
+Essai .................................................................................................................. 12
+6. Mesure de la traînée ....................................................................... 13
+7. Finesse ............................................................................................ 14
+8. Résultante des forces ...................................................................... 16
+Optimisation ................................................................................................... 17
+9.
+
+Vol de l’avion (test) ....................................................................... 18
+
+10. Recherche du foyer de portance et du centre de gravité ............... 18
+11. Perspectives ................................................................................... 19
+Conclusion et remerciements ....................................................................... 20
+
+•
+•
+•
+•
+•
+
+BARBIER-KERP Aaron.
+CHIOVARI Marc.
+KRIEGER Arthur.
+MEYSSONNIER Jean.
+VEDRINE LE GOFF Elliot.
+
+Notre référent :
+CLEMENCE Olivier.
+
+Dans le Club
+Scientifique de l’École
+Européenne de
+Bruxelles 4 (EEB4).
+Étudiants en Première
+(S6).
+
+Page n°2
+MÊME LE PAPIER PEUT VOLER !
+
+| OLYMPIADES DE PHYSIQUE France
+
+FRANCE
+
+OLYMPIADES
+DE PHYSIQUE
+
+Quelle frustration de lancer un avion réalisé à partir d'une simple
+feuille de papier A4 et de le voir retomber quelques secondes plus
+tard...
+Mais est-il possible grâce à la physique et ses lois, de le contrôler à
+distance pendant plusieurs minutes (8-10 min) ?
+
+Passionnés d'aviation, nous souhaitions profiter de l'atelier scientifique
+pour approfondir nos connaissances sur le vol des avions. Partir d'un avion
+radiocommandé aurait pu être une approche, mais notre enseignant nous a
+proposé de contrôler un avion en papier réalisé à partir d'une feuille A4.
+Pendant 6 mois, nous avons conçu un avion capable de voler et d'être
+contrôlé à distance. Pour cela, il a d’abord fallu mesurer la portance de
+l’avion car elle dimensionnera la masse totale du système de réception et
+donc, le meilleur choix possible des composants qui permettront sa
+motorisation (tels que les moteurs, hélices, batterie et microcontrôleur
+XIAO).
+Faire voler un avion en papier ne relève de rien d’extraordinaire, mais le
+faire voler pendant quelques minutes (8-10 mins) en le dirigeant dans les 3
+dimensions est un défi. Nous devons prouver que l'avion peut voler ainsi
+que prédire ses caractéristiques telles que l'autonomie et la vitesse
+maximale. C’est pourquoi il a fallu mesurer et calculer la vitesse de rotation
+des hélices de l'avion, les forces de portance et de traînée, la poussée des
+moteurs, la finesse, etc. Toutes ces données pour répondre à ce problème :
+jusqu'où notre avion pourra-t-il voler et quelles seront ses performances…
+Une étude des forces mises en jeu sur l'avion en papier nous permettra
+d’optimiser au mieux le vol de l’avion. Grâce à ces données, nous pourrons
+faire les premières maquettes et faire le premier vol... Puis rectifier ;
+abandonner ou s'extasier !
+
+Page n°3
+MÊME LE PAPIER PEUT VOLER !
+
+| OLYMPIADES DE PHYSIQUE France
+
+FRANCE
+
+OLYMPIADES
+DE PHYSIQUE
+
+Pour notre défi, nous avons pris une simple
+feuille de papier 210 x 297 millimètres (A4) qui
+pèse environ 5 grammes (80 g/m²). Après avoir
+plié la feuille pour concevoir l’avion, nous avons
+découpé des stabilisateurs sur les ailes. Il y a en a
+un sur chacune.
+Pour que l’avion puisse voler, il faut
+impérativement que son poids maximum soit
+Stabilisateurs sur les ailes.
+inférieur à sa portance. Lorsqu’on connaîtra la
+valeur de cette portance, on pourra déduire le meilleur choix possible des
+composants.
+a donc fallu
+la portance.
+meilleur choixIl possible
+des mesurer
+composants.
+Il a doncPour mesurer cette
+portance,
+il a fallu
+concevoir
+unemesurer
+soufflerie.
+fallu mesurer
+la portance.
+Pour
+cettfallu
+mesurer la portance. Pour mesurer cette
+portance, il a fallu concevoir une soufflerie.
+Nous avons également créé d’autres modèles d’avion en papier que voici :
+
+Nous avons sélectionné l’avion du haut de la page car il possède la plus
+grande surface alaire et donc nous permet d’avoir une meilleure portance
+
+Page n°4
+MÊME LE PAPIER PEUT VOLER !
+
+| OLYMPIADES DE PHYSIQUE France
+
+FRANCE
+
+OLYMPIADES
+DE PHYSIQUE
+
+Avec une soufflerie, nous pourrons mesurer les différentes forces
+s’exerçant sur l’avion avec différentes incidences. C’est dans la soufflerie que
+l’on met l’avion, relié à des capteurs.
+L’incidence est l’angle d’inclinaison de l’avion formé entre
+la corde de la section longitudinale de l’aile de l’avion et le
+vecteur vitesse du vent relatif.
+
+La soufflerie est une grosse boîte
+composée de deux planches en bois qui
+font office de sol et de plafond, ainsi que de
+trois vitres en plexiglas pour voir à
+l’intérieur. Il y a évidemment au fond un
+ventilateur, à la bonne taille, qui va aspirer
+l’air dans la soufflerie, sur l’avion et qui va
+ressortir derrière.
+Ensuite, nous avons assemblé des
+rouleaux de carton pour homogénéiser le
+flux d’air entrant afin de pouvoir effectuer
+des mesures plus précises. Nous avons
+néanmoins rencontré un problème : le
+diamètre des rouleaux étant élevé, ils
+obstruaient trop l’espace, ce qui ralentissait
+fortement le flux d’air et perturbait son
+homogénéisation.
+Nous avons songé à remplacer les
+rouleaux de cartons par des pailles, mais il
+en fallait un trop grand nombre et nous
+avons finalement décidé de ne rien mettre
+à l’entrée.
+
+2.
+
+1.
+
+Direction de l’air
+
+1. Ventilateur.
+2. Vitre en plexiglas.
+
+Rouleaux de cartons.
+
+Nous avons dû faire une carte du champ des vents qui nous
+permettrait d’identifier l’endroit où le vent serait le plus homogène et
+puissant. Nous avons finalement décidé de fixer l’avion au centre-avant de la
+soufflerie.
+
+Page n°5
+MÊME LE PAPIER PEUT VOLER !
+
+| OLYMPIADES DE PHYSIQUE France
+
+FRANCE
+
+OLYMPIADES
+DE PHYSIQUE
+
+Pour ce projet, il nous fallait bien évidemment
+quelques appareils de mesures en plus de la soufflerie.
+Nous avons utilisé un anémomètre qui a servi à mesurer la
+vitesse du vent.
+Nous avons également utilisé un dynamomètre qui
+nous a permis de mesurer les principales forces qui tiraient
+et poussaient l’avion (en le fixant à l’avion, nous avons donc
+pu obtenir la force de portance et par la suite les forces de
+traînée et poussée).
+Nous verrons par la suite qu’il fallait aussi mesurer la
+fréquence de rotation des hélices de l’avion. Nous l’avons
+fait grâce à un capteur de lumière. Ce capteur comptait
+combien de fois la lumière s’occultait par minute, c’est-àdire combien de fois une des hélices passaient devant le
+capteur chaque minute…
+
+Anémomètre
+:
+
+Dynamomètre :
+
+Capteurs de
+lumière :
+
+Finalement, nous avons eu besoin d’un LabQuest 2 –
+Vernier, qui permet tout simplement de collecter toutes
+les données au cours du temps et de les afficher, et les
+traiter.
+Pour effectuer les différentes mesures dans la
+soufflerie, il a fallu faire une impression 3D afin d’élaborer
+une « monture orientable » pour l’avion, lui permettant
+ainsi de s’accrocher à des appareils tels que le
+dynamomètre.
+Voici le modèle 3D de la pièce permettant de fixer
+l’avion :
+Fente dans laquelle on fixe l’avion
+Support de l’avion
+
+Page n°6
+MÊME LE PAPIER PEUT VOLER !
+
+| OLYMPIADES DE PHYSIQUE France
+
+FRANCE
+
+OLYMPIADES
+DE PHYSIQUE
+
+La structure :
+Il a fallu réunir quelques composants électroniques pour que notre
+projet aboutisse tout en considérant la contrainte évidente du poids.
+Afin de pouvoir fixer les moteurs et les hélices à l’arrière de l’avion et
+les relier avec une tige de plastique jusqu’à l’avant, où seraient regroupés
+les composants principaux, il a également fallu imprimer un squelette de
+plastique avec une imprimante 3D qui permettrait de fixer chacun des
+composants. Les deux parties principales sont en fait reliées par un « mât »,
+lui-même fixé à deux branches qui sont collées aux ailes de l’avion. Les
+moteurs se trouvant à l’arrière de l’avion, pour des raisons d’équilibre
+structurel et de balance des poids en vol, le reste des composants doit se
+trouver à la tête de l’avion.
+
+Composants électroniques :
+L’avion est composé entre-autre des hélices reliées aux moteurs à l’arrière de
+l’avion. Des fils de connexion lient l’arrière et l’avant. Sur le nez de l’avion, il y
+a basiquement une petite batterie qui permet d’alimenter les moteurs, une
+carte réceptrice radiofréquence qui reçoit le signal par onde de la
+télécommande et un microcontrôleur XIAO qui a pour but de transmettre
+le signal aux moteurs.
+Voici une photographie du nez de l’avion. On peut y voir les différents
+composants électroniques :
+Récepteur radiofréquence
+Seeeduino XIAO
+
+Nez de l’avion antichoc (en mousse)
+Batterie
+
+Page n°7
+MÊME LE PAPIER PEUT VOLER !
+
+| OLYMPIADES DE PHYSIQUE France
+
+FRANCE
+
+OLYMPIADES
+DE PHYSIQUE
+
+Voici la télécommande :
+Écran
+Joysticks avant-arrière et
+Gauche-droite (puissance des hélices)
+Bouton compensation gauche-droite
+(fait tourner plus ou moins vite une
+des hélices)
+Bouton éteindre / allumer
+Voici une modélisation 3D de la structure sur l’avion (non assemblé)
+ainsi que de la structure avec les composants (assemblés) :
+Tige en plastique
+
+Tête de l’avion
+
+Arrière (moteurs)
+
+Principaux composants électroniques
+
+Branches collées aux ailes
+
+Hélices
+
+La portance est la force
+perpendiculaire à la
+direction du mouvement
+(vent relatif) qu’à un corps
+dans un fluide.
+
+Page n°8
+MÊME LE PAPIER PEUT VOLER !
+
+| OLYMPIADES DE PHYSIQUE France
+
+FRANCE
+
+OLYMPIADES
+DE PHYSIQUE
+
+Pour mesurer la portance, nous avons fixé l’avion au-dessus du
+dynamomètre, dans la soufflerie. Le vent, en soulevant l’avion, va tirer le
+ressort du dynamomètre. Nous avons alors mesuré l’angle d’inclinaison de
+l’avion à l’aide d’une application de téléphone Apple qui s’appelle
+« Mesures » pour avoir les mesures de portance à différentes incidences.
+Voici quelques graphiques des forces de portances obtenues en
+fonction de la vitesse du vent et selon chaque incidence (tous les 5°) :
+
+5°
+
+10°
+
+15°
+20°
+
+25°
+D’après les données récoltées, la portance est maximale à incidence
+de 20° et vitesse du vent quelle que soit V. Cette portance est de 0,26 N. Le
+Poids maximum ne devra donc pas excéder 0, 26 Newtons. On peut donc
+déduire la masse maximale de l’avion grâce à la formule de la force de
+⃗⃗ = 𝒎 ∗ 𝒈
+⃗⃗ . La masse maximale de l’avion est
+pesanteur terrestre (poids) : 𝑷
+donc de 26 grammes. On peut dès lors choisir les composants de l’avion.
+
+Page n°9
+MÊME LE PAPIER PEUT VOLER !
+
+| OLYMPIADES DE PHYSIQUE France
+
+FRANCE
+
+OLYMPIADES
+DE PHYSIQUE
+
+La masse de notre avion avec ses composants est de 24, 7 grammes.
+
+La poussée est la force de propulsion créée grâce à des
+hélices poussant l'air vers l'arrière.
+Maintenant que nous avions la force de portance ainsi que le poids,
+déterminant ainsi la masse et donc les composants (dont les moteurs), il
+nous a fallu nous concentrer sur la force de poussée. Elle doit permettre
+d’atteindre 5,5 m/s ou moins si la masse est inférieure à 26 g.
+Pour cela, nous avons utilisé un capteur de lumière qui mesure le
+nombre de fois que la lumière est occultée devant son « œil », et ainsi la
+fréquence de rotation des hélices. La structure de l’avion est également
+reliée au dynamomètre qui mesure donc la force de poussée.
+Dynamomètre
+Les hélices de l’avion
+tournent. L’avion
+part dans le sens de
+la flèche rouge mais
+est retenu par le
+dynamomètre. Elles
+touchent presque le
+capteur de lumière.
+
+Capteur de
+lumière
+
+Voici les mesures obtenues :
+
+Graphique n°1
+
+Page n°10
+MÊME LE PAPIER PEUT VOLER !
+
+| OLYMPIADES DE PHYSIQUE France
+
+FRANCE
+
+OLYMPIADES
+DE PHYSIQUE
+
+Graphique n°2
+
+Graphique n°3
+
+Graphique n°4
+
+F réelle (Hz)
+
+Page n°11
+MÊME LE PAPIER PEUT VOLER !
+
+| OLYMPIADES DE PHYSIQUE France
+
+FRANCE
+
+OLYMPIADES
+DE PHYSIQUE
+
+Graphique n°5
+Le graphique n°1 donne le nombre d’occultations du capteur de
+lumière au cours du temps et donc la vitesse des hélices. Le graphique n°2
+donne la fréquence où il y a le meilleur nombre d’occultation : à 970 Hertz.
+En fait, la fréquence indiquée est le double de la fréquence de rotation du
+moteur car il y a deux pales par hélices. Le graphique n°3 donne la force de
+poussée en fonction de la fréquence donnée au cours du temps. En
+combinant les données du dynamomètre on obtient des graphiques
+intéressants : le graphique n°4, qui représente la force de poussée en
+fonction de la fréquence de rotation des hélices ; et le graphique n°5,
+obtenue en laissant les moteurs allumés, représentant l’autonomie de la
+batterie, donc le temps maximum de poussée qui est de 6 minutes.
+On peut conclure de ces mesures et notamment du graphique n°5
+que l’avion peut voler durant maximum 6 minutes à puissance maximale.,
+donc un peu plus longtemps avec des phases planées. Notre but est
+maintenant d’optimiser les forces s’exerçant sur de l’avion pour arriver à une
+durée de vol supérieure (de 8 à 10 minutes). Pour cela, nous allons mesurer
+la trainée.
+
+Pour mesurer la force de poussée de
+l’avion, nous avions d’abord essayé d’utiliser
+un rail. L’avion, sur un wagon avait été
+attaché à une ficelle et selon les différentes
+vitesses des moteurs, l’avion avait roulé sur
+le rail et tendait la ficelle avec plus ou
+moins de force. Les essais étaient trop
+imprécis et donc non utilisables. Nous
+avons préféré utiliser la soufflerie…
+
+Page n°12
+MÊME LE PAPIER PEUT VOLER !
+
+| OLYMPIADES DE PHYSIQUE France
+
+FRANCE
+
+OLYMPIADES
+DE PHYSIQUE
+
+La traînée est la force qui s'oppose au mouvement de
+l’avion (comparable aux frottements).
+Pour mesurer la force de traînée, nous avons incliné l’avion à
+différentes incidences dans la soufflerie, relié au dynamomètre et à
+l’anémomètre (comme pour la portance), cette fois, le dynamomètre est
+couché à 90° (page suivante), il mesurera donc la force de traînée.
+Voici les mesures obtenues :
+
+5°
+10°
+
+15°
+
+20°
+
+25°
+
+Page n°13
+MÊME LE PAPIER PEUT VOLER !
+
+| OLYMPIADES DE PHYSIQUE France
+
+FRANCE
+
+OLYMPIADES
+DE PHYSIQUE
+
+Dynamomètre
+La flèche rouge représente la
+direction du vent dans la soufflerie.
+
+Grâce aux données des forces de portance et de traînée, on peut
+accéder à la finesse de l’avion, nous communiquant ainsi des informations
+sur le décrochage de l’avion et donc sur son efficacité, ce qui nous
+permettra d’optimiser son autonomie. En fait, la finesse représente la
+distance parcouru (horizontalement) sur la hauteur qu’il a perdue et donc
+combien notre avion peut planer.
+Voici comment on calcule la finesse :
+Force de portance :
+Force de traînée :
+Sur nos graphiques (force en fonction de vitesse) :
+: masse volumique du fluide (ici l’air) en kg/m3.
+: vitesse en m/s.
+: surface de référence en m².
+/
+
+Donc :
+
+: coefficient de portance / traînée.
+(appelé AP en kg/m).
+(appelé AT en kg/m).
+
+Page n°14
+MÊME LE PAPIER PEUT VOLER !
+
+| OLYMPIADES DE PHYSIQUE France
+
+FRANCE
+
+OLYMPIADES
+DE PHYSIQUE
+
+AP
+
+Donc, grâce aux mesures de portance et de traînée, on obtient ces
+graphiques :
+
+Graphique des coefficients directeurs Ap (de portance) des courbes
+obtenues grâce à la soufflerie en fonction des différentes incidences (en
+degrés). On voit ici que la portance est maximale à 15° d’incidence.
+
+AT
+
+Graphique des coefficients directeurs AT (de traînée) des courbes
+obtenues grâce à la soufflerie en fonction des différentes incidences (en
+degrés).
+
+Page n°15
+MÊME LE PAPIER PEUT VOLER !
+
+| OLYMPIADES DE PHYSIQUE France
+
+FRANCE
+
+OLYMPIADES
+DE PHYSIQUE
+
+Enfin, maintenant que nous connaissons toutes les forces interagissant
+sur l’avion, afin de prédire et donc d’optimiser son vol, il faut pouvoir calculer
+la résultante (somme) des forces en fonction des différentes variables qui
+sont : l’incidence, la puissance des moteurs et la vitesse du vent.
+Nous avons lié tous ces vecteurs pour obtenir le vecteur somme sur
+GeoGebra. Sur l’image, la portance est représentée par le vecteur vertical
+vers le haut (noté Port en vert clair), la trainée par le vecteur horizontal (noté
+Tr en orange), la poussée par le vecteur vert foncé (noté Fp) et le poids par le
+vecteur vertical vers le bas (noté P en rouge). Nous avons décidé de créer un
+fichier GeoGebra donnant la direction, le sens et l’intensité de chaque force
+en fonction des quatre curseurs. Nous prévoyons d’améliorer encore ce
+document au fur et à mesure que nous récupérons plus de données afin
+d’avoir accès à un fichier interactif nous donnant les valeurs de toutes les
+forces. Il nous faut encore notamment déterminer le foyer de portance
+(point d’application du vecteur vert clair) …
+
+Page n°16
+MÊME LE PAPIER PEUT VOLER !
+
+| OLYMPIADES DE PHYSIQUE France
+
+FRANCE
+
+OLYMPIADES
+DE PHYSIQUE
+
+Certains paramètres de l’avion peuvent encore être
+optimisés, afin d’améliorer la stabilité en vol et
+l’autonomie. Grâce notamment à des mesures plus
+précises, nous pourront (ou pas) rechercher les moyens
+d’améliorer le temps de vol. Il nous faudra ensuite
+déterminer l’angle d’incidence permettant la plus
+grande finesse et la gestion (programmée) du vol pour
+exploiter automatiquement la poussée optimale.
+
+Composants
+électroniques.
+
+Il y a un nouveau support (mât), imprimé en 3D, avec des capteurs
+intégrés : deux jauges de contraintes pilotées par un HX711. Le module HX711
+pour Arduino est conçu pour amplifier le signal de la jauge de contrainte et
+transférer les données au microcontrôleur. Les capteurs sont reliés à un
+circuit électronique qui va intégrer toutes les valeurs en direct dans
+l’application Arduino IDE, une plateforme électronique open-source. Le
+support étant bien plus sophistiqué et étant fixé à la soufflerie, nous avons
+des mesures bien plus précises.
+AVANT :
+
+APRÈS :
+
+De plus, nous avons une nouvelle batterie pour l’avion, et donc une
+nouvelle autonomie. Elle pèse seulement 1 gramme de plus. La capacité de
+la batterie est de 220mAh et on peut voir sur le graphique suivant
+représentant la force de poussée au cours du temps que l’autonomie est
+passé de 6 minutes à 8 minutes, ce qui nous rapproche de notre objectif de
+10 minutes.
+
+Page n°17
+MÊME LE PAPIER PEUT VOLER !
+
+| OLYMPIADES DE PHYSIQUE France
+
+FRANCE
+
+OLYMPIADES
+DE PHYSIQUE
+
+Vecteurs
+accélération
+(portance)
+Vecteurs vitesse
+Avion
+A cette heure, nous faisons des tests en conditions réelles. Il passent
+par un enregistrement vidéo. Cet essai nous a permis de constater que
+l’avion vol bien en milieu intérieur. Malheureusement, nous n’avons pas
+encore pu essayer le vol de l’avion à l’extérieur dû aux mauvaises conditions
+météorologiques. L’étude de la vidéo prise sur Logger Pro nous a permis de
+voir que (ici le vecteur accélération) la portance est bien dirigée vers le haut.
+L’exploitation sur Logger Pro de ces vidéos pourra confirmer et
+éventuellement améliorer les résultats de la soufflerie et l’ensemble des
+mesures réalisées. Il nous faudrait néanmoins essayer de faire voler l’avion
+dans une salle plus grande, et à pleine vitesse.
+
+Nous avons imprimé une version 3D (à gauche) en acide polylactique
+(PLA) de notre avion afin d’en définir le foyer de portance (le point
+d'application des variations de la portance).
+
+Page n°18
+MÊME LE PAPIER PEUT VOLER !
+
+| OLYMPIADES DE PHYSIQUE France
+
+FRANCE
+
+OLYMPIADES
+DE PHYSIQUE
+
+Nous l’avons fixé à une armature amovible (lego) accrochée à une tige
+en plastique afin que l’on puisse déplacer la tige par rapport à l’avion. Grâce
+à cela nous avons pu déterminer la position dans laquelle la force du vent
+est identique sur les deux faces, de part et d’autre de la barre centrale, alors
+que l'avion est perpendiculaire à la direction du vent. On peut alors faire
+tourner l’avion autour de la barre sans contrainte.
+Voici la version « imprimé » de l’avion
+
+Ici, fixée à sa tige pour
+déterminer le foyer de portance
+
+Il nous faudra également rechercher le centre de gravité de l’avion.
+C’est l’endroit où il serait en équilibre s’il était suspendu. Nous n’aurons qu’à
+le suspendre avec un fil à plomb par deux points différents et tracer chaque
+fois la verticale passant par l'axe de rotation. Le croisement de ces deux
+droites résultantes sera le centre de gravité de l’avion.
+
+On tentera d’aller plus loin encore, en augmentant la stabilité grâce à
+un PID corrigeant les lacets ou tangages non désirées ou gérer une
+éventuelle rafale de vent. Il nous faudra encore déterminer des valeurs plus
+précises des forces de portance et de traînée, et ce grâce au nouveau
+système de capteur dans la soufflerie. Après avoir terminé le modèle de
+résultante des forces, nous pourrons encore essayer d’augmenter la durée
+de vol.
+
+Page n°19
+MÊME LE PAPIER PEUT VOLER !
+
+| OLYMPIADES DE PHYSIQUE France
+
+FRANCE
+
+OLYMPIADES
+DE PHYSIQUE
+
+Pour conclure, ce projet nous a énormément appris dans beaucoup de
+domaines, mais pas seulement. Nous avons réellement fait le lien entre la
+mesure (et son incertitude) et la modélisation qui permet ensuite la
+prédiction. L’avion peut voler, il en a les capacités. Il est désormais question
+d’améliorer la durée et la prédiction de son vol. Cela s’apparente à l’idée que
+nous nous faisons du métier d’ingénieur qui avance par aller-retour entre
+réalité et modélisation pour créer, améliorer.
+Lors de la sélection académique, nous serons ravis de vous présenter
+nos avancées et peut-être verrez-vous ce petit avion voler…
+
+“Avec l’avion, nous avons appris la ligne droite",
+disait Saint-Exupéry.
+Pour nous, l’avion nous a transmis la passion des sciences.
+
+Nous remercions tous ceux qui nous ont aidés et qui ont contribués à
+la réalisation de ce projet. Nous remercions spécialement notre professeur
+de Physique et de Chimie à l’École Européenne de Bruxelles 4 (EEB4) :
+Monsieur Olivier Clémence, qui nous a proposé ce projet et sans qui nous
+n’aurions jamais pu l’entreprendre. Nous lui devons un grand merci car
+c’est grâce à ses conseils pertinents que nous avons pu entreprendre et mener
+à bien ce projet.
+Nous remercions chaleureusement Stéphane Vandenborre qui a
+assuré les surveillances et rempli toutes les formalités administratives tout
+en apportant son soutien à notre groupe. Également un immense MERCI à
+Bruno Da Silva et Petar Yanev qui ont si aimablement et bien construit la
+soufflerie. Sans eux, il n’y aurait tout simplement pas eu de mesures
+possibles
+Finalement, nous remercions l’école qui nous a permis d’établir ce
+groupe scientifique !
+
+Page n°20
+MÊME LE PAPIER PEUT VOLER !
+
+| OLYMPIADES DE PHYSIQUE France
+
+

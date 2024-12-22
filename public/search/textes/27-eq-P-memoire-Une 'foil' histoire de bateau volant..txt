@@ -1,0 +1,590 @@
+Une « foil » histoire de bateau volant
+ou
+Comment limiter la trainée d’un bateau ?
+Projet du lycée Margueritte (Verdun).
+Elèves : Julian Laborde et Honoré Claisse.
+Professeur référent : Emmanuel Claisse.
+
+Résumé :
+Le foil est la nouvelle avancée technologique la plus performante des voiliers de course.
+Le domaine est très vaste et demande un apport de connaissances dans de nombreuses disciplines.
+Dans ce projet, nous voulions comprendre les raisons de ces performances étonnantes.
+Nous avons contacté trois architectes navals et deux écoles d’ingénierie supérieures.
+Nous avons abordé les notions suivantes : le nombre de Reynolds, le nombre de Froode, les profils
+laminaires et turbulents, la notion de couche limite, la notion d’hydrostatique, les coeﬃcients de portance et
+de trainée, les notions de cavitation et de ventilation, le comportemental lié à la réduction d’échelle.
+Nous avons également modélisé à l’aide de logiciels 3d plusieurs foils que nous avons imprimé en 3d et
+testé sur un banc d’essais afin d’étudier la portance pour les expériences à l’échelle 1/50 du foil réel (ou
+1/10 du foil final).
+
+Sommaire
+Introduction
+
+3
+
+I / Les différentes résistances qui s’opposent à l’avancement
+
+4
+
+II / Le foil
+1 - Présentation… ............................................................... 6
+2 - Évolution… .................................................................... 6
+3 - Schéma de fonctionnement…........................................ 7
+4 - Profils hydrodynamiques… ............................................ 8
+5 - Coefficients et angle d’incidence… ............................... 10
+6 - Étude comportementale… ............................................. 11
+III / Les différentes notions
+1 - La cavitation… .............................................................. 12
+2 - La ventilation… ............................................................. 12
+IV / Expériences
+1 - Introduction… ............................................................... 1.3
+2 - Études 3D… ................................................................. 13
+3 - Impression et pose d’époxy… ....................................... 16
+4 - Réalisation du banc d’essai… ....................................... 17
+5 - Test comportemental. ................................................... 18
+6 - Compte rendu de l’expérience… ................................... 1
+.8
+V / Les risques et limites du foil................................................... 19
+VI / Innovation « affoillante » ....................................................... 20
+VII / Conclusion .......................................................................... 21
+VIII / Remerciements .................................................................. 22
+IX / Bibliographie et Lexique ....................................................... 23
+X / Vidéo, résultats de l’expériences ............................................ 2.4
+XI Allons plus loin ! ...................................................................... 2.5
+
+INTRODUCTION
+Notre collaboration à ce projet naît d’une passion commune pour les bateaux. Honoré est
+plus axé sur le bateau à moteur tandis que Julian est plus orienté sur le voilier de course au large.
+Néanmoins, le foil s’est de nos jours répandu sur tous ces supports.
+Le foil est la nouvelle avancée technologique la plus performante des voiliers de course, autant
+inshore que oﬀshore. Le domaine d’étude est très vaste etdemande un apport de connaissances
+dans de nombreuses disciplines tels la physique, les mathématiques, la modélisation 3D, les
+matériaux composites et les méthodes d’infusion et de stratification. Par conséquent, nous voulons
+comprendre ce qui se cache derrière ces performances flagrantes.
+Pour cela, nous avons fait appel à des professionnels de renom de la course au large
+principalement situés dans le Morbihan, ou Nantes.
+Pour débuter notre projet après avoir fixé un planning, nous nous sommes répartis chacun un
+domaine d’application. Honoré est responsable des calculs, de l’impression 3D ainsi que du banc
+d’essai tandis que Julian est responsable de la modélisation 3D, de la conception des foils finaux
+ainsi que de la communication extérieure.
+
+I
+/ LES DIFFÉRENTES RÉSISTANCES QUI S’OPPOSENT À
+L’AVANCEMENT
+La principale force qui s’oppose à l’avancement d’un bateau est la force de trainée Fx dont la même
+1
+formule est F x = 2   S V²Cx exprimée en Newton
+Où :
+
+-  : la masse volumique de l’eau, en kg/m3
+- S : la surface immergée en m2
+- V : la vitesse en m/s
+- Cx : le coeﬃcient de trainée
+
+Concernant les bateaux, deux coefficients sont importants : le nombre de Reynolds et le
+nombre de Froude
+
+Le nombre de Reynolds
+Le nombre de Reynolds est un nombre sans dimension qui correspond à la résistance due aux
+frottements de l’eau qui s’écoule le long du bateau.
+Le nombre de Reynolds caractérise la forme des
+écoulements (laminaire ou turbulent).
+Lorsque l’écoulement s’effectue sans tourbillons et est
+quasiment parallèlement à la direction d’avancement,
+on parle d’écoulement laminaire.
+Lorsqu’il se crée des
+d’écoulement turbulent.
+3
+
+tourbillons,
+
+on
+
+parle
+
+Le nombre de Reynolds s’écrit :
+
+×𝑉×𝐷
+𝜇
+
+où :
+
+ est la masse volumique de l’eau, V est la vitesse du fluide en m/s,
+D est la dimension caractéristique en m qui dépend de la surface immergée du bateau,
+ est la viscosité cinématique du fluide en m2/s pour une température en °C donnée
+
+Lorsque Re<2300, l’écoulement
+est dit laminaire.
+Lorsque 2300<Re<3000,
+l’écoulement est dit transitoire.
+Lorsque Re>3000, l’écoulement
+est dit turbulent.
+
+L’écoulement autour de la
+carène à ces endroits est dit
+turbulent.
+L’écoulement autour de la
+carène à ces endroits est dit
+laminaire.
+
+Le nombre de Froude
+Le nombre de Froude est un nombre sans dimension qui correspond à la résistance à la vague,
+essentiellement générée par l’avant du bateau. Il lie la gravité, la vitesse et la longueur du bateau.
+Où : - g, la gravité
+- h, la longueur du bateau en m
+- V, la vitesse du bateau en m/s
+Nous détaillerons davantage ces notions dans la partie consacrée au foil qui est notre objectif
+principal.
+
+Notion de couche limite
+La couche limite décrit des propriétés physiques au voisinage
+d’un fluide en écoulement au contact d’un corps. La couche
+limite d’un bateau est définit sur sa carène.
+4
+
+II
+
+. LE FOIL
+
+1
+
+- Présentation
+
+Le foil, aussi appelé l’hydrofoil, est un appendice qui se sert des propriétés aérodynamiques pour
+l’hydrodynamique ; tel une aile d’avion, il a une force de portance qui soulage le bateau des
+frottements et lui permet de « décoller » au-dessus de l’eau.
+2
+
+- Évolution
+
+1861 : le Britannique Thomas Moy découvre le principe de l’hydrofoil, en voulant tester des ailes
+prévues pour les premiers avions,
+1869 : le mécanicien français Emmanuel Denis Farcot dépose un brevet pour un bateau dont la
+coque est hérissée d’une série de petits foils afin de la soulever et diminuer ainsi la traînée.
+
+C’est au printemps 1898, grâce à Enrico Forlanini, que le
+premier bateau décolle de l’eau.
+
+Gordon Baker passera la barre des 35 noeuds avec
+son « Monitor » en 1950, un projet financé par la
+US- Navy, pour une recherche de dix- sept ans.
+
+Éric Tabarly suit l’évolution de l’hydrofoil en
+construisant un hydroptère, le « Paul Ricard »
+
+En 2013, Guillaume Verdier, architecte navale basé à
+Larmor-Baden (56) a remis le foil au goût du jour lors de la
+Coupe de l’America.
+
+En 2018 le foil est incontournable et est beaucoup plus
+perfectionné qu’auparavant par les vitesses atteintes
+sur l’eau.
+
+5
+
+3
+
+- Schéma des forces
+
+Force d’allégement de la coque à 20 km/h :
+60000 Newton
+Shaft
+
+Elbow (=coude)
+
+Tip
+
+La force verticale qui créée la portance sera désignée par son terme plus technique, anglais « Lift ».
+La trainée crée par le foil sera elle aussi désignée par son terme anglais « Drag ».
+Le Tip du foil procure une force latérale, qui est celle de l’anti-dérive.
+Les bateaux non-foilers et ceux d’ancienne génération disposent de
+dérives droites, qui sont des appendices profilés droits, sans Shaft ni
+Elbow situés à la même position des foils.
+Grâce à la composition de vitesse autour du foil, on a :
+force latérale + force verticale = poussée foil
+4
+
+- Profils hydrodynamiques
+
+Les profils symétriques seront utilisés pour les safrans ou les dérives.
+
+Ceux qui nous intéressent sont les profils asymétriques, ou dissymétriques. Ils sont conçus d’un
+intrados et d’un extrados qui génèrent la portance verticale.
+
+6
+
+La portance peut être expliquée par le Théorème de Bernoulli :
+Où :
+
+𝑣²
+2
+
+𝑝
+
++ 𝑔 ∙ 𝑧 + 𝜌 = 𝑐𝑜𝑛𝑠𝑡𝑎𝑛𝑡𝑒
+
+-v : la vitesse du fluide (en m/s)
+- g : la force de pesanteur
+- z : l’attitude du fluide, ici négligeable pour calculer la portance
+-  : la masse volumique du fluide
+- p : la pression statique
+
+EXTRADOS
+
+INTRADOS
+A l’aide de la formule de Bernoulli :
+- sur l’intrados, la vitesse diminue et ainsi la pression augmente
+- sur l’extrados, la vitesse augment et ainsi la pression diminue.
+Ceci génère la force de portance.
+Les profils sont consultables sur « Airfoil Tools » avec leur dénomination, plus de 3600 profils sont
+référencés.
+
+5 - Coefficients et angle d’incidence
+Ces coeﬃcients sont propres à chaque profil. Ces coeﬃcients oscilleront selon le profil choisit et le
+nombre de Reynolds qui s’applique sur la géométrie de l’appendice.
+Les coeﬃcients sont Cl, « coeﬃcient of lift », Cd, « coeﬃcient of drag » et d’angle d’incidence «
+apha ».
+On peut également les trouver sous la forme Cz, coeﬃcient de portance, Cxcoeﬃcient de trainée.
+Les coeﬃcients se trouvent sous forme de courbe, appelées polaire.
+
+5
+
+- Étude comportementale
+
+Il s’agit de comprendre ces coeﬃcients suivant les expériences qui vont suivre :
+
+D’après les conseils prodigués par Boris, le profil le plus performant pour les foils devra être le
+NACA 44/12.
+
+7
+
+La corde du profil est la cote entre le bord d’attaque et le bord de fuite.
+
+En rouge : zone de dépression du fluide, créant la portance
+
+Le cambre est dessinée en brun, il s’agit de la ligne moyenne.
+Ci-dessous, voici les courbes représentées sont pour un solide de 200 000 Rheynolds en verte
+ainsi qu’un solide de 1 000 000 Rheynolds en brun. Il s’agit des polaires du profil NACA 44/12.
+
+Ce point critique est le début du
+décrochage. En comportementale,
+l’aile perd sa portance pour un
+angle d’incidence de 15° ou 16°.
+
+Le point qui suggère le minimum de
+force de trainée se situe lorsque Cl
+= 0,8, et Cl = 0,5.
+
+Pour nos expériences, nous avons choisi le point finesse, soit le point qui a le meilleur rapport
+Cl/Cd.
+8
+
+III / LES DIFFÉRENTES NOTIONS
+Les formules théoriques, bien qu'elles soient efficaces ponctuellement, ne peuvent prendre en
+considération les phénomènes de décrochage ou de cavitation, phénomènes qui entrainent de
+grandes diminutions de la portance et infirmant les valeurs théoriques.
+Ainsi, seules des expériences permettent d’élaborer des modèles permettant d’analyser l'évolution
+de ces coefficients et ce après avoir fixé bon nombre de variables.
+
+1
+
+- La cavitation
+
+Du latin cavus, « trou », le phénomène de cavitation aﬀecte le milieu hydraulique. Il s’agit d’une
+ébullition locale dans un liquide en raison d’une baisse de la pression statique, soit dit d’une
+dépression. Elle est souvent due à une augmentation de la vitesse d’écoulement.
+La cavitation peut se produire lorsque la dépression sur le foil devient telle qu’elle peut descendre
+sous la valeur de la tension de vapeur saturante de l’eau de mer.
+Malheureusement, la cavitation a des eﬀets néfastes : sans compter le bruit qu’elle engendre, elle
+n’est pas négligeable sur les performances du bateau. Elle aﬀecte la structure et provoque des
+vibrations voire le décrochage du profil.
+Ce phénomène est assez présent pour les hélices, ou les pompes.
+
+2
+
+- La ventilation
+
+Ce phénomène est dû à la présence d’une interface aire/eau trop importante sur le foil. En raison
+de la dépression présente lors du déplacement sur la partie supérieure du foil, une aspiration d’air
+se crée. L’air aspiré longe alors la partie verticale des foils causant une diminution de la portance.
+La solution la plus simple pour supprimer la ventilation consiste à empêcher l’air de passer en
+ajoutant des « fences » ou barrières sur l’extrados des foils.
+
+9
+
+IV / EXPÉRIENCES
+1
+
+- Introduction
+
+Notre objectif est de comparer trois foils diﬀérents pour une mêmesurface alaire qui ont fait leur
+preuve lors de courses au large. Il s’agit du foil de l’IMOCA « Charal », « Banque Populaire »,
+vainqueur du Vendée Globe 2016-2017, et « Hugo BOSS ».
+
+2
+
+- Études 3D
+
+La première modélisation a eu lieu sur le logiciel de 3Dimensions
+« SolidWorks ».
+La modélisation fut ratée car nous n’avions pas assez d’expérience dans ce logiciel.
+Nous avons recommencé les modélisations sur le logiciel «
+Rhino3D », conseillé par Guillaume Verdier.
+
+Résumé du protocole de modélisation
+ À partir du site « Airfoil Tools », nous avons repris la matrice des points qui constituent le profil.
+Ensuite, à partir d’une Spline, nous avons rejoint les points.
+ À partir d’une image de Charal prise de l’étrave de l’IMOCA, nous l’avons mise en arrière plan
+pour redessiner sa forme. Pour celui de Banque Populaire et de Hugo BOSS, les plans
+architecturaux sont disponibles sur le site de Guillaume Verdier.
+
+- Le profil et la forme dessinés, il faut donc, d’après la commande Rhino, « Extruder une courbe
+selon une autre courbe » ou d’après la commande Inventor « Balayage ».
+Les modélisations sont correctes et prévoient la fixation de l’arbre du dynamomètre.
+
+Grâce à cette vue de coupe,
+on distingue les trois formes
+complètement différentes.
+« Charal » : l’Elbow (coude)
+est conséquent, le Shaft est
+réduit.
+« Hugo BOSS » : l’Elbow et
+le Shaft sont plongeants, le
+Tip est conséquent
+« Banque Populaire » :
+contrairement à H- Boss,
+l’Elbow et le Shft dessinent
+une droite légèrement
+remontante.
+
+La gîte d’un IMOCA est en
+moyenne de 15°. De ce
+fait, nous avons imposé
+une rotation de 15° selon
+le bloc.
+
+L’angle d’incidence d’un foil
+se régule sur certains
+bateaux.
+Néanmoins, sur les
+IMOCA, cette régulation
+est interdite d’après les
+Règles de Classe. (voir
+Bibliographie p. 20)
+
+Notre angle d’incidence est
+fixé à 8°.
+
+3
+
+- Impression et pose d’époxy
+
+La première impression a échoué car nous avons créé un foil avec une corde trop petite, pas assez
+solide pour l’expérience. De ce fait, nous avons augmenté la corde du profil afin d’obtenir un profil
+plus conséquent. Nous avons donc imprimé nos deux foils, pour raison de consommation de PLA,
+nous avons sélectionné les deux foils les plus performants à l’échelle 1. Ensuite nous y avons
+apposé une couche de résine polyépoxyde (qui a pour avantage de ne pas ronger certaines
+matières contrairement à la résine de polyester) et avons pu réaliser nos expériences.
+
+Apposition d’une couche d’époxy par Julian.
+
+4
+
+- Réalisation du banc d’essai
+
+Pour réaliser le banc, nous avons coupé dans le sens de la longueur à l’aide d’une scie vibrante, un
+tuyau de PVC de diamètre 200mm. Nous l’avons posé et fixé sur un châssis d’établi. Ensuite, nous
+avons réalisé le circuit d’eau fermé à l’aide d’une pompe à eau immergée dans un bac.
+
+Conception du porte-foil
+
+Découpe à la disqueuse de jonc
+de fer rond 10mm par Honoré
+
+Soudage à l’arc par Honoré
+
+Axe de rotation du foil monté
+sur roulement à billes
+
+Inclinomètre
+
+dynamomètre
+
+5
+
+- Test comportemental
+
+Nous avons pris la mesure à l’aide d’un dynamomètre des deux types de foil. La portance du foil
+type « Banque Populaire » est meilleure que le foil type « Charal ». De plus, il réagit davantage à
+l’inclinaison.
+Portance du foil type « Charal
+
+Portance du foil type « Banque Populaire »
+
+Angle
+
+Portance
+
+Angle
+
+Portance
+
+0°
+
+0,8
+
+0°
+
+0,9
+
+2°
+
+0,9
+
+2°
+
+1,1
+
+4°
+
+1
+
+4°
+
+1,3
+
+6°
+
+1,1
+
+6°
+
+1,6
+
+8°
+
+1,15
+
+8°
+
+1,,7
+
+10°
+
+1,15
+
+10°
+
+1,7
+
+Voici notre vidéo : Vidéo FOILS BATEAUX.wmv
+Cette diﬀérence de portance provient de la forme du foil de type « Banque Populaire » qui permet
+une plus grande surface horizontale.
+
+6
+
+- Compte rendu de l’expérience
+
+Les expériences nous ont permises d’envisager la modélisation 3D des foils à l’échelle 1/12ème et
+serviront d’appendices pour l’IMOCA VEOLIA, illustré dans les représentations du nombre de
+Rheynolds. Nos modélisations seront réalisées sur Inventor afin d’avoir une meilleure compatibilité
+avec , « Stratoconcept » logiciel de mise en strates pour le Stratoconception.
+Ensuite, l’âme imprimée par strates, nous pourrons procéder à la mise sous vide pour l’infusion
+époxy/carbone sergé 200gr/m2.
+
+V / LES RISQUES ET LIMITES DU FOIL
+Le foil est rentré dans une nouvelle ère grâce à l’apparition des Maxi- Trimaran de la classe «
+ULTIME ».
+
+Les vitesses
+atteintes atteignent
+facilement les 45
+nœuds !
+Par conséquent,
+lorsque le b at eau «
+vole », la m o i n d
+re vague qui
+touche le bateau est
+telle un sol de
+béton.
+
+Le « Maxi Edmond
+de ROTHSCHILD »,
+pionnier
+en
+la
+matière a subi cette
+expérience lors de
+la dernière Route du
+Rhum et a arraché
+toute son étrave
+tribord !
+
+VI / INNOVATION « AFFOILANTE »
+
+Les architectes navals de renommée travaillent en ce moment sur la prochaine Coupe
+de l’America 2021 à Auckland, en Australie. Le prototype de ce monocoque volant a vu le jour
+en Décembre 2018. Il est des plus futuristes par son absence de quille, donc de couple de
+redressement. Par conséquent, ce couple est compensé par la portance excentrée par rapport
+au bateau. Il s’agit d’une véritable avancée futuriste !
+
+VII / CONCLUSION
+Le foil est une ancienne innovation, néanmoins ce n’est qu’à partir de cette dernière
+décennie qu’il est utilisé pour les performances dans la course au large.
+Notre ère marque une grande révolution du foil qui est un outil indispensable à la
+performance de course !
+Cet appendice s’est développé dans le loisir et oﬀre de très belles sensations. Son coût reste
+désormais assez élevé… sur un IMOCA, la paire chiﬀre à 200 000€ !
+
+PAROLE DE SKIPPER : Jérémie BEYOU, Skipper de « Charal »
+« Pour faire court, on peut dire que CHARAL est un foiler, quand les précédents Imoca étaient des
+bateaux à foil. J’entends par là qu’il y a 4 ans nous avions intégré des foils sur des carènes classiques qui
+restaient puissantes.
+Sur CHARAL la puissance vient essentiellement des foils. La carène est moins cubique, la traînée moins
+importante . On mise tout sur le foil...donc il ne faut pas qu’il casse!
+De ce point de vue, on a beaucoup progressé: les études dynamiques, les matériaux et les modes de
+fabrication nous permettent d’avoir des grands foils très résistants. Ils prennent le poids du bateau avec du
+coeﬃcient dynamique.
+La diﬀérence avec la génération précédente vient aussi de notre réglementation Imoca qui nous autorise
+depuis 2017 le réglage des foils en incidence: on peut braquer ou de braquer le tip du foil. Malheureusement la
+jauge nous interdit l’usage de plans porteurs sur les safrans, ce qui rend le vol intégral instable et donc limité.
+Enfin, nos foils sont grands et profonds afin de pousser fort tout en restant immergés, ce qui réduit le risque de
+décrochage. »
+
+VIII / REMERCIEMENTS
+Nous remercions notre professeur, Emmanuel Claisse du lycée Margueritte qui nous a encouragé
+et aidé dans notre projet.
+Nous tenons également à remercier tout particulièrement Boris HOREL, Docteur- Ingénieur en
+Hydrodynamique navale à l’École Centrale de Nantes.
+Boris travaille activement sur l’évolution du foil, notamment avec une équipe néo-zélandaise en vue
+de la prochaine Coupe de l’America à Auckland en Australie. Il reçu deux prix sur ses thèses
+proposées dont un prix par la Marine Nationale.
+Nous remercions Guillaume VERDIER, du cabinet VPLP-Verdier à Vannes (56) qui nous a répondu
+en nous conseillant « Rhinoceros3D » comme logiciel 3D.
+Nous remercions Mark JOHNSON, « leader de l’innovation maritime », ingénieur chez Raymarine à
+Vannes (56), de nous avoir permis « d’aller plus loin » dans notre raisonnement et de connaître la
+stabilité des foils chez les planchistes.
+Nous remercions Cyril DARDASHTI, directeur de l’écurie de course au large GITANA Edmond de
+ROTHSCHILD, basé à Lorient (56) d’avoir échangé sur les foils présents sur leur Maxi Trimaran de
+32m.
+Nous remercions Jérémie BEYOU, skipper de l’écurie CHARAL d’avoir répondu à nos questions.
+Ses réponses nous ont été très bénéfiques !
+
+IX / BIBLIOGRAPHIE & LEXIQUE
+
+Appendice : terme générique désignant toute partie dépassant sous la coque ou la
+prolongeant, par exemple la dérive, la quille, le safran, le foil.
+Carène : partie immergée de la coque d’un navire.
+Course Inshore : course le long de la côte, intra-portuaire, ou sur un bassin.
+Course Oﬀshore : course au large.
+Gîte : inclinaison sur le côté d’un bateau sous l’eﬀet du vent latéral dans lesvoiles ou
+d’un mauvais équilibrage des masses embarquées
+Noeud : vitesse des navires. Un noeud est égal à 1 mile marin par heure. Environ
+1800m en 3600s, soit 0,5m/s.
+PLA : Acide PolyLactique, matière bio plastique
+ULTIME 32/23 : classe regroupant les maxi-trimarans d’une longueur maximale de
+32m et d’une largeur maximale de 23m.
+Vendée Globe : course en solitaire autour du monde destinée aux IMOCA, sans
+escale, ni assistance.
+
+

@@ -1,0 +1,938 @@
+DETECTION A DISTANCE DU RYTHME CARDIAQUE
+
+PAR : PIQUET ADELE, PINARD ANTOINE, TROUILLEFOU AURELIEN, PANABIERES HECTOR
+
+PROFESSEUR : MR PICHOU
+PREMIERE PARTIE : SIMULATION DU MOUVEMENT DU THORAX
+1) Et si nous commencions par une petite sieste ?
+2) Simulation du mouvement grâce à un haut-parleur (HP)
+3) Enregistrement de l’accélération avec son smartphone
+4) Méthode numérique d’intégration
+5) Méthode analogique d’intégration
+
+4
+4
+4
+5
+6
+7
+
+DEUXIEME PARTIE : DETECTION PAR MESURE D’AMPLITUDE
+1) L’interféromètre de Michelson
+2) Notre interféromètre
+3) La détection des battements
+
+13
+13
+13
+16
+
+TROISIEME PARTIE : DETECTION PAR MESURE DE DEPHASAGE
+1) Principe
+2) La multiplication des signaux
+3) Récupération de la phase
+4) Courbe de fonctionnement
+5) Détection des battements
+6) La sensibilité
+
+19
+19
+20
+22
+22
+22
+
+1
+
+INTRODUCTION
+Notre projet débute le jour où nous sommes tombés sur un article de presse * expliquant que
+le Pentagone essayait de développer un système de détection des battements cardiaques à
+distance pour pallier aux imperfections de la reconnaissance faciale.
+En effet, le battement cardiaque est une empreinte spécifique à chaque individu.
+La détection à distance de cette « signature cardiaque » peut avoir de multiples applications
+allant de la médecine à la sécurité nationale.
+Notre projet consiste à réaliser différents dispositifs permettant de détecter à distancer un
+battement de faible amplitude ce qui nous a conduit à réaliser un véritable simulateur de
+battements cardiaques.
+•
+
+https://usbeketrica.com/article/le-pentagone-est-desormais-capable-d-identifier-unepersonne-grace-a-son-rythmecardiaque#:~:text=Le%20Pentagone%20est%20d%C3%A9sormais%20capable,gr%C3%
+A2ce%20%C3%A0%20son%20rythme%20cardiaque&text=Les%20%C3%89tats%2DUnis
+%20se%20sont,distance%20maximum%20de%20200%20m%C3%A8tres.
+PREMIERE PARTIE : LE MOUVEMENT DU THORAX
+
+1)
+
+Et si nous commencions par une petite sieste ?
+
+Allongez-vous confortablement sur le dos sur votre canapé préféré. Placez un coussin sous votre tête afin de pouvoir
+observer votre abdomen ou encore mieux, votre thorax. Détendez-vous. Bloquez éventuellement votre respiration. Vous
+pouvez observer les petits déplacements verticaux de votre abdomen ou de votre thorax.
+Notre projet va consister à réaliser et tester différents systèmes de détection des mouvement générés par les battements
+de notre cœur.
+Les différents systèmes de détection que nous allons réaliser devront être testés tout au long de notre projet. Comme il
+n’est pas toujours pratique de tester sur un humain nos différents prototypes, nous allons essayer dans cette partie de
+réaliser un simulateur.
+
+2)
+
+Simulation du mouvement grâce à un haut-parleur (HP)
+
+a)
+
+Le haut-parleur électrodynamique
+
+Nul besoin d’avoir suivi des TP de physique pour avoir observé le mouvement de la
+membrane d’un haut-parleur lorsque celui-ci est traversé par un signal électrique.
+Par contre quelques notions de physiques permettent de comprendre son principe de
+fonctionnement : lorsqu’elle est traversée par un courant électrique, une bobine se
+comporte comme un aimant dont l’axe est celui de la bobine. Celle-ci va donc se déplacer
+suivant son axe dans un sens dépendant de celui du courant sous l’influence du champ
+magnétique créé par l’aimant situé derrière la membrane, dont l’axe est confondu avec
+celui de la bobine. Cette membrane étant solidaire de la bobine via le noyau, elle va donc
+suivre le mouvement de la bobine. Ce déplacement est proportionnel à la tension u aux
+bornes de la bobine. Ce sont ces déplacements qui, en comprimant l’air à son voisinage,
+sont à l’origine du signal sonore émis.
+Le haut-parleur ne sera pas utilisé ici pour produire un son mais l’idée est d’utiliser le déplacement de sa membrane pour
+simuler les mouvements générés par les battements du cœur.
+
+2
+
+b)
+
+Utilisation d’un générateur basse fréquence (GBF)
+
+Afin de pouvoir commencer à tester nos différents prototypes, nous avons proposé une première solution simple à mettre
+en œuvre.
+Même si celle-ci n’est pas satisfaisante en termes de reproduction fidèle, elle nous permet d’avancer sur notre projet tout
+en continuant à mener parallèlement nos recherches d’un meilleur dispositif.
+D’après nos premières observations, le mouvement du thorax est périodique et peut-être assimilé en première
+approximation à un mouvement ascendant puis descendant, pour un sujet allongé. Nous décidons donc d’alimenter notre
+HP avec un simple GBF en utilisant un signal « carré » de fréquence 1 Hz. En effet, au repos, la période des battements du
+cœur est de l’ordre de la seconde.
+Pour améliorer ce premier dispositif, nous décidons de modifier la durée d’un battement, c’est-à-dire le rapport cyclique =
+τ/T du signal.
+La forme de la membrane n’étant pas très ressemblante à la forme de la surface d’un thorax ou d’un abdomen, nous
+décidons de la planifier en collant un carton plan sur celle-ci.
+
+Carte d’acquisition FOXY
+GBF
+
+Vis de réglage
+
+Signal émis par le GBF
+Haut-parleur
+T : période d’un battement
+
+τ : durée d’un battement
+Au-delà de sa simplicité, l’avantage de ce simulateur est de pouvoir modifier l’amplitude des déplacements via l’intensité du
+signal émis par le GBF ce qui va nous permettre de tester la sensibilité de nos prototypes.
+Avantage qui peut devenir un inconvénient lorsque pour des amplitudes importantes, notre HP se met à émettre un
+désagréable « TOC-TOC » qui va accompagner nombreuses de nos séances au club.
+Pendant que le reste de l’équipe travaille sur différents prototypes, nous poursuivons nos recherches afin de se rapprocher
+plus fidèlement des déplacements générés par les battements de notre cœur.
+3)
+
+Enregistrement de l’accélération avec un smartphone
+
+a)
+
+L’application PHYPHOX
+
+Lors d’une de nos séances de TP, notre professeur nous a présenté cette application qui utilise
+de nombreux capteurs présents dans nos smartphones, tel que l’accéléromètre. Sans rentrer
+dans les détails du principe de fonctionnement d’un accéléromètre, il faut savoir que celui-ci
+mesure les variations de l’accélération du téléphone par rapport à une référence qui est celle
+3
+de l’accélération de la pesanteur terrestre. L’accélération étant vectorielle, il est bon de
+connaître l’orientation des axes du repère utilisé.
+
+b)
+
+Pour les amateurs de sieste, bonne nouvelle ! Vous allez pouvoir vous
+allonger à nouveau mais cette fois en vous munissant de votre
+smartphone sur lequel vous avez pris soin d’installer cette application.
+Après avoir sélectionné l’accéléromètre sur l’écran d’accueil et
+paramétré le déclenchement et la durée d’acquisition, poser votre
+smartphone le plus horizontalement possible sur votre abdomen ou
+votre thorax. Veillez à retenir votre respiration durant l’acquisition.
+Voici ci-contre une copie d’écran de ce qu’on peut obtenir.
+Exporter ensuite vos mesures sur forme de fichier EXCEL sur votre mail
+afin de pouvoir exploiter le fichier sur votre PC.
+
+Exploitation du fichier EXCEL
+
+Après avoir téléchargé et ouvert le fichier sur votre PC, vous pouvez tracer l’accélération az selon z en fonction du temps t.
+En effet, nous nous intéressons ici aux seuls déplacements perpendiculaires à notre abdomen ou thorax.
+
+Accélération selon z
+T
+
+az(m/s²)
+
+t(s)
+
+Nous allons maintenant nous interroger sur la façon de transformer ces données d’accélération az selon z en déplacement
+z.
+Nous avons vu en classe que l’accélération s’obtient en dérivant la vitesse v et que la vitesse s’obtient en dérivant la
+position.
+L’idée est donc d’intégrer deux fois l’accélération afin d’obtenir la position z en fonction du temps.
+4)
+
+Méthode numérique d’intégration : la méthode d’Euler
+
+Nous commençons par isoler une partie du signal en prenant garde à se placer entre deux battements (vitesse de
+déplacement nulle) et nous centrons le signal en soustrayant la valeur de l’accélération de la pesanteur terrestre au signal
+afin de le centrer autour de l’axe des temps.
+
+𝑣 (𝑡+∆𝑡)−𝑣𝑧 (𝑡)
+
+Nous allons utiliser la relation suivante : 𝑎𝑧 (𝑡) = 𝑧
+
+∆𝑡
+
+(1) qui traduit le fait que l’accélération à l’instant t est la
+
+variation de vitesse entre les instants t et t+Δt.
+Δt correspond à la durée entre deux acquisitions.
+En développant la relation (1), nous obtenons : 𝑣𝑧 (𝑡 + ∆𝑡) = 𝑎𝑧 (𝑡) × ∆𝑡 + 𝑣𝑧 (𝑡)
+Nous créons une colonne D qui contiendra les valeurs de vz.
+Nous écrivons dans la case D2 la valeur initiale de la vitesse c’est-à-dire 0 m/s.
+
+4
+
+Nous écrivons la relation suivante dans la case D3=C2x(A3-A2)+D2 et nous « étirons » cette case pour incrémenter cette
+formule aux autres cases.
+Nous traçons la colonne D (la vitesse) en fonction de la colonne A (le temps).
+
+Nous observons une certaine dérive du signal autour de l’axe des abscisses.
+Nous allons maintenant utiliser la relation suivante : 𝑣𝑧 (𝑡) =
+
+𝑧(𝑡+∆𝑡)−𝑧(𝑡)
+∆𝑡
+
+(2) qui traduit le fait que lavitesse à l’instant t est la
+
+variation de la position entre les instants t et t+Δt.
+En développant la relation (2), nous obtenons : 𝑧(𝑡 + ∆𝑡) = 𝑣(𝑡) × ∆𝑡 + 𝑧(𝑡)
+Nous créons une colonne E qui contiendra les valeurs de z.
+Nous écrivons dans la case E2 la valeur initiale de la position c’est-à-dire 0 m en prenant comme origine la position du
+thorax entre deux battements.
+Nous écrivons la relation suivante dans la case E3=B2x(A3-A2)+E2 et nous « étirons » cette case pour incrémenter cette
+formule aux autres cases.
+Nous traçons la colonne E (la position) en fonction de la colonne A (le temps).
+
+Ce signal est inexploitable et ne correspond absolument pas à la réalité du mouvement induit par les battements
+cardiaques. Sans doute que les erreurs accumulées au cours des différentes sommes du calcul numérique de la vitesse
+s’accumulent à nouveau lors du calcul de la position et ne permettent pas d’obtenir un résultat cohérent.
+Nous abandonnons cette idée.
+5)
+
+Méthode analogique d’intégration
+
+Notre professeur nous a indiqué l’existence de circuits électroniques capables d’intégrer des signaux électriques.
+Mais avant de les découvrir, il va nous falloir convertir nos données numériques sur l’accélération en signal électrique
+analogique.
+a)
+
+Conversion des valeurs de l’accélération en signal électrique numérique
+
+Pour pouvoir générer un signal électrique fidèle aux données de notre tableur, nous allons utiliser un microcontrôleur.
+L’idée est d’utiliser le port PWM d’un microcontrôleur. Ce port, utilisé en sortie, peut générer des tensions comprises entre
+0V et 5V codées sur un octet. C’est-à-dire sur 28 = 256 valeurs.
+Il nous faut donc remanier la colonne du tableur contenant les valeurs de l’accélération suivant z, az : voir le fichier
+accélération 1.xlsx en annexe.
+
+5
+
+-
+
+Tout d’abord nous modifions la colonne temporelle de manière à avoir un écart constant de 10 ms entre chaque
+mesure ce qui correspond à la fréquence d’acquisition de l’application PHYPHOX
+Dans la colonne « az » : on relève la plus petite valeur « min ».
+On crée une colonne «az-min ». Cela revient à rajouter un OFFSET négatif pour que la plus petite valeur soit
+désormais égale à 0.
+Dans la colonne « az-min », on relève la plus grande valeur « max ».
+On crée une colonne « PWM » : « az-min » x 255 / max. Les valeurs sont désormais comprises entre 0 et 255 ;
+On crée une colonne PWMA qui est l’arrondi de la colonne PWM. Les valeurs sont désormais entières.
+Nous isolons une période du signal obtenu :
+
+PWMA
+PWME
+
+t(s)
+Nous allons injecter ces valeurs PWMA, séparées par une virgule (ce qui nécessite un dernier petit traitement dans le
+fichier : voir fichier accélération 2.xlsxen annexe)dans une boucle du programme en C++ qui se répète avec un « delay » de
+10 ms correspondant à la fréquence d’échantillonage de l’application PHYPHOX de 100 Hz.
+Cette boucle est placé dans la boucle principale pour reproduire la périodicité du signal : (voir programme complet en
+annexe)
+int c[] = {valeurs PWMA}; # déclaration du tableau contenant les valeurs de la colonne PWME
+void setup() {
+pinMode (3, OUTPUT); # mise en sortie du port PWM correspondant au PIN 3 de l’ARDUINO
+}
+voidloop() {
+for (int i=0;i<120;i++) # boucle qui se répète autant de fois qu’il y a de valeurs, ici 120
+{
+analogWrite (3,c[i]); # on écrit une valeur du tableau dans le port 3
+delay(10); # on attend 10 ms avant d’écrire la valeur suivante
+}
+}
+Après compilation et téléversement, voici ce que nous observons dans le moniteur série de l’ARDUINO :
+pwma
+
+i
+b)
+
+Notre convertisseur numérique-analogique (CNA)
+
+Nous disposons désormais de données binaires que nous souhaitons convertir en signal analogique.
+La PWM est en fait un signal numérique qui, à une fréquence donnée (490 Hz pour l’ARDUINO), a un rapport cyclique qui
+change.
+Prenons l’exemple d’un signal logique qui émet un 1, puis un 0, puis un 1, puis un 0…
+
+6
+
+Représentation d'une période
+Le rapport cyclique, un mot bien particulier pour désigner le fait que le niveau logique
+1 peut ne pas durer le même temps que le niveau logique 0.
+Le rapport cyclique est mesuré en pourcentage (%). Plus le pourcentage est élevé, plus
+le niveau logique 1 est présent dans la période et moins le niveau logique 0 l’est. En
+somme, cette image extraite de la documentation officielle d’Arduino nous montre
+quelques exemples d’un signal avec des rapports cycliques différents.
+Après avoir généré ce signal, il va nous falloir le transformer en signal analogique. Pour
+l’instant ce signal est encore constitué d’états logiques, on va le transformer en
+extrayant sa valeur moyenne.
+
+Reprenons notre signal carré :0 ≤ 𝑎 ≤ 1 (a=0 pour un rapport cyclique
+de 0 % et a=1 pour un rapport cyclique de 100 %.
+La valeur moyenne de ce signal est égale à : 5a en volt.
+En extrayant la valeur moyenne pour chaque valeur de notre PWM, on
+va pouvoir créer un signal analogique compris entre 0 et 5V.
+Pour réaliser cette extraction, nous allons utiliser la charge et la
+décharge d’un condensateur C à travers une résistance R.
+
+K fermé (E=5V) : le condensateur se charge
+
+K ouvert (E=0V) : le condensateur se décharge
+
+Constante de temps τ = RC
+
+Si on impose notre signal PWM au circuit RC, à chaque fois que le signal de la PWM sera au NL 1 (Niveau Logique 1), le
+condensateur va se charger. Dès que le signal repasse au NL 0, le condensateur va se décharger :
+
+Si on choisit une constante de temps RC suffisamment petite, le signal va se stabiliser autour d’une valeur compris entre 0
+(rapport cyclique nul) et 5V (rapport cyclique de 100 %). Cette valeur correspond à la valeur moyenne du PWM. Il faut que
+cette valeur soit atteinte avant que le rapport cyclique ne change (ici toutes les 10 ms). La constante RC ne doit pas être
+trop petite sous peine de voir le signal suive le PWM. Elle doit donc être suffisamment grande par rapport à la période du
+PWM (f = 490 Hz soit une période d’environ 2 ms).
+Pour résumer : 2 ms<RC<10 ms
+Nous choisissons la combinaison suivante : R = 550 Ω et C = 10 µF soit RC = 5,5 ms
+
+7
+
+pwma
+Uc = f(t)
+R
+C
+masse
+
+Nous disposons dorénavant d’un signal électrique analogique reproduisant l’allure de l’accélération de notre abdomen.
+Voyons maintenant comment intégrer ce signal.
+c)
+
+Intégration électronique
+
+-
+
+Suppression de la composante continue
+
+Comme la primitive d’une constante est une fonction linéaire, nous devons la supprimer pour ne pas avoir de dérive de
+notre signal. Nous utilisons un simple filtre passe-haut RC.
+
+Uc(t)
+
+Ur(t)
+
+1
+
+Un tel filtre possède une fréquence de coupure 𝑓𝑐 = 2𝜋𝑅𝐶 . C’est-à-dire que les seules les fréquences supérieures à fc seront
+conserver.
+Pour déterminer les valeurs de R et C, nous avons effectué l’analyse spectrale du signal uc(t) précédent : nous remarquons
+un résidu de la fréquence du PWM à 490 Hz et une concentration de pics autour de la valeur 6 Hz.
+
+Fréquence
+PWM
+
+Nous choisissons R = 10 kΩ et C = 10 µF ce qui correspond à fc = 1,6 Hz
+masse
+
+Signal uc(t)
+Tension ur(t)
+
+8
+
+-
+
+Le circuit suiveur : sa sortie va se comporter comme une source idéale de tension de par la faible impédance de
+sortie de l’AOP. On ne modifiera pas le comportement de l’intégrateur.
+
+Ur(t)
+Ur(t)
+
+-
+
+𝑢𝑠 = −
+
+1
+𝑅𝐶
+
+Le circuit intégrateur : ce circuit permet d’intégrer le signal d’entrée si la période de celui-ci est très petite devant
+R’C
+
+∫ 𝑈𝑒𝑑𝑡 avec ici ue=ur(t)
+
+Nous choisissons R’ = 1 MΩ et C = 10 µF ce qui correspond
+à un produit R’C = 10s.
+En effet, l’analyse spectrale a montré que les fréquences
+les plus basses qui composent le signal sont de l’ordre de
+quelques Hz ce qui correspond à des périodes de l’ordre de
+la seconde.
+Us(t)
+Nous obtenons un signal sensé reproduire l’allure de la variation de la vitesse du thorax en fonction du temps.
+Nous constatons cependant la présence d’une composante continue que nous allons filtrer comme précédemment grâce à
+un filtre passe-haut de mêmes caractéristiques.
+Nous répétons l’opération précédente grâce à un deuxième circuit intégrateur identique au précédent en intercalant un
+deuxième circuit suiveur entre les deux.
+
+Sortie du deuxième intégrateur
+Nous obtenons un signal sensé reproduire l’allure de la variation de la position du thorax en fonction du temps.
+Nous connectons notre haut-parleur à la sortie de notre circuit en intercalant un potentiomètre pour pouvoir faire varier
+l’amplitude du mouvement du simulateur.
+
+9
+
+Alimentation ± 15V
+
+potentiomètre
+
+HP
+
+Filtres passe-haut
+
+Circuit RC
+
+PIN3 de l’ARDUINO
+
+Suiveur 1
+
+Intégrateur 1
+
+Filtre passe-haut
+
+Suiveur 2
+
+Intégrateur 2
+
+DEUXIEME PARTIE : DETECTION PAR MESURE D’AMPLITUDE
+1)
+
+L’interféromètre de Michelson
+
+L'interféromètre de Michelson est un dispositif optique inventé par Albert Abraham Michelson et Edward Morley qui
+produit des interférences par division d'amplitude. Il est constitué essentiellement de deux miroirs M1 et M2 et d'une lame
+semi-réfléchissante appelée séparatrice car elle sépare le signal émis par la source en deux ondes de même amplitude.
+L’une est réfléchie vers M1 et l’autre est transmise vers M2.
+Supposons la source monochromatique.
+Les deux ondes effectuent donc un aller-retour entre la séparatrice
+et les miroirs M1 et M2 avant de se superposer en direction de
+l’écran après respectivement transmission et réflexion sur la
+séparatrice.
+Ces deux ondes étant cohérentes, elles vont interférer.
+Si le trajet rouge est égal au trajet bleu, les deux ondes seront en
+phases et l’interférence sera constructive. L’amplitude sur l’écran
+sera maximale.
+Si on recule l’un des miroirs d’un quart de la valeur de la longueur
+d’onde, le trajet va augmenter d’une demi longueur d’onde et les
+interférences seront destructives. L’amplitude sur l’écran sera
+nulle.
+Ce phénomène se répète périodiquement. On observe une
+alternance d’interférences constructives et destructives à chaque
+déplacement d’un des miroirs d’une demi longueur d’onde.
+2)
+
+Notre interféromètre
+
+Contrairement à celui de Michelson, notre interféromètre ne sera pas lumineux mais ultrasonore.
+
+10
+
+2)
+a)
+
+Notre interféromètre
+
+La source et le récepteur
+
+Notre source, l’émetteur d’ultrasons, n’étant pas directive, il faut focaliser notre faisceau d’ultrasons. Plus exactement, il
+faut que l’onde émise soit plane. C’est à dire que les fronts d’onde soient parallèles entre eux.
+L’utilisation d’une lentille de paraffine n’est pas adaptée car les phénomènes d’absorption et de réflexion sont trop
+important et le signal à la sortie serait trop faible pour être détecté.
+Nous optons donc pour une focalisation par réflexion.
+Pour obtenir une onde plane, il faut placer la source à la focale d’un miroir parabolique :
+
+Après avoir fouillé avec le technicien dans les armoires du laboratoire, nous optons pour ce dispositif qui à l’origine sert à
+chauffer les ballons en chimie. Ici, il servira de miroir pour nos ultrasons.
+
+Sa forme n’est pas parabolique mais sphérique. Nous nous documentons sur les effets d’un tel miroir et nous apprenons
+qu’en plaçant une source sur son axe à une distance égale à la moitié de son rayon, l’onde émise sera plane à condition de
+ne pas trop s’éloigner de son axe. On appelle ça les conditions de Gauss en optique.
+Il ne nous reste plus qu’à trouver le rayon de notre miroir. Le chauffe ballon est prévu pour s’adapter à un ballon de 250 mL.
+Nous mesurons au pied à coulisse le diamètre d = 9,0cm du ballon qui correspond au diamètre du « miroir ».
+
+Il ne nous reste plus qu’à fixer notre émetteur à d/4 = 2,25 cm du fond de notre chauffe ballon. Nous considérons que
+l’onde émise est plane.
+Nous fixons notre récepteur de la même façon. L’onde plane reçue sera focalisée sur le récepteur. Ce dispositif remplacera
+l’écran dans notre interféromètre.
+
+Emetteur d’onde plane
+
+Récepteur
+
+11
+
+b)
+
+La séparatrice
+
+Nous devons trouver une surface plane constituée d’une matière qui transmette 50% de l’onde ultrasonore et qui
+réfléchisse le reste.
+Nous testons différents matériaux en transmission et en réflexion que nous fixons sur un support de notre fabrication.
+
+Amplitude
+signal
+récepteur
+%
+
+1000 mV
+
+500 mV
+
+450 mV
+
+100
+
+50
+
+45
+
+Signal
+récepteur
+
+Montage
+
+Quelques
+matières testées
+Transmission %
+
+33
+
+25
+
+72
+
+70
+
+85
+
+Nous retenons le tissu qui se rapproche le plus d’une transmission et d’une réflexion de 50 % chacune.
+c)
+
+Les miroirs
+
+Un miroir sera fixe et l’autre sera constitué du simulateur de battements.
+
+Miroir fixe
+
+12
+
+d)
+
+Notre interféromètre
+
+e)
+
+La courbe de fonctionnement
+
+On trace la valeur de la tension Vs en fonction du déplacement d de la membrane du haut-parleur. A chaque demi tour de
+vis, le haut-parleur avance de 0,35 mm et la distance parcourue par les ultrasons entre l’émission et la réception augmente
+de 0,7 mm à cause de l’aller-retour. La période de la courbe de fonctionnement est donc égale à une demi longueur d’onde
+ultrasonore.
+Point de fonctionnement
+Ondes en phase
+Ondes en opposition de phase
+
+Variation
+d’amplitude
+maximale
+
+ʎ / 2 = 4,4 mm
+
+Déplacement de la membrane
+(mm)
+
+3)
+a)
+
+La détection des battements
+
+Le détecteur
+
+Lors des battements, l’amplitude du signal reçu par l’émetteur varie. Pour détecter ces variations, il nous faut donc réaliser
+un dispositif électronique capable de détecter l’amplitude du signal reçu.
+Notre dispositif se compose de trois parties :
+
+13
+
+Un circuit amplificateur : l’amplitude du signal reçu étant de l’ordre de quelques centaines de mV, il faut l’amplifier afin de
+pouvoir la détecter. On utilise un circuit amplificateur inverseur grâce à un AOP UA741 (voir annexe).
+Signal amplifié : Vs=-(R2/R1)Ve
+
+Signal récepteur : Ve
+
+On a choisi R2 = 100 kΩ et R1 = 1 kΩ ce qui correspond théoriquement à une amplification égale à 100.
+Un circuit suiveur : sa sortie va se comporter comme une source idéale de tension de par la faible impédance de sortie de
+l’AOP. On ne modifiera pas le comportement du détecteur de crête.
+Signal en sortie du suiveur
+
+Un circuit détecteur de crête :
+Copie écran enveloppe (à refaire pour que
+l’amplitude corresponde à celle de Vs)
+
+Pour simplifier l’étude du fonctionnement de ce montage on peut considérer une diode D idéale sans seuil comme le
+montre le chronogramme suivant :
+
+On choisit une condition initiale où le condensateur C est totalement déchargé ce qui signifie que S=0. Dès que la tension
+d’entrée E>0 la diode D devient alors passante ce qui signifie que S=E. Si la tension E chute rapidement, le condensateur C
+maintient une certaine tension S>E aux bornes de la résistance R. Dans ces conditions la diode devient bloquée et le
+condensateur se décharge (lentement) dans la résistance R. Si la constante de temps RC est choisie suffisamment grande
+devant la période du signal d’entrée E on récupère bien la tension crête en sortie de ce montage ce qui justifie le nom de ce
+montage.
+En présence d’un signal modulé en amplitude, le choix de la constante de temps RC doit répondre à l’encadrement suivant
+pour permettre une bonne récupération du signal modulant :
+10Tporteuse<RC<Tmodulation/10
+
+14
+
+Cet encadrement traduit le fait que le condensateur doit se charger suffisamment vite par rapport aux variations de la
+modulation, c’est-à-dire les variations de positions de notre simulateur et suffisamment lentement par rapport aux
+variations de la porteuse, c’est-à-dire le signal ultrasonore.
+Ici, Tmodulation est de l’ordre de la seconde alors que Tporteuse est l’inverse de la fréquence ultrasonore soit environ 25 µs.
+Ce qui donne : 2,5x10-4 s < RC < 0,10 s
+On choisit C = 100 nF et R = 270 kΩ soit RC = 2,7x 10-2 s
+
+C
+R2
+
+R
+
+AOP
+
+Diode
+
+R1
+
+SUIVEUR
+
+b)
+
+Détection des battements
+
+Non Seulement notre système est capable de détecter les battements du simulateur à distance mais il permet aussi de
+différencier les signaux ce qui nous laisse entrevoir la possibilité de reconnaissance par mesure de battements cardiaques à
+distance.
+De plus, la détection est toujours possible si on intercale un tissu entre le dispositif et le simulateur ce qui permettrait de
+détecter les battements à travers les vêtements.
+Signal en créneaux
+
+c)
+
+Signal triangulaire
+
+Signal sinusoïdal
+
+La sensibilité de l’interféromètre
+
+En l’absence de battements, on réalise une acquisition et on constate que le signal est bruité :
+
+15
+
+On mesure l’épaisseur du signal soit un bruit d’environ 40 mV.
+Il faut que l’amplitude du signal soit supérieure au bruit pour pouvoir l’observer.
+On sait qu’un tour de vis (0,7mm) correspond environ à une tension de 200 mV autour du point de fonctionnement.
+On pourra donc détecter des battements d’amplitudes supérieurs à 1 /5ème de tour de vis soit 140 µm.
+Notre interféromètre peut détecter, en théorie, des battements de l’ordre de 140 µm.
+TROISIEME PARTIE : DETECTION PAR MESURE DE DEPHASAGE
+1)
+
+Principe
+
+Le dispositif que nous allons vous présenter a été inspiré par une séance de travaux pratiques lors de laquelle nous avons
+appris à mesurer la longueur d’onde d’une onde périodique progressive ultrasonore.
+Lorsque l’on place un émetteur ultrasonore alimenté par une tension sinusoïdale de fréquence 40 kHz à une distance d
+quelconque d’un récepteur ultrasonore, les tensions électriques aux bornes de ces deux composants sont déphasées.
+Déphasage
+
+Si on recule lentement le récepteur, on observe que le déphasage
+varie. Pour une certaine position particulière du récepteur, ce
+déphasage est nul. On dit que les ondes sont en phases. En termes
+de mathématiques, on dit que les deux sinusoïdes sont déphasées
+d’un multiple entier de 2∏.
+
+Si on continue de reculer le récepteur, les ondes se déphases pour revenir en phase à nouveau au bout d’une distance
+proche de 9 mm. Si on recule encore le récepteur de 9 mm, les ondes se retrouvent à nouveau en phase. On constate
+une périodicité spatiale de l’onde que l’on nomme longueur d’onde notée ʎ. On peut améliorer la précision de la
+mesure en mesurant le déplacement correspondant à un grand nombre de fois la longueur d’onde. 0n trouve ʎ =
+(8,8±0,1) mm.
+C’est la distance parcourue par l’onde pendant la période temporelle T du signal. La fréquence f de fonctionnement de
+l’émetteur est de 40,0 kHz. On peut en déduire la célérité v des ultrasons dans l’air grâce à la relation v = ʎxf soit ici v =
+352 m/s.
+La longueur d’onde des ultrasons étant supérieure à l’amplitude des mouvements provoqués par les battements du
+cœur, l’idée est de placer l’émetteur et le récepteur côte à côte en face de notre simulateur de battements cardiaques.
+En effet, lorsque celui-ci va se mettre en mouvement, la distance d entre l’émetteur et le récepteur va varier au cours
+du temps et donc le déphasage aussi : sur la photo ci-dessous, les flèches jaunes représentent le trajet des ultrasons.
+
+16
+
+GBF
+Récepteur ultrasonore
+
+Simulateur
+
+Emetteur ultrasonore
+
+Signal émis
+
++
+Décalage temporel
+Signal reçu
+
+Ce déphasage étant proportionnel au déplacement, il contient donc l’information qui nous intéresse. Nous avons tracé la
+courbe du déphasage (décalage temporelle x 2 ∏ x f) en fonction du déplacement du simulateur en partant d’une position
+prise pour origine lorsque les courbes sont en phases.
+On remarque sans surprise que pour un déplacement d’une demie longueur d’onde (4,4 mm), les deux courbes se
+retrouvent en phase. Le déphasage a varié de 2∏ = 6,28. En effet, le trajet a alors augmenté d’une longueur d’onde, ce qui
+correspond à la distance parcourue pendant une période temporelle.
+
+Déphasage (radians)
+
+(4,4 mm ; 6,28 rad)
+
+Position du simulateur (mm)
+
+Nous allons voir dans la suite comment récupérer ce déphasage.
+
+17
+
+2)
+
+La multiplication des signaux
+
+a)
+
+La théorie
+
+Pour accéder au déphasage entre l’onde émise et l’onde reçue, nous allons multiplier les deux signaux.
+Le signal SE émis peut-être modélisé par une sinusoïde : 𝑆𝐸= 𝐴𝐸 cos (
+
+2𝜋𝑡
+𝑇
+
++ 𝜑𝐸 )
+
+𝜑𝐸 étant la phase du signal émis en sortie d’émetteur et AE son amplitude.
+Le signal SR reçu peut-être modélisé par une sinusoïde : 𝑆𝑅= 𝐴𝑅 cos (
+
+2𝜋𝑡
+𝑇
+
++ 𝜑𝑅 )
+
+𝜑𝑅 étant la phase du signal reçu en entrée de récepteur et AR son amplitude.
+Le déphasage entre le signal reçu et le signal émis sera noté 𝜑 = 𝜑𝑅 − 𝜑𝐸
+Si on multiplie ces deux signaux, on obtient un signal 𝑆 = 𝑆𝐸 × 𝑆𝑅 = 𝐴𝐸 cos (
+On utilise ensuite la propriété suivante : cos(𝑎) × cos(𝑏) =
+Donc : 𝑆 = 𝐴𝐸 𝐴𝑅
+
+𝐶𝑂𝑆(
+
+4𝜋𝑡
++𝜑𝑅+𝜑𝐸 )
+𝑇
+
+2
+
++ 𝐴𝐸 𝐴𝑅
+
+2𝜋𝑡
+𝑇
+
++ 𝜑𝐸 ) × 𝐴𝑅 cos (
+
+2𝜋𝑡
+𝑇
+
++ 𝜑𝑅 )
+
+cos(𝑎+𝑏)+cos (𝑎−𝑏)
+2
+
+𝐶𝑂𝑆(𝜑)
+2
+
+Nous obtenons un signal de fréquence double soit 80 kHz auquel se rajoute une composante continue (OFFSET) contenant
+le déphasage 𝜑.
+
+𝐴𝐸 𝐴𝑅
+
+0
+
+b)
+
+𝐴𝐸 𝐴𝑅
+
+𝐶𝑂𝑆 (
+
+4𝜋𝑡
+𝑇
+
++ 𝜑𝑅 + 𝜑𝐸 )
+2
+
+𝐶𝑂𝑆(𝜑)
+2
+
+La pratique
+
+Nous allons utiliser un multiplieur AD-633 alimenté en Vs=±15V
+
+Le multiplieur donne en sortie : 𝑊 =
+
+(𝑋1−𝑋2)(𝑌1−𝑌2)
++Z
+10
+
+Il faut donc connecter l’émetteur à la borne X1 et le récepteur à la borne Y1.
+Les bornes X2, Y2 et Z sont reliées à la masse.
+3)
+
+Récupération de la phase
+
+a)
+
+Le filtre passe bas RC
+
+Le signal W est composé d’une composante sinusoïdale de fréquence 80 kHz et d’une composante continue. En
+électronique, il existe un dispositif très simple composé d’une résistance R et d’un condensateur C permettant de
+supprimer les hautes fréquences d’un signal. On l’appelle le filtre passe bas :
+Si on applique la tension W=Ve à l’entrée d’un filtre passe bas judicieusement choisi, la
+tension de sortie sera : 𝑉𝑠 =
+
+𝐴𝐸 𝐴𝑅 𝐶𝑂𝑆(𝜑)
+10
+
+2
+
+La fréquence fc de coupure d’un circuit RC est égale à
+
+1
+2𝜋𝑅𝐶
+
+.
+
+En choisissant R = 1 kΩ et C=10 µF, on obtient fc = 16 Hz << 80 kHz
+
+18
+
+b)
+
+Le résultat expérimental
+
+Ve = W
+
+Vs = offset/10
+
+4)
+
+Courbe de fonctionnement
+
+On trace la valeur de la tension Vs en fonction du déplacement d de la membrane du haut-parleur. A chaque demi tout de
+vis, le haut-parleur avance de 0,35 mm et la distance parcourue par les ultrasons entre l’émission et la réception augmente
+de 0,7 mm à cause de l’aller-retour. La période de la courbe de fonctionnement est donc égale à une demi longueur d’onde
+ultrasonore.
+Point de fonctionnement
+
+ʎ / 2 = 4,4 mm
+
+Ondes en opposition de phase
+Ondes en phase
+
+Variation
+d’amplitude
+maximale
+Déplacement de la membrane
+
+Le dispositif sera d’autant plus précis que nous détectons les battements autour de son point de fonctionnement
+correspondant à un signal émis en quadrature de phase avec le signal reçu ce qui correspond à un OFFSET nul (Vs=0V) et un
+déphasage de ∏/2.
+5)
+
+Détection des battements
+
+Non seulement notre système est capable de détecter les battements du simulateur à distance mais il permet aussi de
+différencier les signaux ce qui nous laisse entrevoir la possibilité de reconnaissance par mesure de battements cardiaques à
+distance.
+De plus, la détection est toujours possible si on intercale un tissu entre le dispositif et le simulateur ce qui permettrait de
+détecter les battements à travers les vêtements.
+Signal en créneaux
+
+Signal triangulaire
+
+Signal sinusoïdal
+
+19
+
+6)
+
+La sensibilité
+
+En l’absence de battements, on réalise une acquisition et on constate que le signal est bruité :
+On mesure l’épaisseur du signal soit un bruit d’environ 10 mV.
+Il faut que l’amplitude du signal soit supérieure au bruit pour pouvoir
+l’observer.
+On sait qu’un tour de vis (0,7mm) correspond environ à une tension
+de 200 mV autour du point de fonctionnement.
+On pourra donc détecter des battements d’amplitudes supérieurs à
+1/20ème de tour de vis soit 35 µm.
+Notre détecteur peut détecter, en théorie, des battements de l’ordre
+de 35 µm.
+
+CONCLUSION
+Ce projet nous a appris à travailler en équipe et à nous confronter à une véritable démarche
+scientifique avec son lot de joies et de déceptions.
+Nous sommes fières du travail réalisé et les nombreuses heures passées au laboratoire n’ont pas été
+vaines puisque nous avons pu réaliser un simulateur ainsi que deux détecteurs qui fonctionnent.
+Bien entendu, le projet est loin d’être terminé et les perspectives sont nombreuses comme
+l’adaptation de nos détecteurs à une mesure sur un individu avec prise en compte de perturbations
+comme sa respiration et ses mouvements éventuels.
+Nous envisageons ensuite la miniaturisation de nos détecteurs pour les rendre plus simple
+d’utilisation.
+Nous espérons pouvoir vous présenter toutes ces évolutions très prochainement.
+Enfin, nous souhaitons remercier toutes les personnes qui nous ont aidées dans la réalisation de ce
+projet : Mr PICHOUD notre professeur préféré de physique pour sa grande disponibilité à toute heure
+du jour et de la nuit, Mr Blot notre super agent de laboratoire à l’enthousiasme et la bonne humeur
+communicative ainsi que madame Lepierre, la proviseure de notre beau lycée, qui a mis une salle à
+notre disposition pour que nous puissions effectuer nos expériences en toute sérénité.
+
+20
+
+

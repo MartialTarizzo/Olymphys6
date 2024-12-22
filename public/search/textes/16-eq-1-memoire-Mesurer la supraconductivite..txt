@@ -1,0 +1,907 @@
+Olympiades de physique 2008-2009
+
+Mesurer la supraconductivité
+
+Élèves :
+
+Yumi BIAGINI, Manon BONNET,
+Matthieu GRIVELET, Cyril ISOARD
+
+Professeur : M Nivaggioni
+
+LYCEE PAUL CEZANNE à AIX EN PROVENCE
+
+SOMMAIRE
+Introduction
+
+2
+
+I. Mesures de résistances / résistance nulle ?
+
+3
+
+1. Comment mesurer la résistance du supraconducteur ?
+
+3
+
+a. Utiliser un ohmmètre
+3
+b. Caractéristique U = f(I)
+3
+c. Comparaison de la résistivité du supraconducteur à celle d’un très bon conducteur, le cuivre 4
+2. Résistance nulle pour le supraconducteur ?
+
+5
+
+II. Mesurer TC par suivi de Rsupra en fonction de T(K)
+
+7
+
+1. Le thermomètre
+
+7
+
+a. Description
+b. Protocole de mesure
+c. Modélisation de la relation existant entre la résistance du platine et la température
+d. Plusieurs modélisations ?
+e. Mesure de la température ambiante
+
+7
+8
+8
+9
+10
+
+2. Le supraconducteur
+
+12
+
+a. Caractéristique du supraconducteur Usupra = f(I) en utilisant « 2 fils »
+b. Caractéristique du supraconducteur Usupra = f(I) en utilisant « 4 fils »
+
+12
+15
+
+3. Le suivi de Rsupra en fonction de T(K)
+
+16
+
+a. Le montage
+b. Paramétrage de la carte d’acquisition Eurosmart
+c. Le problème de la thermalisation
+d. Acquisition n°1
+e. L’amplification de la tension Vsupra
+f. Acquisition n°2 : Rsupra en fonction de T(K)
+
+16
+16
+16
+17
+18
+18
+
+III. Conclusion : lévitation du supraconducteur
+
+22
+
+1
+
+MESURER LA SUPRACONDUCTIVITE…
+Introduction
+Dans le cadre de nos TPE en classe de 1ère S, nous nous sommes intéressés aux
+supraconducteurs, matériaux conducteurs dont la résistance devient strictement nulle dès lors que
+leur température devient inférieure à une température critique notée Tc.
+Les applications de ce phénomène sont importantes dans notre société (IRM, champs
+magnétiques puissants, lévitation …) et ces matériaux semblent prometteurs dans l’avenir si l’on
+arrive à en fabriquer de manière à ce qu’ils soient supraconducteurs à température ambiante.
+Aussi, avons nous voulu approfondir l’étude de ces matériaux en se focalisant sur la température
+critique TC en dessous de laquelle leur résistance s’annule : R = 0 !!!
+Notre démarche expérimentale, quantitative, est donc double dans cette étude :
+-
+
+mesurer la résistance d’un supraconducteur et montrer qu’elle s’annule à partir d’une
+certaine température notée Tc
+puis déterminer par la mesure cette température critique Tc en dessous de laquelle la
+résistance est bien nulle.
+
+Enfin, pour conclure, nous avons voulu montrer une propriété spectaculaire des
+supraconducteurs, liée à leur résistance nulle en dessous de Tc : leur lévitation stable en présence
+de champ magnétique.
+L’approche sera néanmoins envisagée d’un point de vue qualitatif, la théorie sur la
+supraconductivité étant beaucoup trop compliquée à notre niveau d’étude…
+
+2
+
+I.
+
+MESURE DE RESISTANCES / RESISTANCE NULLE ?
+
+1. Comment mesurer la résistance R du supraconducteur ?
+a. Utiliser un ohmmètre
+
+On lit R = 0,2 Ω = 2.102 mΩ
+La précision ne nous semble pas bonne : 1 seul chiffre significatif…
+Nous décidons donc d’envisager une approche expérimentale plus fine.
+S’inspirer de l’étude des conducteurs ohmiques pour lesquels le tracé de U = f(I) permet
+d’accéder à leur résistance nous paraît être une bonne idée.
+b. Caractéristique U = f(I)
+Le principe est donc le suivant : on fait varier l’intensité du courant électrique à travers le
+supraconducteur et on relève en continu la tension à ses bornes. Pour ce faire, on utilise une
+rampe de courant délivrant une intensité de courant électrique I comprise entre - 20 mA et + 20
+mA. La tension U relevée aux bornes du supraconducteur sera donc comprise elle aussi entre
+deux valeurs extrêmes de tension en mV.
+La visualisation en continu sur l’écran d’un oscilloscope de cette tension en fonction de
+l’intensité permet d’accéder à la caractéristique du supraconducteur donc normalement à sa
+résistance. Le supraconducteur utilisé, ainsi que la source de courant, nous ont été prêtés par le
+laboratoire de physique des solides à Orsay.
+Expérience :
+
+3
+
+On remarque que cette caractéristique est une droite passant par l’origine donc la tension aux
+bornes du supraconducteur est proportionnelle à l’intensité du courant électrique le traversant : le
+supraconducteur se comporte donc comme un conducteur métallique et vérifie la loi d’Ohm :
+U = RI
+Aussi, la détermination du coefficient directeur de cette droite nous permet d’accéder à la
+résistance R du supraconducteur.
+Détermination de R :
+On trouve R = 0,015 Ω = 15 mΩ
+Cette résistance est faible et l’on constate que la valeur mesurée par l’ohmmètre était fausse car
+très imprécise.
+Cette petite valeur de résistance nous laisse penser que ce supraconducteur est bon conducteur
+électrique. Mais l’est-il réellement ? La donnée de sa résistance suffit-elle à conclure ?
+c. Comparaison de la résistivité du supraconducteur avec celle d’un très bon conducteur, le
+cuivre.
+La résistance est en fait une grandeur qui dépend de la géométrie du matériau : pour pouvoir
+comparer la capacité à conduire le courant électrique de différents matériaux, il nous faut donc
+utiliser une grandeur qui ne dépende pas de la forme du matériau. La grandeur utilisée pour faire
+des comparaisons de conduction ne doit donc dépendre que de la nature du matériau : il s’agit de
+la résistivité ρ d’un matériau et c’est elle qui est tabulée dans la littérature scientifique. Elle est
+reliée à la résistance R du matériau par la formule :
+R = ρ L/S
+La résistivité de cet échantillon est donc : ρsupra = R.S/L avec L = 2,0 cm = 2,0.10-2m et
+S = 2,0 mm*3,0 mm= 6,0 mm2 = 6,0.10-6 m2 donc
+ρ supra = 4,5.10-6 Ω.m
+Pour le cuivre, à 20°C, on trouve dans les livres :
+ρ Cu = 17.10-9 Ω.m
+Ainsi, ρsupra/ρCu = 265 et le supraconducteur étudié est environ 300 fois moins bon conducteur
+que le cuivre !
+ C’est donc un mauvais conducteur électrique… à température ambiante.
+Ironie du sort, il devient un « conducteur parfait » à plus basse température alors que le cuivre
+jamais… !
+ La résistivité doit donc varier avec la température et devenir nulle à partir d’une
+température plus basse, ce que nous allons tenter de mettre en évidence maintenant.
+Remarque 1 : La donnée de la température pour les valeurs de résistivité nous renseigne sur le
+fait que cette grandeur, donc la résistance R, varie bien en fonction de la température. On sait
+d’ailleurs que la résistance d’un conducteur diminue lorsque la température diminue puisque
+4
+
+l’agitation thermique diminue donc les frottements internes aussi et le courant électrique circule
+mieux… C’est donc en baissant la température que l’on peut espérer obtenir une résistance nulle
+pour les conducteurs…
+Remarque 2 : On pourrait du coup penser que si la température devient nulle (0K), alors tout
+conducteur possède une résistance nulle puisque l’agitation thermique est nulle. En pratique,
+l’obtention du zéro absolu n’est pas possible et de toute façon les impuretés nécessairement
+présentes dans tous matériaux empêchent la résistance de devenir nulle, même au zéro absolu.
+Comment expliquer alors la supraconductivité, c’est-à-dire une résistance nulle pour des
+températures bien plus élevées que le zéro absolu… ? Une réorganisation de la matière avec une
+interaction électron/électron (modèle des paires de Cooper) permet de comprendre en partie ce
+phénomène. Il fait appel à la mécanique quantique que nous avons du mal à comprendre vue sa
+complexité pour des élèves de terminale S…
+2. Résistance nulle pour le supraconducteur ?
+Refroidissons le supraconducteur à une température voisine de 77 K (- 196°C) en utilisant de
+l’azote liquide pour observer la chute de sa résistance.
+Visualisons sur l’oscilloscope l’évolution du coefficient directeur de la droite U = f(I) lors du
+refroidissement brutal : on voit la pente de la droite, donc la résistance R du supraconducteur,
+chuter rapidement pour atteindre une valeur nulle …
+
+5
+
+Ainsi, en dessous d’une certaine température, nommée température critique, notée Tc ,
+comprise entre 300K et 77K, le supraconducteur devient donc un « conducteur parfait »
+puisque sa résistance est strictement nulle.
+Notre interrogation est alors la suivante :
+Le supraconducteur devient un conducteur parfait à partir de quelle température ?
+Peut-on accéder à cette température nommée Tc ? Comment procéder ?
+C’est l’objet de notre deuxième partie…
+
+Remarque : nous avons réalisé la même expérience avec une bobine de cuivre.
+Cuivre à T ambiante
+
+Cuivre à T = 77K
+
+ La résistance diminue bien avec la température, mais ne s’annule pas.
+
+6
+
+II. MESURER TC PAR SUIVI DE Rsupra EN FONCTION DE T(K)
+Déterminer la température critique Tc du supraconducteur, c’est nécessairement devoir suivre au
+cours du temps l’évolution sa résistance en fonction de la température T qui l’entoure…
+En effet, si la chute de température est assez lente, on pourra apprécier sur la courbe Rsupra = f(T)
+le moment précis où R devient nulle, et, en projection sur l’axe des abscisses, déterminer cette
+fameuse température Tc.
+Mais comment procéder… ?
+Le principe de la mesure de résistance R pour le supraconducteur a déjà été envisagé dans la
+partie I donc ce n’est, à priori, plus un problème.
+Mais qu’en est-il de la température ? Comment la mesurer ?
+1. Le thermomètre
+Les thermomètres usuels à liquide ne peuvent convenir dans le domaine de température envisagé
+et l’acquisition en continu est de toute façon impossible.
+Après renseignements auprès du laboratoire de physique du solide d’Orsay, notre choix s’est
+porté sur une sonde de platine « Pt100 » …
+Remarque : d’autres types de thermomètres peuvent convenir mais il s’agit du plus simple « à
+comprendre » et son rapport qualité prix est excellent…
+a. Description
+Il s’agit d’un fil fin de platine entouré d’une gaine en oxyde d’aluminium (alumine Al2O3) qui le
+protège. L’alumine est un isolant électrique mais un excellent conducteur thermique donc
+l’équilibre thermique entre le milieu dont on veut mesurer la température et la sonde de platine
+peut être considéré comme instantané.
+Thermomètre à platine :
+
+Gaine
+d’alumine
+Fils soudés
+
+Ce fil de platine est tel qu’à 0°C (273 K), sa résistance électrique est 100 Ω, d’où son appellation
+« Pt100 ».
+Sur un domaine de température compris entre 30 K (-243°C) et 873 K (600°C), cette sonde est
+tout à fait adaptée car sa résistance varie en fonction de T de manière tout à fait modélisable.
+En dessous de 30 K, cette sonde n’est plus utilisable dans la mesure où sa résistance ne varie plus
+lorsque T chute : on ne pourrait plus accéder à T en mesurant R…
+7
+
+Comment mesurer la résistance du platine ?
+b. Protocole de mesure
+En utilisant le même procédé utilisé pour le supraconducteur : on alimente la sonde par un
+courant continu et on relève la tension à ses bornes : le rapport U/I permet d’accéder à sa
+résistance RPt. En utilisant ensuite la correspondance entre RPt et t(°C) fournie par le constructeur
+de la sonde, on est donc capable de tracer la courbe RPt = f(T) pour le platine.
+On se souviendra que T(K) = t(°C) + 273.
+L’utilisation d’un système d’acquisition informatique simplifie la tâche : la carte d’acquisition
+utilisée est une 12 bit, elle mesure des tensions, qu’il va falloir faire correspondre à des
+résistances puis des températures.
+c. Modélisation de la relation existant entre la résistance du platine et sa température
+Le domaine de température retenu pour notre expérience est :
+soit
+
+-196°C < t (°C) < 30°C
+77 K < T(K) < 303 K
+
+R(Ω)
+
+t (°C)
+
+ Il semble que le graphe obtenu soit une fonction affine de la température sur le domaine
+de température choisi.
+Mais en est-on sur ?
+
+8
+
+d. Plusieurs modélisations ?
+Si on choisi une modélisation affine, on peut donc écrire :
+R = a t(°C) + b
+On trouve
+
+a = 0,40426 Ω.°C-1
+b = 100,24 Ω
+
+Le coefficient de corrélation vaut r = 0 ,9999.
+Si on modélise par une autre fonction polynomiale d’ordre 2, on peut écrire :
+R = a t(°C)2 + bt(°C) + c
+On trouve
+
+a = -9,2911.10-5 Ω.°C-2,
+b = 0,38846 Ω.°C-1 et
+c = 100,1 Ω
+
+Le coefficient de corrélation vaut r = 1
+ La modélisation parabolique est donc plus précise.
+Un zoom sur les courbes permet d’ailleurs de le vérifier :
+
+Modèle
+linéaire
+
+Modèle
+parabole
+
+Cette différence entraîne-t-elle une imprécision conséquente sur la détermination de la
+température ?
+
+9
+
+Comparons les imprécisions sur la mesure de températures qu’induiront les deux modélisations :
+
++0.5 K
+
+0K
+
+-0.5 K
+
+-1 K
+
+-200 °C
+
+-100 °C
+
+0 °C
+
+Les imprécisions sont comprises entre +ou- 0,5K pour une modélisation linéaire contre
+seulement +ou- 0,1K avec la modélisation parabolique.
+ Nous retiendrons le modèle linéaire, plus simple, qui donne déjà une très bonne
+précision sur la mesure de température.
+Ainsi, pour le platine entre 77K et 303K ( - 196°C et 30°C) :
+RPt = 0,40426 t(°C) + 100,24
+La mesure de la résistance RPt du platine permettra donc d’accéder à la température t(°C) donc à
+T(K).
+Mesurons donc la résistance du platine à température ambiante pour faire un essai et vérifier la
+pertinence du modèle retenu.
+e. Mesure de la température ambiante
+Un générateur de courant délivre une intensité I constante de 5 mA dans le platine et la voie EA1
+de la carte d’acquisition mesure la tension aux bornes du platine. Pour délivrer cette intensité,
+nous avons opté pour un montage à base d’AO afin que l’intensité I reste constante lorsque la
+résistance du platine varie. La valeur de l’intensité traversant le platine doit être assez faible pour
+que le platine ne chauffe pas par effet joule, ce qui fausserait la valeur de température mesurée.
+
+10
+
+Le montage :
+UPt
+RPt
+I
+
+I
+
+1 kΩ
+
+EA1
+E
+
+Masse
+L’intensité mesurée à l’ampèremètre est I = 5,12 mA, la tension mesurée aux bornes du platine
+est négative par convention UPt = - RPt I.
+Nous prendrons la valeur positive dans toute la suite pour effectuer les calculs.
+Nous relevons ainsi à la température ambiante du jour :
+lorsqu’il est parcouru par
+
+UPt = 559 mV
+I = 5,12 mA
+
+aux bornes du platine
+
+La loi d’Ohm aux bornes de ce conducteur nous permet de déduire sa résistance :
+RPt = UPt / I = 109,2 Ω
+Or RPt = 0,40426 t(°C) + 100,24
+donc
+
+t(°C) = 22,2°C (295,1 K) +ou- 0,5°C
+
+Remarque : Il s’agit de la température du platine… mais c’est aussi celle du milieu ambiant
+puisque l’équilibre thermique est supposé très rapide entre le platine et le milieu extérieur via
+l’alumine.
+Un thermomètre à mercure indique :
+
+t(°C) = 23°C
+
+Ce test à température ambiante nous permet donc de vérifier le bon fonctionnement de notre
+sonde à platine.
+Remarque : le modèle parabolique donne une température de 23,5°C à +ou- 0,1°C.
+Les deux modélisations se valent. Le choix, plus simple, de la modélisation linéaire suffit donc
+largement.
+
+11
+
+2. Le supraconducteur
+Il nous faut maintenant « câbler » un supraconducteur pour pouvoir mesurer sa résistance R
+lorsque l’on fera varier la température T.
+
+Ce supraconducteur nous a été donné par le laboratoire de physique des solides d’Orsay.
+Il supporte des intensités de courant électrique comprises entre 0 et 800 mA.
+a. Caractéristique du supraconducteur Usupra = f(I) en utilisant « 2fils »
+Nous avons tracé, à température ambiante, sa caractéristique courant/tension pour
+I variant entre 0 et 500 mA
+Le montage réalisé est le suivant :
+
+Générateur
+de courant
+continu
+
+-
+
++
+
+A
+
+V
+
+I
+Supra
+Usupra
+
+Un voltmètre mesure la tension Usupra aux bornes du supraconducteur.
+Un ampèremètre permet de contrôler la valeur du courant électrique I afin que l’on puisse
+l’ajuster précisément avec le générateur.
+
+12
+
+Caractéristique obtenue :
+V ech vs I a 300 K
+y = 0,0183x + 2E-05
+1,00E-02
+
+8,00E-03
+
+Vech (V)
+
+6,00E-03
+
+Série1
+
+4,00E-03
+
+Linéaire (Série1)
+
+2,00E-03
+
+0,00E+00
+0
+
+0,1
+
+0,2
+
+0,3
+
+0,4
+
+0,5
+
+0,6
+
+-2,00E-03
+courant (A)
+
+Il s’agit d’une droite qui passe par l’origine : Usupra et I sont proportionnelles.
+On retrouve que le supraconducteur suit la loi d’Ohm et sa résistance Rsupra repésente le
+coefficient directeur de cette droite. La modélisation linéaire permet d’afficher l’équation de
+cette droite :
+Usupra = Rsupra I = 0,0183 I
+Donc
+
+Rsupra = 0,0183 Ω = 18,3 mΩ
+
+Nous avions trouvé Rsupra = 15 mΩ dans la première partie…
+L’écart relatif est :
+
+ER = (18,4-15)/15 = 23% !!!
+
+(Enorme !!!)
+
+ Pourquoi ?
+La mesure « 2fils » explique cette différence… nous avons mis du temps à trouver !
+Regardons le montage d’un peu plus près :
+
+13
+
+Montage :
+Générateur
+de courant
+continu
+
+-
+
+U
+
+Ufil
+
++
+
+V
+
+I
+
+Ufil
+
+Supra
+Usupra
+
+La tension mesurée est en réalité :
+U = Usupra + 2 Ufils = RsupraI + 2 RfilsI = (Rsupra + 2 Rfils)I
+La résistance des fils est faible mais non nulle donc n’est pas négligeable devant celle du
+supraconducteur, si bien que la résistance mesurée au final est celle du supraconducteur et des
+deux fils.
+Remarque : Le problème est similaire pour le platine mais il passe totalement inaperçu car la
+résistance du platine est beaucoup plus élevée que celle des fils si bien que la mesure réalisée
+n’est pas perturbée par les deux fils supplémentaires de petite résistance.
+Nous soudons donc 2 fils supplémentaires aux bornes du supraconducteur pour effectuer une
+mesure « 4 fils » et comprenons mieux pourquoi le supraconducteur présente 4 bandes
+d’argent…
+
+14
+
+b. Caractéristique du supraconducteur Usupra = f(I) en utilisant « 4 fils »
+Retraçons la caractéristique Usupra = f(I) avec le montage suivant, en faisant varier I :
+Montage :
+Générateur
+de courant
+continu
+
+-
+
++
+
+A
+
+I
+Supra
+Usupra
+V
+
+ Cette fois-ci, la tension mesurée est réellement celle du supraconducteur Usupra
+Remarque : il n’y a pas de courant dans les fils de mesures reliés au voltmètre car l’impédance
+d’entrée de ce dernier est très importante donc ils n’introduisent aucune tension parasite
+supplémentaire.
+Caractéristique obtenue :
+V ech (V ) en fonction de I
+
+8,00E-03
+y = 0,0148x - 0,0001
+
+7,00E-03
+6,00E-03
+
+5,00E-03
+4,00E-03
+
+Vech (V)
+Linéaire (Vech (V))
+
+3,00E-03
+2,00E-03
+1,00E-03
+0,00E+00
+0
+
+0,1
+
+0,2
+
+0,3
+
+0,4
+
+0,5
+
+0,6
+
+-1,00E-03
+Courant
+
+(A)
+
+15
+
+Cette fois-çi, la modélisation linéaire donne : Usupra = 0,0148 I
+Rsupra = 0,0148 Ω = 14,8 mΩ
+ER = (15-14,8)/15 = 1.3.10-2 = 1.3 %.
+
+L’écart relatif est cette fois-çi :
+L’accord est excellent.
+3. Le suivi de Rsupra en fonction de T
+
+a. Le montage
+Le montage retenu est donc le suivant (réunion des deux montages précédents), le voltmètre est
+remplacé par la voie EA0 de la carte d’acquisition.
+UPt
+
+Générateur
+de courant
+- continu +
+
+RPt
+I
+
+1 kΩ
+
+I
+EA1
+VPt
+
+E
+
+A
+
+I’
+Supra
+
+Masse
+
+Usupra
+
+EA0
+Vsupra
+b. Paramétrage de la carte d’acquisition
+Le logiciel utilisé est Synchronie 2003. Il pilote la carte d’acquisition « Eurosmart » en mode
+permanent (fonction oscilloscope).
+Nombre de points : 1000
+Échantillonnage : 1s
+Nous avons appelé Vsupra la tension mesurée par la voie EA0 et VPt , celle mesurée par la voie
+EA1.
+c. Le problème de la thermalisation
+Si l’on plonge la sonde de platine et le supraconducteur directement dans l’azote liquide, le
+refroidissement est très rapide et trop brutal. Par ailleurs, le platine est bien meilleur conducteur
+thermique (via l’alumine) que le supraconducteur donc leur température n’est pas identique lors
+du refroidissement si ce dernier est trop rapide, ce qui fausse la correspondance Rsupra - T(K).
+Pour assurer une température la plus uniforme possible entre les deux matériaux, nous les avons
+liés en contact l’un de l’autre avec du téflon. Pour que la chute de température soit assez lente,
+nous avons ensuite introduit les échantillons dans un tube à essai rempli de billes de verre afin
+que l’équilibre thermique entre l’azote à 77K et nos échantillons ne s’établissent ni trop vite ni
+pas assez…
+
+16
+
+d. Acquisition n°1
+La première acquisition réalisée n’est pas bonne : la tension aux bornes du supraconducteur ne
+varie pas avec la température… !
+
+VPt
+
+Vsupra
+
+En réalité, le problème vient de la carte d’acquisition : elle ne peut mesurer des tensions si petites
+(quelques millivolts) si bien qu’elle affiche une valeur constante bruitée.
+Nous remercions le centre de préparation à l’agrégation de physique de la faculté de St Jérome
+pour toute l’aide apportée à la résolution de ce problème.
+Après explications, nous optons pour un montage destiné à amplifier la tension aux bornes du
+supraconducteur avant mesure par la carte d’acquisition sur la voie EA0.
+ Le montage utilisé est un montage inverseur à base d’AO.
+
+17
+
+e. L’amplification de la tension Vsupra
+Nous choisissons une amplification d’un facteur 100 en prenant une résistance de 10 kOhm et
+une de 100 Ohm.
+L’amplification réalisée est A = - 10k/100 = - 100
+10 kΩ
+i
+
+I
+
+Supra
+
+i
+100 Ω
+
+0V
+
+EA0
+US = Vsupra
+après amplification
+
+UE = Usupra
+avant ampli
+
+Masse
+
+La tension mesurée par la voie EA0 vaut donc :
+US = Vsupra = - 10k/100 Usupra = - 100 Usupra
+f. Acquisition n°2 : Rsupra en fonction de T(K)
+Le montage retenu finalement est le suivant :
+10 kΩ
+i
+
+I
+
+Supra
+
+i
+100 Ω
+
+0V
+
+EA0
+US = Vsupra
+après amplification
+
+UE = Usupra
+avant ampli
+
+Masse
+UPt
+RPt
+I
+
+1 kΩ
+
+I
+EA1
+VPt
+
+E
+
+Masse
+
+18
+
+Nous relançons une acquisition avec les paramètres suivants :
+Nombre de points = 5000
+Durée totale = 40 min
+Mode permanent
+EA0 mesure Vsupra en V
+EA1 mesure VPt en V
+Alimentation du supraconducteur : I = 500 mA
+Alimentation de la sonde platine : I = 5,12 mA
+Courbe obtenue :
+
+Les variations de tensions sont assez lentes, ce qui laisse penser que la thermalisation à l’aide des
+billes de verre est efficace : supraconducteur et platine sont à chaque instant à la même
+température.
+On remarque aussi que la tension aux bornes du supraconducteur augmente brusquement à partir
+d’une certaine valeur de tension aux bornes du platine puis reste constante alors que celle aux
+bornes du platine continue d’augmenter.
+Passons à la courbe Vech = - Vsupra en fonction de Vplat = - VPt en créant ces grandeurs dans le
+logiciel. La courbe obtenue est la suivante :
+
+Vech (donc Rsupra) diminue bien avec Vplat (donc la
+température). La diminution semble linéaire jusque
+vers Vplat = 190 mV puis la chute de Vech est brusque
+entre Vplat = 190 mV et Vplat = 160 mV. Vech ne varie
+plus en dessous de Vplat = 160 mV: elle est constante
+et vaut Vech = - 193 mV.
+
+19
+
+ Cette valeur est non nulle et négative !!!
+Elle est introduite par l’AO inverseur assurant l’amplification. En effet, si l’on remplace
+l’échantillon supraconducteur par un fil à l’entrée du montage inverseur (voir montage), on doit
+avoir 0V en sortie.
+Montage
+10 kΩ
+100 Ω
+
+0V
+
+EA0
+US = 0 ?
+
+UE = 0 (fil)
+
+Masse
+
+Nous vérifions cela en faisant une acquisition :
+
+US lorsque
+UE = 0
+
+Même test réalisé
+avec l’AO alimentant
+le platine : pas de
+décalage…
+
+La tension à la sortie de l’AO n’est pas nulle et vaut + 175 mV.
+C’est donc la tension qu’il faut rajouter à Vech pour compenser le décalage introduit par l’AO.
+Les 18 mV d’écart correspondent au « bruit » de la carte, « bruit » qui tient compte de
+20
+
+l’amplification d’un facteur 100 par le montage. En réalité, « le bruit » de la carte sans
+amplification est 0,18 mV, valeur proche de zéro.
+Affichons désormais Rsupra = f(T) en tenant compte de l’amplification :
+
+La résistance du supraconducteur est donc nulle (en tenant compte du « bruit » de la carte
+et du décalage de l’AO) en dessous d’une température critique TC telle que TC = 100,2 K
+En se référant à la courbe ci-après, on voit que le supraconducteur dont la température critique
+est la plus proche de celle trouvée expérimentalement est YBa2Cu3O7 (TC = 95K).
+ L’ échantillon étudié est donc du YBa2Cu3O7
+L’écart relatif obtenu sur la température critique est alors ER = (100,2 – 95)/95 =0,0547 =5,5%
+
+21
+
+Pour terminer, nous avons voulu présenter une propriété fascinante des supraconducteurs, qui se
+manifeste justement lorsqu’ils sont à une température inférieure à TC, c’est-à-dire lorsque leur
+résistance est nulle : la lévitation magnétique
+
+III.
+
+CONCLUSION : LEVITATION D’UN SUPRACONDUCTEUR
+
+Dans une boîte de Pétri, on pose une pastille supraconductrice. On remplit la coupelle d’azote
+liquide, afin que le supraconducteur baigne dedans. Lorsque l’azote ne bout plus, on approche un
+aimant, et on sent une répulsion ! On lâche alors l’aimant : il lévite !!!
+
+Photographie de lévitation prise au Laboratoire de Physique des Solides d'Orsay.
+En haut, l'aimant ; en bas, la pastille de supraconducteur.
+Dans la boite de Pétri : de l'azote liquide.
+Mais ce n’est pas tout …
+En jouant avec l’aimant qui lévite, nous focalisons notre attention sur un autre aspect du
+phénomène tout aussi intriguant : cette répulsion est particulière, elle ne ressemble pas à celle de
+deux aimants qui se repoussent... Le supraconducteur est en effet piégé dans le champ de
+l’aimant !!! La lévitation est donc stable !!!
+Comment interpréter ce phénomène de lévitation stable ?
+Essayons de reformuler ce que nous avons retenu de notre visite au laboratoire de physique des
+solides à Orsay.
+Dans son état supraconducteur, le matériau est dit diamagnétique parfait c’est-à-dire qu’il
+expulse tout champ magnétique qui essaierait de l’envahir en volume. Ainsi s’explique la
+répulsion observée entre l’aimant et le supraconducteur donc la lévitation.
+Mais comment le supraconducteur expulse-t-il le champ magnétique créé par l’aimant ?
+C’est le phénomène d’induction et la loi de Lenz qui sont responsables de cela …
+Un courant électrique est induit à la surface de tout conducteur en mouvement relatif par
+rapport à un champ magnétique constant.
+Ce sont les variations du flux du champ magnétique proches du conducteur qui génère le
+courant induit de surface …
+Ce dernier est à l’image de sa source, c’est-à-dire variable comme le flux du champ
+magnétique de l’aimant. Ce courant variable génère alors un champ magnétique variable qui se
+22
+
+caractérise par le fait qu’il s’oppose à la cause qui lui a donné naissance … à savoir le champ
+magnétique initial de l’aimant en mouvement !!!
+Ce champ induit est à l’origine d’une force (dite force de Laplace) qui s’oppose aussi par voie
+de conséquence au mouvement initial de l’aimant et le repousse … C’est la loi de Lenz …
+La petite expérience qui va suivre permet de visualiser ce que l’on vient d’expliquer :
+Prenons un aimant et une plaque en plastique. Inclinons la plaque et laissons glisser l’aimant sur
+la plaque… Ce dernier chute rapidement sur la plaque: rien ne s’oppose à sa chute : il n’y a pas
+de phénomène d’induction puisque le plastique est un isolant (aucun courant ne peut donc y être
+induit !)
+Prenons maintenant un morceau de métal et une plaque en cuivre. Inclinons la plaque et laissons
+y glisser le morceau de métal… Ce dernier chute rapidement sur la plaque : rien ne s’oppose à sa
+chute… il n’y a là encore aucun phénomène d’induction puisque le morceau de métal n’est pas
+magnétique (aucune variation de flux d’un champ magnétique près du conducteur en cuivre !)
+Pour finir, reprenons l’aimant précédemment utilisé ainsi que la plaque de cuivre. Inclinons la
+plaque de cuivre et laissons y glisser l’aimant… Ce dernier chute lentement sur la plaque …
+"quelque chose" semble le freiner lors de sa chute : c’est la manifestation du phénomène de
+l’induction et de la loi de Lenz.
+Cette fois-ci, les variations de flux du champ magnétique en déplacement sur le cuivre y
+génèrent des courants induits variables, eux-mêmes sources d’un champ magnétique qui va
+s’opposer à celui de l’aimant ; cette opposition explique que l’aimant soit ralenti lors de sa
+chute ! Cet effet est d’autant plus important que les variations de flux sont rapides… (si on
+communique une vitesse initiale à l’aimant, la décélération observée est d’autant plus grande que
+l’a vitesse initiale est élevée…).
+Mais quel rapport avec la lévitation de l’aimant sur le supraconducteur ?
+Et bien en fait c’est la même chose… mais il faut garder à l’esprit que le supraconducteur est un
+conducteur parfait puisque sa résistance est strictement nulle !!!
+Dans l’expérience précédente, l’aimant ne lévite pas…, il n’est pas stoppé mais seulement
+ralenti… pourquoi ?
+Tout simplement à cause de la résistance non nulle du cuivre … les courants induits
+s’estompent dans le cuivre assez rapidement par effet Joule et le champ magnétique crée
+n’existe que sur un temps assez bref ; ainsi son opposition au champ magnétique de l’aimant est
+de courte durée, juste de quoi ralentir un peu l’avancée de l’aimant sur le cuivre… !
+Si maintenant le conducteur utilisé n’offre aucune résistance au passage du courant électrique
+(un supraconducteur dans son état supraconducteur), les courants induits par l’aimant ne
+disparaissent plus.
+Le champ magnétique créé par le supraconducteur ne s’amortit pas avec le
+temps et s’oppose exactement au champ magnétique de l’aimant qui lui a
+donnée naissance : il y a répulsion totale puisque parfaite compensation des
+deux champs !!!
+On parle dans ce cas d’effet Meissner…
+Voilà pourquoi il y a lévitation de l’aimant au dessus du supraconducteur
+23
+
+Malheureusement, l’induction et la loi de Lenz ne peuvent expliquer pourquoi cette lévitation est
+si stable …. pourquoi l’aimant et le supraconducteur sont piégés ensembles.
+L’explication de ce phénomène est assez complexe … on n’a pas tout compris...
+Ce qui est remarquable, dans cette expérience de lévitation, c’est donc que l'aimant est
+parfaitement stable, il n'est pas éjecté sur les bords du supraconducteur pendant qu'il lévite
+(malgré, on l’a vu, la forte répulsion). Tout se passe comme si l’aimant était ancré au
+supraconducteur …
+
+Lorsque l'on approche l'aimant du supraconducteur en lévitation, si on impose une force
+suffisante, on fait pénétrer de force les lignes de champ dans le matériau qui normalement les
+expulse : il s'agit du phénomène dit de piégeage du champ magnétique et il y a alors ancrage
+du supraconducteur avec l’aimant. C’est à cause d’impuretés dans le supraconducteur que les
+ancrages se forment…
+
+Fin
+
+24
+
+Remerciements
+Nous tenons à remercier toutes les personnes qui nous ont aidé à réaliser ce projet.
+Tout d’abord, merci à M Frédéric Bouquet du laboratoire de physique des solides à l’université
+Paris-Sud, qui nous a permis de réaliser nos expériences.
+Merci encore à M. Laugier, M.Donnini et M.Moha de nous avoir reçus à l’université de StJérôme à Marseille, et aidés dans nos manipulations.
+Merci enfin à M.Nivaggioni, notre professeur de Physique-Chimie, sans quoi rien n’aurait été
+possible. Merci de nous avoir soutenus mais surtout, merci de nous avoir permis de vivre cette
+riche expérience !
+
+25
+
+

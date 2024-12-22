@@ -1,0 +1,613 @@
+1,2,3, Scotchez, mesurez !
+
+Liam CHAOUALI Julien MAILLE-PAEZ Arthur MOL Raphaël MOL
+Professeurs référents : M. et Mme. Brunel, Mme. Dombrowski
+
+Lycée Masséna, 06000 Nice
+2019 - 2020
+
+Sommaire
+Introduction
+
+3
+
+I Théorie sur la biréfringence
+I.1 Les ondes lumineuses, des ondes électromagnétiques . . . . . . . . . . . . .
+I.2 Interactions de la lumière entre le polariseur et le scotch . . . . . . . . . . . . . . . .
+I.3 Le phénomène de biréfringence uniaxe . . . . . . . . . . . . . . . . . . . . . .
+I.4 Interférences . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+
+3
+3
+3
+5
+6
+
+II Essais expérimentaux
+7
+II.1 Principe . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 7
+II.2 Le spectre de la lumière après traversée de plusieurs épaisseurs de scotch 8
+II.3 Essais expérimentaux selon la température . . . . . . . . . . . . . . . . . . . 10
+IIIPrototype, mesurer températures et vibrations
+13
+III.1Principe . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 13
+III.2L’électronique de détection . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 13
+III.2.1Modulation du laser . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 14
+III.2.2Filtre passe-haut . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 14
+III.2.3Multiplication par le signal de modulation = détection synchrone . . . . . . . 15
+III.2.4Récapitulatif . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 16
+III.3Les Applications . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 16
+. . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+III.3.1Mesure de vibration sur une vitre . . . . . . . . . . . . . . . . . . . . . . . . .
+III.3.2Mesure d’une variation de température . . . . . . . . . . . . . . . . . . . . . .
+
+Sitographie
+
+16
+17
+17
+19
+
+2
+
+Introduction
+Le thermomètre est un outil inventé par les grec, son origine étymologique est “thermos” qui
+signifie chaud et “métron” qui veut dire mesure. Son principe est basé sur la variation d’une grandeur
+physique avec la température. Les grecs utilisaient la dilatation de l’air , au XVIIIème siècle, on a
+utilisé la dilatation du mercure ou de l’alcool ou même de pièces mécaniques. De nos jours , nous
+utilisons des thermocouples ou des thermistances (résistance dont la valeur varie avec la température).
+Nous proposons dans cet exposé un thermomètre basé sur les propriétés optiques d’un matériau
+transparent : un thermomètre biréfringent.
+En assistant à une expérience de physique, sur la biréfringence du scotch, nous avons eu l’idée
+d’utiliser ces propriétés pour en faire un thermomètre. Plus précisément, il s’agirait de profiter d’une
+propriété physique de ce matériau, la biréfringence, et plus précisément de mesurer la modification
+de la biréfringence lorsque la température varie.
+Pour mener à bien ce projet, il nous fallut donc comprendre dans un premier temps certaines
+propriétés de la lumière, indispensable à la biréfringence pour ensuite réaliser, après beaucoup d’expérimentations, un prototype fonctionnel.
+
+I
+I.1
+
+Théorie sur la biréfringence
+Les ondes lumineuses, des ondes électromagnétiques
+
+La lumière est une onde électromagnétique, dans le vide elle est composée d’un champ électrique
+~
+~ perpendiculaires l’un à l’autre qui se propagent dans la direction
+(E) et un champ magnétique (B)
+d’un vecteur (~k) qui leur est perpendiculaire, c’est pourquoi on la modélise par un trièdre direct. De
+~ dans un
+plus, l’étude au cours du temps de la direction et de l’amplitude du champ électrique E,
+~ et B
+~ (nommée surface d’onde), correspond à l’étude de la polarisation de l’onde
+plan contenant E
+lumineuse.
+Néanmoins, si cette direction présente une évolution aléatoire au cours du temps, on dit que la
+lumière n’est pas polarisée (ce qui est le cas de la lumière naturelle). Trois états de polarisation
+particuliers sont particulièrement intéressants :
+~ varie dans une seule direction.
+- La polarisation est rectiligne quand E
+~ tourne autour du axe formé par le vecteur ~k en formant un
+- La polarisation est circulaire, E
+cercle.
+~ tourne autour du vecteur ~k et change d’amplitude pour former
+- La polarisation est elliptique si E
+une ellipse.
+
+I.2
+
+Interactions de la lumière entre le polariseur et le scotch
+
+Différents outils peuvent influer sur la polarisation d’une onde lumineuse, le plus connu est bien
+sûr le polariseur. Ce dernier produit généralement une onde polarisée rectilignement selon une certaine direction appelée « axe de polarisation ». Il ne laisse passer que les composantes du champ
+
+3
+
+~ colinéaires à l’axe de polarisation ; en conséquence, une onde lumineuse ne sera donc totalement
+E
+~ est la même que l’axe de polarisation. On peut vérifier cette
+transmise que si la direction de E
+propriété expérimentalement, en ajoutant un second polariseur nommé analyseur.
+
+Figure 1 – Montage pour vérifier la loi de Malus
+En tournant l’analyseur, on observe que l’intensité lumineuse reçue sur l’écran varie. Plus précisément, si les axes de polarisation du polariseur et de l’analyseur sont parallèles, on observe un
+éclairement maximal. Si les axes de polarisation sont perpendiculaires (le polariseur et l’analyseur
+sont alors dits « croisés ») on observe une extinction (absence de la lumière à la sortie du système.
+A l’aide d’une photodiode, on peut mesurer l’intensité lumineuse en fonction de l’angle entre
+~ et I0
+les axes de polarisation. Ainsi, si on note θ l’angle formé par l’axe de polarisation avec E,
+l’amplitude/intensité de l’onde incidente, on obtient, après traversé d’un polariseur :
+I = I0 cos2 θ
+Cette relation se nomme la Loi de Malus.
+
+Figure 2 – Mesures relatives à la loi de Malus
+4
+
+Toutefois, en rajoutant un élément (en l’occurrence le scotch) entre le polariseur et l’analyseur
+croisés, on peut observer une modification de l’intensité lumineuse sortante lorsqu’on fait varier la
+position du scotch dans l’espace. Ceci est la conséquence d’une propriété du scotch, la biréfringence.
+
+I.3
+
+Le phénomène de biréfringence uniaxe
+
+On se limite dans cet exposé à la biréfringence uniaxe.
+Un tel milieu est anisotrope, c’est-à-dire, que la lumière va se propager de façon différente en
+fonction de la direction de son champ électrique. Une des caractéristiques d’un milieu uniaxe est de
+présenter deux indices de réfraction : l’indice n1 lorsque le champ électrique est suivant la première
+ligne neutre, et l’indice n2 6= n1 lorsque le champ électrique est suivant la deuxième ligne neutre. Les
+deux lignes neutres sont perpendiculaires.
+
+Figure 3 – les lignes neutres du scotch sont horizontale (largeur du morceau de scotch) et verticale
+(grande longueur du rouleau) : si l’onde incidente est polarisée suivant la direction horizontale , elle
+se propage avec la célérité v = nc1 , si elle est polarisée suivant la verticale elle se propage avec la
+célérité v = nc2 .
+La vitesse de propagation dépend de la polarisation :
+— si la lumière incidente est polarisée suivant la première ligne neutre, la lumière se propage
+dans le matériau biréfringent à la célérité v = nc1 .
+— si la lumière incidente est polarisée suivant la deuxième ligne neutre, la lumière se propage
+dans le matériau biréfringent à la célérité v = nc2 .
+~ =
+— si la lumière est polarisée rectilignement sur une direction quelconque, on décompose E
+~1 + E
+~ 2 sur les directions des lignes neutres et chacune des composantes se propage avec une
+E
+vitesse différente.
+Le scotch est un milieu biréfringent uniaxe.
+Notons 1 l’axe lent et 2 l’axe rapide tels que v1 < v2 , on trouve alors :
+c
+c
+<
+n1
+n2
+n1 > n2
+
+5
+
+I.4
+
+Interférences
+
+Lorsque les rayons traversent un élément de scotch, les deux rayons lumineux parcourent la même
+distance mais en des temps différents. On a alors ce que l’on appelle une différence de chemin optique
+(on parle aussi de différence de marche). Le chemin optique noté (L) est la distance qu’aurait parcouru
+la lumière dans le vide pendant la durée du trajet effectué dans le milieu d’indice n donné.
+LAB =
+
+Z B
+
+n(s)ds
+
+A
+
+Par conséquent, on note (δ) la différence de marche et (e) l’épaisseur du scotch :
+δ = L2 − L1
+= e(n2 − n1 )
+= e∆n
+A la sortie du scotch, les rayons ne sortant donc pas tous au même instant, ils ne sont donc plus
+en phase. Le déphasage entre les deux rayons est
+∆ϕ =
+
+2πe∆n
+2πδ
+=
+λ
+λ
+
+Il est à noter que si
+— ∆ϕ = 2kπ les deux ondes se retrouvent en phase avec k entier relatif.
+— ∆ϕ = (2k + 1) π les deux ondes se retrouvent en opposition de phase.
+~ 1 et E
+~ 2 , il faut impérativement que
+Pour pouvoir observer des interférences entre les deux ondes E
+leur produit scalaire soit non nul :
+~ 1 .E
+~ 2 6= 0
+E
+La solution envisagée est de projeter les deux champs électrique sur une même direction en plaçant
+un polariseur (nommé analyseur) à 45˚ des champs électriques.
+Après traversée de l’analyseur, les ondes sont de nouveau orientées dans une unique direction,
+perpendiculaire à celle du polariseur dans notre expérience et se superposent. Ceci provoque des
+interférences, qui peuvent être constructives comme destructives. Dans notre cas où le polariseur et
+l’analyseur sont croisés, l’intensité lumineuse en sortie de l’analyseur est modélisée par la loi suivante :
+I = I0 sin
+
+2
+
+∆ϕ
+2
+
+!
+
+= I0 sin
+
+2
+
+πe∆n
+λ
+
+!
+
+On observe donc :
+— des interférences constructives lorsque l’argument du sinus vaut π2 + pπ soit :
+πe∆n
+π
+1
+= + kπ −→ e∆n = λ(k + )
+λ
+2
+2
+
+6
+
+où k ∈ Z
+
+— des interférences destructives
+δ = e∆n = kλk
+
+II
+II.1
+
+où k ∈ Z
+
+Essais expérimentaux
+Principe
+
+Lorsque l’on superpose plusieurs épaisseurs de scotch, on observe sur un écran que la lumière qui
+traverse le système optique (Polariseur-Scotch-Analyseur) devient colorée, et que cette couleur change
+selon le nombre d’épaisseur. Aussi, lorsque l’on modifie l’angle selon lequel le scotch est orienté, ou
+bien celui entre les directions de l’analyseur et du polariseur, on observe des modifications sur les
+nuances obtenues.
+L’explication est liée à la description de la partie I : on a un phénomène d’interférences entre les
+deux polarisations qui ont traversé le scotch. La lumière incidente étant blanche, donc composée de
+plusieurs longueur d’onde, on a un phénomène d’interférences pour chacune des longueurs d’ondes.
+Ainsi, certaines longueurs d’onde vont interférer de manière destructive alors que d’autres vont
+interférer de manière constructive. Les spectre de la lumière est donc complètement modifié entre
+l’entée et la sortie du montage. D’où cet effet coloré.
+Voici le spectre de la lumière blanche incidente à gauche : c’est un spectre continu : c’est-à-dire
+qu’il contient toutes les longueurs d’ondes λ visibles (toutes les couleurs de l’arc en ciel). A droite le
+spectre de la lumière après passage dans le polariseur, des épaisseurs de scotch et l’analyseur.
+
+Figure 4 – A gauche, spectre de la lumière blanche, à droite spectre de la lumière ayant traversé
+polariseur, scotch et analyseur. On repère aisément les longueur d’onde qui ont interféré de manière
+destructive
+Ainsi, longueurs d’ondes λ présentes dans le rayonnement incident qui ressortent en phase, ont
+une intensité importante sur le spectre.
+A l’inverse, les longueurs d’ondes λ qui ressortent en opposition de phase après le scotch seront
+absentes de la lumière transmise par l’analyseur.
+Le spectre correspondant apparaît privé de certaines longueurs d’onde , on dit que le spectre est
+cannelé. La couleur globale qui en résulte suit le principe de la synthèse additive.
+
+7
+
+II.2
+
+Le spectre de la lumière après traversée de plusieurs épaisseurs de
+scotch
+
+Afin de visualiser les interférences sur le spectre, on peut utiliser un réseau ou un spectrophotomètre. L’avantage de ce dernier est de fournir l’intensité de chaque radiation lumineuse transmise.
+La condition pour avoir une frange sombre, soit une cannelure est
+δ = e∆n = kλk
+
+où k ∈ Z
+
+on voit donc que l’épaisseur e traversée joue un rôle important.
+Voici le résultat expérimental obtenu lorsque l’on fait varier le nombre d’épaisseur de scotch :
+
+Figure 5 – Spectres selon le nombre d’épaisseurs
+On peut noter que le nombre de cannelures observables augmente avec l’ajout d’épaisseurs et la
+largeur de chaque cannelure diminue.
+Cette augmentation du nombre de cannelure provoque un effet visible à l’œil nu, car dès 12
+épaisseurs, le scotch ne transmet plus qu’une lumière blanchâtre dépourvue de couleurs. On peut
+supposer que l’augmentation du nombre de cannelures « trompe » notre œil est nous fait parvenir la
+sensation d’observer du blanc.
+On choisit un échantillon à 16 épaisseur de scotch. Expérimentalement, on mesure à l’aide d’un
+Palmer l’épaisseur des 16 épaisseurs, on en déduit une épaisseur pour une couche de scotch de :
+e = (42 ± 4)µm
+Déterminons la longueur d’onde λp des cannelures dans le spectre. On choisit de numéroter les
+cannelures de droite à gauche sur le spectre par p = 1, 2, 3...
+8
+
+On représente sur la figure ci-dessous, la valeur de σp = λ1p en fonction de p :
+
+Figure 6 – Graphique représentant σ =
+
+1
+en fonction de p pour 16 épaisseurs de scotch
+λp
+
+D’après notre étude théorique, on peut relier λp et p :
+e∆n = kλ
+k
+1
+=
+λ
+e∆n
+1
+p + k0
+=
+λ
+e∆n
+La cannelure p = 0 (qui n’est pas dans le spectre du visible) a un déphasage δ = k0 λ. La cannelure
+p a déphasage k = p + k0 .
+On trouve donc une équation de droite :
+1
+p
+k0
+=
++
+λ
+e∆n e∆n
+k0
+1
+La pente de cette droite est a = e∆n
+et l’ordonné à l’origine est
+.
+e∆n
+Ces spectres cannelés nous permettent aussi de déterminer une mesure précise de la différence
+d’indice entre les lignes neutres du scotch, en utilisant la position relative des cannelures sur le
+spectre.
+En fixant le nombre d’épaisseurs, on peut calculer la valeur ∆n de la biréfringence du scotch.
+Avec e = 16 × 42 µm on obtient expérimentalement :
+
+9
+
+Ici le coefficient directeur de la droite vaut a =
+∆n =
+∆n =
+
+1
+. On calcule donc une valeur de ∆n :
+e∆n
+
+1
+a×e
+1
+1, 30 × 105 × 16 × 42 × 10−6
+
+≈ 1, 1 ∗ 10−2
+
+Finalement, on trouve
+∆n ≈ 1, 10 ∗ 10−2
+Cette valeur est très proche des valeurs tabulées pour la biréfringence du scotch.
+
+II.3
+
+Essais expérimentaux selon la température
+
+Au cours de nos expérimentations avec le scotch, nous avons pu remarquer qu’exercer une force
+sur le scotch, ou le chauffer « décale » le spectre obtenu vers des longueurs d’ondes plus importantes.
+Il semble donc qu’il existe un lien entre la température du scotch et son spectre et la contrainte et le
+spectre.
+Notre expérience consiste à observer une modification de l’intensité lumineuse selon la température du scotch. C’est pourquoi on utilise comme source lumineuse un laser rouge, ce dernier possédant
+une longueur d’onde fixée (λ = 642 nm), un éventuel décalage du spectre vers des longueurs d’ondes
+plus importantes va modifier l’intensité lumineuse transmise. On se déplace sur une cannelure.
+
+Figure 7 – 16 épaisseurs à différentes températures
+Dans notre expérience, on vient donc chauffer le morceau de scotch à l’aide d’un sèche-cheveux
+au sein du montage polariseur/analyseur croisé. Notre source lumineuse est un laser rouge, qui après
+avoir traversé le système optique est capté par une photodiode reliée à un oscilloscope, affichant
+l’intensité lumineuse captée.
+10
+
+Figure 8 – Schéma montage mesurant l’intensité transmise selon la température
+Cependant, nous avons remarqué que la tension de la photodiode fluctue au cours du temps. La
+cause étant une variation d’intensité du laser. Cette variation est très importante la première heure
+de fonctionnement et reste gênante ensuite.
+Nous avons ensuite perfectionné cette expérience, en rajoutant une lame de verre entre le polariseur et l’analyseur, qui dévie une partie du laser sur une seconde photodiode que l’on peut qualifier
+de témoin. Ainsi, (après que le laser soit stabilisé), on peut observer et mesurer un écart entre les
+tensions des photodiodes 1 et la 2, augmente lorsque le scotch est chauffé.
+
+Figure 9 – Montage mesurant l’intensité entre deux photodiodes
+11
+
+Figure 10 – Intensité entre photodiodes selon des changements de température
+Subséquemment, nous avons réalisé cette expérience de façon plus « pratique », en collant notre
+morceau de scotch sur une bouteille contenant de l’eau chaude. Toutefois, afin de récupérer le rayon
+au niveau de la photodiode, nous avons rajouté un matériau réfléchissant (le mylar) afin que le
+rayon soit réfléchi. Mais, le mylar (qui est similaire au papier d’aluminium) est étiré au cours de sa
+fabrication, il devient strié. Ceci provoque une diffraction de la lumière incidente et donc une perte
+d’intensité lumineuse captée. Cette dernière n’est alors plus suffisante, la tension mesurée étant trop
+faible pour être pertinente. Afin de pallier ce problème, nous avons remplacé le mylar par une fine
+feuille d’or issu d’une couverture de survie. L’intensité captée est alors suffisante.
+
+Figure 11 – Essais en réflexion
+
+12
+
+III
+III.1
+
+Prototype, mesurer températures et vibrations
+Principe
+
+Notre système est un thermomètre basé sur la biréfringence. Nous utilisons un laser rouge, un polariseur, des épaisseurs de scotch , un élément de couverture de survie, un analyseur , une photodiode
+et une électronique de détection.
+Voici l’utilité de chacun de ces éléments :
+1. la diode laser rouge émet à λ = 630 nm, et peut être modulée en amplitude. Nous allons
+utiliser cette propriété pour différencier le laser de la lumière ambiante.
+2. la diode laser est polarisée, nous n’avons donc pas besoin d’utiliser un polariseur.
+3. nous avons choisi 8 épaisseurs de scotch. Un aller-retour impose 16 passages dans le scotch. La
+lumière laser est alors exactement entre une cannelure et un maximum de lumière. Cela nous
+permet d’avoir des variations importantes de la luminosité transmise lorsque la température
+change.
+4. la couverture de survie est un élément réfléchissant. il permet de réfléchir la lumière et la
+diffuser dans une zone assez large où l’on peut placer la photodiode.
+5. la photodiode a été placée au foyer d’un objectif de microscope et on a intercalé un filtre IR
+pour se débarrasser de la lumière IR ambiante.
+
+Figure 12 – Photo de gauche : à l’arrière, la boite qui contient la diode laser, l’analyseur et à l’avant
+la boite avec la photodiode. Photo de droite : objectif de microscope, filtre et photodiode
+
+III.2
+
+L’électronique de détection
+
+Dans un premier temps, nous avons dû mettre en place un prototype, « une maquette » de notre
+montage électrique ainsi que sa boîte. L’élaboration de ce prototype nous a permis de résoudre
+différents problèmes, tels que l’intensité perçue ou encore la réception du laser après réflexion.
+Nous avons dans un premier temps mis en place un circuit électrique avec un générateur de
+basses fréquences (GBF), un passe-haut, un oscilloscope, une alimentation, une photodiode et un
+multiplieur. Ce montage nous permet ainsi de récupérer efficacement le signal.
+
+13
+
+III.2.1
+
+Modulation du laser
+
+Le laser est modulé en amplitude à la fréquence de f = 2 kHz. Cela correspond à la fréquence
+de modulation maximale pour cette diode.
+Cette lumière atteint le système composé de scotch et d’un morceau de couverture de survie.
+La lumière est réfléchie vers la photodiode. On récupère le signal suivant sur la photodiode : il est
+composé de la lumière ambiante (fond continu) et de la lumière laser. A noter que la modulation
+n’est pas complète et qu’une partie de la lumière de la diode n’est pas modulée (elle s’ajoute donc
+au fond continu).
+
+Figure 13 – Le signal du haut est le signal de modulation produit par le GBF à 2 kHz . Le signal
+du bas est le signal reçu par la photodiode. C’est un signal modulé sur un fond continu provenant
+du laser et de la lumière ambiante.
+
+III.2.2
+
+Filtre passe-haut
+
+Pour enlever la partie continue du signal, nous nous sommes rapprochés du laboratoire de physique
+où l’on nous a conseillé d’appliquer un filtre passe haut : il ne va laisser passer que les fréquences
+au dessus de fh = 500 Hz. Le signal obtenu est donné sur la figure ci-dessous. Nous avons ensuite
+intercalé un amplificateur pour avoir un signal d’amplitude supérieure.
+
+Figure 14 – Signal après le filtre passe-haut, la composante continue a été éliminée, il ne reste que
+la signal laser modulé. Le signal a été amplifié.
+Le signal a une forme triangulaire , on peut le décomposer en une somme de Finalement le signal
+peut s’écrire sous la forme :
+v = Vp cos (2πf t + ϕ)
+14
+
+La grandeur que l’on cherche à mesurer est Vp .
+
+III.2.3
+
+Multiplication par le signal de modulation = détection synchrone
+
+Afin de récupérer le signal intéressant, nous utilisons un multiplieur qui calculera le produit du
+signal de la photodiode par le signal modulant (GBF). Le signal résultant comporte deux signaux :
+le premier à la fréquence 2f et l’autre de fréquence nulle.
+En effet, nous avons le signal GBF qui vaut vg = VG cos (2πf t) et le signal photodiode v =
+Vp cos (2πf t + ϕ). La multiplication donne :
+VG Vp
+(cos (4πf t + ϕ) + cos ϕ)
+2
+Après traitement par un filtre passe-bas 1 , cette fréquence nulle est la seule qui parviendra à
+l’oscilloscope.
+On a donc un signal d’amplitude VG Vp cos ϕ proportionnel à laser reçue sur la photodiode.
+vg × v = VG Vp cos (2πf t) × cos (2πf t + ϕ) =
+
+Figure 15 – Signal après le multiplieur et le filtre passe-bas. On obtient un signal continu proportionnel à l’intensité du laser (le zéro de l’oscilloscope pour la voie 2 est en bas de la figure).
+1. un filtre passe-bas est un filtre qui permet de ne garder que des fréquences basses
+
+15
+
+III.2.4
+
+Récapitulatif
+
+Figure 16 – Schéma de principe du circuit électrique
+
+III.3
+
+Les Applications
+
+Notre prototype est capable de déterminer la variation de température d’un objet situé à une
+distance de plusieurs mètres, mais également de capter les vibrations qu’une surface pourrait ressentir et transmettre au scotch. Ces deux applications différentes sont possibles car elles influent
+respectivement sur deux paramètres liés à la biréfringence, la différence d’indice entre les deux lignes
+neutres (soit ∆n) pour la température et l’épaisseur pour les vibrations 2 .
+Subséquemment, les applications potentielles sont nombreuses : on peut par exemple imaginer
+mesurer la température d’un objet dont l’accès est ardu, comme du matériel toxique situé derrière une
+vitre. Il peut également être intéressant de suivre l’évolution de la température lors d’une expérience
+(réaction chimique, culture in vitro...).
+En effet, notre système est particulièrement sensible à des écarts relativement faibles de température ; en choisissant le nombre d’épaisseurs de scotch adapté à une température de consigne T0 ,
+on peut ensuite détecter une variation de température et commander ainsi un asservissement en
+température par exemple.
+Ou encore, déterminer les forces de contrainte subies par à un objet, comme par exemple un pont,
+où il pourrait être compliqué et coûteux d’installer de nombreux détecteurs, contrairement au scotch
+qui est résistant, presque gratuit, et dont l’installation est relativement aisé. En outre, cette méthode
+est également applicable à l’étude des vibrations d’un solide, et constitue une démarche simple afin
+d’observer voire peut être même de mesurer ses vibrations, comme nous allons le voir.
+2. On rappelle qu’elles interviennent dans le calcul de la différence de marche : δ = e∆n
+
+16
+
+III.3.1
+
+Mesure de vibration sur une vitre
+
+Lors d’une première expérience, nous avons pu mettre en évidence des vibrations sur une vitre
+dues à un son, délivré par un haut-parleur en régime sinusoïdal, placé derrière la vitre, comme on
+peut le voir sur la photo ci-après.
+
+Figure 17 – Dispositif expérimental permettant de mettre en évidence les vibrations sur une vitre.
+Nous avons appliqué le principe de la mesure en réflexion à cette détection des vibrations sur
+la vitre : au repos, en l’absence d’onde sonore, le signal détecté sur la photodiode est constant. En
+présence du son, le signal est modifié, voici un exemple de détection.
+
+L’onde sonore met en mouvement la vitre à la fréquence f et nous sommes en mesure de détecter
+ce signal. Cette mesure n’utilise pas nécessairement la biréfringence mais prouve la sensibilité de
+notre système.
+
+III.3.2
+
+Mesure d’une variation de température
+
+Figure 18 – Prise de la température d’un bécher d’eau chaude en train de "refroidir"
+
+17
+
+De façon très précise, on peut analyser une variation de température. Nous avons effectué une
+expérience de principe : nous avons mis de l’eau à température ambiante dans un bécher (comme
+sur la photo ci-contre), puis nous avons ajouté de l’eau chaude, en ajoutant l’ensemble et simultanément nous avons enregistré la tension en sortie de notre chaîne de mesure. On voit l’évolution sur
+l’oscillogramme ci-dessus.
+De manière plus quantitative, nous refait l’expérience en agitant la solution et en controlant
+la température avec une thermistance . Il est à noter que le graphique obtenu est spécifique à
+l’orientation que présentait le scotch face au laser. En effet, l’épaisseur traversée par le rayon lumineux
+étant sensiblement différente, les positions des cannelures se retrouvent modifiées. Néanmoins, en
+connaissant les conditions initiales (si une diminution de la température provoque une diminution de
+la tension par exemple) on peut quand même mesurer des écarts de température.
+La valeur obtenue diffère selon l’orientation du capteur mais pas la pente de la droite obtenue.
+
+Figure 19 – Tension mesurée sur notre photodiode après traitement en fonction de la température
+mesurée avec un thermistance calibrée. On remarque que notre système est très sensible, la gamme
+d’utilisation est restreinte. La réponse est linéaire dans ce domaine d’étude.
+On trouve donc une réponse linéaire dans le petit domaine d’étude proposé.
+Enfin, nous avons renouvelé l’expérience à l’aide d’une cellule Peltier qui présente l’avantage de
+pouvoir générer une augmentation, comme une diminution de température. Selon le même principe,
+nous avons pu observer une variation de tension aux bornes de notre chaîne de détection, analogue à
+celle présentée plus haut. On peut mettre en évidence le temps de réponse rapide de notre système.
+
+18
+
+Figure 20 – Plaque Peltier présentant le côté "chauffant"
+Notre projet doit encore être perfectionné et permettra à terme d’afficher la température et/ou
+la variation de température via une interface Arduino.
+
+Conclusion
+Dans ce projet nous avons été en mesure d’utiliser les notions que nous avions apprises sur la
+biréfringence pour fabriquer un capteur de température et de vibration très pratique.
+Il est très pratique d’utilisation, robuste et sensible. Nous aimerions développer un système industriel basé sur ce principe. Nous pensons donc poursuivre notre projet pour rendre l’ensemble plus
+portatif et pratique.
+Nous tenons à remercier toute l’équipe de physique du lycée Masséna pour son aide et pour tout
+ce qu’ils nous ont apporté.
+
+Sitographie
+http://ressources.univ-lemans.fr/AccesLibre/UM/Pedago/physique/02/optiondu/cannelure.
+html
+http://www.msc.univ-paris-diderot.fr/~phyexp/pmwiki.php/LeDamierMagique/LeDamierMagique#
+tocanchor1
+http://rennes.udppc.asso.fr/IMG/pdf/dossier46.pdf
+http://hyperphysics.phy-astr.gsu.edu/hbase/phyopt/biref.html
+materiel-physique.ens-lyon.fr/Logiciels/CD%20N%C2%B0%203%20BUP%20DOC%20V%204.0/Disk%
+202/TEXTES/1984/06620823.PDF
+
+19
+
+

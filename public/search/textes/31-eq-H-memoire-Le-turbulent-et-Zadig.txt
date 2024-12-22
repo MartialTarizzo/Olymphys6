@@ -1,0 +1,1050 @@
+Finale nationale des Olympiades de Physique France
+À l'Université Paris Cité
+Campus des Grands Moulins
+Vendredi 2 février 2024
+
+Inès LISSARRE
+
+Juliette VAAST
+
+Louise THOREZ
+
+Lilou LACROIX
+
+Jeanne DELEPOUVE Tom PAUCHET
+
+Présentent
+
+Le turbulent et Zadig
+Encadrés par Olivier BURIDANT et Didier SORET
+
+1
+
+Résumé
+Alors que nous souhaitions synthétiser une huile, très vite nous avons suivi le turbulent de l’agitation magnétique pour glisser vers un
+sujet très physique.
+En effet, lors de l’introduction du glycérol sous agitation magnétique, nous avons remarqué que le turbulent se met à tourner en
+lévitation au-dessus du fond du bécher. Nous avons enquêté sur ce phénomène qui s’explique bien par la viscosité du fluide et les
+attractions / répulsions magnétiques. Nous mettons en évidence pour le glycérol une fréquence seuil de décrochage, à partir de laquelle
+le barreau aimanté est en sustentation, puis lors de l’augmentation de la fréquence l’altitude de vol décroît. Le voyage retour nous
+montre que la descente présente une hystérésis.
+Des mesures de viscosité nous permettent de connaître la zone à partir de laquelle nous observons ce phénomène, en fouillant dans la
+littérature sur la viscosité nous avons trouvé des espèces pour lesquelles le phénomène devait se reproduire. L’expérience nous a donné
+raison. Pour terminer, nous avons construit une maquette simulant les effets de la viscosité du liquide, elle permet d’observer le même
+phénomène dans l’eau.
+
+Partenaires
+
+2
+
+Sommaire
+
+Le turbulent et Zadig
+Résumé ____________________________________________________________________________________________________________________ 2
+Partenaires_______________________________________________________________________________________________________________ 2
+Remerciements __________________________________________________________________________________________________________ 4
+Introduction______________________________________________________________________________________________________________ 5
+L’expérience fondatrice ________________________________________________________________________________________________ 6
+
+Étude de l’influence de la vitesse de rotation du turbulent._________________________________________________ 6
+Autopsie d’un agitateur magnétique. ____________________________________________________________________ 8
+Autopsie d’un turbulent ________________________________________________________________________________ 8
+
+Mesure de la force d’un aimant ______________________________________________________________________________________ 9
+
+Mesures de l’attraction entre un aimant et une plaque métallique . _________________________________________ 9
+Mesures de la répulsion entre deux aimants. ____________________________________________________________ 10
+
+La viscosité _____________________________________________________________________________________________________________ 11
+
+Définition ___________________________________________________________________________________________ 11
+Mesures _____________________________________________________________________________________________ 11
+
+Explication de la lévitation __________________________________________________________________________________________ 13
+
+Au démarrage ________________________________________________________________________________________ 13
+Le décrochage ________________________________________________________________________________________ 13
+L’ascension __________________________________________________________________________________________ 14
+La chute dans le fluide ________________________________________________________________________________ 14
+Les petites tapes _____________________________________________________________________________________ 15
+
+Simulation expérimentale de la viscosité ________________________________________________________________________ 16
+Peut-on reproduire cette surrection avec d’autres liquides ? ________________________________________________ 17
+Conclusion ______________________________________________________________________________________________________________ 18
+Bibliographie __________________________________________________________________________________________________________ 19
+
+Annexes
+Annexe Ⅰ : Mesure de la fréquence de rotation de l’agitateur magnétique ________________________________ 20
+La stroboscopie ________________________________________________________________________________ 21
+La mesure électronique sous Arduino / Python _______________________________________________________ 21
+
+Annexe Ⅱ : Modélisation de la force exercée par les aimants ________________________________________________ 24
+Annexe Ⅲ : Les Olympiades et nous _______________________________________________________________________________ 26
+Les Olympiades vues par Inès __________________________________________________________________ 26
+Les Olympiades vues par Jeanne ___________________________________________________________________ 26
+Les Olympiades vues par Juliette __________________________________________________________________ 27
+Les Olympiades vues par Lilou _________________________________________________________________ 27
+Les Olympiades vues par Louise ___________________________________________________________________ 28
+Les Olympiades vues par Tom _____________________________________________________________________ 28
+3
+
+Remerciements
+M. Serge LEGROUX, Proviseur, Mme Delphine ANQUEZ, Proviseur Adjointe, M. Régis LOONIS, chef des travaux, et Mme Sophie
+NEYRINCK, agent comptable : les personnels de direction du lycée E. BRANLY, grâce à leur engagement et leur détermination
+ont été un élément crucial dans la réussite de nombreux projets.
+M. Sébastien SOURDEVAL et ses équipes techniques qui s’adaptent pour nous permettre de continuer à travailler les mercredis
+après-midi alors que nous perturbons le planning d’occupation des salles.
+M. Didier SORET, retraité du lycée E. BRANLY qui nous a offert de son temps chaque mercredi après-midi et nous a encadré,
+aidé et soutenu dans ce projet. Un merci supplémentaire pour son partage et ses conseils en mathématiques.
+Les personnels de laboratoire, en particulier Mme Marie Christine REMOND, technicienne, pour son écoute, sa patience et
+son aide tout au long de notre projet.
+Mmes Sophie DEPERLECQUE, Claire LISSARRE et Sandrine THOREZ pour le soin méticuleux qu’elles ont apporté lors des
+nombreuses lectures correctives. Nous leur sommes reconnaissants pour leur gentillesse et leur patience.
+M. Guillaume GAIGNEUR, (OdP 2004), professeur de physique et SNT (sciences numériques et technologie) au lycée Branly,
+pour sa tentative de dépannage de Python lors du concours régional. Il nous a diagnostiqué la cause, nous y avons remédié.
+M. Stéphane DEMARTHE, professeur de numérique et sciences informatiques et , M. Morgan DAUTRIAUX, professeur de
+Sciences de l’ingénieur, qui nous ont aidé à réaliser un compte-tours sous Arduino.
+M. Stéphane FAIEULE, technicien en physique chimie au laboratoire du lycée Mariette qui nous a proposé de nous prêter un
+agitateur magnétique numérique pour toute la durée de nos Olympiades.
+Les membres de notre jury lors de la finale interacadémique à Hazebrouck pour leurs remarques constructives.
+MM. Nicolas PERNET, Doctorant ESPCI 139ème promotion (OdP 2009 & 2010, TS2 Promotion Philippe LANCEL), Pierre Louis
+DESGROUSILLIERS Ingénieur R&D Renault (OdP 2013 & 2014, TS2 Promotion Peter HIGGS), Alexandre BEDLE, Ingénieur Airbus
+(OdP 2011& 2012, TS2 Promotion Richard FEYNMAN), Stéphane BRANLY,Etudiant UTCéen en 5ème année de Génie
+Informatique (OdP 2018, TS2 promotion Cédric VILLANI), Tristan RODEAU, INSA Strasbourg (OdP 2020& 2021, TG2 promotion
+Julien BOBROFF), Tom VARLET,Mines Saint Étienne (OdP 2020& 2021, TG2 promotion Julien BOBROFF), Melles Eugénie GOBERT,
+Ingénieure (OdP 2012 & 2013, TS2 promotion Kamil FADEL), Laurine ANDRIEUX, Ingénieure (OdP 2014 & 2015, TS2 promotion
+Pierre Gilles de GENNES) Juliette CHAVALLE, Étudiante ENV Lyon (OdP 2018, TS2 promotion Cédric VILLANI), Margaux
+MARÉCHAL, Étudiante LBOP Lille (OdP 2019, TS2 promotion Mister BUBU), Aurore MARÉCHAL, Clara DEFRETIN, Candice
+MAILLY, Erynne LEBEBVRE et Julietta SCHEIDLER (OdP 2021, TG2 promotion José BICO) pour leurs idées, leurs conseils et
+surtout leur mine de bibliographie et le matériel laissé dans le local Olympiades
+M. Kamil FADEL, Directeur du département physique du Palais de la Découverte, responsable de projets de médiation au Palais
+pour son aide scientifique sur les aimants.
+M. Denis DUBIEF de la société Supermagnete pour son aide dans le calcul de la force exercée par deux aimants coaxiaux et la
+fourniture d’un logiciel de simulation FEMM (pour Finite Element Method Magnetics).
+Mme Susanne GERSCHWILER de la société MAURER MAGNETIC pour ses précieux conseils.
+M. Alain LEFEBVRE, chef de laboratoire et chercheur en biologie marine à l’IFREMER de Boulogne-sur-Mer, pour son aide à
+trouver des laboratoires et des contacts professionnels.
+Mme Lucie COURCOT du laboratoire d’océanologie et de géoscience de la station marine de Wimereux pour sa patience et
+son accueil pour la réalisation de mesures de viscosités.
+MM. Gael DANEL et Romain LAMARRE, technicien de laboratoire au lycée Léonard de Vinci de Calais pour leurs mesures de
+viscosité.
+Mme Eloise CARTON de la société Sordalab, pour la fourniture de matériel scientifique.
+Pour ces moments avec nos camarades des différents groupes d’Olympiades gravés dans nos mémoires ainsi que leurs
+observations pertinentes.
+Pour nos familles qui ont su s’organiser à nos emplois du temps, prodiguer de précieux conseils sur les différents logiciels
+utilisés, ainsi que pour leur œil extérieur indispensable. Ils ont été notre premier public.
+Merci à tous ceux qui s’investissent et rendent possible, depuis 1992, les Olympiades de Physique et qui les perpétuent chaque
+année pour permettre à d’autres élèves de partager cette aventure riche sur le plan humain et sur l’ouverture d’esprit hors
+des programmes.
+M. Olivier BURIDANT, professeur de physique au lycée E. BRANLY, qui apporte bien plus que des connaissances à ses élèves et
+nous donne plaisir à apprendre. Très engagé chaque mercredi après-midi pendant de longues heures et disponible le reste de
+la semaine, pour nous permettre d’exploiter nos sujets sous tous les angles.
+
+4
+
+Introduction
+.
+
+L’atelier chimie du lycée Branly est une activité périscolaire proposée aux élèves de seconde.
+« Le but est de motiver pour les sciences un plus grand nombre d’élèves qui veulent confirmer leur choix d’orientation en faisant un effort
+particulier en direction des filles. L’approche est essentiellement expérimentale, la théorie est réduite au strict nécessaire.Elle développe
+la pratique de l’expérimentation individuelle, la conduite de synthèse jusqu’à la purification, et procure le plaisir de réussir et l’envie de
+poursuivre la réflexion scientifique » disait le flyer pour en faire la publicité.
+
+Photo de l’équipe atelier chimie en avril 2023.
+
+Lors de cet atelier sont organisés des TP conséquents qui génèrent beaucoup de matériel qu’il serait impossible de faire en classe
+entière. Les thèmes abordés sont la chimie et les colorants, la chimie des polymères, la chimie et l’alimentation, les savons et leurs
+propriétés. Nous avons franchi le pas, et nous sommes allés passer nos mercredis après-midi au lycée, juste pour le plaisir de faire de
+la chimie. L’ambiance est détendue, il n’y a pas d’évaluation, juste des conseils pour réussir et s’améliorer. Nous réussissons à faire de
+manière très encadrée, des TP qui sont ceux de terminale. L’un d’eux, nous a particulièrement marqué. Il s’agit du TP saponification,
+pour obtenir un savon, on peut procéder classiquement avec un chauffage à reflux ou bien plus simplement à froid. On introduit dans
+un bécher de 200 mL , avec précaution, 50 mL d’huile d’olive, 50 mL de soude à 10 mol.L –1 et 25 mL d’éthanol (qui joue le rôle de
+catalyseur à transfert de phase). On place sur agitation magnétique, et assez rapidement la couleur change, puis c’est le son émis qui
+varie, le turbulent a de plus en plus de mal à tourner puis en quelques minutes le mélange se fige : on peut retourner le bécher, le
+contenu est solide. Le savon qui est obtenu est impropre à une utilisation, il doit être lavé par des relargages successifs.
+Le bilan de la réaction est :
+
+L’huile d’olive peut être assimilée à de l’oléine pure, le savon obtenu est de l’oléate de sodium. Notre professeur nous précise qu’on
+peut obtenir de l’oléine par estérification du glycérol par de l’acide oléique.
+
+Très rapidement nous nous sommes intéressés à cette réaction, si l’acide gras est de l’acide butyrique (butanoïque) on obtient du
+beurre. Lorsque notre professeur a ouvert le flacon, nous y avons renoncé à cause de l’odeur insupportable.
+A la rentrée de première, notre professeur de spécialité nous invite à participer à des projets expérimentaux pour nous ouvrir à la
+démarche de travail en groupe et à une présentation orale. L’équipe se forme assez rapidement, mais pour le choix du sujet ou du
+thème nous sommes indécis. Notre professeur nous invite à nous faire plaisir par une expérience. Nous décidons de faire cette réaction
+d’estérification.
+Nous introduisons le glycérol dans le bécher, puis mettons en marche l’agitation magnétique. À cet instant, en quelques secondes, nous
+observons un phénomène curieux qui se produit avec le glycérol. Le turbulent est chahuté, il est perturbé. Nous décidons d’enquêter
+sur ce phénomène.
+•
+•
+•
+•
+•
+
+Quelle est l’origine de ce comportement particulier ?
+Ne se produit-il qu’avec du glycérol ?
+Comment expliquer cela ?
+Peut-on le reproduire avec d’autres liquides ?
+Peut-on simuler ce phénomène expérimentalement ?
+
+5
+
+L’expérience fondatrice
+Alors que nous nous apprêtions à synthétiser du trioléate de glycéryle, nous avons d’abord introduit dans le bécher du glycérol et mis
+sur agitation magnétique. Puisque la glycérine est très visqueuse, nous avons machinalement augmenté la vitesse de rotation et nous
+avons observé un curieux phénomène, en fonction de la vitesse de rotation de l’agitateur magnétique.
+
+A l’arrêt
+
+Vitesse lente
+
+Vitesse « ordinaire »
+
+Vitesse « rapide »
+
+Vitesse maximale
+
+Lors de l’accroissement de la rapidité de giration, dans un premier temps on n’observe rien de particulier, jusqu’à la vitesse ordinaire,
+celle que nous utilisons en dosage. Mais là où habituellement se crée un vortex nous avons observé un décollement du turbulent qui
+tourne à une certaine hauteur du fond, il semble en lévitation et continue de tourner. Lorsqu’on pousse le curseur la vitesse est plus
+grande , le phénomène perdure mais l’altitude diminue.
+C’est ce phénomène qui sera notre sujet d’Olympiades de physique.
+Étude de l’influence de la vitesse de rotation du turbulent.
+Montage
+Thermomètre
+
+Règle graduée
+
+Bécher
+
+Glycérol
+Turbulent
+Agitateur
+magnétique
+
+Caméra
+
+Téléphone
+
+Schéma de principe de notre montage
+
+Photo de notre montage
+
+Nous avons emprunté à un lycée voisin un agitateur magnétique doté d’un affichage numérique, puis nous avons développé un système
+de mesure de la fréquence qui est détaillé dans notre annexe.
+Pour différentes vitesses de rotation nous avons relevé la hauteur du centre du barreau, soit sur des photos, soit sur des vidéos en
+travaillant sur une image arrêtée.
+Nous avons reporté nos résultats dans un logiciel de traitement de données, voici le graphe obtenu
+
+6
+
+Cette courbe est surprenante.
+Dans un premier temps, lorsqu’on augmente progressivement la vitesse de rotation, le barreau aimanté reste au fond du bécher.
+D’un seul coup vers 350 tours par minute, le turbulent bondit de près de 2,5 cm. Il se maintient à cette altitude et continue de tourner.
+Lorsqu’on fait croître le nombre de tours par minute, la hauteur à laquelle se maintient le rondin aimanté diminue.
+
+Cette diminution semble proportionnelle.
+Par curiosité, nous avons eu l’idée de refaire une série de vidéos à partir des grandes vitesses, en diminuant progressivement la
+fréquence de rotation.
+
+Le phénomène semble analogue.
+Mais lorsqu’on les représente sur le même graphe, l’aller et le retour sont assez surprenants.
+
+7
+
+Le résultat est très surprenant lorsqu'on superpose l’aller et le retour, il apparaît un décalage de plus de 100 tours par minute entre la
+fréquence d’ascension et celle de retour au fond du bécher.
+Comme Zadig[1] nous allons essayer de comprendre cette bizarrerie de la providence.
+Autopsie d’un agitateur magnétique.
+Avec l’accord de nos professeurs, nous avons démonté un agitateur magnétique
+
+Intérieur de l’agitateur magnétique
+
+L’agitateur magnétique comprend :
+• Un fusible de protection
+• Un transformateur pour transformer le 220 V en basse tension
+• Un redresseur pour transformer le courant alternatif en courant sinusoïdal
+• Une carte électronique de régulation
+• Un moteur électrique vertical, sur l’axe de celui-ci, un support pour deux aimants
+Nous montrons que l’un présente une face nord, l’autre une face sud
+Autopsie d’un turbulent
+Le turbulent ou barreau aimanté est le dispositif qui est dans le bécher.
+Toujours avec l’autorisation des professeurs nous disséquons un barreau aimanté.
+
+Ouverture du barreau
+
+L’aimant et sa coque
+
+Mise en évidence du champs magnétique
+
+Finalement un turbulent n’est constitué que d’un seul aimant en forme de barreau entouré d’une coque en PTFE, du Téflon© , qui est
+inerte chimiquement et antiadhésif
+Pour nous ce sera juste un aimant avec un pôle Nord et un pôle Sud
+N
+
+S
+Schéma d’un turbulent
+
+8
+
+Mesure de la force d’un aimant
+Nous avons voulu connaître la force d’un aimant. En physique on parle de champ magnétique en Tesla et dans les catalogues en ligne,
+ou papier, de force en kg. Nous comprenons qu’il s’agit de catalogue grand public et la confusion masse/poids est assez courante.
+On passe de l’un à l’autre par la relation
+𝑃 = 𝑚𝑔
+• P est le poids (une force) en newton (N)
+• m est la masse en kg
+• g est une constante locale (le plus souvent prise égale à 9,81 N.kg–1).
+Pour cela, nous avons fait deux séries d’expériences, l’une pour mesurer l’attraction, l’autre pour quantifier la répulsion entre deux
+aimants.
+Mesures de l’attraction entre un aimant et une plaque métallique .
+Comme le groupe « À la force d’une goutte » lors des Olympiades 2019[2], nous avons utilisé le petit crochet sous les balances Kern EMB
+pour mesurer la force d’attraction. Un aimant est accroché sous la balance, puis on en approche progressivement un second posé sur
+un support élévateur. L’aimant supérieur est fixé sur une tige de Plexiglas alors que l’autre est collé dans un trou sur une plaque de bois
+car il a quasi la même perméabilité magnétique que l’air ((µair = 1,000 000 37 , µbois = 1,00000043 , µvide = 1 (par définition)[2]).
+La distance entre les aimants est mesurée par analyse photographique et par la mesure au pied à coulisse numérique de l’intervalle
+entre le support de la balance et le support élévateur.
+
+Schéma de principe de notre montage
+
+Photo de notre montage
+
+Nos résultats sont consignés dans le graphique ci-dessous.
+
+9
+
+Mesures de la répulsion entre deux aimants.
+Il nous a semblé plus simple de mesurer la force nécessaire pour rapprocher deux aimants plutôt que d’en séparer deux. Nous avons
+également utilisé une balance avec le montage ci-dessous.
+
+Schéma de principe de notre montage
+
+Photo de notre montage
+
+Nous reportons nos valeurs sur le graphe précédent par des points verts (les anciennes marques sont remplacées par des croix bleues).
+
+Nos résultats sont très similaires. La force décroît très rapidement.
+Nous modélisons, en annexe Ⅱ, l’allure de cette courbe avec les conseils de M. Kamil FADEL du Palais de la Découverte. Nous montrons
+1
+1
+que cette force évolue en 3 et en 4 .Le premier terme est majoritaire quand les aimants sont quasi contigus, puis rapidement le terme
+𝑥
+𝑥
+inversement proportionnel à la puissance quatrième devient majoritaire.
+Selon M.FADEL à proximité immédiate, on a une interaction de « monopôles » (c’est comme on pouvait considérer que les extrémités
+des aimants en vis-à-vis), au-delà il faut considérer les interactions entre les dipôles (on doit prendre en considération les aimants dans
+leur globalité).
+C’est un débat passionnant dont nous ne retenons qu’une chose essentielle : les forces d’attraction et de répulsion diminuent très vite
+avec la distance. À l’arrêt nos aimants sont à disons 10 mm l’un de l’autre, lorsque le barreau lévite, ils sont à plus de 30 mm. Les forces
+n’ont plus du tout les mêmes intensités.
+
+Aimant
+
+Gangue en PTFE 2,5 mm
+Fond du bécher 3 mm
+Carter de l’agitateur 1.5 à 2 mm
+Intervalle entre l’aimant et le capot 1à 2 mmmm
+
+Environ 10 mm entre les aimants
+
+Schéma montrant l’écart entre les aimant au repos
+
+10
+
+La viscosité
+Définition
+D’après le CNRTL (Centre National de Ressources Textuelles et Lexicales) , le dictionnaire en ligne créé par le CNRS : « la viscosité est
+l’état de ce qui est visqueux; état d'un liquide plus ou moins épais et sirupeux, dû au frottement réciproque des molécules, et qui s'oppose
+à leur écoulement; capacité à s'écouler plus ou moins facilement. »a
+Plus loin, la viscosité dynamique est définie. « Dans l'écoulement strictement laminaire [sans turbulence] d'un fluide, résistance opposée
+au déplacement relatif de deux couches laminaires infiniment minces et infiniment voisines »
+Pour faire simple, c’est une grandeur caractéristique d’un fluide qui mesure sa capacité à s’écouler, on la note η (êta) ; elle s’exprime
+en Pa.s (pascal.seconde).
+Fluide
+Air
+Acétone
+Eau
+Éthanol
+Glycérine
+Miel
+Poix
+
+Viscosité en Pa.s à 20°C
+1,85 × 10−5
+3,06 × 10−4
+1,002 × 10−3
+1,20 × 10−3
+1,49
+4 à 20
+2,3 × 108
+
+Quelques exemples de valeur de viscosité [3], [4]
+
+Mesures
+La viscosité se mesure avec un viscosimètre. Il en existe de différents types, nous avons décidé d’utiliser un viscosimètre à billes.
+Le principe en est simple. On laisse tomber une petite bille dans un fluide et on étudie l’évolution de la vitesse. Elle croît jusqu’à atteindre
+une vitesse limite vlim qui obéit à la loi de Stokes qui a mis au point la méthode en 1840 [5].
+2𝑔 (ρb − ρf ) 2
+𝑣𝑙𝑖𝑚 =
+r
+9
+𝜂
+Où :
+• 𝑣𝑙𝑖𝑚 est la vitesse limite observée en m.s–1,
+• 𝑔 , l’accélération de la pesanteur en m.s–2,
+• ρb , la masse volumique de la bille en kg.m–3,
+• ρf , la masse volumique du fluide en kg.m–3,
+• 𝜂, la viscosité du fluide en Pa.s,
+• r, le rayon de la bille utilisée en m.
+Montage
+Règle graduée
+
+Bille de
+diamètre D
+
+Thermomètre
+
+Éprouvette
+graduée
+
+Solution
+
+Caméra
+
+Téléphone
+
+Schéma de principe de notre montage
+
+a
+
+Photo de notre montage
+
+https://www.cnrtl.fr/definition/viscosit%C3%A9
+
+11
+
+La vidéo obtenue est traitée par le logiciel Trackerb qui permet rapidement d’obtenir après étalonnage la courbe donnant l’évolution
+de la vitesse en fonction du temps.
+
+Capture d’écran Tracker
+
+On distingue deux phases dans cette représentation :
+• La phase transitoire : celle où la vitesse croît
+• La phase stationnaire : la vitesse y est stable car les forces qui s’exercent sur la bille se compensent. La vitesse obtenue est
+appelée vitesse limite, 𝑣𝑙𝑖𝑚 .
+La vitesse limite pour un système donné { liquide / solide } dépend beaucoup du diamètre de la bille. Dans la relation de Stokes, le rayon
+intervient au carré. Prendre une bille deux fois plus grosse c’est avoir une vitesse limite divisée par quatre. Utiliser une bille dix fois plus
+petite permet de réduire la vitesse maximale par cent fois. Du moins en théorie, car Stokes le précise bien, il faut avoir des vitesses les
+plus faibles possible. Nous avons procédé avec différentes tailles de billes pour finalement ne conserver que les mesures avec une bille
+de 1 mm de diamètre. C’est fastidieux, mais les résultats sont plus proches des valeurs du Handbook
+Voici nos résultats :
+Solution
+Eau
+Glycérol 25 %
+Glycérol 50%
+Glycérol 75%
+Glycérol 100 %
+
+𝜂, en Pa s
+Moyenne sur 10 valeurs
+0,93× 10−3
+1,95× 10−3
+5,66× 10−3
+34,64× 10−3
+
+Écart type
+0,09 × 10−3
+0,16 ×.10−3
+0,34 ×.10−3
+1,39 × 10−3
+
+Valeur
+Handbook[3]
+1,01 × 10−3
+2,05 × 10−3
+6,04 × 10−3
+37,33 × 10−3
+
+1,39
+
+0,08
+
+1,49
+
+Erreur relative en %
+
+-7,55
+-4,57
+-6,26
+-7,22
+-6,38
+
+Nous obtenons des valeurs systématiquement inférieures de 5 à 10% aux valeurs de référence mais nous avons l’ordre de grandeur.
+Nous avons fait confirmer nos résultats par les BTS Chimie du lycée Léonard de Vinci de Calais par l’intermédiaire de MM. Romain
+LAMARRE et Gaël DANEL à l’aide d’un viscosimètre Brookfield et d’un rhéomètre. Pour obtenir des résultats plus professionnels nous
+avons rendez-vous avec M. Alain LEFEBVRE de l‘IFREMER et Mme Lucie COURCOT du Laboratoire d’Océanologie et de Géosciences de
+Wimereux pour faire des mesures précises le mardi 23 janvier 2024 à 14h soit entre le ski et le concours national.
+Nous allons chercher à partir de quelle viscosité le phénomène n’apparaît plus pour voir si on peut reproduire notre expérience avec
+d’autres espèces chimiques.
+
+b
+
+Le logiciel Tracker est en téléchargement sur ce lien : https://physlets.org/tracker/
+
+12
+
+Explication de la lévitation
+On s’intéresse au pôle nord du turbulent (noté T) posé au fond du bécher dans la solution : il est attiré par le pôle sud de l’agitateur
+(noté SA) :
+Bécher + solution
+Pôle nord du turbulent
+Couvercle de l’agitateur
+Pôle sud de l’agitateur
+Schéma de la situation juste après le démarrage
+
+Intéressons-nous aux forces sur le pôle nord du turbulent, T :
+Au démarrage
+⃗⃗⃗⃗⃗⃗⃗
+𝑅𝑁
+⃗⃗⃗⃗
+𝜋
+⃗⃗⃗⃗
+𝑓
+
+𝑣
+𝑇 ⃗⃗⃗⃗
+
+⃗⃗⃗⃗⃗⃗⃗⃗
+𝐹𝑆𝐴𝑡
+
+Fond du
+bécher
+
+⃗⃗⃗⃗⃗⃗⃗⃗⃗
+𝐹𝑆𝐴𝑛
+⃗⃗⃗⃗⃗⃗⃗⃗
+𝐹𝑆𝐴
+⃗⃗⃗⃗
+𝑃
+
+𝑆𝐴
+Lorsque l’extrémité se déplace à la vitesse ⃗⃗⃗⃗
+𝑣
+Il s’exerce sur T :
+• le poids⃗⃗⃗⃗
+𝑃 ,vertical, vers le bas,
+• La poussée d’Archimède, ⃗⃗⃗⃗
+𝜋 ,verticale, vers le haut,
+• Les forces de frottements, ⃗⃗⃗⃗
+𝑓 horizontale, qui englobent le frottement sur le bécher (qu’on peut négliger) et les forces de
+frottements liées au fluide, la vitesse étant faible (de l’ordre du dm.s–1), la norme est proportionnelle à la vitesse 𝑓 = 𝑘𝑣
+• La force d’attraction de l’aimant, ⃗⃗⃗⃗⃗⃗⃗⃗
+𝐹𝑆𝐴 ,oblique dirigée de T vers SA, on peut le décomposer en :
+o Sa composante normale,⃗⃗⃗⃗⃗⃗⃗⃗⃗⃗
+𝐹𝑆𝐴𝑛 verticale, vers le bas,
+o Sa composante tangentielle,⃗⃗⃗⃗⃗⃗⃗⃗⃗⃗
+𝐹𝑆𝐴𝑡 horizontale, dans le sens du mouvement,
+⃗⃗⃗⃗⃗⃗⃗⃗
+• La réaction normale du fond du bécher,⃗⃗⃗⃗⃗⃗⃗
+𝑅𝑁 ,verticale, vers le haut, qui compense ⃗⃗⃗⃗
+𝑃 et𝐹
+𝜋
+𝑆𝐴𝑛 et ⃗⃗⃗⃗
+La norme de ⃗⃗⃗⃗⃗⃗⃗
+𝐹𝑆𝐴𝑡 est supérieure à celle de ⃗⃗⃗⃗
+𝑓 , le barreau est entrainé par l’aimant de l’agitateur.
+Le décrochage
+Lorsqu’on augmente la vitesse de rotation de l’agitateur, 𝑣 augmente donc 𝑓 = 𝑘𝑣
+Lorsque cette force devient supérieure à 𝐹𝑆𝐴𝑡 , le barreau décroche de l’aimant.
+⃗⃗⃗⃗⃗⃗⃗
+𝑅𝑁
+⃗⃗⃗⃗
+𝜋
+⃗⃗⃗⃗
+𝑓
+
+𝑣
+𝑇 ⃗⃗⃗⃗
+
+Fond du
+bécher
+
+⃗⃗⃗⃗
+𝑃
+Sur la verticale,⃗⃗⃗⃗⃗⃗⃗
+𝑅𝑁 , compense ⃗⃗⃗⃗
+𝑃 et ⃗⃗⃗⃗
+𝜋.
+⃗⃗⃗⃗
+Sur l’horizontale 𝑓 est opposée à ⃗⃗⃗⃗
+𝑣 , le mouvement ralenti.
+
+13
+
+L’ascension
+Mais NA,la face nord de l’agitateur magnétique, surgit un demi-tour plus tard (soit environs 80 msc)
+⃗⃗⃗⃗⃗⃗⃗
+𝑅𝑁
+⃗⃗⃗⃗⃗⃗⃗⃗⃗⃗
+𝐹𝑁𝐴𝑛
+⃗⃗⃗⃗
+𝜋
+⃗⃗⃗⃗
+𝑓
+
+⃗⃗⃗⃗⃗⃗⃗⃗⃗
+𝐹𝑁𝐴
+
+𝑣 ⃗⃗⃗⃗⃗⃗⃗⃗⃗
+𝐹𝑁𝐴𝑡
+𝑇 ⃗⃗⃗⃗
+
+Fond du
+bécher
+
+⃗⃗⃗⃗
+𝑃
+
+Les forces :
+⃗⃗⃗⃗⃗⃗⃗⃗⃗
+𝐹𝑁𝐴𝑡
+•
+fait tourner l’aimant
+•
+
+⃗⃗⃗⃗⃗⃗⃗⃗⃗⃗
+𝐹𝑁𝐴𝑛
+
+𝑁𝐴
+
+fait monter l’aimant
+
+Le turbulent s’élève et quitte le fond du bécher, il échappe à l’agitateur qui poursuit sa course.
+La chute dans le fluide
+Le barreau arrive à son apogée,il a toujours une petite vitesse horizontale. Mais il n’y a plus de fond de bécher, il est en chute dans un
+bécher rempli de liquide. Il acquiert une vitesse et un mouvement vertical vers le bas.
+⃗⃗⃗⃗
+𝜋
+⃗⃗⃗⃗
+𝑓
+
+𝑇
+⃗⃗⃗⃗⃗⃗
+𝑣𝑛
+
+⃗⃗⃗⃗⃗
+𝑣𝑡
+⃗⃗⃗⃗
+𝑣
+
+⃗⃗⃗⃗
+𝑃
+
+Fond du
+bécher
+
+Dans un fluide, ces vitesses et hauteurs de chute verticales sont calculées par les relations
+(𝜌𝑏𝑎𝑟𝑟𝑒𝑎𝑢 − 𝜌𝑓𝑙𝑢𝑖𝑑𝑒 )
+𝑣 = 𝑎𝑡 =
+𝑔 𝑡
+𝜌𝑏𝑎𝑟𝑟𝑒𝑎𝑢
+1
+1 (𝜌𝑏𝑎𝑟𝑟𝑒𝑎𝑢 − 𝜌𝑓𝑙𝑢𝑖𝑑𝑒 )
+ℎ = 𝑎𝑡 2 =
+𝑔 𝑡2
+2
+2
+𝜌𝑏𝑎𝑟𝑟𝑒𝑎𝑢
+Numériquement avec :
+• 𝜌𝑏𝑎𝑟𝑟𝑒𝑎𝑢 = 3,762 𝑔. 𝑚𝐿−1
+• 𝜌𝑔𝑙𝑦𝑐é𝑟𝑜𝑙 = 1,259 𝑔. 𝑚𝐿−1
+• 𝑔 = 9,81 𝑚. 𝑠 −2
+• 𝑡 = 40 𝑚𝑠 (temps où le turbulent est loin de l’aimant de l’agitateur)
+On trouve
+• 𝑣 = 0,26 𝑚. 𝑠 −1
+• ℎ = 0,005 𝑚
+C’est peu surtout qu’on a négligé les forces de frottements. Lors de la chute verticale , nous devions observer une chute millimétrique.
+C’est à noter pour nos futures investigations.
+
+c
+
+𝑇
+
+1
+6
+
+2
+
+2
+
+Avec une fréquence de 360 tours par minute, soit 6 Hz, ∆𝑡 = =
+
+≈ 80 𝑚𝑠
+
+14
+
+Les petites tapes
+Le pôle sud de l’agitateur revient, le turbulent est de nouveau attiré, mais puisque la distance est plus grande, son action est moindre
+⃗⃗⃗⃗
+𝜋
+⃗⃗⃗⃗
+𝑓
+
+𝑇
+
+⃗⃗⃗⃗⃗⃗⃗⃗
+𝐹𝑆𝐴𝑡
+⃗⃗⃗⃗
+𝑣
+⃗⃗⃗⃗⃗⃗⃗⃗
+𝐹𝑆𝐴
+
+⃗⃗⃗⃗⃗⃗⃗⃗⃗
+𝐹𝑆𝐴𝑛
+
+Fond du
+
+⃗⃗⃗⃗
+𝑃
+
+bécher
+
+𝑆𝐴
+Le pôle sud joue son rôle de moteur, il entraîne le barreau dans sa rotation et le ramène vers le bas. Mais son action est trop faible pour
+lui faire faire un tour. Il ne parvient pas à l’entraîner à cause des forces de frottements, il s’éloigne, son action cesse.
+
+Puis après une petite chute dans le fluide, le pôle nord arrive.
+
+⃗⃗⃗⃗⃗⃗⃗⃗⃗
+𝐹𝑁𝐴𝑡
+⃗⃗⃗⃗
+𝑓
+
+⃗⃗⃗⃗
+𝜋
+𝑇
+
+⃗⃗⃗⃗⃗⃗⃗⃗⃗
+𝐹𝑁𝐴
+⃗⃗⃗⃗
+𝑣
+
+⃗⃗⃗⃗⃗⃗⃗⃗⃗⃗
+𝐹𝑁𝐴𝑛
+Fond du
+bécher
+
+⃗⃗⃗⃗
+𝑃
+
+𝑁𝐴
+La force de répulsion est plus importante que l’attraction lors de la phase précédente, car le turbulent est plus près de l’agitateur. Il fait
+remonter le barreau et participe à sa rotation.
+Ainsi l’alternance de répulsion compense les effets de l’attraction lors du passage du pôle sud et les chutes entre deux passages. On
+pourrait comparer ce résultat à une suite de petites tapes alternativement vers le bas puis vers le haut le maintient dans une même
+zone. Il se crée un équilibre. La vitesse de rotation du turbulent est plus faible que celle de l’agitateur magnétique et nous semble assez
+constante. Nous envisageons de regarder l’évolution de la première en fonction de la seconde pour le concours national.
+La hauteur d’équilibre semble spécifique à une fréquence. Nous ne sommes pas en mesure de démontrer par le calcul ce que
+l’expérience nous révèle.
+
+15
+
+Simulation expérimentale de la viscosité
+Nous avons voulu reproduire expérimentalement l’influence de la viscosité du glycérol sur le barreau dans de l’eau.
+L’effet de la viscosité est de freiner le barreau ; l’eau étant plus de 1000 fois moins visqueuse soit il fallait tourner beaucoup plus vite
+soit réussir à freiner le barreau.
+Dans un premier temps nous avons imaginé de lui mettre des voiles, le turbulent étant plein nous n’avons pas réussi à le percer
+proprement au milieu. Rapidement, nous avons eu l’idée d’en reproduire un à l’aide de deux aimants fixés sur un support ; pour simuler
+la présence de la viscosité dans l’eau nous avons imaginé d’y ajouter des voiles.
+
+Schéma de principe de notre maquette
+
+Notre prototype
+
+Après la construction, nous nous sommes jetés à l’eau.
+On observe bien l’effet prévu , à partir d’une certaine fréquence de rotation, on a une surrection qui apparaît, la hauteur dépend de la
+fréquence. On a un phénomène similaire. Le phénomène est très stable et peut persister plus d’une heure (durée pendant laquelle, on
+en a profité pour le montrer à tout le monde lors d’un TP de physique avec l’autorisation de notre professeur).
+Si on enlève la « voile », ce phénomène disparaît.
+
+État élevé du dispositif montrant une face puis l’autre de la voile (les photos sont prises en mode sport)
+
+Nous en avons profité pour essayer dans l’air qui a une viscosité encore plus faible.
+
+Cela fonctionne aussi mais à des vitesses plus élevées, c’est très furtif, en fait ça saute. Nous pensons, que faute de poussée
+d’Archimède, l’ascension est plus difficile (car il n’y a plus de force à vaincre) et le maintien en haut aussi (car on est en « chute libre »
+dans l’air et non plus dans un fluide).
+Pour le concours national, nous envisageons de quantifier un peu l’effet de la surface de la voile et de construire, si nous y parvenons,
+un modèle qui permet de régler la voilure de manière non destructive.
+
+16
+
+Peut-on reproduire cette surrection avec d’autres liquides ?
+Tout d’abord nous avons regardé dans la bibliographie laissée par les olympiens du lycée, nous cherchions des valeurs de viscosité de
+produits courants. Nous avons créé notre liste à partir des documents existants [3], [4], [6], [7], [8], [9].
+Nom anglais
+Castor oil
+Cocoa butter *
+Coconut oil *
+Cod oil
+Corn oil
+Glycerine 100%
+Grapeseed oil
+Hazelnut oil
+Linseed oil raw
+Olive oil
+Palm oil *
+Paraffin oil
+Peanut oil
+Rapeseed oil
+Sesame seed oil
+Soft soape
+Soybean oil
+Sucrose 70%
+Sucrose 75%
+Sunflower oil
+Walnuts oil
+
+Liquided
+Nom Français
+Huile de ricin
+Beurre de cacao
+Huile de coprah
+Huile de foie de morue
+Huile de mais
+Glycérol
+Huile de pépin de raisin
+Huile de noisette
+Huile de lin
+Huile d’olive
+Huile de palme
+Huile de paraffine
+Huile d'arachide
+Huile de colza
+Huile de sésame
+Savon noirf
+Huile de soja
+Saccharose 70%
+Saccharose 75%
+Huile de tournesol
+Huile de noix
+
+Densité
+
+Viscosité (en mPa.s)
+
+Indice de réfraction
+
+0,936 – 0,945
+0,970 – 0,998
+0,92 – 0,93
+0,924 – 0,930
+0,910 – 0,925
+1,2611
+0,910 – 0,956
+0,908 – 0,915
+0,930 – 0,936
+0,910 – 0916
+0,891 – 0,899
+0,810 – 0,875
+0,912 – 0,918
+0,913 – 0,916
+0,915 – 0,926
+1,020
+0,916 – 0,922
+1,3472
+1,3794
+0,918 – 0,923
+0,920 – 0,924
+
+950
+40 – 50
+43,2
+50
+61,2
+1495
+53 – 58
+59,4
+47,7
+102
+41,6
+80 – 100
+77
+90,9
+57
+1235
+50,7
+481,6
+2328
+63,7
+38,7
+
+1,4731 – 1,4754
+1,456 – 1,458
+1,4485 – 1,4495
+1,482
+1,465 – 1,468
+1,4746
+1,471–1,476
+1,469 – 1,472
+1,472 – 1,485
+1,4677 – 1,4705
+1,448 – 1,452
+1,470 – 1,476
+1,460 – 1,465
+1,4720 – 1,4752
+1,474 – 1,476
+1,3368
+1,4747 – 1,4765
+1,4654
+1,4780
+1,472 – 1,476
+1,4690 – 1,4710
+
+Nous avons sélectionné des liquides newtoniens (ceux qui se comportent comme des liquides ordinaires). Nous avons également
+répertorié les indices de réfraction et les densités car ces grandeurs permettent d’apprécier l’état de conservation d’une bouteille
+entamée. Nous disposons dans notre laboratoire d’huiles solides qui fondent à peu près à la même température que le beurre.
+Nous comparons donc à la valeur annoncée pour le glycérol (appelé glycérine ici).
+Il y a très peu d’espèces ayant une viscosité supérieure, vous faisons le tour du laboratoire avant de tester.
+Voici nos résultats.
+Espèce chimique
+Huile d’arachide
+Huile d’olive
+Huile de colza
+Huile de lin
+Huile de maïs
+Huile de noisette
+Huile de noix
+Huile de pépin de raisin
+Huile de ricin
+Huile de tournesol
+Mayonnaise + huile
+Miel + eau
+Savon noir
+
+Résultats
+Négatif
+Négatif
+Négatif
+Négatif
+Négatif
+Négatif
+Négatif
+Négatif
+Positif
+Négatif
+Négatif
+Négatif
+Positif
+
+Nous obtenons des résultats conformes à nos attentes, l’huile de ricin (castor oil) a bien une viscosité du même ordre de grandeur que
+le glycérol. Nos essais sur diverses substances nous donnent des résultats négatifs, hormis le savon noir comme on pouvait le prévoir.
+Nos tentatives avec les mélanges mayonnaiseg/huile d’olive et miel/eau se soldent aussi par des échecs.
+Nous avons également en projet de faire le test avec une solution de saccharose à 70 et 75%, que nous ne sommes pas parvenus à
+réaliser. Il faut respectivement dissoudre 70 et 75 g de sucre dans 30 et 25 g d’eau, un sacré défi surtout si on se retire l’option chauffage
+pour éviter la formation de caramel.
+
+d
+
+Les corps gras solides à température ambiante sont repérés par un astérisque *.
+
+e
+
+Bien que nous utilisons une solution commerciale de savon noir, ces données sont celle d’une solution d’oléate de potassium à 0,7% [9].
+
+f
+
+Le savon noir est obtenu par réaction de la potasse (hydroxyde de potassium) sur une huile végétale, il est généralement mou et de couleur verte à brune.
+
+g
+
+La mayonnaise comme le miel ou le Ketchup sont des fluides non newtoniens, leurs viscosités dépendent de la vitesse.
+
+17
+
+Conclusion
+Le turbulent est un petit barreau aimanté utilisé en chimie pour mélanger les milieux réactionnels. “Une bizarrerie de la providence”
+comme disait Voltaire à propos de Zadig, nous a révélé qu’un turbulent pouvait léviter dans du glycérol sous agitation magnétique.
+En effet, lors de cette opération, à partir d’une fréquence de rotation critique de l'ordre de 350 tours par minute, le barreau s’élève audessus du fond du bécher. Lorsqu’on continue à augmenter la vitesse de rotation, il continue de léviter à une altitude plus faible qui
+dépend de la vitesse d’agitation. Un phénomène symétrique est observé lorsqu’on baisse la vitesse progressivement, il présente une
+hystérèse. Il y a un décalage entre la fréquence d’ascension et la fréquence de ce retour sur le plancher du bécher. Ce décalage est de
+l’ordre de 100 Hz.
+La dissection d’un turbulent nous montre qu’il s’agit d’un cylindre magnétique présentant une aimantation axiale (parallèle à la hauteur)
+protégé par une enveloppe en téflon. Celle de l’agitateur magnétique nous montre la présence de deux disques magnétiques avec le
+même type d’aimantation à l’extrémité d’une pièce fixée sur l’arbre d’un moteur électrique régulé électroniquement. Chaque aimant
+présente une face opposée sur le haut, nord pour l’un, sud pour l’autre. Nous avons mesuré la force exercée par un aimant sur une
+pièce en fer, puis sur un autre aimant, cette force décroît très rapidement
+La glycérine est caractérisée par une forte viscosité, nous l’avons mesurée à l’aide d’un viscosimètre à bille. Nos valeurs sont de l’ordre
+de grandeur des valeurs de référence. Nous avons fait de même pour des solutions diluées pour avoir un aperçu d’une gamme étalon.
+La présence des aimants, la viscosité du glycérol et la présence de forces de frottements lors de l’agitation magnétique permettent
+d’expliquer qualitativement les phénomènes observés : le décrochage, l’ascension puis le maintien en altitude.
+Nous avons essayé de reproduire le phénomène à partir des espèces chimiques visqueuses présentes dans le laboratoire. L’huile de
+ricin correspondant au critère donne le résultat attendu.
+Ces résultats sont compatibles avec notre hypothèse du rôle de la viscosité, car les valeurs tabulées disponibles permettent de conclure
+qu’il doit exister une viscosité seuil au-delà de laquelle le phénomène peut apparaître.
+Enfin, nous construisons un dispositif qui permet de reproduire l’effet de la poisse sur un barreau dans l’eau, nous espérons vous
+présenter une version avancée de notre prototype.
+Pour terminer nous pensons à notre aventure : si, lors de notre synthèse, nous avions procédé dans un ordre différent dans l’ajout des
+réactifs, nous aurions peut-être synthétisé une huile, mais nous serions passés à côté de beaucoup de phénomènes. Tel Zadig qui a
+exploré de nombreux pays dans son périple, nous avons voyagé dans de nombreux domaines de la physique lors de ce projet. Pour
+parachever, c’est important pour notre bac de Français, notre projet commence et se termine par le savon. En rhétorique, c’est une
+figure de style qu’on appelle une épanadiplose, elle aurait sûrement plu à Voltaire.
+
+18
+
+Bibliographie
+[1]
+
+Voltaire, Zadig ou la Destinée - Voltaire - Edition pédagogique Lycée - Nouvelle édition BAC - Carrés classiques Nathan. Paris:
+Nathan, 2021.
+
+[2]
+
+M. Maréchal, J. Piret, O. Trupin, C. Magnier, et C. Lepecuchelle, « A la force d’une goutte », Olympiades de physique,
+Lille,Université des Sciences et Techniques de Lille 1, janv. 2019.
+
+[3]
+
+W. M. Haynes, Handbook of chemistry and physics. CRC press, 2014.
+
+[4]
+
+J. G. Speight, Éd., Lange’s Handbook of Chemistry, 17th Edition. McGraw-Hill Education, 2017.
+
+[5]
+
+G. G. Stokes, « On the effect of the internal friction of fluids on the motion of pendulums », 1851.
+
+[6]
+
+M. Bockisch, Fats and Oils Handbook, 1st edition. Academic Press and AOCS Press, 2015.
+
+[7]
+
+F. Gunstone, Éd., Vegetable Oils in Food Technology: Composition, Properties and Uses, 2nd edition. Wiley-Blackwell, 2011.
+
+[8]
+
+« Standard for named vegetable oils ». Rome, 2001.
+
+[9]
+
+V. Molchanov et O. Philippova, « Effects of concentration and temperature on viscoelastic properties of aqueous potassium
+oleate solutions », Colloid Journal, vol. 71, p. 239‑245, avr. 2009.
+
+[10] E. H. Hall, « On a New Action of the Magnet on Electric Currents », American Journal of Mathematics, vol. 2, no 3, p. 287‑292,
+1879.
+[11] R. Castañer, J. M. Medina, et M. J. Cuesta-Bolao, « The magnetic dipole interaction as measured by spring dynamometers »,
+American Journal of Physics, vol. 74, no 6, p. 510‑513, juin 2006.
+[12] D. P. Shelton et M. E. Kettner, « Potential energy of interaction for two magnetic pucks », American Journal of Physics, vol. 56, no
+1, p. 51‑52, janv. 1988.
+[13] S. Defrancesco et V. Zanetti, « Experiments on magnetic repulsion », American Journal of Physics, vol. 51, no 11, p. 1023‑1025,
+nov. 1983.
+
+19
+
+20
+
+

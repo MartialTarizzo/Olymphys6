@@ -1,0 +1,705 @@
+INTRODUCTION
+On le voit, on ne le voit plus; on croit le voir, mais il n’y est pas… le caméléon est certainement l’un des
+êtres les plus fascinants et mystérieux de tous, et c’est de cet animal dont nous avons décidé de parler
+dans notre projet. En effet, son extraordinaire capacité à étaler une large palette de couleurs, nous a
+séduites.
+Aussi, le désir nous est venu de comprendre les réactions du caméléon et ensuite de créer un système
+(robot-caméléon) qui reproduirait le comportement de l’animal.
+Nous nous sommes tout d’abord concentrées sur l’aspect biologique de l’animal et sur les éléments
+intervenant dans le changement de couleur, puis nous avons procédé aux expériences sur le caméléon
+casqué. Finalement, après s’être penchées sur la conception du robot-caméléon nous avons approfondi
+les phénomènes physiques expliquant la couleur de l’animal.
+
+I.
+
+Mécanismes du changement de couleur sur le caméléon
+
+1) Différentiation entre les couleurs pigmentaires et structurelles
+La peau du caméléon est constituée de l’épiderme (cette couche superficielle contenant des cellules
+transparentes ne jouant aucun rôle dans le changement de couleur) et du derme (couche plus
+profonde de la peau possédant les cellules responsables de la coloration du caméléon).
+Schéma d’une coupe verticale de la peau du caméléon
+1
+
+Couchecornée
+CoucheMalpighi
+
+Epiderme
+
+Couchegerminative
+Iridocytes
+
+Purine
+
+Erythrophores
+
+Chromatophores
+
+Xantophores
+Guanophores
+Derme
+
+Mélanophore
+
+Iridophores
+
+Melanophore
+Melanocytes
+
+Le changement de couleur bref s’explique par l’action du cerveau et du système nerveux qui
+rendent la modification un réflexe.
+Deux phénomènes ont lieu dans la coloration du caméléon: le principe des couleurs pigmentaires et
+celui des couleurs structurelles.
+Les couleurs pigmentaires sont produites grâce aux chromatophores: érythrophores de couleur rouge
+et xanthophores de couleur jaune. Ces couleurs s’expliquent par la composition de ces cellules: les
+xanthophores contiennent des caroténoïdes (molécules absorbant toutes les longueurs sauf celles
+correspondant de 500 à 580 nm). Quant aux érythrophores, ceux-ci contiennent la ptéridine (absorbant
+les longueurs d’ondes inférieures à 580nm).
+Dans l’épiderme se trouvent les guanophores contenant des cristaux de guanine. Ce système
+réfléchissant la lumière est composé de cristaux et correspond au principe de couleurs structurelles.
+Les nanocristaux se trouvent dans le cytoplasme de la cellule et sont parfaitement alignés. Ils modifient
+la propagation des longueurs d’ondes. Cette réflexion est en relation directe avec la distance entre
+ceux-ci. Plus les cristaux sont espacés entre eux, plus ils renvoient de longues longueurs d’ondes
+(correspondant à 800 nm, donc à la couleur rouge) et inversement. La distance entre les nanocristaux
+influe aussi sur le principe des interférences1. C’est ainsi que pour une distance de dilatation donnée,
+certaines longueurs d’onde subissent une interférence constructive, d’autres destructives.
+1
+
+Le phénomène d’interférence est un phénomène de superposition de deux ondes provenant de
+sources synchrones (même longueur d’onde donc de même fréquence) et cohérentes (elles
+possèdent un déphasage constant).
+La nature de l’interférence dépend de la différence de marche (δ), c’est-à-dire de la différence
+entre les distances parcourues par les deux ondes.
+En effet, si δ=k* λ, avec k ∈ ℕ, alors il s’agit d’une interférence constructive; Si δ=(k+1/2) * λ, avec k ∈ ℕ, alors
+il s’agit d’une interférence destructive.
+
+Lors d’une interférence destructive, les ondes sont en opposition de phase (il s’agit du cas
+extrême de déphasage). Une interférence est constructive si les ondes sont en phases.
+2
+
+COLORATION
+
+La couleur du caméléon provient de la combinaison des couleurs pigmentaires et structurelles.
+La lumière blanche éclairant la peau du caméléon au niveau d’un pigment jaune va diffuser du jaune.
+Entre les pigments, la lumière blanche va rencontrer un système constitué de nano cristaux qui
+diffusera une lumière structurelle qui dépend de la distance entre les cristaux. Lorsqu’ils sont
+rétractés, les longueurs d’onde courtes, donc plutôt vers les bleus, sont diffusées. Nous observons un
+caméléon vert.
+Au niveau d’un pigment rouge, lorsque les nanocristaux sont rétractés, seulement les longueurs
+d’onde courtes traversent le pigment rouge. Il en résulte du marron.
+Nous pensons que la coloration pourrait être reliée au phénomène de synthèse additive et
+soustractive. Nous savons que le pigment est une structure lacunaire, on imagine que lorsqu’un rayon
+de couleur bleu-cyan passe à travers un espace vide du pigment ou en dehors du pigment, alors par
+synthèse additive, la combinaison du rayon bleu-cyan à un rayon jaune provenant du pigment produit
+une couleur verte, par synthèse additive. Si le rayon bleu traverse le pigment en interceptant un
+espace non vide contenant la couleur jaune, alors la composante bleu-cyan est absorbée par le jaune
+et du vert est transmis. C’est ce phénomène que nous allons modéliser.
+ANALYSE DE LA STRUCTURE FORMEE PAR LES NANOCRISTAUX
+La structure que forment les nanocristaux suit celle d’un cristal photonique en trois dimensions (étant
+une structure périodique de matériaux diélectriques avec une alternance de deux indices de milieux
+différents n1 (ici n1=1,83) et n2 (ici n2=1,33)). De plus, tout cristal photonique possède un système
+colloïdal.
+Notre hypothèse est la suivante: l’arrangement des nanocristaux dans la peau du caméléon
+correspond à un système colloïdal, qui a la particularité de pouvoir modifier la distance entre les
+cristaux de telle manière à ce que la longueur d’onde réfléchie puisse être modifiée, en suivant le
+principe de la diffraction à travers un réseau.
+Le système colloïdal qui se trouve dans le derme du caméléon est particulier. En effet, il est défini par
+la taille de ses particules, leur distribution en taille, la densité de particules ainsi que leur
+arrangement.
+Les particules qui se trouvent dans ce système colloïdal sont des nanocristaux, qui ont une forme
+hautement sphérique et leurs tailles sont homogènes (le pic de leur distribution gaussienne étant
+
+3
+
+autour de 127,42 nm). Les nanocristaux sont distribués de manière régulière, avec une distance
+identique entre eux; qui peut varier de manière uniforme.
+Le système colloïdal permet le phénomène de diffraction de la lumière à travers un réseau, notre
+réseau étant la couche d’iridophores.
+
+FABRIQUER UNE LUMIERE STRUCTURELLE : PRINCIPE DE LA BULLE DE SAVON
+
+Une bulle de savon en lumière blanche présente un phénomène d’irisation.
+La bulle de savon est une sphère de deux couches fines dont l’épaisseur varie avec la gravitation.
+Nous allons utiliser des bulles de savon en une dimension (lui donnant la forme d’une lame) pour
+simplifier le principe afin de pouvoir l’expliquer. Nous savons que la partie supérieure de la lame
+s’amincit sous l’effet de la pesanteur.
+Cette diminution de l’épaisseur de la bulle de savon entraîne une diminution de la différence de
+marche des rayons incidents. L’observation nous montre que plus l’épaisseur de la couche diminue,
+plus les courtes longueurs d’onde sont réfléchies. Donc, au fur et à mesure que le temps passe, les
+longueurs d’ondes réfléchies par la bulle tendent vers le bleu, puis vers le violet.
+Le phénomène d‘interférence permet d’expliquer ces variations de couleurs. En effet, à la sortie de
+la lame de savon, deux ondes cohérentes et synchrones peuvent interférer grâce à une première
+réflexion entre l’interface air/lame puis une deuxième à l’interface lame/air.
+Nous allons comparer l’épaisseur et la différence de marche pour deux longueurs d’ondes : bleu et
+rouge.
+On démontre que: 2𝑛ⅇ=
+
+𝜆
+2
+
+On calcule ainsi l’épaisseur du milieu pour une longueur d’onde correspondant à celle d’un faisceau
+bleu de λb ≈ 500 nm.
+Or l’indice, n ≈ 1,4.
+𝜆
+eb= 𝑏 ≈ 8,9 x 10-8m
+4𝑛
+
+𝜆
+
+Par ailleurs, on démontre aussi que: δb = 2𝑛ⅇ𝑏 𝑐𝑜𝑠(𝑟)+ 2𝑏
+Or on sait que pour observer les irisations, l’angle incident doit être proche de 20°= r, eb=8,9 x 10-8 m
+et n ≈ 1,4.
+Donc, δb ≈ 4,9x10-7 m.
+On calcule l’épaisseur du milieu pour une longueur d’onde correspondant à celle d’un faisceau rouge
+de λr ≈ 750 nm.
+On trouve er=1.4 x 10-7m et n ≈ 1,4.
+Donc δr≈ 7,7 x 10-7 m.
+Les interférences sont constructives pour δ =k x λ. Or, d’après l’échelle de Newton-Lévy, si la
+différence de marche est comprise entre 5 x 10-7m et 7 x 10-7m, les longueurs d’ondes bleues ont des
+interférences constructives et c’est de même pour les longueurs d’ondes rouges pour des différences
+de marche comprises entre 7 x 10-7m et 1 x 10-6 m.
+On le vérifie :
+δb = 5 x 10-7m et δr = 1 x 10-7m
+Ainsi, nous avons vérifié que pour une longueur d’onde bleue, la différence de marche est inférieure
+à celle des longueurs d’ondes qui sont plus grandes, l’épaisseur du milieu l’est aussi.
+
+2
+
+Selon l’étude menée par M. Milinkovitch
+
+4
+
+2) Lien entre couleur, milieu et humeur
+Le changement de couleur du caméléon se fait en fonction de l’état physiologique de l’animal
+(contrôle nerveux, émotions, hormones) et des facteurs externes (lumière, humidité, la couleur du
+milieu).
+Lorsque le caméléon est en état normal, c’est‐à-dire qu’il est dans des conditions idéales moyennes
+(température à 28oC, luminosité à 0,25 Klux, amplitude sonore à 60 dB, humidité à 70%) et sans état
+de stress, il prend naturellement la couleur du milieu grâce au principe du mimétisme.
+Dans le cas du Chameleo Chameleon (caméléon commun), il est de couleur vert clair (couleur qui
+correspond à l’environnement feuillu) avec des tâches marron sur les côtés latérales de son ventre,
+contrairement aux couleurs plus intenses qu’il affiche lorsqu’il est excité.
+Photographie du caméléon dans des conditions normales
+
+Le caméléon se sent menacé (stress/peur) lorsqu’il est en présence d’un autre animal, au moment où
+il est pris par un humain ou lorsque l’amplitude sonore est très élevée. Dans ces cas, il devient soit
+plus foncé soit étale des couleurs plus éclatantes ou des tâches brunâtres et jaunâtres.
+Photographie lors d’un stress
+
+5
+
+A propos du changement de température, le caméléon devient théoriquement plus foncé face à une
+température basse (18oC) afin d’absorber les rayons lumineux, et plus clair face à une température
+élevée (38oC) afin de refléter les rayons lumineux.3
+
+II.
+
+EXPERIENCES ET PROTOCOLE
+
+Objet du protocole:
+Nous voulons étudier le changement de couleur du caméléon commun en fonction de différents
+facteurs ainsi que les interférences au niveau d’une lame mince de savon.
+Objectifs| Hypothèses des expériences:
+ÎLe caméléon change-t-il de couleurs en fonction de différents facteurs externes (fréquence
+sonore, température, couleur du milieu où il se trouve)?
+ÎLorsque la température est élevée, le caméléon devient-il plus clair? Et inversement?
+ÎEn considérant que la fréquence sonore est une simulation d’un stress, le caméléon prend‐il les
+teintes de stress? Le caméléon aura‐t-il la même réaction face au stress d’un contact physique
+avec un humain que face à un stress sonore?
+ÎLe caméléon prend‐il les mêmes nuances de couleurs que celles de son milieu? Si oui, quelles
+nuances et en combien de temps?
+ÎComment reproduire la couleur verte du caméléon avec une lame de savon et un filtre jaune?
+
+1) Identification des variables
+A. Les variables indépendantes
+Nous avons sélectionné douze traitements pour nos expériences.
+Nous varions :
+L’intensité sonore dans l’environnement du caméléon sur trois paliers: 200 Hz, 400 Hz et 600 Hz. Ces
+valeurs ont été choisies car le caméléon entend sur des fréquences qui se trouvent entre 200 Hz et
+600 Hz.
+La température de son milieu sur deux paliers: 38oC et 19oC, dans la mesure où la température
+optimale moyenne pour le caméléon est de 28oC. Ainsi, nous étudions son comportement dans un
+environnement froid et chaud.
+
+3
+
+Voir
+
+6
+
+La couleur de son milieu grâce à différents filtres de couleurs (à partir d’une lumière blanche): violet,
+orange, rouge, jaune, vert et bleu. Nous avons sélectionné celles-‐‐ci afin d’avoir une palette
+complète de couleurs; mais aussi car certains caméléons arborent les couleurs choisies.
+Remarque: pendant une expérience, seulement une variable sera modifiée.
+
+B. Les variables dépendantes
+
+Dans le cadre de ce projet, nous étudierons deux variables dépendantes: la couleur de la peau du
+caméléon ainsi que sa saturation. Cela afin de pouvoir étudier la luminance de la couleur, par laquelle
+s’exprime le changement de couleur dû aux modifications de température ou aux variations sonores.
+
+Toutes les images ont été analysées avec le logiciel Photo filtre, car il est accessible et facile à
+manier.
+
+2) Les manipulations
+
+A. Matériel expérimental
+Conditions permanentes:
+-
+
+Thermomètre
+
+-
+
+Luxmètre
+
+-
+
+2 lampes chaudes
+
+-
+
+Chauffage
+
+-
+
+Appareil photo (Canon 1200D) + trépieds
+
+-
+
+Terrarium + caméléon
+
+Conditions variables:
+-
+
+Sonomètre et émetteur de basses fréquences (expérience sons)
+
+-
+
+Sauna (expérience température)
+
+-
+
+Climatisation et bac de glaçons (expérience température)
+7
+
+-
+
+6 filtres de couleur et lampe froide
+
+1) Expériences son
+
+-
+
+Photographies de l’animal avant l’expérience, ce sont les témoins
+
+-
+
+Le terrarium dans une pièce sombre
+
+-
+
+Luminosité de 0,25 kLux, température de 28°C, son à 60 décibels
+
+-
+
+Un émetteur de fréquence de 200/400/600 Hz près du terrarium
+
+-
+
+Allumer l’émetteur de fréquence pour 2 min
+
+-
+
+Photographies de l’animal après l’expérience
+
+Remarque: le temps de repos entre chaque expérience (1, 2, 3) est de 10 minutes.
+
+2) Expériences température
+Idem expériences son, sauf les conditions variables qui changent.
+
+3) Expériences milieu (couleur)
+Idem expériences son, sauf les conditions variables qui changent.
+
+4) Expérience sur la bulle de savon
+-
+
+Liquide pour faire le bulle de savon (composition: 30 mL de liquide de vaiselle, 30 mL de
+glycérine, 180mL d’eau distillée)
+
+-
+
+Forme circulaire faite de fil de fer
+
+-
+
+Lentille convergente
+
+-
+
+Lampe froide
+
+-
+
+Caméra
+
+-
+
+Ecran
+
+-
+
+Filtre coloré
+8
+
+Protocole:
+
+- Placer la lampe froide à une distance optimale de la lentille pour que les faisceaux de lumière
+blanche convergent le plus
+- Placer la bulle de savon devant la lentille convergente
+- Vérifier que l’image de la bulle soit projetée sur un écran
+- Placer la caméra sur le trajet de réflexion de l’image de la
+bulle
+- Placer le filtre devant la caméra
+- Etudier les images avec et sans filtre
+
+Représentation de l’expérience
+
+9
+
+B. Répétions des expériences
+Les expériences ont été réalisées à trois reprises afin de s’assurer de la cohérence de nos résultats.
+En outre, le caméléon ayant seulement quelques mois, est dans une période de forte croissance. Ses
+mues sont plus fréquentes (mensuelles) pour le nôtre.
+
+C. L’environnement à contrôler
+
+Les expériences ont eu lieu dans une pièce sans fenêtres de 4 m2 et d’une hauteur de 2 mètres. Nous
+avons donc éclairé la pièce à l’aide de deux lampes avec une luminosité de 0,25klux. En outre, la
+pièce est à 27,5oC.
+
+3) Collecte des données brutes
+Nous avons analysé grâce au logiciel Photo Filtre les photos avant/après de la peau du caméléon sur
+son ventre. Les valeurs obtenues suivent le codage informatique des couleurs.
+En effet, le pixel se code sur une base de 32 bits, dont 24 sont utilisés pour le codage de la couleur. Les
+24 bits d'une couleur se décomposent en 3 fois 8bits : 8 bits sont consacrés pour chaque teinte
+primaire (RVB). Une séquence de 8 bits permet de coder un nombre entier compris entre 0 et 255 (car
+28 vaut 256). Par conséquent, la valeur de la composante rouge d'un pixel peut être représentée selon
+256 niveaux différents (allant du 0, absence de rouge, à 255, rouge d'intensité maximum). C’est de
+même pour les 2 autres composantes primaires.
+Nous avons choisi cette unité car nos DELs RVB (Rouge Vert Bleu) utilisent le même principe.
+
+ANALYSE DES DONNEES
+Remarque: Entre chaque expérience, la peau du caméléon a évolué: des tâches marron au niveau du
+ventre. Il nous semble qu’il est devenu plus réactif.
+Afin d’analyser les changements de couleur de notre caméléon face aux différents stimuli, nous avons
+calculé à partir du tableau sa teinte. Nous y avons soustrait la saturation des couleurs pour le vert, rouge
+et bleu pour voir la proportion de ces couleurs dans la couleur finale.
+Nous nous sommes concentrées sur une partie du corps: le bas du ventre, les résultats étant les plus
+interprétables
+
+10
+
+A. Expériences température
+
+Dans les expériences 2 et 3, nous remarquons une hausse de la luminance: 170,55 en conditions
+normales contre 199,02.
+
+Au niveau de l’expérience 3, nous constatons une plus forte luminance par rapport aux conditions
+normales (184,26 contre 170,55 en conditions normales); néanmoins, le taux de luminance cet
+expérience s’avère être plus faible que dans l’expérience 2 (184,26 contre 211,83).
+
+B. Expériences fréquences
+
+11
+
+1. Fréquence 200 Hz
+
+Nous observons que le niveau de saturation des couleurs est plus faible qu’en conditions
+normales (137.48 contre 143.74).
+2. Fréquence 400h Hz
+
+Nous observons une hausse globale du niveau de la valeur des couleurs (de143, 4 en
+conditions normales à 173,35).
+Toutefois, nous remarquons une baisse globale du niveau de la valeur des couleurs dans
+l’expérience 1 (123,17 contre 144,43 en conditions normales).
+3. Fréquence 600 Hz
+
+12
+
+Nous observons une hausse globale du niveau de saturation des couleurs (173,74 contre 143,4 en
+conditions normales).
+Toutefois, nous remarquons une baisse globale du niveau de saturation des couleurs dans une
+expérience (131,15 contre 144,43 en conditions normales).
+C. Expériences milieux
+
+Dans l’expérience 2, la saturation augmente de 2,38. Il reste donc deux teintes: du vert (168,5) et du
+rouge (161,53).
+Dans l’expérience 3, on remarque une augmentation du taux de saturation de 22,49. Il reste ainsi du
+vert à 193,95 et du rouge à 160,79.
+Dans l’expérience 2, on observe une baisse du taux de saturation de 46,04. Ainsi, les teintes sont le
+vert à 165,56 et le rouge à 189,74.
+
+Dans l’expérience 3, une augmentation du taux de saturation de 30,72. Il reste du vert (à 195,8) et du
+rouge (à 171,7).
+
+13
+
+Expérience 3 - Filtre Vert (en codage
+informatique des couleurs)
+300
+200
+100
+0
+Rouge
+
+Vert
+
+Conditions normales
+
+Bleu
+
+Luminosité
+
+Après l'expérience
+
+Dans l’expérience 2, le taux de saturation augmente de 67,07. Il reste donc du vert et du rouge,
+de respectivement: 208,47 et 189,74.
+Dans l’expérience 3, on observe que le taux de saturation augmente de 16,08. Les teintes
+restantes sont le vert (190,33) et le rouge (163,06).
+
+D. Expérience bulle de savon
+
+Interférences constructives pour les
+longueurs d’onde bleues.
+
+Lorsque les interférences sont constructives pour les
+longueurs d’ondes bleu-cyan, après ajout du filtre jaune,
+on observe du vert par synthèse soustractive.
+
+14
+
+4) Conclusion
+Nous pouvons affirmer qu’à première vue le caméléon ne change pas régulièrement de couleur en
+fonctions des facteurs. Néanmoins, il modifie de façon subtile sa teinte, bien que ce ne soit pas toujours
+visible à l’œil nu et ne correspondent pas aux variations attendues.
+En ce qui concerne la température, le caméléon devient généralement plus clair lorsque celle-ci est
+plus élevée, cela concorde avec une augmentation du taux de saturation.
+A l’œil nu, il semble que le caméléon s’assombrit face à une baisse de la température. Néanmoins, cela
+ne correspond pas aux résultats trouvés à partir du logiciel Photo filtre, qui présente une hausse du
+taux de saturation, donc de la teinte.
+Quant à la fréquence sonore, le caméléon semble ne pas réagir lors de la simulation de ce type de
+stress. Mais, il se manifeste constamment et ses teintes sont alors plus vives. Face à un stress sonore,
+l’animal réagit différemment que face au stress causé par un contact humain.
+Pour ce qui est du camouflage, le caméléon reprend rarement les mêmes nuances que celles de son
+milieu. C’est toutefois le cas pour certaines couleurs comme le rouge, le jaune et le vert.
+Notre animal étant une femelle, celle‐ci n’est pas aussi réactive visuellement face aux divers facteurs
+que le serait un mâle.
+La couleur verte du caméléon peut être une adaptation de l’animal à son environnement où
+la couleur verte est prédominante.
+Nous observons que sur la couche de savon il y a des interférences constructives pour toutes les
+longueurs d’ondes représentant toutes les couleurs. Ainsi, les couleurs observées varient
+constamment. Lorsque la couleur réfléchie par la lame est le bleu, en plaçant un filtre jaune devant la
+caméra, on observe du vert. Il en est de même lorsqu’on éclaire l’image de la lame de savon en lumière
+jaune. Ceci est dû au principe de synthèse additive. La combinaison des faisceaux bleus-cyan et jaunes
+crée du vert. Ainsi, dans notre expérience, le filtre jaune joue le rôle des chromatophores sur le
+caméléon, et la couleur bleue de la lame est l’équivalent des nano cristaux qui renvoient des faisceaux
+bleus en utilisant le même principe d’interférence.
+
+III.
+
+MECANIQUE ET ROBOTIQUE
+
+1)
+
+Del et programme: solutions artificielles pour un principe naturel
+
+Une DEL se compose de 3 lampes de 3 couleurs: rouge, vert et bleu. L’intensité est contrôlée par un
+programme. La lampe peut être allumée avec une intensité de 0 à 255.
+Le mélange des nuances de ces 3 couleurs aux intensités différentes crée toutes les autres couleurs
+(sauf le noir: manque de lumière et le blanc: combinaison de l’intensité maximale du rouge, vert et
+bleu). Les couleurs se forment selon la synthèse additive dont les couleurs primaires sont le rouge, le
+vert, le bleu.
+
+2)
+
+Le programme
+15
+
+Nous avons utilisé une plaque Arduino pour le programme. Celui-‐‐ci est écrit en Arduino, mélange
+de plusieurs langages différents (C et C++). Nous avons créé un programme qui imite le
+fonctionnement de notre animal et aussi celui d’un animal de l’espèce panthère (Furcifer Pardalis).
+Le programme permet au robot de réagir aux 3 facteurs externes : couleur du milieu, température et
+fréquences sonores. La couleur qu’affiche le robot est le résultat de la combinaison des trois capteurs.
+Chaque capteur possède un programme le contrôlant. Les données initiales, celles en fonction
+desquelles on mesure la variation des facteurs y sont introduites. Pour chaque groupement de valeurs,
+nous lui attribuons une action. Par exemple, en fonction de la température et de la fréquence sonore,
+la couleur indiquée par l’intensité de couleur sera soit plus intense, soit plus pâle. Le comportement
+du robot correspond en grande partie à celui du caméléon (sauf pour le changement de couleur qui
+permet la représentation des deux autres réactions).
+
+Fonctions
+Principales
+
+Fonctions
+Secondaires
+
+Fonctions
+techniques
+
+Solutions
+techniques
+
+Capter la couleur du sol
+
+Capteur couleur
+
+Reproduire la couleur captée
+
+LEDs
+
+Mesurer la température de la pièce
+
+Capteur thermique
+
+Comparer la température à une
+intervalle de couleur
+
+Arguino mega 2650
+
+Afficher de la lumiere de la couleur
+appropriée
+
+LED's RGB
+
+Mesurer le niveau sonore de la
+pièce
+
+Capteur sonore
+
+Afficher la couleur adéquate
+
+LED's RGB
+
+Comparer le niveau sonore à une
+intervalle de couleur
+
+Arguino mega 2650
+
+Reproduire la couleur du sol
+
+Changer de couleur en fonction
+de la température
+
+Changer de couleurs +
+Deplacement
+
+Changer de couleur en fonction du
+niveau sonore
+
+Analyser les ordres
+Se déplacer selon les ordres de
+l'utilisateur
+
+Recevoir les ordres
+
+Shield Bluetooth
+
+Exécuter les ordres: se deplacer
+
+Servomoteur + Roue
+
+Utiliser de l'énergie
+
+Batterie
+
+Adapter l'énergie
+
+Régulateur
+
+Etre autonome en énergie
+
+Suite à la mise en place du plan, chaque capteur a été testé séparément puis tous ensemble, pour
+s’assurer que la tension et l’intensité sont suffisantes. Nous avons ensuite conçu le plan du châssis,
+permettant de supporter les composants du robot. Enfin, nous avons commencé l’assemblage.
+
+16
+
+Par souci d’esthétique pour que le robot ressemble à un caméléon, élément central du projet, nous
+avons couvert la structure de notre robot d’une coque translucide, qui permet de diffuser la lumière
+des DELs, imprimée en 3D.
+
+3)
+
+Expériences et mise en pratique
+
+Tout comme le caméléon, le robot devient plus foncé (rouge et rose foncé) dans un milieu froid; à
+l'inverse, lorsque la température est élevée, le robot affiche une couleur plus clair (bleu et vert clair).
+A. Milieu froid
+
+Couleur du milieu
+
+17
+
+B. Milieu chaud
+
+Couleur du milieu
+
+C. Changement de milieu
+
+Couleur du milieu
+
+IV.
+
+CONCLUSION
+
+Dans le cadre du projet, nous nous sommes essentiellement concentrées sur le caméléon
+calyptratus. Nous avons effectué moult recherches sur la biologie de l’animal lui permettant le
+changement de couleur. Nous savons maintenant que ces modifications s’expliquent la
+combinaison des principes structurels et pigmentaires. D’après nos expériences, le caméléon
+semble réagir aux divers facteurs externes mais de manière imperceptible à l’œil nu. Ainsi, face
+à une température plus élevée, le caméléon semble devenir clair, et inversement. Pour ce qui
+est de l’intensité sonore, les couleurs deviennent plus vives chez l’animal. Quant au milieu,
+celui-‐‐ci ne parait pas provoquer de réelle réaction chez le caméléon, à l’exception du rouge,
+du vert et du jaune. Nous avons conçu le robot-‐‐caméléon qui reprend les résultats de nos
+expériences et le comportement du Furcifer Pardalis.
+Aussi, nous parait-‐‐il intéressant de se demander dans quelle mesure le mimétisme pourrait
+améliorer notre vie quotidienne.
+
+V.
+
+BIBLIOGRAPHIE ET SITOGRAPHIE
+
+Krystal Tolley, Chameleons of Southern Africa et The biology of chameleons
+Michel C. Milinkovitch, Photonic crystals cause active colour change in
+chameleons
+Audrey HUYGHE, Anatomie splanchnique du caméléon, applications à la
+
+pratique vétérinaire
+Christine, Marie-­­France de MATTEIS, Carnet de clinique des reptiles Le
+Larousse Médical
+Livre de Physique-‐‐Chimie pour Terminale S, Hachette
+NATURE
+
+18
+
+http://isites.harvard.edu/fs/docs/icb.topic624773.files/Lecture%2013-‐‐
+%20Vision%20II%20the%20brain.pdf
+http://krystaltolley.wix.com/krystaltolley#!chameleon-‐‐research/ceic
+http://www.maxisciences.com/cameleon/comment-‐‐le-‐‐cameleon-‐‐change-‐‐t-‐‐il-‐‐de-‐‐
+couleur-‐‐les-‐‐chercheurs-‐‐ont-‐‐ perce-‐‐son-‐‐secret_art34455.html
+http://www.nature.com/ncomms/2015/150302/ncomms7368/full/ncomms7368.html
+http://theses.vet-‐‐alfort.fr/telecharger.php?id=541
+https://en.wikipedia.org/wiki/Light
+https://en.wikipedia.org/wiki/Light#/media/File:EM_spectrum.svg
+https://www.youtube.com/channel/UCQwkb9mFahbopvMAVfJoPcA/playlists
+https://www.youtube.com/watch?v=egwueh6wj1E
+https://phitem.univ-‐‐grenoble-‐‐alpes.fr/system/files/UJF/interflamemince.pdf
+
+VI.
+
+Annexes
+
+19
+
+

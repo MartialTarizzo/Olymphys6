@@ -1,0 +1,1520 @@
+Les muons, la cave
+et le tuffeau
+
+Lise GERMON
+Alice HUGUET
+Elise BONIN
+TS - 724
+
+2014-2016
+
+1 sur 30
+
+Sommaire
+
+Introduction ------------------------------------------------------------------3
+Résumé de notre projet ---------------------------------------------------3
+Remerciements --------------------------------------------------------------4
+I-Comment détecter les muons ? ---------------------------------------5
+1) Comment se forment-ils ? ----------------------------------------------5
+2) Comment sont-ils détectés ? -------------------------------------------6
+3)De quels paramètres dépend le nombre de muons détectés ?-7
+
+II- Mesures de l'absorption des muons par la roche ---------------8
+1) L'épaisseur de roche traversée fait-elle varier le nombre de muons
+détectés ? ---------------------------------------------------------------------------8
+2) Peut-on mesurer l'épaisseur d'une roche grâce à l'absorption
+des muons ? -------------------------------------------------------------------9
+a-Construction d'une courbe d'étalonnage ------------------10
+b-Perte du caractère relativiste du muon ---------------------11
+c-Construction d'un modèle mathématique simplifié------14
+
+Conclusion ------------------------------------------------------------------19
+Bibliographie ---------------------------------------------------------------20
+Annexes ----------------------------------------------------------------------21
+
+2 sur 30
+
+Introduction
+Après avoir constaté plusieurs éboulements de caves dans notre région, nous nous sommes
+demandés si l'épaisseur du plafond des caves était connue. Cette information nous permettrait de
+connaître la fragilité des roches afin de prévenir les risques d'éboulements. Nous nous sommes
+alors renseignées sur des moyens permettant de déterminer l'épaisseur d'un plafond rocheux.
+De plus, nous avons appris que le lycée allait recevoir un détecteur de muons
+(cosmodétecteur). Les muons sont des particules qui proviennent du ciel et qui ont la capacité de
+traverser la matière assez facilement. Ils sont déjà utilisés en géologie pour étudier le relief de
+volcans (tomographie).
+Nous nous sommes alors demandées s'il était possible de mesurer l'épaisseur d'une roche
+grâce à la détection des muons.
+Afin de répondre à cette problématique, nous allons tout d'abord nous intéresser aux
+muons et à leur détection, puis nous allons étudier leur absorption par la roche et essayer de
+trouver une façon de mesurer l'épaisseur de plafonds rocheux.
+Vous pouvez également visiter http://www.vaucanson.org/php5/Accueil/index.php/muons-etprofondeur-d-une-cave de notre projet : pour plus d'informations.
+
+Résumé de notre projet
+Le but de notre projet était d'utiliser les muons pour déterminer l'épaisseur d'un plafond
+rocheux composé de tuffeau. Nous avons donc réalisé des expériences pendant lesquelles nous
+avons mesuré le nombre de muons à l'extérieur et à l'intérieur de la cave grâce au
+cosmodétecteur afin d'obtenir le pourcentage d'absorption. Nous voulions trouver le lien entre ce
+pourcentage et l'épaisseur de roche traversée. Après divers calculs (basés sur nos mesures
+d'étalonnage), nous sommes arrivées à une équation :
+
+%abs−22,4
+
+Epaisseur = 10 21,8
+Après avoir testé cette équation sur des situations réelles, nous nous sommes rendues
+
+compte qu'elle ne fonctionnait pas et nous donnait des résultats aberrants. A l'aide de
+scientifiques, nous avons essayé de nouveau de trouver une réelle corrélation en partant d'un
+modèle mathématique théorique. Or, une fois de plus, la théorie ne correspondait pas à la réalité
+notamment à cause du fait que les muons arrivant au sol n'ont pas tous la même énergie ni la
+même trajectoire et ne vont donc pas se comporter de la même façon.
+Pour conclure, nous n'avons pas réussi à trouver une façon de déterminer l'épaisseur d'une cave à
+partir du pourcentage de muons absorbé.
+
+3 sur 30
+
+Remerciements
+Pour ce projet, nous avons bénéficié de l'aide de nombreuses personnes. Tout
+d'abord nous tenons à remercier M. Étienne DUBRAY, un tailleur de pierre qui avait accepté
+de nous aider et surtout M. André ZULIANI qui nous a aimablement accueillies un samedi
+matin pour faire nos mesures d'étalonnage dans son atelier.
+Nous remercions aussi les propriétaires des différentes caves dans lesquelles nous
+avons été faire nos mesures : celles situées à Perrière de Grandmont et M. et Mme LEDRU.
+Nous avons également apprécié l'aide de M. WANGER professeur de physique au lycée René
+Dayve, au pied du Mont Blanc, qui nous a fourni des mesures pour notre expérience
+concernant l'altitude.
+Nous remercions aussi les différents préparateurs de physique du lycée qui ont pu
+nous aider pour ce TPE, ainsi que l'organisme Science à l’École dont l'aide nous a été
+précieuse.
+De plus nous sommes reconnaissantes envers notre professeur de SVT, Mme
+LETISSIER pour nous avoir encadré pendant les heures de cours mais aussi particulièrement
+M. THIBAULT, notre professeur de physique qui nous a accompagné tout au long de ce projet.
+Enfin, nous remercions les chercheurs et scientifiques qui nous ont apporté leur aide
+et sans qui nous aurions manqué de connaissances théoriques, notamment M. Nicolas
+ARNAUD, chercheur au laboratoire de l'accélérateur linéaire, M. José BUSTO, entre autres
+chercheur au Centre de Physique des Particules de Marseille (CPPM), M. Karim NOUI, maître
+de conférences sur les constituants élémentaires à l'université François Rabelais de Tours, et
+surtout M. Loic Villain, maître de conférences en physique à la faculté de médecine de Tours.
+
+4 sur 30
+
+I-Comment détecter les muons ?
+1) Comment se forment-ils ?
+Le rayonnement cosmique primaire, provenant
+notamment du soleil mais aussi de la galaxie
+entière, est un flux de noyaux atomiques et
+d’autres particules. Ce rayonnement entre en
+collision avec l’atmosphère de la Terre, et les
+protons qui le constituent interagissent alors avec
+les noyaux de l’atmosphère et forment une gerbe
+de particules (fig.1).
+Les muons sont issus de la désintégration des
+pions chargés.
+Ils se désintègrent à leur tour, à la fin de leur vie
+Figure 1 : Schéma de la gerbe de
+particules du rayon cosmique
+secondaire
+
+qui dure environ 2,2μs au repos, selon l'équation :
+−
+
+−
+
+μ → e + ν̄e + ν µ
+
+c'est-à-dire que le muon se
+
+« transforme » en un électron et deux neutrinos.
+On considère le muon comme une particule élémentaire : ce sont les composants
+fondamentaux de l'Univers. Ce sont les plus petites particules non sécables connues
+aujourd'hui. Elles sont répertoriées dans le modèle standard (voir fig. en annexe)
+Le muon est en quelque sorte une copie conforme de l’électron mis à part le fait qu’il
+soit plus lourd (masse 207 fois plus grande) et donc assez instable, ce qui explique le fait qu'il
+ne compose pas la matière ordinaire.
+En effet, on le retrouve seulement dans les rayons cosmiques, ou les accélérateurs de
+particules.
+
+5 sur 30
+
+2) Comment sont-ils détectés ?
+Le muon se forme dans les hautes couches de l'atmosphère à une altitude d'environ
+10000 à 20000m. Son temps de vie théorique dans son référentiel propre est de
+τ 0 = 2,197 µs .
+
+Il a également, dans ces conditions, une vitesse très proche de celle de la lumière : environ
+0,9997c, soit 2,9979.108m.s-1. Statistiquement, ces données devraient lui permettre de
+parcourir seulement une distance d0 proche de 660m au cours de sa vie :
+d 0 = 0,9997 c × τ 0 = 0,9997 × 2,9979 .108 × 2,197 .10−6 ≈ 660 m
+
+Figure 3 : Schéma de l'arrivée théorique et réelle du muon
+Or, on parvient à le détecter à la surface de la Terre, plus de 9km plus bas. (fig 3)
+Cette nette différence entre la distance théorique et la distance réelle s'explique
+grâce à la relativité restreinte et la théorie de dilatation du temps. Le muon se déplaçant à
+une vitesse très proche de celle de la lumière, son temps de vie va être plus long dans le
+référentiel terrestre.
+Le facteur de dilatation du temps γ se calcule en fonction de la formule suivante, que
+l'on applique aux muons :
+γ =
+
+1
+
+√
+
+2
+
+v
+1− 2
+c
+
+=
+
+1
+
+√
+
+( 2,9970 .108)2
+1−
+8 2
+( 2,9979 .10 )
+
+≃ 40,814
+
+6 sur 30
+
+Cet indice nous permet de calculer le temps de vie apparent τ1 du muon :
+τ 1 = τ 0 × γ = 2,197 .10−6 × 40,814 ≃ 8,967 .105 s
+Et on en déduit la distance d1 que le muon a en fait le temps de parcourir :
+5
+
+8
+
+4
+
+d 1 = τ 1 × 0,9997 c = 8,967 .10 ∗ 2,9970 .10 ≃ 2,687 .10 m = 26,87 km
+
+Grâce à sa très grande vitesse, le muon peut donc parcourir près de 27km dans le
+vide ; on comprend alors qu'une grande proportion des muons créés en altitude atteignent la
+surface de la Terre.
+Notre lycée a obtenu grâce au programme Sciences à l’École une machine appelée
+cosmodétecteur, qui permet de détecter les muons. Cette machine comporte trois parties
+principales : le scintillateur, le photomultiplicateur et la partie électronique, reliée à
+l'ordinateur via un logiciel. Le fonctionnement est détaillé en annexe.
+Grâce à la machine, on obtient un comptage des muons sur l'ordinateur, via un
+logiciel.
+
+3) De quels paramètres dépend le nombre de muons détectés ?
+Notons que le flux de muons arrivant à la surface de la Terre est décrit par un
+phénomène statistique. De fait, chacune des données exploitées au cours de ce projet sont
+des moyennes de nombreuses mesures consécutives, afin de limiter les imprécisions dues
+aux écarts entre la théorie et la réalité.
+Le nombre de muons détectés peut varier en fonction de différents paramètres (au
+niveau du cosmodétecteur, et au niveau environnemental) que nous allons devoir prendre en
+compte pour interpréter nos mesures.
+Nous avons donc réalisé plusieurs expériences qui nous ont permis de tester ces
+paramètres un par un : l'intervalle de comptage utilisé, l'orientation des raquettes du
+cosmodétecteur, l'heure de la journée (rayonnement solaire), la météo, et l'altitude. Le détail
+de ces expériences se trouve en annexe.
+Nous avons conclu de ces expériences que les mesures pour un même lieu devront
+être réalisées le même jour afin de faire varier le moins de paramètres possible.
+
+7 sur 30
+
+II- Mesures de l'absorption des muons par la roche
+1) L'épaisseur de roche traversée fait-elle varier le nombre de muons
+détectés ?
+Avant de chercher une quelconque corrélation entre l'épaisseur de roche et le
+pourcentage d'absorption des muons, il nous était essentiel de vérifier que cette absorption
+avait bien lieu.
+Lors d'une expérience dans une cave à Benais, nous avons observé que la traversée
+d'une épaisseur de roche calcaire (le plafond de la cave) entraîne une diminution du nombre
+de muons détectés (226±12 au dessus de la cave contre 47±7 à l'intérieur de la cave).
+
+Figure 12 : Photographie du
+cosmodétecteur dans les caves de Benais
+
+Figure 13 : Photographie du
+cosmodétecteur à Benais
+
+Cela a été déterminant pour notre TPE, car grâce à ce constat, nous avons pu
+chercher à établir une corrélation entre ces deux paramètres.
+L'épaisseur de roche traversée influe-t-elle sur le nombre de muons détectés ?
+
+• Expérience 7
+Hypothèse : Nous pensons que l'augmentation de l'épaisseur de la roche traversée fait
+diminuer le nombre de muons détectés.
+Protocole : Nous sommes allées chez Monsieur André Zuliani, tailleur de pierre à Ingrandes
+de Touraine (37), afin de mesurer le nombre de muons détectés en dessous de blocs de
+pierre de différentes épaisseurs afin d'obtenir des mesures étalons.
+8 sur 30
+
+Nous avons donc réalisé plusieurs mesures, sous des blocs de tuffeau de différentes
+épaisseurs et une dernière mesure sans roche au dessus. Nos mesures ont été faites avec un
+comptage toutes les minutes pendant 10 minutes.
+
+Résultats : Nous avons
+ensuite utilisé ces
+mesures pour obtenir un
+graphique nous
+montrant le nombre de
+muons détectés en
+fonction de l'épaisseur
+de roche traversée.
+
+Nom bre de m uons détectés
+
+Figure 14 : Photographie du
+cosmodétecteur lors des mesures
+d'étalonnage
+
+Figure 15 : Photographie du
+cosmodétecteur lors des
+mesures d'étalonnage
+
+220
+210
+200
+190
+180
+170
+160
+150
+140
+0
+
+20
+
+40
+
+60
+
+80
+
+100
+
+120
+
+Epaisseur de roche traversée (cm)
+
+Figure 16 : Graphique du nombre de muons détectés
+en fonction de l'épaisseur de roche traversée
+
+Observations/Interprétation : Nous observons que le nombre de muons détectés en dessous
+d’un bloc de tuffeau diminue quand l’épaisseur de celui-ci augmente. Notre hypothèse est
+donc validée.
+2) Peut-on mesurer l'épaisseur d'une roche grâce à l'absorption des
+
+muons ?
+La validation de notre hypothèse précédente nous a permis de nous poser la question
+cruciale pour notre TPE ; peut-on déterminer l'épaisseur d'une roche grâce à l'absorption des
+muons ?
+9 sur 30
+
+a- Construction d'une courbe d'étalonnage
+À partir des valeurs obtenues lors de l'expérience d'étalonnage, nous établissons le
+pourcentage d'absorption des muons grâce à la formule suivante :
+% d'absorption =
+
+(v muons sans roche − v muons avec roche )
+× 100
+v muons sans roche
+
+Grâce à nos mesures étalons, nous avons tracé le graphique du pourcentage
+d'absorption des muons en fonction de l'épaisseur de roche traversée, puis nous avons voulu
+modéliser une équation qui lui corresponde.
+Mesures étalons
+Pourcentage absorbé= f(épaisseur)
+25
+
+Pourcentage d'absorption
+
+20
+
+15
+
+10
+
+5
+
+0
+0
+
+0.2
+
+0.4
+
+0.6
+
+0.8
+
+1
+
+1.2
+
+Epaisseur (en m)
+
+Figure 17 : Graphique du pourcentage d'absorption des muons en fonction
+de l'épaisseur de roche traversée
+A l'aide de nos professeurs, nous avons pensé que l'allure de la courbe obtenue
+ressemblait à celle du logarithme décimal; ils nous ont donc conseillé de tracer le
+pourcentage d'absorption en fonction du logarithme de l'épaisseur. Avec la droite obtenue et
+son équation, nous sommes remontés à l'épaisseur en fonction du pourcentage
+d'absorption :
+
+Epaisseur = 10
+
+%abs−22,4
+21,8
+
+Cette équation nous donne des valeurs d'épaisseurs presque similaires à celles
+trouvées expérimentalement, mais nous notons toutefois quelques imprécisions.
+Nous avons réfléchi aux facteurs pouvant expliquer ces faibles imprécisions.
+10 sur 30
+
+D'abord, il est probable que les roches pour nos mesures d'étalonnage effectuées
+chez le tailleur de pierre n'aient pas été assez épaisses et donc pas forcément
+représentatives des épaisseurs de roches que l'on peut trouver dans la nature.
+De plus, ces mesures étaient probablement réalisées sur des temps trop courts pour
+nous apporter des résultats assez précis. En effet, comme nos mesures sont basées sur des
+moyennes, il faut que ces dernières soient représentatives de la réalité. Il nous faut donc
+effectuer des mesures sur des temps plus longs.
+Nous avons ensuite voulu appliquer cette relation aux mesures que nous avons faites
+lors de notre première expérience.
+Rappel :
+
+–
+
+Mesure dans la cave : 47 7 muons par min
+
+–
+
+Mesures en extérieur : 226 12 muons par min
+
+Soit un pourcentage d'absorption %abs =
+Avec la relation établie : e = 10
+
+77,9−22,4
+21,8
+
+226−47
+× 100 = 77,9 %
+226
+
+= 350 m
+
+Ce résultat est aberrant, et bien sûr faux ! L'équation ne fonctionne donc pas pour une
+épaisseur telle que celle des caves de Benais (probablement autour d'une dizaine de mètres).
+
+b- Perte du caractère relativiste du muon
+Face à ce problème, nous avons cherché un moyen d'expliquer pourquoi nous
+n'avions pas réussi à déterminer l'équation précise nous permettant de répondre à la
+problématique.
+Hypothèse : Nous pensons qu'à partir d'une certaine épaisseur de roche traversée, les
+muons ne respectent plus l'équation trouvée précédemment.
+Explications : Nous pouvons expliquer cela par le fait que le muon a perdu tellement
+d'énergie que son caractère relativiste ne peut plus être pris en compte, sa durée de vie dans
+le référentiel terrestre τ0 tend alors vers sa durée de vie propre τ1 de 2,2 µs.
+Or
+
+τ1 est lié à τ 0 par
+
+γ , qui dépend lui-même de l'énergie E du muon.
+
+11 sur 30
+
+Grâce au forum de Sciences à l’école, nous avons trouvé que la perte d’énergie E des muons
+dans un milieu en fonction de l’épaisseur traversée est donnée par la relation suivante :
+dE
+−1
+= −2ρ MeV.cm avec  la masse volumique du matériau traversé en g.cm-3.
+de
+
+Ainsi le calcaire ayant une masse volumique moyenne de 2,5 g.cm -3, la perte d’énergie
+est de 5,0 Mev/cm, soit 0,5 GeV/m.
+L’énergie d’une particule relativiste est la somme de son énergie de masse et son
+énergie cinétique soit :
+E = E masse + Ec = mc² +( −1) mc² =  mc²
+Connaissant l’énergie moyenne d’un muon au sol, soit
+
+E 0 = 4,3GeV , on peut
+
+étudier l’évolution de cette énergie avec l’épaisseur de tuffeau traversée.
+En considérant que l’énergie des muons décroît de 0,5 GeV/m tant qu’il peut être considéré
+relativiste, il est aisé d’exprimer l’énergie du muon en fonction de l’épaisseur de tuffeau
+traversée :
+
+E = E 0 − 0,5 × e
+
+L’énergie du muon étant donnée par
+coefficient
+
+γ de dilatation du temps : γ =
+
+E = γ mc² , nous pouvons en déduire le
+E
+mc²
+
+La masse d’un muon est 207 fois plus grande que celle de l’électron, soit
+−28
+
+m = 1,88 .10
+
+kg .
+
+L’énergie de masse du muon est donc
+
+E masse = mc² = 1,68.10
+
+−11
+
+J = 0,105GeV .
+
+Il est donc possible de remonter à la durée de vie du muon dans le référentiel terrestre :
+τ = γ τ0 =
+
+E × τ0
+m c2
+
+Remarque : la durée de vie du muon dans le référentiel terrestre étant proportionnelle à son
+énergie, et son énergie variant linéairement avec l’épaisseur de roche traversée, la durée de
+vie du muon va donc décroître linéairement avec l’épaisseur de tuffeau traversée.
+
+12 sur 30
+
+Dt= f(e)
+
+Observations/Interprétation
+
+100.0
+
+On constate donc qu’après
+
+90.0
+80.0
+
+8 m de calcaire, les muons ne
+
+Dt (en µs)
+
+70.0
+60.0
+
+sont
+
+50.0
+40.0
+30.0
+
+plus
+
+en
+
+relativistes.
+
+En
+
+moyenne
+effet,
+
+leur
+
+énergie serait inférieure à leur
+
+20.0
+
+énergie de masse, ce qui n’est
+
+10.0
+0.0
+0
+
+1
+
+2
+
+3
+
+4
+
+5
+
+6
+
+7
+
+e (en m)
+
+8
+
+pas possible et on voit que le
+
+Figure 19 : Graphique de la durée de vie du muon en fonction coefficient  devient plus petit
+de l'épaisseur de roche traversée
+que 1, ou la durée de vie plus
+petite que la durée de vie propre, ce qui est impossible.
+Ainsi au-delà de 8 m de tuffeau, la plupart des muons ne sont plus relativistes car plus
+assez énergétique et donc leur durée de vie est réduite à leur durée de vie propre soit 2,2
+µs. Ceci peut donc expliquer que leur nombre va fortement diminuer par la suite. Notre
+hypothèse est donc validée.
+Il nous faudra alors établir une équation différente de la première trouvée, celle ci ne
+pouvant probablement s'appliquer que sur les épaisseurs de moins de 8m.
+Nous avons tout de même voulu vérifier que la relation établie plus haut fonctionnait
+réellement pour des épaisseurs de tuffeau inférieures à 8m. Nous sommes donc allées chez
+M et Mme LEDRU, qui possèdent une cave à Nouzilly. Cette cave était pratique puisque nous
+pouvions estimer sa hauteur depuis l’extérieur.
+Nous pouvons remarquer ici que le plafond de
+cette cave se compose de deux parties : la roche
+calcaire et l'humus végétal (terre). Nous avons
+estimé l’épaisseur globale de ces deux couches à
+environ 1 m50.
+Figure 20 : vue transversale de la
+cave à Nouzilly
+13 sur 30
+
+Nous avons donc effectué une mesure à l’intérieur de la cave et une seconde à l’extérieur,
+pendant 20 minutes avec un comptage toutes les minutes.
+Lieux de la mesure
+
+Intérieur (dans la cave)
+
+Extérieur (au-dessus de la
+cave)
+
+Nombre de muons détectés 131,2 ± 12
+
+206,6 ± 12
+
+(moyenne)
+Ces résultats nous montrent bien une diminution du nombre de muons. Le
+pourcentage d'absorption est ici de
+
+206,6−131,2
+× 100 = 36,5 % .
+206,6
+
+Or, si on exploite ce pourcentage à travers l'équation trouvée précédemment, dont voici un
+rappel :
+
+%abs − 22,4
+21,8
+
+Epaisseur (en m) = 10
+
+Le résultat obtenu est de 4,43m. Il n'est pas cohérent avec l'épaisseur réelle de roche
+du plafond de la cave.
+En réfléchissant aux raisons de cette incohérence, nous avons pensé au fait que le
+milieu n'était pas homogène (humus), mais au vu de sa masse volumique (nettement
+inférieure à celle de la roche), il n'a pas pu fausser nos mesures à ce point.
+Nous devons donc admettre que notre équation n'est pas applicable en réalité, même
+sur une épaisseur relativement faible telle que celle de cette expérience.
+Cependant, puisqu'elle vérifiait nos valeurs d'étalonnage, l'équation est tout de
+même valable pour des épaisseurs assez faibles, probablement jusqu'à environ 1m
+d'épaisseur.
+
+c- Retour à la théorie : construction d'un modèle simplifié
+Comme nous l'avons conclu dans nos précédentes expériences, suivre la diminution
+du nombre de muons avec la profondeur de roche n'est pas lié à une simple décroissance
+radioactive ou diminution énergétique, mais est également liée au caractère relativiste des
+muons qui évolue étant donné que leur énergie diminue. La relation que nous avions établi
+était alors trop simple, et il nous a fallu chercher autre chose. Nous avons alors pris contact
+avec plusieurs scientifiques, en espérant qu'ils puissent nous donner de nouvelles pistes.
+À l'aide de Loic Villain de l'UFR de Sciences et Technique de Tours, nous avons essayé
+14 sur 30
+
+de construire un modèle simplifié de l'évolution du flux de muons au cours du temps et en
+fonction de la profondeur de roche traversée.
+
+Premières hypothèses :
+- On considère un faisceau monoénergétique de muons
+- Tous sont supposés avoir la même vitesse v orthogonale au détecteur.
+Ainsi le flux de particules est proportionnel à la densité de particules ρ (en muons/m3) et à
+leur vitesse v
+
+:
+
+Φ( x) = ρ(x ) × v (x )
+Au sol, avant de pénétrer dans la roche, on a alors :
+Φ(0) = ρ(0) × v ( 0)
+
+•
+
+On cherche d'abord à exprimer ρ( x)
+Le muon est une particule radioactive, c'est-à-dire qu'il se désintègre en suivant une
+
+loi de décroissance radioactive de la forme :
+t
+
+N (t) = N 0 e− τ , avec
+
+τ son temps caractéristique, temps propre ou encore
+
+constante de temps (c'est-à-dire le temps nécessaire pour que 63% des muons d'un
+échantillon se désintègrent), et
+
+N le nombre de muons.
+
+La densité de particules va subir la même loi de décroissance radioactive :
+−
+
+t
+
+ρ(t) = ρ(0) e τ
+Mais le temps propre τ varie avec le temps ou la profondeur (ces deux derniers
+facteurs étant liés car le muon perd de l'énergie).
+Ainsi on aura
+ou
+Avec
+
+τ( t ) = γ τ 0
+
+τ( x) = γ ( x ) τ 0
+
+τ( x) : temps caractéristique pour le référentiel terrestre
+τ 0 : temps caractéristique du muon (dans son propre référentiel)
+15 sur 30
+
+γ( x) : facteur de Lorentz (de dilatation du temps) qui varie avec la profondeur
+On a alors, en rajoutant le fait que le temps t et la profondeur x sont liés :
+−
+
+ρ( x) = ρ(0) e
+
+t (x)
+γ( x) τ 0
+
+On va donc chercher à exprimer
+
+γ , dont on sait qu'il dépend de l'énergie du
+
+muon.
+On suppose que l'énergie des muons décroît linéairement avec la distance parcourue,
+comme M. Nicolas ARNAUD nous l'avait indiqué. Pour rappel :
+dE
+= −2 × ρ
+dx
+
+−2
+
+MeV.cm
+
+dE
+: perte d'énergie par unité de longueur, en MeV.cm−2
+dx
+
+avec
+
+ρ : masse volumique de la roche en g.cm−3
+Si on considère que le tuffeau a une masse volumique ρ de 2,5g.cm-3, il vient
+dE
+= − 5,0 MeV.cm−1
+dx
+dE
+= − 500 MeV.m−1
+dx
+dE
+= − 0,5GeV.m−1
+dx
+Ainsi
+
+E (x ) = E (0) − 0,5 x ,
+
+et comme
+On a
+
+E = γ mc
+
+2
+
+2
+
+, on a
+2
+
+γ =
+
+E
+(avec E en Joules),
+mc 2
+
+γ( x) mc = γ(0) mc − 0,5 x
+
+0,5
+x
+2
+mc
+γ( x) = γ (0) − α x
+0,5×10 9 × 1,6×10−19
+≃4,7
+Avec α =
+9,1×10−31 × 207 × ( 2,9979×10 8)2
+D'où
+
+γ( x) = γ (0) −
+
+On recherche alors γ( 0) . Sachant que l'énergie moyenne des muons au sol est de
+4,0GeV, on a :
+E (0)
+4,0×109 × 1,6×10−19
+γ( 0) =
+=
+mc2
+9,1×10−31 × 207 × (2,9979×10 8)2
+γ( 0) = 37,8 ≃ 38
+
+16 sur 30
+
+Φ( x )
+ρ(x) v( x)
+=
+Φ( 0)
+ρ(0) v(0)
+
+On peut donc écrire
+
+−
+
+t( x)
+
+t (x)
+
+−
+ρ(0) e γ( x) τ
+v (x )
+v (x )
+=
+×
+= e γ(x) τ ×
+ρ(0)
+v (0)
+v (0)
+0
+
+0
+
+Or on ne connaît pas v ( x) . On peut par contre écrire :
+1
+γ( x) =
+v2
+1− 2
+c
+
+√
+
+1−
+
+v2
+1
+= 2 ↔
+2
+c
+γ
+
+v2
+1
+= 1− 2 ↔
+2
+c
+γ
+
+2
+
+v2
+γ 2−1
+2
+2 γ −1
+↔ v = c ( 2 )
+=
+2
+2
+γ
+c
+γ
+
+c √ γ 0 −1
+c × √ γ −1
+D'où v ( x) =
+et v (0) =
+γ
+γ0
+2
+
+2
+
+Soit
+Avec
+
+t ( x)
+−
+γ
+Φ(x )
+√ γ (x )2−1
+γ( x) τ
+= e
+× 0 ×
+Φ(0)
+γ( x )
+√ γ 0 2−1
+0
+
+γ( x) = γ (0) − α x .
+
+La difficulté est donc de relier t et
+
+x .
+
+c × √ γ(x ) −1
+dx
+Or v ( x) =
+(par définition)
+=
+dt
+γ( x)
+où dx est une petite variation de la profondeur pendant le temps dt , autrement dit
+dx = x (t+dt) − x (t)
+2
+
+On a donc :
+x (t+dt) −x (t )
+c × √ γ ( x (t ))2−1
+↔
+=
+dt
+γ ( x (t ))
+
+c × √ γ( x (t))2−1
+x (t+dt) =
+× dt + x(t )
+γ ( x (t ))
+
+Ainsi, connaissant les conditions initiales x (t=0) = 0 et γ(0) , on va pouvoir pas à
+pas, en prenant un pas suffisamment petit, remonter à la position et résoudre l'équation,
+γ( x) = γ 0 − α x (t) , à l'aide d'un tableur.
+x (t+dt) =
+
+c × √ [γ 0−4,7 x (t)]2−1
+× dt +x (t)
+γ 0−4,7 x (t)
+
+On a donc résolu numériquement cette équation différentielle, et remonté au
+Φ (x )
+pourcentage d'absorption en fonction de la profondeur, tel que % abs = 1 −
+.
+Φ(0)
+
+17 sur 30
+
+t
+
+γ( x)
+
+0
+
+x0
+
+γ0
+
+dt
+
+x1
+
+γ0−4,7 x 1
+
+2dt
+
+x2
+
+γ0−4,7 x 2
+
+Φ(x )
+Φ(0)
+
+% d'absorption
+
+3dt
+
+Ainsi, nous avons commencé par utiliser cette résolution numérique avec
+γ = 37,8 , ce qui correspond à un muon d'une énergie de 4,0GeV.
+100
+
+% d'absorption
+
+80
+60
+40
+20
+0
+0
+
+1
+
+2
+
+3
+
+4
+
+5
+
+6
+
+7
+
+8
+
+9
+
+Profondeur traversée (m)
+
+Figure 21 : Graphique du pourcentage d'absorption en fonction
+de la profondeur pour γ=37,8 (soit un flux de muons d'énergie
+4,0 GeV
+Le graphique obtenu n'est pas cohérent avec nos mesures. En effet, à Nouzilly, pour
+un plafond d'une profondeur d'environ 2m, nous avions obtenu un pourcentage d'absorption
+de 36,5%, alors que d'après ce modèle, le pourcentage d'absorption pour deux mètres
+d'épaisseur traversée devrait être quasiment nul.
+À titre de comparaison, nous avons également réalisé le graphique en considérant un
+flux de muons avec
+
+γ = 9 , soit une énergie d'environ 1GeV. Voici le résultat :
+
+On voit que les muons ayant une énergie de 1GeV ont statistiquement disparu pour
+une épaisseur de 2m. Cela ne convient pas non plus avec les valeurs réelles.
+
+18 sur 30
+
+Ce modèle n'est donc pas valable. Cela peut se comprendre, en effet le modèle
+possède une limite majeure : il considère les muons comme ayant tous la même énergie.
+Nous avons d'abord pris une énergie de 4,0GeV car d'après nos informations, il s'agissait de
+l'énergie moyenne des muons, mais on constate bien que cette moyenne ne suffit pas à
+représenter l'ensemble du flux ; une énergie de 1,0GeV ne convient pas non plus.
+
+Pourcentage d'absorption
+
+120
+100
+80
+60
+40
+20
+0
+0
+
+0,2
+
+0,4
+
+0,6
+
+0,8
+
+1
+
+1,2
+
+1,4
+
+1,6
+
+1,8
+
+Profondeur (en m)
+
+Figure 22 : Graphique du pourcentage d'absorption en fonction de la
+profondeur pour γ=9 (soit un flux de muons d'énergie 1,0 GeV)
+En outre, pour un point donné, l'ensemble des muons n'ont pas traversé exactement
+la même épaisseur de roche, puisque même si la majorité des muons arrivent verticalement,
+il y en a toujours qui arrivent de directions différentes.
+
+Conclusion
+Tout au long de notre projet, nous avons essayé de répondre à notre problématique
+qui était « Peut-on déterminer l'épaisseur d'une roche grâce à l'absorption des muons ? ».
+Nous avons tout d'abord testé les différents paramètres pouvant influer sur nos mesures puis
+nous avons essayé de trouver une relation entre l'épaisseur de roche traversée et le
+pourcentage d'absorption des muons.
+À l'aide de mesures d'étalonnage sur des épaisseurs de roche faibles, nous en avons trouvé
+une, modélisée sous la forme de l'équation suivante :
+Epaisseur = 10
+
+%abs−22,4
+21,8
+
+19 sur 30
+
+Mais, après avoir pensé que cette équation n'était pas valable sur des épaisseurs de
+plus de 8m à cause de la perte du caractère relativiste du muon, nous avons constaté qu'en
+pratique, elle ne fonctionnait pas non plus sur des épaisseurs plus faibles, de l'ordre de
+1m50.
+C'est pourquoi nous avons créé un modèle mathématique simplifié de l'évolution du
+flux de muons avec la profondeur. Mais celui-ci, ne correspondant pas à nos observations
+réelles, n'est pas représentatif de la réalité, notamment car il ne prend pas en compte le fait
+que les muons arrivent à la surface de la Terre avec des énergies très différentes.
+Nous allons donc devoir affiner ce modèle, notamment via l'établissement d'un
+spectre d'énergie des muons au niveau du sol et par l'application au modèle.
+De plus nous allons devoir continuer à réaliser des expériences dans des caves et des
+carrières pour établir une nouvelle courbe d'étalonnage plus précise et comprenant des
+épaisseurs bien plus importantes.
+Pour plus de precisions vous pouvez vous orienter vers notre site internet
+
+Bibliographie
+•
+
+Documents Science à l’École relatifs aux muons et au cosmodétecteur.
+
+•
+
+http://www.futura-sciences.com
+
+•
+
+http://www.cidehom.com
+
+•
+
+http://www.lyc-rudloff-strasbourg.ac-strasbourg.fr/
+
+•
+
+http://www.donnees.centre.developpement-durable.gouv.fr/
+
+20 sur 30
+
+ANNEXES
+I – Comment détecter les muons ?
+1)
+
+Fig I.1.A : Modèle standard
+
+2) Fonctionnement du cosmodétecteur
+Les raquettes du scintillateur sont composées d'un matériau plastique transparent, et
+utilisent le principe de la fluorescence : les muons, ou toute autre particule, qui traversent la
+raquette excitent des molécules du matériau, qui vont se désexciter immédiatement, en
+émettant un photon.
+Mais ce courant est trop faible pour être détecté directement ; il faut donc l'amplifier,
+et c'est le rôle du photomultiplicateur (PM) (fig4). Ce système est composé d'un tube à vide
+dans lequel sont disposées à intervalles réguliers des électrodes, maintenues sous des
+tensions croissantes. Le tube doit donc être maintenu sous haute tension pour fonctionner.
+Dans le cas de notre machine, nous avons utilisé les PM1 et 3 que nous avons alimenté de
+tensions de 950V et 1000V (on règle les tensions à l'aide du logiciel sur l'ordinateur, après
+avoir branché la machine sur une alimentation secteur, puisqu'elle comprend un
+convertisseur).
+21 sur 30
+
+Fig I.2.A : Schéma du photomultiplicateur
+Revenons donc au photon émis par la fluorescence du plexiglas. Il va être réfléchi
+contre les parois du scintillateur, jusqu'à atteindre la première électrode du
+photomultiplicateur, appelée photocathode. Cette plaque est sous une tension positive assez
+faible. L'énergie du photon incident permet à un électron d'être arraché de cette plaque et
+de franchir le vide la séparant de la plaque suivante (dynode), un peu plus chargée (environ
+100V de plus) et donc attirant l'électron.
+Celui-ci, grâce à l'accélération qu'il subit en traversant le vide, possède une grande
+énergie cinétique en frappant la dynode. Cet apport d'énergie va arracher à la dynode
+environ 4 nouveaux électrons : c'est le phénomène d'émission secondaire.
+Ces électrons vont à leur tour être accélérés vers la plaque suivante, et ainsi de suite;
+au bout de 10 émissions secondaires, ce n'est plus un seul électron mais un million
+d'électrons qui arrivent sur la dernière électrode : le courant qu'ils vont engendrer est alors
+suffisant pour être détecté.
+La dernière électrode, appelée anode, collecte les électrons secondaires émis par la
+dernière dynode et les concentre dans un courant électrique, qui va être analysé par la partie
+électronique du cosmodétecteur.
+Le signal est d'abord analysé par un module appelé discriminateur, qui va conserver
+ou éliminer les signaux en fonction de leur intensité ; un courant de tension trop faible va
+être considéré comme du bruit indésirable et va être discriminé. Les signaux retenus sont
+transformés en un signal carré d'amplitude constante et de durée réglable par l'utilisateur
+(fig5). Dans notre cas, le seuil de discrimination était fixé à 40mV.
+22 sur 30
+
+Figure I.2.B : Exemple de signaux discriminés ou non
+Le problème qui survient ici est que chaque signal que l'on obtient à la sortie du
+discriminateur ne correspond pas forcément à un muon ; en effet, il peut avoir été déclenché
+par une autre particule au niveau du scintillateur, ou résulter du bruit de fond thermique du
+photomultiplicateur, assez conséquent. En revanche, les muons sont les seules particules qui
+ont a capacité de traverser à la fois le premier et le second scintillateur, et ce quasiment en
+même temps ; en effet, leur vitesse est tellement élevée que si la particule est bien un muon,
+alors on observe un signal similaire à la sortie des deux photomultiplicateurs, avec à peine
+quelques nanosecondes de décalage.
+C'est pour cela qu'un second module utilise le principe de coïncidence, qui va
+analyser les signaux produits à la sortie de deux photomultiplicateurs différents, afin de
+retenir uniquement ceux présents sur les deux à la fois.
+
+3) Paramètres
+• Expérience 1
+Hypothèse
+Le flux de muons à un endroit et un moment donnés est constant et donc
+proportionnel à l'intervalle de comptage.
+Protocole
+Pour cela, l'expérience que nous avons mise en place consiste à faire plusieurs
+mesures de muons, au même endroit, le même jour, en faisant à chaque fois varier
+l'intervalle de comptage : toutes les minutes d'abord, puis toutes les deux, quatre, six et dix
+minutes.
+
+23 sur 30
+
+Résultats
+2000
+1800
+Nombre de muons détectés
+
+1600
+1400
+1200
+1000
+800
+600
+400
+200
+0
+0
+
+2
+
+4
+
+6
+
+8
+
+10
+
+12
+
+Intervalle de comptage (en min)
+
+Figure 8 : Graphique du nombre de muons détectés en fonction de
+l'intervalle de comptage
+
+Nous observons que la courbe modélisant le nombre de muons détectés en fonction
+de l'intervalle de comptage est une droite passant par l'origine du repère ; il y a donc bien
+situation de proportionnalité.
+D'autre part, la machine, à chaque nouvel intervalle de mesure, doit respecter un
+temps d'étalonnage de l'ordre de 2,6 secondes, celui-ci pouvant donc entraîner un décalage
+et fausser légèrement la proportionnalité.
+Interprétation
+Nous pouvons en conclure que quel que soit l'intervalle de comptage, nos mesures
+seront équivalentes et ne changeront pas notre interprétation. Notre hypothèse est donc
+validée. Nous utiliserons cependant toujours le même intervalle de comptage pour chacune
+de nos expériences (soit un comptage toutes les minutes)
+Après avoir vérifié ce critère, nous allons maintenant effectuer une expérience afin
+de déterminer la distribution angulaire des muons.
+
+24 sur 30
+
+Expérience 2
+Hypothèse
+Nous supposons que le nombre de muons détectés dépend de l'orientation des
+raquettes du cosmodétecteur.
+Protocole
+Nous avons alors réalisé une expérience où nous avons mesuré le nombre de muons
+arrivant sur ces plaques, le même jour, au même endroit en faisant varier uniquement
+l'inclinaison à chaque mesure. Ces mesures sont faites sur 10 minutes avec un comptage
+toutes les minutes.
+On commence donc par faire une mesure avec les plaques horizontales, puis inclinées
+de 10°, de 20°, de 30°, de 40° et ainsi de suite jusqu’à ce que les plaques soient totalement
+verticales (donc inclinées de 90°).
+Résultats
+200
+180
+160
+Nombre de muons
+
+140
+120
+100
+80
+60
+40
+20
+-90
+
+-70
+
+-50
+
+-30
+
+0
+-10
+
+10
+
+30
+
+50
+
+70
+
+90
+
+Angle (en degré)
+
+Figure 9 : Graphique de la distribution angulaire des muons
+Observations
+Nous observons que le nombre de muons détectés est plus élevé lorsque les plaques
+sont horizontales que lorsqu'elles sont verticales. En effet, plus les plaques se rapprochent de
+la verticale, moins le nombre de muons est élevé.
+25 sur 30
+
+Interprétation
+Nous en concluons que la majorité des muons arrive à la verticale du sol.
+Cela peut être en partie expliqué par le fait que les muons arrivant non verticalement au sol
+ont une épaisseur d'atmosphère plus importante à traverser (fig10). Il est donc logique qu'il
+en arrive moins à la surface de la Terre.
+
+Figure 10 : Schéma de la trajectoire des
+muons
+
+Cela confirme notre hypothèse ; il faudra alors effectuer nos prochaines mesures en
+s'assurant que les plaques du cosmodétecteur sont bien horizontales.
+En outre, Karim Noui, un chercheur théoricien de l'université de Tours, nous a
+conseillé de vérifier si cette direction en provenance de laquelle on détectait le plus de
+muons était bien la verticale, et non pas la direction du soleil.
+
+• Expérience 3
+Hypothèse
+Nous pensons que l'on observe un « bruit de fond » constant de muons en
+provenance des autres sources de rayon cosmique primaire que le Soleil, et que les autres
+muons viennent uniquement du Soleil : le nombre de muons détectés dépendrait alors de
+l'inclinaison des plaques par rapport au Soleil et non par rapport à la verticale.
+Protocole
+Pour tester cette hypothèse, nous avons réalisé une mesure en continu durant toute
+une nuit pour voir une évolution du nombre de muon détectés en fonction du soleil. Nous
+26 sur 30
+
+avons obtenu une mesure par minute, entre 21h et 7h dans la nuit du lundi 11/05/15 au
+mardi 12/05/15.
+Résultats
+
+Figure 11 : moyennes de muons détectés par heure
+Lecture : l'heure 0 correspond à minuit. Les heures « négatives » correspondent aux heures
+avant minuit. Chaque valeur est la moyenne des valeurs mesurées dans l'heure
+correspondante, par exemple la première valeur est la moyenne des valeurs mesurées entre
+21h et 22h.
+Observations
+Nous voyons que le flux de muons reste constant au cours de la nuit.
+Interprétation
+Le flux de muons n'est pas ou très peu influencé par le Soleil.
+Il provient donc en majorité de sources extérieures au Soleil.
+Cela signifie que l'heure de nos expériences n'est pas un facteur à prendre en compte.
+Penchons-nous
+
+désormais
+
+sur
+
+les
+
+facteurs
+
+environnementaux
+
+qui
+
+sont
+
+potentiellement capables d'influencer nos résultats.
+
+• Expérience 4
+Hypothèse
+Nous supposons que la météo influe de façon significative sur le nombre de muons
+que l'on détecte au sol.
+Protocole
+Nous avons réalisé des mesures au même endroit, avec le même intervalle de
+comptage et sur la même durée (toutes les minutes pendant 10 minutes), lors de différentes
+27 sur 30
+
+journées avec des météos différentes, puis nous avons déterminé les moyennes de chacune
+des séries de mesure afin de pouvoir les comparer.
+L’objectif n’était pas de parvenir à une corrélation précise entre météo et muons
+détectés étant donné le nombre de facteurs (nuages ou non, pluie ou non, ensoleillement,
+vent, température…), mais simplement de vérifier si ces facteurs avaient une influence
+significative.
+Résultats
+Ciel
+Nuageux, pluvieux
+Neige
+Soleil
+
+Nombre de muons détectés (moyenne)
+196 ± 15
+194 ± 14
+177 ± 12
+
+Observations
+Après cette expérience, nous remarquons que le nombre de muons détectés varie en
+fonction de la météo. En effet, on en détecte environ 10% de plus lorsque qu'il y a présence
+de nuages (pluie, neige) que lorsque le ciel est clair.
+Écart relatif =
+
+valeur pluie – valeur soleil
+196 – 177
+× 100 =
+× 100 = 9,69 %
+valeur pluie
+196
+
+Interprétation
+Cette variation nous a semblé importante, et à l'aide de Karim Noui, nous avons
+pensé qu'il était possible qu'une atmosphère plus dense présenterait plus de noyaux et donc
+plus de possibilités de collisions créatrices de muons. Il serait alors logique que l'on détecte
+plus de muons lorsque le temps est humide. Toutefois, nous notons également que le temps
+qu'il fait à la surface ne nous donne pas forcément d'informations précises sur l'état de
+l'atmosphère dans ses hautes couches, où sont créés les muons.
+Cependant, nos futures expériences ne devraient pas être influencées par ces
+variations car nous allons raisonner avec des rapports entre les nombres de muons
+(pourcentage d'absorption) et non directement avec les nombres moyens de muons
+détectés. De plus, ces expériences seront réalisées le même jour, à des moments où la météo
+ne changera pas et ne risquera donc pas de faire varier nos résultats.
+Après cette expérience, nous étudierons la question de l'altitude.
+28 sur 30
+
+Expérience 5
+Hypothèse
+Nous supposons que l'altitude à laquelle les mesures sont réalisées a une incidence
+sur le nombre de muons détectés.
+Protocole
+Nous avons réalisé des mesures à l'extérieur des caves Perrière de Grandmont à une
+altitude de 96m, avec un intervalle de comptage d'une minute pendant 10 minutes.
+Puis nous avons contacté un lycée au pied du Mont-Blanc possédant également un
+cosmodétecteur. Ce lycée étant situé à une altitude de 685m, nous leur avons demandé
+d'effectuer des mesures, avec les mêmes réglages que ceux que nous utilisons
+habituellement, afin de pouvoir les comparer avec les nôtres.
+Résultats
+
+Lieu (altitude)
+
+Nombre de muons détectés (moyenne)
+
+Extérieur caves Perrière de Grand Mont 226 ± 12
+(96m)
+Lycée du Mont blanc (685m)
+
+290 ± 20
+
+Observations
+On observe que le nombre de muons détectés est plus important lorsque l'altitude
+est plus élevée. Nous avons calculé l'écart relatif entre ces deux valeurs :
+Écart relatif =
+
+N Mont Blanc − N Perrières
+290−226
+× 100 =
+× 100 = 22 %
+N Mont Blanc
+290
+
+Entre un lieu situé à une altitude de 96m et un autre à 685m on observe une
+différence de plus de 22%. Cette différence est suffisamment conséquente pour valider notre
+hypothèse.
+Interprétation
+On peut expliquer cela par le fait que les muons détectés à 685m ont parcouru une
+29 sur 30
+
+distance dans l'atmosphère moins importante que ceux détectés à 96m, il est donc logique,
+statistiquement, qu'une plus faible quantité se soit déjà désintégrée.
+Suite à notre entretien avec Loic Villain, maître de conférences en physique à la
+faculté de médecine de Tours, nous avons également constaté que les muons, étant des
+particules chargées, étaient déviées par le champ magnétique terrestre. Or, le Mont Blanc et
+notre lycée se situent à des latitudes différentes : le facteur de l'altitude n'était alors pas la
+seule variable dans notre expérience. Cependant, nous avons considéré que la différence de
+latitude entre les deux lieux n'était pas si importante ; de plus, l'énergie des muons est
+tellement élevée que l'influence du champ magnétique devrait être négligeable.
+Dans cette première partie, nous avons vérifié tous les paramètres intervenant dans
+nos mesures. Lors de nos expériences qui nous permettront de répondre à la problématique,
+nous allons prendre les précautions nécessaires.
+
+II) Mesures de l'absorption des muons par la roche
+2) b- Perte du caractère relativiste du muon
+e (en m)
+0
+0.5
+1
+1.5
+2
+2.5
+3
+3.5
+4
+4.5
+5
+5.5
+6
+6.5
+7
+7.5
+7.6
+7.7
+7.8
+7.9
+8
+
+E (GeV)
+4.3
+4.035
+3.77
+3.505
+3.24
+2.975
+2.71
+2.445
+2.18
+1.915
+1.65
+1.385
+1.12
+0.855
+0.59
+0.325
+0.272
+0.219
+0.166
+0.113
+0.06
+
+
+40.7
+38.2
+35.7
+33.2
+30.7
+28.2
+25.6
+23.1
+20.6
+18.1
+15.6
+13.1
+10.6
+8.1
+5.6
+3.1
+2.6
+2.1
+1.6
+1.1
+0.6
+
+tau (en µs)
+89.4
+83.9
+78.4
+72.9
+67.4
+61.9
+56.3
+50.8
+45.3
+39.8
+34.3
+28.8
+23.3
+17.8
+12.3
+6.8
+5.7
+4.6
+3.5
+2.3
+1,2
+
+30 sur 30
+
+

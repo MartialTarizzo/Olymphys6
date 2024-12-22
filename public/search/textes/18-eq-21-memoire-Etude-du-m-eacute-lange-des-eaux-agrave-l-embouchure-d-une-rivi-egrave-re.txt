@@ -1,0 +1,957 @@
+XIII Olympiades de physiques
+
+LYCEE FELIX
+LE DANTEC
+LANNION
+
+ETUDE DU MELANGE DES EAUX A
+L’EMBOUCHURE D’UNE RIVIERE
+
+Compte rendu de nos travaux – Janvier 2010
+
+Présentation du projet
+
+Lannion, petite ville au nord ouest du département des Côtes d’Armor est traversée par une rivière,
+le Léguer. Celle-ci se jette dans la Manche au niveau de Beg-Léguer.
+La rivière, de l’eau douce coule lentement vers l’embouchure. Deux fois par jour la mer, de l’eau
+salée remonte inexorablement vers Lannion et les deux masses d’eau luttent l’une contre l’autre …
+Comment se passe cette rencontre ? Les deux masses d’eau se mélangent-elle immédiatement ?
+Un ensemble de questions auquel nous décidons d’essayer de trouver une réponse !
+Dans notre tâche nous sollicitons et obtenons l’aide des trois chercheurs et techniciens travaillant à
+l’institut pour la recherche et le développement (IRD*) situé près de Brest sur le même site
+qu’Ifremer.
+Nous décidons alors d’élaborer un module qui soit capable de descendre dans une colonne d’eau et
+d’effectuer un ensemble de mesures nous permettant de déterminer la profondeur à laquelle il se
+trouve, de déterminer la nature de l’eau dans laquelle il se trouve et enfin la température de l’eau.
+Le module se doit également d’être autonome lors de sa descente et de sa remontée.
+Près de 8 mois de travail à raison d’environ 1h30 par semaine pour aboutir aux résultats présentés
+dans les pages qui suivent, des échecs bien sûr, de bon moments également et au bout du compte
+un objet technique qui permet de répondre en partie aux questions que nous nous posions au
+démarrage du projet.
+Il est loin d’être parfait et donc améliorable et il mériterait pour être complètement validé une
+période de tests multiples et variés…
+Nous vous souhaitons une bonne lecture.
+Les membres de l’atelier scientifique.
+
+2
+
+Table des matières.
+
+Présentation du projet
+
+page 2
+
+Sommaire
+
+page 3
+
+Eau douce – Eau salée
+
+page 4
+
+Equilibre du module
+
+page 5
+
+Poussée d’Archimède
+
+page 7
+
+Conception du capteur de conductivité
+
+page 8
+
+Etude du capteur de température
+
+page 12
+
+Etude du capteur de pression
+
+page 14
+
+Transfert des mesures vers la surface
+
+page 14
+
+Conception du module Nautilus
+
+page 15
+
+Test du prototype 3 à l’embouchure du léguer
+
+page 18
+
+Analyse et conclusion
+
+page 19
+
+3
+
+Eau douce et eau salée
+L’eau qui descend de la vallée du léguer et s’écoule vers Lannion est une eau de rivière. L’eau qui remonte,
+vient de l’océan. Ces eaux abritent des espèces animales et végétales bien différentes ! Ce sont deux milieux de
+vie différents !
+Nous décidons de mettre en évidence certaines différences entre ces deux solutions qui nous permettrons, de
+développer notre projet.
+Activité 1
+
+Mise en évidence d’une différence entre les deux milieux
+
+Mesure de la masse d’un même volume d’eau douce et d’eau de mer. Déroulement de l’activité en annexe2
+m eau de rivière = 992 g par litre d’eau
+m eau de mer = 1012 g par litre d’eau
+Observation : pour des volumes identiques, la masse de l’eau de mer est plus importante que la masse
+de l’eau de rivière.
+Hypothèse : la composition des deux solutions est différente !
+Activité 2
+
+Pourquoi cette différence entre les deux milieux ?
+
+Pour le vérifier nous décidons de chauffer les deux solutions de façon à faire évaporer l’eau.
+Observation : dans le fond et sur les parois du ballon contenant l’eau de mer se dépose un important
+dépôt blanc. Il ne se forme qu’une très fine pellicule sur les parois du ballon contenant l’eau de
+rivière.
+Conclusion : Les deux types d’eau contiennent une quantité plus ou moins importante de minéraux,
+lorsque l’eau s’évapore les minéraux (des ions positifs et négatifs) s’associent pour former des sels.
+Ces ions (les plus abondants étant les ions chlorure, sodium et magnésium) sont mis en évidence par des tests de
+caractérisation (test au nitrate d’argent pour les ions chlorure, test à la flamme pour les ions sodium, test à la soude pour les
+ions magnésium).
+Conclusion de l’étude : L’eau de mer est une eau salée et contient bien plus de minéraux que l’eau
+de rivière qui est une eau douce.
+Par la suite Il nous faudra à la fois tenir compte et exploiter cette différence pour développer le module !
+
+4
+
+Equilibre du module
+
+Le module flotte à la surface de l’eau tant que son poids est inférieur à la poussée d’Archimède.
+Nous décidons de déterminer de façon expérimentale la masse que nous devons ajouter pour que l’équilibre
+soit rompu et que le module coule.
+Etude théorique de l’équilibre du module
+Le module sera soumis à plusieurs actions mécaniques.
+-
+
+L’action de la Terre sur le module, qui sera modélisée par le vecteur poids .
+
+-
+
+L’action de l’eau sur le module, qui sera modélisée par le vecteur poussée d’Archimède
+
+Nous négligerons pour le moment (tout en sachant qu’elles existent) les forces de frottements de l’eau sur le
+module lors de sa descente et de sa remontée, ainsi que l’action des courants transversaux qui feront dériver le
+module.
+Si le projet évolue rapidement nous tenterons de réfléchir sur les forces de frottements !
+Conditions d’équilibre du module. (Le module est pour le moment assimilé à un cylindre de 40 cm de haut et de 8 cm de diamètre
+extérieur)
+
+Le module sera à l’équilibre si et seulement si les 2 forces que nous avons retenues :
+-
+
+Schéma :
+
+ont la même droite d’action,
+sont de sens opposé,
+ont la même intensité.
+
+PA
+XG
+
+Eau
+
+P
+
+Caractéristiques des deux forces :
+Nom
+
+PA
+P
+*
+
+Point d’application
+G
+G
+*
+
+Droite d’action
+verticale
+verticale
+
+Sens
+Vers le haut
+Vers le bas
+
+Intensité
+A définir
+A définir
+
+Le point d’application de la poussée d’Archimède n’est le centre de gravité du module que lorsque le module est
+
+complètement immergé. Dans les cas ou le module n’est pas complètement immergé, le point d’application seraient G’ : centre
+de gravité de la partie immergé, on parle du centre de carène.
+
+Calcul de l’intensité du poids du module :
+Le poids P se calcule à l’aide de la formule P = m.g
+
+m : masse du module
+g : constante de gravité
+5
+
+La masse du module est de 0,500 kg. Le poids du module est donc de :
+Le poids du module est de 4,9 N
+Le poids du module est trop faible !!! La poussée d’Archimède trop forte !!! Pour faire couler le module nous ne
+pouvons que modifier sa masse en ajoutant des masses marquées.
+Activité Détermination expérimentale de la masse ajoutée permettant au cylindre de couler
+Pour déterminer la masse permettant au cylindre de couler, nous avons procédé par encadrement. C'est-à-dire
+que nous avons commencé par ajouter des valeurs de masse importante (500 g) de façon à obtenir une
+première fourchette d’étude, puis des masses de 100g, de 10g et enfin de 1g.
+Remarque : nous avons du faire et refaire nos mesures, car nous avions une entrée d’eau par le fond du tube. Pour
+remédier à ce problème, nous avons usiné des bouchons en PVC expansé, que nous avons dans un premier temps
+scotché, puis collé, et enfin siliconé. Nous avons perdu beaucoup de temps, avant d’arrivé à un résultat satisfaisant
+
+Encadrement 1
+1500 g < masse ajoutée < 2000g
+Encadrement 2
+1500 g < masse ajoutée < 1600g
+…
+Encadrement …
+1508 g < masse ajoutée < 1509g
+En jaune le bouchon, à coté le cylindre avec une première
+masse de 500g
+
+Pour que le module coule il nous a fallu ajouter une masse de 1509 g. Si nous ajoutons cette masse à la masse
+du module, nous obtenons une masse de (1,509 + 0,500) soit 2,009 kg.
+Le poids du module à cet instant est donc de :
+
+A partir du dernier encadrement, on peut estimer l’intensité de P A comprise entre 19,67 et 19,68 N.
+Le poids du module est arrondi à 19,7 N quand il coule.
+Remarque : Nous devons prévoir un lest de 1509 g au moins pour que le module coule dans l’eau du robinet.
+Point de satisfaction : notre activité expérimentale (qui ne fut pas aussi simple que cela), est en accord avec les
+calculs de Camille et de Souraya. Par contre elles nous apprennent que cette masse ne sera pas suffisante pour que
+le module descende dans de l’eau salée !
+
+Les lignes suivantes vont nous l’expliquer !
+
+6
+
+Poussée d’Archimède
+Activité 1
+
+Mesure de la poussée Archimède dans l’eau du robinet et dans l’eau salée
+
+Mesure de la poussée d’Archimède. Dispositif expérimental et explications en annexe 3.
+PA eau du robinet = 0,1 N
+PA eau salée = 0,2 N
+Le dynamomètre utilisé ne permet pas une grande précision des mesures. Nous décidons de refaire
+l’expérience en réalisant notre propre dynamomètre.
+Nous utilisons pour cela un ressort qui subit un allongement maximal pour une masse de 100 g. Nous savons
+que pour un objet de 100 g soumis à la gravité, l’intensité du poids est très proche de 1N.
+Mode opératoire :
+Nous suspendons le ressort à l’aide d’une potence et repérons le point 0, lorsque le ressort est immobile.
+(Allongement de 9cm)
+Nous accrochons la masse de 100 g, et repérons la valeur 1N. (Allongement de 20,4cm)
+0,1N correspondent donc à un allongement de 1,14cm.
+
+Ce dispositif nous permet de remarquer que pour notre objet, la différence d’intensité de la poussée
+d’Archimède dans l’eau salée et l’eau du robinet est de l’ordre de 0,07N.
+Activité 2
+
+Calcul de la poussée d’Archimède devant s’exercer sur le module Nautilus
+
+Etape 1
+
+Estimation du volume du module.
+
+En première approximation, le module devrait a la forme d’un cylindre ayant les dimensions suivantes :
+Diamètre extérieur D: 8cm (Rayon R : 4cm)
+
+Hauteur H : 40cm
+
+Le volume d’un cylindre se calcule à l’aide de la formule :
+Calcul Vc = .16.40
+
+3
+
+soit Vc = 2010,6 cm
+3
+
+3
+
+Le volume du cylindre est arrondi à 2011 cm , soit 2,011 dm .
+Etape 2
+
+Calculer l’intensité de la poussée d’Archimède
+
+La poussée d’Archimède est littéralement égale au poids du volume de liquide déplacé.
+On peut donc écrire :
+
+PA = m eau déplacée . g
+
+Sachant que ρ= m / v
+
+on a donc
+
+m = ρ.v
+
+De plus tout objet plongé dans un liquide déplace un volume de liquide équivalent à son propre volume.
+Donc V eau déplacée = Vc
+
+La relation PA = m eau déplacée . g
+
+devient :
+
+PA= ρeau.Vc.g
+
+Pour un volume défini, l’intensité de la poussée d’Archimède dépend de la nature du liquide.
+L’intensité de la poussée d’Archimède et la masse volumique sont deux grandeurs proportionnelles.
+
+7
+
+Etape 3 Détermination de la valeur
+
+eau salée Explications de la manipulation en annexe 3
+
+Pour une température donnée, la masse volumique de l’eau salée est proportionnelle à la masse de sel
+dissoute.
+Nous décidons de déterminer expérimentalement la masse volumique d’une solution contenant 40g de sel par
+litre d’eau. (mis à part quelques exception la mer contient en moyenne 40g de sel par litre d’eau)
+eau salée = 1,021 kg/dm
+
+3
+
+3
+eau robinet = 1,000 kg/dm
+
+Rappel : Lors de nos travaux réalisés en début de projet nous avions mesuré les valeurs suivantes :
+m eau de rivière = 992 g par litre d’eau soit
+
+eau de rivière= 0,992 kg/dm
+
+m eau de mer = 1012 g par litre d’eau soit
+
+eau de mer = 1,012 kg/dm
+
+3
+
+3
+
+Les valeurs mesurées sur les prélèvements extérieurs sont différentes des valeurs mesurées sur les solutions
+préparées ! Rappelons que la salinité de l’eau dépend de paramètres météorologiques (précipitations, vent,
+température) qui peuvent expliquer cet écart !
+Cependant la différence calculée entre les masses volumiques eau de mer / eau de rivière est très proche de la
+différence de masse volumique entre eau salée / eau du robinet.
+Etape 4
+
+Calcul de la poussée d’Archimède
+
+Connaissant les valeurs de la masse volumique et du volume d’eau déplacé, il ne nous reste plus qu’à calculer
+les valeurs de l’intensité de la poussée d’Archimède dans de l’eau du robinet et dans de l’eau salée.
+Dans de l’eau salée
+
+PA = 1,021 x 2,011 x 9,8 = 20,1N
+
+Dans de l’eau du robinet PA = 1 x 2,011 x 9,8 = 19,7 N
+Conclusion : le module subit une poussée d’Archimède plus forte dans l’eau salée que dans l’eau du robinet.
+Cette différence est de 0,42N.
+Il faut que la masse du module soit plus importante dans l’eau salée que dans l’eau du robinet pour réussir à
+faire descendre le module jusqu’au fond ! La masse supplémentaire à fournir est d’environ 42 g.
+Si la masse du module est insuffisante, le module coulera dans l’eau douce, mais restera bloqué entre les deux
+couches d’eau (eau douce / eau salée) !
+Une activité illustrant cette conclusion est proposée en annexe 3.
+
+Conception du capteur de conductivité
+Objectif : développer un capteur capable de nous indiquer la position du module dans la colonne d’eau.
+Pour déterminer la position du module dans la colonne d’eau, prélever des échantillons d’eau à des profondeurs
+connues puis les analyser aurait pu être une solution, mais l’aspect technique ne semble pas à notre portée, et nous
+avons abandonné l’idée de faire descendre le module nautilus par palier !
+Mise à part l’identification des ions en solution (permet de connaitre la composition chimique de l’eau) que je connais
+parce que déjà abordée en classe, je reste dans une impasse… Le professeur me propose alors de passer en revue les
+grandeurs physiques que je suis capable de mesurer. Je reviens sur mes deux années de sciences physiques et
+répertorie les grandeurs suivantes :
+
+8
+
+Grandeur physique
+
+Unité de mesure
+
+La masse m
+
+Kilogramme (kg)
+
+Le volume V
+
+Mètre cube (m3)
+
+L’intensité du courant
+
+Ampère (A)
+
+La tension
+
+Volt (V)
+
+La résistance
+
+Ohm (Ω)
+
+La masse et le volume me ramène au prélèvement d’eau, les trois autres à savoir l’intensité du courant, la tension et
+la résistance d’un conducteur ohmique me pousse à travailler sur les circuits électriques !
+Depuis la cinquième, je sais que l’électricité est dangereuse pour l’homme ! Notamment dans les milieux humides
+(salle de bain, cuisine) ou la réglementation est stricte !
+Hypothèse : l’eau permet le passage du courant !
+Activité
+
+Mise en évidence du caractère conducteur de l’eau
+
+Dans un premier temps je me contente de vérifier notre hypothèse. Pour ce faire je construis à la hâte un circuit
+électrique avec une alimentation continue, des fils de connexion, une lampe et un cristallisoir contenant de l’eau du
+robinet (nous n’avions plus ni d’échantillon d’eau de mer ni d’échantillon d’eau de rivière).
+Observation : la lampe ne brille pas ! (déception …)
+Conclusion : l’eau ne laisse pas passer le courant électrique … elle semble être isolante !
+Heureusement, j’ai l’idée d’aller prendre du gros sel dans la réserve, et d’en ajouter dans le cristallisoir…
+
+Observation : la lampe brille de plus en plus fort au fur et à mesure que le sel se dissout.
+Conclusion : l’eau salée laisse passer le courant électrique, le sel que nous avons ajouté y
+contribue grandement !
+N’ayant toujours pas de mesures, j’ajoute un ampèremètre dans le montage précédent. Puis, je recommence les
+manipulations.
+Observation : une intensité très faible passe dans l’eau du robinet. Cette intensité augmente au fur et à
+mesure que j’ajoute du sel.
+Intensité mesurée dans l’eau du robinet
+Intensité mesurée dans l’eau salée
+
+8 à 9 mA
+Rapidement au-delà de 100 mA
+
+Conclusion : L’eau douce comme l’eau de mer sont des solutions qui permettent le passage du courant
+électrique. La quantité de sel dissoute dans l’eau est en rapport avec la valeur de l’intensité mesurée.
+Je peux me servir de cette différence pour savoir dans quelle couche d’eau se trouve le module lors de sa
+descente. Il ne me reste plus qu’à construire le capteur que devra embarquer le module.
+
+Activité
+
+Construction du capteur de conductivité
+
+Le capteur doit permettre le passage du courant, il sera donc métallique (le graphite que l’on trouve dans les
+piles plates l’est aussi, mais le graphite est moins solide !).
+
+9
+
+Etape 1 Des mesures qui n’en sont pas !
+Je passe en revue tous les échantillons de métaux présents dans le labo. On y trouve sous forme de plaques
+(10cm x 5cm) du cuivre, du zinc, de l’aluminium.
+Je réalise Les premiers tests avec Maëva (qui délaisse momentanément Antoine). Elle est chargée de tenir les plaques
+pendant que je lis et note les valeurs de l’intensité du courant.
+Observations : l’intensité mesurée varie avec la nature du métal, avec la distance séparant les deux
+plaques.
+Problème : Il est difficile de noter les valeurs de l’intensité, Maëva a beaucoup de mal à tenir les
+plaques immobiles. Celles si sont trop écartées, pas assez, trop profondes, trop relevée ou pas en face
+l’une de l’autre.
+Nous décidons de réfléchir à l’amélioration de notre procédé de mesure, de façon à ce que les plaques restent
+fixes sans que nous ayons à les tenir.
+Etape 2
+
+Réaliser des mesures fiables !
+
+Le cuivre étant le meilleur conducteur, je me base sur les dimensions des plaques de cuivre pour réfléchir…
+Les atomes métalliques forment des structures qui se répètent, appelées mailles. À l'intérieur, des électrons à peu près libres
+circulent entourés des atomes dont ils sont issus. C'est ce mouvement électronique qui est responsable de la bonne
+conduction; plus ces électrons sont libres, plus le métal est bon conducteur. Ces électrons plus ou moins libres sont appelés
+« électrons de conduction ».
+
+L’utilisation de potence et de pinces pour maintenir les plaques n’est pas retenue car très longues à mettre en
+place, de plus les plaques ne restent pas forcément en face l’une de l’autre… 1 séance de passée pour arriver à
+cette conclusion !
+Pour m’aider à réfléchir je décide de mettre par écrit les conditions que doit remplir mon « système ».
+Le « système » doit permettre d’effectuer la mesure de l’intensité du courant électrique entre deux plaques
+de cuivre. La distance séparant les deux plaques doit être modulable rapidement.
+
+La chance sourit dit-on à ceux qui savent la saisir, il faut croire que ce dicton est
+aussi vrai dans la recherche de solution aux problèmes ! En effet le
+èmes
+professeur, dans le cadre du cours d’optique pour les 4 , a sorti des
+projecteurs de diapositives… le « chariot » qui porte les diapositives
+retient mon attention : on peut déplacer et mettre la diapositive à la
+place ou on le souhaite. Il suffit de faire de même pour les plaques de
+cuivre…
+En salle de technologie, avec l’aide du professeur, j’usine une plaque de
+PVC expansé de 3 mm d’épaisseur.
+Les véritables mesures peuvent commencer !
+La plaque après usinage : des fentes
+permettent de glisser les lames métalliques
+avec précision.
+
+Etape 3
+
+Séances de mesures
+
+Pour saisir les différents paramètres qui sont responsables de la valeur de l’intensité du courant que nous
+mesurons, nous allons enchainer une suite de mesures ou nous ne ferons varier qu’un seul paramètre à la fois.
+
+10
+
+1.
+
+Influence de l’écartement des plaques
+
+Déroulement de l’activité : éloignez les plaques de cuivre l’une de l’autre, réalisez une mesure pour
+chaque nouvel écartement. On prend soin de ne pas modifier la surface de la plaque plongée dans la solution.
+Observation : La valeur de l’intensité mesurée diminue avec l’écartement des plaques. Tableau de
+mesures et courbes en annexe 4
+
+Conclusion : il est préférable de rapprocher les deux plaques le plus possible, en évitant qu’elles ne se
+touchent !
+2.
+
+Influence de la surface des plaques sur la mesure de l’intensité
+
+Déroulement de l’activité : la tension délivrée par l’alimentation reste fixe et égale à 3V.L’écartement
+des plaques ne varie pas. Je descends les plaques régulièrement (longueurs identiques pour les deux)
+Observation : La Valeur de l’intensité augmente avec la surface des plaques plongeant dans la
+solution. Tableau de mesures et courbe en annexe 4
+Conclusion : Pour la construction du capteur, il est plus intéressant de concevoir un capteur ayant des
+électrodes de grandes surfaces.
+3. Influence de la surface totale du capteur
+Les plaques de cuivre que j’utilise ont deux faces, je veux savoir si les deux faces d’une même plaque
+interviennent, ou si seulement les deux surfaces en regard sont importantes.
+Déroulement de l’activité : Pour cette manipulation je scotche une des faces. Je recommence la manipulation 1
+(j’éloigne les deux plaques) Tableau de mesures et courbes en annexe 4
+Observation : les valeurs des intensités mesurées sont sensiblement les mêmes que lors de la
+première manipulation.
+Conclusion : seules les surfaces en regard l’une de l’autre interviennent sur la valeur de l’intensité.
+4.
+
+Influence de la position des plaques l’une par rapport à l’autre
+
+Notre appareillage ne permet pas actuellement ce type de mesures.
+Nous nous contentons donc uniquement de vérifier que deux plaques parallèles permettent d’avoir l’intensité
+la plus importante.
+Notes
+Lors des différentes manipulations, nous avons pu observer que :
+-
+
+-
+
+la composition de la solution de départ se modifie suite à l’oxydation des plaques de cuivre.
+(Coloration de la solution en bleue, puis formation d’un dépôt bleu dont nous ne connaissons que
+la participation des ions cuivre II qui proviennent de l’une des plaques de cuivre, celle qui s’oxyde
+lors du passage du courant dans la solution)
+La valeur de l’intensité mesurée ne se stabilise pas immédiatement. (la mesure n’est pas stable
+elle est haute puis baisse puis remonte et se stabilise)
+Un dégagement gazeux apparaît sur l’une des plaques. ( oxydation de la plaque reliée à la borne
+négative de l’alimentation continue)
+
+Pour tenter de limiter ces effets nous avons :
+-
+
+Nettoyer les plaques de cuivre à l’aide d’acide nitrique dilué
+
+11
+
+-
+
+Placer un interrupteur dans le circuit pour limiter l’oxydation des plaques, et ne fermer le circuit
+que pour la prise de mesure.
+Acheter une prise Jack recouverte d’or (métal très difficilement oxydable), qui nous servira de
+capteur de conductivité.
+
+Etape 4
+
+Capteur final
+
+Notre capteur de conductivité, qui doit nous permettre de savoir si le module se trouve dans de l’eau douce ou
+de l’eau salée est donc une prise Jack. Les deux bornes du capteur sont séparées par un petit anneau en
+plastique (évitant un court circuit !).
+Nous relions cette prise avec deux fils de connexion… et il ne nous reste plus qu’à vérifier qu’il est
+opérationnel !
+Je fais grossièrement varier la concentration de la solution, et je mesure les valeurs de l’intensité.
+Le capteur me semble adapté, de plus il est peu encombrant, Antoine et Maëva me confirme qu’ils peuvent le
+placer sans soucis dans le module avec les deux autres capteurs.
+Cependant il me faut maintenant l’étalonner pour qu’il puisse effectuer des mesures en situation réelle.
+Les premières mesures à l’aide de notre capteur débutent. Rapidement je me rends compte que quelque chose
+ne fonctionne pas ! En effet les valeurs d’intensité que je mesure changent ! Je recommence les mesures et de
+nouveau une autre valeur d’intensité !
+Nous finissons par nous rendre compte que l’une des électrodes du capteur s’use prématurément ! Le
+phénomène d’électrolyse que nous avions observé avec les plaques de cuivre est de nouveau observable. La
+quantité de métal présent ici est bien moindre et la durée de vie de notre capteur est par conséquent bien
+courte.
+Le professeur me conseille alors de reprendre les plaques de cuivre et d’observer la production de gaz au
+niveau d’une des électrodes en fonction de l’intensité du courant qui circule.
+Rapidement je prends conscience que l’intensité du courant et la quantité de gaz formée sont
+proportionnelles.
+Pour limiter la quantité de gaz, il faut réussir à limiter l’intensité du courant !
+Cela est rendu possible par l’ajout d’une résistance dans le circuit (alimentation / capteur). Cette résistance se
+place en série avec le capteur.
+Les valeurs d’intensité que nous mesurons sont par contre très faibles ! Le professeur ne s’en inquiète pas ! Il
+me conseille d’aller regarder de plus prêt la notice de l’enregistreur 4 voies qui nous permettra de remonter les
+mesures vers la surface et de suivre en temps réels la prise de mesures.
+Celui-ci ne peut mesurer que des tensions !!!
+Me voila bien avancé !
+Toujours en suivant les conseils du professeur je reprends mes notes !
+La loi d’ohm !
+La loi d’ohm me permet de contourner le problème, il me suffit de mesurer la tension aux bornes de la
+résistance pour connaitre l’intensité du courant et surtout savoir si je suis dans de l’eau douce ou de l’eau
+salée !
+La tension est élevée, le module se trouve dans de l’eau salée.
+La tension est faible, le module se trouve dans de l’eau douce
+
+Etude du capteur de température
+Pour notre capteur de température, nous faisons appel à l’électronique, nous avons eu la chance, de nous
+rendre sur des animations tel que la fête de la science et d’échanger avec les entreprises du secteur.
+Il nous a été conseillé pour notre projet d’utilisé un composant le LM35CZ. Il est semble-t-il à la portée d’élèves
+de collège. La relation entre la tension mesurée aux bornes du composant et la température est simple !
+
+12
+
+Nous le commandons avec d’autres éléments chez Atlantique composants à Cesson, près de Rennes.
+Etude du LM35CZ
+
+Boîtier TO92
+
+Le LM35CZ est inséré dans un boitier TO92 et se présente à nous avec trois pattes…
+La tension d’alimentation entre les bornes 1 et 3 doit être comprise entre 4V et 30V.
+La tension mesurée entre les bornes 2 et 3, correspond à la tension variant avec la température à
+laquelle se trouve le LM35CZ
+
+Etalonnage du LM35CZ
+
+suffixe Z
+
+4 à 30 V
+
+1
+
+Le LM35CZ doit mesurer la température de l’eau.
+Il faut donc lui isoler les pattes les unes des autres pour
+éviter un court circuit et obtenir de fausses mesures.
+C’est Camille qui s’en charge en utilisant du silicone.
+
+UG
+Tension d’alimentation
+
+2
+LM35
+
+3
+
+US
+Tension de sortie
+
+Déroulement de la prise de mesures
+La plage de température auquel sera confronté notre capteur devrait
+être comprise en 5°C et 17°C, pour être sur de couvrir toute la
+gamme de température, nous décidons de commencer les mesures
+avec une eau à 0°C, nous avons ainsi la tension minimale que doit
+afficher le voltmètre. Nous faisons de même en plongeant le capteur
+dans une eau à 20°C, nous alors la température maximale que devra
+afficher le voltmètre.
+Ces deux valeurs nous permettent de vérifier que le voltmètre que
+nous utilisons est suffisamment précis pour réaliser les mesures.
+Matériel : 1 cristallisoir, de l’eau du robinet, 2 voltmètres, un
+thermomètre, un thermoplongeur, une potence, des fils de
+connexion.
+Protocole 1 : nous chauffons l’eau froide avec le thermoplongeur, la température augmente très
+rapidement, la tension mesurée évolue trop vite. Il est difficile de faire des mesures convenables.
+Protocole 2 : Nous chauffons l’eau, puis nous laissons l’eau se refroidir, régulièrement nous notons la
+température de l’eau ainsi que la tension mesurée. Bien que la température de départ soit au dessus de celle
+que nous souhaitons, la méthode est bien plus adaptée.
+Malheureusement, sur la fin de l’heure qui nous est impartie, nous nous rendons compte que la tension ne
+correspond plus aux mesures attendues ! Nous laissons le capteur sous tension jusqu’au lendemain… Au matin,
+il affiche une tension de 8,34 V pour une tension d’alimentation de 6,43 V !
+Il faut revoir l’isolation du LM35CZ ! Nous pensons le glisser dans un environnement totalement étanche mais
+qui permet un échange thermique avec le milieu extérieur, comme pour les thermomètres que nous avons au
+collège.
+Nous décidons de percer une tige d’aluminium de 8mm de diamètre. Nous pouvons alors glisser le LM35CZ à
+l’intérieur.
+Le capteur sera alimenté par 4 accumulateur de 1,5 volt chacun. Il ne nous reste plus qu’a établir une courbe
+température / tension de sortie pour cette alimentation. La courbe que nous obtenons est une fonction affine.
+( équation du type : y = ax + b)(Courbe en annexe 5)
+
+13
+
+Etude du capteur de pression
+
+Les premières mesures de la pression, nous confirme que la pression est fonction de la hauteur d’eau.
+(Mesures réalisée dans un tube PVC de 1,10 m de long)
+En effet la pression à une profondeur h se calcule à l’aide de la formule : p = p0 + ρ.g.h
+
+
+
+
+
+
+(Courbe 1, annexe 6)
+
+p : pression à une profondeur h s’exprime en Pascal
+p0 : valeur de la pression atmosphérique le jour de l’expérience, s’exprime en Pascal
+3
+ρ : masse volumique de l’eau (salée) s’exprime en kg/m
+g : constante de gravité s’exprime en N/kg (ici g = 9,8 N/kg)
+h : profondeur à laquelle se trouve le module.
+
+Il s’agit de l’équation d’une fonction affine.
+A 20 m de profondeur le module subira une pression de prêt de 300000 Pascal, soit 3 bars.
+Il nous reste à étalonner le capteur de pression. En effet celui-ci nous délivrera une tension de sortie
+proportionnelle à la hauteur d’eau.
+Pour réaliser cet étalonnage, nous faisons monter dans le collège une colonne de PVC de 12 m de hauteur.
+Le capteur de pression est installé à la base de la colonne. Nous rajoutons régulièrement une quantité d’eau
+correspondant à 1 mètre dans la colonne.
+Pour déterminer précisément ce volume d’eau à ajouter, il nous a fallu mesurer le diamètre intérieur du
+cylindre, calculer la valeur de la base puis calculer le volume pour une hauteur de 1 m. (courbe 2, annexe 5)
+Il s’agit la encore d’une fonction affine.
+Cette étude est réalisée avec de l’eau du robinet, Les mesures seraient légèrement différentes avec de l’eau de
+mer. (Courbe 3, annexe 5)
+En effet, la masse de l’eau de mer étant supérieure à la masse de l’eau douce, pour deux hauteurs d’eau
+identique, on obtiendrait une tension supérieure pour l’eau de mer que pour l’eau douce.
+Nous aurions toujours une fonction affine, mais le coefficient a serait différent !
+Cependant la différence de pression est peu significative et nous n’aurions pas une différence de tension
+notable.
+Remarque : le capteur présenté le jour du concours ne sera pas celui utilisé en juin ! Trop fragile, nous l’avons cassé et nous
+sommes contraints d’en prendre un nouveau modèle.
+
+Transfert des mesures vers la surface
+Afin de pouvoir récupérer les mesures effectuées par le module, nous avons
+acheté chez Conrad, un enregistreur 4 voies.
+Nous redoutions une perte de tension lors du transport des données. Nos
+premières mesures nous rassurent, la tension mesurées aux bornes d’une
+résistance avec des cordons de 30 cm est égale à la tension mesurées aux
+bornes de 20 m de fil. Nous utilisons du fil PTT 4 paires, le courant électrique
+parcourant les fils étant faible, nous n’avons pas de perte.
+Un problème tout de même (conseil donné par nos partenaires lors de la rencontre du 6 novembre). Le fil à
+une masse et les 20 à 30 m de longueur risque d’entrainer le module au fond et de l’empêcher de remonter. Il
+14
+
+va nous falloir lui accrocher des petits flotteurs qui lui permettront de flotter et éviterons de surcharger le
+module…
+Nous testons expérimentalement la quantité de bouchon de liège nécessaire à la flottaison du fil PTT.
+Dans notre poubelle test nous enfilons sur un mètre de fil des bouchons de liège.
+Par mètre il faut exactement un bouchon de liège.
+Tout cela mériterait une vérification par le calcul ! Nous nous contenterons pour le moment de la neutralisation
+de la masse du fil par la poussée d’Archimède subit par les bouchons.
+
+Conception du module Nautilus
+Rencontre avec les partenaires de l’IRD 6 novembre 2009
+Il a été décidé après la rencontre avec les partenaires de l’IRD qu’il était préférable de concevoir un module qui
+se déplace en continue sur la colonne d’eau. Les mesures seront faites également en continue, à la descente et
+à la remontée du module.
+Nous avons donc abandonné l’idée de le faire descendre par palier : les travaux de Camille et Souraya nous
+laissent penser qu’il serait difficile de réussir à faire s’immobiliser le module lors de sa descente.
+Il faudrait ajouter à l’ensemble un système hélices qui peut-être nous permettrait de freiner ou de
+d’interrompre la descente du module.
+D’autre part, toujours à la suite de la rencontre avec nos partenaires, nous décidons de concevoir un objet
+vertical, et non pas horizontal comme initialement voulu. Le sous-marin tel que l’on se le représente ne
+conviendra pas : le module aurait tendance à glisser sur l’eau et aurait plus de difficulté à descendre !
+Le module Nautilus
+prototype 1
+Le corps du module est un tube en PVC de 8 cm de diamètre extérieur, la hauteur maximale est de 40 cm. Nous
+décidons de compartimenter le module pour éviter que la partie électrique et électronique ne soit en contact
+avec d’éventuelles fuites d’eau !
+Les compartiments sont reliés par des doubles bouchons usinés dans du PVC expansé de 10 mm. Ce qui nous
+permet un emboitement de deux fois 6mm. Nous y ajoutons un joint en silicone pour une parfaite étanchéité.
+De bas en haut nous trouvons :
+- Les ballasts, un réservoir pouvant contenir 300 mL d’eau (soit
+une masse de 300g). Ce qui est normalement largement suffisant
+pour faire remonter le module du fond vers la surface. Les ballasts
+sont commandés par un interrupteur contact situé dans le fond du
+module. Il est actionné par un percuteur qui entre en contact avec
+lui lorsque le module touche le fond.
+
+Ballast
+
+Maëva assemble le percuteur
+et l’interrupteur.
+
+-
+
+La partie centrale du module, contient l’équipement électrique, accumulateur, connectique,
+pompe de vidange.
+La troisième partie comprend l’ensemble des capteurs en contact avec le milieu extérieur :
+capteur de température, de pression et de conductivité.
+
+Remarques : une ceinture de plomb permet de compléter la masse du lest, pour que le poids total du
+module soit supérieur à la poussée d’Archimède exercée par l’eau salée.
+
+15
+
+Incident : Lors du montage de l’ensemble des pièces, nous avons eu la désagréable surprise de
+constater que les dimensions de la pompe (elles n’étaient pas présentes sur le catalogue du fournisseur),
+étaient supérieures au diamètre intérieure du tube (7,4 cm).
+En toute hâte, nous décidons de changer de tube, nous construirons le nouveau prototype avec un tube PVC de
+10 cm pour diamètre extérieur.
+Le module Nautilus
+
+prototype 2
+
+Le prototype n°2 est en tout point identique dans sa structure au prototype 1, excepté le diamètre du tube…
+Nous voulons faire les essais du module (sans les capteurs ! au cas où !), pendant les vacances, nous bloquons
+une date mais …Trop vite !!! Nous oublions de refaire les calculs du lest.
+Aie !!! Le volume du cylindre à changé, il est plus important, la poussée d’Archimède également puisqu’ils sont
+liés.
+Notre module ne coule pas, il flotte !!!, et comble de malchance les nœuds d’Antoine se défont, le module part
+avec le courant ! Il n’est pas perdu, les courants le ramène vers la berge, mais à 50 m de son point de départ,
+mais trop bas pour que nous puissions le repêcher… en tentant de l’attraper avec un balai (nous avons couru au
+collège en chercher un), un bouchon se décolle !!! Et plouf il coule vers le fond !
+Merci au professeur qui 1 semaine plus tard ira le récupérer en kayak au fond du léguer.
+Analyse
+La masse du module est importante, légèrement au dessus des 2 kg, le lest est essentiellement situé sur la
+partie basse du module, de façon à ce que la descente soit verticale. La jonction du milieu était fragile.
+Nous décidons de changer la forme des bouchons, pour que deux tiges filetées joignent les extrémités du
+module.
+Bouchons modèle n°2
+
+Axe des tiges filetées
+
+Le joint silicone a bien tenu.
+
+La pompe ne s’est pas déclenchée ! Le contacteur à disparu ! Faut-il envisagé un lest solide qui soit largable au
+moment du choc avec le lit de la rivière ?
+Test de la pompe
+La pression atmosphérique est de l’ordre de 1 bar, celle-ci augmente de 1 bar tous les dix mètres. A une
+profondeur de 20 m elle sera donc d’environ 3 bars.
+La pompe peut-elle produire une pression d’eau supérieure ? Pour le savoir nous relions la pompe au
+pressiomètre… verdict : 1,2 bar. Le système de largage d’eau est donc inenvisageable avec cette pompe. Ce qui
+peut expliquer que l’eau soit toujours dans les ballasts lors du repêchage !
+Nous décidons de concevoir un système total différent : Nous supprimons la réserve d’eau et nous partons sur
+l’idée de mettre à la place un lest solide largable qui restera au fond de la rivière ou de la mer… ce lest ne doitdonc pas perturbé l’écosystème… nous pensons à des pierres/galets que nous récupérons sur la côte.
+Il nous faut donc repenser en partie les plans du module !!!
+
+16
+
+Le module Nautilus
+
+prototype 3 annexe 6
+
+Le lest que nous décidons d’embarquer se trouve dans la partie basse du module. Il doit être largué à
+l’ouverture d’une trappe qui se situe à la base du module.
+La trappe peut-elle s’ouvrir à toutes les profondeurs ?
+Rappel :
+La pression peut s’exprimer en bar ou en Pascal (Pa) (1 bar = 100000 Pa)
+A 20 m de profondeur la pression qui s’exerce sur la base du module est de 3 bars soit 300 000 Pa
+La poussée exercée par l’eau sur la trappe s’exprime à l’aide de la relation : F = p x S
+
+
+
+
+F : force de poussée exercée par l’eau
+p : pression
+S : surface de la trappe
+2
+
+2
+
+2
+
+-3
+
+2
+
+Sachant que p = 300000 Pa et que S = π.0,05 m ≈ 0,00785 m ≈7,85.10 m
+Nous pouvons en déduire que l’intensité de la poussée exercée par l’eau est proche de 2355 N.
+Pour que la trappe puisse s’ouvrir, il faut donc que l’action du lest sur la trappe ait une intensité supérieure à
+2355 N
+L’action exercée par le lest sur la trappe est assimilable à l’action exercée par la Terre sur la masse du lest.
+L’intensité d’une telle action mécanique est donc calculée à partir de la relation P = mg.
+Pour une intensité de 2355 N, sachant que g= 9,8 N/kg il faudrait une masse de lest supérieure à 240 kg ! (Le
+compartiment contenant le lest est considéré parfaitement étanche).
+
+Cette valeur impressionnante nous pousse à poursuivre notre analyse des actions s’exerçants sur la
+trappe d’ouverture du compartiment.
+Les deux actions mécaniques s’exerçant sur la trappe de largage sont :
+-
+
+L’action de l’eau sur la trappe modélisée par Fp
+
+-
+
+L’action du lest sur la trappe modélisée par Plest
+
+La première correspond à une force de pression, la seconde au poids du lest.
+Les intensités respectives de ces deux actions sont donc :
+
+- Fp = p . S = (p0 + ρ.g.h) . S = p0.S + ρ.g.h.S
+Ou p0 correspond à la pression atmosphérique…. Qui varie donc en fonction des conditions météorologiques.
+Si l’on considère qu’il reste de l’air dans les ballasts, la composante p0.S est éliminée.
+
+- Plest = mlest.g
+On a donc à l’équilibre : mlest.g = ρ.g.h.S
+Soit :
+
+mlest = ρ.h.S
+
+La masse du lest est donc une grandeur qui dépend directement de la profondeur du module. Il s’agit d’une
+fonction linéaire. (Courbe 4, annexe 5)
+
+17
+
+Les résultats obtenus sont toujours aussi impressionnants et nous obligerait à avoir une quantité de lest bien
+trop importante ! Ce qui nous impossible…
+Pour remédier à cela, il « suffit » d’annuler l’action de l’eau sur la surface extérieure de la trappe. Ceci est
+rendu possible par le perçage du compartiment devant contenir le lest. L’eau pouvant pénétrée dans le ballast,
+elle exerce une pression égale des deux côtés de la trappe !
+Lorsque le déblocage de la trappe s’effectue, le lest peut tomber et laisser le module remonter vers la surface.
+
+Test du prototype 3 à l’embouchure du
+Leguer
+
+Les conditions météorologiques sont idéales, il n’y a pas de vent, la mer est calme et il fait grand soleil.
+Nous embarquons sur Trébeurden à bord d’un petit voilier et hop direction l’embouchure du leguer.
+40 à 45 minutes sont nécessaires pour atteindre notre lieu d’expérimentation.
+Enfin les premiers véritables tests vont être réalisés, nous avons toujours en tête notre premier échec et
+vérifions convenablement les fixations du module avant de le mettre à l’eau.
+Nous y sommes !!! Première mise à l’eau dans une profondeur plus que modeste environ un mètre cinquante
+d’eau. Il descend doucement, touche le fond et remonte. Le système de largage fonctionne convenablement.
+Une excellente nouvelle, par contre les capteurs ne donnent pas les réponses attendues ! Ouf !!! Juste un
+problème de connectique.
+Nous sommes cette fois ci plus ambitieux et décidons de retenter l’expérience à une profondeur plus
+importante près de 10 m d’après les estimations du navigateur qui nous prête son bateau. Nous nous sommes
+par conséquent éloignés de la côte.
+Une fois de plus le mobile descend, cette fois –ci toutes les courbes, sauf une s’affichent normalement sur
+l’écran de l’ordinateur… le capteur de pression de répond pas !
+A l a remontée du module, nous décidons de vérifier le capteur de pression. Grosse erreur, notre module ne
+sera plus parfaitement étanche et l’eau s’engouffrera dans le module, perturbant à la fois son équilibre et la
+mesure des différents paramètres.
+La capture d’écran ne voulant pas fonctionner, nous mettons l’enregistrement obtenu sur un CD Annexe.
+Merci de bien vouloir nous en excuser!!!
+Lecture des courbes obtenues :
+Capteur de conductivité / courbe rose
+Le capteur se trouve juste à la surface de l’eau, la tension mesurée est faible, le module se trouve dans de l’eau
+douce. Très vite presque immédiatement après le lâché, la courbe s’élève, la tension augmente puis se
+stabilise. Le module se trouve dans de l’eau salée. La tension n’évolue plus tout au long de la descente, la
+concentration en sel semble donc être la même sur toute la hauteur d’eau.
+Capteur de température / courbe jaune
+La tension mesurée par ce capteur, ne varie pas, elle est constante. La température de l’eau est constante sur
+toute la colonne d’eau.
+Capteur de pression / courbe blanche
+La tension mesurée est nulle ! Disfonctionnement, des connexions se sont défaites lors de l’assemblage. Nous
+aurions du observé des valeurs de tension en hausse au fur et à mesure de la descente.
+
+18
+
+Analyse & Conclusion
+
+Les premières mesures que nous obtenons nous permettent de vérifier que
+lors de la rencontre des eaux à l’embouchure du Leguer, l’eau douce reste au
+dessus tandis que l’eau salée se situe en dessous.
+Ceci est conforme aux expérimentations et prévisions effectuées en salle de
+classe.
+Toute fois l’épaisseur de la couche d’eau douce diminue très rapidement
+pour devenir très vite non mesurable. En s’étalant sur la vaste immensité de
+la manche, l’eau douce est très vite diluée dans l’eau salée.
+Toutefois bien en amont, au niveau de Lannion, on observe très nettement
+la descente de l’eau douce vers l’embouchure et, ce même lorsque la marée
+monte et que l’eau salée pénètre très nettement dans l’intérieur des terres.
+Nous sommes bien conscients des limites de notre étude, que cette
+conclusion est hâtive et que bien sûr nous devrions effectuer de nouvelles
+séries de mesures pour pouvoir conclure de façon fiable !
+Cependant nous avons un prototype qui répond au cahier des
+charges que nous nous étions fixés, et qui a fait appel à l’ensemble des
+connaissances que nous disposions au moment de sa réalisation.
+Et, il est bien entendu que ce prototype demande à être amélioré pour être
+rendu plus fiable, de façon à fournir avec certitude les réponses aux
+questions que nous étions posés.
+Nos huit mois de travaux furent passionnants, et c’est bien pour cela que
+nous tenions à être ici aujourd’hui pour vous les présenter !
+
+19
+
+

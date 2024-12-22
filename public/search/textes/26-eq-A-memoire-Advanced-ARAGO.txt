@@ -1,0 +1,1031 @@
+Olympiades de Physique 2019
+
+« Advanced Arago »
+Louise Richard, Hugo Montan, Ségolène Mosser, Maël Jeannot, Antoine Tondu
+Elèves de Terminale S du lycée Aragon d’Héricourt
+Avec l’aide d’Alain Froidurot leur professeur de physique.
+Lycée Aragon d’Héricourt 70400
+
+Leur professeur de Physique.
+
+Résumé
+Les détecteurs américains LIGO et européen VIRGO ont permis dernièrement de détecter des ondes
+gravitationnelles issues de la fusion de trous noirs et d’étoiles à neutrons.
+Depuis 2017 le club scientifique du lycée est parti à la découverte de ces ondes et de leur détection.
+Sur le principe des interféromètres LIGO et VIRGO, nous simulons un détecteur d’ondes
+gravitationnelles en utilisant un faisceau d’ultrason plutôt qu’un faisceau laser.
+Les oscillations de l’espace-temps induites par le passage de l’onde gravitationnelle sont générées
+en utilisant le mouvement des membranes de deux haut-parleurs.
+Cette « déformation de l’espace-temps » est ensuite détectée puis analysée afin de déterminer les
+paramètres de l’évènement responsable : masse des objets fusionnant et distance à la Terre.
+Pour coller à la réalité, les signaux produits sont de plus en plus faibles ce qui nécessitera l’utilisation
+de techniques d’analyse similaires à celles utilisées réellement.
+Tout comme LIGO et VIRGO, notre interféromètre ARAGO a subi plusieurs améliorations, d’où son
+nom Advanced ARAGO.
+
+Page 1
+
+Sommaire
+Introduction
+Principe du détecteur interférométrique d'ondes gravitationnelles
+Notre détecteur interférométrique : Arago
+
+
+
+
+
+
+
+
+Interféromètre à ultrason
+Les miroirs sphériques
+La séparatrice
+Essai de transmission et réflexion
+Le support
+L’interféromètre Advanced Arago
+Test de l’interféromètre
+
+Miroirs de recyclage
+
+
+
+Pourquoi ?
+Recherche de la performance par simulation
+
+Détection des ondes gravitationnelles
+
+
+
+Une onde gravitationnelle dans notre laboratoire
+Point de fonctionnement de l’interféromètre
+
+Vibration de l’espace-temps, quelle fonction mathématique ?
+
+
+
+
+
+
+
+
+Allure de la vibration
+Fonction pour générer des ondes gravitationnelles
+Cas où les deux objets fusionnant ont la même masse m
+Vérification des calculs avec l’exemple donné
+Vérification de la théorie avec la réalité
+Application à la détermination de la masse totale d’objets fusionnant
+Simulation du passage d’une onde gravitationnelle
+
+Détection de la vibration
+
+
+Circuit démodulateur
+
+Détermination des caractéristiques de l’onde gravitationnelle
+
+
+
+Modélisation
+Limites de la modélisation
+
+Analyse spectrale
+
+
+
+
+
+Nécessité
+Comment déterminer la masse totale du système : M ?
+Comment déterminer la distance à la source : D ?
+Sensibilité du détecteur
+
+Conclusion
+Page 2
+
+Introduction
+En 1916, Albert Einstein émet une hypothèse : lorsque des masses subissent une accélération, elles
+font vibrer l’espace-temps, produisant une onde comparable aux rides qui se propagent à la surface
+de l’eau lorsqu’une pierre la frappe. C’est la fameuse onde gravitationnelle. Toutefois, la déformation
+de l’espace- temps est infime : dix mille fois plus petite que la taille d’un proton (10 -18 à 10-19 m sur
+plusieurs km). Les ondes gravitationnelles suffisamment intenses pour être détectées sur Terre
+proviennent d’événements cataclysmiques, mettant en jeu de très grandes masses subissant de
+fortes accélérations.
+Le 14 septembre 2015, les deux détecteurs de l’expérience Ligo installés aux États-Unis ont réagi au
+passage d’une onde gravitationnelle ayant pris sa source à 1,3 milliard d’années-lumière de la
+Terre correspondant à la fusion de 2 trous noirs de masse environ 30 fois la masse du Soleil
+chacun.
+
+D’où notre problématique :
+Comment les scientifiques ont-ils pu détecter le phénomène et en déduire ses
+paramètres ?
+Nous allons tenter d’y répondre en simulant le phénomène, en le détectant et en l’analysant tout
+comme les équipes de Ligo et Virgo l’on fait.
+
+Page 3
+
+Principe du détecteur interférométrique d'ondes gravitationnelles
+Tout commence avec un interféromètre de Michelson géant permettant de détecter la très faible
+oscillation de l’espace-temps (Ligo aux Etats-Unis ou Virgo en Italie) : soit une variation de 10-18 m
+sur 3 km de longueur !
+
+Détecteurs LIGO (à Hanford et Livingston, États-Unis) et le détecteur Virgo (Cascina, Italie).
+LIGO Laboratory et Virgo / Nicola Baldocchi 2015
+
+Schéma de base d'un
+détecteur interférométrique
+d'ondes gravitationnelles.
+(Animation Virgo)
+
+Nous avons réalisé un tel interféromètre, baptisé ARAGO, puis Advanced ARAGO après
+amélioration de ses performances !
+
+Notre détecteur interférométrique : Advanced Arago
+Interféromètre à ultrason
+Ultrasons
+40 kHz
+
+Nous ne disposons pas d’interféromètre de Michelson au
+lycée. Aussi, pour réaliser notre interféromètre, nous
+remplaçons le faisceau laser par un faisceau d’ultrasons. Un
+émetteur d’ultrason alimenté par un générateur ajusté à
+40kHz prend la place du laser et un détecteur d’ultrason relié
+à une carte d’acquisition Latispro celle du photodétecteur.
+
+Les miroirs sphériques
+Pour focaliser les faisceaux sur le
+récepteur, il faut utiliser des miroirs
+sphériques dont le rayon correspond à
+la distance entre émetteur et miroir
+d’environ 20cm. Nous les réalisons en
+papier mâché à l’aide d’un cul de poule
+emprunté aux cuisines de diamètre
+40cm. Puis nous découpons et collons
+des calottes sphériques sur les
+membranes des deux haut-parleurs.
+
+La séparatrice
+Il faut trouver un matériau partiellement transparent pour les ultrasons. Nous testons plusieurs
+matériaux (film étirable, divers tissus) de façon à ce qu’environ 50% des ultrasons le traversent. Nous
+supposons que l'autre partie est réfléchie.
+Page 4
+
+Tissu 3
+Amplitude de 1V
+
+On détecte une amplitude de 320mV
+
+matériau
+
+Film étirable
+
+Tissu 1
+
+Tissu 2
+
+Tissu 3
+
+Transmission
+
+30%
+
+63%
+
+48%
+
+32%
+
+Nous choisissons le tissu 2 qui donne un pourcentage de transmission le plus proche de 50%. Nous
+le collons sur un cadre en carton (voir ci-dessous).
+
+Essai de transmission et réflexion :
+Si 50% des ultrasons sont transmis, est-ce que 50% sont réfléchis ?
+Nous essayons et le résultat est plus que satisfaisant !
+
+Réflexion
+
+Transmission
+
+Le support
+La nouvelle version Advanced Arago est réalisée en MDF, les deux miroirs sont sur des supports
+coulissants. Des vis permettent de les déplacer finement de 0,8mm par tour.
+
+L’interféromètre Advanced Arago
+miroir
+miroir
+
+Emetteur
+séparatrice
+d’US
+
+Le faisceau d’ondes ultrasonores est divisé en deux
+par la séparatrice. Puis les deux faisceaux sont
+réfléchis par les miroirs sphériques et interfèrent
+ensuite. Le récepteur ultrasonore est relié à la carte
+d’acquisition Latispro.
+
+récepteur
+
+Page 5
+
+Test de l’interféromètre :
+
+Signal détecté
+
+Lorsque nous éloignons un des haut-parleurs, nous observons bien une alternance entre
+interférences constructives et destructives.
+
+λ/2
+
+Déplacement x d’un miroir
+
+Lorsque les 2 bras ont la même longueur,
+les 2 ondes sont en phase et les
+interférences sont constructives, l’intensité
+est maximale. Si un miroir est éloigné de
+x = λ/4, lors de l’aller et retour, une des 2
+ondes parcourt λ/2 de plus que l’autre, les 2
+ondes sont en opposition de phase et les
+interférences sont destructives, l’intensité
+est nulle.
+
+On peut mesurer la longueur d’onde des ultra-sons : λ = 2×4,50 mm = 9,00.10-3 m. Elle correspond
+bien à celle calculée à partir de la célérité du son dans l’air : λ = v/f = 346/39,2.103 = 8,83.10-3 m
+
+Miroirs de recyclage
+Pourquoi ?
+Pour optimiser Virgo, des miroirs supplémentaires
+permettent d’augmenter l’intensité du faisceau lumineux,
+et de lui faire parcourir plusieurs centaines de fois les
+bras de l’interféromètre, afin d’amplifier le signal
+observable.
+D’où l’idée dans Advanced Arago d’utiliser des miroirs
+de recyclage, pour faire de même.
+Ceux-ci sont découpés dans les mêmes calottes
+sphériques que les miroirs. Nous perçons un trou en leur
+centre pour y placer l’émetteur et le récepteur.
+Pour tester leur efficacité, nous utilisons un émetteur de
+salves d’ultra-sons en présence d’un seul miroir.
+On observe au moins 5 réflexions :
+
+c
+b
+
+a
+d
+
+Miroirs de recyclage et longueurs
+de trajets a, b, c et d.
+
+Sans miroir
+Avec miroirs
+Pour être efficace, ces miroirs doivent former une cavité résonnante, la longueur des multiples trajets
+des faisceaux interférant ne doit pas être quelconque. On constate d’ailleurs que l’état d’interférence
+au niveau du récepteur dépend des distances a et d. Se pose alors le problème du positionnement
+de ceux-ci. Nous résolvons ce problème à l’aide d’un simulateur programmé en Python (programme
+en annexe). Il prend en compte les 8 parcours possibles des ultra-sons, chacun ayant un retard
+dépendant de la position des 4 miroirs. Exemples de parcours : abbd, dbbd, acca ….
+On envisage un coefficient de réflexion sur chacun.
+Page 6
+
+Recherche de la performance par simulation
+Pour différentes valeurs de a, b, c et d, on rajoute à b un déplacement x et on représente l’amplitude
+de l’onde reçue en fonction de x et en fonction du nombre de réflexion prises en compte :
+1 réflexion
+2 réflexions
+3 réflexions
+
+Zone de
+fonctionnement
+
+a = b = c = d = kλ/2
+
+a = c = d = kλ/2
+
+b = kλ/2 + λ/4
+
+On verra plus loin que le point de fonctionnement de l’interféromètre doit se trouver dans la zone
+cerclée en rouge et que la sensibilité de l’interféromètre augmente avec la pente. On voit donc par
+cette simulation que dans le cas d’Advanced Arago, on ne gagne rien avec les miroirs de recyclage !
+Nous les abandonnons.
+
+Détection des ondes gravitationnelles
+Une onde gravitationnelle dans notre laboratoire
+Lorsque les ondes gravitationnelles traversent la Terre, l’espace-temps est alternativement contracté
+et étiré dans les directions perpendiculaires à la direction de propagation.
+
+Source : http://physics.aps.org/assets/8cbf3dfb-7849-485b-8626-1276bc044ddf/video1.mp4
+
+Lors du passage de l’onde dans l’interféromètre, le déphasage des deux faisceaux interférant est
+modifié, et l’intensité lumineuse reçue par le photo-détecteur change.
+Pour simuler le passage d’une onde gravitationnelle
+dans notre interféromètre, nous avons alimenté les
+deux haut-parleurs avec deux tensions alternatives
+inversées. Lorsqu’une membrane se rapproche de
+la séparatrice, l’autre s’en éloigne et inversement.
+Le capteur ultrason détecte alors une intensité
+ultrasonore variant avec la même fréquence que
+celle des haut-parleurs.
+
+Page 7
+
+Intensité sonore
+
+Point de fonctionnement de l’interféromètre :
+
+Ondes en
+phase
+
+Ondes en
+opposition
+de phase
+Pas de dédoublement
+Amplitude maximale
+de l’intensité sonore
+
+Dédoublement
+
+Déplacement de
+la membrane
+
+Déplacement de
+la membrane
+
+Position x du miroir
+
+Représentation de l’intensité sonore en fonction de la position x d’un des miroirs.
+Comme dans Virgo, il faut positionner les miroirs de telle sorte que les ondes interférant soient
+presque en opposition de phase. C’est à cet endroit que l’on pourra amplifier le plus les variations du
+signal détecté. Si les ondes sont en opposition de phase, on observe un dédoublement du signal.
+
+Pas de dédoublement
+
+Dédoublement
+
+Vibration de l’espace-temps, quelle fonction mathématique ?
+Allure de la vibration
+Il faut simuler une onde gravitationnelle pour ensuite la détecter à l’aide de notre interféromètre.
+Mais quelle fonction mathématique correspond à la vibration de l’espace-temps due à la fusion de 2
+trous noirs par exemple ?
+La publication PHYSICAL REVIEW LETTERS du 12
+février 2016 donne l’allure de la fonction. Au cours de la
+fusion, les trous noirs tournent à une certaine fréquence,
+ils se rapprochent et tournent de plus en plus vite jusqu’à
+fusionner. Le phénomène s’arrête alors.
+La vibration de l’espace-temps correspond à une fonction
+sinusoïdale dont la fréquence et l’amplitude augmentent
+comme l’indique ce schéma :
+Source : PHYSICAL REVIEW LETTERS 12 février 2016
+
+Page 8
+
+Pour simuler l’onde gravitationnelle, Nicolas Arnaud chercheur à l’observatoire européen des ondes
+gravitationnelles (EGO) nous fournit les documents nécessaires :
+Tutorials on GW data analysis : Parameswaran Ajith and Archisman Ghosh
+International Centre for Theoretical Sciences, Tata Institute of Fundamental Research, Bangalore 560012,
+India.(July 7, 2015)
+
+Fonction pour générer des ondes gravitationnelles
+Le document indique que le signal GW peut être calculé ainsi : h(t )  A(t )cos (t )
+avec A(t ) 
+
+4
+
+ 2/3 F (t )2/3
+
+5/3
+
+D
+
+
+1
+t 
+
+et  (t )  0  2 
+
+8/3
+F0 )
+5
+ 256(
+
+
+5/8
+
+  3/5M 2/5
+
+où  est la chirp mass :
+
+m1m2
+et la masse totale M  m1  m2
+M
+Ces relations permettent de déterminer la vibration de l’espace-temps par h(t) (voir les calculs en
+annexe).
+avec la masse réduite  
+
+En prenant 0  0 on obtient :
+5/8
+
+
+t 
+cos  (t )  cos  10,05 F0 tc  1   
+
+ tc  
+
+L’évolution de la fréquence est donnée par :
+F0
+F (t ) 
+3/8
+
+t
+1  
+ tc 
+
+tc se nomme le temps de coalescence :
+tc 
+
+9, 23.104
+F08/3 5/3
+
+Cas où les deux objets fusionnant on la même masse m
+M  m1  m2  2m ,  
+
+m1m2 M
+
+et
+M
+4
+
+  3/5 M 2/5 
+tc 
+
+M
+. Dans ce cas,
+43/5
+
+3,69.103
+F08/3 M 5/3
+
+Dans ces relations, les grandeurs sont données en unités géométrisées :
+1M☉ = 4,93.10-6 s et 1Mpc =1,03.1014 s
+D’où l’amplitude de la vibration :
+
+A(t ) 
+
+7,69.1017
+1
+1/4
+2
+F0 tc D 
+t
+1  
+ tc 
+
+(avec D en Mpc)
+
+Finalement :
+5/8
+
+
+7,69.1017
+1
+t 
+h(t ) 
+cos  10,05 F0 tc   1   
+1/4
+
+F0 2tc D 
+ tc  
+t
+
+1
+
+
+
+ tc 
+
+Page 9
+
+Vérification des calculs avec l’exemple donné
+Le document propose un exemple de fonction h(t ) :
+
+si M = 10M☉ et F0 = 40Hz alors M = M ×43/5 = 23,0 M☉ d’où tc 
+
+
+
+7,69.1017
+1
+t
+h (t )  2
+cos  10,05 40  0,744  1  
+1/4
+
+40  0,744 100 
+ tc 
+t
+
+1  
+ tc 
+Voici la courbe h(t) corespondante :
+
+5/8
+
+3,69.103
+ 0,744 s
+408/3 (23,0  4,93.106 )5/3
+
+5/8
+ 0,646.1021
+
+
+t 
+
+cos  299  1   
+1/4
+ 
+
+
+ tc  
+t
+
+
+1  
+ tc 
+
+-21
+
+×10
+
+Courbe obtenue avec D = 100Mpc; F0 = 40 Hz et tc = 0,744 s
+Celle-ci est identique à celle donnée en exemple, ce qui valide nos calculs.
+
+Page 10
+
+Vérification de la théorie avec la réalité
+Sur les 5 événements détectés par LIGO-VIRGO dont on dispose les chirps ainsi que les masses
+des deux astres fusionnant, on essaie de déterminer graphiquement le temps de coalescence tc pour
+une fréquence commune initiale F0 = 64Hz.
+100
+GW170814
+
+GW150914
+
+M (en M⊙)
+
+GW170608
+
+GW151226
+
+M = 7,04 × tc-0,604
+
+10
+
+GW170817
+
+1
+0,01
+
+0,1
+
+1
+
+tc (s)
+
+10
+
+Modélisation de M en fonction de tc (évalué) pour F0 = 64Hz
+tc 
+
+3,69.103
+3, 47.102
+
+M
+
+F08/3 M 5/3
+tc 3/5 F08/5
+
+Pour une fréquence initiale F0 identique, on vérifie bien que la masse du système est proportionnelle
+à tc-3/5, soit :
+M = k × tc -3/5 = k × M-0,6
+
+Application à la détermination de la masse totale d’objets fusionnant
+C’est avec la fusion de deux étoiles à neutrons, GW170817 que nous avons le « plus beau » chirp :
+
+Source :Ligo.org
+M
+
+3, 47.102
+donc tc 3/5 F08/5 doit être constant en tout point du chirp.
+tc 3/5 F08/5
+
+F0 (Hz)
+tc (s)
+3/5 8/5
+tc F0 (s-1)
+
+40
+26,2
+2600
+
+50
+13,9
+2540
+
+70
+5,7
+2550
+Page 11
+
+Pour ce signal, tc 3/5 F08/5 est sensiblement constant, la théorie est donc vérifiée.
+Sa valeur moyenne est tc 3/5 F08/5 = 2560 s-1.
+On peut alors déterminer la masse totale M des étoiles à neutrons ayant fusionné :
+M
+
+3, 47.102 3, 47.102
+1,36.105 s
+5
+
+
+1,36.10
+s
+
+ 2,75M
+tc 3/5 F08/5
+2560
+4,93.106 s / M
+
+Elle correspond bien la valeur déterminée par les scientifiques : M = 2,74M (source Wikipédia)
+
+Simulation du passage d’une onde gravitationnelle
+A l’aide de la carte d’acquisition de LatisPro, on génère une tension U(t) produite ainsi :
+h=1*(1/(1-temps/tc)^(1/4))*cos(10,05*F0*tc*(1-temps/tc)^(5/8))
+Cette tension amplifiée en puissance est envoyée aux haut-parleurs afin de créer le passage d’une
+onde gravitationnelle.
+h(t)
+
+Vibration test : F0 = 2Hz et tc = 2s
+Les signaux émis pour moduler les ultrasons étant dans le domaine des ondes audibles, notre
+laboratoire se transforme en forêt amazonienne remplie de chants d’oiseaux exotiques : surnommés
+"chirps" par les spécialistes !
+
+Détection de la vibration
+Pour cette partie, il faut réaliser un montage électronique permettant de récupérer le signal modulant
+les ultrasons. Il comporte 5 parties :
+
+
+Un amplificateur
+L’amplitude de la tension d’entrée est d’environ 100mV et le détecteur d’enveloppe ne
+fonctionne pas avec une si faible amplitude. Une amplification jusqu’à 100, avec R2 =100kΩ et
+R1 =1kΩ donne de bons résultats.
+
+
+
+Un détecteur d’enveloppe
+La constante de temps τ = RC doit satisfaire :
+
+Tminmodulation = 1/fvibration ≈ 1/1000Hz ≈ 10-3 s
+Tporteuse = 1/fultrason = 1/40kHz = 2,5×10-5 s
+RC = 10-4 est optimum. Avec C = 0,1 µF = 10-7 F il faut
+
+
+R = 10-4 / 10-7 = 103 Ω = 1kΩ
+
+Un détecteur de variation
+Un condensateur de 1µF ne transmet que les variations de tension et supprime la partie
+continue.
+
+Page 12
+
+sortie
+
+variations
+
+Un filtre passe-bas amplificateur
+Sa fréquence de coupure est fc = 1/ 2πRC . Il permet d’éliminer efficacement les restes de
+40kHz.
+Si on veut fc = 1kHz, 2πRC = 10-3 s, avec C = 20nF, il faut R ≈ 10 kΩ.
+R
+10k
+= 11 multiplie par 11 la tension pour obtenir quelques volts
+Le gain G = 1+ 2 = 1+
+R1
+1k
+d’amplitude en sortie.
+
+enveloppe
+
+
+
+amplifié
+
+Un suiveur
+Pour isoler le condensateur de l’amplificateur suivant qui en modifie le fonctionnement.
+
+entrée
+
+
+
+Signal de sortie
+
+Signal injecté
+
+Principe et circuit de détection des ondes gravitationnelles générées :
+
+Page 13
+
+Détermination des caractéristiques de l’onde gravitationnelle
+Modélisation
+Voici les signaux détectés le 14 septembre 2015 par les détecteur LIGO :
+
+Modélisation des signaux
+
+Source : PHYSICAL REWIER LETTER 12 février 2016
+
+Pour déterminer les paramètres de « l’événement cataclysmique » (masse des trous noirs, distance
+à la Terre), les scientifiques ont modélisé les signaux reçus (Numerical relativity). On fait de même.
+Après passage dans notre détecteur Advanced ARAGO, voici les résultats :
+
+Signal test injecté
+Signal détecté
+Modèle LatisPro
+
+Signal test : F0 = 2Hz et tc = 2s
+On choisit comme modèle la fonction :
+A × (1/(1−Temps/tc)1/4) × cos(φ0 – 10 × F0 × tc × (1–Temps/tc)5/8)
+φ0 permet d’ajuster le décalage initial de la fonction cosinus, A adapte l’amplitude.
+Le logiciel de modélisation de LatisPro n’arrive pas à trouver tous les paramètres en même temps.
+Par contre en les activant un par un et avec beaucoup d’aide, il arrive à déterminer :
+φ0 = 1,039rad
+A = 1,906
+F0 = 1,998Hz
+
+Page 14
+
+Limites de la modélisation
+Le temps de coalescence tc n’a pas pu être trouvé, il faut imposer tc = 2s au logiciel. Cette valeur ne
+peut donc être déterminée que par tâtonnement (ce qui n’est pas facile car une petite variation de tc
+modifie beaucoup la valeur de φ0).
+
+Analyse spectrale
+Nécessité
+
+fréquence
+
+En diminuant l’amplitude de la tension envoyée aux haut-parleurs (en dessous de 0,1 V), il devient
+difficile de récupérer un signal exploitable car le bruit prend le dessus. On procède alors autrement
+en utilisant la technique de veille utilisée par LIGO et VIRGO :
+L’évolution de la fréquence de la vibration en fonction du temps est caractéristique. Si on représente
+le spectre du signal détecté en fonction du temps on obtient le spectrogramme ci-dessous :
+
+temps
+Source : https://www.ligo.org/
+
+Cette allure particulière est la signature de la coalescence de deux corps célestes.
+Événement du 14 septembre 2015 : PHYSICAL REVIEW LETTERS 12 février 2016
+
+Événement du 14 aout 2017 : PHYSICAL REVIEW LETTERS 6 octobre 2017
+
+Page 15
+
+Le signal traité est envoyé à la carte son d’un ordinateur, Spectrum Lab permet d’obtenir son
+spectrogramme avec beaucoup de finesse.
+Événement du 15 novembre 2018 : OLYMPIADES DE PHYSIQUE 2019
+Détecté uniquement au lycée Aragon
+
+masse totale M = 12,7 M
+distance à la source : D = 380 000 km
+
+Comment déterminer la masse totale du système : M ?
+L’évolution de la fréquence au cours du temps est donné par :
+F0
+F (t ) 
+3/8
+
+t
+1  
+ tc 
+Sur un logiciel de géométrie dynamique (geogebra), nous avons modélisé cette courbe. Il faut faire
+correspondre les abscisses (le temps) et les ordonnées (la fréquence). De cette façon, avec des
+curseurs agissant sur F0 et tc , nous pouvons très facilement superposer le modèle à notre
+spectrogramme et relever les caractéristiques du chirp :
+
+En rouge : le modèle se superpose parfaitement
+La modélisation donne : tc = 1,14s et F0 = 49,4Hz
+M
+
+3, 47.102
+3, 47.102
+6, 25.105 s
+5
+
+
+6,
+25.10
+s
+
+ 12,7 M
+tc 3/5 F08/5
+1,143/549, 48/5
+4,93.106 s / M
+
+Comment déterminer la distance à la source : D ?
+On peut maintenant utiliser F0 et tc dans la modélisation du signal détecté correspondant à h(t) :
+A × (1/(1−Temps/tc)1/4) × cos(φ0 – 10,05 × F0 × tc × (1–Temps/tc)5/8)
+pour rechercher l’amplitude A et ainsi déterminer la distance D à laquelle s’est produite la fusion.
+Page 16
+
+L’outil de modélisation de LatisPro n’étant pas très performant (aide nécessaire, obligation de faire
+varier les différents paramètres un par un) et ne fonctionnant pas avec un signal trop bruité, nous
+réalisons notre propre outil de modélisation (Programme python en annexe).
+On rentre par l’intermédiaire d’un fichier csv les valeurs de la tension de sortie du détecteur au cours
+du temps et on récupère les paramètres optimaux pour la phase à t=0 : φ0 et pour l’amplitude : A.
+Nous testons notre programme avec plusieurs signaux de fréquences F0 et d’amplitudes différentes.
+
+Signal test : F0 = 2Hz et tc = 2s
+
+Signal réel bruité : F0 = 40Hz et tc = 2s
+
+Modélisation optimale pour : φ0 = 1.2 et A = 2.0V
+
+Modélisation optimale pour : φ0 = 0.88 et A = 0.0375V
+
+À gauche un signal test pour bien faire comprendre le principe, à droite un signal plus réel
+d’amplitude beaucoup plus faible correspondant à notre événement du 15 novembre 2018 !
+On peut maintenant calculer à quelle distance s’est situé cet événement créant cette perturbation de
+l’espace-temps :
+
+0mV
+
+0V
+
+Notre montage amplifie une variation
+d’amplitude de la tension de 61mV (orange)
+en une tension d’amplitude 5,15V (rouge),
+soit une amplification par 84.
+
+Compte tenu de l’amplification par 84 et de la sensibilité du détecteur : 0,86mm/V (voir paragraphe
+suivant), une amplitude du signal de sortie de 0,0375V correspond à un déplacement de
+(0,0375/84)×0,86 = 3,9.10-4mm = 0,39µm
+Nous avons vu la relation entre l’amplitude A de la vibration de l’espace avec la distance D à laquelle
+a eu lieu le phénomène :
+7,69.1017
+A
+F02tc D
+
+En fait A est l’amplitude relative. La longueur d’un bras de notre interféromètre étant de 20cm.
+
+A
+D’où D 
+
+0,39.106
+ 1,9.106
+20.102
+
+7,69.1017
+7,69.1017
+
+ 1, 2.1014 Mpc
+F02tc A
+402  2  1,9.106
+
+Soit une distance D = 380 000 km correspondant à la distance Terre-Lune !
+Un tel signal correspond donc à la fusion de 2 trous noirs de masse 6,3 fois la masse du
+Soleil à une distance de 380 000 km !
+Page 17
+
+Sensibilité de l’interféromètre
+Pour une tension U(t) envoyée aux haut-parleurs d’amplitude 1V à t=0 :
+h=1*(1/(1-temps/tc)^(1/4))*cos(10,05*F0*tc*(1-temps/tc)^(5/8))
+On récupère un signal d’amplitude 23mV à la même date.
+
+2×23mV
+
+La réponse du détecteur d’ultrasons est :
+
+Point de
+fonctionnement
+optimal
+
+Au point de fonctionnement optimal, le coefficient directeur est d’environ 583mV/mm, soit un
+déplacement de la membrane de 1/583 = 1,72mm/V ou la moitié lorsque les deux membranes sont
+en opposition : 0,86mm/V
+À 23mV correspond donc un déplacement de 0,023V×0,86mm/V = 0,020mm de chacune des deux.
+Ceci pour une tension de 1V envoyée aux haut-parleurs.
+On génère des tensions sinusoïdales de fréquence f d’amplitude de plus en plus petite, jusqu’à ne
+plus pouvoir observer le spectrogramme de cette fréquence (un trait horizontal) dans Spectrumlab.
+Exemple, pour f = 100Hz, bien que gêné par la première harmonique du 50 Hz, on arrive à observer
+le signal jusqu’à une tension envoyée aux haut-parleurs d’amplitude 0,01V.
+Cela correspond à un déplacement de chacune des membranes de :
+0,01V×0,020mm/V = 0,0002mm
+La longueur modeste de notre interféromètre est 20cm.
+À la fréquence f = 100Hz, la sensibilité relative est donc 0,0002mm / 200mm = 10-6
+On peut représenter cette sensibilité en fonction de la fréquence :
+
+Page 18
+
+sensibilité d'Avanced ARAGO
+1E-3
+
+Sensibilité
+
+1E-4
+1E-5
+1E-6
+1E-7
+10
+
+100
+
+1000
+
+10000
+
+Fréquence (Hz)
+
+Celle-ci est limitée d’un côté par Spectrumlab dédié aux sons audibles qui ne nous permet pas une
+bonne analyse des signaux de basse fréquence et de l’autre par notre circuit de détection qui utilise
+un filtre passe bas pour éliminer le 40kHz.
+Le 50Hz est un plus difficilement détectable à cause de sa pollution ambiante.
+A 600Hz, on atteint une sensibilité de 4.10-7, c’est-à-dire qu’on met en évidence des vibrations
+d’amplitude inférieure à 0,08µm, soit le 100 000ème de la longueur d’onde des ultra-sons. On n’est
+pas au 10-21 d’Advanced Virgo ou d’Advanced Ligo, mais nous sommes tout de même fiers de notre
+détecteur Advanced Arago !
+
+Conclusion
+Ce projet a été très enrichissant pour chacun d'entre nous : il nous a donné l’occasion de nous
+plonger dans un domaine de la physique du XXIème siècle qui a eu un grand retentissement
+médiatique, avec notamment un prix Nobel. Nous avons en effet eu la chance d’assister aux
+balbutiements d’un tout nouveau domaine de l’astronomie. Ainsi, nous avons pu apporter notre pierre
+à la diffusion de ce savoir en proposant un montage très réaliste reproductible dans n’importe quel
+lycée. Nous avons également eu la chance d’échanger avec un chercheur spécialiste de la discipline
+qui s’est mis à notre niveau, nous a encouragés et nous a communiqué sa passion.
+Ainsi, aujourd’hui nous sommes capables de comprendre et d’expliquer l’origine des ondes
+gravitationnelles et leur détection, ce qui nous semblait complètement inabordable il y a quelques
+mois.
+Enfin, mener à bien ce projet nous a appris à travailler en équipe, résoudre les problèmes
+rencontrés, formuler des hypothèses, les tester, puis en tirer des conclusions rigoureuses. Autant de
+démarches qui sont à la base de toute science. Ainsi, au terme de ce projet, nous sommes habités
+par un sentiment de fierté. En effet, nous avons l’impression intime que pour la première fois, nous
+pouvons affirmer que nous nous sommes sentis comme de “vrais” scientifiques car ce projet ne
+consistait pas à reproduire simplement une expérience : personne n’a certainement jamais construit
+de “Michelson sonore”, nous avancions dans l’inconnu, pionniers à notre échelle. Ainsi, ce projet a
+allumé en nous l'excitation émerveillée propre à la recherche et a exacerbé notre amour pour les
+sciences.
+
+Page 19
+
+Remerciements
+Pour nous avoir permis d’arriver au bout de ce projet, nous remercions vivement :
+-
+
+Nicolas Arnaud, chercheur CNRS à l'European Gravitational Observatory sur VIRGO pour ses
+encouragements et pour les explications claires et rapides qu’il nous a fournies. Tout au long
+de nos travaux, il nous a apporté son aide dans la compréhension des phénomènes.
+
+-
+
+Ludovic Py agent au lycée pour avoir réalisé les supports de notre interféromètre.
+
+-
+
+Catherine et Patricia laborantines du lycée pour leur disponibilité à nous sortir du matériel,
+pour leur tolérance pour avoir envahi une partie du laboratoire pendant plus d’un an !
+
+-
+
+Jean-Louis Rault de la Société Astronomique de France pour les échanges que nous avons
+eus afin d’utiliser SpectrumLab.
+
+-
+
+Samuel Laurent notre professeur de mathématiques pour son aide sur les sommes de
+fonctions sinusoïdales.
+
+-
+
+Alain Froidurot notre professeur de physique au lycée pour son enthousiasme communicatif et
+sa disponibilité.
+
+Bibliographie :
+-
+
+CNRS Communiqué de presse national du 11 février 2016
+Les défis du CEA N°206 avril 2016
+PHYSICAL REVIEW LETTERS - 12 february 2016
+PHYSICAL REVIEW LETTERS - 6 october 2017
+PHYSICAL REVIEW LETTERS - 20 october 2017
+
+Sitographie :
+-
+
+https://lejournal.cnrs.fr
+https://www.ligo.org/
+http://www.virgo-gw.eu/
+https://physics.aps.org/assets/8cbf3dfb-7849-485b-8626-1276bc044ddf/video1.mp4
+https://fr.wikipedia.org/wiki/Circuit_d%C3%A9tecteur_d%27enveloppe
+https://fr.wikipedia.org/wiki/Montages_de_base_de_l%27amplificateur_op%C3%A9rationnel
+http://www.learningaboutelectronics.com/LesArticles/Calculatrice-de-filtre-passe-bas.php
+Tutorials on GW data analysis :
+https://www.nikhef.nl/~vdbroeck/GW_cursus/Werkcollege_5.pdf
+
+Page 20
+
+

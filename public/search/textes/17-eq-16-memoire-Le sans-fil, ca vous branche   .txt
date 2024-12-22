@@ -1,0 +1,2711 @@
+COME Rémi
+HOUCHOUAS Valentin
+LELIEVRE Alban
+THEARD Kevin
+
+Le sans fil, ça vous branche ?
+XVII° Olympiades de Physique
+
+Année 2009 – 2010
+
+Remerciements
+Nous tenons à remercier un certain nombre de personnes, sans lesquelles notre projet
+n’aurait pas pu aboutir.
+Tout d’abord, nous remercions M.De la Vaissière et M.Minzière, respectivement proviseur
+et proviseur adjoint du lycée Douanier Rousseau, pour nous avoir permis de participer aux
+Olympiades de Physique et pour avoir mis une salle à notre disposition.
+Beaucoup de personnes nous ont accordé leur aide au cours de ces derniers mois. Le
+premier d’entre tous est bien sûr Alain Buttier, laborantin du lycée, qui nous a permis
+d’envahir – littéralement – son laboratoire, et qui nous a fourni les connaissances
+indispensables dont nous avions besoin pour la réalisation de nos circuits.
+Nous remercions également M.Lemaître, professeur d’électronique au lycée Réaumur,
+qui nous a conseillés dans le domaine de l’électronique, notamment lorsque nous avons
+envisagé de monter en fréquence.
+Merci également aux membres du jury de la sélection régionale des Olympiades au
+Mans, qui nous ont conseillés quant à l’orientation de notre projet pour la finale.
+Nous tenons aussi à saluer l’aide plus qu’importante que nous a accordé l’IETR de
+Rennes (Institut d’Électronique et de Télécommunications de Rennes). L’IETR est un
+établissement de recherche public possédant un grand savoir en matière de
+radiofréquences, transmissions sans fils et antennes. Nous remercions M.Himdi, chercheur
+du CNRS à l’IETR, pour nous avoir accueillis au sein de l’IETR et pour nous avoir écoutés
+durant la présentation de notre projet.
+Nous faisons un remerciement spécial à M.Avrillon, enseignant-chercheur du CNRS à
+l’IETR également, ainsi que M.Le Saint, préparateur à l’université Rennes 1. M.Avrillon a en
+effet suivi notre projet avec grande attention, et nous a fait part de nombreux conseils pour
+améliorer nos réalisations. De plus, il nous a accueillis à l’IETR pendant de nombreuses
+heures lorsque nous étions bloqués, et son aide a toujours été précieuse. Nous le
+remercions donc chaleureusement pour avoir donné de son temps et de sa personne.
+Enfin, nous remercions ceux sans qui rien n’aurait été possible, ceux qui nous ont
+accompagnés du début jusqu’à la fin. Nous voulons parler de nos professeurs, avec tout
+d’abord M.Cancouët qui nous a encouragé à participer. Et surtout, nous voulons parler d’un
+professeur de physique qui ne nous connaissait pas l’année dernière, et qui pourtant s’est
+intéressé à notre sujet de TPE : M.Michel. M.Michel est celui qui nous a proposés de
+participer aux Olympiades ; il a dépensé énormément de temps pour ce projet, et a passé de
+nombreux midis, mercredis après-midi, et même des jours de vacances avec nous pour
+réaliser des montages, des expériences, ou tout simplement pour nous expliquer des points
+obscurs. Pour toutes ces heures que vous avez partagées avec nous, pour toute cette
+énergie que vous avez investie, M.Michel, merci.
+
+2
+
+Avant-propos
+Au début de notre projet nous avions monté à l’aide du matériel du lycée une chaîne
+permettant de transmettre de la musique par voie hertzienne entre deux ordinateurs. Ce
+travail nous a permis d’acquérir les connaissances expérimentales et théoriques notamment
+sur la modulation d’amplitude. Il a été présenté lors de la présélection au Mans le 9
+décembre dernier. Les membres du jury avec lesquels nous avons conversé après l’annonce
+des résultats nous ont alors conseillé de ne pas présenter ce travail, jugé classique, lors de
+la finale mais de recentrer notre oral sur les autres parties notamment sur les parties traitants
+des antennes et celle portant sur la transmission..
+Nous avons donc retiré la partie de notre mémoire correspondant à ce travail et l’avons
+porté en annexe. Notre mémoire s’est par contre enrichi du travail effectué depuis le 9
+décembre.
+
+Résumé du projet
+Comment se déroule une transmission sans-fil ? C’est la question qui constitue le départ
+de notre projet. Nous montrerons tout d’abord le principe d’envoi de données par les ondes :
+nous réaliserons un système de « chat » sans-fil entre deux ordinateurs. Notre but sera donc
+de réaliser un montage capable de « traduire » un signal issu de l’ordinateur en onde
+électromagnétique. Enfin, nous essaierons également de mettre en évidence les
+phénomènes se déroulant lors de la propagation des ondes. Nous devrons réaliser un
+dispositif expérimental à haute fréquence : nous fabriquerons nos propres antennes en
+confrontant les données d’un logiciel de simulation à des mesures réelles ; nous réaliserons
+nos propres émetteur/récepteur numériques blindés; enfin, nous réaliserons quelques
+manipulations, avant de remettre en cause tout notre montage au lendemain de notre
+qualification pour la finale. En effet, pour pouvoir effectuer des expériences plus
+convaincantes, nous réaliserons un montage basé sur un fonctionnement analogique.
+
+3
+
+Sommaire
+Présentation de l’équipe
+
+5
+
+Introduction
+
+6
+
+I - Comment transmettre des données sans-fil ?
+
+7
+
+A.Un peu de théorie : qu'est-ce qu'une onde électromagnétique ? 7
+B.Pourquoi moduler ?
+
+8
+
+C.Mise en œuvre : réalisation d’une transmission numérique
+
+9
+
+D.Les limites de la chaîne
+
+12
+
+II - D’une antenne à l’autre…
+
+13
+
+A.Conception de deux antennes
+
+13
+
+B.Réalisation d’un dispositif expérimental
+
+18
+
+C.La propagation des ondes
+
+21
+
+III - Et l’aventure continue...
+
+25
+
+A.Pourquoi une nouvelle chaîne ?
+
+25
+
+B.Entrée dans la chambre anéchoïde...
+
+26
+
+C.L’assemblage de la chaîne
+
+29
+
+D.De nouvelles mesures
+
+31
+
+Conclusion
+
+32
+
+Bibliographie
+
+32
+
+Annexes
+
+33
+
+4
+
+Présentation de l’équipe
+Notre équipe comporte quatre lycéens ; trois (Valentin Houchouas, Rémi Côme et Alban
+Lelièvre) sont issus d’un groupe de TPE travaillant sur le Wi-Fi en 2008/2009. Le quatrième,
+Kévin Théard, nous a rejoints peu après.
+
+De gauche à droite : Kévin Théard, Alban Lelièvre, Valentin Houchouas et Rémi Côme
+
+5
+
+Introduction
+« L’homme entra et s’installa à la terrasse du café. Il sortit son ordinateur portable, et se
+connecta via un réseau Wi-Fi à sa boîte mail. Il envoya plusieurs messages à quelques
+contacts disséminés autour du monde puis se déconnecta, satisfait. »
+Il y a plusieurs décennies, cette scène aurait été pure science-fiction. De nos jours, elle
+est pourtant bien possible. Tout le monde sait qu’il est possible de se connecter à Internet
+sans fil. Tout le monde le sait, mais qui sait ce qui rend cette connexion possible ?
+Demandez à quelqu’un comment fonctionne son réseau Wi-Fi ; « par les ondes », vous
+répondra-t-il. Mais encore ?
+C’était également l’état de nos connaissances sur le sujet l’année dernière. Nous étions
+trois élèves de première S, à réfléchir à ce qui allait être notre sujet de TPE. Très vite, une
+proposition fuse : « Et si on faisait quelque chose sur le Wi-Fi ? ». Après quelques minutes
+de discussion, le sujet est adopté ; avec tout de suite une ambition : réaliser nous-même une
+communication sans fil entre deux ordinateurs.
+Le projet a mûri, nous avons beaucoup appris, et avons compris que certaines choses
+étaient très difficiles à réaliser ; au bout de six mois, nous effectuons une présentation axée
+sur deux plans : l’utilisation des ondes dans la transmission des données, et la sécurisation
+de la transmission. Immédiatement après cette présentation, Mr Michel, qui en tant que
+professeur de physique s’était très intéressé à notre projet, nous propose de participer aux
+Olympiades de Physique. Nous acceptons avec grand enthousiasme.
+Depuis, de nombreuses choses ont changé. Nous avons participé à Exposcience
+Mayenne 2009, ce qui nous a permis de rencontrer un public plus large, et de trouver
+certaines limites à notre projet. Durant nos TPE, nous avions été frustrés de n’avoir pas pu
+développer nous-même la chaîne de transmission ; les Olympiades étaient pour nous une
+chance d’approfondir cela. Nous avons donc pris deux nouvelles orientations : tout d’abord
+réaliser et comprendre toutes les étapes d’une transmission sans-fil, et ensuite étudier plus
+en détail la propagation des ondes entre les deux antennes.
+Enfin, peu après Exposcience, un quatrième compagnon s’est joint à notre équipe. Une
+équipe qui, pour obtenir des informations, avait déjà pris contact avec l’IETR. Cette rencontre
+nous ayant donné matière à réfléchir, nous nous attelons désormais à répondre à deux
+questions. Comment utiliser les ondes pour transmettre des données ? Et quels
+phénomènes peut-on observer entre deux antennes ?
+Êtes-vous prêt ? Nous sommes partis pour la dix-septième édition des Olympiades de
+Physique !
+
+6
+
+I - Comment transmettre des données sans-fil ?
+A. Un peu de théorie : qu'est-ce qu'une onde électromagnétique ?
+D’après ce que nous avons appris en Terminale, une onde est la propagation d'une
+perturbation dans un milieu, sans transport de matière mais avec transport d’énergie. Nous
+avions déjà étudié les ondes mécaniques ; cependant, les communications sans-fil reposent
+sur un autre type d'ondes, qui contrairement aux ondes mécaniques n’ont pas besoin d’un
+support matériel pour se propager.
+Imaginons un électron immobile : il crée autour de lui un champ électrique de valeur
+( −e )
+
+E = k × r2
+
+où e est la charge élémentaire, r la distance qui la sépare d’un point de
+
+l’espace et k une constante qui dépend de la nature du milieu.
+Si on place dans ce champ une autre charge électrique q, alors, d’après la loi de
+Coulomb, celle-ci est soumise à une force électrique attractive ou répulsive de valeur
+q×− e
+
+Fe = k × r 2
+
+Si l’électron est immobile, le champ électrique crée par celui-ci en un point de l’espace ne
+change pas, mais si celui-ci est en mouvement oscillant le champ en ce même point oscille
+avec la même fréquence !
+De plus, si l’électron est en mouvement, il y a un courant électrique ! Or un courant
+électrique crée autour de lui un champ magnétique. S’il s’agit d’un courant sinusoïdal, alors,
+en chaque point autour de l’élément de courant, le champ magnétique oscille également à la
+même fréquence. Ainsi, autour d’un électron oscillant, il se crée à la fois un champ
+magnétique et un champ électrique oscillants, comme oscille le niveau de l’eau lors du
+passage d’une onde mécanique.
+Appliquons ceci à une antenne ; une antenne est un conducteur, dans lequel de
+nombreux électrons oscillent. Ils créent chacun un champ électrique et magnétique en tout
+point de l’espace. En chacun de ces points règne un champ électrique et magnétique égal à
+la somme des champs créés individuellement par chacun des électrons ; on a ainsi création
+d’une onde électromagnétique.
+On retrouve pour une onde électromagnétique les mêmes caractéristiques que pour les
+ondes mécaniques : l’amplitude (en V.m-1 pour le champ électrique, et en Tesla pour le
+champ magnétique), la longueur d’onde spatiale λ , la période T et la fréquence f. Dans l’air
+ou dans le vide, on associe ces grandeurs par les relations f=1/T ou f=c/λ, où c est la vitesse
+de la lumière dans le vide (3×108 m/s)
+
+7
+
+On distingue les ondes souvent par leur fréquence ou, puisque fréquence et longueur d’onde
+sont liées, par leur longueur d’onde :
+
+Le domaine auquel nous allons nous intéresser est celui des ondes radios, c’est à dire
+celui des ondes dont la longueur d’onde est supérieure au centimètre.
+Enfin, la plupart des ondes électromagnétiques sont des ondes sinusoïdales. Ces ondes
+peuvent être décrites par la fonction S ( t ) = A cos ( 2π × ft + α ) (où les angles sont en radians).
+
+B.Pourquoi moduler ?
+Lorsqu'on veut transmettre des données sans fil, on se heurte très vite à de nombreux
+problèmes. Prenons l'exemple d'une chanson, que l'on voudrait transmettre par les ondes.
+La voix humaine a une fréquence variant de 40 à 1500 Hz selon sa hauteur. Imaginons que
+l'on souhaite émettre cette onde telle quelle à l'aide d'un émetteur radio. Par le biais d’un
+montage électronique, on convertirait alors notre onde sonore directement en onde
+électromagnétique ; ainsi, ce sont des ondes s'échelonnant de 40 à 1500 Hz qui sortiraient
+de notre antenne. Très simple au niveau de la mise en oeuvre, mais on se heurte alors à
+deux problèmes :
+•Comment capter cette radio ? Imaginons que notre récepteur soit branché sur la
+fréquence 500Hz pour capter la voix de la chanteuse. Problème : au même
+moment, une autre radio transmet le discours d'un homme politique. Comme ces
+deux radios envoient des ondes s'échelonnant sur la même bande de fréquences
+(celle de la voix humaine), notre récepteur reçoit, superposés, le discours et la
+chanson ! Il faut donc trouver un moyen de « séparer » ces deux canaux, de les
+placer sur deux bandes de fréquence bien distinctes.
+•Enfin, il y a également un problème technique : on verra plus loin qu'une antenne
+performante mesure au minimum un quart de la longueur d'onde de l'onde que
+l'on désire émettre. Ici, il faudrait une antenne filaire de plus de 50m !
+Pour pallier à ces problèmes, on procède à ce qu'on appelle une modulation. Ceci signifie
+que l'on utilise une onde appelée onde porteuse, qui va servir de support pour le message à
+transmettre. Cette onde possède une fréquence bien précise, sur laquelle se cale le
+récepteur, et l'on fait varier l'une de ses caractéristiques (amplitude, fréquence ou phase), de
+façon à ce que cette variation code le message.
+En plus de jouer sur ces trois caractéristiques, une modulation peut se faire de deux
+manières, selon le but recherché : en analogique (c’est le cas des ondes utilisées pour les
+radios AM et FM) ou en numérique (téléphones portables, Wi-Fi, Bluetooth). Nous avons
+choisi de nous intéresser à une modulation numérique pour deux raisons : d’abord parce
+qu’elle permet de transmettre tout type de données (texte, image ou son), mais surtout parce
+que réaliser une telle modulation constituait le but de nos TPE l’année dernière ; un but que
+nous n’avions pu accomplir, faute de temps et de connaissances. Nous réaliserons donc la
+plus simple des modulations numériques : la modulation d’amplitude en « tout ou rien ».
+Un ordinateur ne travaille qu’avec deux valeurs : les bits 0 et 1. N’importe quelle donnée
+(texte, image, musique…) n’est qu’une suite de ces mêmes valeurs. L’amplitude de l’onde
+modulée devra donc avoir également deux valeurs : pour un bit 1, on enverra une porteuse
+d’amplitude maximale (Tout), pour un bit 1 une porteuse d’amplitude nulle (Rien).
+
+8
+
+C. Mise en œuvre : réalisation d’une transmission numérique
+Pour mettre en évidence une modulation d’amplitude numérique, nous voulions réaliser
+un programme de « chat » sans-fil, permettant d’échanger des messages textuels d’un
+ordinateur à un autre. Nous devions donc réaliser deux logiciels (émetteur et récepteur,
+réalisés en langage C++) ainsi que deux montages, émetteur et récepteur.
+De par nos maigres connaissances en électronique, nous partions un peu en aveugle au
+début de ce projet. Il nous fallait déjà récupérer les données issues de l’ordinateur ; pour
+cela, nous avons choisi d’utiliser le port série. Après avoir visualisé la tension de sortie de ce
+port, nous avons déduit que celle-ci était de 12V pour un bit 0 et de –12V pour un bit 1. Un
+message à la sortie du port série se présente donc comme ceci :
+
+Une suite de ‘a’ (01100001) en sortie du port série. Dû au
+protocole utilisé par le port RS232, le message se présente en
+fait dans l’ordre inverse (10000110), avec des bits additionnels
+intercalés (bit de départ, de parité et de fin).
+
+Notre but est donc d’associer au niveau –12V l’émission d’une onde porteuse d’amplitude
+nulle, et au niveau +12V une porteuse d’amplitude maximale. Pour des raisons de
+commodité, nous avons utilisé un circuit intégré MAX232, qui transforme la tension -12/+12V
+de sortie du port série en tension 0/5V.
+La première chose que nous avons pensé à faire, dans la mesure ou nous n’avions que
+deux valeurs à gérer, est de faire notre montage autour d’un transistor NPN, dont nous
+savions vaguement qu’il s’agissait d’un interrupteur commandé en tension.
+Nous avons d’abord eu l’idée de réaliser ce montage (les alimentations ne sont pas
+précisées) :
+
+2N2222
+Message
+
+MAX232
+
+Génération de
+la porteuse
+
+9
+
+Le principe est simple : si l’ordinateur émet un bit 0 (0V après le MAX232), le transistor
+agit comme un interrupteur ouvert, et la porteuse ne peut pas passer jusqu’à l’antenne.
+L’onde émise possède ainsi une amplitude nulle. Si un bit 1 est émis (5V après le MAX232),
+le transistor laisse passer le signal généré par le GBF, et une onde d’amplitude maximale est
+émise. On a donc associé à un bit 0 une porteuse d’amplitude nulle et à un bit 1 une
+porteuse d’amplitude maximale, et ainsi réalisé une modulation d’amplitude numérique.
+Mais, si ce montage semble fonctionner en théorie, en pratique nous nous sommes
+aperçus que la porteuse générée ne correspondait pas au message émis. Nous supposons
+que ce problème découlait d’un comportement différent du transistor à haute fréquence,
+voire même simplement en courant alternatif.
+C’est pourquoi nous avons cherché un montage nous permettant de faire travailler le
+transistor uniquement avec du courant continu. Nous avons alors acheté un petit oscillateur
+à quartz de fréquence 30MHz dont on pouvait maîtriser la tension d’alimentation, et réalisé le
+montage suivant (l’alimentation de l’oscillateur est représentée en rouge) :
+
+Message
+
+Génération de
+la porteuse
+
+MAX232
++VCC
+
+Masse
+
+2N2222
+
+E
+
+Avec un tel montage, lorsque l’ordinateur émet un bit
+0, aucune tension n’arrive à la base du transistor et
+celui-ci agit comme un interrupteur ouvert ; le
+générateur de la porteuse n’est donc pas alimenté, et
+il n’y a aucune tension à arriver à l’antenne.
+L’amplitude de l’onde émise est donc nulle. A l’inverse,
+lorsque l’ordinateur émet un bit 1, une tension égale à
+5V apparaît à la base du transistor, qui agit donc
+comme un interrupteur fermé. L’oscillateur est
+alimenté, et envoie une tension maximale à l’antenne ;
+la porteuse ainsi générée est d’amplitude maximale.
+
+MAX 232
+Oscillateur
+
+Contrairement à l’autre, ce montage a très bien fonctionné en pratique ; voilà alors ce que
+l’on obtient avant et après modulation :
+
+Une suite de ‘a’ avant modulation
+
+Après modulation (les zones pleines 10
+correspondent à une fréquence de 30MHz)
+
+Notre émetteur étant prêt, il nous fallait maintenant faire un montage capable de recevoir
+et de démoduler notre onde. Nous avons d’abord pensé à utiliser un montage similaire à
+celui utilisé en modulation d’amplitude analogique : filtre LC, amplification et détecteur
+d’enveloppe. Premières observation : qu’on enlève ou qu’on conserve le filtre LC, le résultat
+était le même à la réception. Nous l’avons donc enlevé. De plus, une tension d’offset
+semblait s’être ajouté à notre message lors de l’émission, tension que nous avons dû
+prendre en compte lors de la démodulation.
+Enfin, le détecteur d’enveloppe semblait ne pas fonctionner. En fait, nous ne comprenions
+pas vraiment ce qui ce passait dans le montage, jusqu’à ce que l’on découvre que
+l’amplificateur opérationnel que nous utilisions pour l’amplification (un TL081) possédait une
+fréquence de coupure autour de 100kHz. Puisque notre porteuse avait pour fréquence
+30MHz, il y avait nécessairement un problème. Mieux : nous avons remarqué que le TL081
+faisait lui-même la démodulation : en fait, il suffisait de connecter directement l’antenne à un
+circuit constitué de deux TL081 (montage amplificateur non-inverseur) pour obtenir en sortie
+deux niveaux logiques différents, c’est à dire quelque chose de très proche du message
+d’origine. Pour rétablir le message d’origine, nous avons utilisé un montage comparateur
+avec un troisième TL081 : en dessous d’une certaine tension (ajustée en fonction de l’état du
+signal à ce point de la chaîne) la tension de sortie était de –15V (bit 1), elle était de +15V
+sinon (bit 0). Le message d’origine était retrouvé, nous pouvions donc l’envoyer directement
+à l’autre PC via son port série.
+Seulement, ce montage fonctionnait très mal ; le jour même des qualifications, il est
+tombé en panne sans que nous puissions trouver l’origine du problème ! Depuis, nous avons
+reçu l’aide de M.ROUILLE, professeur de physique retraité pour trouver la cause du
+problème. Deux conclusions : il fallait impérativement ajouter un filtre LC au circuit. Nous
+avons donc acheté une bobine à faible inductance ainsi qu’un petit condensateur pour
+réaliser un filtre adapté à cette fréquence. De plus, assez étrangement, la démodulation
+fonctionnait très bien lorsque nous n’employions qu’un seul amlipifacteur opérationnel, mais
+beaucoup plus aléatoirement quand nous en utilisions deux. Nous avons donc dû utiliser un
+montage sommateur non-inverseur constitué d’un seul amplificateur équipé d’une résistance
+variable. Avec ces modifications, la démodulation se fait très bien : on récupère les mêmes
+niveaux logiques 0/5V qu’en émission ; il suffit de refaire passer ce signal à travers un
+MAX232 pour récupérer des niveaux –12/+12V. Ce signal est ensuite envoyé au port série
+de l’ordinateur récepteur, puis interprété par le programme correspondant en une suite de
+mots intelligibles par l’utilisateur. La transmission est terminée.
+
+TL081
+
+4uH
+
+MAX232
+
+3-11pF
+
+33k - 43k
+680
+
+Réception
+et filtrage
+
+Amplification et
+démodulation
+
+Envoi vers
+l'ordinateur
+
+11
+
+D. Les limites de la chaîne
+Notre chaîne de transmission semble très bien fonctionner, mais dès lors qu'on éloigne
+un peu les antennes, la transmission ne fonctionne plus ! Une antenne filaire adaptée doit
+mesurer un quart de la longueur d'onde de la porteuse. Puisque nous utilisons une porteuse
+
+1
+1 3, 0 ⋅108
+λ
+=
+×
+= 2, 5m !
+de 30MHz, ceci signifierait une antenne de longueur
+4
+4 30 ⋅106
+Nos antennes mesurant une trentaine de centimètres, elles sont loin d’être adaptées à
+notre fréquence ; mais alors, comment se fait-il qu’il y ait quand même transmission ? En fait,
+il n’y a pas de propagation des ondes, mais plutôt un effet capacitif entre les deux antennes :
+en effet, les antennes sont deux fils conducteurs, séparés par une couche d’isolant, l’air.
+Ainsi, c’est comme si nos deux circuits étaient en fait reliés par un condensateur dont les
+armatures seraient les antennes ! On ne peut donc pas vraiment parler de propagation des
+ondes entre les deux antennes.
+Or nous voulions également étudier la propagation des ondes ; pour cela, il nous faut
+réduire la taille de nos antennes, et donc monter en fréquence. Dès lors, le matériel du lycée
+n’est plus adapté : il nous faudrait remplacer le GBF par un synthétiseur de fréquences, le
+multiplieur par un mélangeur... Tout ceci est faisable, mais long ! C'est pourquoi, afin de
+poursuivre notre projet et de monter en fréquence malgré tout, nous avons décidé d'acheter
+et d’exploiter des modules émetteur et récepteur à 868,35MHz.
+
+12
+
+II - D’une antenne à l’autre…
+Nous venons de voir comment utiliser les ondes pour transmettre des données ; notre but
+maintenant est d’étudier ce qui se passe entre l’émission et la réception. Pour cela, nous
+allons réaliser un dispositif nous permettant de mettre en évidence ces phénomènes. Il nous
+faut donc construire un émetteur et un récepteur, ainsi que les antennes allant avec.
+
+A.Conception de deux antennes
+On appelle « antenne » à peu près tout conducteur susceptible de rayonner une onde
+électromagnétique. Le choix est donc large. Pour choisir les antennes que nous allions
+utiliser à la fois en émission et en réception, il fallait donc retenir un certain nombre de
+caractéristiques.
+Tout d’abord la fréquence de notre antenne : lorsqu'un circuit envoie un signal à une
+antenne, une partie de ce signal est rayonné par l'antenne tandis qu'une partie est réfléchie
+vers le circuit. Cependant, à une certaine fréquence, la puissance émise est maximale. On
+définit la bande de fréquence de l'antenne, comme l’intervalle des fréquences pour
+lesquelles au moins 90% de la puissance est émise (autrement dit lorsque
+
+Préfléchie
+Preçue
+
+< −10dB ).
+
+Nous travaillerons à une fréquence de 868,35 MHz ; nos antennes devront donc être
+réalisées en conséquence.
+Ensuite le gain de notre antenne : on définit le gain d’une antenne dans chaque direction
+
+ Pantenne 
+ , où Pantenne est la puissance émise par l’antenne dans
+ Pisotropique 
+
+par la relation GdBi = 10 log 
+
+une direction et Pisotropique la puissance émise par une antenne isotropique (c’est à dire une
+antenne idéale et irréalisable, émettant la même puissance uniformément dans toutes les
+directions) dans cette même direction. Le gain est exprimé en dBi, et permet de montrer la
+directivité de l’antenne : une antenne directive émet un maximum de puissance dans une
+direction précise, et peu de puissance dans toutes les autres directions. De la même
+manière qu’il est plus pratique de montrer une réflexion avec un faisceau laser plutôt
+qu’avec une ampoule, il sera plus simple de mener nos expériences avec des antennes
+directives dans une seule direction.
+Enfin, pour pouvoir mettre en évidence la polarisation des ondes, il faut également que
+nos antennes polarisent les ondes dans une direction précise. La polarisation d'une onde
+électromagnétique est décrite par l'orientation de son champ électrique ; selon celle-ci, on
+peut trouver trois grands types de polarisation : linéaire horizontale, linéaire verticale et
+circulaire. Pour comparer l’orientation du champ électrique à celle du champ magnétique, on
+a réalisé l’expérience suivante :
+Nous avons reproduit le spectre magnétique produit
+par un courant traversant un fil à l’aide de poudre de fer.
+Les grains s’orientent alors comme des aiguilles
+aimantées selon le champ magnétique. Nous n’avons pu
+observer que des lignes de champ de faibles rayons car
+nous ne pouvions établir qu’un courant d’environ 3A
+dans le fil. Or il faudrait environ 10 A pour observer un
+spectre plus étendu !
+On met tout de même en évidence que pour une
+antenne filaire, le champ magnétique est perpendiculaire
+à l'antenne et donc au champ électrique.
+
+13
+
+Après quelques recherches et en suivant les conseils de Stéphane Avrillon, nous avons
+donc conclu que les antennes s’adaptant le mieux à notre projet étaient les antennes Yagi.
+
+Les antennes Yagi :
+L'antenne Yagi ou Yagi-Uda (du nom de
+ses inventeurs Hidetsugu Yagi et Shintaro Uda)
+est une antenne à brins rayonnants. Une
+antenne Yagi-Uda est formée d'un élément
+alimenté et d'un ou plusieurs éléments
+métalliques non alimentés (appelés brins
+rayonnants). Le courant qui circule dans
+l'élément
+alimenté
+forme
+un
+champ
+électromagnétique qui induit des courants dans
+les autres éléments. Le courant transmis dans
+les brins non alimentés rayonne à son tour et
+les champs rayonnés induisent du courant
+dans les autres éléments, y compris sur
+l'élément alimenté. Puisque chaque élément
+rayonne la même onde, en les plaçant à une
+distance subtilement choisie les uns des
+autres, il est possible de créer un ensemble
+d’interférences faisant que l’onde sera émise
+Hidetsugu Yagi et son antenne
+essentiellement vers l’avant.
+L’antenne Yagi s’utilisant aussi bien en émission qu’en réception, elle est parfaite pour
+notre projet. Il existe des antennes Yagi composées de seulement 2 éléments, mais plus le
+nombre de brins est important, plus l’antenne sera directive. Nous avons choisi de fabriquer
+des antennes Yagi à 5 éléments.
+L'antenne Yagi 5 éléments est constitué d'un réflecteur (brin non alimenté situé à
+« l'arrière » du brin alimenté), d'un radiateur (brin alimenté) et de 3 brins directeurs (brins non
+alimentés situés à « l'avant » du radiateur). Tous ces brins sont situés sur un plan horizontal,
+l'antenne est donc directive vers « l'avant » et sa polarisation est linéaire horizontale.
+Dû à son fonctionnement basé sur une
+complexe
+imbrication
+d’interférences,
+les
+équations modélisant l'antenne Yagi sont
+extrêmement complexes à résoudre. Cependant,
+il est possible de trouver des relations donnant
+une valeur approchée de la longueur des brins. A
+l'aide du logiciel gratuit 4NEC2, nous avons
+simulé une antenne construite à partir de ces
+relations. En simulant le rapport entre la
+puissance que l’antenne réfléchit vers le circuit
+par rapport à la puissance que celui-ci lui envoie,
+nous nous sommes aperçus que celle-ci était
+optimale pour 800MHz, mais pas du tout adaptée
+à notre fréquence de 868 MHz ! Pour ne pas
+perdre de temps en tâtonnements, nous avons
+demandé de l'aide à Stéphane Avrillon, qui nous
+a suggéré de réduire notre antenne à 94% afin
+de "décaler" sa bande de fréquences.
+
+14
+
+Voici donc les dimensions de notre antenne :
+
+Longueur du réflecteur
+Longueur du radiateur
+Longueur du directeur 1
+Longueur du directeur 2
+Longueur du directeur 3
+Distance entre le réflecteur et le
+radiateur
+Distance entre le radiateur et le
+directeur 1
+Distance entre le directeur 1 et le
+directeur 2
+Distance entre le directeur 2 et le
+directeur 3
+
+Valeurs
+théoriques
+(F en MHz)
+150/F
+143/F
+138/F
+130/F
+120/F
+
+Pour
+F=868,35
+(cm)
+17,2
+16,4
+16,0
+15,0
+13,8
+
+Nouvelles
+valeurs (x 94%)
+16,2
+15,4
+15,0
+14,1
+13,0
+
+45/F
+
+5,18
+
+4,87
+
+45/F
+
+5,18
+
+4,87
+
+45/F
+
+5,18
+
+4,87
+
+60/F
+
+6,91
+
+4NEC2 nous permet également de simuler le rapport
+
+Préfléchie
+Preçue
+
+6,50
+
+pour l’antenne en fonction
+
+de la fréquence. En considérant l’intervalle de fréquences où ce rapport est inférieur à -10dB,
+on peut conclure que la bande de fréquences de notre antenne s’étendra théoriquement de
+850 à 880MHz, et que ce rapport sera au plus bas pour la fréquence qui nous intéresse, à
+savoir 868,35MHz :
+
+De plus, le logiciel 4NEC2 permet de calculer le gain de l'antenne dans toutes les
+directions et ainsi de tracer le diagramme de rayonnement de notre antenne :
+
+Diagramme dans le plan vertical
+
+Diagramme dans le plan horizontal
+
+15
+
+Ce logiciel permet aussi d'obtenir le diagramme de rayonnement 3D d'une antenne. Voici
+donc le nôtre :
+
+On remarque donc que nos antennes seront
+nettement directives puisque le gain est maximal
+(9,67 dBi) vers « l'avant » et est quasiment nul
+vers l'arrière. La puissance rayonnée par
+l’antenne est optimale pour un angle de 60° vers
+l’avant.
+
+Après ces différentes simulations il ne nous restait qu'à fabriquer nos antennes. Puisque
+les antennes Yagi fonctionnent aussi bien en émission qu'en réception, la fabrication de
+l'antenne émettrice est la même que celle de la réceptrice. Nous avons utilisé des fils de
+cuivres pour les brins rayonnants et, le support devant être transparent à la bande de
+fréquences utilisée, nous les avons fixées sur du polystyrène à l'aide de colle. Ensuite pour
+faciliter les expériences futures, nous les avons collées sur une planche de bois (matériau
+transparent aux ondes électromagnétiques) que nous pouvons fixer à notre guise sur des
+pieds réglables d'appareils photo.
+Voici donc l'une de nos antennes :
+
+Une nouvelle après-midi à l'IETR nous a permis d'utiliser un analyseur de réseau afin de
+tester nos antennes. Cet appareil permet de calculer entre autres le gain réel d'une antenne
+en fonction de la fréquence. Il est donc utilisé pour calculer la bande de fréquences
+d'utilisation d'une antenne. L’analyseur envoie des ondes de fréquences différentes à
+l’antenne qui lui est reliée par un câble coaxial. Une partie de ces ondes est réfléchie par
+l'antennes vers le circuit, tandis que l’autre est rayonnée vers l’environnement.
+
+16
+
+Nous avons donc testé nos antennes et obtenu la courbe suivante pour une d’elles :
+0,00E+ 00
+
+-5,00E+ 00
+
+-1,00E+ 01
+
+-1,50E+ 01
+
+-2,00E+ 01
+
+884 MHz
+-2,50E+ 01
+7,8E+ 08
+
+8,0E+ 08
+
+8,2E+08
+
+8,4E+ 08
+
+8,6E+ 08
+
+8,8E+08
+
+9,0E+ 08
+
+9,2E+ 08
+
+fréquence (Hz)
+
+Cette courbe représente le rapport entre la puissance réfléchie (qui retourne vers
+l’analyseur) et la puissance envoyée vers l'antenne : c'est à dire le coefficient de réflexion en
+fonction de la fréquence.
+Donc plus ce rapport est faible, plus l'antenne rayonne pour la fréquence donnée.
+On remarque que le pic de rayonnement est obtenu pour 884 MHz (ce qui est proche de
+la valeur théorique). Ce pic est de -21 dB, ce qui correspond à un rapport de 1% : c'est à dire
+que pour 884 MHz l'antenne rayonne 99% de la puissance fournie par l'émetteur.
+De plus si l'on mesure la bande de fréquence à -10dB, on obtient un intervalle de
+fréquences entre 860 et 893 Mhz, intervalle pour lequel l’antenne rayonne au moins 90% de
+la puissance qui lui est fournie ; on est donc très proche de la bande de fréquence théorique
+déterminée à l’aide de 4NEC2.
+Cet appareil nous a donc permis de nous rassurer puisque nos deux antennes
+fonctionnent correctement pour la fréquence que nous souhaitons utiliser : 868,35 MHz
+
+Stéphane Avrillon et Rémi en train de tester l’antenne ; au
+centre, l’analyseur de réseau
+
+17
+
+B.Réalisation d’un dispositif expérimental
+Nos antennes étant achevées, il nous faut maintenant réaliser le reste de notre dispositif
+expérimental. Notre but est de disposer d’un émetteur et d’un récepteur qui échangeraient un
+message continu. Nous pourrions ensuite les utiliser pour effectuer diverses expériences,
+telles qu’intercaler une plaque métallique entre les deux, tourner les antennes pour observer
+la réflexion, etc…
+On a observé tout à l’heure avec notre chaîne de transmission que, à des faibles
+fréquences, on n’observe pas réellement une propagation de l’onde mais un effet capacitif.
+De même, il est impossible de réaliser des antennes adaptées à une onde de faible
+fréquence. On ne peut donc réaliser aucune expérience à faible fréquence. Pour observer
+l’impact du milieu de propagation sur les ondes, il faut donc utiliser une fréquence bien plus
+élevée, de l’ordre du GHz (ce qui permet d’avoir une longueur d’onde décimétrique). Nous
+ne disposons bien évidemment pas de tels appareils au lycée, il nous a donc fallu les
+fabriquer. Et ce fut un dur travail !
+Il fallait donc réaliser un émetteur et un récepteur à une fréquence proche de 1 GHz.
+Cependant, plus on monte en fréquence, plus la réalisation du circuit est compliquée ; c’est
+pourquoi nous avons choisi, plutôt que de fabriquer les montages de A à Z, d’utiliser des
+modules effectuant déjà l’émission et la réception. Notre choix s’est porté sur les modules
+Telecontrolli, émettant à 868,35 MHz. Ces modules se présentent sous cette forme :
+
+Émetteur
+
+Récepteur
+
+Notre travail en est donc simplifié, puisqu’il suffit d’envoyer le message au module, et il se
+charge lui-même de la modulation et de l’émission ! Mais ces modules ont un inconvénient,
+puisque les seuls disponibles à cette fréquence sont destinés à des applications numériques
+en « Tout ou Rien ». Par conséquent, le module récepteur ne retournera que deux états :
+« message reçu » ou « pas de message ». De plus, ces modules possèdent une sensibilité
+très élevée (-90dBm). En conséquence, même si la puissance reçue est très faible, le
+message sera restitué à son amplitude maximale. Ceci s’avérera extrêmement
+problématique par la suite.
+Notre rôle à partir de maintenant était d’intégrer ces modules à un circuit. Ceci fut très
+simple, puisqu’il suffisait d’ajouter à l’émetteur et au récepteur des connexions pour
+l’alimentation ainsi que pour l’antenne. Il fallait de plus ajouter à l’émetteur des prises pour
+brancher un GBF (qui génèrera une note comme message – par exemple un La à 440 Hz),
+et au récepteur une sortie vers des enceintes, afin d’écouter ce que l’on recevait. Cependant,
+nous nous sommes aperçus que la tension de sortie du GBF ne déclenchait pas l’émetteur.
+En effet, de par le fonctionnement du module, il fallait ajouter une tension d’offset de 2,5V
+pour que celui-ci émette (puisqu’il fonctionne en Tout ou Rien, l’émetteur envoie quelque
+chose lorsque la tension du message dépasse les 2,5V, et n’envoie rien sinon). Comme
+notre but final était, par souci de commodité, d’utiliser les modules pour envoyer de la
+musique, nous ne nous sommes pas contentés d’utiliser la tension d’offset du GBF, mais
+nous avons intégré au circuit deux amplificateurs opérationnels, afin de réaliser un montage
+sommateur non-inverseur.
+Une fois les modules intégrés à un circuit, il a fallu s’attaquer à la tâche la plus délicate.
+En effet, le but est d’observer les déformations subies par une onde, d’une antenne à l’autre.
+Pour cela, il est important que l’onde ne sorte que de l’antenne ; s’il y a plusieurs sources
+différentes pour l’onde, aucune expérience rigoureuse ne pourra être entreprise. Or, à une
+fréquence si élevée, n’importe quelle piste du circuit peut servir d’antenne (en effet, ici
+
+18
+
+1
+1
+3, 0 ⋅108
+λ= ×
+= 8cm ! une piste mesurant environ 8cm feraient donc office
+4
+4 868,35 ⋅106
+d’antenne.). A fortiori, la piste, puis le fil menant à l’antenne pourraient eux-mêmes servir
+d’antennes. De même pour le récepteur, nous ne voulons recevoir que par l’antenne, et pas
+par d’autre fils quelconques. Pour cela, il faut blinder le circuit.
+Il faut donc enfermer les composants dans ce que l’on appelle une cage de Faraday, une
+structure métallique entourant le circuit, reliée à la terre. Un tel dispositif isole totalement ce
+qui est à l’intérieur de la cage des ondes électromagnétiques se propageant à l’extérieur, et
+vice-versa. Puisqu’une structure métallique suffit, nous avons d’abord cherché à nous
+débrouiller avec les moyens du bord. Notre première cage de Faraday était fabriquée à partir
+d’une boîte de conserve… Étant inefficace, nous l’avons par la suite remplacée par une boîte
+en acier achetée dans un magasin d’électronique. On relie la masse du circuit à la boîte, et
+le circuit se retrouve ainsi entouré par la masse.
+
+L’émetteur dans sa cage de Faraday
+
+Le récepteur, dans une boîte de récupération
+
+Dans le même esprit, nous avons fait le circuit sur une plaque
+double-face, afin de relier toute la face inférieure à la masse. Sortent
+de la boîte les fils d’alimentation, du GBF, et le fil menant à l’antenne.
+Afin d’éviter que celui-ci n’émette quoi que ce soit, nous l’avons
+remplacé par un câble blindé de type SMA (qui en fait applique le
+même principe : le fil porteur du signal est entouré par la masse,
+comme on peut le remarquer sur la photo ci-dessous). Nous ne
+Câble SMA
+pouvions pas utiliser les câbles coaxiaux du lycée, puisqu’ils ne
+possédaient un blindage efficace que jusqu’à 100MHz. Des câbles
+SMA, ainsi que les connecteurs qui vont avec, coûtent très cher. L’ensemble (deux câbles et
+quatre connecteurs) nous a coûté près de 90€ !
+Ainsi, en théorie, notre module n’émet que par l’antenne. Autrement dit, en débranchant
+l’antenne, il devrait ne rien émettre. Ce n’était pas le cas. Nous avons donc cherché ce qui
+n’allait pas. Nous pensions au début qu’il n’était pas nécessaire de blinder les fils de
+l’alimentation, ni ceux du GBF, puisqu’ils n’étaient pas reliés à la sortie du module, et ne
+pouvaient donc pas servir d’antenne à l’onde émise. Nous avions tort. En effet, à l’intérieur
+même de la boîte, la piste menant à l’antenne rayonne l’onde sortant du module. Celle-ci est
+alors transmise aux pistes proches, qui à leur tour peuvent rayonner… Si des fils sortent de
+la boîte, même s’ils ne sont pas directement reliés à la sortie du module, ils rayonneront à
+leur tour l’onde à 868,35 MHz. C’est là que nous avons pris la décision de tout intégrer à
+l’intérieur de la boîte.
+
+19
+
+On a donc ajouté au module émetteur un circuit permettant de générer un son créneau,
+remplaçant le GBF. Les amplificateurs opérationnels ne servant plus, nous les avons
+déconnectés. Enfin, le tout est alimenté par une petite pile 9V. Le seul fil sortant du circuit est
+celui de l’antenne, et il est blindé.
+De même, pour le récepteur, nous avons intégré une pile de 4,5V pour l’alimentation. Par
+contre, nous étions obligés de faire sortir un fil de la boite : le fil allant vers les enceintes.
+Nous n’avions pas moyen de le blinder. C’est alors que nous avons eu l’idée d’intégrer à ce
+fil un filtre passe-bas. Ce filtre, constitué par un
+condensateur et une résistance, fonctionne de la
+même manière qu’un filtre passe-haut, mais à
+Vers les
+l’inverse : il diminue fortement les hautes fréquences. Module Sortie
+enceintes
+audio
+Ainsi, puisque les fréquences supposées passer
+820
+dans notre fil sont de l’ordre de l’audible, on fabrique
+Possibles
+fr équences
+un filtre dont la fréquence de coupure est aux
+10nF
+entrantes
+alentours de 20000 Hz (en appliquant la formule
+
+fc =
+
+1
+, on peut utiliser R=820Ω et C=10nF, afin
+2π RC
+
+Notre filtre
+d’avoir une fréquence de coupure à 19400 Hz
+environ). Nos modules travaillant à une fréquence largement supérieure (868,35 MHz), le fil
+ne pourra pas servir d’antenne.
+
+Notre module connecté à l’antenne
+
+Les modules sont maintenant totalement
+blindés. Cependant, le dispositif ne fonctionnait
+pas encore : la sensibilité du récepteur était telle
+que, même sans que les antennes ne soient
+connectées, on recevait toujours le message !
+Nous avons donc ajouté une couche
+supplémentaire de papier aluminium autour de la
+boîte afin de combler les derniers trous de celleci ; étant conducteur, le papier aluminium fait
+aussi office de cage de Faraday. Le blindage
+fonctionnait assez bien : sans antenne
+connectée, on pouvait approcher l’émetteur et le
+récepteur jusqu’à environ trois mètres l’un de
+l’autre sans rien recevoir.
+
+Les circuits sont blindés, mais pourtant le dispositif n’est pas encore opérationnel. Nos
+antennes sont directionnelles : elles émettent uniquement vers l’avant. Pour que notre
+dispositif soit utile, il faut que l’on reçoive le message quand les deux antennes sont pointées
+l’une vers l’autre, et que l’on ne reçoive rien quand elles sont pointées dans des directions
+opposées. C’est là le problème : une fois que l’on connecte les antennes au module, la
+puissance de l’onde émise augmente énormément ; puisque le récepteur est très sensible,
+on n’observe aucune différence entre le moment où les antennes sont pointées entre elles
+ou pas. Pour pallier à ce problème, il fallait donc tricher, en diminuant la puissance émise par
+l’antenne. Pour cela, sur une suggestion de M.Avrillon (habitué à augmenter la puissance
+d’émission plutôt qu’à la diminuer !), nous avons ajouté une résistance de 100KΩ entre la
+sortie de l’émetteur et l’antenne, et une de 1MΩ en entrée du récepteur. La puissance à
+l’émission devait ainsi être divisée par 2000, et celle à la réception par 200000 ! Une telle
+réduction peut sembler énorme, mais elle est plus que nécessaire si on se réfère aux calculs
+exposés en annexe C. Les tests réalisés avec ces modules montraient des résultats
+probants : il était par exemple possible de mettre en évidence des réflexions ou polarisations
+si les antennes étaient séparées de 5m environ. Une fois les antennes tournées dans des
+directions opposées, le message ne passait plus. Une victoire pour nous donc !
+
+20
+
+Nous avions cependant besoin de pouvoir réaliser ces tests sur une distance nettement
+plus courte ; en effet, nous ne savions pas dans quel environnement nous serions le jour de
+la présentation, il fallait donc que les tests soient réalisables dans n’importes quelles
+conditions. Pour cela, il fallait améliorer le blindage, qui n’était pas encore parfait, et diminuer
+le plus possible la quantité de fils présents à l’intérieur des modules. Nous avons donc suivi
+les conseils donnés par M.Avrillon. Pour notre blindage, au lieu d’utiliser les boîtes que nous
+avions, nous devons utiliser des boîtes totalement hermétiques, telles des boîtes de biscuits
+métalliques. La moindre fente peut ainsi laisser passer les ondes, ce qui explique pourquoi le
+blindage était nettement meilleur lorsque nous recouvrions la boîte de papier aluminium. Il
+faut également prendre garde à ce que la masse du connecteur SMA soit en contact avec la
+boite. En effet, si les masses sont reliées par une trop grande distance de piste comme
+c’était le cas auparavant, il est possible que les masses ne soient pas toutes au même
+potentiel ; dans le pire des cas, la boîte censée blinder peut elle-même se comporter comme
+une antenne ! Toujours pour mieux
+blinder, nous avons ajouté un second
+plan de masse environnant les pistes.
+Pour la même raison que tout à l’heure,
+les plans de masse des faces inférieures
+et supérieures sont reliées entre eux par
+de nombreuses connexions à travers la
+plaques (ces connexions sont nommées
+« rappels de masse »). Enfin, pour éviter
+les longueurs de fils superflues, nous
+condensons le plus possible le circuit, et
+utilisons des composants dits « CMS »
+(composants de surface, sans pattes
+métalliques comme les composants
+classiques) pour la partie hautesfréquences, c'est-à-dire la piste menant
+Notre module 2.0
+à l’antenne.
+Avec toutes ces améliorations, les dispositifs sont opérationnels. Nous pouvons donc
+dorénavant les utiliser pour mettre en évidences les phénomènes que nous allons décrire
+après.
+
+C.La propagation des ondes
+Une onde électromagnétique se propage dans toutes les directions possibles en ligne
+droite à partir du foyer d’émission, à la vitesse de 300000 km.s-1.Lorsque qu’elle traverse un
+milieu, de nombreux phénomènes sont observables. Ces phénomènes peuvent à la fois être
+un avantage pour les radiocommunications, ou au contraire représenter un inconvénient.
+Grâce au système émetteur/récepteur que nous avons construit, il est possible de les mettre
+en valeur.
+
+1.Réflexion :
+Lorsqu’une onde rencontre un obstacle, ou plus généralement un dioptre entre deux
+milieux, il se déroule deux phénomènes. Le premier d’entre eux, le plus simple, est la
+réflexion. Une onde électromagnétique est partiellement réfléchie par une paroi, comme l’est
+un rayon lumineux (qui est d’ailleurs aussi une onde électromagnétique), de telle sorte que
+l’angle d’incidence est égal à l’angle réfléchi. Les deux rayons sont symétriques par rapport à
+la normale au point d’incidence.
+
+21
+
+Cette propriété de l’onde est d’abord un avantage, au sens où l’onde peut ainsi atteindre
+des recoins qui lui seraient inaccessibles si elle se déplaçait uniquement en ligne droite.
+Cependant, elle est aussi un inconvénient, car elle est l’une des causes premières des
+interférences.
+Pour mettre en évidence la réflexion avec notre
+dispositif, il nous suffit de tourner les antennes de façon
+à ce qu’elles ne soient plus alignées, mais à ce qu’elles
+pointent néanmoins dans une même direction ; le
+récepteur ne reçoit donc rien. On intercale alors une
+plaque de métal à l’endroit vers lequel sont pointées les
+antennes. Le récepteur reçoit le message émis par
+l’émetteur, signe que les ondes se réfléchissent sur la
+plaque. On peut même utiliser un laser qui pointera dans
+la même direction que l’antenne, pour montrer l’analogie
+entre onde lumineuse et onde radio.
+
+3.Atténuation :
+Lorsqu’une onde se propage dans l’air, elle s’atténue avec la distance ; son amplitude
+
+ λ 
+ . Exprimée
+ 4π d 
+2
+
+diminue. La perte de puissance en espace libre se calcule ainsi : Perte = 
+
+ λ 
+
+ 4π d 
+
+2
+
+Pertela( dBperte
+log 
+en décibels,
+) = 10est
+
+d étant au dénominateur et élevé au carré, la puissance décroît très vite avec la distance.
+Dans une direction donnée, la puissance est donc quatre fois plus faible au deuxième mètre
+par rapport au premier, 9 fois au troisième mètre, 16 fois au quatrième…
+
+4.Interférences :
+Lorsque deux ondes de même fréquence se rencontrent, on observe un phénomène
+d’interférence. Les interférences sont souvent un résultat de la réflexion des ondes ; ces
+réflexions peuvent faire qu’une même onde arrive en un point en ayant parcouru des
+trajectoires bien différentes. Ainsi, si en un point de l’espace des ondes de fréquence
+identique se rencontrent, leurs amplitudes s’additionnent :
+
+Une interférence quelconque
+
+Le résultat de l’interférence dépend de la longueur d’onde et de la différence entre les
+distances parcourues par chacune des deux ondes. Si cette différence est égale à un
+multiple d’une demi-longueur d’onde (mais pas à un multiple de la longueur d’onde),
+l’interférence est destructive ; l’amplitude de l’onde résultante est nulle :
+
+22
+
+Comment mettre en évidence les interférences avec notre dispositif ? Nos antennes
+n’émettent pas uniquement vers l’avant ; une partie de leur puissance est également dirigée
+verticalement, vers le sol et le plafond. Ainsi, en plaçant une plaque métallique
+horizontalement entre les deux antennes, et en la rapprochant progressivement du sol, on
+crée une réflexion. Il y aura donc deux ondes arrivant à l’antenne en réception : celle qui se
+sera propagée directement en ligne droite depuis l’émetteur, et celle qui se sera réfléchie sur
+la plaque (voir schéma). Puisque les deux ondes auront parcouru des distances différentes, il
+est possible de s’arranger pour créer un déphasage d’une demi-longueur d’onde entre les
+deux au niveau de l’antenne réceptrice. A ce moment-là, il se crée une interférence
+destructive, et l’on ne reçoit normalement plus rien.
+
+d1
+d2
+
+Nous avons pu mettre en évidence (notamment le 9 décembre dernier) une interférence
+destructive pour une position de la plaque. Cependant, cette mise en évidence est très
+aléatoire car, le récepteur étant très sensible, nous sommes très dépendant de
+l’environnement (réflexions au sol ou sur les murs par exemple). De plus nos modules
+fonctionnant en tout ou rien, seule une position très précise de la plaque permet
+l’interférence destructive.
+Il pourrait être intéressant de se demander à quels paliers la plaque métallique doit se
+situer pour qu’il y ait interférence destructive ; malheureusement, cette chaîne ne nous
+permet pas de faire cette mise en évidence.
+
+Notre dispositif le jour de la qualification
+
+23
+
+5.Polarisation
+Dans la partie concernant les antennes, on a vu qu’un courant circulant dans un fil de
+cuivre produit un champ magnétique perpendiculaire au sens du courant.
+(en rouge le
+champ
+électrique, en
+bleu le champ
+magnétique)
+
+Ainsi, toute onde électromagnétique est constituée d’un champ électrique et d’un champ
+magnétique. La polarisation d’une onde dépend de l’orientation de ses champs ; comme ils
+sont perpendiculaires entre eux, la polarisation est simplement définie par l’orientation du
+champ électrique de l’onde. Il s’agit de l’un des phénomènes les plus difficiles à maîtriser en
+propagation ; en effet, les incidents que subissent l’onde au cours de sa propagation
+(réflexion, réfraction…) peuvent modifier sa polarisation.
+Il existe plusieurs types de polarisations, dépendant de la forme de l’antenne ; nous nous
+intéresserons à la polarisation linéaire, la plus simple de toutes. Linéaire signifie que
+l’orientation du champ électrique de l’onde ne change pas durant la propagation. Un dipôle
+simple va émettre une onde ayant une polarisation verticale s’il est placé verticalement, ou
+horizontale s’il est placé horizontalement. Pour une réception optimale, il faut que l’émetteur
+et le récepteur soient tous deux placés dans le même type de polarisation.
+Par conséquent, pour mettre en évidence la polarisation, il nous suffit d’incliner l’une des
+antennes à angle droit ; ainsi, une des antennes émet une onde polarisée verticalement,
+tandis que l’autre est positionnée de manière à recevoir une onde polarisée
+horizontalement ; le récepteur ne reçoit donc rien.
+
+Il est également possible d’utiliser ce que l’on appelle un polariseur. Le notre consiste en
+fait en une simple plaque de bois sur laquelle nous tendons des fils de cuivre séparés d’un
+intervalle égal à moins de λ/10 (λ étant la longueur d’onde). Tant que l’on oriente les fils
+perpendiculairement à la polarisation de l’onde émise, on peut placer le polariseur sur le
+trajet de l’onde sans atténuation de celle-ci. Par contre, si l’on place les fils dans la même
+direction que la polarisation de l’onde, celle-ci est très fortement atténuée.
+
+24
+
+III - Et l’aventure continue... notre nouvelle chaîne
+A. Pourquoi une nouvelle chaîne ?
+Arrivé à ce point du mémoire, le travail que nous avions fourni jusqu’au 9 décembre (la
+date de notre qualification à la finale des Olympiades) s’achève. Mais notre projet, lui,
+continue :
+Nous avons tiré deux leçons majeures de notre oral lors de cette épreuve de sélection :
+La première leçon est qu’il était impératif de réaliser des circuits imprimés de nos
+montages. En effet le jour de notre présentation, des mauvaises connexions ont rendu nos
+premières expériences peu probantes. Faute de temps, nous n’avions pas pu réaliser ces
+cartes avant le 9 décembre. C’est désormais chose faite depuis.
+De plus suite aux discussions que
+nous avons eu avec les membres du jury
+lors de l’annonce des résultats, nous
+avons entre autres décidé de rendre les
+expériences sur la propagation plus fiables
+et moins dépendantes de l’environnement.
+Pour cela, nous avons décidé de monter
+une nouvelle chaîne, cette fois-ci
+analogique. Une telle chaîne nous
+permettrait de n’avoir non plus deux états
+pour la réception (« message reçu » et
+« pas de message »), mais un éventail de
+nuances entre ces deux états, rendant
+évidemment nos manipulations sur la
+propagation à la fois plus simple à réaliser,
+mais également plus convaincantes.
+Nous avions déjà songé à monter une telle chaîne, mais son prix nous avait fait
+temporairement renoncer : souvenez-vous du prix de nos deux câbles SMA ; pour relier nos
+composants entre eux, il nous en faudra maintenant 8 ! Le prix des composants eux-même
+n’est pas si élevé, mais il augmente fortement à cause de leur blindage. Heureusement,
+grâce aux subventions reçues de la part de la fondation CGénial et du Comité des anciens
+élèves du Lycée Douanier Rousseau, construire notre nouvelle chaîne devient possible.
+Nous nous remettons très vite au travail car le temps presse… Nous choisissons de
+travailler à une fréquence plus haute qu’auparavant : 1,45GHz afin de réduire encore la
+
+3 ⋅108
+longueur d’onde des ondes transmises. Désormais elle sera de
+= 0, 207m , soit
+1, 45 ⋅109
+20,7cm.
+Nous commençons donc par réaliser de nouvelles antennes.
+
+25
+
+B. Entrée dans la chambre anéchoïde…
+Comme précédemment, nous devons fabriquer deux antennes Yagi adaptées à notre
+fréquence. Ayant acquis plus d’expérience dans le maniement du logiciel 4Nec2, nous
+arrivons assez vite à trouver les longueurs de brin appropriées pour notre nouvelle antenne.
+Nos nouvelles antennes, de dimensions plus réduites, sont fabriquées de la même manière
+que les précédentes, avec des brins de cuivre fixées sur du polystyrène, une matière
+transparente aux ondes électromagnétique à ces fréquences. Nos antennes sont prêtes, et
+nous les emmenons à Rennes afin de confronter la théorie à la réalité.
+L’IETR dispose en effet d’un outil de mesure que nous avions déjà utilisé : l’analyseur de
+réseau, dont nous avons décris le fonctionnement en II.A(pour le test en fréquence d’une
+antenne), nous permet encore une fois de voir à quelles bandes de fréquences sont
+adaptées nos antennes : bien que les deux soient efficaces à 1,45 GHz, l’une émet un
+maximum de puissance à 1,62 GHz, tandis que l’autre fonctionne de manière optimale à
+1,454 GHz.
+Mais tester la bande de fréquence n’est pas la seule chose dont est capable l’analyseur
+de réseau. Nous pouvons également l’utiliser pour tracer le diagramme de rayonnement de
+notre antenne !
+A l’IETR se trouve une salle dont une partie des murs est recouverte d’une surface
+absorbant les ondes : des pyramides de mousses juxtaposées, dont la surface est
+recouverte de poudre de carbone, très résistive aux ondes, et dont la dimension est
+spécialement étudiée pour que les réflexions des ondes sur les pyramides ne soient pas
+dirigées vers l’intérieur de la chambre. Les ondes ne sont pas réfléchies vers l’intérieur,
+faisant de cette salle, appelées chambre anéchoïde, l’endroit idéal pour effectuer des
+mesures sur les ondes électromagnétiques !
+
+L’analyseur de réseau possède deux voies ;
+on commence par l’étalonner en les reliant entre
+elles par un câble SMA : l’analyseur envoie par
+une voie une onde qui sera transmise directement
+à l’autre voie : la perte est donc nulle.
+
+Ainsi, on installe dans cette pièce deux antennes connectées à l’analyseur de réseau :
+l’une est l’antenne Yagi que nous souhaitons analyser, l’autre est une antenne fixe de type
+patch appartenant à l’IETR, dont le gain est connu. (Cette antenne est de type « patch »).
+
+26
+
+Notre antenne Yagi ;
+le deuxième brin est
+le brin radiateur
+
+Antenne "patch", fixe
+
+1,90 m
+
+Partie de la salle
+traitée anti-réflexion
+Porte entrebaillée
+
+Analyseur
+de réseau
+
+Câbles SMA
+
+L’analyseur de réseau envoie à notre antenne des signaux de puissance P1 s’échelonnant
+sur une bande de fréquences voulue, et mesure la puissance P2 reçue par l’autre antenne.
+La perte est exprimée par la relation
+
+P 
+P2
+, soit en dB : Perte = 10 log  2  . On obtient ainsi une
+P1
+ P1 
+
+courbe exprimant la perte en fonction de la fréquence :
+0
+-10
+-20
+-30
+
+dB
+
+dB
+-40
+
+Perte
+Notre antenne
+
+-50
+
+A ntenne Patch
+
+-60
+-70
+
+1,45GHz
+-80
+1,350 1,360 1,370 1,380 1,390 1,400 1,410 1,420 1,430 1,440 1,450 1,460 1,470 1,480 1,490 1,500 1,510 1,520 1,530 1,540 1,550
+
+Fréquence (GHz)
+
+Sur ce graphe, on retrouve les courbes représentant le rapport
+
+Préfléchie
+Preçue
+
+pour les deux
+
+antennes. On observe que les deux antennes sont adaptées pour travailler à 1,45GHz, bien
+que l’antenne patch possède une bande de fréquence beaucoup plus restreinte que la nôtre.
+Sur la courbe obtenue, la perte à la fréquence qui nous intéresse est de -27dB (l’analyseur
+est doté d’un curseur de lecture). Le rapport P2/P1 est donc égal à 10-2,7=2,10-3 soit 0,19%,
+ce qui signifie que 0,19% de la puissance reçue par l’antenne émettrice se retrouve à la
+sortie de l’antenne réceptrice.
+
+27
+
+Comment obtenir le gain de notre antenne à partir d’une telle courbe ? A la fréquence qui
+nous intéresse (1,45 GHz), la perte est égale à -27 dB. Or cette perte correspond à une
+perte de puissance de l’onde durant sa propagation, c’est à dire à la perte en espace libre,
+que l’on peut calculer par la relation suivante :
+2
+
+ 0.206 
+ λ 
+PL( dB ) = 10 log 
+ , soit PL = 10 log  4π × 1,90  = −41,3dB ≈ −41dB . Comment se fait-il
+ 4π d 
+
+
+2
+
+que ce résultat ne corresponde à la perte mesurée ? Tout simplement parce que le calcul de
+la perte libre est celui pour une antenne isotrope. La directivité des antennes permet de
+« récupérer » de la puissance par rapport à cette valeur (on parle de gain d’antenne) ; le gain
+cumulé des deux antennes est donc égal à -27-(-41) = 14dB. Comme on sait que l'antenne
+patch possède un gain de 6dB, nous pouvons déduire que notre antenne Yagi possède un
+gain de 8dB vers l'avant !
+Nous avons donc mesuré le gain de notre antenne vers l'avant. En la faisant pivoter sur son
+pied, il est possible de reproduire cette mesure pour toutes les directions, nous permettant
+ainsi d'obtenir le diagramme de rayonnement (le gain dans chaque direction) de notre
+antenne. Il est très intéressant de comparer les diagrammes théorique et expérimental :
+90
+10
+135
+
+45
+0
+
+-10
+
+180
+
+-20
+
+225
+
+0
+
+315
+
+270
+
+Diagramme théorique
+
+Diagramme expérimental
+
+Les deux diagrammes ont globalement le même aspect : un gain respectivement de 9,48dB
+et de 7,7dB vers l'avant et descendant jusqu'à -20dB sur les côtés. Cependant, là où le gain
+est de -7dB vers l'arrière en théorie, il est supérieur à 1 d'après nos mesures. La chambre
+anéchoïde n'est en fait recouverte de surface absorbante que sur trois murs seulement :
+lorsque l'on tourne l'antenne selon un angle de 180°, une partie des ondes émises sont en
+fait réfléchies par le mur pour parvenir à l'antenne réceptrice ; on mesure ainsi un gain plus
+fort qu'en réalité. Pour obtenir un diagramme de rayonnement parfait, il aurait fallu une
+chambre anéchoïde totalement recouverte de ces pyramides en mousse.
+Après ces mesures, nos antennes sont pleinement opérationnelles, et prêtes à être
+assemblées avec notre nouvelle chaîne de transmission.
+
+28
+
+C. Une nouvelle chaîne
+Cette chaîne a été montée grâce aux conseils de M.Avrillon. Notre but est d’émettre et de
+recevoir un message audio issu d’un ordinateur. Bien que nous ayons déjà étudié la
+modulation d’amplitude analogique, la grande difficulté vient du fait que nous travaillons à
+haute fréquence (1,45 GHz). Heureusement pour nous, les composants utilisés dans la
+partie Haute Fréquence du montage sont déjà blindés et seront reliés entre eux par des
+câbles SMA, ce qui nous évitera de revivre les difficultés que nous avons connues lors de la
+conception de notre première chaîne. Voyons maintenant comment s’effectue la modulation
+à cette fréquence.
+Partie émetteur :
+
+Montage
+sommateur
+(+1V)
+
+X
+
+Ampli
+HF
+
+Mélangeur
+Synthétiseur
+f = 1,45 GHz
+
+Ajout de
+l'offset
+
+Modulation
+
+Amplification
+et émission
+
+On retrouve un montage assez classique de modulation d’amplitude : on ajoute tout d’abord
+au signal issu de la carte audio de l’ordinateur une tension d’offset afin d’éviter une
+surmodulation. Le mélangeur permet ensuite de multiplier ce signal à une porteuse de
+fréquence 1,45GHz (générée par un synthétiseur de fréquence programmable). On trouve
+donc en sortie du mélangeur un signal modulé en amplitude, qui est amplifié avant d’être
+envoyé.
+
+Synthétiseur programmable
+
+Amplificateur de puissance
+
+Mélangeur
+
+29
+
+Partie réception :
+Maintenant que le message a été émis, il faut le recevoir et le démoduler.
+
+Ampli
+HF
+
+X
+
+Ampli +
+détecteur de crête
+
+Ampli
+
+Mélangeur
+Synthétiseur
+f = 1,449 GHz
+
+Réception et
+amplification
+
+Diminution de
+fréquence
+
+Démodulation
+
+D’après nos connaissances, démoduler une onde modulée en amplitude nécessite
+l’utilisation d’un détecteur de crête. Seulement, les diodes ne sont pas performantes à une
+fréquence si élevée (1,45GHz), il est donc très difficile de réaliser ce détecteur de crête. Il va
+donc falloir diminuer la fréquence du signal, et c’est encore un mélangeur qui va s’en
+charger.
+Le signal reçu par l’antenne a pour fréquence f1=1,45GHz ; ce signal peut donc s’écrire
+
+P ( t ) = A1 ( t ) cos ( 2π f1t ) .
+
+Nous programmons le synthétiseur pour qu’il génère un signal de fréquence
+f 2 = 1, 45 − 1⋅10 −3 = 1, 449GHz ; écrivons-le S ( t ) = A2 cos ( 2π f 2t ) . Le mélangeur va opérer le
+produit des deux signaux, afin d’obtenir le signal résultant suivant :
+
+R ( t ) = P ( t ) S ( t ) = A1 ( t ) cos ( 2π f1t ) × A2 cos ( 2π f 2t )
+R (t ) =
+
+1
+A1 ( t ) A2 ×  cos ( 2π ( f1 + f 2 ) t ) × A2 cos ( 2π ( f1 − f 2 ) t ) 
+2
+
+Ainsi, à la sortie du mélangeur, le signal sera équivalent à la somme de deux signaux
+sinusoïdaux de fréquences f1+f2 =2,899GHz et f1-f2 = 1,45-1,449 = 1MHz, ce qui correspond
+à la diminution de fréquence que l’on souhaitait obtenir. De plus, l’enveloppe de ces deux
+signaux sera toujours proportionnelle à celle de l’onde reçue par l’antenne.
+Le montage suivant possède plusieurs fonctions : il va tout d’abord amplifier le signal et
+éliminer la composante de fréquence 2,899GHz. Une fois amplifiée, la tension dépasse les
+0,6V de tension de seuil d’une diode ; le signal de fréquence 1MHz peut donc maintenant
+être démodulé avec un détecteur de crête, dont les valeurs de capacité et de résistance sont
+R=6,8k et C=1nF (pour les raisons de ce choix, voir en annexe A). Le signal démodulé est
+ensuite amplifié une dernière fois pour être envoyé vers des enceintes, et l’on peut enfin
+entendre de la musique ! La transmission est terminée
+Au final, nous aurons dû réaliser le montage d’offset à l’émission, celui d’amplification et de
+détecteur d’enveloppe à la réception ; nous avons dû paramétrer, réaliser et tester de
+nouvelles antennes pour enfin procéder à l’assemblage total de la chaîne. Notre récompense
+sera une étude de la propagation plus fiable et plus convaincante, ainsi que quelques
+mesures que nous espérons réaliser.
+
+30
+
+D. De nouvelles mesures
+Malheureusement, cette nouvelle chaîne n'est pas encore parfaitement opérationnelle au
+moment où nous écrivons ces lignes, et nous n'avons donc pas pu réaliser de nouvelles
+expériences. La principale récompense de nos efforts sera de réaliser des manipulation plus
+fiables et plus facilement reproductibles, reposant moins sur l'environnement. Voilà
+quelques-unes des manipulations que nous envisageons de faire :
+
+Polarisation : Une chaîne plus précise comme celle que nous avons réalisée
+permettrait de réaliser des mesures plus fines concernant le phénomène de polarisation. En
+théorie, si l'on incline une de nos antennes de 45° par rapport à l'autre, ou si l'on intercale
+entre nos deux antennes un polariseur dont les brins sont inclinés à 45° par rapport aux
+antennes, la puissance reçue par le récepteur est diminuée de moitié. En émettant un son
+constant (un La 440 Hz par exemple) et en enregistrant le son reçu par le récepteur avec un
+logiciel tel qu'Audacity, il serait possible d'observer l'amplitude de ce son et d'ainsi déduire la
+puissance reçue par le récepteur.
+
+Interférences :
+Reprenons le schéma de notre expérience concernant les interférences :
+
+d1
+d2
+
+Cherchons maintenant à quelle distance doit être la plaque pour que l’on observe une
+interférence destructive. On cherche donc les valeurs de d pour lesquelles les deux ondes se
+retrouvent en déphasage d’une demi-longueur d’onde au niveau de l’antenne réceptrice.
+Appelons d1 la distance qui sépare les deux antennes (et donc la distance parcourue par
+l’onde se propageant en ligne droite) et d2 la distance parcourue par l’onde réfléchie sur la
+plaque de métal. Un déphasage d’une demi-longueur d’onde correspondrait à :
+
+d 2 = d1 + k λ +
+
+λ
+
+1
+
+= d1 + λ  k +  . (k est un entier positif ou nul).
+2
+2
+
+
+En utilisant le théorème de Pythagore, on trouve d =
+
+λ ( k + 1/ 2 ) ( 2d1 + λ ( k + 1/ 2 ) )
+2
+
+En fixant la distance entre antennes à 3m, on peut faire le calcul pour différentes valeurs
+de k (λ = 0,206m), ce qui nous permet de trouver les différents paliers d’interférences :
+Inteférence
+Distance entre la plaque et la droite
+Distance entre deux
+n° ?
+passant par les deux antennes (m)
+paliers successifs (m)
+0
+0,39
+0,59
+1
+0,70
+0,30
+2
+0,91
+0,21
+3
+1,10
+0,19
+Il serait très intéressant de retrouver ces distances lors de la manipulation. Notre
+ancienne chaîne ne nous avait pas permis de le faire. Y arriverons-nous avec notre nouvelle
+chaîne ?
+
+Diffraction : comme un rayon lumineux, une onde magnétique se diffracte lorsqu'elle
+rencontre une fente ou un obstacle plus petit que sa longueur d'onde ; mettre en oeuvre une
+diffraction nous permettrait d'approfondir le parallèle que l'on peut faire entre les ondes radio
+et la lumière. Avec notre nouvelle chaîne, nous pourrons faire un essai...
+31
+
+Conclusion
+Comment transmettre des données sans fil ?
+Le présent mémoire constitue notre réponse à cette question. En montrant la mise en
+œuvre de plusieurs modulations, puis en analysant la propagation des ondes entre les deux
+antennes, nous pensons y avoir répondu.
+Au final, cette réponse nous aura pris plus d’un an. Nous avions commencé à nous y
+consacrer avec les TPE l’année dernière, pour continuer avec les Olympiades de Physique
+cette année. Il y a un an, nous ne savions rien des transmissions sans fil. Ou plutôt, nous ne
+savions qu’une chose : elles utilisent les ondes. Aujourd’hui, nous savons pourquoi et
+comment moduler, comment transmettre tout type de données, comment les ondes se
+propagent dans un milieu… D’octobre 2008 à janvier 2010, nos connaissances en la matière
+ont ainsi énormément progressé. Mais acquérir ces connaissances n’aura pas été un
+fardeau, bien au contraire. Nos recherches, la réalisation de nos montages, la prise de
+contacts avec des chercheurs… Toutes ces expériences ont été enrichissantes, et nous
+avons réellement pris plaisir à les accomplir. Ce contact avec la recherche aura été le
+premier que nous ayons eu, mais nous espérons qu’il ne sera pas le dernier.
+
+32
+
+Bibliographie
+•
+
+Thibaud SCHWARTZ, Wi-Fi. Dossier Micro Application, 2005.
+
+•
+
+Jean-Noël BEURY, L’essentiel de l’électrocinétique. Ellipses, 1998.
+
+•
+
+Physique - Chimie Terminal S spé. Bordas.
+
+•
+
+Physique - Chimie Terminal S spé. Nathan.
+
+•
+
+Jean-Marc Poitevin, Aide-mémoire d’électronique analogique et numérique. Dunod,
+2008.
+
+•
+
+Stéphane AVRILLON, O.LAFON, F.COLOMBEL : TP module 34 « technologies pour
+le transport intelligent », 2009
+
+http://fr.wikipedia.org/wiki/Accueil
+http://pagesperso-orange.fr/jf.fourcadier/
+
+33
+
+Annexes
+Notre mémoire est terminé, mais nous n’avons pas encore évoqué tout le travail que
+nous avons accompli. Sur un an, nous avons pu travailler de nombreuses notions. Soit parce
+qu’elles n’étaient pas directement indispensables au mémoire, soit parce qu’elles ne s’y
+intégraient pas parfaitement, nous avons décidé de placer un certain nombre de ces notions
+en annexe. Les trois premières de ces annexes sont précédées d’un court résumé les
+replaçant dans le contexte du projet.
+
+Annexe A : Notre première transmission sans-fil
+Annexe B : Comment « sélectionner » une fréquence ? - les filtres
+Annexe C : Bilan énergétique de notre chaîne
+Annexe D : Communiquer en RS232 – extraits du programme
+Annexe E : Les modules et circuits intégrés utilisés
+Annexe F : Production finale des TPE
+
+34
+
+Annexe A : Notre première transmission sans-fil
+Jusqu’au jour de notre qualification pour la finale des Olympiades, une partie importante de
+notre mémoire était occupée par la réalisation de notre propre chaîne de modulation
+d’amplitude. Après avoir discuté avec les jurys et afin de recentrer notre mémoire sur la
+réalisation de notre nouvelle chaîne, nous avons décider d’ôter cette partie du mémoire.
+Cependant, les connaissances acquises nous ont été indispensables pour réaliser notre
+nouvelle chaîne (qui fonctionne, elle aussi, en modulation d’amplitude analogique) ; nous
+avons donc décidé de reléguer cette partie en annexe. La voici donc :
+
+A.Comment moduler en amplitude ?
+1.Principe général :
+On a vu précédemment qu'une onde électromagnétique sinusoïdale pouvait être
+modélisée par une fonction cosinus. On désignera ainsi notre onde porteuse
+
+(
+
+)
+
+par P : t → U p cos 2π × f p t , où Up est l'amplitude de l'onde et fp sa fréquence. Notre
+message, quelconque, sera désigné par M(t).
+Le but, on l'a dit, est d'inclure notre message dans l'onde porteuse en faisant varier son
+amplitude. On multiplie pour cela notre message M(t) par P(t), et on obtient l’onde modulée
+
+V : t → k × M (t ) × P (t )
+
+(La constante k est un coefficient multiplicateur, dépendant du circuit électronique utilisé
+pour effectuer la modulation)
+Le signal modulant (440Hz)
+
+Signal
+Une modulation d’amplitude
+
+2.Un problème : la surmodulation :
+Notre modulation semble fonctionner très bien ainsi, mais il y a un problème. En effet,
+
+(
+
+)
+
+avec notre porteuse d'équation P : t → U p cos 2π × f p t , nous avions Up, l’amplitude de
+l’onde, constante. Puisque l'équation de l'onde modulée est
+
+V ( t ) = k × M ( t ) × P ( t ) = k × U p × M ( t )  cos ( 2π × f p t ) , l'amplitude est maintenant fonction
+
+du temps. Par conséquent, si M(t) a une valeur négative, l’amplitude de l’onde sera elle aussi
+négative !
+
+35
+
+Dans la pratique, ceci se traduit par ce que l'on appelle une surmodulation :
+Le signal modulant
+(440Hz)
+
+Signal surmodulé
+
+3.Ajout d’une tension d’offset :
+Pour pallier au problème de la surmodulation, on ajoute à notre message une tension
+continue appelée tension d'offset, de façon à ce que la tension du message soit toujours
+positive (M(t)+Uo>0, avec Uo comme tension d’offset). Notre équation devient alors :
+V (t ) = k × ( M (t ) + Uo ) × P (t ) .
+Ainsi, la modulation d'amplitude équivaut à la multiplication des deux signaux : (message
++ offset) × onde porteuse. C'est pourquoi le composant électronique utilisé pour réaliser une
+telle modulation est appelé « multiplieur ».
+
+4.Cas particulier d'une onde sinusoïdale :
+On pose M ( t ) = U m cos ( 2π × f mt ) ; notre message est dorénavant un signal sinusoïdal.
+D’après l’équation précédente, l'onde modulée est alors :
+
+V (t ) = k ( M (t ) + Uo ) P (t )
+
+V ( t ) = k (U m cos ( 2π × f mt ) + U o ) × U p cos ( 2π × f p t )
+En factorisant, puis en posant A = kU pU o , on obtient :
+
+U
+
+V ( t ) = kU pU o ×  m cos ( 2π × f mt ) + 1 cos ( 2π × f p t )
+ Uo
+
+U
+
+V ( t ) = A ×  m cos ( 2π × f mt ) + 1  cos ( 2π × f p t )
+ Uo
+
+U
+On pose m = m . m est appelé taux de modulation.
+Uo
+On a dit plus tôt qu'il fallait choisir Uo de telle sorte que
+M(t)+Uo soit supérieur à 0. Notre message étant
+sinusoïdal, toutes les valeurs de M(t) seront comprises
+entre Um et -Um. Par conséquent, afin que M(t) soit
+toujours positif, il faut choisir U o ≥ U m , c'est-à-dire
+m ≤ 1 . Si on veut obtenir une bonne modulation
+d’amplitude avec un message sinusoïdal, il faut donc
+que le taux de modulation soit inférieur à 1.
+
+36
+
+5.Spectre en fréquence :
+Il est également très intéressant de rechercher le spectre en fréquence de notre onde
+modulée. En théorie, tout signal périodique est décomposable en une somme de fonctions
+sinusoïdales. Ceci est possible avec notre onde modulée :
+
+V ( t ) = A × ( m cos ( 2π × f m t ) + 1) cos ( 2π × f p t )
+
+V ( t ) = Am cos ( 2π × f mt ) cos ( 2π × f p t ) + A cos ( 2π × f p t )
+En utilisant la relation cos a × cos b =
+
+1
+cos ( a + b ) + cos ( a − b )  , on trouve :
+2
+
+1
+V ( t ) = Am ×  cos ( 2π × f mt + 2π × f p t ) + cos ( 2π × f mt − 2π × f p t )  + A cos ( 2π × f p t )
+2
+Am
+Am
+V (t ) =
+cos 2π × ( f m + f p ) t +
+cos 2π × ( f m − f p ) t + A cos ( 2π × f p t )
+2
+2
+Et enfin, comme cos ( a − b ) = cos ( b − a ) , on obtient V(t) en tant que somme de fonctions
+
+(
+
+)
+
+(
+
+)
+
+(
+
+)
+
+(
+
+)
+
+sinusoïdales :
+
+V (t ) =
+
+Am
+Am
+cos 2π × ( f p + f m ) t +
+cos 2π × ( f p − f m ) t + A cos ( 2π × f p t )
+2
+2
+
+Ainsi l'onde modulée est somme de trois ondes : la première, possédant l'amplitude la
+plus importante (A), est l'onde porteuse. A celle-ci viennent s'additionner deux ondes, de
+fréquences respectives f p + f m et f p − f m et d'amplitude moindre, égale à
+
+Am
+.
+2
+
+Il est possible de tracer un graphique qui reprend ce que nous venons de démontrer,
+appelé spectre en fréquence de l'onde modulée. On place en abscisse les fréquences des
+signaux, et en ordonnées les amplitudes correspondantes.
+
+Enregistrement que nous avons réalisé à l’aide de la carte d’acquisition Orphy GTSII,
+puis exporté vers logiciel Régressi. La fréquence de la porteuse est ici 4,945kH et celle du
+signal modulant 435Hz. Nous retrouvons bien deux harmoniques secondaires
+correspondants à 4.945kHz-0,435= 4,51kHz et 4,945+0,435kHz=5,38kHz.
+
+37
+
+Puisque les bandes latérales sont fonctions de la fréquence du message, ce sont elles
+qui contiennent l'information transmise.
+Ce spectre en fréquence définit la bande de fréquence sur laquelle s'étend l'onde
+modulée. Celle-ci est comprise entre f p − f m et f p + f m ; elle a donc pour largeur 2fm. Lors
+de la réception, il faudra donc s’assurer que le circuit d’accord puisse filtrer les ondes de
+fréquences comprises dans cette bande de fréquences.
+Après avoir étudié la théorie de la modulation d'amplitude, nous avons cherché à utiliser
+celle-ci pour notre projet. Nous avons voulu transmettre un message sonore (c'est à dire
+analogique) d'un ordinateur à un autre, en utilisant pour cela la sortie audio de l’ordinateur.
+La chaîne de transmission utilisée est divisible en deux parties : une partie émission, et une
+partie réception.
+
+B.Moduler et émettre un message – la partie émission
+La partie chargée de l'émission du signal est la plus simple. On a vu en effet que pour
+moduler une onde, il suffit de lui ajouter une tension d'offset, puis de la multiplier avec une
+onde porteuse de fréquence plus élevée. Notre message sera de la musique issue d'un
+ordinateur. On relie la sortie son de celui-ci à l'entrée de notre chaîne.
+La partie émetteur peut donc être schématisée ainsi :
+
+Un premier problème se pose à nous : comment additionner notre message avec une
+tension continue d’offset ? Pour cela, on utilise un de composants les plus indispensables en
+électronique : l’amplificateur opérationnel, auquel nous avons dû nous intéresser.
+
+1.Théorie sur l’amplificateur opérationnel :
+Un amplificateur opérationnel (AOP) est un petit circuit intégré à huit broches (dont
+seulement cinq sont utilisées). Il se schématise comme ceci (il est également possible de
+le schématiser sous forme de triangle, comme nous le ferons plus tard) :
+Vi-
+
+E-
+
+S
+
+ε
+i
+
+E+
++
+
+V+
+
+L’AOP que nous avons utilisé : le TL081
+
+38
+
+L’AOP possède deux bornes d’entrée (E- et E+), une borne de sortie (S) et deux bornes
+d’alimentation (V+ et V-, communément de +15V et –15V), rarement spécifiées sur les
+schémas.
+On définit ε = VE+ - VE- .
+Il existe deux régimes pour un AOP : linéaire ou saturé. Si ε ≈ 0 , alors le régime est
+linéaire. Nous utiliserons l’AOP selon ce régime. Il faut pour cela veiller à ce que ε ≈ 0
+Dans un amplificateur opérationnel idéal, ε = 0. De même, les intensités d’entrées i+ et isont nulles également.
++
+−11
+−
+−11
+En pratique pour un TL081, l’AOP que nous utiliserons, i ≤ 10 A , i ≤ 10 A et
+ε ≤ 1,5 × 10 −4 V en régime linéaire. On considère donc ces trois grandeurs comme nulles dans
+une situation idéale.
+
+2.Comment sommer des tensions avec l’AOP ?
+Comment pouvons-nous utiliser ce composant pour additionner des tensions ?
+Considérons le montage suivant, appelé montage sommateur (l’alimentation n’est pas
+représentée)
+- UR3
+i3
+
+UR1
+i1
+
+R3
+
+i V- i-
+
+R1
+
+i2
+
+Vs
+
+R2
+
+U1
+
+V+ i+
+
+UR2
+
+U2
+
+Us
+
+Vm
+Vm
+
+Sur ce schéma, on a us = Vs − Vm . En utilisant l’additivité des tensions, on peut aussi écrire :
+
+(
+) (
+u = (V − V ) + ε + 0
+
+)
+
+us = Vs − V − + V − − V + + (V + − Vm )
+−
+
+s
+
+s
+
+us = Vs − V − = −u R 3
+
+De même, on peut trouver u1 = uR1 et u2 = uR 2 .
+D’après la loi des nœuds : i = i1 + i2 et i = i3 + i- . Comme i- est négligeable, on peut écrire
+i1 + i2 = i3 .
+u R1
+
+uR 2
+
+uR 3
+
+u1
+
+u2
+
+us
+
+1
+
+2
+
+3
+
+1
+
+2
+
+3
+
+En utilisant la loi d’Ohm, on a R + R = R . En remplaçant, on obtient R + R = − R
+u
+
+u 
+R2 
+
+Enfin, on trouve uS = − R3  1 + 2  . En choisissant R1 = R2 = R3, on obtient uS = − ( u1 + u2 ) .
+ R1
+
+Notre montage est donc sommateur. On remarquera qu’il est également inverseur, c’est
+à dire que la tension de sortie est égale à l’opposée de la somme des deux tensions
+d’entrées. Comment obtenir un sommateur non-inverseur ?
+Il suffit d’utiliser un second montage de l’AOP, appelé simplement montage inverseur.
+En effet, avec notre montage sommateur, nous avions uS = − ( u1 + u2 ) . Si on avait u2 = 0, on
+aurait alors uS = -u1 (le but de notre montage inverseur). Ceci se traduit par un montage
+sommateur ne possédant qu’une seule tension d’entrée ; la tension de sortie sera alors
+l’opposée de celle d’entrée.
+Le montage tel qu’utilisé dans notre circuit se fait donc ainsi :
+10K
+
+10K
+
+Message
+10K
+TL081
+
+Tension d'offset
+10K
+
+Message + offset
+
+10K
+TL081
+
+39
+
+3.Moduler : le multiplieur :
+Nous avons donc ajouté à notre message une tension d’offset ; nous voilà prêt à le
+moduler. La modulation d’amplitude étant un produit de deux tensions, le composant utilisé
+se nomme un multiplieur. Nous utiliserons l’AD633JN, composant disponible au lycée.
+
+L’AD633 possède 8 broches, mais nous n’en utiliserons que 5 : les broches 1 (entrée du
+message), 3 (entrée de la porteuse), 7 (sortie du signal modulé), 5 et 8 (alimentation +15/-15
+V). Nous schématiserons donc le multiplieur simplement comme ceci :
+
++15
+Entrée
+message
+
+Sortie modulé
+e
+
+Entrée
+porteuse
+-15V
+La porteuse est générée avec un GBF du lycée, aux alentours de 75kHz par exemple.
+Une fois le message modulé, il est prêt à être envoyé ; la sortie du multiplieur va donc
+directement vers l’antenne. La partie d’émission est terminée.
+
+C. Recevoir et démoduler – la partie réception
+Notre message a été envoyé, il faut maintenant le recevoir. Quel travail doit accomplir la
+chaîne de réception ? Tout d’abord recevoir l’onde modulée de fréquence 75kHz et elle
+seule, c’est à dire ignorer toutes les ondes de fréquences autres. Il faut ensuite démoduler,
+c’est à dire retrouver le message contenu dans le signal modulé. On doit également éliminer
+la tension continue d’offset, afin de retrouver le message originalement émis. Enfin, il faudra
+sans doute amplifier plusieurs fois ce message, qui aura très probablement été atténué par
+son passage dans l’air, de façon à ce qu’il soit audible pour les auditeurs. On peut donc
+schématiser la partie réception comme suit :
+Antenne
+
+Filtrage de la
+porteuse
+
+Amplification
+
+Démodulation
+
+Élimination de
+l’offset
+
+Amplification
+
+PC
+récepteur
+
+40
+
+La réception semble d’ores et déjà plus compliquée que l’émission à mettre en œuvre.
+Voyons maintenant quels composants précis il faut utiliser.
+
+1.Le filtre LC :
+La première chose que le récepteur doit faire, c’est de se « concentrer » sur une seule
+fréquence, celle de la porteuse de notre message. Pour cela, il faut éliminer toutes les autres
+fréquences parasites. Le montage utilisé pour accomplir cela est appelé filtre LC ou filtre
+passe-bande, et est constitué d’un condensateur et d’une bobine en parallèle.
+Ce filtre définit une bande de fréquence autour d’une
+1
+
+Vers le reste
+
+fréquence centrale définie par f o = 2π LC ; les fréquences hors
+du circuit
+de cette bande sont tellement atténuées qu’elles deviennent
+négligeables dans le circuit. Le fonctionnement précis du filtre
+est détaillé en annexe.
+Nous avons mesuré à l’aide d’un inductancemètre
+Le filtre LC
+l’inductance de notre bobine ; celle-ci est comprise entre 234mH
+( sans noyau de fer) et 877mH (avec noyau de fer). Pour
+recevoir un signal de fréquence 75kHz, nous avons choisi une capacité de 10nF.
+1
+
+L’inductance nécessaire est donc L = 4π ²Cf ² = 450mH . Ceci signifie que le noyau de fer devra
+o
+
+être partiellement enfoncé.
+Nous obtenons donc la tension modulée, telle qu’elle était en sortie du multiplieur en
+émission. Notre tâche est de retrouver le message, c’est à dire de procéder à une
+démodulation. Pour cela, procédons par étape.
+Nous allons d’abord chercher la tension composée du message et de l’offset. Pour cela, il
+faut réaliser un détecteur de crête.
+
+2.Détecteur de crête :
+Le détecteur de crête est un montage simple, constitué
+d’une diode, d’une résistance et d’un condensateur.
+Appelons VE la tension d’entrée (signal modulé) et VS la
+tension de sortie.
+VE est le signal modulé ; si le message est sinusoïdal, il
+ressemble donc à ceci (ci-contre, en vert) :
+Le but ici est de retrouver la « crête » du signal, c’est à dire la partie rouge, qui
+correspond au message + offset.
+Le détecteur de crête fonctionne ainsi :
+Lorsque VE augmente jusqu’à son maximum, la
+VE
+diode est passante et le condensateur se charge.
+Quand VE diminue, la tension aux bornes du
+condensateur devient supérieure à VE ; le courant
+change donc de sens, ce qui fait que la diode n’est
+plus passante. Par conséquent, le condensateur passe
+en cycle de décharge : il se décharge dans la
+résistance R.
+
+VS
+
+Détecteur de crête
+
+41
+
+Lorsque VE redevient supérieure à la tension aux bornes de C, la diode est à nouveau
+passante, et le cycle recommence.
+L’alternance de charges et de décharges du condensateur donne une tension VS qui
+« épouse » la crête du signal modulée :
+
+Une alternance de cycles de
+décharges permet de
+retrouver la crête du signal
+
+Le signal modulant retrouvé !
+(il reste à enlever la
+composante continue)
+
+Le signal modulé avant
+la détection de crête
+
+Influence des valeurs de résistance et de condensateur sur la qualité de la
+démodulation :
+D’après notre cours de Terminale, le temps de décharge du condensateur est fonction du
+produit τ = RC. Il serait donc logique que la modification de ce produit entraîne une
+modification dans la qualité de la détection de crête. Nous avons donc essayé d’effectuer
+une démodulation avec différentes valeurs de capacité et de résistance :
+
+Produit RC trop faible : la décharge est trop
+rapide
+
+Produit RC trop fort : la décharge est trop lente
+et n’épouse pas la courbe
+
+Pour obtenir la meilleure démodulation possible, il faut donc jouer sur les valeurs de R et
+de C, de façon à ce que τ ait une valeur qui soit à la fois inférieure à la période du signal
+modulant, et largement supérieure à celle de la porteuse. Tporteuse << τ < Tmodulant
+Dans notre montage, la fréquence de l’onde porteuse de 75 kHz, tandis que celle du
+message est inférieure à 440 Hz. Nous utilisons donc une résistance de 820Ω et un
+condensateur de 150nF.
+
+42
+
+3.Élimination de la tension d’offset :
+La démodulation n’est pas encore complète ; le signal que nous avons obtenu n’est pas
+encore le message, mais la somme de celui-ci avec la tension continue d’offset. Pour cela,
+on utilise un filtre RC passe-haut, que nous avons étudié (voir en annexe).
+
+Le filtre passe-haut atténue fortement toutes les fréquences
+
+C
+
+1
+
+inférieures à une fréquence de coupure exprimée par f c = 2π RC .
+R
+
+La tension d’offset peut être considérée comme une tension
+sinusoïdale de fréquence nulle, donc inférieure à fc. Par
+conséquent, si on filtre l’ensemble message+offset avec un tel
+filtre, seul le message en sortira. La démodulation est donc
+achevée.
+
+4.Amplification :
+Arrivé ici, le message a été retrouvé dans son intégralité. Il est prêt à être envoyé vers le
+PC ou vers des enceintes (n’oublions pas qu’il s’agit d’un message audio). Cependant, après
+son voyage dans l’air, le message possède une tension extrêmement faible. Envoyé tel quel
+dans une enceinte, il est parfaitement inaudible. Il est donc nécessaire de l’amplifier. On
+utilise pour cela un amplificateur de puissance qui, comme son nom l’indique, est destiné à
+augmenter la puissance de notre message. Cet amplificateur nécessite une préamplification,
+que nous obtenons à l’aide d’un amplificateur opérationnel.
+Une fois amplifié, le message est prêt à partir vers les enceintes. La partie réception est
+terminée.
+
+43
+
+D.La chaîne de transmission complète
+Notre but était d’envoyer un message audio émis par un ordinateur vers un autre
+ordinateur. Pour ça, nous avons choisi la modulation d’amplitude, dont nous avons détaillé
+toutes les étapes. Voilà maintenant le schéma électronique complet de notre chaîne de
+transmission, telle que nous l’utilisons :
+
+1.Partie émission :
+
+10K
+
+10K
+
+Message
+10K
+10K
+
+TL081
+
+TL081
+10K
+
+X
+AD633JN
+Porteuse
+f=75kHz
+
+E
+
+Émission
+du
+message
+
+Ajout d'un
+offset
+
+Émission
+
+Multiplication
+
+On retrouve sur ce schéma les grandes parties que nous avons détaillées. Les
+alimentations des amplificateurs et multiplieur ne sont pas précisées pour éviter de
+surcharger le schéma.
+Après avoir mesuré à l’oscilloscope la tension de sortie de la carte son d’un ordinateur,
+nous avons conclu que son amplitude ne dépassait pas 1V. Pour obtenir une bonne
+modulation, la tension d’offset devra donc être supérieure à 1V.
+
+2.Partie réception :
+
+10nF
+
+Ampli de
+puissance
+
+450mH
+
+Réception
+et filtrage
+
+Amplification
+
+Démodulation
+
+Amplification
+
+Ici non plus, les alimentations ne sont pas spécifiées. Nous avons ici représenté un
+ordinateur en bout de chaîne mais, puisque nous envoyons un message audio, nous
+pouvons tout aussi bien remplacer l’ordinateur par des enceintes. Nous avons donc réalisé
+un montage capable de transmettre un message audio par la voie des ondes.
+
+44
+
+Annexe B : Comment « sélectionner » une fréquence ? - les filtres
+Comme nous l'avons indiqué, les différents montages ont nécessité l'utilisation de
+filtres. Cette partie vise donc à expliquer ce que sont les différents filtres en transmission. Il
+existe 3 catégories de filtres : les filtres passe-bandes, les filtres passe-bas et les filtres
+passe-haut. Pour cette étude, nous avons utilisé différents manuels de spécialité
+physique/chimie de terminale S.
+
+Les filtres passe-bande :
+Un filtre passe-bande est, comme son nom l'indique, un filtre qui ne laisse passer
+qu'une bande de fréquences comprises entre une fréquence de coupure basse et une de
+coupure haute, qui caractérisent le filtre. Un filtre passe-bande idéal aurait un gain constant
+dans sa bande passante et un gain nul au-delà de ces fréquences de coupure ; la transition
+entre ces deux états serait instantanée. Dans la pratique, un filtre est caractérisé par une
+fréquence f pour laquelle le gain est optimal, et la bande passante constitue l'intervalle de
+fréquences entourant f.
+Pour étudier ce filtre, nous avons utilisé le montage ci dessous où Ue et Us sont les
+tensions efficaces mesurées avec un voltmètre (Ue est la tension d'entrée du filtre et Us sa
+tension de sortie).
+
+Le filtre passe bande n'est donc ni plus ni moins qu'un circuit LC composé :
+•
+•
+
+d'un condensateur de capacité C
+d'une bobine d'inductance L
+
+45
+
+A l'aide du GBF nous avons fait varier la fréquence f et relevé pour ces différentes
+fréquences
+les valeurs de Us afin de tracer la courbe Us = f(f) à l'aide du logiciel Régressi :
+
+Nous remarquons que pour chacun des différents montages testés, il existe une
+fréquence pour laquelle la tension est maximale. Cette fréquence, notée par exemple f0, peut
+être trouvée grâce à la relation f 0 =
+
+1
+2π LC
+
+Cette fréquence f0, pour laquelle la tension est maximale, dépend donc de la valeur de
+l'inductance (L en Henry) de la bobine utilisée dans le filtre passe bande et de la capacité (C
+en Farad) du condensateur de ce filtre.
+Le produit LC étant au dénominateur, plus l'inductance et la capacité du filtre sont petites,
+plus la fréquence f0 est grande, et inversement.
+On retrouve graphiquement les fréquences f0 attendues, pour les différents couples LC.
+
+Courbe violette
+Courbe verte
+Courbe rouge
+
+L (mH)
+
+C (nF)
+
+Fréquence théorique
+(kHz)
+
+Fréquence expérimentale
+(kHz)
+
+0,871
+
+150
+
+13,9
+
+14,0
+
+0,871
+
+10
+
+53,9
+
+52,8
+
+0,450
+
+10
+
+75,0
+
+74,8
+
+46
+
+Le filtre passe bande à donc un intérêt évident pour la réception des ondes radio.
+En effet, si une multitude d’ondes de fréquences différentes arrivent sur une antenne, et
+que seules les ondes de fréquences égales à celle de la porteuse doivent être démodulées,
+ce filtre est capable de ne « conserver » que les fréquences proches de f0, c'est à dire les
+fréquences de la bande passante.
+Il suffit donc d’intégrer un condensateur de capacité variable ou une bobine d’inductance
+variable afin de régler f0 sur la fréquence de la porteuse correspondant à l’émetteur.
+La bande passante à -3dB du filtre correspond à l'ensemble des fréquences pour
+lesquelles la tension efficace est supérieure à
+
+(U ) .
+eff
+
+f0
+
+2
+En effet, l'intervalle des fréquences de la bande passante correspond à toutes les
+fréquences telles que :
+
+ 1 
+20 log (U eff ) ≥ 20 log (U eff ) − 20 log 
+ ; c'est à dire que pour que f appartienne à
+f
+f0
+ 2
+la bande passante, sa tension efficace doit être supérieure à la tension efficace de f0 moins
+3dB.
+Pour un filtre passe bande, on définit également le facteur de qualité Q tel que
+
+f
+Q = 0 où ∆f est la bande passante (la différence entre la fréquence de coupure haute et
+∆f
+la basse).
+L (mH) C (nF) f0 (kHz) ∆f (kHz) Q
+Courbe violette
+Courbe verte
+Courbe rouge
+
+0,871
+
+150
+
+13,9
+
+1,71
+
+8,1
+
+0,871
+
+10
+
+52,8
+
+17,4
+
+3,0
+
+0,450
+
+10
+
+75,0
+
+18,57
+
+4,0
+
+On remarque que la courbe violette possède un facteur de qualité meilleur (plus grand)
+que pour les deux autres courbes. La sélectivité du circuit correspondant est donc
+importante. En effet, plus le facteur de qualité est élevé, moins la bande passante comprend
+de fréquences.
+D’après le tableau ci-dessus, cette sélectivité semble dépendre de L et C. Apparemment,
+plus C est grand, plus le facteur de qualité est bon (élevé) tandis que plus L est grand, plus il
+est faible.
+Il n’est pas toujours souhaitable d’avoir un facteur de qualité trop grand. En effet, si on
+veut faire passer de la musique, il faut que la bande passante comprenne toutes les
+fréquences audibles par l'oreille humaine. Il faut donc qu'elle soit d'environ 20kHz.
+Nous avons donc cherché à savoir s’il est possible d'agrandir ou de diminuer la bande
+passante sans modifier f0. Pour cela, nous nous sommes intéressés à la valeur de la
+résistance de la bobine.
+
+Nous avons donc placé en série avec la bobine une résistance variable AOIP. Les
+courbes obtenues sont les suivantes :
+
+47
+
+On remarque donc que la résistance n’influe pas sur la fréquence f0, mais, par contre,
+elle influe sur la bande passante et donc sur le facteur de qualité.
+Par conséquent, pour avoir un circuit sélectif, il faut donc éviter les bobines à forte
+résistance. Il est possible d'utiliser une bobine dont le nombre de tour du fil de cuivre est
+limité (en effet, plus la longueur du fil est grande, plus la résistance est élevé) et modifier son
+inductance L grâce à un barreau aimanté disposé à l'intérieur de la bobine.
+A l'inverse, pour avoir une bande passante plus grande, on peut ajouter une résistance à
+la bobine.
+
+Filtres passe-bas et filtres passe haut :
+Le filtre passe bas est un filtre qui ne laisse passer les fréquences seulement jusqu'à
+une fréquence de coupure. On l'appelle donc passe bas puisqu'il ne laisse passer que les
+fréquences inférieures (plus basses) à la fréquence de coupure.
+Le filtre passe haut est lui un filtre qui ne laisse passer les fréquences seulement à
+partir d'une fréquence de coupure. On l'appel donc passe haut puisqu'il ne laisse passer que
+les fréquences supérieures (plus hautes) à la fréquence de coupure.
+Ces deux filtres sont des dipôles RC. La seule différence entre eux est la position du
+condensateur par rapport au conducteur ohmique. Ce sont donc des filtres faciles à étudier
+en lycée puisque les dipôles RC sont au programmes de Terminale S.
+Ue et Us sont les tensions efficaces d'une tension sinusoïdale de fréquence f.
+• Ue est la tension mesurée à l'entrée du filtre
+• Us est le tension de sortie du filtre
+
+48
+
+Filtre passe bas
+
+Filtre passe haut
+
+Pour étudier les filtres passe haut et passe bas nous n'avons pas choisi « au hasard » les
+valeurs de R et de C. En effet, le fonctionnement de notre récepteur (868,35 MHz) a
+nécessité l'utilisation d'un filtre passe bas. Le récepteur devait pouvoir laisser passer les
+fréquences inférieures à 20 kHz (fréquences correspondant à des signaux sonores). Or, la
+fréquence fc de coupure est reliée à la résistance R du conducteur ohmique et à la capacité
+C de condensateur par la relation f c =
+
+1
+2π RC
+
+Par conséquent, pour R = 820Ω et C = 10nF nous avions une fréquence de coupure fc =
+19,4kHz.
+A l'aide d'un multimètre mesurant la capacité et la résistance, nous avons évalué la
+valeur pratique de nos composants et nous avons obtenu R = 816Ω et C = 9,79nF donc
+notre filtre devait avoir une fréquence de coupure fc = 19,9kHz
+Les premières courbes que nous avions tracées n’étaient pas conformes à nos attentes.
+En plaçant directement le voltmètre que nous avions utilisé sur le générateur, nous avons
+remarqué qu'il admettait en fait lui aussi une fréquence de coupure. En effet, en étudiant la
+tension aux bornes du générateur et en faisant varier la fréquence sans modifier l'amplitude,
+nous avons remarqué que la tension était stable pour les basses fréquences mais qu'à partir
+d'une certaine fréquence de coupure, elle chutait rapidement jusqu'à devenir presque nulle
+pour les fréquences plus hautes.
+Ainsi nous avons obtenu la courbe suivante :
+
+49
+
+Nos voltmètres (nous avons effectué cette expérience avec plusieurs voltmètre)
+possèdent donc un filtre passe bas ! Heureusement, sur la plage de fréquence de notre
+étude (jusqu’à 100kHz), la tension ne baisse qu’un petit peu.
+Nous avons donc décidé de tracer les courbes G = f(f) où G est le gain définit par la
+relation G=
+
+Ue
+et non Ue= f(f).
+Us
+
+On remarque que nos deux filtres admettent une fréquence de coupure proche de 20kHz,
+ces résultats pratique sont conformes aux résultats théoriques.
+De plus, on remarque que notre filtre passe bas admet une bande passante de 0 à près
+de 20 kHz et que notre filtre passe haut en admet une à partir de 20 kHz jusqu’à l'infini.
+La bande passante à -3dB du filtre passe bas correspond à l'ensemble des fréquences
+
+1
+. En effet, la fréquence de coupure des
+2
+1
+filtres passe bas et passe haut est la fréquence pour laquelle le gain correspond à
+, donc
+2
+pour lesquelles le gain est compris entre 1 et
+
+la bande passante du filtre passe haut est l'ensemble des fréquences pour lesquelles le gain
+est inférieur à
+
+1
+.
+2
+
+Sur ce graphique, on voit que la fréquence de coupure (identifiée par le réticule que l’on
+place sur l’ordonnée
+
+1
+) est à 20 kHz pour nos deux filtres.
+2
+
+50
+
+Annexe C : Bilan énergétique de notre chaîne
+Merci à Stéphane Avrillon pour les explications qu’il nous a fourni et que nous reprenons
+ici.
+Lorsque nous avons voulu réaliser nos premiers émetteur/récepteur afin d’observer la
+propagation des ondes, nous avons été confronté à un problème de taille. En effet, le seuil
+de notre récepteur est de -90dBm. Le récepteur se déclenche dès que la puissance dépasse
+donc 10-9mW. Il est donc très sensible !
+Si on n’avait rien pour modifier ceci, toute expérience aurait été impossible. Comment
+diminuer la sensibilité du récepteur ? Commençons déjà par effectuer un bilan énergétique
+de notre chaîne de transmission.
+Quelle est la puissance émise par l’antenne ?
+D’après la notice de l’émetteur, la puissance émise par l’antenne est 7dBm.
+Que devient cette puissance ?
+La puissance reçue par l’antenne réceptrice n’est évidemment pas égale à celle émise
+par l’antenne émettrice. Dans le cas d’une antenne isotrope, l’énergie est émise dans toutes
+les directions. Seule une faible fraction parvient à l’antenne réceptrice.
+On détermine la perte de puissance liée à la distance d séparant les deux antennes :
+
+ λ 
+Perte = 
+
+ 4π d 
+
+2
+
+ λ 
+, soit en dB : Perte (dB ) = 10 log 
+
+ 4π d 
+
+2
+
+2
+
+ 0.345 
+Ici pour notre émetteur λ =0.345m ; si d=4m, alors Perte ( dB ) = 10 log 
+ ≈ −43dB ,
+ 4π 4 
+ceci pour une antenne isotrope.
+Grâce à la directivité de nos antennes, on « récupère » de la puissance par rapport à ce
+modèle d’antenne isotrope, soit d’après les diagrammes 9dB dans la direction de l’antenne à
+l’émission comme à la réception. On « regagne » donc au total 18dB.
+Le bilan est donc le suivant :
+
+Pentrée=7dBm
+Psortie =7dBm-43dB+18dB=-18dBm
+
+Module
+émetteur
+
+Module
+récepteur
+
+La puissance reçue par le récepteur est donc -18dBm soit une puissance nettement
+supérieure au seuil de déclenchement du module récepteur.
+
+51
+
+On peut se poser la question de la distance minimale au bout de laquelle cette puissance
+devient inférieure au seuil. Il faudrait pour cela que
+
+ λ 
+Perte (dBm) = 10 log 
+ =-115dB au lieu de -43dB.
+ 4π d 
+2
+
+La distance dminimale est alors dminimale= 15km ! c’est dire la puissance de l’émetteur et la
+difficulté de blinder celui-ci ainsi que le récepteur.
+Comment faire pour diminuer la puissance de l’émetteur et la sensibilité du
+récepteur ?
+Stéphane Avrillon nous a proposé d’ajouter en série une forte résistance à l’entrée et de
+faire de même à la sortie de l’antenne. Cette résistance limite l’intensité d’entrée et donc la
+i
+puissance émise. On peut déterminer l’atténuation ainsi produite.
+En effet, la partie émission peut se schématiser ainsi :
+(l’émetteur a une impédance de sortie de 50Ω
+et l’antenne une impédance de 50Ω).On note R=50Ω
+
+50 Ω
+
+U
+
+50 Ω
+
+e
+La tension U aux bornes de l’antenne est donc e/2
+La puissance rayonnée par l’antenne est Ri² et comme
+i=U/R alors la puissance rayonnée par l’antenne est :
+
+U 2 e2
+e2
+P=
+=
+soit
+R 4R
+200
+Si on rajoute une résistance de R’=10kOhm en série, la situation
+devient la suivante :
+
+i
+
+U
+
+50
+
+On a alors un diviseur de tension et,
+
+R’
+
+U=
+50
+
+R
+R
+× e ≈ × e , car R est
+( R '+ 2 R)
+R'
+
+négligeable devant R’.
+
+e
+
+2
+
+U2 1  R
+R2
+R
+
+= × ×e =
+× e 2 = 2 × e2
+La puissance émise par l’antenne est donc P =
+2
+R R  R' 
+RR '
+R'
+soit P =
+
+50
+1 2
+× e 2 = 5.10−7 e2 au lieu de
+e si on ne rajoute pas la résistance de
+3 2
+(10 ×10 )
+200
+
+10kOhm en série.
+
+52
+
+La perte de puissance rayonnée grâce à l’ajout de cette résistance est donc de
+
+5.10 −7
+= 10 −4 soit -40dB.
+−3
+5.10
+On fait de même à l’antenne réceptrice soit une nouvelle perte de -40dB. Le bilan de
+puissance est alors :
+
+Pentrée=7dBm-40dB
+
+Psortie = (7dBm-40dB)-X+18dB-40dB
+
+Module
+récepteur
+
+Module
+émetteur
+
+Où X correspond à la perte liée à la distance,
+On peut se poser alors la question comme précédemment, de la distance minimale à
+partir de laquelle on passe sous le seuil de déclenchement soit -90dBm.
+Il faut pour cela que X=-35dB
+
+ λ 
+Perte ( dBm) = 10 log 
+ =-35dB on a alors dminimale= 1,5m !
+ 4π d 
+2
+
+Dans la réalité le récepteur se déclenche pour une distance supérieure, mais ne
+dépassant pas une dizaine de mètres !
+
+53
+
+Annexe D : Communiquer en RS232 – extraits du programme
+Lors de notre travail, nous nous sommes intéressés aux modulations numériques. À la fin
+de notre mémoire, nous exposons le montage nécessaire à la réalisation d’une modulation
+en ASK. Cependant, une telle transmission nécessitait également un programme capable de
+faire la liaison entre l’utilisateur et le montage, c’est à dire de traduire ce que l’utilisateur
+entre en binaire, afin de l’envoyer via le port série.
+Nous avons réalisé nous-mêmes le programme nécessaire en langage C++. Notre
+programme est composé de deux parties, l'émission et la réception. Il est présenté sous la
+forme d'une messagerie instantanée et permet donc à un utilisateur d’envoyer du texte vers
+l’ordinateur récepteur. Mais ce n’est pas tout : le programme est capable d'envoyer des
+fichiers (par exemple des images ou des fichiers musicaux). Il peut aussi déterminer le taux
+d'erreur de la communication. Pour cela, l'émetteur envoie une série d'octets définie et
+connue du récepteur, puis le récepteur compare ce qu'il a reçu avec la série originale.
+Voici à titre d'exemple une fonction qui compose notre programme :
+
+Tous nos programmes sont destinés à une exécution sous Linux.
+
+54
+
+Annexe E : Les modules et circuits intégrés utilisés
+Module émetteur Telecontrolli :
+
+Module récepteur Telecontrolli :
+
+55
+
+Circuit intégré NE 555 :
+Le NE55 est un circuit intégré qui nous permet de générer un signal périodique carré,
+non-alternatif et de fréquence 440 Hz destiné au module émetteur, qui constituera le signal
+message. Ce circuit intégré a besoin de plusieurs composants : deux résistances et un
+condensateur, ceux-ci sont destinés à déterminer la fréquence d'oscillation du circuit intégré.
+Un programme nous a permis de déterminer ces valeurs.
+
+Circuit intégré MAX232 :
+Le MAX232 est un circuit intégré utilisé pour préparer les signaux pour une liaison RS232 (une liaison avec le port série). En effet lors d'une liaison RS-232 avec un ordinateur, les
+bits 1 sont représenté par une tension de -12 V et les bits 0 par une tension de 12V. De telles
+tensions sont difficiles à utiliser dans un montage électronique. Le MAX232 va convertir les
+signaux +12/-12 en signaux 0/5V et inversement, ce qui permet à nos circuits de
+communiquer avec l'ordinateur.
+
+56
+
+Annexe F : Production finale des TPE
+Lors des travaux personnels encadrés de l'année dernière, nous avions choisit comme
+sujet le Wi-Fi, et nous avons travaillé sur deux problématiques. Comment les données sontelles transmise par le Wi-Fi ? Et comment la sécurité des données est-elle assurée ? Nous
+combinions alors deux matières, les mathématique et la physique.
+Notre but final était de réaliser par nos propre moyens une transmission numérique sans
+fil, sur le principe d’un logiciel de « chat » entre deux ordinateurs. Après avoir abandonné
+l’idée de fabriquer le circuit de A à Z, puis celle d’utiliser des modules semblables à ceux que
+nous employons pour les Olympiades (nos connaissance en électronique était alors quasinulle), nous avons eu l'idée de d'utiliser un émetteur radio vendu dans le commerce,
+normalement utilisé pour envoyer la musique d’un baladeur MP3 vers l’autoradio d’une
+voiture. Il suffisait d’utiliser une simple radio FM à la réception, et le tour était joué !
+Mais comment utiliser ces appareils pour transmettre des données d’un ordinateur à
+l’autre ? Nous avions choisit de les connecter aux entrée/sortie de la carte son de
+l’ordinateur.
+Il se pose alors le problème des données ; en effet comment
+transmettre des données textuelles en utilisant la carte son de
+l’ordinateur ? En somme, il fallait « traduire » en son les données
+tapées par un utilisateur à l’écran.
+
+Émetteur utilisé
+
+Notre solution fut de produire deux son, un pour le bit 1 et un
+second pour le bit 0, et de développer deux programmes en C++. Le
+premier, consacré à l'émission, récupère les données textuelles que
+nous voulons transmettre et décomposera chaque octet en suite de
+bit, avant jouera le son correspondant au bit.
+
+Comment se déroule alors une émission ? Imaginons que l’on souhaite envoyer la lettre
+‘a’, qui se traduit par la suite binaire « 1100001 ». Le programme émetteur va associer à
+chaque bit 1 un son d’une certaine fréquence, et à chaque bit 0 un son de fréquence
+supérieure. A la sortie de la carte son, le signal se présenterait alors ainsi :
+
+Ce signal est ensuite envoyé à l’émetteur, qui va procéder à une modulation en
+fréquence ; le signal modulé se présenterait comme ceci :
+
+Le récepteur radio réceptionne l’onde modulée, la démodule pour envoyer le signal vers
+la carte son de l’ordinateur récepteur. Il s’agit alors pour le second programme de récupérer
+
+57
+
+les données entrant sur la carte son et de les analyser, afin de récupérer les octets
+correspondant et enfin d'afficher les données.
+Finalement, pour optimiser notre système, nous avons ajouté un troisième son servant de
+séparateur entre les octets transmis ; ainsi, si jamais un des octets n’était reçu que
+partiellement, le fait de délimiter chaque octet permet d’éviter un décalage de la « grille de
+lecture » du programme récepteur. Avec cet ajout, notre montage fonctionnait très bien, et
+nous étions capable de faire nous-même notre propre transmission sans fil.
+
+L’interface de notre programme émetteur – cryptage, traduction en son,
+modulation…toutes les grandes étapes de l’émission y sont décrites
+
+58
+
+

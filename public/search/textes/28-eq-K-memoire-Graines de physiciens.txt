@@ -1,0 +1,1375 @@
+Vendredi 29 janvier 2021
+Lycée Edouard Branly
+Gabrielle WIDEHEN, Tristan RONDEAU, Tom VARLET, Nelly TINTILLIER
+
+Présentent
+
+Graines de physiciens
+“C'est simple et efficace avec beaucoup de rebondissements et on ne s'ennuie pas un seul moment.” - Harlan Coben
+Encadrés par Olivier BURIDANT et Didier SORET
+
+1
+
+Résumé
+La chute étant dans le programme de terminale, nous avons par la suite décidé de nous intéresser à travers le rebond des
+balles.
+Grâce à la collaboration de Décathlon nous avons pu étudier les paramètres de chute de différents types de balles. Après
+de multiples lancers nous avons pu par la suite déterminer la vitesse de chute et son coefficient de restitution lors de
+l’impact. Nous avons utilisé des méthodes différentes et montré ‘influence de divers paramètres.
+Nous nous sommes ensuite intéressés à l’impact de graines et nous avons observé un phénomène curieux que nous
+essayons d’analyser et expliquer avec ce que nous avons appris lors de la réalisation de ce projet.
+
+Table des matières
+Résumé ................................................................................................................................................................................... 2
+Introduction ............................................................................................................................................................................ 3
+Etude de la chute des corps .................................................................................................................................................... 4
+La chute libre ...................................................................................................................................................................... 4
+Cas où la bille n’est pas massive ......................................................................................................................................... 5
+Cas ou les frottements ne sont pas négligeables ............................................................................................................... 6
+Détermination de la vitesse à partir de vidéos ....................................................................................................................... 8
+Coefficient de restitution et temps de rebonds ................................................................................................................... 11
+Analyse acoustique des rebonds ...................................................................................................................................... 13
+Influence de la masse sur les rebonds................................................................................................................................... 15
+Influence de la masse d’une bille sur son coefficient de restitution ................................................................................. 15
+Approche théorique ...................................................................................................................................................... 15
+Approche par simulation ............................................................................................................................................... 15
+Aspect expérimental ..................................................................................................................................................... 15
+Les graines......................................................................................................................................................................... 17
+Des tests macroscopiques à l’analyse des chocs ........................................................................................................... 17
+Mesures du coefficient de restitution ........................................................................................................................... 17
+Un comportement collectif des graines ............................................................................................................................ 18
+Conclusion............................................................................................................................................................................. 20
+Annexes................................................................................................................................................................................. 21
+Partenaires ........................................................................................................................................................................... 22
+Annexe 1 : Comment mesurer une vitesse .......................................................................................................................... 23
+Méthode Arduino .............................................................................................................................................................. 23
+La chronophotographie ..................................................................................................................................................... 23
+Annexe 2 : Caractéristiques des graines ............................................................................................................................... 24
+Remerciements ..................................................................................................................................................................... 27
+Les Olympiades vues par Tom .......................................................................................................................................... 28
+Les Olympiades vues par Gabrielle ................................................................................................................................... 28
+Les Olympiades vues par Tristan ...................................................................................................................................... 29
+Les Olympiades vues par Nelly ......................................................................................................................................... 30
+
+2
+
+Introduction
+Le rebond est une chose qui réside en chaque objet lorsqu’il chute. C’est une chose dont nous sommes témoins
+tous les jours mais savons-nous réellement bien l’expliquer ? La Physique nous sert à expliquer le monde qui nous entoure,
+alors utilisons là ! Nous avons donc décidé de nous plonger dans ce phénomène aussi intéressant que rebondissant.
+Cependant en ce début d’année scolaire, dans le contexte du confinement à venir, le lycée est nettoyé régulièrement de
+fond en comble. Aussi, pour éviter que notre boulet, symbole de la TS2 et des olympiades de physique du lycée Édouard
+Branly, ne soit relégué au statut d'objet potentiellement contaminé à risque et donc à détruire ; nous avons décidé de le
+mettre au vert, chez nous, à la campagne.
+Tout comme Newton, qui, durant une période de confinement en 1666 suite à l’épidémie de peste ravageant Londres,
+mettra au point ses plus grandes théories, nous avons mené nos expériences et étudié de notre côté le bond et le rebond
+!
+Nous savons que de nombreuses lois régissent des bonds et des rebonds. L’entité rebondit sur différentes matières et est
+constituée de différents matériaux. Selon ces lois les coordonnées ainsi que la manière dont se comporte le rebond seront
+différentes.
+Nous nous sommes alors demandé quels paramètres mènent à une telle diversité entre les chocs de matière.
+Notre aventure a tout simplement commencé par des tests en batterie. La physique sait se montrer amusante lorsqu’il est
+question de rebond ! Nous allons donc tout d’abord commencer par vous parler de la vitesse de chute, en allant des
+expériences aux différentes mesures qui passent par la vidéo, mais aussi de l'acoustique et des paramètres qui influencent
+les résultats. Enfin nous vous exposerons nos expériences avec les graines ainsi que l’influence de leur masse sur les rebonds
+qu’elles effectuent.
+Nous avons surmonté les difficultés liées aux conditions sanitaires et météorologiques mais nous ne nous sommes pas
+
+arrêtés au premier coup de vent.
+Le mythique boulet de la TS2
+
+3
+
+Etude de la chute des corps
+Newton dans Principes mathématiques de la philosophie naturelle, dont notre professeur nous a confié une réédition de la traduction
+de la Marquise Émilie du CHÂTELET, étudie le coefficient de restitution par des chocs entre des pendules. Nous avons très vite compris
+pourquoi le pendule de NEWTON ne comporte que des billes avec des doubles attaches : c’est plus facile pour viser.
+
+Notre pendule de NEWTON
+
+Dans son livre, il parle de pendule d’une longueur de près de 4 mètres, nous avons un temps imaginé de suivre ses pas. Mais marcher
+dans les pas d’un géant n’est pas simple : l’étude des chocs dans ce cas est très complexe. Nous avons choisi de nous rabattre vers des
+choses plus accessibles : la chute de balles et leurs rebonds.
+Peut-on prévoir de manière efficace la vitesse lors d’une chute ou d’un rebond ? Penchons-nous sur la théorie du cours de terminale.
+Après tout notre boulet n’est présent dans notre salle de physique que pour l’étude de sa trajectoire.
+
+La chute libre
+Un corps est en chute libre s’il n’est soumis qu’à une seule force, son poids ⃗⃗⃗⃗
+𝑃.
+Procédons à une étude :
+Système : {une bille de masse m}
+Référentiel : labo, repère O,⃗𝑖 vertical vers le bas (l’origine O la position initiale de la bille lâchée sans vitesse initiale)
+Origine des dates = lâcher de la bille
+O
+
+⃗⃗𝑖
+
+Schéma :
+
+G
+
+⃗⃗⃗⃗
+𝑣
+⃗⃗⃗⃗
+𝑃
+
+x
+D’après la seconde loi de Newton : Dans un référentiel galiléen, la somme vectorielle des forces appliquée au système est
+égale au produit de sa masse par le vecteur accélération de son centre d’inertie G.
+⃗⃗⃗⃗⃗⃗⃗
+∑𝐹
+𝑎𝐺
+𝑒𝑥𝑡 = 𝑚 ⃗⃗⃗⃗⃗⃗
+Ici nous n’avons qu’une seule force, le poids ⃗⃗⃗⃗⃗⃗
+𝑃 , vertical
+⃗⃗⃗⃗
+𝑃 = 𝑚⃗⃗⃗⃗⃗⃗
+𝑎𝐺
+
+En mettant le vecteur unitaire 𝑖
+𝑃 ⃗⃗⃗𝑖 = 𝑚 𝑎𝐺 ⃗⃗⃗𝑖
+
+On simplifie
+
+4
+
+𝑃 = 𝑚 𝑎𝐺
+
+Or P= mg
+𝑚𝑔 = 𝑚 𝑎𝐺
+
+D’où (en supposant l’égalité de la masse grave et de la masse inertielle
+𝑎𝐺 = 𝑔
+Par intégration
+𝑣𝐺 = 𝑔𝑡 + 𝑐𝑜𝑛𝑠𝑡𝑎𝑛𝑡𝑒
+𝑣𝐺 = 𝑔𝑡 + 𝑣0𝑥
+
+𝑣𝐺 = 𝑔𝑡
+Pour connaitre la position on intègre une seconde fois
+1
+𝑥𝐺 = 𝑔𝑡 2 + 𝑐𝑜𝑛𝑠𝑡𝑎𝑛𝑡𝑒 2
+2
+1
+𝑥 = 𝑔𝑡 2 + 𝑥0
+2
+
+𝑥𝐺 =
+
+1 2
+𝑔𝑡
+2
+
+L’équation horaire est une parabole du temps, la trajectoire est une droite, le mouvement est uniformément accéléré, la
+vitesse croît proportionnellement au temps. Dans ce cas il nous semble aisé de pouvoir accéder à toutes les données du
+bond et rebond.
+
+Cas où la bille n’est pas massive
+Lorsque la bille n’est pas dense une force supplémentaire doit être prise en considération : la poussée d’Archimède.
+Tout corps immergé dans un fluide subit de par celui-ci une force verticale vers le haut égale au poids du fluide déplacé.
+π = 𝑚′𝑔
+m’ est la masse de fluide déplacé, elle vaut si l’objet a un volume V et se meut dans un fluide de masse volumique ρf
+𝜋 = 𝑚′ 𝑔 = 𝜌𝑓 𝑉𝑔
+En gardant le même système et le même référentiel le schéma devient
+O
+
+⃗⃗𝑖
+
+⃗⃗⃗⃗
+𝜋
+G
+
+⃗⃗⃗⃗
+𝑣
+⃗⃗⃗⃗
+𝑃
+
+x
+En appliquant la relation fondamentale de la dynamique
+∑ ⃗⃗⃗⃗⃗⃗⃗
+𝐹𝑒𝑥𝑡 = 𝑚⃗⃗⃗⃗⃗⃗
+𝑎𝐺
+⃗⃗⃗⃗
+𝑃 + ⃗⃗⃗⃗
+𝜋 = 𝑚 ⃗⃗⃗⃗⃗⃗
+𝑎𝐺
+
+Soit avec le vecteur unitaire
+𝑃⃗⃗⃗𝑖 − 𝜋⃗⃗⃗𝑖 = 𝑚 𝑎𝐺 ⃗⃗⃗𝑖
+
+Car la poussée d’Archimède est dans un sens opposé à ⃗⃗𝑖 .Puis en simplifiant
+𝑃 − 𝜋 = 𝑚 𝑎𝐺
+𝑚𝑔 − 𝑚′𝑔 = 𝑚 𝑎𝐺
+
+Soit
+𝑎𝐺 =
+
+𝑚 − 𝑚′
+𝑔
+𝑚
+
+En remarquant que la masse du solide est le produit de sa masse volumique par son volume (celui du fluide déplacé)
+𝑎𝐺 =
+
+Il vient assez simplement=
+
+𝜌𝑠 − 𝜌𝑙
+𝑔
+𝜌𝑠
+
+𝜌𝑠 − 𝜌𝑙
+) 𝑔𝑡
+𝜌𝑠
+1 𝜌𝑠 − 𝜌𝑙
+𝑥𝐺 = (
+) 𝑔𝑡 2
+2
+𝜌𝑠
+𝑣𝐺 = (
+
+5
+
+Les courbes horaires ont la même allure, on peut encore prédire si on connait les masses volumiques.
+
+Cas ou les frottements ne sont pas négligeables
+Dans la réalité il y a toujours des forces de frottements liées à l’air. Elles sont toujours opposées au mouvement et on peut écrire que
+⃗⃗⃗⃗
+𝑓 = −𝑘 ⃗⃗⃗⃗
+𝑣𝑛
+• k est un facteur dépendant de la géométrie de l’objet
+• n est un exposant qui vaut 1 pour les mouvements lents et 2 pour les mouvements rapides (le fameux carré des formules de
+freinage du Code de la Route) , dans la pratique le plus souvent 1 n 2
+Notre schéma doit encore être modifié
+O
+
+⃗⃗𝑖
+
+⃗⃗⃗⃗
+𝜋
+
+⃗⃗⃗⃗
+𝒇 G
+⃗⃗⃗⃗
+𝑣
+⃗⃗⃗⃗
+𝑃
+
+x
+En appliquant le théorème du centre d’inertie :
+∑ ⃗⃗⃗⃗⃗⃗⃗
+𝐹𝑒𝑥𝑡 = 𝑚⃗⃗⃗⃗⃗⃗
+𝑎𝐺
+⃗⃗⃗⃗
+𝑃 + ⃗⃗⃗⃗
+𝜋 + ⃗⃗⃗⃗
+𝑓 = 𝑚⃗⃗⃗⃗⃗⃗
+𝑎𝐺
+𝑃 ⃗⃗⃗𝑖 − 𝜋⃗⃗⃗𝑖 − 𝑓⃗⃗⃗𝑖 = 𝑚𝑎𝐺 ⃗⃗⃗𝑖
+𝑚𝑔 − 𝑚′𝑔 − 𝑘𝑣 𝑛 = 𝑚𝑎𝐺
+𝑚𝑎𝐺 + 𝑘𝑣 𝑛 = 𝑚𝑔 − 𝑚′ 𝑔
+𝑘
+𝑚 − 𝑚′
+𝑎𝐺 + 𝑣 𝑛 =
+𝑔
+𝑚
+𝑚
+
+Or
+𝑑𝑥
+𝑑𝑡
+𝑑2 𝑥
+𝑎𝐺 = 2
+𝑑𝑡
+𝑣𝐺 =
+
+𝑘 𝑛 𝑚 − 𝑚′
+𝑣 =
+𝑔
+𝑚
+𝑚
+𝑛
+2
+𝑑 𝑥 𝑘 𝑑𝑥
+𝑚 − 𝑚′
++ ( ) =
+𝑔
+2
+𝑑𝑡
+𝑚 𝑑𝑡
+𝑚
+𝑎𝐺 +
+
+𝑥̈ +
+
+𝑘 𝑛 𝑚 − 𝑚′
+𝑥̇ =
+𝑔
+𝑚
+𝑚
+
+C’est une équation différentielle du second ordre, on peut la mettre également sous la forme
+𝑘
+𝑚 − 𝑚′
+𝑣̇ + 𝑣 𝑛 =
+𝑔
+𝑚
+𝑚
+Pour résoudre, on étudie le cas n=1 puis n=2 puis on essayera de trouver pour 1< n < 2
+Pour n = 1, les forces de frottements sont proportionnelles à la vitesse.
+𝑘
+𝑚 − 𝑚′
+𝑣̇ + 𝑣 =
+𝑔
+𝑚
+𝑚
+On pose
+𝑚
+𝑘
+1
+𝑚 − 𝑚′
+𝑣̇ + 𝑣 =
+𝑔
+𝜏
+𝑚
+𝜏=
+
+C’est une équation différentielle du premier ordre à coefficient constant avec second membre
+
+6
+
+ Maths :
+Une équation différentielle du type :
+𝑦 ′ = 𝑎𝑦 + 𝑏
+admet une solution générale du type :
+𝑦 = 𝐾 𝑒 𝑎𝑥 −
+
+Donc, on la réécrit sous la forme
+𝑣̇ = −
+
+𝑏
+𝑎
+
+1
+𝑚 − 𝑚′
+𝑣+
+𝑔
+𝜏
+𝑚
+
+La solution est donc de la forme
+𝑚 − 𝑚′
+𝑚 𝑔
+1
+−𝜏
+𝑚 − 𝑚′
+𝑔
+1
+− 𝑡
+𝑣(𝑡) = 𝐾 𝑒 𝜏 + 𝑚
+1
++𝜏
+1
+𝑚 − 𝑚′
+𝑣(𝑡) = 𝐾 𝑒 −𝜏 𝑡 +
+𝑔×𝜏
+𝑚
+1
+
+𝑣(𝑡) = 𝐾 𝑒 −𝜏 𝑡 −
+
+A t=0s
+
+𝑣(0) = 0
+𝑚 − 𝑚′
+𝑔×𝜏
+𝑚
+′
+𝑚
+−
+𝑚
+0 = 𝐾 𝑒0 +
+𝑔×𝜏
+𝑚
+′
+𝑚−𝑚
+𝐾= −
+𝑔×𝜏
+𝑚
+′
+1
+𝑚−𝑚
+𝑚 − 𝑚′
+𝑣(𝑡) = −
+𝑔 × 𝜏 𝑒 −𝜏 𝑡 +
+𝑔×𝜏
+𝑚
+𝑚
+′
+1
+𝑚−𝑚
+𝑣(𝑡) = (
+𝑔 × 𝜏) (1 − 𝑒 −𝜏 𝑡 )
+𝑚
+1
+
+𝑣(0) = 0 = 𝐾 𝑒 −𝜏 (0) +
+
+On montre qu’alors :
+1
+𝑚 − 𝑚′
+𝑥𝑡 = (
+𝑔 ) (𝜏 2 (1 − 𝑒− 𝜏𝑡 ) + 𝜏𝑡)
+𝑚
+
+Cas des frottements non linéaires
+𝑣̇ +
+
+𝑘 2 𝑚 − 𝑚′
+𝑣 =
+𝑔
+𝑚
+𝑚
+
+Cette équation n’est pas linéaire, elle n’est pas facile à résoudre nous utiliserons la méthode d’Euler
+𝑣̇ =
+
+𝑑𝑣
+∆𝑣
+≈
+𝑑𝑡
+∆𝑡
+
+L’astuce d’Euler c’est de dire
+∆𝑣 = 𝑣𝑛+1 − 𝑣𝑛
+𝑑𝑣
+∆𝑣
+𝑣𝑛+1 − 𝑣𝑛
+𝑣̇ =
+≈
+=
+𝑑𝑡
+∆𝑡
+∆𝑡
+
+L’équation différentielle
+𝑣̇ +
+
+Devient
+Ça devient une suite
+
+𝑘 2 𝑚 − 𝑚′
+𝑣 =
+𝑔
+𝑚
+𝑚
+
+𝑣𝑛+1 −
+̇ 𝑣𝑛
+𝑘
+𝑚 − 𝑚′
++ 𝑣𝑛2 =
+𝑔
+∆𝑡
+𝑚
+𝑚
+𝑣𝑛+1 −
+̇ 𝑣𝑛
+𝑚 − 𝑚′
+𝑘
+=
+𝑔 − 𝑣𝑛2
+∆𝑡
+𝑚
+𝑚
+𝑣𝑛+1 −
+̇ 𝑣𝑛
+𝑚 − 𝑚′
+𝑘
+=(
+𝑔 − 𝑣𝑛2 )
+∆𝑡
+𝑚
+𝑚
+𝑚 − 𝑚′
+𝑘 2
+𝑣𝑛+1 − 𝑣𝑛 = (
+𝑔 − 𝑣𝑛 ) ∆𝑡
+𝑚
+𝑚
+𝑚 − 𝑚′
+𝑘
+𝑣𝑛+1 = (
+𝑔 − 𝑣𝑛2 ) ∆𝑡 + 𝑣𝑛
+𝑚
+𝑚
+
+∆t est appelé pas d'itération
+On peut donc par le calcul, la simulation, ou voie informatique déterminer les vitesses de chute en connaissant beaucoup de paramètres qui sont
+difficilement accessible par une mesure directe comme l’exposant dans la force de frottements. Même si nous avons trouvé un logiciel de simulation,
+nous préférons nous tourner vers une étude expérimentale.
+
+7
+
+Détermination de la vitesse à partir de vidéos
+Nous avons réalisé avec nos téléphones portables des vidéos au format mp4 pour des raisons de simplicité de réalisation, tant au lycée
+qu’à la maison. Nous avons choisi de les traiter avec Tracker ©, c’est un logiciel libre et open source téléchargeable à l’adresse suivante :
+https://physlets.org/tracker/ , il est multiplateforme (Windows, OS X, Linux), en cette période de « confinement alterné » c’était un bon
+compromis pour travailler à la maison, comme au lycée (on peut d’ailleurs travailler sur une clé USB sans l’installer sur le réseau).
+L’une des meilleures notices en ligne actuellement est sûrement à notre connaissance : http://ticenclassefga.weebly.com/tutorieltracker.html
+Nous avons résumé ci-dessous les grandes étapes ci-dessous.
+Après avoir ouvert le logiciel et choisi la vidéo à traiter, on dépose un ruban d’étalonnage entre le point de lâcher et le point d’impact,
+on peut établir le premier en zoomant sur une image et le second en procédant de même sur une autre. Nous avons mesuré cette
+longueur avec précision à l’aide d’un décamètre : L= 17,66 m, on l’intègre dans longueur de l’échelle (attention au symbole de la virgule).
+
+Ensuite, on pose le système d’axe (x,y), on peut éventuellement rectifier la verticalité
+
+On masque les axes et échelles pour suivre la trajectoire de la balle.
+
+On crée une masse ponctuelle (Trajectoire … Nouveau) On peut zoomer sur l’image puis on positionne la souris, à chaque clic + 
+(touche Majuscule ou Shift) la position x, y est enregistrée et on passe à l’image suivante. Les coordonnées s’affichent dans un tableau
+puis dans un graphique si on le souhaite.
+
+8
+
+Les choix possibles
+
+Capture d’écran
+
+Lorsque la capture est terminée, on clique sur le graphique pour en faire un instantanée, on peut lire avec le pointeur et chercher la
+correspondance avec un modèle.
+
+1
+
+Représentation graphique de l’équation horaire de la chute conforme au modèle : 𝑦𝑡 = − 𝑔𝑡 2 + 𝑦0
+2
+
+Représentation graphique de l’équation horaire de la chute conforme au modèle : 𝑣𝑦 𝑡 = 𝑔𝑡 ici avec une petite vitesse initiale.
+
+Il n’est pas spécialement utile de faire toute la trajectoire, seule la période avant et après l’impact sont importants. Nous avons utilisé
+différents téléphones en raison de la cadence du film.
+Modèle
+Samsung S7
+iPhone XS Max
+Xiaomi mi 10 Lite
+Huawei P Smart 2018
+iPhone SE 2020
+Samsung S20
+
+Nombre d’image par seconde
+30, 60, 120
+30 à 240
+30 - 60
+30
+30 à 240
+(0,001) 30 à 480 (960)
+
+Format
+mp4
+divers
+mp4
+mp4
+divers
+mp4
+
+Nous avons réalisé cette expérience de nombreuses fois typiquement 6 séries de film par type de balle et par lieu de chute.
+•
+•
+•
+
+De 10 cm à 2,00 m dans les salles de classes ou nos chambres,
+De 4,36 m à 10,51 m dans la cage d’escalier centrale,
+Par les fenêtres à 4,45 m (1er étage), 11,20 m (3ème étage) 14,37 (4ème étage) 17,66 m (5ème étage) 25,12 m (5ème → –
+2).
+
+9
+
+Voici une capture d’écran de l’analyse de rebonds d’un lâcher de balle de tennis depuis la mezzanine de la cafétaria de notre lycée
+filmé depuis l’espace baby-foot ayant un sol carrelé.
+
+On y note une très bonne concordance avec le modèle théorique (ce qui est très plaisant après beaucoup d’efforts), mais surtout on a un accès aux
+valeurs de vitesses (calculées informatiquement) avant et après quatre rebonds.
+On peut calculer quatre valeurs du coefficient de restitution pour cette balle sur ce sol, en récupérant les valeurs des vitesses aux sommets des
+« dents de scie ».
+6,770
+𝜙𝑟𝑒𝑏𝑜𝑛𝑑1 =
+= 0,751
+9,007
+𝜙𝑟𝑒𝑏𝑜𝑛𝑑2 =
+
+4,959
+= 0,787
+6,303
+
+𝜙𝑟𝑒𝑏𝑜𝑛𝑑3 =
+
+3,917
+= 0,803
+4,877
+
+𝜙𝑟𝑒𝑏𝑜𝑛𝑑4 =
+
+3,242
+= 0,827
+3,917
+
+On peut constater que le coefficient de restitution augmente lorsque la vitesse diminue.
+
+Nous avons reproduit la même étude sur un sol en béton, les résultats consignés dans le graphe ci-dessous sont les moyennes faites à partir de
+six films par vitesse avec 3 balles différentes donc 18 valeurs pour un point (sauf pour les billes de verres qui n’ont pas toutes résistées aux impacts.
+
+10
+
+On peut constater que le coefficient de restitution, 𝛷, varie en fonction de la vitesse, il diminue lorsqu’elle augmente. Nous n’avons pas
+d’explication, nous pensons que cela est dû à une perte de l’énergie cinétique lors du choc qui peut être absorbée par le sol ou
+transformée en partie en chaleur (nous avons remarqué, mais non mesuré, un échauffement de certaines billes lors des chutes
+importantes ou répétées)
+Pour l’explication de l’évolution des coefficients de restitution des balles sportives, nous avons contacté l’enseigne Décathlon, qui a
+accepté de nous fournir des échantillons de balles, pour voir si nous pourrions aller visiter le laboratoire de mesures de Villeneuve
+d’Ascq. Nous pourrons effectuer cette visite dès que les conditions sanitaires nous le permettrons
+Dans ce graphique, nos vitesses commencent à 2 m.s-1, car c’est déjà la vitesse après une chute de 20 cm
+𝑣 = √ 2𝑔ℎ = √2 x 9,81 x 0,20 = √3,9 ≈ √4
+
+Nous avons envisagé une étude pour de petits rebonds.
+
+Coefficient de restitution et temps de rebonds
+Par définition le coefficient de restitution est 𝛷 ≜
+
+𝑣𝑎𝑝𝑟è𝑠 𝑙𝑒 𝑐ℎ𝑜𝑐
+
+𝑣𝑎𝑣𝑎𝑛𝑡 𝑙𝑒 𝑐ℎ𝑜𝑐
+
+𝛷=
+
+𝑣1
+𝑣0
+
+Si on le suppose indépendant (on sait que ça varie pour de grandes variations de vitesses, mais pour de faibles variations de vitesse
+disons entre 0et 2 m.s-1, nous le conjecturons constant)
+𝛷=
+
+𝑣1
+𝑣2
+𝑣3
+𝑣4
+𝑣𝑛
+=
+=
+=
+=⋯
+𝑣0
+𝑣1
+𝑣2
+𝑣3
+𝑣𝑛−1
+
+Donc
+𝑣1 = 𝛷 𝑣0
+𝑣2 = 𝛷 𝑣1 = 𝛷 (𝛷 𝑣0 ) = 𝛷2 𝑣0
+𝑣3 = 𝛷 𝑣2 = 𝛷(𝑒 2 𝑣0 ) = 𝛷3 𝑣0
+𝑣𝑛 = 𝛷𝑛 𝑣0
+
+En supposant que l’énergie mécanique se conserve lors de la descente ou de la remontée à une hauteur h.
+𝑣0 = √2𝑔ℎ0
+𝑣1 = √2𝑔ℎ1
+𝑣𝑛 = √2𝑔ℎ𝑛
+
+D’où
+𝛷=
+
+√2𝑔ℎ1
+√2𝑔ℎ0
+
+=
+
+√ℎ1
+√ℎ0
+
+=√
+
+ℎ1
+ℎ0
+
+Le coefficient de restitution est égal à la racine des hauteurs des rebonds
+
+11
+
+D’où
+√ℎ1 = 𝛷 √ℎ0
+√ℎ2 = 𝛷 √ℎ1 = 𝛷 (𝛷 √ℎ0 ) = 𝛷2 √ℎ0
+√ℎ3 = 𝛷 √ℎ2 = 𝛷(𝛷2 √ℎ0 ) = 𝛷3 √ℎ0
+√ℎ𝑛 = 𝛷𝑛 √ℎ0
+
+Si on applique les lois de la chute libre (seul le poids s’applique et on néglige Archimède)
+1 2
+𝑔𝑡
+2
+1
+ℎ = 𝑔𝑡 2
+2
+2ℎ
+𝑡=√
+𝑔
+ℎ=
+
+Entre le 1er et 2ème rebond le temps est
+∆𝑡1→2 = 2√
+
+2ℎ1
+8
+=√
+√ ℎ1
+𝑔
+𝑔
+
+Donc
+∆𝑡2→3 = √
+
+8
+8
+8ℎ0
+𝛷2 √ℎ0 = 𝛷2 √
+√ ℎ2 = √
+𝑔
+𝑔
+𝑔
+∆𝑡3→4 = 𝛷3 √
+
+8ℎ0
+𝑔
+
+∆𝑡𝑛→𝑛+1 = 𝛷𝑛 √
+
+8ℎ0
+𝑔
+
+∆𝑡𝑛→𝑛+1 = 𝛷𝑛 . 2√
+
+2ℎ0
+𝑔
+
+∆𝑡𝑛→𝑛+1 = 𝛷𝑛 . 2 𝑡0
+
+C’est une suite géométrique de raison 𝛷
+La durée de l’expérience, T, est la somme de la durée de chute initiale, 𝑡0 et du temps des rebonds de ∆𝑡1→∞
+𝑇 = 𝑡0 + ∆𝑡1→2 + ∆𝑡2→3 + ∆𝑡3→4 + … + ∆𝑡𝑛→𝑛+1
+𝑇 = 𝑡0 + 𝛷. 2 𝑡0 + 𝛷2 . 2 𝑡0 + 𝛷 3 . 2 𝑡0 + … + 𝛷𝑛 . 2 𝑡0
+𝑇 = 𝑡0 (1 + 𝛷. 2 + 𝛷2 . 2 + 𝛷 3 . 2 + … + 𝛷𝑛 . 2 )
+Or
+
+𝑛=∞
+
+𝛷. 2 + 𝛷 2 . 2 + 𝛷3 . 2 + … + 𝛷𝑛 . 2 = ∑ 2𝛷𝑛 = −
+𝑛=1
+
+2𝛷
+2𝛷
+= +
+𝛷−1
+1−𝛷
+
+Donc
+𝑇 = 𝑡0 (1 + 𝛷. 2 + 𝛷2 . 2 + 𝛷 3 . 2 + … + 𝛷𝑛 . 2 )
+2𝛷
+)
+1−𝛷
+1−𝛷
+2𝛷
+𝑇 = 𝑡0 (
++
+)
+1−𝛷
+1−𝛷
+1 − 𝛷 + 2𝛷
+𝑇 = 𝑡0 (
+)
+1−𝛷
+1+𝛷
+𝑇 = 𝑡0 (
+)
+1−𝛷
+𝑇 = 𝑡0 (1 +
+
+Le nombre de rebonds est infini mais le temps de rebonds est fini !
+Ce temps de rebond T dépend de
+t0 donc de la hauteur de chute
+𝑇 = 𝑡0 (
+
+1+𝛷
+)
+1−𝛷
+
+𝑇 (1 − 𝛷) = 𝑡0 (1 + 𝛷)
+𝑇 − 𝑇𝛷 = 𝑡0 + 𝑡0 𝛷
+𝑇 − 𝑡0 = 𝑡0 𝛷 + 𝑇𝛷
+𝑡0 𝛷 + 𝑇𝛷 = 𝑇 − 𝑡0
+
+12
+
+𝛷(𝑡0 + 𝑇) = 𝑇 − 𝑡0
+𝑇 − 𝑡0
+𝑇 + 𝑡0
+
+𝛷=
+
+On pose ∆𝑇 = 𝑇 − 𝑡0 , le temps de rebonds ∆𝑇 c’est le temps de l’expérience 𝑇 moins le temps de chute 𝑡0 .
+D’où
+𝑇 − 𝑡0
+𝑇 + 𝑡0
+∆𝑇
+𝛷=
+∆𝑇 + 2𝑡0
+𝛷(∆𝑇 + 2𝑡0 ) = ∆𝑇
+𝛷∆𝑇 + 𝛷2𝑡0 = ∆𝑇
+𝛷2𝑡0 = ∆𝑇 − 𝛷∆𝑇
+𝛷2𝑡0 = ∆𝑇(1 − 𝛷)
+2𝛷
+∆𝑇 =
+𝑡
+1−𝛷 0
+𝛷=
+
+Le temps de rebond,∆𝑇, est proportionnel au temps de chute, 𝑡0 !
+Or
+
+𝑡0 = √
+
+2ℎ0
+𝑔
+
+Donc
+∆𝑇 =
+
+2𝛷
+2ℎ0
+√
+1−𝛷
+𝑔
+
+Si on multiplie par 4 la hauteur de chute, le temps de rebond est doublé.
+
+En élevant au carré
+
+∆𝑇 2 =
+
+8𝛷2
+(1 − 𝛷)2 √𝑔
+
+ℎ0
+
+Le carré du temps de rebond est proportionnel à la hauteur de chute.
+Finalement l’étude des rebonds est prometteuse. Nous décidons de passer à une autre méthode, la méthode acoustique.
+
+Analyse acoustique des rebonds
+Les rebonds d’une bille sur un support produisent des sons d’impacts (ils sont une transformation d’une partie de l’énergie cinétique).
+Nous avons eu l’idée d’utiliser ces sont pour remonter aux coefficients de restitution.
+Notre montage :
+
+Bille ou balle
+
+Règle
+
+0
+1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+
+Système de largage
+
+Hauteur de chute
+
+Vers PC
+
+Micro scotché
+Matériaux cible
+
+13
+
+Après de multiples essais infructueux avec des micros de téléphones, nous avons obtenu l’autorisation de notre professeur d’acheter
+un micro sur internet : un micro Lavalier avec un petit amplificateur à pile et surtout une rallonge de 6 m. le système de largage nous
+assure de la position zéro du bas de la bille.
+Les sons sont enregistrés et analysés avec Audacity, un logiciel libre, gratuit multiplateforme très commun. La célérité des ondes sonores
+étant très grandes dans les matériaux ( 𝑣𝑠𝑜𝑛 ≈ 5000 𝑚. 𝑠 −1, 𝑣𝑠𝑜𝑛 ≈ 𝑣𝑠𝑜𝑛 ≈ 3000 𝑚. 𝑠 −1 𝑣𝑠𝑜𝑛
+≈ 2500 𝑚. 𝑠 −1 ), on peut négliger la durée de
+transmission des ondes sonores au micro, devant les temps de rebonds.
+𝑎𝑐𝑖𝑒𝑟
+
+𝑏𝑜𝑖𝑠
+
+𝑏é𝑡𝑜𝑛
+
+𝑝𝑙𝑎𝑠𝑡𝑖𝑞𝑢𝑒
+
+Ci-dessous un exemple de capture d’écran de l’enregistrement de 10 séries de rebonds d’une bille (de 10 cm à 1,00m) sur bureau en hêtre.
+
+On isole la partie à traiter en zoomant
+
+Puis on pointe sur le début de chaque rebond, puis on note la date dans un tableur
+N° du rebond
+
+Date Audacity
+
+1
+2
+3
+4
+5
+6
+7
+8
+9
+
+33,605
+33,986
+34,202
+34,348
+34,442
+34,509
+34,556
+34,588
+34,610
+
+∆𝑡 Durée du
+rebond (s)
+
+−log (∆𝑡)
+
+0,381
+0,216
+0,146
+0,094
+0,067
+0,047
+0,032
+0,022
+
+-0,41907502
+-0,66554625
+-0,83564714
+-1,02687215
+-1,1739252
+-1,32790214
+-1,49485002
+-1,65757732
+
+Nous avons établi que :
+∆𝑡𝑛→𝑛+1 = 𝛷 𝑛 . 2 𝑡0
+Donc en linéarisant par le logarithme on a
+𝑙𝑜𝑔(∆𝑡𝑛→𝑛+1 ) = log (𝛷 𝑛 . 2 𝑡0 )
+𝑙𝑜𝑔(∆𝑡𝑛→𝑛+1 ) = log (𝛷 𝑛 ) + log (2 𝑡0 )
+𝑙𝑜𝑔(∆𝑡𝑛→𝑛+1 ) = 𝑛. 𝑙𝑜𝑔(𝛷) + log (2 𝑡0 )
+Autrement dit la représentation de 𝑙𝑜𝑔(∆𝑡𝑛→𝑛+1 ) = 𝑓(𝑛) est une droite de coefficient directeur 𝛷 et l’ordonnée à l’origine est
+log (2 𝑡0 ) ce qui nous permet de remonter à la hauteur de largage.
+On passe par Excel
+Dans ce cas : . 𝑙𝑜𝑔(𝛷) = −0,1719 ce qui nous donne 𝛷 = 0,67
+
+L’ordonnée à l’origine est –0,1297 ce qui donne 2t0 = 0,742 s,
+soit t0= 0,371s ce qui correspond, par le calcul, à une chute de 64,9 cm
+alors qu’elle est dans la réalité de 65 cm.
+
+14
+
+Influence de la masse sur les rebonds
+Influence de la masse d’une bille sur son coefficient de restitution
+Approche théorique
+Lorsqu’on regarde tous les éléments de développement théorique que nous avons, dans ce dossier, jamais la masse m n’intervient dans
+le coefficient de restitution, elle n’intervient pas non plus dans les équations de la chute des corps, ni dans celle de la conservation des
+énergies.
+
+Approche par simulation
+Dans Interactive Physics nous avons étudié la chute de deux billes de diamètre différent mais toutes les deux en acier avec les mêmes
+caractéristiques mécaniques.
+
+Simulation dans Interactive Physics de la chute d’une balle de 22,6 kg et une de 4,0 kg sur une surface du même acier
+
+Sur la partie droite on peut paramétrer la visualisation de différentes grandeurs comme les positions des centres de gravité, celui de la
+grosse bille est toujours plus haut car, cette balle a un plus grand rayon. On note que l’évolution des billes est comparable, semblable.
+
+Aspect expérimental
+A force de lancer des balles et observer des rebonds, nous avions un sérieux doute. Nous avons donc acheté avec l’accord de nos
+professeurs des billes de différentes tailles faire dans la même matière à priori contenues dans une même boite. Nous avons réalisé
+l’expérience chez nous lors de l’enseignement hybride (terme diplomatique pour dire travail à distance pendant la pandémie COVID).
+Les expériences ont été réalisées sur différents supports : bureau, carrelage parquet, béton du garage … .
+
+le lot de billes
+
+test sur le carrelage
+
+une bille
+
+test sur le bureau
+
+Voici nos résultats sur une planche de chêne obtenus par la méthode acoustique.
+
+15
+
+Ces résultats sont issus de l’étude d’une série de rebonds pour chaque bille après une chute de 30 cm sur un même enregistrement.
+Toutes les droites semblent issues d’un foyer, elles ont des coefficients directeurs différents qui permettent d’accéder au coefficient
+de restitution. Nos résultats sont consignés dans le tableau ci-dessous.
+Diamètre en
+mm
+
+2,5
+
+3
+
+3,5
+
+4
+
+4,5
+
+5
+
+5,5
+
+6
+
+7
+
+8
+
+Masse en g
+
+0,53
+
+0,90
+
+1,43
+
+2,15
+
+3,06
+
+4,19
+
+5,62
+
+7,24
+
+11,52
+
+17,22
+
+– 0,1332
+
+– 0,1323
+
+– 0,1306
+
+– 0,1266
+
+–0,1207
+
+– 0,1096
+
+– 0,1181
+
+– 0,1068
+
+– 0,1011
+
+–0,0985
+
+0,736
+
+0,737
+
+0,740
+
+0,747
+
+0,757
+
+0,777
+
+0,762
+
+0,782
+
+0,776
+
+0,797
+
+Coefficient
+directeur
+Coefficient de
+restitution Φ
+
+On peut les visualiser sur un graphique.
+
+On constate donc une évolution du coefficient de restitution non prévue par la théorie. Ici le coefficient de restitution augmente lorsque
+la masse augmente. Nous avons parfois constaté l’inverse.
+La masse a bien un rôle dans le coefficient de restitution, nous avançons l’hypothèse du travail des force de frottements lors du retour
+de la déformation élastique. Avec la masse la déformation n’est pas la même, donc le travail résistant des forces de frottements n’est
+pas identique. Cependant cela n’explique pas pourquoi parfois cela augmente avec la masse et parfois cela diminue. Nous cherchons
+toujours une explication théorique.
+Comme nous le dit souvent notre professeur en TP : « l’expérience a toujours raison !»
+"It doesn't make any difference how smart you are, who made the guess, or what his name is. If it disagrees with experiment, it's wrong. ».
+Richard FEYNMAN
+
+16
+
+Les graines
+En discutant avec un camarade fils d’agriculteur, nous en sommes venus à parler de petites graines que ses parents cultivent et qui sont
+particulièrement rebondissantes. Ce fut pour nous une occasion de découvrir que derrière les champs jaunes du mois d’avril se cache
+le colza, les fleurs bleues de mai c’est le lin et qu’il y avait autour de chez nous beaucoup de petites graines qui sont cultivées pour
+l’alimentation humaine ou animale (le lin sert à faire du textile mais les graines sont consommées par les vaches pour donner un persillé
+incomparable à la viande, nous précise avec passion notre ami).
+Ces graines sont petites rondes et très rebondissantes cela pose parfois des problèmes lors de l’utilisation de trieuse vanneuse
+tamiseuses de grains. Eh oui humblement nous avons appris que les graines se trient se nettoient mécaniquement par des rebonds sur
+des tamis et un courant d’air. On sépare ainsi le bon grain (blé) de l’ivraie (raygrass synonyme de mauvaise herbe).
+
+Une trieuse ancienne : un tarare
+
+Une trieuse moderne
+
+Nous sommes retournés vers la ferme pédagogique près de chez nous pendant le premier confinement COVID 19 pour nous procurer
+un maximum de variétés de graines. Ce fut également un moment de découverte pendant cette période masquée. Nous sommes
+repartis avec beaucoup de petits pots soigneusement étiquetés : trèfle blanc, trèfle violet, luzerne, sainfoin, vesce, féverole, lin, choux
+fourrager. Les jardiniers de nos familles n’ont pas manqué non plus d’apporter leur contribution : radis, navet, câpre, …. Et nos mamans
+d’ajouter poivre noir, poivre blanc, baie de genièvre …. Nous n’aurions jamais pensé intéresser autant de monde avec une idée.
+
+Des tests macroscopiques à l’analyse des chocs
+Les premiers tests réalisés à l’œil montrent que ce sont bien des graines très rebondissantes et que très vites on les perd parce qu’elles
+nous échappent.
+Elles sont très petites et donc rapidement sont apparus les problèmes techniques :
+• Elles sont très difficiles à filmer de loin donc finies les méthodes vidéo classiques.
+• Elles sont légères donc produisent un son très faible, audible certes mais difficile à capter.
+Nous avons commencé à en mesurer les caractéristiques physiques.
+
+Mesures du coefficient de restitution
+Nous l’avons déjà signalé, les graines sont problématiques à cause de leur taille. Nous avons donc opté pour une estimation du
+coefficient de restitution en utilisant la méthode de la hauteur du rebond, 𝛷 vaut la racine carrée du rapport des hauteurs de rebonds.
+𝛷=
+
+√ℎ1
+√ℎ0
+
+=√
+
+ℎ1
+ℎ0
+
+Pour une hauteur initiale de lâcher de 20,0 cm, on regarde sur une vidéo à quelle hauteur rebondit la graine à l’aide d’une règle graduée
+placée à proximité. Nous présentons ci-après des résultats qui sont les moyennes sur 10 essais avec 10 graines différentes.
+Espèce
+
+𝛷 estimé
+
+Espèce
+
+𝛷 estimé
+
+Espèce
+
+𝛷 estimé
+
+Baie de genièvre
+
+0,38
+
+Lin
+
+0,48
+
+Poivre noir
+
+0,42
+
+Capres
+
+0,42
+
+Luzerne
+
+0,21
+
+Trèfle blanc
+
+0,32
+
+Colza
+
+0,52
+
+Navet
+
+0,18
+
+Trèfle violet
+
+0,13
+
+Coriandre
+
+0,28
+
+Poivre blanc
+
+0,12
+
+Vesce
+
+0,51
+
+Ces résultats qui n’ont d’autre intérêt que de montrer qu’ils varient d’une espèce à l’autre (bien qu’il y ait des variations dans un même
+lot). Nous avons renoncé à une étude en fonction de la masse car elle est trop fastidieuse avec la nécessité de peser individuellement
+les graines avec une grande précision comme celle de notre laboratoire de chimie. Cependant nous tenions à faire une étude en fonction
+de la vitesse. Nonobstant la difficulté de suivre une graine sur une grande hauteur, nous avons donc eu l’idée suivante : « Si tu ne viens
+pas à Lagardère, Lagardère ira à toi ». En clair, si la graine ne peut percuter « le sol » avec une vitesse connue, on peut faire déplacer
+la cible. Un peu comme un tennisman jongle avec sa balle.
+
+17
+
+Pour cela nous avons choisi e travailler avec un vibreur alimenté en tension triangulaire.
+
+Principe
+
+Mesure de l’amplitude maximale au pied à coulisse
+
+Si on connait l’amplitude maximale, on peut connaitre la vitesse. 𝑣 =
+
+𝐴𝑚𝑎𝑥
+𝑇
+4
+
+=
+
+4 𝐴𝑚𝑎𝑥
+𝑇
+
+= 4𝑓𝐴𝑚𝑎𝑥
+
+A l’aide d’un pied à coulisse numérique, nous avons mesuré l’amplitude maximale en fonction de la fréquence, puis nous avons calculé
+la vitesse pour chacune d’elle. Le graphe ci-dessous présente nos résultats pour des fréquences de 0,2 à 180 Hz. En deçà et au-delà,
+l’amplitude de varie pas de manière mesurable.
+
+Nous avons techniquement le moyen de simuler une chute de 0 à 5 m dans un récipient. Cependant, nous nous en doutions les graines
+s’échappent du récipient. Pour nous éviter de transformer les recherches à quatre pattes en corvée de balayage, nous avons eu l’idée
+de placer l’ensemble dans un pot plus grand avec un couvercle. Et là … nous avons été étonné par l’influence de ce récipient, les graines
+nous surprenaient par leur comportement collectif.
+
+Un comportement collectif des graines
+Nous avons décidé de créer un pot compartimenté pour essayer de comprendre. On le place directement sur le vibreur.
+Couvercle
+Récipient en plastique transparent
+
+Cloison transversale de hauteur h
+(hauteur choisie à la construction)
+
+Générateur de basses fréquences
+(signal triangulaire)
+
+Graines
+
+12,8 Hz
+
+Vibreur
+
+Une fois mis en marche on observe l’évolution suivante, au départ les graines sont réparties uniformément de part et d’autre de la cloison
+
+Etat initial
+
+Etat final
+
+Evolution du système
+
+18
+
+Nous avons appelé « temps de transfert » le temps, en seconde, au bout duquel toute la population de graines, initialement répartie uniformément,
+se retrouve d’un même côté de la cloison, nous l’avons mesuré avec un chronomètre. Nous présentons ci-dessous une étude de l’étude du temps de
+transfert en fonction de la fréquence du GBF pour une population de 50 graines de vesce (elles sont les plus grosses donc il en faut moins et elles sont
+facile à compter). Nous le présentons pour deux valeurs d’amplitude différentes.
+
+Nous montrons ici que ce temps de transfert dépend de la fréquence, il passe par un minimum qui semble dépendre de la tension maximale. Nous
+avons essayé de modéliser par une parabole … nous avons été déçus. Un peut machinalement nous avons tenté d’utiliser l’échelle logarithmique
+présentée en physique par M. BURIDANT pour illustrer notre cours de mathématiques sur les logarithmes népérien.
+
+Notre surprise fut totale de voir des points visiblement alignés. D’autant que nous n’avons pas de modèle en log ou Ln. La première courbe suggère
+que la vitesse de transfert dépend de la fréquence, on peut penser qu’on a un phénomène de résonance. Les graines peuvent être assimilées à un
+système oscillant qui répondrait de manière maximale à l’excitation du vibreur. Cependant, nous nous sommes dit que les deux courbes ne reflètent
+pas les mêmes vitesses. Sur la première 𝑣1 = 4𝑥𝑚𝑎𝑥1 𝑓1 sur la seconde 𝑣2 = 4𝑥𝑚𝑎𝑥2 𝑓2
+Or 𝑥𝑚𝑎𝑥 est proportionnel à la tension du générateur, on peut au moins le conjecturer. Dans ce cas 𝑣1 = 4𝑘𝑈𝑚𝑎𝑥1 𝑓1 et 𝑣2 = 4𝑘𝑈𝑚𝑎𝑥2 𝑓2 .
+Si on cherche à comparer à vitesse égale, cela impose 4𝑘𝑈𝑚𝑎𝑥1 𝑓1 = 4𝑘𝑈𝑚𝑎𝑥2 𝑓2 ⇔ 𝑈𝑚𝑎𝑥1 𝑓1 = 𝑈𝑚𝑎𝑥2 𝑓2 ⇔ 𝑓2 =
+
+𝑈𝑚𝑎𝑥1
+
+𝑓
+𝑈𝑚𝑎𝑥2 1
+
+Pour comparer on utilise des fréquences corrigées, dans ce cas les points semblent appartenir à un même ensemble comme si seule la vitesse, et donc
+le coefficient de restitution, et non la fréquence, intervenait. Nous allons essayer d’approfondir ce point pour le concours national.
+
+19
+
+Conclusion
+Nous nous sommes intéressés à l’étude du coefficient de restitution lors des chocs, NEWTON l’a défini comme égal au rapport de la
+vitesse après le choc par sa valeur avant la collision. Il a utilisé des pendules, cet objet étant trop complexe pour nous, nous avons choisi
+de nous limiter à l’étude d’impacts lors d’une chute.
+L’étude analytique est dans notre programme de spécialité physique, nous nous y sommes plongés bien avant nos camarades. Elle
+utilise des concepts mathématiques que nous n’avons pas encore abordés à l’heure où nous écrivons ce mémoire. Cependant nous
+avons pris beaucoup de plaisirs à les mener avec nos professeurs de physique et mathématiques. Pendant les périodes de confinement
+c’était un moyen d’avancer et de ne pas laisser tomber le projet. Il en ressort qu’on peut prévoir l’évolution de la position et de la
+vitesse lors d’une chute :
+• Lors d’une chute libre, seul le poids intervient il est alors assez simple de prévoir l’évolution du système si l’objet est massif
+c’est-à-dire avec une densité importante, c’est le cas de la majorité des objets que nous avons utilisés.
+• Pour des objets peu denses, la poussée d’Archimède intervient, il faut alors apporter des correctifs aux équations précédentes
+pour coller à la réalité expérimentale, ce fut le cas notamment des balles de tennis de table qui sont toujours en retard sur le
+modèle précédent.
+• Enfin pour tenir complétement compte de la réalité il faut prendre en considération les frottements de l’air, il faut alors utiliser
+la méthode d’Euler pour accéder à une résolution numérique et informatique.
+L étude théorique des rebonds est aussi un exercice assez plaisant et plein de découvertes.
+Nous avons réalisé une étude expérimentale de chutes parfois au lycée parfois chez nous. Des essais de chronophotographies à l’aide
+de stroboscopes, nous ont déçus, mais récemment nous avons investi dans des super-LED et nous commençons à avoir des résultats.
+Nous nous sommes penchés avec succès sur les études vidéo. Elles permettent de connaitre assez facilement la vitesse en fonction de
+la position et par conséquent avant et après un choc.
+Notre étude montre que le coefficient de restitution dépend de la nature de l’objet impactant et de la surface rebondissante utilisée,
+NEWTON nous le dit déjà dans Principia en 1687. Nous avons montré que ce coefficient varie aussi en fonction de la vitesse, ce résultat
+est assez connus. Nous devrions en savoir davantage lors de la visite des laboratoires de notre partenaire.
+Nous avons également mesuré le coefficient de restitution par une méthode acoustique en analysant le rythme des sons produits lors
+des rebonds. Cette méthode est plus adaptée à des hauteurs de chutes peu importantes mais avec un nombre significatif de rebonds,
+en effet il faut au moins 3 ou 4 rebonds pour pouvoir mesurer le coefficient de restitution. Nous avons des résultats analogues à ceux
+obtenus par la méthode vidéo (dépendance des matériaux et de la vitesse) et nous avons montré que le coefficient de restitution
+dépend de la masse impactante, cela n’est pas prévue dans les théories que nous connaissons. Là aussi nous attendons beaucoup de la
+visite du laboratoire, notamment par la rencontre de spécialiste qui pourra se faire nous l’espérons dès la fin de la crise sanitaire.
+Un peu par hasard, nous nous sommes intéressés aux rebonds de graines, nous étions confinés en ce printemps 2020 et comme
+beaucoup nous avons redécouvert les joies du jardinage. Les graines sont faciles à se procurer, mais c’est un produit agricole et non un
+produit manufacturé. Chaque graine n’est pas unique mais presque. Nous avons donc commencé par faire des études statistiques de
+leurs caractéristiques physiques : la masse et la masse volumique.
+• Leurs masses varient beaucoup pour une espèce donnée même si elle reste du même ordre de grandeur. Nous avons montré
+que cette masse a un rôle dans la valeur du coefficient de restitution.
+• La masse volumique varie aussi de manière « assez importante », cependant nous avons montré par nos mesures qu’on peut
+la négliger dans notre étude car elles sont toutes très supérieures à celle de l’air, on peut donc appliquer notre physique de
+terminale.
+La détermination des coefficients de restitution est beaucoup plus difficile, car les graines sont petites. Elles sont difficiles à filmer et
+produisent peu de sons mesurables pour une analyse audio. On peut néanmoins avoir une estimation du coefficient de restitution en
+comparant les hauteurs de rebonds.
+Pour simuler les rebonds nous avons eu l’idée de placer ces graines sur une plaque vibrante, les graines en sortent par des rebonds.
+Nous avons fermé et cloisonné notre récipient … et nous avons constaté un phénomène curieux. A partir d’une certaine fréquence
+d’excitation et donc de vitesse transmise, des graines qui sont initialement réparties de manière uniforme de part et d’autre de la
+cloison se regroupent rapidement d’un même coté. Nous pensons que le coefficient de restitution beaucoup plus faible dans le cas d’un
+choc graine/graine que graine/plastique. Lors d’un rebond de la graine sur le récipient en plastique, sa vitesse lui permet de franchir la
+paroi, par contre le choc d’une graine sur une graine n’est pas favorable à des rebonds, elles restent ensemble. Nous sommes toujours
+dans l’étude de ce transfert d’un compartiment à l’autre.
+Ces graines font germer beaucoup d’hypothèses et nous espérons avoir une cristallisation autour d’une amorce de solution pour
+développer un beau cristal comme nous l’avions fait l’an dernier.
+
+20
+
+

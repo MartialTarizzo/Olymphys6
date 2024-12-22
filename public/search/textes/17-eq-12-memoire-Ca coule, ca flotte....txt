@@ -1,0 +1,717 @@
+Camille DELTOMBE
+Romain CASSIM
+Guillaume BOUVIGNIES
+Encadré par M. Wallyn
+
+Ça coule,
+Ça flotte…
+Lycée Jean Perrin, Lambersart
+
+Olympiades de Physique 2009 - 2010
+
+Ça coule, Ça flotte…
+
+Introduction :
+Nous sommes trois élèves du lycée Jean Perrin de Lambersart. Nous avons décidé de
+participer aux olympiades de physique afin d’approfondir le TPE que nous avions commencé
+en classe de première.
+Notre avions réalisé un premier dispositif permettant d'étudier l'évolution de la
+pluviométrie au cours du temps. Il s'agissait donc de construire une sorte de pluviomètre
+automatisé. Le principe est de placer dans une zone non abritée, une petite cuve de forme
+cylindrique sur laquelle sont placées verticalement à intervalle de distance fixe plusieurs
+électrodes, qui récupère les eaux de pluie. L’ensemble est relié à un ordinateur qui
+enregistre et analyse toutes les données. Le principe repose sur le caractère conducteur de
+l'eau. Les deux principaux défauts de cet appareil sont :
+- il ne permet pas une mesure continue du volume d’eau recueilli : il fonctionne par paliers.
+En effet, lorsque le volume d’eau contenu dans le cylindre est tel que la surface de l’eau est
+située entre deux électrodes, c’est l’électrode inférieure immergée qui assure le passage du
+courant et délivre un signal électrique aboutissant à la mesure d’un volume d’eau ;
+- il ne fonctionne qu’avec un liquide conducteur de l’électricité.
+Notre objectif était donc d'améliorer ce "pluviomètre" en palliant à ces deux
+principaux défauts. Notre deuxième dispositif a pour but de mesurer de manière continue le
+niveau de n'importe quel liquide (conducteur de l’électricité ou non) présent dans une cuve.
+Il repose sur la poussée d'Archimède exercée par le liquide sur un capteur constitué de
+jauges de contrainte via un plongeur. Il permet de mesurer automatiquement et de manière
+continue la quantité de liquide présente dans la cuve, le liquide n'étant pas nécessairement
+conducteur.
+Ce dernier dispositif constitue donc l’amélioration de notre projet initial et cela
+justifie notre présence aux olympiades de physique.
+
+2 Lycée Jean Perrin - Lambersart
+Olympiades de Physique 2009 - 2010
+
+Ça coule, Ça flotte…
+
+I/ Dispositif de mesure par palier
+A. Principe du dispositif
+B. Améliorer la précision : Comment choisir R ?
+C. Principe du siphon
+
+II/ Capteur à jauges de contrainte
+A. Principe du dispositif
+B. Principe de la manipulation et des jauges de contrainte
+C. Amplification
+
+III/ Traitement informatique
+A. Présentation de la puce informatique
+B. Analyse des données du dispositif par palier
+C. Analyse des données du dispositif à jauges de contrainte
+
+I/ Dispositif par palier
+A. Principe du dispositif
+Notre première idée a été de baser notre dispositif sur la propriété conductrice de l’eau. En
+plaçant deux séries d’électrodes de part et d’autre d’une cuve et en y associant un montage
+électrique, nous voulions de mesurer une valeur de tension qui varierait en fonction de la hauteur
+d’eau présente dans la cuve.
+Voici comment se présente notre dispositif :
+ܴ௘
+Niveau 3
+
+ܴ௘
+Niveau 2
+
+ܴ௘
+Niveau 1
+
+ܴ௘
+
+ܷ
+ܴ
+
+Photo n°1 : La cuve
+
+V
+
+‫ܧ‬
+
+3 Lycée Jean Perrin - Lambersart
+Olympiades de Physique 2009 - 2010
+
+Ça coule, Ça flotte…
+
+L’eau étant conductrice, elle a été modélisée sur le schéma par une résistance ܴ௘ . Nous
+mesurons la tension aux bornes de la résistance R et en déduisons la hauteur d’eau présente dans la
+cuve.
+Comment évolue la tension lorsque le volume d’eau augmente? Place aux calculs théoriques.
+Appelons par la variable ݊ le niveau d’eau dans la cuve. Au niveau 1, lorsque les deux premières
+électrodes sont immergées, ݊ = 1, lorsque les deux électrodes au dessus sont immergées, ݊ = 2, et
+ainsi de suite…
+ோ
+
+Calculons la résistance équivalente du montage en fonction de ݊ : ܴ௘௤ = ܴ + ௡೐ =
+ா
+
+Selon la loi d’ohm en convention récepteur : ‫ܴ = ܧ‬௘௤ ∙ ‫ = ܫ ֞ ܫ‬ோ
+௡∙ோ∙ா
+= ௡∙ோାோ
+೐
+
+Donc, aux bornes de ܴ, on aura ܷ = ܴ ∙ ‫ܫ‬
+
+೐೜
+
+௡∙ா
+
+= ௡∙ோା ோ
+
+௡∙ோା ோ೐
+௡
+
+೐
+
+B. Améliorer la précision : Comment choisir R ?
+Pour avoir un maximum de précision, il faut choisir ܴ intelligemment. Comment choisir R ??
+Pour des raisons informatiques que Romain vous présentera juste après, nous voulons que la
+variation de tension d’un niveau à l’autre soit maximale, autrement dit que la pente de la fonction
+ܷሺ݊ሻ =
+
+௡∙ோ∙ா
+soit maximale en chaque point. Nous supposons pour cette étude que ܷሺ݊ሻ est une
+௡∙ோା ோ೐
+
+fonction continue et dérivable sur ℝ (݊ ∈ ℝ). Nous calculons donc la dérivé de ܷሺ݊ሻ par rapport à ݊.
+‫ܴ ∙ ܴ ∙ ܧ‬௘
+ܷ݀
+=
+ሺܴ݊ + ܴ௘ ሻଶ
+݀݊
+ௗ௎
+
+ௗ௎
+
+Nous cherchons à présent à trouver ܴ pour que ௗ௡ soit maximale. Nous dérivons donc ௗ௡ cette fois
+
+par rapport à ܴ.
+
+ௗቀ
+
+೏ೆ
+ቁ
+೏೙
+
+ௗோ
+
+‫ > ܧ‬0 ; ܴ௘ > 0 ; ሺܴ ∙ ݊ + ܴ௘ ሻଷ > 0 ;
+
+=
+
+ா∙ሺோ೐ ି ோ∙௡ሻ∙ோ೐
+.
+ሺோ∙௡ାோ೐ ሻయ
+
+ோ
+
+Signe de ሺܴ௘ − ܴ ∙ ݊ሻ : ሺܴ௘ − ܴ ∙ ݊ሻ > 0 ֞ ܴ < ௡೐
+ܴ
+
+ܷ݀
+݀ቀ ቁ
+݀݊
+ܴ݀
+
+0
+
++
+
+ܴ௘
+݊
+
+−
+
+ܷ݀
+݀݊
+
+ோ
+
+Donc, la pente est maximale pour un ݊ donné si l’on choisit ܴ tel que ܴ = ௡೐.
+
+La fonction ܷሺ݊ሻ, au vu de sa dérivée, est strictement croissante et sa pente diminue plus ݊ est
+grand. Nous allons donc choisir ܴ pour que, quand ݊ atteint sa valeur maximale, ܷሺ݊ሻ ait une pente
+maximale.
+
+4 Lycée Jean Perrin - Lambersart
+Olympiades de Physique 2009 - 2010
+
+Ça coule, Ça flotte…
+
+Notre cuve comporte 9 niveaux, et nous voulons conserver une pente maximale jusqu’au niveau 9.
+De plus, nous avons mesuré dans notre cuve, entre deux électrodes, ܴ௘ = 3,0‫ߗܭ‬. Nous avons pris
+une résistance ܴ = 220ߗ
+
+L’objectif est donc atteint, nous récupérons aux bornes de ܴ une tension qui varie en
+fonction de la hauteur d’eau dans la cuve. Cependant, il faut reconnaitre que ce système présente
+quelques défauts. Dans un premiers temps, le principe de faire jouer la résistance du liquide dans un
+circuit électrique ne peut fonctionner que si le liquide est conducteur. Ce dispositif est alors réservé
+uniquement au liquide conducteur. Ensuite, le système d’électrode nous permet de faire une
+mesure par palier. La mesure n’est pas continue et donc imprécise. Entre deux niveaux, on ignore où
+se trouve le niveau d’eau. Nous corrigerons ces défauts dans le dispositif suivant.
+Niveau
+
+Tension expérimentale (V) Tension théorique (V)
+0
+0
+0,00E+00 R (en ohm) =
+1
+0,52
+6,15E-01 Re (en ohm) =
+2
+1,08
+1,15E+00 E (en volt) =
+3
+1,54
+1,62E+00
+4
+1,95
+2,04E+00
+5
+2,31
+2,41E+00
+6
+2,62
+2,75E+00
+7
+2,9
+3,05E+00
+8
+3,17
+3,33E+00
+9
+3,28
+3,58E+00
+
+Tension U en fonction du niveau n
+
+Tension (Volt)
+
+4
+
+220
+3,00E+03
+9
+
+3,5
+3
+2,5
+Tension expérimentale
+
+2
+
+Tension théorique
+1,5
+1
+0,5
+Niveau n
+
+0
+0
+
+1
+
+2
+
+3
+
+4
+
+5
+
+6
+
+7
+
+8
+
+9
+
+10
+
+5 Lycée Jean Perrin - Lambersart
+Olympiades de Physique 2009 - 2010
+
+Ça coule, Ça flotte…
+
+C. Principe du siphon
+Afin que la cuve se vidange automatiquement, nous avons mis en place un siphon. Un siphon
+est un système très simple permettant, une fois une certaine hauteur d’eau atteinte, de vider
+entièrement la cuve. Nous allons expliquer son fonctionnement.
+Tant que la hauteur d’eau dans la cuve est inférieure au haut du tuyau du siphon (schéma 1),
+la pression dans le tuyau coté air est égale à la pression atmosphérique, de même que la pression
+dans le tuyau coté eau. Il y a égalité des pressions, rien ne se passe. Lorsque le niveau d’eau dans la
+cuve dépasse le haut du tuyau du siphon (schéma 2), la pression dans le tuyau coté air est toujours
+égale à la pression atmosphérique, mais la pression dans le tuyau coté eau est à présent égale à la
+pression atmosphérique à laquelle s’ajoute la pression exercée par la hauteur d’eau superflu. La
+pression dans le tuyau coté eau est plus grande que celle coté air, il y a un déséquilibre de pression,
+le siphon est amorcé, la cuve commence à se vider.
+
+Hauteur limite
+
+Hauteur limite
+
+h
+ܲ଴ + ܲ௛
+ܲ଴
+
+ܲ௛ : Pression exercée par la
+hauteur d’eau ℎ.
+ܲ଴ : Pression atmosphérique.
+
+ܲ଴
+ܲ଴
+
+Schéma 1
+
+Schéma 2
+
+Pourquoi le siphon n’arrête-t-il pas de fonctionner lorsque le niveau d’eau dans la cuve est
+redevenu inférieur à la hauteur d’eau limite?
+Lorsque le siphon est amorcé, l’eau envahit la totalité du tuyau. Pour comprendre pourquoi
+le siphon ne s’arrête pas de fonctionner une fois que l’eau est redescendue en dessous de la hauteur
+limite, il faut comparer les pressions à l’entrée et la sortie du siphon.
+
+Hauteur limite
+
+ܲ௛ : Pression exercée par la
+hauteur d’eau ℎ.
+ܲ଴ : Pression atmosphérique.
+
+ℎ
+
+ܲ଴ + ܲ௛
+
+ܲ଴
+
+A la sortie du tuyau, la pression exercée sur l’eau qui sort du tuyau est la pression
+atmosphérique (ܲ଴ ). Mais à l’entrée du tuyau, la pression qui s’exerce sur l’eau qui entre dans le
+
+6 Lycée Jean Perrin - Lambersart
+Olympiades de Physique 2009 - 2010
+
+Ça coule, Ça flotte…
+
+tuyau est la pression atmosphérique à laquelle s’ajoute la pression exercée par la hauteur d’eau
+restante dans la cuve (ܲ଴ + ܲ௛ ሻ. Tant que la hauteur ℎ est non nulle, on a bien ܲ଴ < ܲ଴ + ܲ௛ . Donc
+tant qu’il y a de l’eau au dessus de l’entré du tuyau dans la cuve, la différence de pression entre
+l’entrée du tuyau est la sortie est supérieure à 0, et donc la cuve continue de se vider. Elle continuera
+de se vider jusqu’à ce que ℎ s’annule.
+
+II/ Capteur à jauges de contrainte
+A. Principe du dispositif
+Le deuxième dispositif est celui constitué d'un capteur de force et d'un plongeur. La mesure des
+niveaux de fluides non conducteurs d'électricité repose sur l'une des propriétés hydrostatiques des
+liquides: la poussée d'Archimède.
+Capteur de pesage
+
+: Le poids du plongeur.
+: La poussée d’Archimède exercée
+par le liquide sur le plongeur.
+: La résultante des deux forces :
+
+ሬԦห| = ߩ ∙ ܸ ∙ ݃, s'exerçant sur le volume
+La poussée d'Archimède, |หߎ
+immergé du plongeur est égale au produit de la masse volumique du
+liquide ρ (en kg.m-3), du volume immergé du plongeur ܸ (en m3) et de la
+constante de gravitation (9,8 N.kg-1). Lors d’une mesure avec un liquide
+donné, la masse volumique du liquide ρ et la constante de gravitation g
+sont des constantes. L’intensité de la poussée d’Archimède dépend donc
+uniquement du volume immergé du flotteur. De plus, le poids du
+plongeur, exprimé par le vecteur ܲሬԦ, est aussi une constante. Si on désigne
+
+par ‫ܨ‬Ԧ la force résultante de la poussée d’Archimède et du poids du
+ሬԦ), ‫ܨ‬Ԧ dépend uniquement du volume immergé du
+plongeur (‫ܨ‬Ԧ = ܲሬԦ + ߎ
+plongeur ܸ.
+
+Photo n°2 : Le plongeur et le capteur de pesage
+
+7 Lycée Jean Perrin - Lambersart
+Olympiades de Physique 2009 - 2010
+
+Ça coule, Ça flotte…
+
+Le plongeur est fixé au capteur de pesage. Il est placé de manière à être proche du fond de la
+cuve sans le toucher. Lorsque la hauteur de liquide dans la cuve augmente, le volume immergé du
+plongeur augmente également. Comme on a vu que la poussée d’Archimède dépend uniquement du
+volume immergé du plongeur, l’intensité de cette force va donc varier en fonction de la hauteur de
+liquide présent dans la cuve. La force détectée par le capteur est transformée en tension électrique,
+amplifiée par un amplificateur différentiel puis par un amplificateur opérationnel et transmise à
+l'ordinateur. Celui-ci est chargé, après quelques calculs, de déterminer la hauteur de liquide présent
+dans la cuve.
+
+hauteur (cm)
+
+Tension (V)
+0
+1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+
+0
+0,19
+0,46
+0,73
+1
+1,25
+1,46
+1,76
+2
+2,21
+2,49
+2,72
+2,93
+
+Hauteur du liquide en fonction de la tension
+14
+Hauteur (cm)
+12
+10
+
+h = 4,049*U
+R² = 0,999
+
+8
+6
+4
+2
+
+Tension (Volt)
+0
+0
+
+0,5
+
+1
+
+1,5
+
+2
+
+2,5
+
+3
+
+3,5
+
+8 Lycée Jean Perrin - Lambersart
+Olympiades de Physique 2009 - 2010
+
+Ça coule, Ça flotte…
+
+B. Présentation du capteur et des jauges de contrainte
+Le capteur que nous utilisons pour notre dispositif est le capteur de pesage AQ5. (Voir ses
+caractéristiques en annexe 1). Il
+permet de détecter une masse allant
+de 0kg à 5kg. Le capteur est constitué
+d’une partie métallique « flexible » sur
+laquelle sont collées des jauges de
+contrainte ayant pour but de rendre
+compte de la déformation de la pièce
+métallique. Nous allons expliquer son
+fonctionnement.
+Photo n°3 : Capteur de pesage AQ 5
+
+Jauges de
+contrainte sous la
+couche de colle
+
+Photo n°4 : Les jauges de contrainte sous une couche de colle placées sur la partie métallique
+
+Photo n°5 : Jauge de contrainte
+
+9 Lycée Jean Perrin - Lambersart
+Olympiades de Physique 2009 - 2010
+
+Ça coule, Ça flotte…
+
+Une jauge de contrainte (voir photo ci-contre) repose sur le principe d'extensibilité d’un fil
+résistif de section constante. En agissant par traction ou compression sur ce fil très fin, celui-ci
+devient plus ou moins long par rapport à son état de repos (son état initial, où la déformation est
+nulle). On mesure alors cette variation de résistance entre l'état au repos et l'état sous contrainte.
+Comme la variation de résistance électrique due à la déformation d'un seul fil est très faible, le fil est
+disposé en « lacet » de manière à ce que la déformation affecte en même temps plusieurs tronçons
+du fil.
+Les jauges constituées d'un fil très fin déposé en lignes parallèles sur un substrat et noyées
+dans une enveloppe de protection, sont collées directement sur le corps d'épreuve dont elles suivent
+la déformation. La détection de la variation relative de la résistance nécessite un appareillage
+complémentaire spécifique (pont de Wheatstone le plus souvent).
+Application théorique :
+La variation relative de la résistance ΔR/R est égale à son allongement relatif Δl/l.
+௟
+
+La formule ܴ = ߩ ∙ ௌ nous donne la relation entre la résistance ܴ (en Ω), la longueur du fil ݈ (en m), la
+
+section du fil ܵ (en m2) et une constante dépendant du matériau dont est composé le fil, la
+résistivité ߩ (en Ω.m).
+Le passage au logarithme népérien de la relation précédente nous donne :
+lnሺܴሻ = lnሺߩሻ + lnሺ݈ሻ − ln ሺܵሻ
+Dans l’objectif d’un calcul d’erreur, la relation précédente s’écrit :
+lnሺܴሻ = lnሺߩሻ + lnሺ݈ሻ + ln ሺܵሻ
+En différenciant l’égalité précédente et en considérant que la section du fil demeure inchangée
+(ainsi que la résistivité du matériau), on obtient:
+߂ܴ
+߂݈
+=
+ܴ
+݈
+௱௟
+L’ordre de grandeur du rapport ௟ est de quelques centaines de micromètre par mètre (mesure
+effectuée à l’IUT dans le département « mesures physiques » avec Monsieur Didier Jacquinot) ce qui
+signifie qu’un mètre de matériau sur lequel est collée une jauge de contrainte subit une déformation
+௱௟
+
+d’une centaine de micromètres au plus. Cette faible valeur du rapport ௟ implique donc une faible
+variation de la résistance (߂ܴ) et oblige donc l’expérimentateur à réaliser un pont de Wheastone et
+une amplification efficace et conséquente de la tension à la sortie de ce pont.
+
+10 Lycée Jean Perrin - Lambersart
+Olympiades de Physique 2009 - 2010
+
+Ça coule, Ça flotte…
+
+C. Amplification
+L’amplification a été effectuée à l’aide d’un amplificateur d’instrumentation, idéal lorsque la
+tension délivrée par le capteur est très faible. Il s’agit de l’amplificateur de différence AD 620 (voir
+ses caractéristiques en annexe 2).
+Le circuit électrique permettant l’amplification du signal de sortie du capteur devait permettre :
+
+d’alimenter l’amplificateur à l’aide d’une tension (+15 V/0 V/-15 V),
+
+de recueillir la tension de sortie du capteur à jauge de contrainte,
+
+de régler l’amplification à l’aide d’un potentiomètre avec bouton,
+
+de protéger l’amplificateur différentiel d’une alimentation inversée,
+
+et enfin de disposer de deux bornes permettant de recueillir le signal amplifié.
+
+La carte obtenue est celle qui figure ci-dessous :
+
+Photo n°6 : Carte de l’amplification différentielle
+
+11 Lycée Jean Perrin - Lambersart
+Olympiades de Physique 2009 - 2010
+
+Ça coule, Ça flotte…
+
+L’amplification effectuée est insuffisante et on adjoint un deuxième étage d’amplification à
+l’aide d’un amplificateur opérationnel permettant de réaliser un montage amplificateur non
+inverseur de gain réglable compris entre 1 et 10. Ce gain peut en effet être réglé à l’aide d’un
+potentiomètre de 10 kΩ.
+
+Photo n°7 : Montage amplificateur non inverseur de gain réglable
+
+III/ Traitement informatique
+A. Présentation de la puce informatique
+
+Photo n°8 : Puce informatique « Basic stamp »
+
+12 Lycée Jean Perrin - Lambersart
+Olympiades de Physique 2009 - 2010
+
+Ça coule, Ça flotte…
+
+La puce informatique est un BASIC STAMP II. C’est une puce qui est programmable. Nous l’avons
+programmé pour qu’elle joue le rôle de voltmètre et qu’elle envoie les données sur un ordinateur.
+Pour qu’elle remplisse ses fonctions de voltmètre, nous avons couplé le Basic Stamp à un
+convertisseur analogique numérique (un ADC 0831). Le Basic Stamp en lui-même ne joue pas le rôle
+de voltmètre, mais il commande l’ADC afin que ce dernier recueille la valeur de tension à la sortie
+des deux dispositifs. C’est pourquoi nous n’allons pas entrer dans les détails du Basic Stamp mais
+nous allons plutôt présenter l’ADC.
+Schéma du dispositif informatique :
+
+5V
+
+ത‫ܵܥ‬
+തതത
+
++5 V
+
+ܸ௜௡ +
+
+ܸ௢௨௧
+
+BASIC
+
+ܴ
+
+STAMP II
+ܸ௜௡ −
+
+Clock
+
+0V
+
+ܸ௥௘௙
+
+VERS PC
+
+ADC 0831
+
+0V
+
+Présentation de l’ADC 0831 :
+L’ADC 0831 est un petit composant électronique à plusieurs pattes. Il est complètement dépendant
+du Basic Stamp. Nous allons expliquer rapidement son fonctionnement. Sur ce schéma, l’ADC prend
+la tension aux bornes de la résistance ܴ.
+Les pattes ܸ௜௡ + et ܸ௜௡ − sont les pattes d’entrée du signal analogique. Le signal analogique
+est ensuite converti dans l’ADC et ressort sous forme numérique sur la pattes ܸ௢௨௧ .
+L’ADC est alimenté en +5ܸ − 0ܸ par le Basic Stamp. La patte ܸ௥௘௙ est la tension de
+référence. C’est une tension limite qui fixe la plus haute tension que l’ADC pourra convertir. En
+l’occurrence, nous avons connecté la patte ܸ௥௘௙ à la tension d’alimentation 5ܸ. Ainsi, l’ADC ne
+pourra pas mesurer une tension supérieure à 5ܸ entre les deux pattes ܸ௜௡ + et ܸ௜௡ −.
+തതത est en réalité l’interrupteur de l’ADC. Lorsque le Basic Stamp veut que l’ADC
+La patte ത‫ܵܥ‬
+തതതത. En recevant ce signal sur sa patte ‫ܵܥ‬
+തതതത,
+fasse une mesure de tension, il envoie un signal via la patte ‫ܵܥ‬
+l’ADC commence une mesure de tension, la convertie, et l’envoie au Basic Stamp.
+
+13 Lycée Jean Perrin - Lambersart
+Olympiades de Physique 2009 - 2010
+
+Ça coule, Ça flotte…
+
+La patte Clock permet de synchroniser les deux puces. Lors d’une conversion, un signal de
+fréquence 100 MHz transite via la patte Clock. Cela permet de synchroniser l’envoie et la réception
+des données.
+Une fois que le Basic Stamp a reçu le signal numérique envoyé par l’ADC, il est chargé de l’envoyer à
+l’ordinateur via la liaison série. Des programmes sur l’ordinateur permettent de récupérer la valeur
+de tension et de l’analyser.
+
+B. Analyse des données du dispositif par palier
+Le programme réalise une série de 1000 mesures de tensions qu’il va trier par la suite: il
+repère d’abord les valeurs non cohérentes qu’il supprime (exemple : 1.98.10-4 est trop petite) et
+calcule la moyenne des valeurs restantes. Il connait ainsi la valeur de tension aux bornes de la
+résistance ܴ (voir schéma de la partie 1)
+Il doit enfin retrouver le volume d’eau présent dans la cuve. Comme les courbes du volume en
+fonction de la tension n’étaient pas des droites, les calculs à partir d’une fonction auraient été
+imprécis.
+Nous avons donc préféré que le programme détermine s’il y a eu changement de niveau ou non, ce
+qui est plus fiable (mesure par paliers).
+Entre deux niveaux, la différence de tension est d’au moins 0,3 V, le fond de la cuve étant le niveau 0.
+Le programme garde donc en mémoire la valeur de tension de la dernière fois qu’un niveau a été
+franchi.
+Il soustrait ensuite cette valeur à celle qui vient d’être mesurée et analyse le résultat. Si le résultat de
+cette soustraction est supérieur à 0,3, il en déduit qu’il y a eu changement de niveau.
+Le programme peut donc calculer, sachant si un niveau a été passé ou non d’une part, et les
+dimensions de la cuve d’autre part, le volume d’eau présent dans celle-ci.
+
+C. Analyse des données du dispositif à jauges de
+contrainte
+Avec ce système, il existe une relation de proportionnalité entre la tension et la hauteur de
+liquide présent dans la cuve. Le programme, en ayant récupéré la valeur de tension à la sortie des
+amplificateurs, peut donc très facilement calculer la hauteur de liquide présent dans la cuve.
+Or, un problème se pose : comme le capteur à jauges de contrainte peut se déformer dans les deux
+sens, il nous arrivait sous certaines conditions de récupérer des valeurs de tensions négatives. Or, le
+convertisseur analogique-numérique ne prend en charge que les valeurs positives.
+Le problème des tensions négatives se pose lorsque la cuve est vide ou peu remplie car la poussée
+d’Archimède est inférieure au poids du plongeur. Pour résoudre ce problème, nous avons branché en
+série un générateur de tension continue réglable. Ainsi, avant d’introduire le liquide dans la cuve, il
+nous est possible de régler la valeur de tension récupérée à zéro volt.
+Une fois les réglages effectués, une tension exploitable est recueillie par l’ordinateur. Celui-ci fait la
+moyenne de 1000 mesures de tension à la sortie de l’amplificateur opérationnel. Un étalonnage nous
+a permis de connaitre la relation de proportionnalité existant entre la tension et la hauteur de liquide
+présent dans la cuve. En exploitant cette relation, le programme peut en déduire la hauteur de
+liquide dans la cuve.
+
+14 Lycée Jean Perrin - Lambersart
+Olympiades de Physique 2009 - 2010
+
+Ça coule, Ça flotte…
+
+Conclusion :
+Nous avons donc trouvé un système fiable capable de déterminer la hauteur d’un liquide présent
+dans une cuve de façon automatique. Cependant, d’autre système remplissant les mêmes fonctions
+existent. Nous pouvons par exemple citer un dispositif s’appuyant sur un capteur de pression. En
+effet, plus la hauteur de liquide dans une cuve est élevée, plus la pression au fond de la cuve est
+élevée. De même, nous pouvons aussi penser à un dispositif à ultra son. En plaçant un émetteur
+d’ultra son ainsi qu’un récepteur en haut d’une cuve, et en calculant la durée nécessaire à une salve
+pour faire un aller- retour, il devient très facile de calculer la quantité de liquide dans la cuve.
+
+15 Lycée Jean Perrin - Lambersart
+Olympiades de Physique 2009 - 2010
+
+Ça coule, Ça flotte…
+
+Annexes :
+Annexe n°1 : Caractéristiques du capteur de pesage AQ5,
+Annexe n°2 : Caractéristiques de l’amplificateur de différence AD 620.
+Sources :
+Site de Monsieur Fortier dont l’adresse est http://francis.fortier.free.fr.
+Remerciements :
+A Monsieur Claisse, proviseur du lycée Jean Perrin,
+A Monsieur Jacquinot, enseignant à l’IUT de mesures physiques de Lille,
+A Maxime Barge, adjoint technique principal de laboratoire au lycée Jean Perrin.
+
+16 Lycée Jean Perrin - Lambersart
+Olympiades de Physique 2009 - 2010
+
+

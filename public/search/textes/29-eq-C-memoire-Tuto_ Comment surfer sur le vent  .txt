@@ -1,0 +1,785 @@
+XXIXe Olympiades de physique France
+2021/2022
+TUTO: Comment surfer sur le vent?
+
+Kawtar Mestari Ghali Lahlou Ghali Bennani Ines Rhoulami Adam Khmassi
+Professeur encadrant: Christophe Bruyas
+Avec l’aide de: Hamid Elmir
+
+1
+
+Résumé:
+Nous avons tous déjà pris l’avion au moins une fois : observé le paysage,
+connu la pression du décollage… Tout le monde a été fasciné, enfant, en regardant
+par un hublot pour la première fois. Beaucoup se sont demandé à ce moment-là
+comment un appareil aussi lourd et imposant pouvait se déplacer avec autant
+d’aisance dans les airs. C’est la question que nous nous poserons dans ce travail de
+recherche.
+En réalité, les avions se servent de l’air comme support, ils “glissent” sur le
+vent. Ainsi, nous étudierons le comportement des fluides, afin de comprendre
+comment les ailes empêchent les avions de s’écraser sur le sol.
+
+Sommaire :
+1
+
+Introduction
+
+2
+
+D’un point de vue théorique…
+
+3
+
+2.1
+
+Mouvement des fluides
+
+2.2
+
+Types d’écoulement
+
+2.3
+
+La viscosité
+2.3.1
+
+Expérience du miel
+
+2.3.2
+
+Force de viscosité
+
+2.3.3
+
+Ecoulement de Poiseuille
+
+2.4
+
+Nombre de Reynolds
+
+2.5
+
+Théorème de Bernoulli
+2.5.1
+
+Enonciation du théorème
+
+2.5.2
+
+Application du théorème sur l’aile d’un avion
+
+D’un point de vue pratique…
+
+3.1
+
+3.2
+
+Le tube de Pitot
+3.1.1
+
+Principe du tube de Pitot
+
+3.1.2
+
+Dispositif expérimental
+
+Ecoulement de l’air autour d’une aile
+3.2.1
+
+Expérience du sèche-cheveux
+
+3.2.2
+
+Couche limite
+
+4
+
+Conclusion
+
+5
+
+Sources
+
+6
+
+Remerciements
+2
+
+1. Introduction :
+Tout le monde aime voyager, découvrir de nouvelles cultures, changer un peu d’air…
+Malheureusement il est devenu très difficile de se déplacer au-delà des frontières. Et pour
+être honnête, nous sommes devenus nostalgiques du voyage en avion.
+Vous souvenez-vous des moments où vous vous trouviez assis à côté du hublot ?
+Nous oui, et nous nous sommes souvent questionnés en observant l’aile de l’avion juste en
+dessous “comment se fait-il qu’un corps aussi massif puisse se déplacer aussi facilement
+dans les airs ?” Alors que si l’on essaie de lancer une plume contre le vent, on ne peut pas
+prévoir si elle va suivre la trajectoire de l’air ou tomber directement par terre. On suppose
+que la raison serait qu’un avion est un appareil possédant un moteur assez puissant pour lui
+permettre de s’élever dans les airs et de voler au travers. Pourtant, si on attribue le même
+type de moteur à une voiture, on peut directement affirmer qu’à partir du moment où celle-ci
+quittera le sol, elle s’écrasera tout de suite après.
+Donc, qu’est ce qui explique qu’un avion arrive à s’élever et à contrer les forces du
+vent avec tant d’aise ? Est-ce un engin doté de capacités qui vont au-delà du savoir humain
+en mécanique ? Avons-nous entraîné ces appareils sur l’air pour les rendre aussi doués
+qu’un surfer sur une vague ? Nous allons répondre à tous ces questionnements à travers
+l’étude de l’écoulement de l’air autour d’une aile d’avion.
+
+2. D’un point de vue théorique
+2.1. Mouvement des fluides
+Généralement, lorsqu’on veut prévoir comment un objet va se déplacer, on l’assimile
+à un point matériel - son centre de gravité - et de plus on sait depuis Newton que pour faire
+cela, il faut utiliser la relation vectorielle suivante :
+
+3
+
+Cependant, lorsqu’il s’agit de fluides, la tâche devient relativement compliquée. On peut
+appliquer l’équation de Newton aux fluides, c’est ce qu’ont fait Henri Navier et George
+Stokes pour donner l’équation suivante, appelée équation de Navier-Stokes :
+
+Autres forces
+
+Cette équation mobilise des outils mathématiques hors de portée d’un élève de
+terminale, c’est pourquoi nous n’allons pas nous pencher sur son explication. Cependant, il
+faut savoir que résoudre cette équation, c’est-à-dire déterminer la fonction v(x,y,z,t) du
+temps et de l’espace qui décrit le mouvement du fluide à partir de certaines données, est un
+problème dit « du Millénaire ».
+Ainsi, nous étudierons l’écoulement de l’air autour de l’aile d’un avion en admettant
+plusieurs simplifications permettant déjà de comprendre comment il peut voler.
+
+2.2. Types d’écoulement
+Tout d’abord, observons ces deux images :
+
+Comparaison de l’écoulement de l’eau (gauche) et de l’écoulement de l’huile (droite)
+
+Sur la première image, on voit de l’eau qu’on renverse sur les mains de quelqu’un.
+La partie de l’eau qui n’est pas encore entrée en contact avec la main semble se comporter
+de manière agitée et désordonnée : on voit des gouttes se séparer du flux général par
+exemple. On peut définir ce type de régime d’écoulement comme turbulent. D’un autre
+côté, sur la deuxième image, on voit de l’huile s’écouler sur une cuillère. A l’inverse, on a ici
+un écoulement bien plus lisse et ordonné. On peut définir ce type de régime d’écoulement
+comme laminaire. Notre objectif dans un premier temps sera de déterminer quels sont les
+facteurs qui déterminent si un fluide s’écoule de manière laminaire ou pas.
+On peut déjà supposer certaines choses. Il y a plusieurs différences entre les
+écoulements de gauche et de droite, notamment sur le fluide qui s’écoule. En effet, l’eau
+diffère de l’huile par sa masse volumique. La densité de l’huile est de 0,9 ce qui veut dire
+que sa masse volumique est inférieure à celle de l’eau. Mais ils diffèrent aussi par ce qu’on
+pourra appeler la « viscosité ». Intuitivement, on peut comprendre ce que ce terme signifie
+mais nous le définirons formellement ultérieurement. Essayons de savoir s’il y a d’autres
+facteurs possibles.
+
+4
+
+Expérience n°1 : Le ballon de baudruche.
+Matériel utilisé :
+·
+
+Un ballon de baudruche
+
+·
+
+Du scotch épais
+
+·
+
+Une aiguille
+
+·
+
+Robinet d’eau
+
+Protocole réalisé :
+- Remplir le ballon de baudruche avec le plus d’eau possible (sans le faire éclater).
+- Placer le ballon de baudruche sur un support plan.
+- Coller deux bouts de scotch sur le ballon de sorte qu’ils soient parallèles et espacés de
+1 cm.
+- Coller ensuite deux autres bouts de scotch perpendiculairement aux deux premiers et eux
+aussi espacés d’un centimètre. On voit alors apparaître au centre un carré de surface
+S = 1 cm².
+- Percer le centre du carré avec une aiguille.
+Les observations à deux instants différents sont disponibles dans l’annexe (voir Annexe 1).
+On remarque à l’origine de l’écoulement une eau qui paraît comme statique. L’écoulement
+semble gelé. Cependant, plus loin dans le flux, on observe un type d’écoulement différent
+(voir Annexe 2).
+L’écoulement n’est plus du tout aussi ordonné qu’avant. On en déduit alors que
+l’écoulement à l’origine est laminaire, mais devient de plus en plus turbulent à mesure que le
+fluide parcourt une plus longue distance. Nous avons mis en évidence un nouveau facteur.
+L’eau peut donc aussi s’écouler de manière laminaire si on la met dans certaines conditions.
+En résumé, nous cherchions les paramètres à mettre en place pour observer un écoulement
+laminaire. Nous avons déduit de nos expériences que l’écoulement est moins laminaire
+lorsque la distance parcourue par le fluide augmente.
+D’autres paramètres exercent une influence sur le régime d’écoulement, c’est par exemple
+le cas de la viscosité du fluide.
+
+2.3. La viscosité
+L’une des nombreuses propriétés d’un fluide est la viscosité. Elle se caractérise par
+différentes grandeurs physiques mais c’est la viscosité dynamique (de symbole η) qui a
+l’utilisation la plus courante. Cette dernière correspond à une mesure des forces de
+frottements entre les molécules d’un fluide et avec les parois. Elle est extrêmement
+dépendante de la température.
+
+5
+
+En effet, comme on peut le voir sur l’image (Annexe 3), lorsqu’on verse du miel à
+température ambiante (25°C) sur une assiette, cette dernière s'étale beaucoup moins que
+pour du miel chauffé à 35°C. Le miel à température ambiante montre donc une plus grande
+résistance face à l'assiette que le miel chauffé. Cela démontre donc une influence de la
+température puisque plus cette dernière augmente, plus la viscosité diminue et inversement.
+L’utilisation d’un autre fluide que le miel aurait été compliqué bien qu’en théorie
+possible. En effet, la viscosité de certains fluides est difficilement mesurable par distance
+d’étalement sur une assiette. Le choix du miel pour cette expérience n’est donc pas anodin.
+En effet, puisque ce dernier est très visqueux il permet de bien démontrer l’influence de la
+température sur la viscosité d’un fluide. Afin d’illustrer le choix du miel, un tableau des ordres
+de grandeur de nombreux fluides communs est en annexe (voir Annexe 4)
+La viscosité peut être mise en évidence par la modélisation ci-dessous : lorsqu’on
+déplace le couvercle rouge du récipient rempli d’eau, cette dernière va entraîner la couche
+supérieure d’eau se déplaçant à une certaine vitesse ce qui va affecter la couche d’eau
+inférieure et ainsi de suite jusqu’au fond du récipient en contact avec une paroi fixe et qui
+n’est donc pas en mouvement. Cette situation résulte en un gradient de vitesse, soit une
+variation de la vitesse sur l’axe vertical. Il est représenté sur le schéma par des flèches
+noires représentant le vecteur vitesse de l’eau sur les différentes couches, puisque les
+flèches sont de plus en plus petites ce qui démontre ainsi une résistance de l’eau
+caractérisée par la viscosité dynamique.
+
+D’après la troisième loi de Newton, il existe une force de l’eau sur le couvercle
+opposée à celle du couvercle sur l’eau. Celle-ci est appelée la force de Viscosité (Fv). Le
+vecteur modélisant cette force a la même direction et un sens opposé au vecteur modélisant
+la force du couvercle sur l’eau. Sa norme peut être calculée par la formule simplifiée
+suivante :
+
+Avec :
+
+- v la vitesse de déplacement du couvercle en m/s
+- A l’aire de contact entre le couvercle et le fluide en m2
+- d la profondeur du bassin en m
+- η la viscosité dynamique
+6
+
+En procédant à une analyse dimensionnelle, on peut déterminer que η s’exprime en
+𝑠 ⋅ 𝑁 ⋅ 𝑚−2 ou en 𝑃𝑎 ⋅ 𝑠. (Il existe aussi une autre unité pour la viscosité dynamique, la poise,
+qui est égale à 0,1 𝑃𝑎 ⋅ 𝑠.)
+Cette propriété permet de définir le concept de fluide Newtonien et non Newtonien.
+En effet, les fluides Newtonien ont une viscosité dynamique qui ne dépend pas de la
+contrainte appliquée par l’objet en contact avec le fluide tandis que les fluides nonnewtoniens ont une viscosité qui varie en fonction de celle-ci. On peut par exemple citer le
+fameux exemple du mélange fécule de maïs-eau qui « durcit » lorsqu’on lui applique une
+force suffisante.
+
+Un autre modèle faisant intervenir la viscosité est celui de l'écoulement de Poiseuille,
+permettant de déterminer le débit volumique d’écoulement Q d’un liquide dans un tuyau de
+rayon R dans la situation ci-dessus, grâce à la formule suivante :
+
+Avec :
+
+- Q le débit volumique (en m3.s-1)
+- la variation de pression aux extrémités du tuyau (Pa)
+- R le rayon du tuyau (m)
+- η la viscosité dynamique (Pa.s)
+- Le longueur du tuyau (m)
+
+Pour que cette loi s’applique il faut que le fluide étudié soit newtonien et que
+l’écoulement soit laminaire.
+
+7
+
+Cette nouvelle grandeur va alors nous permettre de déterminer le régime d’écoulement d’un
+fluide par calcul.
+
+2.4. Le nombre de Reynolds
+Mais alors, quel est le lien avec l’écoulement des fluides ? Et bien nous y voilà : nous
+avons tous remarqué qu’un fluide, par exemple l’eau, n’aura pas un écoulement identique
+dans des conditions différentes. En effet, l’énergie cinétique de l’écoulement du fluide entre
+en jeu et, bien évidemment, sa viscosité.
+Pour schématiser la situation, on peut représenter l’écoulement d’un fluide par un
+skieur qui arrive sur une partie horizontale en bas d’une pente enneigée, et on se demande
+quelle distance il peut parcourir. On comprend intuitivement qu’il s’agit du rapport de
+l’énergie cinétique accumulée durant la descente sur les frottements de la neige sur les skis.
+
+Soit
+
+Avec les forces d’inertie correspondant à l’énergie cinétique soit (½).m.v ² et la force
+de frottement une valeur proportionnelle à la vitesse.
+Et plus la masse du corps sera importante, et la neige glissante, plus on sera sûr que
+le corps en mouvement ira loin.
+Revenons à nos fluides, si on devait schématiser l’écoulement d’un fluide de
+la même manière, voilà ce qu’on obtiendrait :
+
+En suivant un raisonnement similaire au précédent, on peut associer les
+forces d’inertie au produit de la vitesse d’écoulement au carré à la masse volumique
+du fluide
+
+8
+
+Les forces de viscosité sont des forces de frottements, c’est ce qui fait qu’un fluide
+sera plus ou moins collant aux parois qu’il touche. Donc, ces forces augmentent avec la
+viscosité η du fluide et avec sa vitesse v. Puisque les frottements sont de moins en moins
+importants à mesure que l’on s’éloigne de la paroi, on en déduit intuitivement que ces forces
+diminuent lorsque le diamètre du tube D augmente.
+
+Ainsi, on peut proposer l’expression suivante pour les forces surfaciques de viscosité :
+
+avec : η la viscosité en Pa.s
+v en m/s
+D en m
+
+En divisant le terme lié à l’énergie cinétique par le terme de viscosité, on peut établir un quotient
+sans dimension qu’on appelle le nombre de Reynolds (Re).
+Donc :
+
+Or, nous étudions la viscosité d’un fluide dans le cas où il traverse un canal cylindrique. Mais il
+peut exister d’autres formes de canaux par lequel peut passer ce fluide. Dans ce cas-là, on fait
+appel à une caractéristique plus généralisée du diamètre de canalisation qu’on appelle diamètre
+hydraulique qui s’exprime :
+
+avec a l’aire de la forme géométrique en m²
+et P le périmètre de la surface traversée par le fluide en m
+
+On obtient donc une formule plus généralisée du nombre de Reynolds :
+
+D’après la formule du nombre de Reynolds, le régime d’écoulement dépend à la fois de
+la nature du fluide (en particulier sa viscosité), de la vitesse et d’une distance caractéristique de
+l’écoulement (par exemple le diamètre de canalisation).
+
+9
+
+Et selon la valeur de ce nombre, l’écoulement du fluide se comportera de façon différente :
+
+si Re > 3500, on a un écoulement turbulent,
+comme vu plus tôt ! Pour rappel, il se
+comporte de cette manière quand le fluide
+rencontre un obstacle :
+
+et si Re < 2000, on a un écoulement
+laminaire, qui, on le rappelle, s’illustre de
+cette manière quand le fluide contourne un
+obstacle :
+
+Il est important de connaître l’ordre de grandeur de ce nombre pour pouvoir déterminer le
+type d’écoulement obtenu du fluide, au voisinage d’un obstacle. Par exemple, dans le domaine
+aéronautique, le nombre de Reynolds est d’environ 10⁷, on peut donc conjecturer que
+l’écoulement de l’air se fera de façon turbulente autour de l’aile de l’avion.
+
+Essayons maintenant d’appliquer les notions théoriques que nous venons de mentionner
+sur un cas pratique : notre première expérience sur le ballon de baudruche. L’objectif va être
+d’expliquer par le calcul les différents régimes d’écoulement observés pendant l'expérience.
+Rappelons d’abord la formule du nombre de Reynolds :
+
+𝑅𝑒 =
+
+𝜌 × 𝐷 × 𝑣
+𝜂
+
+L’écoulement étudié est celui de l’eau qui sort du ballon. Nous disposons déjà de la masse
+volumique du fluide ρ = 1000 kg.m-3 ainsi que de la viscosité de ce dernier 𝜂= 10-3 Pa.s. Il reste
+alors à déterminer la vitesse de l’écoulement et la longueur D qui est une distance
+caractéristique de l’écoulement.
+Essayons d’abord de calculer la vitesse de l’écoulement. Pour cela, on dispose des informations
+suivantes qui sont des approximations que nous avons effectuées. Le ballon contenait 1 L d’eau
+et a pris 120 s à se vider complètement. De plus, le trou par lequel s’est échappé le fluide
+s’apparente à un cercle de diamètre D = 0.5 cm. Par ailleurs, on connaît deux expressions
+littérales du débit volumique de l’écoulement qui sont les suivantes :
+
+𝐷𝑣 = 𝑣 × 𝑆 avec v la vitesse de l’écoulement et S la surface du trou.
+Et 𝐷𝑣 =
+
+𝑉
+avec V le volume d’eau au départ et t le temps que prend le ballon à se vider.
+𝑡
+10
+
+On obtient par calcul littéral : 𝑣 =
+
+𝑉
+𝑡×𝑆
+
+10−3
+𝑣=
+0,5
+120 × 𝜋 × (
+× 10−2 )²
+2
+𝑣 = 0,4 𝑚. 𝑠 −1
+Cette valeur est assez faible par rapport à nos observations. On peut expliquer cette différence
+par le fait que l’eau est soumise à l’accélération de la pesanteur au cours de sa chute.
+En ce qui concerne la longueur caractéristique, si on cherche à étudier l’écoulement de l’eau à la
+sortie du ballon, on peut considérer D comme étant le diamètre du trou du ballon. On a donc
+D = 0,5 cm. On peut alors calculer le Reynolds :
+
+𝜌 × 𝐷 × 𝑣
+𝜂
+3
+10 × 0,5 × 10−2 × 0,4
+𝑅𝑒 =
+10−3
+𝑅𝑒 =
+
+𝑅𝑒 = 2000 .
+On retrouve bien un écoulement laminaire à l’origine du jet d’eau !
+Par la suite, la vitesse de l’eau augmentera à cause de la gravité ce qui aura pour effet
+d’augmenter le nombre de Reynolds de l’écoulement. Cela explique alors bien pourquoi
+l’écoulement devient turbulent.
+
+2.5. Théorème de Bernoulli
+Nous avons cherché à comprendre comment l’écoulement de l’air permet à un avion
+de voler. Ce questionnement nous a mené à découvrir un nouveau théorème permettant
+d’expliquer en partie le fonctionnement du vol d’un avion.
+
+Simulation SolidWorks de l’écoulement de l’air sur un profil d’aile réalisée par Benjamin Boyries
+
+Supposons que l’air est un fluide parfait, c’est à dire qu’il s’agit d’un fluide
+incompressible en écoulement stationnaire et dont les effets de viscosité sont négligeables.
+Nous pouvons alors appliquer le principe de Bernoulli qui peut se simplifier ainsi : dans un
+fluide s'écoulant horizontalement, la pression du fluide aux points où sa vitesse est élevée,
+est plus faible que la pression du fluide aux points où sa vitesse est plus faible.
+
+11
+
+Ce principe semble contre-intuitif et nous nous sommes demandés d’où provient
+l’énergie cinétique permettant l’augmentation de la vitesse. La réponse se trouve dans le
+théorème de l’énergie cinétique, puisque la seule façon d’obtenir de l’énergie cinétique est
+sous forme de travail.
+𝑊𝑒𝑥𝑡 = 𝛥𝐸𝑐 =
+
+1
+1
+𝑚𝑣22 − 𝑚𝑣12
+2
+2
+
+Comme nous nous plaçons dans une situation où l’écoulement de notre fluide est
+laminaire, nous considérons que les forces non conservatives comme les frottements sont
+négligeables, il n’y a donc pas de perte d’énergie. L’application du théorème de l’énergie
+cinétique nous permet alors de comprendre que c’est la force de pression qui permet de
+fournir le travail nécessaire à l’augmentation de la vitesse.
+Nous considérons l’écoulement de l’eau le long d’un tube qui se rétrécit. Nous
+supposons que l’eau, comme l’air, est un fluide parfait ce qui nous permet l’analogie entre
+ces deux fluides.
+
+Comme la vitesse d’écoulement de l’eau augmente à la sortie du tube, le travail
+fourni doit être positif. Nous avons une différence entre les forces pressantes exercées entre
+les points M1 et M2, c'est -à -dire que le gradient de pression est vers la gauche sur le
+schéma, donc que P1 est supérieur à P2. Cela permet de prouver que lorsque la pression
+diminue en un point, la vitesse d'écoulement du fluide augmente en ce même point et
+inversement. Cette relation entre la pression et la vitesse correspond au théorème de
+Bernoulli, qui s’écrit :
+𝑃1 + 𝜌𝑓𝑙𝑢𝑖𝑑𝑒 𝑔𝑧1 +
+
+1
+1
+𝜌
+𝑣 2 = 𝑃2 + 𝜌𝑓𝑙𝑢𝑖𝑑𝑒 𝑔𝑧2 + 𝜌𝑣2 2
+2 𝑓𝑙𝑢𝑖𝑑𝑒 1
+2
+
+1
+⇔ 𝑃 + 𝜌𝑔𝑧 + 𝜌𝑣 2 = 𝑐𝑜𝑛𝑠𝑡𝑎𝑛𝑡𝑒
+2
+Avec:
+P1 et P2 les pressions en pascal à deux endroits de l'écoulement (en Pa)
+La masse volumique 𝜌𝑓𝑙𝑢𝑖𝑑𝑒 en kg.m-3
+z1 et z2 les altitudes en mètre à deux endroit de l'écoulement (en m)
+v1 et v2 les vitesses d’écoulement du fluide à ces deux points en m.s -1
+g = 9,81 N.kg-1 l’intensité de la pesanteur terrestre
+12
+
+Cette équation peut être considérée comme l’application du principe de conservation
+de l’énergie adapté aux fluides où :
+P1 et P2 représentent l’énergie mécanique volumique,
+𝜌𝑓𝑙𝑢𝑖𝑑𝑒 𝑔𝑧1 et 𝜌𝑓𝑙𝑢𝑖𝑑𝑒 𝑔𝑧2 représentent l’énergie volumique potentielle,
+1
+𝜌
+𝑣 2
+2 𝑓𝑙𝑢𝑖𝑑𝑒 1
+
+1
+
+et 2 𝜌𝑣2 2 représentent l’énergie volumique cinétique.
+
+La forme du profil d’aile, plat en dessous (l’intrados) et bombé sur le dessus
+(l’extrados) crée une différence de vitesse dans le passage de l’air. Pour une même hauteur,
+la vitesse augmente pour l’écoulement d’une même quantité de fluide au niveau de
+l’extrados.
+Cela mène à un phénomène de dépression sur cette partie de l’aile. Ce qu’on appelle l’effet
+Venturi résulte alors en une force globale de pression vers le haut : la portance.
+
+On a :
+
+𝑣2 > 𝑣1 ⇒ 𝑃2 < 𝑃1
+
+Ce modèle, très simplifié, permet alors d’expliquer la spécificité de la forme du profil
+d’aile : elle est dite “aérodynamique”. Cependant, pour appliquer ce théorème, nous nous
+plaçons dans des conditions dites parfaites, ce qui crée quelques zones d’ombres à notre
+modélisation.
+Pour comprendre ce phénomène de portance plus amplement nous devons alors replonger
+dans les lois de Newton.
+1ère loi : Tout objet non soumis à des forces qui se compensent conserve son état de repos
+ou de mouvement rectiligne et uniforme.
+3ème loi : Action et réaction : si un objet exerce une force 𝐹⃗ sur un second objet, celui-ci
+exerce à son tour une force -𝐹⃗ sur le premier.
+Nous nous positionnons dans une configuration où l’avion décolle, c'est-à-dire que
+nous avons une accélération vers le haut. D’après la première loi, si le profil d’aile n’est pas
+en mouvement rectiligne uniforme alors la résultante des forces subie par ce profil est non
+nulle. Comme nous l’avons compris, il existe une force de portance verticale vers le haut
+dont la norme est supérieure au à celle du poids.
+D’après la 3ème loi de Newton, si le profil d’aile est soumis à une force (exercée par l’air),
+alors il exerce une force réciproque sur l’air. Cela permet de comprendre que l’air sous
+l’intrados est plus comprimé que l’air sur l’extrados. Cette force réciproque provoque alors la
+13
+
+déviation vers le bas de l’air par le profil d’aile qui dépend de l’incidence de l’angle formé par
+l’aile avec l’horizontale.
+
+3. D’un point de vue pratique
+3.1. Tube de Pitot
+Comme nous nous sommes intéressés à la vitesse d’un avion en plein vol ainsi qu’à
+la pression exercée sur ses ailes, nous avons vite découvert l’existence d’un appareil
+permettant de mesurer ces grandeurs : le tube de Pitot.
+
+Cet appareil fonctionne à l’aide de deux tubes placés à des hauteurs très proches dont l’un
+est dirigé face au vent relatif et l’autre perpendiculairement au vent relatif. Ce dispositif
+permet alors de mesurer la pression exercée sur l’aile d’un avion et ainsi d’en déduire la
+vitesse de l’avion en appliquant le théorème de Bernoulli.
+
+14
+
+Nous avons alors tenté de reproduire le fonctionnement du tube de Pitot à l’aide de tubes en
+plastique, d’un aspirateur et d’un baromètre. Les photos du montage réalisé sont dans
+l’annexe (voir annexe 5)
+On nomme A le point de la prise de pression à gauche, et B à droite.
+La prise de pression PA en A est axiale : la vitesse au point A est nulle. A l’inverse, la prise
+de pression PB en B est latérale : la vitesse en B est celle du vent généré par l’aspirateur.
+On peut appliquer le théorème de Bernoulli :
+𝑃𝐴 + 𝜌𝑎𝑖𝑟 𝑔𝑧𝐴 +
+
+1
+1
+𝜌𝑎𝑖𝑟 𝑣𝐴 2 = 𝑃𝐵 + 𝜌𝑎𝑖𝑟 𝑔𝑧𝐵 + 𝜌𝑣𝐵 2
+2
+2
+
+A et B sont à la même altitude, donc 𝜌𝑎𝑖𝑟 𝑔𝑧𝐴
+𝑃𝐴 +
+
+et
+
+𝜌𝑎𝑖𝑟 𝑔𝑧𝐵 s’annulent :
+
+1
+1
+𝜌𝑎𝑖𝑟 𝑣𝐴 2 = 𝑃𝐵 + 𝜌𝑣𝐵 2
+2
+2
+
+L’expérience a été réalisée de sorte à ce que 𝑣𝐴 2 = 0, donc on peut simplifier :
+𝑃𝐴 = 𝑃𝐵 +
+
+1
+𝜌𝑣 2
+2 𝐵
+
+Par ailleurs, le baromètre différentiel nous indique que
+On lit ℎ = 11 ⋅ 10−2 𝑚
+On peut donc écrire :
+𝑃𝐵 + 𝜌𝑒𝑎𝑢 𝑔ℎ = 𝑃𝐵 +
+On arrive à :
+
+𝑃𝐴 = 𝑃𝐵 + 𝜌𝑒𝑎𝑢 𝑔ℎ
+
+1
+𝜌𝑣 2
+2 𝐵
+
+2𝜌𝑒𝑎𝑢 𝑔ℎ
+
+𝑣𝐵 = √
+
+𝜌
+
+On procède à l’application numérique :
+2 ⋅ 997 ⋅ 9.81 ⋅ 11⋅10−2
+
+𝑣𝐵 = √
+
+1.2
+
+= 42 𝑚 ⋅ 𝑠 −1
+
+On trouve ainsi une vitesse de l’air dans l’aspirateur de 42 m/s.
+Cette même formule est utilisée pour mesurer la vitesse du vent incident sur les ailes
+d’avions grâce à de réels tubes de Pitot.
+
+15
+
+3.2
+
+Ecoulement de l’air autour d’une aile
+3.2.1 Expérience du sèche-cheveux
+
+Après avoir découvert et compris toutes ces notions, nous avons mis en place une
+expérience visant à reproduire le vol d’une aile d’avion à petite échelle.
+Matériel :
+- Une feuille de papier pliée en forme de profil d’aile, trouée par deux bouts de paille
+qui lui sont attachés,
+- Un sèche-cheveux,
+- Un dispositif visant à immobiliser l’aile horizontalement, en lui permettant de bouger
+verticalement.
+Les fils traversent les deux pailles qui trouent l’aile de sorte que l’aile puisse coulisser
+verticalement. La largeur des pailles permet de réduire les frottements avec les fils. (Voir
+montage en Annexe 6).
+En activant le sèche-cheveux face à l’aile, l’air devrait ainsi théoriquement suivre la
+forme de l’aile, et selon ce que nous avons vu dans une précédente partie, conférer une
+force de portance à l’aile en papier, et ainsi la faire monter (Annexe 7).
+C’est en effet ce que nous avons pu observer. En filmant l’expérience de profil, nous
+avons pu récupérer les valeurs de la position de l’aile, et à l’aide du logiciel de traitement de
+données Regressi, représenter la position en y en fonction du temps (voir Annexe 8).
+L’altitude de l’aile semble proportionnelle au temps, donc on peut modéliser la courbe
+expérimentale par une fonction linéaire :
+Sachant que le déplacement en x est négligeable :
+Si la position en y en fonction du temps est modélisable par une fonction linéaire, alors on
+peut écrire :
+𝑦(𝑡) = 𝑘𝑡
+En dérivant y(t), on peut obtenir la composante verticale de la vitesse en fonction du temps :
+𝑣𝑦 (𝑡) = 𝑦′(𝑡) = 𝑘
+En dérivant encore une fois, on obtient la composante verticale de l’accélération :
+𝑎𝑦 (𝑡) = 𝑣𝑦 ′(𝑡) = 0
+
+16
+
+Par ailleurs, on peut établir le bilan des forces qui
+s’appliquent sur l’aile. On décide de négliger les
+frottements entre les pailles et les fils :
+L’aile ne subit alors que la force de portance notée F
+et le poids.
+
+D’après la deuxième loi de Newton, on peut écrire que :
+
+En effet, puisque l’aile se déplace en mouvement rectiligne uniforme
+(approximativement), d’après le principe d’inertie, les forces de poids et de portance
+s’annulent.
+On déduit que la force de portance est environ égale au poids de l’aile. La situation
+est comparable au décollage d’un avion réel, lors de la phase où la vitesse d'ascension est
+constante. En phase de croisière, son déplacement sur l’axe vertical est nul, donc les forces
+de poids et de portance se compensent aussi.
+Durant la réalisation de cette expérience, certains essais ont échoué. Nous nous
+sommes demandé pourquoi malgré le flux d’air qui passe autour de l’aile en papier, cette
+dernière finissait quand même par tomber. Après quelques recherches, nous avons
+découvert un facteur que l’on avait négligé.
+3.2.2 La couche limite
+Prenons un fluide qui s’écoule sur une surface plane. La partie du fluide en contact à
+la surface du support est soumise à la contrainte de cisaillement. Pour simplifier, cette
+contrainte explique que tout fluide en mouvement a une vitesse nulle au niveau de la zone
+de contact avec des solides.
+Donc le fluide est immobilisé par la paroi qu’il rencontre et cette région du fluide est
+ce qu’on appelle la couche limite.
+17
+
+La couche limite s’étend jusqu’à la distance où la vitesse d’écoulement est égale à
+celle du flux qui n’a pas été influencée par les frottements à la paroi. On en déduit que la
+zone du fluide exposée à l’air présente la vitesse maximale de l’écoulement puisqu’elle n’est
+soumise à aucune contrainte de cisaillement. L’épaisseur de la couche limite se caractérise
+par la distance entre la paroi et le point où la vitesse du fluide est à 99% de la vitesse du
+fluide de la zone d’écoulement libre. L’accélération de l’écoulement du fluide hors de la
+couche limite contribue à son amincissement. Dans le cas contraire, la décélération de cet
+écoulement entraîne un épaississement de la couche limite. Son épaisseur dépend de deux
+variables : la vitesse et l’état de la surface. Plus la vitesse du fluide est élevée, plus la
+couche limite est fine, de même que plus la surface sur laquelle s’écoule le fluide est lisse,
+plus la couche limite est fine.
+La couche limite peut être laminaire ou turbulente en fonction du nombre de
+Reynolds.
+Si ce dernier est inférieur à 2000, la couche limite est évidemment laminaire. Elle se
+caractérise par le fait que tous les vecteurs vitesses sont parallèles au même plan et par une
+couche limite épaisse. On calcule cette épaisseur par la solution de l’équation de Blasius
+avec x la distance parcourue par le fluide sur la surface
+Rex le nombre de Reynolds du fluide au ras de la
+surface
+
+A mesure que l’on s’éloigne de la paroi, la vitesse de l’écoulement augmente ainsi
+que la distance entre la surface et le fluide, par conséquent le nombre de Reynolds aussi.
+Ce qui rend l’écoulement instable sur les zones éloignées des parois comme à la surface du
+fluide sur le schéma ci-dessus. Donc, si Re > 3500, la couche limite est dite turbulente, et
+elle est très fine autour de la paroi. On calcule cette épaisseur par l’expression suivante :
+
+Si l’on revient à nos avions, il existe une couche limite autour d’une aile. Au-delà de
+cette couche, le nombre de Reynolds du fluide atteint l’ordre de grandeur de 10⁷.
+Pour mieux comprendre cette notion, nous allons étudier un moment où notre aile en
+papier est tombée malgré le flux d’air projeté sur elle.
+Dans le domaine aéronautique, la nature de la couche limite permet d’estimer sa
+fragilité autour d’une aile d’avion. La couche limite se distingue par trois zones :
+18
+
+(1) zone laminaire
+(2) zone de transition
+(3) zone turbulente
+
+On peut alors déterminer la fragilité de la couche en fonction de ces zones. Ce qui fait que
+(1) est moins fragile que (2) qui elle-même est moins fragile que (3)
+On remarque que pour qu’il y ait une portance de l’aile, il faut un déplacement rapide
+du flux d’air et une adhérence du flux à l’aile pour qu’il suive du haut vers le bas. L’angle
+d’attaque de l’aile a alors son importance puisqu’il influe sur l’adhésion du flux.
+
+Sur l’image ci-contre, on note que l’angle
+d’attaque de l’aile par rapport au flux
+d’air est beaucoup trop grand. L’air ne
+suit plus le profil de l’aile et la couche
+limite n’est plus entraînée par le flux, elle
+s’est décollée de la paroi.
+
+La conséquence de ce phénomène
+est qu’il entraîne la chute de notre aile,
+comme on peut l’observer sur l’image ci-contre
+qui suit la précédente dans le temps,
+ainsi que la formation de flux turbulents
+et chaotiques.
+
+Donc, lorsque l’angle d’attaque de l’aile devient trop important, on constate une baisse
+notable des performances aérodynamiques par le décollement de la couche limite, qui ne
+peut survenir que lors de l’atterrissage, et une baisse brutale de portance pouvant entraîner
+la perte de contrôle de l’appareil. Ce phénomène est à l’origine de nombreux accidents
+aériens.
+
+19
+
+4. Conclusion:
+Finalement, en nous posant en quelques mots d’apparence simple, la question de la
+mécanique derrière le vol d’un avion nous avons ouvert une véritable boîte de Pandore dont
+le contenu en ferait fuir plus d’un !
+Mais, courageux comme nous sommes, et surtout, extrêmement curieux d’apprendre, nous
+avons fait face à cette problématique.
+En effet, nous avons tout d’abord étudié l’air et les différentes caractéristiques qui
+régissent un fluide en général, son régime d'écoulement, laminaire ou turbulent, sa viscosité
+dynamique, son nombre de Reynolds…
+Ce qui nous a permis ensuite de comprendre les interactions entre un fluide et une
+aile de l’avion avec le théorème de Bernoulli. L’effet Venturi nous a permis de comprendre la
+force de portance d’un avion et la couche limite nous indique que son absence cause une
+perte de portance et peut donc engendrer la chute de notre appareil. Par ailleurs,
+l’expérience du tube de Pitot nous a montré comment déterminer la vitesse de l’avion grâce
+à des mesures de pression.
+Tout cela nous a permis comprendre le déplacement d’un avion dans l’air et de
+démentir la fameuse idée reçue qui dit que les avions “volent” comme des oiseaux puisque,
+malgré l’absence de cheveux blond, ils sont en vérité de véritables surfeurs !
+
+5. Sources:
+https://www.lavionnaire.fr/
+Nombre de Reynolds — Wikipédia
+Profil à laminarité étendue — Wikipédia
+Écoulement laminaire — Wikipédia
+Écoulement de Poiseuille — Wikipédia
+Qu'est-ce que l'écoulement laminaire - Écoulement visqueux - Définition
+🔎 Écoulement laminaire : définition et explications
+Chapitre 6 : écoulements laminaires et turbulents
+PC/PSI Nombre de Reynolds. Etude descriptive des écoulements autour d'un obstacle
+Un fluide newtonien, c'est quoi ? Navier Stokes et Euler
+La physique animée : Équation de Navier-Stokes, forces de viscosité pour un fluide
+Ecoulement de l'air
+MK Flu 4 - 2.A - Régimes d'écoulement laminaire et turbulent - Nombre de Reynolds
+Le nombre de Reynolds – Science étonnante
+Chapitre IX : Régimes d'Ecoulement Un régime d'écoulement peut être défini comme étant
+le mode de mouvement des partic
+https://www.edumedia-sciences.com/fr/media/512-portance
+
+6. Remerciements:
+Nous tenons à remercier notre professeur encadrant, Monsieur Christophe Bruyas ainsi que
+le technicien de laboratoire de notre lycée, Monsieur Hamid Elmir, sans qui nous n’aurions
+pu réaliser ce projet.
+
+20
+
+

@@ -1,0 +1,637 @@
+La canne blanche
+électronique
+Comment utiliser les propriétés des ondes pour rendre la
+détection des obstacles plus facile aux aveugles ?
+
+•
+•
+•
+•
+•
+
+GARCIA Diego
+HERNANDEZ Valeria 1/21
+GONZALEZ Marie France
+AGUILAR Augustin
+FLORES José de Jesús
+
+Résumé du projet : la canne blanche
+électronique
+La canne blanche est depuis longtemps le symbole international de la déficience
+visuelle, ainsi que le meilleur outil pour pallier à cette déficience. Depuis 1991, des
+recherches l’implémentent de technologies permettant de détecter des obstacles
+plus ou moins éloignés et à différentes hauteurs grâce à des capteurs d’ondes
+ultrasonores ou infrarouges. Ce projet propose une amélioration de la canne par
+l’exploitation des deux capteurs à la fois. En effet, le capteur ultrasons permet une
+augmentation du champ d’observation, alors que le capteur infrarouges possède
+une plus grande précision. De plus, nous avons mis en place trois expériences
+visant à perfectionner l’exactitude des signaux reçus par l’utilisateur selon le milieu
+d’utilisation. Nous voulions mesurer la différence de vitesses de propagation des
+ondes ultrasonores en faisant varier trois paramètres (la température, l’humidité et
+la pression) afin de déterminer si la distance détectée par la canne était modifiée
+par ces paramètres. Nous verrons que les calculs d’erreurs et d’incertitudes, qui
+seront présentés dans ce dossier, montrent que la sensibilité de nos capteurs n’est
+pas suffisante pour mesurer ces différences. Cependant, avec l’utilité qu’en ont les
+personnes ayant des déficiences visuelles, la précision de la distance détectée par
+les capteurs de notre canne est acceptable, et l’objectif du projet est donc atteint.
+
+2/21
+
+Sommaire
+I. Introduction
+II. Projet de la canne
+1) Objectifs
+2) Choix et conception du projet
+3) Fonctionnement
+III. Les ondes
+1) Le corps humain et les ondes
+2) Définition et caractéristiques des ondes
+3) Les ondes ultrasonores
+4) Les capteurs
+a. Les Capteurs infrarouge
+b. Les Capteurs ultrasons
+IV. Les expériences et la notion d’incertitude
+1) Les expériences
+2) Les incertitudes de mesure
+a. Calcul d’incertitudes
+b. Calcul d’erreur
+V.
+
+Conclusion
+
+VI. Bibliographie
+3/21
+
+I. Introduction
+La nature a donné à l’homme et aux animaux complexes des organes qui
+leur permettent d’interpréter les différentes informations de leur environnement.
+Ces organes peuvent capter des grandeurs physiques qui sont envoyées au
+cerveau pour pouvoir interpréter les changements dans le monde qui nous
+entoure ; ce sont les sens. L’un des phénomènes physiques capté par nos organes
+est “les ondes”, tantôt mécaniques avec l’ouïe, tantôt électromagnétiques avec la
+vue, qui constituent les deux principaux sens de l’homme. Or ces sens ne captent
+qu’une infime partie de tout le spectre existant des ondes.
+Malheureusement ces sens peuvent être endommagés, ce qui devient une
+contrainte pour la personne affectée. D’après l’OMS il y a environ 285 millions de
+personnes handicapées visuellement dont 39 millions sont aveugles.
+Heureusement, il existe différentes techniques, outils et des technologies
+disponibles pour permettre aux handicapés de réaliser leurs activités quotidiennes.
+Un des outils les plus utilisés est la canne blanche qui permet à l’utilisateur
+de détecter des obstacles qui se trouvent à un mètre de lui environ et, également,
+de déceler l’état du sol sur lequel ils marchent. Cependant, il existe encore des
+déficiences pour détecter des obstacles plus hauts ainsi que pour toucher les
+obstacles et les reconnaître. La technologie des capteurs nous permet d’identifier
+des grandeurs physiques et de les transformer en informations grâce à la
+connaissance des phénomènes physiques qui y interviennent. La compréhension
+des ondes a permis de développer des capteurs qui peuvent détecter des objets à
+distance grâce à l’analyse des échos reçus.
+Pour notre TPE de première en sciences de l’ingénieur, nous avons eu
+l’idée d’améliorer une canne pour aveugles. Nous avons pensé qu’au Mexique
+encore 467.000 handicapés visuels (selon l’INEGI) souffrent encore de graves
+problèmes de mobilité. Le difficile accès aux différents transports publics ou les
+mauvaises conditions des rues sont des exemples d’obstacles auxquels ils doivent
+faire face tous les jours. L’aide aux aveugles a été notre principale motivation et la
+solution que nous avions trouvée a été la conception d’une canne électronique qui
+puisse les avertir de la présence de certains obstacles à une distance plus grande
+et de certains risques situés à une hauteur plus grande que celle du sol.
+Comment utiliser les propriétés des ondes pour rendre la détection des
+obstacles plus facile aux aveugles ? Dans un premier temps, nous donnerons des
+informations sur le fonctionnement et la réalisation du projet, puis dans un
+deuxième temps, nous parlerons des caractéristiques des ondes et des capteurs
+4/21
+
+utilisés, pour finalement montrer et analyser les expériences réalisées dans
+l’objectif d’améliorer la précision de la canne.
+
+II. Projet de la canne
+1) Objectifs :
+
+
+
+
+
+
+Détecter des objets à une distance d’au moins 50 cm.
+Utiliser des composants adaptés et utilisables sous toutes circonstances.
+Proposer différents moyens d’avertissements (buzzeur, vibreur...)
+adaptables aux préférences de l’utilisateur.
+Proposer une durée de vie convenable et suffisante, ainsi qu’une source
+d’énergie facilement remplaçable.
+Avoir une masse et des dimensions les plus proches possibles à celles
+d’une canne traditionnelle.
+
+2) Choix et conception du projet
+Le design a été réalisé à travers le logiciel Solidworks pour faire la
+conception esthétique de la canne, ce qui nous a permis de visualiser le projet et
+de le valider afin d’établir les dimensions et formes de la canne. Nous avons
+considéré que la canne doit être facile à manipuler pour les non-voyants, et en
+même temps, respecter la forme d’une canne blanche traditionnelle, puisque les
+non-voyants sont déjà habitués à utiliser ce support. L’objectif de la modélisation
+est de résoudre les possibles problèmes qu’il pourrait y avoir au moment de la
+conception.
+Tout d’abord nous avons construit le corps principal de la canne, qui est un
+tube de 1,20 m et d’un diamètre de 3 cm. Ensuite une élection des matériaux a été
+réalisée en fonction de différentes caractéristiques recherchées dans la canne.
+Une fois les matériaux obtenus, ainsi que la partie électronique nous avons
+procédé a l’assemblage
+Nous avons incorporé des capteurs ultrasons et infrarouges tous deux
+connectés a une carte Arduino Uno qui nous permet de utiliser les valeurs obtenus
+par les capteurs et des les utiliser pour commander des différents réponses aux
+obstacles comme un son ou une vibration grâce à une programmation qu’on a
+réalisé (détaillé en annexe 2).
+
+5/21
+
+3) Fonctionnement
+La canne est un appareil qui sert à détecter des obstacles représentants un
+risque pour l’utilisateur. Ils sont détectés par deux capteurs qui sont en bas de la
+canne. Un du type infrarouge et autre du type ultrason. Lorsque l’obstacle est à
+moins de 30 cm l’information sera devenue une tension électrique qui mettra en
+marche un vibreur qui fonctionne comme interface entre la canne et l’utilisateur. La
+canne dispose aussi d’un capteur infrarouge au niveau des hanches pour détecter
+des obstacles à moins de 50 cm qui sont fixes aux murs et qui ne sont pas en
+contact avec le sol, dans ce cas, les informations vont mettre en fonctionnement
+un buzzeur pour avertir l’aveugle de la présence de ce type d’obstacles.
+
+FIG.1. La canne blanche électronique et ses composantes
+
+III. Les Ondes
+1) Le corps humain et les ondes
+L’œil se décompose en trois parties principales. Tout d’abord on a la
+cornée, le cristallin et l’humeur aqueuse qui se comportent comme une lentille
+puisqu’ils permettent de laisser passer la lumière et de mettre au point ce que l’on
+regarde. Le cristallin peut se bomber et faire converger les rayons lumineux
+rentrant à travers l’humeur aqueuse et la cornée ou il peut s’aplatir et dans ce cas
+les rayons lumineux divergent. C’est ce que l’on appelle l’accommodation. L’état
+du cristallin dépend de la distance à laquelle se trouve l’objet observé. Ensuite on
+a la pupille qui fonctionne comme un diagramme puisqu’il permet de régler la
+quantité de lumière rentrante et finalement on a la rétine qui à la fonction d’un
+écran où se forme l’image de l’objet observé. L’œil peut donc être modélisé par
+une lentille, un diaphragme et un écran de la façon suivante :
+
+6/21
+
+FIG.2. Fonctionnement de l’œil : à gauche, modélisation 3D de l’œil ; à droite,
+modèle réduit de l’œil
+Mais ça ne s’arrête pas là. Nous avons la capacité de voir des objets grâce
+à des phénomènes physiques et chimiques comme la réflexion et la réfraction.
+Lorsque la lumière est réfléchie sur un objet il faut que les rayons lumineux entrant
+soient mis à foyer (f’=1/V) par la cornée et le cristallin sur la rétine. Ensuite la rétine
+envoie des signaux électrochimiques le long du nerf optique jusqu’au cerveau. Une
+fois que les signaux ont été interprétés, l’interprétation nous permet de voir l’image
+de l’objet. Le processus de déviation de la lumière pour produire une image mise
+au point sur la rétine est appelé réfraction. Cependant il existe aussi des maladies
+qui peuvent nous rendre aveugle comme le glaucome qui atteint notre nerf optique
+ou la cataracte qui fait jaunir notre cristallin et provoque une opacification.
+Notre sensibilité à différents types d’onde nous permet de nous former une
+conception du monde qui nous entoure. La compréhension de ces mécanismes
+ajoute un œil critique à cette perception et peut l’améliorer. Qu’en savons-nous?
+
+2) Définition et caractéristiques des ondes
+On appelle onde la propagation d’une perturbation périodique et physique
+des particules d’un milieu stable qui reprennent par la suite leurs caractéristiques.
+Ainsi, cette propagation transporte de l’énergie et pas de la matière.
+D’une part, les ondes sont caractérisées par trois propriétés : leur vitesse,
+leur longueur d’onde et leur fréquence. D’abord, la vitesse de propagation d’une
+onde V, qui dépend uniquement des propriétés du milieu qu’elle traverse (densité,
+température, masse linéique, etc). Autrement dit, après la formation d’une onde, sa
+vitesse ne varie qu’au changement de milieu, et le retour au milieu d’origine
+implique le retour respectif à la vitesse d’origine. Ensuite, la longueur d’onde , qui
+est définie comme la distance qui sépare deux oscillations maximales. Le temps
+
+7/21
+
+mis pour parcourir une longueur d'onde est appelé la période T et se mesure en
+secondes. Ces trois valeurs sont liées par la relation :
+Nous
+pouvons
+distinguer
+deux
+types
+d’ondes :
+les
+ondes
+électromagnétiques, qui n’ont pas besoin d’un milieu matériel pour se propager et
+les ondes mécaniques, qui en ont besoin. Nous nous intéresserons ici aux ondes
+ultrasonores, qui sont des ondes mécaniques.
+
+3) Les ondes ultrasonores
+Une onde acoustique est une perturbation mécanique, c’est-à-dire une onde
+de compression-dilatation du milieu. Pour comprendre ce phénomène, il faut
+imaginer que les molécules d'air poussées par la corde subissent une pression
+mécanique. Cette énergie fait osciller la pression de l'air : la pression croît et
+décroit alternativement autour d’une valeur appelée "d’équilibre".
+Les ondes ultrasonores, ou ultrasons, sont des ondes acoustiques de
+fréquence supérieure à la gamme de fréquences audibles par l’homme, c’est-àdire, supérieure à 20 kHz. Elles se déplacent à la vitesse du son qui varie, bien
+entendu, selon le milieu qu’elles traversent. La vitesse du son à 15ºC au niveau de
+la mer est d’environ 340 m.s-1.
+La rencontre de deux ondes se traduit par une superposition de celles-ci.
+Cela signifie qu’en un point de rencontre, l’état de ce point est égal à la somme
+géométrique des ondes qui le traversent. Après cette interférence, les ondes
+conservent leurs caractéristiques. Ainsi peut-on écouter un concert sans
+annulation du son d’un instrument ou majeure distorsion d’un autre.
+À la rencontre d’un obstacle, c’est-à-dire, d’un changement du milieu
+traversé, les ondes peuvent subir divers phénomènes physiques tels la réflexion,
+réfraction, diffraction et diffusion.
+Nous avons donc exploité la réflexion des ondes pour le fonctionnement de
+la canne. Ainsi, à l’encontre d’un nouveau milieu, une grande partie de l’onde
+incidente est réfléchie par l’interface. D’après les lois de Snell-Descartes, l’angle
+de réflexion par rapport à l’interface est le même que celui d’incidence. Si
+l’équation de l’onde incidente est y = Ai.sin(k.x − ω.t) avec ω sa fréquence et k son
+nombre d’onde, alors l’équation de l’onde réfléchie est y = Ar.sin(k.x + ω.t), les
+coefficients A étant déterminés par le rapport entre les vitesses de propagation de
+l’onde dans les deux milieux en question.
+
+8/21
+
+Théoriquement, l’onde réfléchie en pointant de façon perpendiculaire au
+plan d’incidence devrait donc être plus ou moins destructive avec l’onde incidente
+selon l’impédance acoustique de l’obstacle en question. Cependant, la surface
+rencontrée n’est jamais parfaitement plane. De plus, lorsque les irrégularités de la
+surface sont de l’ordre de grandeur de la longueur de l’onde étudiée (c’est-à-dire
+10⁻ ² m) il se produit le phénomène de diffusion: l’onde est donc diffusée dans
+toutes les directions possibles.
+
+4) Les capteurs
+a.- Les capteurs infrarouges
+Un capteur infrarouge utilise le rayonnement électromagnétique situé dans
+le spectre des infrarouges (λ∈ [0,7;100] μm). Ce capteur est constitué d’un IRLED
+(LED émetteur de rayonnement infrarouge), ce LED va produire un faisceau
+lumineux d’une certaine longueur d’onde et fréquence et qui sera invisible pour
+l’œil humain; le faisceau va se propager de manière rectiligne dans le milieu où il
+se trouve (air dans le cas de la canne blanche). Au moment où le faisceau
+rencontre un obstacle une partie de l’onde sera réfléchie par le obstacle et sera
+renvoyée au capteur où un phototransistor va recevoir le faisceau lumineux réfléchi
+et, avec cette onde, il va gérer une tension qui sera étudiée pour nous donner une
+distance entre le capteur et l’obstacle.
+L’utilisation d’un capteur infrarouge est lié à certaines contraintes, par
+exemple: la lumière de l’environnement peut interférer dans l’étude de la lumière
+reçue par le phototransistor, c’est pour cela qu’il fallait mettre des circuits de
+filtrage de longueur d’onde pour être surs que la longueur d’onde étudiée par le
+phototransistor sera seulement celle qui sera émise par le IRLED. Une autre
+contrainte c’est le manque de connaissance de chaque coefficient de réflexion de
+chaque obstacle car le fonctionnement du capteur va varier en fonction de chaque
+type d’obstacle.
+La canne blanche a deux capteurs infrarouges, un SHARP 2y0a21 qui gère
+une tension entre 0,3 et 3,1V qui correspond a une précision inférieure à 20 cm,
+c’est pour cela qu’on l’a mis en bas de la canne car on voulait avoir un rapport des
+obstacles à une distance pas très importante (à cause de l’inclination de la canne).
+L’autre capteur infrarouge SHARP GP2Y0A02YK a un rang plus grand (de 20 à
+150cm) on l’avait mis en haut de la canne car à cette hauteur là la canne est plus
+éloignée des obstacles.
+Par rapport au capteur ultrason, le capteur infrarouge nous donne une
+meilleure précision qui n’est pas très influencée par plusieurs états
+9/21
+
+environnementaux, c’est à dire que la précision du capteur infrarouge n’est pas
+influencée par l’humidité, la pression ou la température du milieu.
+
+b.- Les capteurs ultrasons
+Les capteurs ultrasons produisent des ondes mécaniques de fréquence
+supérieure à 20kHz, que l’oreille humaine ne peut pas entendre. Ils sont constitués
+d’un transducteur qui transforme les impulsions électriques reçues en ultrasons. Si
+les ultrasons sont de forte puissance, ils peuvent entraîner des modifications
+physiques et chimiques d’un matériau. S’ils sont de faible puissance, on peut les
+employer pour effectuer des mesures. On s’intéressera à ces derniers, avec une
+fréquence de 40 kHz pour effectuer des mesures dans l’air. Pour cela, le principe
+est presque le même que pour les capteurs infrarouges. L’onde se propage de
+façon rectiligne à la vitesse du son et est réfléchie par l’obstacle rencontré. Elle est
+reçue par le transducteur qui la transforme en signal électrique que l’on pourra
+étudier. La distance parcourue pourra donc être déduite grâce au temps que l’onde
+prend pour parcourir la distance et à la vitesse de l’onde par la relation V=D/T.
+Le capteur ultrason de la canne blanche fonctionne en mesurant le temps
+d’aller-retour d’une onde sonore qui est émise et ensuite reçue par le même
+capteur. Ce capteur présente plusieurs avantages par rapport au capteur
+infrarouge : il a une portée assez importante qui peut arriver jusqu'à 4 mètres. De
+plus, il a un rang de détection plus grand qui permet la détection d’objets non
+seulement en ligne droite, mais avec une forme de « couronne ».
+Le capteur ultrasons a quelques limitations. D’abord, le capteur a une
+distance minimale et une distance maximale. Celles-ci peuvent varier : la minimale
+et souvent d’une fraction de centimètre et la maximale de quelques mètres. De
+plus, la capacité de réflexion de l’obstacle rencontré peut changer ces nombres :
+un mur recouvert de moquette réfléchira moins bien l’onde qu’un mur recouvert de
+peinture, par exemple. Donc, la distance maximale sera moins importante avec un
+mur de moquette. De plus, l’onde ultrasonore émise peut se confondre avec
+d’autres appareils qui utiliseraient les mêmes fréquences. D’autre part, des
+facteurs environnementaux tels que l’humidité, la température et la pression du
+milieu de propagation. C’est pourquoi, nous allons étudier le degré de variation
+provoqué par la variation de ces facteurs.
+
+10/21
+
+IV. Les expériences et la notion d’incertitude
+1) Les expériences
+Théoriquement, la vitesse de propagation des ultrasons varie selon les
+conditions atmosphériques. Ces variations pourraient fausser les calculs effectués
+par la canne et donc provoquer un mauvais fonctionnement de celle-ci. Ainsi, nous
+avons envisagé de faire varier la température, l’humidité et la pression pour
+simuler des conditions auxquelles un aveugle pourrait faire face afin d’observer
+l’ordre de grandeur des variations et pouvoir adapter la canne à ces mesures si
+nécessaire.
+D’abord, nous avons construit une boîte en acrylique transparent pour créer
+un mini-milieu dont nous aurions le contrôle de température et humidité. Des
+perforations de deux faces opposées servaient au positionnement d'un émetteur et
+un récepteur d'ultrasons situés à une distance connue, mesurée
+expérimentalement la plus grande possible pour que les capteurs réagissent avec
+une sensibilité exploitable (40 cm). Les deux paramètres seraient modifiés
+séparément.
+D'une part, la température a été diminuée par entropie, en plaçant dans la
+boîte un bac à glace. La thermodynamique nous a ainsi permis d'atteindre les 10ºC
+comme température minimale. Aussi, elle a été augmentée grâce à un sèchecheveux, atteignant les 45ºC comme température maximale. Deux thermomètres
+placés à l'intérieur de la boîte nous permettraient de vérifier l'homogénéité de la
+température lorsque les mesures seraient prises.
+
+Fig.3. Montage pour diminuer la température
+11/21
+
+Fig.4. Montage pour augmenter la température
+D'autre part, nous avons fait varier le taux d'humidité grâce à un petit
+montage. Un bac d'eau est placé dans la boîte qui, recouverte de papier noir, est
+éclairée par une lampe. Ainsi pouvons-nous contrôler l'humidité de 40 à 60%.
+Deux capteurs d’humidité étaient placés dans la boîte (afin d'éviter une différence
+de conditions entre le milieu mesuré et l'appareil de mesure qui pourrait affecter la
+véracité des mesures) pour vérifier l'homogénéité de l'humidité du milieu lors de
+mesures.
+
+Fig.5. Montage pour faire varier le taux d’humidité
+12/21
+
+Ensuite, nous avons envisagé de faire varier la pression à l’aide d’une
+cloche à vide. L’émetteur et récepteur devaient alors être placés dans cet espace
+réduit, et la réflexion des ondes pouvait éventuellement servir à augmenter la
+distance mesurée.
+Le montage permettant de mesurer la vitesse de propagation des ultrasons
+dans les différentes conditions est le même pour les trois paramètres. D’abord,
+l’émetteur doit être connecté à un générateur de salves, lui-même connecté à un
+générateur +15/-15V et un GBF de fréquence 40kHz. Ensuite, l’émetteur et le
+récepteur sont chacun connectés soit directement à l’oscilloscope, soit à orphy
+GTS. Ainsi, le retard mesuré entre la salve émise et celle reçue nous permet,
+grâce à la distance connue entre les deux capteurs, de calculer la vitesse de
+propagation des ultrasons.
+Cependant, lors de la réalisation de “l’expérience témoin” à conditions
+ambiantes (20 °C, Patm), nos mesures indiquaient une vitesse de 271 m/s, soit une
+différence de 79 m/s par rapport à la valeur normale. Nos résultats seront donc
+expliqués par la suite.
+
+2) Incertitudes de mesure
+a- Calcul d’incertitudes
+Lorsque l’on réalise une série de mesures, celles-ci sont soumises à des
+conditions environnementales qui modifient les valeurs obtenues. Par exemple, les
+instruments de mesure peuvent être source d’erreurs, parfois ils peuvent avoir un
+temps de réaction, une sensibilité ou une exactitude différente à chaque mesure.
+D’autre part, l’opérateur ne refait jamais exactement la même mesure dans les
+mêmes conditions, au bout d’un moment il peut se fatiguer ou encore mal estimer
+la position du ménisque sur un thermomètre. Lorsque l’on effectue une mesure il
+faut donc prendre en compte plusieurs paramètres et opérations qui sont, chacun,
+source de variabilité.
+On définit la mesure comme l’ensemble des opérations ayant pour but de
+déterminer la valeur d’une grandeur et le mesurande qui est une mesure que
+l’on obtiendrait par une mesure parfaite. On ne la conna t pas et on parle
+également de valeur théorique ».Il faut donc introduire une notion d’erreur qui est
+l’écart entre la valeur mesurée et la valeur vraie. Pour déterminer une incertitude
+sur une mesure, les étapes sont les suivantes :
+• Choisir une méthode de mesure.
+• Modéliser la mesure :
+
+13/21
+
+Déterminer les différentes variables qui entrent dans la mesure.
+• Déterminer la fonction mathématique qui lie ces variables.
+◦
+
+Dans notre expérience, nous avons souhaité faire la mesure de la vitesse des
+ultrasons dans le milieu ambiant. Nous avons choisi deux méthodes de mesure:
+
+Fig.6. Montage de mesure avec GTS II
+
+Fig.7. Montage de mesure avec oscilloscope
+Pour la première méthode, nous avons utilisé un module d’acquisition
+ORPHY-GTS qui permet de visualiser des tensions sur le logiciel GTS-II (Fig.1.).
+Pour la deuxième méthode nous avons utilisé le même matériel mais nous avons
+remplacé le module d’acquisition ORPHY par un oscilloscope. (Fig.2.)
+Dans les deux cas nous avons placé le récepteur à 17 cm de l’émetteur en
+s’assurant qu’ils soient bien alignés. Nous avons fait de sorte que la durée T des
+salves soit la plus longue possible et la fréquence avec laquelle elles sont émises
+soit la plus faible (F-T). L’acquisition sur ORPHY a duré 50ms avec 2500 points
+d’acquisition, c’est-à-dire que la durée pendant laquelle le logiciel enregistrera les
+14/21
+
+signaux émis et reçus sera de 50ms et que pendant ces 50ms le logiciel fera 2500
+mesures. Puis nous avons envoyé l’acquisition sur Regressi et tracé les courbes
+des signaux.
+Les différentes variables qui entrent en compte dans la mesure sont
+l’incertitude sur la mesure de distance entre l’émetteur et le récepteur (l’incertitude
+de mesure du retard entre l’émission et la réception du signal sur les courbes de
+Regressi ou sur l’oscilloscope), ainsi que le temps de réaction et la sensibilité des
+capteurs.
+Pour mesurer la distance entre le capteur et l’émetteur nous avons fait
+usage d’un mètre. Cette mesure nécessite une double lecture et l’incertitude liée à
+la lecture est estimée à :
+
+Dans notre cas la plus petite graduation de l’appareil de mesure utilisé correspond
+à 1mm donc l’incertitude de notre mesure équivaut à :
+
+On a donc:
+
+En ce qui concerne la durée, son incertitude équivaut à la somme de
+l’intervalle d’erreur de mesure quand le signal est émis et l’intervalle d’erreur quand
+le signal est reçu. C’est à dire qu’on prend le curseur et avec celui-ci on encadre le
+début du signal émis et ensuite on encadre le début du signal reçu puis on ajoute
+les deux intervalles au retard que l’on a choisi.
+’
+’
+
+15/21
+
+FIG.8. Exemple de mesure et incertitude sur un oscilloscope
+On établit donc la relation mathématique qui lie ces variables, on obtient la relation
+suivante :
+
+Pour t nous avons trouvé 0,806 ms pour une distance de 17cm ce qui nous
+fait une valeur estimée de 210 m.s-1. De même, nous l’avons essayé pour une
+distance de 42 cm deux fois et avons obtenu 262 m.s-1 et 265 m.s-1 (voir exemple
+de courbe en annexe 1)
+
+b.- Calcul d’erreur
+La valeur théorique de la célérité d’une onde sonore ou ultrasonore dans
+l’air est donnée par la relation suivante: (Baccalauréat général session 2010 en
+métropole)
+
+Avec R=8,315 SI
+T température de l’air en K (=température en Celsius+ 273,15)
+M masse molaire de l air M=29,0*10-3 Kg.mol-1
+Dans notre cas nous avions une température ambiante de 22 degrés Celsius soit
+295K. On obtient donc:
+
+16/21
+
+Vthéorique = 344m.s-1
+On va donc comparer notre valeur estimée (210m.s-1) à cette valeur
+théorique. La valeur obtenue permettra de déterminer la qualité du résultat de la
+mesure. Le calcul de cette incertitude relative est le suivant:
+
+Notre valeur mesurée est donc de très mauvaise qualité puisque l’on
+considère qu’à partir de 1% la mesure n’est plus de bonne qualité. On peut
+prendre en compte les incertitudes, les erreurs de mesure systématiques. On peut
+exemplifier ces erreurs par le tir dans une cible :
+
+FIG.9. Schématisation des erreurs de mesure et des erreurs de mesures
+aléatoires. (DGESCO-IGEN)
+Un appareil défectueux ou utilisé incorrectement conduit à des valeurs
+proches les unes des autres mais éloignées de la vraie valeur. Dans notre cas on
+se situe dans la deuxième configuration de la (FIG 4). Nos valeurs ne sont pas
+fidèles entre-elles (210m.s-1, 265m.s-1) et elles ne sont pas justes (38%
+d’incertitude relative).
+
+17/21
+
+Quand l’incertitude relative est supérieure à 1%, il faut chercher
+comment améliorer la qualité de la mesure effectuée. Par exemple, le matériel
+utilisé a-t-il une tolérance suffisamment faible ? Le matériel a-t-il été manipulé
+correctement ? Vu que notre incertitude relative est très élevée et que notre
+matériel est très âgé on pourrait remettre en cause la qualité du temps de réaction
+de la sensibilité de nos émetteurs et récepteurs.
+Pour conclure, nous avons vu qu’il existe plusieurs paramètres qui font
+varier la valeur d’une mesure. Les deux méthodes de mesure que nous avons
+choisies n’ont pas permis de déterminer une valeur expérimentale de bonne
+qualité. D’une part nous avons obtenu une erreur de 38% avec le premier montage
+par rapport à la valeur théorique. D’autre part nous n’avons même pas pu obtenir
+des signaux clairs sur l’écran de l’oscilloscope donc il était impossible de
+déterminer une valeur expérimentale. On a donc remis en cause la qualité de notre
+matériel, surtout de nos émetteurs et récepteurs. Vu que nous ne pouvons faire
+confiance à notre matériel, nous n’avons pas pu exploiter les expériences mais
+opté pour faire des recherches sur le degré de variation provoqué par l’humidité, la
+température et la pression sur la vitesse des ultrasons.
+
+V. Conclusion
+Théoriquement nous voulions démontrer, à travers des expériences, que la
+canne peut être utilisée n'importe où sans avoir la nécessité de modifier les
+capteurs puisque l'influence des paramètres sur la vitesse des ultrasons est
+négligeable. Nous avons trouvé, en faisant des recherches, que la température a
+une influence sur la vitesse du son.
+
+Fig.8. Variation de la vitesse du son en fonction de la température
+Selon les valeurs du tableau et un calcul, à 0°C on a une marge d’erreur de 3,6%
+et à 40°C elle est de 2,9%. Le calcul est le suivant, et le même pour chaque cas :
+
+18/21
+
+Exemple :
+
+Ensuite pour la pression et l'humidité nous avons trouvé un site internet
+(http://www.sengpielaudio.com/calculator-airpressure.htm) où l'on peut modifier les
+trois paramètres et on affiche une valeur de la vitesse. On remarque que la
+pression n'a aucune influence et que l'humidité ne fait quasiment pas varier la
+vitesse du son par rapport à la température. On a pris 50% d'humidité comme
+valeur moyenne avec 22°C et on obtient 345m.s-1. Avec 5% d'humidité et avec la
+même température l'erreur est de 0,2% et avec 70% d'humidité l'erreur est de
+0,375%.
+Avec des capteurs d'une meilleure sensibilité nous aurions pu observer les
+différences liées à chaque paramètre. Nous aimerions aller plus loin par la suite en
+achetant de nouveaux capteurs de meilleure qualité afin de mettre à profit les
+différentes expériences que nous avons mis en place et qui permettrait d’étudier
+l’influence de ces différents paramètres sur la vitesse de propagation des ondes
+ultrasonores.
+Néanmoins pour l'usage des aveugles, ces différences semblent
+négligeables (0,2% d’erreur sur une distance de 30 cm ne représente que 0,6 mm
+de différence). La canne répond donc aux besoins des aveugles dans n'importe
+milieu ambiant où ils se situent, et permet d’améliorer leur autonomie au quotidien.
+
+Bibliographie :
+-(DGESCO-IGEN) Ministère de l’Éducation Nationale de la Jeunesse et de la Vie
+Associative, « Mesure et incertitudes ». (Mai 2012). 4-7
+-Exercice 2-La nuit du 21 Juin 1822. Sujet Baccalauréat général Physique-Chimie
+(session 2010)
+-Pour la Science, numéro spécial « L'univers des ondes », no 409, novembre 2011
+-Jacques
+PARRA
+et
+Phillipe
+CAMPION,
+http://www.websciences.com/documents/terminale/tedo02/teco02.php
+-Thierry DULAURANS et André DURUPTHY, Physique-Chimie TS Enseignement
+spécifique, Hachette, Édition 2012, Chapitres 1 et 2 et fiches 3 et 4.
+-Carl R. Nave, « Reflection of sound », HyperPhysics
+-Patrick BOURGUET, « Sons et ultrason, Applications: échographie et doppler », 2011
+-J-J ROUSSEAU, « Réflexion des ondes » Physique et simulations numériques
+-Paul SCHERZ et Simon MONK, « Ultrasonic distance », Practicalelectronics for
+inventors, 2013
+-http://www.sengpielaudio.com/calculator-airpressure.htm
+19/21
+
+ANNEXES
+Annexe 1: Exemple de courbe obtenue sur Regressi avec capteurs placés à 2 cm l’un de
+l’autre.
+
+Annexe 2: Dossier TPE SI 2014 : programmation et câblage
+Câblage
+a) Circuit Électrique
+Le circuit est composé de trois capteurs, deux
+infrarouges et un ultrason, un buzzeur, un
+moteur vibreur,une résistance de 250Ω, une
+batterie de 9Volts et la carte.Les capteurs
+seront branchés sur les entrées analogiques et
+le vibreur et le buzzeur sur les numériques.
+Les deux capteurs infrarouges sont branchés
+en parallèle aux entrées GRND, A0 et 5V. La
+borne négative de la batterie sera branchée
+avec le fil noir qui se connecte au GRND.
+L’autre borne de la pile est branchée à une
+cathode du capteur ultrasons et l’autre ira à l’entrée A1 de la carte. Cette connexion-là est
+liée à une résistance qui est aussi branchée à la borne négative de la pile. Finalement, les
+
+20/21
+
+récepteurs du circuit seront branchés dans les entrées numériques 12, 13 et GRND en
+formant un circuit en dérivation.
+
+b) Carte Arduino
+La carte Arduino Uno est le circuit imprimé qui a permis la réalisation de ce projet. Ses
+nombreux composants électroniques permettent de traiter le programme préalablement
+introduit , dans le but de gérer un circuit complexe(interprétation des informations et envoie
+des tensions électriques adaptées aux divers entrées/ sorties du circuit). Dans le cas de
+l’Arduino Uno, elle possède 14 entrées/sorties numériques. Elles reçoivent des petites
+tensions ou les envoient (40mA) aux composants branchés pour qu’ils puissent s’activer.
+Elle possède aussi 6 entrées analogiques qui ont presque le même principe que les
+numériques, à la différence près qu’elles fournissent ou reçoivent 10 bits de résolution. La
+Carte a aussi des entrées d’alimentation comme le port USB et un bouton reset. Elle a une
+mémoire de 32KB et elle fonctionne avec une tension de 5V.
+
+Programmation
+Au niveau de la programmation, nous avons préparé le travail en utilisant deux logiciels
+différents.
+
+a) Flowcode
+Au début du projet, nous avons utilisé le logiciel Flowcode qui permet de réaliser des
+programmes et simulations avec une interface et un langage assez simple. De cette façon,
+nous avons réussi à créer la structure initiale qu’aurait la programmation finale. Cette
+programmation est l’essai final qui nous a permis de voir les entrées et sorties nécessaires
+pour que la canne puisse fonctionner comme nous voulions : Tout d’abord, la carte lit les
+valeurs de deux capteurs et ensuite vérifie si le capteur ultrason détecte un obstacle à une
+distance égale ou inférieure à 50cm. Dans le cas contraire, la même opération est menée
+pour le capteur infrarouge qui donnera une meilleure précision. À la fin, quelque soit le
+résultat obtenu, il y aura une petite pause qui permettra d’améliorer le rendement des
+piles.TPE 2014: Canne Blanche Électronique 16/21
+
+b) Arduino
+Pour le projet final, nous avons utilisé une carte Arduino comme interface entre les capteurs
+et les sorties qui renseigneront ensuite l’aveugle sur les obstacles sur son chemin. Alors, le
+logiciel utilisé est, bien évidemment, Arduino qui utilise un langage C++. De cette façon,
+nous pouvions télécharger le programme sur la carte et ainsi essayer le fonctionnement de
+la canne pour pouvoir affiner sa précision. Le fait d’avoir réalisé une première approche
+avec un logiciel plus simple nous a permis de faciliter la programmation sur ce logiciel.
+Nous avons utilisé la même structure que nous avions obtenue, mais grâce à ce logiciel qui
+est beaucoup plus complet, nous avons pu obtenir un fonctionnement TPE 2014: Canne
+Blanche Électronique 17/21 spécifique tel qu’une meilleure précision de l’interprétation des
+données obtenues par les entrées. Cette programmation correspond à celle du capteur
+infrarouge mais qu’on utiliserait pour tous les capteurs étant donné que le fonctionnement
+est similaire. Nous retrouvons la définition des entrées, et surtout du Threshold qui
+correspond au rang des capteurs, à partir duquel les capteurs enverront le signal pour
+activer la sortie. L’amélioration de ce logiciel par rapport au précédent consiste dans le fait
+de pouvoir assigner différentes sorties à chaque entrée ce qui permettra au non-voyant de
+reconnaître si l’objet se trouve juste en face de la canne (capteur infrarouge) ou si l’obstacle
+a été détecté par le capteur ultrason.
+
+21/21
+
+

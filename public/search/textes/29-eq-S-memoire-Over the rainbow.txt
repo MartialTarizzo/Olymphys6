@@ -1,0 +1,942 @@
+Olympiades de Physique 2021 – 2022
+OVER THE RAINBOW
+
+Louis François , Luna Pearon, Agathe Pospiech,
+Mathilde Roecklin-Mihé, Elise Westrich, Chloé Zirone
+
+Table des matières
+1.
+2.
+
+Introduction
+Reproduction d’un arc-en-ciel
+2.1 But général des expériences
+2.2 Premiers essais
+2.3 Essais extérieurs
+2.4 Expérience finale
+
+3.
+
+Angle d’observation de l’arc
+3.1 Mesure dans le jardin
+3.2 La forme de l’arc
+3.3 Explications théoriques et modélisation de la déviation
+3.4 Mesure de l’angle de déviation par de l’eau contenue dans un cristallisoir
+
+4.
+
+Couleurs de l’arc-en-ciel
+4.1 Mise en évidence de la dispersion de la lumière et du minimum de déviation
+4.2 Mesure des paramètres de la loi de Cauchy
+4.3 Visualisation avec Geogebra
+4.4 Comment l’observateur perçoit-il les couleurs de l’arc-en-ciel ?
+
+5.
+
+Observation avec une goutte d’eau : arcs surnuméraires
+5.1 But de l’expérience
+5.2 Protocole de l’expérience
+5.3 Résultats obtenus
+5.4 Interprétation des franges : théorie de Young
+5.5. Mesures au goniomètre
+5.6 Modélisation avec Python
+
+6. Conclusion
+7. Remerciements
+8. Sources
+
+1. Introduction
+Depuis la nuit des temps, l’arc-en-ciel fascine les Hommes par sa beauté et sa complexité. Pour de nombreuses civilisations, il
+représente un pont ou un chemin que seuls les plus divins pourraient emprunter. De plus, l’arc en ciel a beaucoup de
+symboles. Par exemple pour les Irlandais, l’or du leprechaun se cacherait au pied de l’arc. C’est donc, par la définition d’un
+arc en ciel, un trésor inatteignable. Nous allons à travers notre projet expliquer l’ensemble des phénomènes présents dans
+un arc-en-ciel en les reproduisant à différentes échelles.
+La photo de la page 1 a été prise au lycée un matin d’hiver. Le ciel est gris, il pleut là où se forme l’arc. Le photographe a le
+soleil dans le dos. Nous observons un arc qui a l’air circulaire, symétrique par rapport à la position du photographe, la
+couleur rouge se trouve au-dessus, la couleur bleue en-dessous.
+Dans certaines situations, nous n’observons qu’un morceau d’arc, et quelques fois un 2ème arc, moins intense dont les
+couleurs sont inversées par rapport au premier. Toutes ces observations mènent aux questions suivantes :
+• Pourquoi observons-nous un arc-en-ciel avec le soleil dans le dos ?
+• Pourquoi le voyons-nous mieux le matin ou en fin d’après-midi ?
+• Pourquoi y-a-t-il apparition de couleurs ? Pourquoi cet ordre ? Pourquoi un 2 arc dont les couleurs sont inversées ?
+• Où est le centre de l’arc ? Quelle est la taille de l’arc ?
+ème
+
+2. Reproduction d’un arc-en-ciel
+2.1 But de l’expérience général
+Dans ce projet, le but ultime était de réaliser avec toutes les conditions réunies un arc-en-ciel. Seulement quand le soleil n’est
+pas au rendez-vous et les gouttes d’eau peu adéquates, la tâche peut s’avérer complexe. Cela ne nous a cependant pas
+effrayé.
+2. 2 Premiers essais
+Principe de la première expérience :
+Nous avons commencé par réaliser ce qui nous venait tout bêtement à l’esprit, c’est-à-dire de prendre un petit vaporisateur
+et une lampe d’optique. Nous projetions la lumière contre un mur avec un lavabo en dessous. Quelqu’un vaporise ensuite
+au-dessus de l’évier. Les observateurs devaient se placer entre la lampe et la source de gouttes dans un angle d’environ 45°
+pour espérer observer un arc -en -ciel.
+Résultats :
+Malheureusement, malgré plusieurs tentatives, aucun arc-en-ciel n’a été observé. D'après nous cet échec est dû à la
+mauvaise qualité de la lampe et des gouttes, qui n’étaient pas assez nombreuses. Nous envisageons aussi la possibilité d’un
+problème avec le fond (la couleur des murs).
+2. 3 Essais extérieurs
+Principe de la seconde expérience :
+Nous avons tenté de faire des arcs en ciel dans notre jardin, qui est
+la façon la plus simple d’en faire. Nous avons obtenu un arc dans le
+rideau d’eau du tuyau d’arrosage. Il fallait cependant déplacer le
+tuyau jusqu'à l'apparition de l’arc. Le résultat a été optimal.
+Nous pouvons observer sur cette photo un arc, qui se forme sur le
+rideau d’eau. Le Soleil est dans le dos du photographe qui a dû se
+déplacer pour observer l’arc.
+Ensuite, nous avons remplacé le tuyau d’arrosage par un
+pulvérisateur. Par chance, il faisait encore assez beau à l’extérieur
+pour avoir un bon soleil. Lorsque le pulvérisateur était à une
+position optimale par rapport au soleil et à l’observateur, nous avons réussi à créer un arc en
+ciel.
+Dans les deux cas, l’ordre des couleurs est conforme à celui de l’arc naturel.
+2.4 Expérience finale
+Pour finir, notre expérience finale a consisté à la réalisation d’un arc en ciel mais en intérieur. Évidemment, pour des
+questions de propreté et d’eau, nous avons dû nous munir d’une grande bâche noire. La bâche noire permet aussi et
+principalement d’avoir un fond sombre pour apercevoir dans de meilleures conditions un arc-en-ciel.
+Au niveau de la source de lumière, nous avons utilisé une lampe de chantier de 500 W. Son spectre est différent de celui du
+soleil.
+
+Spectre solaire
+
+Spectre lampe 500 W
+
+Au début, il y a eu des soucis au niveau de la dispersion de la lumière, qui n’était pas assez concentrée sur la bâche. Pour
+résoudre ce problème, nous avons mis une lentille convergente devant la lampe. Nous avons également construit un petit
+dispositif composé d’un bout de cylindre en PVC sur un socle découpé, dont
+voici l’aspect
+
+:
+
+Nous avons pu obtenir cet arc en ciel à droite de la lumière et dans un angle de 45°.
+Le défi a été relevé, nous avons réalisé un arc-en-ciel en intérieur avec des conditions non-naturelles.
+
+3. Angle d’observation de l’arc
+Dans toutes nos manipulations, nous avons observé que l’apparition de l’arc ne se fait que pour une position précise de
+l’observateur, nous avons donc cherché à évaluer cette position.
+3.1 Mesures dans le jardin :
+Réalisation d’un arc en ciel grandeur nature :
+A la rentrée, avec ma coéquipière Mathilde, nous avons décidé de mettre en œuvre un arc-en-ciel maison dans un jardin.
+L’idée était de comprendre les subtilités de l’arc en ciel. Nous sommes parties du principe que s’il nous était jusqu’à présent
+impossible d’en faire un potable en laboratoire ou en tout cas en intérieur, c’était parce qu’un détail nous échappait. Le but
+a donc été de prendre toutes les mesures possibles.
+Principe de l'expérience :
+Voici le protocole que nous avons suivi :
+1/ placer une ficelle de 2m dans l’axe du soleil ;
+2/ se munir d’un jet d’eau et le déplacer tout d’abord vers la droite jusqu’à apercevoir un arc (le côté droit du jet) ;
+3/ placer la ficelle, ici, qui représente l'hypoténuse du triangle de droite ;
+
+4/ fermer avec la ficelle du côté opposé de l’angle alpha.
+Arc tangente (côté opposé/côté adjacent)
+Schéma de l’expérience :
+5/ Nous aurions pu mesurer les angles avec un rapporteur, mais celui que
+nous avions n’était pas assez précis. Nous avons alors calculé les angles α,
+en utilisant la relation trigonométrique :
+α=arctan (côté opposé/côté adjacent)
+6/ Répéter les mêmes opérations en déplaçant le jet d’eau vers la gauche.
+Réalisation du protocole :
+La seconde étape a été de construire deux triangles par rapport à l’axe du Soleil. Le but était de voir quand et où le début de
+l’arc était observable. Voici l’aspect :
+Position de l’observateur dos au soleil
+Deux triangles rectangles
+Résultats des
+mesures et
+explications :
+
+Mesure du côté opposé (m)
+
+Angle calculé
+
+A droite
+
+1,74
+
+41° ± 2°
+
+A gauche
+
+3,61
+
+61° ± 2°
+
+Nous n’avons pas obtenu le même angle à droite et à gauche. On observe une
+différence de 20° entre les deux angles.
+Nous pensons que cette différence est due au mouvement de la Terre par rapport au Soleil entre les deux mesures car un
+peu plus d’une heure s’est écoulée.
+Explications : Ts=24h ->360° ; 1h -> 360/24= 15°
+Nous observons qu’en une heure sur le plan équatorial, la Terre a tourné de 15°, cet angle calculé peut expliquer les 20° de
+différence observée lors de l’expérience dans le jardin. La différence de 5° s’explique du fait que nous ne sommes pas sur le
+plan équatorial.
+Conclusion :
+L’arc-en-ciel se forme dans un rideau d’eau, à environ 45° de l’axe soleil observateur.
+Nous avons ainsi mené une petite expérience avec une finalité satisfaisante, en prenant en compte les changements de
+notre environnement.
+
+3.2 La forme de l’arc-en-ciel
+
+Nous avons obtenu deux angles de 45°de part et d’autre du triangle, lors de nos mesures dans le jardin. Ce qu’il aurait été
+intéressant de faire également est de déplacer le jet de haut en bas, cela nous aurait permis d’obtenir un angle de 45° en
+hauteur. Nous aurions donc trois angles qui formeraient la forme d’un arc. Cette configuration nous indique que la forme du
+phénomène est éventuellement un arc. L'arc-en-ciel est ainsi l'intersection entre le plan vertical constitué par le mur d'eau et
+un cône de sommet les yeux de l'observateur et d’angle de 45°. La génératrice de ce cône est la droite passant par les yeux
+de l'observateur et la direction soleil observateur. Le centre de l’arc est l’intersection de la génératrice du cône et le rideau
+d’eau.
+Ainsi notre vision est comme un cône qui lorsqu’il est aligné avec le soleil
+permet de voir un arc-en-ciel sur son pourtour, qui forme un cercle.
+Plus le rideau d’eau, qui est dans l’alignement de notre œil, est proche, plus
+l’arc que nous verrons sera petit.
+C’est ainsi que nous pouvons conclure que la forme d’un arc-en-ciel est un
+cercle dont une partie du cercle n’est pas visible.
+
+3.3 Explications théoriques sur la déviation
+L'arc en ciel résulte de réfractions et de réflexions des rayons solaires à l’intérieur de gouttes d'eau : nous allons montrer
+pourquoi nous observons l’arc en ciel le soleil dans le dos et face à la pluie.
+
+La lumière du soleil arrive sur la goutte d’eau avec un angle d’incidence i par rapport au rayon de la goutte.
+1
+
+Une partie de la lumière est réfractée par l’eau selon un angle i avec le rayon de la goutte. La lumière réfractée rencontre
+l’interface eau-air où elle peut soit être transmise, soit être réfléchie.
+L’angle de déviation D est l’angle entre la direction du rayon incident et la direction de l’angle dévié. Cet angle est donné par
+la somme des déviations occasionnées.
+2
+
+Schémas et calculs théoriques :
+Nous avons réalisé des schémas qui permettent d’obtenir les formules permettant de calculer l’angle entre le rayon incident
+et le rayon dévié sortant de la goutte en fonction du nombre de réflexions internes. Voir ces schémas dans le document
+annexe.
+Nombres de réflexion
+interne
+Expression de la déviation (°)
+
+0
+
+1
+
+D = (i – i ) x
+2
+0
+
+1
+
+2
+
+2
+
+D1 =180 +2i –
+4i
+
+3
+
+D = 360 - 6i +
+2i
+
+1
+
+2
+
+2
+
+2
+
+1
+
+4
+
+D = 540 - 8i +
+2i
+3
+
+2
+
+1
+
+D = 720 - 10i +
+2i
+4
+
+2
+
+1
+
+Pour vérifier la formule de D , nous avons réalisé un schéma d’une goutte d’eau et nous traçons grâce à un rapporteur les
+angles corrects.
+1
+
+Grâce à ce schéma présent dans le document annexe, nous avons vérifié que notre formule était correcte.
+Représentation Python :
+Nous avons utilisé l’outil informatique python pour représenter l’angle de déviation en fonction de l’angle incident pour des
+rayons réfléchis de 0 à 4 fois à l'intérieur d’une goutte d’eau et de glycérine grâce aux formules mises en place. (Programme
+python en annexe)
+Nous pouvons voir sur le graphique les angles de déviation D0, D1, D2, D3 et D4 en fonction de l’angle i , pour une goutte
+d’eau.
+Nous observons que lorsqu’aucune réflexion interne ne se produit D (i ) est une courbe monotone croissante.
+Pour D1 en revanche (une réflexion interne), nous avons un minimum de déviation d’environ 137° pour un angle incident i
+d’environ 60°.
+Nous trouvons aussi les valeurs de minimum ou de maximum de déviation pour D2, D3, D4 : respectivement 50°, environ 0°
+et 95° pour des valeurs de i1 de respectivement 72°, 70° et 74°.
+1
+
+0
+
+1
+
+1
+
+Pour obtenir des valeurs angulaires plus précises, nous avons dérivé la déviation d1 en fonction de l’angle incident i1. La
+fonction dérivée s’annule au niveau du minimum de déviation. Nous pouvons ainsi trouver la valeur des angles i1 et D1 au
+minimum de déviation. Les valeurs ainsi trouvées sont i1 = 59,49 º et d1 = 137,48 º
+Ces minimums ou maximum de déviation représentent des accumulations de lumière, car pour un nombre relativement
+important d’angles d’incidence différents, nous avons le même angle de déviation.
+Les angles présentés ici sont calculés avec l’indice moyen de l’eau : 1,33. Nous avons aussi calculé les angles avec l’indice
+moyen de la glycérine : 1,47. Ces valeurs sont en annexe.
+
+C’est parce qu’il y a accumulation de lumière que les arcs-en-ciel sont visibles. L’arc observé usuellement correspond à une
+seule réflexion interne dans la goutte d’eau. Il arrive d’observer des arcs qui correspondent à deux réflexions internes, bien
+moins lumineuses, car à chaque réfraction et à chaque réflexion interne la lumière perd de la luminosité.
+Il est donc très rare d’observer des arcs d’ordre plus élevés.
+Représentation Geogebra :
+Pour représenter les réflexions internes dans la goutte, nous avons modélisé cette dernière grâce
+à l’outil informatique Geogebra. Nous pouvons donc grâce à cet outil faire varier l’angle incident et
+observer les différences que cela crée sur l’angle de déviation. On peut donc observer, comme
+calculé grâce à Python, un minimum de déviation à un angle incident d’environ 60°. La déviation
+est alors d’environ 137°. Ces résultats sont cohérents avec les données calculées.
+
+Figure réalisée sur Geogebra représentant un rayon monochromatique au minimum de déviation : i = 60° et
+D =138,5°
+1
+
+3.4 Mesure avec le cristallisoir
+Le but est de mesurer l’angle de formation des arcs-en-ciel en étudiant le minimum de déviation. Pour cela, nous allons
+reproduire ce qui se passe dans un arc-en-ciel à l’échelle d’une seule goutte et ainsi mesurer l’angle de déviation en fonction
+de l’angle d’incidence.
+Protocole général de l’expérience :
+Nous avons simulé la réfraction d’un rayon sur une goutte d’eau grâce à un laser éclairant un cristallisoir rempli d’eau
+distillée et un écran blanc derrière le laser.
+
+Schéma du montage :
+
+La déviation est matérialisée par l’image du faisceau lumineux sur l’écran blanc (une tâche). Plus l’angle entre le rayon laser
+et le rayon émergent est petit, plus la déviation est faible. Lorsque le faisceau éclaire le centre du cristallisoir, l’incidence est
+nulle. La déviation est de 180°. A partir de cette incidence nulle, nous déplaçons le laser latéralement pour faire varier l’angle
+incident sur le cristallisoir. Plus l’angle d’incidence augmente, plus la déviation diminue. Cependant, ceci n’est vrai que
+jusqu'à un certain angle incident, où la position de la tâche sur l’écran ne varie plus, nous sommes alors au minimum de
+déviation. Puis, lorsque nous poursuivons la translation du laser et que nous augmentons donc encore l’angle d’incidence,
+l’angle de déviation augmente.
+Grâce à des feuilles blanches disposées sous le récipient et sur l’écran blanc, nous pouvons tracer les différents angles des
+rayons pour pouvoir mesurer l’angle de déviation.
+Tracé des rayons expérimentaux et des angles mesurés au rapporteur :
+Nous mesurons :
+I = 61,0° et D = 135,5° ± 3,0 °
+1
+
+1
+
+On observe également qu’au minimum de déviation, le rayon est le plus
+concentré, ce qui est expliqué par l’accumulation de lumière citée précédemment.
+Nous avons réalisé la même expérience avec de la glycérine. Nous obtenons les
+mesures suivantes:
+I = 55° ± 5° et D = 154° ± 1 °
+1
+
+1
+
+Nous avons une grande incertitude sur l’angle incident, car le cristallisoir n’était pas
+parfaitement régulier, et le tracé de la tangente au cercle était alors peu précis.
+Les valeurs théoriques calculées grâce à Python, aux formules déterminées et à l’indice de la glycérine qui est de 1,47 sont :
+I1 = 51,48º et D1= 154,33º
+Les mesures sont cohérentes avec les valeurs théoriques calculées.
+Conclusion de l’expérience :
+Le résultat obtenu par l'expérience pour l’eau est cohérent avec les résultats obtenus par
+le calcul et les résultats obtenus graphiquement sur python ainsi que sur Geogebra. Le
+minimum de déviation est de 138 degrés pour un angle d’incidence de 60 degrés.
+Les résultats obtenus par l’expérience pour la glycérine sont cohérents avec les résultats
+obtenus sur python.
+Nous rencontrons cependant un problème avec le verre du récipient : le rayon du laser est
+réfléchi sur le premier dioptre et ensuite sur le deuxième (la deuxième surface de verre).
+Ainsi, deux rayons sortent ce qui provoque des problèmes pour les mesures. Pour résoudre
+ce problème, il faudrait prendre en compte l’indice de réfraction du verre dans nos calculs
+ainsi que son épaisseur.
+
+4. Couleurs de l’arc-en-ciel
+4.1 Mise en évidence de la dispersion de la lumière et du minimum de déviation
+Les couleurs de l’arc-en-ciel sont dues à la dispersion de la lumière par les gouttes d’eau. Comme la goutte d’eau, le prisme
+réfracte la lumière selon les lois de Descartes. Nous observons alors la dispersion et la déviation de la lumière par un prisme
+rempli d’eau et deux prismes en verre.
+Matériel : une lampe 12V et son alimentation, une fente, une lentille 125 mm, un banc et des pieds
+1 prisme rempli d’eau et 2 prismes en verre (1 crown, 1 flint)
+Schéma de l’expérience :
+Résultats :
+
+Comme pour la goutte d’eau, en tournant le prisme, on a mis en évidence l’existence d’un minimum de déviation.
+La déviation moyenne et la largeur du spectre dépendent de la nature du prisme. L’arc coloré apparaît plus loin et plus
+large avec le prisme Crown qu’avec le prisme à eau, cela signifie que nous n’avons pas la même déviation, car l’angle est
+plus loin et pas la même dispersion, car le spectre est plus large.
+Tableau représentant les résultats :
+EAU
+
+GLYCERINE
+
+CROWN
+
+FLINT
+
+DEVIATION MOYENNE
+
+Petite
+
+Moyenne
+
+Moyenne
+
+Grande
+
+LARGEUR DU SPECTRE
+
+Faible
+
+Moyenne
+
+Moyenne
+
+Grande
+
+INDICE MOYEN
+
+1,33
+
+1,47
+
+1,52
+
+1,74
+
+Conclusion : plus l’indice du milieu est grand, plus la déviation est grande et plus le spectre est large.
+
+4.2 Mesure des paramètres de la loi de Cauchy
+La dispersion de la lumière s’explique par le fait que l’indice d’un milieu dépend de la longueur d’onde de la lumière, donc
+des couleurs qui composent la lumière blanche.
+L’indice n d’un milieu est défini par n= co/c .
+où c est la célérité de la lumière dans le vide, et c la célérité de la lumière dans la matière. C’est la vitesse de la lumière dans
+la matière qui dépend de la nature de la matière et de la longueur d’onde.
+o
+
+La loi de Cauchy établit la relation n = A + B/l2.
+où n est l’indice du milieu, λ la longueur d’onde du milieu et A et B deux constantes dépendant du milieu.
+Nous avons fait une seconde expérience afin de déterminer les indices de l’eau de chaque couleur. Pour cela nous avons
+utilisé un goniomètre et un prisme à eau utilisé au minimum de déviation. Le but de cette expérience est de caractériser la
+dispersion due à la goutte en mesurant l’indice en fonction de 𝜆.
+Pour réaliser cette expérience nous avons eu besoin :
+• D’un goniomètre équipé d’une fente, d’un
+collimateur réglé à l’infini et d’une lunette
+autocollimatrice.
+• D’une lampe à vapeur de mercure dont nous
+connaissions les longueurs d’onde du spectre de
+raies
+• D’un prisme rempli d’eau
+Nous avons tout d’abord réglé le goniomètre pour
+observer nettement l’image de la fente en
+l’absence du prisme. En plaçant sur prisme sur le
+plateau nous cherchons avec l’oculaire la position
+du rayon dévié. En tournant le prisme, nous avons
+cherché le minimum de déviation, lorsque la raie
+étudiée faisait un aller-retour. Suite à cela nous
+avons lu l’angle correspondant à cette position, en
+degrés, minutes et secondes d’arc.
+Nous avons répété trois fois chaque mesure, puis
+déterminé la moyenne pour calculer l’indice.
+
+Spectre
+de la lampe à vapeur de mercure, longueurs d’onde en nm :
+Résultats :
+Couleur
+
+Longueur d’onde (nm)
+
+Mesure 1
+ϴ
+
+Mesure 2
+ϴ
+
+Mesure 3
+ϴ
+
+Moyenne
+ϴ
+
+D=
+|ϴ - ϴ |
+
+Indice n
+
+405
+
+20°29’30’’
+
+20°29’00’’
+
+20°29’10’’
+
+20°29’13’’
+
+24°27’80’’
+
+1,353
+
+b
+
+436
+
+20°38’40’’
+
+20°38’30’’
+
+20°38’40’’
+
+20°38’37’’
+
+24°18’56’’
+
+1,350
+
+v
+
+546
+
+21°03’20”
+
+21°03’50’’
+
+21°03’40’’
+
+21°03’37’’
+
+23°53’56’’
+
+1,344
+
+Raie jaune ϴ
+
+579
+
+21°09’40’’
+
+21°09’50’’
+
+21°09’20’’
+
+21°09’37’’
+
+23°47’56’’
+
+1,343
+
+44°56’50’’
+
+44°57’00’’
+
+44°57’30’’
+
+44°56’93’’
+
+1
+
+Raie violette ϴ
+Raie bleue ϴ
+
+Raie verte ϴ
+
+vi
+
+J
+
+Rayon non dévié ϴ
+
+Incertitude de 00°00’10”
+
+0
+
+2
+
+3
+
+m
+
+m
+
+0
+
+D est le minimum de déviation. Nous avons remarqué que le minimum de déviation varie en fonction de la longueur
+d’onde de la raie.
+La déviation de la lumière dépend donc de la longueur d’onde du rayon et de l’indice du milieu qu’il traverse. Cela nous
+permet de calculer pour chaque longueur d’onde l’indice n avec :
+n=sin(D/2+A/2)sin(A/2) où D =|ϴ - ϴ0| ; A est l’angle au sommet du prisme. Ici A = 59,5 °
+m
+
+Les résultats des calculs sont regroupés dans ce tableur :
+
+Ces résultats nous permettent d'observer la dispersion due à la goutte en fonction de lambda.
+La loi de Cauchy et ses coefficients : n = A +B/λ² où n est l’indice du milieu, λ la longueur d’onde du milieu et A et B deux
+constantes dépendant du milieu.
+
+D’après ce graphique, A = 1,3333 et B = 0,0032 mm2 donc n = 1,3333 + 0,0032/λ² avec λ en mm.
+Cette étude a également été réalisée pour la glycérine (voir courbes en annexe).
+4.3 Visualisation avec Geogebra :
+Représentation de la décomposition de la lumière dans une goutte :
+Grâce au logiciel Geogebra, nous pouvons représenter cette différence d’angle de déviation pour chaque longueur d’onde
+de la lumière (violet au rouge) dans une goutte d’eau.
+Prenons un exemple pour un angle d’incidence de 60 degrés.
+Avant de pouvoir réaliser la figure sur Geogebra, il faut calculer l’angle de réfraction pour chaque longueur d’onde choisie
+grâce à la loi de Snell-Descartes :
+Les lois de Snell-Descartes sont les lois décrivant les phénomènes de réfraction et de réflexion et les relations
+mathématiques entre les angles i , i et r.
+n x sin (i ) = n x sin (i )
+où n1 est l’indice optique du milieu de propagation du rayon incident et n2 est l’indice optique du milieu de propagation du rayon
+réfracté
+Indice de réfraction dans l’eau : n = 1,330
+n = 1,333
+n = 1,33
+1
+
+2
+
+1
+
+rouge
+
+Visualisation sur Geogebra :
+Voir les images en annexe
+
+1
+
+vert
+
+2
+
+2
+
+bleu
+
+Si nous agrandissons cette figure, nous pouvons effectivement observer une déviation différente pour chaque couleur (ici
+bleu, vert et rouge) que nous avons pu remarquer expérimentalement.
+L’aspect coloré de l’arc-en-ciel résulte donc de la différence de réfraction entre les rayons de différentes couleurs qui
+entrent dans la goutte.
+4.4 Comment l’observateur perçoit-il les couleurs de l’arc-en-ciel ?
+Pour que l’observateur puisse voir l’arc-en-ciel, il faut que la lumière émergeant de la goutte arrive dans son œil. Comme
+l'angle de déviation dépend de la longueur d'onde, l’œil ne peut voir tous les rayons de lumière émergeant d'une même
+goutte. L’observateur va donc voir la lumière bleue émergeant de certaines gouttes, la lumière rouge émergeant d’autres
+gouttes, etc.
+
+Sur la figure ci-contre, nous avons représenté les faisceaux réfractés par 4 gouttes : les gouttes du haut et du bas ne
+renvoient rien dans l'œil de l'observateur. Par contre, la goutte a envoie un rayon rouge et la goutte b renvoie un rayon
+bleu. Ce qui justifie que dans un arc en ciel, le bleu se trouve en dessous du rouge.
+
+5. Observation avec une goutte : les arcs surnuméraires
+5.1 But de l’expérience
+Dans l’expérience avec le cristallisoir vue en 3.4, la paroi en verre pose problème à cause de la paroi de verre. Pour
+pallier les déviations indésirables, nous avons voulu travailler sur une goutte « nue », plus petite mais sans ambiguïté quant
+aux déviations de la lumière. Nous avons donc éclairé une goutte avec un laser monochromatique.
+Ecran pour observer la déviation du faisceau
+
+Laser sur un support de déplacement latéral
+
+Burette
+
+5.2 Protocole de l’expérience
+Pour réaliser l’expérience nous avons eu besoin d’un banc, de pieds qui se déplacent latéralement, pour que le laser et la
+burette soient bien immobiles et sur le même axe, d’un laser vert, d’une burette, d’un écran, d’une caméra Caliens et du
+logiciel Caliens. Le montage consiste à placer sur un banc le laser et la burette. Notre but étant de faire passer le laser sur un
+
+des côtés de la goutte au minimum de déviation, le montage doit être le plus stable possible mais également très précis afin
+de bien placer le laser pour sur la goutte.
+Pour éviter les réflexions dues à la burette, nous plaçons un morceau de
+scotch noir dessus. Nous formons ensuite une goutte qui reste en suspension.
+Une fois le matériel en place, nous dirigeons le laser vers la goutte d’eau, puis
+nous faisons varier sa position sur la goutte. Nous plaçons un écran sur le côté de la
+burette pour observer la déviation du laser. Lorsqu’il atteint le minimum de déviation,
+nous devions, comme pour le cristallisoir, mesurer l’angle de déviation du laser, mais
+nous avons découvert un phénomène inattendu : des franges !
+Nous nous sommes alors demandé si ces dernières pouvaient être les arcs
+surnuméraires qui apparaissent parfois au côté de l’arc principal (photo ci-dessous), et
+si l’étude de ces franges pouvait nous permettre de mieux comprendre l’apparition et
+l’origine de ces arcs.
+
+Les arcs surnuméraires sont en général au nombre de deux ou trois et apparaissent,
+parfois, au-dessous de l’arc primaire ou au-dessus de l'arc secondaire (ils sont alors plus
+difficiles à observer), c’est-à-dire toujours du côté du violet.
+On peut en voir sur la photo ci-contre, prise dans la campagne sundgauvienne le
+matin du concours académique alors que nous voyagions vers Lyon !!
+Les arcs surnuméraires apparaissent lorsque le diamètre des gouttes est inférieur à 1 mm
+environ et entourent rarement les arcs secondaires. Ils reçurent leur première explication par
+Thomas Young (1773-1829), qui mit en évidence la théorie ondulatoire de la lumière, et les
+interférences entre les ondes lumineuses lors de leur réflexion.
+
+Sur l’écran, nous avons observé qualitativement que l’interfrange, distance entre deux franges successives, diminue
+lorsque la taille de la goutte augmente.
+Nous avons donc émis l’hypothèse de l’existence d’une relation entre ces deux grandeurs.
+Pour pouvoir mesurer l’interfrange en même temps que la taille de la goutte, nous avons modifié le montage : nous
+avons remplacé la burette par une seringue pour obtenir une goutte plus petite et réguler sa taille plus précisément, nous
+avons utilisé la caméra Caliens à la place de l’écran, et dans un même temps, nous avons projeté la goutte sur un écran pour
+mesurer sa taille réelle.
+
+Dispositif de projection :
+Nous alignons sur la banc le laser et la goutte, nous cherchons les franges sur l’écran et nous plaçons la caméra là où se
+forment les franges. Dans une autre direction, nous alignons la lampe blanche, la goutte et la lentille pour mesurer la taille
+de l’image de la goutte formée sur le tableau.
+
+Avec un peu de trigonométrie et d’après les propriétés des lentilles convergentes, on trouve les égalités suivantes :
+
+Nous mesurons d, distance lentille-écran, nous mesurons A’B’ le diamètre de l’image de la goutte et connaissons f la
+distance focale de la lentille de projection. Nous pouvons donc en déduire le diamètre réel de la goutte.
+
+5.3 Résultats obtenus
+Nous avons monté le matériel et cherché la réflexion et les franges. L’arc obtenu est le plus lumineux à droite
+(minimum de déviation). Les franges se forment à gauche.
+Mesures obtenues pour une petite goutte et pour une grande goutte :
+Petite goutte de diamètre
+1,20 ± 0,06 mm
+Grande goutte de diamètre
+1,40 ± 0,06 mm
+Le logiciel Caliens est un outil permettant de mesurer une distance. Nous l’avons utilisé pour mesurer précisément
+l’interfrange de chaque goutte.
+Nous avons évalué l’incertitude de la mesure de l’interfrange avec le curseur du logiciel, qui est de 0,02 mm.
+
+Capture par la caméra Caliens de l’intensité lumineuse dans la zone des franges :
+Grosse goutte, petit interfrange (gauche)
+Petite goutte, grand interfrange (droite)
+
+Interfrange Interfrange dans la goutte de 1,2 mm
+(mm)
+
+Interfrange dans la goutte de 1,4 mm
+(mm)
+
+1
+
+1,40
+
+1,33
+
+2
+
+1,03
+
+0,96
+
+3
+
+0,94
+
+0,82
+
+4
+
+0,80
+
+0,77
+
+5
+
+0,73
+
+0,70
+
+6
+
+0,66
+
+0,63
+
+L’interfrange diminue lorsqu’on s’éloigne de l’arc principal.
+5.4 Interprétation des franges : théorie de Young
+Tout comme les interférences avec des fentes d’Young, où l’interfrange diminue lorsque la distance entre les fentes
+augmente, nous pouvons interpréter les franges obtenues comme des interférences. Cependant dans les interférences avec
+des fentes d’Young, pour une distance donnée entre les fentes l’interfrange est une constante, ce qui n’est pas le cas ici.
+Mais quels rayons interfèrent ?
+
+Si i0 est l’angle de déviation minimal, les rayons interférant sont deux rayons d’incidence i- < i0 et i+ > i0, émergeant
+en B avec la même déviation. En effet, ces deux rayons n’ont pas parcouru le même chemin optique : la différence de trajet,
+c’est à dire la différence de marche, s’exprime :
+𝛿 = 4. 𝑛. 𝑎. {cos(𝑟 +) − cos (𝑟−)} + 2. 𝑎{𝑐𝑜𝑠(𝑖 −) − cos (𝑖+)}
+où a est le rayon de la goutte, et r- et r+ les angles de réfraction correspondant aux incidences i - et i+.
+On observe une frange claire chaque fois que :
+𝛿 = 𝑘. 𝜆 𝑜ù 𝜆 est la longueur d′onde
+k est un entier appelé ordre de la frange, c’est en fait son numéro.
+La première frange, plus lumineuse et plus épaisse, est l’arc principal. Les autres sont causées par les interférences
+entre les différents rayons émergents de la goutte, qui s’annulent ou s’amplifient, causant cet effet strié ; ce sont les arcs
+surnuméraires.
+
+5.5. Mesures au goniomètre :
+Dans l’expérience 5.2 nous avons étudié les interfranges à l’aide du logiciel Caliens. Nous avons donc décidé de les mesurer
+plus précisément avec un goniomètre.
+
+Nous avons reproduit le même protocole que dans l’expérience 5.2, sauf que avons placé un goniomètre, afin de
+mesurer plus précisément les angles interfranges. Nous avons d’abord réglé le goniomètre, puis créé une goutte à l’aide
+d’une seringue, que nous avons mesuré de la même façon que dans l’expérience 5.2, c’est-à-dire en projetant son image
+agrandie à l’aide de la lumière blanche et d’une lentille convergente. Nous avons ensuite allumé le laser et positionné la
+goutte de façon à apercevoir les interférences sur un écran blanc. Une fois trouvées, nous avons positionné le goniomètre
+afin de pouvoir voir les interférences dans l’oculaire et ainsi les mesurer.
+Nous avons mesuré les angles pour lesquels nous observions des franges sombres, et nous en avons déduit les interfranges,
+cela nous a permis d’observer l’évolution de l’écart entre les franges.
+Lors de nos mesures nous avons pu remarquer que les angles entre les interfranges se réduisent, ce qui coïncide avec ce qui
+a été observé et mesuré avec Caliens dans l’expérience 5.2.
+Voici notre meilleure série de mesures, donnant la déviation D et la largeur angulaire des franges :
+D(°) largeur angulaire(°)
+n° de la frange
+1
+138,367
+0,72
+2
+
+138,772
+
+0,41
+
+3
+
+139,103
+
+0,33
+
+4
+
+139,372
+
+0,27
+
+5
+
+139,625
+
+0,25
+
+6
+
+139,878
+
+0,25
+
+7
+
+140,092
+
+0,21
+
+8
+
+140,336
+
+0,24
+
+9
+
+140,542
+
+0,21
+
+10
+
+140,733
+
+0,19
+
+11
+
+140,911
+
+0,18
+
+12
+
+141,114
+
+0,20
+
+13
+
+141,311
+
+0,20
+
+14
+
+141,492
+
+0,18
+
+15
+
+141,675
+
+0,18
+
+16
+
+141,842
+
+0,17
+
+17
+
+142,011
+
+0,17
+
+Largeur angulaire en degrés en fonction du numéro de la frange
+
+5.6. Modélisation avec Python :
+Nous avons modélisé le phénomène d’interférence grâce à Python (scripts python en annexe). Tout d’abord en faisant
+varier i à partir de i0 (angle de déviation minimale), nous avons cherché les couples de valeurs i- et i+ qui donnent une
+interférence constructive.
+Nous avons pu obtenir les résultats suivants par exemple pour n = 1,33, l =532 nm (vert) et a = 2,0 mm, en faisant varier i1
+entre i0 et 70° = 1,22 rad. On voit sur le premier graphique, qui donne l’ordre en fonction de i1 , qu’on pourrait observer 23
+franges claires, et sur le second graphique l’intensité lumineuse en fonction de i1.On peut clairement reconnaître des franges
+d’interférences comme celles observées expérimentalement, mais la première frange brillante est différente.
+Ici, les valeurs ne sont pas calculées pour l’intégralité des angles i1 et on peut voir que l’on trouve déjà 24 franges. Pour
+l'intégralité des i1, donc entre i0 et 90° on trouve plusieurs centaines de franges !
+
+On peut grâce à un second script retrouver les valeurs de i1 qui donnent des franges sombres, et trouver les valeurs des
+déviations théoriques correspondantes. Nous avons donc comparé ces valeurs théoriques aux valeurs mesurées avec le
+goniomètre en 5.3 :
+
+Les résultats théoriques sont cohérents aux valeurs mesurées au goniomètre, pour les grands ordres, mais pas pour les
+premières franges. Nous avions déjà constaté une différence sur le premier graphique… Young aurait-il oublié quelque
+chose ?
+
+6. Conclusion
+Les nombreuses expériences réalisées avec de l’eau nous ont permis de reproduire un arc-en-ciel en laboratoire et nous ont
+permis de comprendre les principales caractéristiques d’un arc en ciel lors de la création de celui-ci. Bien que la création d’un
+petit arc-en-ciel en intérieur reste compliquée, nous avons réussi à en réaliser un totalement artificiel.
+Notre équipe a mis en œuvre plusieurs expériences afin d’obtenir les différentes conditions pour obtenir un arc-en-ciel : tout
+d’abord le rideau d’eau doit se trouver devant nous, tandis que le soleil se trouve dans notre dos. De plus, nous avons pu
+comprendre pourquoi un arc était en forme de cercle, pourquoi les couleurs de l’arc-en-ciel sont dans un certain ordre. Nous
+avons aussi pu étudier le phénomène des arcs surnuméraires qui sont des phénomènes d’interférence.
+Le jury des Olympiades de Lyon nous a fait part d’une piste à exploiter: utiliser un liquide différent. Nous avons donc pensé à
+la glycérine, de par ses propriétés proches de celles de l’eau. Celle-ci est notamment utilisée dans les théâtres et les effets
+spéciaux.
+Nous sommes à présent en train de refaire des mesures avec des gouttes de glycérine : nous observons beaucoup mieux les
+franges (courbe Caliens en annexe) car la glycérine fait de plus belles gouttes que l’eau et surtout plus stables, alors que les
+gouttes d’eau sont fragiles : trop grosses elles tombent facilement et trop petites elles s’évaporent, peut-être à cause de la
+lampe blanche qui les chauffe.
+
+7. Remerciements
+Nous remercions M. STRUBEL et Mme. ADLOFF, professeurs des classes préparatoires au lycée Albert Schweitzer de nous
+avoir offert l’opportunité de réaliser ce beau projet. Merci pour votre disponibilité, votre aide et votre soutien sans quoi ce
+projet n’aurait pas pu aboutir.
+Merci à John A.Adams, qui nous a gracieusement fourni son livre.
+Nous remercions également Arnaud BOIRON, préparateur des classes préparatoires du lycée, qui nous a épaulé dans ce
+projet et qui a su nous aider et nous prêter main forte lorsque nous avions besoin.
+
+8. Sources
+https://www.fondation-lamap.org/fr/page/12052/l-arc-en-ciel
+http://pfz.free.fr/arc_en_ciel.htm
+http://physiquelumiere.canalblog.com/archives/2010/10/06/15817867.html
+http://webetab.ac-bordeaux.fr/Etablissement/BDBorn/sections/postbac/prepasciences/physique/telech/docs20089/O1_20082009.pdf
+R. Jouanisson. L’arc-en-ciel : observations et expériences. BUP n°809. Décembre 98.
+Alexander Haussmann : Rainbows in nature: recent advances in observation and theory Eur. J. Phys. 37 (2016)
+John A. Adams : the mathematical physics of rainbows and glories ( ELSEVIER).
+
+

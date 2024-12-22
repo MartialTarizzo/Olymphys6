@@ -1,0 +1,1037 @@
+Année 2011-2012
+XIXe édition
+
+Un « radar » infaillible ?
+
+Elèves participants :
+
+MALAGUTTI Jean-Charles CADOT Arnaud BELMAHI Faïçal MICAS Emmanuel LUGARDON Vladimir
+
+Avec : LACLAVERIE Jean-Michel, professeur encadrant
+Lycée Bernard Palissy - AGEN
+Académie de Bordeaux
+
+Table des matières
+Résumé
+
+Introduction
+I – Etude des « radars » de feu rouge
+1.1 – Cahier des charges fonctionnel
+1.2 – Théorie des détecteurs de métaux
+1.3 – Présentation du montage du détecteur
+1.4 – Réglages du système
+
+II – Création d’un prototype en laboratoire
+2.1 – Montage comparateur
+2.2 – Interrupteur commandé
+2.3 – Premier prototype : système mécanique asservi
+2.4 – Second prototype : prise de décision électronique
+2.5 – Contrôle des feux
+2.6 – Appareil Photo Numérique (APN)
+2.7 – Problèmes récurrents
+2.8 – Prototype actuel
+
+III – Brouiller le « radar » : passer outre la détection
+3.1 – Expérimentations autour du brouillage
+3.2 – Applications
+
+Conclusion
+Bibliographie et références internet
+Annexes
+
+2
+
+XIXème Olympiades de physique – Les détecteurs de franchissement de feux rouges
+
+Résumé : Nous avons réalisé et étudié un modèle de détecteur de franchissement de feu
+rouge, généralement appelé de manière impropre un « radar de feu rouge ». Puis, nous
+avons cherché à déterminer s’il était possible de tromper notre prototype, en masquant le
+passage d’une voiture. Nous y sommes parvenus en utilisant une bobine émettrice portée
+par le véhicule à détecter. Nous avons fait appel à nos connaissances en électromagnétisme
+sur les bobines du cours de Première et Terminale S, et nous avons travaillé uniquement par
+empirisme et tâtonnements pour déterminer l’électronique de notre montage (filtre passebande, détecteur de crête, amplificateur opérationnel comparateur, contrôle électronique).
+
+Partenaire : R. Cadot, ingénieur en systèmes électroniques à la retraite, pour ses
+précieux conseils. M Cadot a travaillé sur l’électronique du nez du Concorde, le
+métro de Mexico…
+
+Introduction :
+Tout a commencé avec la lecture d’un article de Olivier Hertel « Les radars
+voient rouge » dans Sciences Avenir. Il nous permit de trouver un sujet intéressant,
+en première intention pour les TPE (mais l’idée fut abandonnée par manque de
+moyens individuels), puis par la suite pour les Olympiades de Physique (où nous
+avions accès au matériel des laboratoires de physique du Lycée). Notre première
+surprise fut de découvrir que le terme de « radar » habituellement utilisé n’était pas
+du tout adapté. En effet, ces dispositifs s’avèrent être en réalité des détecteurs
+électromagnétiques, à l’instar des détecteurs de mines. L’électromagnétisme étant
+alors au programme de Première S, nous avons alors envisagé que fabriquer un
+détecteur en laboratoire était peut-être à notre portée.
+Cependant, nous nous sommes presque immédiatement heurtés à un
+problème de taille : nos connaissances en l’électronique. Nous n’avions alors que des
+notions des plus basiques enseignées au Lycée et le programme de Terminale S ne
+promettaient pas d’être d’un grand secours. Alors, aidé par notre professeur de
+Physique-Chimie, M. Laclaverie, nous avons décidé d’aborder uniquement par
+empirisme, sans aucune équation ni support théorique : réalisation de montages de
+livres d’électronique et prises de mesures. Ce fut une entreprise assez folle… Et nous
+avons nous-même parfois du mal à croire que de simples tests nous ont permis d’aller
+si loin : jusqu’à un prototype fonctionnel.
+En effet, l’étude des tensions, en particulier sur Latispro1, et les choix des
+composants par déduction et essais successifs nous ont permis d’appréhender leur
+fonctionnement, suffisamment pour les utiliser, probablement pas de manière
+optimale, mais déjà de manière effective.
+Nous vous présenterons d’abord le principe de fonctionnement des détecteurs
+électromagnétiques de franchissement de feu rouge. Puis nous expliquons les deux
+parties véritablement au cœur du montage : la détection et le déclenchement de
+l’appareil photo.
+Enfin, nous aborderons une question qui nous a tous taraudé depuis le début
+du projet. Bien gentils garçons que nous sommes, déjà conducteurs pour certains
+d’entre nous, c’est totalement innocemment que nous nous sommes posé l’inévitable
+question : est-il possible de tromper le radar, pour « griller les feux rouges »
+impunément et de manière purement hypothétique… cela va sans dire.
+
+1
+
+Logiciel d’acquisition utilisé par notre Lycée
+
+XIXème Olympiades de physique – Les détecteurs de franchissement de feux rouges
+
+3
+
+La réponse sera donnée dans la dernière partie de notre travail. Face à ces résultats
+nous nous sommes posés quelques questions sur les éventuelles sécurités des
+modèles taille réelle…
+
+4
+
+XIXème Olympiades de physique – Les détecteurs de franchissement de feux rouges
+
+I) Les « radars » de feu rouge
+1.1 – Cahier des charges fonctionnel
+La première étape de la réalisation de tout projet dont l’objectif est de parvenir
+à la réalisation d’un objet répondant à un besoin précis est la rédaction d’un cahier
+des charges, ce qui fut fait en Mars 2011.
+
+1.1.1 – Introduction au problème
+Nous nous proposons de réaliser un modèle réduit d’un détecteur de
+franchissement de feu rouge, en se basant sur les contraintes de la réalité, et en
+réutilisant les même principes de fonctionnement. L’objectif de la démarche est la
+réalisation d’un prototype électronique fonctionnel, sans suivre de plans pré-établis
+pour l’ensemble du projet. Il sera cependant possible de suivre des schémas-type
+pour les modules du circuit, mais les réglages et les mises en relation de ces modules
+sera faite de manière empirique, par essais successifs, dans le but de se familiariser à
+la démarche d’essais et d’erreurs (trials & errors) pour arriver à une compréhension
+pratique d’un système globalement inconnu.
+L’ensemble du projet devra être financé par un budget de 300€, matériels
+empruntés aux laboratoires du Lycée exclus.
+Le groupe de travail sera constitué, exhaustivement, de : BELMAHI Faïçal,
+CADOT Arnaud, LUGARDON Vladimir, MALAGUTTI Jean-Charles, et MICAS
+Emmanuel.
+Le professeur encadrant, LACLAVERIE Jean-Michel, procurera un support technique
+et assurera la jonction entre le Lycée (frais, emprunts de matériel, responsabilité,
+utilisation des locaux…) et le groupe.
+
+1.1.2 – Expression fonctionnelle du besoin
+Notre projet devrait se plier à plusieurs contraintes, ainsi que remplir
+parfaitement certaines fonctions. Le prototype devra :
+- Respecter les bases du modèle taille réel. Le prototype devra donc au
+minimum posséder deux bobines, un appareil photo, un flash, un feu tricolore
+et une ligne au niveau dudit feu.
+- Fonctionner de manière similaire au modèle taille réelle. La prise de photo ne
+doit se faire qu’en cas d’infraction. L’infraction est définie par un
+franchissement des roues avant du véhicule de la ligne de feu, si ce dernier est
+rouge uniquement.
+- Être capable de prendre deux photos du véhicule détecté. La plaque
+d’immatriculation, si présente, doit être visible. Dans l’idéal, chaque photo
+devrait être prise de part et d’autre de la ligne du feu de signalisation, mais une
+marge d’erreur sera admise : il faut simplement que l’une des photos montre la
+voiture en infraction.
+- Être capable de détecter une masse métallique en mouvement, à travers une
+épaisseur de bois de 1.5cm, sans aucune marge d’erreur.
+
+XIXème Olympiades de physique – Les détecteurs de franchissement de feux rouges
+
+5
+
+-
+
+-
+
+Etre capable de fonctionner sans aucune intervention humaine. Des
+recalibrages dus aux imperfections dans le matériel utilisé (Générateurs de
+fonction instables, etc.) seront cependant possibles.
+Etre capable, sans aucune intervention humaine, de rapatrier les
+photographies sur un ordinateur via un réseau, de les traiter pour en extraire
+la plaque d’immatriculation, et de la comparer à une base de donnée fictive
+pour retrouver le nom du propriétaire. Cette contrainte soulève de nombreux
+problèmes techniques, et ne sera traitée que si toutes les autres contraintes
+sont pleinement satisfaites.
+
+1.1.3 – Solution proposée pour répondre au besoin
+Notre prototype pourra être divisé en au moins trois modules :
+- Détection
+- Traitement du signal
+- Prise de photo
+- (Optionnel) Transmission et traitement des photos.
+A l’instar du modèle taille réel (contrainte n°1), le module de détection
+utilisera un détecteur de métaux, dont la conception reste à définir.
+Le contenu du module de traitement du signal dépend grandement de la conception
+du module de détection. Cependant, en sortie de traitement, le signal doit être
+modulé de manière binaire, pour refléter les états du détecteur : présence, ou non, de
+véhicule au-dessus des bobines. L’état du feu de signalisation n’est pas encore pris en
+compte.
+Le module de prise de photo doit être capable de décider, selon les données
+qu’il reçoit, de prendre ou non des clichés. Les deux conditions sont : présence d’un
+véhicule (connexion au module de traitement du signal), et feu de signalisation en
+position rouge.
+Le module de transmission et de traitement des photos doit être capable
+d’envoyer, par le réseau, des données binaires de taille conséquentes (plusieurs
+centaines de Ko2), vers un système informatisé, qui traitera les photos pour en
+extraire la plaque d’immatriculation, et en déduire l’identité du propriétaire. Cette
+partie soulèvera probablement d’importantes contraintes techniques.
+Par ailleurs, en parallèle du détecteur de franchissement, il serait intéressant
+de se pencher sur la fabrication d’un système capable d’induire le détecteur en erreur,
+pour que l’infraction ne soit pas constatée.
+
+1.2 – Théorie des détecteurs de métaux
+Tout d’abord, notre première découverte fut que l’appellation populaire
+« radar » est impropre, et ne reflète pas la réalité technique, puisque ces appareils
+placés aux feux rouges sont en définitive des détecteurs électromagnétiques.
+En effet, un radar, à l’instar des chauves-souris ou des dauphins, émet une
+onde, puis récupère le signal réfléchi par un éventuel obstacle, et permet ainsi de
+2
+
+6
+
+Kilooctet, unité de volume de données
+XIXème Olympiades de physique – Les détecteurs de franchissement de feux rouges
+
+calculer la distance entre eux. Par ailleurs, si l’objet détecté est en mouvement, l’effet
+Doppler, utilisé par les radars aux bords des routes, permet de connaître sa vitesse.
+En revanche, un détecteur de franchissement
+de feu rouge utilise deux bobines3 placées
+dans la chaussée, l’une avant et l’autre après
+le feu. Si une seule serait, en théorie,
+nécessaire, la redondance permet d’ôter tout
+doute quant au franchissement réel de la
+ligne du feu rouge par une voiture.
+
+Un détecteur de franchissement de feu rouge ressemble en réalité à un double
+détecteur de métaux, chaque détection déclenchant une prise de photo.
+Pour détecter les métaux, il est possible d’utiliser un champ magnétique
+variant dans le temps auquel les métaux. Le champ magnétique sera alors produit par
+une bobine parcourue par un courant alternatif. C’est le cas de la plupart des
+détecteurs du commerce, et ce sera le cas de notre montage.
+Chaque bobine est parcourue par un courant et produit un champ magnétique très
+régulier. Si une importante masse métallique (une voiture, par exemple) passe audessus de la bobine, le champ magnétique change.
+Un filtre passe-bande actif, utilisant en son sein les deux bobines, est centré sur
+une fréquence qui varie en présence d’un métal. Il est alimenté par un générateur de
+signaux fournissant la fréquence centrale du filtre sans métal. Ce montage fabrique le
+champ magnétique pulsé. Tout élément métallique présent dans ce champ, modifie la
+valeur de l’inductance L des bobines et donc la fréquence centrale du filtre auquel
+elles appartiennent : la tension de sortie du filtre diminue ainsi lors d’une détection.
+En effet, le métal a la faculté de conduire l’électricité. Le champ créé par la bobine
+peut induire des courants de Foucault dans les métaux, qui à leur tour créent des
+champs magnétiques induits. C’est ce phénomène qui modifie la fréquence de
+l’oscillateur. On appelle courants de Foucault les courants électriques créés dans une
+masse conductrice, soit par la variation au cours du temps d'un champ magnétique
+extérieur traversant ce milieu, soit par un déplacement de cette masse dans un champ
+magnétique constant. C’est la variation de fréquence de l’oscillateur qui est la
+première étape de la détection.
+Au centre d’une bobine, avec μ la perméabilité magnétique du milieu, I l’intensité
+traversant la bobine, R le rayon de la bobine et N son nombre de spires, on obtient :
+
+Dans l’air :
+
+-
+
+Si une masse métallique passe à proximité de la bobine, μ change don Bz aussi.
+Dans notre montage expérimental, les deux bobines produisent un Bz qui est
+variable. Des courants de Foucault apparaissent dans la voiture métallique en
+3
+
+On parle ici de bobines électromagnétiques de Helmholtz
+
+XIXème Olympiades de physique – Les détecteurs de franchissement de feux rouges
+
+7
+
+mouvement. Une force électromotrice est induite. La voiture produit alors un champ
+magnétique qui s’oppose à celui qui lui a donné naissance (loi de Lenz).
+L’inductance L dans chacune de nos bobines est proportionnelle au champ Bz
+au centre de la bobine. Si la voiture approche Bz change donc L change. Le générateur
+de signaux fournissant alors un signal qui n’a plus la fréquence centrale du filtre, la
+tension de sortie du filtre diminue.
+
+1.3 – Présentation du montage du détecteur
+Un filtre passe-bande est un filtre utilisé en électronique analogique pour isoler
+une bande de fréquence d’un signal. Plus la fréquence émise est proche de la valeur
+“centrale” du filtre, plus l’amplitude du signal en sortie sera importante. Ces filtres,
+utilisés notamment dans des capteurs calibrés pour des enregistrements précis
+(micro pour la voix humaine par exemple), permettent de supprimer le bruit
+ambiant. Ils sont également utilisés dans les systèmes radio (cours de spécialité
+physique en Terminale S), où la fréquence affichée se trouve être en réalité la valeur
+centrale du filtre de la radio. Dans ce cas, cette fréquence centrale est variable à l’aide
+d’un potentiomètre.
+Dans le cas du détecteur de franchissement de feu rouge, le signal, qui n’est pas
+modulé comme celui d’une radio, n’a aucun intérêt en lui-même, et n’est pas porteur
+d’information. En revanche, il permet de mettre en évidence une modification dans la
+valeur de la fréquence centrale du filtre, et c’est justement ce qui est utilisé dans notre
+détecteur.
+Nous avons trouvé dans un livre de Terminale STI (génie électronique) le schéma
+d’un filtre passe-bande actif et des valeurs de composants. Nous l’avons modifié en
+rajoutant une seconde bobine et en gardant les valeurs des composants données par
+le livre sans les remettre en question – il nous fallut admettre que l’électronique
+utilisée nous était parfaitement inconnue d’un point de vue quantitatif. Nous ne
+l’avions alors jamais étudiée, et même si quelques rapides recherches nous éclairèrent
+sur le fonctionnement individuel de chaque composant, nous désirions aborder ce
+travail de manière purement expérimentale, en modifiant petit à petit les valeurs des
+composants pour trouver leurs valeurs optimales de manière empirique.
+Pour le filtre, nous avons donc fini par utiliser :
+Condensateur C = 4,7 nF,
+2 bobines de Helmholtz identiques
+Résistance Rp = 1MΩ,
+Résistance R = 22kΩ
+Nous mesurons F0 = 21820 Hz
+La fréquence centrale du filtre se calcule de la manière suivante:
+
+=>
+
+8
+
+XIXème Olympiades de physique – Les détecteurs de franchissement de feux rouges
+
+L est l’inductance équivalente à l’association des deux bobines de Helmholtz placée
+en parallèle.
+
+Schéma du filtre passe-bande à deux bobines
+
+Il est suivi par un détecteur de crête :
+
+Schéma du détecteur de crête
+
+XIXème Olympiades de physique – Les détecteurs de franchissement de feux rouges
+
+9
+
+1.4 – Les réglages du système
+Nous utilisons dans ce montage un oscillateur sinusoïdal de fréquence fixe
+égale à la fréquence centrale du filtre passe-bande auquel il est associé. Le signal est
+simplement fourni par un générateur de signaux. Notre filtre, lorsque les bobines
+sont éloignées l’une de l’autre et loin de tout métal, a une fréquence centrale de
+22kHz.
+Voici l’enregistrement des tensions :
+- En bleu, avec une valeur maximale de 7V, la tension du générateur envoyée
+en entrée du filtre avec une fréquence de 22 kHz.
+- En orange, avec une valeur maximale de 8V, la tension de sortie du filtre.
+Nous remarquons que son amplitude est plus importante que celle du
+signal d’entrée et que ses maxima sont au-dessus des minima de la tension
+d’entrée. Les deux sont en opposition de phase.
+- En rouge, la tension du détecteur de crête à 7,4 V.
+- En vert, la tension au niveau du module comparateur (voir 2.1)
+
+Réglages pour l’acquisition : 2000 points sur 2ms
+
+Nous avons réglé la tension maximale de sortie du générateur à 7V pour
+obtenir une tension maximale de sortie du filtre à 8V et une tension du détecteur de
+crête à 7,5V. Lors de la détection d’un métal, les diminutions de Udétecteur de crête sont
+plus importantes si sa valeur sans métal (ici 7,5V) est plus importante. Choisir la
+valeur de Udétecteur de crête la plus importante possible semblait intéressante. Mais la
+carte d’acquisition (une Sysam SP5) sature à 10V.
+10
+
+XIXème Olympiades de physique – Les détecteurs de franchissement de feux rouges
+
+De plus, nous voulions garder les mêmes réglages pour notre étude du détecteur et
+celle du brouilleur de radar. Notre brouilleur tend en effet à faire augmenter la
+tension Udétecteur de crête de manière très importante, aussi, nous avons donc choisi 7,5V
+comme valeur nominale de la tension de sortie au détecteur de crête.
+
+XIXème Olympiades de physique – Les détecteurs de franchissement de feux rouges
+
+11
+
+II) Création d’un prototype en laboratoire
+Nous nous sommes donc attelés à la création d’un prototype, modèle réduit du
+détecteur de feu rouge. Le circuit électronique entier est divisible en modules, et
+représenté sur le schéma suivant :
+
+2.1 – Le montage comparateur
+Le module comparateur est la pièce au cœur du circuit. En effet, le signal se
+retrouve pour la première fois altéré par le passage d’une voiture au niveau du filtre
+passe-bande, mais est en l’état inutilisable.
+Le détecteur de crête permet de créer un courant continu artificiel, dont la tension
+reflète directement l’amplitude du signal en sortie de filtre, et le comparateur en luimême permet de moduler la variation dans la tension continue en un signal binaire –
+en somme, de trancher si oui ou non une voiture est passée au-dessus de la bobine. Si
+détection il y a, la tension en EA3 sera positive ; dans le cas contraire, elle sera
+négative.
+
+12
+
+XIXème Olympiades de physique – Les détecteurs de franchissement de feux rouges
+
+2.2 – L’interrupteur commandé
+A la sortie du module de comparaison, le signal est directement exploitable. On
+pourrait imaginer brancher ce que l’on veut directement sur ce signal, mais son
+intensité n’excède pas quelques mA, aussi, nous utilisons un transistor, pour
+transformer le module de détection en interrupteur. Un transistor est un composant
+électronique à trois entrées très utilisés pour ses propriétés de semi-conducteur. En
+effet, l’une des bornes, celle de contrôle, permet de changer la résistance du
+transistor entre les deux autres bornes. Lorsque la tension à la borne de contrôle est
+négative, le transistor est isolant, si elle est positive, il est conducteur. Lorsqu’une
+masse métallique sera au-dessus de la bobine, la tension à la borne du transistor sera
+positive, et il se comportera alors comme un interrupteur fermé. A l’inverse, lorsque
+le détecteur est inactif, la tension sera négative et le transistor sera un interrupteur
+ouvert. Ainsi nous pouvons alimenter le reste du circuit de manière indépendante
+sans risquer de griller l’électronique du filtre.
+
+2.3 – Premier prototype : système mécanique asservi
+Aux origines du projet, nous avions prévu de déclencher une prise de photo à
+l’aide d’un servomoteur, dont l’alimentation serait contrôlée par le transistor cité
+précédemment.
+Les servomoteurs servent à actionner les parties mobiles des modèles réduits :
+ailerons, volets et trains pour les avions, contrôle de direction dans le cas de
+modélisme automobile... À cette fin, les moteurs sont asservis et obéissent à une
+commande externe, généralement transmise par radio.
+Les servomoteurs sont commandés par l'intermédiaire d'un câble électrique à
+trois fils qui permettent d’alimenter le moteur et de lui transmettre des ordres de
+positions sous forme d’un signal codé en largeur d'impulsion.
+
+Cela signifie que c'est la durée des impulsions qui détermine l'angle absolu de
+l'axe de sortie et donc la position du bras de commande du servomoteur. Le signal est
+répété périodiquement, en général toutes les 20 ms, ce qui permet à l'électronique de
+contrôle de corriger continuellement la position angulaire de l'axe de sortie.
+Plaquette de connections
+Ailette
+
+Servomoteur
+Demi-disque gradué
+Axe de rotation
+
+La sortie TTL4 d’un simple générateur de signaux permet de diriger
+efficacement la rotation de l’axe du moteur. La tension bascule simplement entre 0 et
+4
+
+Transistor-Transistor Logic : signal binaire 0-0.5V / 2.4-5V
+
+XIXème Olympiades de physique – Les détecteurs de franchissement de feux rouges
+
+13
+
+5V. On branche le servomoteur à un générateur délivrant une tension de 5V continue
+et on délivre un signal avec un GBF5 de fréquence variable avec la sortie TTL. Pour
+une fréquence donnée, un angle est associé. La fréquence va de 225 Hz à 609 Hz
+pour des angles allant de -90° à 90°.
+
+Pour déclencher l’appareil photo, il suffit de placer au préalable le bras du
+servomoteur contre le déclencheur de l’appareil, puis de déplacer le bras de 10°, pour
+que la photo soit prise. Ce système est hélas mono-coup, c'est-à-dire que la fréquence
+du GBF doit être manuellement réajustée entre deux prises de photo.
+
+Cependant, tandis que la construction du prototype avançait, nous nous
+sommes rendu compte que ce système n’était ni fiable, ni pratique. Il était, entre
+autre, impossible de prendre deux photos à la suite, et le montage final ne répondait
+pas à notre cahier des charges originel. Finalement, nous avons dû nous pencher sur
+la conception d’un autre système, plus complexe mais plus fiable.
+
+2.4 – Second prototype : prise de décision électronique
+Alors que nous recherchions des
+solutions à notre problème de prise de vue,
+nous avons trouvé presque par hasard sur un
+forum d’électronique, où quelqu’un faisait les
+louanges
+des
+cartes
+programmables
+Arduino®. Après enquête, nous nous
+rendîmes compte que ces dernières
+répondaient exactement à nos besoins : d’un
+prix abordable, simples d’utilisation, très
+répandues (et donc bien documentées !), il
+fut décidé de remplacer le servomoteur par
+5
+
+Générateur Basse Fréquence
+
+14
+
+XIXème Olympiades de physique – Les détecteurs de franchissement de feux rouges
+
+un système purement électronique. Arnaud possédant des notions de programmation
+en C (langage dans lequel les cartes Arduino® sont programmées), il fut chargé
+d’explorer cette voie.
+Les cartes Arduino® – nous avons opté pour le modèle Uno, basique mais
+suffisant –sont des cartes électroniques programmables Open-Source, inventées par
+des étudiants Italien. Pourvues d’entrées/sorties numériques et analogiques, elles
+sont entièrement programmables, s’alimentent par port USB (ou par transformateur
+5V), et ont de plus le bon goût de fournir deux ports d’alimentation 3.3V et 5V.
+Cependant, aussi simples d’utilisation qu’elles puissent être objectivement, ce fut
+pour nous, novices complets dans ce domaine, tout un périple pour parvenir à un
+module fonctionnel. Assez étonnement, aucun pièce électronique n’a été grillée ni
+détruite dans le processus.
+
+2.5 – Aperçu du montage électronique : le contrôle des feux
+L’objectif, rappelons-le, était triple :
+- Selon la couleur du feu, décider de prendre ou non les photos
+- Prendre deux photos consécutives, lors du passage d’une voiture
+- Ne nécessiter aucune intervention humaine entre deux passages
+Si le troisième est trivial, et se joue du côté de la programmation de la carte, et si
+le second dépend du montage de l’appareil photo que nous détaillerons par la suite, le
+premier point s’avéra être plus ardu que nous ne l’avions prévu.
+Finalement, nous avons opté pour le système suivant : un interrupteur connecté d’un
+côté sur une entrée digitale (la 4), et de l’autre soit sur du +5V, soit sur la masse (0V).
+L’Arduino® étant pourvue de résistances internes de 20kΩ, le montage fut possible
+sans aucun rajout de résistance extérieure.
+Les feux, quant à eux, sont
+connectés d’un côté à la masse, et
+de l’autre à deux transistors (un
+pour chaque couleur), eux-mêmes
+connectés à une alimentation +5V
+et chacun contrôlés par un port
+différent de l’Arduino® – à savoir le
+port 7 pour le vert, et le 8 pour le
+rouge. Ainsi, émettre un signal
+depuis un de ces ports allume une
+des deux lumières.
+
+Le reste n’est plus qu’une simple condition dans la programmation de la carte :
+si il y a une tension +5V à l’entrée 4, alors on considère le feu vert (ou l’inverse), on
+émet sur le port 7 et on cesse d’émettre sur le port 8 : les feux changent de couleur. A
+l’inverse, si l’entrée 4 à une tension nulle, on émet sur le port 8, on éteint le 7, et on
+autorise les prises de photos.
+XIXème Olympiades de physique – Les détecteurs de franchissement de feux rouges
+
+15
+
+2.6 – L’Appareil Photo Numérique
+La prise des photos en elle-même fut définitivement la partie la plus
+éprouvante. De nombreux tutoriels existent sur Internet, expliquant pas à pas
+comment « hacker » un appareil photo pour l’utiliser avec un Arduino® – cependant,
+il s’agit toujours en fin de compte de faire de la soudure de précision sur la plaque
+électronique même de l’appareil. Une petite erreur avec le fer à souder est
+généralement fatale, et nous l’avons appris à nos frais lorsque le premier appareil
+photo, qui avait déjà mis plusieurs semaines pour venir par la Poste, rendit l’âme lors
+de l’opération à cœur ouvert. Pour notre défense, les soudures en questions ne
+faisaient généralement pas plus de quelques millimètres carrés, et nous ne possédons
+pas de matériel de soudure électronique de pointe… Un autre appareil fut commandé,
+et il fut même envisagé d’aller demander de l’aide au Lycée Technique voisin, qui
+possède à la fois le matériel et les compétences. Cela ne nous réjouissait guère : nous
+avions commencé notre projet avec comme objectif de réaliser un montage sans
+aucune aide extérieure, uniquement avec ce que nous pouvions faire de nos propres
+mains – et voilà que quatre malheureuses soudures nous empêchaient d’avancer !
+Heureusement, la chance – provoquée par une cherche complète et
+méticuleuse d’une cave bien remplie – nous sourit une fois encore, puisqu’il fut
+retrouvé dans un carton un vieil appareil photo numérique, en parfait état de marche,
+sacrifiable et surtout volumineux. C’est avec un plaisir non dissimulé que nous
+découvrîmes que les soudures à l’intérieur étaient en proportion avec la coque
+extérieure, et, après une étude minutieuse du circuit à l’aide d’un ohmmètre, nous
+procédâmes aux raccords. Entre les soudures ratées, les gouttes de colle extra-forte
+tombées sur les interrupteurs, et autres faux-contacts, nous passâmes plusieurs fois à
+quelques microns de la catastrophe, mais nous parvînmes tant bien que mal à
+« hacker » cet appareil photo. Mieux encore, emportés par notre élan innovateurs (et
+désespérés par la consommation monstrueuse de piles dudit APN, inversement
+proportionnelle à notre budget), nous le pourvûmes d’une alimentation 3V
+extérieure.
+Le principe de la prise de photo électronique est étonnamment simple : le
+bouton de prise de vue sur le dessus de l’appareil (d’habitude déclenché par un doigt)
+est court-circuité par un transistor, dont la patte de contrôle est branchée sur une
+sortie de l’Arduino®. Et c’est tout. Il faut cependant penser à relier les masses de la
+carte programmable et de l’appareil photo, si l’on veut que le transistor marche.
+Les photos sont par la suite récupérées de manière très classique, par câble USB.
+Un autre élément un peu délicat sous-estimé à la conception fut la jonction
+module détecteur/module de prise de photo. Naïvement, nous pensions qu’il suffirait
+« de brancher les deux ensemble » pour que « ça marche ». Hélas, il est très rare que
+la solution soit si simple, et après de nombreux tâtonnements, nous parvînmes au
+schéma suivant :
+
+16
+
+XIXème Olympiades de physique – Les détecteurs de franchissement de feux rouges
+
+Quelques explications sur ce schéma : le transistor NPN à gauche est celui à l’extrême
+fin du module du détecteur. La masse n’est pas représentée sur le schéma, mais
+comme nous l’avons appris à nos dépend, si la masse de l’Arduino® n’est pas reliée au
+reste du circuit, le système ne fonctionnera pas.
+L’alimentation 3.3V, quant à elle, est de facto procurée par la carte Arduino®.
+En effet, il n’est pas nécessaire d’avoir une grande puissance, bien au contraire, et
+cela nous épargne le besoin d’un générateur supplémentaire.
+Le fonctionnement théorique en lui-même de ce circuit, trouvé par
+tâtonnement et plus par instinct que par réflexion, nous laissa d’abord perplexe. Du
+point de vue de la programmation, Arnaud affirmait que la tension chutait lorsque le
+module de détection envoyait un signal, et qu’à l’inverse il notait une tension positive
+au repos – cependant, la DEL s’allumait lors de la détection, et restait éteinte le reste
+du temps. Cela nous paraissait totalement incohérent.
+L’explication nous vient lors de plus amples recherches sur l’électronique
+embarquée de l’Arduino®, au moment de réaliser les schémas de ce dossier. En
+réalité, les ports de la carte contiennent des résistances variables montant jusqu’à
+22kΩ, afin de pouvoir directement y brancher des DEL sans risquer un dramatique
+court-circuit.
+Ainsi, dans notre cas, lorsque le transistor est ouvert, la résistance totale du
+circuit est de plus de 22kΩ. En revanche, quand il est fermé, le capteur est mis en
+court-circuit, car le courant emprunte le chemin de moindre résistance, et celle du
+transistor est quasi-nulle ! La résistance totale du circuit tombe à 200Ω, soit plus de
+110 fois moins. Bien entendu, la tension relevée par l’Arduino® étant celle présente à
+l’intérieur du capteur, une fois ce dernier en court-circuit, elle sera forcément nulle.
+Quant au mystère de la DEL, ce fut la loi d’Ohm qui nous apporta une réponse. En
+effet :
+
+Formule dans laquelle U est la tension (V), I l’intensité (A) et R la résistance (A) du circuit.
+
+Or, U est constante. Donc, si R est grand (transistor ouvert), alors I est petit donc trop
+faible pour que la DEL s’allume ! A l’inverse, si R est petit (transistor fermé), alors I
+est grand et la DEL peut s’allumer.
+
+2.7 – De la nécessité d’acheter du matériel de qualité
+Le module de prise de photo était enfin terminé, et nous pensions être au bout
+de nos peines. Hélas, nous nous heurtâmes à d’autres difficultés imprévues,
+directement liées à la nature même de notre montage.
+L’appareil photo utilisé est ancien, d’un point de vue technologique (c’est-à-dire aux
+environs des années 2000), et déjà pour l’époque il était particulièrement bas de
+gamme. C’est d’ailleurs la raison pour laquelle nous nous sommes permit de le
+XIXème Olympiades de physique – Les détecteurs de franchissement de feux rouges
+
+17
+
+démonter et de le modifier : sa valeur marchande est très faible, et ses circuits
+internes sont très simples.
+Malheureusement, cela signifie aussi que ses capacités sont loin d’être
+grandioses, et si la résolution du capteur (0.3Mégapixels, de nous jours un téléphone
+d’entrée de gamme fait mieux) ne nous gênait pas outre mesure, sa photosensibilité
+ridiculement faible nous contraint à retourner aux schémas de conception pour les
+modifier une fois encore.
+Nous envisageâmes d’utiliser de véritables flashs d’appareils photos. Basés sur
+des condensateurs et des ampoules remplies de gaz rares, celui inclus dans notre
+appareil met trop de temps à recharger pour pouvoir être utilisé en rafale. Quelques
+recherches furent faites pour créer un flash à double condensateur, mais les tensions
+d’utilisation des petits flashs (type appareil photo jetable) nous donnèrent des sueurs
+froides. Il est une chose de manipuler des courants à 5V, il en est une autre de
+bricoler des condensateurs à plus de 330V ! Nous nous tournâmes alors vers d’autres
+solutions, en l’occurrence, deux DEL de puissance (2*3W) que nous avons montées
+sur l’appareil photo.
+Hélas, ce ne fut pas suffisant. Si ces DEL procurent une intensité lumineuse
+très importante, elle n’est pas directionnelle, et du coup n’éclaire que les environs de
+l’appareil photo. Il faut donc utiliser une autre lampe en complément, si l’on tient à
+avoir des plaques minéralogiques lisibles.
+Bien entendu, dans la vie réelle, un véritable flash étant utilisé, ce problème ne se
+pose pas.
+Une autre difficulté, une fois encore due à la vétusté de l’appareil photo, est la
+récupération des photos. Nous imaginions qu’il suffirait de brancher l’APN sur un
+port USB (puisqu’il n’y a pas, bien évidemment, de carte SD sur ces modèles bas de
+gamme…) pour les récupérer. Quelle erreur ! Ce fut une fois encore un parcours de
+combattant pour le moins inattendu. Les drivers de l’APN ne sont pas compatibles
+avec Windows 7, ni avec Vista ; sous Windows XP, il faut suivre une procédure bien
+précise (passant par la récupération des drivers en ligne sur le site du fabricant !),
+avec les droits d’administrateur (que nous n’avons bien entendu pas sur la plupart
+des ordinateurs du lycée !), pour que finalement l’appareil soit reconnu. Et là,
+surprise, il n’est possible de récupérer les photos qu’au travers d’un logiciel
+particulier, installé en même temps que les drivers…
+Une fois encore, l’expérience nous fit découvrir que les difficultés jaillissent
+des étapes du processus que nous n’avions pas initialement envisagés comme les plus
+critiques
+
+2.8 – Prototype actuel
+Finalement, nous parvinrent au montage suivant.
+Sur les photographies 1, 2 et 3, le module n’est pas connecté au reste du
+matériel, qui se trouvait alors sous clé dans le laboratoire du Lycée. Le transistor en
+fin de module de détection est simulé par un contact entre deux fils, et les
+générateurs de tension continue ont été remplacés à titre temporaires par des piles
+3V. De plus, le feu en lui-même est représenté par deux DEL (rouge et verte),
+directement placées sur la plaque.
+La connexion avec l’appareil photo et son « flash » à DEL se fait au travers
+d’un fil téléphonique, qui offre à la fois l’avantage de fils rigides pour les
+branchements sur la plaque, une gaine solide pour éviter les incidents, et un très bon
+rapport qualité/prix.
+18
+
+XIXème Olympiades de physique – Les détecteurs de franchissement de feux rouges
+
+Photo 1
+
+A deux mètres de là se
+trouve
+l’appareil
+photo et son « flash »,
+posés sur un trépied
+temporaire :
+
+Photo 2
+
+Photo 3
+
+XIXème Olympiades de physique – Les détecteurs de franchissement de feux rouges
+
+19
+
+Module de prise de photo:
+
+Module du détecteur :
+
+20
+
+XIXème Olympiades de physique – Les détecteurs de franchissement de feux rouges
+
+III) Brouiller le « radar » : passer outre la détection
+3.1 – Expérimentations autour du brouillage
+La question que nous nous posons maintenant est la suivante :
+« Est-il possible de “compenser” la détection de la masse de cuivre, avec une autre
+masse métallique (fer…) ou un champ magnétique créé par une autre bobine ? »
+La réponse est respectivement non et oui. La présence d’une bobine
+indépendamment alimentée au-dessus d’une de celle du détecteur provoque des
+réactions intéressantes. Outre la masse de fils de cuivre de la bobine, si l’on envoie un
+signal sinusoïdal dans ce nouveau circuit (avec une faible résistance pour éviter de
+mettre le GBF en court-circuit), on observe que, selon la fréquence du signal, le filtre
+ne réagit pas de la même façon. Un signal continu, quand à lui, n’a absolument aucun
+effet.
+Lorsque la fréquence du signal est éloignée de la fréquence centrale du filtre,
+rien ne se passe. Cependant, lorsqu’on la fait évoluer vers cette fréquence centrale, on
+observe des perturbations de plus en plus importantes sur l’entrée EA1, qui
+correspond au signal en sortie de filtre. Il semblerait que le champ magnétique
+de la nouvelle bobine induise une modification du signal : c’est à ce stade que les
+expériences deviennent intéressantes.
+En effet, lorsque la fréquence du signal parasite se rapproche de celle du signal
+de référence, l’amplitude et la fréquence du signal en sortie de filtre augmentent de
+façon très sensible. Cela fausse la tension continue obtenue après le détecteur de crête
+(expérimentalement, nous avons découvert qu’elle pouvait dépasser les 12V, pour
+une tension normale hors détection de 7.5V !), et donc réduit considérablement la
+sensibilité du filtre. Lorsque la bobine « parasite » est en place et réglée proche de la
+fréquence centrale (± 15%), la présence d’une masse de cuivre volumineuse passe tout
+simplement inaperçue : le détecteur est aveuglé par le champ magnétique !
+Cependant, cette possibilité de « brouiller » un détecteur de ce type de manière
+efficace et assez simple pose un léger problème technique pour une utilisation dans
+un cadre réel (purement théorique malgré tout !). En effet, il est impossible de
+déterminer la fréquence centrale du filtre du détecteur sans connexion directe
+vers une plateforme d’acquisition. Mais des mesures sur l’intensité aux bornes de la
+résistance du circuit du brouilleur ont révélé une particularité assez étonnante. Nous
+avons découvert que, plus la fréquence du brouilleur est proche de celle du filtre
+(donc, plus le brouilleur est efficace), plus l’intensité du courant aux bornes de la
+résistance diminue... pour ré-augmenter lorsque l’on s’en ré-éloigne. Il est possible
+que nous ayons là un moyen de calibrer le brouilleur, sans même avoir à toucher au
+filtre du détecteur. Auquel cas nous aurions un brouilleur parfaitement
+fonctionnel, pour un montage utilisant un filtre passe bande.
+
+XIXème Olympiades de physique – Les détecteurs de franchissement de feux rouges
+
+21
+
+Ainsi, avec une résistance R de 100 Ohm, nous obtenons les mesures suivantes :
+Fréquence (kHz)
+Tension diode (V)
+(brouilleur)
+(Sortie du filtre)
+1,1
+4,9
+4
+5,3
+6
+5,5
+8
+5,61
+10
+5,75
+15,6
+6,89
+16
+7
+18
+7,9
+19
+9,21
+20
+10*
+21
+10*
+22
+10*
+23
+10*
+24
+10*
+25
+8,67
+
+Tension efficace résistance
+Intensité efficace (A)
+(V) (brouilleur)
+(brouilleur)
+3,36
+0,0336
+1,42
+0,0142
+1,01
+0,0101
+0,79
+0,0079
+0,62
+0,0062
+0,27
+0,0027
+0,25
+0,0025
+0,032
+0,00032
+0,028
+0,00028
+0,05
+0,0005
+0,016
+0,00016
+0,023
+0,00023
+0,032
+0,00032
+0,027
+0,00027
+0,024
+0,00024
+* (Capteur saturé, tension > 10V)
+
+Graphiquement, l’efficacité du brouilleur est indéniable :
+
+Tension de la diode (V) en fonction de la fréquence (kHz)
+12
+
+10
+
+8
+
+6
+
+4
+
+2
+
+0
+0
+
+22
+
+5
+
+10
+
+15
+
+20
+
+25
+
+30
+
+XIXème Olympiades de physique – Les détecteurs de franchissement de feux rouges
+
+Et, si ces dernières valeurs ne peuvent être obtenues qu’en ayant un accès
+direct au détecteur en lui-même, ce n’est pas le cas de celles de l’intensité dans le
+brouilleur.
+
+Intensité efficace (A) = f(fréquence (kHz))
+0,04
+0,035
+0,03
+0,025
+0,02
+0,015
+0,01
+0,005
+0
+0
+
+5
+
+10
+
+15
+
+20
+
+25
+
+30
+
+Les très faibles valeurs et la précision limitée de nos appareils de mesure font
+que la courbe, au lieu d’atteindre un minimum à 22kHz, s’écrase sur le 0. Cependant,
+comme dit plus haut, il n’est pas nécessaire d’être exactement sur la fréquence
+centrale du filtre, et ce que l’on perd en précision peut être compensé par la puissance
+du champ magnétique.
+
+Voltmètre
+
+Générateur de
+signaux
+Ampèremètre
+
+Détecteur de franchissement
+
+Bobine de
+Helmholtz du
+brouilleur
+
+Bobine de
+Helmholtz du
+détecteur
+
+Schéma du montage utilisé pour ces expériences.
+
+XIXème Olympiades de physique – Les détecteurs de franchissement de feux rouges
+
+23
+
+Photo du montage utilisé pour ces expériences.
+
+Le brouilleur repose tout entier sur le principe d’induction.
+Lorsque deux bobines sont superposées, tout courant circulant dans l’une des bobines
+induira, via le champ magnétique, un courant similaire dans l’autre bobine.
+Cependant, la bobine du détecteur, loin d’être passive, est elle aussi parcourue par un
+courant très caractérisé. Ainsi, pour que le courant induit par la bobine du brouilleur
+ne s’oppose pas à celui du filtre, il faut que leurs caractéristiques soient similaires,
+d’où la similitude dans les fréquences d’utilisation. La bobine du détecteur est en
+quelque sorte transformée en générateur, ce qui augmente artificiellement la tension
+efficace du signal en sortie de filtre.
+
+3.2 – Applications
+Comme la photo ci-dessus peut en attester, si notre montage en laboratoire
+permet bel et bien d’induire le détecteur en erreur, la taille conséquente des bobines
+par rapport à l’échelle des voitures utilisées nous fit réfléchir à la création d’un
+modèle plus réduit. En pratique, cela se traduit par la fabrication d’une bobine
+capable de passer sous la carlingue.
+Cependant, une fois encore quelques problèmes furent soulevés, heureusement
+cette fois pendant la phase de conception. Tout d’abord, les bobines utilisées en
+laboratoires faisaient 320 spires, pour 15cm de diamètre. Un rapide calcul nous
+indique que cela correspond à plus de 150m de fil enroulé à la machine. Il fut donc
+clair qu’il nous serait impossible de faire une bobine aussi longue, dans un espace
+plus restreint, et à la main qui plus est. Finalement, nous réussir à compresser une
+24
+
+XIXème Olympiades de physique – Les détecteurs de franchissement de feux rouges
+
+bobine de 110m de fil de cuivre émaillé ø0.20mm sur une bobine rectangulaire de
+8x5.5cm, soit environ 400 spires.
+Le second problème soulevé fut plus théorique : la carlingue métallique des
+voitures risque d’agir comme une cage de Faraday, et d’absorber une grande partie du
+champ magnétique avant même qu’il ne soit utile. Théoriquement, le dessous des
+voitures de modélisme étant en plastique pour des raisons d’économie, ce
+phénomène ne devrait pas être un problème ; cependant, nous préférâmes ne pas
+courir le risque, et nous optâmes pour une vieille voiture téléguidée en plastique
+comme support, que nous avons artificiellement lestée de boulons et autres ferrailles
+là où elles ne devraient pas gêner le brouilleur.
+Par ailleurs, petit bonus rajouté par un bricoleur blagueur, la voiture roule
+toute seule grâce à une pile et un moteur.
+Troisième et ultime problème, qu’il fut cette fois impossible de résoudre : un
+GBF est un appareil lourd et volumineux. Nous aurions plus de chances de faire
+rentrer la voiture dans le GBF, que l’inverse. Il est donc nécessaire de laisser trainer
+deux fils à l’arrière de la voiture, afin de connecter la bobine à son alimentation. A
+échelle réelle, ce problème ne devrait pas se manifester.
+Finalement, notre prototype de voiture avec brouilleur finit par ressembler à ça :
+
+XIXème Olympiades de physique – Les détecteurs de franchissement de feux rouges
+
+25
+
+Conclusion :
+Notre prototype est capable donc de détecter le passage d’une voiture à un feu rouge,
+et de déclencher deux photos en rafale.
+Les deux photos sont cependant séparées par presque une seconde, car l’appareil
+photo modifié n’a pas été conçu pour des prises rapides. Il est technologiquement
+possible de mieux faire, mais utiliser un Reflex (plus de 1.000€) pour gagner
+quelques millisecondes s’avérât être bien au-delà du budget alloué à notre travail de
+recherche.
+Notre brouilleur fonctionne. Par induction, il transforme les bobines du filtre en
+générateur, et surcharge l’ensemble du détecteur. La voiture passe au feu rouge sans
+se faire remarquer…
+Notre objectif était de concevoir un détecteur de franchissement fonctionnel, et le
+brouilleur s’inscrit en bonus, montrant les faiblesses de notre propre système.
+Cependant, les détecteurs installés en France sur les feux rouges ne sont pas de
+simples filtres passe-bande, et les brouiller de cette manière est non seulement
+impossible, mais aussi illégal.
+
+Bibliographie et netographie :
+- Eugène Hecht, Physique, ITP De Boeck, p.847 pour l’auto-induction.
+(Livre gagné lors du concours 2010-2011 des Olympiades).
+L’ensemble des photos, schémas, diagrammes sont l’œuvre des auteurs de
+ce dossier, à l’exception notable du dessin de couverture, issu du
+Science&Avenir n° 750.
+Toutes les autres ressources utilisées ont été créée pour ce dossier.
+- Les détecteurs de métaux :
+http://www.artid.org/Fr/documentation_deminage/detecteursmetal.html
+http://www.detecteur.net/montages/montages.php
+http://www.la-detection.com/detecteur.htm
+- Prise de photo électronique :
+http://www.instructables.com/id/Hacking-A-Keychain-DigitalCamera-for-Arduino®-Cont/Arduino®-Cont/
+- Programmation de l’Arduino® :
+http://www.Arduino.cc/fr/
+- Logiciels utilisés :
+- The Gimp (schémas)
+- Dia (schémas)
+- LatisPro (acquisitions)
+- Suite Office (rédaction du dossier)
+Remerciements à R. Cadot, ingénieur en systèmes électroniques à la retraite, pour
+ses précieux conseils.
+
+26
+
+XIXème Olympiades de physique – Les détecteurs de franchissement de feux rouges
+
+Annexes :
+Le code utilisé avec l’Arduino® pour le déclenchement de la prise de vue ne fut pas
+détaillé dans le dossier en lui-même, car il ne présente en définitive aucun réel
+intérêt, et nuisait à la lecture. En effet, les seules difficultés qu’il présente sont d’ordre
+syntaxique, relative au langage C et aux instructions spécifiques aux Arduino®. La
+réalité algorithmique derrière est, en définitive, extrêmement simple, puisque
+littéralement composée de trois conditions et d’une poignée de variables.
+/* Par CADOT Arnaud, pour un projet des Olympiades de Physique 2011 */
+//Ports utilises en sortie
+const int outGrn=7;
+const int outRed=8;
+const int outTrig=2;
+const int outFlash=11;
+//Ports utilises en entree
+const int inLght=4;
+const int inCir=A0;
+void setup() { //Initialisations, ouvertures des ports, debut de la communication par le port serie
+avec le PC pour le debuggage...
+Serial.begin(9600);
+pinMode(inLght, INPUT);
+pinMode(outGrn, OUTPUT);
+pinMode(outRed, OUTPUT);
+pinMode(outTrig, OUTPUT);
+pinMode(outFlash, OUTPUT);
+}
+int state=0; //Booléen (0-1). Si FAUX, les photos peuvent être prises. Si VRAI, elles ne peuvent pas
+(photos déjà prises sur ce passage)
+void takeShot() { //Prend UNE photo
+digitalWrite(outTrig, HIGH);
+delay(110);
+digitalWrite(outTrig, LOW);
+}
+void loop() { //Fonction principale, appelée en boucle par l'Arduino. Equivaut à un forever() {}
+if(digitalRead(inLght)) //FEU VERT
+{
+digitalWrite(outGrn, HIGH); //VERT
+digitalWrite(outRed, LOW); //ROUGE
+}
+else // FEU ROUGE
+{
+digitalWrite(outGrn, LOW);
+digitalWrite(outRed, HIGH);
+int sensorValue = analogRead(A0); //Lecture de la tension en entree
+if(sensorValue<128) // Si elle est faible, il y a detection (capteur court-circuité par le
+transistor et la mise à la masse)
+{
+if(!state) //Si c'est l'on n'a pas pris de photos durant ce passage, on les fait
+{
+digitalWrite(outFlash, HIGH);
+delay(50);
+takeShot();
+delay(750);
+digitalWrite(outFlash, LOW);
+}
+}
+else // Lorsque le capteur indique qu'il n'y a pas (plus) detection, on remet state à 0 pour le
+prochain passage
+state=0;
+}
+}
+
+XIXème Olympiades de physique – Les détecteurs de franchissement de feux rouges
+
+27
+
+

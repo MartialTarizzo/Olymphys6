@@ -400,7 +400,7 @@ class JuryController extends AbstractController
                 $form = $this->createForm(NotesType::class, $notes, array('EST_PasEncoreNotee' => false, 'EST_Lecteur' => true,));
                 $flag = 1;//Le juré évalue l'écrit
             } else {
-                $notes->setEcrit('0');;//Le juré examine sans étudier le mémoire on attribue 0 à la note du mémoire
+                $notes->setEcrit('0');;//Le juré examine sans étudier le mémoire on attribue 0 à la note du mémoire qui ne sera pas comptablisée
                 $form = $this->createForm(NotesType::class, $notes, array('EST_PasEncoreNotee' => false, 'EST_Lecteur' => false,));
             }
         }
@@ -412,7 +412,7 @@ class JuryController extends AbstractController
             $notes->setCoefficients($coefficients);// renseigne les coefficeints appliquées
             $total = $notes->getPoints();//Le total sans l'écrit est inscrit dans le tableau des notes
             $notes->setTotal($total);
-            if ($nllNote) {//Si c'est une nouvelle note on augemente le nombre de notes de l'équipe
+            if ($nllNote) {//Si c'est une nouvelle note on augmente le nombre de notes de l'équipe
                 $nbNotes = count($equipe->getNotess());
 
                 $equipe->setNbNotes($nbNotes + 1);

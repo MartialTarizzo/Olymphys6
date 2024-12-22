@@ -1,0 +1,503 @@
+OLYMPIADES DE PHYSIQUE
+
+XXIXe édition
+
+Chacun dans sa bulle!
+
+par les élèves de l'atelier physique du lycée Palissy
+(Raphaël Mairet; Leïla Gagne; Adrien Gagne; Thalia Bonnet;
+Clothilde Filiol)
+Avec LACLAVERIE Jean-Michel
+Professeur encadrant
+Lycée Bernard Palissy- AGEN
+Académie de Bordeaux
+
+Table des matières
+Résumé:
+
+2
+
+Problématique: Leïla
+
+3
+
+Introduction: Leïla
+
+3
+
+I/ Présentation des techniques de bulles sonores Thalia
+
+4
+
+II/ Ondes, sons, interférences et modulations : Clothilde
+A- Les ondes et le son:
+B- La modulation, la démodulation :
+C- Interférences destructrices et battements
+D- Les bulles sonores aujourd’hui:Thalia
+
+4
+5
+6
+6
+7
+
+III/ Nos essais expérimentaux:Raphaël
+Modulation:
+A- Première expérience de modulation:
+Battements:
+B- Premières expériences de battements
+
+8
+8
+8
+9
+9
+
+IV Nos mesures (Adrien et Leïla et Thalia)
+A - Lundi 11 octobre :
+B- Lundi 18 octobre:
+C- Comparaison avec le phénomène d’atténuation géométrique
+
+12
+12
+14
+17
+
+Conclusion Leila:
+
+18
+
+Sources documentaires :
+
+18
+
+ANNEXE 1 : Les échanges entre Leïla & Adrien et les chercheurs et journalistes
+Noveto (Adrien)
+Akoustik Art (Adrien)
+
+19
+19
+19
+
+ANNEXE 2: programme python de modélisation des battements par Adrien
+
+21
+
+ANNEXE 3: Nos tableaux de mesures
+
+22
+
+Résumé:
+Après s'être documentés sur le son, les ultrasons, les battements et la modulation
+d'amplitude, nous voulons réaliser un modèle de bulle sonore. Pour cela nous avons
+contacté Noveto et Akoustic Arts, deux startups du secteur, pour mieux connaître la
+physique des bulles sonores. Puis nous avons expérimenté avec pour but de produire un
+son localisé grâce à des ultrasons. Deux techniques ont été explorées: la production d'un
+battement audible à partir de deux ultrasons de fréquences proches, ou la modulation d'un
+signal ultrasonore par un son avec un multiplieur. Nous utilisons Phyphox et nos téléphones
+portables pour étudier le son, ou Latis Pro, Audacity et un ordinateur.
+
+Problématique: Leïla
+Est-il possible de produire un son qu'un seul auditeur peut entendre, sans gêner ses voisins,
+et sans que l'auditeur ne porte aucun appareil (ni casque, ni récepteur...)? Peut -on faire un
+modèle d’un tel système avec le matériel du lycée?
+
+Introduction: Leïla
+Le son se propage naturellement dans toutes les directions qui lui sont offertes. Arriver à le
+diriger est un véritable défi. Le confiner dans une bulle est encore plus compliqué et n’a été
+réalisé dans les laboratoires de recherche que récemment. Mais les applications sont
+nombreuses. Imaginez le conducteur d’une voiture qui entend le GPS sans déranger son
+voisin qui écoute de la musique. Ou bien les visiteurs d’un musée, chacun suivis par une
+bulle sonore pour écouter les commentaires sans porter aucun appareil! Aujourd’hui c’est
+possible.
+Le point de départ de notre travail est un article du nouveau magazine d’information
+scientifique Epsiloon sur les bulles sonores. Cet article présente le transport du son par des
+ultrasons. Au lycée nous travaillons sur le son et les ultrasons, et l’idée d’approfondir ce
+sujet nous a plu.
+Après avoir contacté les journalistes d’Epsiloon et deux startups travaillant sur le sujet, nous
+nous sommes documentés sur les battements d’ondes et la modulation d’amplitude. Deux
+séances de deux heures de l’atelier scientifique y ont été consacrées, en nous appuyant sur
+un cours de l’ENS lyon.1
+Puis nous avons débuté nos expériences avec Latispro pour produire des signaux modulés
+et des battements. Nous avons cherché à détecter un son transporté par les ultrasons.
+Après quelques déceptions, les très performantes cartes sons de nos téléphones nous ont
+permis d’explorer les bulles sonores et de mesurer leur étendue spatiale ainsi que l’influence
+de la fréquence des battements sur leurs positions.
+Pour finir nous vous présenterons nos conclusions sur les mesures et nos nouvelles
+perspectives de travail.
+
+1https://culturesciencesphysique.ens-lyon.fr/ressource/physique-animee-Battementsacoustiques.xml?doa:t=109
+
+I/ Présentation des techniques de bulles sonores Thalia
+
+Le nouveau journal scientifique Epsiloon présente le principe des bulles sonores. Elles
+utilisent des enceintes à faisceau d’ultrasons qui envoient un son audible seulement dans
+une zone délimitée.
+Un ultrason et le son à transporter sont combinés pour produire un ultrason modulé: Une
+enceinte émet l’ultrason modulé, qui n’est donc pas audible. L’onde basse fréquence gagne
+progressivement en amplitude. Puis, comme l’ultrason, l’onde basse fréquence s’atténue à
+son tour et la bulle sonore se referme. Cette technique fait appel à la modulation
+d’amplitude.
+Les ultrasons ont l’avantage d’être très directif, c’est pour cela qu’ils sont utilisés en
+médecine pour détruire des tumeurs. En parallèle, une autre technique se développe. Elle
+consiste à annuler le son autour d'une bulle sonore au lieu de le focaliser. Elle reprend la
+technique des casques antibruits qui envoient un son en opposition de phase par rapport au
+bruit ambiant pour créer du silence par interférences destructives.
+Cependant, le fondateur d’Akoutic-arts indique dans une vidéo de présentation de son
+entreprise, une autre voie de recherche. La startup française utilise le principe de l’antenne
+paramétrique dont le principe est d’émettre deux ondes ultrasonores de fréquences proches,
+afin de générer un signal basse fréquence qui lui devient audible. Le faisceau ultrasonore
+est direction et crée ainsi un tunnel de son. C’est donc le phénomène de battements qui est
+utilisé ici.
+Il semble donc qu’il y ait trois voies de recherche pour créer des bulles sonores. Nous allons
+les explorer et échanger avec des chercheurs et journalistes pour essayer d’y voir plus clair.
+
+II/ Ondes, sons, interférences et modulations : Clothilde
+A- Les ondes et le son:
+
+Une onde sonore correspond à la propagation de perturbations mécaniques dans un milieu
+élastique. Ces perturbations sont perçues, entre autres, par l'oreille humaine qui les
+interprète comme des sons. La science qui étudie ces ondes s'appelle l'acoustique. Les
+ondes sonores peuvent subir des réflexions, lorsque l'on entend un écho, par exemple. Elles
+peuvent aussi subir des réfractions, lorsqu'elles traversent une paroi. Elles peuvent enfin
+subir des interférences. Les interférences ont une des clefs de la compréhension des bulles
+sonores. Les ondes sonores, contrairement aux ondes lumineuses, ne se propagent pas
+dans le vide. Elles s'appuient nécessairement sur un milieu matériel
+1) Le son perturbe la matière mais ne la déplace pas
+La propagation du son ne consiste pas en un déplacement de matière, mais en une perturbation
+qui, elle, se déplace à travers la matière. En effet, les molécules déplacées retrouvent toujours
+leur place après le passage de la perturbation. Ceci est dû à l'élasticité du milieu.
+Ce phénomène peut être observé empiriquement : si l'on jette une pierre dans une pièce d'eau,
+le fluide va se déformer, mais après quelques vagues (la perturbation), ses molécules
+reprendront leur position initiale. Si on est assis au bord de l'eau, les pieds immergés, le contact
+des vagues sur la peau permet d'apprécier l'ampleur de la perturbation. Par analogie, on peut
+dire qu'un son est « jeté » dans l'air et que les vagues qu'il provoque sont perçues par notre
+oreille.
+Schéma ondes sonores avec fréquence longueur d’onde période et relation c,lambda, f , T
+
+2) Limites de la propagation des sons
+Empiriquement, l’amplitude du son diminue avec la distance. Ceci est dû à l'amortissement du
+système : l'air oppose une résistance au son, comme il oppose une résistance aux corps qui le
+traversent. Il en est de même d'autres fluides comme l'eau. C'est cette résistance qui entraîne la
+diminution du niveau sonore avec la distance, puis la disparition complète du son.
+Il est donc très étonnant de lire dans les articles sur les bulles sonores que l’amplitude du son
+augmente à une certaine distance, puis diminue.
+
+3) Quelles sont ses caractéristiques?
+La fréquence, exprimée en hertz (Hz), est l'une des caractéristiques majeures d'une onde
+sonore. Ainsi, les fréquences des ondes sonores perceptibles par l'être humain se situent
+approximativement entre 20 Hz et 20 kHz.
+En-dessous de ces valeurs, on se situe dans la plage des infrasons - que les éléphants, par
+exemple, utilisent pour communiquer à grande distance - et au-dessus, dans celle des
+ultrasons - que les chiens et les chats sont capables d'entendre.
+
+B- La modulation, la démodulation :
+La modulation d'amplitude est une technique utilisée pour moduler un signal.
+Elle consiste à faire varier l'amplitude d'un signal de fréquence élevée, le signal porteur,
+en fonction d'un signal de plus basse fréquence, le signal modulant. Ce dernier est celui qui
+contient l'information à transmettre (voix, par exemple, recueillie par un microphone).
+La démodulation consiste à récupérer le signal informatif modulant qui est contenu dans
+la partie supérieure (ou inférieure) de l’enveloppe du signal modulé en amplitude. Dans le
+
+cas des bulles sonores aucun montage de démodulation n’est nécessaire pour percevoir le
+son. Par exemple, la radio AM est un procédé de radiodiffusion à partir d'émetteurs utilisant
+la modulation d'amplitude. Cette première technique est citée dans les articles sur les bulles
+sonores, mais c’est celle des battements que nous privilégions dans nos mesures.
+
+C- Interférences destructrices et battements
+Les interférences pour les ondes
+sont lorsque deux ou plusieurs
+ondes sont émises et se
+rencontrent et peuvent interagir
+entre elles. Il existe deux types
+d’interférences, les constructives,
+c'est-à-dire lorsque les deux
+ondes s’accordent parfaitement
+ensemble on dit qu’elles sont en
+phase créant donc une onde avec
+une très grande amplitude.
+source:
+https://fr.science-questions.org/comment_ca_marche/155/Interferences_et_diffraction_d_une_onde/pics_r/
+Interferences_constructives_et_destructives_de_deux_ondes_U11MYWL.png
+
+Et les interférences destructrices, c'est-à-dire lorsque les ondes sont en opposition de
+phase créant donc une amplitude quasi nulle. Ce dernier phénomène est utilisé par exemple
+pour les casques antibruit. Ces 2 types d’interférences vont nous servir lors des bulles de
+sons à utiliser premièrement les interférences destructives autour de la bulle de sons, et
+deuxièmement les interférences constructives pour créer cette bulle de sons.
+Si nous prenons par exemple deux émetteurs d’ultrasons à deux fréquences très
+proches, il va apparaître ce que l’on appelle des battements, c'est-à-dire des alternances
+bruits/annulation de bruit (plus les deux fréquences se rapprochent plus les battements sont
+lents). Si l’amplitude a0 des deux ondes est la même alors le signal résultant s(t) s’écrit:
+
+avec ω1= 2πff1 et ω2= 2πff2, les pulsations des deux signaux.
+
+ωm représente la moyenne des pulsations et Δω leur différence
+
+D- Les bulles sonores aujourd’hui:Thalia
+Aujourd’hui, certains chercheurs en ondes, que ce soit en France ou partout ailleurs, ont
+cherché à créer des bulles sonores. Noveto, start-up Israélienne a sorti un communiqué vers
+la fin avril 2021 expliquant leur futur produit: Le SoundBeamer. Grâce à des ondes
+ultrasons conçues pour les courtes distances, l’utilisateur jouant à un jeu vidéo sur un
+ordinateur par exemple entendra le son provenant du jeu entre 70 cm et 1.20m des hautparleurs; si l’utilisateur quitte cette zone il sera alors impossible d’entendre le son provenant
+des haut-parleurs reliés à l’ordinateur, tout cela sans aucun autre dispositif (sans oreillettes
+par exemple)!
+Pour réaliser cette prouesse scientifique, les chercheurs de l’entreprise doivent se
+confronter à plusieurs problèmes: premièrement, faire en sorte de pouvoir entendre ces
+ultrasons ou du moins, percevoir un son résiduel provenant de ceux-ci. Deuxièmement,
+diriger l’onde sur une surface 3D et visant l'oreille lorsque celle-ci bouge. Troisièmement,
+comment créer tout cela avec un petit appareil et un prix abordable
+
+SoundBeamer a également des limites. Il est relativement encombrant, mais selon
+l’entreprise, dans sa prochaine version, l’appareil sera réduit d’au moins 20% mais en
+raison de la nécessité d’une caméra qui localise l’emplacement des oreilles, elle ne peut
+pas remplacer les écouteurs de course et de jogging par exemple.
+Mais il convient pour les affiches publicitaires aux arrêts de bus, pour travailler devant
+l’ordinateur depuis la maison, pour les téléviseurs dans les hôpitaux, pour les sièges
+d’avion et pour les gymnases. Une minimisation drastique des composants pourrait
+permettre, dans l’étape suivante, son intégration dans les ordinateurs portables, les
+tablettes et même les smartphones, permettant ainsi d’entendre tout ce que l’on voudrait
+de manière confidentiel dans n’importe quel endroit, public comme privé.
+
+III/ Nos essais expérimentaux:Raphaël
+Modulation:
+A- Première expérience de modulation:
+Notre première expérience utilise le logiciel Latispro pour étudier la modulation d’un
+signal ultrasonore pour un son. Un émetteur d’ultrason de fréquence 40 kHz est relié
+à une des entrées d’un multiplieur. Sur l’autre entrée, une fréquence sonore de
+quelques centaines de Hertz, produite par la carte SYSAM-SP5 d’Eurosmart. L’outil
+“mesure automatique” du logiciel permet de trouver facilement la fréquence de
+chaque signal. Nous observons un signal ultrasonore modulé en amplitude, dont
+l’amplitude varie comme le signal sonore. Nous tendons l’oreille, mais nous
+n’entendons rien. Ce signal modulé est d’amplitude trop faible pour être perceptible
+directement à l’oreille.
+
+Battements:
+B- Premières expériences de battements
+Nous avons réalisé deux expériences de battements, avec les ultrasons tout d’abord puis
+avec du son. Deux haut-parleurs alimentés par les deux sorties actives de Latispro
+produisent tout d’abord des ondes sinusoïdales de fréquence 400 Hz et 403 Hz. On obtient
+des battements de fréquence 3 Hz .
+Puis deux émetteurs ultrasonores de fréquences réglables sont placés côte à côte et
+émettent des signaux de même amplitude mais de fréquences légèrement différentes. On
+obtient des battements, dont la période est déterminée au réticule. Leur fréquence est égale
+à la différence des fréquences des deux signaux. (essais du 22/09)
+
+On mesure au réticule 8 pseudo périodes, de 17,1 ms, soit T = 2,14 ms (en ne gardant
+que 3 chiffres significatifs car la position du réticule dépend de l’utilisateur) . On calcule donc
+la fréquence f = 467 Hz. Bien que la fréquence soit audible, le bruit ambiant et la puissance
+des émetteurs ne nous permettent pas d’entendre le son.
+Donc nous allons remplacer nos oreilles par un micro, qui nous permettrait de visualiser,
+ou de vérifier la présence de ce son. On branche un amplificateur sonore et le micro sur
+Latis pro.
+
+On mesure la période du signal perçu par le micro (en vert) on obtient T= 2,07 ms
+
++¿−0,05 ms et f = 483 Hz. L’écart entre les deux fréquences est dû à la difficulté de
+déterminer précisément la période (les formes des signaux sont complexes).
+Quand on éloigne le micro des émetteurs ultrasonores, l’amplitude du signal diminue.
+Cependant, autour de 10 cm des émetteurs, le signal semble plus important qu’avant ou
+après. Est-ce la localisation de la bulle sonore ? Pour progresser dans notre expérience,
+nous avons relié le micro à un amplificateur et un haut-parleur et nous l’avons déplacé
+devant les émetteurs ultrasonores. Un faible sifflement apparaît à 10 cm des émetteurs. Le
+haut-parleur est pourtant à trois mètres et ce sifflement ressemble à un effet Larsen. Est-ce
+un échec ?
+Nous réessayons en déplaçant un portable devant les émetteurs. On obtient un
+
+enregistrement sans Larsen, et dont la fréquence
+change quand nous modifions les réglages des
+émetteurs.
+Adrien déplace le portable à une vitesse de 1 cm/
+s sur une distance d’environ 20 cm. Ainsi, nous
+pouvons visualiser la variation de l’amplitude de
+la fréquence sur le dictaphone et observer deux
+coupures. Seraient-ce les limites de la bulle
+sonore ?
+Audio : Premier enregistrement (22 sept. 2021)
+Conclusion : Nous avons réussi avec deux
+émetteurs réglables à ultrasons à créer un son que le téléphone portable reçoit
+(première expérience réussie le 22 septembre).
+
+cliquez pour écouter l'enregistrement audio
+À l'aide d’une règle graduée, Adrien ayant un micro sur son téléphone a bougé celui-ci
+lors d’un enregistrement d’1 cm par seconde. Nous avons alors pu voir qu’il y avait une sorte
+de bulle sonore lors de l’enregistrement du son entre 10 cm et 35 cm des haut-parleurs où
+l’on perçoit le son.
+
+IV Nos mesures (Adrien et Leïla et Thalia)
+Nous avons testé ce mercredi 29 septembre, l’application PHYPHOX pour
+enregistrer les battements et étudier leur intensité sonore. L’application perçoit le signal des
+battements. L’intensité sonore mesurée change lorsque les émetteurs ultrasonores sont
+allumés.
+
+Nous allons tracer la carte du niveau d’intensité sonore dans l’espace devant les
+deux émetteurs. Nous nous sommes retrouvés pour cela le
+11 octobre et le 18 octobre.
+Les niveaux mesurés sur PHYPHOX sont négatifs,
+car le niveau de référence n’est pas ici le seuil d’audition,
+mais la saturation de la carte son (même chose sur
+Audacity). Il n’y a pas de réglage du niveau de sortie des
+émetteurs ultrasonores. Seules leurs fréquences sont
+modifiables avec un potentiomètre non étalonné.
+
+A - Lundi 11 octobre :
+Nous avons, à l’aide de l’application PHYPHOX,
+réaliser des tests de niveau d’intensités sonore en
+fonction de la distance émetteurs-micro
+Ici les tests ont été effectués avec un battement autour de 200 Hz. Les émetteurs étant peu
+précis, la fréquence de battement se situe entre 210 Hz et 197 Hz (mesure au réticule sur
+Latispro puis sur Phyphox avec l’outil spectre audio..
+Mesures n1: (Iphone 7+), qui comporte 2 microphones
+Lors de cette expérience, nous avons placé le portable à la hauteur des 2 émetteurs, puis
+nous avons alors effectué 8 mesures en éloignant le portable de 1 cm à chaque nouvelle
+mesure. Nous nous sommes alors très vite rendu compte que l’angle séparant les 2
+émetteurs influait sur le niveau d’intensité sonore perçue par les récepteurs du portable.
+Nous avons alors pensé qu’il serait judicieux de prendre les mesures avec un autre modèle
+de portable ne comportant qu’un seul microphone: un Xiaomi Redmi 9.
+Schéma du montage de l’expérience n1:
+
+Iphone
+7+
+récepteur
+
+Emetteurs
+
+Support
+
+Mesure de la distance entre le portable et les émetteurs
+
+Expérience annexe:
+Étant donné l’heure des expériences, le bruit ambiant nous a à maintes reprises obligés
+d'arrêter nos mesures. Pour y remédier, nous avons essayé de trouver des solutions.
+Comme entourer la paillasse avec des vestes, des manteaux, des plaques de polystyrène,
+ou bien encore du carton. Malgré cela, nous n’avons pas réussi à obtenir une isolation
+suffisante du bruit ambiant. Nous avons donc choisi de ne pas utiliser ces matériaux et
+d’attendre le silence entre les différents mouvements extérieurs.
+Mesures n2: (Xiaomi Redmi 9), qui comporte 1 microphone
+
+Pour cette deuxième série de mesures, nous avons utilisé un battement à 200Hz
+Voici le graphe qui représente cette série de mesures :
+
+Sur phyphox, le niveau d’intensité sonore est calculé par rapport à la saturation de la carte
+son, c’est pourquoi nous obtenons des valeurs négatives.
+Ces résultats pour des battements à 200 Hz nous montrent:
+- un palier de niveau d’intensité sonore élevé, proche de - 25 dB, que l’on retrouvera
+dans la bulle autour de 50 cm.
+- deux zones de faible niveau d’intensité sonore entre 34 cm et 39 cm et autour de 43
+cm
+- un extinction du signal après 60 cm
+Le niveau d’intensité sonore doit diminuer avec la distance pour une simple atténuation
+géométrique. Or ce n’est pas ce que nous observons.L'énergie des ondes sonores (et donc
+l'intensité sonore) diminue avec le carré de la distance à la source du son. En d'autres mots,
+si vous vous éloignez de 200 mètres d'une source, le niveau sonore sera normalement un
+quart de celui à 100 m de distance. En doublant la distance, le niveau sera divisé par 6. Nos
+résultats montrent donc que nous n’avons pas une simple atténuation géométrique.
+
+B- Lundi 18 octobre:
+Durant cette séance, nous avons décidé de continuer nos mesures. A chaque mesure, nous
+éloignions les émetteurs de 5 cm du microphone du portable. Grâce à cela, nous avons pu
+nous rendre compte que les nouvelles mesures concordent avec les résultats étonnants de
+la dernière séance!
+
+Valeurs obtenues (400Hz):
+
+Ces résultats pour des battements à 400 Hz nous montrent:
+- un palier de niveau d’intensité sonore élevé, proche de - 20 dB, que l’on retrouvera
+dans les bulles autour de 50 cm et 90 cm.
+- deux zones de faible niveau d’intensité sonore entre 58 cm et 89 cm et autour de 43
+cm
+- une extinction complète du signal après 97 cm.
+Nous n’avions pas mesuré le niveau au-delà de 60 cm pour les battements à 200 Hz, ce qui
+explique que nous n’avions pas perçu la dernière bulle, ici entre 86 cm et 94 cm. Il est très
+difficile au lycée d’obtenir le silence nécessaire pour nos mesures.C’est vraisemblablement
+pour cela que nous n’avons pas retrouvé à la fin de l’expérience, le niveau sonore du silence
+initial.
+
+Valeurs obtenues (800Hz):
+
+Dans la même foulée, nous avons effectué des mesures pour une valeur de 800 Hz, dont
+voici le graphique.
+Ces résultats pour des battements à 800 Hz nous montrent:
+- un palier de niveau d’intensité sonore élevé, proche de - 20 dB, que l’on retrouvera
+dans la bulle autour de 50 cm.
+
+-
+
+Une zone de faible niveau d’intensité sonore autour de 43 cm
+une extinction complète du signal après 60 cm.
+
+Interprétations:
+
+En étudiant nos trois séries de mesures, nous observons des points communs. La série
+commence toujours par un palier de niveau sonore élevé, puis par une bulle sonore,
+clairement définie autour de 50 cm.
+S'ensuit aux alentours de 90 cm, une deuxième bulle sonore pour des battements à 400 Hz
+et une bulle autour de 40 cm pour les battements à 200 Hz. Nos mesures mériteraient d’être
+reproduites pour vérifier la présence de ces deux phénomènes
+
+Conclusion/Ouverture:
+En se fiant au mesures effectuées le 11 et le 18 octobre, nous pouvons conclure de la
+présence de trois phénomènes:
+- Un palier audible, à la sortie des émetteurs.
+- Une première bulle sonore, dont la distance entre son centre et les émetteurs reste
+plutôt stable en fonction de la fréquence.
+- Une deuxième bulle sonore, dont la distance entre son centre et les émetteurs
+dépend grandement de la fréquence. Son existence est à vérifier
+Si nous n’observons pas de deuxième bulle sonore dans notre série à 800 Hz, c’est
+sûrement car elle se trouve hors de la plage de valeurs observés.
+Sans le phénomène de bulle sonore, le niveau d’intensité sonore aurait dû diminuer
+avec la distance. C’est le phénomène d’atténuation géométrique. Or ce n’est pas le cas.
+Nous avons donc mis en évidence l’effet des interférences entre les deux ondes
+ultrasonores et le phénomène de bulle sonore.
+
+C- Comparaison avec le phénomène d’atténuation géométrique
+
+Nous avons ajouté la courbe du calcul de la diminution du niveau sonore en fonction de la
+distance à la source, lorsqu'il n’y a pas d'interférence.
+
+L=10 log
+
+P
+I0 4 π r2
+
+La formule de calcul est =10*LOG10(0,0155/(4*3,14*(A2*A2/10000))) avec A2 la cellule
+contenant la distance à la source. Nous avons choisi le coefficient 0,0155 par tâtonnement. Il
+correspond à P/I0 . Nous l’avons choisi pour que les dernières mesures après 100 cm
+correspondent au niveau sonore calculé.
+
+La comparaison des courbes:
+- Un niveau expérimental plus faible à petite distance de la source
+- Une évolution du niveau expérimental qui ne correspond pas du tout à celui de
+l’atténuation géométrique. Cela peut être dû aux interférences entre les sources
+ultrasonores.
+Seul PhyPhox et le téléphone portable permettent de faire ces mesures. Or la notice du
+logiciel signale son imprécision. Nos mesures sont donc à confirmer. Pour cela nous
+espérons les reproduire avec plus de puissance et utiliser le sonomètre du lycée.
+
+Conclusion Leila:
+Ce projet a été passionnant depuis le début et est toujours en cours. Il était très
+motivant de rechercher une bulle sonore et enfin de l’entendre grâce à la technologie
+des cartes sons de nos téléphones. Nos expériences ont montré la présence d’un
+signal sonore d’amplitude plus importante dans plusieurs zones de l’espace devant
+notre montage.
+Nous devons vérifier et reproduire nos mesures, un jour où le lycée sera vide
+d’élèves, d’enseignants et d’agents d’entretien avec des mesures sur plus d’un
+mètre de distance avec un pas de 1cm. Nous ferons aussi une mesure avec un seul
+émetteur, sans interférences, pour étudier l’atténuation géométrique. Nous espérons
+pouvoir vous les montrer le jour du concours.
+Nous espérons pouvoir améliorer notre modèle et produire une bulle sonore
+perceptible directement à l’oreille en utilisant un ensemble d’émetteurs pour obtenir
+plus de puissance.
+
+Sources documentaires :
+Les recherches actuelles sur les bulles sonores :
+https://www.youtube.com/watch?v=TnmIa28114w
+
+Modulation :https://fr.wikipedia.org/wiki/Modulation_d%27amplitude
+http://aluttrin.free.fr/Lycee/Contenu%20lycee/sp%E9cialit%E9/Corrections/
+Ph_3.2_Modulation/Ph_3.2_modulation_amplitude_prof.htm
+https://fr.wikipedia.org/wiki/Radio_AM
+https://fr.wikipedia.org/wiki/Interf%C3%A9rence
+https://israelvalley.com/2021/05/07/des-bulles-sonores-autour-des-oreilles-la-start-upisraelienne-noveto-innove/
+
+

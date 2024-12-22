@@ -1,0 +1,1275 @@
+Olympiades de Physique 2022-2023
+
+Au premier temps de la valse
+mise en rotation d’un hélicoptère en papier
+suite à la compression du fichier, certaines illustrations sont peut-être peu lisibles
+une version pdf à l’identique avec des illustrations de meilleure qualité est disponible en ici
+
+Eponine COSTENTIN, Eléonore DUBUS, Yann EICHENMULLER, Ben EVANS, Linda MENALDO
+
+Cité scolaire internationale Europole de Grenoble
+
+Mémoire
+1
+
+RÉSUMÉ
+
+Nous avons choisi comme objet d’étude les rotocopètres ou hélicoptère en papier, système pour lequel la mise en rotation se fait
+spontanément (on parle d’autorotation). Ce modèle peut rendre compte de différents objets à ”deux ailes” (fruits “dicarpes”, jouets
+traditionnels chinois, ou hélicoptère lors d’une panne moteur). En lâchant l’hélicoptère en papier sans vitesse initiale d’un point assez haut,
+on observe une phase de chute verticale en translation pendant laquelle l'hélicoptère prend de la vitesse, puis l’amorce d’un mouvement de
+rotation. On finit par observer un mouvement doublement stationnaire, où la vitesse de translation comme la vitesse angulaire de rotation
+sont constantes. Pour certains paramètres géométriques bien choisis, la vitesse de chute diminue fortement lors de l’amorce du mouvement
+de rotation. Dans ce ballet à deux pales (rotor) et un pied commun, nous nous sommes demandé comme dans la chanson de Jacques Brel, la
+valse à mille temps, quelle est la dynamique à l’oeuvre dans les différentes phases de la mise en mouvement de rotation et en quoi le style
+de la “valse” obtenue dépend des caractéristiques, notamment géométriques (taille et forme) du “couple” formé des deux danseurs.
+Notre problématique est la suivante :
+
+Quelles sont les différentes phases de chute de l’hélicoptère ? Comment évoluent la vitesse de translation et la vitesse
+angulaire de l’hélicoptère au cours de la chute ? Comment expliquer la mise en rotation des hélicoptères ? Quels éléments et
+paramètres influent sur la chute des hélicoptères en papier ? Peut-on expliquer la dynamique du mouvement en termes des lois
+de la dynamique et des caractéristiques aérodynamiques des forces en jeu ? Peut-on prédire le comportement de rotocoptères
+“géants” ou “liliputiens” à l’aide de lois d’échelle avant de les construire et éventuellement les instrumenter ?
+
+Différents dispositifs expérimentaux ont été mis en œuvre pour accéder à l’évolution temporelle des grandeurs cinématiques, 𝑣(t) et ω
+(t). Ce mouvement est interprété en termes des résultantes de forces et moments des couples de forces aérodynamiques couples grâce aux
+lois de Newton gouvernant les translations et les rotations.
+Nous avons voulu ensuite explorer expérimentalement les paramètres d’influence et les lois d’échelle permettant de prédire les
+caractéristiques du mouvement (vitesses limites de chute ou de rotation) des hélicoptères de différentes géométries, à l’aide d’une série
+d’hélicoptères en papier ou en polystyrène. Deux paramètres clés ont été identifiés: la masse du système et l’aire balayée par les pales du
+rotor. La vitesse limite 𝑣𝑙𝑖𝑚 observée pour l’ensemble des hélicoptères est proportionnelle à la racine carrée du rapport de la masse sur la
+surface de référence, en cohérente avec une dépendance quadratique des forces 𝐹 et couples 1𝐶 aérodynamiques avec la vitesse. La
+modélisation des forces aérodynamiques est identifiée comme l’élément central gouvernant les lois d’échelle pour prédire quantitativement
+le mouvement d’hélicoptères plus grands ou plus petits.
+Trois dispositifs expérimentaux complémentaires ont été construits pour consolider cette modélisation. Une soufflerie (tunnel
+aérodynamique) dans lequel l’hélicoptère en papier est suspendu mais libre de tourner, qui nous a permis d’accéder à la mesure du couple
+aérodynamique en fonction de la vitesse du vent relatif, et la détermination du nombre de Reynolds du régime d’écoulement (i). L’ajout d’une
+nappe LASER à notre soufflerie aérodynamique, nous a également permis de visualiser les tourbillons d’air au niveau des pales du rotor de
+notre hélicoptère en lien avec les forces aérodynamiques (ii). Enfin, la mesure de la période des oscillations des hélicoptères suspendus à un
+fil de torsion (iii) nous a permis de déterminer le moment d’inertie des l’hélicoptères, paramètre qui gouverne la mise en rotation pour un
+couple donné.
+Fort de cette compréhension acquise la dynamique des rotocotères, nous un retour sur la dynamique du régime de transition entre la
+chute libre en translation et le régime limite en rotation est abordé, à l’aide d’équations différentielles couplées 𝑣(t) et ω(t), non-linéaires
+compte tenu des forces aérodynamiques dont une résolution n’est possible dans certains régimes très particuliers.
+Pour tester expérimentalement les limites de montre compréhension des rotocopètres lilliputiens ou géants ont été réalisés : tels des
+“ptérodactyles” lâchés du nid ou des versions du futur instrumentation embarquée (Phyphox)ont été évaluées, et les accélérations linéaires
+et angulaires mesurées intégrées numériquement (méthode d’Euler) et comparées avec les évolutions obtenues par vidéo.
+Mots-clés : autorotation, translation, rotation, lois de Newton, couple de forces, moment d’inertie, portance, aérodynamique, lois d’échelle,
+optimisation multi-paramètres
+
+1
+
+En toute rigueur, il faudrait parler de moment d’un couple MC, le couple étant l’ensemble des 2 forces opposées et non concourantes; on gardera la notation C pour ce
+moment.
+
+2
+
+SOMMAIRE
+RÉSUMÉ
+SOMMAIRE
+1. INTRODUCTION
+1.1. Rotocoptères : quand la rotation résulte de la chute dans l’air
+1.2. Être et ne pas être : conditions nécessaires pour l’auto-rotation
+
+2. PROTOCOLE EXPÉRIMENTAL
+2.1. Observations non instrumentées d’un rotocoptère de référence
+2.2. Elaboration du dispositif expérimental
+
+3. ETUDE CINÉMATIQUE D’UN ROTOCOPTÈRE DE RÉFÉRENCE
+3.1. Etude de la cinématique du mouvement de chute verticale
+3.2. Etude de la rotation de l’hélicoptère
+3.3. Bilan cinématique
+3.4. Bilan dynamique
+
+4. ETUDE PARAMÉTRIQUE
+4.1. Masse
+4.2. Taille
+4.3. Angle des ailes
+4.4. Lois d’échelle pour des hélicoptères en papier ou polystyrène (Voir Annexe, paragraphe 10)
+4.5. Retour sur le régime de frottements aérodynamique : Stokes ou de Newton?
+
+5. ETUDE EN SOUFFLERIE AÉRODYNAMIQUE
+5.1. Mesure du couple de forces en soufflerie
+5.2. Observation du mouvement de l’air autour des ailes par nappe LASER
+
+6. “DU PREMIER AU DEUXIÈME TEMPS DE LA VALSE”
+6.1. Mesure du moment d’inertie et mise en route de la rotation
+6.2. Evolution temporelle de la vitesse v(t) et rétroaction due à la rotation
+6.3. Evolution temporelle de la vitesse ω(t) sous l’effet des couples aérodynamiques
+
+7. VISER LES EXTRÊMES
+7.1. Microméga : mini-hélicoptères inspirés de la nature ?
+7.2. Voir plus grand : hélicoptère géants - des "ptérocoptères" aux autocoptères 2.0
+
+CONCLUSION GÉNÉRALE
+REMERCIEMENTS
+BIBLIOGRAPHIE
+
+3
+
+1.INTRODUCTION
+1.1.Rotocoptères : quand la rotation résulte de la chute dans l’air
+1.1.1.
+
+Qu’est-ce qu’un rotocoptère?
+
+Un rotocoptère est composé d’une base (ou corps) et de deux ailes (pteron, aile en grec ancien) encore appelées rotor. Il est plus
+couramment appelé hélicoptère en papier (helix : en hélice) mais peut également être fait en plastique, en métal, ou même en papier
+encadré de bois. C’est un objet qui tourne spontanément sur lui-même lors de sa chute. Il peut être appelé autocoptère comme pour tout
+objet dont la mise en rotation est spontanée en cours de chute (sans motorisation). C’est le cas de la manœuvre d’urgence, pour un
+hélicoptère en cas de panne moteur. Il ne faut pas le confondre avec les gyrocoptères petits aéronefs dont la fonction de portance est
+donnée par le rotor et la force motrice par une petite hélice comme les avions. Enfin, les gyroptères sont
+l’équivalent technologique des samares ou graines volantes des érables : la portance n’est assurée que par
+une seule aile dans le rotor. Nous ne considérerons pas ici cette géométrie. Nos hélicoptères en papier
+(Figure 1 ci-contre) constituent donc un modèle pour les autocoptères, ou dans la nature pour la chute de
+fruits ou graines dicarpes à doubles sépales, aux jouets traditionnels à hélice chinois (toupies à hélice ou
+bamboo-copter) datant de l’époque Jin (IVe siècle AD), ou aux hélicoptère en atterrissage d’urgence
+(autorotation).
+Figure 1 : patron d’un hélicoptère en papier
+
+1.1.2.
+
+Etude bibliographique
+
+Une étude bibliographique (Courty 2021, Parui 2018) nous à conduit à poser comme hypothèse que pour les rotocoptères, la force de friction
+de l’air augmente avec la vitesse de chute 𝑣(𝑡) et devient suffisante pour exercer un couple de mise en rotation du solide, de vitesse
+angulaire ω(𝑡). Une partie du travail exercé par le poids est convertie en énergie cinétique de translation puis après un délai, en énergie de
+rotation. Dans certaines situations, une part de l’énergie cinétique translation est même convertie en énergie cinétique de rotation, et la
+vitesse linéaire peut diminuer avant d’atteindre une valeur limite, 𝑣𝐿 . Au final, un régime stationnaire est observé également en rotation,
+pour la vitesse angulaire ω𝐿autour de son axe de symétrie, lorsque les couples aérodynamiques moteurs et résistants se compensent
+(portance et traînées dues aux vents relatifs dus à la chute et à la rotation) avec possiblement des effets de mise en tension et
+d’ajustement de l’angle d’ouverture des ailes associés à une stabilisation en présence de forces d’inertie d'entraînement centrifuges.
+
+1.1.3.
+
+Problématique et but de notre étude
+
+Pour commencer, nous avons choisi de caractériser expérimentalement la cinématique du problème, en construisant un dispositif
+expérimental contrôlé pour mesurer l’évolution temporelle en plusieurs phases de sa vitesse linéaire de translation et de sa vitesse angulaire
+de rotation. Les ressorts physiques gouvernant les phases successives du mouvement observé d’un prototype de référence sont ensuite
+explorées à la fois au niveau des modèles théoriques (lois de Newton des rotations, régimes et forces aérodynamiques) et des
+caractéristiques expérimentales pour une série d’hélicoptères en papiers de différentes géométries (acquisitions automatisées avec
+hacheur LASER, mesures de moments d’inertie par pendules de torsion, de couples aérodynamiques et visualisation de mouvements d’air en
+soufflerie). L’objectif final est de construire un modèle robuste permettant de prédire l’évolution temporelle du mouvement de systèmes de
+tailles et géométrie variées grâce à la modélisation ainsi réalisée. La problématique que nous nous sommes posée est la suivante :
+
+Problématique de l’étude
+Peut-on mettre en évidence différentes étapes dans la cinématique de mise en rotation d’un rotocoptère lors de son mouvement de chute
+dans l’air ?
+Une étude paramétrique avec différents rotocoptères (forme, masse, taille …) nous permet-elle de mettre en évidence les principes de la
+dynamique physique expliquant les évolutions d’un régime de mouvement à un autre ?
+
+1.2.Être et ne pas être : conditions nécessaires pour l’auto-rotation
+
+4
+
+Afin de définir les caractéristiques d’un rotocoptère en mesure de tourner, nous avons fabriqué diverses versions de rotocoptère. Voici nos
+conclusions :
+- un rotocoptère sans aile ou avec une seule aile ne tourne pas
+- un rotocoptère avec des ailes plus lourdes que son corps tourne très difficilement2
+- un hélicoptère sans pied, lesté par de petites rondelles de métal suspendues sous les ailes avec une ficelle de nylon, fonctionne
+Flexibilité des ailes
+
+●
+
+Un hélicoptère “en T”, composé d’un corps, d’une base et de deux ailes rigides, à 90° par rapport au corps, tourne (voir aussi Gustafson,
+2016). Nous explorons dans les parties suivantes à quoi est due sa rotation.
+La base
+
+●
+
+Le pied n’est nécessaire qu’avec des ailes rigides à 90° (ailes en T). Nous avons construit un rotocoptère sans base, simplement avec deux
+ailes lestées en leur milieu. L’hélicoptère tournait. Mais lorsque que nous avons fixé les ailes sur une pique de bois, les bloquant à plat dans
+un même plan, l’hélicoptère ne tournait plus.
+Les ailes sur des plans séparées
+
+●
+
+On peut également construire un rotocoptère en T à condition de les incliner autour de leur axe de symétrie
+commun. Cela s’éloigne cependant d’un rotocoptère typique, puisqu’on ne peut pas en construire en coupant
+simplement une feuille de papier. Son mécanisme se rapproche de celui des hélices volantes, jouet pour
+enfant. Nous avons choisi de ne pas étudier ce paramètre, pour nous concentrer sur ceux plus propres au
+rotocoptère en papier.
+
+2.PROTOCOLE EXPÉRIMENTAL
+2.1. Observations non instrumentées d’un rotocoptère de référence
+Pour commencer, nous avons effectué l’étude cinématique de la chute d’un hélicoptère en papier de référence. La partie 2 s’attache à décrire
+le mouvement de son centre de gravité et la partie 3, le mouvement de rotation autour de son axe de symétrie verticale.3 Une première
+observation non instrumentée nous a permis de choisir des paramètres pour cet hélicoptère de référence permettant une chute stable, une
+mise en rotation suffisamment rapide sur une hauteur n'excédant pas celle d’une salle de classe.
+Nous avons mesuré ses caractéristiques :
+●
+●
+●
+●
+●
+●
+
+ailes : L ⨯ W = 9,8 ⨯ 4,3 cm2
+corps : L ⨯ 2W = 3,5 ⨯ 8,6 cm2
+base : H ⨯ B = 12,1 ⨯ 3,1 cm2
+masse : 6,1 g
+centre de gravité G : 7 cm sous de la base des ailes
+centre de poussée P : 1,3 cm au dessus de la base des ailes4
+
+En lâchant l’hélicoptère en papier d’une hauteur d’environ 2 m, nous avons tout d’abord observé simplement que l’hélicoptère chutait suivant
+un axe vertical assez stable. La chute verticale du rotocoptère peut donc être assimilée à une chute verticale droite, sans dérive latérale
+significative, ni basculements ... Lors de sa chute, nous avons pu identifier plusieurs phases distinctes. Il y avait premièrement une phase
+d’accélération durant laquelle l’hélicoptère chutait verticalement sans tourner sur lui-même mais en prenant de la vitesse (verticale). Puis,
+en second lieu, nous observons une mise en rotation rapide de l’hélicoptère ainsi qu’une stabilisation de la vitesse de chute linéaire.
+
+2.2. Elaboration du dispositif expérimental
+Afin de confirmer nos observations à l'œil nu, nous avons conçu une première expérience nous permettant d’étudier plus précisément l’allure
+de la chute de l’hélicoptère. Cette expérience consistait à filmer la chute verticale de l’hélicoptère à l’aide d’une caméra d’un téléphone
+portable (60 images par seconde) en prenant des graduations espacées de 20 cm pour l’échelle. Une fois filmé, nous avons réalisé une étude
+cinématique à l’aide du logiciel Latis pro afin de visualiser l’évolution de l’altitude de l’hélicoptère. Ce dispositif expérimental a suivi plusieurs
+itérations afin d’assurer au final la reproductibilité des lâchers et le contrôle des acquisitions vidéo de la cinématique du mouvement.
+2
+
+Le centre de gravité est alors trop proche du centre de poussée aérodynamique et il y a risque de basculement.
+Le système est en réalité chiral du fait du repliement des ailes, un élément essentiel expliquant la mise en rotation des hélicoptères en papier
+dans une direction donnée, comme nous le verrons dans la partie 3.
+4
+En supposant un angle de 15° du plan des ailes par rapport à l’horizontale, angle typique en régime limite
+3
+
+5
+
+Nous nous sommes questionnés sur la reproductibilité de nos lâchers, sur un éventuel guidage, pour être certains du déplacement
+uniquement vertical, sur le choix des caméras, la synchronisation avec le temps 0. Nous avons élaboré deux dispositifs pour obtenir la
+vitesse de rotation, que nous avons utilisé selon le besoin que nous avions. Les détails de ces choix et dispositifs de mesure sont
+disponibles dans l’Annexe (paragraphe 11)
+
+3.ETUDE CINÉMATIQUE D’UN ROTOCOPTÈRE DE RÉFÉRENCE
+En observant la chute du rotocoptère à l’oeil nu, nous distinguons 3 phases différentes :
+●
+●
+●
+
+Phase 1 - translation sans rotation : le début de cette phase correspond à une chute libre
+Phase 2 - transition: chute avec frottement, diminution de la vitesse linéaire et mise en rotation
+Phase 3 - stationnaire ou limite : le rotocoptère chute à vitesse constante vL et tourne à une vitesse de rotation ω qui semble
+constante, et très rapide ωL
+
+3.1.Etude de la cinématique du mouvement de chute verticale
+●
+
+Evolution de la position et de la vitesse𝑦(𝑡) et 𝑣(𝑡) du centre de gravité
+
+Le pointage étant effectué, nous avons transféré nos données du déplacement vertical 𝑦(𝑡) de la position du centre de masse l'hélicoptère
+en fonction du temps sur un tableur pour les exploiter. On distingue 2 phases limites différentes observable sur la position 𝑦(𝑡).
+
+En dérivant la position Y en fonction du temps, nous obtenons la vitesse de chute en fonction du temps. Ici, nous observons 3 phases
+distinctes. Entre 0 et environ 0,4s, la vitesse augmente de manière linéaire jusqu’à atteindre une vitesse maximale autour de 3,5 m/s. Puis,
+de 0,4 à 0,75s, on remarque une légère diminution de la vitesse ce qui indique que l’hélicoptère ralentit. Enfin, à partir de 0,75s, la vitesse se
+stabilise autour de 2,4 m/s. L’incertitude sur les valeurs mesurées est estimée à 𝑢(𝑣𝑦)=0,1 m/s et a été estimée en calculant l’écart-type
+des valeurs durant la phase constante de la vitesse.
+●
+
+Evolution de l’accélération 𝑎𝑦(𝑡)
+
+Enfin, en dérivant la vitesse en fonction du temps, nous obtenons l’accélération en
+fonction du temps. Ici, nous retrouvons à peu près 3 phases différentes. De 0 à 0,3s,
+l’accélération est plutôt constante entre 8 et 10 m/s². Puis, entre 0,3 et 0,6 s,
+l’accélération diminue jusqu’à atteindre environ -5±2 m/s² ce qui signifie que
+l’hélicoptère ralentit. Enfin, à partir d’environ 0,6s, l’accélération remonte et se stabilise
+autour d’une valeur sensiblement nulle (-0,5 ± 1,5 m/s²), signifiant que la vitesse de
+l’hélicoptère devient constante.
+Figure 8 : évolution temporelle de
+l’accélération verticale pour l’hélicoptère de référence
+
+6
+
+●
+
+Modélisation de la chute verticale
+
+Afin d’approfondir notre analyse de la chute, nous avons tenté de modéliser la courbe 𝑣𝑦(𝑡). Cette modélisation nous a permis d'identifier
+plusieurs phases de chute :
+Entre 0s et 0,4 secondes, nous avons modélisé v(t) par l’équation v(t) = (9,8 ±0,9)×t (voir figure 7). Or, nous savons que v(t) = at (a étant
+l’accélération). Grâce aux barres d’erreurs, on trouve que a = 9,8 ±0,9 m/s². Ainsi, puisque g = 9,8 m/s² et que 9,8 est compatible avec nos
+incertitudes, nous pouvons en conclure que durant les 0,4 premières secondes de la chute, a ≃ g, et l’hélicoptère est alors presque en chute
+libre, c’est à dire que les frottements aérodynamiques (traînée) sont négligeables lors de cette première phase.
+Nous avons ensuite modélisé la 2ème et 3ème phase de la chute par une fonction exponentielle décroissante (v = 1.17*exp(-t/0.19)+2.4).
+Cette fonction étant décroissante, elle correspond à une phase de décélération de l’hélicoptère.
+Enfin, à partir de 0,6 secondes, l’on peut modéliser v(t) par la fonction v(t) = 2,4 m.s–1. L’hélicoptère atteint donc une vitesse constante de
+2,4±0,2 m/s. Ainsi, selon le principe d’inertie de Newton, la somme des forces s’exerçant sur l’hélicoptère est nulle. Or, l’hélicoptère est
+uniquement soumis à son poids P et aux forces de frottements de traînée F(v). Ainsi, on conclut que P = F(vlim) et vlim= 2,4 m/s.
+●
+
+Conclusion, prévision et hypothèses
+
+L’étude de la chute verticale de l’hélicoptère nous a permis de mettre en évidence les 3 phases de la chute: une phase de chute libre
+(accélération uniforme), une phase de décélération, et enfin une phase où la vitesse est constante (l’accélération est donc nulle).
+
+3.2.Etude de la rotation de l’hélicoptère
+On obtient finalement l’évolution de la vitesse angulaire de rotation en fonction du temps pour l’hélicoptère de référence.
+
+Figure 9 : évolution temporelle de la vitesse angulaire 𝜔(t) (rad/s)
+Ce graphique nous permet de distinguer 3 phases distinctes. De 0 jusqu’à environ 0,25 secondes, la vitesse angulaire est nulle (a = 0±1,2
+rad/s) . Cela confirme alors notre constat de l’absence de rotation durant la phase initiale de la chute de l’hélicoptère. Puis, à partir de 0,25
+secondes, la vitesse angulaire augmente rapidement jusqu’à atteindre un maximum d’environ 30 rad/s à t = 0,6 secondes. Enfin, à partir de
+0,6 secondes, on observe que la vitesse se stabilise autour de 30 rad/s.
+
+3.3.Bilan cinématique
+La figure 11 représente sur le même graphique les vitesses 𝜔(t) et 𝑣(𝑡) . Nous avons utilisé un signal lumineux visible sur les deux vidéos
+pour nous assurer la synchronisation des origines des temps des deux enregistrements.
+
+7
+
+Figure 10 : vitesse verticale v(t) (m/s) et vitesse angulaire 𝜔(t) (rad/s)
+On peut donc caractériser les 3 phases de la chute préalablement identifiées de telle manière:
+
+Ayant constaté cette phase de décélération ainsi que la stabilisation de la vitesse, plusieurs questions se sont alors posées :
+
+1.
+2.
+3.
+
+Quelle(s) est/sont la ou les causes de cette décélération ?
+Pourquoi la vitesse se stabilise-t-elle ?
+La mise en rotation joue-t-elle un rôle dans l’évolution de la vitesse de chute verticale ?
+
+3.4.Bilan dynamique
+Le rotocoptère est soumis à différentes forces et couples au cours de sa chute :
+−3
+
+−2
+
+-
+
+son poids : 𝑃 = 𝑚 × 𝑔 (il est constant 𝑃 = 6. 1 × 10
+
+-
+
+les forces de frottements aérodynamique ou traînée 𝐹(𝑣)
+
+-
+
+les couples 𝐶5 moteur des forces exercées par l’air au niveau des ailes :
+𝐶𝑚𝐹 = 𝐶𝑚𝐹(𝑣) est le couple moteur dû à composante horizontale de la force de friction dans l’air du au déplacement vertical
+-
+
+× 9. 81 = 6. 0 × 10
+
+𝑁)
+
+dans l’air des ailes de l’hélicoptère. La surface de référence balayée est 𝑆 = 2𝐿𝑊𝑐𝑜𝑠(𝛼)
+𝐶𝑟𝐹 = 𝐶𝑟𝐹(𝑣, 𝜔) est le couple résistant résistant aux frottements dans l’air dûs à la rotation, au niveau du corps et du pied
+et également induit au niveau des ailes du fait du vent apparent de l’air sur les pales du rotor.6
+
+Les termes d’inertie qui limitent les modifications du mouvement de translation et de rotation sont respectivement la masse 𝑚 et le
+2
+
+moment d’inertie 𝐼 autour de l’axe de rotation. Le moment d’inertie est définit par n : 𝐼 = Σ𝑚𝑖𝑟𝑖 ou 𝑚𝑖 est un élément de volume du
+solide et 𝑟𝑖 la distance à l’axe de rotation de cet élément.
+
+En toute rigueur, il faudrait parler de moment d’un couple MC, le couple étant l’ensemble des 2 forces opposées et non concourantes; on gardera la
+notation C pour ce moment.
+6
+La composante de vitesse horizontale due à la rotation est plus grande au bout de l’aile que près de l’axe : vh(r)=r𝜔
+5
+
+8
+
+Figure 11 : bilan des forces exercées sur l’hélicoptère Figure 12 : effet du sens du pliage sur le sens de rotation
+Grâce à l’application de la 2e loi de Newton au mouvement du centre de masse et de rotation de l’hélicoptère autour de son axe, on peut
+associer des grandeurs dynamiques (forces et couples) à partir des grandeurs cinématiques (dérivées des vitesse de translation et
+rotation), ainsi :
+
+Soit dans la direction de l’axe vertical, dans un repère dirigé vers le bas:
+
+●
+
+Quelle est la cause d’autorotation de l’hélicoptère ? (phase 1)
+
+Les forces aérodynamique sur chacune des ailes peuvent être décomposées en deux composantes horizontale 𝐹𝑥 et verticale 𝐹𝑦 qui
+dépendent de l’angle de pliage des ailes (angle 𝛼 par rapport à une situation avec des ailes “en T” par rapport au pied) et des
+caractéristiques aérodynamiques de la portance et de la traînée dans le vent apparent (vitesse de chute v(t)).
+Le couple moteur aérodynamique sur les ailes a pour origine la composante horizontale de la force Fm, air exercée par les ailes. Il s’exprime
+sous la forme 𝐶𝑚𝐹= 2𝐹𝑥 × 𝑑, où 𝑑 est la distance orthogonale entre le centre de la face et l’axe de symétrie du parachute. Cette force peut
+être simplement expliquée par la 3e loi de Newton : la force exercée par l’air sur l’aile est l’opposé de la force exercée par l’aile sur l’air
+responsable de la déviation vers l’extérieur du flux d’air.
+Le sens de rotation de l’hélicoptère dans sa chute dépend du sens de pliage des ailes : on a constaté expérimentalement qu’on peut avoir un
+sens de rotation (-) (vers les angles négatifs en vue de dessus, sens horaire analogue à un “vissage”) ou un sens de rotation (+) (vers les
+angles positifs, vue de dessus, sens de rotation anti-horaire, analogue à un “dévissage”). Cette observation est cohérente avec le sens des
+couples de force exercés sur le l'hélicoptère au niveau des aile
+En conclusion, on peut expliquer ainsi la mise en rotation de l’hélicoptère :
+
+Origine de la mise en rotation du l’hélicoptère en papier
+Le couple moteur responsable de la mise en rotation a pour origine les composantes de trainée sur les deux faces s'exerçant en des
+points d’application (A1 et A2) de part et d’autre de l’axe de symétrie hélicoïdal de l'hélicoptère. La direction du moment résultant de
+ce couple de forces dépend du sens de pliage des deux ailes (ou pales) du rotor.
+
+𝑑𝜔
+
+Le taux de variation la vitesse angulaire (ou accélération angulaire 𝑑𝑡 ) est proportionnel au couple moteur décrit ci-dessus et inversement
+proportionnel au moment d’inertie 𝐼. La mesure du moment d’inertie des hélicoptère et l’influence de sa valeur sur la rapidité de la mise en
+rotation sont discutées partie 5. et 6.
+
+9
+
+Comment expliquer la phase stationnaire de la vitesse linéaire 𝑣𝑙𝑖𝑚 et de rotation ω𝑙𝑖𝑚 (phase 3)
+
+●
+
+En régime stationnaire, le mouvement de chut correspond à une vitesse limite constante 𝑣𝑙𝑖𝑚 (régime inertiel). En effet l’équation
+𝑑𝑣
+
+différentielle exprimant la 2e loi de Newton est telle 𝑑𝑡 = 0 pour 𝑃 = 𝐹𝑦, où 𝐹𝑦 est la composante de traînée effective (dans la direction du
+mouvement du centre de masse par rapport à l’air). Si on suppose l’équation la plus générale pour le frottement en fonction de la vitesse, on
+𝝀
+
+1
+
+2
+
+a 𝐹𝑦 = 𝑘𝑣 . Par exemple en régime quadratique et en négligeant le vent relatif dû à la rotation, on a : 𝐹𝑦 = 2 𝜌𝑎𝑖𝑟𝐶𝑦𝑆𝑣𝑙𝑖𝑚 , l’égalité de la
+résultante aérodynamique avec le poids implique 𝑣𝑙𝑖𝑚 =
+
+2𝑚𝑔
+, avec 𝜌𝑎𝑖𝑟
+𝜌𝑎𝑖𝑟𝐶𝑦𝑆
+
+La densité de l’air, 𝐶𝑦𝑆 est le produit de la surface de référence, orthogonale à la vitesse relative de l’air (aire interceptée ou surface de
+sustentation) par le coefficient de traînée 𝐶𝑦 associé à cette surface. Il sera discuté plus loin dans ce mémoire (paragraphe XX) de la
+justification de la valeur la puissance 𝝀 de dépendance en vitesse (compte tenu du nombre de Reynolds de l’écoulement) et de l’accord ou
+𝑚
+
+non de la dépendance fonctionnelle des mesures expérimentales 𝑣𝑙𝑖𝑚 avec le paramètre 𝑆 pour un ensemble d’hélicoptères en papier de
+différentes géométries, masses et tailles (loi d’échelle). La force correspondant qui s’oppose au poids est de même nature que la traînée
+d’un parachute, et augmente avec la vitesse jusqu’à atteindre la valeur du poids pour 𝑣 = 𝑣𝑙𝑖𝑚.
+𝑑𝜔
+
+En régime stationnaire de rotation, de vitesse angulaire limite ω𝑙𝑖𝑚 ( 𝑑𝑡 =0): on a égalité des couples moteur 𝐶𝑚𝐹 et résistant 𝐶𝑟𝐹, tous les
+deux de nature aérodynamique, 𝐶𝑚𝐹 = 𝐶𝑟𝐹. 𝐶𝑚𝐹 est le couple schématisé sur la figure 13 dû à la déflexion horizontale de l’air et
+responsable de la la mise en rotation. 𝐶𝑟𝐹 pourrait être est interprété comme un couple de frottement dû au déplacement de rotation dans
+l’air7 et peut-être dû aux tourbillons formés autour des ailes en rotation. Notons que que la force d’inertie centrifuge (ou accélération
+2
+
+normale 𝑎𝑁 = 𝑟ω ) contribue à mettre l’aile en tension et rapprocher l’angle des pales vers l’horizontale (forme “en T”) augmentant ainsi le
+moment d’inertie I et jouant peut-être un effet de stabilisation de la vitesse angulaire ω𝑙𝑖𝑚.
+
+Origine des mouvements stationnaires limites inertiels 𝑣 = 𝑣𝑙𝑖𝑚 et angulaires ω = ω𝑙𝑖𝑚
+La vitesse limite 𝑣𝑙𝑖𝑚du centre de masse de l’hélicoptère est atteinte lorsque que la composante verticale de la résultante
+aérodynamique de traînée due au mouvement vertical (éventuellement corrigée par l’effet du vent relatif horizontal dû à la rotation)
+est égale au poids de l’hélicoptère (régime inertiel).
+La vitesse angulaire limite de rotation ω𝑙𝑖𝑚 est atteinte lorsque la résultante des moments s’annule (égalité des moments moteurs
+et résistants) dépendant de la vitesse, de l’angle des pales et des aires balayées par le vent relatif. L’évolution temporelle de ω(𝑡)
+suggère d’abord un couple moteur dû à la composante horizontale des forces de traînée liées à la vitesse verticale du centre de
+masse. Lorsque le mobile est mis en rotation, apparaît un couple résistant dû au mouvement de rotation suite à l’apparition d’une
+composante horizontale du vent relatif. Une force d’inertie d'entraînement centrifuge apparaît également plus importante loin de
+l’axe qui contribue à la tension des ailes, et une diminution de l’angle des ailes par rapport à l'horizontale (rapprochement d’une
+configuration en T). Ce dernier effet pourrait contribuer, via l’augmentation du moment d’inertie à une rétroaction négative sur la
+vitesse angulaire, qui stabilise sa valeur.
+
+4.ETUDE PARAMÉTRIQUE
+Mais comment faire si l’on veut que notre hélicoptère tombe plus lentement ? Ou qu’il tourne plus vite ? Faudrait-il modifier la masse de
+l’hélicoptère ? L’angle des ailes ? Sa taille ? Une étude paramétrique permet de séparer l’influence de chaque paramètre.
+
+4.1.Masse
+Pour étudier l’influence de la masse de l’hélicoptère sur sa chute, on a réalisé quatre hélicoptères de tailles égales (dimensions:(ailes)
+9,8⨯4,3 cm² (corps) 3,5⨯8,6 cm² (base) 12,1⨯3,1 cm²) et en utilisant différents matériaux de manière à obtenir des masses différentes. On
+les note M1, M2, M3 et M4. Le rapport des masses exploré est d’environ 15 entre le plus léger et le plus lourd. Tous les autres paramètres
+7
+
+composante horizontale du vent relatif dû à la vitesse v = r𝜔 des différentes parties des pales, à distance r de l’axe de rotation
+
+10
+
+sont maintenus constants. Les caractéristiques et mesures cinématiques en régime stationnaire 𝑣𝑙𝑖𝑚 et ω𝑙𝑖𝑚 sont résumées dans le
+tableau Figure 17.
+Hélicoptère M3 : Une hauteur de chute de 2 m n’étant pas suffisante pour que M3 atteigne sa vitesse limite, on a opté pour des lâchers
+
+d’environ 7 m. On a dû placer la caméra plus loin que sur notre premier dispositif ce qui entraîne une plus grande dispersion des mesures.
+Hélicoptère M4 : On a remarqué à l'observation que l’hélicoptère M4 en aluminium chutait sans tourner, même depuis une hauteur de 7 m, et
+souvent basculait latéralement. Nous interprétons cet effet par une masse trop élevée par rapport à la portance et par une trop faible
+distance entre le centre de gravité (où s’exerce le poids) et le centre de poussée (où s’exerce la résultante des forces aérodynamiques).
+On remarque que la vitesse de chute verticale 𝑣𝑙𝑖𝑚 et la vitesse du bout de l’aile due à la rotation 𝑟𝑚𝑎𝑥ω
+
+sont du même ordre de grandeur.
+
+𝑙𝑖𝑚
+
+Le nombre d’hélicité8 κ = 𝑟𝑚𝑎𝑥ω𝑙𝑖𝑚/𝑣𝑙𝑖𝑚 permet de classifier les régimes à rotation prédominante (avion en papier M1) de celle où la
+vitesse de chute est prédominante (avions les plus lourds M3). κ correspond aussi à la géométrie hélicoïdale décrite par le bout de l’aile :
+κ = 𝑟𝑚𝑎𝑥/ℎ0, où ℎ0 est le pas de l’hélice. A géométrie donnée, les hélicoptère en papier les plus massifs tombent plus vite qu’ils ne
+tournent, les plus légers tournent plus vite qu’ils ne tombent. Le nombre de Reynolds caractérise le régime d’écoulement. Il sera explicité
+dans le paragraphe 4.7 consacré aux forces aérodynamiques.
+nom
+
+M1
+
+M2
+
+M3
+
+M4
+
+masse
+
+2.40 g
+
+6.00 g (M1x2.5)
+
+28,8 g (M1x12)
+
+35.6 g
+
+𝑣𝑙𝑖𝑚
+
+1,43 ± 0,12 m/s
+
+2,50 ± 0,19 m/s
+
+3,92 ± 0,26 m/s
+
+ω𝑙𝑖𝑚
+
+56,5 ± 1,0 rad/s
+
+59,9 ± 1,3 rad/s
+
+60,1 ± 1,2 rad/s
+
+κ = 𝑟𝑚𝑎𝑥ω𝑙𝑖𝑚/𝑣𝑙𝑖𝑚
+
+3,9
+
+2,4
+
+1.4
+
+(3 à 12) × 104
+
+(2 à 5) × 104
+
+(3 à 4) × 104
+
+distance centres de
+gravité / poussée
+
+11,2 cm
+(1,1×L)
+
+9,5 cm
+(0,97×L)
+
+6,5 cm
+(0,66×L)
+
+2,5 cm
+(0,66×L)
+
+mg/S
+
+2,9 N/m2
+
+7,2 N/m2
+
+35 N/m2
+
+43 N/m2
+
+inclinaison limite /
+horizontale : α𝑙𝑖𝑚=15°
+
+𝑅𝑒𝑚𝑎𝑥 =
+
+chute sans rotation
+
+ρ𝑟𝑚𝑎𝑥𝑣𝑙𝑖𝑚
+η
+
+Figure 13 Etude paramétrique de l’effet de la masse de l’hélicoptère - vitesses limites 𝑣𝑙𝑖𝑚 et ω𝑙𝑖𝑚
+●
+
+Evolution des vitesses 𝑣(𝑡) et de rotation ω(𝑡) en fonction de la masse à taille fixée
+
+L’étude cinématique permet d'obtenir les courbes suivants pour l’évolution des vitesse linéaires et angulaires :
+
+8
+
+Le nombre d’hélicité caractérise des effets périodiques dans un écoulement. Il est aussi appelé nombre de Strouhal
+
+11
+
+Figure 14 Evolution temporelle des vitesses linéaires (a) et angulaires (b) pour des masses M1 (2,4g) et M2 (6,0g) et M3 (29g)
+On constate que, pour une variation de la masse, tous les autres paramètres étant inchangés (forme et taille) :
+-
+
+la vitesse linéaire limite 𝑣𝑙𝑖𝑚 est une fonction croissante de la masse.
+
+-
+
+la vitesse angulaire limite ω𝑙𝑖𝑚 est indépendantes de la masse
+
+●
+
+Interprétation physique
+
+Effet de la masse sur la vitesse linéaire limite 𝑣𝑙𝑖𝑚 : On peut accéder à une information sur la dynamique des forces et leur dépendance à la
+λ
+
+vitesse. En régime inertiel, la vitesse constante et la résultante des forces est nulle, donc on a 𝑃 = 𝐹𝑦 soit encore 𝑚𝑔 = 𝑘λ × 𝑣 , 𝑘λétant
+un coefficient de friction, et la composante verticale de la friction pouvant être modélisée par une force proportionnelle à la vitesse (régime
+de Stokes, λ=1) ou une force quadratique (régime de Newton, λ=2). On peut supposer théoriquement supposer que la force de frottement
+est une fonction quadratique de la vitesse, puisque le nombre de Reynolds de l’écoulement est de l’ordre de 104, comme ce serait le cas pour
+une sphère se déplaçant (sans rotation) dans un fluide. La vitesse limite serait alors proportionnelle à puissance 1/λ = 0,5 en fonction de la
+1/λ
+
+masse (racine carrée). En traçant la vitesse en fonction de la masse, et par une régression linéaire de l𝑣𝑙𝑖𝑚 = 𝑓 en fonction de 𝑚
+
+, on
+
+trouve expérimentalement pour les mobiles M1 et M2 et compte tenu des incertitudes sur les vitesses : 1/λ = 0, 61±0, 18 , compatible
+avec une racine carrée, et λ = 1, 7±0, 05. On a donc compatibilité de nos mesures (quotient ou facteur Z = 0,6 inférieur à 2) et avec une
+2
+
+loi 𝐹𝑦 = 𝑘 × 𝑣 , mais le coefficient semble plutôt être compris entre 1 et 2. Il faut remarquer que i) on n’a pas considéré M3 car nos
+mesures étaient de moindre qualité, et ii) l’hypothèse d’une sphère chutant dans l’air sans rotation qui soutient l'hypothèse d’un régime
+quadratique pour est questionnable ici (présence de mouvement de rotation, pales de géométrie plus proches de plaques que de sphères).
+On suppose donc en première approximation que :
+
+la vitesse limite 𝑣𝑙𝑖𝑚 est proportionnelle à la racine carré de la masse (à forme et taille fixées)
+Effet de la masse sur la vitesse angulaire limite ω𝑙𝑖𝑚 de rotation : l’interprétation est plus difficile. En régime stationnaire de rotation, on a
+égalité des couples moteur 𝐶𝑚𝐹(𝑣) et résistant 𝐶𝑟𝐹(𝑣, 𝜔), tous les deux de nature aérodynamique, 𝐶𝑚𝐹(𝑣) = 𝐶𝑟𝐹(𝑣, 𝜔). On rappelle que
+𝐶𝑚𝐹(𝑣) est dû à la symétrie hélicoïdale de l’hélicoptère et à la composante horizontale de la force de traînée en chute verticale ( voir Figure
+11, paragraphe 3.4). 𝐶𝑟𝐹(𝑣, 𝜔) est un couple résistant qui augmente avec la vitesse angulaire. La base des ailes et le pied se déplacent
+relativement à l’air du fait de la rotation occasionnant un couple résistant. Peut s’ajouter un couple résistant dû au mouvement des pales du
+rotor dans le vent apparent. En effet une vitesse horizontale 𝑣ℎ(𝑟) = 𝑟ω s’ajoute à la vitesse de chute, si bien que les pales ont un angle
+d’incidence non nul par rapport à ce vent apparent, occasionnant un couple résistant qui s’ajoute à celui de la base et du pied. En régime
+stationnaire, tous ces couples sont proportionnels au poids, car on peut les supposer tous proportionnels à résultante de la force de traînée
+induite par la chute verticale, elle-même égale au poids P=mg. La vitesse angulaire limite étant due à l’égalité entre deux couples tous les
+deux proportionnels à la masse conduirait bien que
+
+la vitesse angulaire limite ω𝑙𝑖𝑚 ne dépend pas de la masse (à forme et taille fixée)
+
+4.2.Taille
+Pour étudier l’influence de la taille de l’hélicoptère sur sa chute, on construit trois hélicoptères de même masse (m=3,0 g) et de tailles
+différentes. On les note T1, T2 et T3, T4 et T5.
+nom
+
+T1
+
+T2
+
+T3
+
+T4
+
+T5
+
+Surface des ailes
+
+12×5 = 60 cm2
+
+10,5×4 =42 cm2
+
+8,5×3,5 = 30 cm2
+
+5,5×2,5 = 14 cm2
+
+3,7×1,8 =6,7 cm2
+
+photos
+
+12
+
+𝑣𝑙𝑖𝑚
+
+1,34±0,12 m/s
+
+1,52±0,16 m/s
+
+1,70±0,13 m/s
+
+2,39±0,25 m/s
+
+3,34±0,36 m/s
+
+ω𝑙𝑖𝑚
+
+32 ± 1 rad/s
+
+47 ± 3 rad/s
+
+63 ± 3 rad/s
+
+58,2±2,0 rad/s
+
+60,3±1,4 rad/s
+
+κ = 𝑟𝑚𝑎𝑥ω𝑙𝑖𝑚/𝑣𝑙𝑖𝑚
+
+3,1
+
+3,5
+
+3,4
+
+1,3
+
+0,74
+
+1 à 3 ×104
+
+1 à 4 ×104
+
+0,9 à 3 ×104
+
+0,9 à 1,1 ×104
+
+0,6 à 0,8 ×104
+
+distance centres de
+gravité / poussée
+
+6,5 cm
+(0,54×L)
+
+8,0 cm
+(0,76×L)
+
+7,0 cm
+(0,82×L)
+
+6,8 cm
+(1,0×L)
+
+4,7 cm
+(1,0×L)
+
+mg/S
+
+2,5 N/m2
+
+3,6 N/m2
+
+5,1 N/m2
+
+11 N/m2
+
+23 N/m2
+
+𝑅𝑒𝑚𝑎𝑥 =
+
+ρ𝑟𝑚𝑎𝑥𝑣𝑙𝑖𝑚
+η
+
+Figure 15 Etude paramétrique de l’effet de la taille de l’hélicoptère - vitesses limites 𝑣𝑙𝑖𝑚 et ω𝑙𝑖𝑚
+
+●
+
+Evolution des vitesses 𝑣(𝑡) et de rotation ω(𝑡) en fonction de la taille à masse fixée
+
+Figure 16 Evolution temporelle des vitesses linéaires(a) et angulaires (b)
+pour T1(L=12), T2(L=10.5), T3 (L = 8.5), T4(L = 5.5) et T5 (L = 3.7 cm)
+
+●
+
+Interprétation physique
+
+Par un traitement des données similaire à celui mis en oeuvre pour l’effet de la masse, on en déduit, en fonction de la taille (facteur d’échelle
+sur la surface, le papier utilisé étant inchangé (80 g/m2) et la masse maintenue constant au moyen d’un lest au niveau du pied de
+l’hélicoptère (patafix, trombone ou rondelle métallique) :
+A masse fixée,
+● la vitesse limite 𝑣𝑙𝑖𝑚 :
+○
+○
+
+est une fonction décroissante de la longueur des ailes
+est inversement proportionnelle à la racine carrée de la surface des aile:
+−2
+
+𝑣𝑙𝑖𝑚(𝑆) = (9, 2 ± 0, 4). 10 / 𝑆
+●
+
+(R2 = 0,93)
+
+la vitesse angulaire limite ω𝑙𝑖𝑚:
+○
+
+croit linéairement 𝑣𝑙𝑖𝑚entre 1 et 1,7 m.s-1
+
+○
+
+est constante pour 𝑣𝑙𝑖𝑚> 1,7 m.s-1 avec pour valeur ω𝑙𝑖𝑚= 60 ± 0, 4 rad.s-1
+
+La vitesse angulaire augmente. La vitesse linéaire semble également augmenter, mais à cause des incertitudes, on ne peut pas en être sûr.
+Mais ces variations sont-elles dues à la taille du corps? à la taille des ailes? ou encore à quelque chose d’autre?
+Pour étudier l’influence de l’ouverture des ailes de l’hélicoptère sur sa chute, on réalise trois hélicoptères de même masse et taille et avec
+une ouverture fixe des ailes. On les note A1, A2 et A3 et on mesure l’angle formé par leurs ailes par rapport à la situation verticale (ailes non
+dépliées) dans chacun des trois cas:
+
+13
+
+4.3.Angle des ailes
+Pour tenter de comprendre l’influence de l’angle des ailes sur la chute d’un hélicoptère, nous avons construit des
+hélicoptère de même taille et même masse mais en fixant chacune de leurs ailes à un angle donné avec une allumette en
+balsa . Les 3 angles étudiés (par rapport à des ailes horizontales “en T”) sont A1 “en V” (α =45°), A2 “en T” ( α =0 °) et
+A3 “circonflexe” : angle (α =- 45°). Les ailes en V et même en T volent correctement. Les ailes “circonflexes” ne
+permettent pas un vol stable (le centre de poussée est trop proche du centre de gravité).
+Nous avons étudié l’évolution temporelle des vitesses verticale et angulaire pour certains hélicoptères en papier afin
+d’étudier l’importance de l’angle des ailes lors de la chute (voir en Annexe, paragraphe 10). On constate que pour des ailes
+souples et un lâcher avec des ailes “en T”, l’angle augmente pendant la phase 1 (mouvement accéléré en translation)
+jusqu’à un angle d’environ 60° (minimisation de la surface des ailes sous l’effet du vent relatif, 𝑆 × 𝑐𝑜𝑠(α) (force de l’air
+sur le dessous des ailes, Figure 23, ci-contre). Lorsque la rotation démarre, les ailes se tendent et l’angle diminue à nouveau
+pour se stabiliser autour de α𝑙𝑖𝑚= 15 à 20°, probablement sous l’effet du vent relatif horizontal induit par la rotation et par un
+2
+
+2
+
+effet de force centrifuge (accélération centripète 𝑎𝑁 = 𝑣 /𝑟 = 𝑟ω qui croît avec la distance à l’axe.
+Figure 17 - surface de référence balayée par le vent relatif et angle α d’inclinaison des ailes par rapport à une référence “en T”
+
+4.4.Lois d’échelle pour des hélicoptères en papier ou polystyrène (Voir Annexe, paragraphe 10)
+Les interprétations des études paramétriques en fonction de la masse ou de la taille (surface) des ailes sont les mêmes, à savoir que la
+vitesse limite 𝑣𝑙𝑖𝑚 est gouvernée par l’’égalité entre le poids et la composante de traînée effective (verticale) de toutes les forces
+aérodynamiques (de forme ou induite par la rotation) sur les ailes. On a :
+2
+
+1
+
+𝑃 = 𝑚𝑔 et 𝐹(𝑣) = 2 ρ𝑐𝑦 𝑆𝑐𝑜𝑠(α) × 𝑣 , où ρ est la densité de l’air et 𝑐𝑦=𝑐𝑦(𝑣𝑙𝑖𝑚, ω𝑙𝑖𝑚) un coefficient de traînée sans dimension.
+Si on suppose 𝑐𝑦 indépendant de 𝑣𝑙𝑖𝑚, ω𝑙𝑖𝑚 (vour une vitesse assez grande compte tenu de la conclusion de la partie 4.2, on a en
+1
+
+2
+
+régime stationnaire : 𝑃 = 2 ρ𝑐𝑦 𝑆𝑐𝑜𝑠(α) × 𝑣𝑙𝑖𝑚, ce qui se traduit par 𝑣𝑙𝑖𝑚 proportionnelle à
+
+𝑚𝑔
+ou
+𝑆
+
+𝑚
+.
+𝐿𝑊
+
+Les deux paramètres de masse 𝑚 et surface des ailes 𝑆 sont donc associés, et indépendants de structure des hélicoptères. Nous
+avons donc choisi de tester cette hypothèse en regroupant l’ensemble des hélicoptères en papier. Nous avons également voulu pousser
+dans ces retranchements cette loi d’échelle en construisant des hélicoptères géants (plusieurs dizaines de cm) en feuilles ou plaques
+de polystyrène (pour des raisons de structure.
+●
+
+Les hélicoptères en polystyrène
+
+Deux séries ont été réalisées :
+une série d’hélicoptère de taille donnée, dont le lest a été modifié (effet de la masse)
+et une série pour laquelle la masse et la taille ont été modifiées selon la loi d’échelle suivante : si les longueurs sont
+proportionnelles à L, alors les surfaces sont proportionnelles à L2 et les volumes donc les masses sont multipliées par L3.
+Pour cela nous avons pris 2 plaques de polystyrène d'épaisseur différentes (donc de densité surfaciques différentes).
+Nous avons tracé (Figure 24) 𝑣𝑙𝑖𝑚 en fonction de
+
+𝑚𝑔
+pour chacun de nos hélicoptères :
+𝑆
+
+Figure 18 - Vitesse limite 𝑣𝑙𝑖𝑚 en fonction de
+
+𝑚𝑔
+𝑆
+
+Cette modélisation est menée pour des données variant d’un facteur ×6,4 en
+𝑚𝑔
+𝑆
+
+grâce à la prise en compte des hélicoptères en polystyrène. Le coefficient
+
+de régression R2 est de 0,901, proche de 1 valide la qualité de la modélisation.
+Notre loi d’échelle identifiée pour des hélicoptères en papiers de petite taille et
+masses (Ailes de 5 à 18 cm, et de 2 à 6 grammes) permet ainsi de prédire bien
+le comportement de rotocoptères de 300 g et 40 cm de long (facteur 100 sur
+les masses et 10 sur les dimensions).9
+9
+
+A conditions de bien contrôler l’angle des ailes : au moyen de fils de nylon : 𝛼 est maintenu à une valeur de 20°, typique des angles observés pour les
+hélicoptères en papier
+
+14
+
+Quelle que soit la masse et les dimensions, un hélicoptère souple ou semi-rigide de masse 3 g <𝑚 < 300g et d’ailes de
+longueur 4 cm < 𝐿 < 40 cm, respecte la loi d’échelle : 𝑣𝑙𝑖𝑚 proportionnel à
+
+𝑚𝑔/𝑆 , pour une forme donnée un un angle en
+
+régime stationnaire de 10 à 30°
+
+4.5.Retour sur le régime de frottements aérodynamique : Stokes ou de Newton?
+●
+
+L’analyse expérimentale des lois d’échelle
+λ
+
+Afin d’essayer de valider la loi de puissance 𝐹(𝑣𝑙𝑖𝑚) = 𝑘𝑣
+
+, nous avons fait un ajustement en puissance, en laissant libre la
+
+𝑙𝑖𝑚
+𝑚𝑔 1/λ
+
+puissance λ. Le meilleur ajustement en puissance 𝑣𝑙𝑖𝑚 en fonction de ( 𝑆 )
+
+, est tel que 1/λ = 0,57 (au lieu de 0,5 pour une racine
+
+2
+1,7
+𝑚𝑔
+carrée). Ainsi, cette modélisation suggère que 𝑆 n’est pas proportionnelle à 𝑣 , mais plutôt à 𝑣 .
+
+Ce constat nous a alors poussé à s'interroger sur le régime aérodynamique de chute des hélicoptères.
+
+●
+
+Modélisation : traînée aérodynamique et nombre de Reynolds
+
+Pour savoir si la force de frottement est proportionnelle à la vitesse (régime laminaire), ou à la vitesse au carré (régime turbulent), on
+calcul le nombre de Reynolds : 𝑅𝑒 =
+
+ρ𝑣𝐿
+η
+
+𝑣 : la vitesse, varie avec le temps
+𝐿 : taille présentée à l’écoulement hélico ref : 𝐿 = 2 × 𝑐𝑜𝑠(Θ) * 𝑙 𝑎𝑖𝑙𝑒 = 0. 14
+ρ : la masse volumique du fluide air : 1.2 kg.m-3
+η : viscosité dynamique du fluide air : 2×10-5 kg.m-1.s-1
+Si Re > 103, alors c’est un régime turbulent, et si Re < 1, les régime est laminaire.
+Régime de Stokes
+
+Régime d’Allen
+
+Force de traînée
+
+linéaire (proportionnel à 𝑣 )
+
+Ecoulement
+
+laminaire “rampant
+
+Nombre de Reynolds Re
+(sphère; sans rotation)
+
+Re < 1
+
+1
+
+Régime de Newton
+1,4
+
+proportionnel à 𝑣
+
+2
+
+quadratique (proportionnel à 𝑣 )
+Avec turbulence en aval
+
+1<Re<103
+
+103 <Re < 3.105
+
+Toutes nos mesures pour les hélicoptères en papier sont dans la gamme 6.103 <Re < 3.105 pour les hélicoptères en papier ou en
+polystyrène. Si la forme était celle d’une sphère, on s’attend bien à un régime quadratique en vitesse pour la force de trainée.
+2
+
+Avec une loi 𝐹𝑦 = 𝑘 × 𝑣 , on a trouvé expérimentalement λ = 1, 7±0, 05. Le quotient Z permettant de savoir d’il y accord est définit par
+𝑍=
+
+|λ−2|
+𝑢(λ)
+
+= 0, 6. Le quotient Z étant inférieur à deux, on peut dire qu’il y a accord avec une loi quadratique.
+
+Comment mentionné précédemment, si nos mesures sont compatibles avec une loi quadratique (régime de Newton) compte tenu de
+l’incertitude de nos mesures, , la meilleure valeur trouvée est plutôt intermédiaire (Régime d’Allen). Ceci peut s’expliquer par le fait que les
+frontières en nombre de Reynolds de ces régimes correspondent à un système sans rotation et pour une sphère, ce qui est loi d’être le cas
+pour notre système, où typiquement la vitesse au bout de l’aile peut être triple de la vitesse de descente (nombre de Strouhal ou d’hélicité
+κ = 𝑟𝑚𝑎𝑥ω𝑙𝑖𝑚/𝑣𝑙𝑖𝑚 souvent supérieur à 3). Nous explorerons (paragraphe 5.2) ce problème en essayant de visualiser des tourbillons autour
+des pales par un système de nappe laser dans une soufflerie).
+
+15
+
+5.ÉTUDES EN SOUFFLERIE AÉRODYNAMIQUE
+Nous avons construit et instrumenté un dispositif de soufflerie aérodynamique afin de pouvoir fixer la position longitudinale de l’hélicoptère
+tout en autorisant la rotation. Nous pouvons ainsi accéder aux couples de torsion responsables de la mise en rotation, en fonction de la
+vitesse. L’ajout d’un système de nappe laser permet également de visualiser des écoulements d’air autour des pales du rotor.
+
+5.1.Mesure du couple de forces en soufflerie
+Après avoir étudié l’influence des paramètres sur la chute des hélicoptères, nous nous sommes intéressés
+à leur caractère aérodynamique. Nous avons donc tenté d’accéder aux couples de forces 𝐶 en fonction de
+la vitesse de chute 𝑣. Pour cela, nous avons mis en place un dispositif de soufflerie qui permettrait de
+simuler la vitesse de chute des hélicoptères (= vitesse de l’air) [Figure 19]. Nous avons ensuite suspendu
+un hélicoptère à l’aide d’un fil de nylon (de 0,30mm d’épaisseur) qui permet tout de même à l’hélicoptère
+d’enclencher une rotation sur lui-même lorsque l’air arrive par dessous. Avant de
+commencer les mesures, on positionne l’hélicoptère de manière à ce que ses ailes
+forment un angle de 0° avec l’axe d’origine [Figure 20].
+Figure 19 : schéma et photo du dispositif de
+soufflerie
+
+Figure 20 : hélicoptère vu du
+dessus
+
+Pour mesurer le couple de force, on allume la soufflerie, on mesure la vitesse de l’air 𝑣𝑎𝑖𝑟 à l’aide d’un anémomètre,
+on attend que la rotation de l’hélicoptère s’arrête (qu’il arrive à une position stable), on mesure le nouvel angle θ
+formé par les ailes de l'hélicoptère et l’axe d’origine [Figure 21], puis on ajoute des poids au bas de l’hélicoptère
+jusqu’à ce qu’il revienne à sa position initiale (quand θ=0°)
+Nous avons mesuré le poids rajouté sur l’hélicoptère pour plusieurs vitesses de l’air données. De plus, nous avons
+répété cette expérience en positionnant dans un premier temps les ailes de l’hélicoptère à 90°, puis à 20°, et enfin
+à 45° de la verticale. Nous avons ensuite tracé le poids ajouté 𝑃 en fonction de la vitesse de l’air 𝑣𝑎𝑖𝑟 pour ces différents angles. On trouve :
+
+Figure 22 Couple de remise à zéro en fonction de 𝑣𝑎𝑖𝑟 (α : 20, 45, 90°)
+P est la force utilisée pour ramener les ailes sur leur axe d’origine, c’est donc la force qui s’oppose à l’une de celles du couple de forces C.
+Puisque le poids ramène les ailes sur leur axe, on peut dire que la force du poids P et celle du couple C s’annulent, soit 𝑃 + 𝐶 = 0 , si l’on
+ne prend pas en compte le sens de la force, 𝑃 = 𝐶. Selon les graphiques que nous avons obtenu, la fonction 𝑃 = 𝑓(𝑣𝑎𝑖𝑟) est modélisable
+2
+
+par une loi linéaire en 𝑣 (et non pas à 𝑣 selon la théorie ou même 1, 7 ). Notons que la valeur trouvée par l’étude de la loi d’échelle sur les
+vitesses limites (Partie 4) : λ = 1, 7±0, 05 est compatible avec les valeurs obtenues par mesure des couples dans la soufflerie. Nos
+incertitudes sont trop élevées pour distinguer ces deux modèles. Peut-être remplacer le fil de torsion (nylon de débroussailleuse) par un
+autre câble nous permettrait d’avoir des mesures plus précises.
+
+16
+
+Néanmoins ces mesures nous ont permis de conclure sur l’importance de l’angle des ailes :
+
+Pour que le couple de mise en rotation de l’hélicoptère soit significatif, il faut qu’il ne soit ni trop petit (ales horizontales,
+ailes en T) ni trop grand pales verticales.
+
+5.2.Observation du mouvement de l’air autour des ailes par nappe LASER
+Nous avons voulu déterminer si l’écoulement autour de l’aile est laminaire ou turbulent, éléments qui
+gouvernent le passage d’un régime aérodynamique à un autre. Dans la soufflerie, nous avons construit une
+nappe laser, à l’aide d’un laser vert et d’une baguette de verre. Un dispositif de cigarette électronique et de
+seringues en plastique nous permet d’injecter un aérosol (sans nicotine !) et ainsi visualiser les
+mouvements d’air sous rotor immobilité (pas de rotation possible). Nous avons ainsi pu observer des vortex
+d’air déviés au niveau des pales du rotor (Figure 23). Il nous est néanmoins à ce jour difficile de dire si ce
+vortex à été créé spontanément à la sortie du tuyau d’injection ou du fait du de la présence de l’aile.
+Figure 23 : dispositif nappe LASER et tourbillon
+
+6. “DU PREMIER AU 2e TEMPS DE LA VALSE”
+6.1.Mesure du moment d’inertie et mise en route de la rotation
+Afin d’accéder à davantage de grandeurs et d’information sur la chute des rotocoptères, nous nous sommes intéressés à leur moment
+d’inertie. En effet, la formule permettant d’accéder au couple de force responsable de la mise en rotation d’un hélicoptère est:
+𝑑ω
+
+Σ𝐶 = 𝐼 × 𝑑𝑡 . Ainsi, connaître le moment d’inertie 𝐼 d’un hélicoptère, ainsi que sa vitesse angulaire ω(𝑡) nous permettrait d’accéder
+directement au couple de force.
+Pour mesurer le moment d’inertie 𝐼 des hélicoptères, nous avons élaboré un nouveau protocole expérimental. Pour cette mesure, nous nous
+sommes appuyés sur la formule 𝑇 = 2π
+-
+
+𝐼
+avec:
+𝑘
+
+𝐼 : le moment d’inertie de l’hélicoptère (en kg.m2)
+𝑇 : la période d’oscillation de l’hélicoptère (en s)
+𝑘 : un coefficient de proportionnalité lié au fil de suspension (ici une corde de guitare)
+
+Dans un premier temps, nous avons pris une plaque de 5,25 cm × 14,3 cm, de masse 8,2g dont nous connaissions le
+moment d’inertie 𝐼0 grâce à la relation 𝐼 =
+
+2
+
+𝑚𝑙
+12
+
+(avec 𝑙 la largeur de la plaque).
+
+Puis, nous avons mesuré sa période d’oscillation 𝑇0 en le suspendant avec un fil de
+guitare et en comptant le nombre d’oscillations effectuées par cette plaque en un
+certain temps. En faisant cela nous trouvons que:
+-
+
+𝐼0 = 2,04.10-6 kg.m2
+
+-
+
+𝑇0 = 1,040 ± 0,001 s
+
+Figure 24 : mesure du moment d’inertie (méthode des oscillations de torsion)
+2
+
+Connaissant désormais 𝐼0 et 𝑇0, nous nous sommes servis de la loi de proportionnalité 𝑇 =
+
+2
+
+4π
+𝑘
+
+× 𝐼 pour déterminer la valeur de 𝑘. Cela
+
+nous permet donc de déterminer le moment d’inertie 𝐼 de n’importe quel hélicoptère dont nous avons mesuré la période d’oscillation (de la
+même manière dont nous avons mesuré 𝐼0) grâce à la relation 𝐼 =
+
+2
+
+𝑇 ×𝑘
+2
+
+4π
+
+.
+
+6.2.Evolution temporelle de la vitesse 𝑣(t) et rétroaction due à la rotation
+
+17
+
+Figure 25 : modélisation linéaire puis exponentielle
+décroissante de l’évolution de la vitesse 𝑣(t)
+
+Figure 26 : modélisation cubique de l’évolution de la vitesse
+angulaire ω(t)
+
+On a modélisé (Figure 25) les différentes phases du mouvement. La phase 1 correspond à un mouvement uniformément accéléré
+d’accélération a = g = 9,81 m.s-2. On peut, une fois mise en route la rotation, modéliser l’évolution de la vitesse par une exponentielle
+décroissante (équation différentielle du 1e ordre en 𝑣(t)). Le temps caractéristique de la décroissance est τ = 0,19 s. Avant d’atteindre la
+vitesse limite la force de traînée aérodynamique 𝐹(𝑣) est supérieure au poids. La vitesse 𝑣(t) diminue donc (2e loi de Newton) jusqu’à
+atteindre la vitesse limite telle que 𝐹(𝑣𝑙𝑖𝑚) = 𝑚𝑔 . La situation est similaire à celle d’un parachute qu’on ouvrirait alors qu’il est encore en
+chute libre.
+
+6.3.Evolution temporelle de la vitesse ω(t) sous l’effet des couples aérodynamiques
+𝑑ω
+
+2
+
+1
+
+Etant donné la 2e loi de Newton pour les rotations Σ𝐶 = 𝐼 × 𝑑𝑡 , on a alors, dans la phase motrice:𝐶(𝑣) = 2 × ρ × η × 𝑣 .
+Or dans une première partie, l’hélicoptère peut être considéré comme en chute libre, on en déduit que : 𝑣 = 𝑔𝑡, d’où on en déduit par
+3
+
+3
+
+intégration que ω(𝑡) = 𝑘 × 𝑡 . La modélisation (Figure 26) semble bien être compatible avec une évolution de la vitesse angulaire en 𝑡 .
+Avec l’apparition du couple résistant, l’évolution de la vitesse angulaire devient celle plus complexe qui relie la vitesse et la vitesse angulaire
+sous la forme d’une équation différentielle.
+Des observations avec des hélicoptères en polystyrène montrent pour des coefficient 𝑘 dépend du moment inertie. Lorsque 𝐼
+augmente, l’hélicoptère enclenche sa rotation plus lentement. Nos plus grands hélicoptères en polystyrènes ont un moment d’inertie de
+𝐼 = 2,6.10-3, soit 10 fois plus élevé que celui du petit hélicoptère en polystyrène (𝐼=2,6.10-4). Cet écart se traduit dans leur accélération
+angulaire, celle du petit hélicoptère est plus rapide.
+3
+
+Le début de la mise en rotation de l’hélicoptère peut être modélisé par une évolutionω(𝑡) = 𝑘 × 𝑡 cohérente
+avec les lois de Newton des rotations.
+Les hélicoptères amorcent leur rotation d’autant plus rapidment que leur moment d’inertie 𝐼 est faible
+
+7.VISER LES EXTRÊMES
+7.1.Microméga : mini-hélicoptères inspirés de la nature ?
+Après avoir poussé la taille de nos rotocoptères à un extrême, nous avons visé l’autre: des
+rotocopères minuscules. Ces rotocoptères sont faits de papier fin pour essayer de garder une
+masse en rapport à leurs dimensions (< 5 mm). Nous ne les avons pas encore étudiés car ils sont
+presque impossibles à filmer.
+Figure 27 : minicoptères millimétriques.
+
+7.2.Voir plus grand : hélicoptère géants - des "ptérocoptères" aux autocoptères 2.0
+La science, c’est aussi l’aventure …
+
+18
+
+●
+
+PTEROCOPTERE : un géant lâché “hors du nid”
+
+Afin de tester notre nouvelle compréhension de la physique de la mise en mouvement des rotocoptères “au premier(s) temps de la valse”,
+nous avons décidé de construire un rotocoptère géant. L’objectif visé était 1 m² (50 cm×100 cm) de voilure pour les ailes (pour environ 100
+cm2 pour le modèle de référence), soit un facteur d’agrandissement x10 pour les longueurs et x100 pour les surfaces. Nous avons construit
+le squelette en balsa et des ailes en papier cristal pour qu’elles restent légères tout en acquérant de la rigidité (afin qu’elles se baissent
+pendant la chute). Le reste du corps est en carton.
+Nous savions que la mise en rotation de l’hélicoptère géant nécessiterait une hauteur bien plus importante que tous nos autres prototypes
+(2m). Nous avons donc décidé de le lancer du 3ème étage de notre établissement, d’une hauteur d’environ 14 m. Nous avons tendu deux
+cordes entre deux bâtiments du 3ème étage, et ainsi pu faire glisser l’hélicoptère pour l’éloigner du mur. À notre grande joie, l’hélicoptère
+géant a bien enclenché une rotation, bien que plutôt lente. Il a effectué 1 tour et demi sur lui-même !
+●
+
+AUTOCOPERE 2.0 : des rotocoptères instrumentés
+
+Après tant de mesures réalisées grâce à des caméras et des lasers, nous nous sommes demandés s’il n’y avait pas une autre manière
+d’obtenir des données de vitesse d’un autocoptère. L’idée nous est venue d’utiliser l’application PHYPHOX, installée sur un téléphone qui
+nous permettrait d’obtenir l’accélération linéaire et la vitesse angulaire du dispositif. Nous avons construit un autocoptère avec des pales en
+polystyrène et tube flotteur d’apprentissage de la natation en guise de pied, dans lequel nous avons inséré un téléphone.. Nous avons donc
+réalisé des acquisitions internes et externes des vitesses linéaire et de rotation de cet autocoptère (pour la rotation, voir l’Annexe,
+paragraphe 14).
+
+Figure 28 : acquisition interne (accéléromètre) suivi d’une intégration numérique(méthode d’Euler) et comparaison avec un acquisition
+externe (vidéo) de la vitesse linéaire 𝑣(𝑡)
+Pour obtenir la vitesse linéaire à partir de l’accélération linéaire donnée par l’application PHYPHOX, nous avons utilisé la méthode d’Euler.
+Nous savons que l’accélération est la dérivée de la vitesse, on peut donc dire que 𝑣(𝑡 + Δ𝑡) = 𝑎(𝑡) *× Δ𝑡 + 𝑣(𝑡), nous savons en
+outre que la vitesse initiale est 0 m/s. Nous avons pu effectuer ces calculs grâce à un tableur et modéliser 𝑣(𝑡).
+L’accord entre le résultat de l’intégration numérique et l’acquisition vidéo est excellent, pour l’évolution de la fonction comme pour ses
+valeurs absolues, ce qui nous a fait très plaisir.
+
+8.CONCLUSION GENERALE
+Après ces nombreuses expériences, nous comprenons maintenant mieux la mystérieuse valse de l’hélicoptère en papier. Nous avons pu
+identifier les trois phases de chute de l’hélicoptère : une chute libre sans rotation dans un premier temps, une mise en rotation et un
+ralentissement dans un deuxième temps, et un régime stationnaire à vitesses de chute et de rotation constantes dans un dernier temps.
+Les frottements de l’air augmentant avec la vitesse de chute, un couple de force se crée et provoque une rotation. Cette rotation s’oppose
+elle à d’autres frottements, un second couple de force, résistant, qui s’équilibre dans la phase stationnaire avec le couple rotatif. Cette valse
+en trois temps se modélise donc en deux parties, une première avec une accélération constante et un couple de forces proportionnel à t³, et
+une seconde en équation différentielles, décroissantes pour la vitesse linéaire, et croissante pour la vitesse de rotation. Notre étude
+paramétrique nous a ensuite permis d’approfondir notre compréhension sur les principes de dynamique physique expliquant l’évolution d’un
+régime de mouvement à un autre. En effet, elle nous a permis de conclure qu’une masse plus importante entraîne une chute plus rapide mais
+
+19
+
+une rotation plus lente, que la longueur du corps n'influence pas la chute de l’hélicoptère, que des ailes plus longues diminuent les vitesses
+verticale et angulaire et que des ailes plus larges, au contraire, augmentent les vitesses verticale et angulaire. Dans l’espoir de pouvoir
+continuer d’approfondir notre sujet, nous souhaitons faire une expérience sur la portance de l’hélicoptère et étudier l’effet centrifuge sur
+l’ouverture des ailes plus en détail.
+
+REMERCIEMENTS
+Un très grand merci à M. Griffo et M. Martinet qui nous ont accompagnés dans ce projet. Merci à Mme Degroote, proviseure, de nous avoir
+autorisé à voir l’envers du décor du lycée (en nous autorisant à avancer notre projet pendant les vacances de la Toussaint nous laissant
+même passer par les parkings souterrains !) pendant les vacances de la Toussaint. Merci à tous les profs de physique et à nos camarades de
+lycée d’avoir toléré nos installations surréalistes et nos mesures au fond de la salle et parfois en même temps que les TP de sciences …
+Merci à nos camarades d’avoir un peu envahi le fond de leurs salles de TP, nous avoir permis de nous entraîner pour l’oral à la place de leurs
+cours de spécialité et de nous avoir donné des conseils pour rendre les choses “un peu plus compréhensibles”.
+
+BIBLIOGRAPHIE
+●
+Courty, J.-M.,, Kierlik, (2003). L’hélicoptère à force humaine. Pour La Science, 313, 98–99.
+●
+Courty, J.-M.,, Kierlik, (2010). Le gyroptère naît enfin. Pour La Science, 389, 84–86.
+●
+Thomas Basilien, Antoine Cribellier, Aventin Dupont (2010) Le chute de la samare, XVIIe Olympiades de physique, France, lycée Pothier (Orléans)
+lien consulté sur Olymphys le 27/11/2022
+●
+Ian Cox (2014), Effects of wing length on the rotational velocity of falling paper copters, undergraduate project PHYS3570_CopterResearch, Weber
+State university, lien consulté le 27/11/2022
+●
+Kali
+Ann
+Gustafson
+(2016),
+Paper
+helicopter
+physics,
+undergraduate
+project,
+St
+Olaf
+collège,
+[Vidéo]
+https://www.youtube.com/watch?v=bHICATdnEnA&t=5s
+●
+Kaushick Parui (2018), Analysis of the motion of Paper-Helicopter, undergraduate project, VIT university, lien Researchgate consulté le
+27/11/2022
+●
+Jean-Michel Courty (2021). Billes de sciences #46 :
+- Analyser un mouvement avec Fizzik [Video]. In YouTube.
+https://www.youtube.com/watch?v=Cs6rupRFXBo ; l’hélicoptère (14:52) https://youtu.be/FDYb1qB-MF4?t=892
+●
+Paper helicopter experiments https://www.vistathink.com/paper-helicopter-experiment/, consulté le 27/11/2022
+●
+Wikipedia: Coefficient de Traînée: https://fr.wikipedia.org/wiki/Coefficient_de_tra%C3%AEn%C3%A9e :
+●
+Wikipedia : Portance: https://fr.wikipedia.org/wiki/Portance_(a%C3%A9rodynamique)
+●
+Nombre de Reynolds:https://fr.wikipedia.org/wiki/Nombre_de_Reynolds
+●
+José Philippe PEREZ, Mécanique, DUNOD, (2022)
+●
+Lucien QUARANTA, Dictionnaire de physique expérimentale, Tome 1 - Mécanique, Editions Pierron (1984)
+
+20
+
+

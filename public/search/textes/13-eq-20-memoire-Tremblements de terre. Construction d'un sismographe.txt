@@ -1,0 +1,1394 @@
+Les tremblements de terre
+Construction d’un sismographe
+•
+•
+•
+•
+•
+
+Jérémy Guyot
+Stéphane Kovacs
+Gaël Tardio
+Terminale STL PLPI
+Lycée Lavoisier de Mulhouse
+
+Olympiades de Physique 2006
+Epreuves nationales de Paris les 27 et 28 janvier 2006
+
+1
+
+I. REMERCIEMENTS .............................................................................................................................................3
+II. INTRODUCTION ...............................................................................................................................................3
+III. Généralités SUR LA SISMOLOGIE..................................................................................................................3
+1) Causes des tremblements de terre ....................................................................................................................3
+2) Les diverses ondes sismiques...........................................................................................................................3
+3) La fréquence des ondes sismiques ...................................................................................................................4
+4) Comment se fait-il que l’on puisse détecter des séismes de forte magnitude en tout point du globe
+terrestre ? ..............................................................................................................................................................4
+5) Magnitude ........................................................................................................................................................5
+6) Généralités sur les sismographes......................................................................................................................6
+7) Constitution d’un sismographe .....................................................................................................................7
+
+IV. Construction de notre appareil ...........................................................................................................................7
+1) Plan initial du sismographe..............................................................................................................................7
+V. Description de notre appareil...............................................................................................................................8
+a) Le capteur de déplacement du sol ...........................................................................................................8
+b) Le transducteur........................................................................................................................................8
+c) L’amortissement fluide ...........................................................................................................................9
+d) Le système d’acquisition des données ....................................................................................................9
+e) L’horloge...............................................................................................................................................10
+VI. PRINCIPE DE FONCTIONNEMENT DE l’APPAREIL ...............................................................................10
+1) Maquette de démonstration............................................................................................................................10
+2) Période propre du pendule faiblement amorti................................................................................................11
+3) Rôle de l’amortissement ................................................................................................................................12
+4) Acquisition des signaux : phénomène d’induction électromagnétique..........................................................13
+a) Le phénomène d’induction ...................................................................................................................13
+b) Etude du transducteur............................................................................................................................14
+c) Essais d’évaluation de la distance parcourue par le sol lors de l’enregistrement d’un séisme lointain.14
+5) Le centre d’inertie du pendule reste fixe par rapport au référentiel géocentrique. ........................................14
+VII. INSTALLATION ET REGLAGES DE L’APPAREIL..................................................................................15
+1) Installation du sismographe ...........................................................................................................................15
+2) Réglage de l’inclinaison.................................................................................................................................16
+3) Réglage de l’amortissement fluide.................................................................................................................16
+VIII. EXPLOITATION DES SISMOGRAMMES OBTENUS .............................................................................17
+1) Le tracé d’un sismogramme...........................................................................................................................17
+2) La méthode S-P Triangulation .......................................................................................................................17
+a) Généralités.............................................................................................................................................17
+b) Cas du Séisme de Turquie 20/10/2005 21h40 TU à Izmir ....................................................................18
+c) Vérification à partir des données disponibles sur internet ....................................................................19
+3) Cas des séismes très éloignés.........................................................................................................................19
+4) Précision de la position de l’épicentre ainsi déterminée ................................................................................20
+5) Tremblements de terre détectés par notre Sismographe. ...............................................................................21
+IX. Détermination de la magnitude d’un séisme ....................................................................................................21
+X. CONCLUSION .................................................................................................................................................22
+XI. Annexes ............................................................................................................................................................23
+1) Plan définitif de l’appareil .............................................................................................................................24
+2) Schéma du convertisseur analogique digital..................................................................................................25
+3) Câblage du CAN ............................................................................................................................................26
+4) Programme Qbasic.........................................................................................................................................26
+5) Viscosité de l’huile 15W40 en fonction de la température ............................................................................28
+6) Hodochrones ..................................................................................................................................................29
+7) Vitesses des ondes P et S ...............................................................................................................................29
+8) Quelques sismogrammes obtenus au Lycée Lavoisier...................................................................................30
+9) Echelles de Richter et de Mercalli .................................................................................................................32
+10) Bilan financier..............................................................................................................................................32
+2
+
+I.REMERCIEMENTS
+Nous remercions Mme Ansel de l’EOST pour les indications qu’elle nous a fourni lors de la construction du
+sismographe en venant personnellement au lycée Lavoisier , M Frogneux de l’EOST pour l’accueil dans son
+laboratoire de sismologie et pour avoir apporte un sismographe lors de sa visite au lycée Lavoisier. Nous
+remercions l’entreprise J.M.F. Electrotechnique de Willer sur Thur qui nous a donné gracieusement du fil de
+cuivre de 5/100 mm, et également nos professeurs pour les aides précieuses qu’ils nous ont prodiguées.
+
+II.INTRODUCTION
+Début mars 2005, lorsque notre professeur de physique nous a demandé de participer aux Olympiades de
+Physique le Tsunami d’Indonésie venait de se produire et nous avons donc choisi le projet centré sur les
+tremblements de Terre et la construction d’un sismographe pour essayer de mieux comprendre ce phénomène
+
+III.Généralités SUR LA SISMOLOGIE
+1) Causes des tremblements de terre
+Un séisme est pratiquement toujours provoqué par la rupture d’une faille en profondeur(entre 0 et 600 km). Cette
+rupture est due aux contraintes énormes qui s’exercent sur deux plaques tectoniques qui se rencontrent.
+Les plaques glissent les unes par rapport aux autres au niveau des failles
+Les zones sismiques du globe terrestre correspondent aux bords des plaques.
+
+Zones de sismicité sur le globe terrestre(points)
+
+Différents types de failles
+
+2) Les diverses ondes sismiques
+On distingue deux grands types d'
+ondes émises par un séisme:
+les ondes de fond, celles qui se propagent à l'
+intérieur de la terre et qui comprennent les ondes S et les ondes P,
+et les ondes de surface, celles qui ne se propagent qu'
+en surface et qui comprennent les ondes de Love et de
+Rayleigh.
+Les ondes P sont des ondes de compression.
+Les ondes S sont des ondes de cisaillement qui ne se propagent que dans les solides.
+Les ondes de Love ou ondes L sont des ondes de cisaillement, comme les ondes S, mais qui oscillent dans un
+plan horizontal..
+Les ondes de Rayleigh sont assimilables à une vague;
+
+3
+
+3) La fréquence des ondes sismiques
+Les ondes sismiques possèdent des fréquences basses
+Les ondes P ont des périodes de l’ordre de 1 s, les ondes S de l’ordre de 5-10 s et les ondes de surface de l’ordre
+de 20 s.
+
+4) Comment se fait-il que l’on puisse détecter des séismes de forte
+magnitude en tout point du globe terrestre ?
+On constate qu’un séisme provoque des ondes qui traversent le
+globe terrestre de part en part et peuvent être détectées très loin.
+Lorsqu’une rupture à lieu au niveau de la croûte terrestre, cela
+provoque des ondes qui se propage dans le globe terrestre tout
+comme les rides se propagent à la surface de l’eau lorsqu’on a
+jeté un caillou.
+- Les ondes partent de la source dans toutes les directions
+formant une surface sphérique, le FRONT D’ONDE,
+s’agrandissant en s’éloignant de la source.
+- Les RAIS sont perpendiculaires au front d’onde, et
+inversement
+- La localisation des séismes est appelée HYPOCENTRE, sa
+projection à la surface est l’EPICENTRE.
+- La DISTANCE EPICENTRALE est l’angle depuis le centre de la Terre entre l’hypocentre et la station
+sismologique
+La nature des matériaux différents d’un point à l’autre du globe et les ondes sismiques sont déviées selon la loi
+de DESCARTES, comme l’indique les figures ci dessous.
+4
+
+Les ondes P, peuvent se propager dans le noyau liquide, mais pas les ondes S qui sont des ondes de cisaillement,
+et ainsi on ne peut pas détecter des ondes S si le séisme est éloigné de plus 110° de la station d’enregistrement,
+angle qui correspond au diamètre du noyau liquide.
+
+5) Magnitude
+La magnitude est une échelle sismique de référence qui évalue l'
+énergie des
+séismes
+L'
+échelle de Richter a été instaurée en 1935. Elle nous fournit ce qu'
+on
+appelle la magnitude d'
+un séisme, calculée à partir de la quantité d'
+énergie
+dégagée au foyer.
+C'
+est une échelle logarithmique :
+Ainsi, par exemple, cela signifie que les ondes sismiques d'
+un séisme de
+magnitude 6 ont une amplitude dix fois plus grande que celles d'
+un séisme
+de magnitude 5.
+v annexe 9
+L'
+échelle de Mercalli quant à elle est une échelle de classification des
+séismes. Elle est subjective, fondée sur l'
+étendue des dégâts observés.
+L'
+échelle de Medvedev-Sponheuer-Karnik (aussi appelée échelle MSK) est une échelle de mesure de l'
+intensité
+d'
+un tremblement de terre.
+Elle a été très utilisée en Europe et en Inde à partir de 1964, souvent sous la désignation MSK64. Sa définition a
+été revue en 1981 sous le sigle MSK81, puis elle a fini par être intégrée en 1998 dans la définition de l'
+échelle
+macrosismique européenne.
+L'
+échelle MSK décrit les effets d'
+un tremblement de terre en termes de destructions des installations humaines et
+de modifications de l'
+aspect du terrain, mais également en termes d'
+effets psychologiques sur la population
+(sentiment de peur, de panique, panique généralisée).
+
+5
+
+6) Généralités sur les sismographes
+Il existe deux grands types de sismographes.
+Les sismographes verticaux qui sont sensibles aux déplacements
+verticaux du sol
+Les sismographes horizontaux qui sont sensibles aux déplacements
+horizontaux du sol.
+Une station de détection sismique doit comporter trois sismographes :
+un sismographe vertical
+deux sismographes horizontaux orientés orthogonalement l’un
+à l’autre.
+L’un dans la direction Sud Nord
+L’autre dans la direction Est Ouest
+
+Les ondes P et S proviennent des profondeurs du globe et n’arrivent pas forcément orthogonalement à la surface
+du sol, donc les deux types de sismographes sont sensibles aux deux types d’onde P et S car les vibrations du sol
+possèdent alors une composante horizontale et verticale dans les deux cas.
+
+S
+
+P
+
+6
+
+7)
+
+Constitution d’un sismographe
+
+Un sismographe doit comporter :
+un capteur de déplacement du sol très sensible
+un transducteur qui transforme les déplacements en signaux électriques
+un amplificateur qui multiplie par un facteur 100 ou 1000 le signal électrique issu du transducteur
+un enregistreur qui inscrit les valeurs mesurées dans un fichier
+un marquage du temps(horloge) qui doit être piloté par horloge atomique type GPS
+
+IV.Construction de notre appareil
+1) Plan initial du sismographe
+Le modèle du sismographe nous a été fourni par Mme Ansel de l’EOST de Strasbourg
+Il s’agit d’un sismographe horizontal mis au point par M Lehman en 1979 et décrit dans la revue Scientific
+American et destiné aux sismologues amateurs.
+Mme Ansel nous a envoyé l’article traduit en français.
+
+Nous n’avons pas tout de suite compris le rôle des différentes parties, mais impatients d’obtenir nos
+sismogrammes nous nous sommes lancés dans la construction de l’appareil. Ensuite nous nous sommes efforcés
+de dominer le principe de fonctionnement de l’appareil.
+Nous avons légèrement modifié ce plan, le plan définitif est en annexe1 p 24
+Photos de l’appareil terminé :
+
+Dans le laboratoire du lycée
+
+Lors de l’exposition
+de la fête de la science
+7
+
+Dans la cave du lycée Lavoisier
+
+V.Description de notre appareil
+a) Le capteur de déplacement du sol
+Le capteur de déplacement du sol correspond à toute la partie mécanique
+Le bâti de l’appareil est construit à partir de tuyaux de chauffage central
+filetés assemblés sur une plaque en acier de 5 mm d’épaisseur, de 50 cm de
+long et 30 cm de large.
+Une tige carrée en acier de 1 cm de côté et de longueur 1 m constitue le bras
+du pendule.
+A l’une des extrémités nous avons fixé une lame de cutter qui vient
+s’appuyer contre une rainure constituée par deux autres lames de cutter
+l’une en face de l’autre. Ceci constitue l’axe de rotation du pendule.
+Le bras du pendule est maintenu par un fil d’acier tressé de 2 mm de
+diamètre. Un tendeur permet d’ajuster sa longueur.
+A l’autre extrémité du pendule est fixé un groupe de 6 disques d’acier de masse 200 g chacun, et quatre lames
+métalliques verticales(aluminium et cuivre) qui plongent dans de l’huile moteur 15W40 ce qui permet d’ajuster
+l’amortissement fluide.
+L’aimant en U est également fixé tout au bout de la tige.
+
+b) Le transducteur
+Le transducteur est une bobine associée à un aimant en U puissant délivrant 0,3 T entre ses deux bras., c’est donc
+un signal dépendant de la vitesse du sol qui est enregistré.
+L’aimant est fixé à l’extrémité du bras du pendule.
+Nous avons réalisé nous même la bobine. Une entreprise de la région de
+Mulhouse nous a prêté gracieusement une très grosse bobine de fil vernissé
+de 5/100 de mm de diamètre.
+Le support de notre bobine est en fait une roue en matière plastique achetée
+chez un magasin de bricolage possédant une gorge creuse dans laquelle le
+fil est bobiné.
+Il fallait que la bobine possède 10 000 spires au moins, cela risquait d’être
+très long à la main, aussi avons nous monté la bobine sur un petit moteur
+électrique. Le fil passait directement de la grosse bobine à celle que nous fabriquions. Nous réglions la vitesse de
+rotation du moteur à l’aide d’un générateur de tension variable.
+
+8
+
+Une tige fixée sur le support de la bobine passait entre les fourches d’un chronocapteur relié à un compteur. Le
+nombre de spires désiré a été obtenu au bout d’une heure 30 environ.
+Le fil très fin cassait très facilement. Nous dûment recommencer plusieurs fois avant d’arriver à construire cette
+bobine de 12000 spires
+La bobine est fixée par une vis en matière plastique sur un support en bois. Il ne fallait en aucun cas que des
+dispositifs en acier soient employés car alors l’aimant est irrémédiablement attiré et se « « colle » sur la bobine !
+(Remarque : Initialement, nous avions utilisé un petit aimant récupéré sur un haut-parleur hors d’usage, mais
+nous ne détection aucun séisme, aussi avons nous acheté un aimant en U puissant, les résultats furent tout de
+suite meilleurs …)
+
+c) L’amortissement fluide
+Le schéma initial fait appel à un électroaimant au voisinage duquel se déplace une
+plaque de cuivre. Ce sont les courants de Foucault qui génèrent les forces
+d’amortissement fluide.
+Nous avons tenté de le réaliser. Un électroaimant est disponible au lycée, mais nous
+avons constaté qu’il fallait qu’un courant de plusieurs ampères le parcoure pour que
+l’on obtienne l’amortissement critique.
+Nous avons donc opté pour réaliser un amortissement fluide avec un … fluide.
+Il fallait que ce liquide soit suffisamment visqueux, une page internet nous a donné
+l’idée d’utiliser de l’huile moteur.
+Nous avons réalisé plusieurs essais pour obtenir la bonne taille de la plaque(en réalité
+2 plaques) et la bonne profondeur d’immersion de la plaque.
+L’huile moteur 15 W40 possède une viscosité stabilisée en température(v annexe 5),
+le réglage de l’amortissement sera donc peu sensible aux variations de température de la cave.
+
+d) Le système d’acquisition des données
+Schéma de principe :
+
+Amplificateur
+d’instrumentation
+AD 620
+x 100
+
+Décaleur
+d’origine des
+tensions
+et amplification
+x 10
+
+CAN
+MAX 187
+
+Ordinateur
+portable
+Affichage et
+enregistrement
+
+Le signal délivré par la bobine est amplifié à l’aide d’un amplificateur
+d’instrumentation par un facteur 100, puis un montage amplificateur
+soustracteur décale l’origine des tensions et amplifie de 10 fois. Cela
+permet d’obtenir une tension de valeur moyenne 1, 6 V.
+Un filtre passe bas bloque les signaux de fréquence supérieure à 1 Hz
+environ. Ainsi les parasites électromagnétiques sont éliminés.
+Sans dispositif d’enregistrement, le sismomètre est inutile.
+Nous avons construit un convertisseur analogique numérique qui
+transforme le signal issu de la bobine en un signal numérique qu’un
+ordinateur peut lire et enregistrer.
+Un programme écrit en Qbasic (en partie trouvé sur internet) pilote le
+CAN qui est branché sur le port parallèle d’un ordinateur portable déjà
+ancien mais qui convient tout à fait à cette tâche(acheté d’occasion).
+Le programme relève trois valeurs par seconde et les enregistre dans un
+fichier qui porte le nom représentant la date du jour(par exemple
+112005.dat signifie 20 nov 2005). Le logiciel crée un fichier par jour. Il
+affiche sur l’écran le point en fonction du temps. Une remise à zéro de
+l’affichage s’effectue toutes les cinq minutes environ.
+Nous venons chercher les fichiers enregistrés le plus souvent possible
+en les transférant sur une clef USB
+9
+
+Voir le schéma, le plan de câblage en annexe 2 et 3 et le programme basic annexe 4.
+Nous avons également construit l’alimentation stabilisée symétrique –5 V + 5 V qui alimente ce montage.
+Nous avons câblé l’ensemble sur des plaques d’époxy pré percées et l’avons disposé dans un boîtier métallique.
+
+e) L’horloge
+Lors de notre visite de l’Ecole Supérieure des Sciences de la Terre, nous avons visité le laboratoire qui enregistre
+les données provenant des stations sismologiques du fossé Rhénan. M Frogneux chercheur spécialisé dans
+l’acquisition des données a bien montré l’importance de la précision de l’heure à laquelle on détecte un séisme
+et donc, un sismographe doit comporter une horloge précise.
+Notre échelle des temps n’est malheureusement pas très précise, nous utilisons l’horloge interne de l’ordinateur
+qui dérive petit à petit, nous devons la réajuster souvent.
+Nous avons réglé l’horloge à heure locale jusqu’à début novembre, puis ensuite à l’heure universelle(TU) soit 2h
+de retard par rapport à l’heure locale pour l’heure d’été et une heure de retard pour l’heure d’hiver.
+
+VI.PRINCIPE DE FONCTIONNEMENT DE l’APPAREIL
+1) Maquette de démonstration
+Comme indiqué précédemment, notre sismographe est un pendule horizontal.
+Il ressemble à une porte dont l’axe n’est pas parfaitement vertical.
+Il possède une position d’équilibre stable autour de laquelle il peut osciller
+Notre sismographe, une fois construit, a été immobilisé dans la cave du lycée, aussi nous avons construit une
+petite maquette permettant de comprendre le principe de fonctionnement de l’appareil et comportant un pendule
+monté sur un support représentant le sol que l ’on peut faire vibrer à l’aide d’un moteur.
+Position du centre d’inertie du bras du pendule
+
+EA4
+
+bobine
+aimant
+
+sol
+
+EA1
+
+EA0
+
+1
+
+Référentiel
+Galiléen fixe par
+rapport auquel le
+sol bouge
+
+2
+2,5 V
+
+Schéma de principe de la maquette
+
+Maquette en cours de réalisation
+
+version définitive
+10
+
+Une bobine située proche d ’un aimant fixé sur le bras du pendule au niveau du
+centre d ’inertie permet d ’obtenir une tension électrique induite lorsque l ’aimant se
+déplace. Comme sur notre grand sismographe.
+Une plaque verticale peut être plongée dans du glycérol afin d ’obtenir un frottement
+fluide plus important que le seul amortissement dû à l ’air.
+Un dispositif qui repère la position du centre d’inertie du pendule par rapport à la
+table fixe.
+Ce capteur de position est constitué par une cuve contenant une solution de sulfate
+de cuivre dans laquelle plongent deux électrodes en cuivre reliées aux pôles (+) et (-)
+d’un générateur de 2,5 V.
+Une tige 1 fixée au niveau du centre d’inertie du bras du pendule plonge dans le
+sulfate de cuivre dans l’espace situé entre les deux électrodes.
+Une tige 2 est solidaire du sol qui vibre.
+La bobine est placée devant l’aimant et va donc être le siège d’un phénomène
+d’induction électromagnétique.
+Les signaux sont enregistrés à l’aide de l’interface Orphy GTS et du logiciel winorphy.
+
+2) Période propre du pendule faiblement amorti
+Nous pouvons régler l ’angle d ’inclinaison de l ’axe de rotation du pendule et le
+mesurer grâce à un rapporteur fixé sur le support.
+La période propre des petites oscillations du pendule non-amorti est donnée par la
+relation suivante :
+
+T =2π
+
+K
+sin(α )
+
+K est une constante qui dépend de la masse du pendule, de la longueur et de
+l’accélération de la pesanteur et α est l’angle d’inclinaison de l’axe de rotation par rapport à la verticale.
+Axe de rotation
+α
+
+Nous avons mesuré T pour différentes valeurs de α, sans le système d’amortissement visqueux.
+2
+Nous avons ensuite tracé T en fonction de 1/sin(α+4), les angles lus sur le rapporteur étant entachés d’une
+erreur systématique de 4 ° semble-t-il.
+Nous obtenons la droite suivante :
+T2(s²)
+3.5
+3
+2.5
+2
+1.5
+1
+0.5
+
+0.5
+
+1
+
+1.5
+
+L’écart relatif est de 1,4 %
+11
+
+2
+
+2.5
+
+3
+insd
+
+La loi est donc vérifiée. Il est possible de régler la période propre d’oscillation du pendule en inclinant plus ou
+moins l’axe de rotation.
+L’intérêt de ce dispositif est que l’on peut obtenir des périodes très longues avec un dispositif peu encombrant.
+Notre sismographe doit posséder une période de 15 s environ.
+Un pendule simple « classique » de période 15 s doit avoir une longueur de 55 m environ !
+
+T .g
+Pour le pendule simple : T =2.π L donc L=
+2
+2
+
+g
+
+4.π
+
+3) Rôle de l’amortissement
+Le support est solidaire du terrain et s’il se met en mouvement, le pendule se met à osciller, mais sans
+amortissement, il se met à osciller beaucoup trop pour que les mesures soient exploitables.
+En effet un seul aller retour du sol va se traduire par des oscillations nombreuses qui ne représenteront pas du
+tout le véritable mouvement du terrain.
+
+Il faut amortir suffisamment le pendule pour qu’un seul aller retour du sol se traduise par un seul aller retour du
+pendule.
+Pour cela une plaque verticale solidaire du pendule est plongée dans un liquide visqueux glycérol
+On doit régler la largeur de la plaque et la hauteur de liquide pour obtenir l’amortissement critique.
+
+Liquide visqueux
+
+Plaque métallique
+Les sismologues règlent l’amortissement de leur sismographe pour obtenir un régime très proche du régime
+critique, très légèrement sous critique(un rebond).
+Si l’amortissement est trop fort(régime apériodique) le sismographe de ne suit pas les mouvements du terrain car
+il revient à sa position d’équilibre trop lentement.
+Exemples de signaux obtenus avec notre maquette dans les trois cas :
+
+Faible amortissement(pas de Glycérol dans le récipient)
+12
+
+Régimes proches du régime critique : du glycérol présent dans le récipient
+
+4) Acquisition des signaux : phénomène d’induction
+électromagnétique
+a) Le phénomène d’induction .
+Si une bobine de N spires de surface S est dans un champ magnétique B le flux du champ magnétique à travers
+la bobine est donné par
+Φ = N.B.S.cos(θ)
+θ
+
+Pour que la bobine soit le siège d’une force
+électromagnétique d’induction, il faut que le flux varie
+au cours du temps :
+L’expression de cette force électromagnétique est e =
+
+B
+
+∆Φ , elle correspond donc à la dérivée du flux par
+∆t
+
+rapport au temps.
+La variation de flux peut être obtenue de diverses manières :
+Le module du champ magnétique varie au cours du temps
+La surface des spires varie
+La bobine se déplace dans le champ magnétique en tournant sur elle-même
+La bobine se déplace dans le champ magnétique en se déplaçant perpendiculairement aux lignes de champs(flux
+coupé)
+C’est cette dernière méthode qui est utilisée sur notre sismographe.
+
+Bobine
+
+Aimant
+
+13
+
+b) Etude du transducteur
+La bobine se déplace perpendiculairement aux
+lignes de champ magnétique crée par l’aimant
+en U.
+Pour obtenir un signal électrique qui dépend du
+mouvement
+du pendule, un aimant est fixé sur
+N
+le
+bras
+du
+pendule
+et se déplace devant une
+aimant
+bobine de 12 000 spires.
+Les bras de l’aimant ont une hauteur h = 3 cm et
+sont situés de part et d’autre du pourtour de la
+bobine. Une mesure à l’aide d’un teslamètre du
+champ magnétique délivré par l’aimant donne B = 0,.3 T entre les bras et décroît très fortement en dehors
+
+Déplacement de la bobine
+
+c) Essais d’évaluation de la distance parcourue par le sol lors
+de l’enregistrement d’un séisme lointain.
+Si la bobine se déplace d’une distance d très petite devant le diamètre D =
+8,5 cm, la surface balayée correspond à : :
+- La surface située entre les bras : ∆S ≈ d.h plongée dans le champ B
+- Aux surfaces S1 et S2 égale chacune à peu près à ∆S mais plongées dans
+un champ magnétique en moyenne égal à B/2.
+La force électromagnétique d’induction est
+
+d
+S1
+D
+
+B
+S2
+
+h
+
+e = ∆Φ =
+
+N.2B∆S = N.2B.d.h = N.2.B.h.v
+
+∆t
+∆t
+∆t
+On constate que e est proportionnelle à la vitesse de déplacement de
+la bobine, au nombre de spires et à l’intensité du champ magnétique.
+
+Plus le nombre de spires de la bobine et plus le module du champ
+magnétique est grand, plus la fém d’induction sera importante.
+C’est pourquoi nous devons utiliser un aimant puissant et une bobine de 12
+000 spires pour que la détection des séismes lointains soit possible.
+Application numérique :
+Lors du séisme du Pakistan du 8/10/2005 nous avons enregistré des signaux de 2V(pour les ondes Love et de
+Rayleigh) sur une durée de 1 s environ.
+La bobine a donc été le siège d’une fém d’induction de 2 mV compte tenu de l’amplification par 1000.
+-6
+Le calcul précédent donne v = 9,5 10 m/s. Le déplacement du sol a été de l’ordre de 0,0095 mm pendant 1 s,
+soit 10 µm.
+Pour les autres séismes les valeurs de e sont plus faibles.
+Cette valeur n’est qu’un ordre de grandeur. La valeur de B est mal connue en dehors des bras et ∆t est connu à
+0,35 s près(trois points par secondes). On peut évaluer l’erreur commise sur cette distance à ±3 µm !(30%) au
+moins.
+
+5) Le centre d’inertie du pendule reste fixe par rapport au référentiel
+géocentrique.
+Si les réglages précédents sont corrects, et si la fréquence de l’onde sismique est plus de 10 fois supérieure à la
+fréquence propre du pendule, le centre d’inertie du pendule ne se déplace presque pas par rapport au référentiel
+Galiléen Géocentrique.
+Nous réalisons l’expérience sur notre maquette vibrante.
+Voici l’allure des signaux que nous obtenons :
+
+14
+
+On constate que le signal issu du capteur de position 2(fixé au niveau du centre d’inertie) reste presque constant
+et égal à 1,6 V, le centre d’inertie du pendule reste donc presque immobile par rapport au référentiel Galiléen
+fixe.
+Le signal issu de la bobine est variable au cours du temps.
+Ce dernier signal donc dépend du mouvement du sol, pas du bras du pendule, il est donc représentatif du séisme
+enregistré.
+
+VII.INSTALLATION ET REGLAGES DE L’APPAREIL
+1) Installation du sismographe
+Pour que les sismogrammes soient exploitables il faut que le sismographe soit en contact direct avec le sol, aussi
+nous avons installé le sismographe dans la cave du lycée, et l’avons recouvert d’un coffre afin de le protéger des
+courants d’air, des poussières et peut-être d’éventuels animaux
+Nous lançons l’acquisition de signaux, puis le laissons tourner en permanence 24h sur 24.
+
+Le sismographe dans la cave
+
+sous son coffre avec le système d’acquisition
+de données
+Son orientation est importante. Nous avons orienté l’axe du pendule selon diverses directions.
+
+15
+
+D’abord nous avons choisis la direction Nord Sud du 10 septembre 2005 au 15 octobre 2005, période
+lors de laquelle l’appareil a détecté les séismes du Pérou et du Pakistan mais certains petits séismes locaux
+provenant des Alpes ou du Jura ne furent pas détectés
+Ensuite nous avons orienté le pendule selon la direction Sud Ouest Nord Est à partir du 15 octobre 2005 ,
+période pendant laquelle le séisme de Turquie, de Bâle, et du Japon fut détecté, mais les résultats semblent moins
+bons.
+Compte tenu de la direction de vibration du sol lors de l’arrivé des ondes P et S il semble que l’orientation Sud
+Nord soit la plus judicieuse.(Ne pas oublier que c’est la bobine qui est mise en mouvement et que ce mouvement
+doit se produire perpendiculairement aux lignes de champ de l’aimant en U)
+A présent nous avons décidé de le réorienter l’axe du sismographe selon la direction SUD NORD, le
+signal délivré par la bobine sera maximal lorsqu’elle oscillera selon la direction Est Ouest ou de Bas en Haut.
+
+2) Réglage de l’inclinaison
+Comme nous l’avons vu précédemment, il faut régler l’inclinaison de l’axe de rotation du pendule pour obtenir
+une période propre d’oscillation de 15 s environ jusqu’en décembre, 8 s actuellement afin de mieux détecter les
+séismes proches dont les signaux sont de fréquences plus élevés.
+Cette valeur permet de d’obtenir une sensibilité maximale dans le domaine des périodes des ondes sismiques
+(entre 1 s et 20 s)
+Le réglage s’effectue à l’aide des vis de calage de l’appareil. Ces vis permettent également de positionner le bras
+du pendule dans l’axe longitudinal de la plaque support. Le dispositif d’amortissement visqueux n’est alors pas
+en place.
+Ceci est délicat, et il nous faut bien 45 min d’essais successifs pour mener à bien cette étape.
+
+3) Réglage de l’amortissement fluide
+Le réglage de la période propre étant réalisé, il faut régler l’amortissement pour obtenir un régime très proche du
+régime critique. Nous rajoutons de l’huile moteur petit à petit. Pour chaque essai nous soufflons brièvement et
+légèrement sur le bras du pendule et nous observons l’allure du signal obtenu.
+Voici deux cas obtenus lors de ce réglage :
+4500
+4000
+
+mV
+
+4500
+4000
+
+3500
+
+3500
+
+3000
+
+3000
+
+2500
+
+2500
+
+2000
+
+2000
+
+1500
+
+1500
+
+1000
+500
+0
+13:30:00
+-500
+
+mV
+
+heure
+13:30:17
+
+13:30:35
+
+13:30:52
+
+13:31:09
+
+13:31:26
+
+13:31:44
+
+1000
+
+heure
+
+500
+0
+13:48:00
+-500
+
+Régime pseudo périodique(pas assez d’huile)
+
+13:48:04
+
+13:48:09
+
+13:48:13
+
+13:48:17
+
+13:48:22
+
+13:48:26
+
+Réglage correct
+16
+
+VIII.EXPLOITATION DES SISMOGRAMMES OBTENUS
+1) Le tracé d’un sismogramme
+Les fichiers textes créés chaque jour par le logiciel d’acquisition sont très volumineux(6,5 Mo) et contiennent
+environ 260 000 points.
+Excel n’accepte pas de les ouvrir entièrement, nous visualisons d’abord l’ensemble du sismogramme grâce à un
+petit logiciel que notre professeur nous a fourni( sismo42), puis nous repérons les événements intéressants.
+Ensuite nous ouvrons le fichier avec WordPad puis copions les données correspondant aux évènements
+précédemment repérés.
+Nous collons ces données dans Excel, puis traçons le sismogramme avec Excel.
+Exemple ;
+20/10/2005 un événement est repéré
+
+On ouvre le fichier « 1020050.dat » avec wordpad, puis on sélectionne les données situées entre 21h et 23 h, et
+on les colle dans Excel.
+Nous obtenons le sismogramme suivant sous Excel :
+
+Le site du réseau national de surveillance sismique de Strasbourg indique sur son site internet qu’un séisme de
+magnitude 5,6 a eut lieu en Turquie à 21 h 40 le 20/10/2005, nous en déduisons que notre sismogramme
+correspond à ce séisme.
+
+2) La méthode S-P Triangulation
+a) Généralités
+Les ondes P et les ondes S ne se propagent pas avec la même vitesse.
+-1
+-1
+Les ondes P vont à 6 km.s environ et les ondes S à 4 km.s .
+La méthode S-P permet de déterminer la distance qui sépare le sismographe de l’épicentre du séisme.
+Il faut mesurer le temps qui sépare l’arrivée des ondes P des ondes S.
+17
+
+Des abaques appelées hodochrones établies par les sismologues permettent de trouver la distance qui nous sépare
+de l’épicentre.
+Il y a deux types d’hodochrone :
+L’ hodochrone utilisées lors des séismes proches donnant directement la distance (annexe 6)
+L’ hodochrone utilisée lors des séismes lointains donnant l’angle séparant la station de l’épicentre
+Voici un sismogramme idéal :
+
+6 min
+6 min
+
+33 °
+
+Le séisme à eut lieu à 5700 km de la station d’enregistrement.
+
+b) Cas du Séisme de Turquie 20/10/2005 21h40 TU à Izmir
+Le repérage de l’arrivée des ondes P et S sur les sismogrammes que nous obtenons n’est pas toujours aussi
+facile que dans l’exemple précédent à cause du bruit de fond toujours présent.
+Reprenons le sismogramme obtenu lors du séisme de Turquie :
+
+18
+
+Sur ce sismogramme on peut considérer que les ondes P arrivent lorsque la trace s’épaissit une première fois, et
+ensuite les ondes S lorsque la trace s’épaissit une seconde fois.
+On trouve une durée t = 3 min.
+On reporte cette durée sur l’hodochrone utilisant les distances voir annexe, on obtient 2000 km:
+On trace un cercle centré sur Mulhouse de rayon 2000 km , il passe effectivement par Izmir
+
+c) Vérification à partir des données disponibles sur internet
+De nombreux organismes sismologiques fournissent gratuitement les données concernant les séismes , nous
+utilisons essentiellement :
+Le site du Renass : http://renass.u-strasbg.fr/ donne les heures et les coordonnées des derniers séismes
+détectés
+Le site américain
+: http://rev.seis.sc.edu/index.html fournit les
+sismogrammes des différentes stations mondiales pour tous les gros séismes.
+Dans le cas du séisme de Turquie, Renass donne :
+Date/Heure
+Localisation
+Latitude
+Longitude
+(TU)
+20/10/2005 21:40
+TURQUIE (REGION D'
+IZMIR)
+38.10°
+° 26.73
+Mulhouse Latitude: 47,7 N Longitude: 7,3 E
+
+3) Cas des séismes très éloignés
+La rotondité de la terre fait que l’on ne peut pas utiliser des cartes planes pour déterminer le lieu de l’épicentre.
+Nous utilisons un globe terrestre et l’hodochrone indiquant les angles.
+Pour le séisme du 8/10/2005 du Nord Pakistan3h50 TU, par exemple nous avons obtenu le sismogramme
+suivant :
+
+19
+
+Le site REV met en ligne les deux autres sismogrammes suivants :
+
+Station Dublin, Ireland 53.25 N, 6.38 W
+Battle Mountain, Nevada, USA 40.43 N, 117.22 W
+L’hodochrone nous donne les distances angulaires entre la station d’enregistrement et le séisme
+Mulhouse Lycée Lavoisier :: 55 °
+Dublin : 65 °
+Battle Mountain : 95 °
+On repère sur le Globe terrestre les positions de chaque station et à l’aide d’une ficelle on trace des arcs de cercle
+centrés sur chaque station et de rayon donné par l’angle fourni par l’hodochrone.
+On constate que les trois cercles se rencontrent effectivement près de Peshawar.
+
+Cette méthode est appelée triangulation
+
+4) Précision de la position de l’épicentre ainsi déterminée
+Cette précision dépend essentiellement de la précision avec laquelle on connaît la vitesse de propagation de
+sondes P et S.
+La vitesse des ondes P et S varie beaucoup avec la nature des matériaux traversés v l’annexe 7, et la profondeur à
+laquelle se propagent les ondes.
+Pour les séismes proches les ondes se propagent surtout au voisinage de la croûte terrestre très inhomogène aussi
+il faut une hodochrone pour chaque séisme et chaque poste d’observation,
+20
+
+Pour les séismes lointains, le globe terrestre possède une symétrie sphérique. Les distances données par les
+hodochrones tiennent compte des différentes couches de matériaux traversées et la détermination de la distance
+est plus aisée. La profondeur du séisme intervient. Il y a une hodochrone pour chaque profondeur.
+Les sismologues peuvent ainsi déterminer la position d’un épicentre à 2 km près environ.
+Notre manipulation est loin d’être aussi précise.
+L’échelle, très grande, de la carte imprimée sur le globe fait que la position de
+ville de Mulhouse n’est guère mieux connue qu’à 30 km près environ.
+L’angle que l’on détermine sur un méridien du globe et qui permet d’obtenir la
+longueur de la ficelle est connu à 1° près environ(111 km). Chaque arc de cercle
+est donc entaché d’une erreur de 150 km environ.
+On peut donc considérer que la position de l’épicentre est connu à ±150 km
+près, ce qui correspond à une zone de diamètre angulaire 2,5 °.
+Pour le tremblement de Terre du Pakistan nous avons trouvé un épicentre de
+coordonnées :
+Lat : 35°N
+Long : 72°E
+La position donnée par le Renass est :
+Lat : 35°N
+Long : 74°E
+Ce qui correspond à notre zone d’indétermination.
+Il doit être possible d’obtenir de meilleurs résultats en étant beaucoup plus soigneux !
+
+5) Tremblements de terre détectés par notre Sismographe.
+Notre sismographe a détecté un certain nombre de tremblement de terres. Les plus représentatifs pour lesquels
+les sismogrammes sont donnés en annexe sont les suivants (annexe 8)
+Pérou : 26/9/2005 1h50 TU M= 6,3
+Pakistan : 8/10/2005 3h50 TU M = 7,6
+Turquie :20/10/2005 21h40 TU M= 5,6
+Bâle : 12/11/2005 19h41 TU M= 3,8
+Japon : 14/11/2005 21h35 TU M= 6,8
+Lac Tanganyika 5/12/05 12h19 TU M = 6
+
+IX.Détermination de la magnitude d’un séisme
+Connaissant l’amplitude maximale du signal et la distance à l’épicentre, il
+est possible de trouver la magnitude du séisme en utilisant des abaques
+comme l’indique la figure ci contre.
+Nous ne pouvons pas le faire car l’amplitude de notre signal n’est pas très
+représentative du séisme que nous enregistrons.
+
+21
+
+X.CONCLUSION
+Notre sismographe bien que construit à l ’aide de moyens simples disponibles dans le commerce nous a permis
+d’obtenir des sismogrammes de séismes lointains de bonne qualité.
+me
+M Ansel et M Frogneux sont venus au Lycée le 30 novembre 2005 et ont placé un sismographe professionnel
+juste à côté du notre. Les signaux détectés sont comparables mais les
+nôtres sont trop « bruités ».
+Pour que cet appareil puisse rivaliser avec des appareils commerciaux il lui
+manque une horloge précise et un étalonnage de l’amplitude des signaux
+détectés et il faudrait qu’il soit placé hors du bâtiment pour limiter les
+bruits parasites.
+
+M Frogneux et son sismographe
+
+Actuellement l’emploi de sismomètres de plus en plus précis permet
+l ’étude de la structure interne du globe terrestre mais ne permet
+malheureusement pas encore des prévisions sûres des séismes.
+Il faut donc construire des bâtiments parasismiques pour se prémunir
+contre les dangers des tremblements de terre.
+
+Ce projet nous a permis de comprendre le fonctionnement d'
+un sismographe. Pour cela il nous a fallu réaliser des
+expériences et apprendre des notions nouvelles, en dehors du programme de notre classe. Il a fallu surtout
+réfléchir pour résoudre des problèmes techniques qui se présentaient par exemple pour compter le très grand
+nombre de spires de la bobine ou bien construire un axe de rotation limitant le plus possible les frottements.
+Nous avons participé à la fête de la science en octobre 2005 en présentant notre projet au public et nous avons du
+répondre aux multiples questions posées par les visiteurs, ce qui nous a obligé à approfondir encore plus nos
+connaissances dans le domaine de la sismologie.
+La participation aux Olympiades de Physique nous est très profitable et nous prévoyons de prolonger ces
+activités en participant au concours Objectif Sciences et en présentant notre réalisation au collège de Pontarlier
+en mai 2006 lors d’une journée « Science ».
+.
+
+22
+
+XI.Annexes
+
+23
+
+1) Plan définitif de l’appareil
+Nous avons modifié certains composants par rapport au plan initial comme l’indique la figure ci-dessous
+
+24
+
+2) Schéma du convertisseur analogique digital
+100 k
++5V
+
+10 k
+
+-
+
+10 k
+
++
+
+bobine
+100 k
+
++AD 620
+X 100
+-
+
+100 k
+
+1k
+10 tours
+1 µF
+
++5V
+5
+
+4
+Alimentation
+stabilisée
+±5 V
+
++5V
+
+1
+MAX 187
+
+2
+
+3,3 µF
+7
+1
+
+-5V
+
+25
+
+8
+
+6
+13
+
+Port parallèle PC
+
+3) Câblage du CAN
+Liste des composants
+
+AD620
+MAX 187
+2 tl 081
+1 x 7805
+1 x 7905
+résistors
+1 résistor de 490 Ω 1%
+100 kΩ, x 3
+10 kΩ x 2
+potentiomètre 10 tours 1000 Ω
+1 condensateur 5 µF et 1 µF non polarisé
+2 condensateurs 1000 µF électrochimique 12 V
+2 condensateurs 1 µF électrochimique 12 V
+1 borne imprimante DB 25 cordon
+1 transfo 2x 6 V
+2 pont de diodes 1 A
+4 supports CI DIL 8 bornes
+1 porte fusible
+
+4) Programme Qbasic
+DECLARE SUB affichage (nummes&, mesures%,
+yorig%)
+DECLARE SUB enregistrement (nummes&,
+mesure%)
+DECLARE SUB axes (nomdefichier AS STRING)
+DECLARE SUB aquisit (mesure AS INTEGER)
+DECLARE SUB initempo (n AS LONG)
+DECLARE SUB nomfich (nomdefichier AS
+STRING)
+DECLARE SUB tempo (nlim AS LONG)
+10 CLS : SCREEN 9
+PALETTE 1, 30
+20 REM entete nummes&=rang de la
+mesure,mesure%=valeur de la mesure
+30 REM xorig%= origine de l'
+axe x pour le trac‚
+40 REM vit variable tempo,d‚pend du pc!!!
+nummes& = 1
+xorig% = 1
+yorig% = 17
+mesure% = 0
+
+PRINT "
+PROGRAMME
+D'
+ACQUISITION DE DONNEES" PRINT "
+par le port parallele ,avec un max 187"
+PRINT "
+--------------------------------------"
+PRINT
+PRINT
+initempo n&
+nomfich nomdefichier$
+PRINT
+PRINT
+100 REM boucle principale
+REM INPUT "DEMARRER LA MESURE ? < O /
+N > ", rep$
+REM IF rep$ = "o" OR rep$ = "O" THEN GOTO
+130 ELSE GOTO 120
+130
+101 axes nomdefichier$
+WHILE com$ <> "q"
+IF DATE$ = dateini$ THEN
+26
+
+tempo 10 * n&
+aquisit mesure%
+enregistrement nummes&, mesure%
+affichage nummes&, mesure%, yorig%
+yorig% = INT(mesure% / 17)
+nummes& = nummes& + 1
+com$ = INKEY$
+ELSE
+CLOSE #1
+nomfich nomdefichier$
+REM OPEN nomdefichier$ FOR OUTPUT AS 1
+dateini$ = DATE$
+nummes& = 0
+END IF
+WEND
+120
+CLOSE #1: END
+500 u = 1
+
+OUT 888, 0
+OUT 888, 2
+IF (INP(889) AND 32) > 0 THEN accum% =
+accum% + 64
+OUT 888, 0
+OUT 888, 2
+IF (INP(889) AND 32) > 0 THEN accum% =
+accum% + 32
+OUT 888, 0
+OUT 888, 2
+IF (INP(889) AND 32) > 0 THEN accum% =
+accum% + 16
+OUT 888, 0
+OUT 888, 2
+IF (INP(889) AND 32) > 0 THEN accum% =
+accum% + 8
+OUT 888, 0
+OUT 888, 2
+IF (INP(889) AND 32) > 0 THEN accum% =
+accum% + 4
+OUT 888, 0
+OUT 888, 2
+IF (INP(889) AND 32) > 0 THEN accum% =
+accum% + 2
+OUT 888, 0
+OUT 888, 2
+IF (INP(889) AND 32) > 0 THEN accum% =
+accum% + 1
+OUT 888, 2
+OUT 888, 0
+OUT 888, 2
+OUT 888, 0
+OUT 888, 1
+mesure% = accum%
+50 dateini$ = DATE$
+ON ERROR GOTO 0
+OPEN nomdefichier$ FOR OUTPUT AS 1
+
+RESUME 50
+SUB affichage (nummes&, mesure%, yorig%)
+xorig% = nummes& - (550 * (INT(nummes& /
+550)))
+IF xorig% = 439 THEN axes nomdefichier$
+LOCATE 3, 10: PRINT "MES:"; nummes&;
+"VAL:"; mesure%; "mv ", TIME$
+PALETTE 1, 60
+LINE (xorig% + 50, 350 - yorig%)-(xorig% + 50,
+350 - INT(mesure% / 17)), 9
+PALETTE 1, 30
+END SUB
+SUB aquisit (mesure%)
+accum% = 0
+OUT 888, 1
+OUT 888, 0
+OUT 888, 2
+OUT 888, 0
+OUT 888, 2
+IF (INP(889) AND 32) > 0 THEN accum% = 2048
+OUT 888, 0
+OUT 888, 2
+IF (INP(889) AND 32) > 0 THEN accum% =
+accum% + 1024
+OUT 888, 0
+OUT 888, 2
+IF (INP(889) AND 32) > 0 THEN accum% =
+accum% + 512
+OUT 888, 0
+OUT 888, 2
+IF (INP(889) AND 32) > 0 THEN accum% =
+accum% + 256
+OUT 888, 0
+OUT 888, 2
+IF (INP(889) AND 32) > 0 THEN accum% =
+accum% + 128
+
+END SUB
+SUB axes (nomdefichier$)
+CLS
+LOCATE 1, 1: PRINT "Appuyer sur <q> pour
+stopper."
+LOCATE 2, 1: PRINT "MESURE du :", DATE$,
+"Mesures sauv‚es dans ", nomdefichier$
+LOCATE 11, 77: PRINT "4v"
+LOCATE 25, 77: PRINT "ov"
+LOCATE 11, 2: PRINT "V"
+LOCATE 13, 2: PRINT "O"
+LOCATE 15, 2: PRINT "L"
+LOCATE 17, 2: PRINT "T"
+LOCATE 19, 2: PRINT "S"
+LOCATE 25, 1: PRINT "TEMPS>"
+xorig% = 50
+END SUB
+27
+
+FOR n = 1 TO LEN(dat$)
+IF n <> 7 THEN
+IF n <> 8 THEN
+IF ASC(MID$(dat$, n, 1)) <> 45 THEN
+
+SUB enregistrement (nummes&, mesure%)
+WRITE #1, nummes&, mesure%, TIME$
+END SUB
+SUB initempo (n&)
+LOCATE 15, 10: PRINT " Patience : initialisation"
+DEF SEG = &H40
+A0 = PEEK(8) + 256 * PEEK(9)
+DEF SEG
+LOCATE 1, 1: PRINT A0
+
+valdat$ = valdat$ + MID$(dat$, n, 1)
+END IF
+END IF
+END IF
+NEXT n
+
+temps1& = (60 * VAL(MID$(TIME$, 4, 2))) +
+VAL(MID$(TIME$, 7, 2))
+FOR n& = 0 TO 1000000
+aquisit (mesure%)
+NEXT
+temps2& = (60 * VAL(MID$(TIME$, 4, 2))) +
+VAL(MID$(TIME$, 7, 2))
+CLS
+LOCATE 1, 1: PRINT n&
+LOCATE 2, 1: PRINT (temps2& - temps1&)
+
+WHILE u = 0
+nomdefichier$ = "C:\QBASIC\" + valdat$ +
+LTRIM$(STR$(p)) + ".dat"
+ON ERROR GOTO 500
+FILES nomdefichier$
+p=p+1
+IF p = 99 THEN EXIT SUB
+WEND
+
+tc# = (temps2& - temps1&) / 1000000
+LOCATE 4, 1: PRINT tc#
+n& = INT(n& / ((temps2& - temps1&) * .5))
+LOCATE 3, 1: PRINT n&
+END SUB
+
+END SUB
+
+SUB nomfich (nomdefichier$)
+p=0
+u=0
+dat$ = DATE$
+valdat$ = ""
+
+END SUB
+
+SUB tempo (n&)
+FOR x = 0 TO n&
+NEXT x
+
+5) Viscosité de l’huile 15W40 en fonction de la température
+
+28
+
+6) Hodochrones
+
+Turquie
+20/10/2005
+Station du
+Lycée
+
+7) Vitesses des ondes P et S
+
+29
+
+8) Quelques sismogrammes obtenus au Lycée Lavoisier
+
+Pas d’événements enregistrés
+
+Nord Pérou26/09/2005 (1h50 TU) M 6,3 :
+
+Nord Pakistan 8/10/2005(3h50 TU) M :7 ,6
+
+Plusieurs événements :25/09/2005 Ethiopie 10h18 TU M :4,8 ; Ethiopie 10h02
+M : 5, Ethiopie 11 h 20 M : 5 Iles Vuanatu 12h55 M : 6
+30
+
+Heure TU
+
+Turquie 20/10/2005 21H41 TU M = 5,4
+
+Bâle 12/11/2005 19h31 TU M = 3,8
+
+Heure Tu
+
+Japon 14/11/2005 21 h 35 TU M = 6.8
+
+Lac Tanganyika 5/12/2005 12h19 M = 6
+
+31
+
+9) Echelles de Richter et de Mercalli
+
+10) Bilan financier
+Budjet du groupe "Les tremblements de Terre"
+Date
+Objet
+Libellés
+14/03/2005 Construction du sismographe
+Tuyaux et petites quincaillerie
+15/03/2005 Construction du sismographe
+Plaques d'acier
+15/03/2005 Construction du sismographe
+Quincaillerie
+15/04/2005
+Subvention SFP
+11/05/2005 Construction du sismographe
+Petite quincaillerie
+18/05/2005 Visite du musée de sismologie de Strasbourg Tickets de train
+19/05/2005 Visite du musée de sismologie de Strasbourg Tickets de train
+18/05/2005 Visite du musée de sismologie de Strasbourg Tickets tram strasbourg
+07/06/2005 Construction du sismographe
+Composants électroniques
+09/06/2005 Construction du sismographe
+Petite quincaillerie
+12/06/2005 Construction du sismographe
+Ordinateur portable d'occasion
+14/06/2005 Construction du sismographe
+Plaque de plexiglass
+03/09/2005 Construction du sismographe
+Câble blindé 20 rond
+12/09/2005 Construction du sismographe
+Aimant fer à cheval
+15/09/2005 Construction d'une maquette
+Petite quincaillerie
+20/09/2005 Construction d'une maquette
+Petite quincaillerie
+27/09/2005 Construction d'une maquette
+Petite quincaillerie
+14/10/2005 Participation à "fête de la science"
+Cartolines
+nov-05
+Subvention SFP
+
+32
+
+Fournisseur
+Castorama
+Bricofer
+Castorama
+Castorama
+SNCF
+Crédits ateliers scientifiques
+CTS
+Wigi diffusion (Mulhouse)
+castorama
+Wiplille
+Castorama
+Wigi diffusion (Mulhouse)
+Radiospares
+Castorama
+Bricorama
+Bricorama
+Ecole et Burreau
+
+Mode de
+paiement
+Espèce
+Espèce
+Espèce
+Chèque
+Espèce
+
+Espèce
+Espèce
+Espèce
+chèque
+Espèce
+Espèce
+chèque
+Espèce
+Espèce
+Espèce
+Chèque
+
+Débits
+59,12 €
+25,52 €
+37,94 €
+6,42 €
+96,00 €
+10,60 €
+36,05 €
+7,50 €
+110,00 €
+20,07 €
+5,00 €
+47,49 €
+19,24 €
+9,49 €
+8,28 €
+27,35 €
+
+Crédits
+
+Solde
+- 59,12 €
+- 84,64 €
+- 122,58 €
+250,00 € 127,42 €
+121,00 €
+25,00 €
+96,00 € 121,00 €
+110,40 €
+74,35 €
+66,85 €
+- 43,15 €
+- 63,22 €
+- 68,22 €
+- 115,71 €
+- 134,95 €
+- 144,44 €
+- 152,72 €
+- 180,07 €
+180,07 € - 0,00 €
+
+

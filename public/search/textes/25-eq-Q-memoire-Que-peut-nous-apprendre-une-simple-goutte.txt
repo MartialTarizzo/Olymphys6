@@ -1,0 +1,1211 @@
+LYCEE DOUANIER ROUSSEAU
+53 000 LAVAL
+
+Chloé SIMONNET
+
+Clarisse BAUDOUIN
+
+Clément TRAUP
+
+Professeur encadrant: Patrice MICHEL
+
+1
+
+SOMMAIRE
+
+Remerciements et résumé
+
+I.
+
+Comment déterminer la taille d’une goutte de fluide?
+
+(sept 2016 à fév 2017)
+
+1. Un compteur de gouttes : pourquoi et comment ?
+2. Les gouttes qui s’écoulent sont-elles toutes identiques ?
+II. Les gouttes de fluide ont-elles toutes la même taille ?
+
+(janv à mai 2017)
+
+1. Le compteur au travail
+2. Pourquoi toutes les gouttes n’ont-elles pas le même rayon selon les fluides ?
+3. L’influence de la concentration en tensioactif sur les volumes des gouttes
+4. Quelle précision pour nos mesures ?
+III. Que peut nous apprendre le profil d’une goutte suspendue?
+
+(déc 2016 à mai 2017)
+
+1. Pourquoi cette question ?
+2. Pourquoi un algorithme est-il nécessaire pour tracer le profil théorique d’une goutte suspendue ?
+3. L’algorithme avec Géobra
+4. Utilisation de notre algorithme
+IV. Comment une goutte se détache-t-elle de son support ?
+
+( déc 2016 à nov 2017)
+
+1. Nos premières photographies
+2. Notre compteur nous vient en aide
+3. Notre scénario du détachement
+4. Vers des photographies reproductibles
+5. Comment relier la taille d’une goutte aux forces qui s’exercent lors du détachement ?
+V. Une goutte peut-elle être utilisée comme réacteur chimique ?
+
+(janv 2017 à janv 2018)
+
+1. Pourquoi cette question ? Comment faire ?
+2. La mise en place difficile du dispositif
+3. Notre première goutte de mélange réactionnel… et de nouveaux problèmes !
+4. Comment exploiter notre dispositif ?
+5. Vers la miniaturisation…
+
+Conclusion-Bibliographie-Annexes
+
+2
+
+Remerciements
+Tout d’abord, nous tenons à remercier nos partenaires :
+David Houdoux, doctorant à l’Institut de Physique de Rennes, pour nous avoir aidés et conseillés dès le
+début de notre projet ; Pascale Gall-Borrut et Benoit Charlot de l’Université de Montpellier qui nous aident
+actuellement dans la réalisation de notre première cellule en PDMS.
+Merci également à Florence Rouyer, chercheuse à l’Université Paris-Est et membre de notre jury interacadémique. Elle nous a apportés des conseils suite à notre premier exposé.
+Merci à Mathilde Reyssat, chercheuse à l’Ecole Supérieure de Chimie et de Physique de la ville de Paris
+(ESCPI), qui a récemment accepté de nous apporter son aide dans la réalisation d’une cellule microfluidique.
+Également, merci à Gwenaël Le Bouquin, de l’hôpital de Vannes, pour nous avoir prêté les indispensables
+pousses seringues et à Christèlle Pairin de la pharmacie « Esculape » à Changé (53) pour le don des seringues.
+Nous remercions Jean Noël Godet, notre chef d’établissement pour son appui et son intérêt pour nos
+travaux, ainsi qu’Alain Buttier et Charlène Beaudouin, les laborantins du lycée, pour leurs aides.
+Merci également à tous les élèves de l’atelier des années antérieures, qui nous ont accueillis à bras ouverts,
+et nous ont transmis l’esprit « atelier ». Ils ont également su nous transmettre leur détermination et leur énergie !
+Nous tenons tout particulièrement à remercier Estelle Cartier et Thibaut Bellanger avec qui nous avons lancé ce
+projet dès septembre 2016. Ensemble, nous avons passé beaucoup de temps à l’atelier, sur notre temps libre
+(heures libérées, mercredi après midi, le soir et parfois les vacances…). Thibaut, désormais en études supérieures,
+est revenu spontanément nous prêter main forte au lycée cette année.
+Pour finir, nous souhaitons exprimer toute notre gratitude à Patrice Michel, notre professeur de physique,
+mais également fondateur de l’atelier scientifique, qui nous a accompagnés tout au long de ce projet. Merci pour
+son investissement mais surtout pour sa motivation et sa pédagogie. Sans lui rien de tout cela n’aurait été possible !
+
+Résumé
+
+Mobilisés autour de la question «Que peut nous apprendre une simple goutte?», nous avons, tout au long
+de ce projet, été amenés à reconsidérer notre rapport aux fluides. Un objet aussi banal qu’une goutte est-il
+finalement si anodin ? Portés par la conviction qu’il n’en est rien, nous avons découvert comment les gouttes
+peuvent nous éclairer sur les propriétés physico-chimiques des fluides. Ainsi, nous avons cherché à comprendre
+comment la taille d’une goutte est un précieux indicateur des caractéristiques d’un fluide. Celle-ci témoigne
+également des forces qui s’exercent en son sein, phénomènes physiques que nous avons souhaité approfondir par
+une étude du profil d’une goutte suspendue puis celle de son détachement. En prolongeant notre réflexion, nous
+nous sommes demandé si une goutte pouvait être utilisée comme microréacteur chimique, question qui nous a
+conduits à réaliser un dispositif que nous cherchons désormais à miniaturiser avec l’aide de nos partenaires. A
+chaque interrogation, des dispositifs à concevoir et à réaliser, mais aussi de nombreuses difficultés à surmonter !
+
+3
+
+I. Comment déterminer la taille d’une goutte de fluide?
+
+(sept 2016 à fév 2017)
+
+La première chose que nous avons cherché à déterminer est le volume d'une goutte qui nous permet ensuite
+de déterminer son rayon. Pour former une goutte, le plus simple pour nous était de prendre une burette graduée.
+Nous avons désormais notre burette « fétiche » qui nous accompagne depuis le début de notre projet. Nous avons
+vite compris qu’une seule goutte ne suffirait pas à mesurer le rayon d’une goutte ! En effet, nous ne disposons pas
+au lycée de moyen direct de mesure d’un très petit volume ni d’une très faible masse aussi avons-nous décidé de
+mesurer la masse totale (ou le volume) d’un grand nombre de gouttes en faisant l’hypothèse qu’elles ont toutes la
+même masse (ou le même volume). Après avoir compté plusieurs milliers de gouttes « à la main », il nous a
+semblé indispensable de mettre au point un compteur de gouttes car nous projetions de très nombreuses autres
+mesures. Afin de pallier à nos éventuelles erreurs d’inattention lors des comptages, et pour nous faire gagner un
+peu de temps, nous avons cherché à mettre au point un système pour compter automatiquement les gouttes. Ce
+système est devenu par la suite bien plus qu’un compte goutte, comme nous le verrons au paragraphe IV.
+
+1. Un compteur de gouttes : pourquoi et comment ?
+À l’origine, pour compter des gouttes nous avions imaginé une détection de chocs ou de sons sur une
+plaque de verre mais les premiers essais n’ont pas été concluants. Aussi avons-nous opté pour une autre méthode.
+Il s’agit d’un système optique, dont nous doutions de l’efficacité, puisque les gouttes sont pour la plupart
+transparentes. Le principe est le suivant : on place un laser devant une photodiode qui va capter la lumière émise
+par celui-ci. Plus la photodiode reçoit de lumière, plus elle laisse passer le courant électrique. Cependant,
+lorsqu’une goutte tombe devant le faisceau laser, cela va temporairement cacher la lumière. La photodiode reçoit
+donc moins de lumière, et par conséquent, laisse passer moins de courant. L’idée est de se servir de cette différence
+de courant, et de la traiter grâce à un microcontrôleur Arduino qui, lorsqu’il enregistre une diminution du courant,
+compte une goutte. Toutefois, la carte Arduino n’est capable de traiter un signal qui lui est transmis que si celui-ci
+est égal à 0 ou 5V. Notre premier défi a été donc de concevoir et de réaliser un circuit électronique capable de
+produire en sortie 0V si aucune goutte ne passe devant la photodiode, et 5V dans le cas contraire.
+Même si nous sommes en section S-SVT, et que nous n’avons jamais eu de cours d’électronique, nous
+n’avons pas eu trop d’appréhension lors de la conception et la réalisation de ce dispositif électronique car, en
+seconde, nous avons déjà réalisé un projet au sein de l’atelier scientifique qui nécessitait la mise au point de
+montages électroniques. De nombreux essais et ajustements sur plaque d’essais, ont été tout de même nécessaires
+afin de parvenir au montage schématisé ci-après :
+
+15 V
+
+3,3kΩ
+
+Interrupteur
+électronique
+
+1,5kΩ
+
+Uréf
+U2 0V ou 10V
+
+ 0V ou 0,03V
+
++
+1kΩ
+
+Faisceau
+Laser
+
++
+
+U3=-15V ou +15V
+
+AOP
+
+-
+
+AOP
+
+0-1kΩ
+
++
+
+0V ou 15V
+
+2,2kΩ
+
+0-1kΩ
+
+G
+
+-
+
+U4=0V ou 5V
+
+Amplificateur
+
+Déclencheur
+d’appareil photographique
+
+Comparateur
+
+1,5kΩ
+
+« Compteur de gouttes »
+et tracé de N=f(t)
+
+Diode+ Diviseur de
+tension
+
+ARDUINO
+
+4
+
+Notre montage est constitué de plusieurs étapes. Celles-ci sont détaillées dans l’annexe 7 où nous justifions
+le choix de nos composants notamment les valeurs des résistances. Voici brièvement le principe du montage : la
+photodiode est montée en série avec une résistance. Lorsqu’elle reçoit de la lumière un courant parcourt la
+résistance et une tension apparait à ses bornes. Cette tension d’après nos mesures varie de 0 à 0,03V. Nous
+amplifions cette différence avec un montage amplificateur. Le facteur d’amplification est variable et la tension de
+sortie de ce montage peut varier d’environ 0,1V à 10V. Cette tension est comparée à une tension de référence que
+nous pouvons nous même ajuster en réglant une valeur de résistance. A la sortie de ce comparateur, nous avons 15V ou +15V. Une diode puis un diviseur de
+tension permettent d’arriver à une tension U4
+égale à 0V en l’absence de gouttes et +5V au
+U2
+passage d’une goutte.
+Ce montage fonctionnait bien sur plaque
+d’essais mais nous avons parfois eu des
+problèmes de connexions voire des problèmes
+de perturbations électromagnétiques. Nous
+avons donc assez vite réalisé un circuit
+imprimé, ce qui a nécessité de concevoir des
+pistes, que nous avons ensuite imprimées sur
+une carte. Nous avons ensuite percé cette
+dernière pour pouvoir y souder nos composants
+électroniques. Notre montage est ainsi plus sûr
+Ci-dessus, visualisés à l’aide d’une carte d’acquisition, les évolutions dans le
+et plus facilement transportable.
+temps des tensions U2, Uréf et U4 lors du passage de trois gouttes successives.
+
+2. Les gouttes qui s’écoulent sont-elles toutes identiques ?
+Pendant la conception et la réalisation de notre compteur, nous avons beaucoup douté. En effet nous
+voulions compter beaucoup de gouttes pour déterminer avec précision le rayon de chacune d’entre elles. Mais les
+gouttes qui s’écoulent, rapidement au début et plus lentement par la suite si on ne touche pas au robinet de la
+burette, sont-elles vraiment toutes identiques ?
+Nous avons beaucoup débattu autour de cette question. Finalement, nous avons pu trancher celle-ci à l’aide
+de mesures. Voici comment nous avons procédé:
+Nous avons laissé s’écouler des gouttes d’eau de notre burette.
+Puis, à l’aide des données recueillies par Arduino, nous avons établi un
+fichier excel qui peut afficher en temps réel la courbe N=f(t), courbe qui
+représente le nombre de gouttes tombées au cours du temps. Sans
+surprise, ce nombre augmente plus vite au début qu’à la fin. Pendant ce
+comptage, nous avons également filmé la balance pesant l’erlenmeyer dans
+lequel tombaient les gouttes ainsi qu’un chronomètre. Nous avons ensuite
+relevé image par image les différents couples (masse, temps) afin de tracer
+la courbe m=f(t). En dérivant les modélisations de N=f(t) et m=f(t), nous
+avons obtenu le débit massique et le débit de gouttes au cours du temps.
+
+Les deux débits diminuent suivant des fonctions affines. Au cours du temps, la pression de l’eau
+diminuant dans la burette, le débit de gouttes diminue tout comme le débit de la masse.
+5
+
+Les modélisations des courbes N=f(t) et m= f(t) ont pour équations :
+
+N  3,13.103  t 2  2,492  t
+
+4
+
+et m  1,84.10  t  0,1468 t
+On remarque que m= 0,059×N ou 0,059 est la masse (en g) d’une goutte, pour la burette utilisée ici. On
+peut donc écrire pour chaque instant : m=mgoutte× N.
+Ainsi, nous pouvons bien déterminer le volume pour un grand nombre de gouttes et diviser par ce nombre
+pour obtenir le volume d’une seule goutte avec une très bonne précision.
+
+II. Les gouttes de fluide ont-elles toutes la même taille ?
+
+2
+
+(janvier à mai 2017)
+
+La réponse est oui, pour un même fluide et une même burette, comme nous l’avons vu au paragraphe
+précédent. Mais qu’en est-il d’un fluide à l’autre ?
+
+1. Le compteur au travail
+Le compteur de gouttes a permis de réaliser de très nombreuses mesures du nombre de gouttes pour un
+volume donné. Les premières mesures réalisées furent évidemment effectuées avec de l’eau. Ces mesures nous ont
+tout d’abord réjouis car nous avons pu constater la fiabilité de notre compteur : pour un volume de 25,0mL d’eau
+distillée nous trouvions systématiquement 405 gouttes, à une goutte près.
+Pour répondre à notre question nous avons entrepris de compter le nombre de gouttes pour de nombreux
+liquides différents. L'intérêt étant de savoir si toutes les gouttes ont la même taille pour différents fluides et si non,
+pourquoi ? Ainsi nous avons compté plus de 20 000 gouttes avec notre compteur en gardant toujours la même
+burette. Nous avons effectué nos mesures pour de nombreux liquides : eau distillée (à différentes températures),
+eau salée à différentes concentrations, eau minérale, éthanol, cyclohexane, eau avec colorant bleu ou rouge etc...
+Nous avons été limités parfois dans nos choix par la dangerosité de certains liquides. Les mesures avec le
+cyclohexane et l’éthanol ont été faites sous la hotte bien sûr.
+Au vu du nombre important de mesures effectuées, nous avons utilisé un tableur qui permet de répertorier
+nos mesures et d’effectuer quelques calculs. Nous avons indiqué dans ce tableau pour chaque fluide : La
+température (mesurée en°C), la masse volumique  mesurée par nos soins, le nombre de gouttes N pour un volume
+V en mL , le volume d’une goutte v déduit des valeurs de N et V grâce à l’expression v 
+
+V
+, la masse d’une
+N
+
+goutte m déduite des valeurs de N, V et  grâce à l’expression m    V , et enfin le rayon r d’une goutte.
+N
+
+En supposant en effet que les gouttes sont sphériques, on peut écrire :
+4
+4
+V
+v   r 3 d’où  r 3  et donc en déduire r  3 3  V
+3
+3
+N
+4  N
+Comment procède-t-on? Nous avons mis au point un protocole précis pour effectuer chaque mesure :
+ Peser un volume de fluide dans une fiole jaugée pour en déduire la masse volumique du fluide.
+ « Lancer Arduino » et vérifier qu’il soit prêt à accepter de nouvelles mesures; vérifier que les gouttes soient
+bien détectées par notre dispositif (bon alignement entre le laser, la goutte et la photodiode).
+ Lancer le comptage des gouttes. Il faut faire très attention d’avoir un débit assez lent pour que la
+photodiode puisse détecter l’écart de luminosité et ne pas compter plusieurs gouttes pour une seule… Mais
+il faut tout de même un débit assez rapide pour que la prise de mesure ne prenne pas trop de temps. On peut
+ainsi travailler en toute sérénité, confiant en notre dispositif… Encore faut-il ne pas rater la dernière
+graduation de la burette… Ce qui nous est arrivé bien sûr !
+Voici nos résultats pour quelques fluides…
+
+Fluide
+
+
+(en°C)
+
+Densité
+
+Eau distillée
+Eau du robinet
+Eau salée (25%)
+Éthanol
+Cyclohexane
+Eau colorée bleu
+Eau colorée rouge
+
+20,0°C
+22.0°C
+20,5°C
+21,1°C
+21,6°C
+20,6°C
+20,5°C
+
+1,00
+1,00
+1,00
+0,80
+0,74
+0,99
+1,00
+
+Volume
+Nb de Masse d’une
+total V (mL) gouttes N goutte m (g)
+25,0
+25,0
+25,0
+25,0
+25,0
+25,0
+25,0
+
+405
+409
+411
+1010
+1032
+546
+660
+
+0,0617
+0,0611
+0,0608
+0,0198
+0,0179
+0,0453
+0,0379
+
+Rayon r
+en cm
+
+Volume d’une
+goutte v ( mL)
+
+0,245
+0,244
+0,244
+0,181
+0,179
+0,221
+0,208
+
+0,0617
+0,0611
+0,0608
+0,0248
+0,0242
+0,0458
+0,0379
+
+6
+
+… et nos premiers commentaires : Nous avons établi notre podium des rayons les plus importants. L’eau distillée
+est sur la plus haute marche avec un rayon pour cette burette de 2,45mm. Suivent les solutions ioniques aqueuses:
+l’eau salée ou l’eau minérale dont le rayon est très légèrement inférieur. Nous trouvons en troisième place les
+solutions aqueuses avec des colorants alimentaires bleu (2,21mm) et rouge (2,08mm). Bien en dessous nous
+retrouvons beaucoup de fluides comme l’éthanol (1,81mm) et le cyclohexane (1,79mm).
+
+2.
+
+Pourquoi toutes les gouttes n’ont-elles pas le même rayon selon les fluides?
+
+Lorsque la goutte se forme, son poids l’entraîne vers le bas, mais au lieu de simplement tomber en filet, le
+fluide forme étrangement une sorte d’ampoule qui résiste quelques temps à la gravité. Nous avons effectué
+quelques recherches et c’est ainsi que nous avons découvert une notion qui nous était inconnue: la tension
+superficielle. La tension superficielle est liée à des forces de surface qui tendent à réduire la surface entre la goutte
+et l’air. Une tension de surface s’exprime en N.m-1ou J.m-2. Nous avons reproduit les manipulations classiques où
+les effets de la tension de surface sont spectaculaires : trombone flottant à la surface de l’eau, tige se déplaçant sur
+un cadre lorsque l’on éclate un film d’eau savonneuse. Ce que nous avons fait et appris sur la tension superficielle
+est répertorié dans les annexes 1 et 2.
+Lors de la formation de la goutte, on peut imaginer la tension de surface comme jouant le rôle d’un « sac »
+imaginaire à la surface de la goutte. Plus le sac est solide plus la goutte pourra être chargée et donc volumineuse
+avant détachement.
+La tension superficielle est liée aux interactions entre molécules situées à la surface : plus les molécules à
+la surface peuvent faire des liaisons fortes et nombreuses entre elles et plus la tension superficielle sera élevée. Par
+exemple les molécules d’eau, qui sont des molécules polaires, créent des liaisons hydrogènes entre elles. A
+l’interface entre l’eau et l’air, les molécules d’eau vont exercer de très grandes interactions entre elles mais des
+interactions assez négligeables avec l’air, ce qui va engendrer une forte tension superficielle et une sorte de « peau
+» à l’interface. À partir de ces considérations, nous avons pu justifier la petite taille des gouttes de cyclohexane
+(molécules apolaires) et l’influence de la température (agitation thermique qui diminue l’interaction entre les
+molécules).
+Nous avons davantage été surpris par la taille des gouttes d’eau colorée à l’aide de colorants alimentaires.
+Même ajoutées en petites quantités, ces espèces influencent beaucoup sur la taille des gouttes et donc sur la tension
+superficielle des fluides. Nous avons supposé dans un premier temps que les molécules colorantes étaient polaires
+mais nos recherches nous ont fait découvrir par la suite l’importance des molécules tensioactives sur la valeur de la
+tension de surface. Nous avons pu ainsi, en analysant la formule topologique de la molécule d’apocaroténale
+(colorant rouge E160), repérer la partie hydrophile (entourée en rouge) et la partie hydrophobe (entourée en bleu).
+
+La structure de cette molécule et la disposition de ces molécules à la surface de la goutte diminuent les
+interactions de surface ce qui diminue la tension de surface et donc la taille des gouttes colorées. Pour la molécule
+du colorant bleu (E133), plus complexe, nous n’avons pas réussi à repérer la partie hydrophile et la partie
+hydrophobe.
+La découverte des tensioactifs nous a permis de comprendre pourquoi les ions avaient si peu d’impact sur
+la tension superficielle de l’eau. Contrairement aux tensioactifs, les ions se disposent dans la totalité du volume de
+la goutte et pas seulement à l’interface puisqu’ils ne possèdent pas de chaînes apolaires. Ainsi ils ne modifient que
+très peu la tension de surface.
+
+3. L’influence de la concentration en tensioactif sur les volumes des gouttes
+Interpelés par l’influence des tensioactifs sur la taille des gouttes, nous avons décidé de réaliser de très
+nombreuses mesures de rayons de gouttes d’eau à différentes concentrations en SDS (dodécylsulfate de sodium).
+Ce tensioactif se trouve pur à l’état solide. Nous connaissons sa masse molaire, ce qui nous a permis de préparer
+des solutions à des concentrations différentes par dissolution puis par dilution.
+Ce travail nous a pris énormément de temps durant l’année 2016-2017. Tout d’abord parce qu’il nous fallait
+préparer beaucoup de solutions pour pouvoir tracer une courbe représentant le volume d’une goutte en fonction de
+la concentration en SDS. Ensuite nous avons commis des erreurs de préparation qui nous ont contraints à refaire
+toutes les solutions. Nos résultats sont reportés en annexe 4.
+7
+
+Nous avons finalement pu réaliser la courbe du volume des gouttes en fonction de la concentration en SDS :
+Volume d’une goutte en fonction de la
+concentration molaire en SDS
+
+Dans un premier temps, on remarque que le volume des gouttes est en « chute libre » à mesure que nous
+augmentons la concentration en SDS. Ainsi on passe d’un volume sans SDS (eau distillée) de 0,0622mL à
+0,0345mL pour une concentration en SDS de 0,007mol.L-1. Après cette valeur (0,007mol.L-1), on observe que
+l’augmentation de la concentration en SDS n’influe que très peu sur le volume des gouttes. Nous avons cherché à
+comprendre cette évolution et avons appris que 0,007mol.L-1 correspond à la CMC (concentration micellaire
+critique) du SDS. Mais que représente exactement la CMC ? Comme nous l’avons dit précédemment, les
+tensioactifs se placent en priorité à l’interface entre l’eau et l’air pour pouvoir émerger leurs parties hydrophobes.
+À partir d’une certaine concentration (la CMC), l’interface devient saturée en tensioactifs. Si on continue
+néanmoins à ajouter des tensioactifs, ces molécules vont se placer à l’intérieur de la goutte. Par conséquent, la
+tension superficielle ne diminue que très lentement. A partir de la CMC les tensioactifs « intérieurs » vont, pour
+isoler leurs parties apolaires de l’eau, former des micelles. Les micelles sont des sphères de tensioactifs dont les
+parties hydrophobes sont tournées vers l’intérieur et leurs parties hydrophiles vers l’extérieur.
+
+4. Quelle précision pour nos mesures?
+Un professeur, lors d’une présentation, nous a demandé quelle incertitude nous associons à nos mesures
+des rayons de nos gouttes.
+Nous avons trouvé avec notre burette un rayon de 0,245 cm soit 2,45mm pour les gouttes d’eau. Ce rayon
+3 V
+a été calculé à partir du volume total V ainsi que du nombre total N de gouttes écoulées r  3
+4  N
+Étant donné que la burette utilisée est graduée à 0,1mL près, nous accordons donc à la mesure du volume
+de fluide une incertitude ∆V de 0,1mL. On évalue l’incertitude ∆N du nombre de gouttes tombé à 2 gouttes.
+Il y a deux sources d’erreurs possibles, et l’expression de l’incertitude ∆r sur la mesure de r est, d’après
+notre professeur :
+1 V N
+r  r (
+
+)
+3 V
+N
+
+1
+0,1
+2
+Ici nous avons donc r  0,245   (
+
+)  7,3  10 4 cm  0,007 mm
+3 25,0 405
+Nous avons attribué trois chiffres significatifs à notre mesure de r, car nous avons calculé cette valeur à
+partir des mesures de V et N, chacune exprimée avec trois chiffres significatifs. 0,007mm est proche de 0,01mm,
+l’incertitude sur notre détermination de r porte selon nous sur le troisième chiffre significatif. On peut donc
+affirmer qu’ici, pour nos gouttes d’eau : 2,44mm < r <2,46mm
+Nous pensons donc avoir déterminé le rayon des gouttes pour chaque fluide avec une précision au centième de
+millimètre.
+8
+
+III.
+
+Que peut nous apprendre le profil d’une goutte suspendue? (déc 2016 à mai 2017)
+1. Pourquoi cette question ?
+
+Au cours de nos premières recherches, nous avons découvert un article traitant de la goutte pendante [1] écrit
+entre autres par Pierre Gilles de Gennes (prix Nobel en 1991 pour ses travaux sur les cristaux liquides). Cet article
+est assez compliqué pour nous, mais nous en avons saisi le principe et notre professeur nous a aidés à le
+comprendre dans les détails.
+En fait, cet article propose un algorithme géométrique qui permet, à partir de l’équation de Laplace, d’obtenir
+des profils théoriques de gouttes, profils qui dépendent du rayon du tube, de la tension de surface du fluide et de sa
+masse volumique.
+Les gouttes nous paraissaient toutes identiques et nous avons été surpris de voir que le profil d’une goutte
+suspendue pouvait faire l’objet d’études approfondies. Nous avons voulu reproduire cet algorithme sur
+“Géogébra”, un logiciel que nous utilisons parfois en mathématiques au lycée. L’idée est de prendre l’algorithme
+« à l’envers » et de pouvoir, à partir d’une simple photo de goutte suspendue, en déduire, en superposant des
+profils théoriques, la valeur de tension superficielle du fluide.
+
+2. Pourquoi un algorithme est-il nécessaire pour tracer le profil théorique d’une goutte suspendue ?
+L’article en question, mais aussi d’autres ouvrages (tel que [3]), explique comment évolue la pression à
+l’intérieur d’une goutte suspendue. Celle-ci augmente avec la profondeur de fluide. Ainsi, si on note p 0 la pression
+de l’eau au niveau de l’extrémité du tube, alors la pression à la profondeur z est :
+
+pz  p0  gz
+où g est l’intensité de la pesanteur (9,8 N.Kg ) et  la masse volumique du fluide (en Kg.m-3).
+-1
+
+Par ailleurs, au niveau de l’interface fluide/air, la variation de pression est connue grâce à la loi de Laplace, loi
+que nous avons découverte à cette occasion. Ce que nous en avons compris est reporté en annexe 3.
+La loi de Laplace établit une relation entre la différence de pression à l’interface entre deux milieux et la tension
+superficielle du liquide.
+Appliquée à la situation présente, on peut écrire au point P d’altitude z :
+
+p z  patm   (
+
+1 1
+ )
+R1 R 2
+
+ p z est la pression à l’intérieur de la goutte en Pascal à la profondeur z;
+ p atm est la pression à l’extérieur de la goutte (l’air ici) en Pascal;
+
+  est la tension superficielle à l’interface entre les deux fluides (eau et air) en
+N.m-1ou J.m-2
+ R1 et R2 sont les deux rayons de courbure de la surface au point P. On peut noter
+K 1 et K 2 les courbures
+
+P0
+
+p0
+
+patm
+P
+
+p
+
+1
+1
+et
+R1 R 2
+
+Comme pz  p0  gz et p z  patm   (
+
+1 1
+ ) , on peut trouver la relation
+R1 R 2
+
+entre z , K 1 et K 2 . Il suffit de remplacer p z par p0  gz dans l’équation de
+
+z
+
+Laplace et on obtient p0  gz  p atm   ( K1  K 2 )
+En « arrangeant un peu », on arrive à l’équation de Thomson-Laplace :
+
+p0  p atm
+
+
+
+
+
+gz
+ ( K1  K 2 ) équation (1)
+
+
+Pour chaque point P de profondeur z connue, on souhaite connaitre les valeurs K 1 et K 2 ce qui nous
+permettrait de connaitre le profil de la goutte en chaque point. On connait facilement p atm mais le problème est
+que nous avons trois inconnues, à savoir : K 1 , K 2 mais aussi p 0 dont il est difficile de connaitre la valeur. Trois
+inconnues, c’est trop pour une seule équation ! Il ne faut qu’une seule inconnue par équation pour avoir la
+solution !
+9
+
+Il est tout de même possible de déterminer
+
+p0  patm
+
+
+
+ 0  ( K1
+
+( 0)
+
+p 0  p atm
+
+
+
+. En effet dans l’équation (1), à z  0 ,
+
+gz
+ 0 on a donc
+
+
+ K 2 ) où K 1( 0) et K 2 ( 0) sont les rayons de courbure au point d’accroche P0.
+( 0)
+
+Si on analyse une photo de goutte de fluide, on pourra déterminer ces deux courbures en ce point . En
+notant K 0  K1
+
+( 0)
+
+ K2
+
+( 0)
+
+, on peut réécrire ainsi l’équation (1) :
+
+K0 
+
+gz
+ ( K1  K 2 )
+
+
+équation (2)
+
+Il reste ainsi pour chaque valeur de z, deux inconnues K 1 et K 2 . C’est encore trop pour une seule équation.
+Il n’est donc pas possible pour chaque valeur de z, d’en déduire à la fois K 1 et K 2 .
+C’est pourquoi Thomson a mis au point un algorithme géométrique pour relier la forme de la goutte et la
+tension superficielle. A partir des conditions initiales ( K 0 ), cet algorithme permet de déduire, par une série de
+constructions géométriques détaillée dans l’annexe 6 la courbe profil de la goutte.
+
+3. L’algorithme avec Géogébra
+Cet algorithme sur Géogébra fut assez compliqué à construire. L’annexe 5 présente quelques aperçus
+de nos galères au cours de la construction de celui-ci.
+L’une des premières difficultés rencontrées a été de nommer les très nombreux points et objets sans s’y perdre. On
+a pour cela utilisé le tableur de ce logiciel. Chaque case du tableur peut renvoyer à un objet géométrique sur la
+fenêtre de construction. Cet objet géométrique prend alors le nom de la cellule du tableur correspondante. Par
+exemple la case O3 du tableur permet d’obtenir le point O3 sur la page de construction géométrique.
+Nous avons du aussi être très vigilants quant à nos formules qui deviennent souvent très compliquées
+(annexe 5) afin de les rentrer sans faute dans notre tableur. Etablir les bonnes formules nous a demandés de
+procéder par étapes successives en ajustant progressivement celles-ci pour remédier aux erreurs et difficultés. Par
+exemple, étant donné que la courbure de la goutte dans un plan vertical est concave puis convexe, il a fallu prendre
+en compte le changement de signe de R1 qui est positif ou négatif. Après plusieurs mois, nous sommes enfin
+parvenus à faire fonctionner notre algorithme, à notre grande satisfaction.
+
+4. L’utilisation de notre algorithme
+Voici comment nous procédons avec une goutte d’eau. Tout d’abord, nous prenons en photo une goutte
+d’eau distillée pendante à l’extrémité d’un tube capillaire. Cette photo doit être la plus nette possible pour être
+exploitable correctement. Nous avons besoin de connaître le diamètre du tube pour fixer notre échelle et pour cela,
+nous le mesurons à l’aide d’un palmer. On renseigne aussi la masse volumique du fluide photographié.
+Nous insérons la photo en arrière plan de la
+fenêtre de notre logiciel Géogébra. L’étape
+suivante consiste à effectuer les premiers
+réglages et demande un peu de temps. On
+zoome sur l’embouchure du tube pour plus
+de précision et on fixe le point P0 ainsi que
+le premier arc de cercle de façon à ce qu’il
+épouse bien le contour de la goutte au
+niveau de l’accroche.
+Il nous reste ensuite à ajuster la valeur de la
+tension de surface à l’aide d’un curseur afin
+que la courbe théorique coïncide
+parfaitement avec le profil de la goutte de
+notre photo, comme ci-contre :
+10
+
+Plusieurs essais successifs pour faire fonctionner cet algorithme avec la même photo d’une goutte d’eau suspendue,
+donnent à chaque fois entre 72 et 73 mN.m-1 ce qui est tout à fait conforme à la valeur admise pour la tension
+superficielle entre l’eau et l’air à 20°C. Notre algorithme nous semble donc fiable et nous pouvons l’utiliser avec
+confiance.
+
+IV.
+
+Comment une goutte se détache-t-elle de son support ? (déc 2016 à nov 2017)
+
+À force de regarder nos gouttes tomber, nous avons eu envie d’étudier plus en détail le phénomène de
+détachement.
+
+1. Nos premières photographies
+Pour ce faire, nous avons voulu prendre des photos de nos gouttes afin d’être capable de les voir se former
+et se détacher. En effet, le principal obstacle que nous rencontrons lors d’une observation à l’œil nu est la vitesse
+de détachement, qui est de toute évidence très élevée. Nous avons donc pensé que l’appareil photo pourrait être
+plus rapide que l’œil humain, et parvenir à figer la goutte dans une situation précise. Notre première idée a donc été
+de paramétrer l’appareil photo sur « priorité vitesse », réglage influant sur la vitesse d’obturation de l’appareil au
+mieux égale à 1/4000 de seconde soit 0,25ms. Ainsi, le temps de pose est très faible, ce qui augmente les chances
+d’obtenir une photo nette, malgré la vitesse élevée de déformation de la surface de la goutte. Le risque est d’obtenir
+des photos très sombres. Il nous faut donc choisir un nombre d’ouverture faible et fortement éclairer la goutte.
+Après diverses tentatives d’éclairage (par devant, sur le côté etc..), nous avons opté pour un éclairage intense « par
+derrière ». C’est dans ces conditions que nous avons pris nos premières photos de gouttes, en déclenchant
+manuellement l’appareil. Après beaucoup de ratés, nous en avons conclu que photographier le détachement d’une
+petite goutte d’eau ne serait pas une mince affaire. En effet, nous ne parvenions à immortaliser cette situation
+qu’approximativement une fois sur cent environ ! La très grande majorité de nos photos étaient celles de gouttes
+juste avant ou juste après le détachement !
+
+2. Notre compteur nous vient en aide
+Nous avons alors eu l’idée de réutiliser notre compte goutte pour déclencher l’appareil photo
+automatiquement, au moment souhaité. Notre idée a été de se servir du signal de 0 ou 5V envoyé à Arduino pour
+déclencher l’appareil photo. Pour ce faire, nous avons utilisé ce signal afin qu’il vienne également alimenter un
+interrupteur électronique relié à l’appareil photographique et suppléant l’interrupteur de celui-ci. L’idée est
+également de se servir du réglage manuel de la tension de référence U réf afin de choisir le moment précis de
+déclenchement de l’appareil. Voici ci joint, l’évolution de la tension U2 (en bleu), lorsque la goutte se détache, et,
+en rouge, la tension de référence que nous pouvons faire varier.
+Si la tension Uréf est à 9,5V par exemple, alors l’appareil photo se déclenche tôt, c'est-à-dire au début du
+détachement de la goutte.
+
+Tension de référence proche de 10V : La goutte est suspendue et commence à se déformer
+
+11
+
+Si on diminue la tension de référence en agissant sur la résistance variable, alors on surprendra la goutte
+plus tard dans sa formation.
+Voici quelques types de situations et les clichés correspondants. La taille des gouttes formées sur les
+clichés suivant est de 2,2mm (voir II).
+
+Il suffit de faire varier très légèrement la résistance variable et donc de diminuer légèrement la tension de
+référence pour obtenir…
+
+Plus fréquemment, nous obtenons les photographies
+suivantes :
+Une goutte « satellite » s’est définitivement formée.
+Nous avons pu sur la photographie de droite,
+superposer à la photographie de la goutte, celle d’une grille
+millimétique. Cette grille nous permet d’estimer les rayons
+de la goutte satellite (ici 0,25 mm) et de la goutte principale
+(ici 2,25mm, estimation tout à fait conforme à nos mesures
+du paragraphe II). Le rapport des deux rayons est ici de 0,11
+et donc le rapport des volumes est (0,11)3=1,4.10-3 soit
+0,14%. Ce rapport est très faible comme nous nous y
+attendions.
+
+12
+
+3. Notre scénario du détachement
+Grâce à ce dispositif, nous sommes parvenus à obtenir des photos nettes de nos gouttes d’eau lors de leur
+détachement. Ceci nous a permis d’observer leur comportement, en repérant les différentes phases par lesquelles
+passe une goutte avant de perdre tout contact avec son support.
+
+1
+
+2
+
+3
+
+4
+
+5
+
+6
+
+Photomontage présentant le détachement d’une goutte d’eau
+(La durée entre chaque image n’est pas identique)
+
+On constate ainsi que la goutte adopte tout d’abord la forme d’une ampoule (phase 1), puis la partie qui la
+lie au support devient si mince que la goutte « ne tient qu’à un fil » (phase 2). On parle alors de la formation d’un
+pincement. Par la suite, la goutte se détache (phase 3) mais on s’aperçoit que le pincement, lui, reste accroché à la
+burette. Ce dernier se déforme en un chapelet de gouttes (phase 4). On pourrait croire que plusieurs gouttes vont se
+former, mais il n’en ait rien et le chapelet évolue jusqu’à former une deuxième goutte, très petite par rapport à la
+première (phase 5) petite goutte qu’on ne distingue jamais lorsque par exemple nous utilisons une burette en
+séance de chimie. Nos recherches ultérieures nous ont appris que celle-ci porte un nom : « la goutte satellite ». Il
+s’agit donc d’une seconde goutte qui accompagne toujours la première, mais qu’on ne voit que très rarement à
+l’œil nu, puisqu’elle est trop petite. Néanmoins, nous avons réussi à l’apercevoir lorsque par la suite nous avons
+observé le détachement à l’aide d’une loupe ! Enfin, on peut noter que même si la goutte subit des déformations
+dans l’air, elle finit par adopter une forme très proche de la sphère (phase 6). Ceci nous a rassurés, puisque nos
+travaux pour déterminer la taille d’une goutte (c’est-à-dire son rayon) se sont basés sur l’hypothèse que nos gouttes
+étaient approximativement sphériques, hypothèse qui a donc pu être vérifiée grâce à nos photos.
+Ainsi, la représentation que nous faisons instinctivement d’une goutte en chute (en forme de poire) est
+erronée. Nous pensons que le détachement de la goutte est bien trop rapide pour notre œil et notre cerveau. La
+dernière image perçue est donc celle de la goutte pendante en forme de poire, qui correspond à la première phase,
+plus lente, de formation de la goutte..
+Ces observations peuvent être expliquées grâce à l’étude des forces qui s’exercent sur la goutte au cours du
+temps. Celle-ci est tout d’abord attirée vers le bas par son poids, mais reste fixée à la burette sous l’action des
+forces capillaires. La résultante de celles-ci dépend de la tension superficielle du liquide, mais également de la
+circonférence de l’orifice de la burette. Elle peut être évaluée par la formule suivante : 2πR avec R le rayon du
+tube et  la tension de surface. Cette tension est, elle, responsable de la forme de la goutte, de plus en plus
+sphérique. Toutefois, vient un moment où la valeur de son poids surpasse celle de la résultante des forces
+capillaires. S’ensuit alors le détachement de la goutte. La forme de cette dernière, en chute libre dans l’air, sera
+fortement dictée par sa tension de surface, qui comme nous l’avons précédemment expliqué, tend à minimiser la
+surface de la goutte. De fait, celle-ci adopte une forme proche de la sphère.
+
+4. Vers des photographies reproductibles
+Nous souhaitions connaître la durée précise pour chacune des phases du détachement. Nous avons alors
+pensé à utiliser Latispro, notre logiciel de visualisation de signaux électriques au cours du temps. Notre idée était
+de régler la tension de référence de sorte que la photo prise présente le début du détachement de la goutte (début
+de la phase 1). Nous aurions ainsi relevé l’instant t0 associé à l’aide du réticule, correspondant au moment où la
+tension U2 et la tension de référence se croisent. Nous aurions ensuite baissé la tension de référence, jusqu’à
+obtenir une photo du pincement. En relevant l’instant t1 associé (comme précédemment), nous aurions alors été en
+13
+
+mesure de déterminer la durée de la phase 1, en calculant la différence t1-t0. En reproduisant cette manipulation,
+nous aurions alors été en mesure de déterminer la durée de chacune des phases de détachement. Malheureusement,
+nos photographies ne sont pas assez reproductibles malgré tous nos efforts. Ces derniers sont décrits dans l’annexe
+8, car il serait trop long de décrire ici tous nos essais. Nous avons pu tout de même notablement améliorer la
+reproductibilité en protégeant la formation de la goutte de son environnement à l’aide d’une « boîte » que nous
+avons conçue et réalisée.
+
+5. Comment relier la taille d’une goutte aux forces qui s’exercent lors du détachement ?
+Suite à notre exposé, lors de la phase de sélection inter-académique, Florence Rouyer, la rapporteuse de
+notre projet, nous a invités à faire davantage le lien entre la taille de notre goutte et les forces en jeu lors de sa
+formation. De retour au lycée, nous avons cherché à tracer la courbe représentant le rayon des gouttes en chute en
+fonction de la longueur capillaire pour chaque fluide. La longueur capillaire est une grandeur qui est spécifique à
+chaque fluide, elle traduit l’égalité entre la pression d’origine hydrostatique liée aux forces de pesanteur et la
+pression de Laplace liée aux forces capillaires. Pour un fluide de tension de surface  et de masse volumique , la
+longueur capillaire est
+
+
+.
+
+
+Nous avons déterminé la longueur capillaire pour chaque fluide en mesurant la tension de surface du fluide
+considéré via l’algorithme de Thomson que nous avons construit (paragraphe III) (exceptée pour le cyclohexane
+pour lequel nous avons utilisé la valeur de la littérature). Les rayons des gouttes ont été obtenus par comptage
+(paragraphe I).La première mesure (25mN.m-1) correspond au cyclohexane, la dernière à l’eau (72mN.m -1).
+Comme il est difficile pour nous d’utiliser des gouttes de fluide pur dont les  sont échelonnées entre ces deux
+valeurs, les mesures intermédiaires ont été obtenues pour des solutions de tensioactifs en modifiant les
+concentrations en SDS (paragraphe II). La courbe obtenue est présentée ci-dessous :
+
+Une modélisation affine semble convenir mais le raisonnement suivant nous amène à penser que le rayon
+doit varier selon
+. En effet, d’après la loi de Tate le processus de détachement s’enclenche dès que le poids
+atteint la valeur 2R où R est le rayon extérieur du tube. On a alors m’×g= 2×R× avec m’ la masse de la goutte
+suspendue.
+La masse m de la goutte en chute libre dont nous mesurons le rayon est nécessairement
+2R
+inférieure à m’comme en atteste nos photos (paragraphe IV). Il reste forcément de l’eau
+« accrochée » au tube ainsi que la goutte satellite. On peut donc écrire que m=α × m’ avec α
+compris entre o et 1.On peut donc écrire (m/α) ×g= 2×R× . Comme
+  on peut en
+déduire
+Nous avons donc modélisé en « puissance » ce qui semble bien marcher si on considère 0,69  0,67 ; 0,67
+étant la valeur exacte de 2/3. Par ailleurs on doit avoir d’après notre modélisation
+. On estime le
+rayon de l’orifice de notre burette à l’aide d’un palmer à 2,2mm. Nous en déduisons une valeur de α quasiment
+égale à 0,6.
+Cela signifie que la masse de la goutte en chute équivaut à 60% de l’eau suspendue, le reste de l’eau (40%) restant
+attaché à l’embouchure de la burette.
+14
+
+V. Une goutte peut-elle être utilisée comme réacteur chimique ?
+1. Pourquoi cette question ? Comment faire ?
+Au cours de nos recherches documentaires, nous avons découvert un article de microfluidique (Réf[4])
+dans lequel des chercheurs expliquent comment ils utilisent, en laboratoire, des gouttes comme micro-réacteurs
+chimiques. Il s’agit d’un domaine en pleine expansion puisqu’il permet de recueillir des informations sur des
+réactions chimiques entre deux fluides (données physico-chimiques), et ce en un temps réduit et à moindre coût
+puisque qu’on utilise de faibles quantités de produits.
+Au lycée aussi nous étudions l’évolution des systèmes chimiques, mais jamais très rapides. Il s’agit
+généralement de réactions dont la durée est de quelques minutes voire parfois d’une demi-heure. En effet, étant
+donné qu’on utilise des volumes relativement importants, il faut un temps de mélange d’au moins quelques
+secondes avant de mettre le mélange dans le dispositif de suivi (un colorimètre par exemple) et déclencher le
+chronomètre. Nous ne sommes donc pas en mesure d’étudier des réactions très rapides.
+Peut-on faire mieux avec une goutte ? Nous avons souhaité réaliser la manipulation décrite dans l’article,
+avec pour objectif d’obtenir une courbe de cinétique d’une réaction rapide, pour pouvoir ensuite déterminer un
+temps de demi-réaction. Toutefois, notre équipement ne nous permettait pas de nous lancer dans une réalisation de
+circuit microfluidique. Nous sommes partis dans l’idée faire de la millifluidique. L’idée est de former des gouttes,
+par mélange de deux liquides dans un troisième liquide porteur qui ne soit pas miscible avec ces derniers. Ainsi,
+chaque goutte peut-être considérée comme un micro-réacteur, évoluant dans une phase porteuse dont le
+mouvement est rectiligne et uniforme. La vitesse de la goutte sera donc, elle aussi, constante. Par conséquent, la
+distance parcourue par cette dernière sera proportionnelle au temps passé depuis sa formation. On peut ainsi
+transformer la position le long du canal en temps grâce à la relation t=x/v, et donc étudier l’avancement de la
+réaction. Néanmoins, il faut, au préalable déterminer le moment t=0 pour lequel la réaction selon nous commence,
+et pouvoir observer l’évolution de la goutte, c’est-à-dire l’évolution de la réaction. Nous avons donc pensé étudier
+des réactions « colorées » au cours desquelles la goutte se colore ou se décolore.
+Goutte homogène d’un mélange de réactifs
+
+Milieu porteur
+(huile)
+vitesse v
+
+X=0
+
+x
+
+t=0
+
+t=x/v
+
+L’idée nous a paru simple…mais la réalisation n’a pas été aisée… loin de là !
+
+2. La mise en place difficile du dispositif
+Pour commencer, nous avons cherché à créer un canal permettant aux gouttes d’être entrainées par une
+phase porteuse. Lors de nos premiers essais, nous avons taillé des sillons dans du savon, sur lequel nous avons
+collé une lame plastique. L’échec a été immédiat : ces « circuits » présentaient de nombreuses fuites. De plus, nous
+avions choisi d’utiliser de l’huile alimentaire comme milieu porteur, puisque nous projetions d’étudier des
+réactions en milieu aqueux, et que l’huile et l’eau ne sont pas miscibles. Cette huile présentait également
+l’avantage d’être bon marché. Egalement, nous nous sommes rapidement aperçus que le savon était soluble dans
+l’huile! Nous avons alors abandonné l’idée de graver des circuits, pour utiliser à la place des tubes. Nos choix se
+sont orientés vers des tubes en plastique PMMA (Polyméthacrylate de méthyle), matériau qui présente l’avantage
+d’être facile à découper, à percer et coller, contrairement au verre par exemple. Les circuits ainsi formés, par
+collage des tubes avec une colle spécifique pour cette matière, nous ont permis de faire circuler l’huile. Il nous a
+néanmoins été nécessaire de réaliser de nombreuses versions car les fuites étaient très fréquentes.
+L’étape suivante a été de former des gouttes qui puissent être portées par l’huile. Nous avons eu la chance
+de pouvoir bénéficier d’un prêt de pousses seringues. Ces dernières permettent de former des gouttes avec un débit
+(en mL/h) très constant. Nous pouvons donc fabriquer des gouttes calibrées et choisir leur taille. Afin d’insérer les
+gouttes dans le circuit, nous avons relié deux extrémités de tube par du caoutchouc, dans lequel nous avons planté
+l’aiguille d’un pousse-seringue.
+15
+
+Notre souhait était de former deux gouttes distinctes, et de les amener à se scinder. Nous avons donc réalisé
+un circuit en forme en T. Ceci nous permettait d’avoir deux arrivées d’huile, chacune porteuse d’une goutte. Au
+point d’intersection M, les deux gouttes étaient ainsi amenées à se rencontrer, et nous pensions naïvement que la
+collision les ferait se scinder. Or, nos premiers essais avec des gouttes d’eau colorées (l’une avec du colorant
+alimentaire rouge, l’autre en bleu) nous ont montré que ceci ne se produisait que très aléatoirement. Après avoir
+fait varier les différents paramètres (vitesse de l’huile, débit des pousse-seringues et donc taille des gouttes), dans
+l’espoir d’une amélioration, nous avons du abandonner l’idée de scinder deux gouttes par collision.
+Réserve
+d’huile :
+milieu
+porteur
+
+Les pousses seringues
+
+M
+
+Aiguille reliée au pousse seringue
+contenant une solution de colorant
+rouge
+
+La relecture de l’article qui nous avait donné l’idée de la manipulation
+nous a donné la solution. Même si cela n’est pas écrit, nous pensons que les
+chercheurs rencontrent les mêmes difficultés. Aussi font-ils en sorte de former la
+goutte de mélange réactionnel avant même que celle-ci ne soit entraînée dans le
+milieu porteur, comme en témoigne la figure suivante :
+Nous avons donc tenté de reproduire ce dispositif. Pour ce faire, nous avons pris un nouveau tube en T,
+puis nous avons injecté nos deux fluides en continu de chaque côté de la branche supérieure. Comme pour notre
+dispositif précédent, les fluides sont amenés à se rencontrer, mais il s’agit cette fois-ci de solutions et non de
+simples gouttes. Le mélange diphasique ainsi formé va parvenir à une seconde intersection avec un deuxième tube.
+Au sein de ce dernier circule notre milieu porteur : l’huile. Lorsque le mélange arrive à cette nouvelle intersection,
+il va donc être entrainé par l’huile, sous forme de gouttes, selon le principe suivant :
+Colorant jaune
+
+ Colorant bleu
+
+Huile 
+
+Insérer entre les deux fluides une solution « tampon », comme suggéré par le schéma de l’article, nous a
+paru difficile à réaliser. Par conséquent, nous craignions que le mélange entre nos deux fluides commence avant
+même qu’une goutte ce soit formée. Heureusement les deux fluides progressent selon un écoulement laminaire. Ils
+ne sont en contact qu’au niveau de l’interface. On observe seulement l’apparition d’une très fine couche verte
+(nous utilisions, alors, des colorants jaune et bleu) à l’interface entre les deux fluides, probablement due à une
+diffusion lente des deux fluides l’un dans l’autre. Nous avons enfin eu nos premières satisfactions : absence de
+fuites, formation de gouttes de mélange, et qui plus est équidistantes!
+En revanche, nous avons remarqué qu’après sa formation, la goutte ne s’homogénéise pas immédiatement :
+il y a des turbulences. Aussi nous avons souhaité ajouter un agitateur. Pour ce faire, nous avons percé un petit
+morceau de métal en son centre. Nous avons ensuite percé le tube, juste après la zone de formation de la goutte,
+afin qu’il soit traversé par une tige métallique, au milieu de laquelle nous avons placé notre morceau de métal.
+Nous avons alors mis, sous le dispositif, un agitateur magnétique de chimie, qui permet de faire vibrer le morceau
+de métal. Lorsque la goutte passe sur l’agitateur, dont nous pouvons faire varier la fréquence de vibration, elle
+devient immédiatement homogène (goutte verte). Nous pouvons donc considérer cet instant comme l’instant initial
+t=0, instant à partir duquel une réaction est susceptible de commencer.
+16
+
+Homogénéisation d’une goutte de mélange par l’agitateur magnétique
+
+Agitateur
+
+3. Notre première goutte de mélange réactionnel… et de nouveaux problèmes !
+Après plusieurs mois d’expérimentations et d’essais difficiles, nous avons enfin réussi à mettre au point un
+premier dispositif qui fonctionnait bien avec nos deux solutions tests. Nous avons alors souhaité étudier une
+véritable réaction chimique. En terminale, nous avons étudié la cinétique de la réduction de l’eau oxygénée par
+les ions iodure. Cette transformation s’accompagne de la formation de diiode, qui colore progressivement le
+mélange réactionnel, en jaune puis brun. C’est pourquoi nous avons pensé qu’elle conviendrait tout à fait,
+puisqu’elle permet de suivre l’évolution de la réaction en étudiant la couleur de la goutte au cours du temps. De
+plus, la goutte de mélange est aqueuse, et donc non miscible avec l’huile, notre phase porteuse.
+Nous avons ainsi placé une solution d’iodure de potassium dans l’une des seringues, et une solution d’eau
+oxygénée dans l’autre. Un essai préalable dans des béchers nous a montré que, pour des volumes égaux et pour les
+concentrations utilisées, la réaction était très rapide.
+Malheureusement, nous avons eu une nouvelle mauvaise surprise. Les deux réactifs réagissaient
+immédiatement, avant même la formation de la goutte. Ainsi, une couleur brune (du diiode), « remontait » dans le
+tube de la seringue contenant l’eau oxygénée. Ceci nous a permis de comprendre que la présence d’une solution
+tampon, comme utilisé par les chercheurs, était une précaution non négligeable. L’introduction d’une solution
+tampon, nous a paru difficile à réaliser à notre niveau. Nous avons par conséquent préféré repenser une nouvelle
+fois notre installation.
+
+Les deux aiguilles qui
+permettent d’éviter la diffusion
+Formation de la première
+goutte de mélange
+Agitateur magnétique
+
+Nous avons alors eu l’idée de coller deux aiguilles
+très fines l’une contre l’autre, pour empêcher la diffusion
+d’avoir lieu. Pour ce faire, nous les avons coulé dans de la
+colle PMMA, pour maintenir cet assemblage très fragile.
+Cette réalisation n’a toutefois pas été aisée, puisqu’il est
+difficile de ne pas boucher l’une des deux aiguilles.
+Nous avons du également régler un problème
+d’éclairage. En effet il est nécessaire que notre chapelet de
+gouttes soit éclairé par une lumière homogène. Nous avons
+ainsi placé un tube néon derrière note dispositif. Celui-ci
+nous a enfin permis d’obtenir nos premiers chapelets de
+gouttes en mouvement:
+Mais nous avons appris à ne pas nous réjouir trop vite…
+
+Nous avons malheureusement vite constaté qu’au bout de quelques dizaines de minutes, notre huile
+porteuse devenait brune (et donc non réutilisable)… et le tube sale.
+Le diiode étant une molécule apolaire et l’huile également, il n’était finalement pas surprenant que le diiode
+soit soluble dans l’huile. Nous aurions pu minimiser ce problème en diminuant les concentrations afin que les
+gouttes soient au final moins chargées en diiode. Mais les couleurs sont alors « fades » et on ne voit pas assez
+l’évolution de la couleur le long du chapelet. Il ne faut pas oublier en effet que les gouttes sont millimétriques et
+que l’absorbance de celle-ci est proportionnelle à la longueur de solution traversée par la lumière (loi de Beer
+Lambert). Si on veut une absorbance suffisante, il faut que la concentration de l’espèce colorée soit importante.
+Notre professeur nous a alors proposé d’étudier une autre réaction. Il s’agit de la décoloration d’une espèce
+colorante (le bleu de méthylène) par l’acide ascorbique (vitamine C) en milieu acide. Le bleu de méthylène réagit
+et se décolore. Cette fois-ci, la goutte est initialement colorée et elle se décolore au cours de son trajet dans le tube.
+
+17
+
+4. Comment exploiter notre dispositif ?
+Notre objectif est d’analyser la photographie d’un chapelet de gouttes.
+Comme attendu, les gouttes sont de plus en plus transparentes à mesure qu’elles avancent dans le tube (vers
+la droite). Plus il s’est écoulé de temps depuis leur formation, plus la réaction chimique entre les réactifs est
+avancée, cette dernière s’accompagnant d’une décoloration progressive de la goutte.
+Notre première étape consiste donc à relier la position de la goutte sur la photo, au temps écoulé depuis sa
+formation. Pour ce faire, nous avons placé le long du tube une règle, dont le 0 correspond à l’intersection des tubes.
+On considère cet instant comme étant le début de notre réaction, soit t  0 . Nous mesurons ensuite le temps
+nécessaire pour qu’une goutte parcourt 40,0 cm. Ceci nous permet de déterminer sa vitesse moyenne.
+Par exemple, lors de la série de photographies à laquelle appartient la photographie ci-dessous, nous avons
+mesuré une durée égale à 21,5s. La vitesse des gouttes est donc égale à v  40,0 / 21,5  1,86 cm.s-1 .
+Connaissant la vitesse d’une goutte, nous pouvons ensuite calculer le temps passé depuis sa formation (et
+donc depuis le début de la réaction), en fonction de sa position dans le tube. Toutes les gouttes sont parfaitement
+équidistantes. On peut s’en convaincre en zoomant sur la photo et en mettant des petits marqueurs (rouges sur la
+photo), on mesure alors une distance les séparant de toujours 2,4cm. La durée correspondante entre deux positions
+successives est donc 2,4/1,86=1,3s. Ensuite nous ouvrons la photo sous ImageJ, et nous traçons un rectangle sur
+notre chapelet :
+
+Ceci nous permet d’obtenir une courbe
+d’intensité pour chaque luminophores (rouge, vert,
+bleu) des pixels en fonction de leur position sur l’axe
+horizontal. Quelques photos au préalable sont
+nécessaires pour s’assurer que les luminophores sont
+bien sollicités pour les gouttes les plus colorées
+(intensité légèrement supérieure à 0). Si ce n’est pas
+le cas, nous devons refaire la photographie en
+modifiant par exemple le temps d’exposition. Sans
+surprise, ce sont les luminophores rouges qui sont le
+moins sollicités lors du passage de la goutte.
+Goutte n° 1
+2
+3
+4
+5
+6
+t (en s)
+0
+1 ,3
+2,6
+3,9
+5,2
+6,5
+Intensité
+26,5
+65,5
+124,2 158,3 191,3 221,7
+
+7
+7,8
+240
+
+8
+9,1
+245,3
+
+9
+10,4
+250,5
+
+10
+11,7
+255
+
+11
+13
+255
+
+12
+14,3
+255
+
+13
+15,6
+255
+
+Nous transférons ensuite nos courbes sur
+Régressi, en n’affichant que la courbe rouge. À l’aide
+du réticule du logiciel, pour chaque minimum et donc
+pour chaque goutte, nous notons la valeur de
+l’intensité du luminophore (intensité graduée de 0 à
+255).Nous obtenons alors le tableau suivant : nous
+pouvons par la suite, toujours avec le même logiciel
+tracer la courbe Intensité=f(temps): cette courbe,
+comme en cours de cinétique, nous permet de suivre
+l’évolution de la transformation au cours du temps.
+L’intensité des pixels varie de 26,5 à 255 et donc
+augmente de 228,5 unités.
+
+18
+
+Nous pouvons avec notre courbe déterminer un temps caractéristique de notre réaction, par exemple le
+temps de demi-réaction. Dans ce cas, il nous suffit de déterminer à l’aide du réticule la durée au bout de laquelle la
+réaction a « avancé » de moitié. Pour cela nous devons déterminer la durée au bout de laquelle l’intensité des
+luminophores rouges a atteint :
+26,5+228,5/2= 140,8
+Nous déterminons ici, par lecture graphique donc, un temps de demi-réaction de 3,3s. Nous avons
+donc relevé le défi d’étudier une cinétique très rapide avec nos gouttes, nettement plus rapide que les réactions que
+nous étudions habituellement au lycée… mais nous espérons pouvoir encore mieux faire!
+
+5. Vers la miniaturisation…
+Dans notre dispositif, il se passe à notre avis environ 1 ou 2 secondes avant qu’une goutte formée n’arrive
+à notre tube principal et soit emportée par le milieu porteur. On considère alors cet instant comme l’instant initial
+(t=0s). Pour pouvoir étudier des cinétiques plus rapides encore, nous devons réduire au maximum ce temps de
+mélange. C’est pour cela que nous souhaitons réduire la taille des gouttes de mélange réactionnel.
+Quel est l’intérêt diminuer les dimensions de notre système ?
+Réduire les dimensions de notre système nous permettrait de diminuer la taille des gouttes et donc espérer
+une homogénéisation de celles-ci beaucoup plus rapide. Nous pourrons alors étudier des réactions avec un temps
+de demi-réaction encore plus petit! Cette miniaturisation constitue un nouveau domaine de recherche nommé la
+« microfuidique », domaine en plein essor car il offre beaucoup d’avantages et d’applications. Diminuer la taille
+des gouttes (jusqu’à une taille micrométrique donc) est par exemple pour l’industrie un gros avantage, notamment
+lorsqu’il s’agit par exemple d’étudier des réactions avec des espèces très couteuses. Elle permet par ailleurs de
+créer des systèmes transportables, nécessitant de petits volumes. La microfluidique est énormément utilisé en
+médecine par exemple dans le traitement de maladies comme le diabète.
+Au fur et à mesure que l’on diminue la taille des canaux, de nouvelles contraintes physiques apparaissent.
+En effet le nombre de Reynolds devient inférieur à 1. Cela signifie que les écoulements dans les tubes sont
+laminaires. Nous ne pouvons plus compter sur les turbulences pour mélanger nos gouttes et il est difficile de mettre
+en place un système mécanique d’agitation, comme dans notre dispositif. Il faut donc créer des «coudes» dans
+notre circuit de canaux afin d’étirer les lignes de fluides et augmenter les surfaces de contact entre elles, ce qui
+favorise la diffusion des espèces et accélère l’homogénéisation de la goutte de mélange. Par ailleurs, les gouttes
+assez proches ont tendance à fusionner à cause de la tension superficielle, puisqu’une seule goutte possède une
+surface inférieure à deux. Avec le SDS par exemple, nous diminuerons les tensions de surface, diminuant ainsi la
+tendance qu’on les gouttes à fusionner, ce qui les stabilise.
+Les techniques utilisées dans l’industrie pour fabriquer des systèmes microfluidiques sont hors de notre
+portée, nécessitant des équipements que nous ne possédons pas (four à plasma, chambre blanche, galette de
+silicium pour le moule). Pour débuter avec nos moyens du lycée, madame Gall-Borrut nous a conseillés un
+protocole alternatif, qui nous a permis de faire nos premières cellules.
+Comment faire une telle cellule avec notre matériel ?
+ On commence par forger un moule. Ce dernier est le négatif des canaux, c’est-à-dire qu’il comporte de la
+matière à l’emplacement des futurs canaux. Dans l’industrie, on utilise des techniques telles que la photolithographie pour la construction d’un moule. Pour nous il s’agit de coller plusieurs couches de scotch
+« capton », résistant à la chaleur, sur une lamelle de verre. Les hauteurs de scotch permettent ainsi de former
+nos canaux. Toutefois, l’utilisation du scotch n’est pas optimale car le moule est très long à réaliser et le scotch
+a des chances de se décoller pendant l’étuvage… Avec l’aide de Thibaut nous avons contacté l’ESIEA de Laval,
+une école d’ingénierie informatique, et nous projetons d’utiliser une imprimante 3D ou graver notre moule dans
+du PMMA.
+
+19
+
+ Il faut ensuite recouvrir ce moule avec du PDMS. Nous nous
+sommes procurés ce polymère qui se présente à l’état liquide sous une
+forme très visqueuse. Ajouté à un réticulant, le PDMS liquide se
+polymérise à chaud et on obtient un solide transparent et flexible qui
+peut-être percé. Il faut ensuite dégazer sous une cloche à vide pour
+enlever l’air dissout dans le PDMS, et chauffer à l’étuve pour
+permettre sa polymérisation. Nous maîtrisons bien cette étape du
+protocole malgré les problèmes de cloche à vide de notre lycée.
+ Après on démoule la plaque de verre. Nous avons eu de nombreux
+déboires durant les démoulages qui sont assez délicats : il nous est
+fréquemment arrivé de nous casser une partie du circuit. C’est
+pourquoi nous avons eu l’idée d’enrouler notre plaque dans du papier
+aluminium pour faciliter le démoulage.
+ Ensuite on enlève le scotch et on accole une lamelle de verre au
+PDMS puis on serre fort le PDMS contre la plaque de verre.
+Comme nous n’avons pas de chambre à plasma nous devons utiliser cette technique du «serrage» qui n’est pas
+forcément optimale. Cependant les canaux étant encore assez larges et donc les pressions des fluides pas trop
+importantes, nous espérons être épargnés par les fuites.
+ Finalement , on perce le PDMS afin de passer la connectique, reliant ainsi la cellule à des pousses seringues
+Cette étape ne devrait pas trop nous poser problèmes car nous nous sommes procurés la connectique conseillée
+par madame Gall-Borrut.
+Reste à poursuivre nos essais et surmonter nos difficultés afin de parvenir à un système convaincant et
+aussi miniaturisé que possible. Nous faisons le maximum par nous-mêmes. Madame Reyssat de l’École supérieur
+de chimie et de physique de la ville de Paris, spécialiste en ce domaine, nous à proposé son aide. Nous sommes
+donc pleins d’espoirs dans la réalisation de ce dernier défi…
+
+Conclusion
+Après un peu plus d’un an, la question « Que peut nous apprendre une simple goutte ? » nous apparait sous
+un jour nouveau. En effet, au-delà des connaissances physico-chimiques propres aux fluides et plus spécifiquement
+aux gouttes, ce projet nous a non seulement appris à faire preuve de patience et de persévérance, mais aussi
+d’autonomie et d’entraide. Les difficultés nous ont de plus conduit à forger un esprit d’équipe. D’un point de vue
+scientifique, nous avons découvert de nombreuses notions, tant au niveau de la physique, que de la mécanique, de
+la chimie ou encore de l’électronique, et nous avons approfondi nos connaissances sur les fluides. Nos partenaires
+nous permettent à l’heure actuelle d’élargir nos perspectives de recherche, notamment dans le domaine de la
+microfluidique. L’aventure se poursuit donc!
+
+Bibliographie et webgraphie
+[1]
+
+https://www.pprime.fr/sites/default/files/pictures/pages-individuelles/D2/germain/CRP2005.pdf
+
+[2]
+
+Introduction à la microfluidique - Pascal Tabeling (Editions Belin)
+
+[3]
+
+Gouttes, bulles, perles et ondes - D.Quéré, F.Brochard-Wyart, P.-G.de Gennes (Editions Belin)
+
+[4]
+
+http://oatao.univ-toulouse.fr/1266/1/prat_1266.pdf
+
+[5]
+
+Physique-Chimie Terminale S-Enseignement spécifique-(Edition Nathan)
+
+20
+
+

@@ -1,0 +1,908 @@
+Réalisé par Ophélie Lenoble et Nicolas Pelletier
+1ère S
+Encadré par Stéphanie Charrette et Sylvain Thiriet
+
+LASERATOR
+NOTRE AMI (A&M)FM
+
+Année 2015/2016
+
+Lycée Jacques Callot
+1
+
+Vandoeuvre lès Nancy
+
+Résumé
+Notre projet consiste à développer une maquette illustrant le principe de fonctionnement d’un microscope à
+champ proche basé sur la force magnétique. Cette maquette illustre bien sûr directement le principe d’un microscope à force magnétique (MFM). Mais, dans certaines conditions expérimentales, elle illustre aussi le principe d’un
+microscope à force atomique (AFM) construit lui sur des interactions de type Van der Waals. Selon les conditions
+d’utilisation, nous montrerons que notre maquette est sensible soit à une rugosité de surface (AFM), soit aux propriétés magnétiques d’une surface (MFM). Nous utiliserons ainsi notre maquette pour réaliser une étude du comportement magnétique de différents aimants et de différents matériaux. Nous étudierons aussi les conséquences
+magnétiques du passage d’un courant dans un conducteur. Au cours de cette étude, nous présenterons l’utilisation
+de ce type de microscope en mode non contact, et en mode oscillations.
+
+Table des matières ................................................................................................................... 1
+I) HISTOIRE DE LA MICROSCOPIE .................................................................................................................................. 3
+1] Le microscope optique ........................................................................................................................................................................... 3
+2] Le microscope électronique .................................................................................................................................................................. 3
+3] La microscopie en champs proche ....................................................................................................................................................... 4
+
+II) L'AFM ET LE MFM EN GEGERAL ............................................................................................................................... 5
+1]Technique et composants ....................................................................................................................................................................... 5
+2)Fonctionnement : ..................................................................................................................................................................................... 6
+
+III) NOTRE MAQUETTE........................................................................................................................................................ 8
+IV) EXPERIENCES REALISEES .......................................................................................................................................... 9
+1) Etude de l’interaction entre pointe et échantillon magnétique en mode non-contact................................................................. 9
+a)Influence de la distance pointe-échantillon : ................................................................................................................................... 9
+b) Influence de la pointe ...................................................................................................................................................................... 10
+c) Influence du nombre d’aimants ..................................................................................................................................................... 11
+d) Influence de la géométrie de l’échantillon :.................................................................................................................................. 12
+e)Etude du comportement magnétique de différents matériaux ................................................................................................... 12
+2) Étude de l’interaction entre la pointe et des courants en mode non-contact ............................................................................. 14
+a)Etude de l’interaction en fonction de l’intensité dans la bobine ................................................................................................ 14
+b) Etude de l’interaction sur l’axe de la bobine en fonction de la distance verticale ................................................................. 15
+c) Analogie avec la force d’interaction entre la pointe et un aimant placé sous la pointe, en fonction de la distance
+verticale ................................................................................................................................................................................................... 16
+d) Etude de la force d’interaction entre la pointe et deux bobines sur leur axe en fonction de la distance entre ces bobines
+.................................................................................................................................................................................................................. 16
+e) Comparaison entre les intensités des champs magnétiques produits par les divers matériaux rencontrés au cours de
+cette étude .............................................................................................................................................................................................. 17
+3) Entre AFM et MFM, en mode tapping ............................................................................................................................................. 18
+1) Recherche de la fréquence de résonnance.................................................................................................................................... 18
+2) Mode oscillation à fréquence constante........................................................................................................................................ 19
+3)Mode oscillation à amplitude constante......................................................................................................................................... 20
+
+CONCLUSION ......................................................................................................................................................................... 21
+BIBLIOGRAPHIE ET REMERCIEMENTS...................................................................................................................... 21
+ANNEXE.................................................................................................................................................................................... 22
+
+2
+
+INTRODUCTION
+Le mot « nanotechnologie » apparaît comme un mot savant, un mot futuriste dans notre société. Pourtant,
+en utilisant leurs portables, leurs ordinateurs, leurs appareils photo, les trois quarts de la population utilisent tous les
+jours ces nanotechnologies. Elles sont devenues omniprésentes. Mais comment fabrique-t-on ces objets issus des
+nanotechnologies ? Et comment les chercheurs qui innovent en la matière peuvent observer ce qu'ils fabriquent à
+l'échelle nanométrique ? Avec des microscopes bien sûr ! Mais alors, comment fonctionnent ces microscopes ?
+Dans ce travail, nous commençons par rapidement balayer l'histoire de la microscopie jusqu’à la découverte
+des microscopies à champ proche au début des années 1980. Ensuite, nous analyserons le fonctionnement d’un
+Microscope à Force Atomique (AFM) et comment il parvient à restituer une « image » d’une surface. Puis, nous
+présenterons notre maquette de microscope de champ proche basée sur la force magnétique. Elle permet d’illustrer
+le principe de l'AFM et du MFM (Microscope à Force Magnétique). Dans la partie suivante, nous rendrons compte
+de l'utilisation de notre maquette selon différents modes de fonctionnement, pour analyser différents types
+d’échantillons et remonter à leur profil de surface ou leur profil magnétique. Cette démarche nous amènera à une
+étude des interactions du champ magnétique d’un aimant avec des aimants, puis avec des courants. Pour finir, nous
+conclurons sur la pertinence de notre maquette, sur ce que ce travail nous a apporté et nous présenterons nos
+perspectives d'expériences à venir pour compléter cette étude.
+
+I) HISTOIRE DE LA MICROSCOPIE
+Avant d'étudier le Microscope à Force Atomique, nous avons voulu comprendre, en étudiant les anciens
+microscopes ainsi que leurs limites, ce qui a poussé les chercheurs à développer cette innovation, et ce qui fait d'elle
+une révolution.
+
+1] Le microscope optique
+Les premiers instruments optiques utilisés pour donner d’un objet une image agrandie utilisent la réfraction
+des rayons lumineux et l’optique géométrique en général. Le plus simple de tous ces instruments est la loupe : en
+plaçant l’objet entre le foyer objet de la lentille convergente et la lentille elle-même, la loupe donne de cet objet une
+image virtuelle agrandie.
+Puis vient le microscope optique inventé au 16éme siècle. Il est
+composé de deux lentilles convergentes : l'objectif placé prêt de l’objet, et
+l'oculaire placé prêt de l’œil. L’objectif donne de l’objet une image agrandie,
+réelle mais renversée de l’objet initial, alors que l’oculaire donne une image
+virtuelle droite et agrandie.
+Puis au XXième siècle, on découvre le caractère ondulatoire de la lumière et les phénomènes de diffraction.
+On découvre alors que l’éclairement de petites ouvertures par une source ponctuelle donne lieu à une figure étalée
+de diffraction en cercles concentriques. La diffraction étale l’image d’un point en une tâche, et en diminuant le diamètre de l’ouverture, la tâche est de plus en plus étalée. La séparation entre les images de deux objets voisins devient difficile. D’où l’existence d’une limite de résolution du microscope optique, donnée par le critère de Rayleigh,
+proportionnelle à la demi-longueur d’onde du rayonnement utilisé dans l’air. En optique, cette limite maximale vaut
+donc environ 0,2 micron dans l’air si on utilise un rayonnement de courte longueur d’onde comme le bleu.
+
+2] Le microscope électronique
+Le premier microscope électronique voit le jour en 1932, dans le laboratoire d'Ernst
+Ruska.
+
+Le microscope électronique fonctionne sur le même principe que l’optique, mais il utilise des électrons accélérés sous vide à la place de la lumière. Les électrons ont dans le vide des
+trajectoires rectilignes. Ces « rayons » peuvent être déviés par des champs magnétiques : on
+peut donc construire des lentilles magnétiques et des microscopes qui utiliseront les électrons
+plutôt que de la lumière, à condition de se placer sous vide.
+Comme les électrons ont aussi un comportement ondulatoire, le microscope électronique est donc aussi limité par les effets de diffraction d’électrons. Mais, il est possible de jouer
+sur la longueur d’onde des électrons en jouant sur leur énergie cinétique (liée à leur vitesse) :
+3
+
+haute énergie (électrons accélérés sous une différence de potentiel importante) signifie courte longueur d’onde. En
+reprenant le critère de Rayleigh, la résolution est de l’ordre de l’Angström, ce qui permet la résolution atomique.
+Cependant, l’utilisation du microscope électronique n’est pas aisée, la préparation des échantillons est longue
+et laborieuse, car ils doivent être de très petite taille, et leur préparation entraîne parfois des modifications de leurs
+structures. Par exemple, congeler un échantillon peut induire la formation de cristaux qui détruisent les structures.
+Ils sont peu utilisés en biologie du fait du vide poussé à l'intérieur du microscope.
+
+3] La microscopie en champs proche
+Bien que l’idée date de 1930, le premier prototype, le microscope à effet tunnel (STM : Scanning Tunneling
+Microscope), voit le jour en 1981. Son invention est due à Binnig et Rohrer qui reçurent le prix Nobel en 1986.
+Le STM consiste à faire passer un courant entre une pointe très fine
+(idéalement terminée par un atome) et un échantillon distant de celle-ci de
+quelques Angströms. Les deux éléments sont en général séparés par du vide. On
+oblige les électrons à passer par l’extrémité d’une pointe, puis à travers une barrière isolante, et l’échantillon conducteur, avant d’être détectés par un « ampèremètre». Le courant électrique est donc un courant «tunnel» qui décroît exponentiellement avec la distance qui sépare la pointe de l’échantillon. Une variation
+d’un facteur 2 de la distance entre la pointe et la surface va provoquer une variation d’un facteur 7 environ du courant détecté ! Le STM est donc d’une grande sensibilité en courant, ce qui permet d’obtenir la résolution atomique.
+Mais, l’interprétation des images est plus compliquée que celle des autres microscopies dans lesquelles
+l’image est une image « topographique» de l’échantillon car cette technique est basée sur de la mécanique quantique …Il faut de plus concevoir des pointes monoatomiques, ainsi qu'isoler l'appareil de toute forme de vibration,
+pour pouvoir mesurer des courants de l'ordre du nano-Ampère. La limitation majeure à l’utilisation du STM vient
+du fait qu’il ne peut concerner que des échantillons conducteurs.
+La même année, Binnig continua ses innovations en démontrant la possibilité de sonder la surface d'un
+échantillon, qu'il soit conducteur ou non, simplement en détectant des forces d'interaction ( type Van der Waals ou
+forces de contact qui n’agissent qu’à très courtes distances, de l’ordre du nm) entre une pointe de diamant et cette
+même surface. Le premier AFM (Atomic Force Microscope) était né. Il répond à un besoin pour la physique appliquée et les nanotechnologies en plein essor. C'est devenu le microscope le plus utilisé au monde car il n'est pas restrictif en ce qui concerne la nature de la surface à étudier. Il est très performant à l'air, et peut atteindre la résolution
+atomique dans certaines conditions expérimentales (vide et basses températures). L'utilisation de ce microscope n'a
+pas encore trouvé de limite, puisque on voit depuis 15 ans apparaître de nombreuses formes dérivées de l'AFM,
+comme en particulier le MFM (Magnetic Force Microscope) qui va plus particulièrement nous intéresser.
+Les différents domaines de validité de ces différentes microscopies :
+tiré de Julien Bortoluzz
+
+4
+
+II) L'AFM ET LE MFM EN GEGERAL
+
+Pour notre première approche d’un AFM, nous avons participé à un atelier dans un laboratoire de recherche, le LIEC (Laboratoire Interdisciplinaire des Environnements Continentaux). Nous avons pu y rencontrer
+des chercheurs travaillant régulièrement avec un AFM, qui nous ont montré son fonctionnement et ont répondu à
+nos quelques questions. Nous avons également eu un rendez-vous avec un chercheur à l’Institut Jean Lamour, qui
+nous a présenté un MFM en fonctionnement. Nous avons alors étudié la surface topologique et magnétique d’un
+échantillon d’alliage CoNi. Voilà ce que nous avons compris au cours de ces visites sur le fonctionnement de ces
+deux microscopes à champ de force.
+
+1]Technique et composants
+La figure ci-contre montre le schéma de principe du dispositif expérimental. Le microscope à champ proche est constitué de quatre composantes majeures :
+- le corps du microscope, qui inclut la tête du microscope avec la
+sonde en interaction avec l’échantillon, le faisceau laser pour la
+mesure de la déflexion de la poutre, le tube piézo-électrique, le
+photo-détecteur à quatre cadrans. Le système contient également
+un microscope optique permettant d’observer la région sur laquelle est positionnée la pointe afin d’y reconnaître des microstructures ou repères. Des vis de translations permettent de sélectionner la région de mesure.
+- l’interface électronique pour le contrôle du balayage,
+l’acquisition des différents signaux.
+- un ordinateur pour la gestion de l’ensemble et le traitement des images.
+- une table anti-vibration (non représentée).
+A partir des différentes informations reçues, nous allons construire une maquette du corps du microscope.
+Voilà donc les précisions collectées au cours de nos visites à propos de ses éléments fondamentaux :
+- le support de l'échantillon : il est souvent fabriqué en mica, ce qui permet d'obtenir une surface plane. De plus,
+il permet l'observation d'échantillons liquides. Cette matière évite que la pointe emporte l'échantillon au cours du
+balayage.
+- la sonde : elle est constituée d'une poutre et d'une pointe. La poutre est le plus souvent fabriquée en silicium.
+Sa taille est de l'ordre de quelques micromètres, et elle doit être plus ou moins souple pour pouvoir se déformer en
+fonction des forces qui lui sont appliquées. La pointe en est l’élément clé. Elle est fixée à la poutre et peut être de
+forme arrondie ou pyramidale. C'est la pointe qui interagit avec l'échantillon, faisant bouger la poutre. C’est elle qui
+définit le type de force auquel le microscope est sensible. C’est donc elle qui distingue l’AFM du MFM. Elle a une
+taille de l'ordre de quelques nanomètres, qui varie en fonction des échantillons à analyser. Lors de l'atelier, suite à
+un problème technique, nous avons eu la chance d'assister au changement de la pointe.
+
+5
+
+- le laser et le détecteur optique : il est pointé sur le bout de la poutre, qui réfléchit son rayon. Ce rayon est capté
+par le détecteur optique, une photodiode. Lorsque la poutre se déforme, le laser est dévié. Cette déviation est mesurée et enregistrée par la photodiode, qui transmet cette mesure sous forme de signaux électriques.
+-le tube piézo-électrique : c’est un cristal dont la réponse à une différence de potentiel dans une direction de
+l’espace est une dilatation ou une contraction dans cette direction, à l’origine du déplacement de l’échantillon. En
+plaçant trois couples de contacts, on peut obtenir ainsi des déplacements dans les trois directions de l’espace.
+Méthodologie : Pour effectuer un balayage entre la pointe et la surface, deux solutions sont possibles : soit l’échantillon
+est fixe et la pointe balaye la surface, soit la pointe est fixe et l’échantillon, via l’élément piézo-électrique, est en
+mouvement. C’est ce dernier cas que nous avons rencontré. Au cours du balayage, la poutre est soumise à des variations de forces de l’ordre de quelques nN. Ces forces font fléchir la poutre et font donc dévier le faisceau laser sur
+le détecteur optique. Le détecteur étant étalonné, on mesure ainsi la déflexion de la poutre. Il y a alors deux possibilités de contrôle de ce fléchissement :
+– soit le système travaille à altitude constante ;
+– soit le système travaille à force constante, c’est-à-dire à distance pointe-surface constante.
+C’est ce dernier cas que nous avons observé. Ainsi, dès que la poutre commence à fléchir, le faisceau laser dévie sur
+le détecteur, et un signal électrique est envoyé sur le tube piézo-électrique via la boucle d’asservissement pour corriger sa position de manière à conserver la distance pointe-surface constante. Les mouvements du tube piézoélectrique sont enregistrés et le signal électrique, relié aux variations d’altitude de la surface, est ensuite analysé et
+traité par le logiciel de manière à reconstruire une image de la surface. En résumé tous les déplacements se font
+grâce au tube piézo-électrique via la boucle d’asservissement tandis que le système pointe-poutre reste quasi fixe.
+Le microscope à force atomique a une résolution de l'ordre de 10 nm dans le plan de l’échantillon. Verticalement,
+elle est de 1'Angström.
+
+2)Fonctionnement :
+Le principe de base de la microscopie AFM est la détection de forces d'interactions entre la sonde locale
+(l'extrémité de la pointe du levier) et la surface de l'échantillon à analyser. Les forces
+atomes/atomes sont basées sur des interactions de type Van der Waals. Ces forces
+agissent à l'échelle nanométrique et ne sont significatives qu'à très courtes distances. Ce
+sont des interactions de nature électrostatiques qui ont lieu entre les nuages électroniques des atomes. La déformation du nuage électronique de l'atome peut entraîner une
+polarisation de l'atome. Si le coté + d'un atome rencontre le coté – d'un autre atome,
+les deux charges étant opposées, les atomes s'attirent. Les forces de Van der Waals décrivent les interactions entre ces dipôles.
+Ces forces jouent un rôle très important dans la nature. Pour illustrer le
+propos, on peut par exemple citer le cas des geckos et de leur capacité à adhérer à
+toutes sortes de surfaces. En effet, cet animal possède 4 pattes, chacune comportant 5 orteils, recouverts de millions de poils appelés sétules, de l'ordre de 100
+micromètres, se scindant eux-mêmes en spatules, mesurant 200 nanomètres. Ces
+spatules permettent aux pattes du gecko d'aller coller à une surface grâce aux
+forces de Van der Waals. En effet, le faible poids de l'animal et la faible distance entre ces
+spatules et le mur permettent dans ce cas aux forces de Van der Waals de devenir plus fortes
+que la gravité.
+Cet exemple permet d'illustrer à l'échelle du visible l'effet de ces forces de l'infiniment petit,
+qui ont pour effet de rendre les surfaces « collantes » à cette échelle.
+Le potentiel d'interaction qui regroupe toutes ces
+forces de Van der Waals à la base de l’AFM est du type
+suivant :
+Pour expliquer ce graphique, considérons 2 atomes distants de r. Tout
+d'abord, lorsque l'atome A est loin de l'atome B, l'interaction est nulle. Puis
+quand l'atome A se rapproche de B, le potentiel d'interaction diminue, ce qui
+signifie que la force est attractive entre les deux atomes car F varie comme
+l’opposé de la dérivée du potentiel avec la distance r :
+6
+
+𝑑𝑉
+
+𝐹(𝑟) = − 𝑑𝑟 (𝑟) <0  A est attiré par B.
+Ensuite, quand l'atome A se rapproche à la distance r0 de B, le potentiel d'interaction est au minimum : 𝐹(𝑟) =
+𝑑𝑉
+− 𝑑𝑟 (𝑟) = 0 , ce qui signifie que la force d'interaction est nulle, le système est à l'équilibre.
+Puis, quand A se rapproche encore de B, le potentiel augmente et la force est répulsive entre A et B : 𝐹(𝑟) =
+𝑑𝑉(𝑟)
+− 𝑑𝑟 > 0.
+Dans le cas du MFM, la force d’interaction entre la pointe et l’échantillon est magnétique. Son expression
+est donnée par la formule :
+𝑑𝐵
+𝐹(𝑧) = −𝑀 ×
+(𝑧)
+𝑑𝑧
+𝑑𝐵
+où M correspond à l’aimantation de la pointe, et 𝑑𝑧 les variations de B en fonction de la distance verticale pointeéchantillon, appelée z ici. L’analyse de cette expression montre que selon le signe de M (= aimantation de la pointe)
+et celui de la variation de B en fonction de la distance, cette force peut être attractive ou répulsive.
+Le bras de levier ou poutre sur lequel est montée la pointe, se déforme élastiquement en présence des aspérités de la surface. La force de rappel du levier compense à tout instant les forces d’interactions pointe – échantillon.
+Si on ne s’intéresse qu’à la composante verticale : Fpte-ech = Frappel = kz, avec k constante de raideur de la poutre. Ainsi, la déflexion du levier, que l’on mesure avec z, rend compte des variations des forces d’interaction pointeéchantillon et donc de la topographie de l’échantillon.
+L'AFM peut fonctionner avec trois modes différents qui utilisent chacun les forces de Van der Waals de différentes manières :
+-le mode contact, qui utilise exclusivement des forces
+répulsives.
+-le mode non-contact, qui utilise exclusivement des
+forces attractives.
+-le mode tapping, qui utilise des forces répulsives et
+attractives, du fait de son oscillation.
+- le mode contact :
+C'est le premier mode de fonctionnement mis en place par Binnig. Ici, la pointe touche et appuie sur
+l'échantillon. Une force répulsive entre la surface et la pointe se créé car il y a répulsion des électrons de l'échantillon et de la pointe. Cette force fait varier la hauteur de la pointe, et c'est cette variation qui donne les variations de
+hauteur de l'échantillon. On cherche à garder l'angle θ constant. Pour cela,
+on
+doit modifier la hauteur z de l'échantillon ou de la pointe. Ce mode enAngle θ
+traîne une dégradation de l'échantillon et/ou de la pointe ce qui l’amène à
+n’être utilisé que dans certaines conditions très précises.
+- le mode non-contact :
+Ici, on éloigne le pointe de l'échantillon, et on travaille avec le même fonctionnement que le mode contact, à
+l'exception que la force qui fait bouger la pointe est une force d'attraction. La mise en place de ce mode de fonctionnement nécessite de prendre beaucoup de précautions, notamment éviter les vibrations parasites.
+
+MODE NON CONTACT
+
+Mode non-contact
+- le mode tapping :
+Ici, on fait osciller la poutre en la faisant résonner à sa propre
+fréquence de résonance. L'échantillon exerce une force attractive sur la
+pointe, faisant varier l'amplitude des oscillations de la poutre. Pour
+garder les oscillations constantes, le piezo fait varier la hauteur z de
+l'échantillon. Ce sont les informations du piezo qui sont recueillies
+pour reconstruire le profil de surface.
+7
+
+III) NOTRE MAQUETTE
+Après avoir compris le fonctionnement de l'AFM et du MFM, nous avons cherché à en construire une maquette. Pour ce faire, nous avons essayé de trouver des analogies macroscopiques à ses composants nanométriques.
+Voici les correspondances à l’échelle macroscopique que nous avons choisies d’utiliser.
+
+Les différents éléments de notre maquette :
+-les forces
+Les forces de Van der Waals à la base de l’AFM ne sont significatives qu'à l'échelle nanométrique, nous ne
+pouvons donc pas les utiliser dans notre maquette. Les forces magnétiques à la base du MFM sont significatives à
+notre échelle. C’est donc ces forces que nous utiliserons dans notre maquette, ce qui la rapproche d’un MFM. Nous
+verrons que l’utilisation de ces forces dans certaines conditions permet d’illustrer aussi le principe de l’AFM.
+-la pointe
+Celle-ci doit être magnétique, pour interagir avec le profil magnétique de l’échantillon à étudier. Nous avons
+donc choisi un petit aimant.
+-le levier
+Celui-ci doit être souple mais pas trop et ne pas influencer nos mesures. Après avoir commencé notre étude
+avec un réglet métallique choisi pour ses propriétés mécaniques, nous l’avons changé en un réglet en plastique après
+avoir constaté l’effet non négligeable du réglet métallique sur nos mesures. Nous avons alors simplement choisi une
+règle scolaire en plastique. Après avoir testé de nombreuses règles différentes, rien n’allait : celles-ci étaient soit trop
+souples, soit trop rigides. Nous avons alors confectionné une poutre sur mesure, en partant d’une règle scolaire trop
+rigide, et en la débitant dans sa largeur pour obtenir les propriétés mécaniques voulues. Celles-ci sont très importantes car la déviation de la poutre est proportionnelle à la force de rappel du ressort : F = k * Δz. Son élasticité,
+définie par k, est donc fondamentale. C’est la mesure de la déviation Δz qui nous permet de remonter à la force
+pointe-échantillon puisqu’à l’équilibre : Frappel = Fpointe-éch .
+Le réglet a été accroché à une potence avec une pince.
+-Le laser :
+Nous disposons d’une diode laser dans le rouge et l'avons accroché à une potence et orienté de telle sorte
+qu'il frappe le levier en son extrémité. Notre levier étant réfléchissant, nous n’avons pas eu besoin de rajouter un
+quelconque matériau réfléchissant sur le levier.
+-le récepteur optique
+Il est nécessaire de réceptionner le faisceau réfléchi du laser. N’ayant pas de capteur photosensible pouvant mesurer
+ses variations, nous avons simplement mesuré les variations de la réflexion du laser sur une feuille de papier millimétré collée au mur. Une webcam aurait pu être utilisée mais l'exploitation des films est longue et demande un savoir-faire que l'on n’a pas eu le temps d'acquérir, ayant fait le choix de s’intéresser plus en profondeur aux phénomènes physiques rencontrés.
+-les échantillons
+Nos échantillons doivent pouvoir représenter un paysage magnétique sensible à des interactions magnétiques avec
+la pointe. Ce seront donc différents objets magnétiques à l'échelle macroscopique, censée représenter une succession de domaines magnétiques de surface à l’échelle nanométrique. Ces objets sont des associations aimants forts
+(en Néodyme Fer Bore, NdFeB ) et doux (ferrites), des objets métalliques… Nous avons
+aussi utilisé notre maquette pour visualiser le champ magnétique créé par un courant électrique.
+-le support des échantillons :
+Le support, lui, ne doit pas être magnétique ou métallique pour ne pas fausser les mesures
+des échantillons. De plus, il doit être plat pour garder la distance pointe-échantillon constante. Il doit permettre de maintenir les aimants fixes malgré l’interaction avec la pointe. La recherche du bon support, (voir annexe 1), fut une longue étape : nous avons testé plusieurs matériaux pour finalement utiliser de la
+mousse de fleuriste.
+
+8
+
+Remarque : La déviation du laser par le levier dépend fondamentalement des réglages de la maquette ce qui rend
+impossible toute comparaison quantitative entre nos courbes.
+
+IV) EXPERIENCES REALISEES
+1) Etude de l’interaction entre pointe et échantillon magnétique en mode non-contact
+a)Influence de la distance pointe-échantillon :
+Comme première expérience, nous avons étudié
+un échantillon constitué de trois aimants identiques placés
+à des hauteurs différentes, simulant donc un profil de
+rugosité. Nous avons placé nos aimants en répulsion par
+rapport à la pointe. Cette configuration correspond à celle
+du fonctionnement en AFM en mode non contact, au signe près de l’interaction. Nous simulons donc là le fonctionnement d’un AFM, le signal que nous mesurons étant juste l’opposé de celui que nous obtiendrions avec un
+AFM en mode non contact.
+Schéma d’une expérience en répulsion :
+Sens de l’aimantation
+Mousse de fleuriste
+Aimants
+
+Poutre
+Pointe aimantée
+Sens du balayage
+
+Voilà nos résultats expérimentaux obtenus avec une
+poutre en plastique : ce graphe est la déviation du laser mesurée sur le mur en cm en fonction de la position du porte
+échantillon portant les 3 aimants. Le balayage est défini par rapport à une origine arbitraire.
+La première chose que nous remarquons sur ce graphique est que le faisceau laser est dévié vers le haut
+(signe de la répulsion des aimants), mais ne varie pas de la même façon entre les différents aimants. La pointe subit
+donc des forces différentes. Le seul paramètre qui différencie ces trois situations étant la distance verticale pointeéchantillon, nous avons pu en déduire que la distance pointe-échantillon influe sur nos mesures. Nous avons cherché à comprendre pourquoi.
+Nous avons donc voulu comprendre comment fonctionne un aimant. Pour cela, nous avons cherché à visualiser le champ magnétique créé par un aimant. Pour ce faire, nous avons mis un aimant dans de la poudre de fer.
+Celle-ci s'est alors organisée en lignes concentriques et fermées autour des pôles de l'aimant.
+Ces expériences nous ont permis de visualiser les lignes de champs magnétiques
+produites par un aimant. Les figures cidessous obtenues par des calculs Mathematica confirment l’existence de ces lignes
+champ fermées et orientées joignant le
+pôle Nord au pôle Sud de l’aimant.
+
+Ici, les lignes de
+champs sont représentées
+par
+des
+flèches donnant la
+direction et l'intensité
+du champ magnétique
+dans l'espace.
+9
+
+Nous avons aussi visualisé ces lignes de champ avec des ferro-fluides. En effet, nous avons placé un petit peu de
+ferro-fluide dans une boite transparente et avons approché un aimant par le dessous de la boîte. Voilà ce que nous
+avons observé :
+
+AIMANT COLLE A LA BOITE
+
+AIMANT ELOIGNE DE LA BOITE
+
+AIMANT LE PLUS ELOIG NE DE LA BOITE
+
+Nous avons bien pu voir la différence de direction et de nombres des lignes de champs en fonction de la
+distance ferro-fluide/aimant. En effet, cette expérience consiste en réalité à effectuer des coupes des lignes de
+champs à différentes distances au-dessus de l'aimant : les pics que nous voyons correspondent aux directions des
+lignes de champs. Nous observons alors que plus la distance pointe/échantillon est faible, plus le nombre de lignes
+de champ interagissant avec la pointe est important, plus ces lignes sont serrées, plus le champ est fort.
+Cette expérience nous a fait découvrir un paramètre important pour les expériences suivantes : la distance
+pointe/échantillon doit toujours rester constante pour effectuer des mesures quantitatives et comparables entre
+elles. Dans un vrai AFM ou MFM, ce paramètre aussi est fondamental et c'est la raison pour laquelle il existe un
+système piézo-électrique qui permet de garder une valeur de force pointe/échantillon constante. C'est le signal en
+retour du piézo-électrique qui permet de reconstruire la surface de l'échantillon. Ici, nous ne pouvons pas disposer
+de cette régulation. Donc nous allons toujours nous efforcer de garder la distance pointe/échantillon constante.
+Une chose nous a encore étonnés sur le graphe que nous avons obtenu, c’est le fait que lors du passage
+entre deux aimants, la déviation du spot laser change de signe et que nous passions par des valeurs négatives. Cellesci indiquent que l’interaction est localement devenue attractive entre la pointe et l’échantillon. L’étude des lignes de
+champ toujours fermées produites par un aimant, lignes qui sortent du pôle Nord pour rejoindre le pôle Sud, nous a
+aidés à comprendre cette inversion de type d’interaction : en effet, cette expérience est faite en répulsion. Donc, le
+champ produit par l’échantillon et l’aimantation de la pointe sont en opposition. Mais, les lignes de champ étant
+fermées, lorsqu’elles sortent par le pôle Nord de l’aimant, elles tournent autour de celui-ci pour boucler vers son
+pôle Sud. Lors du balayage, avant et après l’aimant, les lignes de champ issues de l’aimant sont donc de même sens
+que l’aimantation de la pointe. D’où cette interaction localement attractive observée sur chacun de nos graphes juste
+avant et juste après le passage de la pointe à l’aplomb de l’échantillon.
+Poutre
+Pointe
+aimant
+Attraction
+
+Répulsion
+
+Attraction
+
+b) Influence de la pointe
+En effectuant cette étude sur les lignes de champs d’un aimant, nous nous sommes questionnés sur la résolution de notre maquette. En effet, notre détecteur étant un aimant, il possède aussi des lignes de champs. Notre
+détecteur n’est donc pas seulement sensible aux lignes de champs des aimants échantillons situés juste en dessous
+de lui, mais aussi à celles situées sur ses côtés. Nous avons recommencé l’étude de l’échantillon précédant avec
+deux pointes de tailles différentes : l’une de 1cm*1cm*1cm et l’autre de 0.5cm*0.5cm*0.5cm. On obtient les graphiques suivants :
+
+10
+
+On remarque que la petite pointe nous permet de revenir très clairement au
+zéro entre les aimants et même d'y rester sur plusieurs points. La précision est donc
+beaucoup plus importante. Cet effet de limite de résolution dû à la taille de la pointe
+existe de façon identique dans un AFM ou MFM vrai. On choisira d’utiliser cette petite pointe pour toutes les expériences suivantes.
+Nous allons même parfois utiliser un pilier de 2 ou 4 de ces petits aimants de
+façon à maximiser l’aimantation dans l’axe de la pointe et minimiser le poids relatif de
+l’extension spatiale des lignes de champs. Des calculs de simulation effectués sous
+Mathematica confirment ce résultat, comme le montre ce schéma.
+Lignes de champ magnétique pro-
+
+Les deux graphiques ci-dessus ont été obtenus avec une poutre en métal, duites par un empilement de 4 peavant que nous nous rendions compte de l’impact de la poutre en métal sur nos tits aimants.
+mesures : nous avons cependant choisi de présenter ces graphiques car ils illustrent bien l’effet de pointe. Nous avons ensuite refait ces expériences avec la poutre en plastique. Les graphiques
+obtenus sont présentés ci-dessous : nous constatons que l’effet de pointe est moins net, mais qu’il existe cependant.
+La comparaison de ces graphiques souligne l’effet du réglet sur lequel nous reviendrons dans la suite du document.
+
+Grosse pointe
+
+Petite pointe
+
+c) Influence du nombre d’aimants
+Cette expérience a pour but de mesurer le champ créé par la somme de plusieurs aimants tous identiques.
+Grâce à la mousse de fleuriste, nous avons fabriqué un échantillon présentant 3 piles alignées d’aimants (1, puis 3
+puis 5 aimants) affleurant au même niveau de la mousse pour maintenir la distance pointe – échantillon constante.
+Voilà le profil de la force d’interaction entre la pointe et
+l’échantillon obtenu en balayant la pointe au-dessus de
+l’échantillon, avec une poutre en plastique :
+On remarque une déviation équivalente du signal laser
+quand la pointe est au-dessus de la pile de 3 ou de 5 aimants
+identiques. Cette déviation est nettement plus importante que
+celle obtenue avec 1 aimant seul. On peut en déduire que le
+champ magnétique produit par une pile de 3 ou 5 aimants
+semble identique, et plus important que celui produit par 1 aimant. On nous a alors expliqué que l'empilement successif des
+aimants ne correspond pas à l'addition du champ magnétique de
+11
+
+chaque aimant séparé. En effet, l'épaisseur des piles d'aimants empêche certaines lignes de champs des aimants du
+dessous d'être détectées par la pointe. Très vite, le champ produit par une pile d’aimants identiques sature et devient
+donc indépendant du nombre d’aimants empilés. C’est ce que nous observons expérimentalement.
+
+d) Influence de la géométrie de l’échantillon :
+Pour affiner notre étude d’aimantation, nous avons
+voulu étudier les propriétés magnétiques des différentes
+faces de nos aimants. Nous avons donc placé nos aimants
+de différentes manières dans la mousse : l’un longitudinalement, l’autre latéralement, puis le troisième selon la
+tranche par rapport à la direction du balayage. Nos mesures nous ont donné le graphe suivant avec une poutre en
+plastique :
+Cette expérience nous montre que :
+- les largeurs des pics relatifs aux forces
+d’interaction pointe-échantillon sont presque identiques que le balayage se fasse selon la longueur ou la largeur de
+l’aimant échantillon. Ce résultat nous a étonnés car nous pensions que la largeur de ces pics suivrait le rapport 2 qui
+existe entre la longueur et la largeur de l’aimant utilisé. En fait, la largeur de ces pics est tellement supérieure aux
+paramètres géométriques de l’aimant que ces pics ne sont pas sensibles à un simple rapport 2 entre ces deux longueurs.
+- on remarque une déviation du laser particulière pour le troisième aimant placé en position verticale. En
+effet, la pointe est d'abord repoussée puis attirée par l'aimant. Ceci s'explique encore une fois par les lignes de
+champ de l'aimant. En effet, la pointe est tout d'abord sensible à l'une des faces de l'aimant. La pointe est alors repoussée par l'échantillon, ce qui oriente le levier vers le haut, et provoque donc une déviation de la réflexion du
+laser vers le haut. Ensuite, la pointe passe au-dessus de la face visible de l'aimant. Au cours du balayage, la pointe est
+ensuite sensible à la deuxième face de l'aimant, dans notre cas, la face d’aimantation contraire à celle de la pointe ; la
+pointe est alors attirée ; les déviations du levier comme du laser se font donc vers le bas.
+Nous avons pu visualiser les lignes de champ tangentes à la face latérale de l’aimant avec du ferro-fluide.
+
+Nous remarquons aussi que l’amplitude de cette déviation latérale est plus faible : c’est normal car alors la pointe
+n’est alors sensible qu’à peu de ces lignes de champ.
+Au final, cette manipulation nous permet de compléter notre étude des lignes de champs produites par un
+aimant grâce à notre maquette de MFM.
+
+e)Etude du comportement magnétique de différents matériaux
+Forts de la pertinence de notre maquette
+pour sonder les propriétés magnétiques des aimants
+NdFeB, nous avons pensé à l’utiliser pour sonder les
+propriétés magnétiques d’autres matériaux.
+Nous avons donc fabriqué un nouvel échantillon présentant une succession de plots aux comportements magnétiques différents, et qui auront
+donc des interactions différentes avec la pointe. Pour
+réaliser cet échantillon, nous avons fixé sur une
+plaque en plexiglass un certain nombre de matériaux :
+un aimant inconnu à priori en ferrite, une capsule de
+12
+
+bière, une pastille de laiton, un aimant NdFeB, un bouchon de bouteille, un magnet de frigo « Olympiades 2015 ! ».
+Nous avons bien pris soin de vérifier que l’épaisseur de ces matériaux est sensiblement équivalente afin que la distance pointe-échantillon reste constante.
+Voici le graphique obtenu par la déviation de la pointe lors du passage de l’échantillon sous la pointe pour
+deux distances pointe-échantillon différentes, avec la règle en plastique :
+A grande distance pointe-échantillon, nous observons les deux très fortes déviations dues aux deux aimants,
+le NdFeB et l’aimant en ferrite. Le pic relatif à l’aimant inconnu est plus large que l’autre, car cet aimant couvre une
+surface nettement plus grande. L’amplitude de la déviation détectée est équivalente, ce qui signifie que ces deux
+aimants, de composition différente, ont des interactions avec la pointe équivalentes. Ce résultat nous a surpris et
+posé des questions auxquelles nous répondrons plus tard. Grâce à la réflexion déjà menée précédemment, nous
+avons par contre compris les passages en déviation négative, donc interaction attractive entre la pointe et
+l’échantillon au pied de chacun des pics relatifs à un aimant.
+Ensuite, nous remarquons que nous n’obtenons aucune déviation lors du balayage au dessus du bouchon en
+plastique et de la pastille en laiton. Nous en concluons donc que le laiton est un alliage métallique sans propriété
+magnétique, comme le plastique, ce dont nous nous doutions bien.
+Lors du passage au-dessus du magnet de frigo, nous observons un profil similaire à celui d’un aimant en position verticale, c’est-à-dire que l’interaction avec la pointe change de signe. Cela signifie que ce magnet est formé de
+deux aimants aux polarités inversées.
+Enfin, nous n’avons pas encore évoqué le passage de la pointe au dessus de la capsule de bière. L’interaction
+avec la pointe n’est pas facile à détecter lors du balayage à grande distance pointe-échantillon : l’effet de cette interaction se fond avec le pied du signal dû à l’aimant en ferrite.
+Pour augmenter la sensibilité de notre maquette, et observer avec plus de précision les deux objets pas clairement caractérisés par le premier balayage, nous avons diminué la distance pointe-échantillon et du coup retiré les
+deux aimants en ferrite et NdFeB qui auraient littéralement collé la pointe à leur surface lors de ce balayage à courte
+distance. D’où le graphe plat lors du passage en la position de ces deux aimants. Le balayage à courte distance confirme la nature du magnet de frigo déjà observée lors du balayage à longue distance pointe-échantillon, et permet de
+mettre en évidence l’interaction magnétique entre la capsule de bière et la pointe. Elle est attractive et de faible intensité. Ce résultat est intéressant car il met en évidence la magnétisation de certains matériaux métalliques lorsqu’ils
+sont soumis à un champ magnétique, alors que ceux-ci ne présentent aucune propriété magnétique macroscopique
+sans champ magnétique. Ainsi, nous observons que le laiton et l’alliage de la capsule de bière sont deux corps métalliques aux réponses très différentes lorsqu’ils sont soumis à un champ magnétique.
+Au début de nos expériences, nous n’avions pas idée de ce phénomène, et nous avons systématique effectué
+nos mesures avec un réglet en métal que nous avions choisi pour ses propriétés mécaniques intéressantes. Nous
+nous sommes rendu compte seulement plus tard de l’impact important du réglet sur nos mesures puisque celui-ci
+s’aimante lors du collage de la pointe à sa surface et lors du balayage des échantillons magnétiques. Ci-dessous, sont
+représentés côte à côte les graphes obtenus lors de l’étude du même échantillon soit avec une poutre métallique, soit
+avec une poutre plastique.
+
+On constate que l’aimantation de la poutre métallique noie une partie du signal issu de l’interaction pure
+pointe-échantillon, ce qui bien sûr nuit à nos mesures.
+
+13
+
+Lors de notre visite à l’Institut Jean
+Lamour, nous avons eu l’occasion
+d’observer un film de Cobalt Nickel, à
+l’aide d’un microscope à champ proche. Sur
+les images ci-contre, à gauche, on travaille
+en AFM, et à droite, en MFM, sur la même
+surface de CoNi. Sur la première image, le
+contraste de couleurs correspond à la rugosité de la surface. La surface de ce dépôt de
+CoNi apparait plane et parsemée de grosses
+poussières. Sur la deuxième image, le contraste des deux couleurs rend compte d’une
+interaction soit attractive soit répulsive avec la pointe. Cette image permet de visualiser des domaines magnétiques
+d’aimantations contraires en formes de vermicelles.
+Finalement, après avoir effectué cette série d'expériences, nous nous sommes aperçus que nous utilisions la
+maquette de deux manières différentes. Les manipulations visant à visualiser la géométrie de l'échantillon (forme,
+hauteur des plots) correspondent à une utilisation par analogie avec le principe de l’AFM. Nous avons finalement
+modélisé le système électronique de régulation de la position de la pointe permettant de travailler toujours à distance pointe/échantillon constante par notre mousse de fleuriste dans laquelle nous insérons les aimants censés
+représenter un profil de rugosité inversé. Mais, nous nous sommes aussi efforcés de caractériser les propriétés magnétiques de certains matériaux, ce qui correspond à un fonctionnement de la maquette en MFM. Ce travail nous a
+amené à cette étude magnétique exhaustive du champ créé par des aimants, ce qui n'était pas prévu à l'origine.
+
+2) Étude de l’interaction entre la pointe et des courants en mode non-contact
+a)Etude de l’interaction en fonction de l’intensité
+dans la bobine
+Après avoir utilisé notre maquette pour tester les
+champs magnétiques produits par des matériaux divers,
+nous avons eu l’idée d’utiliser notre maquette pour étudier
+le champ magnétique produit par un courant. Nous nous
+sommes rappelé d'une expérience que nous avions effectué
+au collège en 3ième : nous avions alors placé une boussole
+sous un fil de Cuivre placé parallèlement à la boussole
+quand aucun courant ne le traverse. Quand celui-ci est
+traversé par un courant, la boussole change de direction.
+Quand le courant est inversé, la boussole se retourne. La
+boussole n’est alors plus seulement soumise au champ
+magnétique terrestre, mais également au champ magnétique produit par le courant. Nous avons pensé à étudier ce
+champ avec notre maquette. Pour maximiser l’effet, nous avons pris plusieurs courants, soit une bobine.
+Pour ce faire, nous avons branché une bobine à un
+générateur en continu. Nous avons effectué trois expériences :
+- une première expérience avec la bobine d’axe parallèle à celui de la pointe, traversée par un courant positif :
+l’interaction est répulsive ce qui correspond à une déviation
+positive.
+- une seconde expérience avec la bobine selon le
+même axe traversée par un courant négatif : l’interaction est
+attractive, ce qui correspond à une déviation négative.
+Au-delà de 0,7 A, nous avons remarqué une variation
+anormale de nos deux courbes, qui ne sont alors plus linéaires.
+Ceci s'explique par la non linéarité de la torsion du réglet à partir de la force d’interaction correspondant à 0.7A.
+Nous nous sommes donc limités à un courant de 0,7A.
+14
+
+L'allure linéaire de la courbe montre que la déviation du laser est proportionnelle à l'intensité délivrée.
+L’interaction entre la pointe et la bobine l’est donc aussi.
+De plus, on remarque que changer le sens du courant revient à inverser le sens des lignes de champs de la bobine,
+comme si on inversait les pôles d'un aimant.
+Enfin, nous avons effectué une troisième expérience avec la bobine d’axe perpendiculaire à la direction
+de la pointe afin d’étudier les lignes de champ sur les faces
+latérales de la bobine.
+On observe une déviation largement inférieure aux précédentes, ce qui signifie que le champ est très inférieur le
+long de la bobine. C’est normal car alors la pointe intercepte peu de lignes de champ qui sont alors perpendiculaires
+à son axe.
+Nous en avons déduit de ces expériences le schéma suivant des lignes de
+champ créées par une bobine :
+Finalement, nous pouvons en conclure qu'une bobine se comporte
+d'un point de vue magnétique exactement comme un aimant droit dont les
+pôles sont donnés par le sens de parcours du courant dans la bobine.
+
+b) Etude de l’interaction sur l’axe de la bobine en fonction de la distance verticale
+Nous avons ensuite voulu étudier la variation du champ magnétique en fonction de l’éloignement entre la
+pointe et la bobine. Nous avons donc placé une bobine plate en
+dessous de notre levier métallique, alimentée par une intensité
+constante, et avons déplacé la bobine par rapport à la pointe.
+Poutre
+Pointe
+
+Balayage vertical de
+la bobine par rapport à la pointe
+
+Ici, on mesure la déviation du laser en fonction de la distance entre la pointe et le centre de la bobine.
+Le profil de la courbe est surprenant et nous ne l’avons d’abord pas compris. Nous pensions en effet obtenir une
+déviation maximale, donc un champ magnétique maximal, au centre de la bobine. Or nous l’obtenons à environ
+deux centimètres de celui-ci. Pour comprendre ce résultat, nous avons effectué la même expérience avec un magnétomètre (voir courbe ci-contre).
+Au centre de la bobine, nous mesurons un champ :
+B = 4,4mT sous I = 1,5A
+Or, on nous a donné la formule théorique du champ créé au
+centre d’une bobine, selon son axe.
+𝜇0 𝑁𝐼
+C’est : 𝐵 = 2𝑅
+Notre bobine a 320 spires. Donc N = 320.
+Elle a un rayon de 7cm. Donc : R = 7cm.
+0 est la perméabilité du vide qui vaut :
+𝜇0 = 4𝜋. 10−7 𝑈𝑆𝐼
+Le calcul nous donne donc un champ de : B = 4,31mT, ce qui est
+bien cohérent avec notre expérience.
+Le profil de courbe obtenu au magnétomètre nous a paru beaucoup plus logique que celui obtenu avec
+notre maquette. Nous en avons parlé avec des chercheurs. Ils nous ont alors rappelé que notre maquette mesurait la
+15
+
+force d’interaction entre la pointe et l’échantillon, et non pas le champ magnétique de l’échantillon, comme le magnétomètre. Comme vu précédemment, cette force est proportionnelle à l’opposé de l’aimantation de la pointe, qui
+est constante, multipliée par la dérivée du champ créé par l’échantillon en fonction de la distance
+pointe/échantillon, appelée z. D’où la formule simplifiée :
+𝑑𝐵
+𝐹 ∝ −𝑀 ×
+𝑑𝑧
+On comprend alors la différence entre notre courbe et celle du magnétomètre :
+𝑑𝐵
+-pour z<0, B croît quand z croît. Donc : 𝑑𝑍 >0. Donc, F<0. D’où le signe négatif mesurée par notre maquette.
+𝑑𝐵
+
+-pour z>0, B décroît quand z croît. Donc : 𝑑𝑍 <0. Donc, F>0. D’où le signe positif mesurée par notre maquette.
+-en 0, le changement de sens de variation n’est pas ponctuel. D’où la courbe en S mesurée par notre maquette.
+
+c) Analogie avec la force d’interaction entre la pointe et un aimant placé sous la pointe, en fonction de la distance verticale
+Comme nous venons de constater qu’une bobine parcourue par un courant se comporte magnétiquement
+comme un aimant, nous avons pensé que nous devrions obtenir le même type de graphe en fonction de la distance
+en étudiant un aimant plutôt qu’une bobine. Voilà le résultat des expériences correspondantes qui vérifient notre
+conjecture, ici effectuée avec le réglet en plastique.
+
+Lors de l’expérience avec notre maquette, nous avons dû arrêter notre mesure avec l’aimant en attraction, à
+6 cm de la pointe, car alors l’aimant échantillon colle à la pointe.
+A noter la valeur du champ créé par ces aimants NdFeB nettement plus intense que celui produit par nos bobines.
+
+d) Etude de la force d’interaction entre la pointe et deux bobines sur leur axe en fonction de la
+distance entre ces bobines
+On nous a expliqué que la dérivée d’une fonction est plus
+sensible aux petites variations de la fonction que la fonction ellemême. Ainsi, notre maquette est plus sensible aux variations de B
+que le magnétomètre. Pour le vérifier, nous avons eu l’idée de tester
+notre maquette sur une zone de champ uniforme.
+Nous avons alors placé deux bobines identiques à la précédente en espérant pouvoir créer une telle zone de champ uniforme
+en jouant sur la distance entre les deux bobines. En fait, mesurer
+avec précision la distance entre ces bobines n’était pas simple car il
+fallait toujours garder les bobines très alignées entre elles pour que
+l’expérience ait du sens : on nous a alors conseillé d’utiliser un banc
+d’optique pour nous aider à conserver cet alignement. Nous mesurons le champ créé au magnétomètre quand les deux bobines sont
+distantes de 10cm sur la courbe de gauche, de 5cm sur la courbe de
+droite.
+
+16
+
+Quand les bobines sont distantes de 10cm, nous observons qu’elles sont trop éloignées pour créer un B uniforme.
+Quand elles sont distantes de 5cm, elles sont manifestement trop proches. N’obtenant pas un champ uniforme avec
+ces distances, on nous a appris que nous devions placer nos bobines à une distance correspondant au rayon de
+celles-ci, soit dans notre cas 7 cm, pour avoir un champ uniforme entre les bobines. Voilà les courbes obtenues
+dans ce cas :
+
+Nous remarquons bien un « plateau » entre les bobines : le magnétomètre mesure bien un champ uniforme.
+Le champ mesuré sur le plateau entre les bobines est : 𝐵≈6𝑚𝑇
+Là encore, nous avons voulu vérifier que cette valeur est en accord avec les calculs théoriques.
+8 𝜇 𝑁𝐼
+On nous a expliqué que le champ entre les bobines donné par la formule : 𝐵 = 5√5 0𝑅
+Vu que nos deux bobines sont identiques à la précédente, nous avons toujours : N = 320 spires, R = 7 cm.
+La mesure est faite avec : I = 1.5A
+Ce calcul nous donne : B = 6.16mT, ce qui est cohérent avec nos mesures expérimentales.
+Nous avons alors voulu observer l’interaction pointe-champ magnétique créée entre les bobines. Nous avons balayé
+la pointe sur l’axe entre les deux bobines Voilà le résultat de nos mesures :
+
+Ces deux courbes correspondent à des déviations certes très faibles mais non nulles du spot laser. Ainsi,
+notre maquette apparaît plus sensible à de faibles variations du champ entre les bobines que les mesures faites au
+magnétomètre.
+
+e) Comparaison entre les intensités des champs magnétiques produits par les divers matériaux
+rencontrés au cours de cette étude
+Comme notre maquette est sensible à une force d’ interaction entre une pointe magnétique et un échantillon aux propriétés magnétiques, elle ne nous a jamais permis d’avoir accès au champ produit par chacun des maté17
+
+riaux que nous avons étudiés. Elle nous a fourni d’autres informations, plus sensibles et complémentaires, mais différentes. Ce n’est finalement qu’à la fin de cette étude, en utilisant un magnétomètre, que nous avons eu accès au
+champ produit par les matériaux rencontrés.
+Ainsi par exemple, nous avons observé que le champ créé au centre des bobines que nous avons utilisées sous 1.5A
+n’est que de 0.4mT ou 0.6mT, selon la présence de 1 ou 2 bobines. C’est donc un champ faible.
+Nous avons mesuré précédemment le champ à la surface de l’un de nos aimants NdFeB : 𝐵≈700𝑚𝑇.
+Pour apprécier cette valeur, nous sommes allés sur le site de SuperMagnete, producteur de cet aimant : nous pensions trouver sur ce site la valeur du champ produit par les aimants à leur surface. Notre surprise fut de taille quand
+nous avons lu que l’information donnée par Supermagnete au sujet de nos aimants était :
+Force d’adhérence : 3.8kg !
+Nous avons cherché à comprendre cette façon étonnante de mesurer le champ produit à la surface des aimants.
+1 𝐵2 𝑆
+
+En fait, la force d’adhérence qui lie un aimant à un métal magnétique est donnée par la formule : 𝐹 = 2 𝜇
+
+0
+
+avec F = cette force d’adhérence, B le champ magnétique produit par l’aimant, S sa surface et 0 la perméabilité de
+2𝐹𝜇
+l’air très voisine de celle du vide. Donc : 𝐵 2 = 𝑆 0
+Nous avons donc pu calculer le champ produit à la surface de nos aimants à partir de la force d’adhérence donnée
+par le constructeur, en supposant l’aimant de surface : S = 2*1=2cm2.., de force d’adhérence 3,8kg soit 38 N, et vérifier l’ordre de grandeur de notre mesure. Nous avons trouvé O,69Tesla, en bon accord avec notre mesure.
+Au cours de l’étude de matériaux faite précédemment, nous avons étudié en aimant en ferrite. Son comportement magnétique analysé avec notre maquette était analogue à celui d’un aimant NdFeB. Qu’en est-il du champ
+produit ? Nous avons donc mesuré le champ créé à sa surface avec le magnétomètre.
+Nous avons obtenu un ordre de grandeur inférieur à celui obtenu pour les NdFeB, de l’ordre de 25mT ce qui peut
+d’abord paraître surprenant par rapport au résultat obtenu avec notre maquette. En fait, nous avons pensé que là
+aussi l’aimant en ferrite, qui est un matériau doux, est magnétisé par la pointe de notre maquette lorsque nous effectuons la mesure. D’où le profil observé en IV1e.
+
+3) Entre AFM et MFM, en mode tapping
+1) Recherche de la fréquence de résonnance
+Après avoir effectué maintes mesures en mode non-contact, nous avons tenté de reproduire le mode tapping largement utilisé dans les AFM et MFM. L’ensemble réglet + pointe est notre ensemble mécanique. Il possède
+une fréquence propre d’oscillation donnée par la formule suivante (avec k = constante d’élasticité du ressort et m =
+masse du réglet) :
+Nous avons réfléchi à la façon de mesurer cette fréquence propre : nous venons de voir qu’un courant crée
+du champ magnétique. Nous nous sommes alors rappelés de la réciproque, c'est-à-dire qu’un champ magnétique
+associé à du mouvement crée un courant par induction (c’est le principe de la dynamo). Nous avons utilisé ce principe pour mesurer la fréquence propre du réglet. Nous avons placé celui-ci avec sa pointe magnétique face à une
+bobine branchée à un oscilloscope. L’oscillation du réglet devant la bobine crée un courant que nous visualisons sur
+l’oscilloscope. Nous y mesurons sa fréquence :
+
+18
+
+2) Mode oscillation à fréquence constante
+Pour faire fonctionner notre maquette en mode tapping, nous avons excité le réglet à sa fréquence propre.
+Pour créer l’excitation, nous avons fait passer un courant oscillant dans une
+bobine à l’aplomb de deux aimants collés de part et d’autre du réglet. Ce courant oscillant de la bobine crée alternativement un champ magnétique vers le
+haut puis vers le bas, ce qui génère une interaction attractive puis répulsive
+avec les aimants au-dessus. Nous vérifions bien qu’à sa fréquence propre, le
+réglet rentre en résonnance et son amplitude de vibrations est maximale.
+Nous détectons le mouvement de la pointe avec la réflexion du laser. Lorsque
+nous passons l’échantillon sous la pointe, une force supplémentaire apparaît,
+ce qui fait diminuer l’amplitude des oscillations.
+Nous avons repris l’échantillon contenant
+trois aimants à des distances pointe/échantillon
+différentes. Nous représentons l’amplitude de la
+réflexion du laser en fonction du balayage de
+l’échantillon sous la pointe. Nous sommes partis de
+l’amplitude maximale de l’ensemble et lorsqu’un
+aimant passe à l’aplomb de la pointe, l’amplitude est
+diminuée. L’effet est d’autant plus important que la
+distance pointe échantillon est plus petite. Nous
+obtenons donc des résultats cohérents avec ceux du
+mode non-contact.
+Le deuxième échantillon que nous avons
+voulu passer en mode tapping est celui composé de
+1, 3, 5 aimants en attraction par rapport à la pointe
+et situés à une même distance pointe/échantillon.
+Nous obtenons le graphique ci-contre :
+Nous remarquons bien une variation plus grande de
+l’amplitude du laser avec 5 aimants qu'avec 1 aimant, mais assez similaire avec 3 et 5 aimants. Nous
+arrivons donc à la même conclusion qu'en mode
+non-contact : les interactions pointe/échantillon
+produites par 5 et 3 aimants empilés sont plutôt
+similaires, et plus importantes que celle produite par
+1 aimant.
+La troisième expérience effectuée en mode tapping avec la poutre en plastique consiste à reproduire
+l’expérience étudiant l’interaction pointe-échantillon en fonction de la distance pointe/échantillon verticale.
+Nous observons des amplitudes d’oscillations importantes lorsque la distance pointe échantillon est
+grande : l’interaction pointe/aimant est alors très
+faible et ne modifie alors que peu la résonnance de la
+poutre. Quand la distance pointe échantillon est
+beaucoup plus faible, alors les oscillations deviennent
+de très faibles amplitudes, ce qui signifie une interaction forte entre la pointe et l’échantillon. Ces résultats
+sont cohérents avec ceux de la même étude en mode
+non-contact. Cependant, ce mode de détection de
+l’amplitude des oscillations au laser est laborieux.
+Nous avons donc réfléchi à un autre mode de détection.
+
+19
+
+3)Mode oscillation à amplitude constante
+Nous avons repris le mode de détection inductif utilisé pour mesurer la fréquence propre. Nous
+avons alors placé la pointe à mis parcours de la poutre
+et comme précédemment nous avons passé
+l’échantillon sous la pointe, ce qui entraîne une force
+supplémentaire. Nous devons alors modifier la fréquence d’excitation du réglet pour retrouver des amplitudes maximales.
+Avant le passage de l’échantillon, la fréquence est la
+fréquence propre. Nous avons repassé le même
+échantillon composé de trois aimants à des distances
+pointe-échantillon différentes. De l’aimant 1 à
+l’aimant 3, la distance pointe/échantillon diminue, donc l’interaction pointe/échantillon augmente. Nous constatons alors, sur le tableau ci-dessous, qu’en répulsion, la fréquence nécessaire pour retrouver une amplitude constante augmente avec l’interaction pointe/échantillon. En attraction, nous observons le résultat contraire..
+
+Pour expliquer ce résultat, nous avons repris l’expression de la fréquence propre du réglet. Quand
+l’interaction est répulsive, il y a une force supplémentaire de répulsion au bout du réglet, ce qui a pour effet de modifier le système mécanique et d’en augmenter la constante élastique. Alors, la fréquence nécessaire pour retrouver
+la même amplitude est plus grande.
+𝑓
+
+1
+
+Interaction répulsive  𝑘𝑒𝑓𝑓𝑒𝑐𝑡𝑖𝑓 = 𝑘 + 𝑘𝑟é𝑝𝑢𝑙𝑠𝑖𝑜𝑛 > 𝑘  𝑓 ′ = 2𝜋 √ 𝑒𝑓𝑓
+>𝑓
+𝑚
+Quand l’interaction est attractive, il y a une force supplémentaire d’attraction au bout du réglet, ce qui a
+pour effet de modifier le système mécanique et d’en diminuer la constante élastique. Alors, la fréquence nécessaire
+pour retrouver la même amplitude est plus petite.
+1
+
+𝑓
+
+Interaction attractive  𝑓𝑒𝑓𝑓𝑒𝑐𝑡𝑖𝑓 = 𝑘 − 𝑘𝑎𝑡𝑡𝑟𝑎𝑐𝑡𝑖𝑜𝑛 < 𝑘  𝑓 ′ = 2𝜋 √ 𝑒𝑓𝑓
+<𝑓
+𝑚
+Ce changement de force dû à l’échantillon sous la pointe crée un déphasage entre le signal excitateur du réglet à sa fréquence propre et les oscillations de la pointe à la nouvelle fréquence. Ce déphasage est observable quand
+nous visualisons les deux signaux simultanément sur l’oscilloscope. C’est l’évolution de ce déphasage en fonction du
+balayage de l’échantillon sous la pointe qui est mesuré dans un vrai MFM. On nous a expliqué que cette grandeur
+est la plus sensible aux variations du champ magnétique et qu’elle correspond à la dérivé de la force d’interaction
+pointe/échantillon présente dans notre maquette, soit la dérivé seconde du champ magnétique en fonction de la
+distance pointe/échantillon.
+
+20
+
+CONCLUSION
+Ce projet nous a permis de comprendre avec facilité le fonctionnement d'un AFM/MFM ainsi que son utilité dans le monde de la recherche et de l'industrie. Nous avons eu l'occasion de fabriquer et de développer une maquette personnelle, reprenant le principe de la microscopie de champ proche, utilisant l'interaction magnétique.
+Nous l’avons utilisée pour effecter des observations à la fois qualitatives et quantitatives. Pour comprendre son
+fonctionnement, il a fallu étudier de façon approfondie le champ magnétique créé par des aimants, ce qui n'était pas
+prévu à l'origine de notre travail. Les différents tests visant à crédibiliser notre maquette nous ont amenés à étudier
+le champ magnétique créé par des bobines.
+Cette participation aux Olympiades de Physique nous a ouverts et sensibilisés au monde de la recherche.
+Nous avons compris au cours de ces semaines de travail, de recherche et d'expérimentation, qu'un sujet de recherche ne pouvait être défini à l'avance. Ainsi nous pensions à la première séance ne travailler que sur l'AFM. Au
+final, notre imagination nous a menés vers d'autres horizons tels que le MFM ou l'étude du champ magnétique d'un
+aimant. C'est cette imagination et notre désir avide de découverte qui nous ont aidés à développer ce projet. Malgré
+les difficultés et des résultats inattendus et parfois décevants, nos séances de TP ont toujours été plaisantes. Nous
+étions chaque semaine excités et curieux à l'idée de refaire de nouvelles expériences et d'obtenir de nouveaux résultats. Nous ne comptons pas arrêter ce projet à ce stade, et avons encore beaucoup d’idées pour développer notre
+maquette, notamment dans l’approfondissement du mode oscillation.
+
+BIBLIOGRAPHIE ET REMERCIEMENTS
+-« Nano goes to school : a teaching model of the atomic force microscope »
+Par Gorazd Planinsic et Janez Kovac.
+-« Microscopie à force atomique (AFM) »
+Par Jean-Claude Rivoal et Christian Frétigny.
+-Extrait du sujet du concours général de physique de l'année 2015
+-« Les nouvelles microscopies »
+Publié dans le bulletin de l'union des physiciens, par Jean-Pol Vigneron et Cécile Goffaux.
+-« La microscopie de champ proche à l'école »
+Publié dans le bulletin de l'union des physiciens, par Denis Buttard.
+-« Le microscope à Force Atomique »
+Par Julien Bortoluzzi.
+-Le site de SuperMagnete
+-Wikipédia, et différents sites internet.
+Nous tenons à remercier tout les acteurs qui ont permis à ce projet de se réaliser. Nous remercions notre
+professeur pour son implication dans notre projet. Nous remercions de même les contacts que nous avons eus à la
+Faculté des Sciences et Technologies, à l’institut Jean Lamour ainsi qu’au LIEC. Des discussions enrichissantes avec
+ces chercheurs nous ont apportés de bonnes idées, nous ont aidés dans nos analyses d'expérience, nous ont permis
+de manipuler avec des matériaux auxquels nous n'avions pas accès au lycée ainsi que de participer à un séminaire
+sur l'AFM et le MFM.
+
+21
+
+ANNEXE
+Recherche du support :
+Au début de ce projet, nous avons effectué une mesure avec deux aimants situés à des distances pointeéchantillon différentes, nous avons tout de suite remarqué que ce paramètre influençait nos mesures. Nous avons
+alors compris que pour mesurer d’autres paramètres tels que le nombre d’aimants ou la géométrie de l’échantillon,
+nous devions garder la distance pointe-échantillon constante. Notre démarche qui nous amena, au final, à utiliser de
+la mousse de fleuriste fut très longue.
+Nous avons tout d’abord utilisé un
+bout de bois que nous avons incliné à l’aide
+de cales en aimant. Celles-ci nous permettaient de plus d’accrocher nos aimants.
+Nous avons obtenu le graphique suivant :
+Nous remarquons bien une différence de champs magnétiques entre les différentes piles d’aimants. Cependant, en essayant d’analyser notre expérience, nous
+nous sommes rendus compte que nous mesurions en vérité 3 piles de 4 aimants et que
+la variation observée venait de la position du
+support en bois dans les piles : des lignes de champ issues des aimants situés en dessous du bois sont perdues à la
+traversée de la planche de bois et la pointe n’est sensible ni seulement aux aimants du dessus, ni à la somme des 4
+aimants. En clair, on ne sait pas ce que l’on mesure. Nous avons aussi constaté un autre problème qui entrave
+l’analyse de ces résultats : avec notre échantillon penché, l’axe de la pile d'aimants est différent de celui de la pointe,
+ce qui rend la pointe sensible à une autre zone des lignes de champ que celle directement dans l'axe de l'échantillon
+et modifie donc l'interaction magnétique dont on veut rendre compte.
+Cette façon de garder la hauteur constante influant sur les mesures, nous avons donc dû en chercher une autre.
+Pour trouver un autre moyen de garder la distance pointe/échantillon constante, nous avons essayé d'utiliser des cales en bois. Par chance, nous avions à disposition des cales faisant exactement la hauteur de deux aimants.
+Nous avons alors réalisé cet échantillon :
+
+Le graphique correspondant est celui-ci :
+La première observation évidente est qu’il n’y a pas de variation
+entre les différentes piles d’aimants. Cela nous a beaucoup stupéfait. En effet, nous ne nous attendions pas du tout à ce résultat : nous pensions que les aimants situés en dessous du morceau de bois influeraient sur la pointe. Nous en avons déduit
+que le morceau de bois, relativement épais stoppe la grande majorité des lignes de champ des aimants situés en dessous de celui-ci. Deux solutions se sont alors offertes à nous : soit mettre
+les piles d’aimants au dessus du bois, mais alors nous revenions au problème de la distance pointe/échantillon ; soit
+chercher un support plus fin qui n’arrêterait pas les lignes de champ.
+Contrairement à ce que nous avions objecté au début en cherchant les possibilités de support, nous avons
+testé l’expérience avec un fin réglet métallique, en acier. C'est un ferro-doux, qui n'est aimanté qu’en présence d'un
+champ magnétique. Ainsi, celui-ci, contrairement au bois, ne devrait pas arrêter les lignes de champ des aimants. De
+
+22
+
+plus, le fait que le réglet soit métallique permet une bien meilleure accroche des aimants, ce qui nous a évités de
+placer un aimant au dessus de chaque pile, au dessus du réglet. Nous avons alors fabriqué cet échantillon :
+
+Ce qui nous a donné le graphique correspondant :
+On remarque une déviation plus importante
+du laser avec la première pile d'aimant qu'avec la
+deuxième, et encore plus que la dernière. On peut en
+déduire que le champ magnétique produit par une
+pile de 3 aimants est plus important que celui produit par 1 aimants. Cette expérience prouve bien que
+le réglet ne stoppe pas les lignes de champ des aimants situés en dessous de celui-ci.
+Cependant, plusieurs éléments dans cette expérience
+nous dérangent :
+-l'utilisation de la cale n'est pas très pratique pendant le balayage.
+-le réglet étant métallique, nous ne savons pas s’il influe sur le champ magnétique produit par les aimants, et
+nous ne savons donc pas exactement ce que nous mesurons.
+Malgré les résultats concluants de cette expérience, nous avons préféré changer de support. Nous en cherchions un
+qui nous permettrait de garder aisément la même distance pointe/échantillon quelque soit le nombre d'échantillon
+que l'on veut mesurer sans fausser ou altérer nos mesures.
+Nous avons beaucoup réfléchi, et émis beaucoup d’idées, pour finalement décider d’utiliser de la mousse de
+fleuriste. Cette matière nous a conquis dès ses premiers essais. De plus, elle nous permet de monter et démonter
+nos échantillons beaucoup plus efficacement. Elle nous permet aussi d'éviter de placer un aimant sous les piles pour
+les maintenir.
+
+23
+
+

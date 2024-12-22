@@ -1,0 +1,538 @@
+Charmeau Antoine /​ ​Quemin William / Huguet Amélie /Mabilais Sonia
+
+Olympiades de Physique Édition 2016
+Clavier Numérique à projection laser
+Comment repérer un point dans
+l’espace ?
+
+Lycée Philibert Delorme
+68 Boulevard St Hubert
+38080 Isle d’Abeau
+
+2016-2017
+
+RESUME DU MEMOIRE DES OLYMPIADES
+Clavier Numérique à projection laser
+Comment repérer un point dans l’espace ?
+Dans nos mémoires, sur le projet d’un clavier numérique à projection
+laser, nous présenterons tout d’abord les différents types d’ondes qui ont
+pu nous être utiles, leurs caractéristiques, mais surtout les
+fonctionnalités que nous leur avons données dans notre démarche et le
+type d’utilisation que nous en avons fait.
+Après cette première partie plus théorique, nous avons essayé de mettre
+en place plusieurs démarches expérimentales pour parvenir à repérer
+un point dans l’espace, récupérer des informations par différents
+procédés, et détecter la présence d’obstacles dans un lieu donné. Ces
+différentes manipulations ont toutes eu pour but de nous donner des
+pistes de recherche en vue de la fabrication d’un clavier projetable.
+Enfin dans la troisième partie, nous exposons la partie optique du projet,
+afin d’afficher un clavier sur une surface plane, grâce aux propriétés des
+lasers. Nous évoquons également la miniaturisation du clavier avec
+l’aide par exemple de l’informatique dans le but d’obtenir un boîtier
+compact et terminer notre clavier.
+
+1/19
+
+Introduction
+
+3
+
+I/ Quel type d’ondes choisir ?
+
+4
+
+A/ Les ondes ultrasonores
+
+4
+
+B/ Les ondes infrarouges
+
+7
+
+II/ Expérience de détection d’un obstacle
+
+7
+
+A/ Schéma simplifié de l’expérience
+
+7
+
+B/ Fonctionnement de l’Amplificateur Opérationnel (AOP)
+
+8
+
+C/ Comment trouver la tension “seuil” pour laquelle il y a détection d’un obstacle
+
+9
+
+D/ Repérage d’un point dans l’espace
+
+10
+
+III/ Améliorations expérimentales pratiques
+
+11
+
+A/ Assigner un caractère à un point dans l’espace
+
+11
+
+1) Comment assigner un point dans l’espace à un caractère
+
+11
+
+2) Fonctionnement du programme
+
+12
+
+C/ Affichage du clavier
+
+12
+
+D/ Miniaturisation
+
+15
+
+E/ Bluetooth
+
+15
+
+IV/ Utilisation d’un clavier numérique à projection laser
+
+16
+
+V / Conclusion
+
+17
+
+Remerciements
+
+18
+
+Bibliographie
+
+19
+
+2/19
+
+Introduction
+Les changements perpétuels de notre société ont amené l’homme à une soif de
+connaissances toujours plus vive sur les mystères du monde qui l’entourent.
+Les olympiades de physique sont pour nous un moyen de découvrir d’autres aspects
+de la physique : pratiquer une démarche de recherche, s'intéresser à de nombreux
+domaines des sciences pour un même projet, expérimenter et essayer manuellement
+différentes idées...
+Notre produit, le clavier numérique à projection laser, a été créé dans le but de
+faciliter l’utilisation d’un ordinateur, pour un usage plus ludique, plus pratique et plus
+efficace.
+Comment parvenir à créer un clavier numérique à projection laser ? A l’aide de quels
+procédés et quels éléments physiques?
+
+3/19
+
+I/ Quel type d’ondes choisir ?
+Dans l’optique de créer un clavier numérique à projection laser, nous nous sommes
+tout d’abord demandé comment repérer un point dans l’espace, élément essentiel au
+fonctionnement de notre clavier. En effet, afin de déterminer le caractère souhaité par
+l'utilisateur, connaître la position d’un doigt est primordial. C’est pourquoi, nous nous
+sommes tournés vers les ondes. Nous cherchons à savoir quelles ondes sont les plus
+pratiques et les plus adaptées pour notre projet.
+
+A/ Les ondes ultrasonores
+Tout d’abord nous nous sommes intéressés aux ondes ultrasonores afin de repérer les
+différents points correspondant aux caractères du clavier.
+Quelques rappels des caractéristiques de ces ondes :
+Ce sont des ondes mécaniques émises entre 20 kHz et 10​6 ​Hz (1 GHz) et qui consiste en
+une propagation de proche en proche d’une déformation qui provoque des variations
+de pression et des oscillations des molécules autour de leur position d’équilibre.. De
+plus, les ondes ultrasonores ont l’avantage d’être inaudibles pour l’oreille humaine
+donc il n’y a aucune gêne à son utilisation.
+Nous avons donc expérimenté ces ondes afin de savoir si celles-ci étaient les plus
+efficaces pour repérer un point.
+Pour cela nous avons réalisé un montage composé d’un GBF, d’un couple
+récepteur-émetteur, d’un générateur et d’un oscilloscope dans le but d'observer si les
+ondes ultrasonores permettent de repérer efficacement un doigt.
+
+Schéma du montage : (fig.1) Légende document 1 annexes
+
+4/19
+
+Une fois le montage réalisé, nous avons évalué les variations de l'amplitude des
+tensions des ondes lorsqu’un objet, un doigt dans notre cas, se situe entre l’émetteur et
+le récepteur. Nous nous sommes rendus compte qu’un doigt ne réalisait que peu de
+variations (fig.2 et fig.3) et donc qu’il n’était pas assez sensible aux ondes ultrasonores.
+
+Courbe représentative de la tension entre le couple émetteur-récepteur en
+l’absence de doigt sur 50 ​μs​ (fig.2)
+
+Courbe représentative de la tension entre le couple émetteur-récepteur en
+présence d’un doigt sur 50 ​μs​ (fig.3)
+
+De plus, afin de repérer un point dans l’espace nous avons voulu calculer le temps que
+mettraient les ondes ultrasonores à revenir lorsqu’un doig​t interrompt ces ondes. ​Pour
+5/19
+
+cela nous voulions utiliser la formule v = ∆td ​(avec v=la vitesse en m.s​-1​, d = la distance
+en m et ​Δ​t = le temps en s). En connaissant la vitesse des ondes ultrasonores dans une
+pièce à environ 20°C et le temps que celles-ci mettraient à revenir au point d’émission,
+nous voulions en déduire la distance à laquelle se situait le doigt de l’émetteur
+ultrasonore (fig.4). Or pour réaliser ce calcul, il nous était nécessaire de créer des
+pulses d’ondes ultrasonores pour déterminer précisément le temps que celles-ci
+allaient mettre pour revenir au point d’émission. Ce fût l’un des principaux problèmes
+rencontrés lors de nos recherches, n’ayant pas obtenu un montage efficace pour
+produire ces pulses d’ondes. De plus, ne connaissant que la distance séparant le doigt
+du couple émetteur-récepteur, nous ne pouvions savoir si nous étions à droite ou à
+gauche de notre clavier.
+Cependant, avec nos récentes avancées dans le projet, nous avons réussi à réaliser des
+pulses d’ondes. Pour ce faire nous avons utilisé un oscilloscope et 2 GBF (Voir
+document 2 en annexe).
+
+Schéma représentatif du procédé de repérage d’un point dans l’espace à l’aide de
+la formule​ v = ∆td (fig.4)
+
+Au vu de ces résultats, nous nous sommes donc dirigés sur d’autres ondes qui nous
+permettraient potentiellement d’identifier une présence, telle qu’un doigt, lorsque
+celui-ci interrompt les signaux. En effet, la différence de tension n’étant pas assez
+importante, il sera difficile de déduire la présence d’un doigt.
+
+B/ Les ondes infrarouges
+Quelques rappels des caractéristiques de ces ondes électromagnétiques :
+6/19
+
+Ce type d’onde comporte à la fois un champ électrique et un champ magnétique
+oscillant à la même fréquence. Les ondes infrarouges sont émises dans l’intervalle
+[700 nm ; 100 000 nm]. Dans cette fourchette de longueurs d’ondes, on distingue 4
+catégories; les infrarouges proches [700-1600 nm], moyens [1600-4000 nm],
+thermiques [4000-15 000 nm] et lointains [15 000-100 000 nm].
+
+Les ondes ultrasonores ne nous permettant pas de repérer efficacement un point dans
+l’espace, nous nous sommes penchés sur les ondes infrarouges. Celles-ci sont sensibles
+à la peau et donc nous permettent de détecter notre obstacle : un doigt.
+Afin de repérer l’obstacle nous utilisons un quadrillage. Ce moyen nous permet de
+repérer efficacement la position de l’obstacle grâce à des émetteurs et des récepteurs
+infrarouges. Ainsi, lorsqu’un doigt coupera un faisceau, le récepteur ne recevra plus
+de signal de l’émetteur. Selon l’émetteur concerné, la lettre en sera déduite. Notre but
+est de pouvoir récupérer ce signal via des AOP (dont nous expliquerons le
+fonctionnement ultérieurement) pour le transmettre à un ordinateur pour écrire le
+caractère numériquement.
+
+II/ Expérience de détection d’un obstacle
+A/ Schéma simplifié de l’expérience
+
+(fig.5)
+
+7/19
+
+Comme le montre le schéma ci-dessus, le but de l’expérience est dans un premier
+temps de quadriller une petite zone avec des rayons infrarouges projetés en face de
+récepteurs, des photodiodes. Ainsi lorsqu’un obstacle tel qu’un doigt se situe dans la
+zone quadrillée, les photodiodes vont donc recevoir moins de rayons infrarouges.
+Cette différence de tension va permettre de savoir qu’il y a présence d’un obstacle.
+Dans ce cas, avec l’aide des photodiodes concernées par la différence de réception
+d’infrarouges, nous allons pouvoir identifier l’emplacement de l’obstacle. Par exemple,
+dans le schéma, l’objet se trouve à l’intersection (C;2).
+Cependant il nous fallait utiliser un appareil électrique permettant de repérer la
+variation de tension aux bornes des photodiodes pour repérer notre doigt. Nous nous
+sommes donc tournés vers les AOP.
+
+B/ Fonctionnement de l’Amplificateur Opérationnel (AOP)
+L’AOP est un composant électronique qui amplifie la différence de potentiel électrique
+présente à ses entrées positive et négative. En régime saturé, il fonctionne comme un
+comparateur. En effet, si la différence de potentiel est positive la tension de sortie sera
+égale à la tension positive d'alimentation, et inversement. Ainsi on obtient une valeur
+de la tension de sortie égale à 11 ±
+​ 0,3 ​V pour une différence de potentiel positive et
+une valeur de -10 ± 0,3 V dans le cas d’une différence de potentiel négative.
+
+Schéma de fonctionnement d’un AOP en comparateur :
+
+Si V​1​ - V​2​ > 0 alors V​S​ = + V​sat​ ( soit environ (11 ± ​0,3)V ​)
+Si V​1​ - V​2​ < 0 alors V​S​ = - V​sat​ ( soit environ (-10 ​± 0,3)V ​)
+Nous possédons une tension variable : la tension aux bornes de nos photodiodes qui
+varie lorsqu’elle est éclairée ou non. Pour utiliser notre AOP, il nous faut trouver une
+tension constante afin d’obtenir des différences de potentiel négatives ou positives et
+8/19
+
+en déduire la présence ou l’absence d’un doigt dans notre quadrillage. C’est pour cela
+que nous allons chercher une tension dite “seuil”, une tension commune franchie par
+toutes les photodiodes lorsqu’un doigt fait obstacle au faisceau.
+
+C/ Comment trouver la tension “seuil” pour laquelle il y a détection
+d’un obstacle
+
+Afin que l’AOP repère la présence d’un obstacle et envoie cette information, nous
+avons réalisé une expérience visant à déduire pour quelle tension l’AOP détecte un
+obstacle. Pour cela nous avons mesuré la tension aux bornes d’une photodiode (fig.6)
+lorsque celle-ci était éclairée et lorsque qu’un doigt coupait le faisceau infrarouge. Les
+variations d’intensité de flux lumineux sur la photodiode (dû à l’environnement, avec
+un éclairage trop fort par exemple) peuvent provoquer un enregistrement de valeurs
+erronées, voire ne pas faire fonctionner les photodiodes si trop peu de lumière ou si
+un léger décentrage du faisceau incident se produit. Ainsi l’utilisation du clavier ne
+serait pas optimal. Il fallait donc augmenter l’écart séparant les extremums (maximum
+et minimum) des tensions aux bornes des photodiodes. Pour cela nous avons exploité
+la loi d’Ohm U=R×I (avec U la tension en Volt, R la résistance en Ohm et I l’intensité du
+courant en Ampère), en envoyant le courant dans le sens inverse du sens habituel de
+la photodiode, puis en ajoutant des résistances jusqu’à un écart suffisamment
+important ( environ 1V). Nous avons obtenu les valeurs suivantes :
+-
+
+300 mV (valeur non stable) lorsque la photodiode n’est pas éclairée
+
+-
+
+1,1 V (valeur non stable) lorsque la photodiode est éclairée
+
+Schéma de l’expérience : (fig.6). Légende document 1 annexes
+
+Notre but étant de savoir à quel moment notre doigt coupe le faisceau, nous avons
+déterminé une valeur de tension “seuil” égale à 700 mV. De base, lorsque le faisceau
+n’est pas coupé, la tension est égale à 1,1 V ; lorsque le faisceau est coupé, la tension
+diminue jusqu’à 300 mV et franchit la tension “seuil”. Lorsque cette variation de
+9/19
+
+tension est réalisée, l’AOP la détecte et la traduit par un changement de signe de la
+tension mesurée ce qui permet de connaître la position de notre doigt.
+
+D/ Repérage d’un point dans l’espace
+A l’aide du système de quadrillage, des AOP et de notre tension seuil (700 mV), nous
+avons pu réaliser un montage permettant de repérer un point dans un espace
+quadrillé à l’aide de 4 DEL infrarouge et de 4 photodiodes, chacune reliée à un AOP
+(cela s’apparente à un clavier de 4 touches : voir fig.7 en annexes et fig.7 bis). Chaque
+photodiode est éclairée par une diode infrarouge, dans cette situation sans obstacle,
+l’AOP renvoie une tension négative. Lorsqu’un faisceau lumineux rencontre une
+interférence, alors la photodiode concernée n’est plus éclairée. La tension à ses bornes
+passe alors de 1.1 V à 300 mV et atteint la tension seuil. Lorsque la tension seuil est
+franchie, la différence de potentiel à l’entrée de l’AOP devient positive. La tension de
+sortie prend donc une valeur positive. Chaque photodiode ayant son AOP et son
+voltmètre respectif, nous pouvons savoir quelle photodiode n’est pas éclairée et en
+déduire la place du doigt sur notre clavier. Avec ces résultats nous pouvons détecter
+un doigt sur un clavier entier en reproduisant le montage en fonction du nombre de
+touches souhaitées.
+
+Schéma du montage réalisé : (fig.7 bis). Légende document 1 annexes
+
+10/19
+
+Afin de savoir à quel moment notre doigt est détecté, nous décidons de créer un signal
+visuel. Pour cela, on remplace aux bornes de l’AOP nos voltmètres qui jouent le rôle
+d’indicateurs par des DEL lumineuses. Lorsque notre doigt est détecté, la DEL
+lumineuse correspondant à la photodiode concernée s’allume, ce qui nous permet de
+savoir efficacement quelle touche est utilisée.
+Dans un circuit électrique, le courant ne peut passer dans une DEL que dans un seul et
+unique sens, elle est polarisée.
+En sortie de nos AOP, comme ils fonctionnent en mode comparateur, la tension qui en
+résulte est soit négative soit positive. Ainsi avec cette indication sur le sens du courant,
+on peut facilement comprendre que la DEL s’allume pour une tension positive et
+n’éclaire pas pour une tension négative. En effet, lorsque nous avons une variation du
+signe de la tension, nous avons inversion du sens du courant donc réaction de la DEL.
+
+III/ Améliorations expérimentales pratiques
+A/ Assigner un caractère à un point dans l’espace
+1) Comment assigner un point dans l’espace à un caractère
+
+Lors de nos recherches, nous nous sommes principalement intéressés au repérage
+d’un point dans l’espace. Or une fois le point repéré, il nous est nécessaire de l’associer
+à un caractère du clavier pour que nous puissions écrire avec le clavier projeté. Pour
+cela, nous avons décidé d’utiliser l’AOP en mode sommateur au lieu de comparateur,
+pour que les différentes tensions en provenance des photodiodes s’ajoutent au lieu de
+se soustraire. Ainsi on utiliserait moins d’AOP, mais on pourrait additionner plus de
+tensions, donc réaliser un plus grand clavier avec moins de place. Afin d’associer un
+caractère à un point dans l’espace, il nous faut passer par la programmation. A l’aide
+du langage de programmation Java, nous pouvons réaliser un algorithme qui a pour
+objectif d’associer un point dans l’espace à un caractère du clavier.
+Pour différencier chaque touche du clavier, nous créons une tension différente pour
+chaque caractère à l’aide de résistances. De ce fait chaque touche possède une tension
+individuelle qui la rend reconnaissable. Afin de pouvoir réaliser certaines
+combinaisons demandant deux ou plusieurs touches à la fois nous faisons appel au
+mode sommateur des AOP (voir annexes p.20). Chaque touche possède une tension qui
+lui est propre, donc chaque combinaison possède elle aussi une tension
+correspondante.
+
+11/19
+
+2) Fonctionnement du programme
+
+Le programme réalisé en Java est très simple, il fonctionne avec 3 fonctions
+différentes. La première fonction appelée “getColumn” (Voir annexe programmation
+page 7) a pour objectif de récupérer le numéro de la colonne de la lettre dans le
+clavier en fonction de la tension “uColum” aux bornes de l’AOP en mode sommateur
+des tensions des photodiodes de la colonne. La deuxième fonction, “getLine” (Voir
+annexe page 7), réalise la même tâche mais pour la ligne du clavier, en fonction cette
+fois-ci de “uLine”, la tension aux bornes de l’AOP sommateur de la ligne du clavier.
+Enfin, la troisième fonction “getKey” (Voir annexe page 8) prend en paramètres le
+numéro de la colonne ainsi que le numéro de la ligne du caractère recherché, puis,
+grâce à ces deux valeurs, la fonction récupère dans un tableau à double entrées
+contenant tous les caractères d’un clavier, la lettre associée à la colonne et à la ligne
+données.
+Nous disposons en sortie du caractère associé à la tension “ULine” et “UColumn” de
+notre clavier (Voir annexe : résultat exécution).
+
+B/ Affichage du clavier
+Afin d’obtenir un clavier numérique visible, un moule de clavier azerty suivi d’une
+lentille convergente sont placés entre une source lumineuse, un laser rouge dans notre
+cas, et le support sur lequel est projeté le clavier. Le moule miniature d’un clavier
+azerty permet la formation des lettres. Quant à la lentille convergente, elle permet
+l’agrandissement de ce clavier et ainsi d’avoir un clavier à échelle humaine. Ensuite
+nous plaçons un miroir incliné permettant de projeter l’image sur notre support.
+
+Schéma explicatif du modèle d’affichage du clavier (fig.8 / voir annexes p.25-26)
+
+12/19
+
+Afin de réaliser un clavier capable d’être associé à notre expérience de repérage d’un
+point dans l’espace, il nous a fallu déterminer des valeurs qui nous permettront
+d’utiliser notre clavier aisément et efficacement. Ainsi sur le modèle du schéma
+ci-dessous, nous avons adapté notre montage à nos besoins (voir schéma ci-dessus).
+
+Schématisation d’un montage optique
+
+AB: Taille de l’objet, OA: Distance objet-lentille, OF’: Distance focale, OA’: Distance
+lentille-image, A’B’: Taille de l’objet projeté
+De ce fait nous avons choisi de projeter notre clavier à environ 40 cm de notre lentille
+afin de pouvoir faire usage de notre clavier sans être gêné par notre miroir. Nous
+déterminons donc expérimentalement comme valeur OA’ , 40 cm.
+Afin d'utiliser notre clavier au sein de notre quadrillage, nous avons déterminé que la
+taille de nos lettres devraient être d’environ 3 cm. Soit A’B’ vaut 3 cm.
+Dans le but de projeter notre clavier, nous avons expérimentalement décidé d’utiliser
+une lentille convergente de focale 50 mm. Soit OF’ vaut 5cm.
+
+Toutes les valeurs données précédemment ont été fixées afin de pouvoir calculer nos
+valeurs manquantes comme la taille réelle de nos lettres ainsi que la distance séparant
+notre lentille de notre objet (nos lettres).
+Pour déterminer OA nous avons utilisé la relation de conjugaison :
+1/OA = − 1/OF ′ + 1/OA′
+1/OA = − 1/5 + 1/40
+1/OA = − 0, 175
+OA = − 5.7 cm
+
+13/19
+
+On en déduit que notre valeur OA, la distance entre notre lentille et notre objet, doit
+valoir environ 5,7 cm.
+Ensuite à l’aide de nos valeurs fixées et de OA, nous avons calculé la taille réelle de nos
+lettres (AB) à l’aide de la relation de grandissement :
+
+Ainsi on obtient :
+AB = (OA × A′B′) / OA’
+AB = 17.1/40
+AB = 0, 4 cm
+Donc nos lettres doivent avoir une hauteur d’environ 0.4 cm pour projeter des lettres
+de 3 cm de hauteur.
+
+Nous répertorions ici toutes nos valeurs expérimentales, quelques peu différentes des
+valeurs théoriques (les différences sont dues aux incertitudes des mesures) :
+OA Objet-lentille : - 4,4 cm
+OA’ Lentille-image: (41 ​± 0,5)​ cm
+A’B’ Taille voulue d’un caractère de l’image : 3 cm
+AB Taille réelle de l’objet (une case) : 0,4 cm
+OF ’ Vergence lentille, valeur focale: 5 cm
+
+A l’aide de ces valeurs, nous avons pu afficher un clavier de 4 lettres (voir annexe
+p.25-26) que nous pouvons associer à notre quadrillage, en projetant le clavier sur la
+zone quadrillée. Nous précisons que nous avons utilisé un objectif de microscope ✕15
+pour concentrer les rayons lumineux du laser dans le but de pouvoir utiliser notre
+clavier malgré la luminosité de la pièce. Il est tout de même nécessaire de faire usage
+du clavier en zone sombre. Il faudrait utiliser un objectif de microscope ✕60 pour
+concentrer au maximum les rayons lumineux et utiliser le clavier à la lumière.
+Cependant le faisceau engendré est si petit qu’il faudrait imprimer des lettres encore
+plus petites pour réussir à toutes les afficher.
+
+C/ Miniaturisation
+Le but de notre projet est de réaliser un boîtier permettant d’afficher un clavier
+numérique à projection laser, et d’être transporté facilement. Nous allons donc tenter
+14/19
+
+par la suite de miniaturiser nos composants. Par exemple, utiliser des résistances plus
+petites, ou réaliser notre quadrillage de façon à ce que celui-ci ne soit pas trop
+encombrant. Utiliser des lasers plus petits, des photodiodes elles aussi plus petites, la
+fonction sommateur de l’AOP au lieu de comparateur pour réduire notre nombre
+d’AOP, et réaliser notre montage sur une seule plaquette permettraient de
+miniaturiser le montage au maximum jusqu’à obtenir un boîtier.
+
+D/ Bluetooth
+Dans la partie concernant les ondes ultrasonores, nous nous sommes retrouvés
+bloqués du fait que nous ne parvenions pas à réaliser des pulses d’ondes. Cependant,
+nous ne voulions pas garder des zones d’ombre pour notre projet et dans nos
+recherches. De plus, d’après nos recherches, afin de transférer des informations par
+bluetooth, il est nécessaire de générer des pulses d’ondes qui permettent de faire
+passer l’information entre notre clavier et un ordinateur possédant une connexion
+bluetooth. En effet, nous avions envisagé de créer un réseau bluetooth autour de notre
+boîtier pour que celui-ci puisse être connecté sans-fil à un ordinateur. Or, nous avons
+réussi à produire ces pulses d’ondes, nous pouvons donc envoyer de l’information,
+c’est-à-dire un caractère via le bluetooth.
+
+15/19
+
+IV/ Utilisation d’un clavier numérique à projection laser
+Notre projet a déjà été commercialisé sous différentes formes, en voici quelques
+exemples.
+Le clavier le plus pointu dans le domaine du virtuel est le Light Touch, une innovation
+présentée au CES de Las Vegas en 2010 par la société Light Blue Optic. Il est le premier
+modèle à proposer une projection en couleurs. Il ne fait pas uniquement clavier, mais
+aussi écran virtuel de 10 pouces, pour différents types d’applications. En somme, une
+tablette rétro projetable sous forme de boîtier.
+
+Le produit CLVESBL est un boîtier dont l’unique fonction est de projeter un clavier. Il
+peut se projeter sur toutes les surfaces planes, et comme les autres produits de ce
+genre, être lié sans fil à tous types d’interfaces.
+
+Il existe un grand nombre de ce types d’appareils, avec toujours plus de
+fonctionnalités, que la grande distribution commercialise peu à peu. Mais en dehors
+de nos utilisations quotidiennes, ce produit ouvre de nouvelles perspectives dans de
+nombreux domaines, notamment celui de l’hygiène (hôpitaux, industries sensibles à la
+pollution, restauration) puisque toutes les surfaces planes peuvent être utilisées, ou
+encore celui de la publicité dans certains lieux publics comme les musées pour une
+utilisation plus “propre” et moins complexe à mettre en place que des écrans.
+
+16/19
+
+V / Conclusion
+Nous nous étions demandés comment réaliser un clavier numérique à
+projection laser. Nous avons donc cherché à comprendre comment repérer un point
+dans l’espace. Lors de nos recherches nous nous sommes penchés sur plusieurs types
+d’ondes, dont les ondes ultrasonores et les ondes infrarouges. En les étudiant, par nos
+expériences, nous avons constaté que ces dernières étaient les plus pratiques
+d’utilisation, plus adaptées pour réaliser notre projet, les ondes ultrasonores n’étant
+pas assez précises. Nous ne pouvons à ce jour pas encore espérer expliquer comment
+réaliser entièrement un clavier numérique à projection laser, ayant concentré la
+plupart de nos recherches à comprendre comment repérer un point dans l’espace, un
+élément préalable et indispensable à la création de notre projet, ainsi qu’à réaliser la
+projection de notre clavier sur une surface plane.
+Ces olympiades de physiques ont été une expérience enrichissante. En effet,
+elles nous ont fait découvrir, par un travail de groupe réfléchi et grâce à l’entraide, les
+méthodes de recherche et d'expérimentation qui permettent d’aboutir à la création
+d’un produit nouveau.
+
+17/19
+
+Remerciements
+Pour commencer nous voulons adresser des remerciements particuliers à M.
+ROUILLARD qui nous a permis de nous lancer dans cette aventure qu’est la recherche,
+même à notre simple niveau de physique. Tout au long du projet, il nous a guidé et
+nous a permis d’avancer plus vite dans la recherche en prévoyant nos besoins et nos
+éventuels problèmes.
+Merci à Mme VUONG pour son aide précieuse, sa grande disponibilité, son
+enthousiasme ainsi que sa générosité nous ayant permis de travailler efficacement
+mais aussi de profiter pleinement de ce projet.
+Merci au chef d’établissement ainsi qu’à l’ensemble du personnel du lycée Philibert
+Delorme de nous avoir permis de réaliser au sein de l’établissement ce projet.
+Merci aux autres groupes, qui ont participé aux Olympiades de Physique au sein de
+notre lycée, qui se sont investis dans leurs projets et qui ont contribué, tous ensemble,
+à produire un bon environnement de travail.
+
+18/19
+
+Bibliographie
+● http://www.editions-petiteelisabeth.fr/calculs_optique_3.php
+● https://fr.wikipedia.org/wiki/Angle_d%27incidence_(optique)
+● http://pour-les-geeks.over-blog.com/article-comment-a-marche-09-le-clavier-virt
+uel-102016641.html
+● https://abcreseau.blogspot.fr/2014/01/bluetooth.html
+● http://www.physagreg.fr/fiche_technique/fiche-descartes.pdf
+● https://tel.archives-ouvertes.fr/tel-00307197/document
+● http://www.positron-libre.com/cours/electronique/diode/led/alimentation-led.ph
+p
+
+19/19
+
+

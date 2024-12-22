@@ -1,0 +1,990 @@
+Remi Ounadjela -Victor Mizrahi - Kaiqiang Zhang
+
+LLG
+Lycée Louis le Grand
+2009-2010
+1
+
+Remerciements:
+
+Nos remerciements vont tout particulièrement à Jacques Jundt chercheur au centre de recherche de
+Schlumberger à Boston ( USA) qui nous a encouragé dans les moments difficiles. Nous avons grâce à
+lui réussi à générer un son à partir d'un arc électrique. Nous remercions également Philippe
+Salamitou pour le matériel qui a bien voulu nous prêter pour conduire cette expérience.
+
+Résumé :
+Nous proposons de réaliser un plasma musical commandé par un circuit électrique dont le principe
+consiste à charger une capacité à l’aide d’un générateur de tension continue et à décharger cette
+capacité dans un transformateur haute tension dont le secondaire est relié à deux électrodes. Le son est
+émis par la variation de volume de l’air généré par le plasma entre ces deux électrodes. Le contrôle de la
+fréquence de génération du plasma est assuré par un circuit électrique de commande dont une entrée
+est le signal audio.
+Les deux principales difficultés de ce circuit sont la commande de l’interrupteur et la modulation du
+signal électrique permettant de restituer le son. Nous avons opté pour une démarche progressive qui
+nous a permis de comprendre le fonctionnement des différents types d’interrupteurs utilisables pour ce
+circuit. Ainsi nous avons réussi à créer un arc électrique avec des interrupteurs à seuil telle que les tubes
+à gaz ou le SIDAC dont l’utilisation est très simple mais malheureusement dont les performances sont
+limitées. Nous avons ensuite utilisé un Thyristor et un IGBT, les commandes de ces interrupteurs sont
+plus complexes par contre leurs performances d’ouvertures et de fermetures sont meilleures.
+Nous avons réussi à restituer un son dont la qualité s’est ensuite nettement améliorée grâce à plusieurs
+modifications successives. La première méthode consiste à moduler le son en fréquence en utilisant
+l’entrée 5 de l’oscillateur 555. Cette entrée permet dans une plage limitée de tension de moduler en
+fréquence le signal d’entrée.
+La seconde méthode utilise un modulateur Delta-Sigma. Le modulateur génère à sa sortie une série
+d’impulsions numériques dont l’ intervalle des impulsions reproduit le rythme du signal audio. Ce circuit
+utilise un comparateur et un flip-flop permettant de transformer un signal analogique en un signal
+numérique et d’autres composants logiques pour obtenir un signal de commande de forme carrée. La
+compréhension et la réalisation de ce circuit de commande de l’interrupteur est beaucoup plus
+complexe que la modulation en fréquence. Cependant ce circuit nous a permis d’aborder la conversion
+des signaux analogiques en signaux numériques et a permis de reproduire un son de meilleur qualité.
+
+2
+
+Table des matières
+
+I. Introduction ............................................................................................................................................... 4
+II. L’Arc électrique musical ............................................................................................................................ 5
+III. Description du circuit électrique générant un arc électrique .................................................................. 6
+IV. Calcul théorique de la fréquence de commutation de l'interrupteur ..................................................... 9
+V. Résultats expérimentaux, formation de l'arc électrique ....................................................................... 10
+VI. Haut parleur à plasma........................................................................................................................... 18
+A ) MODULATION DELTA SIGMA .............................................................................................................. 20
+B ) REPRÉSENTATION DES SIGNAUX ÉLECTRIQUES DANS LE CIRCUIT .............................................................. 22
+B ) MODULATION DU SIGNAL AUDIO ........................................................................................................ 26
+C ) FONCTIONNEMENT DU HAUT PARLEUR A PLASMA ................................................................................ 27
+VII. Conclusion ............................................................................................................................................ 28
+Annexes ....................................................................................................................................................... 32
+VIII. Description des éléments du circuit ................................................................................................... 32
+IX. Résultats expérimentaux obtenues avec les interrupteurs à seuil ....................................................... 38
+X. Rembobinage du primaire du transformateur....................................................................................... 44
+XI. Schéma du circuit de modulation Delta Sigma de l’audio .................................................................... 45
+
+3
+
+I. Introduction
+Nous avons abordé ce projet de réalisation du haut parleur à plasma comme un défi, en effet nous
+voulions comprendre comment réaliser de manière pratique un haut parleur dont le son est généré par
+le plasma en contact de l’air.
+On doit l’invention de ce type de haut parleur à William Duddell connu sous le nom de « singing arc » en
+1900. L’arc électrique ou le plasma généré par le champ électrique entre deux électrodes crée une
+variation de pressure de l’air environnant et produit ainsi un son. La variation de pression a pour origine
+une variation de température due à la génération de l’arc électrique. Contrairement aux hauts parleurs
+classiques utilisant une membrane pour produire une variation de pression, le haut parleur à plasma ne
+requiert aucun élément au contact de l’air. Par contre la membrane d’un haut parleur classique possède
+une masse, et limite de cette manière la réponse de ce haut parleur dans une bande de fréquence. En
+s’appuyant sur nos cours, une masse et un ressort possède une fréquence de résonance qui participe à
+la distorsion du son. L’avantage du haut parleur à plasma, est de ne pas utiliser un principe utilisant une
+masse et permet par conséquent de reproduire un son en théorie à des fréquences très élevées. Il faut
+également savoir qu’il est inutile de reproduire un son au delà de 20 kHz car notre oreille est incapable
+de percevoir en général des fréquences supérieures à 16 kHz.
+Les connaissances pour réaliser un haut parleur à plasma vont au delà de notre savoir acquis au Lycée.
+Nous tenons à remercier particulièrement un chercheur travaillant aux Etats-Unis ( voir remerciements)
+qui nous a guidé dans notre projet, nous avons grâce à ses conseils par étapes successives appris à
+utiliser les différents composants électroniques utilisés dans ce circuit.
+Le haut parleur à plasma est composé de deux circuits, le circuit de commande pour déclencher
+l’interrupteur, et le circuit de puissance capable de générer une tension élevée de l’ordre de 20 000 V au
+borne du secondaire du transformateur. L’arc électrique est formé en chargeant et déchargeant une
+capacité au borne du primaire d’un transformateur, le circuit étant alimenté par un générateur
+continue. La difficulté de ce type de circuit est de commuter une tension de l’ordre de 200 V à une
+fréquence élevée. Une part importante de ce projet fut de réaliser à l’aide de différents types
+d’interrupteurs cette commutation électrique. Nous avons commencé par utiliser des interrupteurs
+simples, telle que les interrupteurs à seuil, (SIDAC, tube à gaz) mais devant les limitations importantes
+de ces interrupteurs nous avons ensuite utilisés des IGBT et MOFSET. Grace à ces interrupteurs plus
+performants, nous avons pu utiliser deux circuits de commande pour reproduire un son. Le premier
+circuit utilise principalement une horloge 555 dont une entrée permet de moduler en fréquence le
+signal audio. Ce circuit a permis de reproduire un son mais les limitations de la modulation en
+fréquence de l’horloge 555 ne permettent pas de reproduire un son de bonne qualité. Le deuxième
+circuit utilise une modulation Delta Sigma qui est une modulation proche de la modulation d’amplitude.
+Deux raisons essentielles nous ont guidées à choisir ce type de modulation, cette technique doit
+permettre de reproduire un signal électrique de manière plus fidèle et la seconde raison est notre
+curiosité à utiliser une technique permettant de convertir des signaux analogiques en signaux
+numériques.
+4
+
+II. L’Arc électrique musical
+A) CREATION DE L 'ARC ELECTRIQUE
+1) Qu'est ce qu'un arc électrique?
+Un arc électrique est un courant électrique qui devient visible dans un milieu normalement isolant.
+2) Comment se crée l'arc électrique?
+L'arc électrique ne peut se crée que si le milieu isolant se ionise, cette ionisation se fait d'autant plus
+facilement que les surfaces conductrices sont proches. Une fois ionisé, le gaz crée un canal conducteur
+qui entraîne le reste de la charge présente sur la surface de départ .
+Cependant, pour ioniser ce gaz, il est nécessaire d'atteindre son champs disruptif c'est-à-dire la valeur
+maximale du champ électrique que le gaz puisse supporter avant que l'arc électrique ne se crée. Pour ce
+qui concerne l'air, son champ disruptif est évaluée à 3600V/mm dans un air sec et tombe à environ
+1000V/m dans un air humide.
+Une des caractéristiques des électrodes utilisées dans notre expérience est qu'elles permettent l'effet
+de pointe. Il s'agit d'une propriété physique qui permet à un petit volume de matériaux de générer un
+champ électrique beaucoup plus grand qu'un plus grand volume de matériaux. Ainsi, les électrons des
+atomes proches de la point d'une électrodes sont littéralement arrachés. Cet atome qui a perdu un
+électron devient ionisé et attire un électron de l'atome voisin et ainsi de suite. Par ailleurs, lorsqu'un
+électron rejoint la couche électronique d'un atome, il dégage des photons qui fournissent alors
+suffisamment d'énergie aux atomes voisins de l'arc électrique pour qu'ils vibrent plus d'où la création de
+chaleur. Cette circulation d'électrons et d'atomes ionisés dans de hautes températures fait de cet arc
+électrique un créateur de plasma.
+B) LA BULLE DE PLASMA , SON ROLE DANS L'EMISSION D 'ONDES SONORES.
+Dans un haut-parleur traditionnel, le son est émis via les membranes. Ces derniers sont
+actionnés grâce au champ magnétique de la bobine mobile ( voir schéma précédent). Il se produit des
+pertes d'authenticité du son surtout lorsque la fréquence du son est élevée car l'action mécanique ne
+suit plus alors la fréquence de la tension ( due à la masse des éléments mobiles du haut parleur).
+Dans cet arc électrique musical, le gaz ionisé agit directement sur l'air, la variation du volume du plasma
+fait alors varier la pression de l'air autour de lui-même créant ainsi des ondes. Plus le courant est grand,
+plus le volume de plasma occupe de plasma et inversement. Il semble que le principe du haut parleur à
+plasma, est un avantage car l'arc électrique interagit directement sur l'air et il n'y a plus de pièces
+mécaniques pour transmettre le son dans l'air. Par contre l'arc électrique dépend de la qualité de l'air,
+de son humidité, pour reproduire un son dans n'importe quelle conditio, il faudrait contrôler le gaz
+environnant, par exemple injecter de l'argon ou de l'hélium sur les électrodes.
+
+5
+
+III. Description du circuit électrique générant un arc électrique
+III.1 PRINCIPE DE FONCTIONNEMENT DU CIRCUIT ELECTRIQUE
+Le circuit électrique proposé permet de générer un arc électrique aux bornes de deux électrodes, en
+utilisant une alimentation continue. Le principe consiste à charger une capacité à travers une
+résistance, ( cours de terminal sur la charge et décharge d'une capacité) et de la décharger dans un
+transformateur pour élever la tension électrique. La tension au borne du secondaire doit être
+suffisamment élever pour créer un arc électrique. La deuxième partie du projet consiste à reproduire un
+produire un son en utilisant l'arc électrique comme un haut parleur ( invention de William Duddell
+(1899) qui fut le premier à produire un son en faisant vibrer un arc électrique entre deux électrodes).
+Un son est crée en faisant varier l'amplitude et la fréquence de la pression acoustique. Par corrélation,
+il est donc nécessaire de faire varier en fréquence et en amplitude l'intensité de l'arc électrique. Le
+circuit proposé ne permettant que de faire varier la fréquence des impulsions électriques, nous
+proposons deux circuits qui permettront de moduler la fréquence des impulsions pour reproduire un
+son. Le premier circuit utilise principalement une horloge 555 dont une entrée permet de moduler la
+fréquence du signal. Le second circuit utilise une modulation Delta Sigma permettant de convertir le
+signal audio en une série d’impulsions dont les intervalles entre les impulsions permettent de reproduire
+l’information contenu dans le signal audio.
+
+Figure 1: circuit électrique permettant de générer un arc électrique
+
+6
+
+III.2 GENERATION EN FREQUENCE D'UNE TENSION ELECTRIQUE A LA SORTIE DU TRANSFORMATEUR
+La variation en fréquence du signal électrique est générée de deux méthodes différentes.
+La première méthode consiste à charger une capacité jusqu'à une tension Vo ( 95V dans
+l'exemple sur la courbe) défini par la tension de commutation de l'interrupteur. A ce seuil l'interrupteur
+décharge la capacité brutalement dans le primaire du transformateur et de nouveau le condensateur se
+recharge et le cycle recommence. Les interrupteurs à seuil que nous avons essayé dans le circuit sont le
+tube à décharge à gaz, le Sidac et le Thyristor avec une commande particulière de la gâchette, ( voir
+annexe pour les résultats).
+Nous avions écrit un programme sur Excel montrant l'influence des paramètres du circuit définissant la
+période de la décharge du condensateur. ( théorie développé en paragraphe suivant)
+
+Figure 2 : Paramètres définissant la période de décharge du condensateur
+
+Le point d'intersection sur la figure entre la courbe de charge du condensateur et celle de la tension du
+commutation de l'interrupteur définie la période des oscillations de charge et de décharge. Cette
+période est définie par la constante RC, la tension d'alimentation et le seuil en tension de commutation
+de l'interrupteur. Pour souligner l'influence du seuil de commutation, un niveau de commutation plus
+élevée que celui sur la courbe (95V) prolonge le temps de charge de la capacité et donc la période est
+plus grande (fréquence de charge et de décharge est plus faible), par contre un seuil de commutation
+plus faible diminue le temps de charge de la capacité et la période est plus faible.
+7
+
+La copie d'écran de l'oscilloscope permet d'illustrer la période de charge et de décharge du
+condensateur .
+
+Figure 3: période de charge du condensateur
+
+La seconde méthode utilise une porte temporelle, l'interrupteur est conducteur pendant un intervalle
+de temps défini par la commande sur la gâchette de l'interrupteur et reste bloqué quand le seuil de la
+commande passe par zéro et de nouveau le cycle recommence. La fréquence de charge est donc défini
+par la commande sur la gâchette. Pour illustrer cette fonction, la copie d'écran de l'oscilloscope montre
+sur la courbe verte la commande sur la gâchette de l'interrupteur et la courbe bleue montre la charge et
+décharge du condensateur.
+
+L'avantage de cette méthode permet d'utiliser
+des interrupteurs très rapides telle que les
+IGBT dont le fonctionnement est expliqué dans
+le suite du rapport et cette méthode permet
+aussi de moduler plus facilement la fréquence
+pour reproduire un son.
+
+Figure 4: Déclenchement de la décharge par la commande sur la gâchette de l'IGBT ( interrupteur)
+
+8
+
+IV. Calcul théorique de la fréquence de commutation de l'interrupteur
+Le calcul théorique présenté ci-dessous justifie la courbe de la figure 2 présentant la fréquence de
+commutation de l'interrupteur et la figure 34 reportée en annexe .
+L’énergie nécessaire au plasma doit arriver en courtes impulsions constantes , c’est pourquoi on utilise
+un condensateur. On peut étudier la charge du condensateur pour connaître l’énergie transférée à l’arc
+à chaque impulsion. L’interrupteur est fermé en charge donc avec la loi des mailles,
+
+Ona E Ri Uc RC
+On a alors Uc t
+doncUc t
+
+dUc
+Uc
+dt
+
+E ke t RC
+
+E 1 e t RC
+
+maisUc 0 0donc k
+
+E
+
+La charge est donc complète à t= 5RC= 5× 500× 4× 10−9 = 10− 5
+
+On peut donc commuter jusqu’à 100kHz avec des charges constantes.
+L’énergie du condensateur est donc e=1/2cE²=8,4 x 10^-5 J. On peut aussi étudier la décharge pour voir
+si elle affecte la fréquence. En utilisant la loi des mailles quand l’interrupteur est ouvert et en
+considérant le courant de la branche du générateur comme quasi nul grâce à la grande résistance, on a
+
+Uc= Ul= L
+
+di
+d²i
+= LC
+dt
+dt²
+
+doncUc kcos at
+
+p
+
+doncUc² Ul² est constant donc Uc Uc 0 cos at
+
+En dérivant deux fois on obtient cos at p
+
+p
+
+Ecos at
+
+p
+
+LCa²cos at p donc a
+
+1
+LC
+
+De plus Uc 0 est un maximum donc on peut choisir p 0
+Ainsi ce courant devient négatif à t
+
+LC
+
+On peut considérer ce temps comme négligeable comparé à celui de l’interrupteur.
+
+9
+
+V. Résultats expérimentaux, formation de l'arc électrique
+Nous avons choisi de vous présenter les principaux résultats expérimentaux que nous avons obtenu au
+cours de ce projet. Nous avons opté pour une démarche progressive qui nous a permis d’étudier le
+fonctionnement de ce circuit ainsi que les limitations des composants électriques utilisés.
+La
+commutation étant l'élément le plus sensible dans ce circuit nous avons organisé la présentation des
+résultats suivant le mode de commutation choisi. Les premiers interrupteurs choisis sont des
+commandes à seuil, au delà d'une tension définie, ils deviennent conducteurs et se bloquent au passage
+de la tension à zéro, la seconde catégorie est celle à commande par gâchette, elle nécessite comme on
+le verra une électronique plus complexe. Pour des raisons de clarté, les résultats obtenues avec les
+interrupteurs à seuil sont reportés en annexe, nous nous focaliserons sur les résultats obtenus avec les
+interrupteurs commandés par une gâchette, tel que l’IGBT dont les performances sont meilleures.
+
+V.1 INTERRUPTEUR IGBT COMMANDE PAR LA GACHETTE
+A) COMPREHENSION DU FONCTIONNEMENT DE L'IGBT
+Pour comprendre le fonctionnement de L'IGBT nous avons utilisé un circuit très simple, un générateur
+DC alimentant une résistance avec l'interrupteur entre la masse du générateur et une borne de la
+résistance.
+
+Figure 5 Circuit de compréhension de la commande de l'IGBT
+
+La gâchette de l'IGBT est branché à un générateur d'impulsion , pendant l'instant t2 le signal est à une
+valeur de 12V et pendant l'intervalle t1 l'amplitude de l'impulsion est à zéro. Sur l'oscilloscope le signal
+V est à une valeur positive et il passe à zéro pendant le reste de l'intervalle t1. Nous avons donc sur ce
+10
+
+montage très simple commandé un IGBT pour le rendre conducteur sur un intervalle de temps
+contrôlé par le signal sur la gâchette.
+B) CIRCUIT DE COMMANDE DE LA GACHETTE DE L 'IGBT
+Le composant IGBT est un interrupteur très performant il permet en effet de commander des circuits de
+puissance à des fréquences élevées. Par contre son utilisation dans notre circuit nécessite de
+commander la gâchette avec un signal de faible amplitude autour de 12 V et une fréquence ajustable.
+Le circuit de commande utilise une horloge 555 pour générer le signal de commande de la gâchette.
+Nous nous sommes appuyés sur le document publié sur:" http://www.williamson-labs.com/555circuits.htm" pour comprendre son utilisation et calculer les valeurs de résistance Rb, Ra pour obtenir en
+sortir de l'horloge 555 un signal de commande variable entre quelques centaines de Hz et 30 KHz.
+
+Figure 6 Circuit de l’horloge 555
+
+Le signal de sortie sur la pin 3 commande la gâchette de l'IGBT, le sortie est de la forme suivante avec
+les paramètres temps t1 et t2 .
+
+11
+
+Pendant le temps t2 la gâchette de l'IGBT reçoit une tension de 12 V positive et l'IGBT conduit le courant
+entre le collecteur et l'émetteur ensuite le signal de commande passe à zéro pendant l'intervalle de
+temps t1. Dans le circuit nous avons choisi de fixer t2 fixe à 10 microsecondes et t1 variable ajustable
+avec une résistance variable.
+Les formules permettant de calculer t1 et t2 sont:
+t1 = 0.693 R a + R b C
+t2 = 0.693 R a C
+avec Ra et Rb les résistances du circuit du trimer, Ra entre la pin 8 et 7 et Rb pin 7 et 6, C est entre la
+pin1 et 2.
+Les calculs donnent pour une capacité de 10nF, une résistance Rb variable de 15KHz et une résistance Ra
+de 1500 Ohms.
+Le schéma ci-dessous reprend le circuit de commande ci-dessous et l'intègre au circuit existant présenté
+sur la figure 1
+
+Figure 7 Circuit de commande et de puissance de l'arc électrique
+
+12
+
+Nous avons essayé aussi de mettre le transformateur entre la masse et la capacité ( voir figure cidessous) mais ce montage engendre des oscillations sur la charge de la capacité et l'interrupteur IGBT
+est hors d'usage après quelques minutes d'utilisation.
+
+Le composant 555 se présente sous la forme suivante , le point jaune indique la position de la pin 1.
+
+Figure 8 : Mise au point du circuit électrique avec la commande IGBT, utilisation d'un transformateur 12000 V
+maxi
+
+13
+
+C) MESURE DU SIGNAL DE COMMANDE DE LA GACHETTE, SORTIE 3 DU TIMER 555
+Pour vérifier le bon fonctionnement de l’horloge 555, le signal 3 en sortie est mesuré sur l'oscilloscope,
+le circuit de commande est alimenté avec une alimentation DC +12 V.
+
+Figure 9 Signal de commande en sortie du timer (horloge)
+
+Figure 10 Détail de la tension positive de la commande
+
+la figure 16 montre des impulsions à une fréquence de 5KHz, avec le potentiomètre il est possible
+d'augmenter cette fréquence jusqu'à 33 KHz bien au delà de la plage d'utilisation de notre application.
+14
+
+La figure 11 montre le détail de l'impulsion qui permet à l'IGBT de fermer le circuit, la durée de
+l'impulsion est très brève.
+D) GENERATION DE L 'ARC ELECTRIQUE AVEC LA COMMANDE DE L 'IGBT
+
+Figure 11 taux de répétition de la charge et décharge de la capacité
+
+La figure 12 de couleur verte montre la courbe de commande de la gâchette et la couleur bleue la
+courbe de la mesure de la charge et décharge de la capacité. Au cours de l'impulsion positive, l'IGBT
+conduit le courant et la tension au borne de la capacité est nulle, et pendant l'intervalle de la tension
+d'impulsion égale à zéro le capacité se recharge car l'IGBT est en position bloqué ( circuit ouvert). A
+basse fréquence le circuit consomme peu d'énergie, à une tension de 200 V, il consomme moins de 0.15
+Ampères. Par contre à plus haute fréquence, le circuit consomme d'avantage jusqu'à 0.5 A, d'ailleurs la
+résistance de 500 Ohms devient rouge et a fallu la monter sur un pièce métallique pour qu'elle dissipe sa
+chaleur. De même l'interrupteur IGBT dissipe de la chaleur, et il fallu le monter également sur un
+dissipateur thermique. Nous avons consommé plus de 5 IGBT avant de faire fonctionner le circuit.
+
+15
+
+Figure 12 : Fréquence d'oscillation de la charge à 4kHz
+
+Figure 13: tension au borne de la capacité (bleue) et au borne du primaire transformateur rouge
+
+16
+
+Figure 14: Fréquence d'oscillation à 5KHz, période de 206 microsecondes, (courbe jaune, l'amplitude du signal
+est x 100 soit 1.01 x100 =101V )
+
+Figure 15: Formation de l'arc avec des électrodes en laiton, interrupteur IGBT
+
+17
+
+VI. Haut parleur à plasma
+La mise au point des circuits a nécessité beaucoup de temps et nous avons ajouté des dissipateurs
+d'énergie, une pièce métallique sur la résistance et un dissipateur d'énergie sur l'interrupteur pour faire
+fonctionner le circuit pendant un temps raisonnable. A ce stade du projet nous avons voulu refaire
+l'expérience de William Duddell en utilisant les électrodes comme un haut parleur.
+VI-1 Modulation en fréquence du son en utilisant l’horloge 555
+
+Figure 16 Modulation en fréquence d'un signal analogique
+
+La modulation en fréquence consiste à moduler un signal par une fréquence porteuse de fréquence plus
+élevé. Cette modulation est illustrée sur la figure ci-dessus, la modulation de fréquence consiste a
+porter l’information par une modification de la fréquence de la porteuse. Cette technique convient à la
+restitution du son par un haut parleur à plasma. En effet le circuit de charge et de décharge de la
+capacité à travers un transformateur ne permet que de générer un arc électrique pendant une durée
+brève. La restitution du son est faite en contrôlant la fréquence des impulsions. Pour des raisons
+pratiques nous avons utilisé l’entrée 5 de l’horloge 555 qui permet dans une plage limitée en tension de
+18
+
+faire faire varier la fréquence des impulsions en fonction du signal audio. Cette technique a permis de
+restituer en partie le son audio avec une bruit de fond persistent à la fréquence porteuse.
+En s'appuyant sur le document page 6 du fonctionnement de l'horloge 555 ( www.national.com)
+LMC555 CMOS Timer, il est possible de moduler la fréquence des impulsions en sortie de l'horloge en
+envoyant un signal sur l'entrée 5 de l'horloge. La tension maximale que peut supporter l'horloge est de
+12 V maxi, donc le signal d'entrée sur la pin 5 doit rester dans la plage 0 - 12V ( dans la pratique 4 V
+maxi). Pour protéger le circuit des tensions continues une capacité de 100nF est mise sur la pin 5, ainsi
+seules les tensions alternatives sont transmises à l'horloge 555.
+Le circuit utilisé est équivalent à celui de la figure 1, un signal audio amplifié en sortie d'un lecteur de CD
+est envoyé à l'entrée 5 de l'horloge 555. Le premier résultat avec ce deuxième circuit est aussi
+impressionnant, en effet la fréquence des impulsions de commande de la gâchette est modulée, ( Video
+pour supporter ce résultat). L'arc électrique vibre et on distingue quelques notes de musique. Nous
+avons fait varier la fréquence de la formation de l'arc en ajustant la résistance Rb variable, nous
+distinguons plus de notes qu'on la fréquence de commutation de l'interrupteur est élevée. A ce stade il
+faudrait ajuster l'amplitude du signal audio pour que la variation de la fréquence de commutation soit
+dans la gamme des sons de la musique que l'on veut reproduire.
+Réglage des paramètres du circuit pour obtenir un son audible
+Nous avons remarqué par l'expérience qu'en ajustant certains paramètres du circuit, la qualité du son
+émis par l'arc s'améliore considerablement. Ces paramètres sont:
+ Nature des électrodes et distance entre électrodes, en effet la nature des électriques
+change la sonorité de l'arc. Nous avons essayé des électrodes en cuivre, en laiton et en
+tungstène. Le cuivre et le laiton s'oxyde assez rapidement et l'arc électrique est moins
+régulier. Le tungstène donne les meilleurs résultats en terme de régularité de l'arc
+électrique.
+
+
+Distance entre électrodes, l'amorçage de l'arc se fait toujours plus facilement avec une
+distance faible de l'ordre de 5 mm, par contre le niveau du son émis pour cette distance est
+faible. En augmentant la distance jusqu'à 20 mm l'arc est plus vif, mais il faut quelque fois
+l'amorcer avec une flamme. Le niveau sonore émis est nettement plus important avec une
+distance entre électrodes plus élevée.
+
+ Amplitude du signal audio sur l'entrée 5 de l'horloge 555, ce signal a pour but de moduler
+les impulsions envoyées à la gâchette de l'IGBT, les meilleurs résultats sont obtenues en
+amplifiant le signal audio jusqu'à une valeur de 6 V crête à crête.
+ Fréquence de commutation de l'IGBT, cette fréquence est très importante, elle est
+contrôlée grâce au potentiomètre. A basse fréquence le son est presque inaudible et
+s'améliore considerablement avec la fréquence. A basse fréquence autour de 1.5 kHz le
+19
+
+circuit consomme 0.15 sous 200V, à haute fréquence , 10KHz, il consomme davantage
+autour 0.4 A sous 200V.
+En ajustant les paramètres cités ci-dessous le son émis par l'arc est compréhensible et nous comprenons
+les paroles de la chanson. Cependant à cette fréquence, l'arc émet un son aigu qui interfère avec le son
+que l'on souhaite reproduire. Il faut pour cela que l'arc électrique soit formé à une fréquence en dehors
+du son audible ( supérieure à 20 KHz).
+
+VI-2 Modulation Delta Sigma du signal audio
+Pour améliorer la qualité du son du haut parleur à plasma, en utilisant le même circuit de puissance, un
+circuit de commande de modulation de fréquence plus élaboré devrait permettre de générer un signal
+de commande plus fidèle au contenu de l’information du signal audio. Nous avons opté pour une autre
+forme de modulation, la modulation delta-Sigma permettant de générer une série d’impulsions
+numériques dont l’intervalle des impulsions reproduit le rythme du signal audio.
+Cette modulation nous a paru intéressante car d’une part elle devrait permettre de reproduire le son
+audio plus fidèlement qu’avec la modulation en fréquence de l’horloge 555 et d’autre part d’un point de
+vue pédagogique, cette technique nous permet d’aborder la conversion des signaux analogiques en
+signaux numériques à travers ce circuit de commande.
+
+A ) MODULATION DELTA SIGMA
+La modulation Delta Sigma est à rapprocher de la modulation de largeur d’impulsion ( PWM, Pulse width
+modulation). Cette technique permet de discrétiser un signal continu en une série de signaux discret
+qui permet de faire fonctionner un circuit en tout ou rien, comme le circuit de puissance dont
+l’interrupteur est soit ouvert ou fermé.
+
+Figure 17 Principe de la modulation en amplitude (PWM: Pulse Width modulation)
+
+20
+
+En effet le signal en rouge est discrétisé par une série d’impulsions de largeur variable dont le signe des
+impulsions est donné par la pente de la courbe.
+Par nature la formation d’un arc électrique ne permet pas d’utiliser des impulsions négatives
+contrairement à un haut parleur électromécanique qui oscillent sous l’effet d’un signal électrique de
+signe positif ou négatif. Par conséquent la modulation Delta Sigma dont le principe est comparable à la
+modulation PWM est mieux adapté à la formation d’un arc électrique car elle génère une série
+d’impulsions de même signe dont l’intervalle entre les impulsions représente l’information contenue
+dans le signal audio.
+Le modulateur Delta-Sigma convertit le signal analogique en une suite continue de 0 et 1 à une cadence
+déterminée par la fréquence d’une horloge. La sortie de ce convertisseur dit de 1 bit est commandé par
+un comparateur dont une entrée est le signal audio et la seconde est le signal filtré en sortie du
+convertisseur ( boucle de réaction négative), dont la tension représente la valeur moyenne du signal en
+sortie du convertisseur.
+Le circuit comprend :
+
+
+
+
+
+
+21
+
+un comparateur dont une entrée est le signal audio,
+une horloge qui permet d’échantillonner le signal à une fréquence élevée, la littérature
+conseille une fréquence 10 supérieure à la fréquence du signal à moduler
+un flip flop permettant de transformer les signaux analogiques en signaux numériques, sortie 0
+ou 1 numérique
+un filtre passe bas
+Des operateurs logiques NAND ( fonction et-non)
+
+Figure 18 Circuit de Modulation Delta Sigma, entrée 2 du comparateur est une résistance de test
+
+Le schéma ci-dessous permet de générer des impulsions numériques dont l’intervalle entre les
+impulsions dépend de la valeur d’entrée du signal analogique en entrée 2 du comparateur. Le signal
+analogique est testé avec une résistance variable permettant de faire varier la tension de 0-6V. Dans le
+circuit final cette résistance est remplacée par le signal audio, voir figure(41).
+
+B ) REPRESENTATION DES SIGNAUX ELECTRIQUES DANS LE CIRCUIT
+Les figures ci-dessous permettent de décrire le fonctionnement du circuit. La modélisation
+mathématique de ce circuit étant complexe, nous nous bornerons à commenter les signaux mesurés à
+l’oscilloscope. A la sortie Q du flip-flop, un operateur logique NAND a été ajouté permettant de limiter
+la largeur des impulsions numériques à un nombre entier de période de l’horloge. Le Filtre R1 C1
+permet de définir la largeur des impulsions définit par la constante de temps R1C1 et les trois NAND en
+parallèles sont utilisés pour rendre le signal positif, lui donner une forme plus carré et servent
+également de driver pour commander l’interrupteur.
+
+22
+
+Figure 19: Signal mesuré à l’oscilloscope au point a, 3, b et c
+
+La courbe bleue est mesurée à la sortie du comparateur, qui compare la valeur d’entrée du signal ici
+dans l’expérience, la valeur entre 0-6V de la résistance variable, avec la valeur du signal filtré par un
+filtre passe bas en sortie du flip-flop qui représente une valeur moyenne de ce signal de sortie.
+La courbe jaune représente le signal de l’horloge, signal haute fréquence de 30KHz en entrée 3 du flipflop. Le front montant du signal carré de l’horloge permet de déterminer la valeur 0 ou 1 en sortie Q (5).
+Le signal en sortie du flip flop est une succession de 0 et de 1 dont la distribution varie à la cadence de la
+fréquence de l’horloge et en fonction de la sortie du comparateur. La courbe verte représente le signal
+en sortie du premier NAND, l’entrée étant la courbe jaune et rouge, la valeur 1 respective de chaque
+courbe donne 0 et toutes les autres combinaisons donnent 1 ce qui se traduit par établir une période à
+la sortie du NAND égale à un nombre entier de front montant du signal de l’horloge.
+
+23
+
+Figure 20 Signal mesuré à l’oscilloscope au point a,3, b et e
+
+Figure 21 : Signal mesuré à l’oscilloscope au point a ,3 , b et d
+
+24
+
+La figure 21 et 22 montrent les signaux électriques mesurés après le filtre R1C1 dont la fonction est de
+définir la durée de l’impulsion de commande de l’interrupteur en position fermée, courbe jaune sur la
+figure 22. Les 3 NAND montés en parallèles permettent de rendre positif le signal en sortie du filtre et
+de le rendre carré pour commander l’interrupteur, figure (23).
+
+Figure 22 : sortie de commande de l’interrupteur en sortie des 3 NAND
+
+La valeur de la résistance R1 et la valeur de la capacité C1 a été déterminée par essais successifs, après
+plusieurs tests , la valeur R1C1 = 10uS permet de commander l’interrupteur et fournit un signal en
+sortie des 3 NAND de forme carré.
+
+25
+
+B ) MODULATION DU SIGNAL AUDIO
+
+Figure 23 Signaux mesurés avec en entrée du comparateur le signal audio
+
+26
+Figure 24 Grossissement de la figure 24
+
+Les figures 24 et 25 montre le signal audio, ( courbe rouge) et la commande de l’interrupteur est
+représentée par la courbe jaune, la modulation Delta Sigma du signal audio dans cette application se
+traduit par une succession d’impulsions de largeur équivalente dont l’intervalle entre les impulsions
+représente l’information contenue dans le signal audio. La courbe bleue représente la tension aux
+bornes de la capacité dans le circuit de puissance, pendant des intervalles de temps longs, la capacité se
+recharge à une tension définie par l’alimentation, par contre aux intervalles de temps plus petits, la
+tension de charge est limitée par l’intervalle entre les impulsions. Une constante de temps RC plus
+faible permettrait d’atteindre des tensions plus importantes aux intervalles plus petits.
+
+C ) FONCTIONNEMENT DU HAUT PARLEUR A PLASMA
+
+Figure 25 : Formation du Plasma
+
+La figure 26 est une des illustrations de la formation de l’arc électrique avec la modulation Delta Sigma.
+L’arc électrique est formé à une fréquence d’horloge élevée autour de 30 kHz. Le circuit de puissance et
+le circuit de commande ont été installés sur deux cartes électriques afin de limiter les interférences
+entre les signaux.
+En mode de fonctionnement sans entrée audio, l’arc électrique est régulier, mais il faut éviter de créer
+des mouvements d’air autour de l’arc électrique, car alors il devient moins uniforme et il faut attendre
+que les perturbations d’air diminuent pour rétablir un arc électrique uniforme.
+Avec un signal audio, le son créé par le plasma est audible et on comprend distinctement les paroles
+ainsi que la musique. Toutefois, le niveau du son est faible, et un bruit de fond haute fréquence se
+superpose au son audio. Il est nécessaire d’écarter les électrodes à une distance d’environ 20 mm pour
+augmenter le niveau sonore.
+
+27
+
+VII. Conclusion
+Que de chemin parcouru après la lecture du principe du haut parleur que nous avons découvert dans le
+livre de physique, référence 1. Nous avons réussi à produire un son audible dont la qualité a été
+améliorer en utilisant une modulation Delta Sigma . Mais ce que l'on retiendra davantage ce sont les
+étapes qu'il a fallu franchir pour arriver à ce résultat. La théorie de la charge et décharge d'un
+condensateur dans un transformateur est relativement simple à comprendre, du moins nous pouvons
+écrire les équations pour déterminer les tensions électriques dans le circuit. Par contre la réalisation
+pratique d'un tel circuit se heurte à des problèmes de technologie à savoir commuter la charge et
+décharge de la capacité à une fréquence élevée. Le circuit électrique génère une tension élevée pour
+former un arc électrique, il faut d'une part prendre des précautions pour ne pas s'électrocuter mais
+également veuillez à protéger les éléments du circuits. La résistance de charge de la capacité avec
+l'interrupteur sont les deux éléments qui dissipent de l'énergie par effet joule. Il a fallu monter la
+résistance sur une pièce de métal pour dissiper son énergie. De même l'interrupteur IGBT a du être
+monté sur un dissipateur de chaleur.
+La commutation simple à l'aide d'un tube à gaz a permis de nous focaliser sur les premiers éléments du
+circuits pour former un arc électrique, il a fallu choisir une capacité suffisante pour créer un arc
+électrique et un logiciel écrit sur Excel a permis de confronter les résultats théoriques avec les résultats
+expérimentaux en particulier la fréquence de charge et de décharge de la capacité. Nous avons ensuite
+améliorer la fréquence de commutation du circuit en essayant des interrupteurs plus sophistiqués, bien
+que les composants utilisés sont des semi-conducteurs dont la fonctionnement est complexe, leur
+utilisation est compréhensible. Nous avons ensuite compris qu'en changeant la fréquence de
+commutation de l'interrupteur, le son produit par l'arc électrique varie et valide ainsi le principe du haut
+parleur à plasma.
+Notre compréhension de la physique pour générer un son a évolué au cours de l'expérience. S'il est vrai
+qu'intuitivement on comprend que la commutation de l'interrupteur doit se faire à une gamme de
+fréquence large, basse fréquence jusqu'à des fréquences élevées pour reproduire les caractéristiques du
+son, ( notre oreille est sensible entre 100Hz et 15 KHz), la fréquence de la génération de l'arc doit
+idéalement se faire dans une fréquence inaudible au delà de 20 KHz, pour ne pas entendre le sifflement
+de l'arc.
+Le circuit de commande a permis d’utiliser une entrée de l’horloge 555 pour moduler en fréquence le
+signal audio et malgré les limitations de ce composant, nous avons réussi un reproduire un son audible.
+Nous avons ensuite amélioré nettement la qualité du son en implémentant une modulation Delta Sigma
+du signal audio que nous avons adapté à la formation d’un arc électrique. La qualité du son est
+nettement supérieure au son produit par la modulation en fréquence avec l’horloge 555. Le son peut
+être encore améliorer en injectant de l’hélium afin de pouvoir augmenter la distance entre les
+électrodes.
+28
+
+Références:
+reference: p 587 du livre College Physics for College students by Henry S. Carhart, Sc.D., LL.D.
+ci-dessous extrait du livre:
+
+29
+
+Liste des Figures
+
+Figure 1: circuit électrique permettant de générer un arc électrique .......................................................... 6
+Figure 2 : Paramètres définissant la période de décharge du condensateur ............................................... 7
+Figure 3: période de charge du condensateur .............................................................................................. 8
+Figure 4: Déclenchement de la décharge par la commande sur la gâchette de l'IGBT ( interrupteur) ........ 8
+Figure 5 Circuit de compréhension de la commande de l'IGBT .................................................................. 10
+Figure 6 Circuit de l’horloge 555 ................................................................................................................. 11
+Figure 7 Circuit de commande et de puissance de l'arc électrique ............................................................ 12
+Figure 8 : Mise au point du circuit électrique avec la commande IGBT, utilisation d'un transformateur
+12000 V maxi............................................................................................................................................... 13
+Figure 10 Signal de commande en sortie du timer (horloge) ..................................................................... 14
+Figure 11 Détail de la tension positive de la commande ............................................................................ 14
+Figure 12 taux de répétition de la charge et décharge de la capacité ........................................................ 15
+Figure 13 : Fréquence d'oscillation de la charge à 4kHz ............................................................................ 16
+Figure 14: tension au borne de la capacité (bleue) et au borne du primaire transformateur rouge ........ 16
+Figure 15: Fréquence d'oscillation à 5KHz, période de 206 microsecondes, (courbe jaune, l'amplitude du
+signal est x 100 soit 1.01 x100 =101V ) ....................................................................................................... 17
+Figure 16: Formation de l'arc avec des électrodes en laiton, interrupteur IGBT........................................ 17
+Figure 17 Modulation en fréquence d'un signal analogique ...................................................................... 18
+Figure 18 Principe de la modulation en amplitude (PWM: Pulse Width modulation) ............................... 20
+Figure 19 Circuit de Modulation Delta Sigma, entrée 2 du comparateur est une résistance de test ........ 22
+Figure 20: Signal mesuré à l’oscilloscope au point a, 3, b et c .................................................................. 23
+Figure 21 Signal mesuré à l’oscilloscope au point a,3, b et e ................................................................... 24
+Figure 22 : Signal mesuré à l’oscilloscope au point a ,3 , b et d .............................................................. 24
+Figure 23 : sortie de commande de l’interrupteur en sortie des 3 NAND .................................................. 25
+30
+
+Figure 24 Signaux mesurés avec en entrée du comparateur le signal audio ............................................. 26
+Figure 25 Grossissement de la figure 24 ..................................................................................................... 26
+Figure 26 : Formation du Plasma ............................................................................................................... 27
+Figure 27: Transformateur électrique ......................................................................................................... 33
+Figure 28 : Symbole du transformateur électrique .................................................................................... 34
+Figure 29 : tube à décharge à gaz ............................................................................................................... 35
+Figure 30 : Sidac et Symbole du Sidac ......................................................................................................... 35
+Figure 31 : Symbole de L'IGBT..................................................................................................................... 37
+Figure 32: circuit électrique permettant de faire varier la période de charge du condensateur ............... 38
+Figure 33: Décharge de la capacité à l'aide du tube à gaz, les tensions sont à multipliés par 100, (sonde
+diviseur par 100) ......................................................................................................................................... 40
+Figure 34: tension du borne du primaire, (tension x 100). ......................................................................... 40
+Figure 35 Arc électrique formé à 2KHz ....................................................................................................... 41
+Figure 36: commande avec Thyristor, déclenchement à seuil ................................................................... 42
+Figure 37 Arc formé à 5KHz, électrodes en cuivre ...................................................................................... 43
+Figure 38: arc formé avec des électrodes en tungstène ............................................................................. 43
+Figure 39: Circuit électrique avec la commande Thyristor, utilisation d'un transformateur 7000V maxi en
+sortie ........................................................................................................................................................... 44
+Figure 40 : Etape de démontage et de remontage du primaire du transformateur .................................. 45
+Figure 41: Modulation Delta Sigma du signal audio ................................................................................... 45
+
+31
+
+Annexes
+VIII. Description des éléments du circuit
+VIII.1 Le générateur, Les dipôles électriques et le transformateur
+Le générateur délivre un courant continu au borne du circuit, la tension maximum délivré par le
+générateur est de 300 V, sous un 1 ampère, soit une puissance maximale de 300W.
+- la Resistance est l'élément dissipatif dans le circuit, il est utilisé dans le circuit pour limiter le courant et
+il définit la constante de temps de la charge de la capacité. La tension au borne de la résistance est:
+�
+
+� 𝑈𝑟 𝑡 = 𝑅. 𝐼
+
+- La capacité est l'élément qui stocke l'énergie pour ensuite le restituer, il est défini par la loi:
+�
+
+�
+𝑈𝑐 𝑡 =
+
+1
+𝑖 𝑡 𝑑𝑡
+𝑐
+
+-Transformateur est l'élément qui élève la tension fournie par la capacité et la transforme dans le
+rapport du nombre de tour du secondaire sur le primaire.
+Le transformateur électrique en général se compose d'un matériau ferromagnétique sur lequel sont
+bobinés deux enroulements, l'un est appelé primaire et l'autre secondaire.
+
+32
+
+Figure 26: Transformateur électrique
+
+Au borne du circuit primaire une tension alternative est appliqué qui fait passer un courant alternatif
+dans l'enroulement. En se référant à l'effet du courant électrique circulant dans une bobine, un champ
+magnétique est induit dans la bobine, et ce champ magnétique est canalisé par le noyau et circule dans
+le second enroulement. Ce champ magnétique induit alors un courant dans l'enroulement secondaire et
+une tension au borne de l'enroulement.
+Le rapport des tensions entre le primaire et le secondaire est donné par le rapport du nombre de tours
+de chaque enroulement.
+Ainsi:
+U2
+n2
+=
+U1
+n1
+
+comme la puissance est conservée donc :
+
+U1 I1 = U2. I2
+
+et le rapport du curent primaire sur le secondaire est donné par la relation :
+I1
+n2
+=
+I2
+n1
+33
+
+La modélisation d'un transformateur parfait est représenté par le schéma suivant:
+
+Figure 27 : Symbole du transformateur électrique
+
+On indiquera au secondaire un nombre de tours supérieur ou inferieur au nombre de tours au primaire
+selon que l'on souhaite élever ou baisser la tension
+Ce document n'abordera pas le cas du transformateur réel. Cependant notons que les pertes au niveau
+d'un transformateur sont liées au perte par effet joules dans les fils conducteurs, perte dans le noyau
+magnétique par courant de Foucault et hystérésis , couplage magnétique imparfait des enroulements.
+La modélisation réel d'un transformateur devient alors beaucoup plus complexe et à cela il faut rajouter
+des inductances mutuelles des enroulements et des capacités parasites dans le circuit.
+
+VIII.2 La Commutation électrique
+La commutation électrique est de loin l'élément technologique le plus complexe. Dans cette expérience
+nous avons essayé quatre types de commutation. Nous avons opté pour deux approches. La première
+consiste à utiliser une commutation dont le principe physique de fonctionnement est simple, exemple
+tube à décharge à gaz et la seconde approche consiste à utiliser des semi-conducteurs, exemple
+(Thyristor). Les performances des semi-conducteurs sont nettement supérieures à la première catégorie
+des commutateurs mais la physique des semi-conducteurs est beaucoup plus complexe, dans ce
+chapitre nous ne présenterons que leur principe de fonctionnement et nous détaillerons les résultats
+expérimentaux de chaque commutation utilisée.
+
+34
+
+A) T UBE A DECHARGE A GAZ ( G AS DISCHARGE TUBE , GDT)
+
+Cet élément est en général utilisé comme fusible pour protéger les circuits, au delà d'un seuil de
+tension, il devient conducteur et protège le circuit soumis à des surtensions.
+Nous l'utiliserons dans le circuit comme un commutateur, à une tension définie il devient conducteur
+pendant un instant très court. Le GDT est composé d'un tube rempli de gaz sous pression ( même
+principe que les néons pour l'éclairage) et de deux électrodes. La pression du gaz contenu dans le tube,
+sa nature du gaz et les dimensions du tube détermine la tension pour former un arc électrique entre les
+deux électrodes.
+Pendant son fonctionnement, le GDT émet une lumière à la fréquence de commutation circuit.
+
+Figure 28 : tube à décharge à gaz
+
+B) SIDAC
+
+Un Sidac est un semi conducteur à amorçage bidirectionnel, dans sa fonction il ressemble à une diode
+Zener qui ne laisse passer le courant dans un seul sens au delà d'un seuil en tension . Le Sidac possède
+cette même fonction mais pour le courant alternatif c'est dire qu'il laisse passer le courant dans les deux
+sens, au delà d'un seuil en tension.
+
+Figure 29 : Sidac et Symbole du Sidac
+
+35
+
+C ) T HYRISTOR
+
+Un thyristor est un semi-conducteur commandé à l'allumage pour le rendre passant. Son Symbole est
+donnée sur la figure si dessous. Il possède une anode, une cathode et une gâchette. Par convention Vak
+est la tension entre l'anode et la cathode du thyristor, Iak est le courant considéré comme positif lorsque
+traversant le thyristor de l'anode vers la cathode et Ig est courant considéré comme positif lorsque
+rentrant sur la gâchette.
+
+A est l'Anode, C la cathode et G la gâchette. Le Thyristor conduit lorsque un courant circule dans la
+gâchette et pour le bloquer il faut soit annuler le courant Iak soit annuler ou inverser le courant Vak .
+IL est utilisé pour la commande de puissance, il supporte des tensions et des courants élevés, (exemple
+600V, 4A).
+
+D) IGBT
+Le transistor bipolaire à grille isolée (IGBT) est un interrupteur électronique de la famille des transistors
+principalement utilisé dans la commande des circuits nécessitants de la puissance électrique. le
+symbole de semi-conducteur est représenté ci-dessous, avec E l'émetteur, C le collecteur, et G la
+gâchette.
+
+36
+
+Figure 30 : Symbole de L'IGBT
+
+le tableau ci-dessous situe l'IGBT dans la famille des transistors en fonction de la tension du courant et la
+fréquence de commutation, il apparait qu'il possède une fréquence de commutation beaucoup plus
+rapide que celle du Thyristor. En particulier pour faire osciller un circuit à des fréquences élevées il
+parait très bien adapté. Nous verrons aussi que suivant nos expérience nous avons réussi à faire
+fonctionner un Thyristor à une fréquence voisine de 8KHz, supérieure à celle indiquée dans ce tableau.
+Thyristor
+
+Thyristor
+rapide
+
+Transistor
+bipolaire
+
+IGBT
+
+Tension
+
+6000V
+
+1500V
+
+1400V
+
+1200V
+
+Courant
+
+5000A
+
+1500A
+
+500A
+
+400A
+
+Fréquence
+
+1kHz
+
+3kHz
+
+5kHz
+
+20kHz
+
+L'IGBT est commandé avec un signal sur la gâchette, nous avons utilisé un circuit très simple composé
+d'une alimentation DC une résistance et un générateur de signal branché sur la gâchette pour
+comprendre son fonctionnement.
+
+37
+
+III.3 MODULATION DE LA FREQUENCE DE CHARGE ET DE DECHARGE DU CONDENSATEUR EN
+MODULANT L ’AMPLITUDE DE CHARGE DE LA CAPACITE .
+Le principe de cette méthode consiste à faire varier la tension d'alimentation pour influer sur la période
+de charge du condensateur et par conséquent sur la période de charge. Le circuit suivant est proposé,
+en série avec la résistance un transformateur est inclus dans le circuit pour faire varier la tension au
+borne de la capacité.
+
+Figure 31: circuit électrique permettant de faire varier la période de charge du condensateur
+
+Le transformateur ajoute le signal électrique produit par exemple par un lecteur CD, le niveau du signal
+étant faible il est nécessaire de l'amplifier à l'aide d'un amplificateur qui n'est pas représenté dans le
+circuit et ensuite le transformateur isole le circuit de l'audio et amplifie le signal pour le porter à un
+niveau suffisant pour influencer le temps de charge de la capacité.
+Le variation de la tension électrique fera varier la période de charge et de décharge du condensateur
+autour de la période nominale que l'on a appelé porteuse et qui est définie par la figure2
+
+IX. Résultats expérimentaux obtenues avec les interrupteurs à seuil
+a) Commande : tube de décharge à gaz
+Ce premier interrupteur très simple à utiliser ferme le circuit pendant un temps très bref au delà de la
+tension de seuil choisi. Deux tubes à décharge à gaz ont été utilisé, un tube avec un seuil à 75 V et un
+tube avec seuil plus élevé à 95V. Apres des mises au point du circuit qui ont consommées plusieurs
+tubes à gaz, la valeur de la capacité de 0.40 microfarad associée à une résistance de 10KOhms a permis
+de générer les premiers arc électriques. L'expérience montre qu'il faut une capacité minimale pour
+pouvoir générer un arc électrique. En effet en raisonnant en terme d'énergie, l'énergie disponible dans
+la capacité est égale à :
+38
+
+E=
+
+1
+C V2
+2
+
+à tension V fixé, une valeur C de 0.42 microfarad permet de générer un arc électrique. Nous avons aussi
+doublé la valeur de la capacité à 0.9 microfarad, l'intensité d'arc électrique est plus forte mais la période
+d'oscillation de la charge et de décharge est plus grande, fréquence plus faible.
+Nous avons testé les limites de ce circuit. Au delà d'une fréquence de 1.5 KHz, le tube à gaz chauffe et il
+se détériore rapidement.
+Une fréquence plus importante d'oscillation de la charge et décharge de la capacité produit un arc
+électrique plus intense et la distance entre les électrodes peut être plus grande de l'ordre du cm
+La figure 11 ci-dessous montre la variation de la tension au borne de la capacité de l'ordre de 100 V, (
+avec interrupteur à seuil de 95V, il conduit ici autour de 100V), et la figure 12 montre la variation de la
+tension au borne du primaire, la tension est également crête à crête est de l'ordre de 100V.
+On remarque que la décharge rapide du condensateur, la résistance de décharge étant très faible, le
+signal au borne du primaire est une période de sinus à une fréquence élevée. Cette fréquence étant
+définie par le circuit RLC, R est la résistance faible des fils et de la bobine de l'ordre de quelques Ohms,
+et la self L de l'inductance du primaire et la capacité C du circuit, (𝐿𝐶𝜔2 =1) .
+
+39
+
+Figure 32: Décharge de la capacité à l'aide du tube à gaz, les tensions sont à multipliés par 100, (sonde diviseur
+par 100)
+
+Figure 33: tension du borne du primaire, (tension x 100).
+
+40
+
+b) Commande utilisant un Sidac
+La commande utilisant un Sidac donne des résultats similaires à ceux obtenus avec le tube à gaz, par
+contre il est possible de monter la fréquence de charge et de décharge du condensateur jusqu'à environ
+2.KHz. Au delà de cette fréquence, en élevant la tension pour augmenter la fréquence, il se produit
+l'inverse et le Sidac cesse de fonctionner, il devient toujours conducteur. Il faut baisser la tension
+d'alimentation à zero volt et ensuite recommencer pour déclencher le seuil de fonctionnement du
+SIDAC. La photo ci-dessus montre l'arc électrique entre deux électrodes en cuivre. La couleur de l'arc est
+bleue et le son est régulier.
+
+Figure 34 Arc électrique formé à 2KHz
+
+41
+
+C) Commande avec un Thyristor
+Pour utiliser le Thyristor avec une tension à seuil, on propose la commande suivante:
+
+Figure 35: commande avec Thyristor, déclenchement à seuil
+
+La gâchette est commandée par la tension entre l'anode et la cathode. Le premier montage utilisait une
+diode Zener à 90 V, mais nous n'avons pas réussi à faire fonctionner le thyristor en mode seuil, c'est à
+dire qu'une tension au-delà de la tension de seuil de la diode Zener laisse passer le courant dans la
+gâchette et déclenche le Thyristor, cette première étape est réussi avec la diode Zener mais ensuite le
+Thyristor reste toujours conducteur. Notre explication de ce phénomène est qu'il circule toujours un
+courant dans la gâchette même faible qui ne permet pas de désamorcer la gâchette.
+A la place nous avons utiliser un Sidac qui rempli la même fonction que la diode Zener par contre le
+Thyristor fonctionne mieux, il devient conducteur des que la tension dépasse le seuil de déclenchement
+de la tension du Sidac ensuite au passage à zero, le Thyristor se bloque et permet à la capacité de se
+recharger.
+La figure ci-dessous montre la génération d'un arc électrique à une fréquence de 5KHz. L'arc électrique
+est intense. En augmentant l'amplitude de la tension du générateur, la fréquence maximale obtenue
+avec cette commande est de 8KHz. La variation de la fréquence permet d'entendre un son qui varie en
+fonction de la fréquence et démontre la faisabilité du haut parleur. Nous avons deux vidéos montrant ce
+phénomène.
+
+42
+
+Figure 36 Arc formé à 5KHz, électrodes en cuivre
+
+Figure 37: arc formé avec des électrodes en tungstène
+
+43
+
+Nous avons remarqué que l'arc électrique oxyde les électrodes en cuivre. En effet il se forme une couche
+de couleur différente sur la surface du métal et la formation de l'arc électrique devient plus difficile. Il
+faut régulièrement gratter les électrodes pour enlever cette mince couche d'oxyde. Nous avons fait
+l'expérience avec des électrodes en tungstene car c'est ce matériau qui est utiliser pour la soudure à
+l'arc électrique. L'arc électrique est très différent comme le montre la figure 16, couleur blanche et il
+n'est pas nécessaire de gratter les électrodes.
+
+Figure 38: Circuit électrique avec la commande Thyristor, utilisation d'un transformateur 7000V maxi en sortie
+
+X. Rembobinage du primaire du transformateur
+Il a fallu qu'on démonte le transformateur pour comprendre que les fils du primaires étaient en courtcircuit, en effet les fils étaient noirs.
+Les photos ci-dessous illustrent les étapes de démontage et de remontage du primaire du transformateur.
+Nous avons pris un fil plus gros, avec un meilleur isolement et nous avons effectuer l'enroulement à la
+main en évitant de faire chevaucher les fils.
+Apres remontage le transformateur fonctionne parfaitement.
+0.4 Ohms et son inductance est de 150 mH.
+
+44
+
+La résistance mesurée au primaire est de
+
+Figure 39 : Etape de démontage et de remontage du primaire du transformateur
+
+XI. Schéma du circuit de modulation Delta Sigma de l’audio
+Annexe 2 : Schéma du circuit de commande de l’interrupteur avec la modulation Delta-Sigma
+
+Figure 40: Modulation Delta Sigma du signal audio
+
+45
+
+

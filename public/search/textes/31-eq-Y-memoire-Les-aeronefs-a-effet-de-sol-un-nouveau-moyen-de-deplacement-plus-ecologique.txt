@@ -1,0 +1,425 @@
+Les Aéronefs à l’effet de sol, un nouveau moyen de déplacement plus
+écologique?
+
+LE PLAN
+-
+
+I
+
+Introduction aux Aéronefs à l’effet de sol
+
+-
+
+II
+
+Bilan des années passées
+
+-
+
+III
+A)
+B)
+C)
+
+Études d’ailes dans l’effet de sol
+La réalisation des modèles 3D
+La soufflerie
+Test et résultat en soufflerie
+
+-
+
+IV
+A)
+B)
+C)
+D)
+
+Création d’un modèle expérimental de test en soufflerie
+Fusion 360, un logiciel de modélisation 3D
+Cura, un logiciel de Slicing
+Les Imprimantes 3D
+Une méthode écologique
+
+-
+
+V)
+A)
+B)
+
+Début de réalisation d’une maquette motorisée
+Une meilleure alimentation
+Double motorisation
+
+-
+
+VI)
+A)
+B)
+
+Perspectives d’évolutions et conclusion
+Perspectives d’évolution
+Conclusion
+
+-
+
+VII)
+
+Remerciements
+
+Préambule
+Nous sommes deux lycéens participant aux Olympiades Nationales de
+Physique, Théo et Hugo, ainsi qu’une troisième membre, Clara, qui a rejoint le
+groupe, en cycle de terminale. Nous reprenons le projet des Aéronefs à effet de sol,
+dont un des membres fait partie du projet depuis son origine, en seconde. Afin de
+proposer une recherche plus poussée et réalisée entièrement en autonomie, nous
+avons pu travailler avec Polytechnique durant un an, mettant à notre disposition un
+large panel d’outils pour mener à bien notre projet. Grâce à l'aide du personnel du
+X-fab, il nous a été possible de poursuivre ce projet et d’en conserver le même plaisir
+qu’au premier jour et ce chaque mercredi après-midi.
+
+I. Introduction aux aéronefs à l’effet de sol
+L’effet de sol est un phénomène physique apparaissant lorsqu’un système se
+déplace dans un fluide et près d’une paroi. Dans notre cas, il s’agit d’un type d’avion utilisant
+spécifiquement l’effet de sol, l’ékranoplane, qui se déplace dans l’air et à proximité du sol.
+En poussant l’air sous ses ailes, celui-ci est comprimé entre l’aile et le sol, et résulte en une
+augmentation de la portance.
+Voici une de nos ailes testées
+en soufflerie à un angle de 25°.
+En faisant une approche
+mécanique du point, l’air
+passant en dessous de l’aile est
+bloqué par celle-ci, et le fluide
+sans cesse arrivant le comprimé
+(représenté par le dégradé du
+cercle bleu). Résultat de cette
+surpression, une force de poussée est également répartie sur l’aile et le sol (forces P en
+rouge et vert). A noter que ce schéma illustre l’effet de sol et non le principe classique d’une
+aile.
+Puisque l’effet de sol permet d’augmenter la portance d’une aile, alors celle-ci peut être
+d’une taille réduite. Le poids d’une aile plus petite est donc inférieure à une même aile plus
+grande. Par conséquent, la traînée induite par l’aile est aussi réduite car la surface la
+générant est réduite. La traînée étant la force s’opposant à la traction de l’avion, il est alors
+possible de réduire la consommation d’énergie de l’avion lorsque celui-ci vole dans les
+conditions de l’apparition de l’effet de sol, justifiant l’intérêt écologique du projet. Nous nous
+intéressons donc à la portance générée par l’effet de sol.
+Problématique:
+En quoi l’effet de sol permet-il de réaliser des économies d’énergie dans le monde de
+l’aviation?
+
+II. bilan des années passées
+Nous poursuivons le projet des aéronefs depuis la seconde, date de nos premières
+olympiades, bien que le groupe a évolué au fil des années. Ainsi, nous pouvons porter un
+regard critique sur notre travail passé et actuel.
+Ici, le tout premier ékranoplane réalisé, les plans ont
+été fait suivant l’intuition et les contraintes physiques
+de l’effet de sol n’étaient pas encore bien comprises.
+Face à la réalité de la complexité de réaliser un avion,
+il a été décidé de ne pas le faire décoller pour assurer
+la sécurité de l’électronique embarquée, qui reste à
+peu près constante sur tous les appareils. Il a tout de
+même permis à notre équipe de seconde d’être
+sélectionné aux nationales lors du concours
+académique de la 29ème édition des Olympiades de
+Physique.
+
+l’ékranoplane delta, succédant au
+premier, a été le plus concluant de la
+lignée. Il est repris d’un modèle
+d’ingénieur, l’eska-1. Il possède ailes
+en delta inversée, d’où son nom, qui
+peuvent, selon Lutz Les Schafft,
+directeur du laboratoire de dynamique
+des fluides de Polytechnique, mené à
+des instabilités en vol et
+particulièrement dans l’effet de sol.
+Néanmoins, ce fut le seul jusqu’alors à
+avoir décollé et volé dans l’effet de sol,
+même si ce ne fut que sur quelques
+mètres. Ce modèle fut celui présenté au concours national de la 29ème édition des
+Olympiades de Physique. Voici un lien vers le vol du prototype.
+
+L’ékranoplane tandem fut présenté à la précédente édition des
+Olympiades de Physique, et bien qu’il n’ai pas été sélectionné, il
+a été retenu pour les nationales du concours Cgénial de la
+même année. Cette version avait pour but d’essayer un modèle
+avec des ailes en tandem, proposé par certains types
+d’ékranoplanes et des vues d’artistes. Dû à une régression
+
+dans la qualité de la fabrication mais aussi à un poids bien trop élevé, cet avion n’a jamais
+pu décoller.
+
+Suite à l’analyse de ces trois maquettes, nous voulons pour notre ultime année
+proposer un projet dont la création nous est propre, et dont la création nous est propre. En
+effet, nous nous sommes jusqu’alors basés sur des projets déjà existants, mais nous
+voulons cette année créer notre propre ékranoplane en se basant sur une physique que
+nous comprenons vraiment. C’est pour cela que nos méthodes paraîtront quelque peu
+empiriques, et que les démarches seront peut être plus longues que celles des années
+précédentes, mais il s'agit pour nous du sens véritable de ces olympiades.
+Après introspection des maquettes passées, nous avons relevé plusieurs défauts
+récurrents, à commencer par une copie de concepts déjà existants, or nous voulons à
+présent réaliser notre propre modèle afin d’en apprécier pleinement la complexité physique
+tout en étant capable de l’expliquer parfaitement. De plus, un problème de poids se
+manifeste sur toutes les maquettes. Bien qu’en théorie le poids ne soit pas un problème
+pour l’ékranoplane, il nous empêche de l’essayer en terrain réduit (gymnase) du au manque
+d’accélération du moteur et de la faible distance d’essai. Ainsi nous vous garantissons que
+ce projet à été réalisé entièrement par deux lycéens en totale autonomie, et que chaque
+intervenant n’a été présent que pour nous aiguiller dans notre pensée et assurer notre
+sécurité ainsi que celle du matériel.
+
+III. Études d’ailes dans l’effet de sol
+Bien que de nombreux profils d’ailes existent, nous avons décidé d’essayer trois
+types d’ailes ayant toutes des caractéristiques distinctives qu’il nous semble intéressant
+d'analyser. Pour s’y repérer plus facilement, nous nous sommes référés à la liste des
+différents profils d’ailes du site l'avionneur . Nous avons voulu étudier l’impact dans l’effet de
+sol d’un profil simple et symétrique pour en dégager l’effet brut de l’effet de sol, car par
+définition ce type d’aile ne produit pas de portance sans angle. Nous avons ensuite voulu
+essayer une aile composée d’un creux, pour voir son impact sur l’effet de sol, puis un
+modèle à double courbure pour voir si la forme du bord de fuite influence la portance.
+
+A) La réalisation des modèles 3D
+Sur les conseils de Polytechnique, nous avons donc réalisé nos ailes en modèle 3D
+sur Fusion 360, majoritairement en autodidacte. Vous trouverez si vous le souhaitez les
+fichiers en format STL dans les annexes. Pour réaliser ces ailes, nous sommes partis d’une
+image de référence extrapolée à la taille souhaitée, avant de la détourer pour obtenir une
+surface, puis à l’aide de la fonction extrude, nous avons donné du relief à l’aile, en
+s’adaptant à la taille de la soufflerie. En effet, la soufflerie formant un petit pavé de 40cm de
+chaque côté, notre aile ne peut être aussi grande que sur le modèle final. c’est pourquoi sa
+portance est approchée selon sa formule :
+
+Avec ρ la masse volumique de l’air, V la vitesse au carré, S la surface au sol ( projeté
+orthogonal de la surface de l’ékranoplane dans la longueur et la largeur) et Cz le coefficient
+de portance, une constante propre à un profil d’aile donnée et ne pouvant être obtenu qu’
+expérimentalement si la portance n’est pas connue.
+Pour les mesures et pour éviter que des erreurs ne se glissent dans nos calculs,
+nous travaillons avec les valeurs réelles mesurées par la soufflerie sur nos ailes, et non sur
+une hypothétique aile à taille réelle pour une maquette motorisée.
+
+Voici une comparaison d’ailes dans et hors effet de sol. Il y a trois profils, “complexe ”, “
+symétrique” et “creuse”, ayant été imprimés au Drahi X center de Polytechnique.
+
+aile complexe
+
+aile creuse
+
+aile symétrique
+
+B) La soufflerie
+une soufflerie est utilisée en aérodynamique pour étudier l’action sur un corps
+d’un l'écoulement d’air. Pour étalonner la soufflerie, nous devons placer une tige pour
+accrocher, par un système de poulies, différents poids permettant d’établir une
+équivalence entre une masse et la tension électrique retournée par la soufflerie. ensuite
+nous mettons une masse de 200g puis une de 300g pour pouvoir établir une droite
+d’étalonnage car nous savons que la fonction doit être linéaire.
+Après cela, nous perforons nos ailes pour y placer un embout permettant de
+l’emboîter sur l’appareil de mesure de la soufflerie. Sur la soufflerie il y a un système
+permettant de tourner l’aile pendant l’expérience, ce qui nous permet de trouver la
+parfaite inclinaison avec les résultats les plus probants.
+Pour donner une mesure, la soufflerie envoie un courant électrique dans la barre
+située en dessous de l’aile, et en mesure la torsion. Ensuite, nous appliquons une formule
+sur les valeurs retournées par le logiciel Voltmètre intégrateur, permettant d’obtenir des
+forces en newton (N) depuis les mesures effectuées par la soufflerie. Pour calculer les
+forces, nous utilisons les formules suivantes :
+pour la traînée : Ftraînée * COS(angle) + Fportance * SIN(angle)
+pour la portance : Fportance*COS(angle) - Ftraînée*SIN(angle)
+avec l’angle mesuré sur le système de rotation de la soufflerie.
+Dans la soufflerie, la planche en bois fait office de sol, en effet les ailes sont testées à la
+verticale. Cela n’est pas présent dans la soufflerie et nous l’avons rajouté en perforant un
+des bords du tube de la soufflerie et en fixant la plaque avec des boulons.
+
+la barre mesurant la force
+
+le système de rotation
+
+Voici quelques photos de la soufflerie:
+
+C) tests et résultat en soufflerie
+Lors de précédents tests réalisés l’année dernière, l’avantage de l’effet de sol avait
+été mis en évidence. Pour une même aile, on constate que la portance est supérieure dans
+l’effet de sol mais varie également en fonction de la distance du sol. Or, il se trouve que
+comparer les forces pour un niveau donné n’est pas très cohérent car, en conditions réelles,
+lorsque l’ékranoplane décolle, il se stabilise seul au niveau de portance optimal pour ses
+ailes, en fonction de sa vitesse. Plus l’ékranoplane va vite, plus il sera haut jusqu’à sortir de
+l’effet de sol, bien que cela ne présente alors plus d’avantages.
+
+Ce graphique, réalisé avec la même aile, compare des mesures effectuées à
+différentes distances du sol (EdS = effet de sol, sur le graphique) avec en abscisse l’angle
+de l’aile, 0 étant quand le dessous de l’aile est parallèle au sol, et en ordonnée la portance
+en newton. En comparant les courbes de tendances, on remarque que peu importe la
+distance, l’aile dans l’effet de sol à une portance supérieure à celle en dehors (courbe en
+bleu). Enfin, ce graphique met en évidence une hauteur optimale de l’effet de sol. En effet,
+ce n’est pas lorsque l’aile est la plus proche du sol que sa portance est la plus élevée mais à
+une hauteur qui, d’après notre théorie, est spécifique à la forme de l’aile.
+
+Pour les deux graphiques, l’ordonnée représente une grandeur sans unité issue du
+rapport entre la portance (en newton) et de la traînée (également en newton). l’abscisse
+quant à elle représente l’angle d’inclinaison de l’aile en degrés. Pour toutes les expériences,
+le point d’accroche des ailes étaient à 5 cm du sol pour un angle nul.
+
+D’après le graphique, on constate que l’aile la plus performante à 22 m/s (~80km/h)
+est l’aile complexe, même si pour un angle avoisinant les 5 degrés, l’aile symétrique se
+trouve être plus efficace. Ce point est intéressant, car l’aile symétrique est traditionnellement
+utilisée pour les surfaces de contrôles de l’avion, ce qui lui permet de tourner. Ainsi, on peut
+en déduire que les placer proche du sol leur permettra de bénéficier de l’effet de sol et donc
+de pouvoir en réduire la taille, réduisant encore un peu le poids de l’avion. On remarque
+également d’après les courbes de tendances que la portance est maximale pour un angle de
+20 degrés pour l’aile complexe.
+
+Ce graphique reprend les trois ailes a 18 m/s et 22 m/s, ainsi, on voit que plus la
+vitesse est élevée (courbes de tendances en jaune/vert), plus le rapport entre portance et
+traînée est grand. Cependant, les tendances attendues doivent s’apparenter à une parabole,
+composée d’un maximum caractérisant le point de décrochage de l’aile. Nous pouvons
+déduire que l’aile optimale pour notre avion semble être l’aile complexe à un angle de 20
+degrés.
+
+IV. Création d’un modèle expérimental de test en
+soufflerie
+A) Fusion 360, un logiciel de modélisation 3D
+Nous avons utilisé le logiciel Fusion 360 qui nous a été conseillé par le Drahi X
+center, le Fab Lab de l’école Polytechnique. Fusion 360 est un logiciel de 3D Modeling
+produit par Autodesk, permettant aux professionnels de réaliser des pièces d'ingénierie
+poussées. Néanmoins, elle reste assez simple pour permettre à des débutants tel que
+nous de réaliser des pièces d'ingénieur facilement et avec grande précision. Nous avons
+
+utilisé ce logiciel pour imprimer une maquette 3D de l’ekranoplane ce qui nous permet
+de faire une économie de matériel puisqu’elles sont telles qu’elles étaient imaginées et
+de pouvoir obtenir la meilleure précision pour les tests en soufflerie.
+
+.
+Nous avons appris tous les deux à utiliser fusion 360 ce qui nous a également
+permis de réaliser des calculs précis afin d' obtenir les parfaites dimensions là où les formes
+de l’année précédente étaient sculptées à la main dans du polystyrène. Par exemple, pour
+réaliser nos tests en soufflerie nous avions besoin d’un trou de 3mm afin d’y insérer la vis
+reliée au système de mesure, que nous avons pu réaliser grâce à fusion 360 et la précision
+des imprimantes 3D.
+
+B) Cura, un logiciel de Slicing
+Nous avons créé toutes les formes sur fusion 360 puis nous avons tout transféré sur
+le logiciel cura, un logiciel de découpe (slicer en anglais) laissant une grande liberté pour
+impression 3D fourni par la société Ultimaker. Ultimaker Cura fonctionne en découpant le
+fichier modèle de l'utilisateur en couches et en générant un code g spécifique à l'imprimante.
+Le logiciel CURA propose plein de fonctionnalités avant de lancer l’impression. Nous
+pouvons par exemple régler le remplissage de l’impression ce qui nous permet d’imprimer
+plus vite,d’obtenir un modèle 3D plus léger et de réaliser des économies. Il y a également la
+possibilité d’utiliser différents matériaux d’impression comme le (PLA R) qui est un matériau
+recyclable à 95% ou (l’ABS) qui est un matériau plus résistant. Pour nos impression nous
+avons utilisé le (PLA R) car l’impression est plus rapide et plus écologique. Il y a également
+2 types d’imprimante les (S5) et les (S3) les S5 sont plus grandes et plus précises.
+Nous avons réussi à mettre plusieur impression sur la même imprimante une (S3, la
+plus petite mais aussi la plus rapide) en l'occurrence ce qui nous permet de libérer plus
+rapidement les imprimante pour les ingénieurs. Certaine fois plusieurs imprimante sont
+occupées, alors nous mettons toutes nos pièces sur la même imprimante afin de les
+récupérer mercredi prochain. Cura nous permet également de réaliser plein de socle pour
+l’impression qui est ensuite enlevable à la main par exemple le support en arbre.
+
+support en arbre
+
+plusieurs fichiers sur une S3
+
+C) Les imprimantes 3D
+
+Voici une vidéo que nous avons réalisée montrant le chemin
+que suit une imprimante 3D.
+
+Après être passé sur Cura il faut mettre sur une clé usb le fichier
+puis le sélectionner dans l’imprimante. Pour le lancement des
+impressions nous avons dû sortir la plaque en verre de l’imprimante
+et étaler de la colle (colle classique) dessus pour éviter que lors de
+l’impression le socle du modèle ne se décolle avec la chaleur,
+comme on peut le voir sur cette photo.
+
+Nous avons rencontré quelques problèmes avec certains socles,
+car quand le socle du modèle 3D n’est pas bien généré sur CURA il
+peut être très compliqué de le décoller. En effet, la matière est trop épaisse ou parfois même
+le socle recouvre les trous souhaités sur le modèle 3D, comme montré sur ces deux images:
+
+ici, le socle n’a pas tenu
+et l’impression a bougée
+
+D) Une méthode écologique
+
+le support d’impression à boucher les trous
+
+Nous avons décidé de réaliser différents tests en soufflerie afin de mesurer la traînée
+de différentes configurations de nez, fuselages, queues et arrières. Pour éviter d’imprimer
+plein de maquettes et de gaspiller les matières plastiques utilisées, ainsi que perdre du
+temps, nous avons décidé d’imprimer un pavé (la base de la maquette) avec des trous et
+des embouts s'emboîtant pour assurer l’alignement. Nous avons répété cette action dans les
+différents modules, dont la progression technique se voit dans la complexité des modèles
+(disponible dans les annexes). Nous avons ensuite acheté des aimants très puissants afin
+de les coller dans les trous, ce qui nous permet de pouvoir monter facilement notre
+ekranoplane et d’essayer les différentes configurations en soufflerie, toujours avec la même
+base. Cependant, nous avons rencontré quelques problèmes car les prises mâle (sur les
+modules) et femelles (sur la base) doivent parfaitement s’emboiter. Or, le logiciel CURA
+dispose d’une fonctionnalité permettant de régler la vitesse d’impression, mais plus
+l’impression est rapide, moins bonne est la qualité, menant parfois à de subtiles décalages
+entre l’épaisseur attendue et l’espace prévu, rendant l’emboîtage compliqué. De plus,
+lorsque la matière plastique utilisée refroidit, il arrive qu’elle se courbe légèrement, amenant
+les pièces les plus fines à voir leurs dimensions légèrement modifiées. Cependant, nous
+avons réussi à adapter les pièces pour pouvoir les utiliser.
+
+V. début de réalisation d’une maquette motorisée
+A) Une meilleure alimentation
+Suite aux années précédentes, nous avons mis en évidence plusieurs problèmes,
+notamment de poids et de déviation dû à la rotation du moteur. Pour palier à ce problème,
+nous avons décidé de revoir le système électrique de l’avion. En effet, sur les anciens
+modèles, celui-ci est alimenté par batterie qui compose la plupart du poids de l’avion. C'est
+pour cela que nous avons essayé d’alimenter notre circuit avec une source d’énergie plus
+légère, des accumulateurs (piles rechargeables).
+Nous avons donc cherché quels types d’alimentation seraient optimaux pour notre
+besoin. Pour fonctionner à plein régime, le moteur à besoin de 9V, or, après plusieurs
+comparaisons, 6 piles AAA permettent d’atteindre cette tension tout en ayant une plus
+grande capacité de stockage (en mAh) qu’une simple pile 9V, pour un poids le plus léger
+possible. La quantité d’énergie disponible nous donne suffisamment d’autonomie pour notre
+vol tout en étant un peu plus léger que des piles AA. De plus, ce genre de piles étant
+largement répandu, nous pouvons récupérer d’accumulateurs, étant donc rechargeables, qui
+ne servent plus même si leur performance en termes de quantité d’énergie et de tension
+sont un peu moins bonnes que des piles à usage unique.
+
+Pour réaliser nôtre câblage, nous avons utilisé des fils électriques à disposition à
+polytechnique, qui une fois dénudés peuvent être soudés aux différents dipôles du réseau.
+
+B) Double motorisation
+Pour notre motorisation nous avons décidé de brancher deux moteurs de 9V en
+dérivation D’après la loi d’unicité des tensions, les deux moteurs reçoivent alors une tension
+de 9V. Les moteurs sont reliés au réseau avec leurs dipôles inversés, ce qui nous permet
+d'annuler la rotation induite par l'hélice, car les moteurs tournent alors dans des sens
+opposés. Ce problème avait été soulevé dans les précédentes versions de nos
+ékranoplanes, car à cause de ce décalage s’amplifiant avec la vitesse de rotation de l’hélice,
+il devenait compliqué d’aller en ligne droite, et donc de prendre suffisamment de vitesse
+pour décoller.. Grâce à l'économie du poids fait sur l’alimentation, nous pouvons nous
+permettre de rajouter un deuxième moteur qui vient améliorer le rapport entre poids et
+puissance. Ces moteurs sont ensuite radiocommandés par un ESC, un appareil permettant
+de réduire l’intensité du courant reçu à distance et donc la vitesse de rotation des moteurs.
+Voici une photo du montage en dérivation avec deux moteurs alimenté par 4 piles AA. Cela
+ne correspond pas à la version finale qui sera alimentée par 6 accumulateurs AAA mais
+permet tout de même de vérifier que le montage fonctionne bien avec le mode
+d’alimentation choisi.
+
+VI. Perspectives d’évolution et conclusion
+Ces expériences nous permettent de créer nous même le début d’un prototype
+d’ékranoplane. Des tests en soufflerie des fuselages seront nécessaires pour l’oral en
+perspective. Après cela, nous aimerions réaliser une maquette motorisée selon le résultat de
+nos expériences en soufflerie, afin de pouvoir mesurer l’efficacité de l’effet de sol en
+conditions réelles, ainsi que de s’ouvrir à la dynamique de vol des ékranoplanes. Nous
+voulons par la suite rajouter des capteurs à notre maquette motorisée, pour permettre
+d’obtenir des données durant le vol.
+Finalement, le nouveau départ de notre projet nous a permis de nous rapprocher de
+la nature du concours, de créer intégralement un projet à l’aide de nos expériences, sans se
+servir de résultats autres que les nôtres. Grâce à cela, nous avons appris à manier de
+nombreux outils, aussi bien numériques que physiques, des logiciels de création 3D à
+jusqu’à des souffleries entières, et nous avons appris à modifier chacun d’eux pour qu’ils
+correspondent à nos besoins. Nous avons pu vérifier l’efficacité de l’effet de sol, mais aussi
+en déduire les meilleurs profils pour les introduire dans notre future maquette. Enfin, nous
+avons pu en apprendre beaucoup sur la vie en laboratoire, le monde de la recherche et la
+richesse des techniques que celle-ci nécessite.
+
+VII. remerciements
+Nous remercions infiniment l’équipe du Drahi X center, qui nous accueille toujours avec
+sourire et nous offre un peu de leur temps, le personnel des souffleries du laboratoire de
+dynamique des fluides de Polytechnique, Mr. Luc Pastur, professeur associé à l’ENSTA et
+Mr. Lutz Lesshafft, directeur du laboratoire de dynamique des fluides de Polytechnique pour
+leur accompagnement dans la compréhension de la physique de l’effet de sol, sans oublier
+notre professeur référent Mr. Garrigues qui nous supporte une année de plus, et les
+organisateurs du concours qui nous permettent à nouveau de vivre cette expérience unique.
+
+

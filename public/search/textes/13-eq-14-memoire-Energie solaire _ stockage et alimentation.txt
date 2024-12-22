@@ -1,0 +1,563 @@
+Energie solaire
+
+stockage et alimentation
+Présenté par :
+Lucile Rutkowski
+Adnan Javaid
+Matthieu Guillet
+
+Lycée de la Côtière
+-1-
+
+ALIMENTER ET STOCKER DE L'ENERGIE
+A L'AIDE D'UNE ENERGIE PROPRE : L'ENERGIE SOLAIRE
+I – Introduction
+A/ Le groupe
+B/ Le sujet
+
+II – Comportement d'un panneau solaire
+A/ Le panneau solaire, un ensemble de cellule photovoltaïque
+B/ La conversion de l'énergie lumineuse en énergie électrique
+C/ Mise en évidence du fonctionnement du panneau solaire
+D/ Caractéristiques des panneaux solaires utilisés
+
+III – Mise en Oeuvre d'un Panneau solaire
+A/ Le montage mis en place
+B/ Fonctionnement du Régulateur de Tension
+C/ Conclusion
+
+IV - Etude de la charge d'un accumulateur Ni-Mh
+V – Contrôle du courant de charge
+A/ Le montage
+B/ Le LM317, Régulateur de courant
+
+VI- Contrôle du niveau de charge
+A/ Première solution : montage a l'aide d'un comparateur simple
+B/ Modification du montage : Comparateur à hystérésis
+C/ Montage Final
+
+VII – Projet avec la société SORHODEL
+A/ Présentation de la balise
+B/ Vérification des performances du circuit à la balise
+
+VIII – Conclusion
+A/ bilan
+B/ Remerciements
+
+-2-
+
+I – Introduction
+A/ Le groupe
+Nous sommes trois élèves Lucile Rutkowski, Matthieu Guillet, et Adnan Javaid du Lycée de la
+Côtière de LA BOISSE, tous trois issus de l’option SI proposée en classe de première et terminale
+S.
+Nous avons commencé ce projet en TPE et poursuivi ce travail en dehors de nos heures de cours en
+terminale
+Lors de la première année, nous avons commencé à développer le sujet et finaliser
+cette étude avec une application industrielle en terminale.
+B/ Le projet
+C’est par le biais de l'option des Sciences de L'ingénieur et à la suite de la
+proposition de notre professeur de Génie Electrique, M.Lacombe, que nous avons décidé de
+poursuivre ce projet dans le but d'une présentation au concours national des Olympiades de
+Physique.
+Nous avons débuté ce projet en classe de première, et poursuivi celui-ci en début de
+Terminale.
+Ce projet est parti d'une idée assez simple : l'utilisation d'une énergie dite « propre »,
+c'est-à-dire une énergie qui ne nuise pas à notre environnement. A ce jour, les énergies « propres »
+les plus utilisées sont les énergies tirant partie du soleil ou du vent. Après concertation, nous avons
+pensé qu'il serait plus intéressant de travailler sur l'énergie solaire.
+Après une étude assez complète des cellules photovoltaïques, donc des panneaux
+solaires, nous avons établi une première problématique : Pouvoir alimenter une application à l'aide
+de ce panneau. Or selon les périodes de l'année, les panneaux ont parfois un fonctionnement
+difficile du fait d’un ensoleillement trop faible. En prenant compte de cette remarque, nous avons
+modifié notre problématique : Augmenter l'autonomie de petits appareils alimentés par une pile
+appartenant à l'intervalle de tension [0;9V].
+L'objectif final est donc d'optimiser la gestion de l'énergie en utilisant l'énergie
+solaire.
+
+-3-
+
+II – Etude d'un photo générateur
+Contrairement au terme de "panneau solaire" souvent utilisé, l'appellation
+"générateur photovoltaïque" désigne bien ce dispositif qui permet de produire de l'électricité à partir
+de la lumière.
+A/ Le panneau solaire, un ensemble de cellule photovoltaïque
+Un panneau solaire est formé de plusieurs cellules photovoltaïques mises en série
+pour obtenir la tension désirée. Chaque cellule produit un courant continu dont la puissance dépend
+de la surface de la cellule. Une cellule délivre une tension de 0,5 Volt. Les différentes cellules sont
+montées en série pour former des modules qui délivrent des tensions normalisées
+Les cellules sont la plupart du temps fabriquées à partir de silicium. On utilise du
+silicum monocristallin (coûteux mais au rendement plus élevé), du silicum polycristallin (le plus
+répandu sur la surface de la Terre) ou du silicium amorphe (le moins coûteux mais aussi le moins
+performant).
+B/ La conversion de l'énergie lumineuse en énergie électrique
+La conversion de la lumière en électricité nécessite tout d’abord des matériaux semiconducteurs (silicium). Dans ces matériaux, les électrons contenus dans la matière ne peuvent
+circuler que si on leur fournit une énergie pour les libérer de leurs atomes. Quand la lumière pénètre
+dans un semi-conducteur, ses photons apportent une énergie permettant aux électrons de se libérer
+et de se déplacer dans la matière, c’est ainsi qu’on observe la création d'un courant électrique sous
+exposition à la lumière.
+Un photo générateur est en fait une tranche de silicium que l’on place entre deux
+électrodes métalliques (+) et (-) pour collecter le courant produit. C'est en créant une différence de
+potentiel entre ces deux bornes que l’on permet la circulation du courant. C’est le « dopage » des
+parties avant et arrière de la « tranche » de silicium qui va permettre l’apparition de cette différence
+de potentiel. On crée ainsi un champ électrique interne pour entraîner vers le circuit externe les
+charges électriques libérées sous illumination.
+ANATOMIE D’UN PHOTOGENERATEUR
+Panneau solaire au silicium cristallin :
+Le silicium cristallin est en fait du silicium à l’état massif qui a une structure ordonnée. Le panneau
+solaire est alors une plaquette de 0.2mm d’épaisseur découpée dans une section de silicium. Ce
+silicium cristallin peut être, selon la technologie employée, monocristallin ou polycristallin.
+Lorsqu’il est monocristallin, le panneau est composé de photopiles formées d’un seul cristal de
+silicium ordonné. Ce matériaux est fabriqué par la recristallisation à haute température ou en
+barreaux. Lorsqu’il est polycristallin, il est constitué de cristaux de 1mm à 2cm liés entre eux et
+orientés perpendiculairement à la surface du panneau, ce qui permet de garder un rendement
+supérieur à 10%. Il a donc un plus faible rendement mais il est aussi moins onéreux. Enfin le
+silicium utilisé pour les photopiles peut être aussi amorphe, c’est-à-dire que les atomes du cristal
+sont fixés entre eux de manière désordonnée. Le silicium est moins sensible à la température et il a
+un rendement qui est relativement stable quel que soit la luminosité même s’il reste toujours plus
+faible que celui du silicium polycristallin.
+
+-4-
+
+C/ Mise en évidence du fonctionnement du panneau solaire
+Pour un éclairement donné, grâce au voltmètre, on mesure la tension Ur et on fait varier la
+résistance grâce au potentiomètre. On s’aperçoit que le panneau solaire se comporte comme un
+générateur de courant et qu'on a la relation: Ur=R*I.
+L'intensité est proportionnelle à l'éclairement, cependant chaque panneau solaire à une intensité
+maximale Imax propre qu'il ne peut dépasser (figure1). D'où les graphiques suivants :
+
+Figure 1
+
+Figure 2
+
+De plus, on peut remarquer que le panneau solaire s’adapte parfaitement à
+l’application : plus elle a besoin de tension, plus le photo générateur en fourni. Mais, quelque soit
+l’intensité, il existe une tension maximale liée à la capacité du panneau solaire (et donc propre à
+chacun) telle que, lorsque l’application dépasse cette Umax, l’intensité diminue rapidement
+(figure2).
+
+En comparant ces deux courbes, on voit clairement l'influence du facteur « Météo » sur le
+rendement d'un panneau solaire, d'où la modification de notre problématique
+D/ Caractéristiques des panneaux solaires utilisés
+Pour notre projet, nous avons utilisé deux panneaux solaires différents dont voici les
+caractéristiques :
+- pour les premiers circuits, nous avons utilisé un panneau (de puissance 713 mW) avec une
+tension nominale de 8,4 V et un courant de 85 mA comme courant nominal. En court-circuit, il peut
+aller jusqu'à 109 mA.
+- pour le montage final : nous avons utilisé un panneau (de puissance 686 mW) avec une
+tension nominale de tension 18V et de courant nominal de 38mA et qui peut aller jusqu’à 49mA en
+court-circuit.
+
+-5-
+
+III – Mise en Oeuvre d'un Panneau solaire : Alimenter une
+application
+A/ Le montage mis en place
+Afin de répondre à notre problématique, nous avons développé un premier circuit qui
+nous permettait d'alimenter des applications de faibles consommations. Nous avons choisi de
+prendre comme batterie un accumulateur de 9V car cela nous permet de couvrir toutes les tensions
+comprises dans l’intervalle [1 ;9V] donc quelques unes des tensions les plus communes : 1.5V, 3V,
+5V. Nous avons choisit d'utiliser une radio portable de 3V consommant 15mA
+Nous avons tout d’abord pensé à utiliser le panneau de 9V car c'était celui le plus proche de la
+tension de l'accumulateur.
+
+Les caractéristiques de ce panneau sont les suivantes : 713mW – 8,4V – 85mA.
+Le panneau se comporte comme une source de courant, on place un accumulateur comme
+source de tension. On remarque lors du fonctionnement de ce circuit que lorsque le panneau fourni
+trop de courant par rapport à la consommation, il charge l’accumulateur, alors que lorsqu'il ne
+fourni pas assez de courant, c’est l’accumulateur qui fourni le courant manquant.
+
+B/ Fonctionnement du Régulateur de Tension
+1- Qu'est qu'un régulateur ?
+Un Régulateur est un composant électronique permettant de régler et de maintenir une
+tension de sortie indépendante de la tension d'entrée : nous utilisons pour ce faire le composant
+LM317
+Le régulateur de tension (LM317) nous permet de s’adapter aux différentes tensions des
+appareils alimentés entre 9V et 1V.
+2- Comment fonctionne un régulateur de tension ?
+Le LM317, à l’aide d'un pont diviseur de tension, fixe la valeur de la sortie Vs. Dans notre
+-6-
+
+montage, on peut remarquer que le régulateur est ajustable grâce au potentiomètre R2. La tension de
+sortie Vs est relativement indépendante de la tension d'entrée puisqu’on utilise une tension de
+référence interne (1,25V) au composant. En appliquant un pont diviseur de tension on obtient la
+relation suivante :
+
+Vs = Vref (1+R2/R1)
+On nous donne dans la documentation du LM317 la valeur de Vref, 1,25 V. R2 étant un
+potentiomètre, nous pouvons produire en sortie plusieurs tensions différentes sans changer de
+circuit.
+C/ Conclusion
+Le principe semble donc fonctionner : le panneau et l’accumulateur se complétent.
+Cependant le panneau peut charger l’accumulateur lorsqu’il fourni trop de courant, ce qui signifie
+que lorsque il n’y a pas d’application qui consomme mais qu’il y a de la lumière, le panneau charge
+uniquement l’accumulateur. Or, cet accumulateur 9V ne peut être chargé indéfiniment sans être
+endommagé. Il faut donc pouvoir contrôler la charge de cet accumulateur, c’est-à-dire contrôler le
+courant de charge ainsi que la tension aux bornes de l’accumulateur.
+
+IV - Etude de la charge d'un accumulateur Ni-Mh
+Un accumulateur Ni-Mh est un accumulateur au Nickel-Metal Hydride.
+Caractéristique de charge d'un tel accumulateur :
+
+Nous remarquons sur cette courbe qu'en fin de charge, on a une augmentation rapide de la tension
+qui va nous servir à détecter la fin de la charge (5): c'est en effet à ce moment que nous devrions
+l’interrompre.
+Lors de la décharge, la tension aux bornes de l’accumulateur suit la même courbe en sens inverse,
+et on remarque en (3) que la tension chute brusquement : c'est à ce moment que nous devrions
+commencer à recharger pour des conditions de charge optimales.
+-7-
+
+Enfin, après la charge à un courant (1), demeure un courant de maintient de charge pour que
+l’accumulateur reste chargé.
+La tension de charge maximale de l'accumulateur vu en (5) est de 9.5V. Celle de décharge
+maximum tolérée est de 7.3V avant que la tension ne chute.
+
+V – Contrôle du courant de charge
+A/ Le montage
+L’accumulateur 9V Ni-Mh ne doit pas être chargé à un courant instable comme est celui issu
+du panneau solaire.
+Il convient donc d’introduire dans le montage de régulation de charge, un régulateur de
+courant, le même composant LM-317.Nous avons ajouté une diode (anti-retour) afin d’éviter la
+décharge de l’accumulateur dans le circuit lorsque le panneau ne génère aucun courant :
+
+Accu
+
+B/ le LM317, Régulateur de courant
+Ce composant permet de maintenir un courant stable et constant en sortie. Le LM317 est
+suivit d'une résistance, R1 dans le montage, lorsqu'il est utilisé en tant que régulateur de courant.
+On a la relation suivante :
+
+Iout=Vref/R1=1,25/R1
+o Iout = courant de sortie du circuit de contrôle du courant
+o Vréf = tension de référence interne du circuit LM317.
+Rq : pour que le régulateur fonctionne, il faut qu'il y ait une
+différence de potentiel de 2,5V entre l'entrée et la sortie du
+composant, ce qui nous impose l'utilisation du panneau de 18 V. La tension de sortie est celle de
+l'accu 9V.
+
+VI- Contrôle du niveau de charge
+A/ Première solution : montage à l'aide d'un comparateur simple
+Tout d’abord, nous avons contrôlé la tension aux bornes de l’accumulateur
+avec un amplificateur opérationnel (AOP) utilisé en tant que comparateur simple. L’idée était de
+fixer un seuil tel que si la tension de l’accumulateur lui était supérieure, le circuit était coupé et ne
+chargeait plus, et si la tension de l’accumulateur devenait inférieure à ce seuil, le panneau pouvait le
+recharger.
+-8-
+
+La tension-seuil de référence est obtenue grâce à l’ensemble {diode zéner Dz+résistance R2}
+et lorsque la tension de l’accumulateur devient plus grande que celle de référence, la sortie de
+l’AOP passe à 0V, ce qui ouvre le transistor MOSN qui va lui même bloquer le transistor MOSP.
+Ce transistor coupe alors le circuit de charge.
+
+Zener
+Led de
+charge
+
+Vaccu/2
+
+Cependant, ce type de comparateur générait un problème : lorsque la tension aux
+bornes de l’accumulateur devenait assez proche ou égale à celle de référence, le comparateur ne
+sortait pas un réel 0V mais une tension proche de 1V. Ce 1V ne suffisait pas à faire basculer le
+premier transistor (MOS N) puisqu’il faut pour bloquer ce type de transistor une tension inférieure à
+1V. Le transistor ne s’ouvrait donc pas ou ne cessait de passer d’un état à l’autre (figure 3).
+Pour régler ce problème, nous
+avons tout d’abord pensé à diminuer la tension
+de sortie suffisamment pour que le transistor voit
+une tension d’entrée assez faible pour le bloquer
+(même si l’AOP avait comme tension de sortie
+1V). C’est pourquoi nous avons placé une diode
+en sortie de l’AOP en série avec une résistance
+pour créer une chute de tension d'environ 0,6V:
+Cette solution convenait, mais il restait
+un problème : lorsque l'accu était
+chargé le comparateur coupait la
+charge mais aussitôt la tension aux
+bornes de l'accu chute et redescend en
+dessous du seuil de référence et la
+charge recommence. On avait un
+phénomène d'instabilité;
+
+-9-
+
+B/ Modification du montage : Comparateur à hystérésis
+Pour remédier à ce problème de manière
+plus complète, nous avons décidé de transformer le
+comparateur simple en comparateur à hystérésis,
+c’est-à-dire d’imposer deux seuils de référence au
+lieu d’un : un pour la charge maximale et un pour
+la décharge minimale.
+
+Vaccu/2
+
+Vréf 2
+
+Vréf 1
+
+Grâce aux deux ensembles
+{P1+Dz1} et {P2+Dz2}, on fixe deux tensions de
+référence différentes et indépendantes l’une de
+l’autre. Les diodes zéner Dz1 et Dz2 servent à
+régler les niveaux des seuils. Les diodes servent à
+sélectionner le seuil suivant l’état de la sortie de
+l’AOP: haut ou bas.
+
+L’ensemble du montage est alimenté par l’accumulateur ce qui permet d’avoir un circuit de
+contrôle toujours actif, même si la luminosité est insuffisante pour que le panneau soit en mesure
+d’alimenter un tel circuit. Les deux tensions de référence sont fixées avec la caractéristique de
+charge de l'étude de l'accumulateur.
+
+D’où la fonction de transfert du comparateur à hystérésis :
+Nous avons déterminé :
+- Vref1= 3,6 V
+- Vref2= 4,75 V
+Rq : La tension de l'accu ramenée à l'ampli est
+divisée par 2 par un pont diviseur. Car si les
+seuils "Vréf" sont trop proches de la tension
+d'alimentation de l'ampli la commutation de
+l'AOP n'est pas franche.
+
+- 10 -
+
+C/ Montage Final
+Apres avoir apporté les modifications, au circuit précédent, on obtient le montage suivant
+
+Ce montage associé à la radio portable est correctement dimensionné car le panneau par temps
+ensoleillé peut fournir le courant de charge à l'accu de 10mA et en même temps celui de la radio de
+15mA. Le panneau solaire est capable de fournir jusqu'à 30mA.
+
+VII – Projet avec la société SORHODEL
+A/ Présentation de la balise
+L'entreprise SORHODEL basée a St-Maurice de Beynost est spécialisée en
+Téléconduite et en détection de défauts (surintensité et chute de tension) sur les lignes moyenne
+tension.
+A la suite de la présentation de notre projet à cette société, elle nous a proposé d'adapter notre
+système à un produit concret utilisé par celle-ci pour la détection de défauts, c'est-à-dire utiliser un
+photogénérateur sur une balise de signalisation.
+La balise de signalisation consomme 3,5 milli ampère de façon continue et 0,4
+ampère pendant 60 ms toutes les 3 secondes, on peut tracer le chronogramme suivant
+I_led (A)
+400 mA
+
+3,5 mA
+
+temps
+3s
+
+60ms
+
+B/Vérification des performances de notre circuit associé à la balise
+Nous avons essayé de déterminer les énergies mises en jeu :
+
+- 11 -
+
+Caractéristiques de la balise : Ib = f(t)
+376 mA
+
+3s
+
+3,5 mA
+60 ms
+
+Ib=376mA pendant 60ms
+
+Après avoir relevé le courant de la balise avant le régulateur pendant un clignotement, nous avons
+pu mesurer les valeurs suivantes :
+Ib(veille) = 3,5 mA
+Ib(clignotement) = 376 mA
+Ib(moy) = 3.5 + 0.06/3 * (376 – 3.5) = 10.95 mA
+Eb = 9 * 10.95 *1= 98.55 mW.s
+énergie de la balise consommée en 1s
+•
+
+Caractéristiques de l’accumulateur
+Q = 250 mAh (capacité)
+Vaccu = 9V
+Eaccu = Q*Vaccu * 3600 = 8100 W.s (énergie totale stockée dans l’accu)
+
+- 12 -
+
+•
+
+Caractéristiques du panneau solaire
+Ipmax = 35 mA
+Vp = 18V
+Sp = 1.264.10-2 m² (surface physique du panneau solaire)
+R = 0.2 (rendement de 20 %)
+
+Les relevés effectués par météo France nous ont permis de connaître les valeurs moyennes de la
+puissance solaire en été (Pe) ainsi qu’en hiver (Ph).
+En été :
+Pe = 5.5 Kw.h/m²/Jour, on obtient alors
+Ee’ = 5.5 * 1000 * 60 * 60 * Sp = 250272/(24*3600) = 2.897 W.s
+Ee = r * Ee’ = 0.579 W.s (énergie fournie par le panneau solaire en été en 1s)
+Ipe = Ee / Vp = 32 mA (avec Vp = tension nominale panneau 18V)
+Rq : on retrouve le courant du panneau mesuré (30 mA) avec le rétroprojecteur
+
+En hiver :
+Ph = 1.6 Kw.h/m²/Jour
+Eh = 0.169 W.s
+Iph = 9.4 mA
+Le panneau peut donc délivrer en moyenne Ipe = 32 mA en été et Iph = 9.4 mA en hiver.
+Après avoir effectué les calculs d’énergie nécessaires nous avons obtenu le tableau suivant :
+Météo
+
+Cas
+Panneau seul
+
+En veille
+Autonome
+
+Eté
+
+Accu seul
+
+71h20 => 3 jours
+
+Pan + accu
+Panneau seul
+Accu seul
+Pan + accu
+Panneau seul
+Accu seul
+
+Autonome
+Autonome
+71h20 => 3 jours
+Autonome
+0h
+71h20 => 3 jours
+
+Hiver
+Absence de
+soleil
+=> nuit ou
+obscurité
+
+En clignotement
+* Autonome mais flash faible (30mA)
+* On a une autonomie de 22h50 pour
+un délai d’intervention de 6h ce qui
+représente 26 % de l’autonomie totale.
+* 36h20 / 6h représente 17 %
+Autonome mais flash très faible (10mA)
+22h50 / 6h représente 26 %
+34h / 6h représente 18%
+0h
+22h50 / 6h représente 26 %
+
+Le temps d’intervention d’un technicien sur une ligne défectueuse varie entre 5 et 6h. Nous voyons
+très bien d’après les valeurs du tableau, que ce temps est largement acceptable pour notre circuit
+puisqu’au minimum la balise peut clignoter pendant plus de 22h.
+
+- 13 -
+
+Pour une durée de 6h en été avec une balise en clignotement on a les résultats suivants :
+Ebalise = 3.6*10.95 *6*3600=852 W.s (énergie consommée pendant 6h)
+Epanneau = 1894 W.s (énergie fournie par le panneau pendant 6h)
+Eaccu = 1338 W.s (énergie fournie par l’accu pendant 6h)
+Epanneau+Eaccu=1894+1338=3232 Ws
+
+Panneau
+
+Ib
+
+Régul U
+
+Ip
+Iaccu
+
+Vin
+
+3,6V
+
+Balise
+
+Accu
+9V
+On remarque que Ebalise << Epanneau + Eaccu ceci est dû à de la différence de tension entre
+l’entrée et la sortie du régulateur. Ce dernier dissipe l’excédent d’énergie. Mais ce régulateur nous
+permet de pouvoir adapter notre projet à plusieurs tensions d’appareils.
+Pour obtenir ces résultats nous avons dû effectuer des mesures sur notre circuit. Voici l’ensemble
+des relevés nous ayant permis d’effectuer ces calculs :
+
+Panneau :
+
+Ip = f(t) pendant un clignotement
+
+34mA
+
+60ms
+
+En veille le panneau fourni les 3.5 mA (mesuré avec un ampèremètre balise sans flash) nécessaires
+alors qu’en temps de clignotement il fournit son courant maximal qui est de 32 mA avec un
+ensoleillement d’été. La balise flash mais son éclairement est faible avec 32 mA alors qu’il faudrait
+Ib(clignotement)=376 mA pour un flash normal.
+
+- 14 -
+
+Vin = f(t) pendant le clignotement
+
+24 V panneau seul-la balise ne flash pas
+
+9 V panneau
++accu-la balise
+flash
+60ms
+
+A partir de ce relevé on a pu voir que lorsque la balise ne demandait pas beaucoup de courant, c’est
+à dire pendant la veille ou entre deux clignotements, c’est le panneau solaire qui impose sa tension
+alors que lorsque la balise a besoin d’un fort courant, comme c’est l’accumulateur qui compense le
+manque de courant, c’est alors ce dernier qui va imposer sa tension qui est d’environ 8.5 V.
+
+Iaccu = f(t) pendant un clignotement avec le panneau solaire exposé à la lumière
+
+344mA pendant
+60ms puis 0A
+pendant 2.94s
+
+On peut voir que temps qu’il n’y a pas clignotement, l’accumulateur ne fourni aucun courant,
+cependant, pendant le clignotement il fourni un courant égal à
+Ib(clignotement) – Ip = 376 - 32 = 344 mA.
+
+- 15 -
+
+•
+
+Charge de l’accumulateur
+
+Le panneau solaire délivrant durant les journées d’hivers un courant de 9.4 mA en moyenne, nous
+avons décidé de fixer le courant de charge à Ic = 6.9 mA de façon à pouvoir alimenter par le
+panneau la balise en veille (3,5 mA) pendant la charge. ( Iph = Ic + Ib(veille) ). On a la relation :
+Q = Ic * t
+t = Q / Ic = 42.37 heures
+Il faut donc 42h22 pour charger complètement l’accumulateur, vide au départ.
+Cependant, le panneau solaire n’est capable de charger l’accumulateur seulement pendant la
+journée, soit environ 12h. Ce qui correspond à une capacité Q1 = 70.8 mAh. A partir de cette
+capacité on pourrait alors déterminer la tension aux bornes de l’accumulateur lorsque celui-ci
+contient une capacité Q2 = Q – Q1. En réglant la tension seuil de début de charge du comparateur à
+hystérésis à la tension précédemment calculé, on pourrait alors faire en sorte que l’accumulateur
+soit chargé au maximum tous les deux jours.
+La capacité Q1 correspond à une puissance permettant d’alimenter seul (sans le soutient du panneau
+solaire) la balise en veille pendant 20h14 et en clignotement pendant 6h.
+
+VII – Conclusion
+A/ bilan
+Nous sommes partis de l'idée d'alimenter une application basse consommation (radio
+portable de 3V, 15 mA) en utilisant un panneau solaire. Dans un temps on a identifié le
+fonctionnement du panneau se comportant comme une source de courant avec ses limites. Pour
+palier aux périodes de lumière on a ajouté un accu dans l’idée d’obtenir un système autonome. A
+l'aide du premier montage nous avons pu déterminer que le panneau suffit pour fournir le courant à
+la radio et même à la recharge l’accumulateur (par un éclairement suffisant).
+Le problème à ce moment a été le courant non contrôlé aux bornes de l'accumulateur, donc après
+réflexion nous avons décidé d’ajouter un circuit pour maîtriser la charge de l’accumulateur.
+On a eu l’opportunité d’utiliser grâce à la société Sorodhel notre projet pour une application
+industrielle.
+C/ Remerciements
+Pour mener a bien notre projet, nous avons eu besoin de certains personnes qui nous remercions :
+M.Lacombe, professeur de génie électrique, qui s'est investit dans notre projet. Nous a
+aidé à trouver des solutions adaptées.
+M.Saintier et M.Dury, responsable de la société SORHODEL
+
+- 16 -
+
+
