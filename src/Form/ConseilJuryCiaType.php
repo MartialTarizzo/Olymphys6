@@ -25,7 +25,8 @@ class ConseilJuryCiaType extends AbstractType
                     'extraPlugins' => 'wordcount',),
                 'plugins' => array(
                     'wordcount' => array(
-                        'path'     => '/bundles/fosckeditor/plugins/wordcount/', // with trailing slash
+                        'path' => '../public/bundles/fosckeditor/plugins/wordcount/', // with trailing slash sur le site
+                        //'path'     => '../public/bundles/fosckeditor/plugins/wordcount/', // with trailing slash en local
                         'filename' => 'plugin.js',
                     ))
             ],
