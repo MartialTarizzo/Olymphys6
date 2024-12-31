@@ -13,50 +13,71 @@
 {% block titre3 %} Recommandations du jury{% endblock %}
 
 {% block body %}
+    {% set equipes=app.session.get('tableau')[0] %}
     <div class="row"><a href="{{ path('cyberjury_create_file_advice') }}"><button class="btn btn-primary">Obtenir le fichier word</button></a></div>
 
-    {% if recommandations!=null %}
+    {% if equipes!=null %}
         <div class="container-fluid">
-            <div class="row" style="text-align: center;font-size: larger;font-weight: bold">
-                <div class="col-1">
+            <div class="row " style="text-align: center;font-size: larger;font-weight: bold">
+                <div class="col-1 d-none d-md-block">
                     Lettre
                 </div>
-                <div class="col-4">
+                <div class="col-3 d-none d-md-block">
                     Nom équipe
                 </div>
-                <div class="col-4">
+                <div class="col-7 d-none d-md-block">
                     Recommandation
                 </div>
-                <div class="col-3">
+                <div class="col-1 d-none d-md-block">
                 </div>
             </div>
             <div>
                 <hr>
             </div>
-            {% for recommandation in recommandations %}
+            {% for equipe in equipes %}
 
                 <div class="row">
-                    <div class="col-1">
+                    <div class="col-md-1 col-sm-12" style="text-align: center">
                         <a
                                 class="btn btn-primary btn-lg"
-                                href="#">{{ recommandation.equipe.equipeinter.lettre }}</a>
+                                href="#">{{ equipe.equipeinter.lettre }}</a>
                     </div>
-                    <div class="col-4">
-                        {{ recommandation.equipe.equipeinter.titreProjet }}
+                    <div class="col-md-3 col-sm-12" style="text-align: left;font-size: larger; font-weight: bold">
+                        {{ equipe.equipeinter.titreProjet }}
                     </div>
-                    <div class="col-4">{{ recommandation.texte|raw }}
-                    </div>
-                    <div class="col-3">
-                        <a href="{{ path('secretariatjury_modif_recommandations',{'id':recommandation.id}) }}"
-                           type="button" class="fas fa-pencil-alt" title="Modifier"></a>
-                        {% if recommandation.envoyee!=true %}
-                            <a href="#" data-toggle="modal" data-target="#modalenvoiconseilscn"
-                               data-id="{{ recommandation.id }}"
-                               type="button" class="fas fa-envelope" title="Envoyer"></a>
-                            {% else %}
-                            <span style="color: #00FF00"><i class="fa fa-check-square" aria-hidden="true" title="Envoyée"></i></span>
-                        {% endif %}
 
+                    <div class="col-md-7 col-sm-12">
+                        <div class="wrap" contenteditable="true"
+                             style="text-align: left;text-wrap: wrap;word-break: break-all;">
+                            {% if recommandations!=null %}
+                                {% for recommandation in recommandations %}
+
+                                    {% if recommandation.equipe.id==equipe.id %}
+                                        {{ recommandation.texte|raw }}
+                                    {% endif %}
+                                {% endfor %}
+                            {% endif %}
+                        </div>
+                    </div>
+                    <div class="col-md-1 col-sm-12">
+                        <a href="{{ path('secretariatjury_modif_recommandations',{'id':equipe.id}) }}"
+                           type="button" class="fas fa-pencil-alt" title="Modifier"></a>
+
+                        {% if recommandations!=null %}
+                            {% for recommandation in recommandations %}
+                                {% if recommandation.equipe.id==equipe.id %}
+                                    {% if recommandation.envoyee!=true %}
+                                        <a href="#" data-toggle="modal" data-target="#modalenvoiconseilscn"
+                                           data-id="{{ recommandation.id }}"
+                                           type="button" class="fas fa-envelope" title="Envoyer"></a>
+                                    {% else %}
+                                        <span style="color: #00FF00"><i class="fa fa-check-square" aria-hidden="true"
+                                                                        title="Envoyée"></i></span>
+                                    {% endif %}
+                                {% endif %}
+                            {% endfor %}
+                        {% endif %}
+                        <hr>
                     </div>
 
                 </div>

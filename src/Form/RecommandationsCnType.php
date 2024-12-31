@@ -15,14 +15,25 @@ class RecommandationsCnType extends AbstractType
 {
     public function buildForm(FormBuilderInterface $builder, array $options): void
     {
+        $pathpluginsWordcount = '../public/bundles/fosckeditor/plugins/wordcount/'; // with trailing slash sur le site
+        if (str_contains('127.0.0.1', $_SERVER['SERVER_NAME'])) {
+            $pathpluginsWordcount = 'bundles/fosckeditor/plugins/wordcount/';// with trailing slash en local
+        }
         $builder
             ->add('texte', CKEditorType::class,[
 
-                'label'=>'maximum 250 mots'
-
+                'label' => 'maximum 1500 caractères',
+                'required' => false,
+                'config' => array(
+                    'extraPlugins' => 'wordcount',),
+                'plugins' => array(
+                    'wordcount' => array(
+                        'path' => $pathpluginsWordcount,
+                        'filename' => 'plugin.js',
+                    ))
 
             ])
-            ->add('valider', SubmitType::class);
+            ->add('Enregistrer', SubmitType::class);
     }
 
     public function configureOptions(OptionsResolver $resolver) : void

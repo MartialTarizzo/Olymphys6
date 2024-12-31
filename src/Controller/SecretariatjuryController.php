@@ -93,7 +93,10 @@ class SecretariatjuryController extends AbstractController
              ->orderBy('e.lettre', 'ASC')
              ->getQuery()
              ->getResult();*/
-        $listEquipes = $this->doctrine->getRepository(Equipes::class)->findAll();
+        $listEquipes = $this->doctrine->getRepository(Equipes::class)->createQueryBuilder('e')
+            ->leftJoin('e.equipeinter', 'eq')
+            ->addOrderBy('eq.lettre', 'ASC')
+            ->getQuery()->getResult();
         if($listEquipes == []){//Pour travailler sur les données de l'édition précédente avant le concours, les équipes ne sont pas connues alors
 
             $listEquipes=$this->doctrine->getRepository(Equipes::class)->findAll();
@@ -2102,6 +2105,7 @@ class SecretariatjuryController extends AbstractController
             ->orderBy('eqi.lettre', 'ASC')
             ->getQuery()->getResult();
 
+        $listeEquipes = $this->requestStack->getSession()->get('tableau')[0];
         return $this->render('secretariatjury/liste_recommandations.html.twig', ['recommandations' => $recommandations]);
 
 
@@ -2111,19 +2115,22 @@ class SecretariatjuryController extends AbstractController
     #[Route("secretariatjury/modif_recommandations,{id}", name: "secretariatjury_modif_recommandations")]
     public function modif_recommandations(Request $request, $id): Response
     {
-
-        $recommandation = $this->doctrine->getRepository(RecommandationsJuryCn::class)->find($id);
-
+        $equipe = $this->doctrine->getRepository(Equipes::class)->find($id);
+        $recommandation = $this->doctrine->getRepository(RecommandationsJuryCn::class)->findOneBy(['equipe' => $equipe]);
+        if ($recommandation == null) {
+            $recommandation = new RecommandationsJuryCn();
+            $recommandation->setEquipe($equipe);
+        }
         $form = $this->createForm(RecommandationsCnType::class, $recommandation);
         $form->handleRequest($request);
         if ($form->isSubmitted() and $form->isValid()) {
-            $repoRecommandations = $this->doctrine->getRepository(RecommandationsJuryCN::class);
-            $valid = $repoRecommandations->valid_nomber_word($recommandation->getTexte());
+            /* $repoRecommandations = $this->doctrine->getRepository(RecommandationsJuryCN::class);
+           $valid = $repoRecommandations->valid_nomber_word($recommandation->getTexte());
             if ($valid == false) {
                 $this->requestStack->getSession()->set('info', 'Le nombre de mots dépasse 250, veuillez simplifier s\'il vous plaît');
                 return $this->render('secretariatjury/modif_recommandation.html.twig', ['form' => $form->createView(), 'recommandation' => $recommandation]);
 
-            }
+            }*/
             $this->doctrine->getManager()->persist($recommandation);
             $this->doctrine->getManager()->flush();
             return $this->redirectToRoute('secretariatjury_liste_recommandations');
