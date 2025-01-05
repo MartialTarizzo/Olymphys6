@@ -511,7 +511,13 @@ class JuryCiaController extends AbstractController
         $edition = $this->requestStack->getSession()->get('edition');
         $centre = $this->doctrine->getRepository(Centrescia::class)->findOneBy(['centre' => $centre]);
         $repositoryEquipes = $this->doctrine->getRepository(Equipesadmin::class);
-        $equipes = $repositoryEquipes->findBy(['centre' => $centre, 'edition' => $edition]);
+        $equipes = $repositoryEquipes->createQueryBuilder('e')
+            ->where('e.centre =:centre')
+            ->andWhere('e.edition =:edition')
+            ->andWhere('e.inscrite =:value')
+            ->andWhere('e.numero <:numero')
+            ->setParameters(['value' => true, 'centre' => $centre, 'edition' => $this->requestStack->getSession()->get('edition'), 'numero' => 100])
+            ->getQuery()->getResult();
         $repositoryConseils = $this->doctrine->getRepository(ConseilsjuryCia::class);
         $conseils = $repositoryConseils->createQueryBuilder('c')
             ->select()
