@@ -1571,7 +1571,9 @@ class ElevesinterCrudController extends AbstractCrudController
             'posVerticalRel' => 'line',
         ), false, 'logo');
         $section->addTextBreak(6);
-        $section->addText('Paris le ' . $this->date_in_french($this->requestStack->getSession()->get('edition')->getConcourscia()->format('Y-m-d')), ['size' => 14,], ['align' => 'right']);
+            //$section->addText('Paris le ' . $this->date_in_french($this->requestStack->getSession()->get('edition')->getConcourscia()->format('Y-m-d')), ['size' => 14,], ['align' => 'right']);
+
+            $section->addText('Document à présenter à l\'entrée de l\'université(A imprimer ou en version numérique', ['size' => 14,], ['align' => 'center']);
         $section->addTextBreak(2, ['size' => 14]);
         $section->addText('Invitation aux', ['size' => 18, 'bold' => true,], ['align' => 'center']);
         $textrun = $section->addTextRun(['align' => 'center']);
@@ -1669,9 +1671,18 @@ class ElevesinterCrudController extends AbstractCrudController
         $pdf->image($path.'site-logo-398x106.png', 75, 40, 60);
         $y=$pdf->GetY()+30;
         $pdf->setY($y);
-        $str = 'Paris le ' . $this->date_in_french($edition->getConcoursCia()->format('Y-m-d'));
+        //$str = 'Paris le ' . $this->date_in_french($edition->getConcoursCia()->format('Y-m-d'));
+        $pdf->SetTextColor(255, 0, 0);
+        $str = 'Document indispensable pour pouvoir entrer dans l\'enceinte de  l\'université';
+
+        $strprim = 'A présenter au gardien sur support papier ou en version numérique';
         $str = iconv('UTF-8', 'windows-1252', $str);
-        $pdf->Cell(0, 30, $str . "\n", 0, 0, 'R');
+        $strprim = iconv('UTF-8', 'ISO-8859-1', $strprim);
+        $pdf->Cell(0, 10, $str . "\n", 1, 0, 'C');
+        $y = $pdf->GetY() + 8;
+        $pdf->setY($y);
+        $pdf->SetTextColor(0, 0, 0);
+        $pdf->Cell(0, 10, '(' . $strprim . ')' . "\n", 0, 0, 'C');
         $pdf->SetFont('helvetica', 'B', 18);
         $str1 = 'Invitation aux ';
         $x = $pdf->GetX();

@@ -206,7 +206,7 @@ class AdminsiteCrudController extends AbstractCrudController
                 $OdpfEquipepassee->setLycee($equipe->getUaiId()->getNom());
                 $OdpfEquipepassee->setVille($equipe->getUaiId()->getCommune());
                 $OdpfEquipepassee->setAcademie($equipe->getLyceeAcademie());
-                $nomsProfs1 = ucfirst($equipe->getPrenomProf1()) . ' ' . strtoupper($equipe->getNomProf1());
+                $nomsProfs1 = ucfirst($equipe->getPrenomProf1()) . ' ' . mb_strtoupper($equipe->getNomProf1());
                 $equipe->getIdProf2() != null ? $nomsProfs = $nomsProfs1 . ', ' . $equipe->getPrenomProf2() . ' ' . $equipe->getNomProf2() : $nomsProfs = $nomsProfs1;
                 $OdpfEquipepassee->setProfs($nomsProfs);
                 $listeEleves = $repositoryEleves->findBy(['equipe' => $equipe]);

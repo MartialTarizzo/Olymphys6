@@ -286,7 +286,7 @@ class LivredorController extends AbstractController
                 foreach ($equipes as $equipe) {
                     $nomprofs = explode(', ', $equipe->getProfs());
 
-                    if (strtoupper($nomprofs[0]) == strtoupper($prof->getPrenomNom())) {
+                    if (mb_strtoupper($nomprofs[0]) == mb_strtoupper($prof->getPrenomNom())) {
 
                         if (strlen($lettres_equipes_prof[$i]) > 0) {
                             $lettres_equipes_prof[$i] = $lettres_equipes_prof[$i] . ', ' . $equipe->getLettre();
@@ -300,7 +300,7 @@ class LivredorController extends AbstractController
                     }
 
                     if (isset($nomprofs[1])) {
-                        if (strtoupper($nomprofs[1]) == strtoupper($prof->getPrenomNom())) {
+                        if (mb_strtoupper($nomprofs[1]) == mb_strtoupper($prof->getPrenomNom())) {
                             if (strlen($lettres_equipes_prof[$i]) > 0) {
                                 $lettres_equipes_prof[$i] = $lettres_equipes_prof[$i] . ', ' . $equipe->getLettre();
                             }

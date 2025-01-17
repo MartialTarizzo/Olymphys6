@@ -317,4 +317,20 @@ class Mailer
 
     }
 
+    public function sendIntivationCn($quidam, $fichier, $flyer, $politesse)
+    {
+        $email = (new TemplatedEmail())
+            ->from('info@olymphys.fr')
+            ->to($quidam[2])
+            ->attachFromPath($fichier)
+            ->attachFromPath($flyer)
+            ->htmlTemplate('email/envoi_invitation.html.twig')
+            ->subject('OdPF-Votre invitation pour le concours national')
+            ->context(['quidam' => $quidam, 'politesse' => $politesse]);
+
+        $this->mailer->send($email);
+
+        return $email;
+    }
+
 }

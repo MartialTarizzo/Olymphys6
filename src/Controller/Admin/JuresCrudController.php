@@ -131,7 +131,7 @@ class JuresCrudController extends AbstractCrudController
         if (Crud::PAGE_INDEX === $pageName) {
             return [$nomJure, $initialesJure, $lesAttributions];
         } elseif (Crud::PAGE_DETAIL === $pageName) {
-            return [$id, $prenomJure, $nomJure, $initialesJure, $attributions, $iduser, $notesj];
+            return [$id, $prenomJure, $nomJure, $initialesJure, $lesAttributions, $iduser, $notesj];
         } elseif (Crud::PAGE_NEW === $pageName) {
             return [$iduser, $nomJure, $prenomJure, $initialesJure];
         } elseif (Crud::PAGE_EDIT === $pageName) {

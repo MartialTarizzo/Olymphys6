@@ -317,7 +317,7 @@ class SecretariatjuryCiaController extends AbstractController
                     $user = new User();//On crée le user
                     try {
 
-                        $user->setNom(strtoupper($slugger->slug($nom)));//Elimine les caractères ésotériques
+                        $user->setNom(mb_strtoupper($slugger->slug($nom)));//Elimine les caractères ésotériques
                         $prenomNorm = ucfirst(strtolower($slugger->slug($prenom)));//prépare la normalisation du prénom
 
                         if (count(explode('-', $prenom)) > 1) {//Si le prénom est composé
@@ -379,11 +379,11 @@ class SecretariatjuryCiaController extends AbstractController
                     $jureCia->setPrenomJure($user->getPrenom());
                     $jureCia->setCentrecia($centrecia);//On affecte le juré cia au centre créateur du juré cia
                     if (str_contains($slugger->slug($prenom), '-')) {//Pour éliminer les caratères non ASCII et tenir compte d'un prénom composé
-                        $initiales = strtoupper(explode('-', $slugger->slug($prenom))[0][0] . explode('-', $slugger->slug($prenom))[1][0] . $slugger->slug($nom[0]));
+                        $initiales = mb_strtoupper(explode('-', $slugger->slug($prenom))[0][0] . explode('-', $slugger->slug($prenom))[1][0] . $slugger->slug($nom[0]));
                     } elseif (str_contains($slugger->slug($prenom), '_')) {//Pour éliminer les caratères non ASCII  et tenir compte d'un prénom composé mal saisi
-                        $initiales = strtoupper(explode('-', $slugger->slug($prenom))[0][0] . explode('-', $slugger->slug($prenom))[1][0] . $slugger->slug($nom[0]));
+                        $initiales = mb_strtoupper(explode('-', $slugger->slug($prenom))[0][0] . explode('-', $slugger->slug($prenom))[1][0] . $slugger->slug($nom[0]));
                     } else {
-                        $initiales = strtoupper($slugger->slug($prenom))[0] . strtoupper($slugger->slug($nom))[0];
+                        $initiales = mb_strtoupper($slugger->slug($prenom))[0] . mb_strtoupper($slugger->slug($nom))[0];
                     }
                     $jureCia->setEmail($email);
                     $jureCia->setInitialesJure($initiales);
@@ -990,7 +990,7 @@ class SecretariatjuryCiaController extends AbstractController
                 return $this->redirectToRoute('secretariatjuryCia_gestionjures', ['centre' => $centre]);
             }
             $userJure->setEmail($email);
-            $userJure->setNom(strtoupper($nom));
+            $userJure->setNom(mb_strtoupper($nom));
             $prenomNorm = ucfirst(strtolower($prenom));
             if (count(explode('-', $prenom)) > 1) {
 
@@ -1016,7 +1016,7 @@ class SecretariatjuryCiaController extends AbstractController
             }
             $userJure->setPrenom($prenomNorm);
             $jurecia->setPrenomJure($prenomNorm);
-            $jurecia->setNomJure(strtoupper($nom));
+            $jurecia->setNomJure(mb_strtoupper($nom));
 
             $this->doctrine->getManager()->persist($jurecia);
             $this->doctrine->getManager()->persist($userJure);

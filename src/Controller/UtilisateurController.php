@@ -56,7 +56,7 @@ class UtilisateurController extends AbstractController
         $form->handleRequest($request);
         if ($form->isSubmitted() && $form->isValid()) {
             $nom = $form->get('nom')->getData();
-            $nom = strtoupper($nom);
+            $nom = mb_strtoupper($nom);
             $user->setNom($nom);
             $prenom = $form->get('prenom')->getData();
             $prenom = ucfirst(strtolower($prenom));
@@ -255,7 +255,7 @@ class UtilisateurController extends AbstractController
                                 return $this->render('register/inscrire_equipe.html.twig', array('form' => $form1->createView(), 'equipe' => $equipe, 'concours' => $session->get('concours'), 'choix' => 'liste_prof', 'modif' => $modif, 'eleves' => $eleves, 'uaiObj' => $uai_objet));
                             }
                             $eleve[$i]->setPrenom($form1->get('prenomeleve' . $i)->getData());
-                            $eleve[$i]->setNom(strtoupper($form1->get('nomeleve' . $i)->getData()));
+                            $eleve[$i]->setNom(mb_strtoupper($form1->get('nomeleve' . $i)->getData()));
                             $eleve[$i]->setCourriel($form1->get('maileleve' . $i)->getData());
                             $eleve[$i]->setGenre($form1->get('genreeleve' . $i)->getData());
                             $eleve[$i]->setClasse($form1->get('classeeleve' . $i)->getData());

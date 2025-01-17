@@ -9,12 +9,16 @@ use App\Entity\Equipesadmin;
 use App\Entity\Jures;
 use App\Entity\Uai;
 use App\Entity\User;
+use App\Service\CreateInvitationPdf;
+use App\Service\Mailer;
 use DateTime;
 use Doctrine\ORM\EntityManagerInterface;
 use Doctrine\Persistence\ManagerRegistry;
 use DoctrineExtensions\Query\Mysql\Time;
+use Fpdf\Fpdf;
 use PhpOffice\PhpSpreadsheet\IOFactory;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
 use Symfony\Component\Form\Extension\Core\Type\EmailType;
 use Symfony\Component\Form\Extension\Core\Type\FileType;
 use Symfony\Component\Form\Extension\Core\Type\HiddenType;
@@ -28,6 +32,7 @@ use Symfony\Component\PasswordHasher\Hasher\UserPasswordHasherInterface;
 use Symfony\Component\Routing\Attribute\Route;
 
 use Symfony\Component\Security\Http\Attribute\IsGranted;
+use Symfony\Component\String\Slugger\AsciiSlugger;
 use Symfony\Component\Validator\Validator\ValidatorInterface;
 
 
@@ -480,5 +485,65 @@ class SecretariatadminController extends AbstractController
         }
         return $this->render('core/lien_video.html.twig', array('form' => $Form->createView()));
 
+    }
+
+    #[IsGranted('ROLE_ADMIN')]
+    #[Route("/secretariatadmin/invitations_cn", name: "invitations_cn")]
+    public function createinvitationCnPdf(Request $request, Mailer $mailer): Response
+    {
+        $slugger = new AsciiSlugger();
+
+
+        if ($_SERVER['SERVER_NAME'] == 'www.olymphys.fr') {
+            $path = 'https://www.olymphys.fr/public/odpf/odpf-images/';
+        };
+        if ($_SERVER['SERVER_NAME'] == 'www.olympessais.olymphys.fr') {
+            $path = 'https://www.olymphys.fr/public/odpf/odpf-images/';
+        };
+        if ($_SERVER['SERVER_NAME'] == '127.0.0.1') {
+            $path = 'odpf/odpf-images/';
+        }
+        $form = $this->createFormBuilder()
+            ->add('nom', TextType::class, [
+                'label' => 'Nom',
+                'attr' => ['placeholder' => 'NOM']
+
+            ])
+            ->add('prenom', TextType::class, [
+                'label' => 'Prénom',
+                'attr' => ['placeholder' => 'Prénom']
+
+            ])
+            ->add('mail', EmailType::class, [
+                'label' => 'Email',
+                'attr' => ['placeholder' => 'E-mail']
+
+            ])
+            ->add('politesse', ChoiceType::class, [
+                'choices' => ['le plaisir' => 'le plaisir', 'l\'honneur' => 'l\'honneur'],
+                'label' => 'Choisir la formule de politesse qui convient'
+            ])
+            ->add('valider', SubmitType::class, ['label' => 'Créer et envoyer l\'invitationn'])
+            ->getForm();
+        $form->handleRequest($request);
+        if ($form->isSubmitted() && $form->isValid()) {
+
+            $nom = mb_strtoupper($form['nom']->getData());
+            $prenom = $form['prenom']->getData();
+            $politesse = $form['politesse']->getData();
+            $mail = $form['mail']->getData();
+            $quidam = [$nom, $prenom, $mail];
+            $createPdf = new CreateInvitationPdf();
+            $pdf = $createPdf->createInvitationPdf($quidam, $this->requestStack->getSession()->get('edition')->getEd());
+            $fileNamepdf = $this->getParameter('app.path.tempdirectory') . '/' . $this->requestStack->getSession()->get('edition')->getEd() . '-' . $prenom . '_' . $nom . '.pdf';
+            $flyer = $this->getParameter('app.path.odpf_archives') . '/' . $this->requestStack->getSession()->get('edition')->getEd() . '/documents/flyer.pdf';
+            $pdf->Output('F', $fileNamepdf);
+
+            $mailer->sendIntivationCn($quidam, $fileNamepdf, $flyer, $politesse);
+
+
+        }
+
+        return $this->render('secretariatadmin/invitations_cn.html.twig', ['form' => $form->createView()]);
     }
 }

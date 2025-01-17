@@ -34,6 +34,8 @@
     <a href="{{ urletablissements }}" type="button" class="btn btn-primary">Liste des établissements</a>
     <hr>
     <div class="text-center">Les documents du concours national</div>
+
+
     {% set urlmemoiresnat = ea_url()
         .setDashboard('App\\Controller\\Admin\\DashboardController')
         .setController('App\\Controller\\Admin\\FichiersequipesCrudController')
@@ -59,6 +61,8 @@
         .setAction('index') %}
     <a href="{{ urlmemoiresnat }}" type="button" class="btn btn-primary">Les mémoires</a>
     <a href="{{ urlresumesnat }}" type="button" class="btn btn-primary">Les résumés</a>
-    <a href="{{ urlphotosnat }}" type="button" class="btn btn-primary">Les photos</a>
+    <a href="{{ urlphotosnat }}" type="button" class="btn btn-primary">Les photos</a><br>
+    <a href="{{ path('invitations_cn') }}" type="button" class="btn btn-warning">Créer une invitation pour le concours
+        national</a>
 
 {% endblock %}

@@ -1090,9 +1090,9 @@ class SecretariatjuryController extends AbstractController
 
             $ligne4 = $ligne + 3;
             $sheet->mergeCells('A' . $ligne . ':A' . $ligne);
-            $sheet->setCellValue('A' . $ligne, strtoupper($lycee[$lettre][0]->getAcademie()))
+            $sheet->setCellValue('A' . $ligne, mb_strtoupper($lycee[$lettre][0]->getAcademie()))
                 ->setCellValue('B' . $ligne, 'Lycée ' . $lycee[$lettre][0]->getNom() . " - " . $lycee[$lettre][0]->getCommune())
-                ->setCellValue('C' . $ligne, $prof1[$lettre][0]->getPrenom() . " " . strtoupper($prof1[$lettre][0]->getNom()))
+                ->setCellValue('C' . $ligne, $prof1[$lettre][0]->getPrenom() . " " . mb_strtoupper($prof1[$lettre][0]->getNom()))
                 ->setCellValue('D' . $ligne, $equipe->getClassement() . ' ' . 'prix');
             if ($equipe->getPhrases()[0] !== null) {
                 $sheet->setCellValue('E' . $ligne, $equipe->getPhrases()[0]->getPhrase() . ' ' . $equipe->getPhrases()[0]->getLiaison()->getLiaison() . ' ' . $equipe->getPhrases()[0]->getPrix());
@@ -1132,7 +1132,7 @@ class SecretariatjuryController extends AbstractController
             $sheet->mergeCells('B' . $ligne . ':B' . $ligne3);
             $sheet->setCellValue('B' . $ligne, $equipe->getEquipeinter()->getTitreProjet());
             if ($prof2[$lettre] != []) {
-                $sheet->setCellValue('C' . $ligne, $prof2[$lettre][0]->getPrenom() . ' ' . strtoupper($prof2[$lettre][0]->getNom()));
+                $sheet->setCellValue('C' . $ligne, $prof2[$lettre][0]->getPrenom() . ' ' . mb_strtoupper($prof2[$lettre][0]->getNom()));
             }
             if ($equipe->getPrix() !== null) {
                 $sheet->setCellValue('E' . $ligne, $equipe->getPrix()->getPrix());
@@ -1169,7 +1169,7 @@ class SecretariatjuryController extends AbstractController
             for ($i = 0; $i <= $nbre - 1; $i++) {
                 $eleve = $eleves[$i];
                 $prenom = $eleve->getPrenom();
-                $nom = strtoupper($eleve->getNom());
+                $nom = mb_strtoupper($eleve->getNom());
                 if ($i < $nbre - 1) {
                     $listeleves .= $prenom . ' ' . $nom . ', ';
                 } else {
@@ -1829,7 +1829,6 @@ class SecretariatjuryController extends AbstractController
 
                         $user->setNom($nom);//Elimine les caractères ésotériques
                         $prenomNorm = ucfirst(strtolower($slugger->slug($prenom)));//prépare la normalisation du prénom
-
                         if (count(explode('-', $prenom)) > 1) {//Si le prénom est composé
 
                             $prenomNorm = '';
@@ -1869,7 +1868,7 @@ class SecretariatjuryController extends AbstractController
                         $user->setPassword($passwordEncoder->hashPassword($user, $pwd));
                         $this->doctrine->getManager()->persist($user);
                         $this->doctrine->getManager()->flush();
-                        $mailer->sendInscriptionUserJure($user, $pwd);//On envoie au nouvel user ses identifiants avec copie au comité
+                        //$mailer->sendInscriptionUserJure($user, $pwd);//On envoie au nouvel user ses identifiants avec copie au comité
                     } catch (\Exception $e) {
                         $texte = 'Une erreur est survenue lors de l\'inscription de ce jure :' . $e;
                         $this->requestStack->getSession()->set('info', $texte);//Un emodale surgira si une erreur est survenue lors de la création du juré
@@ -1881,7 +1880,7 @@ class SecretariatjuryController extends AbstractController
                     if (!in_array('ROLE_JURY', $roles)) {
                         $roles[count($roles)] = 'ROLE_JURY';
                         $user->setRoles($roles);
-                    };//Si le compte Olymphys existe déjà, on s'assure que son rôle sera jurycia
+                    };//Si le compte Olymphys existe déjà, on s'assure que son rôle sera jury
                     $this->doctrine->getManager()->persist($user);
                     $this->doctrine->getManager()->flush();
                 }
@@ -1892,16 +1891,16 @@ class SecretariatjuryController extends AbstractController
                     $jure->setNomJure($user->getNom());
                     $jure->setPrenomJure($user->getPrenom());
                     if (str_contains($slugger->slug($prenom), '-')) {//Pour éliminer les caratères non ASCII et tenir compte d'un prénom composé
-                        $initiales = strtoupper(explode('-', $slugger->slug($prenom))[0][0] . explode('-', $slugger->slug($prenom))[1][0] . $slugger->slug($nom[0]));
+                        $initiales = mb_strtoupper(explode('-', $slugger->slug($prenom))[0][0] . explode('-', $slugger->slug($prenom))[1][0] . $slugger->slug($nom[0]));
                     } elseif (str_contains($slugger->slug($prenom), '_')) {//Pour éliminer les caratères non ASCII  et tenir compte d'un prénom composé mal saisi
-                        $initiales = strtoupper(explode('-', $slugger->slug($prenom))[0][0] . explode('-', $slugger->slug($prenom))[1][0] . $slugger->slug($nom[0]));
+                        $initiales = mb_strtoupper(explode('-', $slugger->slug($prenom))[0][0] . explode('-', $slugger->slug($prenom))[1][0] . $slugger->slug($nom[0]));
                     } else {
-                        $initiales = strtoupper($slugger->slug($prenom))[0] . strtoupper($slugger->slug($nom))[0];
+                        $initiales = mb_strtoupper($slugger->slug($prenom))[0] . mb_strtoupper($slugger->slug($nom))[0];
                     }
                     $jure->setInitialesJure($initiales);
                     $this->doctrine->getManager()->persist($jure);
                     $this->doctrine->getManager()->flush();
-                    $mailer->sendInscriptionJureCN($jure);//envoie d'un mail au juré pour l'informer que son compte jurévcia est ouvert avec copie au comité
+                    //$mailer->sendInscriptionJureCN($jure);//envoie d'un mail au juré pour l'informer que son compte jurévcia est ouvert avec copie au comité
                 } else {
                     $texte = 'Ce juré existe déjà !';
                     $this->requestStack->getSession()->set('info', $texte);//fenêtre modale d'avertissement déclenchée

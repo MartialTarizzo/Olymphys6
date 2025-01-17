@@ -60,7 +60,7 @@ class Cadeaux
     {
         $var1 = $this->getContenu();
         $var2 = $this->getFournisseur();
-        return $var1 . " offert par " . strtoupper($var2);
+        return $var1 . " offert par " . mb_strtoupper($var2);
     }
 
 

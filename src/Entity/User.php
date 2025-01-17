@@ -120,7 +120,7 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
 
     public function setNom(string $nom): User
     {
-        $this->nom = $nom;
+        $this->nom = mb_strtoupper($nom);
 
         return $this;
     }

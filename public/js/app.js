@@ -53,6 +53,19 @@ function changejurecn(j) {//j est l'objet input qui a lancé la fonction, pour l
 
 }
 
+$(window).on("unload", function () {
+    var tableau = document.getElementById("changejures")
+    console.log(tableau);
+
+    var scrollPosition = tableau.scrollTop;
+    console.log(scrollPosition);
+    localStorage.setItem("scrollPosition", scrollPosition);
+});
+if (localStorage.scrollPosition) {
+    var tableau = document.getElementById("changejures")
+    tableau.scrollTop(localStorage.getItem("scrollPosition"));
+}
+
 function changeequipe(e, i, j) {
     var type = 'equipe';
     var data_value = e.value;
@@ -68,7 +81,7 @@ function changeequipe(e, i, j) {
 
         success: function () {
             document.querySelector('#gestionjures').click()
-
+            //window.history.back();
         },
 
         error: function (xhr, status, error) {

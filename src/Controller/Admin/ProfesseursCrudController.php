@@ -112,12 +112,18 @@ class ProfesseursCrudController extends AbstractCrudController
             // 1) using an array
             ->linkToRoute('profs_tableau_excel_mailing', ['idEdition' => $editionId])
             ->createAsGlobalAction();
+        $tableauexcelmailingTous = Action::new('profs_tableau_excel_mailing_Tous', 'Créer un tableau excel de tous les  professeurs pour mailings', 'fas fa-columns')
+            // if the route needs parameters, you can define them:
+            // 1) using an array
+            ->linkToRoute('profs_tableau_excel_mailing_tous')
+            ->createAsGlobalAction();
         return $actions
             ->add(Crud::PAGE_INDEX, Action::DETAIL)
             ->add(Crud::PAGE_INDEX, $tableauexcel)
             ->add(Crud::PAGE_INDEX, $tableauexcelsel)
             ->add(Crud::PAGE_INDEX, $tableauexcelnonsel)
             ->add(Crud::PAGE_INDEX, $tableauexcelmailing)
+            ->add(Crud::PAGE_INDEX, $tableauexcelmailingTous)
             ->remove(Crud::PAGE_INDEX, Action::NEW)
             ->remove(Crud::PAGE_INDEX, Action::EDIT)
             ->remove(Crud::PAGE_DETAIL, Action::EDIT)
@@ -513,7 +519,9 @@ class ProfesseursCrudController extends AbstractCrudController
         $em = $this->doctrine->getManager();
         $repositoryEdition = $this->doctrine->getRepository(Edition::class);
         $repositoryEquipes = $this->doctrine->getRepository(Equipesadmin::class);
+        $edition = null;
         $edition = $repositoryEdition->findOneBy(['id' => $idEdition]);
+
         $repositoryProfs = $this->doctrine->getManager()->getRepository(Professeurs::class);
 
         $queryBuilder = $repositoryProfs->createQueryBuilder('p')
@@ -522,12 +530,15 @@ class ProfesseursCrudController extends AbstractCrudController
             ->setParameter('edition', $edition)
             ->leftJoin('p.user', 'u')
             ->orderBY('u.nom', 'ASC');
-        $listProfs = $queryBuilder->getQuery()->getResult();
+
+
         $listProfs = $queryBuilder->getQuery()->getResult();
         $listeEquipeProfs = [];
+
         if ($listProfs != null) {
             foreach ($listProfs as $prof) {
                 $n = 0;
+                $equipes = null;
                 $equipes = $repositoryEquipes->createQueryBuilder('e')
                     ->where('e.edition =:edition')
                     ->setParameter('edition', $edition)
@@ -535,20 +546,29 @@ class ProfesseursCrudController extends AbstractCrudController
                     ->setParameter('user', $prof->getUser())
                     ->getQuery()->getResult();
 
+
                 if ($equipes != null) {
                     foreach ($equipes as $equipe) {
                         $listeEquipeProfs[$prof->getId()][$n] = $equipe;
                         $n++;
                     }
+
+                } else {
+                    $listeEquipeProfs[$prof->getId()][$n] = null;
+
+                }
+
                 }
             }
 
-        }
+        $numEs = $edition->getEd();
+
+
         $spreadsheet = new Spreadsheet();
         $spreadsheet->getProperties()
             ->setCreator("Olymphys")
             ->setLastModifiedBy("Olymphys")
-            ->setTitle("OdPF" . $edition->getEd() . "ème édition - liste des professeurs et de leurs équipes")
+            ->setTitle("OdPF" . $numEs . "ème édition - liste des professeurs et de leurs équipes")
             ->setSubject("PROFESSEURS")
             ->setDescription("Office 2007 XLSX Document pour comité")
             ->setKeywords("Office 2007 XLSX")
@@ -559,7 +579,7 @@ class ProfesseursCrudController extends AbstractCrudController
             $sheet->getColumnDimension($letter)->setAutoSize(true);
 
         }
-        $sheet->setCellValue('A1', 'Professeurs de la ' . $edition->getEd() . 'e' . ' édition');
+        $sheet->setCellValue('A1', 'Professeurs de la ' . $numEs . 'e' . ' édition');
 
         $ligne = 2;
 
@@ -578,14 +598,83 @@ class ProfesseursCrudController extends AbstractCrudController
             foreach ($listeEquipeProfs[$prof->getId()] as $equipe) {
                 $sheet->setCellValue('A' . $ligne, $prof->getUser()->getNom())
                     ->setCellValue('B' . $ligne, $prof->getUser()->getPrenom())
-                    ->setCellValue('C' . $ligne, $prof->getUser()->getEmail())
-                    ->setCellValue('D' . $ligne, $equipe->getCentre()->getCentre())
-                    ->setCellValue('E' . $ligne, $equipe->getNumero())
-                    ->setCellValue('F' . $ligne, $equipe->getTitreProjet());
-
+                    ->setCellValue('C' . $ligne, $prof->getUser()->getEmail());
+                if ($equipe != null) {
+                    $sheet->setCellValue('D' . $ligne, $equipe->getCentre()->getCentre())
+                        ->setCellValue('E' . $ligne, $equipe->getNumero())
+                        ->setCellValue('F' . $ligne, $equipe->getTitreProjet());
+                }
                 $ligne += 1;
             }
         }
+
+
+        header('Content-Type: application/vnd.ms-excel');
+        header('Content-Disposition: attachment;filename="professeurs_mailing.xls"');
+        header('Cache-Control: max-age=0');
+
+        $writer = new \PhpOffice\PhpSpreadsheet\Writer\Xls($spreadsheet);
+        ob_end_clean();
+        $writer->save('php://output');
+
+
+    }
+
+    #[Route("/Professeurs/editer_tableau_excel_mailing_tous", name: "profs_tableau_excel_mailing_tous")]
+    public function editer_tableau_excel_mailing_Tous()
+    {
+
+
+        $em = $this->doctrine->getManager();
+        $repositoryEdition = $this->doctrine->getRepository(Edition::class);
+        $repositoryProfs = $this->doctrine->getManager()->getRepository(Professeurs::class);
+
+        $queryBuilder = $repositoryProfs->createQueryBuilder('p')
+            ->leftJoin('p.equipes', 'eqs')
+            ->leftJoin('p.user', 'u')
+            ->orderBY('u.nom', 'ASC');
+
+
+        $listProfs = $queryBuilder->getQuery()->getResult();
+        $listeEquipeProfs = [];
+
+        $spreadsheet = new Spreadsheet();
+        $spreadsheet->getProperties()
+            ->setCreator("Olymphys")
+            ->setLastModifiedBy("Olymphys")
+            ->setTitle("OdPF" . " liste des professeurs")
+            ->setSubject("PROFESSEURS")
+            ->setDescription("Office 2007 XLSX Document pour comité")
+            ->setKeywords("Office 2007 XLSX")
+            ->setCategory("Test result file");
+
+        $sheet = $spreadsheet->getActiveSheet();
+        foreach (['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L'] as $letter) {
+            $sheet->getColumnDimension($letter)->setAutoSize(true);
+
+        }
+        $sheet->setCellValue('A1', 'Professeurs');
+
+        $ligne = 2;
+
+
+        $sheet->setCellValue('A' . $ligne, 'Nom')
+            ->setCellValue('B' . $ligne, 'Prénom')
+            ->setCellValue('C' . $ligne, 'Courriel');
+
+
+        $ligne += 1;
+
+        foreach ($listProfs as $prof) {
+            dump($prof);
+            $sheet->setCellValue('A' . $ligne, $prof->getUser()->getNom())
+                ->setCellValue('B' . $ligne, $prof->getUser()->getPrenom())
+                ->setCellValue('C' . $ligne, $prof->getUser()->getEmail());
+
+                $ligne += 1;
+
+        }
+
 
 
         header('Content-Type: application/vnd.ms-excel');

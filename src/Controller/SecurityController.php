@@ -103,7 +103,7 @@ class SecurityController extends AbstractController
             $user->setPasswordRequestedAt(new DateTime());
             $user->setCreatedAt(new DateTime());
             $nom = $form->get('nom')->getData();
-            $nom = strtoupper($nom);
+            $nom = mb_strtoupper($nom);
             $user->setNom($nom);
             $prenom = $form->get('prenom')->getData();
             $prenom = ucfirst(strtolower($prenom));
