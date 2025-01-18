@@ -53,7 +53,10 @@ class DashboardController extends AbstractDashboardController
 
     public function configureAssets(): Assets
     {
-        return Assets::new()->addCssFile('css/fonts.css');
+        return Assets::new()
+            ->addCssFile('css/fonts.css')
+            ->addJsFile("https://code.jquery.com/jquery-3.6.0.min.js")
+            ->addJsFile('js/admin.js');
     }
 
     public function configureCrud(): Crud

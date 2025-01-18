@@ -523,24 +523,44 @@ class SecretariatadminController extends AbstractController
                 'choices' => ['le plaisir' => 'le plaisir', 'l\'honneur' => 'l\'honneur'],
                 'label' => 'Choisir la formule de politesse qui convient'
             ])
+            ->add('mail2', EmailType::class, [
+                'label' => ' ',
+                'required' => false,
+                'attr' => ['placeholder' => 'E-mail', 'color' => 'white', 'hidden' => 'true']
+
+            ])
             ->add('valider', SubmitType::class, ['label' => 'Créer et envoyer l\'invitationn'])
             ->getForm();
         $form->handleRequest($request);
         if ($form->isSubmitted() && $form->isValid()) {
+            if ($form->get('mail2')->getData() == null) {
+                $nom = mb_strtoupper($form['nom']->getData());
+                $prenom = $form['prenom']->getData();
+                $politesse = $form['politesse']->getData();
+                $mail = $form['mail']->getData();
+                $quidam = [$nom, $prenom, $mail];
+                $createPdf = new CreateInvitationPdf();
+                $pdf = $createPdf->createInvitationPdf($quidam, $this->requestStack->getSession()->get('edition')->getEd());
+                $fileNamepdf = $this->getParameter('app.path.tempdirectory') . '/' . $this->requestStack->getSession()->get('edition')->getEd() . '-' . $prenom . '_' . $nom . '.pdf';
+                $flyer = $this->getParameter('app.path.odpf_archives') . '/' . $this->requestStack->getSession()->get('edition')->getEd() . '/documents/flyer.pdf';
+                $pdf->Output('F', $fileNamepdf);
+                $e = null;
+                try {
+                    $mailer->sendIntivationCn($quidam, $fileNamepdf, $flyer, $politesse);
+                } catch (\Exception $e) {
 
-            $nom = mb_strtoupper($form['nom']->getData());
-            $prenom = $form['prenom']->getData();
-            $politesse = $form['politesse']->getData();
-            $mail = $form['mail']->getData();
-            $quidam = [$nom, $prenom, $mail];
-            $createPdf = new CreateInvitationPdf();
-            $pdf = $createPdf->createInvitationPdf($quidam, $this->requestStack->getSession()->get('edition')->getEd());
-            $fileNamepdf = $this->getParameter('app.path.tempdirectory') . '/' . $this->requestStack->getSession()->get('edition')->getEd() . '-' . $prenom . '_' . $nom . '.pdf';
-            $flyer = $this->getParameter('app.path.odpf_archives') . '/' . $this->requestStack->getSession()->get('edition')->getEd() . '/documents/flyer.pdf';
-            $pdf->Output('F', $fileNamepdf);
 
-            $mailer->sendIntivationCn($quidam, $fileNamepdf, $flyer, $politesse);
+                }
 
+                if ($e === null) {
+
+                    $this->requestStack->getSession()->set('info', 'L\'invitation à bien été envoyée à ' . $prenom . ' ' . $nom);
+                } else {
+
+                    $this->requestStack->getSession()->set('info', 'Une erreur est survenue lors de l\'envoi de l\'invitation.');
+                }
+                return $this->redirectToRoute('admin');
+            }
 
         }
 

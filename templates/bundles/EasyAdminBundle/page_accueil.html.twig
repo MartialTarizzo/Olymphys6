@@ -1,7 +1,9 @@
 {% extends '@!EasyAdmin/layout.html.twig' %}
 
+
 {% block main %}
-    <div class="rougeodpf">
+
+<div class="rougeodpf">
     <div class="text-center"><h1>Les équipes et leurs documents</h1>
     </div>
 
@@ -65,4 +67,13 @@
     <a href="{{ path('invitations_cn') }}" type="button" class="btn btn-warning">Créer une invitation pour le concours
         national</a>
 
+
+    {% endblock %}
+    {% block body %}
+    {{ parent() }}
+    {% if app.session.get('info')!=null %}
+        {% include('modales/modale_info_easyadmin.html.twig') %}
+        {{ app.session.set('info',null) }}
+
+    {% endif %}
 {% endblock %}

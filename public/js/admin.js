@@ -5,9 +5,12 @@ window.onload = function() {
     selectElement.addEventListener("change", (event) => {
         let inputFile = event.currentTarget;
         $(inputFile).parent().find('.custom-file-label').html(inputFile.files[0].name);
-        var sizeFile=document.getElementsByClassName('input-group-text')
+        var sizeFile = document.getElementsByClassName('input-group-text')
         //$(sizeFile[1]).html(inputFile.files[0].size);
-
-
     });
 }
+$(document).ready(function () {
+
+
+    $('#modalinfo').modal('show');
+});
