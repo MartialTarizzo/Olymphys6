@@ -559,6 +559,7 @@ class SecretariatadminController extends AbstractController
 
                     $this->requestStack->getSession()->set('info', 'Une erreur est survenue lors de l\'envoi de l\'invitation.');
                 }
+                unlink($fileNamepdf);
                 return $this->redirectToRoute('admin');
             }
 

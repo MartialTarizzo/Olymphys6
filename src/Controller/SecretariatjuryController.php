@@ -1786,7 +1786,7 @@ class SecretariatjuryController extends AbstractController
         $writer = new Xls($spreadsheet);
         //$writer->save('temp/repartition_des_jures.xls');
         header('Content-Type: application/vnd.ms-excel');
-        header('Content-Disposition: attachment;filename=' . $this->requestStack->getSession()->get('edition')->getEd() . '"-repartition_des_jures_du_concours_national.xls"');
+        header('Content-Disposition: attachment;filename=' . $this->requestStack->getSession()->get('edition')->getEd() . '-repartition_des_jures_du_concours_national.xls');
         header('Cache-Control: max-age=0');
         //$writer= PhpOffice\PhpSpreadsheet\IOFactory::createWriter($spreadsheet, 'Xlsx');
         //$writer =  \PhpOffice\PhpSpreadsheet\Writer\Xls($spreadsheet);
@@ -1988,10 +1988,10 @@ class SecretariatjuryController extends AbstractController
 
             for ($row = 2; $row <= $highestRow; ++$row) {
 
-                $nom = $worksheet->getCell(2, $row)->getValue();
-                $prenom = $worksheet->getCell(1, $row)->getValue();
-                $email = $worksheet->getCell(3, $row)->getValue();
-                $initiales = $worksheet->getCell(4, $row)->getValue();
+                $nom = $worksheet->getCell([1, $row])->getValue();
+                $prenom = $worksheet->getCell([2, $row])->getValue();
+                $email = $worksheet->getCell([3, $row])->getValue();
+                //$initiales = $worksheet->getCell(4, $row)->getValue();
 
                 $qb = $repositoryUser->createQueryBuilder('u');
                 $user = $qb//vérification que le juré a déjà un compte user
@@ -2010,7 +2010,7 @@ class SecretariatjuryController extends AbstractController
                         }
                         $jure->setPrenomJure($prenom);
                         $jure->setNomJure($nom);
-                        $jure->setInitialesJure($initiales);
+                        // $jure->setInitialesJure($initiales);
 
                         $colonne = 5;
                         foreach ($equipes as $equipe) {
@@ -2019,10 +2019,10 @@ class SecretariatjuryController extends AbstractController
                                  ->where('eq.lettre =:lettre')
                                  ->setParameter('lettre',  $worksheet->getCell($colonne, 1)->getValue())
                                  ->getQuery()->getSingleResult();*/
-                            $value = $worksheet->getCell($colonne, $row)->getValue();//Le tableau comporte les attributions des jurés classées par lettre équipe croissantes, vide  pas attribué, 0 examinateur, 1 lecteur
+                            $value = $worksheet->getCell([$colonne, $row])->getValue();//Le tableau comporte les attributions des jurés classées par lettre équipe croissantes, vide  pas attribué, x examinateur,  L lecteur, R rapporteur
 
                             switch ($value) {
-                                case '1':
+                                case 'x':
                                     $value = 0;
                                     break;
                                 case 'L' :
