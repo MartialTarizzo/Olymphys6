@@ -39,13 +39,17 @@ class CreateInvitationPdf
         $y = $pdf->GetY() + 30;
         $pdf->setY($y);
         //$str = 'Paris le ' . $this->date_in_french($edition->getConcoursCia()->format('Y-m-d'));
-        $pdf->SetTextColor(255, 0, 0);
+        $pdf->SetTextColor(0, 0, 0);
         $str = 'Document indispensable pour être autorisé à entrer dans l\'enceinte de  l\'université';
-
+        $str_ = 'pour assister aux présentations d\'équipes uniquement';
         $strprim = 'A présenter au gardien sur support papier ou en version numérique';
-        $str = iconv('UTF-8', 'windows-1252', $str);
+        $str = iconv('UTF-8', 'ISO-8859-1', $str);
+        $str_ = iconv('UTF-8', 'ISO-8859-1', $str_);
         $strprim = iconv('UTF-8', 'ISO-8859-1', $strprim);
-        $pdf->Cell(0, 10, $str . "\n", 1, 0, 'C');
+        $pdf->Cell(0, 10, $str . "\n", 0, 0, 'C');
+        $y = $pdf->GetY() + 8;
+        $pdf->setY($y);
+        $pdf->Cell(0, 10, $str_ . "\n", 0, 0, 'C');
         $y = $pdf->GetY() + 8;
         $pdf->setY($y);
         $pdf->SetTextColor(0, 0, 0);

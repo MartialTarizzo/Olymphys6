@@ -523,7 +523,7 @@ class SecretariatadminController extends AbstractController
                 'choices' => ['le plaisir' => 'le plaisir', 'l\'honneur' => 'l\'honneur'],
                 'label' => 'Choisir la formule de politesse qui convient'
             ])
-            ->add('mail2', EmailType::class, [//antirobot si on rend public le formulaire
+            ->add('mail2', EmailType::class, [//antirobot si on rend public le formulaire:  les robots vont remplir ce champ qui doit rester vide
                 'label' => ' ',
                 'required' => false,
                 'attr' => ['placeholder' => 'E-mail', 'color' => 'white', 'hidden' => 'true']
