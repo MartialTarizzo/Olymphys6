@@ -1757,13 +1757,13 @@ class SecretariatjuryController extends AbstractController
             $spreadsheet->getActiveSheet()->getStyle('A' . $ligne . ':' . $lettres[count($listeEquipes) - 1] . $ligne)->applyFromArray($styleArray);
             $sheet->getRowDimension($ligne)->setRowHeight(25, 'pt');
             $attributionsJure = $jure->getAttributions();
-
+            $lecteur = ['E', 'L', 'R'];
             foreach ($listeEquipes as $equipe) {
                 foreach ($attributionsJure as $attribution) {
                     if ($attribution->getEquipe() == $equipe) {
                         $sheet->setCellValue($lettres[$i] . $ligne, 'E');
                         if ($attribution->getEstLecteur()) {
-                            $sheet->setCellValue($lettres[$i] . $ligne, 'L');
+                            $sheet->setCellValue($lettres[$i] . $ligne, $lecteur[$attribution->getEstLecteur()]);
                         }
                     }
 
@@ -2001,7 +2001,7 @@ class SecretariatjuryController extends AbstractController
 
                 //Si l'user existe
                 if ($user !== null) {//certains jurés sont parfois aussi organisateur des cia avec un autre compte.on ne sélectionne que le compte de role jury
-                    if (in_array('ROLE_JURY', $user->getRoles())) {
+                    if (in_array('ROLE_JURY', $user->getRoles())) {//il faut que l'user soit déclaré memebre du jury avant le chargement des attributions
                         $jure = $this->doctrine->getRepository(Jures::class)->findOneBy(['iduser' => $user]);//Evite le problème en cas d'homonymie
 
                         if ($jure == null) {
@@ -2022,14 +2022,14 @@ class SecretariatjuryController extends AbstractController
                             $value = $worksheet->getCell([$colonne, $row])->getValue();//Le tableau comporte les attributions des jurés classées par lettre équipe croissantes, vide  pas attribué, x examinateur,  L lecteur, R rapporteur
 
                             switch ($value) {
-                                case 'x':
-                                    $value = 0;
+                                case 'x'://x est la valeur pour les équipes examinée par un juré dans le tableau de Pierre
+                                    $value = 0;//0 signifie équipe éxaminée sans lire le mémoire
                                     break;
                                 case 'L' :
-                                    $value = 1;
+                                    $value = 1;//1 : lecteur et  évaluation du mémoire
                                     break;
                                 case 'R' :
-                                    $value = 2;
+                                    $value = 2;//2 : rapporteur et évaluation du mémoire
                                     break;
 
 
@@ -2073,7 +2073,7 @@ class SecretariatjuryController extends AbstractController
                                 }
                             }
 
-                            $colonne += 1;//Chaque collone correspond à une équipe repérée par sa lettre
+                            $colonne += 1;//Chaque colonne correspond à une équipe repérée par sa lettre
                         }
                         $em->persist($jure);
                         $em->flush();
@@ -2081,7 +2081,7 @@ class SecretariatjuryController extends AbstractController
                         $message = $message . $nom . ' n\'a pas le  ROLE_JURY  et n\'a pu être affecté au jury';
                     }
                 }
-                if ($user == null) {//L'user n'existe pas
+                if ($user == null) {//L'user n'existe pas il faut d'abord le créer
                     $message = $message . $nom . ' ne correspond pas à un user existant et n\'a pu être enregistré';
                 }
             }

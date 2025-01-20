@@ -18,7 +18,7 @@ use Doctrine\ORM\NonUniqueResultException;
 class NotesRepository extends EntityRepository
 {
 
-    public function get_rangs($jure_id, $coef)
+    public function get_rangs($jure_id, $coef)//sans l'écrit
     {
         $queryBuilder = $this->createQueryBuilder('n');  // e est un alias, un raccourci donné à l'entité du repository. 1ère lettre du nom de l'entité
 
@@ -26,21 +26,34 @@ class NotesRepository extends EntityRepository
 
         $queryBuilder
             ->where('n.jure=:jure_id')
-            ->setParameter('jure_id', $jure_id)
-            ->orderBy('n.exper*' . $coef->getExper() . ' + n.demarche*' . $coef->getDemarche() . ' + n.oral*' . $coef->getOral() . ' + n.origin*' . $coef->getOrigin() . ' + n.wgroupe*' . $coef->getWgroupe() . ' + n.ecrit*' . $coef->getEcrit() . ' + n.repquestions*' . $coef->getRepquestions(), 'DESC');
+            ->setParameter('jure_id', $jure_id);
+
+        //->orderBy('n.exper*' . $coef->getExper() . ' + n.demarche*' . $coef->getDemarche() . ' + n.oral*' . $coef->getOral() . ' + n.origin*' . $coef->getOrigin() . ' + n.wgroupe*' . $coef->getWgroupe() . ' + n.ecrit*' . $coef->getEcrit() . ' + n.repquestions*' . $coef->getRepquestions(), 'DESC');
 
         // on récupère la query
         $query = $queryBuilder->getQuery();
 
         // getResult() exécute la requête et retourne un tableau contenant les résultats sous forme d'objets.
         // Utiliser getArrayResult en cas d'affichage simple : le résultat est sous forme de tableau : plus rapide que getResult()
-        $results = $query->getResult();
-        $i = 1;
-        $rangs = [];
+        $results = $query->getResult();//toutes les notes évaluées par le juré
+        $j = 0;
+        $total = [];
         foreach ($results as $result) {
             $id = $result->getEquipe()->getId();
-            $rangs[$id] = $i;
+            $total[$id] = $result->getExper() * $coef->getExper() + $result->getDemarche() * $coef->getDemarche() + $result->getOral() * $coef->getOral() + $result->getOrigin() * $coef->getOrigin() + $result->getWgroupe() * $coef->getWgroupe() + $result->getRepquestions() * $coef->getRepquestions();//' + n.ecrit*' . $coef->getEcrit() . '
+        }
+        arsort($total);
+        $i = 1;
+        $rangs = [];
+        foreach ($total as $key => $value) {
+            foreach ($results as $result) {
+                if ($result->getEquipe()->getId() == $key) {
+                    $id = $result->getEquipe()->getId();
+                    $rangs[$id] = $i;
+                }
+            }
             $i = $i + 1;
+
         }
         return $rangs;
     }

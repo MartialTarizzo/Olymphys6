@@ -23,7 +23,7 @@
             <thead>
             <tr>
                 <th>Rang</th>
-                <th>Éq.</th>
+                <th class="tableFixHeadJury" style="z-index: 100">Éq.</th>
                 <th>Projet</th>
                 <!-- chaque balise <a appelle la fonction tableau de bord avec le parametre sens inversé par rapport à celui affiché -->
                 <th title="Qualité de l'expérience"><a
@@ -55,9 +55,9 @@
             {% for equipes in listEquipes %}
                 <tr>
                     <th>{{ rangs[equipes.id] }} </th>
-                    <td><a href="{{ path('cyberjury_evaluer_une_equipe', {'id': equipes.id} ) }}"
+                    <th><a href="{{ path('cyberjury_evaluer_une_equipe', {'id': equipes.id} ) }}"
                            class="btn btn-primary btn-lg">
-                            {{ equipes.lettre }} </a></td>
+                            {{ equipes.lettre }} </a></th>
                     <td>{{ equipes.titre }} </td>
                     <td>{{ equipes.exper }}</td>
                     <td>{{ equipes.demarche }}</td>

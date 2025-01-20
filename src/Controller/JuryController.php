@@ -110,7 +110,7 @@ class JuryController extends AbstractController
             foreach ($attrib as $key => $value) {
 
                 if ($equipe->getEquipeinter()->getLettre() == $key) {
-                    dump($key);
+
                     $id = $equipe->getId();
                     $note = $repositoryNotes->EquipeDejaNotee($id_jure, $id);
                     $progression[$key] = (!is_null($note)) ? 1 : 0;
@@ -476,7 +476,7 @@ class JuryController extends AbstractController
         $coefs = $repositoryCoef->find(1);//La table coeffcient ne comporte qu'une ligne d'iD = 1.
 
         $rangs = $repositoryNotes->get_rangs($id_jure, $coefs);//Met à jour le rang des équipes selon les points du juré uniquement et obtention d'un tableau de rangs correspondant à chaque équipe
-
+        //dd($rangs);
         $memoires = array();
         $listEquipes = array();
         $j = 1;
