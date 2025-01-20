@@ -487,7 +487,7 @@ class SecretariatadminController extends AbstractController
 
     }
 
-    #[IsGranted('ROLE_ORGACIA')]
+    #[IsGranted('ROLE_JURY')]
     #[Route("/secretariatadmin/invitations_cn", name: "invitations_cn")]
     public function createinvitationCnPdf(Request $request, Mailer $mailer): Response
     {
@@ -566,9 +566,9 @@ class SecretariatadminController extends AbstractController
                 if (in_array('ROLE_ADMIN', $this->getUser()->getRoles())) {
                     return $this->redirectToRoute('admin');
                 }
-                if (in_array('ROLE_ORGACIA', $this->getUser()->getRoles())) {
+                if (in_array('ROLE_JURY', $this->getUser()->getRoles())) {
 
-                    return $this->redirectToRoute('fichiers_choix_equipe', ['choix' => 'centre']);
+                    return $this->redirectToRoute('fichiers_choix_equipe', ['choix' => 'liste_cn_comite']);
                 }
 
 

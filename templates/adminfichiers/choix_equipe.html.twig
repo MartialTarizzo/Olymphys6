@@ -57,15 +57,13 @@
         {% if   phase =='interacadémique' %}
             {% set concours='inter' %}
             {% if liste_equipes == null %}
-                {% if is_granted('ROLE_ORGACIA') %}
 
-                    <a href="{{ path('invitations_cn') }}" type="button" class="btn btn-warning">Obtenir une invitation
-                        pour le concours national</a>
-                {% endif %}
+
+
+
                 <p> Pas d'équipe inscrite</p>
 
             {% endif %}
-
 
             {% for equipe in liste_equipes %}
                 {% if equipe.uaiId!=null %} {# n'affiche pas les équipes techniques jury, ambiance, etc #}
@@ -107,6 +105,14 @@
                     </div>
                 </div>
             {% endif %}
+            {% if is_granted('ROLE_JURY') %}
+                <div class="row">
+                    <a href="{{ path('invitations_cn') }}" type="button" class="btn btn-warning">Obtenir une invitation
+                        pour le concours national</a>
+                    <br>
+                </div>
+            {% endif %}
+            <hr>
             {% for equipe in liste_equipes %}
                 <div class="row">
                     <div class="col">
