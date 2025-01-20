@@ -487,7 +487,7 @@ class SecretariatadminController extends AbstractController
 
     }
 
-    #[IsGranted('ROLE_ADMIN')]
+    #[IsGranted('ROLE_ORGACIA')]
     #[Route("/secretariatadmin/invitations_cn", name: "invitations_cn")]
     public function createinvitationCnPdf(Request $request, Mailer $mailer): Response
     {
@@ -533,7 +533,7 @@ class SecretariatadminController extends AbstractController
             ->getForm();
         $form->handleRequest($request);
         if ($form->isSubmitted() && $form->isValid()) {
-            if ($form->get('mail2')->getData() == null) {
+            if ($form->get('mail2')->getData() == null) {//pour éviter les robots si on décide rendre publique cette fonction
                 $nom = mb_strtoupper($form['nom']->getData());
                 $prenom = $form['prenom']->getData();
                 $politesse = $form['politesse']->getData();
@@ -554,13 +554,25 @@ class SecretariatadminController extends AbstractController
 
                 if ($e === null) {
 
-                    $this->requestStack->getSession()->set('info', 'L\'invitation à bien été envoyée à ' . $prenom . ' ' . $nom);
+
+                    $this->requestStack->getSession()->set('info', 'L\'invitation  de  ' . $prenom . ' ' . $nom . ' à bien été envoyée.');
+
                 } else {
 
                     $this->requestStack->getSession()->set('info', 'Une erreur est survenue lors de l\'envoi de l\'invitation.');
                 }
+
                 unlink($fileNamepdf);
-                return $this->redirectToRoute('admin');
+                if (in_array('ROLE_ADMIN', $this->getUser()->getRoles())) {
+                    return $this->redirectToRoute('admin');
+                }
+                if (in_array('ROLE_ORGACIA', $this->getUser()->getRoles())) {
+
+                    return $this->redirectToRoute('fichiers_choix_equipe', ['choix' => 'centre']);
+                }
+
+
+
             }
 
         }

@@ -57,6 +57,11 @@
         {% if   phase =='interacadémique' %}
             {% set concours='inter' %}
             {% if liste_equipes == null %}
+                {% if is_granted('ROLE_ORGACIA') %}
+
+                    <a href="{{ path('invitations_cn') }}" type="button" class="btn btn-warning">Obtenir une invitation
+                        pour le concours national</a>
+                {% endif %}
                 <p> Pas d'équipe inscrite</p>
 
             {% endif %}
