@@ -579,4 +579,97 @@ class SecretariatadminController extends AbstractController
 
         return $this->render('secretariatadmin/invitations_cn.html.twig', ['form' => $form->createView()]);
     }
+
+
+    #[IsGranted('ROLE_ORGACIA')]
+    #[Route("/secretariatadmin/invitations_cn_orgacia", name: "invitations_cn_orgacia")]
+    public function createinvitationCnPdfOrgaCia(Request $request, Mailer $mailer): Response
+    {
+        $slugger = new AsciiSlugger();
+
+
+        if ($_SERVER['SERVER_NAME'] == 'www.olymphys.fr') {
+            $path = 'https://www.olymphys.fr/public/odpf/odpf-images/';
+        };
+        if ($_SERVER['SERVER_NAME'] == 'www.olympessais.olymphys.fr') {
+            $path = 'https://www.olymphys.fr/public/odpf/odpf-images/';
+        };
+        if ($_SERVER['SERVER_NAME'] == '127.0.0.1') {
+            $path = 'odpf/odpf-images/';
+        }
+        $form = $this->createFormBuilder()
+            ->add('nom', TextType::class, [
+                'label' => 'Nom',
+                'attr' => ['placeholder' => 'NOM']
+
+            ])
+            ->add('prenom', TextType::class, [
+                'label' => 'Prénom',
+                'attr' => ['placeholder' => 'Prénom']
+
+            ])
+            ->add('mail', EmailType::class, [
+                'label' => 'Email',
+                'attr' => ['placeholder' => 'E-mail']
+
+            ])
+            ->add('politesse', ChoiceType::class, [
+                'choices' => ['le plaisir' => 'le plaisir', 'l\'honneur' => 'l\'honneur'],
+                'label' => 'Choisir la formule de politesse qui convient'
+            ])
+            ->add('mail2', EmailType::class, [//antirobot si on rend public le formulaire:  les robots vont remplir ce champ qui doit rester vide
+                'label' => ' ',
+                'required' => false,
+                'attr' => ['placeholder' => 'E-mail', 'color' => 'white', 'hidden' => 'true']
+
+            ])
+            ->add('valider', SubmitType::class, ['label' => 'Créer et envoyer l\'invitationn'])
+            ->getForm();
+        $form->handleRequest($request);
+        if ($form->isSubmitted() && $form->isValid()) {
+            if ($form->get('mail2')->getData() == null) {//pour éviter les robots si on décide rendre publique cette fonction
+                $nom = mb_strtoupper($form['nom']->getData());
+                $prenom = $form['prenom']->getData();
+                $politesse = $form['politesse']->getData();
+                $mail = $form['mail']->getData();
+                $quidam = [$nom, $prenom, $mail];
+                $createPdf = new CreateInvitationPdf();
+                $pdf = $createPdf->createInvitationPdf($quidam, $this->requestStack->getSession()->get('edition')->getEd());
+                $fileNamepdf = $this->getParameter('app.path.tempdirectory') . '/' . $this->requestStack->getSession()->get('edition')->getEd() . '-' . $prenom . '_' . $nom . '.pdf';
+                $flyer = $this->getParameter('app.path.odpf_archives') . '/' . $this->requestStack->getSession()->get('edition')->getEd() . '/documents/flyer.pdf';
+                $pdf->Output('F', $fileNamepdf);
+                $e = null;
+                try {
+                    $mailer->sendIntivationCn($quidam, $fileNamepdf, $flyer, $politesse);
+                } catch (\Exception $e) {
+
+
+                }
+
+                if ($e === null) {
+
+
+                    $this->requestStack->getSession()->set('info', 'L\'invitation  de  ' . $prenom . ' ' . $nom . ' à bien été envoyée.');
+
+                } else {
+
+                    $this->requestStack->getSession()->set('info', 'Une erreur est survenue lors de l\'envoi de l\'invitation.');
+                }
+
+                unlink($fileNamepdf);
+                if (in_array('ROLE_ADMIN', $this->getUser()->getRoles())) {
+                    return $this->redirectToRoute('admin');
+                }
+                if (in_array('ROLE_ORGACIA', $this->getUser()->getRoles())) {
+
+                    return $this->redirectToRoute('fichiers_choix_equipe', ['choix' => $this->getUser()->getCentrecia()->getCentre()]);
+                }
+
+
+            }
+
+        }
+
+        return $this->render('secretariatadmin/invitations_cn.html.twig', ['form' => $form->createView()]);
+    }
 }
