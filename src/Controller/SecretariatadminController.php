@@ -503,7 +503,7 @@ class SecretariatadminController extends AbstractController
             ->getQuery()->getResult();
         $ipAdresses = [];
         foreach ($robots as $robot) {//on teste si le robot fait des requêtes en série, auquel cas il est redirigé ailleurs
-            if (in_array($_SERVER['REMOTE_ADDR'], $ipAdresses)) {
+            if (in_array($_SERVER['REMOTE_ADDR'], $robot->getIpAdresses())) {
 
                 return $this->redirect('https://rien');
 
@@ -565,9 +565,9 @@ class SecretariatadminController extends AbstractController
                 $mail = $form['email']->getData();
                 $quidam = [$nom, $prenom, $mail];
                 $createPdf = new CreateInvitationPdf();
-                $pdf = $createPdf->createInvitationPdf($quidam, $this->requestStack->getSession()->get('edition')->getEd());
-                $fileNamepdf = $this->getParameter('app.path.tempdirectory') . '/' . $this->requestStack->getSession()->get('edition')->getEd() . '-' . $prenom . '_' . $nom . '.pdf';
-                $flyer = $this->getParameter('app.path.odpf_archives') . '/' . $this->requestStack->getSession()->get('edition')->getEd() . '/documents/' . $flyer;
+                $pdf = $createPdf->createInvitationPdf($quidam, '32');
+                $fileNamepdf = $this->getParameter('app.path.tempdirectory') . '/32-' . $prenom . '_' . $nom . '.pdf';
+                $flyer = $this->getParameter('app.path.odpf_archives') . '/32/documents/' . $flyer;
                 $pdf->Output('F', $fileNamepdf);
                 $e = null;
                 try {
@@ -661,7 +661,7 @@ class SecretariatadminController extends AbstractController
         $spreadsheet->getProperties()
             ->setCreator("Olymphys")
             ->setLastModifiedBy("Olymphys")
-            ->setTitle("CN  " . $this->requestStack->getSession()->get('edition')->getEd() . "e édition -Tableau destiné au comité")
+            ->setTitle("CN  32e édition -Tableau destiné au comité")
             ->setSubject("Tableau destiné au comité")
             ->setDescription("Office 2007 XLSX liste des invitations au cn")
             ->setKeywords("Office 2007 XLSX")
