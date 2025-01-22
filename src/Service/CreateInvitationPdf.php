@@ -41,7 +41,7 @@ class CreateInvitationPdf
         //$str = 'Paris le ' . $this->date_in_french($edition->getConcoursCia()->format('Y-m-d'));
         $pdf->SetTextColor(0, 0, 0);
         $str = 'Document indispensable pour être autorisé à entrer dans l\'enceinte de  l\'université';
-        $str_ = 'pour assister aux présentations d\'équipes uniquement';
+        $str_ = 'pour assister ou participer aux Olympiades de Physique France';
         $strprim = 'A présenter au gardien sur support papier ou en version numérique';
         $str = iconv('UTF-8', 'ISO-8859-1', $str);
         $str_ = iconv('UTF-8', 'ISO-8859-1', $str_);

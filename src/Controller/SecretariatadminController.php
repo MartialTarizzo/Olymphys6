@@ -6,6 +6,7 @@ use App\Entity\Edition;
 use App\Entity\Elevesinter;
 use App\Entity\Equipes;
 use App\Entity\Equipesadmin;
+use App\Entity\InscriptionsCN;
 use App\Entity\Jures;
 use App\Entity\Uai;
 use App\Entity\User;
@@ -17,6 +18,8 @@ use Doctrine\Persistence\ManagerRegistry;
 use DoctrineExtensions\Query\Mysql\Time;
 use Fpdf\Fpdf;
 use PhpOffice\PhpSpreadsheet\IOFactory;
+use PhpOffice\PhpSpreadsheet\Spreadsheet;
+use PhpOffice\PhpSpreadsheet\Writer\Xls;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\ExpressionLanguage\Expression;
 use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
@@ -34,7 +37,9 @@ use Symfony\Component\Routing\Attribute\Route;
 
 use Symfony\Component\Security\Http\Attribute\IsGranted;
 use Symfony\Component\String\Slugger\AsciiSlugger;
+use Symfony\Component\Validator\Constraints\Ip;
 use Symfony\Component\Validator\Validator\ValidatorInterface;
+use function mysql_xdevapi\getSession;
 
 
 class SecretariatadminController extends AbstractController
@@ -488,10 +493,23 @@ class SecretariatadminController extends AbstractController
 
     }
 
-    #[IsGranted(new Expression('is_granted("ROLE_JURY") or is_granted("ROLE_ORGACIA")'))]
+    //#[IsGranted(new Expression('is_granted("ROLE_JURY") or is_granted("ROLE_ORGACIA") or is_granted("ROLE_ALLOWED_TO_SWITCH")' ))]
     #[Route("/secretariatadmin/invitations_cn", name: "invitations_cn")]
     public function createinvitationCnPdf(Request $request, Mailer $mailer): Response
     {
+        $robots = $this->doctrine->getRepository(InscriptionsCN::class)->createQueryBuilder('i')
+            ->select('i')
+            ->where('i.ipAdress is not null')
+            ->getQuery()->getResult();
+        $ipAdresses = [];
+        foreach ($robots as $robot) {//on teste si le robot fait des requêtes en série, auquel cas il est redirigé ailleurs
+            if (in_array($_SERVER['REMOTE_ADDR'], $ipAdresses)) {
+
+                return $this->redirect('https://rien');
+
+            }
+
+        }
         $slugger = new AsciiSlugger();
 
         if ($_SERVER['SERVER_NAME'] == 'www.olymphys.fr') {
@@ -503,7 +521,7 @@ class SecretariatadminController extends AbstractController
         if ($_SERVER['SERVER_NAME'] == '127.0.0.1') {
             $path = 'odpf/odpf-images/';
         }
-        $form = $this->createFormBuilder()
+        $builder = $this->createFormBuilder()
             ->add('nom', TextType::class, [
                 'label' => 'Nom',
                 'attr' => ['placeholder' => 'NOM']
@@ -514,35 +532,42 @@ class SecretariatadminController extends AbstractController
                 'attr' => ['placeholder' => 'Prénom']
 
             ])
-            ->add('mail', EmailType::class, [
+            ->add('email', EmailType::class, [
                 'label' => 'Email',
                 'attr' => ['placeholder' => 'E-mail']
 
-            ])
-            ->add('politesse', ChoiceType::class, [
-                'choices' => ['le plaisir' => 'le plaisir', 'l\'honneur' => 'l\'honneur'],
-                'label' => 'Choisir la formule de politesse qui convient'
             ])
             ->add('mail2', EmailType::class, [//antirobot si on rend public le formulaire:  les robots vont remplir ce champ qui doit rester vide
                 'label' => ' ',
                 'required' => false,
                 'attr' => ['placeholder' => 'E-mail', 'color' => 'white', 'hidden' => 'true']
 
-            ])
-            ->add('valider', SubmitType::class, ['label' => 'Créer et envoyer l\'invitationn'])
-            ->getForm();
+            ]);
+        if ($this->getUser()) {
+            $builder->add('politesse', ChoiceType::class, [
+                'choices' => ['le plaisir' => 'le plaisir', 'l\'honneur' => 'l\'honneur'],
+                'label' => 'Choisir la formule de politesse qui convient'
+            ]);
+        }
+        $builder->add('valider', SubmitType::class, ['label' => 'Créer et envoyer l\'invitationn']);
+        $form = $builder->getForm();
         $form->handleRequest($request);
         if ($form->isSubmitted() && $form->isValid()) {
             if ($form->get('mail2')->getData() == null) {//pour éviter les robots si on décide rendre publique cette fonction
-                $nom = mb_strtoupper($form['nom']->getData());
-                $prenom = $form['prenom']->getData();
-                $politesse = $form['politesse']->getData();
-                $mail = $form['mail']->getData();
+                $nom = $slugger->slug(mb_strtoupper($form['nom']->getData()));
+                $prenom = $slugger->slug($form['prenom']->getData());
+                $politesse = 'le plaisir';
+                $flyer = 'flyer-inscriptionExt-.pdf';
+                if ($this->getUser()) {
+                    $politesse = $form['politesse']->getData();
+                    $flyer = 'flyer.pdf';
+                }
+                $mail = $form['email']->getData();
                 $quidam = [$nom, $prenom, $mail];
                 $createPdf = new CreateInvitationPdf();
                 $pdf = $createPdf->createInvitationPdf($quidam, $this->requestStack->getSession()->get('edition')->getEd());
                 $fileNamepdf = $this->getParameter('app.path.tempdirectory') . '/' . $this->requestStack->getSession()->get('edition')->getEd() . '-' . $prenom . '_' . $nom . '.pdf';
-                $flyer = $this->getParameter('app.path.odpf_archives') . '/' . $this->requestStack->getSession()->get('edition')->getEd() . '/documents/flyer.pdf';
+                $flyer = $this->getParameter('app.path.odpf_archives') . '/' . $this->requestStack->getSession()->get('edition')->getEd() . '/documents/' . $flyer;
                 $pdf->Output('F', $fileNamepdf);
                 $e = null;
                 try {
@@ -554,6 +579,31 @@ class SecretariatadminController extends AbstractController
 
                 if ($e === null) {
 
+                    $inscription = new InscriptionsCN();
+                    $inscription->setNom($nom);
+                    $inscription->setPrenom($prenom);
+                    $inscription->setEmail($mail);
+                    $qualite = 'Visiteur';
+                    if ($this->getUser()) {
+                        if (in_array('ROLE_COMITE', $this->getUser()->getRoles())) {
+                            $qualite = 'Membre du comité national des OdPF';
+                        }
+                        if (in_array('ROLE_SUPER_ADMIN', $this->getUser()->getRoles())) {
+                            $qualite = 'Membre du comité national des OdPF';
+                        }
+                        if (in_array('ROLE_JURY', $this->getUser()->getRoles())) {
+
+                            $qualite = 'Memebre du jury du concours national des OdPF';
+                        }
+                        if (in_array('ROLE_ORGACIA', $this->getUser()->getRoles())) {
+
+                            $qualite = 'Invité';
+                        }
+                    }
+                    $inscription->setQualite($qualite);
+                    $this->em->persist($inscription);
+                    $this->em->flush();
+
 
                     $this->requestStack->getSession()->set('info', 'L\'invitation  de  ' . $prenom . ' ' . $nom . ' à bien été envoyée.');
 
@@ -563,26 +613,107 @@ class SecretariatadminController extends AbstractController
                 }
 
                 unlink($fileNamepdf);
-                if (in_array('ROLE_COMITE', $this->getUser()->getRoles())) {
-                    return $this->redirectToRoute('admin');
-                }
-                if (in_array('ROLE_SUPER_ADMIN', $this->getUser()->getRoles())) {
-                    return $this->redirectToRoute('admin');
-                }
-                if (in_array('ROLE_JURY', $this->getUser()->getRoles())) {
+                if ($this->getUser()) {
+                    if (in_array('ROLE_COMITE', $this->getUser()->getRoles())) {
+                        return $this->redirectToRoute('admin');
+                    }
+                    if (in_array('ROLE_SUPER_ADMIN', $this->getUser()->getRoles())) {
+                        return $this->redirectToRoute('admin');
+                    }
+                    if (in_array('ROLE_JURY', $this->getUser()->getRoles())) {
 
-                    return $this->redirectToRoute('fichiers_choix_equipe', ['choix' => 'liste_cn_comite']);
-                }
-                if (in_array('ROLE_ORGACIA', $this->getUser()->getRoles())) {
+                        return $this->redirectToRoute('fichiers_choix_equipe', ['choix' => 'liste_cn_comite']);
+                    }
+                    if (in_array('ROLE_ORGACIA', $this->getUser()->getRoles())) {
 
-                    return $this->redirectToRoute('fichiers_choix_equipe', ['choix' => $this->getUser()->getCentrecia()->getCentre()]);
+                        return $this->redirectToRoute('fichiers_choix_equipe', ['choix' => $this->getUser()->getCentrecia()->getCentre()]);
+                    }
                 }
+                //pour les visiteurs, on redirige vers la page du concours national
+
+
+                return $this->redirectToRoute('core_pages', ['choix' => 'le_concours_national']);
 
 
             }
+            //on relève l'adresse IP du robot
+            $inscription = new InscriptionsCN();
+            $inscription->setNom('robot');
+            $inscription->setPrenom('robot');
+            $inscription->setEmail('robot');
+            $inscription->setIpAdress($_SERVER['REMOTE_ADDR']);
+            $this->em->persist($inscription);
+            $this->em->flush();
+
 
         }
 
         return $this->render('secretariatadmin/invitations_cn.html.twig', ['form' => $form->createView()]);
     }
+
+    #[IsGranted('ROLE_COMITE')]
+    #[Route("/secretariatadmin/liste_excel_invitations_cn", name: "liste_excel_invitations_cn")]
+    public function listeExcelInvitation()
+    {
+
+        $invitations = $this->doctrine->getRepository(InscriptionsCN::class)->findAll();
+        $spreadsheet = new Spreadsheet();
+        $spreadsheet->getProperties()
+            ->setCreator("Olymphys")
+            ->setLastModifiedBy("Olymphys")
+            ->setTitle("CN  " . $this->requestStack->getSession()->get('edition')->getEd() . "e édition -Tableau destiné au comité")
+            ->setSubject("Tableau destiné au comité")
+            ->setDescription("Office 2007 XLSX liste des invitations au cn")
+            ->setKeywords("Office 2007 XLSX")
+            ->setCategory("Test result file");
+
+        $sheet = $spreadsheet->getActiveSheet();
+        $ligne = 1;
+        $sheet->getStyle('A' . $ligne)->getFont()->setBold(true)->setSize('18');
+        $sheet->getRowDimension($ligne)->setRowHeight(30);
+        $sheet->setCellValue("A" . $ligne, "Listes des personnes invitées pour les Olympiades de Physique France");
+        /*foreach (['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K'] as $letter) {
+            $sheet->getColumnDimension($letter)->setAutoSize(true);
+        }*/
+        $sheet->getStyle('A' . $ligne . ':C' . $ligne)
+            ->getAlignment()->setVertical(\PhpOffice\PhpSpreadsheet\Style\Alignment::VERTICAL_CENTER);
+        $sheet->getColumnDimension("A")->setWidth(40);
+        $sheet->getColumnDimension("B")->setWidth(40);
+        $sheet->getColumnDimension("C")->setWidth(40);
+        $ligne++;
+        $sheet->getStyle('A' . $ligne . ':C' . $ligne)
+            ->getAlignment()->setHorizontal(\PhpOffice\PhpSpreadsheet\Style\Alignment::HORIZONTAL_CENTER);
+        $sheet->getRowDimension($ligne)->setRowHeight(20);
+        $sheet->getStyle('A' . $ligne . ':C' . $ligne)->getFont()->setBold(true)->setSize('14');
+        $sheet
+            ->setCellValue('A' . $ligne, 'NOM')
+            ->setCellValue('B' . $ligne, 'Prénom')
+            ->setCellValue('C' . $ligne, 'Qualité');
+        $ligne++;
+
+        foreach ($invitations as $invitation) {
+            $sheet->getRowDimension($ligne)->setRowHeight(20);
+            $sheet
+                ->setCellValue('A' . $ligne, $invitation->getNom())
+                ->setCellValue('B' . $ligne, $invitation->getPrenom())
+                ->setCellValue('C' . $ligne, $invitation->getQualite());
+
+            $ligne++;
+        }
+
+        $filename = 'Liste_des invitations au cn de Marseille.xls';
+        header('Content-Type: application/vnd.ms-excel');
+        header('Content-Disposition: attachment;filename="' . $filename . '"');
+        header('Cache-Control: max-age=0');
+
+        $writer = new Xls($spreadsheet);
+//$writer= PhpOffice\PhpSpreadsheet\IOFactory::createWriter($spreadsheet, 'Xlsx');
+//$writer =  \PhpOffice\PhpSpreadsheet\Writer\Xls($spreadsheet);
+// $writer =IOFactory::createWriter($spreadsheet, 'Xlsx');
+        ob_end_clean();
+        $writer->save('php://output');
+
+
+    }
+
 }

@@ -203,7 +203,10 @@
 				{% endif %}
 				{{ include('core/odpf-menu-complet.html.twig') }}
 				{{ include('core/odpf-pied.html.twig') }}
-
+			{% if app.session.get('info')!=null %}
+				{{ include('modales/modale_info.html.twig') }}
+				{{ app.session.set('info',null) }}
+			{% endif %}
 			</div>
 			<!--wrapper-->
 		{% endblock %}

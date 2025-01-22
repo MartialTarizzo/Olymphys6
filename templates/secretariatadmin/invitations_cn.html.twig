@@ -7,10 +7,11 @@
             à {{ app.session.get('edition').ville }}</h4></div>
     <div>
         Ce formulaire générera un fichier .pdf qui sera automatiquement envoyé par courriel en pièce jointe<br>
-        Saisir le nom et le prénom de la personne à inviter.<br>
-        Saisir une adresse mail. L'invitation lui sera automatiquement envoyée si c'est son adresse mail.Vous pouvez
-        saisir votre propre adresse mail pour recevoir son invitation ou bien votre propre invitation.<br>
+        Saisir le nom et le prénom de la personne<br>
+        Saisir une adresse mail à laquelle sera envoyée l'invitation<br>
+        {% if app.user %}
         La formule de politesse apparaît uniquement dans le texte du courriel accompagnant l'invitation.
+        {% endif %}
     </div>
     {{ form(form) }}
 
