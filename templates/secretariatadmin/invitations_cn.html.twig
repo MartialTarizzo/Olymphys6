@@ -7,7 +7,7 @@
             à {{ app.session.get('edition').ville }}</h4></div>
     <div>
         Ce formulaire générera un fichier .pdf qui sera automatiquement envoyé par courriel en pièce jointe<br>
-        Saisir le nom et le prénom de la personne, pour les familles une seule personne.<br>
+        Saisir le nom et le prénom de la personne, pour les familles <span style="font-weight: bold">une inscription par personne</span>.<br>
         Saisir une adresse mail à laquelle sera envoyée l'invitation, elle sera enregistrée uniquement pour le seul
         envoi de l'autorisation et en raison du plan vigipirate. Ces données seront détruites à la fin du concours.<br>
         {% if app.user %}

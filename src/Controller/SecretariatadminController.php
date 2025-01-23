@@ -549,7 +549,7 @@ class SecretariatadminController extends AbstractController
                 'label' => 'Choisir la formule de politesse qui convient'
             ]);
         }
-        $builder->add('valider', SubmitType::class, ['label' => 'Créer et envoyer l\'invitationn']);
+        $builder->add('valider', SubmitType::class, ['label' => 'Créer et envoyer l\'invitation']);
         $form = $builder->getForm();
         $form->handleRequest($request);
         if ($form->isSubmitted() && $form->isValid()) {
