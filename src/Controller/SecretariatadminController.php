@@ -582,22 +582,22 @@ class SecretariatadminController extends AbstractController
                     $inscription = new InscriptionsCN();
                     $inscription->setNom($nom);
                     $inscription->setPrenom($prenom);
-                    $inscription->setEmail($mail);
+                    //$inscription->setEmail($mail);
                     $qualite = 'Visiteur';
                     if ($this->getUser()) {
                         if (in_array('ROLE_COMITE', $this->getUser()->getRoles())) {
-                            $qualite = 'Membre du comité national des OdPF';
+                            $qualite = '';
                         }
                         if (in_array('ROLE_SUPER_ADMIN', $this->getUser()->getRoles())) {
-                            $qualite = 'Membre du comité national des OdPF';
+                            $qualite = '';
                         }
                         if (in_array('ROLE_JURY', $this->getUser()->getRoles())) {
 
-                            $qualite = 'Memebre du jury du concours national des OdPF';
+                            $qualite = '';
                         }
                         if (in_array('ROLE_ORGACIA', $this->getUser()->getRoles())) {
 
-                            $qualite = 'Invité';
+                            $qualite = ' ';
                         }
                     }
                     $inscription->setQualite($qualite);

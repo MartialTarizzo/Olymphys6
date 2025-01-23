@@ -25,8 +25,8 @@ class InscriptionsCN
     #[ORM\Column(length: 255, nullable: true)]
     private ?string $ipAdress = null;
 
-    #[ORM\Column(length: 255, nullable: true)]
-    private ?string $email = null;
+    // #[ORM\Column(length: 255, nullable: true)]
+    // private ?string $email = null;
 
     public function getId(): ?int
     {
@@ -81,15 +81,5 @@ class InscriptionsCN
         return $this;
     }
 
-    public function getEmail(): ?string
-    {
-        return $this->email;
-    }
 
-    public function setEmail(?string $email): static
-    {
-        $this->email = $email;
-
-        return $this;
-    }
 }

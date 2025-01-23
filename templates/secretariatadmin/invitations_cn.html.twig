@@ -8,9 +8,11 @@
     <div>
         Ce formulaire générera un fichier .pdf qui sera automatiquement envoyé par courriel en pièce jointe<br>
         Saisir le nom et le prénom de la personne<br>
-        Saisir une adresse mail à laquelle sera envoyée l'invitation<br>
+        Saisir une adresse mail à laquelle sera envoyée l'invitation, elle ne sera pas enregistrée et ne sera utilsée
+        que pour le seul envoi de l'autorisation.<br>
         {% if app.user %}
-        La formule de politesse apparaît uniquement dans le texte du courriel accompagnant l'invitation.
+
+            La formule de politesse apparaît uniquement dans le texte du courriel accompagnant l'invitation.
         {% endif %}
     </div>
     {{ form(form) }}
