@@ -597,9 +597,10 @@ class SecretariatadminController extends AbstractController
                         }
                         if (in_array('ROLE_ORGACIA', $this->getUser()->getRoles())) {
 
-                            $qualite = ' ';
+                            $qualite = '';
                         }
                     }
+                    $inscription->setEmail($mail);
                     $inscription->setQualite($qualite);
                     $this->em->persist($inscription);
                     $this->em->flush();
@@ -675,20 +676,22 @@ class SecretariatadminController extends AbstractController
         /*foreach (['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K'] as $letter) {
             $sheet->getColumnDimension($letter)->setAutoSize(true);
         }*/
-        $sheet->getStyle('A' . $ligne . ':C' . $ligne)
+        $sheet->getStyle('A' . $ligne . ':D' . $ligne)
             ->getAlignment()->setVertical(\PhpOffice\PhpSpreadsheet\Style\Alignment::VERTICAL_CENTER);
         $sheet->getColumnDimension("A")->setWidth(40);
         $sheet->getColumnDimension("B")->setWidth(40);
         $sheet->getColumnDimension("C")->setWidth(40);
+        $sheet->getColumnDimension("D")->setWidth(40);
         $ligne++;
-        $sheet->getStyle('A' . $ligne . ':C' . $ligne)
+        $sheet->getStyle('A' . $ligne . ':D' . $ligne)
             ->getAlignment()->setHorizontal(\PhpOffice\PhpSpreadsheet\Style\Alignment::HORIZONTAL_CENTER);
         $sheet->getRowDimension($ligne)->setRowHeight(20);
-        $sheet->getStyle('A' . $ligne . ':C' . $ligne)->getFont()->setBold(true)->setSize('14');
+        $sheet->getStyle('A' . $ligne . ':D' . $ligne)->getFont()->setBold(true)->setSize('14');
         $sheet
             ->setCellValue('A' . $ligne, 'NOM')
             ->setCellValue('B' . $ligne, 'Prénom')
-            ->setCellValue('C' . $ligne, 'Qualité');
+            ->setCellValue('C' . $ligne, 'Qualité')
+            ->setCellValue('D' . $ligne, 'Email');
         $ligne++;
 
         foreach ($invitations as $invitation) {
@@ -696,7 +699,8 @@ class SecretariatadminController extends AbstractController
             $sheet
                 ->setCellValue('A' . $ligne, $invitation->getNom())
                 ->setCellValue('B' . $ligne, $invitation->getPrenom())
-                ->setCellValue('C' . $ligne, $invitation->getQualite());
+                ->setCellValue('C' . $ligne, $invitation->getQualite())
+                ->setCellValue('D' . $ligne, $invitation->getEmail());
 
             $ligne++;
         }
