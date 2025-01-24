@@ -158,11 +158,19 @@ class EquipesRepository extends ServiceEntityRepository
     {
 
         $queryBuilder = $this->createQueryBuilder('e');
+        if ($niveau == 'c') {//Pour le classement général des équipes selon les couleurs
+            $queryBuilder
+                //->orderBy('e.total', 'DESC')
+                ->orderBy('e.couleur', 'ASC')
+                ->addOrderBy('e.total', 'DESC');//Classe les équipes selon les couleurs c'est à dire le classement provisoire
+        }
 
         if ($niveau == 0) {//Pour le classement général des équipes sans considéartion de prix
             $queryBuilder
-                ->orderBy('e.total', 'DESC');//Classe les équipes selon le total des points décroissants
-        } else {//pour le classement pour une catégorie de prix
+                //->orderBy('e.total', 'DESC')
+                ->addOrderBy('e.total', 'DESC');//Classe les équipes selon le total des points décroissants
+        }
+        if ($niveau != 'c' and $niveau != 0) {//pour le classement pour une catégorie de prix
             $limit = $nbreprix;
             $queryBuilder
                 ->select('e')
@@ -177,7 +185,7 @@ class EquipesRepository extends ServiceEntityRepository
         // getResult() exécute la requête et retourne un tableau contenant les résultats sous forme d'objets.
         // Utiliser getArrayResult en cas d'affichage simple : le résultat est sous forme de tableau : plus rapide que getResult()
         $results = $query->getResult();
-
+        //dd($results);
         // on retourne ces résultats
         return $results;
     }

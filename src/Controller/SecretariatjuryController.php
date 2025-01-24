@@ -440,13 +440,42 @@ class SecretariatjuryController extends AbstractController
         } catch (NoResultException|NonUniqueResultException $e) {
         }
 
-        $classement = $repositoryEquipes->classement(0, 0, $nbre_equipes);
-        /*$classement=$repositoryEquipes->createQueryBuilder('e')->select('e')
-                                        ->orderBy('e.couleur','ASC')
-                                        ->leftJoin('e.equipeinter','eq')
-                                        ->addOrderBy('e.total','DESC')
-                                        ->getQuery()->getResult();
-*/
+        $classement = $repositoryEquipes->classement('c', 0, $nbre_equipes);//on classe les équipes selon les couleurs par défaut
+        $prixs = $this->doctrine->getManager()->getRepository(Repartprix::class)->findAll();
+        $nbPrix = [];
+        foreach ($prixs as $prix) {
+            if ($prix->getNiveau() == '1er') {
+                $nbPrix[1] = $prix->getNbreprix();
+            }
+            if ($prix->getNiveau() == '2ème') {
+                $nbPrix[2] = $prix->getNbreprix();
+            }
+            if ($prix->getNiveau() == '3ème') {
+                $nbPrix[3] = $prix->getNbreprix();
+            }
+        }
+        if ($request->query->get('RAZCouleur')) {//on place(lors le première visite de cette page) ou replace les couleurs par défaut selon le total
+            $classement = $repositoryEquipes->classement(0, 0, $nbre_equipes); //on classe les équipes selon leur total
+
+            $premiersprix = $repositoryEquipes->classement(1, 0, $nbPrix[1]);
+
+            foreach ($premiersprix as $premierprix) {
+                $premierprix->setCouleur(1);
+                $this->doctrine->getManager()->persist($premierprix);
+            }
+            $deuxiemesprix = $repositoryEquipes->classement(2, $nbPrix[1], $nbPrix[2]);
+            foreach ($deuxiemesprix as $deuxiemerprix) {
+                $deuxiemerprix->setCouleur(2);
+                $this->doctrine->getManager()->persist($deuxiemerprix);
+            }
+            $troisiemesprix = $repositoryEquipes->classement(3, $nbPrix[1] + $nbPrix[2], $nbPrix[3]);
+            foreach ($troisiemesprix as $troisiemeprix) {
+                $troisiemeprix->setCouleur(3);
+                $this->doctrine->getManager()->persist($troisiemeprix);
+            }
+            $this->doctrine->getManager()->flush();
+            $classement = $repositoryEquipes->classement('c', 0, $nbre_equipes);//
+        }
         foreach (range('A', 'Z') as $lettre) {
 
             if ($request->query->get($lettre) != null) {
@@ -455,29 +484,13 @@ class SecretariatjuryController extends AbstractController
                 $idequipe = $request->query->get('idEquipe');
 
                 $equipe = $repositoryEquipes->findOneBy(['id' => $idequipe]);
-                /*  switch ($couleur){
-                      case 1: $newclassement='1er';
-                              break;
-                      case 2: $newclassement='2ème';
-                              break;
-                      case 3: $newclassement='3ème';
-                              break;
 
 
-                  }
-                */
                 $equipe->setCouleur($couleur);
-                //$equipe->setClassement($newclassement);
                 $em->persist($equipe);
                 $em->flush();
-                /*$classement=$repositoryEquipes->createQueryBuilder('e')->select('e')
-                    ->orderBy('e.couleur','ASC')
-                    ->leftJoin('e.equipeinter','eq')
-                    ->addOrderBy('e.total','DESC')
-                    ->getQuery()->getResult();
-                */
-                //$couleur>$couleurini?$monte=true:$monte=false;
-                //$repositoryEquipes->echange_rang($equipe,$monte);
+                $classement = $repositoryEquipes->classement('c', 0, $nbre_equipes);
+
             }
 
         }
@@ -537,7 +550,7 @@ class SecretariatjuryController extends AbstractController
     }
 
     #[IsGranted('ROLE_SECRETARIAT_JURY')]
-    #[Route("/secretariatjury/mise_a_zero", name: "secretariatjury_mise_a_zero")]
+    #[Route("/secretariatjury/mise_a_zero", name: "secretariatjury_mise_a_zero")]//enlève l'attribution des prix
     public function RaZ(): Response
     {
         $em = $this->doctrine->getManager();

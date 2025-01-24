@@ -13,7 +13,17 @@
 
     <div class="col-sm-12">
         <table class="border table-striped">
+            <tr>
+                <td>
+                    <form action="{{ path('secretariatjury_approche') }}">
+                        <input type="submit" value="RAZ couleurs" class="btn btn-primary" name="RAZCouleur">
 
+                    </form>
+                </td>
+                <td></td>
+                <td></td>
+                <td></td>
+            </tr>
 
             {% for equipe in classement %}
 
