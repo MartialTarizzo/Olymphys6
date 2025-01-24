@@ -436,14 +436,14 @@ class SecretariatjuryController extends AbstractController
         $qb = $repositoryEquipes->createQueryBuilder('e');
         $qb->select('COUNT(e)');
         try {
-            $nbre_equipes = $qb->getQuery()->getSingleScalarResult();
+            $nbre_equipes = $qb->getQuery()->getSingleScalarResult();//nombre total d'équipes
         } catch (NoResultException|NonUniqueResultException $e) {
         }
 
         $classement = $repositoryEquipes->classement('c', 0, $nbre_equipes);//on classe les équipes selon les couleurs par défaut
         $prixs = $this->doctrine->getManager()->getRepository(Repartprix::class)->findAll();
         $nbPrix = [];
-        foreach ($prixs as $prix) {
+        foreach ($prixs as $prix) {//On récupére le nombre d'équipes par prix
             if ($prix->getNiveau() == '1er') {
                 $nbPrix[1] = $prix->getNbreprix();
             }
@@ -455,11 +455,10 @@ class SecretariatjuryController extends AbstractController
             }
         }
         if ($request->query->get('RAZCouleur')) {//on place(lors le première visite de cette page) ou replace les couleurs par défaut selon le total
-            $classement = $repositoryEquipes->classement(0, 0, $nbre_equipes); //on classe les équipes selon leur total
+            //$classement = $repositoryEquipes->classement(0, 0, $nbre_equipes); //on classe les équipes selon leur total
 
-            $premiersprix = $repositoryEquipes->classement(1, 0, $nbPrix[1]);
-
-            foreach ($premiersprix as $premierprix) {
+            $premiersprix = $repositoryEquipes->classement(1, 0, $nbPrix[1]);//on cherche les équipes par prix semon leue total
+            foreach ($premiersprix as $premierprix) {//on attribue les couleurs selon le prix et du classement selon le total
                 $premierprix->setCouleur(1);
                 $this->doctrine->getManager()->persist($premierprix);
             }
@@ -476,20 +475,21 @@ class SecretariatjuryController extends AbstractController
             $this->doctrine->getManager()->flush();
             $classement = $repositoryEquipes->classement('c', 0, $nbre_equipes);//
         }
-        foreach (range('A', 'Z') as $lettre) {
 
-            if ($request->query->get($lettre) != null) {
+        foreach (range('A', 'Z') as $lettre) {//ON réactualise une équipe chaque fois qu'un bouton enregister est cliqué
 
-                $couleur = $request->query->get($lettre);
-                $idequipe = $request->query->get('idEquipe');
+            if ($request->query->get($lettre) != null) {//Si on a changé le prix d'une équipe et cliquer sur le bouton enregistrer
 
-                $equipe = $repositoryEquipes->findOneBy(['id' => $idequipe]);
+                $couleur = $request->query->get($lettre);//La valeur du champ de choix de nom lettre contient 0,1,2 ou 3
+                $idequipe = $request->query->get('idEquipe');//le champ caché idEquipe contient l'id de l'équipe
+
+                $equipe = $repositoryEquipes->findOneBy(['id' => $idequipe]);//ON trouve l'équipe qui correspond à l'id
 
 
-                $equipe->setCouleur($couleur);
+                $equipe->setCouleur($couleur);//On attribue la couleur selon la valeur choisie
                 $em->persist($equipe);
                 $em->flush();
-                $classement = $repositoryEquipes->classement('c', 0, $nbre_equipes);
+                $classement = $repositoryEquipes->classement('c', 0, $nbre_equipes);//On reclasse les équipes selon leur couleur donc leur prix apparent
 
             }
 
