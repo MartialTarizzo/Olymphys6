@@ -130,7 +130,7 @@ class SecretariatadminController extends AbstractController
 
                    */
                     $value = $worksheet->getCell('B' . $row)->getValue();
-                    $uai->setNom(ucwords(strtolower($value)));
+                $uai->setNom(ucwords(strtolower($value)));//à changer les noms composés n'ont plus de majuscule au deuxième nom
                     $value = $worksheet->getCell('C' . $row)->getValue();
                     $uai->setAdresse($value);
                     $value = $worksheet->getCell('D' . $row)->getValue();
@@ -606,7 +606,7 @@ class SecretariatadminController extends AbstractController
                     $this->em->flush();
 
 
-                    $this->requestStack->getSession()->set('info', 'L\'invitation  de  ' . $prenom . ' ' . $nom . ' à bien été envoyée.');
+                    $this->requestStack->getSession()->set('info', 'L\'invitation  de  ' . $prenom . ' ' . $nom . ' à bien été envoyée à l\'adresse : ' . $mail);
 
                 } else {
 

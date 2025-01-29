@@ -1628,7 +1628,7 @@ class ElevesinterCrudController extends AbstractCrudController
             //$pdfWriter = \PhpOffice\PhpWord\IOFactory::createWriter($phpPdf, 'PDF');
 
         } catch (\PhpOffice\PhpWord\Exception\Exception $e) {
-            dd($e);
+            
         }
         $objWriter->save($fileNameword);
     }
