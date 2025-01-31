@@ -493,7 +493,7 @@ class SecretariatadminController extends AbstractController
 
     }
 
-    //#[IsGranted(new Expression('is_granted("ROLE_JURY") or is_granted("ROLE_ORGACIA") or is_granted("ROLE_ALLOWED_TO_SWITCH")' ))]
+    #[IsGranted("ROLE_JURY")]
     #[Route("/secretariatadmin/invitations_cn", name: "invitations_cn")]
     public function createinvitationCnPdf(Request $request, Mailer $mailer): Response
     {
