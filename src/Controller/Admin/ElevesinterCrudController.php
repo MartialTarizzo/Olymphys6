@@ -121,6 +121,7 @@ class ElevesinterCrudController extends AbstractCrudController
 
         return $crud
             //->setSearchFields(['nom', 'prenom', 'courriel', 'equipe.id', 'equipe.edition', 'equipe.numero', 'equipe.titreProjet', 'equipe.lettre'])
+            //overrideTemplate('crud/detail', 'bundles/EasyAdminBundle/detail_autorisations.html.twig')
             ->overrideTemplate('layout', 'bundles/EasyAdminBundle/list_eleves.html.twig');
     }
 
@@ -228,8 +229,7 @@ class ElevesinterCrudController extends AbstractCrudController
             yield TextField::new('classe')->hideOnIndex()->hideOnForm(),
             yield TextField::new('equipe')->onlyOnIndex(),
             yield AssociationField::new('equipe')->setFormTypeOptions(['choices' => $listEquipes])->setSortable(true)->hideOnIndex(),
-            yield AssociationField::new('autorisationphotos')->onlyOnDetail(),
-            yield AssociationField::new('autorisationphotos', 'Autorisation photos')->onlyOnIndex()
+            yield AssociationField::new('autorisationphotos', 'Autorisation photos')->setTemplatePath('bundles/EasyAdminBundle/detail_autorisations.html.twig')
         ];
     }
 
