@@ -719,9 +719,21 @@ class ElevesinterCrudController extends AbstractCrudController
                     $pdf->SetRightMargin(20);
                     $pdf->AddPage();
                     $pdf->image('https://www.olymphys.fr/public/odpf/odpf-images/site-logo-398x106.png', 20, null, 60);
-                    $str = 'Paris le ' . $this->date_in_french($this->requestStack->getSession()->get('edition')->getConcourscia()->format('Y-m-d'));
-                    $str = iconv('UTF-8', 'windows-1252', $str);
-                    $pdf->Cell(0, 30, $str . "\n", 0, 0, 'R');
+                    $str = 'Paris le 1er février 2025';
+                    $wstr = $pdf->getStringWidth($str);
+                    $str_1 = 'Paris le 1';
+                    $str_2 = 'er';
+                    $str_3 = ' février 2025';
+                    $str_1 = iconv('UTF-8', 'windows-1252', $str_1);
+                    $str_2 = iconv('UTF-8', 'windows-1252', $str_2);
+                    $str_3 = iconv('UTF-8', 'windows-1252', $str_3);
+                    $pdf->setXY(190 - $wstr, $pdf->GetY());
+                    $pdf->Cell(0, 30, $str_1, 0, 0, 'L');
+                    $pdf->setXY($pdf->getX(), $pdf->GetY() - 2);
+                    $pdf->Cell(0, 30, $str_2, 0, 0, 'L');
+                    $pdf->setXY($pdf->getX(), $pdf->GetY() + 2);
+                    $pdf->Cell(0, 30, $str_3 . "\n", 0, 0, 'L');
+                    //$pdf->Cell(0, 30, $str, 0, 0, 'R');
                     $pdf->SetFont('helvetica', 'B', 18);
                     $str1 = 'Attestation de participation';
                     $x = $pdf->GetX();
@@ -775,7 +787,7 @@ class ElevesinterCrudController extends AbstractCrudController
                     $pdf->SetFont('helvetica', '', 14);
 
                     $nomlycee = $eleve->getEquipe()->getNomLycee();
-                    $coordination = 'du lycée';
+                    $coordination = 'du ';
                     if (str_contains($nomlycee, 'lycee') or str_contains($nomlycee, 'Lycee')) {
                         $nomlycee = str_replace('lycee', 'lycée', $nomlycee);
                         $nomlycee = str_replace('Lycee', 'lycée', $nomlycee);
@@ -936,8 +948,8 @@ class ElevesinterCrudController extends AbstractCrudController
                         dd($e);
                     }
                     $objWriter->save($filenameword);
-                    $zipFile->addFromString(basename($filenameword), file_get_contents($filenameword));
-
+                    $zipFile->addFromString(basename($filenameword), file_get_contents($filenameword));;
+                    break;
                 }
 
             }
@@ -1183,9 +1195,25 @@ class ElevesinterCrudController extends AbstractCrudController
                     $pdf->SetRightMargin(20);
                     $pdf->AddPage();
                     $pdf->image('https://www.olymphys.fr/public/odpf/odpf-images/site-logo-398x106.png', 20, null, 60);
-                    $str = 'Paris le ' . $this->date_in_french($edition->getConcoursCn()->format('Y-m-d'));
-                    $str = iconv('UTF-8', 'windows-1252', $str);
-                    $pdf->Cell(0, 30, $str . "\n", 0, 0, 'R');
+                    $str = 'Paris le 1er février 2025';
+                    $wstr = $pdf->getStringWidth($str);
+                    $str_1 = 'Paris le 1';
+                    $str_2 = 'er';
+                    $str_3 = ' février 2025';
+                    $str_1 = iconv('UTF-8', 'windows-1252', $str_1);
+                    $str_2 = iconv('UTF-8', 'windows-1252', $str_2);
+                    $str_3 = iconv('UTF-8', 'windows-1252', $str_3);
+                    $wstr1 = $pdf->getStringWidth($str_1);
+                    $wstr2 = $pdf->getStringWidth($str_2);
+                    $wstr3 = $pdf->getStringWidth($str_3);
+                    $pdf->setXY(190 - $wstr, $pdf->GetY());
+                    $pdf->Cell($wstr1, 30, $str_1, 0, 0, 'L');
+                    $pdf->setXY(190 - $wstr + $wstr1, $pdf->GetY() - 2);
+                    $pdf->SetFont('helvetica', '', 12);
+                    $pdf->Cell($wstr2, 30, $str_2, 0, 0, 'L');
+                    $pdf->SetFont('helvetica', '', 14);
+                    $pdf->setXY(190 - $wstr + $wstr1 + $wstr2, $pdf->GetY() + 2);
+                    $pdf->Cell($wstr3, 30, $str_3 . "\n", 0, 0, 'L');
                     $pdf->SetFont('helvetica', 'B', 18);
                     $str1 = 'Attestation de participation';
                     $x = $pdf->GetX();
@@ -1199,7 +1227,7 @@ class ElevesinterCrudController extends AbstractCrudController
                     $x = (210 - $w2) / 2;
                     $str2 = 'Aux ' . $edition->getEd();
                     $str21 = 'Olympiades de Physique France';
-                    $w3 = $pdf->getStringWidth('Aux ' . $edition->getEd());
+                    $w3 = $pdf->getStringWidth('Aux 32');
                     $y = $pdf->getY() + 10;
                     $pdf->SetXY($x, $y);
                     $pdf->Cell($w3, 20, $str2 . "\n", 0, 0, 'L');
@@ -1237,20 +1265,32 @@ class ElevesinterCrudController extends AbstractCrudController
                     $pdf->SetFont('helvetica', 'B', 14);
                     $pdf->cell(0, 10, $str5, '', 'L');
                     $pdf->SetFont('helvetica', '', 14);
-                    $str6 = iconv('UTF-8', 'windows-1252', 'du lycée ' . $eleve->getEquipe()->getNomLycee());
+                    $nomlycee = $eleve->getEquipe()->getNomLycee();
+                    $coordination = 'du ';
+                    if (str_contains($nomlycee, 'lycee') or str_contains($nomlycee, 'Lycee')) {
+                        $nomlycee = str_replace('lycee', 'lycée', $nomlycee);
+                        $nomlycee = str_replace('Lycee', 'lycée', $nomlycee);
+                    }
+
+                    if (str_contains($nomlycee, 'lycée') or str_contains($nomlycee, 'Lycée')) {
+                        $nomlycee = str_replace('Lycée', 'lycée', $nomlycee);
+                        $coordination = 'du ';
+                    }
+                    $str6 = iconv('UTF-8', 'windows-1252', $coordination . $nomlycee);
                     $pdf->SetTextColor(0, 0, 0);
 
                     $w6 = $pdf->getStringWidth($str6);
-                    $w7 = $pdf->getStringWidth('du lycée ');
+
                     $x = (210 - $w6) / 2;
                     $y = $pdf->getY();
                     $pdf->SetXY($x, $y);
-                    $pdf->Cell($w7, 10, iconv('UTF-8', 'windows-1252', 'du lycée '), '', 'R');
-                    $x = $pdf->getX() + $w7 - 3;
+                    $w7 = $pdf->getStringWidth($coordination);
+                    $pdf->Cell($w7, 10, iconv('UTF-8', 'windows-1252', $coordination), '', 'R');
+                    $x = $pdf->getX() + $w7;
                     $pdf->SetXY($x, $y);
+                    $pdf->SetFont('helvetica', 'B', 14);
+                    $pdf->Cell(0, 10, iconv('UTF-8', 'windows-1252', $nomlycee), '', 'L');
                     $pdf->SetFont('helvetica', '', 14);
-                    $pdf->Cell(0, 10, iconv('UTF-8', 'windows-1252', $eleve->getEquipe()->getNomLycee()), '', 'L');
-
                     $str9 = 'à ' . $eleve->getEquipe()->getLyceeLocalite();
                     $w9 = $pdf->getStringWidth($str9);
                     $x = (210 - $w9) / 2;
@@ -1275,34 +1315,39 @@ class ElevesinterCrudController extends AbstractCrudController
                     $pdf->SetXY($x, $y);
                     $pdf->Cell(0, 10, iconv('UTF-8', 'windows-1252', $eleve->getEquipe()->getLyceeAcademie()), '', 'R');
                     $y = $pdf->getY();
-                    $w14 = $pdf->getStringWidth(iconv('UTF-8', 'windows-1252', 'a participé le ' . strval($day - 2) . ' et ' .
-                        $this->date_in_french($edition->getConcoursCn()->format('Y-m-d')) . ' au'));
-                    $w15 = $pdf->getStringWidth(iconv('UTF-8', 'windows-1252', 'au 31e concours national des'));
+                    $w14 = $pdf->getStringWidth(iconv('UTF-8', 'windows-1252', 'a participé le 31 janvier 2025 et le 1er février 2025 au'));
+                    $w15 = $pdf->getStringWidth(iconv('UTF-8', 'windows-1252', 'au 32e concours national des'));
                     $pdf->SetXY((210 - $w14) / 2, $y);
-                    $pdf->Cell($w14, 8, iconv('UTF-8', 'windows-1252',
-                        'a participé le ' . $day . ' et ' .
-                        $this->date_in_french($edition->getConcoursCn()->format('Y-m-d')) . ' au'), '', 'R');
+                    $w143 = $pdf->getStringWidth('a participé le 31 janvier 2025 et le 1');
+                    $pdf->Cell($w143, 8, iconv('UTF-8', 'windows-1252',
+                        'a participé le 31 janvier 2025 et le 1'), '', 'L');
+                    $pdf->SetXY(((210 - $w14) / 2) + $w143 - 4, $y - 2);
+                    $pdf->SetFont('helvetica', '', 10);
+                    $pdf->Cell($wstr2, 8, $str_2, '', 'L');
+                    $pdf->SetFont('helvetica', '', 14);
+                    $pdf->SetXY(((210 - $w14) / 2) + $w143 + $wstr2 - 4, $y);
+                    $pdf->Cell($wstr3 + 3, 8, $str_3 . ' au' . "\n", '', 'L');
                     $y = $pdf->getY();
                     $pdf->SetXY((210 - $w15) / 2, $y);
-                    $pdf->Cell(2, 8, iconv('UTF-8', 'windows-1252', '31'), '', 'R');
+                    $pdf->Cell(2, 8, iconv('UTF-8', 'windows-1252', '32'), '', 'R');
                     $x = $pdf->GetX();
                     $y = $y - 2;
-                    $pdf->setXY($x + 5, $y);
+                    $pdf->setXY($x + 6, $y);
                     $pdf->SetFont('helvetica', '', 10);
                     $pdf->Cell(5, 8, 'e', 0, 0, 'L');
                     $x = $pdf->GetX();
                     $y = $y + 2;
                     $pdf->SetFont('helvetica', '', 14);
-                    $pdf->setXY($x, $y);
+                    $pdf->setXY($x - 2, $y);
                     $pdf->Cell($w15, 8, iconv('UTF-8', 'windows-1252', ' concours national des'), '', 'L');
                     $y = $pdf->GetY();
                     $w16 = $pdf->getStringWidth(iconv('UTF-8', 'windows-1252', 'Olympiades de Physique France à'));
                     $pdf->setXY((210 - $w16) / 2, $y);
                     $pdf->Cell($w16, 8, iconv('UTF-8', 'windows-1252', 'Olympiades de Physique France à '), '', 'L');
-                    $w17 = $pdf->getStringWidth(iconv('UTF-8', 'windows-1252', 'l\'' . $edition->getLieu() . '.'));
+                    $w17 = $pdf->getStringWidth(iconv('UTF-8', 'windows-1252', $edition->getLieu() . '.'));
                     $y = $pdf->getY();
                     $pdf->setXY((210 - $w17) / 2, $y);
-                    $pdf->Cell($w16, 8, iconv('UTF-8', 'windows-1252', 'l\'' . $editionpassee->getLieu() . '.'), '', 'R');
+                    $pdf->Cell($w16, 8, iconv('UTF-8', 'windows-1252', $editionpassee->getLieu() . '.'), '', 'R');
                     $pdf->setXY(20, $y + 12);
                     $pdf->Write(8, iconv('UTF-8', 'windows-1252', 'Son équipe a obtenu un ' .
                         $this->prixlit($equipepassee->getPalmares()) . ' prix.'));

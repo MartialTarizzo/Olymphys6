@@ -42,16 +42,19 @@ class CreatePageEdPassee
         } else {
             $article = $repositoryOdpfArticles->findOneBy(['choix' => 'edition' . $editionsPassees->getEdition()]);
             $texte = $article->getTexte();
-            $textes = explode('<p>Liste des équipes</p>', $texte);//&eacute;
-            $texte = $textes[0] . 'Liste des équipes';//Permets la mise à jour de la liste des  équipes sans effacer les autres données
+            $textes = explode('<p>Liste des &eacute;quipes</p>', $texte);//&eacute;
+            $texte = $textes[0] . '<p>Liste des &eacute;quipes</p>';//Permets la mise à jour de la liste des  équipes sans effacer les autres données
 
         }
+
         $listeEquipesSel = $this->em->getRepository(OdpfEquipesPassees::class)->createQueryBuilder('e')
             ->select('e')
             ->andWhere('e.editionspassees =:edition')
             ->andWhere('e.selectionnee = TRUE')
-            ->setParameters(['edition' => $editionsPassees])
+            ->andWhere('e.numero <:numero')
+            ->setParameters(['edition' => $editionsPassees, 'numero' => 100])
             ->addOrderBy('e.lettre', 'ASC')
+
             ->getQuery()->getResult();
         $listeEquipesNonsel = $this->em->getRepository(OdpfEquipesPassees::class)->createQueryBuilder('e')
             ->select('e')
@@ -73,22 +76,22 @@ class CreatePageEdPassee
                 // en local
                 //$texte = $texte . '<li class="rougeodpf"> <a href="/odpf/editionspassees/equipe,' . $equipe->getId() . '" >' . $equipe->getLettre() . ' '. $equipe->getTitreProjet() .'</a>, lycée ' . $equipe->getLycee() . ', ' . $equipe->getVille() . '</li>';
                 $repEquipe = $equipe->getLettre();
-                if ($_SERVER['SERVER_NAME'] == '127.0.0.1') {
-                    $texte = $texte . '<li class="rougeodpf"> <a href="/odpf/editionspassees/equipe,' . $equipe->getId() . '" >' . $repEquipe . ' ' . $equipe->getTitreProjet() . '</a>, lycée ' . $equipe->getLycee() . ', ' . $equipe->getVille() . '</li>';
+                if ($_SERVER['SERVER_NAME'] == '127.0.0.1' or $_SERVER['SERVER_NAME'] == 'localhost') {
+                    $texte = $texte . '<li> <a href="/odpf/editionspassees/equipe,' . $equipe->getId() . '" >' . $repEquipe . ' ' . $equipe->getTitreProjet() . '</a>, lycée ' . $equipe->getLycee() . ', ' . $equipe->getVille() . '</li>';
 
                 } else {
-                    $texte = $texte . '<li class="rougeodpf"> <a href="/public/index.php/odpf/editionspassees/equipe,' . $equipe->getId() . '" >' . $repEquipe . ' ' . $equipe->getTitreProjet() . '</a>, lycée ' . $equipe->getLycee() . ', ' . $equipe->getVille() . '</li>';
+                    $texte = $texte . '<li> <a href="/public/index.php/odpf/editionspassees/equipe,' . $equipe->getId() . '" >' . $repEquipe . ' ' . $equipe->getTitreProjet() . '</a>, lycée ' . $equipe->getLycee() . ', ' . $equipe->getVille() . '</li>';
 
                 }
 
             }
             foreach ($listeEquipesNonsel as $equipe) {
                 $repEquipe = $equipe->getNumero();
-                if ($_SERVER['SERVER_NAME'] == '127.0.0.1') {//en localhost
-                    $texte = $texte . '<li class="rougeodpf"> <a href="/odpf/editionspassees/equipe,' . $equipe->getId() . '" >' . $repEquipe . ' ' . $equipe->getTitreProjet() . '</a>, lycée ' . $equipe->getLycee() . ', ' . $equipe->getVille() . '</li>';
+                if ($_SERVER['SERVER_NAME'] == '127.0.0.1' or $_SERVER['SERVER_NAME'] == 'localhost') {//en localhost
+                    $texte = $texte . '<li> <a href="/odpf/editionspassees/equipe,' . $equipe->getId() . '" >' . $repEquipe . ' ' . $equipe->getTitreProjet() . '</a>, lycée ' . $equipe->getLycee() . ', ' . $equipe->getVille() . '</li>';
 
                 } else {//sur le site
-                    $texte = $texte . '<li class="rougeodpf"> <a href="/public/index.php/odpf/editionspassees/equipe,' . $equipe->getId() . '" >' . $repEquipe . ' ' . $equipe->getTitreProjet() . '</a>, lycée ' . $equipe->getLycee() . ', ' . $equipe->getVille() . '</li>';
+                    $texte = $texte . '<li> <a href="/public/index.php/odpf/editionspassees/equipe,' . $equipe->getId() . '" >' . $repEquipe . ' ' . $equipe->getTitreProjet() . '</a>, lycée ' . $equipe->getLycee() . ', ' . $equipe->getVille() . '</li>';
 
                 }
             }
@@ -101,17 +104,20 @@ class CreatePageEdPassee
 
 
         }
+
         $texte = $texte . '</ul>';
-        if ($_SERVER['SERVER_NAME'] == '127.0.0.1') {//en localhost
+        if ($_SERVER['SERVER_NAME'] == '127.0.0.1' or $_SERVER['SERVER_NAME'] == 'localhost') {//en localhost
             $lienCarteFrance = '/odpf/odpf-archives/' . $editionsPassees->getEdition() . '/cartes/' . $editionsPassees->getEdition() . '-Carte_France.png';
-            $lienCarteMonde = '/odpf/odpf-archives/' . $editionsPassees->getEdition() . '/cartes/' . $editionsPassees->getEdition() . '-Carte_mrance.png';
+            $lienCarteMonde = '/odpf/odpf-archives/' . $editionsPassees->getEdition() . '/cartes/' . $editionsPassees->getEdition() . '-Carte_monde.png';
         } else {//sur le site
+
             $lienCarteFrance = 'https://www.olymphys.fr/public/odpf/odpf-archives/' . $editionsPassees->getEdition() . '/cartes/' . $editionsPassees->getEdition() . '-Carte_France.png';
-            $lienCarteMonde = 'https://www.olymphys.fr/public/odpf/odpf-archives/' . $editionsPassees->getEdition() . '/cartes/' . $editionsPassees->getEdition() . '-Carte_mrance.png';
+            $lienCarteMonde = 'https://www.olymphys.fr/public/odpf/odpf-archives/' . $editionsPassees->getEdition() . '/cartes/' . $editionsPassees->getEdition() . '-Carte_monde.png';
         }
         $texte = $texte . '<br> Les cartes des équipes : 
-                    <p><img src="' . $lienCarteFrance . '" style="width: 800px; height: auto" alt="carte de France">   </p>
-                    <p><img src="' . $lienCarteMonde . '" style="width: 800px; height: auto" alt="carte du monde">   </p>';
+                    <p><img src="' . $lienCarteFrance . '" style="width: 600px; height: auto" alt="carte de France">   </p>
+                    <p><img src="' . $lienCarteMonde . '" style="width: 600px; height: auto" alt="carte du monde">   </p>';
+
         $article->setTexte($texte);
         $categorie = $this->em->getRepository(odpfCategorie::class)->findOneBy(['id' => 4]);
         $article->setCategorie($categorie);

@@ -1284,7 +1284,7 @@ class SecretariatjuryController extends AbstractController
             $sheet->getRowDimension($ligne)->setRowHeight(30);
             $lettre = $equipe->getEquipeinter()->getLettre();
             $sheet->mergeCells('B' . $ligne . ':C' . $ligne);
-            $sheet->setCellValue('A' . $ligne, 'Claire');
+            $sheet->setCellValue('A' . $ligne, 'Nathalie');//voix ff
             $sheet->setCellValue('B' . $ligne, 'Remise du ' . $equipe->getClassement() . ' Prix');
             $sheet->getStyle('A' . $ligne . ':D' . $ligne)->getAlignment()->applyFromArray($vcenterArray);
             $sheet->getStyle('A' . $ligne . ':D' . $ligne)
@@ -1306,7 +1306,7 @@ class SecretariatjuryController extends AbstractController
                     $sheet->getRowDimension($ligne)->setRowHeight(30);
                     $sheet->mergeCells('B' . $ligne . ':D' . $ligne);
                     // $voix=$equipe->getPrix()->getVoix();
-                    $sheet->setCellValue('A' . $ligne, 'Claire');
+                    $sheet->setCellValue('A' . $ligne, 'Nathalie');
                     $sheet->setCellValue('B' . $ligne, 'Ce prix est remis par ' . $equipe->getPrix()->getIntervenant());
                     $sheet->mergeCells('B' . $ligne . ':D' . $ligne);
                     $sheet->getStyle('A' . $ligne . ':D' . $ligne)
@@ -1335,7 +1335,7 @@ class SecretariatjuryController extends AbstractController
             $sheet->getStyle('A' . $ligne . ':D' . $ligne)->applyFromArray($borderArray);
 
             $ligne++;
-            $remispar = 'Claire';
+            $remispar = 'Nathalie';
             $sheet->getRowDimension($ligne)->setRowHeight(40);
             if ($equipe->getVisite() !== null) {
                 $sheet->setCellValue('A' . $ligne, $remispar);

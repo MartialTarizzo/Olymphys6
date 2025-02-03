@@ -199,7 +199,7 @@ class OdpfFichiersPassesCrudController extends AbstractCrudController
         $panel2 = FormField::addPanel('<p style=" color:red" > Modifier ' . $article . ' ' . $this->getParameter('type_fichier_lit')[$numtypefichier] . '</p> ');
         $id = IntegerField::new('id', 'ID');
         $fichier = TextField::new('nomfichier');//->setTemplatePath('bundles\\EasyAdminBundle\\liste_fichiers.html.twig');
-        $publie = BooleanField::new('publie')->renderAsSwitch(false);
+        $publie = BooleanField::new('publie');//->renderAsSwitch(false);
 
         //$typefichier = IntegerField::new('typefichier');
 
@@ -389,7 +389,7 @@ class OdpfFichiersPassesCrudController extends AbstractCrudController
 
     #[IsGranted('ROLE_SUPER_ADMIN')]
     #[Route("setPublies,{typefichier}", name: "setPublies")]
-    public function setPublies(\Symfony\Component\HttpFoundation\Request $request, $typefichier): Response
+    public function setPublies(\Symfony\Component\HttpFoundation\Request $request, $typefichier): Response//rend public les fichiers des mémoires, annexes, résumés diaporamas des équipes sélectionnées
     {
         $qb = $this->doctrine->getRepository(OdpfEditionsPassees::class)->createQueryBuilder('f')
             ->orderBy('f.edition','DESC');
