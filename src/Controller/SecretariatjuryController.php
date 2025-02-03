@@ -56,6 +56,7 @@ use Symfony\Component\PasswordHasher\Hasher\UserPasswordHasherInterface;
 use Symfony\Component\Routing\Attribute\Route;
 use Symfony\Component\Security\Http\Attribute\IsGranted;
 use Symfony\Component\String\Slugger\AsciiSlugger;
+use Symfony\Component\String\UnicodeString;
 
 
 class SecretariatjuryController extends AbstractController
@@ -1102,11 +1103,19 @@ class SecretariatjuryController extends AbstractController
             $lettre = $equipe->getEquipeinter()->getLettre();
 
             $ligne4 = $ligne + 3;
+            $classement = $equipe->getClassement();
+            $rang = substr($classement, 0, 1);
+            $indicOrdi = substr($classement, 1, strlen($classement));
+            $richText = new \PhpOffice\PhpSpreadsheet\RichText\RichText();
+            $richText->createText($rang);
+            $ordina = $richText->createTextRun($indicOrdi);
+            $ordina->getFont()->setSuperscript(true)->setSize(9);
+            $richText->createText(' prix');
             $sheet->mergeCells('A' . $ligne . ':A' . $ligne);
             $sheet->setCellValue('A' . $ligne, mb_strtoupper($lycee[$lettre][0]->getAcademie()))
                 ->setCellValue('B' . $ligne, 'Lycée ' . $lycee[$lettre][0]->getNom() . " - " . $lycee[$lettre][0]->getCommune())
                 ->setCellValue('C' . $ligne, $prof1[$lettre][0]->getPrenom() . " " . mb_strtoupper($prof1[$lettre][0]->getNom()))
-                ->setCellValue('D' . $ligne, $equipe->getClassement() . ' ' . 'prix');
+                ->setCellValue('D' . $ligne, $richText);
             if ($equipe->getPhrases()[0] !== null) {
                 $sheet->setCellValue('E' . $ligne, $equipe->getPhrases()[0]->getPhrase() . ' ' . $equipe->getPhrases()[0]->getLiaison()->getLiaison() . ' ' . $equipe->getPhrases()[0]->getPrix());
             } else {
@@ -1127,6 +1136,7 @@ class SecretariatjuryController extends AbstractController
             switch ($classement) {
                 case '1er':
                     $couleur = 'ffccff';
+
                     break;
                 case '2ème':
                     $couleur = '99ffcc';
@@ -1135,6 +1145,7 @@ class SecretariatjuryController extends AbstractController
                     $couleur = 'ccff99';
                     break;
             }
+
             $sheet->getStyle('D' . $ligne . ':E' . $ligne)->getFill()
                 ->setFillType(Fill::FILL_SOLID)
                 ->getStartColor()->setRGB($couleur);
@@ -1171,7 +1182,7 @@ class SecretariatjuryController extends AbstractController
             $ligne = $ligne + 1;
             $sheet->mergeCells('D' . $ligne . ':E' . $ligne);
             if ($equipe->getCadeau() !== null) {
-                $sheet->setCellValue('D' . $ligne, $equipe->getCadeau()->getRaccourci() . ' offert par ' . $equipe->getCadeau()->getFournisseur());
+                $sheet->setCellValue('D' . $ligne, $equipe->getCadeau()->getRaccourci());//. ' offert par ' . $equipe->getCadeau()->getFournisseur());
             }
             $sheet->getStyle('D' . $ligne . ':E' . $ligne)->getAlignment()->applyFromArray($vcenterArray);
 
