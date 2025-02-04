@@ -132,7 +132,8 @@ class OdpfEditionspasseesController extends AbstractController
             }
         }
         //sur le site : <a href="/../public/index.php/odpf/editionspassees/editions?sel='.$equipe->getEditionspassees()->getId().'">Retour</a>
-
+        $lycee = 'Lycée ';
+        if (str_contains($equipe->getLycee(), 'Lycée')) $lycee = '';//Si le nom du lycée contient déjà le mot lycée
         $texte = $texte . '
                          
                 <table>
@@ -142,7 +143,7 @@ class OdpfEditionspasseesController extends AbstractController
                </tr>
                </thead>
                 <tr>
-                    <td colspan="2">Lycée ' . $equipe->getLycee() . ' de ' . $equipe->getVille() . $academie . '</td>
+                    <td colspan="2">' . $lycee . $equipe->getLycee() . ' de ' . $equipe->getVille() . $academie . '</td>
                 </tr>
                 
                <tr>

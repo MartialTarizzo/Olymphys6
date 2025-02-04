@@ -1112,8 +1112,11 @@ class SecretariatjuryController extends AbstractController
             $ordina->getFont()->setSuperscript(true)->setSize(9);
             $richText->createText(' prix');
             $sheet->mergeCells('A' . $ligne . ':A' . $ligne);
+
+            $prefixelycee = 'Lycée ';
+            if (str_contains($lycee[$lettre][0]->getNom(), 'Lycée') or str_contains($lycee[$lettre][0]->getNom(), 'lycée')) $prefixelycee = '';
             $sheet->setCellValue('A' . $ligne, mb_strtoupper($lycee[$lettre][0]->getAcademie()))
-                ->setCellValue('B' . $ligne, 'Lycée ' . $lycee[$lettre][0]->getNom() . " - " . $lycee[$lettre][0]->getCommune())
+                ->setCellValue('B' . $ligne, $prefixelycee . $lycee[$lettre][0]->getNom() . " - " . $lycee[$lettre][0]->getCommune())
                 ->setCellValue('C' . $ligne, $prof1[$lettre][0]->getPrenom() . " " . mb_strtoupper($prof1[$lettre][0]->getNom()))
                 ->setCellValue('D' . $ligne, $richText);
             if ($equipe->getPhrases()[0] !== null) {
@@ -1235,7 +1238,8 @@ class SecretariatjuryController extends AbstractController
         $em = $this->doctrine->getManager();
 
         $nbreEquipes = 0;
-
+        $mloyal = 'Caroline';
+        $voix = 'Nathalie';
         $tableau = $this->requestStack->getSession()->get('tableau');
         if ($tableau[0] == null) {
             $this->requestStack->getSession()->set('info', 'Pas d\'équipe sélectionnée pour l\'édition en cours');
@@ -1260,7 +1264,7 @@ class SecretariatjuryController extends AbstractController
         $spreadsheet->getProperties()
             ->setCreator("Olymphys")
             ->setLastModifiedBy("Olymphys")
-            ->setTitle("Palmarès de la 27ème édition - Février 2020")
+            ->setTitle("Palmarès de la " . $this->requestStack->getSession()->get('edition')->getEd() . "ème édition")
             ->setSubject("Palmarès")
             ->setDescription("Palmarès avec Office 2005 XLSX, generated using PHP classes.")
             ->setKeywords("office 2005 openxml php")
@@ -1295,7 +1299,7 @@ class SecretariatjuryController extends AbstractController
             $sheet->getRowDimension($ligne)->setRowHeight(30);
             $lettre = $equipe->getEquipeinter()->getLettre();
             $sheet->mergeCells('B' . $ligne . ':C' . $ligne);
-            $sheet->setCellValue('A' . $ligne, 'Nathalie');//voix ff
+            $sheet->setCellValue('A' . $ligne, $voix);//voix ff
             $sheet->setCellValue('B' . $ligne, 'Remise du ' . $equipe->getClassement() . ' Prix');
             $sheet->getStyle('A' . $ligne . ':D' . $ligne)->getAlignment()->applyFromArray($vcenterArray);
             $sheet->getStyle('A' . $ligne . ':D' . $ligne)
@@ -1317,7 +1321,7 @@ class SecretariatjuryController extends AbstractController
                     $sheet->getRowDimension($ligne)->setRowHeight(30);
                     $sheet->mergeCells('B' . $ligne . ':D' . $ligne);
                     // $voix=$equipe->getPrix()->getVoix();
-                    $sheet->setCellValue('A' . $ligne, 'Nathalie');
+                    $sheet->setCellValue('A' . $ligne, $voix);
                     $sheet->setCellValue('B' . $ligne, 'Ce prix est remis par ' . $equipe->getPrix()->getIntervenant());
                     $sheet->mergeCells('B' . $ligne . ':D' . $ligne);
                     $sheet->getStyle('A' . $ligne . ':D' . $ligne)
@@ -1331,7 +1335,7 @@ class SecretariatjuryController extends AbstractController
             $sheet->getRowDimension($ligne)->setRowHeight(30);
 
             $sheet->mergeCells('B' . $ligne . ':D' . $ligne);
-            $remispar = 'Oliver'; //remplacer $remis par par $voix1 et $voix2
+            $remispar = $mloyal; //remplacer $remis par par $voix1 et $voix2
 
             if ($equipe->getPhrases()[0] != null) {
                 $sheet->setCellValue('A' . $ligne, $remispar);
@@ -1346,7 +1350,7 @@ class SecretariatjuryController extends AbstractController
             $sheet->getStyle('A' . $ligne . ':D' . $ligne)->applyFromArray($borderArray);
 
             $ligne++;
-            $remispar = 'Nathalie';
+            $remispar = $voix;
             $sheet->getRowDimension($ligne)->setRowHeight(40);
             if ($equipe->getVisite() !== null) {
                 $sheet->setCellValue('A' . $ligne, $remispar);
@@ -1366,7 +1370,7 @@ class SecretariatjuryController extends AbstractController
                 $sheet->setCellValue('C' . $ligne, $equipe->getCadeau()->getRaccourci());//. ' offert par ' . $equipe->getCadeau()->getFournisseur());
             }
             $ligne = $this->getLigne($sheet, $ligne, $styleText, $borderArray);
-            $remispar = 'Olivier';
+            $remispar = $mloyal;
             $lignep = $ligne + 1;
             $sheet->getRowDimension($ligne)->setRowHeight(40);
             $sheet->setCellValue('A' . $ligne, $remispar);
@@ -1391,6 +1395,8 @@ class SecretariatjuryController extends AbstractController
             $sheet->getStyle('A' . $aligne . ':D' . $lignep)->applyFromArray($borderArray);
             $ligne = $ligne + 2;
             $sheet->mergeCells('A' . $ligne . ':D' . $ligne);
+            $spreadsheet->getActiveSheet()->setBreak('A' . $ligne, \PhpOffice\PhpSpreadsheet\Worksheet\Worksheet::BREAK_ROW);//permet d'obtenir un saut de page à chaque équipe donc une page par équipe.
+
             $ligne++;
             //$spreadsheet->getActiveSheet()->getStyle('A' . $ligne)->getFont()->getColor()->setARGB(Color::COLOR_RED);
             $spreadsheet->getActiveSheet()->getStyle('A' . $ligne . ':D' . $ligne)->getFill()->setFillType(\PhpOffice\PhpSpreadsheet\Style\Fill::FILL_SOLID);
@@ -1418,7 +1424,7 @@ class SecretariatjuryController extends AbstractController
         $spreadsheet->getActiveSheet()->getPageSetup()->setFitToHeight(0);
         $spreadsheet->getActiveSheet()->getPageSetup()->setHorizontalCentered(true);
         $spreadsheet->getActiveSheet()->getPageSetup()->setVerticalCentered(true);
-        $spreadsheet->getActiveSheet()->getHeaderFooter()->setOddFooter('RPage &P sur &N');
+        $spreadsheet->getActiveSheet()->getHeaderFooter()->setOddFooter('&14Page &P sur &N');
         header('Content-Type: application/vnd.ms-excel');
         header('Content-Disposition: attachment;filename="proclamation.xls"');
         header('Cache-Control: max-age=0');
