@@ -35,6 +35,9 @@ class Prix
     #[ORM\Column(nullable: true)]
     private ?bool $attribue = null;
 
+    #[ORM\Column(length: 15, nullable: true)]
+    private ?string $MonsieurLoyal = null;
+
     public function __toString(): string
     {
 
@@ -146,6 +149,18 @@ class Prix
     public function setAttribue(?bool $attribue): static
     {
         $this->attribue = $attribue;
+
+        return $this;
+    }
+
+    public function getMonsieurLoyal(): ?string
+    {
+        return $this->MonsieurLoyal;
+    }
+
+    public function setMonsieurLoyal(?string $MonsieurLoyal): static
+    {
+        $this->MonsieurLoyal = $MonsieurLoyal;
 
         return $this;
     }

@@ -212,7 +212,7 @@ class PhotosCrudController extends AbstractCrudController
         }
 
 
-        $panel1 = FormField::addPanel('<p style="color:red" > Choisir le fichier à déposer pour la ' . $this->requestStack->getSession()->get('edition')->getEd() . '<sup>e</sup> édition</p> ');
+        $panel1 = FormField::addPanel('<p style="color:red" > Choisir le fichier à déposer pour la ' . $edition->getEd() . '<sup>e</sup> édition</p> ');
         $equipe = AssociationField::new('equipe')
             ->setFormTypeOptions(['class' => Equipesadmin::class,
                 'choices' => $listeEquipes,

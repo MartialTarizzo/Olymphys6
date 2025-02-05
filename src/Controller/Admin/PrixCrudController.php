@@ -74,6 +74,7 @@ use Symfony\Component\Routing\Attribute\Route;
         $prix = TextField::new('prix');;
         $niveau = TextField::new('niveau');
         $voix = TextField::new('voix');
+        $mloyal = TextField::new('mloyal', 'M Loyal');
         $intervenant = TextField::new('intervenant');
         $remisPar = TextField::new('remisPar');
         $id = IntegerField::new('id', 'ID');
@@ -86,13 +87,13 @@ use Symfony\Component\Routing\Attribute\Route;
         $attribue = BooleanField::new('attribue');
 
         if (Crud::PAGE_INDEX === $pageName) {
-            return [$id, $prix, $niveau, $equipe, $voix, $intervenant, $remisPar, $attribue];
+            return [$id, $prix, $niveau, $equipe, $voix, $intervenant, $mloyal, $remisPar, $attribue];
         } elseif (Crud::PAGE_DETAIL === $pageName) {
-            return [$id, $prix, $niveau, $equipe, $voix, $intervenant, $remisPar];
+            return [$id, $prix, $niveau, $equipe, $voix, $intervenant, $mloyal,];
         } elseif (Crud::PAGE_NEW === $pageName) {
-            return [$prix, $niveau, $equipe, $voix, $intervenant, $remisPar];
+            return [$prix, $niveau, $equipe, $voix, $intervenant, $mloyal, $remisPar];
         } elseif (Crud::PAGE_EDIT === $pageName) {
-            return [$prix, $niveau, $equipe, $voix, $intervenant, $remisPar, $attribue];
+            return [$prix, $niveau, $equipe, $voix, $intervenant, $mloyal, $remisPar, $attribue];
         }
     }
 
