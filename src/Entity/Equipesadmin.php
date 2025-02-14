@@ -123,12 +123,15 @@ class Equipesadmin
     public function __toString(): string
     {
 
-       $ed= $this->getEdition()->getEd();//génère une erreur dans les filtres d'easyadmin, a remplacer par choice_label dans le CustomEquipeFichierFilterType
-        if ($this->getLettre() != null) {
-            return $ed . '-' . $this->numero . '-' . $this->lettre . '-' . $this->titreProjet;
-        } else {
-            return $ed . '-' . $this->numero . '-' . $this->titreProjet;
+        if ($this->edition !== null) {
+            $ed = $this->getEdition()->getEd();//génère une erreur dans les filtres d'easyadmin, a remplacer par choice_label dans le CustomEquipeFichierFilterType
+            if ($this->getLettre() != null) {
+                return $ed . '-' . $this->numero . '-' . $this->lettre . '-' . $this->titreProjet;
+            } else {
+                return $ed . '-' . $this->numero . '-' . $this->titreProjet;
+            }
         }
+        return '';
     }
 
     public function getId(): ?int
