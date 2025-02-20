@@ -276,14 +276,14 @@ class PhotosController extends AbstractController
 
         $editionN = $repositoryEdition->find(['id' => $concourseditioncentre[1]]);
         $editionN1 = $repositoryEdition->findOneBy(['ed' => $editionN->getEd() - 1]);
-        new DateTime('now') >= $this->requestStack->getSession()->get('ouverturesite') ? $edition = $editionN : $edition = $editionN1;
+        new DateTime('now') >= $this->requestStack->getSession()->get('edition')->getDateOuvertureSite() ? $edition = $editionN : $edition = $editionN1;
         $datecia = $this->requestStack->getSession()->get('edition')->getConcoursCia()->format('Y-m-d');
         $datelimite = date_modify(new \DateTime($datecia), '+30days');
-        if (new \DateTime('now') <= $datelimite) {//Dans la période de 30 jours qui suit le CIA , les profs peuvent gérer les photos des cia
+        if (new \DateTime('now') <= $edition->getDateOuvertureSite()) {//Dans la période de 30 jours qui suit le CIA , les profs peuvent gérer les photos des cia
 
             $concours = 'inter';
         }
-        if ($concours == 'inter' and (new \DateTime('now') <= $datelimite)) {
+        if ($concours == 'inter') {
 
             $qb = $repositoryEquipesadmin->createQueryBuilder('e')
                 ->andWhere('e.edition =:edition')
@@ -304,10 +304,13 @@ class PhotosController extends AbstractController
                     ->setParameter('centre', $centre);
             }
             if (in_array('ROLE_PROF', $user->getRoles())) {
-                $ville = 'prof';
-                $qb->andWhere('e.idProf1 =:prof or e.idProf2 =:prof')
-                    ->setParameter('prof', $id_user);
+                if (new \DateTime('now') <= $datelimite) {
 
+
+                    $ville = 'prof';
+                    $qb->andWhere('e.idProf1 =:prof or e.idProf2 =:prof')
+                        ->setParameter('prof', $id_user);
+                }
 
             }
 
@@ -559,7 +562,8 @@ class PhotosController extends AbstractController
     #[Route("/photos/telecharger_photos", name: "telecharger_photos")]
     public function telechargerPhotos(Request $request): Response
     {
-        $edition = $this->requestStack->getSession()->get('edition');
+        $editionN = $this->requestStack->getSession()->get('edition');
+        $repositoryEdition = $this->doctrine->getRepository(Edition::class);
         $slugger = new AsciiSlugger();
         $user = $this->getUser();
         $id_user = $user->getId();
@@ -567,6 +571,8 @@ class PhotosController extends AbstractController
             ->getManager()
             ->getRepository(Photos::class);
         $listePhotos = null;
+        $editionN1 = $repositoryEdition->findOneBy(['ed' => $editionN->getEd() - 1]);
+        new DateTime('now') >= $editionN->getDateOuvertureSite() ? $edition = $editionN : $edition = $editionN1;
 
         if (in_array('ROLE_ORGACIA', $user->getRoles())) {
             $listePhotos = $repositoryPhotos->createQueryBuilder('p')
@@ -574,7 +580,7 @@ class PhotosController extends AbstractController
                 ->where('e.centre=:centre')
                 ->andWhere('p.edition =:edition')
                 ->setParameter('centre', $user->getCentrecia())
-                ->setParameter('edition', $this->requestStack->getSession()->get('edition'))
+                ->setParameter('edition', $edition)
                 ->orderBy('e.numero', 'ASC')
                 ->getQuery()->getResult();
 
