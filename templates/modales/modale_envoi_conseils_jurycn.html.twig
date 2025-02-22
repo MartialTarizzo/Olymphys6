@@ -9,9 +9,9 @@
                 <button type="button" class="close" data-dismiss="modal">&times;</button>
             </div>
             <div class="modal-body">
-                <form name="confirm_form" id="confirm_form"
+                <form name="confirm_form_conseil" id="confirm_form_conseil"
                       action="{{ path('secretariatjury_envoi_recommandations') }}">
-                    <input type="hidden" id="idequipe" name="idequipe" value="recipient-name"/>
+                    <input type="hidden" id="idrecommandation" name="idrecommandation" value="recipient-name"/>
                     <button type="submit" id="submit_form" class="btn btn-primary">Envoyer</button>
                     <p>Voulez-vous envoyer ces conseils aux professeurs de l'équipe?<h6 id="modal_body"></h6> </p>
                 </form>

@@ -53,18 +53,22 @@ function changejurecn(j) {//j est l'objet input qui a lancé la fonction, pour l
 
 }
 
-$(window).on("unload", function () {
-    var tableau = document.getElementById("changejures")
-    console.log(tableau);
-
-    var scrollPosition = tableau.scrollTop;
-    console.log(scrollPosition);
-    localStorage.setItem("scrollPosition", scrollPosition);
+$(window).on("unload", function () {//Pour que lors de la saisie de la répartition des jurés, le fenêtre revienne à la position définie par l'utilisateur après l'enregistrement des données
+    var tableau = document.getElementById("changejurescontainer")
+    var scrollPositionY = `${tableau.scrollTop}`;
+    var scrollPositionX = `${tableau.scrollLeft}`;
+    var scrollWindowY = `${window.scrollY}`
+    localStorage.setItem("scrollPositionY", scrollPositionY);
+    localStorage.setItem("scrollPositionX", scrollPositionX);
+    localStorage.setItem("scrollWindowY", scrollWindowY);
 });
-if (localStorage.scrollPosition) {
-    var tableau = document.getElementById("changejures")
-    tableau.scrollTop(localStorage.getItem("scrollPosition"));
-}
+$(window).on("load", function () {
+    var tableau = document.getElementById("changejurescontainer")
+    tableau.scrollTop = parseInt(localStorage['scrollPositionY']);
+    tableau.scrollLeft = parseInt(localStorage['scrollPositionX']);
+    window.scrollTo(0, parseInt(localStorage['scrollWindowY']));
+
+});
 
 function changeequipe(e, i, j) {
     var type = 'equipe';
@@ -274,4 +278,5 @@ function allcheck(check) {
     for (var i in checkboxes) {
         checkboxes[i].checked = check;
     }
+
 }

@@ -9,10 +9,10 @@
     Gestion des jurés et de leur répartition
 {% endblock %}
 {% block body %}
-<div class="container-fluid">
+    <div class="container">
     <div class="row">
         <div class="col">
-                <table class="table">
+            <table class="table">
                     <thead>
                     <tr>
 
@@ -51,7 +51,7 @@
     </div>
     <div class="row">
         <diV class="col">
-            <div class="tableFixHead">
+            <div class="tableFixHead" id="changejurescontainer">
                 <table class="table table-bordered" id="changejures">
                 <thead>
                 <tr>
@@ -238,6 +238,7 @@
 
                 </tbody>
             </table>
+
     </div>
     <!--<div class="text-center">
         <button class="btn btn-primary" value="confirmer" name="confirmer" onclick="confirmer()">Confirmer</button>
@@ -245,9 +246,10 @@
     {{ include('modales/modale_supr_jure_cn.html.twig') }}
     {% if app.session.get('info')!='' %}
         {{ include('modales/modale_info.html.twig') }}
+        {{ app.session.set('info','') }}
     {% endif %}
-    </div>}
+        </div>
     </div>
     </div>>
-    {{ app.session.set('info','') }}
+
 {% endblock %}

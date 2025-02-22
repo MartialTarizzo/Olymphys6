@@ -270,7 +270,7 @@ class Mailer
         if ($prof2 !== null) {
             $email->cc($prof2->getEmail());
         }
-        $email->subject('31e-OdPF-Conseils du jury du concours national  à votre équipe')
+        $email->subject($conseil->getEquipe()->getEquipeinter()->getEdition()->getEd() . 'e-OdPF-Conseils du jury du concours national  à votre équipe')
             ->htmlTemplate('email/conseilCn.html.twig')
             ->context([
                 'conseil' => $conseil->getTexte(),

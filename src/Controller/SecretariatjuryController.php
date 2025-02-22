@@ -2173,7 +2173,7 @@ class SecretariatjuryController extends AbstractController
     #[Route("secretariatjury/envoi_recommandations", name: "secretariatjury_envoi_recommandations")]
     public function envoi_recommandations(Request $request, Mailer $mailer): Response
     {
-        $id = $request->query->get('idequipe');
+        $id = $request->query->get('idrecommandation');
         $recommandations = $this->doctrine->getRepository(RecommandationsJuryCn::class)->createQueryBuilder('r')
             ->leftJoin('r.equipe', 'eq')
             ->leftJoin('eq.equipeinter', 'equi')
