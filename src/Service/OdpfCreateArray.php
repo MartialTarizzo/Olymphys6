@@ -29,9 +29,15 @@ class OdpfCreateArray
 
         try {
             $edition = $this->requestStack->getSession()->get('edition');
-            $ouvertes = 'closes';
-            if ($edition->getDateOuvertureSite() <= new \DateTime('now') and $edition->getDateclotureinscription() >= new \DateTime('now')) {
-                $ouvertes = 'ouvertes';
+            $ouvertes = 'sont ouvertes';
+            $inscrip = true;
+            if ($edition->getDateOuvertureSite() > new \DateTime('now')) {
+                $ouvertes = 'ne sont pas encore ouvertes';
+                $inscrip = false;
+            } elseif ($edition->getDateclotureinscription() < new \DateTime('now')) {
+                $ouvertes = 'sont closes';
+                $inscrip = false;
+
             };
             //$edition->getDateOuvertureSite() <= new \DateTime('now') ? $ouvertes = 'ouvertes' : $ouvertes = 'closes';
             // $edition->getDateclotureinscription() >= new \DateTime('now') ? $ouvertes = 'ouvertes' : $ouvertes = 'closes';
@@ -55,12 +61,12 @@ class OdpfCreateArray
             //Afin que le lien fonctionne en local pour les essais et sur le serveur
             explode(':', $_SERVER['HTTP_HOST'])[0] == 'localhost' ? $path = '/Utilisateur/inscrire_equipe,x' : $path = '/public/index.php/Utilisateur/inscrire_equipe,x';
             //La première ligne de la page les inscriptions est remplie automatiquement selon la date
-            if ($ouvertes == 'ouvertes') {
-                $texte = '<p><span style="color:#ff0000; font-size:12pt"><a href="' . $path . '" target="_blank" title="Inscrire une équipe">Les inscriptions sont ' . $ouvertes . '</a></span><span style="font-size:12pt">.</span></p>'
+            if ($inscrip) {
+                $texte = '<p><span style="color:#ff0000; font-size:12pt"><a href="' . $path . '" target="_blank" title="Inscrire une équipe">Les inscriptions ' . $ouvertes . '</a></span><span style="font-size:12pt">.</span></p>'
                     . $texte;
             }// Le texte de la page inscriptions se rajoute à cette phrase.
             else {
-                $texte = 'Les inscriptions sont ' . $ouvertes . '</a></span><span style="font-size:12pt">.</span></p>'
+                $texte = 'Les inscriptions ' . $ouvertes . '</span><span style="font-size:12pt">.</span></p>'
                     . $texte;
             }
         }
