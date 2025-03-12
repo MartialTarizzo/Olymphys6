@@ -57,7 +57,7 @@ class InscrireEquipeType extends AbstractType
                 'mapped' => true,
 
             ]);
-        for ($i = 1; $i < 7; $i++) {
+        for ($i = 1; $i < 6; $i++) {//5 élèves maxi inscrits
 
             $builder->add('prenomeleve' . $i, TextType::class, [
                 'mapped' => false,

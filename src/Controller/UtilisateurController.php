@@ -230,7 +230,7 @@ class UtilisateurController extends AbstractController
                     $equipe->setLyceeAcademie($uai_objet->getAcademie());
                     $equipe->setLyceeLocalite($uai_objet->getCommune());
                     $nbeleves = $equipe->getNbeleves();
-                    for ($i = 1; $i < 7; $i++) {
+                    for ($i = 1; $i < 6; $i++) {//pour les 5 élèves maxi
                         if ($form1->get('nomeleve' . $i)->getData() != null) {
                             $id = 0;
                             $nouvelEleve = false;
