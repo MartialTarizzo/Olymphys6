@@ -4,6 +4,7 @@ namespace App\Controller;
 
 use App\Entity\Attributions;
 use App\Entity\Cadeaux;
+use App\Entity\Cia\ConseilsjuryCia;
 use App\Entity\Coefficients;
 use App\Entity\Edition;
 use App\Entity\Elevesinter;
@@ -889,15 +890,36 @@ class JuryController extends AbstractController
 
     }
     #[IsGranted('ROLE_COMITE')]
-    #[Route("/createFileAdvice", name: "cyberjury_create_file_advice")]
-    public function createFileAdvice(Request $request): RedirectResponse|Response
+    #[Route("/createFileAdvice,{concours}", name: "cyberjury_create_file_advice")]
+    public function createFileAdvice(Request $request, $concours): RedirectResponse|Response
     {
+        $conseils = null;
+        $edition = $this->requestStack->getSession()->get('edition');
+        $editionN1 = $this->requestStack->getSession()->get('editionN1');
+        if (new \DateTime('now') > $editionN1->getConcoursCn() and new \DateTime('now') < $edition->getDateOuverturesite()) {
 
-        $conseils=$this->doctrine->getRepository(RecommandationsJuryCn::class)->createQueryBuilder('c')
-        ->leftJoin('c.equipe','eq')
-        ->leftJoin('eq.equipeinter','equi')
-        ->orderBy('equi.lettre','ASC')
-        ->getQuery()->getResult();
+            $edition = $this->requestStack->getSession()->get('editionN1');
+
+        }
+        if ($concours == 'cn') {
+            $conseils = $this->doctrine->getRepository(RecommandationsJuryCn::class)->createQueryBuilder('c')
+                ->leftJoin('c.equipe', 'eq')
+                ->leftJoin('eq.equipeinter', 'equi')
+                ->orderBy('equi.lettre', 'ASC')
+                ->getQuery()->getResult();
+
+        }
+        if ($concours == 'cia') {
+            $conseils = $this->doctrine->getRepository(ConseilsjuryCia::class)->createQueryBuilder('c')
+                ->leftJoin('c.equipe', 'eq')
+                ->andWhere('eq.numero <:valeur')
+                ->andWhere('eq.edition =:edition')
+                ->setParameter('edition', $edition)
+                ->setParameter('valeur', 100)
+                ->orderBy('eq.numero', 'ASC')
+                ->getQuery()->getResult();
+
+        }
         $phpWord = new \PhpOffice\PhpWord\PhpWord();
         $phpWord->setDefaultFontName('Verdana');
         $fontStyleName = 'rStyle';
@@ -910,39 +932,47 @@ class JuryController extends AbstractController
 
         $phpWord->addTitleStyle(1, ['bold' => true], ['spaceAfter' => 240]);
         $section = $phpWord->addSection();
+        $concours == 'cia' ? $phase = 'interacadémique' : $phase = 'national';
+        $titre = '<h1>Conseils du jury ' . $phase . ' de la ' . $edition->getEd() . '<sup>e</sup> édition des OdPF</h1>';
+        Html::addHtml($section, $titre);
         $i=0;
         $textrun=[];
-        foreach ($conseils as $conseil) {
-            $equipe=$conseil->getEquipe();
+        if ($conseils != null) {
+            foreach ($conseils as $conseil) {
+                $equipe = $conseil->getEquipe();
 
-            $textlines = explode("</p>", $conseil->getTexte());
-
-            $section->addTitle($equipe->getEquipeinter()->getLettre().' : '.$equipe->getEquipeinter()->getTitreProjet(),1);
-            $section->addTextBreak();
-
-            foreach ($textlines as $line) {
-
-                $line=$line.'</p>';
-                $line=preg_replace('/&lt;&lt;/', '"',$line);//caractères << ou >>  génèrent une erreur de codage et le fichier word ne s'ouvre pas convenablement
-                $line=preg_replace('/&gt;&gt;/', '"',$line);//
-
-
-                $error=false;
-                try {
-                    Html::addHtml($section, $line);//très sensible aux tags ouverts et fermés : erreur sinon
+                $textlines = explode("</p>", $conseil->getTexte());
+                if ($concours == 'cn') {
+                    $section->addTitle($equipe->getEquipeinter()->getLettre() . ' : ' . $equipe->getEquipeinter()->getTitreProjet(), 1);
                 }
-                catch(Exception $e){ //saute les erreurs dues aux tags non fermés ou l'inverse
-
-                   $error=true;
+                if ($concours == 'cia') {
+                    $section->addTitle($equipe->getNumero() . ' : ' . $equipe->getTitreProjet(), 1);
                 }
-
                 $section->addTextBreak();
-                $i=$i+1;
-            }
 
-            $section->addTextBreak(3);
-            //$section->addLine($lineStyle);
-            $section->addText('------');
+                foreach ($textlines as $line) {
+
+                    $line = $line . '</p>';
+                    $line = preg_replace('/&lt;&lt;/', '"', $line);//caractères << ou >>  génèrent une erreur de codage et le fichier word ne s'ouvre pas convenablement
+                    $line = preg_replace('/&gt;&gt;/', '"', $line);//
+
+
+                    $error = false;
+                    try {
+                        Html::addHtml($section, $line);//très sensible aux tags ouverts et fermés : erreur sinon
+                    } catch (Exception $e) { //saute les erreurs dues aux tags non fermés ou l'inverse
+
+                        $error = true;
+                    }
+
+                    $section->addTextBreak();
+                    $i = $i + 1;
+                }
+
+                $section->addTextBreak(3);
+                //$section->addLine($lineStyle);
+                $section->addText('------');
+            }
         }
        ;
         try {
@@ -950,7 +980,22 @@ class JuryController extends AbstractController
         } catch (\PhpOffice\PhpWord\Exception\Exception $e) {
 
         }
-        $fileName = 'recommandations_jury_cn_'.$this->requestStack->getSession()->get('editionN1')->getConcoursCn()->format('Y').'.doc';
+        $edition = $this->requestStack->getSession()->get('edition');
+        $editionN1 = $this->requestStack->getSession()->get('editionN1');
+        if (new \DateTime('now') > $editionN1->getConcoursCn() and new \DateTime('now') < $edition->getDateOuverturesite()) {
+
+            $edition = $this->requestStack->getSession()->get('editionN1');
+
+        }
+
+        if ($concours == 'cn') {
+            $fileName = 'recommandations_jury_cn_' . $edition->getConcoursCn()->format('Y') . '.doc';
+        }
+        if ($concours == 'cia') {
+            $fileName = 'recommandations_jury_cia_' . $edition->getConcoursCia()->format('Y') . '.doc';
+        }
+
+
         $objWriter->save('../public/temp/'. $fileName, 'Word2007');
 
         $response = new Response(file_get_contents($this->getParameter('app.path.tempdirectory') . '/' . $fileName));//voir https://stackoverflow.com/questions/20268025/symfony2-create-and-download-zip-file

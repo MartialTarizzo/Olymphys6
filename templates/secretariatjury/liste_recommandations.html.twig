@@ -14,7 +14,9 @@
 
 {% block body %}
     {% set equipes=app.session.get('tableau')[0] %}
-    <div class="row"><a href="{{ path('cyberjury_create_file_advice') }}"><button class="btn btn-primary">Obtenir le fichier word</button></a></div>
+    <div class="row"><a href="{{ path('cyberjury_create_file_advice',{'concours':'cn'}) }}">
+            <button class="btn btn-primary">Obtenir le fichier word</button>
+        </a></div>
 
     {% if equipes!=null %}
         <div class="container-fluid">

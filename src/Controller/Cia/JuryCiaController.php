@@ -509,6 +509,13 @@ class JuryCiaController extends AbstractController
     public function gerer_conseils_jury(Request $request, $centre)
     {
         $edition = $this->requestStack->getSession()->get('edition');
+        $editionN1 = $this->requestStack->getSession()->get('editionN1');
+        if (new DateTime('now') > $editionN1->getConcoursCn() and new DateTime('now') < $edition->getDateOuverturesite()) {
+
+            $edition = $this->requestStack->getSession()->get('editionN1');
+
+        }
+
         $centre = $this->doctrine->getRepository(Centrescia::class)->findOneBy(['centre' => $centre]);
         $repositoryEquipes = $this->doctrine->getRepository(Equipesadmin::class);
         $equipes = $repositoryEquipes->createQueryBuilder('e')
@@ -516,8 +523,9 @@ class JuryCiaController extends AbstractController
             ->andWhere('e.edition =:edition')
             ->andWhere('e.inscrite =:value')
             ->andWhere('e.numero <:numero')
-            ->setParameters(['value' => true, 'centre' => $centre, 'edition' => $this->requestStack->getSession()->get('edition'), 'numero' => 100])
+            ->setParameters(['value' => true, 'centre' => $centre, 'edition' => $edition, 'numero' => 100])
             ->getQuery()->getResult();
+
         $repositoryConseils = $this->doctrine->getRepository(ConseilsjuryCia::class);
         $conseils = $repositoryConseils->createQueryBuilder('c')
             ->select()

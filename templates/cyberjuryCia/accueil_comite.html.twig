@@ -15,6 +15,9 @@
 {% block body %}
     <hr>
     <a href="{{ asset('odpf/odpf-documents/CyberjuryCia_Comite.pdf') }}" type="button" class="btn btn-warning" target="_blank">Aide du cyberjury</a>
+    <div class="row"><a href="{{ path('cyberjury_create_file_advice',{'concours':'cia'}) }}">
+            <button class="btn btn-primary">Obtenir le fichier word des conseils du jury</button>
+        </a></div>
 
     <hr>
     <table>
