@@ -457,8 +457,8 @@ class EquipesadminCrudController extends AbstractCrudController
             ->setCellValue('P' . $ligne, 'Contribution financière à ')
             ->setCellValue('Q' . $ligne, 'Prof 1')
             ->setCellValue('R' . $ligne, 'mail prof1')
-            ->setCellValue('S' . $ligne, 'Prof2')
-            ->setCellValue('T' . $ligne, 'mail prof2')
+            ->setCellValue('S' . $ligne, 'Encadrant 2')
+            ->setCellValue('T' . $ligne, 'mail encadrant 2')
             ->setCellValue('U' . $ligne, 'Nombre d\'élèves')
             ->setCellValue('V' . $ligne, 'Date de création');
 

@@ -52,14 +52,14 @@
             <div class="alert alert-info"> {{ message }}</div>
         {% endfor %}
 
-        {% if is_granted('ROLE_JURYCIA') %}
+        {#  {% if is_granted('ROLE_JURYCIA') %}
             <div class="row">
                 <a href="{{ path('invitations_cn') }}" type="button" class="btn btn-warning">Obtenir une
                     invitation
                     pour le concours national</a>
                 <br>
             </div>
-        {% endif %}
+        {% endif %} #}
         <hr>
         {% if   phase =='interacadémique' %}
             {% set concours='inter' %}

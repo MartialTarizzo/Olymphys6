@@ -1,5 +1,6 @@
 {# templates/bundles/EasyAdminBunble/detail_autorisations.html.twig #}
-
+{% if field.value != null %}
 <a href="{{ asset('odpf/odpf-archives/32/fichiers/autorisations/'~field.value.fichier) }}" target="_blank">
     {{ field.value.fichier }}
 </a>
+{% endif %}

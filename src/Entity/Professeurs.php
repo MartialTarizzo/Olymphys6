@@ -17,7 +17,7 @@ class Professeurs
     private ?int $id = null;
 
     #[ORM\OneToOne(targetEntity: User::class, cascade :['persist', 'remove'])]
-    private User $user;
+    private ?User $user = null;
 
     #[ORM\ManyToMany(targetEntity: Equipesadmin::class, inversedBy : 'equipesstring')]
     private Collection $equipes;

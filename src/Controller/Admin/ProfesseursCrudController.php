@@ -219,7 +219,7 @@ class ProfesseursCrudController extends AbstractCrudController
                             $encad = '(prof1)';
                         }
                         if ($equipe->getIdProf2() == $prof->getUser()) {
-                            $encad = '(prof2)';
+                            $encad = '(encadrant2)';
                         }
 
 
@@ -284,7 +284,7 @@ class ProfesseursCrudController extends AbstractCrudController
                             $encad = '(prof1)';
                         }
                         if ($equipe->getIdProf2() == $prof->getUser()) {
-                            $encad = '(prof2)';
+                            $encad = '(encadrant2)';
                         }
                         $slugger = new AsciiSlugger();
                         $nom_equipe = $slugger->slug($equipe->getTitreProjet());
@@ -418,7 +418,7 @@ class ProfesseursCrudController extends AbstractCrudController
                                 $encad = '(prof1)';
                             }
                             if ($equipe->getIdProf2() == $prof->getUser()) {
-                                $encad = '(prof2)';
+                                $encad = '(encadrantf2)';
                             }
                             $equipestring = $equipestring . substr($equipe->getTitreProjet(), 0, 50) . $encad;//substr pour éviter une erreur de string supérieure à 255 dans la base
                             $equipesLettres == '' ? $equipesLettres = $equipe->getLettre() : $equipesLettres = $equipesLettres . '/' . $equipe->getLettre();
@@ -666,12 +666,17 @@ class ProfesseursCrudController extends AbstractCrudController
         $ligne += 1;
 
         foreach ($listProfs as $prof) {
-            dump($prof);
-            $sheet->setCellValue('A' . $ligne, $prof->getUser()->getNom())
-                ->setCellValue('B' . $ligne, $prof->getUser()->getPrenom())
-                ->setCellValue('C' . $ligne, $prof->getUser()->getEmail());
+            try {
+                if ($prof->getUser() != null) {
+                    $sheet->setCellValue('A' . $ligne, $prof->getUser()->getNom())
+                        ->setCellValue('B' . $ligne, $prof->getUser()->getPrenom())
+                        ->setCellValue('C' . $ligne, $prof->getUser()->getEmail());
 
-                $ligne += 1;
+                    $ligne += 1;
+                }
+            } catch (\Exception $exception) {
+
+            }
 
         }
 
