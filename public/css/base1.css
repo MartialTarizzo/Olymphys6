@@ -5,9 +5,8 @@
     margin-right: auto;
     margin-left: auto;
 }
-.fond {
 
-}
+.fond {}
 
 /* Header */
 #barre_haut {
@@ -30,6 +29,7 @@
     font-weight: 400;
     text-transform: uppercase;
 }
+
 .menu_haut a {
     color: black;
 }
@@ -38,6 +38,7 @@
     background: #111a21;
     color: #ffffff;
 }
+
 .menurouge {
     background-color: #b1191d;
     font-family: 'Oxygen', sans-serif;
@@ -54,6 +55,7 @@
     background: #ffffff;
     color: #b1191d;
 }
+
 .login {
     background-color: #ffffff;
     color: black;
@@ -83,10 +85,12 @@
     /*width: 700px;*/
     overflow-x: scroll;
 }
-th, th:first-child{
-    position:sticky !important;
+
+th,
+th:first-child {
+    position: sticky !important;
     background-color: white;
-    left:0px;
+    left: 0px;
 
 }
 
@@ -99,9 +103,10 @@ th, th:first-child{
 .tableFixHead thead th {
     position: sticky !important;
     top: 0;
-    //z-index: 1;
-    background-color : #dbfdff;
-    left:0px;}
+    /* z-index: 1; */
+    background-color: #dbfdff;
+    left: 0px;
+}
 
 .tableFixHeadJury {
     overflow: auto;
@@ -112,17 +117,29 @@ th, th:first-child{
 .tableFixHeadJury thead th {
     position: sticky !important;
     top: 0;
-/ / z-index: 1;
+    /* z-index: 1; */
     background-color: #dbfdff;
     left: 0px;
 }
+
 /* Just common table stuff. Really. */
-table  { border-collapse: collapse; width: 100%; }
-th, td { padding: 8px 16px}
+table {
+    border-collapse: collapse;
+    width: 100%;
+}
 
-@media only screen and (max-width: 950px ) and (orientation: landscape ) {
+th,
+td {
+    padding: 8px 16px
+}
 
-    .tableFixHead  { overflow: auto; height:250px; border-collapse: collapse;  }
+@media only screen and (max-width: 950px) and (orientation: landscape) {
+
+    .tableFixHead {
+        overflow: auto;
+        height: 250px;
+        border-collapse: collapse;
+    }
 
 
 }
@@ -139,4 +156,3 @@ th, td { padding: 8px 16px}
 */
 
 /*https://stackoverflow.com/questions/5533636/add-a-horizontal-scrollbar-to-an-html-table */
-
