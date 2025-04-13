@@ -60,8 +60,8 @@ class CoreController extends AbstractController
             }
             $this->requestStack->getSession()->set('concours', $concours);
         }
-        $this->requestStack->getSession()->set('pageCourante', 1);//actus
-        $this->requestStack->getSession()->set('pageFCourante', 1);//FAQ
+        $this->requestStack->getSession()->set('pageCourante', 1); //actus
+        $this->requestStack->getSession()->set('pageFCourante', 1); //FAQ
         //pour construire les paginateurs des Actus et de la FAQ
         $repo = $doctrine->getRepository(OdpfArticle::class);
         $tab = $repo->accueil_actus();
@@ -82,7 +82,6 @@ class CoreController extends AbstractController
             Il faut se connecter sur  olymphys.fr pour réaliser des actions pérennes ');
         }
         return $this->render('core/odpf-accueil.html.twig', $tab);
-
     }
 
     #[Route("/core/pages,{choix}", name: "core_pages")]
@@ -96,7 +95,6 @@ class CoreController extends AbstractController
                 $edition = $doctrine->getRepository(Edition::class)->findOneBy([], ['id' => 'desc']);
                 $this->requestStack->getSession()->set('edition', $edition);
                 return $this->redirectToRoute('core_home');
-
             }
         } catch (Exception $e) {
 
@@ -108,13 +106,13 @@ class CoreController extends AbstractController
         $repo = $doctrine->getRepository(OdpfArticle::class);
         $listfaq = $repo->listfaq();
         if ($choix == 'les_equipes') { // dirige vers le traitement de chaque choix
-            $tab = $OdpfListeEquipes->getArray($choix);//Le service construit la liste
+            $tab = $OdpfListeEquipes->getArray($choix); //Le service construit la liste
             $tab['listfaq'] = $listfaq;
         } elseif ($choix == 'mecenes' or $choix == 'donateurs') {
             $repo1 = $doctrine->getRepository(OdpfLogos::class);
-            $tab = $repo1->logospartenaires($choix);// la fonction est dans le repository
+            $tab = $repo1->logospartenaires($choix); // la fonction est dans le repository
             $repo2 = $doctrine->getRepository(OdpfPartenaires::class);
-            $tab['partenaires'] = $repo2->textespartenaires();//la fonction est dans le repository
+            $tab['partenaires'] = $repo2->textespartenaires(); //la fonction est dans le repository
             $tab['listfaq'] = $listfaq;
         } elseif ($choix == 'editions') {
             $editions = $doctrine->getRepository(OdpfEditionsPassees::class)->createQueryBuilder('e')
@@ -122,12 +120,12 @@ class CoreController extends AbstractController
                 ->addOrderBy('e.edition', 'DESC')
                 ->setParameter('lim', $this->requestStack->getSession()->get('edition')->getEd())
                 ->getQuery()->getResult();
-            $editionaffichee = $doctrine->getRepository(OdpfEditionsPassees::class)->findOneBy(['edition' => $this->requestStack->getSession()->get('edition')->getEd() - 1]);//C'est l'édition précédente qui est affichée
+            $editionaffichee = $doctrine->getRepository(OdpfEditionsPassees::class)->findOneBy(['edition' => $this->requestStack->getSession()->get('edition')->getEd() - 1]); //C'est l'édition précédente qui est affichée
             $choice = 'editions';
-            $choix = 'edition';//. $doctrine->getRepository(OdpfEditionsPassees::class)->findOneBy(['edition' => $editionaffichee->getEdition()])->getEdition();
+            $choix = 'edition'; //. $doctrine->getRepository(OdpfEditionsPassees::class)->findOneBy(['edition' => $editionaffichee->getEdition()])->getEdition();
             $photosed = $this->doctrine->getRepository(photos::class)->findBy(['editionspassees' => $editionaffichee]);
             count($photosed) != 0 ? $photostest = true : $photostest = false;
-            $tab = $OdpfCreateArray->getArray($choix);// construit le tableau de résultat à afficher par le template
+            $tab = $OdpfCreateArray->getArray($choix); // construit le tableau de résultat à afficher par le template
             $tab['edition_affichee'] = $editionaffichee;
             $tab['editions'] = $editions;
             $tab['choice'] = $choice;
@@ -136,29 +134,40 @@ class CoreController extends AbstractController
             return $this->render('core/odpf-pages-editions.html.twig', $tab);
         } elseif ($choix == 'la_carte_des_equipes') {
             // calcul des différents nombres d'équipes pour modifier le message avant les cartes
-            $tabEq = $OdpfListeEquipes->getArray($choix);//Le service construit la liste
+            $tabEq = $OdpfListeEquipes->getArray($choix); //Le service construit la liste
             $nbFrance = 0; // nombre d'équipes france métropolitaine
             $nbDOM = 0; // pour les DOM
             $nbEtranger = 0; // pour l'étranger
             // le tableau des académies DOM
-            $tabAcaDOM = array('Guadeloupe', 'Martinique', 'Guyane', 'La Réunion', 
-                'Saint Pierre et Miquelon', 'Mayotte','Nouvelle Calédonie', 
-                'Polynésie Française', 'Wallis et Futuna');
-            // on balaye tous les lycées des équipes
-            foreach ($tabEq['lycee'] as $lycee) {
-                if ($lycee[0]->getPays() == 'France') {
-                    // lycée français : on regarde si il est dans un DOM
-                    $acad = $lycee[0]->getAcademie();
-                    if (in_array($acad, $tabAcaDOM)) {
-                        // C'est un lycée dans les DOM
-                        $nbDOM += 1;
+            $tabAcaDOM = array(
+                'Guadeloupe',
+                'Martinique',
+                'Guyane',
+                'La Réunion',
+                'Saint Pierre et Miquelon',
+                'Mayotte',
+                'Nouvelle Calédonie',
+                'Polynésie Française',
+                'Wallis et Futuna'
+            );
+            // test de protection : $tabEq['lycee'] n'existe que s'il existe des équipes
+            if ($tabEq['listEquipes'] != []) {
+                // on balaye tous les lycées des équipes
+                foreach ($tabEq['lycee'] as $lycee) {
+                    if ($lycee[0]->getPays() == 'France') {
+                        // lycée français : on regarde si il est dans un DOM
+                        $acad = $lycee[0]->getAcademie();
+                        if (in_array($acad, $tabAcaDOM)) {
+                            // C'est un lycée dans les DOM
+                            $nbDOM += 1;
+                        } else {
+                            // France métropolitaine
+                            $nbFrance += 1;
+                        }
                     } else {
-                        // France métropolitaine
-                        $nbFrance += 1;
+                        // pas Français -> étranger !
+                        $nbEtranger += 1;
                     }
-                } else {
-                    // pas Français -> étranger !
-                    $nbEtranger += 1;
                 }
             }
 
@@ -170,9 +179,7 @@ class CoreController extends AbstractController
             $tab['texte'] = str_replace('#nbFrance', $nbFrance, $tab['texte']);
             $tab['texte'] = str_replace('#nbDOM', $nbDOM, $tab['texte']);
             $tab['texte'] = str_replace('#nbEtranger', $nbEtranger, $tab['texte']);
-            
-        }
-         else {
+        } else {
             $tab = $OdpfCreateArray->getArray($choix);
             $tab['listfaq'] = $listfaq;
         }
@@ -190,7 +197,6 @@ class CoreController extends AbstractController
                 $edition = $doctrine->getRepository(Edition::class)->findOneBy([], ['id' => 'desc']);
                 $this->requestStack->getSession()->set('edition', $edition);
                 return $this->redirectToRoute('core_home');
-
             }
         } catch (Exception $e) {
             $edition = $doctrine->getRepository(Edition::class)->findOneBy([], ['id' => 'desc']);
@@ -214,13 +220,12 @@ class CoreController extends AbstractController
             case 'prec':
                 $pageCourante = $pageCourante - 1;
                 break;
-            case 'suiv'  :
+            case 'suiv':
                 $pageCourante += 1;
                 break;
-            case 'fin' :
+            case 'fin':
                 $pageCourante = $nbpages;
                 break;
-
         }
         $tab['categorie'] = $categorie;
         $tab['pageCourante'] = $pageCourante;
@@ -245,7 +250,6 @@ class CoreController extends AbstractController
                 $edition = $doctrine->getRepository(Edition::class)->findOneBy([], ['id' => 'desc']);
                 $this->requestStack->getSession()->set('edition', $edition);
                 return $this->redirectToRoute('core_home');
-
             }
         } catch (Exception $e) {
             $edition = $doctrine->getRepository(Edition::class)->findOneBy([], ['id' => 'desc']);
@@ -271,13 +275,12 @@ class CoreController extends AbstractController
             case 'prec':
                 $pageFCourante = $pageFCourante - 1;
                 break;
-            case 'suiv'  :
+            case 'suiv':
                 $pageFCourante += 1;
                 break;
-            case 'fin' :
+            case 'fin':
                 $pageFCourante = $nbpages;
                 break;
-
         }
         $tab['categorie'] = $categorie;
         $tab['pageFCourante'] = $pageFCourante;
@@ -301,7 +304,6 @@ class CoreController extends AbstractController
                 $edition = $doctrine->getRepository(Edition::class)->findOneBy([], ['id' => 'desc']);
                 $this->requestStack->getSession()->set('edition', $edition);
                 return $this->redirectToRoute('core_home');
-
             }
         } catch (Exception $e) {
             $edition = $doctrine->getRepository(Edition::class)->findOneBy([], ['id' => 'desc']);
@@ -312,10 +314,10 @@ class CoreController extends AbstractController
         $tab['listfaq'] = $listfaq;
         $article = null;
         switch ($mention) {
-            case 'legales' :
+            case 'legales':
                 $article = $repo->findOneBy(['titre' => 'Mentions Légales']);
                 break;
-            case 'remerciements' :
+            case 'remerciements':
                 $article = $repo->findOneBy(['titre' => 'Remerciements']);
                 break;
             case 'credits':
@@ -331,5 +333,4 @@ class CoreController extends AbstractController
 
         return $this->render('core/odpf-pages.html.twig', $tab);
     }
-
 }
