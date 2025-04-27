@@ -65,22 +65,52 @@
 
 .containercarousel {
     display: inline-flex;
-    margin: fill;
+    margin: auto;
     position: relative;
     background-color: black;
     width: 260px;
     height: 280px;
 
 }
+.containercarousel .carousel-control-preview  .carousel-control-prev-icon{
 
-.carousel-inner img {
+            url('odpf/odpf-images/diapo-arwl-37x37.png')
+
+}
+
+.containercarousel .carousel-control-next .carousel-control-next-icon{
+
+            url('odpf/odpf-images/diapo-arwr-37x37.png')
+
+}
+#galerieequipecarousel .carousel-inner img {
     position: absolute;
     margin: 0 auto;
     left: 50%;
     top: 50%;
     transform: translate(-50%, -70%)
 }
+#carouselEquipe{
+    margin: auto;
+    max-width:900px !important;
+    max-height : min-content;
+    overflow: hidden;
+}
+#carouselEquipe .carousel-inner {
 
+ height : 100%
+
+
+}
+#carouselEquipe .carousel-item {
+    height : 100%;
+
+}
+#carouselEquipe .carousel-item img{
+
+       height: 100%
+
+}
 
 .containercarousel .text {
     background: rgba(0, 0, 0, 0.5);
@@ -100,6 +130,7 @@
 .carousel-item > .item > img {
     margin: auto;
 }
+
 /* Container for image text */
 .caption-container {
     text-align: center;
@@ -107,15 +138,18 @@
     padding: 2px 2px;
     color: white;
 }
+
 #carousel {
     /* height: 350px;
       overflow: hidden;
      width: 100%;*/
 }
+
 .carousel-indicators {
     bottom: -5px;
 
 }
+
 .carousel .carousel-indicators li {
     width: 8px;
     height: 8px;
