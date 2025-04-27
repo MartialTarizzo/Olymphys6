@@ -663,5 +663,36 @@ class PhotosController extends AbstractController
         return $this->render('photos/telechargements_photos.html.twig', ['listePhotos' => $listePhotos, 'form' => $form->createView(), 'centre' => $user->getCentrecia()]);
     }
 
+    #[Route("/photos/carousel_equipe,{equipeId},{photoId}", name: "carousel_equipe")]
+    public function carousel_equipe(Request $request, $equipeId, $photoId)// Affiche le carousel des grandes photos
+    {
+        $equipe = $this->doctrine->getRepository(Equipesadmin::class)->find($equipeId);
+        $photo = $this->doctrine->getRepository(Photos::class)->find($photoId);
+        $photos = $this->doctrine->getRepository(Photos::class)->findBy(['equipe' => $equipe]);
+        $photoreord = [];
+        $i = 0;
+        foreach ($photos as $photo) {//reclasse les photos pour que la photo sur laquelle on a cliqué soit active dans le carousel des grandes photos
+            if ($photo->getId() == $photoId) {
+                $photoreord[$i] = $photo;
+                $i++;
+            } elseif ($i > 0) {
+                $photoreord[$i] = $photo;
+                $i++;
+            }
+        }
+        if (count($photoreord) < count($photos)) {
+            foreach ($photos as $photo) {
+                if ($i < count($photos)) {
+                    $photoreord[$i] = $photo;
+                    $i++;
+                }
+            }
+        }
+
+
+        return $this->render('photos/carousel_equipe.html.twig', ['photos' => $photoreord, 'equipe' => $equipe]);
+
+
+    }
 }
 

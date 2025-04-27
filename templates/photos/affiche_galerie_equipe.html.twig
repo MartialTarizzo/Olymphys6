@@ -64,9 +64,9 @@
                     <div class="black">
                         <div class="carousel-inner w-100 black" role="listbox">
 
-                            {% set i = 1 %}
+                            {% set i = 0 %}
                             {% for photo in photos %}
-                                {% if i ==1 %}
+                                {% if i ==0 %}
                                     <div class="carousel-item col-lg-4 col-md-6 active">
                                         <div class="container-fluid">
 
@@ -75,8 +75,7 @@
                                                  data-numimage="{{ i }}">
                                                 <div class="d-flex h-100 align-items-center justify-content-center">
                                                     <div class="p-2">
-                                                        <a href="{{ asset('odpf/odpf-archives/'~edition.edition~'/photoseq/'~photo.photo) }}"
-                                                           target="_blank">
+                                                        <a href="{{ path('carousel_equipe',{'equipeId':photo.equipe.id,'photoId':photo.id}) }}" ">
                                                             <img src="{{ asset('odpf/odpf-archives/'~edition.edition~'/photoseq/thumbs/'~photo.photo) }}"
                                                                  class="img-fluid" id="photo{{ i }}">
                                                         </a>
@@ -85,7 +84,7 @@
                                                     <div class="p-2">
                                                         {% if photo.coment !='' %}
                                                             <div class="text" id="caption{{ i }}">
-                                                                <font size="-2">{{ photo.coment }}</font>
+                                                                <span style="font-size: smaller">{{ photo.coment }}</span>
                                                             </div>
                                                         {% endif %}
                                                     </div>
@@ -95,7 +94,7 @@
 
                                     </div>
                                 {% endif %}
-                                {% if i>1 %}
+                                {% if i>0 %}
                                     <div class="carousel-item col-lg-4 col-md-6">
                                         <div class="container-fluid">
 
@@ -104,8 +103,7 @@
                                                  data-numimage="{{ i }}">
                                                 <div class="d-flex h-100 align-items-center justify-content-center">
                                                     <div class="p-2">
-                                                        <a href="{{ asset('odpf/odpf-archives/'~edition.edition~'/photoseq/'~photo.photo) }}"
-                                                           target="_blank">
+                                                        <a href="{{ path('carousel_equipe',{'equipeId':photo.equipe.id,'photoId':photo.id})}}" >
                                                             <img src="{{ asset('odpf/odpf-archives/'~edition.edition~'/photoseq/thumbs/'~photo.photo) }}"
                                                                  class="img-fluid" id="photo{{ i }}">
                                                         </a>
@@ -114,7 +112,7 @@
                                                     <div class="p-2">
                                                         {% if photo.coment !='' %}
                                                             <div class="text" id="caption{{ i }}">
-                                                                <font size="-2">{{ photo.coment }}</font>
+                                                                <span style="font-size: smaller">{{ photo.coment }}</span>
                                                             </div>
                                                         {% endif %}
                                                     </div>
