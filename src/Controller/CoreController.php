@@ -81,6 +81,8 @@ class CoreController extends AbstractController
             développement du site, mais dont le contenu n\'est pas à jour.
             Il faut se connecter sur  olymphys.fr pour réaliser des actions pérennes ');
         }
+
+
         return $this->render('core/odpf-accueil.html.twig', $tab);
 
     }
