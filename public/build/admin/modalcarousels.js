@@ -9,6 +9,6 @@
     idDiapo: $("#diapoId").val(),
 
 },
-    console.log(data);
+
 });
 });
