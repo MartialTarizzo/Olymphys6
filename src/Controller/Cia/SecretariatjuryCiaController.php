@@ -1227,7 +1227,7 @@ class SecretariatjuryCiaController extends AbstractController
     public function remplir_equipes_fictives_essais()
     {//Pour éviter que le nom des équipes réelles soient utilisées
 
-        if ($_SERVER['SERVER_NAME'] == 'olympessais.olymphys.fr') {//uniquement pour le site d'essais
+        if (str_contains($_SERVER['SERVER_NAME'], 'olympessais.')) {//uniquement pour le site d'essais
 
             $listeEquipe = $this->doctrine->getRepository(Equipesadmin::class)->findBy(['edition' => $this->requestStack->getSession()->get('edition')]);
             foreach ($listeEquipe as $equipe) {

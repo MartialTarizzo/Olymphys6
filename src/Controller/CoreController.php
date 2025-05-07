@@ -75,7 +75,7 @@ class CoreController extends AbstractController
         // ajoute la liste de la Foire aux questions
         // le tout est transmis au template
 
-        if (str_contains($_SERVER['SERVER_NAME'], 'olympessais.olymphys.fr')) {
+        if (str_contains($_SERVER['SERVER_NAME'], 'olympessais.')) {
 
             $this->requestStack->getSession()->set('info', 'Vous êtes sur le site d\'essais d\'olymphys, utilisé pour le 
             développement du site, mais dont le contenu n\'est pas à jour.

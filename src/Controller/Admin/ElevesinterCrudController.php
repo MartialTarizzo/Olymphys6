@@ -1695,7 +1695,7 @@ class ElevesinterCrudController extends AbstractCrudController
         if($_SERVER['SERVER_NAME']=='www.olymphys.fr') {
             $path = 'https://www.olymphys.fr/public/odpf/odpf-images/';
         };
-        if($_SERVER['SERVER_NAME']=='www.olympessais.olymphys.fr') {
+        if(str_contains($_SERVER['SERVER_NAME'], 'olympessais.')) {
             $path = 'https://www.olymphys.fr/public/odpf/odpf-images/';
         };
         if($_SERVER['SERVER_NAME']=='127.0.0.1')
