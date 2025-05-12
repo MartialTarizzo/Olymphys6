@@ -70,7 +70,7 @@ class JuryController extends AbstractController
         if ($date < $edition->getDateOuvertureSite() and $date > $editionN1->getConcoursCn()) {//Dans le cas où l'édition N+1 a été créée il que les jurés puisse accéder aux équipes de l'édition N
             $edition = $editionN1;
         }
-        if($_SERVER['SERVER_NAME'] == '127.0.0.1' and $date < $edition->getConcoursCn()) {//pour tester le site avant le concours avec les données de l'édition précédente
+        if(($_SERVER['SERVER_NAME'] == '127.0.0.1' or $_SERVER['SERVER_NAME'] == 'localhost') and $date < $edition->getConcoursCn()) {//pour tester le site avant le concours avec les données de l'édition précédente
 
             $edition = $editionN1;
 

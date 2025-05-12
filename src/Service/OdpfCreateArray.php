@@ -59,7 +59,11 @@ class OdpfCreateArray
         $texte = $article->getTexte();
         if ($choix == 'inscriptions') {
             //Afin que le lien fonctionne en local pour les essais et sur le serveur
-            explode(':', $_SERVER['HTTP_HOST'])[0] == 'localhost' ? $path = '/Utilisateur/inscrire_equipe,x' : $path = '/public/index.php/Utilisateur/inscrire_equipe,x';
+            if ($_SERVER['SERVER_NAME'] == '127.0.0.1' or $_SERVER['SERVER_NAME'] == 'localhost') {
+                $path = '/Utilisateur/inscrire_equipe,x';
+            } else {
+                $path = '/public/index.php/Utilisateur/inscrire_equipe,x';
+            }
             //La première ligne de la page les inscriptions est remplie automatiquement selon la date
             if ($inscrip) {
                 $texte = '<p><span style="color:#ff0000; font-size:12pt"><a href="' . $path . '" target="_blank" title="Inscrire une équipe">Les inscriptions ' . $ouvertes . '</a></span><span style="font-size:12pt">.</span></p>'

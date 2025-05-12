@@ -16,7 +16,7 @@ class RecommandationsCnType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options): void
     {
         $pathpluginsWordcount = '../public/bundles/fosckeditor/plugins/wordcount/'; // with trailing slash sur le site
-        if (str_contains('127.0.0.1', $_SERVER['SERVER_NAME'])) {
+        if ($_SERVER['SERVER_NAME'] == '127.0.0.1' or $_SERVER['SERVER_NAME'] == 'localhost') {
             $pathpluginsWordcount = 'bundles/fosckeditor/plugins/wordcount/';// with trailing slash en local
         }
         $builder
