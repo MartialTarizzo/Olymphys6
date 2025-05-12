@@ -23,7 +23,7 @@ class CreateInvitationPdf
         if (str_contains($_SERVER['SERVER_NAME'], 'olympessais.')) {
             $path = 'https://www.olymphys.fr/public/odpf/odpf-images/';
         };
-        if ($_SERVER['SERVER_NAME'] == '127.0.0.1') {
+        if ($_SERVER['SERVER_NAME'] == '127.0.0.1' or $_SERVER['SERVER_NAME'] == 'localhost') {
             $path = 'odpf/odpf-images/';
         }
         $pdf = new Fpdf('P', 'mm', 'A4');

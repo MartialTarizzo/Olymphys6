@@ -123,7 +123,7 @@ class OdpfEditionspasseesController extends AbstractController
         }
         $texte = '';
         if ($equipe->getEditionspassees()->getEdition() < $this->requestStack->getSession()->get('edition')->getEd()) {//Pour quelors de l'édtion en cours, on ne puisse pas accèder au texete de l'édition passée lui correspondant car pas achevée
-            if (explode(':', $_SERVER['SERVER_NAME'])[0] == 'localhost') {//test du répertoire de travail
+            if ($_SERVER['SERVER_NAME'] == '127.0.0.1' or $_SERVER['SERVER_NAME'] == 'localhost') {//test du répertoire de travail
 
                 $texte = '<a href="/odpf/editionspassees/editions?sel=' . $equipe->getEditionspassees()->getId() . '">Retour</a>';
 
@@ -162,7 +162,7 @@ class OdpfEditionspasseesController extends AbstractController
                </table>';
         if ($equipe->getSelectionnee() == true) {
             $texteprix = '';
-            $textenomprix = '';
+            $textnomprix = '';
             if ($equipe->getPalmares()) {
                 $classement = substr($equipe->getPalmares(), 0, 1);
                 $entieme = substr($equipe->getPalmares(), 1, 4);
@@ -185,7 +185,7 @@ class OdpfEditionspasseesController extends AbstractController
                 $fichier->getPublie() == 1 ? $publie = 'publie/' : $publie = 'prive/';
                 array_key_last($listeFichiers) == $i ? $virgule = '' : $virgule = ', ';
                 if ($fichier->getNomfichier() != null) {
-                    if (explode(':', $_SERVER['SERVER_NAME'])[0] == 'localhost') {
+                    if ($_SERVER['SERVER_NAME'] == '127.0.0.1' or $_SERVER['SERVER_NAME'] == 'localhost') {
                         $texte = $texte . '<a href="/../odpf/odpf-archives/' . $equipe->getEditionspassees()->getEdition() . '/fichiers/' . $this->getParameter('type_fichier')[$typefichier] . '/' . $publie . $fichier->getNomfichier() . '" target="_blank">' . $this->getParameter('type_fichier_lit')[$fichier->getTypefichier()] . '</a>' . $virgule;
                     } else {
                         $texte = $texte . '<a href="/../public/odpf/odpf-archives/' . $equipe->getEditionspassees()->getEdition() . '/fichiers/' . $this->getParameter('type_fichier')[$typefichier] . '/' . $publie . $fichier->getNomfichier() . '" target="_blank">' . $this->getParameter('type_fichier_lit')[$fichier->getTypefichier()] . '</a>' . $virgule;
