@@ -71,3 +71,58 @@
     {% endfor %}
 
 </div>
+<div class="row ">
+    <div class="col-md-12 col-lg-4">
+    </div>
+    <div class="col-md-12 col-lg-8">{# taille responsive #}
+        <div class="row  justify-content-end">{# une ligne, alignée à droite #}
+            <nav>{# menu bas de navigation des pages d'actus #}
+                {# recopie d'une version simplifiée du menu haut, 
+                et ajout de padding-top pour éviter un trop grand décalage #}
+                <ul class="nav flex-column flex-md-row paginactus" style="padding-top:0px">
+
+                    <li class="nav-item">
+                        {% if pageCourante > 1 %}
+                            <a class="nav-link val" href="{{ path('core_actus', {tourn:'debut'}) }}">Début</a>
+                        {% else %}
+                            <div class="nav-link inval">Début</div>
+                        {% endif %}
+                    </li>
+                    <li class="nav-item">
+
+                        {% if pageCourante > 1 %}
+                            <a class="nav-link val" href="{{ path('core_actus', {tourn:'prec'}) }}">Page précédente</a>
+                        {% else %}
+                            <div class="nav-link inval">Page précédente</div>
+                        {% endif %}
+
+                    </li>
+                    <li class="nav-item">
+                            <span class="nav-link page-active">
+                                page <strong>{{ pageCourante }}</strong>/{{ nbpages }}
+                            </span>
+                    </li>
+                    <li class="nav-item">
+                        {% if pageCourante < nbpages %}
+                            <a class="nav-link val" href="{{ path('core_actus', {tourn:'suiv'}) }}">Page suivante</a>
+                        {% else %}
+                            <span class="nav-link">Suivant</span>
+                        {% endif %}
+
+                    </li>
+                    <li class="nav-item">
+
+                        {% if pageCourante < nbpages %}
+                            <a class="nav-link val" href="{{ path('core_actus', {tourn:'fin'}) }}">Fin</a>
+                        {% else %}
+                            <span class="nav-link">Fin</span>
+                        {% endif %}
+
+                    </li>
+                </ul>
+
+
+            </nav>
+        </div>
+    </div>
+</div>
