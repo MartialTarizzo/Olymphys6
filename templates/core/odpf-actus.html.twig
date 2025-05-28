@@ -64,6 +64,9 @@
         </h4>
         <div class="description" style="border-bottom: 1px solid #111a21;">
         </div>
+        <p style="text-align:right;font-size: 0.7em;" >
+        publié le {{ actu.CreatedAt|date("d/m/Y") }}
+        </p>
         <div class="contenu" style="padding-top: 15px;padding-bottom: 20px;">
             {{ actu.texte|raw }}
         </div>
