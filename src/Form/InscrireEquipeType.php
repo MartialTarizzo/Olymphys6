@@ -24,8 +24,9 @@ class InscrireEquipeType extends AbstractType
         $uai = $options['uai'];
         $required = [true, true, false, false, false, false];
         $builder->add('titreProjet', TextType::class, [
-            'label' => 'Titre du projet',
-            'mapped' => true
+            'label' => 'Titre du projet(max 80 car.)',
+            'mapped' => true,
+            'attr' => ['maxlength'=>"80"]
         ])
             ->add('idProf1', EntityType::class, [
                 'class' => User::class,

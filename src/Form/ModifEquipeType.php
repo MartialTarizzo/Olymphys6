@@ -53,9 +53,10 @@ class ModifEquipeType extends AbstractType
 
         new datetime('now') > $datelim ? $tag = true : $tag = false;
         $builder->add('titreProjet', TextType::class, [
-            'label' => 'Titre du projet',
+            'label' => 'Titre du projet(max 80 cars',
             'mapped' => true,
             'disabled' => $tag,
+            'attr' => ['maxlength'=>"80"]
         ])
             ->add('idProf1', EntityType::class, [
                 'class' => User::class,
