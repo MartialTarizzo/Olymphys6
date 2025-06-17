@@ -208,16 +208,9 @@ Layout de départ des utils du site #}
 
     </script>
     <script type="text/javascript">
-        slides = document.getElementsByClassName("containercarousel");
-        imgs = document.getElementsByClassName("img-fluid");
-        modal = document.getElementsByClassName("modal-gal");
-        modalImg = document.getElementsByClassName("modal-content-gal");
-        modalCap = document.getElementsByClassName("modal-caption-gal");
 
 
-
-
-        $('.carousel .carousel-item').each(function () {
+        $('#carousel .carousel-item').each(function () {
             var minPerSlide = 4;
             var next = $(this).next();
             if (!next.length) {
