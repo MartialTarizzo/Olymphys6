@@ -490,17 +490,12 @@ class PhotosController extends AbstractController
             $equipe = $repositoryEquipe->findOneBy(['id'=>$idEquipe]);
             $edition = $equipe->getEditionspassees();
             $photosequipes = $this->getPhotosEquipes($edition);
-            $numeros=[];
-            $numerosEqus=[];
-            $numerosSup100=[];
-            $equipes=$repositoryEquipe->findBy(['editionspassees'=>$edition],['numero'=>'ASC']);
+            $equipes=$this->getEquipes($edition);
             $keys=array_keys($equipes);
 
 
             if(isset(explode('-', $infos)[2])) {//on a cliqué sur une flèche équipe suivante ou précédente
                 $numprecsuiv= explode('-', $infos)[2];
-
-
                 $equipe = $repositoryEquipe->createQueryBuilder('e')
                 ->select('e')
                 ->where('e.editionspassees =:edition')
@@ -729,6 +724,32 @@ class PhotosController extends AbstractController
         return $this->render('photos/carousel_equipe.html.twig', ['photos' => $photoreord, 'equipe' => $equipe]);
 
 
+    }
+    public function getEquipes($edition) : array
+    {
+        $repositoryEquipe=$this->doctrine->getRepository(OdpfEquipesPassees::class);
+        $listequipes=$repositoryEquipe->findBy(['editionspassees'=>$edition],['numero'=>'ASC']);
+        $repositoryPhotos = $this->doctrine
+            ->getManager()
+            ->getRepository(Photos::class);
+        $equipes=[];
+        $i=0;
+        foreach ($listequipes as $equipe) {
+            $listPhotos = null;
+            if ($equipe->isAutorisationsPhotos() == true) {//Elimine les équipes qui n'ont pas de photos(souvent celles qui ont abandonné
+                $listPhotos = $repositoryPhotos->createQueryBuilder('p')
+                    ->andWhere('p.equipepassee =:equipe')
+                    ->setParameter('equipe', $equipe)
+                    ->getQuery()->getResult();
+            }
+
+            if (null != $listPhotos) {
+                $equipes[$i] = $equipe;
+                $i++;
+            }
+
+        }
+        return $equipes;
     }
 }
 
