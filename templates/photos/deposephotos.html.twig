@@ -78,7 +78,8 @@
 
                     {% if app.user.roles|filter(v => v =='ROLE_PROF')!=[] %}
                         {{ form_widget(form.Valider, {'label':'Charger les photos '}) }}
-                        <a href="{{ path('fichiers_choix_equipe',{choix:'liste_prof'}) }}" class="btn-secondary btn-lg" role="button"> Annuler </a>
+                        <a href="{{ path('fichiers_choix_equipe',{choix:'liste_prof'}) }}" class="btn-secondary btn-lg"
+                           role="button"> Annuler </a>
                     {% endif %}
                     {% if app.user.roles|filter(v => v =='ROLE_PROF')==[] %}
                         {{ form_widget(form.Valider, {'label':'Charger les photos '}) }}

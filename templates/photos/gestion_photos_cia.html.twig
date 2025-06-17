@@ -54,7 +54,7 @@
                            target="_blank">
                             <img src="{{ asset('odpf/odpf-archives/'~photo.editionspassees.edition~'/photoseq/thumbs/'~photo.photo) }}"
                                  class="img-thumbnail">
-                                </a>
+                        </a>
                         <label for="coment">Commentaire</label>
                         <input type="text" name="coment" value="{{ photo.coment }}" class="form-control">
                         <label for="equipe">Equipe</label>
@@ -78,7 +78,7 @@
                 </div>
             {% endfor %}
         </div>
-        </div>
+    </div>
 
     {% if is_granted('ROLE_COMIE')  or is_granted('ROLE_ORGACIA') %}
         {% if concours=='cia' %}

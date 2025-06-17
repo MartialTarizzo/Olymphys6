@@ -483,16 +483,52 @@ class PhotosController extends AbstractController
         $repositoryPhotos = $this->doctrine
             ->getManager()
             ->getRepository(Photos::class);
+        $repositoryEquipe=$this->doctrine->getRepository(OdpfEquipesPassees::class);
+
         if (explode('-', $infos)[0] == 'equipe') {
             $idEquipe = explode('-', $infos)[1];
-
-            $equipe = $this->doctrine->getRepository(OdpfEquipesPassees::class)->findOneBy(['id' => $idEquipe]);
+            $equipe = $repositoryEquipe->findOneBy(['id'=>$idEquipe]);
             $edition = $equipe->getEditionspassees();
             $photosequipes = $this->getPhotosEquipes($edition);
+            $numeros=[];
+            $numerosEqus=[];
+            $numerosSup100=[];
+            $equipes=$repositoryEquipe->findBy(['editionspassees'=>$edition],['numero'=>'ASC']);
+            $keys=array_keys($equipes);
+
+
+            if(isset(explode('-', $infos)[2])) {//on a cliqué sur une flèche équipe suivante ou précédente
+                $numprecsuiv= explode('-', $infos)[2];
+
+
+                $equipe = $repositoryEquipe->createQueryBuilder('e')
+                ->select('e')
+                ->where('e.editionspassees =:edition')
+                ->andWhere('e.numero =:numero')
+                    ->setParameter('edition', $edition)
+                    ->setParameter('numero', $numprecsuiv)
+                    ->getQuery()
+                    ->getOneOrNullResult();
+            }
+            $numerosuiv=$equipe->getNumero()+1;
+            $numeroprec=$equipe->getNumero()-1;
+            foreach($keys as $key){//Pour encadrer l'équipe avec le numero précédent et le numero suivant
+                if($equipes[$key]==$equipe) {
+                    if($key<max($keys)) {
+                        $numerosuiv = $equipes[$key + 1]->getNumero();
+                    }
+                    if($key==max($keys)) $numerosuiv=1;
+                    if($key>min($keys)) {
+                        $numeroprec = $equipes[$key - 1]->getNumero();
+                    }
+                    if($key==min($keys)) $numeroprec=$equipes[max($keys)]->getNumero();
+                }
+            }
+
             $photos = $repositoryPhotos->findBy(['equipepassee' => $equipe]);
             $listeEquipes = [$equipe];
             $edition = $equipe->getEditionspassees();
-            return $this->render('photos/affiche_galerie_equipe.html.twig', ['photos' => $photos, 'liste_equipes' => $listeEquipes, 'edition' => $edition, 'photosequipes' => $photosequipes]);
+            return $this->render('photos/affiche_galerie_equipe.html.twig', ['photos' => $photos, 'liste_equipes' => $listeEquipes, 'edition' => $edition, 'photosequipes' => $photosequipes,'numero_prec'=>$numeroprec,'numero_suiv'=>$numerosuiv   ]);
 
         }
         if (explode('-', $infos)[0] == 'edition' or explode('-', $infos)[0] == 'editionEnCours') {
